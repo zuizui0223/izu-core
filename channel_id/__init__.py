@@ -19,6 +19,16 @@ from .life_history import (
     retain_compatible_candidates,
     simulate_life_history,
 )
+from .nectar_guide import (
+    GuideContrast,
+    GuideSelectionDirection,
+    NectarGuideParameters,
+    NectarGuideRegime,
+    NectarGuideResult,
+    NectarGuideTrait,
+    compare_guide_phenotypes,
+    simulate_nectar_guide_life_history,
+)
 from .readiness import (
     ChannelDesign,
     ChannelReadiness,
@@ -48,4 +58,12 @@ __all__ = [
     "assess_compatibility",
     "retain_compatible_candidates",
     "simulate_life_history",
+    "GuideContrast",
+    "GuideSelectionDirection",
+    "NectarGuideParameters",
+    "NectarGuideRegime",
+    "NectarGuideResult",
+    "NectarGuideTrait",
+    "compare_guide_phenotypes",
+    "simulate_nectar_guide_life_history",
 ]
