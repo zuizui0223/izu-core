@@ -20,9 +20,10 @@ rather than merely described as a difference in flower size, selfing, or visitor
 - keeps published patterns, prospective field measurements, and pollinator-specific claims separate;
 - provides a lightweight readiness checker for a proposed sampling design;
 - provides a constrained life-history simulation layer for comparing explicitly declared mechanisms against predeclared observation intervals;
-- ranks proposed future measurements by how strongly they distinguish the parameter candidates still compatible with current observations.
+- ranks proposed future measurements by how strongly they distinguish the parameter candidates still compatible with current observations;
+- provides a nectar-guide mechanism model that separates guide effects on visitation, legitimate handling/pollen placement, and guide-expression cost.
 
-The simulation layer does not estimate an unobserved cost from a trait alone. It retains the **set of parameter values compatible with all declared observations**, then makes the remaining uncertainty explicit. The measurement-ranking layer identifies which proposed observable would split that remaining set most strongly at a predeclared assay resolution. See [the simulation specification](docs/constrained_life_history_simulation.md) and [the measurement-ranking specification](docs/discriminating_measurements.md).
+The simulation layer does not estimate an unobserved cost from a trait alone. It retains the **set of parameter values compatible with all declared observations**, then makes the remaining uncertainty explicit. The measurement-ranking layer identifies which proposed observable would split that remaining set most strongly at a predeclared assay resolution. The nectar-guide layer produces conditional relative-performance contrasts rather than assuming that guide contrast affects fitness through one generic “attraction” channel. See [the simulation specification](docs/constrained_life_history_simulation.md), [the measurement-ranking specification](docs/discriminating_measurements.md), and [the nectar-guide mechanism model](docs/nectar_guide_mechanism_model.md).
 
 ## What it does not claim
 
@@ -32,10 +33,12 @@ A successful simulated reconstruction is not proof that its mechanism generated 
 
 A high-ranked measurement is not automatically the best field protocol: its feasibility, sampling variance, biological relevance, and cost still require an explicit field-design check.
 
+A positive nectar-guide relative-performance contrast is not itself evidence that guides evolved by that mechanism. It must be paired with heritable or otherwise genetically grounded guide variation, a measured intermediate pathway, and comparison against selfing compensation and E-stage explanations.
+
 The factorisation is a declared model choice. It does not claim that all natural processes are multiplicative or independent.
 
 ## Repository boundary
 
 This is the active empirical design home for the Campanula/Izu channel-identification program extracted from `microdonta`.
 
-The constrained life-history layer is currently limited to attraction and reproductive-assurance hypotheses inside local reproduction \(F\). Direct trait effects on establishment, richer spatial dynamics, and the legacy attraction/mating-system ABM remain in `incubator/` until each has an explicit hypothesis, declared life cycle, measurable observation set, and falsification or discrimination target.
+The constrained life-history layer is currently limited to attraction and reproductive-assurance hypotheses inside local reproduction \(F\). The new guide model adds an explicit visit-versus-handling decomposition but still omits genetic architecture, inbreeding depression after seed set, multiple pollinator guilds, temporal environmental variation, and direct trait effects on establishment. Those extensions require their own declared hypotheses, observation sets, and falsification targets.
