@@ -21,7 +21,18 @@ def test_coarse_terminal_observation_leaves_ambiguity() -> None:
     settings = spec()
     truth = simulate_guide_scenario(GuideScenario.VISIT_ATTRACTION, settings)
     total = truth.metric(ScenarioMetric.TOTAL_CONTRIBUTION, "typical")
-    compatible = recover_compatible_scenarios(tuple(GuideScenario), settings, (ScenarioObservation(ScenarioMetric.TOTAL_CONTRIBUTION, total - 3.0, total + 3.0, "typical"),))
+    compatible = recover_compatible_scenarios(
+        tuple(GuideScenario),
+        settings,
+        (
+            ScenarioObservation(
+                ScenarioMetric.TOTAL_CONTRIBUTION,
+                max(0.0, total - 3.0),
+                total + 3.0,
+                "typical",
+            ),
+        ),
+    )
     assert len(compatible) > 1
 
 
