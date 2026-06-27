@@ -1,5 +1,19 @@
-"""Readiness checks for declared W(z) = F(z) E(z) channel-identification studies."""
+"""Tools for declared Campanula channel-identification studies."""
 
+from .life_history import (
+    CompatibilityResult,
+    LifeHistoryParameters,
+    LifeHistoryResult,
+    Metric,
+    ObservationInterval,
+    ParameterGrid,
+    Regime,
+    SimulationCase,
+    TraitState,
+    assess_compatibility,
+    retain_compatible_candidates,
+    simulate_life_history,
+)
 from .readiness import (
     ChannelDesign,
     ChannelReadiness,
@@ -14,4 +28,16 @@ __all__ = [
     "ChannelReadinessReport",
     "PollinatorComponentStatus",
     "assess_channel_readiness",
+    "CompatibilityResult",
+    "LifeHistoryParameters",
+    "LifeHistoryResult",
+    "Metric",
+    "ObservationInterval",
+    "ParameterGrid",
+    "Regime",
+    "SimulationCase",
+    "TraitState",
+    "assess_compatibility",
+    "retain_compatible_candidates",
+    "simulate_life_history",
 ]
