@@ -38,7 +38,10 @@ def test_assurance_signature_increases_selfed_component_under_low_service() -> N
     high = simulate_life_history(TraitState(attraction=0.20, assurance=0.80), regime, PARAMETERS)
 
     assert high.selfed_viable_seeds > low.selfed_viable_seeds
-    assert high.outcross_viable_seeds == low.outcross_viable_seeds
+    # The small decline in the outcross component is expected here because the
+    # declared assurance investment carries a seed-budget cost.
+    assert high.outcross_viable_seeds < low.outcross_viable_seeds
+    assert high.local_viable_seed_output > low.local_viable_seed_output
 
 
 def test_establishment_signature_changes_w_without_changing_f() -> None:
@@ -113,10 +116,5 @@ def test_w_only_leaves_f_vs_e_ambiguity_and_ranking_splits_it() -> None:
         ),
     )
 
+    assert rankings[0].option.metric is Metric.SELFED_VIABLE_SEEDS
     assert rankings[0].expected_eliminated_candidates > 0.0
-    assert rankings[0].option.metric in {
-        Metric.LOCAL_VIABLE_SEED_OUTPUT,
-        Metric.OUTCROSS_VIABLE_SEEDS,
-        Metric.SELFED_VIABLE_SEEDS,
-        Metric.ESTABLISHMENT,
-    }
