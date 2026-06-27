@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "campanula-channel-identification"
+version = "0.1.0"
+description = "Field-design readiness checks for floral reproduction and establishment channels."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools]
+packages = ["channel_id"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
