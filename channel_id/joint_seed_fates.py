@@ -1,14 +1,14 @@
 """Joint observation model for outcrossed and selfed viable seed components.
 
 Outcrossed viable seeds, selfed viable seeds, and all remaining ovules are
-mutually exclusive outcomes of a shared ovule pool.  They must therefore not be
+mutually exclusive outcomes of a shared ovule pool. They must therefore not be
 simulated as independent Poisson counts in a finite-sample recovery benchmark.
 This module provides a minimal multinomial seed-fate sampler and Wilson
 intervals on the declared maternal-individual scale.
 
-It is an operating-characteristic tool, not a final field likelihood.  Real
+It is an operating-characteristic tool, not a final field likelihood. Real
 analyses may require maternal random effects, overdispersion, pollen-limitation
-treatments, paternity error, seed abortion classes, and repeated years.  The
+treatments, paternity error, seed abortion classes, and repeated years. The
 purpose here is narrower: prevent an internally impossible synthetic design
 from treating outcross and selfed seed components as independent draws.
 """
@@ -68,7 +68,12 @@ class SeedFateCounts:
     total_ovules: int
 
     def __post_init__(self) -> None:
-        if min(self.outcross_viable, selfed_viable, self.other, self.total_ovules) < 0:
+        if min(
+            self.outcross_viable,
+            self.selfed_viable,
+            self.other,
+            self.total_ovules,
+        ) < 0:
             raise ValueError("seed-fate counts must be non-negative")
         if self.outcross_viable + self.selfed_viable + self.other != self.total_ovules:
             raise ValueError("seed-fate counts must partition total_ovules")
@@ -93,7 +98,7 @@ def seed_fate_probabilities(
 ) -> tuple[float, float, float]:
     """Map model expectations to a three-category ovule fate distribution.
 
-    The declared ovule scale is a model calibration input.  It must be at least
+    The declared ovule scale is a model calibration input. It must be at least
     the expected total viable output of every candidate scenario to be compared.
     """
 
