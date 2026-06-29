@@ -49,7 +49,9 @@ def test_visit_assurance_keeps_both_declared_routes_active() -> None:
         ScenarioMetric.EXPECTED_VISITS,
         "typical",
     )
-    assert compound_result.metric(ScenarioMetric.OUTCROSS_VIABLE_SEEDS, "typical") == visit_only.metric(
+    # Assurance remains active, so its investment cost can reduce the outcross
+    # component even while the visit route stays identical.
+    assert compound_result.metric(ScenarioMetric.OUTCROSS_VIABLE_SEEDS, "typical") < visit_only.metric(
         ScenarioMetric.OUTCROSS_VIABLE_SEEDS,
         "typical",
     )
