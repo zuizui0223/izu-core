@@ -37,7 +37,7 @@ def settings() -> ScenarioSettings:
     )
 
 
-def test_finite_sample_benchmark_is_deterministic_and_reports_recovery_metrics() -> None:
+def test_finite_sample_benchmark_recovers_a_declared_compound_truth() -> None:
     truth = GuideRoutes("visit_assurance", visit_attraction=True, assurance=True)
     candidates = (
         GuideScenario.NULL,
@@ -74,6 +74,7 @@ def test_finite_sample_benchmark_is_deterministic_and_reports_recovery_metrics()
     )
 
     assert first == second
+    assert first.truth_retained_rate >= 0.90
+    assert first.unique_truth_recovery_rate >= 0.90
+    assert first.empty_compatible_set_rate <= 0.10
     assert first.truth_retained_rate >= first.unique_truth_recovery_rate
-    assert 0.0 <= first.empty_compatible_set_rate <= 1.0
-    assert first.mean_compatible_scenarios >= 0.0
