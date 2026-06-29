@@ -1,6 +1,7 @@
 from channel_id.readiness import (
     ChannelDesign,
     ChannelReadiness,
+    GuideCausalStatus,
     PollinatorComponentStatus,
     assess_channel_readiness,
 )
@@ -18,6 +19,11 @@ def _base_design(**overrides: bool) -> ChannelDesign:
         "proxy_calibrated_or_stable": False,
         "pollinator_component_question": False,
         "pollinator_component_model_declared": False,
+        "guide_effect_question": False,
+        "within_site_trait_contrast": False,
+        "guide_manipulation_with_sham_control": False,
+        "guide_covariates_controlled": False,
+        "temporal_or_weather_blocking": False,
     }
     values.update(overrides)
     return ChannelDesign(**values)
@@ -75,3 +81,45 @@ def test_declared_component_model_is_recorded_without_claiming_validation() -> N
         )
     )
     assert report.pollinator_component_status is PollinatorComponentStatus.COMPONENT_MODEL_DECLARED
+
+
+def test_between_site_guide_association_is_not_upgraded_to_a_causal_mechanism() -> None:
+    report = assess_channel_readiness(
+        _base_design(direct_local_factor_f=True, guide_effect_question=True)
+    )
+
+    assert report.guide_causal_status is GuideCausalStatus.ASSOCIATION_ONLY
+    assert "within-site or matched-population guide contrast" in report.guide_causal_missing_requirements
+
+
+def test_blocked_within_site_guide_comparison_remains_conditional_without_manipulation() -> None:
+    report = assess_channel_readiness(
+        _base_design(
+            direct_local_factor_f=True,
+            guide_effect_question=True,
+            within_site_trait_contrast=True,
+            guide_covariates_controlled=True,
+            temporal_or_weather_blocking=True,
+        )
+    )
+
+    assert report.guide_causal_status is GuideCausalStatus.CONDITIONAL_WITHIN_SITE_CONTRAST
+    assert report.guide_causal_missing_requirements == (
+        "residual genetic and microenvironmental confounding remains without guide manipulation",
+    )
+
+
+def test_sham_controlled_guide_manipulation_is_ready_for_a_causal_contrast() -> None:
+    report = assess_channel_readiness(
+        _base_design(
+            direct_local_factor_f=True,
+            guide_effect_question=True,
+            within_site_trait_contrast=True,
+            guide_manipulation_with_sham_control=True,
+            guide_covariates_controlled=True,
+            temporal_or_weather_blocking=True,
+        )
+    )
+
+    assert report.guide_causal_status is GuideCausalStatus.READY_MANIPULATED_CONTRAST
+    assert not report.guide_causal_missing_requirements

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "campanula-channel-identification"
-version = "0.1.0"
-description = "Field-design readiness checks for floral reproduction and establishment channels."
+version = "0.2.0"
+description = "Field-design and pre-data robustness checks for floral reproduction and establishment channels."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []

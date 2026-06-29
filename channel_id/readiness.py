@@ -1,4 +1,4 @@
-"""Readiness checks for a declared floral-performance factorisation.
+"""Readiness checks for declared floral-performance and guide-mechanism designs.
 
 The module does not infer a biological mechanism from a flower trait, a visitor
 count, or an island mean.  It checks whether a *predeclared study design* supplies
@@ -11,7 +11,10 @@ local viable reproductive output conditional on adult survival, and ``E`` is
 establishment/reachability conditional on viable seed production.
 
 The factorisation is a modelling assumption.  The checker only reports the
-logical status conditional on that declaration.
+logical status conditional on that declaration.  A separate guide-causal status
+prevents an F-versus-E-ready design from being misreported as a causal test of a
+nectar-guide mechanism when guide contrast is still confounded with site,
+display, nectar, plant condition, or observation time.
 """
 
 from __future__ import annotations
@@ -37,6 +40,15 @@ class PollinatorComponentStatus(str, Enum):
     COMPONENT_MODEL_DECLARED = "component_model_declared"
 
 
+class GuideCausalStatus(str, Enum):
+    """Strength of a proposed guide-effect comparison before results are observed."""
+
+    NOT_ADDRESSED = "not_addressed"
+    ASSOCIATION_ONLY = "association_only"
+    CONDITIONAL_WITHIN_SITE_CONTRAST = "conditional_within_site_contrast"
+    READY_MANIPULATED_CONTRAST = "ready_manipulated_contrast"
+
+
 @dataclass(frozen=True)
 class ChannelDesign:
     """Declared observation design for a comparison of island regimes.
@@ -44,6 +56,10 @@ class ChannelDesign:
     Fields describe *whether* an observation class is supplied, not whether an
     empirical result supports a specific channel.  The same trait domain and
     census window must be used across compared regimes.
+
+    Guide-causal fields are intentionally separate from the F-versus-E fields:
+    measuring a direct ``F`` factor can identify a life-history channel without
+    making naturally covarying guide contrast a causal exposure.
     """
 
     common_trait_domain: bool
@@ -56,6 +72,11 @@ class ChannelDesign:
     proxy_calibrated_or_stable: bool = False
     pollinator_component_question: bool = False
     pollinator_component_model_declared: bool = False
+    guide_effect_question: bool = False
+    within_site_trait_contrast: bool = False
+    guide_manipulation_with_sham_control: bool = False
+    guide_covariates_controlled: bool = False
+    temporal_or_weather_blocking: bool = False
 
 
 @dataclass(frozen=True)
@@ -68,6 +89,8 @@ class ChannelReadinessReport:
     direct_factor_available: bool
     proxy_available: bool
     conditional_assumptions: tuple[str, ...]
+    guide_causal_status: GuideCausalStatus = GuideCausalStatus.NOT_ADDRESSED
+    guide_causal_missing_requirements: tuple[str, ...] = ()
 
     @property
     def theorem_ready(self) -> bool:
@@ -75,6 +98,49 @@ class ChannelReadinessReport:
             ChannelReadiness.READY_DIRECT_FACTOR,
             ChannelReadiness.READY_RELATIVE_STABLE_PROXY,
         }
+
+
+def _assess_guide_causal_readiness(
+    design: ChannelDesign,
+) -> tuple[GuideCausalStatus, tuple[str, ...]]:
+    """Classify guide-effect claims without upgrading an observational comparison.
+
+    A within-site comparison with measured covariates and time/weather blocks is
+    still observational, so it remains conditional on residual confounding.  A
+    guide manipulation only reaches the strongest pre-data status when it has a
+    sham control and the same blocking/covariate plan.  Neither status claims
+    that an evolutionary mechanism is already established; heritable variation,
+    intermediate transfer measurements, and a declared fitness census remain
+    additional requirements in the guide-evolution model.
+    """
+
+    if not design.guide_effect_question:
+        return GuideCausalStatus.NOT_ADDRESSED, ()
+
+    missing: list[str] = []
+    if not design.within_site_trait_contrast:
+        missing.append("within-site or matched-population guide contrast")
+    if not design.guide_covariates_controlled:
+        missing.append("control or measurement of display, nectar, plant condition, and site covariates")
+    if not design.temporal_or_weather_blocking:
+        missing.append("time, flower-age, and weather blocking for interaction observations")
+
+    if design.guide_manipulation_with_sham_control:
+        if missing:
+            return GuideCausalStatus.ASSOCIATION_ONLY, tuple(missing)
+        return GuideCausalStatus.READY_MANIPULATED_CONTRAST, ()
+
+    if not design.within_site_trait_contrast:
+        missing.append("guide manipulation with a sham control for a causal contrast")
+        return GuideCausalStatus.ASSOCIATION_ONLY, tuple(missing)
+
+    if design.guide_covariates_controlled and design.temporal_or_weather_blocking:
+        return GuideCausalStatus.CONDITIONAL_WITHIN_SITE_CONTRAST, (
+            "residual genetic and microenvironmental confounding remains without guide manipulation",
+        )
+
+    missing.append("guide manipulation with a sham control for a causal contrast")
+    return GuideCausalStatus.ASSOCIATION_ONLY, tuple(missing)
 
 
 def assess_channel_readiness(design: ChannelDesign) -> ChannelReadinessReport:
@@ -86,6 +152,7 @@ def assess_channel_readiness(design: ChannelDesign) -> ChannelReadinessReport:
     regimes or separately calibrated.  A visit count without this condition is
     explicitly returned as conditional rather than silently accepted.
     """
+
     missing: list[str] = []
     if not design.common_trait_domain:
         missing.append("common trait domain across compared regimes")
@@ -122,6 +189,7 @@ def assess_channel_readiness(design: ChannelDesign) -> ChannelReadinessReport:
     else:
         pollinator_status = PollinatorComponentStatus.REQUIRES_COMPONENT_DECOMPOSITION
 
+    guide_status, guide_missing = _assess_guide_causal_readiness(design)
     return ChannelReadinessReport(
         readiness=readiness,
         pollinator_component_status=pollinator_status,
@@ -129,4 +197,6 @@ def assess_channel_readiness(design: ChannelDesign) -> ChannelReadinessReport:
         direct_factor_available=direct_factor,
         proxy_available=proxy,
         conditional_assumptions=tuple(assumptions),
+        guide_causal_status=guide_status,
+        guide_causal_missing_requirements=guide_missing,
     )
