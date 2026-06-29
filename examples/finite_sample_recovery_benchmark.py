@@ -44,10 +44,11 @@ def settings() -> ScenarioSettings:
             baseline_establishment=1.0,
         ),
         paternal_parameters=PaternalGuideParameters(
-            male_weight=1.0,
             baseline_pollen_export=0.0,
+            display_export_gain=0.0,
             guide_export_gain=1.0,
             baseline_siring_success=0.2,
+            male_weight=1.0,
         ),
         post_seed_survival=PostSeedSurvival(
             outcrossed_survival=0.4,
