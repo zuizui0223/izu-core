@@ -1,7 +1,7 @@
 """Camera observation model for visits and legitimate floral handling.
 
 A camera record does not directly equal either visit rate or legitimate-contact
-rate.  The two quantities have distinct observation processes:
+rate. The two quantities have distinct observation processes:
 
 * visits occur in a declared flower-by-camera-window exposure;
 * a visit is detected with a calibrated probability;
@@ -10,8 +10,8 @@ rate.  The two quantities have distinct observation processes:
 
 This module generates virtual camera datasets on that hierarchy and converts
 them into scenario-compatible intervals for ``EXPECTED_VISITS`` and
-``LEGITIMATE_CONTACT_FRACTION``.  It is an operating-characteristic tool, not
-a final video-analysis likelihood.  Site/plant random effects, time-varying
+``LEGITIMATE_CONTACT_FRACTION``. It is an operating-characteristic tool, not
+a final video-analysis likelihood. Site/plant random effects, time-varying
 detection, individual pollinator identity, and correlated annotation error
 remain explicit future extensions.
 """
@@ -21,6 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import log, sqrt
 from random import Random
+from statistics import NormalDist
 from typing import Sequence
 
 from .guide_scenarios import (
@@ -153,7 +154,7 @@ def poisson_mean_interval(count: int, confidence: float) -> tuple[float, float]:
     """Approximate two-sided interval for a Poisson mean using an Anscombe transform.
 
     This is a count-model approximation, not a normal interval applied to raw
-    visit counts.  For final empirical inference, replace it with a hierarchical
+    visit counts. For final empirical inference, replace it with a hierarchical
     count likelihood when camera windows, plants, or sites are clustered.
     """
 
@@ -161,10 +162,7 @@ def poisson_mean_interval(count: int, confidence: float) -> tuple[float, float]:
         raise ValueError("count must be non-negative")
     if not 0.0 < confidence < 1.0:
         raise ValueError("confidence must lie in (0, 1)")
-    # Wilson uses the standard-library normal quantile internally; obtain the
-    # same two-sided z scale without exposing a separate dependency.
-    lower_proportion, upper_proportion = wilson_interval(1, 2, confidence)
-    z_value = (upper_proportion - lower_proportion) * sqrt(2.0)
+    z_value = NormalDist().inv_cdf((1.0 + confidence) / 2.0)
     transformed = sqrt(count + 3.0 / 8.0)
     lower = max(0.0, (max(0.0, transformed - z_value / 2.0) ** 2) - 3.0 / 8.0)
     upper = (transformed + z_value / 2.0) ** 2 - 3.0 / 8.0
