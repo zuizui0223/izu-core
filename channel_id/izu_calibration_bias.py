@@ -8,16 +8,20 @@ can fail before any likelihood is fitted:
 * clips may be preferentially selected because they are bright, stable, or easy
   to score, making their apparent detection rate too high;
 * a pooled or mismatched calibration stratum can differ from the primary
-  site-condition even when individual clips were reviewed correctly.
+  site-condition even when individual clips were reviewed correctly;
+* calibration mismatch can covary with the same north-to-south axis that carries
+  the virtual floral-guide contrast, creating trait–detection confounding.
 
 This module takes the finite beta-smoothed detection estimates from
 :mod:`izu_detection_calibration`, perturbs them on the logit scale *only for the
 analysis*, and then checks whether the true virtual route remains top-ranked.
 The primary virtual dataset and its independent calibration counts are unchanged.
 
-A positive logit bias means the analyst's calibration estimate is too optimistic
-about primary-video detection. The values are synthetic stress assumptions, not
-measurements of a particular camera system.
+A positive global logit bias means the analyst's calibration estimate is too
+optimistic about primary-video detection. A positive gradient slope means that
+optimism increases towards the southern end of the declared ordinal archipelago
+axis. The values are synthetic stress assumptions, not measurements of a
+particular camera system.
 """
 
 from __future__ import annotations
@@ -42,7 +46,11 @@ from .izu_gradient_benchmark import (
     IzuGradientLandscape,
     IzuGradientSite,
 )
-from .izu_pooled_evidence import IzuScenarioEvidence, score_izu_gradient_candidates, top_scoring_scenarios
+from .izu_pooled_evidence import (
+    IzuScenarioEvidence,
+    score_izu_gradient_candidates,
+    top_scoring_scenarios,
+)
 from .seed_set_paternity import SeedSetPaternityDesign
 
 
@@ -54,13 +62,19 @@ class DetectionCalibrationBias:
     reference visits. A positive value represents a calibration subset that
     makes detection appear better than it is in the primary footage.
 
-    ``site_logit_sd`` adds a mean-zero independent site-condition mismatch. This
+    ``archipelago_logit_slope`` adds a deterministic condition mismatch along
+    the declared ordinal north-to-south axis. It is centred at 0.5, so it changes
+    relative calibration between ends of the virtual gradient rather than just
+    applying a global rescaling.
+
+    ``site_logit_sd`` adds mean-zero independent site-condition mismatch. This
     is a compact proxy for coarsening wind/light strata or using non-matching
     calibration clips; it is not a fitted random effect.
     """
 
     label: str
     logit_bias: float = 0.0
+    archipelago_logit_slope: float = 0.0
     site_logit_sd: float = 0.0
 
     def __post_init__(self) -> None:
@@ -99,10 +113,18 @@ def default_detection_calibration_biases() -> tuple[DetectionCalibrationBias, ..
     return (
         DetectionCalibrationBias("unbiased"),
         DetectionCalibrationBias("easy_clip_bias", logit_bias=0.80),
-        DetectionCalibrationBias("stratum_mismatch", site_logit_sd=0.70),
         DetectionCalibrationBias(
-            "easy_clip_plus_mismatch",
+            "south_optimistic_gradient",
+            archipelago_logit_slope=2.00,
+        ),
+        DetectionCalibrationBias(
+            "south_pessimistic_gradient",
+            archipelago_logit_slope=-2.00,
+        ),
+        DetectionCalibrationBias(
+            "easy_clip_plus_gradient_mismatch",
             logit_bias=0.80,
+            archipelago_logit_slope=2.00,
             site_logit_sd=0.70,
         ),
     )
@@ -128,14 +150,25 @@ def perturb_calibrated_detection_probabilities(
     detection_probabilities: Mapping[str, float],
     bias: DetectionCalibrationBias,
     rng: Random,
+    site_positions: Mapping[str, float] | None = None,
 ) -> dict[str, float]:
     """Apply an analysis-side calibration bias without altering raw observations."""
 
+    if bias.archipelago_logit_slope != 0.0:
+        if site_positions is None:
+            raise ValueError("site_positions are required for a gradient calibration bias")
+        if set(site_positions) != set(detection_probabilities):
+            raise ValueError("site_positions must match detection-probability site IDs")
     perturbed: dict[str, float] = {}
     for site_id, probability in detection_probabilities.items():
         if not 0.0 < probability < 1.0:
             raise ValueError("calibrated detection probabilities must lie in (0, 1)")
         offset = bias.logit_bias
+        if bias.archipelago_logit_slope != 0.0:
+            position = site_positions[site_id]
+            if not 0.0 <= position <= 1.0:
+                raise ValueError("site positions must lie in [0, 1]")
+            offset += bias.archipelago_logit_slope * (position - 0.5)
         if bias.site_logit_sd > 0.0:
             offset += rng.normalvariate(0.0, bias.site_logit_sd)
         perturbed[site_id] = _inverse_logit(_logit(probability) + offset)
@@ -204,7 +237,16 @@ def score_izu_gradient_candidates_with_calibration_bias(
         calibration_design,
         tuple(observed.site for observed in dataset.sites),
     )
-    detection = perturb_calibrated_detection_probabilities(unbiased, bias, Random(seed))
+    positions = {
+        observed.site.label: observed.site.archipelago_position
+        for observed in dataset.sites
+    }
+    detection = perturb_calibrated_detection_probabilities(
+        unbiased,
+        bias,
+        Random(seed),
+        positions,
+    )
     return score_izu_gradient_candidates_with_detection_probabilities(
         candidates,
         calibration_dataset,
