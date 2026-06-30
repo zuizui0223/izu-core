@@ -1,0 +1,33 @@
+name: Virtual Izu Field Stress
+
+on:
+  pull_request:
+    paths:
+      - 'channel_id/**'
+      - 'scripts/generate_izu_field_stress_report.py'
+      - '.github/workflows/izu-field-stress.yml'
+  workflow_dispatch:
+
+jobs:
+  field-stress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Generate virtual field-misspecification report
+        run: |
+          python scripts/generate_izu_field_stress_report.py \
+            --replicates 25 \
+            --output artifacts/izu_field_misspecification_stress.md
+          cat artifacts/izu_field_misspecification_stress.md
+      - name: Upload field stress report
+        uses: actions/upload-artifact@v4
+        with:
+          name: izu-field-misspecification-stress
+          path: artifacts/izu_field_misspecification_stress.md
+          if-no-files-found: error
+          retention-days: 14
