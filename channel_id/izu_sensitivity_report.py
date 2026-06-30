@@ -1,13 +1,13 @@
 """Compare observation effort across virtual Izu-gradient mechanism worlds.
 
-The virtual-gradient benchmark asks whether one design works at all.  This
-module turns it into a field-facing sensitivity report: it evaluates several
+The virtual-gradient benchmark asks whether one design works at all. This module
+turns it into a field-facing sensitivity report: it evaluates several
 camera/fruit/genotyping plans across several declared mechanism worlds, then
 keeps only plans that meet the predeclared recovery threshold in every
 *calibrated* world.
 
 It deliberately does not collapse camera windows, fruit collection, and
-parentage assays into one invented cost currency.  Instead it returns a Pareto
+parentage assays into one invented cost currency. Instead it returns a Pareto
 frontier over three operational resource axes:
 
 * flower-by-camera windows;
@@ -24,13 +24,20 @@ from dataclasses import dataclass
 from typing import Iterable, Sequence
 
 from .camera_visit_handling import CameraVisitHandlingDesign
-from .guide_scenarios import GuideRoutes, GuideScenario, ScenarioSpec, core_maternal_scenarios
+from .guide_scenarios import (
+    GuideRoutes,
+    GuideScenario,
+    ScenarioSettings,
+    ScenarioSpec,
+    core_maternal_scenarios,
+)
 from .izu_gradient_benchmark import (
     GradientAnalysisMode,
     IzuGradientLandscape,
     IzuGradientRecoverySummary,
     IzuGradientSite,
     benchmark_izu_gradient_recovery,
+    default_izu_gradient_sites,
 )
 from .seed_set_paternity import SeedSetPaternityDesign
 
@@ -39,10 +46,9 @@ from .seed_set_paternity import SeedSetPaternityDesign
 class IzuObservationPlan:
     """One declared camera, fruit, and parentage-assay effort combination.
 
-    The counts are per virtual island site.  The report does not multiply them
-    by the number of sites because the study can deliberately allocate effort
-    unevenly after the sensitivity analysis; the `site_count` property exposes
-    that multiplication explicitly when a balanced design is desired.
+    Counts are expressed per virtual island site. Use :meth:`totals_for_sites`
+    to obtain balanced whole-archipelago totals; an actual field plan may later
+    allocate effort unevenly after looking at the sensitivity results.
     """
 
     label: str
@@ -81,6 +87,17 @@ class IzuObservationPlan:
         """Upper bound, not guaranteed realised parentage calls."""
 
         return self.fruit_count * self.genotyped_mature_seeds_per_fruit
+
+    def totals_for_sites(self, site_count: int) -> tuple[int, int, int]:
+        """Return balanced totals of camera windows, fruits, and genotype cap."""
+
+        if site_count < 1:
+            raise ValueError("site_count must be positive")
+        return (
+            self.flower_camera_windows * site_count,
+            self.fruit_count * site_count,
+            self.genotype_seed_cap * site_count,
+        )
 
     def camera_design(self) -> CameraVisitHandlingDesign:
         return CameraVisitHandlingDesign(
@@ -239,10 +256,6 @@ class IzuSensitivityReport:
         return tuple(frontier)
 
 
-def _scenario_label(scenario: ScenarioSpec) -> str:
-    return scenario.value if isinstance(scenario, GuideScenario) else scenario.label
-
-
 def _default_candidates() -> tuple[ScenarioSpec, ...]:
     return core_maternal_scenarios()
 
@@ -301,13 +314,15 @@ def crossed_izu_observation_plans(
                     )
     if not plans:
         raise ValueError("at least one observation plan is required")
+    if len({plan.label for plan in plans}) != len(plans):
+        raise ValueError("generated observation-plan labels must be unique")
     return tuple(plans)
 
 
 def run_izu_sensitivity_report(
     worlds: Sequence[IzuVirtualWorld],
     plans: Sequence[IzuObservationPlan],
-    template_settings,
+    template_settings: ScenarioSettings,
     sites: Sequence[IzuGradientSite] | None = None,
     thresholds: IzuRecoveryThresholds = IzuRecoveryThresholds(),
     replicates: int = 100,
@@ -316,7 +331,7 @@ def run_izu_sensitivity_report(
 ) -> IzuSensitivityReport:
     """Run all declared virtual worlds across all observation plans.
 
-    Every calibrated row is tested against `thresholds`.  Flat-environment rows
+    Every calibrated row is tested against `thresholds`. Flat-environment rows
     are emitted when requested so that users can see sensitivity to ignoring the
     island background gradient, but they never determine `passing_plans()`.
     """
@@ -327,10 +342,14 @@ def run_izu_sensitivity_report(
         raise ValueError("at least one observation plan is required")
     if replicates < 1:
         raise ValueError("replicates must be positive")
-    selected_sites = tuple(() if sites is None else sites)
-    if sites is not None and not selected_sites:
-        raise ValueError("sites must be non-empty when supplied")
+    if len({world.label for world in worlds}) != len(worlds):
+        raise ValueError("virtual-world labels must be unique")
+    if len({plan.label for plan in plans}) != len(plans):
+        raise ValueError("observation-plan labels must be unique")
 
+    selected_sites = tuple(default_izu_gradient_sites() if sites is None else sites)
+    if not selected_sites:
+        raise ValueError("at least one site is required")
     modes = (GradientAnalysisMode.CALIBRATED,)
     if include_flat_environment_diagnostic:
         modes += (GradientAnalysisMode.FLAT_ENVIRONMENT,)
@@ -347,7 +366,7 @@ def run_izu_sensitivity_report(
                     landscape=world.landscape,
                     camera_design=plan.camera_design(),
                     seed_design=plan.seed_design(),
-                    sites=None if sites is None else selected_sites,
+                    sites=selected_sites,
                     analysis_mode=mode,
                     replicates=replicates,
                     seed=stream,
