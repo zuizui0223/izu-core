@@ -44,6 +44,14 @@ from .guide_scenarios import (
 )
 from .guide_spatial import Patch, SpatialRecruitmentResult, distribute_seeds_to_patches
 from .guide_temporal import TemporalFitnessSummary, YearPerformance, summarise_temporal_fitness
+from .izu_field_misspecification import (
+    IzuFieldDistortion,
+    IzuFieldStressCase,
+    IzuFieldStressRecoverySummary,
+    benchmark_izu_field_stress_recovery,
+    default_izu_field_stress_cases,
+    simulate_izu_field_misspecified_dataset,
+)
 from .izu_gradient_benchmark import (
     GradientAnalysisMode,
     IzuGradientDataset,
@@ -57,6 +65,13 @@ from .izu_gradient_benchmark import (
     settings_for_izu_gradient_site,
     simulate_izu_gradient_dataset,
     study_calibrated_observation_designs,
+)
+from .izu_observational_equivalence import (
+    OBSERVED_IZU_METRICS,
+    izu_observation_signature,
+    observational_equivalence_groups,
+    observationally_distinct_candidates,
+    scenario_label,
 )
 from .izu_pooled_evidence import (
     IzuPooledEvidenceRecoverySummary,
@@ -149,6 +164,8 @@ __all__ = [
     "SeedSetPaternityDesign", "PaternityCalls", "SeedSetPaternityObservation", "SeedSetPaternityRecoverySummary", "corrected_outcross_fraction_interval", "simulate_seed_set_paternity_observation", "benchmark_seed_set_paternity_recovery",
     "CameraVisitHandlingDesign", "CameraVisitHandlingCounts", "CameraVisitHandlingObservation", "CameraVisitHandlingRecoverySummary", "poisson_mean_interval", "corrected_legitimate_fraction_interval", "simulate_camera_visit_handling_observation", "benchmark_camera_visit_handling_recovery",
     "IzuGradientSite", "IzuGradientLandscape", "GradientAnalysisMode", "IzuGradientSiteObservation", "IzuGradientDataset", "IzuGradientRecoverySummary", "default_izu_gradient_sites", "settings_for_izu_gradient_site", "study_calibrated_observation_designs", "simulate_izu_gradient_dataset", "recover_izu_gradient_scenarios", "benchmark_izu_gradient_recovery",
+    "OBSERVED_IZU_METRICS", "scenario_label", "izu_observation_signature", "observational_equivalence_groups", "observationally_distinct_candidates",
     "IzuObservationPlan", "IzuVirtualWorld", "IzuRecoveryThresholds", "IzuSensitivityRow", "IzuSensitivityReport", "crossed_izu_observation_plans", "default_izu_virtual_worlds", "run_izu_sensitivity_report", "report_as_markdown_table",
     "IzuSiteLogLikelihood", "IzuScenarioEvidence", "IzuPooledEvidenceRecoverySummary", "poisson_log_probability", "binomial_log_probability", "multinomial_log_probability", "paternity_call_probabilities", "score_izu_gradient_candidates", "top_scoring_scenarios", "benchmark_izu_pooled_evidence_recovery",
+    "IzuFieldDistortion", "IzuFieldStressCase", "IzuFieldStressRecoverySummary", "default_izu_field_stress_cases", "simulate_izu_field_misspecified_dataset", "benchmark_izu_field_stress_recovery",
 ]
