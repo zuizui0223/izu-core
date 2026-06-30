@@ -1,9 +1,9 @@
 """Generate a fixed-seed virtual Izu sensitivity baseline as Markdown.
 
 This is a synthetic operating-characteristic report, not an estimate or a
-sample-size recommendation for any real island. It exists to keep one
-representative four-plan comparison reproducible while the user varies model
-assumptions in separate analyses.
+sample-size recommendation for any real island. It keeps one representative
+four-plan comparison reproducible while the user varies model assumptions in
+separate analyses.
 """
 
 from __future__ import annotations
@@ -14,10 +14,12 @@ from pathlib import Path
 from channel_id.guide_inbreeding import PostSeedSurvival
 from channel_id.guide_paternal import PaternalGuideParameters
 from channel_id.guide_scenarios import ScenarioSettings, ScenarioYear
-from channel_id.izu_gradient_benchmark import IzuGradientLandscape
+from channel_id.izu_gradient_benchmark import GradientAnalysisMode, IzuGradientLandscape
+from channel_id.izu_pooled_evidence import benchmark_izu_pooled_evidence_recovery
 from channel_id.izu_sensitivity_report import (
     IzuObservationPlan,
     IzuRecoveryThresholds,
+    IzuVirtualWorld,
     default_izu_virtual_worlds,
     report_as_markdown_table,
     run_izu_sensitivity_report,
@@ -77,13 +79,61 @@ def baseline_plans() -> tuple[IzuObservationPlan, ...]:
     )
 
 
+def pooled_evidence_as_markdown_table(
+    worlds: tuple[IzuVirtualWorld, ...],
+    plans: tuple[IzuObservationPlan, ...],
+    settings: ScenarioSettings,
+    replicates: int,
+) -> str:
+    """Render calibrated pooled-ranking recovery for the baseline assumptions."""
+
+    header = "| world | plan | top-rank truth | unique truth top | mean truth rank | mean truth log-likelihood gap | no finite candidate |"
+    rule = "|---|---|---:|---:|---:|---:|---:|"
+    rows = []
+    stream = BASELINE_SEED
+    for world in worlds:
+        for plan in plans:
+            summary = benchmark_izu_pooled_evidence_recovery(
+                truth=world.truth,
+                candidates=world.candidates,
+                template_settings=settings,
+                landscape=world.landscape,
+                camera_design=plan.camera_design(),
+                seed_design=plan.seed_design(),
+                analysis_mode=GradientAnalysisMode.CALIBRATED,
+                replicates=replicates,
+                seed=stream,
+            )
+            rows.append(
+                "| "
+                + " | ".join(
+                    (
+                        world.label,
+                        plan.label,
+                        f"{summary.truth_top_rank_rate:.2f}",
+                        f"{summary.unique_truth_top_rate:.2f}",
+                        f"{summary.mean_truth_rank:.2f}",
+                        f"{summary.mean_truth_log_likelihood_gap:.2f}",
+                        f"{summary.no_finite_candidate_rate:.2f}",
+                    )
+                )
+                + " |"
+            )
+            stream += 1
+    return "\n".join((header, rule, *rows))
+
+
 def render_baseline(replicates: int) -> str:
     """Run and render the report under fixed declared assumptions."""
 
+    landscape = baseline_landscape()
+    plans = baseline_plans()
+    settings = baseline_settings()
+    worlds = default_izu_virtual_worlds(landscape)
     report = run_izu_sensitivity_report(
-        worlds=default_izu_virtual_worlds(baseline_landscape()),
-        plans=baseline_plans(),
-        template_settings=baseline_settings(),
+        worlds=worlds,
+        plans=plans,
+        template_settings=settings,
         thresholds=IzuRecoveryThresholds(
             minimum_truth_retained_rate=0.90,
             minimum_unique_truth_recovery_rate=0.80,
@@ -104,11 +154,19 @@ def render_baseline(replicates: int) -> str:
         f"- Ordinal scaffold sites: `{len(report.sites)}`",
         "- Pass thresholds: retention ≥ 0.90, unique recovery ≥ 0.80, empty set ≤ 0.10.",
         "",
-        "## Results",
+        "## Interval-compatibility results",
         "",
         report_as_markdown_table(report),
         "",
-        "## Pareto-minimal passing plans",
+        "## Pooled-likelihood ranking results (calibrated environment)",
+        "",
+        "The table ranks candidates from raw virtual counts pooled over sites. "
+        "It is a comparative likelihood score, not posterior support. "
+        "`mean truth log-likelihood gap` is truth minus the best non-truth candidate.",
+        "",
+        pooled_evidence_as_markdown_table(worlds, plans, settings, replicates),
+        "",
+        "## Pareto-minimal interval-passing plans",
         "",
     ]
     frontier = report.pareto_minimal_passing_plans()
@@ -128,8 +186,10 @@ def render_baseline(replicates: int) -> str:
             "",
             "`flat_environment` rows deliberately ignore the declared pollinator-service "
             "and establishment gradient. They diagnose confounding risk and never decide "
-            "whether a plan passes. The four plans differ in more than one operational "
-            "axis and are illustrative sensitivity probes, not an optimized field grid.",
+            "whether a plan passes. The pooled table uses only the calibrated environment "
+            "because it asks whether the declared count model can recover a route after "
+            "combining islands. The four plans differ in more than one operational axis and "
+            "are illustrative sensitivity probes, not an optimized field grid.",
         )
     )
     return "\n".join(lines) + "\n"
