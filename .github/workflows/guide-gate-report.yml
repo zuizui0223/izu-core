@@ -1,0 +1,35 @@
+name: Guide Gate Report
+
+on:
+  pull_request:
+    paths:
+      - "data/guide_loss_required_channels.csv"
+      - "scripts/build_guide_gate_report.py"
+      - "tests/test_guide_gate_report.py"
+      - ".github/workflows/guide-gate-report.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run tests
+        run: |
+          python -m pip install -e .[dev]
+          pytest tests/test_guide_gate_report.py
+      - name: Build report
+        run: |
+          python scripts/build_guide_gate_report.py --output artifacts/guide_gate_report.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: guide-gate-report
+          path: artifacts/guide_gate_report.md
+          if-no-files-found: error
+          retention-days: 30
