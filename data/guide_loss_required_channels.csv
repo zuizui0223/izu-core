@@ -1,0 +1,8 @@
+channel_id,required_for,current_status,minimum_observation,claim_unlocked_when_present,blocked_claim_when_absent
+island_resolved_guide_spot,nectar_guide_loss,blocked,island_id plus guide/spot metric on common scale,tests whether guide loss follows pollinator hierarchy rather than climate-only pattern,guide loss cause cannot be assigned
+island_resolved_flower_size,stage_order,partial,island_id plus flower length or mouth diameter,tests Bombus diversus to B. ardens to non-Bombus size matching,full stage ordering remains partly inferred
+self_compatibility_bagging,selfing_syndrome,locked,island_id plus bagged fruit/seed set,tests reproductive assurance axis after Bombus loss,selfing syndrome cannot be separated from visitor turnover
+outcrossing_rate,selfing_syndrome,locked,island_id plus outcrossing estimate or interval,tests realized mating-system shift,SC cannot be translated into realized selfing
+late_inbreeding_depression,cost_of_selfing,blocked,selfed vs outcrossed survival or fitness after seed set,tests whether selfing has near-term assurance but later cost,near-term SC cannot support inbreeding-depression claim
+visitor_frequency,pollinator_hierarchy,partial,island_id plus visitor guild frequency per observation effort,tests whether hierarchy is availability/frequency not just presence,visitor presence cannot become interaction strength
+occurrence_absence,establishment_reachability,partial,island_id or locality plus occurrence/absence or search effort,tests E-stage distribution/reachability against F-stage reproduction,trait matching cannot be linked to distributional establishment
