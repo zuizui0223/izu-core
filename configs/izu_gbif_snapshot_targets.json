@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "study_region": {
+    "label": "Izu archipelago broad retrieval envelope",
+    "geometry_wkt": "POLYGON((138.90 32.80, 140.00 32.80, 140.00 35.10, 138.90 35.10, 138.90 32.80))",
+    "boundary": "This is a broad retrieval envelope, not an island polygon set. It can include neighbouring waters and mainland-edge records. Island assignment is a later, separate evidence step."
+  },
+  "source_taxon_resolution": {
+    "source": "GBIF API initial candidate snapshot",
+    "retrieval_artifact_digest": "sha256:7e55050b151e1dc165c6ac1034d816b0c74ecc50847d1c34f92e76d2bfef8792",
+    "boundary": "Every run re-fetches and validates the current GBIF taxon record for each declared key. The stored keys are transparent retrieval inputs, not assertions of pollination or historical interaction."
+  },
+  "targets": [
+    {"target_id": "campanula_microdonta", "scientific_name": "Campanula microdonta Koidz.", "taxon_key": 5410406, "expected_rank": "SPECIES", "expected_canonical_name": "Campanula microdonta"},
+    {"target_id": "campanula_punctata", "scientific_name": "Campanula punctata Lam.", "taxon_key": 5411557, "expected_rank": "SPECIES", "expected_canonical_name": "Campanula punctata"},
+    {"target_id": "bombus_ardens", "scientific_name": "Bombus ardens Smith, 1879", "taxon_key": 1340541, "expected_rank": "SPECIES", "expected_canonical_name": "Bombus ardens"},
+    {"target_id": "bombus_diversus", "scientific_name": "Bombus diversus Smith, 1869", "taxon_key": 1340349, "expected_rank": "SPECIES", "expected_canonical_name": "Bombus diversus"},
+    {"target_id": "lasioglossum", "scientific_name": "Lasioglossum Curtis, 1833", "taxon_key": 1353501, "expected_rank": "GENUS", "expected_canonical_name": "Lasioglossum"},
+    {"target_id": "megachile", "scientific_name": "Megachile Latreille, 1802", "taxon_key": 1335011, "expected_rank": "GENUS", "expected_canonical_name": "Megachile"},
+    {"target_id": "ceratina", "scientific_name": "Ceratina Latreille, 1802", "taxon_key": 1341198, "expected_rank": "GENUS", "expected_canonical_name": "Ceratina"}
+  ]
+}
