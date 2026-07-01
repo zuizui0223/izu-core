@@ -1,0 +1,8 @@
+artifact_id,filename,sha256,role,status,notes
+inoue1986_pdf,inoue1986.pdf,f75e737a7e8ec96eba3af62dea8b43bd3cb35ceb8e2c8130cc11af51c75a02a1,"direct historical source","secured","User-supplied scan; tables transcribed into Inoue 1986 CSVs"
+inoue1988_pdf,inoue1988.pdf,9fc5b5c5d8201d959a85041617be0047dcc15025efc5c7054f9010696e2ecb87,"direct historical source","secured","User-supplied scan; Table 1--3 transcribed"
+inoue1989_pdf,inoue1989.pdf,ffb408bb01395d93dd650f3d7f361c57b09723d922717af049449da5c808ce91,"direct historical source","secured","User-supplied scan; Table 1 transcribed; germination curves retained as graph-only source"
+inoue1990_mating_pdf,inoue1990.pdf,46fbcfe069f23eb6e04561f61f1fece9db28eccd010b42c61fd0f4315fb7ea40,"direct historical source","secured","User-supplied scan; Table 1--2 transcribed"
+inoue1990_dichogamy_pdf,inoue1990-2.pdf,ade348081a9ca449ff52ffc790d63f8e28442c7796425894bf6833feffcc11c6,"direct historical source","secured","User-supplied scan; Table 1--5 transcribed where machine-readable"
+inoue1995_pdf,inoue1995.pdf,debfa55b1e292cf854eafd9aee381ce5a1a02669c3fbb27ed8fcb3bee8d1b980,"direct historical source","secured","User-supplied scan; Tables 1--4 and Figure 3 mechanism boundary summarized"
+izu_imiss_3918,20260304Campanula_Izu2.txt_r0.5p3_3918snps-missing-ind.imiss,b20db2157039fea1d159e1c2d0bf178e522a468329d2e6946585d59e7fbaa8ec,"genomic QC summary","secured","Individual missingness summary only; no genotype inference permitted"
