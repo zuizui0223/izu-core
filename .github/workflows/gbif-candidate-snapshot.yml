@@ -48,7 +48,7 @@ jobs:
           bombus_diversus|Bombus diversus
           lasioglossum|Lasioglossum
           megachile|Megachile
-          ceratina|Ceratina
+          ceratina|Ceratina Latreille, 1802
           TARGETS
 
       - name: Write retrieval inventory
