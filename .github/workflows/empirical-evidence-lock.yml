@@ -23,12 +23,18 @@ jobs:
           python-version: "3.12"
 
       - name: Build direct-observation evidence report
+        shell: bash
         run: |
+          set -o pipefail
+          mkdir -p empirical_evidence_lock
           python scripts/build_empirical_evidence_lock.py \
             --data-dir data/two_breakpoint_evidence \
-            --output empirical_evidence_lock/EMPIRICAL_EVIDENCE_LOCK.md
+            --output empirical_evidence_lock/EMPIRICAL_EVIDENCE_LOCK.md \
+            2>&1 | tee empirical_evidence_lock/build.log
+          test "${PIPESTATUS[0]}" -eq 0
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: empirical-evidence-lock
           path: empirical_evidence_lock
