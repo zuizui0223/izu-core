@@ -1,0 +1,52 @@
+name: Izu Environment Proxy Snapshot
+
+on:
+  pull_request:
+    paths:
+      - "configs/izu_island_proxy_points.json"
+      - "scripts/fetch_izu_environment_proxy.py"
+      - ".github/workflows/izu-environment-proxy-snapshot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch climate at declared island proxies
+        id: environment
+        continue-on-error: true
+        run: |
+          python scripts/fetch_izu_environment_proxy.py \
+            --config configs/izu_island_proxy_points.json \
+            --output-dir izu_environment_proxy_snapshot \
+            --start-date 1981-01-01 \
+            --end-date 2010-12-31 \
+            --max-attempts 5 \
+            --retry-delay-seconds 5 \
+            --inter-request-delay-seconds 1
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: izu-environment-proxy-snapshot
+          path: izu_environment_proxy_snapshot
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Enforce complete climate retrieval
+        if: always()
+        run: |
+          if [ "${{ steps.environment.outcome }}" != "success" ]; then
+            echo "One or more island proxy climate requests failed after per-island retries. The retained artifact contains raw responses and failures; do not fill missing covariates manually."
+            exit 1
+          fi

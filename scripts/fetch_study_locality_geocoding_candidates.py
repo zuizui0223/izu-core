@@ -6,11 +6,9 @@ metadata. A returned geometry must be reviewed against the cited source locality
 before it can become an island reference point, a barrier distance endpoint, or
 a climate-extraction location.
 
-This avoids a common shortcut in island studies:
-
-    place-name search result -> true sampling locality -> environmental covariate
-
-Those are distinct steps and are preserved separately here.
+Island-proxy searches are recorded separately from literature-locality searches.
+A proxy can support sensitivity analysis of geography only after review; it never
+silently replaces the actual plant sampling locality.
 """
 
 from __future__ import annotations
@@ -29,6 +27,7 @@ from urllib.request import Request, urlopen
 API_ROOT = "https://nominatim.openstreetmap.org/search"
 CSV_COLUMNS = (
     "target_id",
+    "reference_role",
     "island_id",
     "source_id",
     "source_locality",
@@ -77,8 +76,16 @@ def fetch_json(url: str) -> list[dict[str, Any]]:
 
 
 def normalize_candidate(target: dict[str, str], candidate: dict[str, Any], rank: int) -> dict[str, str]:
+    role = target.get("reference_role", "literature_locality")
+    note = (
+        "Raw island-proxy geocoding candidate; use only for geography sensitivity after review. "
+        "It is not a plant sampling locality."
+        if role == "island_proxy"
+        else "Raw literature-locality geocoding candidate; do not use for climate or barrier analysis until locality review."
+    )
     return {
         "target_id": target["target_id"],
+        "reference_role": role,
         "island_id": target["island_id"],
         "source_id": target["source_id"],
         "source_locality": target["source_locality"],
@@ -94,7 +101,7 @@ def normalize_candidate(target: dict[str, str], candidate: dict[str, Any], rank:
         "importance": str(candidate.get("importance") or ""),
         "source_url": f"https://www.openstreetmap.org/{candidate.get('osm_type', '')}/{candidate.get('osm_id', '')}",
         "review_status": "candidate",
-        "notes": "Raw place-name geocoding candidate; do not use for climate or barrier analysis until locality review.",
+        "notes": note,
     }
 
 
