@@ -1,0 +1,48 @@
+name: Izu iNaturalist Candidate Snapshot
+
+on:
+  pull_request:
+    paths:
+      - "configs/izu_inaturalist_snapshot_targets.json"
+      - "scripts/fetch_izu_inaturalist_snapshots.py"
+      - ".github/workflows/izu-inaturalist-candidate-snapshot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch Izu-scoped iNaturalist candidates
+        id: fetch
+        continue-on-error: true
+        run: |
+          python scripts/fetch_izu_inaturalist_snapshots.py \
+            --config configs/izu_inaturalist_snapshot_targets.json \
+            --output-dir izu_inaturalist_candidate_snapshots \
+            --max-records 5000
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: izu-inaturalist-candidate-snapshots
+          path: izu_inaturalist_candidate_snapshots
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Enforce complete declared retrieval
+        if: always()
+        run: |
+          if [ "${{ steps.fetch.outcome }}" != "success" ]; then
+            echo "A target failed or reached the configured record ceiling. Inspect the uploaded artifact."
+            exit 1
+          fi
