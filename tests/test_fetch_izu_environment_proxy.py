@@ -28,6 +28,28 @@ def test_climate_url_retains_declared_proxy_and_period():
     assert "temperature_2m_mean%2Cprecipitation_sum" in url
 
 
+def test_transient_transport_error_retries_only_the_declared_query(monkeypatch):
+    module = load_module()
+    attempts = []
+    responses = [OSError("temporary TLS timeout"), OSError("temporary TLS timeout"), {"daily": {}}]
+
+    def fake_fetch(url):
+        attempts.append(url)
+        value = responses.pop(0)
+        if isinstance(value, Exception):
+            raise value
+        return value
+
+    monkeypatch.setattr(module, "fetch_json", fake_fetch)
+    monkeypatch.setattr(module.time, "sleep", lambda seconds: None)
+
+    payload, used = module.fetch_json_with_retry("https://example.org/query", max_attempts=5, retry_delay_seconds=1.0)
+
+    assert payload == {"daily": {}}
+    assert used == 3
+    assert attempts == ["https://example.org/query"] * 3
+
+
 def test_climate_summary_uses_actual_daily_rows_and_keeps_proxy_boundary():
     module = load_module()
     payload = {
@@ -37,12 +59,13 @@ def test_climate_summary_uses_actual_daily_rows_and_keeps_proxy_boundary():
             "precipitation_sum": [1.0, 3.0, 10.0, 6.0],
         }
     }
-    summary = module.summarize_climate(payload, point(), "1981-01-01", "1982-02-01", "https://example.org")
+    summary = module.summarize_climate(payload, point(), "1981-01-01", "1982-02-01", "https://example.org", attempts_used=2)
 
     assert summary["mean_daily_temperature_c"] == "12.000000"
     assert summary["mean_annual_precipitation_mm"] == "10.000000"
     assert summary["days_with_temperature"] == "3"
     assert summary["days_with_precipitation"] == "4"
+    assert summary["attempts_used"] == "2"
     assert "Island proxy point" in summary["proxy_boundary"]
 
 
@@ -73,4 +96,4 @@ def test_climate_summary_rejects_misaligned_arrays():
     }
 
     with pytest.raises(ValueError, match="different lengths"):
-        module.summarize_climate(payload, point(), "1981-01-01", "1981-01-01", "https://example.org")
+        module.summarize_climate(payload, point(), "1981-01-01", "1981-01-01", "https://example.org", attempts_used=1)
