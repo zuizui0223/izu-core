@@ -1,0 +1,2 @@
+observation_id,island_id,locality_id,source_type,source_id,species,taxon_role,flower_id,guide_region,spot_metric,spot_value,measurement_scale,photo_or_specimen_id,observer,observation_date,notes
+example_001,Oshima,example_locality,field_photo,example_source,Campanula microdonta,target,flower_001,corolla_inner,spot_fraction,,0_to_1,,example_observer,,template row; replace with island-resolved observations
