@@ -52,6 +52,7 @@ jobs:
           TARGETS
 
       - name: Write retrieval inventory
+        if: always()
         shell: bash
         run: |
           python - <<'PY'
@@ -103,8 +104,19 @@ jobs:
           PY
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: gbif-candidate-snapshots
           path: gbif_candidate_snapshots
           if-no-files-found: error
           retention-days: 30
+
+      - name: Fail if any declared taxon remains unresolved
+        if: always()
+        shell: bash
+        run: |
+          if awk -F '\t' 'NR > 1 && $3 != "success" { found = 1 } END { exit(found ? 0 : 1) }' gbif_candidate_snapshots/STATUS.tsv; then
+            echo "One or more declared GBIF queries failed. The artifact retains logs and any successful snapshots."
+            exit 1
+          fi
+          echo "All declared GBIF queries completed."
