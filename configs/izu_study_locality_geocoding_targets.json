@@ -1,17 +1,23 @@
 {
-  "schema_version": 1,
-  "source_context": "Locality names transcribed from Inoue & Amano (1986) Table 1 and Inoue & Washitani (1989) Table 1. Returned geometries are candidates until human-reviewed.",
+  "schema_version": 2,
+  "source_context": "Literature-locality names are transcribed from Inoue & Amano (1986) Table 1 and Inoue & Washitani (1989) Table 1. Island-proxy queries use Japanese island names only to obtain candidate reference geometries for later geography/environment sensitivity analysis. Returned geometries are candidates until human-reviewed.",
   "targets": [
-    {"target_id": "oshima_senzu", "island_id": "Oshima", "source_locality": "Senzu, Oshima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
-    {"target_id": "oshima_park", "island_id": "Oshima", "source_locality": "Oshima Park, Oshima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
-    {"target_id": "toshima_maehama", "island_id": "Toshima", "source_locality": "Maehama, Toshima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
-    {"target_id": "niijima_maehama", "island_id": "Niijima", "source_locality": "Maehama, Niijima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
-    {"target_id": "niijima_mukoyama", "island_id": "Niijima", "source_locality": "Mukouyama, Niijima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
-    {"target_id": "kozu_nagahama", "island_id": "Kozushima", "source_locality": "Nagahama, Kozushima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
-    {"target_id": "miyake_hinoyamatoge", "island_id": "Miyake", "source_locality": "Hinoyama-toge, Miyakejima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
-    {"target_id": "hachijo_sokodo", "island_id": "Hachijo", "source_locality": "Sokodo, Hachijojima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
-    {"target_id": "hachijo_oago", "island_id": "Hachijo", "source_locality": "Oago, Hachijojima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
-    {"target_id": "chiba_ichihara", "island_id": "Chiba", "source_locality": "Ichihara, Chiba, Japan", "source_id": "inoue_washitani1989_psb4_69"},
-    {"target_id": "shizuoka_shimoda", "island_id": "Shizuoka", "source_locality": "Shimoda, Shizuoka, Japan", "source_id": "inoue1990_psb5_197"}
+    {"target_id": "oshima_senzu", "reference_role": "literature_locality", "island_id": "Oshima", "source_locality": "Senzu, Oshima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
+    {"target_id": "oshima_park", "reference_role": "literature_locality", "island_id": "Oshima", "source_locality": "Oshima Park, Oshima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
+    {"target_id": "toshima_maehama", "reference_role": "literature_locality", "island_id": "Toshima", "source_locality": "Maehama, Toshima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
+    {"target_id": "niijima_maehama", "reference_role": "literature_locality", "island_id": "Niijima", "source_locality": "Maehama, Niijima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
+    {"target_id": "niijima_mukoyama", "reference_role": "literature_locality", "island_id": "Niijima", "source_locality": "Mukouyama, Niijima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
+    {"target_id": "kozu_nagahama", "reference_role": "literature_locality", "island_id": "Kozushima", "source_locality": "Nagahama, Kozushima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
+    {"target_id": "miyake_hinoyamatoge", "reference_role": "literature_locality", "island_id": "Miyake", "source_locality": "Hinoyama-toge, Miyakejima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
+    {"target_id": "hachijo_sokodo", "reference_role": "literature_locality", "island_id": "Hachijo", "source_locality": "Sokodo, Hachijojima, Tokyo, Japan", "source_id": "inoue1986_psb1_89"},
+    {"target_id": "hachijo_oago", "reference_role": "literature_locality", "island_id": "Hachijo", "source_locality": "Oago, Hachijojima, Tokyo, Japan", "source_id": "inoue_washitani1989_psb4_69"},
+    {"target_id": "chiba_ichihara", "reference_role": "literature_locality", "island_id": "Chiba", "source_locality": "Ichihara, Chiba, Japan", "source_id": "inoue_washitani1989_psb4_69"},
+    {"target_id": "shizuoka_shimoda", "reference_role": "literature_locality", "island_id": "Shizuoka", "source_locality": "Shimoda, Shizuoka, Japan", "source_id": "inoue1990_psb5_197"},
+    {"target_id": "oshima_island_proxy", "reference_role": "island_proxy", "island_id": "Oshima", "source_locality": "伊豆大島, 東京都, 日本", "source_id": "geography_proxy_query"},
+    {"target_id": "toshima_island_proxy", "reference_role": "island_proxy", "island_id": "Toshima", "source_locality": "利島, 東京都, 日本", "source_id": "geography_proxy_query"},
+    {"target_id": "niijima_island_proxy", "reference_role": "island_proxy", "island_id": "Niijima", "source_locality": "新島, 東京都, 日本", "source_id": "geography_proxy_query"},
+    {"target_id": "kozu_island_proxy", "reference_role": "island_proxy", "island_id": "Kozushima", "source_locality": "神津島, 東京都, 日本", "source_id": "geography_proxy_query"},
+    {"target_id": "miyake_island_proxy", "reference_role": "island_proxy", "island_id": "Miyake", "source_locality": "三宅島, 東京都, 日本", "source_id": "geography_proxy_query"},
+    {"target_id": "hachijo_island_proxy", "reference_role": "island_proxy", "island_id": "Hachijo", "source_locality": "八丈島, 東京都, 日本", "source_id": "geography_proxy_query"}
   ]
 }
