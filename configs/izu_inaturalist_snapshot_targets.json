@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "study_region": {
+    "label": "Izu archipelago broad retrieval envelope",
+    "swlat": 32.80,
+    "swlng": 138.90,
+    "nelat": 35.10,
+    "nelng": 140.00,
+    "boundary": "This is a broad retrieval envelope, not an island polygon set. It is only a candidate-record acquisition scope."
+  },
+  "targets": [
+    {"target_id": "campanula_microdonta", "taxon_name": "Campanula microdonta"},
+    {"target_id": "campanula_punctata", "taxon_name": "Campanula punctata"},
+    {"target_id": "bombus_ardens", "taxon_name": "Bombus ardens"},
+    {"target_id": "bombus_diversus", "taxon_name": "Bombus diversus"},
+    {"target_id": "lasioglossum", "taxon_name": "Lasioglossum"},
+    {"target_id": "megachile", "taxon_name": "Megachile"},
+    {"target_id": "ceratina", "taxon_name": "Ceratina"}
+  ]
+}
