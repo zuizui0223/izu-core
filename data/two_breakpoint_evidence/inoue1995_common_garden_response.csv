@@ -1,0 +1,7 @@
+source_id,source_locator,experimental_site,pollinator_group,response,flower_size_effect,phase_effect,reported_result,notes
+inoue1995_er10_267,Table 3,Tokyo,megachilid bee,visitation_frequency,positive,F_1_329_13.01_p_lt_0.001,"Flower size F=3.79, df=5, P<0.005; male phase visited more frequently",Artificial mixed population; not an island-specific field estimate
+inoue1995_er10_267,Table 3,Tokyo,halictid bee,visitation_frequency,no_overall_trend,not_main_effect,"Flower size F=2.32, df=5, NS; day-by-size interaction significant",Artificial mixed population; not an island-specific field estimate
+inoue1995_er10_267,Table 4,Nikko,megachilid bee,visitation_frequency,positive,NS,"Flower size F=3.43, df=5, P<0.01; phase NS",Artificial mixed population; not an island-specific field estimate
+inoue1995_er10_267,Table 4,Nikko,halictid bee,visitation_frequency,no_consistent_trend,significant_day_dependent,"Flower size F=8.79, df=5, P<0.001 with day interaction; phase F=36.68, P<0.001",Artificial mixed population; not an island-specific field estimate
+inoue1995_er10_267,Table 4,Nikko,Bombus diversus,visitation_frequency,no_size_preference,NS,"Flower size F=0.95, df=5, NS; phase F=0.62, NS",Artificial mixed population; no direct B. ardens result
+inoue1995_er10_267,Fig 3,Tokyo,all flowers,nectar_sugar_content,positive,NA,"Total sugar content = 0.011 * flower length - 0.216; P<0.001",Artificial mixed population
