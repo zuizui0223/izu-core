@@ -1,0 +1,87 @@
+name: GBIF Candidate Snapshot
+
+on:
+  pull_request:
+    paths:
+      - "scripts/fetch_gbif_occurrences.py"
+      - ".github/workflows/gbif-candidate-snapshot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch bounded raw snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p gbif_candidate_snapshots
+          while IFS='|' read -r target scientific_name; do
+            python scripts/fetch_gbif_occurrences.py \
+              --scientific-name "$scientific_name" \
+              --target-id "$target" \
+              --country JP \
+              --max-records 300 \
+              --page-size 300 \
+              --output-dir "gbif_candidate_snapshots/$target"
+          done <<'TARGETS'
+          campanula_microdonta|Campanula microdonta
+          campanula_punctata|Campanula punctata
+          bombus_ardens|Bombus ardens
+          bombus_diversus|Bombus diversus
+          lasioglossum|Lasioglossum
+          megachile|Megachile
+          ceratina|Ceratina
+          TARGETS
+
+      - name: Write retrieval inventory
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path("gbif_candidate_snapshots")
+          lines = [
+              "# GBIF candidate snapshot inventory",
+              "",
+              "These are raw, bounded API snapshots. They are candidate availability evidence only; review is required before any island assignment or scenario use.",
+              "",
+              "| target | requested taxon | matched usageKey | match type | candidate records |",
+              "|---|---|---:|---|---:|",
+          ]
+          for child in sorted(path for path in root.iterdir() if path.is_dir()):
+              manifest = json.loads((child / "manifest.json").read_text(encoding="utf-8"))
+              with (child / "occurrences_candidate.csv").open(encoding="utf-8", newline="") as handle:
+                  count = sum(1 for _ in csv.DictReader(handle))
+              matched = manifest["matched_taxon"]
+              lines.append(
+                  "| {target} | {requested} | {usage_key} | {match_type} | {count} |".format(
+                      target=manifest["target_id"],
+                      requested=manifest["scientific_name_requested"],
+                      usage_key=matched.get("usageKey", ""),
+                      match_type=matched.get("matchType", ""),
+                      count=count,
+                  )
+              )
+          (root / "INVENTORY.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gbif-candidate-snapshots
+          path: gbif_candidate_snapshots
+          if-no-files-found: error
+          retention-days: 30
