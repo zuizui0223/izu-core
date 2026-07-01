@@ -1,0 +1,8 @@
+island_id,region_order,bombus_diversus,bombus_ardens,halictid_pollinator,megachilid_pollinator,bagged_capsule_set_pct,bagged_seed_mean,outcrossing_rate_min,outcrossing_rate_max,flower_length_mm,mean_temp_c,annual_precip_mm,precip_cv,notes
+Honshu,0,1,0,1,1,5.5,10.0,0.733,0.794,49.91,,, ,mainland reference; SI/high outcrossing; flower length uses Nikko C. punctata experimental population maximum reference
+Oshima,1,0,1,1,0,11.3,8.0,0.624,0.758,39.31,13.88,1982.20,0.306,B. ardens plus halictids; partial self-compatibility; island proxy climate from PR33
+Toshima,2,0,0,1,1,100.0,649.6,0.535,0.535,35.27,15.16,1999.84,0.309,halictid plus megachilid; SC; intermediate flower length from 1995 experiment
+Niijima,3,0,0,1,0,100.0,588.7,0.458,0.566,28.62,16.22,1999.84,0.309,halictid-dominated; SC; small flower length from 1995 experiment
+Kozushima,4,0,0,1,0,97.8,368.6,0.366,0.366,,14.82,1971.54,0.322,halictid-dominated; SC; no locked 1995 flower-length value in current table
+Miyake,5,0,0,1,0,90.6,136.7,0.157,0.157,,14.74,2102.74,0.330,halictid-dominated; predominantly inbreeding; no locked flower-length value in current table
+Hachijo,6,0,0,1,0,97.0,210.2,0.169,0.251,23.14,17.71,2127.94,0.307,halictid/Apis records; strong SC/selfing tendency; smallest locked flower length
