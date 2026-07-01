@@ -17,6 +17,15 @@ def test_matrix_keeps_oshima_mixed_mating_and_bagging_as_distinct_channels():
     assert rows["Oshima"]["main_pollinator_groups"] == "Bombus_ardens;Lasioglossum"
 
 
+def test_mainland_visitor_localities_aggregate_without_losing_the_source_rows():
+    rows = {row["island"]: row for row in build_island_matrix(DATA_DIR)}
+
+    assert rows["Chiba"]["outcrossing_t_mean"] == pytest.approx((0.644 + 0.733 + 0.742 + 0.757) / 4)
+    assert rows["Chiba"]["direct_pollinator_rate_rows"] == 8
+    assert "Bombus diversus" in rows["Chiba"]["direct_pollinator_groups"]
+    assert rows["Shizuoka"]["outcrossing_t_mean"] == pytest.approx((0.794 + 0.752 + 0.782) / 3)
+
+
 def test_kozu_and_kozusima_aliases_join_without_rewriting_source_rows():
     rows = {row["island"]: row for row in build_island_matrix(DATA_DIR)}
 
