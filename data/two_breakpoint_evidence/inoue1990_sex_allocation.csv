@@ -1,0 +1,9 @@
+source_id,source_locator,island_or_mainland,n,androecium_mean_mg,androecium_sd_mg,androecium_min_mg,androecium_max_mg,gynoecium_mean_mg,gynoecium_sd_mg,gynoecium_min_mg,gynoecium_max_mg,male_reproductive_effort_mean,male_reproductive_effort_sd,androecium_to_gynoecium_ratio_mean,androecium_to_gynoecium_ratio_sd,notes
+inoue1990_psb5_197,Table 4,Chiba,55,55.2,19.3,27,101,67.4,21.8,25,120,0.451,0.074,0.851,0.224,Direct table transcription
+inoue1990_psb5_197,Table 4,Shizuoka,18,64.9,18.4,50,85,84.6,23.4,43,140,0.442,0.057,0.813,0.205,Direct table transcription
+inoue1990_psb5_197,Table 4,Oshima,29,49.3,12.0,25,79,81.2,25.7,43,140,0.386,0.0528,0.639,0.144,Direct table transcription
+inoue1990_psb5_197,Table 4,Toshima,8,44.9,9.8,35,64,89.1,39.6,59,176,0.347,0.040,0.535,0.069,Direct table transcription
+inoue1990_psb5_197,Table 4,Niijima,19,40.7,12.8,19,62,92.2,44.7,41,171,0.333,0.072,0.518,0.183,Direct table transcription
+inoue1990_psb5_197,Table 4,Kozu,11,33.5,7.6,24,46,92.1,39.2,43,165,0.280,0.044,0.395,0.086,Direct table transcription
+inoue1990_psb5_197,Table 4,Miyake,9,27.3,7.6,13,35,69.1,28.9,30,107,0.296,0.057,0.429,0.120,Direct table transcription
+inoue1990_psb5_197,Table 4,Hachijo,25,29.2,8.6,15,48,71.4,30.8,24,126,0.303,0.046,0.440,0.098,Direct table transcription

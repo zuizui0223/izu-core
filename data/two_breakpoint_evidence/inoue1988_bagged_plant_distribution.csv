@@ -1,0 +1,8 @@
+source_id,source_locator,region,island_or_mainland,total_bagged_plants,plants_zero_seeds,plants_1_to_9_seeds,plants_10_to_99_seeds,plants_100_to_2000_seeds,notes
+inoue1988_psb3_125,Table 2,Mainland,Chiba,46,35,8,1,2,Direct table transcription
+inoue1988_psb3_125,Table 2,Izu,Oshima,39,30,5,3,1,Direct table transcription
+inoue1988_psb3_125,Table 2,Izu,Toshima,20,0,0,0,20,Direct table transcription
+inoue1988_psb3_125,Table 2,Izu,Niijima,39,0,0,2,37,Direct table transcription
+inoue1988_psb3_125,Table 2,Izu,Kozushima,24,0,0,1,23,Direct table transcription
+inoue1988_psb3_125,Table 2,Izu,Miyake,46,6,1,13,26,Direct table transcription
+inoue1988_psb3_125,Table 2,Izu,Hachijo,37,0,1,4,32,Direct table transcription

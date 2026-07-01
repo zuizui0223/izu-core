@@ -1,0 +1,15 @@
+source_id,source_locator,region,island_or_mainland,locality,month_year,observation_hours,observation_type,notes
+inoue1986_psb1_89,Table 1,Izu,Oshima,Senzu,7/1985,6.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Izu,Oshima,Oshima Park,7/1985,3.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Izu,Niijima,Maehama,7/1985,2.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Izu,Niijima,Habuse-ura,7/1985,3.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Izu,Niijima,Mukaiyama,7/1985,2.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Izu,Kozushima,Nagahama,6-7/1985-1986,8.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Izu,Hachijo,Sokodo,6-7/1982-1983,6.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Mainland,Izu Peninsula,Kawazu-cho,5/1983,0.5,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Mainland,Izu Peninsula,Minami-Izu-cho,5/1983,1.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Mainland,Izu Peninsula,Matsuzaki-cho,6/1983,0.5,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Mainland,Boso Peninsula,Mt Kiyosumi,6-7/1983;1986,4.5,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Mainland,Boso Peninsula,Yoro-cho,6-7/1983;1986,3.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Mainland,Boso Peninsula,Kameyama-cho,6/1983,1.0,flower_visitor_observation,Direct table transcription
+inoue1986_psb1_89,Table 1,Mainland,Tokyo,Ome-shi,7/1983-1984,2.0,flower_visitor_observation,Direct table transcription
