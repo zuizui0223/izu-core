@@ -1,39 +1,27 @@
 # Five-candidate Izu model-result register
 
-## Scope
+This register compares the five declared source-level candidates with profile,
+prior-Monte-Carlo sensitivity, tempered SMC, stage-pattern scores, and the
+B. ardens non-report envelope. It does not pool numerical values across model
+families.
 
-This register reads five source-level candidates, including the fixed ordinal
-`isolation_order` proxy, together with profile fit, prior-Monte-Carlo sensitivity,
-adaptive tempered SMC, island-stage pattern scores, and the *Bombus ardens*
-non-report envelope.
+## Current result
 
-It reports compatible conclusions and their boundaries. It does not merge score
-magnitudes across model families.
+The current artifact has `isolation_order` as full-likelihood winner, profile
+winner, and tempered-SMC winner. Tempered SMC gives mean order-minus-bridge
+compatibility of +2.034 across three seeds, and order is higher in every
+replicate.
 
-## Current logic
+Removing flower length changes the source-level ablation winner to
+`ardens_bridge_loss`; removing outcrossing, bagging, or the empty guide channel
+leaves `isolation_order` first. This is a channel-dependence result. It does not
+prove an isolation mechanism or dismiss bridge loss.
 
-The source-level result is called **conditional and channel-dependent** only
-when all of the following hold:
+## Boundary
 
-- full source-row likelihood, profile fit, and tempered SMC agree on the same
-  leading candidate;
-- the candidate set is explicitly declared;
-- channel ablation results are shown rather than hidden.
-
-When removing flower length switches the leading candidate from
-`isolation_order` to `ardens_bridge_loss`, the register records that switch as a
-discriminating channel result. It does not call either mechanism proven.
-
-## Interpretation rules
-
-- A leading `isolation_order` score means a fixed ordinal proxy is compatible
-  with the retained summaries. It is not a geographic distance estimate,
-  colonization history, or causal isolation effect.
-- A non-leading bridge-loss score does not remove bridge loss from consideration.
-  It means the bridge explanation is not unique under the present candidate set.
-- Tempered SMC improves numerical integration diagnostics. It does not create
-  new field evidence or resolve historical causality.
-- Zero reviewed guide constraints block any claim about guide/spot loss.
+`region_order` is a fixed ordinal proxy, not distance, colonization history, or
+causal isolation. Tempered SMC stabilizes integration but does not add historical
+or field observations. Zero guide constraints blocks conclusions about guide loss.
 
 ## Build
 
