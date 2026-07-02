@@ -4,8 +4,15 @@ on:
   pull_request:
     paths:
       - "data/inoue_literature_island_traits.csv"
+      - "data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv"
+      - "data/two_breakpoint_evidence/inoue1986_observation_effort.csv"
+      - "channel_id/pollinator_hierarchy_counterfactual.py"
+      - "channel_id/pollinator_regime_evidence_audit.py"
+      - "channel_id/ardens_nonreport_envelope.py"
       - "scripts/score_pollinator_hierarchy_counterfactual.py"
+      - "scripts/score_ardens_nonreport_envelope.py"
       - "tests/test_pollinator_hierarchy_counterfactual.py"
+      - "tests/test_ardens_nonreport_envelope.py"
       - ".github/workflows/pollinator-hierarchy-counterfactual.yml"
   workflow_dispatch:
 
@@ -22,21 +29,38 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run tests
+      - name: Run counterfactual and envelope tests
         run: |
           python -m pip install -e .[dev]
-          pytest tests/test_pollinator_hierarchy_counterfactual.py
+          pytest \
+            tests/test_pollinator_hierarchy_counterfactual.py \
+            tests/test_ardens_nonreport_envelope.py
 
-      - name: Score counterfactual models
+      - name: Score locked counterfactual models
         run: |
           python scripts/score_pollinator_hierarchy_counterfactual.py \
             --input data/inoue_literature_island_traits.csv \
             --output-json artifacts/pollinator_hierarchy_counterfactual.json \
             --output-md artifacts/pollinator_hierarchy_counterfactual.md
 
+      - name: Enumerate B. ardens non-report coding envelope
+        run: |
+          python scripts/score_ardens_nonreport_envelope.py \
+            --input data/inoue_literature_island_traits.csv \
+            --pollinator-rates data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv \
+            --observation-effort data/two_breakpoint_evidence/inoue1986_observation_effort.csv \
+            --output-csv artifacts/ardens_nonreport_envelope.csv \
+            --output-json artifacts/ardens_nonreport_envelope.json \
+            --output-md artifacts/ardens_nonreport_envelope.md
+
       - uses: actions/upload-artifact@v4
         with:
           name: pollinator-hierarchy-counterfactual
-          path: artifacts/pollinator_hierarchy_counterfactual.*
+          path: |
+            artifacts/pollinator_hierarchy_counterfactual.json
+            artifacts/pollinator_hierarchy_counterfactual.md
+            artifacts/ardens_nonreport_envelope.csv
+            artifacts/ardens_nonreport_envelope.json
+            artifacts/ardens_nonreport_envelope.md
           if-no-files-found: error
           retention-days: 30
