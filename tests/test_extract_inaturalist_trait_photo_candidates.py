@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 
-from scripts.extract_inaturalist_trait_photo_candidates import extract_snapshot, write_candidates
+from channel_id.inaturalist_trait_photos import extract_snapshot, write_candidates
 
 
 def _write_target(root: Path, target_id: str, taxon_name: str, pages: list[dict]) -> None:
