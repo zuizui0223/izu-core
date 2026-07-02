@@ -110,7 +110,7 @@ def build_register(
             "claim": "The B. ardens bridge-loss explanation is not uniquely selected by the retained summaries.",
             "source_level_evidence": f"bridge SMC rank-one fraction={float(bridge_smc['rank_one_fraction']):.3f}; it becomes ablation winner when omitted={';'.join(bridge_without) or 'none'}.",
             "stage_pattern_evidence": f"pollinator_hierarchy stage rank={stage_hierarchy_rank}; non-report envelope rank range={envelope.get('pollinator_hierarchy_best_rank')}–{envelope.get('pollinator_hierarchy_worst_rank')}.",
-            "current_safe_wording": "Bridge loss remains a plausible restricted explanation, particularly through flower length, but it is no longer uniquely preferred once the matched ordinal proxy is included.",
+            "current_safe_wording": "Bridge loss remains a plausible restricted explanation in the non-flower channels, but the retained flower-length channel currently shifts the matched comparison toward the ordinal proxy; bridge loss is not uniquely preferred.",
             "what_would_change_this": "Matched pollinator-handling and reproductive-effectiveness data, plus flower-length replication that separates service effects from order-correlated effects.",
         },
         {
