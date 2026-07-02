@@ -5,6 +5,7 @@ on:
     paths:
       - "configs/izu_inaturalist_snapshot_targets.json"
       - "scripts/fetch_izu_inaturalist_snapshots.py"
+      - "scripts/extract_inaturalist_trait_photo_candidates.py"
       - ".github/workflows/izu-inaturalist-candidate-snapshot.yml"
   workflow_dispatch:
 
@@ -30,6 +31,14 @@ jobs:
             --config configs/izu_inaturalist_snapshot_targets.json \
             --output-dir izu_inaturalist_candidate_snapshots \
             --max-records 5000
+
+      - name: Extract flower-photo candidate inventory
+        if: steps.fetch.outcome == 'success'
+        run: |
+          python scripts/extract_inaturalist_trait_photo_candidates.py \
+            --snapshot-root izu_inaturalist_candidate_snapshots \
+            --output-csv izu_inaturalist_candidate_snapshots/trait_photo_candidates.csv \
+            --output-md izu_inaturalist_candidate_snapshots/TRAIT_PHOTO_CANDIDATES.md
 
       - uses: actions/upload-artifact@v4
         if: always()
