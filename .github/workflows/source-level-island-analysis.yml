@@ -9,11 +9,13 @@ on:
       - 'channel_id/source_level_profile.py'
       - 'channel_id/source_level_isolation_order.py'
       - 'channel_id/source_level_isolation_order_diagnostics.py'
+      - 'channel_id/source_level_tempered_smc.py'
       - 'channel_id/pollinator_regime_evidence_audit.py'
       - 'scripts/run_source_level_island_analysis.py'
       - 'scripts/run_source_level_sensitivity.py'
       - 'scripts/run_source_level_profile.py'
       - 'scripts/run_source_level_profile_with_order.py'
+      - 'scripts/run_source_level_tempered_smc.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
       - 'data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv'
@@ -29,11 +31,13 @@ on:
       - 'channel_id/source_level_profile.py'
       - 'channel_id/source_level_isolation_order.py'
       - 'channel_id/source_level_isolation_order_diagnostics.py'
+      - 'channel_id/source_level_tempered_smc.py'
       - 'channel_id/pollinator_regime_evidence_audit.py'
       - 'scripts/run_source_level_island_analysis.py'
       - 'scripts/run_source_level_sensitivity.py'
       - 'scripts/run_source_level_profile.py'
       - 'scripts/run_source_level_profile_with_order.py'
+      - 'scripts/run_source_level_tempered_smc.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
       - 'data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv'
@@ -47,6 +51,7 @@ on:
 jobs:
   source-level-analysis:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -79,6 +84,15 @@ jobs:
             --iterations 16 \
             --output-json artifacts/source_level_profile.json \
             --output-md artifacts/source_level_profile.md
+      - name: Run adaptive tempered SMC comparison
+        run: |
+          python scripts/run_source_level_tempered_smc.py \
+            --particles 500 \
+            --target-ess-fraction 0.70 \
+            --rejuvenation-steps 1 \
+            --seeds 20260702 20260703 20260704 \
+            --output-json artifacts/source_level_tempered_smc.json \
+            --output-md artifacts/source_level_tempered_smc.md
       - name: Upload source-level reports
         uses: actions/upload-artifact@v4
         with:
@@ -93,4 +107,6 @@ jobs:
             artifacts/source_level_sensitivity.md
             artifacts/source_level_profile.json
             artifacts/source_level_profile.md
+            artifacts/source_level_tempered_smc.json
+            artifacts/source_level_tempered_smc.md
           if-no-files-found: error
