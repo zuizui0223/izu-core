@@ -10,7 +10,7 @@ from __future__ import annotations
 import csv
 from dataclasses import dataclass, replace
 from pathlib import Path
-from typing import Iterable
+from typing import Callable, Iterable
 
 from channel_id.island_source_level import FlowerLengthObservation, SourceLevelEvidence
 
@@ -24,6 +24,7 @@ class FlowerLengthMetadata:
     source_id: str
     source_locator: str
     island_id: str
+    mean_mm: float
     experiment_id: str
     comparability_status: str
     n: int
@@ -31,16 +32,16 @@ class FlowerLengthMetadata:
     def __post_init__(self) -> None:
         if not all((self.source_id, self.source_locator, self.island_id, self.experiment_id, self.comparability_status)):
             raise ValueError("flower metadata fields cannot be empty")
-        if self.n <= 0:
-            raise ValueError("flower metadata n must be positive")
+        if self.mean_mm <= 0.0 or self.n <= 0:
+            raise ValueError("flower metadata summary must be positive")
 
 
 @dataclass(frozen=True)
 class FlowerLengthSet:
     set_id: str
     description: str
-    retained_islands: tuple[str, ...]
-    excluded_islands: tuple[str, ...]
+    retained_labels: tuple[str, ...]
+    excluded_labels: tuple[str, ...]
     evidence: SourceLevelEvidence
 
 
@@ -48,11 +49,18 @@ def _map_island(value: str) -> str:
     return {"Kiyosumi": "Honshu", "Nikko": "Honshu"}.get(value.strip(), value.strip())
 
 
+def _label(row: FlowerLengthMetadata) -> str:
+    return f"{row.island_id}:{row.mean_mm:.2f}"
+
+
 def load_flower_length_metadata(path: Path) -> tuple[FlowerLengthMetadata, ...]:
     rows: list[FlowerLengthMetadata] = []
     with path.open(newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle)
-        required = {"source_id", "source_locator", "island", "n", "experiment_id", "comparability_status"}
+        required = {
+            "source_id", "source_locator", "island", "mean_flower_length_mm",
+            "n", "experiment_id", "comparability_status",
+        }
         missing = required - set(reader.fieldnames or ())
         if missing:
             raise ValueError("flower file missing comparability columns: " + ", ".join(sorted(missing)))
@@ -61,6 +69,7 @@ def load_flower_length_metadata(path: Path) -> tuple[FlowerLengthMetadata, ...]:
                 source_id=row["source_id"].strip(),
                 source_locator=row["source_locator"].strip(),
                 island_id=_map_island(row["island"]),
+                mean_mm=float(row["mean_flower_length_mm"]),
                 experiment_id=row["experiment_id"].strip(),
                 comparability_status=row["comparability_status"].strip(),
                 n=int(row["n"]),
@@ -70,10 +79,14 @@ def load_flower_length_metadata(path: Path) -> tuple[FlowerLengthMetadata, ...]:
     return tuple(rows)
 
 
-def _metadata_index(rows: Iterable[FlowerLengthMetadata]) -> dict[tuple[str, str, str], FlowerLengthMetadata]:
-    index: dict[tuple[str, str, str], FlowerLengthMetadata] = {}
+def _key(source_id: str, source_locator: str, island_id: str, mean_mm: float) -> tuple[str, str, str, float]:
+    return source_id, source_locator, island_id, round(mean_mm, 8)
+
+
+def _metadata_index(rows: Iterable[FlowerLengthMetadata]) -> dict[tuple[str, str, str, float], FlowerLengthMetadata]:
+    index: dict[tuple[str, str, str, float], FlowerLengthMetadata] = {}
     for row in rows:
-        key = (row.source_id, row.source_locator, row.island_id)
+        key = _key(row.source_id, row.source_locator, row.island_id, row.mean_mm)
         if key in index:
             raise ValueError(f"duplicate flower metadata key: {key}")
         index[key] = row
@@ -82,30 +95,32 @@ def _metadata_index(rows: Iterable[FlowerLengthMetadata]) -> dict[tuple[str, str
 
 def _select(
     evidence: SourceLevelEvidence,
-    metadata: dict[tuple[str, str, str], FlowerLengthMetadata],
+    metadata: dict[tuple[str, str, str, float], FlowerLengthMetadata],
     *,
     set_id: str,
     description: str,
-    include: callable,
+    include: Callable[[FlowerLengthMetadata], bool],
 ) -> FlowerLengthSet:
     retained: list[FlowerLengthObservation] = []
-    excluded: list[str] = []
+    retained_labels: list[str] = []
+    excluded_labels: list[str] = []
     for observation in evidence.flower:
-        key = (observation.source_id, observation.source_locator, observation.island_id)
+        key = _key(observation.source_id, observation.source_locator, observation.island_id, observation.mean_mm)
         row = metadata.get(key)
         if row is None:
             raise ValueError(f"flower observation lacks comparability metadata: {key}")
         if include(row):
             retained.append(observation)
+            retained_labels.append(_label(row))
         else:
-            excluded.append(observation.island_id)
+            excluded_labels.append(_label(row))
     if not retained:
         raise ValueError(f"flower set {set_id!r} retained no rows")
     return FlowerLengthSet(
         set_id=set_id,
         description=description,
-        retained_islands=tuple(row.island_id for row in retained),
-        excluded_islands=tuple(excluded),
+        retained_labels=tuple(retained_labels),
+        excluded_labels=tuple(excluded_labels),
         evidence=replace(evidence, flower=tuple(retained)),
     )
 
@@ -137,11 +152,15 @@ def build_flower_length_sets(evidence: SourceLevelEvidence, flower_path: Path) -
     )
     leave_one: list[FlowerLengthSet] = []
     comparable_rows = [row for row in metadata.values() if row.comparability_status == COMPARABLE]
-    for excluded in sorted(comparable_rows, key=lambda row: row.island_id):
+    for excluded in sorted(comparable_rows, key=lambda row: (row.island_id, row.mean_mm)):
         leave_one.append(_select(
             evidence, metadata,
-            set_id=f"leave_one_comparable_row_out:{excluded.island_id}",
-            description=f"Comparable-context set excluding {excluded.island_id}.",
-            include=lambda row, excluded=excluded: row.comparability_status == COMPARABLE and row.island_id != excluded.island_id,
+            set_id=f"leave_one_comparable_row_out:{excluded.island_id}:{excluded.mean_mm:.2f}",
+            description=f"Comparable-context set excluding {_label(excluded)}.",
+            include=lambda row, excluded=excluded: (
+                row.comparability_status == COMPARABLE
+                and _key(row.source_id, row.source_locator, row.island_id, row.mean_mm)
+                != _key(excluded.source_id, excluded.source_locator, excluded.island_id, excluded.mean_mm)
+            ),
         ))
     return (all_rows, comparable, n_ge_10, *leave_one)
