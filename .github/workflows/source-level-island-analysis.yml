@@ -1,0 +1,78 @@
+name: Source-level island analysis
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'channel_id/island_source_level.py'
+      - 'channel_id/source_level_sensitivity.py'
+      - 'channel_id/source_level_profile.py'
+      - 'channel_id/island_multichannel.py'
+      - 'scripts/run_source_level_island_analysis.py'
+      - 'scripts/run_source_level_sensitivity.py'
+      - 'scripts/run_source_level_profile.py'
+      - 'data/inoue_literature_island_traits.csv'
+      - 'data/guide_direction_constraints.csv'
+      - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
+      - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
+      - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
+      - '.github/workflows/source-level-island-analysis.yml'
+  pull_request:
+    paths:
+      - 'channel_id/island_source_level.py'
+      - 'channel_id/source_level_sensitivity.py'
+      - 'channel_id/source_level_profile.py'
+      - 'channel_id/island_multichannel.py'
+      - 'scripts/run_source_level_island_analysis.py'
+      - 'scripts/run_source_level_sensitivity.py'
+      - 'scripts/run_source_level_profile.py'
+      - 'data/inoue_literature_island_traits.csv'
+      - 'data/guide_direction_constraints.csv'
+      - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
+      - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
+      - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
+      - '.github/workflows/source-level-island-analysis.yml'
+
+jobs:
+  source-level-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e .
+      - name: Run source-level compatibility analysis
+        run: |
+          python scripts/run_source_level_island_analysis.py \
+            --draws 5000 \
+            --seed 20260702 \
+            --output-json artifacts/source_level_island_analysis.json \
+            --output-md artifacts/source_level_island_analysis.md
+      - name: Run scale and Monte Carlo sensitivity analysis
+        run: |
+          python scripts/run_source_level_sensitivity.py \
+            --draws 2500 \
+            --output-csv artifacts/source_level_sensitivity.csv \
+            --output-json artifacts/source_level_sensitivity.json \
+            --output-md artifacts/source_level_sensitivity.md
+      - name: Run profile compatibility analysis
+        run: |
+          python scripts/run_source_level_profile.py \
+            --population-size 600 \
+            --iterations 16 \
+            --output-json artifacts/source_level_profile.json \
+            --output-md artifacts/source_level_profile.md
+      - name: Upload source-level reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-level-island-analysis
+          path: |
+            artifacts/source_level_island_analysis.json
+            artifacts/source_level_island_analysis.md
+            artifacts/source_level_sensitivity.csv
+            artifacts/source_level_sensitivity.json
+            artifacts/source_level_sensitivity.md
+            artifacts/source_level_profile.json
+            artifacts/source_level_profile.md
+          if-no-files-found: error
