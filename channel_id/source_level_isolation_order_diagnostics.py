@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import math
 import random
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
+from pathlib import Path
 from statistics import mean
 from typing import Iterable, Sequence
 
@@ -14,20 +15,65 @@ from channel_id.source_level_isolation_order import (
     ISOLATION_ORDER_SCENARIO,
     ISOLATION_ORDER_SALT,
     IsolationOrderDraw,
-    IsolationOrderProfileResult,
-    IsolationOrderSensitivityResult,
     _importance,
     draw_isolation_order_parameters,
-    importance_effective_sample_size,
     load_region_order,
     score_isolation_order_draw,
 )
 
 
+@dataclass(frozen=True)
+class IsolationOrderSensitivityResult:
+    setting_id: str
+    seed: int
+    scenario: str
+    log_marginal_compatibility: float
+    max_importance_weight: float
+    importance_effective_sample_size: float
+    importance_ess_fraction: float
+    draws: int
+    included_channels: tuple[EvidenceChannel, ...]
+
+    @property
+    def warning(self) -> str | None:
+        if self.importance_effective_sample_size < 10.0:
+            return "importance_ess_lt_10"
+        if self.importance_ess_fraction < 0.01:
+            return "importance_ess_lt_1_percent"
+        return None
+
+
+@dataclass(frozen=True)
+class IsolationOrderProfileResult:
+    scenario: str
+    seed: int
+    best_log_likelihood: float
+    best_outcrossing_log_likelihood: float
+    best_bagging_log_likelihood: float
+    best_flower_log_likelihood: float
+    best_guide_log_likelihood: float
+    terminal_elite_mean_log_likelihood: float
+    best_draw: IsolationOrderDraw
+    iterations: int
+    population_size: int
+    included_channels: tuple[EvidenceChannel, ...]
+    boundary: str
+
+
+def importance_effective_sample_size(weights: Sequence[float]) -> float:
+    if not weights or any(value < 0.0 or not math.isfinite(value) for value in weights):
+        raise ValueError("weights must be finite, nonnegative, and nonempty")
+    total = sum(weights)
+    if total <= 0.0:
+        raise ValueError("weights must sum to a positive value")
+    normalized = [value / total for value in weights]
+    return 1.0 / sum(value * value for value in normalized)
+
+
 def isolation_order_sensitivity(
     evidence: SourceLevelEvidence,
     *,
-    island_summary_path,
+    island_summary_path: Path,
     guide_constraints: Sequence[GuideOrderConstraint],
     settings: Iterable[object],
     seeds: Iterable[int],
@@ -108,7 +154,7 @@ def mutate_isolation_order_draw(base: IsolationOrderDraw, temperature: float, rn
 def profile_isolation_order(
     evidence: SourceLevelEvidence,
     *,
-    island_summary_path,
+    island_summary_path: Path,
     guide_constraints: Sequence[GuideOrderConstraint] = (),
     scale: SourceLevelScale = SourceLevelScale(),
     population_size: int = 600,
