@@ -6,6 +6,7 @@ on:
       - "configs/izu_inaturalist_snapshot_targets.json"
       - "scripts/fetch_izu_inaturalist_snapshots.py"
       - "scripts/extract_inaturalist_trait_photo_candidates.py"
+      - "channel_id/inaturalist_trait_photos.py"
       - ".github/workflows/izu-inaturalist-candidate-snapshot.yml"
   workflow_dispatch:
 
