@@ -73,6 +73,9 @@ def test_register_records_order_lead_without_causal_upgrade() -> None:
     assert claims["bridge_loss_not_unique"]["status"] == "not_uniquely_supported"
     assert claims["guide_loss_unidentified"]["status"] == "blocked_by_missing_observation_channel"
     assert "not identify a causal" in claims["ordinal_proxy_source_level_preference"]["current_safe_wording"]
+    bridge_wording = claims["bridge_loss_not_unique"]["current_safe_wording"]
+    assert "non-flower channels" in bridge_wording
+    assert "particularly through flower length" not in bridge_wording
 
 
 def test_write_register_outputs_json_csv_markdown(tmp_path: Path) -> None:
