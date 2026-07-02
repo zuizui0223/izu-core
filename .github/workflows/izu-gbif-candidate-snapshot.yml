@@ -8,8 +8,9 @@ on:
       - "scripts/fetch_izu_gbif_snapshots.py"
       - "scripts/extract_gbif_trait_photo_candidates.py"
       - "scripts/build_gbif_photo_proxy_queue.py"
-      - "scripts/build_blinded_guide_photo_review_bundle.py"
+      - "scripts/build_gbif_blinded_guide_review_bundle.py"
       - "channel_id/gbif_trait_photos.py"
+      - "channel_id/gbif_photo_review_filter.py"
       - "channel_id/inaturalist_photo_proxy_queue.py"
       - "channel_id/guide_photo_review.py"
       - ".github/workflows/izu-gbif-candidate-snapshot.yml"
@@ -58,13 +59,12 @@ jobs:
             --output-csv izu_gbif_candidate_snapshots/trait_photo_proxy_review_queue.csv \
             --output-md izu_gbif_candidate_snapshots/TRAIT_PHOTO_PROXY_QUEUE.md
 
-      - name: Build GBIF blinded guide review bundle
+      - name: Build provenance-filtered GBIF blinded guide review bundle
         if: steps.fetch.outcome == 'success'
         run: |
-          python scripts/build_blinded_guide_photo_review_bundle.py \
+          python scripts/build_gbif_blinded_guide_review_bundle.py \
             --proxy-queue izu_gbif_candidate_snapshots/trait_photo_proxy_review_queue.csv \
-            --output-dir izu_gbif_candidate_snapshots/guide_photo_review_bundle \
-            --allowed-quality-grade HUMAN_OBSERVATION
+            --output-dir izu_gbif_candidate_snapshots/guide_photo_review_bundle
 
       - uses: actions/upload-artifact@v4
         if: always()
