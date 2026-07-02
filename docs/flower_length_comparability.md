@@ -37,6 +37,31 @@ These are data-comparability and leverage checks, not alternative evolutionary
 mechanisms. They do not turn flower length into evidence of pollinator
 mechanism.
 
+## Current screening result
+
+The initial two-seed tempered-SMC screen yielded `isolation_order` rank 1 for
+all of the following declared sets:
+
+- all six legacy rows;
+- the five Tokyo-comparable rows after excluding the Nikko singleton;
+- the four Tokyo rows with `n >= 10` after also excluding Niijima `n = 2`;
+- each leave-one-Tokyo-row set except the Toshima exclusion.
+
+Thus the ordinal flower-length signal is not an artifact of cross-experiment
+Nikko anchoring or of the Niijima `n = 2` summary.
+
+Removing Toshima created the only unstable short screen: one of two seeds placed
+bridge loss above the ordinal proxy. A predeclared higher-precision stress test
+for this same four-row set (750 particles, eight independent seeds) placed the
+ordinal proxy above bridge loss in 7/8 seeds. The average order-minus-bridge
+compatibility difference was +1.871, but one seed was negative (−0.364).
+
+The defensible reading is therefore: the retained flower table supports the
+ordinal proxy on balance, including after the Nikko and Niijima checks, but its
+independent support is limited by one source paper and a small number of
+Tokyo-experiment rows. Toshima is an information-bearing intermediate row, not
+a demonstrated causal driver.
+
 ## Reading the output
 
 A model rank that changes after excluding the Nikko singleton means the prior
@@ -51,3 +76,10 @@ The source table records common-garden pollination experiments, not a replicated
 multi-site trait survey with an explicit experiment-block model. This audit can
 protect against inappropriate pooling, but it cannot recover an unreported
 experiment effect or establish the cause of flower-size divergence.
+
+## Reproducible screening
+
+The workflow emits both a machine-readable JSON report and a Markdown table of
+retained/excluded source rows. The targeted Toshima stress runner is kept on its
+draft validation branch because it is a numerical replication tool, not a new
+biological observation channel.
