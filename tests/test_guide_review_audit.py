@@ -71,7 +71,7 @@ def test_audit_writes_per_unit_exclusion_codes_and_only_all_gates_pass() -> None
     assert audit.eligible_observation_unit_ids == ("u1",)
 
 
-def test_audit_reports_descriptive_agreement_only_for_scorable_pairs() -> None:
+def test_audit_reports_descriptive_agreement_only_for_distinct_reviewer_scorable_pairs() -> None:
     geographic = [_geo("u1"), _geo("u2"), _geo("u3")]
     key = [_key("b1", "u1"), _key("b2", "u2"), _key("b3", "u3")]
     review_a = [_trait("b1", "a", 0), _trait("b2", "a", 1), _trait("b3", "a", None, accepted=False)]
@@ -80,7 +80,7 @@ def test_audit_reports_descriptive_agreement_only_for_scorable_pairs() -> None:
     audit = audit_completed_reviews(geographic, review_a, review_b, key, maximum_reviewer_score_difference=1)
     metrics = {row["metric"]: row["value"] for row in audit.agreement_rows}
 
-    assert metrics["scorable_trait_pairs"] == "2"
+    assert metrics["scorable_distinct_reviewer_trait_pairs"] == "2"
     assert metrics["exact_score_agreement_fraction"] == "0.500000"
     assert metrics["within_1_ordinal_step_fraction"] == "0.500000"
     assert metrics["mean_absolute_score_difference"] == "1.000000"
