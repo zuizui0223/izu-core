@@ -51,3 +51,9 @@ The source table records common-garden pollination experiments, not a replicated
 multi-site trait survey with an explicit experiment-block model. This audit can
 protect against inappropriate pooling, but it cannot recover an unreported
 experiment effect or establish the cause of flower-size divergence.
+
+## Reproducible screening
+
+The workflow runs the declared sets with the same five candidate models and
+tempered-SMC machinery. It emits both a machine-readable JSON report and a
+Markdown table of retained/excluded source rows.
