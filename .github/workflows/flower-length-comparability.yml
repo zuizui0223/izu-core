@@ -3,13 +3,15 @@ name: Flower-length comparability screening
 on:
   push:
     branches: [main]
-    paths:
+    paths: &flower_paths
       - 'channel_id/flower_length_comparability.py'
       - 'scripts/run_flower_length_comparability.py'
       - 'tests/test_flower_length_comparability.py'
       - 'docs/flower_length_comparability.md'
       - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
       - '.github/workflows/flower-length-comparability.yml'
+  pull_request:
+    paths: *flower_paths
   workflow_dispatch:
 
 permissions:
