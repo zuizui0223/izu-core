@@ -5,13 +5,16 @@ on:
     paths:
       - "configs/izu_inaturalist_snapshot_targets.json"
       - "configs/izu_island_proxy_points.json"
+      - "data/campanula_candidate_label_registry.csv"
       - "scripts/fetch_izu_inaturalist_snapshots.py"
       - "scripts/extract_inaturalist_trait_photo_candidates.py"
       - "scripts/build_inaturalist_photo_proxy_queue.py"
       - "scripts/build_blinded_guide_photo_review_bundle.py"
+      - "scripts/audit_campanula_candidate_labels.py"
       - "channel_id/inaturalist_trait_photos.py"
       - "channel_id/inaturalist_photo_proxy_queue.py"
       - "channel_id/guide_photo_review.py"
+      - "channel_id/campanula_candidate_label_audit.py"
       - ".github/workflows/izu-inaturalist-candidate-snapshot.yml"
   workflow_dispatch:
 
@@ -58,12 +61,24 @@ jobs:
             --output-csv izu_inaturalist_candidate_snapshots/trait_photo_proxy_review_queue.csv \
             --output-md izu_inaturalist_candidate_snapshots/TRAIT_PHOTO_PROXY_QUEUE.md
 
-      - name: Build geography-first blinded guide review bundle
+      - name: Audit Campanula discovery labels before focal trait review
+        if: steps.fetch.outcome == 'success'
+        run: |
+          python scripts/audit_campanula_candidate_labels.py \
+            --registry data/campanula_candidate_label_registry.csv \
+            --snapshot-config configs/izu_inaturalist_snapshot_targets.json \
+            --proxy-queue izu_inaturalist_candidate_snapshots/trait_photo_proxy_review_queue.csv \
+            --output-records-csv izu_inaturalist_candidate_snapshots/campanula_label_candidate_records.csv \
+            --output-summary-csv izu_inaturalist_candidate_snapshots/campanula_label_audit_summary.csv \
+            --output-md izu_inaturalist_candidate_snapshots/CAMPANULA_LABEL_AUDIT.md
+
+      - name: Build geography-first blinded guide review bundle for focal query only
         if: steps.fetch.outcome == 'success'
         run: |
           python scripts/build_blinded_guide_photo_review_bundle.py \
             --proxy-queue izu_inaturalist_candidate_snapshots/trait_photo_proxy_review_queue.csv \
-            --output-dir izu_inaturalist_candidate_snapshots/guide_photo_review_bundle
+            --output-dir izu_inaturalist_candidate_snapshots/guide_photo_review_bundle \
+            --target-id campanula_microdonta
 
       - uses: actions/upload-artifact@v4
         if: always()
