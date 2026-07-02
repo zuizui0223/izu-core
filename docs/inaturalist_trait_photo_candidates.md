@@ -6,17 +6,18 @@ Public photographs can help locate material for a **reviewed directional**
 nectar-guide/spot comparison. They are not a random sample of flowers, a direct
 island trait frequency, or a pollination observation.
 
-The snapshot workflow therefore has two stages:
+The snapshot workflow therefore has three stages:
 
 ```text
 raw iNaturalist API pages
   -> observation-level candidate table
   -> one-row-per-photo candidate inventory
+  -> nearest-proxy review queue
   -> manual review
   -> source-locatable, directional constraint only when eligible
 ```
 
-The raw API pages remain in the workflow artifact. The new
+The raw API pages remain in the workflow artifact. The
 `trait_photo_candidates.csv` is an index, not a derived trait dataset.
 
 ## Candidate schema and review gates
@@ -50,6 +51,22 @@ A photo of an exterior flower, a plant without an open corolla, or a poorly
 localized observation remains a lead only. It must not become a row in
 `data/guide_direction_constraints.csv`.
 
+## Proxy review queue
+
+`trait_photo_proxy_review_queue.csv` adds the nearest and second-nearest
+**declared island proxy point**, the two distances, and their gap. It is a
+navigation aid for reviewer triage only.
+
+```text
+nearest declared proxy != island polygon
+nearest declared proxy != confirmed island assignment
+nearest declared proxy != population membership
+```
+
+The reviewer must inspect the original coordinate, positional accuracy, and
+observation page before entering `reviewer_island_decision`. This explicitly
+prevents the broad iNaturalist envelope from becoming an automatic island label.
+
 ## Run locally
 
 ```bash
@@ -57,10 +74,16 @@ python scripts/extract_inaturalist_trait_photo_candidates.py \
   --snapshot-root izu_inaturalist_candidate_snapshots \
   --output-csv izu_inaturalist_candidate_snapshots/trait_photo_candidates.csv \
   --output-md izu_inaturalist_candidate_snapshots/TRAIT_PHOTO_CANDIDATES.md
+
+python scripts/build_inaturalist_photo_proxy_queue.py \
+  --candidates izu_inaturalist_candidate_snapshots/trait_photo_candidates.csv \
+  --proxy-config configs/izu_island_proxy_points.json \
+  --output-csv izu_inaturalist_candidate_snapshots/trait_photo_proxy_review_queue.csv \
+  --output-md izu_inaturalist_candidate_snapshots/TRAIT_PHOTO_PROXY_QUEUE.md
 ```
 
-The Izu iNaturalist workflow runs this after a complete retrieval and uploads
-both the raw snapshot and the candidate inventory as a 30-day artifact.
+The Izu iNaturalist workflow runs both after a complete retrieval and uploads
+the raw snapshot, candidate inventory, and reviewer queue as a 30-day artifact.
 
 ## Boundary
 
