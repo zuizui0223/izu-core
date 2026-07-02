@@ -5,8 +5,10 @@ on:
     branches: [main]
     paths:
       - 'channel_id/island_source_level.py'
+      - 'channel_id/source_level_sensitivity.py'
       - 'channel_id/island_multichannel.py'
       - 'scripts/run_source_level_island_analysis.py'
+      - 'scripts/run_source_level_sensitivity.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
       - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
@@ -16,8 +18,10 @@ on:
   pull_request:
     paths:
       - 'channel_id/island_source_level.py'
+      - 'channel_id/source_level_sensitivity.py'
       - 'channel_id/island_multichannel.py'
       - 'scripts/run_source_level_island_analysis.py'
+      - 'scripts/run_source_level_sensitivity.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
       - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
@@ -41,11 +45,21 @@ jobs:
             --seed 20260702 \
             --output-json artifacts/source_level_island_analysis.json \
             --output-md artifacts/source_level_island_analysis.md
-      - name: Upload source-level report
+      - name: Run scale and Monte Carlo sensitivity analysis
+        run: |
+          python scripts/run_source_level_sensitivity.py \
+            --draws 2500 \
+            --output-csv artifacts/source_level_sensitivity.csv \
+            --output-json artifacts/source_level_sensitivity.json \
+            --output-md artifacts/source_level_sensitivity.md
+      - name: Upload source-level reports
         uses: actions/upload-artifact@v4
         with:
           name: source-level-island-analysis
           path: |
             artifacts/source_level_island_analysis.json
             artifacts/source_level_island_analysis.md
+            artifacts/source_level_sensitivity.csv
+            artifacts/source_level_sensitivity.json
+            artifacts/source_level_sensitivity.md
           if-no-files-found: error
