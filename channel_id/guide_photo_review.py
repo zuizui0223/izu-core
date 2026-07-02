@@ -1,11 +1,9 @@
 """Build blinded, review-gated floral-guide photo review bundles.
 
-The input is the iNaturalist proxy review queue. It is not a trait dataset.
-This module separates geographic/taxonomic review from trait review, and treats
-one iNaturalist observation as one unit even when several photos are attached.
-That prevents duplicate angles of a plant from becoming artificial replicates.
-
-Reconciliation only creates review drafts. It never writes model constraints.
+Input rows are public-photo candidates after a proxy-only geographic triage.
+They are not trait data. The workflow separates geographic/taxonomic review from
+trait scoring, keeps one source record as one review unit even when it has
+multiple images, and creates only non-binding constraint drafts after review.
 """
 
 from __future__ import annotations
@@ -24,7 +22,7 @@ VALID_ISLANDS = frozenset({"Oshima", "Toshima", "Niijima", "Kozushima", "Miyake"
 VALID_ORDINAL_SCORES = frozenset({0, 1, 2, 3})
 
 GEOGRAPHIC_COLUMNS = (
-    "observation_unit_id", "record_id", "target_id", "query_taxon_name", "observed_taxon_name",
+    "observation_unit_id", "source_type", "record_id", "target_id", "query_taxon_name", "observed_taxon_name",
     "observed_on", "latitude", "longitude", "positional_accuracy_m", "quality_grade",
     "candidate_ids", "photo_urls", "observation_source_url", "nearest_declared_proxy",
     "nearest_proxy_distance_km", "second_nearest_declared_proxy", "second_nearest_proxy_distance_km",
@@ -36,9 +34,9 @@ BLIND_TRAIT_COLUMNS = (
     "focal_taxon_consistent", "inner_corolla_visibility", "flower_open_stage", "image_comparable",
     "guide_ordinal_0_to_3", "trait_review_status", "exclusion_reason", "notes",
 )
-KEY_COLUMNS = ("blind_unit_id", "observation_unit_id", "record_id", "target_id")
+KEY_COLUMNS = ("blind_unit_id", "observation_unit_id", "source_type", "record_id", "target_id")
 ELIGIBLE_COLUMNS = (
-    "observation_unit_id", "record_id", "verified_island_id", "trait_score_reviewer_a",
+    "observation_unit_id", "source_type", "record_id", "verified_island_id", "trait_score_reviewer_a",
     "trait_score_reviewer_b", "consensus_guide_ordinal", "trait_score_difference", "source_note",
 )
 ISLAND_SUMMARY_COLUMNS = (
@@ -57,6 +55,7 @@ class ReviewBundleConfig:
     target_id: str = "campanula_microdonta"
     max_positional_accuracy_m: float = 100.0
     min_proxy_gap_km: float = 20.0
+    allowed_quality_grades: tuple[str, ...] = ("research",)
     seed: int = 20260702
 
     def __post_init__(self) -> None:
@@ -64,6 +63,8 @@ class ReviewBundleConfig:
             raise ValueError("max_positional_accuracy_m must be positive")
         if self.min_proxy_gap_km < 0.0:
             raise ValueError("min_proxy_gap_km cannot be negative")
+        if not self.allowed_quality_grades or not all(value.strip() for value in self.allowed_quality_grades):
+            raise ValueError("allowed_quality_grades must contain at least one nonblank value")
 
 
 def _text(row: dict[str, str], field: str) -> str:
@@ -78,6 +79,14 @@ def _parse_float(row: dict[str, str], field: str) -> float | None:
         return float(value)
     except ValueError as error:
         raise ValueError(f"{field} is not numeric for {row.get('candidate_id', '<unknown>')!r}") from error
+
+
+def _source_type(row: dict[str, str]) -> str:
+    return _text(row, "source_type") or "iNaturalist"
+
+
+def _source_slug(source_type: str) -> str:
+    return "".join(character if character.isalnum() else "_" for character in source_type.casefold()).strip("_") or "source"
 
 
 def _require_columns(fieldnames: Sequence[str], required: Iterable[str]) -> None:
@@ -100,7 +109,8 @@ def read_proxy_queue(path: Path) -> tuple[list[dict[str, str]], tuple[str, ...]]
 def _is_candidate_for_bundle(row: dict[str, str], config: ReviewBundleConfig) -> bool:
     if _text(row, "target_id") != config.target_id:
         return False
-    if _text(row, "quality_grade") != "research":
+    allowed = {value.casefold() for value in config.allowed_quality_grades}
+    if _text(row, "quality_grade").casefold() not in allowed:
         return False
     if not _text(row, "photo_url") or not _text(row, "observation_source_url"):
         return False
@@ -113,8 +123,8 @@ def _is_candidate_for_bundle(row: dict[str, str], config: ReviewBundleConfig) ->
     )
 
 
-def _unit_id(record_id: str) -> str:
-    return f"inat_observation:{record_id}"
+def _unit_id(source_type: str, record_id: str) -> str:
+    return f"{_source_slug(source_type)}_record:{record_id}"
 
 
 def _stable_blind_id(observation_unit_id: str, ordinal: int, seed: int) -> str:
@@ -127,19 +137,20 @@ def build_review_bundle(
     config: ReviewBundleConfig = ReviewBundleConfig(),
 ) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
     """Make geographic rows, two identical blinded sheets, and a private key."""
-    grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
+    grouped: dict[tuple[str, str], list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         if _is_candidate_for_bundle(row, config):
             record_id = _text(row, "record_id")
             if record_id:
-                grouped[record_id].append(row)
+                grouped[(_source_type(row), record_id)].append(row)
 
     geographic: list[dict[str, str]] = []
-    for record_id, photo_rows in sorted(grouped.items()):
-        ordered = sorted(photo_rows, key=lambda row: (_text(row, "photo_index"), _text(row, "candidate_id")))
+    for (source_type, record_id), photo_rows in sorted(grouped.items()):
+        ordered = sorted(photo_rows, key=lambda row: (_text(row, "photo_index") or _text(row, "media_index"), _text(row, "candidate_id")))
         first = ordered[0]
         geographic.append({
-            "observation_unit_id": _unit_id(record_id),
+            "observation_unit_id": _unit_id(source_type, record_id),
+            "source_type": source_type,
             "record_id": record_id,
             "target_id": _text(first, "target_id"),
             "query_taxon_name": _text(first, "query_taxon_name"),
@@ -193,6 +204,7 @@ def build_review_bundle(
         key.append({
             "blind_unit_id": blind_id,
             "observation_unit_id": unit["observation_unit_id"],
+            "source_type": unit["source_type"],
             "record_id": unit["record_id"],
             "target_id": unit["target_id"],
         })
@@ -220,24 +232,28 @@ def write_review_bundle(
     _write_csv(output_dir / "blind_trait_review_A.csv", BLIND_TRAIT_COLUMNS, trait_a)
     _write_csv(output_dir / "blind_trait_review_B.csv", BLIND_TRAIT_COLUMNS, trait_b)
     _write_csv(output_dir / "blind_review_key_DO_NOT_SHARE_WITH_TRAIT_REVIEWERS.csv", KEY_COLUMNS, key)
+    source_counts: dict[str, int] = defaultdict(int)
+    for row in geographic:
+        source_counts[row["source_type"]] += 1
     lines = [
         "# Blinded guide-photo review bundle",
         "",
-        "One row equals one iNaturalist observation, not one photo. Multiple linked photos are alternative views of the same unit.",
+        "One row equals one source record, not one photo. Multiple linked photos are alternative views of the same unit.",
         "",
         f"Eligible focal observation units: {len(geographic)}",
-        f"Selection: target_id={config.target_id}; research grade; positional accuracy ≤ {config.max_positional_accuracy_m:g} m; nearest-versus-second-proxy gap ≥ {config.min_proxy_gap_km:g} km.",
+        f"Sources: {', '.join(f'{name}={count}' for name, count in sorted(source_counts.items())) or 'none'}",
+        f"Selection: target_id={config.target_id}; quality-grade values={', '.join(config.allowed_quality_grades)}; positional accuracy ≤ {config.max_positional_accuracy_m:g} m; nearest-versus-second-proxy gap ≥ {config.min_proxy_gap_km:g} km.",
         "",
         "## Workflow",
         "",
-        "1. Complete geographic_taxonomic_review.csv from the observation URL, coordinates, accuracy, and taxonomy. This file is not blinded.",
-        "2. Two trait reviewers independently complete A and B. Do not share the geographic file or key with trait reviewers. Blind files hide coordinates, island/proxy names, and observation URLs.",
+        "1. Complete geographic_taxonomic_review.csv from the source URL, coordinates, accuracy, and taxonomy. This file is not blinded.",
+        "2. Two trait reviewers independently complete A and B. Do not share the geographic file or key with trait reviewers. Blind files hide coordinates, island/proxy names, source names, and source URLs.",
         "3. Enter an ordinal guide score only when inner corolla visibility is adequate, flower stage is open, and image comparability is yes: 0 = no/negligible guide, 1 = weak, 2 = moderate, 3 = strong.",
         "4. Reconcile completed sheets. The output is a review draft only; it never edits model constraints automatically.",
         "",
         "## Boundary",
         "",
-        "Research grade and a large proxy gap are triage gates, not proof of island membership or random sampling. Geographic/taxonomic acceptance remains mandatory, and one observation remains one unit in all summaries.",
+        "Quality-grade filtering and a large proxy gap are triage gates, not proof of island membership, media reliability, or random sampling. Geographic/taxonomic acceptance remains mandatory, and one source record remains one unit in all summaries.",
     ]
     (output_dir / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -331,13 +347,14 @@ def reconcile_reviews(
             continue
         eligible.append({
             "observation_unit_id": _text(key_row, "observation_unit_id"),
+            "source_type": _text(key_row, "source_type") or _text(geo, "source_type") or "unknown",
             "record_id": _text(geo, "record_id"),
             "verified_island_id": island_id,
             "trait_score_reviewer_a": str(score_a),
             "trait_score_reviewer_b": str(score_b),
             "consensus_guide_ordinal": str(round((score_a + score_b) / 2)),
             "trait_score_difference": str(abs(score_a - score_b)),
-            "source_note": "Double-blind ordinal review; public photo candidate; one row per observation unit.",
+            "source_note": "Double-blind ordinal review; public photo candidate; one row per source record.",
         })
 
     by_island: dict[str, list[int]] = defaultdict(list)
