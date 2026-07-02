@@ -4,7 +4,14 @@ on:
   pull_request:
     paths:
       - "configs/izu_gbif_snapshot_targets.json"
+      - "configs/izu_island_proxy_points.json"
       - "scripts/fetch_izu_gbif_snapshots.py"
+      - "scripts/extract_gbif_trait_photo_candidates.py"
+      - "scripts/build_gbif_photo_proxy_queue.py"
+      - "scripts/build_blinded_guide_photo_review_bundle.py"
+      - "channel_id/gbif_trait_photos.py"
+      - "channel_id/inaturalist_photo_proxy_queue.py"
+      - "channel_id/guide_photo_review.py"
       - ".github/workflows/izu-gbif-candidate-snapshot.yml"
   workflow_dispatch:
 
@@ -22,6 +29,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install local package for review utilities
+        run: python -m pip install -e .
+
       - name: Fetch Izu-scoped candidate snapshots
         id: fetch
         continue-on-error: true
@@ -30,6 +40,31 @@ jobs:
             --config configs/izu_gbif_snapshot_targets.json \
             --output-dir izu_gbif_candidate_snapshots \
             --max-records 5000
+
+      - name: Extract GBIF flower-photo candidates
+        if: steps.fetch.outcome == 'success'
+        run: |
+          python scripts/extract_gbif_trait_photo_candidates.py \
+            --snapshot-root izu_gbif_candidate_snapshots \
+            --output-csv izu_gbif_candidate_snapshots/trait_photo_candidates.csv \
+            --output-md izu_gbif_candidate_snapshots/TRAIT_PHOTO_CANDIDATES.md
+
+      - name: Build GBIF proxy-only reviewer queue
+        if: steps.fetch.outcome == 'success'
+        run: |
+          python scripts/build_gbif_photo_proxy_queue.py \
+            --candidates izu_gbif_candidate_snapshots/trait_photo_candidates.csv \
+            --proxy-config configs/izu_island_proxy_points.json \
+            --output-csv izu_gbif_candidate_snapshots/trait_photo_proxy_review_queue.csv \
+            --output-md izu_gbif_candidate_snapshots/TRAIT_PHOTO_PROXY_QUEUE.md
+
+      - name: Build GBIF blinded guide review bundle
+        if: steps.fetch.outcome == 'success'
+        run: |
+          python scripts/build_blinded_guide_photo_review_bundle.py \
+            --proxy-queue izu_gbif_candidate_snapshots/trait_photo_proxy_review_queue.csv \
+            --output-dir izu_gbif_candidate_snapshots/guide_photo_review_bundle \
+            --allowed-quality-grade HUMAN_OBSERVATION
 
       - uses: actions/upload-artifact@v4
         if: always()
