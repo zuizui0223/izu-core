@@ -11,6 +11,7 @@
   "targets": [
     {"target_id": "campanula_microdonta", "taxon_name": "Campanula microdonta"},
     {"target_id": "campanula_punctata", "taxon_name": "Campanula punctata"},
+    {"target_id": "campanula_punctata_var_microdonta", "taxon_name": "Campanula punctata var. microdonta"},
     {"target_id": "bombus_ardens", "taxon_name": "Bombus ardens"},
     {"target_id": "bombus_diversus", "taxon_name": "Bombus diversus"},
     {"target_id": "lasioglossum", "taxon_name": "Lasioglossum"},
