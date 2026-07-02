@@ -24,6 +24,12 @@ def main() -> None:
     parser.add_argument("--target-id", default="campanula_microdonta")
     parser.add_argument("--max-positional-accuracy-m", type=float, default=100.0)
     parser.add_argument("--min-proxy-gap-km", type=float, default=20.0)
+    parser.add_argument(
+        "--allowed-quality-grade",
+        action="append",
+        default=None,
+        help="Repeatable source-specific triage value. Defaults to research for iNaturalist queues.",
+    )
     parser.add_argument("--seed", type=int, default=20260702)
     args = parser.parse_args()
     try:
@@ -32,6 +38,7 @@ def main() -> None:
             target_id=args.target_id,
             max_positional_accuracy_m=args.max_positional_accuracy_m,
             min_proxy_gap_km=args.min_proxy_gap_km,
+            allowed_quality_grades=tuple(args.allowed_quality_grade or ("research",)),
             seed=args.seed,
         )
         geographic, trait_a, trait_b, key = build_review_bundle(rows, config)
