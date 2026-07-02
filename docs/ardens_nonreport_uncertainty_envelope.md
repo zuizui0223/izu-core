@@ -37,6 +37,28 @@ large-*Bombus* mainland records stage zero regardless of the *B. ardens* field.
 
 The current input yields five varied islands, hence \(2^5 = 32\) configurations.
 
+## Current locked-input result
+
+In the current artifact, `pollinator_hierarchy` is **never** a co-winner or
+unique winner across the 32 configurations. Its rank is 2 in every case:
+
+```text
+isolation_order       rank 1 in every configuration, MAE = 0.1252
+pollinator_hierarchy  rank 2 in every configuration, MAE = 0.1370–0.3081
+environment_only      rank 3 in every configuration, MAE = 0.3390
+```
+
+Therefore this simple deterministic pattern test does **not** support the bridge
+hierarchy as the best explanation relative to the island-order benchmark. It
+shows only that the hierarchy pattern is consistently closer to these locked
+trait channels than the declared climate-only benchmark.
+
+This result must be kept separate from the source-level multichannel likelihood
+and profile analyses, which answer a different question using different
+observation models and ecological restrictions. Agreement or disagreement across
+those analyses is a model-comparison result to report, not a reason to select one
+post hoc.
+
 ## What it does not do
 
 The configurations are not equally probable scenarios. They do not estimate:
@@ -56,14 +78,10 @@ rate-table state in the existing transparent pattern scorer.”
 The report records the rank of `pollinator_hierarchy` against the existing
 `environment_only` and `isolation_order` pattern checks for every configuration.
 
-The relevant robust claim is limited to one of these forms:
-
-- hierarchy remains a unique winner across the full declared envelope;
-- hierarchy remains at least tied for first across the full envelope;
-- hierarchy loses rank in specified coding configurations.
-
-Do not translate rank stability into a claim that *B. ardens* was present or
-absent on any particular island.
+Do not translate the rank stability into a claim that *B. ardens* was present or
+absent on any particular island. In particular, the finding that hierarchy stays
+rank 2 is not evidence for island occupancy; it is a limitation of the simple
+ordered pattern formulation.
 
 ## Run
 
