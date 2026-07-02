@@ -1,0 +1,46 @@
+name: Flower-length comparability screening
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'channel_id/flower_length_comparability.py'
+      - 'scripts/run_flower_length_comparability.py'
+      - 'tests/test_flower_length_comparability.py'
+      - 'docs/flower_length_comparability.md'
+      - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
+      - '.github/workflows/flower-length-comparability.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test declared flower sets
+        run: pytest tests/test_flower_length_comparability.py
+      - name: Screen comparability and flower-row leverage
+        run: |
+          python scripts/run_flower_length_comparability.py \
+            --particles 250 \
+            --target-ess-fraction 0.70 \
+            --rejuvenation-steps 1 \
+            --seeds 20260705 20260706 \
+            --output-json artifacts/flower_length_comparability.json \
+            --output-md artifacts/flower_length_comparability.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flower-length-comparability
+          path: |
+            artifacts/flower_length_comparability.json
+            artifacts/flower_length_comparability.md
+          if-no-files-found: error
+          retention-days: 30
