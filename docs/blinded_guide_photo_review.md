@@ -34,6 +34,10 @@ Those values are source-specific filtering labels, not equivalent evidence
 quality claims. GBIF preserved-specimen media remain candidate records but are
 not sent to living-flower guide scoring by default.
 
+The GBIF bundle additionally excludes a record when its media identifier or
+reference explicitly names iNaturalist. This is a high-specificity duplicate
+filter, not proof that all remaining GBIF media are independent.
+
 No triage filter proves island membership, floral trait prevalence,
 representative sampling, or independence across sources.
 
@@ -49,9 +53,9 @@ observed taxon, and proxy-distance metadata. They must verify:
 - `taxon_review_status = accepted`.
 
 The reviewer records a concrete basis, such as source geometry plus taxon
-assessment. “Nearest proxy” alone is not an acceptable basis. Where a GBIF
-record may re-publish an iNaturalist image, source links, dataset provenance,
-media references, and image URLs must be inspected before combining units.
+assessment. “Nearest proxy” alone is not an acceptable basis. For retained GBIF
+records, source links, dataset provenance, media references, and image URLs
+still require inspection before combining evidence across sources.
 
 ### Blinded trait review
 
@@ -105,11 +109,10 @@ python scripts/build_blinded_guide_photo_review_bundle.py \
   --proxy-queue izu_inaturalist_candidate_snapshots/trait_photo_proxy_review_queue.csv \
   --output-dir guide_photo_review_bundle_inaturalist
 
-# GBIF (initial human-observation triage)
-python scripts/build_blinded_guide_photo_review_bundle.py \
+# GBIF (human-observation triage, excluding explicit iNaturalist republications)
+python scripts/build_gbif_blinded_guide_review_bundle.py \
   --proxy-queue izu_gbif_candidate_snapshots/trait_photo_proxy_review_queue.csv \
-  --output-dir guide_photo_review_bundle_gbif \
-  --allowed-quality-grade HUMAN_OBSERVATION
+  --output-dir guide_photo_review_bundle_gbif
 
 python scripts/reconcile_blinded_guide_photo_reviews.py \
   --geographic-review guide_photo_review_bundle_inaturalist/geographic_taxonomic_review.csv \
