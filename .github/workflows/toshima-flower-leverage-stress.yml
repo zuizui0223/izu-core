@@ -1,0 +1,40 @@
+name: Toshima flower-row leverage stress
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/run_flower_length_targeted_stress.py'
+      - '.github/workflows/toshima-flower-leverage-stress.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e .
+      - name: Run targeted Toshima-exclusion stress test
+        run: |
+          python scripts/run_flower_length_targeted_stress.py \
+            --set-id 'leave_one_comparable_row_out:Toshima:35.27' \
+            --particles 750 \
+            --target-ess-fraction 0.70 \
+            --rejuvenation-steps 1 \
+            --seeds 20260710 20260711 20260712 20260713 20260714 20260715 20260716 20260717 \
+            --output-json artifacts/toshima_flower_leverage_stress.json \
+            --output-md artifacts/toshima_flower_leverage_stress.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: toshima-flower-leverage-stress
+          path: |
+            artifacts/toshima_flower_leverage_stress.json
+            artifacts/toshima_flower_leverage_stress.md
+          if-no-files-found: error
+          retention-days: 30
