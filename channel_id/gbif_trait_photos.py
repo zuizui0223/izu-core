@@ -4,7 +4,7 @@ The input is `occurrence_pages.json` retained by the GBIF snapshot workflow.
 Each output row represents one media item linked to a GBIF occurrence. The module
 never assigns an island, scores a floral trait, estimates trait frequency, or
 infers a plant-pollinator interaction. It only retains source metadata needed
-for later geographic, taxonomic, licensing, and blinded trait review.
+for later geographic, taxonomic, licensing, duplicate, and blinded trait review.
 """
 
 from __future__ import annotations
@@ -16,34 +16,12 @@ from typing import Any
 
 
 COLUMNS = (
-    "candidate_id",
-    "source_type",
-    "record_id",
-    "target_id",
-    "query_taxon_name",
-    "observed_taxon_name",
-    "observed_on",
-    "latitude",
-    "longitude",
-    "positional_accuracy_m",
-    "quality_grade",
-    "basis_of_record",
-    "dataset_key",
-    "media_index",
-    "media_identifier",
-    "media_type",
-    "media_format",
-    "media_license",
-    "media_creator",
-    "media_references",
-    "photo_url",
-    "photo_original_url",
-    "observation_source_url",
-    "corolla_inner_visibility",
-    "island_assignment_status",
-    "trait_eligibility",
-    "review_status",
-    "notes",
+    "candidate_id", "source_type", "record_id", "target_id", "query_taxon_name", "observed_taxon_name",
+    "observed_on", "latitude", "longitude", "positional_accuracy_m", "quality_grade", "basis_of_record",
+    "dataset_key", "origin_platform_hint", "media_index", "media_identifier", "media_type", "media_format",
+    "media_license", "media_creator", "media_references", "photo_url", "photo_original_url",
+    "observation_source_url", "corolla_inner_visibility", "island_assignment_status", "trait_eligibility",
+    "review_status", "notes",
 )
 
 REVIEW_TEMPLATE = {
@@ -65,6 +43,12 @@ def _text(value: object) -> str:
 
 def _coordinates(record: dict[str, Any]) -> tuple[str, str]:
     return _text(record.get("decimalLatitude")), _text(record.get("decimalLongitude"))
+
+
+def origin_platform_hint(identifier: str, references: str) -> str:
+    """Flag obvious iNaturalist republications without claiming exhaustive provenance."""
+    combined = f"{identifier}\n{references}".casefold()
+    return "iNaturalist_republication" if "inaturalist" in combined else "not_flagged_as_iNaturalist"
 
 
 def _media_items(record: dict[str, Any]) -> list[dict[str, Any]]:
@@ -97,34 +81,34 @@ def _record_rows(record: dict[str, Any], target_id: str, query_taxon_name: str) 
     rows: list[dict[str, str]] = []
     for index, media in enumerate(_media_items(record), start=1):
         identifier = _text(media.get("identifier"))
-        rows.append(
-            {
-                "candidate_id": f"gbif:{record_id}:media:{index}",
-                "source_type": "GBIF",
-                "record_id": record_id,
-                "target_id": target_id,
-                "query_taxon_name": query_taxon_name,
-                "observed_taxon_name": _text(record.get("scientificName") or record.get("species")),
-                "observed_on": _text(record.get("eventDate") or record.get("year")),
-                "latitude": latitude,
-                "longitude": longitude,
-                "positional_accuracy_m": _text(record.get("coordinateUncertaintyInMeters")),
-                "quality_grade": _text(record.get("basisOfRecord")),
-                "basis_of_record": _text(record.get("basisOfRecord")),
-                "dataset_key": _text(record.get("datasetKey")),
-                "media_index": str(index),
-                "media_identifier": identifier,
-                "media_type": _text(media.get("type")),
-                "media_format": _text(media.get("format")),
-                "media_license": _text(media.get("license")),
-                "media_creator": _text(media.get("creator")),
-                "media_references": _text(media.get("references")),
-                "photo_url": identifier,
-                "photo_original_url": identifier,
-                "observation_source_url": f"https://www.gbif.org/occurrence/{record_id}",
-                **REVIEW_TEMPLATE,
-            }
-        )
+        references = _text(media.get("references"))
+        rows.append({
+            "candidate_id": f"gbif:{record_id}:media:{index}",
+            "source_type": "GBIF",
+            "record_id": record_id,
+            "target_id": target_id,
+            "query_taxon_name": query_taxon_name,
+            "observed_taxon_name": _text(record.get("scientificName") or record.get("species")),
+            "observed_on": _text(record.get("eventDate") or record.get("year")),
+            "latitude": latitude,
+            "longitude": longitude,
+            "positional_accuracy_m": _text(record.get("coordinateUncertaintyInMeters")),
+            "quality_grade": _text(record.get("basisOfRecord")),
+            "basis_of_record": _text(record.get("basisOfRecord")),
+            "dataset_key": _text(record.get("datasetKey")),
+            "origin_platform_hint": origin_platform_hint(identifier, references),
+            "media_index": str(index),
+            "media_identifier": identifier,
+            "media_type": _text(media.get("type")),
+            "media_format": _text(media.get("format")),
+            "media_license": _text(media.get("license")),
+            "media_creator": _text(media.get("creator")),
+            "media_references": references,
+            "photo_url": identifier,
+            "photo_original_url": identifier,
+            "observation_source_url": f"https://www.gbif.org/occurrence/{record_id}",
+            **REVIEW_TEMPLATE,
+        })
     return rows
 
 
@@ -167,15 +151,18 @@ def write_candidates(rows: list[dict[str, str]], output_csv: Path, output_md: Pa
         writer.writerows(rows)
     by_target: dict[str, int] = {}
     by_record: dict[str, set[str]] = {}
+    inaturalist_republished = 0
     for row in rows:
         by_target[row["target_id"]] = by_target.get(row["target_id"], 0) + 1
         by_record.setdefault(row["target_id"], set()).add(row["record_id"])
+        inaturalist_republished += row["origin_platform_hint"] == "iNaturalist_republication"
     lines = [
         "# GBIF trait-photo candidate inventory",
         "",
         "Each row is a GBIF media candidate linked to its original occurrence. No image has been scored for guide/spot traits, assigned to an island, or used as a population sample.",
         "",
         f"Total photo candidates: {len(rows)}",
+        f"Clearly flagged iNaturalist republications: {inaturalist_republished}",
         "",
         "| target | media candidates | unique occurrence records |",
         "|---|---:|---:|",
@@ -186,6 +173,6 @@ def write_candidates(rows: list[dict[str, str]], output_csv: Path, output_md: Pa
         "",
         "## Review gates",
         "",
-        "Before a candidate enters a guide-direction analysis, a reviewer must check the original GBIF occurrence, taxon, geometry and coordinate uncertainty, media provenance/license, open inner-corolla visibility, flower stage, and comparability. Multiple media items from one GBIF occurrence remain one review unit.",
+        "Before a candidate enters a guide-direction analysis, a reviewer must check the original GBIF occurrence, taxon, geometry and coordinate uncertainty, media provenance/license, open inner-corolla visibility, flower stage, and comparability. Multiple media items from one GBIF occurrence remain one review unit. An iNaturalist-republication hint is high-specificity duplicate evidence, not a complete provenance classification for unflagged rows.",
     ))
     output_md.write_text("\n".join(lines) + "\n", encoding="utf-8")
