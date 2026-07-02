@@ -72,9 +72,13 @@ def _all_ablation_winners(source: dict[str, Any], scenario: str) -> bool:
     return True
 
 
+def _retained_rows(source: dict[str, Any]) -> dict[str, Any]:
+    retained = source.get("retained_rows")
+    return retained if isinstance(retained, dict) else {}
+
+
 def _guide_is_unresolved(source: dict[str, Any], stage: dict[str, Any]) -> bool:
-    retained = source.get("retained_rows", {})
-    guide_n = retained.get("guide_constraints") if isinstance(retained, dict) else None
+    guide_n = _retained_rows(source).get("guide_constraints")
     observed = stage.get("observed_channels", [])
     return guide_n == 0 and (not isinstance(observed, list) or not any("guide" in str(value) for value in observed))
 
@@ -88,7 +92,7 @@ def build_register(
 ) -> dict[str, Any]:
     """Summarize compatible and non-comparable conclusions across model families."""
     source_ranked = _rank(_records(source_level, "full_evidence"), "log_marginal_compatibility", descending=True)
-    profile_ranked = _rank(_records(profile, "model_scores"), "best_log_likelihood", descending=True)
+    profile_ranked = _rank(_records(profile, "results"), "best_log_likelihood", descending=True)
     stage_ranked = _rank(_records(stage_pattern, "model_scores"), "mean_absolute_error", descending=False)
     source_winner = str(source_ranked[0]["scenario"])
     profile_winner = str(profile_ranked[0]["scenario"])
@@ -105,18 +109,26 @@ def build_register(
     envelope_rank_max = ardens_envelope.get("pollinator_hierarchy_worst_rank")
     envelope_count = ardens_envelope.get("configuration_count")
     all_ablation = _all_ablation_winners(source_level, source_winner)
+    profile_agrees = profile_winner == source_winner
     guide_unresolved = _guide_is_unresolved(source_level, stage_pattern)
     low_ess_warning = int(sensitivity_winner.get("warning_cells", 0)) > 0
+    source_preference_status = (
+        "conditional_support_with_monte_carlo_warning"
+        if profile_agrees and all_ablation and low_ess_warning
+        else "conditional_support"
+        if profile_agrees and all_ablation
+        else "restricted_family_preference_requires_manual_review"
+    )
 
     claims = [
         {
             "claim_id": "source_level_preference",
-            "status": "conditional_support_with_monte_carlo_warning" if low_ess_warning else "conditional_support",
+            "status": source_preference_status,
             "claim": "Within the declared source-level scenario family, one scenario fits the retained direct-table channels best.",
             "source_level_evidence": (
-                f"{source_winner} ranks first in source-level marginal compatibility, profile compatibility, "
-                f"and every leave-one-channel-out ranking={str(all_ablation).lower()}. "
-                f"Its sensitivity rank-one fraction is {float(sensitivity_winner['rank_one_fraction']):.3f}; "
+                f"marginal winner={source_winner}; profile winner={profile_winner}; "
+                f"winner retained in every leave-one-channel-out ranking={str(all_ablation).lower()}; "
+                f"rank-one fraction={float(sensitivity_winner['rank_one_fraction']):.3f}; "
                 f"warning cells={int(sensitivity_winner.get('warning_cells', 0))}."
             ),
             "stage_pattern_evidence": "The stage-pattern analysis does not fit this same restricted scenario family, so it cannot independently confirm this source-level preference.",
@@ -154,7 +166,7 @@ def build_register(
             "claim_id": "guide_loss_unidentified",
             "status": "blocked_by_missing_observation_channel" if guide_unresolved else "requires_manual_review",
             "claim": "Neither analysis identifies nectar-guide/spot loss or its mechanism.",
-            "source_level_evidence": f"retained guide constraints={source_level.get('retained_rows', {}).get('guide_constraints', 'unknown')}",
+            "source_level_evidence": f"retained guide constraints={_retained_rows(source_level).get('guide_constraints', 'unknown')}",
             "stage_pattern_evidence": "The stage-pattern observed channels do not include island-resolved guide/spot measurements.",
             "current_safe_wording": "No current model comparison supports a claim about guide loss, its direction, or its selective cause.",
             "what_would_change_this": "Geographically verified, double-blind, island-resolved guide/spot measurements paired with pollinator handling and fitness-relevant outcomes.",
@@ -180,12 +192,13 @@ def build_register(
             "winner_log_marginal_compatibility": float(source_ranked[0]["log_marginal_compatibility"]),
             "profile_winner": profile_winner,
             "profile_best_log_likelihood": float(profile_ranked[0]["best_log_likelihood"]),
+            "profile_agrees_with_marginal_winner": profile_agrees,
             "all_leave_one_channel_out_rank_one": all_ablation,
             "sensitivity_rank_one_fraction": float(sensitivity_winner["rank_one_fraction"]),
             "sensitivity_warning_cells": int(sensitivity_winner.get("warning_cells", 0)),
             "sensitivity_min_ess": float(sensitivity_winner.get("min_ess", 0.0)),
             "sensitivity_median_ess": float(sensitivity_winner.get("median_ess", 0.0)),
-            "retained_rows": source_level.get("retained_rows", {}),
+            "retained_rows": _retained_rows(source_level),
         },
         "stage_pattern_summary": {
             "winner": stage_winner,
@@ -231,6 +244,7 @@ def write_register(register: dict[str, Any], output_json: Path, output_csv: Path
         "|---|---|",
         f"| source-level best scenario | {source['winner']} |",
         f"| source-level profile best scenario | {source['profile_winner']} |",
+        f"| source-level profile agrees with marginal winner | {str(source['profile_agrees_with_marginal_winner']).lower()} |",
         f"| source-level winner in every leave-one-channel-out run | {str(source['all_leave_one_channel_out_rank_one']).lower()} |",
         f"| source-level winner sensitivity rank-one fraction | {source['sensitivity_rank_one_fraction']:.3f} |",
         f"| source-level winner importance ESS (min / median) | {source['sensitivity_min_ess']:.2f} / {source['sensitivity_median_ess']:.2f} |",
