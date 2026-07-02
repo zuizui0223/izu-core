@@ -1,7 +1,7 @@
-source_id,source_locator,island,reported_taxon,mean_flower_length_mm,sd_mm,n,context,notes
-inoue_maki_masuda1995,Table 1,Hachijo,Campanula microdonta,23.14,3.16,120,common_garden_pollination_experiment,Direct table transcription from supplied PDF
-inoue_maki_masuda1995,Table 1,Niijima,Campanula microdonta,28.62,2.38,2,common_garden_pollination_experiment,Direct table transcription; used only in Tokyo experiment
-inoue_maki_masuda1995,Table 1,Toshima,Campanula microdonta,35.27,5.08,77,common_garden_pollination_experiment,Direct table transcription
-inoue_maki_masuda1995,Table 1,Oshima,Campanula microdonta,39.31,4.75,48,common_garden_pollination_experiment,Direct table transcription
-inoue_maki_masuda1995,Table 1,Kiyosumi,Campanula punctata,46.66,5.33,16,common_garden_pollination_experiment,Mainland comparison; used only in Tokyo experiment
-inoue_maki_masuda1995,Table 1,Nikko,Campanula punctata,49.91,6.90,25,common_garden_pollination_experiment,Mainland comparison; used only in Nikko experiment
+source_id,source_locator,island,reported_taxon,mean_flower_length_mm,sd_mm,n,context,experiment_id,comparability_status,notes
+inoue_maki_masuda1995,Table 1,Hachijo,Campanula microdonta,23.14,3.16,120,common_garden_pollination_experiment,tokyo_experiment,within_context_comparable,Direct table transcription from supplied PDF; Tokyo experiment
+inoue_maki_masuda1995,Table 1,Niijima,Campanula microdonta,28.62,2.38,2,common_garden_pollination_experiment,tokyo_experiment,within_context_comparable,Direct table transcription; used only in Tokyo experiment
+inoue_maki_masuda1995,Table 1,Toshima,Campanula microdonta,35.27,5.08,77,common_garden_pollination_experiment,tokyo_experiment,within_context_comparable,Direct table transcription; Tokyo experiment
+inoue_maki_masuda1995,Table 1,Oshima,Campanula microdonta,39.31,4.75,48,common_garden_pollination_experiment,tokyo_experiment,within_context_comparable,Direct table transcription; Tokyo experiment
+inoue_maki_masuda1995,Table 1,Kiyosumi,Campanula punctata,46.66,5.33,16,common_garden_pollination_experiment,tokyo_experiment,within_context_comparable,Mainland comparison; used only in Tokyo experiment
+inoue_maki_masuda1995,Table 1,Nikko,Campanula punctata,49.91,6.90,25,common_garden_pollination_experiment,nikko_experiment,singleton_context_not_comparable,Mainland comparison; used only in Nikko experiment; no within-context retained comparator
