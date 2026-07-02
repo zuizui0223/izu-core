@@ -4,9 +4,12 @@ on:
   pull_request:
     paths:
       - "configs/izu_inaturalist_snapshot_targets.json"
+      - "configs/izu_island_proxy_points.json"
       - "scripts/fetch_izu_inaturalist_snapshots.py"
       - "scripts/extract_inaturalist_trait_photo_candidates.py"
+      - "scripts/build_inaturalist_photo_proxy_queue.py"
       - "channel_id/inaturalist_trait_photos.py"
+      - "channel_id/inaturalist_photo_proxy_queue.py"
       - ".github/workflows/izu-inaturalist-candidate-snapshot.yml"
   workflow_dispatch:
 
@@ -40,6 +43,15 @@ jobs:
             --snapshot-root izu_inaturalist_candidate_snapshots \
             --output-csv izu_inaturalist_candidate_snapshots/trait_photo_candidates.csv \
             --output-md izu_inaturalist_candidate_snapshots/TRAIT_PHOTO_CANDIDATES.md
+
+      - name: Build proxy-only reviewer queue
+        if: steps.fetch.outcome == 'success'
+        run: |
+          python scripts/build_inaturalist_photo_proxy_queue.py \
+            --candidates izu_inaturalist_candidate_snapshots/trait_photo_candidates.csv \
+            --proxy-config configs/izu_island_proxy_points.json \
+            --output-csv izu_inaturalist_candidate_snapshots/trait_photo_proxy_review_queue.csv \
+            --output-md izu_inaturalist_candidate_snapshots/TRAIT_PHOTO_PROXY_QUEUE.md
 
       - uses: actions/upload-artifact@v4
         if: always()
