@@ -48,13 +48,7 @@ def load_proxy_points(path: Path) -> tuple[dict[str, float | str], ...]:
         if not island_id or island_id in seen:
             raise ValueError("proxy island IDs must be unique and nonempty")
         seen.add(island_id)
-        result.append(
-            {
-                "island_id": island_id,
-                "latitude": float(point["latitude"]),
-                "longitude": float(point["longitude"]),
-            }
-        )
+        result.append({"island_id": island_id, "latitude": float(point["latitude"]), "longitude": float(point["longitude"])})
     return tuple(result)
 
 
@@ -80,42 +74,27 @@ def queue_rows(candidates: list[dict[str, str]], proxies: tuple[dict[str, float 
         output = dict(candidate)
         coordinate = _coordinates(candidate)
         if coordinate is None:
-            output.update(
-                {
-                    "nearest_declared_proxy": "",
-                    "nearest_proxy_distance_km": "",
-                    "second_nearest_declared_proxy": "",
-                    "second_nearest_proxy_distance_km": "",
-                    "nearest_proxy_gap_km": "",
-                }
-            )
+            output.update({
+                "nearest_declared_proxy": "", "nearest_proxy_distance_km": "",
+                "second_nearest_declared_proxy": "", "second_nearest_proxy_distance_km": "",
+                "nearest_proxy_gap_km": "",
+            })
         else:
             latitude, longitude = coordinate
             distances = sorted(
-                (
-                    haversine_km(latitude, longitude, float(point["latitude"]), float(point["longitude"])),
-                    str(point["island_id"]),
-                )
+                (haversine_km(latitude, longitude, float(point["latitude"]), float(point["longitude"])), str(point["island_id"]))
                 for point in proxies
             )
             nearest_distance, nearest = distances[0]
             second_distance, second = distances[1]
-            output.update(
-                {
-                    "nearest_declared_proxy": nearest,
-                    "nearest_proxy_distance_km": f"{nearest_distance:.6f}",
-                    "second_nearest_declared_proxy": second,
-                    "second_nearest_proxy_distance_km": f"{second_distance:.6f}",
-                    "nearest_proxy_gap_km": f"{second_distance - nearest_distance:.6f}",
-                }
-            )
-        output.update(
-            {
-                "proxy_assignment_boundary": boundary,
-                "reviewer_island_decision": "unreviewed",
-                "reviewer_notes": "",
-            }
-        )
+            output.update({
+                "nearest_declared_proxy": nearest,
+                "nearest_proxy_distance_km": f"{nearest_distance:.6f}",
+                "second_nearest_declared_proxy": second,
+                "second_nearest_proxy_distance_km": f"{second_distance:.6f}",
+                "nearest_proxy_gap_km": f"{second_distance - nearest_distance:.6f}",
+            })
+        output.update({"proxy_assignment_boundary": boundary, "reviewer_island_decision": "unreviewed", "reviewer_notes": ""})
         rows.append(output)
     return rows
 
@@ -133,6 +112,13 @@ def read_candidates(path: Path) -> tuple[list[dict[str, str]], tuple[str, ...]]:
         return list(reader), fieldnames
 
 
+def _source_label(rows: list[dict[str, str]]) -> str:
+    labels = sorted({str(row.get("source_type", "")).strip() for row in rows if str(row.get("source_type", "")).strip()})
+    if len(labels) == 1:
+        return labels[0]
+    return "Public-source"
+
+
 def write_queue(rows: list[dict[str, str]], input_columns: tuple[str, ...], output_csv: Path, output_md: Path) -> None:
     fieldnames = tuple(input_columns) + tuple(column for column in APPENDED_COLUMNS if column not in input_columns)
     output_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -146,8 +132,9 @@ def write_queue(rows: list[dict[str, str]], input_columns: tuple[str, ...], outp
     for row in focal:
         proxy = row["nearest_declared_proxy"] or "missing_coordinates"
         by_proxy[proxy] = by_proxy.get(proxy, 0) + 1
+    source_label = _source_label(rows)
     lines = [
-        "# iNaturalist flower-photo proxy review queue",
+        f"# {source_label} flower-photo proxy review queue",
         "",
         "The nearest-proxy columns are navigation aids only. No row has been assigned to an island by this workflow.",
         "",
@@ -161,12 +148,10 @@ def write_queue(rows: list[dict[str, str]], input_columns: tuple[str, ...], outp
     ]
     for proxy, count in sorted(by_proxy.items()):
         lines.append(f"| {proxy} | {count} |")
-    lines.extend(
-        [
-            "",
-            "## Required reviewer decision",
-            "",
-            "Inspect the original observation URL, coordinates, positional accuracy, taxon, and photo. Enter a reviewer island decision only after geometry review. Then independently score inner-corolla visibility and comparability before considering any directional guide/spot claim.",
-        ]
-    )
+    lines.extend([
+        "",
+        "## Required reviewer decision",
+        "",
+        "Inspect the original source URL, coordinates, positional accuracy, taxon, and photo. Enter a reviewer island decision only after geometry review. Then independently score inner-corolla visibility and comparability before considering any directional guide/spot claim.",
+    ])
     output_md.write_text("\n".join(lines) + "\n", encoding="utf-8")
