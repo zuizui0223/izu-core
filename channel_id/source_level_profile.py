@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import math
 import random
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from statistics import mean
 from typing import Iterable, Sequence
 
@@ -72,12 +72,34 @@ class ProfileScenarioResult:
     boundary: str
 
 
+BRIDGE_EFFECTIVENESS_GAP = 0.03
+
+
 def _clip(value: float, lower: float, upper: float) -> float:
     return min(upper, max(lower, value))
 
 
 def _positive_mutation(value: float, sd: float, rng: random.Random) -> float:
     return max(0.0, value + rng.gauss(0.0, sd))
+
+
+def _enforce_scenario_restriction(draw: ScenarioDraw, scenario: IslandScenario) -> ScenarioDraw:
+    """Enforce scenario-specific effectiveness inequalities after any proposal.
+
+    The bridge model must preserve a positive *B. ardens* effectiveness gap,
+    including at the upper unit-interval boundary. This adjustment is part of
+    the scenario definition, rather than a post hoc preference for a result.
+    """
+    if scenario is IslandScenario.SMALL_BEE_SUBSTITUTION:
+        return replace(
+            draw,
+            small_bee_effectiveness=max(draw.small_bee_effectiveness, draw.ardens_effectiveness),
+        )
+    if scenario is IslandScenario.ARDENS_BRIDGE_LOSS:
+        small = min(draw.small_bee_effectiveness, 1.0 - BRIDGE_EFFECTIVENESS_GAP)
+        ardens = max(draw.ardens_effectiveness, small + BRIDGE_EFFECTIVENESS_GAP)
+        return replace(draw, small_bee_effectiveness=small, ardens_effectiveness=ardens)
+    return draw
 
 
 def _mutate_draw(
@@ -87,17 +109,10 @@ def _mutate_draw(
     rng: random.Random,
 ) -> ScenarioDraw:
     """Perturb a draw while retaining all biological parameter restrictions."""
-    large = _clip(base.large_bombus_effectiveness + rng.gauss(0.0, 0.12 * temperature), 0.01, 0.99)
-    ardens = _clip(base.ardens_effectiveness + rng.gauss(0.0, 0.12 * temperature), 0.01, 0.99)
-    small = _clip(base.small_bee_effectiveness + rng.gauss(0.0, 0.12 * temperature), 0.01, 0.99)
-    if scenario is IslandScenario.SMALL_BEE_SUBSTITUTION:
-        small = max(small, ardens)
-    if scenario is IslandScenario.ARDENS_BRIDGE_LOSS:
-        ardens = max(ardens, min(0.99, small + 0.03))
-    return ScenarioDraw(
-        large_bombus_effectiveness=large,
-        ardens_effectiveness=ardens,
-        small_bee_effectiveness=small,
+    proposal = ScenarioDraw(
+        large_bombus_effectiveness=_clip(base.large_bombus_effectiveness + rng.gauss(0.0, 0.12 * temperature), 0.01, 0.99),
+        ardens_effectiveness=_clip(base.ardens_effectiveness + rng.gauss(0.0, 0.12 * temperature), 0.01, 0.99),
+        small_bee_effectiveness=_clip(base.small_bee_effectiveness + rng.gauss(0.0, 0.12 * temperature), 0.01, 0.99),
         environment_weights=tuple(value + rng.gauss(0.0, 0.40 * temperature) for value in base.environment_weights),
         outcrossing_intercept=base.outcrossing_intercept + rng.gauss(0.0, 0.90 * temperature),
         outcrossing_service=_positive_mutation(base.outcrossing_service, 0.65 * temperature, rng),
@@ -117,11 +132,19 @@ def _mutate_draw(
         guide_assurance=_positive_mutation(base.guide_assurance, 0.55 * temperature, rng),
         guide_environment=base.guide_environment + rng.gauss(0.0, 0.35 * temperature),
     )
+    return _enforce_scenario_restriction(proposal, scenario)
 
 
 def _temperature(config: ProfileSearchConfig, iteration: int) -> float:
     fraction = iteration / max(1, config.iterations - 1)
     return config.initial_temperature * (config.final_temperature / config.initial_temperature) ** fraction
+
+
+def _prior_draw(scenario: IslandScenario, environment_dimensions: int, rng: random.Random) -> ScenarioDraw:
+    return _enforce_scenario_restriction(
+        draw_scenario_parameters(scenario, environment_dimensions, rng),
+        scenario,
+    )
 
 
 def _search_one(
@@ -137,7 +160,7 @@ def _search_one(
     standardized = _standardize_environment(evidence.islands)
     env_dim = len(evidence.islands[0].environment)
     rng = random.Random(seed + tuple(IslandScenario).index(scenario) * 1009)
-    population = [draw_scenario_parameters(scenario, env_dim, rng) for _ in range(config.population_size)]
+    population = [_prior_draw(scenario, env_dim, rng) for _ in range(config.population_size)]
     elite_count = max(2, int(config.population_size * config.elite_fraction))
     best_score = float("-inf")
     best_channel = {channel: float("-inf") for channel in EvidenceChannel}
@@ -167,7 +190,7 @@ def _search_one(
         population = []
         refresh_count = int(config.population_size * config.prior_refresh_fraction)
         for _ in range(refresh_count):
-            population.append(draw_scenario_parameters(scenario, env_dim, rng))
+            population.append(_prior_draw(scenario, env_dim, rng))
         for _ in range(config.population_size - refresh_count):
             _, _, parent = elites[rng.randrange(len(elites))]
             population.append(_mutate_draw(parent, scenario, temperature, rng))
