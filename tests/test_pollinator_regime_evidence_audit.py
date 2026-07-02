@@ -57,3 +57,13 @@ def test_mainland_positive_rates_map_to_honshu() -> None:
     assert row.effort_hours == 12.5
     assert len(row.positive_rates) >= 1
     assert row.source_status == "positive_rate_reported"
+
+
+def test_current_binary_inputs_do_not_discard_any_direct_positive_rate() -> None:
+    conflicts = [
+        row
+        for row in _audit()
+        if row.source_status == "positive_rate_reported" and row.model_value == 0
+    ]
+
+    assert conflicts == []
