@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 
-from channel_id.gbif_trait_photos import extract_snapshot, write_candidates
+from channel_id.gbif_trait_photos import extract_snapshot, origin_platform_hint, write_candidates
 
 
 def _write_target(root: Path, target_id: str, scientific_name: str, pages: list[dict]) -> None:
@@ -55,7 +55,14 @@ def test_extracts_image_media_only_and_preserves_gbif_source_metadata(tmp_path: 
     assert row["quality_grade"] == "HUMAN_OBSERVATION"
     assert row["photo_url"] == "https://images.example/a.jpg"
     assert row["media_license"] == "CC_BY_4_0"
+    assert row["origin_platform_hint"] == "not_flagged_as_iNaturalist"
     assert row["trait_eligibility"] == "requires_independent_review"
+
+
+def test_origin_hint_flags_explicit_inaturalist_republication_only() -> None:
+    assert origin_platform_hint("https://inaturalist-open-data.s3.amazonaws.com/photos/1/original.jpg", "") == "iNaturalist_republication"
+    assert origin_platform_hint("https://images.example/flower.jpg", "https://www.inaturalist.org/photos/1") == "iNaturalist_republication"
+    assert origin_platform_hint("https://collections.example/flower.jpg", "") == "not_flagged_as_iNaturalist"
 
 
 def test_write_inventory_reports_media_and_unique_record_counts(tmp_path: Path) -> None:
@@ -73,6 +80,7 @@ def test_write_inventory_reports_media_and_unique_record_counts(tmp_path: Path) 
         "quality_grade": "HUMAN_OBSERVATION",
         "basis_of_record": "HUMAN_OBSERVATION",
         "dataset_key": "dataset",
+        "origin_platform_hint": "iNaturalist_republication",
         "media_index": "1",
         "media_identifier": "https://images.example/a.jpg",
         "media_type": "StillImage",
@@ -98,4 +106,5 @@ def test_write_inventory_reports_media_and_unique_record_counts(tmp_path: Path) 
         assert list(csv.DictReader(handle))[0]["source_type"] == "GBIF"
     text = markdown_path.read_text(encoding="utf-8")
     assert "Total photo candidates: 1" in text
+    assert "Clearly flagged iNaturalist republications: 1" in text
     assert "| campanula_microdonta | 1 | 1 |" in text
