@@ -7,12 +7,16 @@ on:
       - 'channel_id/island_source_level.py'
       - 'channel_id/source_level_sensitivity.py'
       - 'channel_id/source_level_profile.py'
+      - 'channel_id/pollinator_regime_evidence_audit.py'
       - 'channel_id/island_multichannel.py'
       - 'scripts/run_source_level_island_analysis.py'
       - 'scripts/run_source_level_sensitivity.py'
       - 'scripts/run_source_level_profile.py'
+      - 'scripts/audit_pollinator_regime_evidence.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
+      - 'data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv'
+      - 'data/two_breakpoint_evidence/inoue1986_observation_effort.csv'
       - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
       - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
       - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
@@ -22,12 +26,16 @@ on:
       - 'channel_id/island_source_level.py'
       - 'channel_id/source_level_sensitivity.py'
       - 'channel_id/source_level_profile.py'
+      - 'channel_id/pollinator_regime_evidence_audit.py'
       - 'channel_id/island_multichannel.py'
       - 'scripts/run_source_level_island_analysis.py'
       - 'scripts/run_source_level_sensitivity.py'
       - 'scripts/run_source_level_profile.py'
+      - 'scripts/audit_pollinator_regime_evidence.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
+      - 'data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv'
+      - 'data/two_breakpoint_evidence/inoue1986_observation_effort.csv'
       - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
       - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
       - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
@@ -42,6 +50,11 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e .
+      - name: Audit pollinator regime evidence semantics
+        run: |
+          python scripts/audit_pollinator_regime_evidence.py \
+            --output-csv artifacts/pollinator_regime_evidence_audit.csv \
+            --output-md artifacts/pollinator_regime_evidence_audit.md
       - name: Run source-level compatibility analysis
         run: |
           python scripts/run_source_level_island_analysis.py \
@@ -68,6 +81,8 @@ jobs:
         with:
           name: source-level-island-analysis
           path: |
+            artifacts/pollinator_regime_evidence_audit.csv
+            artifacts/pollinator_regime_evidence_audit.md
             artifacts/source_level_island_analysis.json
             artifacts/source_level_island_analysis.md
             artifacts/source_level_sensitivity.csv
