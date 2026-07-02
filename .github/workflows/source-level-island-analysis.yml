@@ -7,12 +7,21 @@ on:
       - 'channel_id/island_source_level.py'
       - 'channel_id/source_level_sensitivity.py'
       - 'channel_id/source_level_profile.py'
+      - 'channel_id/source_level_isolation_order.py'
+      - 'channel_id/source_level_isolation_order_diagnostics.py'
+      - 'channel_id/source_level_tempered_smc.py'
+      - 'channel_id/model_result_register_v2.py'
       - 'channel_id/pollinator_regime_evidence_audit.py'
-      - 'channel_id/island_multichannel.py'
+      - 'channel_id/pollinator_hierarchy_counterfactual.py'
+      - 'channel_id/ardens_nonreport_envelope.py'
       - 'scripts/run_source_level_island_analysis.py'
       - 'scripts/run_source_level_sensitivity.py'
       - 'scripts/run_source_level_profile.py'
-      - 'scripts/audit_pollinator_regime_evidence.py'
+      - 'scripts/run_source_level_profile_with_order.py'
+      - 'scripts/run_source_level_tempered_smc.py'
+      - 'scripts/build_model_result_register_v2.py'
+      - 'scripts/score_pollinator_hierarchy_counterfactual.py'
+      - 'scripts/score_ardens_nonreport_envelope.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
       - 'data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv'
@@ -26,12 +35,21 @@ on:
       - 'channel_id/island_source_level.py'
       - 'channel_id/source_level_sensitivity.py'
       - 'channel_id/source_level_profile.py'
+      - 'channel_id/source_level_isolation_order.py'
+      - 'channel_id/source_level_isolation_order_diagnostics.py'
+      - 'channel_id/source_level_tempered_smc.py'
+      - 'channel_id/model_result_register_v2.py'
       - 'channel_id/pollinator_regime_evidence_audit.py'
-      - 'channel_id/island_multichannel.py'
+      - 'channel_id/pollinator_hierarchy_counterfactual.py'
+      - 'channel_id/ardens_nonreport_envelope.py'
       - 'scripts/run_source_level_island_analysis.py'
       - 'scripts/run_source_level_sensitivity.py'
       - 'scripts/run_source_level_profile.py'
-      - 'scripts/audit_pollinator_regime_evidence.py'
+      - 'scripts/run_source_level_profile_with_order.py'
+      - 'scripts/run_source_level_tempered_smc.py'
+      - 'scripts/build_model_result_register_v2.py'
+      - 'scripts/score_pollinator_hierarchy_counterfactual.py'
+      - 'scripts/score_ardens_nonreport_envelope.py'
       - 'data/inoue_literature_island_traits.csv'
       - 'data/guide_direction_constraints.csv'
       - 'data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv'
@@ -40,10 +58,12 @@ on:
       - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
       - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
       - '.github/workflows/source-level-island-analysis.yml'
+  workflow_dispatch:
 
 jobs:
   source-level-analysis:
     runs-on: ubuntu-latest
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -55,27 +75,61 @@ jobs:
           python scripts/audit_pollinator_regime_evidence.py \
             --output-csv artifacts/pollinator_regime_evidence_audit.csv \
             --output-md artifacts/pollinator_regime_evidence_audit.md
-      - name: Run source-level compatibility analysis
+      - name: Run five-candidate source-level compatibility analysis
         run: |
           python scripts/run_source_level_island_analysis.py \
             --draws 5000 \
             --seed 20260702 \
             --output-json artifacts/source_level_island_analysis.json \
             --output-md artifacts/source_level_island_analysis.md
-      - name: Run scale and Monte Carlo sensitivity analysis
+      - name: Run five-candidate scale and Monte Carlo sensitivity analysis
         run: |
           python scripts/run_source_level_sensitivity.py \
             --draws 2500 \
             --output-csv artifacts/source_level_sensitivity.csv \
             --output-json artifacts/source_level_sensitivity.json \
             --output-md artifacts/source_level_sensitivity.md
-      - name: Run profile compatibility analysis
+      - name: Run five-candidate profile compatibility analysis
         run: |
-          python scripts/run_source_level_profile.py \
+          python scripts/run_source_level_profile_with_order.py \
             --population-size 600 \
             --iterations 16 \
             --output-json artifacts/source_level_profile.json \
             --output-md artifacts/source_level_profile.md
+      - name: Run adaptive tempered SMC comparison
+        run: |
+          python scripts/run_source_level_tempered_smc.py \
+            --particles 500 \
+            --target-ess-fraction 0.70 \
+            --rejuvenation-steps 1 \
+            --seeds 20260702 20260703 20260704 \
+            --output-json artifacts/source_level_tempered_smc.json \
+            --output-md artifacts/source_level_tempered_smc.md
+      - name: Run island-stage and B. ardens envelope checks
+        run: |
+          python scripts/score_pollinator_hierarchy_counterfactual.py \
+            --input data/inoue_literature_island_traits.csv \
+            --output-json artifacts/pollinator_hierarchy_counterfactual.json \
+            --output-md artifacts/pollinator_hierarchy_counterfactual.md
+          python scripts/score_ardens_nonreport_envelope.py \
+            --input data/inoue_literature_island_traits.csv \
+            --pollinator-rates data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv \
+            --observation-effort data/two_breakpoint_evidence/inoue1986_observation_effort.csv \
+            --output-csv artifacts/ardens_nonreport_envelope.csv \
+            --output-json artifacts/ardens_nonreport_envelope.json \
+            --output-md artifacts/ardens_nonreport_envelope.md
+      - name: Build five-candidate result register
+        run: |
+          python scripts/build_model_result_register_v2.py \
+            --source-level artifacts/source_level_island_analysis.json \
+            --profile artifacts/source_level_profile.json \
+            --sensitivity artifacts/source_level_sensitivity.json \
+            --tempered-smc artifacts/source_level_tempered_smc.json \
+            --stage-pattern artifacts/pollinator_hierarchy_counterfactual.json \
+            --ardens-envelope artifacts/ardens_nonreport_envelope.json \
+            --output-json artifacts/model_result_register_v2.json \
+            --output-csv artifacts/model_result_claims_v2.csv \
+            --output-md artifacts/model_result_register_v2.md
       - name: Upload source-level reports
         uses: actions/upload-artifact@v4
         with:
@@ -90,4 +144,14 @@ jobs:
             artifacts/source_level_sensitivity.md
             artifacts/source_level_profile.json
             artifacts/source_level_profile.md
+            artifacts/source_level_tempered_smc.json
+            artifacts/source_level_tempered_smc.md
+            artifacts/pollinator_hierarchy_counterfactual.json
+            artifacts/pollinator_hierarchy_counterfactual.md
+            artifacts/ardens_nonreport_envelope.csv
+            artifacts/ardens_nonreport_envelope.json
+            artifacts/ardens_nonreport_envelope.md
+            artifacts/model_result_register_v2.json
+            artifacts/model_result_claims_v2.csv
+            artifacts/model_result_register_v2.md
           if-no-files-found: error
