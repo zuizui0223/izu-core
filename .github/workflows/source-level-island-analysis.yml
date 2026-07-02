@@ -1,0 +1,51 @@
+name: Source-level island analysis
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'channel_id/island_source_level.py'
+      - 'channel_id/island_multichannel.py'
+      - 'scripts/run_source_level_island_analysis.py'
+      - 'data/inoue_literature_island_traits.csv'
+      - 'data/guide_direction_constraints.csv'
+      - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
+      - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
+      - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
+      - '.github/workflows/source-level-island-analysis.yml'
+  pull_request:
+    paths:
+      - 'channel_id/island_source_level.py'
+      - 'channel_id/island_multichannel.py'
+      - 'scripts/run_source_level_island_analysis.py'
+      - 'data/inoue_literature_island_traits.csv'
+      - 'data/guide_direction_constraints.csv'
+      - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
+      - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
+      - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
+      - '.github/workflows/source-level-island-analysis.yml'
+
+jobs:
+  source-level-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e .
+      - name: Run source-level compatibility analysis
+        run: |
+          python scripts/run_source_level_island_analysis.py \
+            --draws 5000 \
+            --seed 20260702 \
+            --output-json artifacts/source_level_island_analysis.json \
+            --output-md artifacts/source_level_island_analysis.md
+      - name: Upload source-level report
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-level-island-analysis
+          path: |
+            artifacts/source_level_island_analysis.json
+            artifacts/source_level_island_analysis.md
+          if-no-files-found: error
