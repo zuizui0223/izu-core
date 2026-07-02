@@ -25,13 +25,17 @@ def _source() -> dict:
     }
 
 
-def _profile() -> dict:
-    return {
-        "model_scores": [
+def _profile(*, winner: str = "ardens_bridge_loss") -> dict:
+    rows = [
+        {"scenario": "ardens_bridge_loss", "best_log_likelihood": -5.0},
+        {"scenario": "environment_only", "best_log_likelihood": -9.0},
+    ]
+    if winner == "environment_only":
+        rows = [
+            {"scenario": "environment_only", "best_log_likelihood": -4.0},
             {"scenario": "ardens_bridge_loss", "best_log_likelihood": -5.0},
-            {"scenario": "environment_only", "best_log_likelihood": -9.0},
         ]
-    }
+    return {"results": rows}
 
 
 def _sensitivity() -> dict:
@@ -72,6 +76,7 @@ def test_register_retains_model_family_non_equivalence_and_ess_warning() -> None
 
     assert register["source_level_summary"]["winner"] == "ardens_bridge_loss"
     assert register["source_level_summary"]["profile_winner"] == "ardens_bridge_loss"
+    assert register["source_level_summary"]["profile_agrees_with_marginal_winner"] is True
     assert register["source_level_summary"]["all_leave_one_channel_out_rank_one"] is True
     assert register["stage_pattern_summary"]["winner"] == "isolation_order"
     assert register["stage_pattern_summary"]["pollinator_hierarchy_envelope_rank_range"] == [2, 2]
@@ -80,6 +85,14 @@ def test_register_retains_model_family_non_equivalence_and_ess_warning() -> None
     assert claims["environment_only_not_leading"]["status"] == "supported_across_model_families"
     assert claims["guide_loss_unidentified"]["status"] == "blocked_by_missing_observation_channel"
     assert "must never be pooled" in register["boundary"]
+
+
+def test_profile_disagreement_downgrades_source_family_claim() -> None:
+    register = build_register(_source(), _profile(winner="environment_only"), _sensitivity(), _stage(), _envelope())
+
+    claims = {row["claim_id"]: row for row in register["claims"]}
+    assert register["source_level_summary"]["profile_agrees_with_marginal_winner"] is False
+    assert claims["source_level_preference"]["status"] == "restricted_family_preference_requires_manual_review"
 
 
 def test_write_register_creates_machine_and_human_readable_outputs(tmp_path: Path) -> None:
