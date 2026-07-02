@@ -1,0 +1,122 @@
+name: Izu Model Result Register
+
+on:
+  pull_request:
+    paths:
+      - "channel_id/model_result_register.py"
+      - "scripts/build_model_result_register.py"
+      - "tests/test_model_result_register.py"
+      - "docs/model_result_register.md"
+      - "channel_id/island_source_level.py"
+      - "channel_id/source_level_sensitivity.py"
+      - "channel_id/source_level_profile.py"
+      - "channel_id/pollinator_hierarchy_counterfactual.py"
+      - "channel_id/pollinator_regime_evidence_audit.py"
+      - "channel_id/ardens_nonreport_envelope.py"
+      - "scripts/run_source_level_island_analysis.py"
+      - "scripts/run_source_level_sensitivity.py"
+      - "scripts/run_source_level_profile.py"
+      - "scripts/score_pollinator_hierarchy_counterfactual.py"
+      - "scripts/score_ardens_nonreport_envelope.py"
+      - "data/inoue_literature_island_traits.csv"
+      - "data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv"
+      - "data/two_breakpoint_evidence/inoue1986_observation_effort.csv"
+      - "data/two_breakpoint_evidence/inoue1990_outcrossing.csv"
+      - "data/two_breakpoint_evidence/inoue1988_bagging.csv"
+      - "data/two_breakpoint_evidence/inoue1995_flower_length.csv"
+      - ".github/workflows/model-result-register.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-register:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package and test result register
+        run: |
+          python -m pip install -e '.[dev]'
+          pytest tests/test_model_result_register.py
+
+      - name: Run source-level compatibility analysis
+        run: |
+          python scripts/run_source_level_island_analysis.py \
+            --draws 5000 \
+            --seed 20260702 \
+            --output-json artifacts/source_level_island_analysis.json \
+            --output-md artifacts/source_level_island_analysis.md
+
+      - name: Run source-level observation-scale sensitivity
+        run: |
+          python scripts/run_source_level_sensitivity.py \
+            --draws 2500 \
+            --output-csv artifacts/source_level_sensitivity.csv \
+            --output-json artifacts/source_level_sensitivity.json \
+            --output-md artifacts/source_level_sensitivity.md
+
+      - name: Run source-level profile search
+        run: |
+          python scripts/run_source_level_profile.py \
+            --population-size 600 \
+            --iterations 16 \
+            --output-json artifacts/source_level_profile.json \
+            --output-md artifacts/source_level_profile.md
+
+      - name: Score island-stage counterfactual benchmarks
+        run: |
+          python scripts/score_pollinator_hierarchy_counterfactual.py \
+            --input data/inoue_literature_island_traits.csv \
+            --output-json artifacts/pollinator_hierarchy_counterfactual.json \
+            --output-md artifacts/pollinator_hierarchy_counterfactual.md
+
+      - name: Enumerate B. ardens non-report context envelope
+        run: |
+          python scripts/score_ardens_nonreport_envelope.py \
+            --input data/inoue_literature_island_traits.csv \
+            --pollinator-rates data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv \
+            --observation-effort data/two_breakpoint_evidence/inoue1986_observation_effort.csv \
+            --output-csv artifacts/ardens_nonreport_envelope.csv \
+            --output-json artifacts/ardens_nonreport_envelope.json \
+            --output-md artifacts/ardens_nonreport_envelope.md
+
+      - name: Build guarded cross-model register
+        run: |
+          python scripts/build_model_result_register.py \
+            --source-level artifacts/source_level_island_analysis.json \
+            --profile artifacts/source_level_profile.json \
+            --sensitivity artifacts/source_level_sensitivity.json \
+            --stage-pattern artifacts/pollinator_hierarchy_counterfactual.json \
+            --ardens-envelope artifacts/ardens_nonreport_envelope.json \
+            --output-json artifacts/model_result_register.json \
+            --output-csv artifacts/model_result_claims.csv \
+            --output-md artifacts/model_result_register.md
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: izu-model-result-register
+          path: |
+            artifacts/source_level_island_analysis.json
+            artifacts/source_level_island_analysis.md
+            artifacts/source_level_sensitivity.csv
+            artifacts/source_level_sensitivity.json
+            artifacts/source_level_sensitivity.md
+            artifacts/source_level_profile.json
+            artifacts/source_level_profile.md
+            artifacts/pollinator_hierarchy_counterfactual.json
+            artifacts/pollinator_hierarchy_counterfactual.md
+            artifacts/ardens_nonreport_envelope.csv
+            artifacts/ardens_nonreport_envelope.json
+            artifacts/ardens_nonreport_envelope.md
+            artifacts/model_result_register.json
+            artifacts/model_result_claims.csv
+            artifacts/model_result_register.md
+          if-no-files-found: error
+          retention-days: 30
