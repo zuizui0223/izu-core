@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install local package for review utilities
+        run: python -m pip install -e .
+
       - name: Fetch Izu-scoped iNaturalist candidates
         id: fetch
         continue-on-error: true
