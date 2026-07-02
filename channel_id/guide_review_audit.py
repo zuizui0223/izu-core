@@ -1,9 +1,10 @@
 """Audit completed blinded guide-photo reviews before any manual constraint use.
 
-This module is deliberately downstream of the blind sheets.  It writes a
+This module is deliberately downstream of the blind sheets. It writes a
 unit-level decision ledger that records why a source record is eligible or
 excluded, and it reports descriptive reviewer agreement only among scorable
-pairs.  It does not create or edit model constraints.
+pairs with distinct reviewer identities. It does not create or edit model
+constraints.
 """
 
 from __future__ import annotations
@@ -74,7 +75,7 @@ def audit_completed_reviews(
     """Return an unblinded decision ledger and descriptive agreement summary.
 
     `eligible_for_manual_constraint_review` means only that all administrative
-    and double-blind gates passed.  It remains non-binding biological evidence
+    and double-blind gates passed. It remains non-binding biological evidence
     until a human inspects the source unit and approves a draft constraint.
     """
     if maximum_reviewer_score_difference < 0:
@@ -130,7 +131,8 @@ def audit_completed_reviews(
             if score_a is not None and score_b is not None:
                 difference = abs(score_a - score_b)
                 row["trait_score_difference"] = str(difference)
-                scorable_pairs.append((score_a, score_b))
+                if identity == "distinct_reviewer_ids":
+                    scorable_pairs.append((score_a, score_b))
             if not geo_ok:
                 row["exclusion_code"] = geo_code
             elif identity != "distinct_reviewer_ids":
@@ -153,12 +155,12 @@ def audit_completed_reviews(
     within = sum(abs(a - b) <= maximum_reviewer_score_difference for a, b in scorable_pairs)
     mean_abs = (sum(abs(a - b) for a, b in scorable_pairs) / len(scorable_pairs)) if scorable_pairs else None
     boundary = (
-        "Descriptive agreement among scorable double-blind pairs only; no chance-corrected reliability estimate is reported because the expected sample is small and ordinal category prevalence can dominate such statistics."
+        "Descriptive agreement among scorable pairs with distinct reviewer IDs only; no chance-corrected reliability estimate is reported because the expected sample is small and ordinal category prevalence can dominate such statistics."
     )
     agreement_rows = [
         {"metric": "key_units", "value": str(len(key)), "boundary": boundary},
         {"metric": "eligible_for_manual_constraint_review", "value": str(len(eligible_ids)), "boundary": boundary},
-        {"metric": "scorable_trait_pairs", "value": str(len(scorable_pairs)), "boundary": boundary},
+        {"metric": "scorable_distinct_reviewer_trait_pairs", "value": str(len(scorable_pairs)), "boundary": boundary},
         {"metric": "exact_score_agreement_fraction", "value": "" if not scorable_pairs else f"{exact / len(scorable_pairs):.6f}", "boundary": boundary},
         {"metric": f"within_{maximum_reviewer_score_difference}_ordinal_step_fraction", "value": "" if not scorable_pairs else f"{within / len(scorable_pairs):.6f}", "boundary": boundary},
         {"metric": "mean_absolute_score_difference", "value": "" if mean_abs is None else f"{mean_abs:.6f}", "boundary": boundary},
