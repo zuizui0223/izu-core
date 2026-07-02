@@ -12,8 +12,8 @@ The GBIF workflow now produces:
 ```text
 raw GBIF occurrence pages
   -> one media row per source occurrence image
-  -> proxy-only geographic review queue
-  -> blinded trait-review bundle for declared record types
+  -> origin-platform hint and proxy-only geographic review queue
+  -> provenance-filtered blinded trait-review bundle
   -> human review and non-binding directional draft
 ```
 
@@ -27,6 +27,12 @@ creator, references, and the source occurrence URL.
 The workflow does not download or rehost images. It preserves source URLs and
 license metadata so the reviewer can inspect provenance at the source.
 
+`origin_platform_hint` is also recorded. The current positive label,
+`iNaturalist_republication`, requires an explicit `inaturalist` string in the
+media identifier or its references field. It is high-specificity duplicate
+evidence. The negative label, `not_flagged_as_iNaturalist`, is **not** proof
+that a GBIF record is independent of other sources.
+
 ## Source-specific triage
 
 The review bundle does not treat GBIF `HUMAN_OBSERVATION` as equivalent to
@@ -39,25 +45,39 @@ For the initial GBIF run, only:
 basisOfRecord / quality_grade = HUMAN_OBSERVATION
 ```
 
-is sent into the blinded guide-review bundle. `PRESERVED_SPECIMEN` media remain
-in the candidate inventory but are not presumed to show a living open corolla,
-so they are not sent to floral-guide scoring by default.
+is eligible for the blinded guide-review bundle. `PRESERVED_SPECIMEN` media
+remain in the candidate inventory but are not presumed to show a living open
+corolla, so they are not sent to floral-guide scoring by default.
 
-A GBIF `HUMAN_OBSERVATION` is still not automatically eligible. It must pass
-all existing gates: coordinate accuracy, proxy-gap triage, geography review,
-taxon review, open inner-corolla visibility, image comparability, and agreement
-between two blind trait reviewers.
+Before the GBIF bundle is built, every explicit iNaturalist republication is
+written to `excluded_iNaturalist_republication_rows.csv` and excluded from the
+parallel GBIF review bundle. It stays in the candidate inventory for audit
+purposes. A retained row still requires all ordinary gates: coordinate accuracy,
+proxy-gap triage, geography review, taxon review, open inner-corolla visibility,
+image comparability, and agreement between two blind trait reviewers.
+
+## Initial live result
+
+The first live GBIF run found four `Campanula microdonta` human-observation
+records eligible for the geographic triage gates: three nearest the Oshima
+proxy and one nearest the Hachijo proxy. All four had explicit iNaturalist media
+URLs or references. They are therefore republications of the existing
+platform's candidate stream, not four new independent observations. The
+provenance-filtered GBIF bundle correctly contains no independent human-
+observation units from this initial snapshot.
+
+The same artifact retains several preserved-specimen images, including Hachijo
+localities, as source-linked catalog material. They are not living-flower
+nectar-guide evidence under the present protocol.
 
 ## Non-independence boundary
 
 - Multiple media from one GBIF occurrence are one review unit.
-- A GBIF image may be a re-published image from another platform, including a
-  potential overlap with an iNaturalist record.
-- Therefore GBIF and iNaturalist units must **not** be added as independent
-  evidence across sources until the geographic reviewer checks source links,
-dataset provenance, media references, and possible duplicate image URLs.
-
-The current workflow keeps the GBIF bundle separate for precisely this reason.
+- An explicit iNaturalist republication is excluded from the parallel GBIF
+  blind bundle because it belongs to the iNaturalist source lane.
+- Unflagged GBIF records are not automatically independent; the geographic
+  reviewer still checks source links, dataset provenance, media references, and
+  possible duplicate image URLs before any cross-source combination.
 
 ## Commands
 
@@ -72,10 +92,9 @@ python scripts/build_gbif_photo_proxy_queue.py \
   --output-csv izu_gbif_candidate_snapshots/trait_photo_proxy_review_queue.csv \
   --output-md izu_gbif_candidate_snapshots/TRAIT_PHOTO_PROXY_QUEUE.md
 
-python scripts/build_blinded_guide_photo_review_bundle.py \
+python scripts/build_gbif_blinded_guide_review_bundle.py \
   --proxy-queue izu_gbif_candidate_snapshots/trait_photo_proxy_review_queue.csv \
-  --output-dir izu_gbif_candidate_snapshots/guide_photo_review_bundle \
-  --allowed-quality-grade HUMAN_OBSERVATION
+  --output-dir izu_gbif_candidate_snapshots/guide_photo_review_bundle
 ```
 
 A generated directional draft remains a draft. It never updates
