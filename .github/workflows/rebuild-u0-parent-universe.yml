@@ -10,20 +10,24 @@ on:
       - ".github/workflows/rebuild-u0-parent-universe.yml"
   workflow_dispatch:
 
+concurrency:
+  group: u0-parent-universe-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Rebuild source-locked U0 GBIF snapshot
-        run: python paper/rebuild_u0_parent_universe.py --out-dir artifacts/u0_snapshot
+        run: python paper/rebuild_u0_parent_universe.py --out-dir artifacts/u0_snapshot --taxon-workers 6
       - name: Build all-taxon U1 screening queue
         run: |
           python paper/build_u1_screening_queue.py \
