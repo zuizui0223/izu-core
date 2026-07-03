@@ -6,6 +6,8 @@ on:
       - "paper/build_photo_scoring_sheet.py"
       - "paper/build_prediction_photo_bundle.py"
       - "paper/compile_blind_photo_scores.py"
+      - "paper/audit_prediction_photo_coverage.py"
+      - "paper/functional_group_classification.csv"
       - "data/predictive_meta/photo_cohort_manifest.csv"
       - ".github/workflows/generalist-blind-photo-bundle.yml"
   workflow_dispatch:
@@ -16,12 +18,18 @@ permissions:
 jobs:
   bundle:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Screen specialist candidates for three-regime photo coverage
+        run: |
+          python paper/audit_prediction_photo_coverage.py \
+            --classification paper/functional_group_classification.csv \
+            --out-dir artifacts/predictive_meta/specialist_photo_coverage \
+            --max-candidates 20 --minimum-per-bin 2
       - name: Build predeclared blinded specialist and generalist sheets
         run: |
           python paper/build_prediction_photo_bundle.py \
@@ -30,6 +38,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: prediction-meta-blinded-photo-bundle
-          path: paper/photo_sheets
+          path: |
+            paper/photo_sheets
+            artifacts/predictive_meta/specialist_photo_coverage
           if-no-files-found: error
           retention-days: 90
