@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "phase_id": "izu_pre_field_known_data_closure_2026_07_03",
+  "phase_boundary": "This lock summarizes only published, public, and transcribed known-data evidence available before adding first-party field observations. It is a compatibility-analysis checkpoint, not a causal or historical inference dataset.",
+  "source_inputs": {
+    "island_summary": "data/inoue_literature_island_traits.csv",
+    "outcrossing": "data/two_breakpoint_evidence/inoue1990_outcrossing.csv",
+    "bagging": "data/two_breakpoint_evidence/inoue1988_bagging.csv",
+    "flower": "data/two_breakpoint_evidence/inoue1995_flower_length.csv",
+    "guide_constraints": "data/guide_direction_constraints.csv",
+    "guide_registry": "data/guide_evidence_registry.csv"
+  },
+  "expected_source_row_counts": {
+    "outcrossing": 17,
+    "bagging": 7,
+    "flower": 6,
+    "guide_constraints": 0,
+    "guide_registry_records": 1
+  },
+  "six_candidate_smc": {
+    "script": "scripts/run_ardens_step_persistence_smc.py",
+    "particles": 500,
+    "target_ess_fraction": 0.7,
+    "rejuvenation_steps": 1,
+    "seeds": [20260711, 20260712, 20260713],
+    "candidate_results": [
+      {"scenario": "isolation_order", "mean_log_compatibility": -80.837, "sd_log_compatibility": 0.448, "rank_one_replicates": 2, "replicates": 3, "mean_rank": 1.333},
+      {"scenario": "ardens_step_persistence", "mean_log_compatibility": -82.675, "sd_log_compatibility": 1.794, "rank_one_replicates": 0, "replicates": 3, "mean_rank": 2.333},
+      {"scenario": "ardens_bridge_loss", "mean_log_compatibility": -83.713, "sd_log_compatibility": 2.419, "rank_one_replicates": 1, "replicates": 3, "mean_rank": 2.333},
+      {"scenario": "small_bee_substitution", "mean_log_compatibility": -89.307, "sd_log_compatibility": 2.079, "rank_one_replicates": 0, "replicates": 3, "mean_rank": 4.0},
+      {"scenario": "body_size_only", "mean_log_compatibility": -94.067, "sd_log_compatibility": 0.635, "rank_one_replicates": 0, "replicates": 3, "mean_rank": 5.0},
+      {"scenario": "environment_only", "mean_log_compatibility": -102.141, "sd_log_compatibility": 1.219, "rank_one_replicates": 0, "replicates": 3, "mean_rank": 6.0}
+    ],
+    "step_minus_continuous_bridge_by_seed": [0.406, -2.249, 4.96],
+    "step_minus_isolation_order_by_seed": [-3.795, -1.374, -0.344],
+    "screen_boundary": "Compatibility rankings integrate over declared priors and source-level observation models. They are not posterior probabilities, causal effect estimates, dated histories, or proof of pollinator occupation."
+  },
+  "sensitivity_register": [
+    {
+      "analysis": "five_candidate_tempered_smc",
+      "result": "isolation_order exceeded ardens_bridge_loss in all three saved seeds; mean order-minus-bridge compatibility was +2.034.",
+      "interpretation": "A fixed ordinal island proxy was the leading declared candidate in the five-candidate screen; the proxy is not a causal isolation variable."
+    },
+    {
+      "analysis": "channel_ablation",
+      "result": "Removing flower length made ardens_bridge_loss the source-level winner; removing outcrossing, bagging, or the empty guide channel retained isolation_order first.",
+      "interpretation": "Flower length is the key currently retained discriminating channel, not independent proof of a historical mechanism."
+    },
+    {
+      "analysis": "toshima_leave_one_out",
+      "result": "With the focused 750-particle, eight-seed stress check, isolation_order was higher than bridge loss in seven of eight seeds; mean order-minus-bridge difference was +1.871.",
+      "interpretation": "Toshima is informative but not solely responsible for the ordinal-proxy result."
+    },
+    {
+      "analysis": "step_persistence_six_candidate_screen",
+      "result": "The strict Oshima-stage flower-step candidate was more compatible on average than continuous bridge loss but below isolation_order in all three seeds.",
+      "interpretation": "An initial bridge-stage flower reduction remains a competitive candidate; strict downstream floral constancy is not the leading retained description."
+    }
+  ],
+  "claim_ledger": [
+    {
+      "claim_id": "KD01",
+      "status": "supported_with_boundary",
+      "claim": "The retained published summaries are compatible with coordinated island-associated change in outcrossing, bagged capsule set, and flower length.",
+      "boundary": "This is an association across heterogeneous source rows; it is not a single common sampling design or a causal estimate."
+    },
+    {
+      "claim_id": "KD02",
+      "status": "supported_with_boundary",
+      "claim": "Among the declared known-data candidates, isolation_order had the highest mean compatibility in the six-candidate screen.",
+      "boundary": "region_order is a fixed ordinal proxy and cannot be read as isolation, colonization history, or mechanism."
+    },
+    {
+      "claim_id": "KD03",
+      "status": "supported_with_boundary",
+      "claim": "The Oshima-stage step-persistence candidate was more competitive on average than the continuous current-pollinator bridge-loss candidate.",
+      "boundary": "This does not establish that B. ardens caused a size transition, that a bridge stage occurred historically, or that small bees were irrelevant."
+    },
+    {
+      "claim_id": "KD04",
+      "status": "supported_with_boundary",
+      "claim": "Flower length is the principal retained channel that separates the current model rankings.",
+      "boundary": "The flower summary set is small and context-structured; it cannot by itself identify a historical mechanism."
+    },
+    {
+      "claim_id": "KD05",
+      "status": "not_supported",
+      "claim": "Nectar-guide loss, direction of change, or adaptive function across islands.",
+      "boundary": "There are zero reviewed guide-direction constraints. The one Hachijo text lead is discovery-only and is not a scored trait datum."
+    },
+    {
+      "claim_id": "KD06",
+      "status": "not_supported",
+      "claim": "Pollinator effectiveness, pollen deposition, or visitor absence by island.",
+      "boundary": "Published occurrence and visitor descriptions do not measure organ contact, pollen transfer, or comparable observation effort."
+    },
+    {
+      "claim_id": "KD07",
+      "status": "not_supported",
+      "claim": "A dated, directional history of sequential speciation or B. ardens loss causing reproductive evolution.",
+      "boundary": "The retained models are compatibility screens; they contain no dated phylogeny, demographic reconstruction, direct interaction outcome, or causal intervention."
+    }
+  ],
+  "field_handoff": [
+    {
+      "question": "Does the same tagged plant show a guide state, flower geometry, and visitor handling pattern?",
+      "required_channels": ["inner-corolla photographs", "flower geometry", "time-bounded observation effort", "visit-bout contact scoring"],
+      "existing_protocol": "docs/field_multichannel_coverage.md"
+    },
+    {
+      "question": "Do candidate visitor groups differ in actual pollen transfer or reproductive outcome?",
+      "required_channels": ["per-visit pollen deposition or compatible proxy", "fruit and seed outcome", "cross type or paternity where feasible"],
+      "existing_protocol": "docs/seed_set_paternity_sampling.md"
+    }
+  ],
+  "freeze_rule": "Before first-party field data are added, do not elevate any claim beyond this ledger by adding model variants, recoding public-photo leads as traits, or interpreting occurrence/non-report as pollination evidence. New analyses must either reproduce this lock unchanged or explicitly declare a new data channel and an updated claim ledger."
+}
