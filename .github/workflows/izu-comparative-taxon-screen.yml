@@ -1,0 +1,35 @@
+name: Izu Comparative Taxon Screen
+
+on:
+  pull_request:
+    paths:
+      - 'data/izu_comparative_taxon_screen.csv'
+      - 'configs/izu_comparative_taxon_discovery_queries.csv'
+      - 'channel_id/izu_comparative_taxon_screen.py'
+      - 'scripts/build_izu_comparative_taxon_screen.py'
+      - 'docs/IZU_COMPARATIVE_TAXON_SCREEN.md'
+      - '.github/workflows/izu-comparative-taxon-screen.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-candidate-map:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Build comparative taxon screen
+        run: |
+          mkdir -p izu_comparative_taxon_screen
+          python scripts/build_izu_comparative_taxon_screen.py \
+            --screen data/izu_comparative_taxon_screen.csv \
+            --output-dir izu_comparative_taxon_screen
+      - name: Upload candidate-map report
+        uses: actions/upload-artifact@v4
+        with:
+          name: izu-comparative-taxon-screen
+          path: izu_comparative_taxon_screen
+          if-no-files-found: error
