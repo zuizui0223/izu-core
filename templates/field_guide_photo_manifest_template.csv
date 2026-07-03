@@ -1,0 +1,1 @@
+field_event_id,island_id,site_id,plant_id,flower_id,photo_id,photo_uri,captured_at,latitude,longitude,field_taxon_label,field_taxon_confidence,open_flower_field,inner_corolla_view_field,image_standardization_status,photographer_id,voucher_or_sample_id,notes
