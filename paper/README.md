@@ -19,12 +19,20 @@ Individual stages:
 |---|---|---|
 | Candidate pool (GBIF) | `gbif_coverage` / `gbif_filter` logic → `izu_entomophilous_candidates.csv` | 156 gradient-spanning entomophilous angiosperms |
 | Expanded screening | `evidence_screening/README.md` + four stratified dockets | auditable path from the 156-species pilot to the full 319-species parent universe |
+| English literature discovery | `crossref_candidate_audit.py` | raw Crossref lead artifact for the first 40-species batch; leads require primary-source review |
+| Generalist photo availability | `inat_generalist_photo_audit.py` | raw island-proxy photo-availability artifact for 16 protected generalist controls |
+| Quantitative source recovery | `evidence_screening/known_source_upgrade_queue.csv` | page/table targets for upgrading current B-rank observations without inventing effects |
 | Moderator | `classify_functional_groups.py` | `functional_group_classification.csv` (30 specialist / 89 generalist) |
 | Anti-cline threshold | `threshold_analysis.py` (uses `channel_id/gradient_shape.py`) | step/cline/none per trait + breakpoint |
 | Evidence hierarchy | `evidence_ranks.csv`, `evidence_observations.csv`, `validate_meta_inputs.py` | A–E graded observations |
 | Synthesis | `meta_synthesis.py` | quantitative anchor + rank-weighted direction by group |
 | Detectability | `comprehensive_sweep.py` | 90-cell calibrated-vs-naive recovery map |
 | Photo tier | `build_photo_scoring_sheet.py`, `photo_scores.csv` | blinded per-island photo scoring |
+
+The two raw discovery jobs run in GitHub Actions and upload source-versioned
+artifacts rather than silently committing changing web results. A retrieved
+record remains a lead until its original source, taxonomy, geography, sampling
+unit, and trait definition are reviewed.
 
 ## Evidence hierarchy (every observation is graded)
 
