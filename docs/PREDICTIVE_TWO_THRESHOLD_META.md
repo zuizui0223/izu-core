@@ -43,9 +43,9 @@ Three source-locked channels remain separate:
 - bagged capsule set, which measures autonomous reproductive capacity rather
   than realized selfing.
 
-A fourth, lower-ranked calibration channel is now predeclared: blinded
-public-photo scoring of *C. microdonta* inner guide strength. Its score enters
-as C-rank ordinal image evidence only after the geographical key is joined.
+A fourth lower-ranked channel is predeclared: blinded public-photo scoring of
+*C. microdonta* inner guide strength. It is C-rank ordinal image evidence only
+if balanced cards can be recovered and the geographical key is joined.
 
 The calibration result can select which predeclared pollinator scenario is most
 compatible with the locked source summaries. It must not be counted as an
@@ -75,26 +75,32 @@ The CSV contract is:
 left unranked by the regime-only scorer until climate, area, isolation and other
 predeclared environmental covariates can enter a separate likelihood.
 
-## Photo protocol
+## Photo protocol and current limit
 
 `data/predictive_meta/photo_cohort_manifest.csv` fixes each taxon's analysis
 group and a 0–3 **within-taxon** visible-signal scale before any regional card
 is scored. Scores cannot be compared as absolute colours or sizes between taxa.
 Only each taxon's mainland/ardens/no-Bombus contrast is used.
 
-Before scoring, an iNaturalist research-grade photo availability audit screens
-candidate specialist taxa under the fixed regional proxies. The first audit of
-20 preclassified specialist-bee candidates, stored in
-`data/predictive_meta/specialist_photo_coverage_20260703.csv`, found exactly
-one with at least two available photos in each regime bin: *Viola grypoceras*
-(10 mainland, 4 Oshima, 3 pooled no-Bombus). This is a limitation, not a reason
-to relax the criterion or count one-card contrasts. The other specialist
-lineages remain original-source recovery targets. Photo evidence therefore
-serves three restricted jobs:
+Before scoring, an iNaturalist research-grade photo *availability* audit screens
+candidate specialist taxa under fixed regional proxies. The first audit of 20
+preclassified specialist-bee candidates, stored in
+`data/predictive_meta/specialist_photo_coverage_20260703.csv`, found one
+availability candidate: *Viola grypoceras* (10 mainland, 4 Oshima, 3 pooled
+no-Bombus records). Availability is not enough: the actual blind-card bundle,
+recorded in `data/predictive_meta/blinded_card_coverage_20260703.csv`, retained
+only one no-Bombus card for *Viola* and only one *Campanula* card total. Neither
+specialist is currently eligible for a photo-derived contrast under the
+predeclared minimum of two eligible cards per regime.
 
-1. *Campanula* guide-strength calibration;
-2. a *Viola grypoceras* specialist holdout test; and
-3. generalist negative controls, where balanced cards are available.
+This is a substantive result: **current research-grade public photographs cannot
+supply the positive specialist holdout.** They must not be forced into one-card
+comparisons. Specialist positive evidence must therefore come first from
+original source recovery (especially *Weigela*, *Ligustrum*, and the other
+predeclared primary studies). The balanced public-photo role currently reduces
+to generalist negative controls such as *Ajania pacifica* and *Farfugium
+japonicum*; these can test whether an analogous visual-signal threshold appears
+where the model predicts none.
 
 Build blinded sheets:
 
