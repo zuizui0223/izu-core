@@ -1,126 +1,111 @@
-# A comprehensive simulation-and-meta-analysis framework for detecting pollinator-loss-driven mating-system evolution on island gradients
+# Does floral reduction under pollinator loss generalise across an island flora? A public-data, multi-species, mechanism-resolved test of the flower-size island rule on the Izu gradient
 
-**Draft manuscript. Version 0.3 (2026-07-03). Methods + synthesis (simulation & meta-analysis).**
-Author: zuizui0223. The simulation, meta-analysis, and data-collection methods are generalised and improved from a channel-identification workflow originally built for *Campanula microdonta* on the Izu Islands, which enters here only as a single calibration seed. All numbers are reproducible from this repository (see *Reproducibility*).
+**Draft manuscript. Version 0.4 (2026-07-03). Multi-species synthesis (public data + simulation).**
+Author: zuizui0223. A single system (*Campanula microdonta*, Izu) is used only as a fully-measured calibration seed and workflow template; the study question is comparative. All results are reproducible from this repository and CI (see *Reproducibility*).
 
 ---
 
 ## Abstract
 
-Islands repeatedly show a "reproductive syndrome" — increased selfing and reduced floral display — widely attributed to the loss of effective pollinators. Testing that attribution from any single species is underdetermined: floral traits, pollinator service, establishment, and geographic position all covary along the same gradient. We address the problem at two levels that a single case study cannot: **comprehensively by simulation** (mapping when the signature is detectable across the phenomenon's parameter space) and **cumulatively by meta-analysis** (deriving how much cross-taxon evidence a decisive test needs). The simulation, meta-analytic-eligibility, and data-collection methods are adapted and improved from a channel-identification workflow developed for one island bellflower system.
+Island flowers are famously smaller, less showy, and more selfing than mainland relatives, and this is usually attributed to the loss of effective pollinators. But the attribution is almost always argued one species at a time, where floral traits, pollinator regime, establishment, environment, and colonisation history are hopelessly confounded along the same axis. We ask instead whether the response is **shared across many species** that experience *one common environment* — the Izu archipelago's distance-structured loss of bumblebees — and whether its sign follows what pollination biology predicts. This turns the Izu chain into a mechanism-resolved test of the **flower-size "island rule"**: island flowers evolving toward intermediate, pollinator-size-matched sizes under a less diverse, smaller-bodied fauna.
 
-A comprehensive sweep (90 parameter cells; 300 replicates each) yields a sharp, general result. An analysis that **calibrates the environmental background** recovers the true pollinator-loss mechanism in 95–99% of replicates across the *entire* space — every depth of pollinator loss and island count tested. The identical analysis that **ignores the background** (attributing all island differences to floral traits) succeeds only when there is no pollinator loss; its recovery collapses to ~10% once service drops by 0.20 and to **0%** (100% empty compatible set) once it drops by ≥0.40. The failure scales with the depth of loss — so exactly the systems where the island syndrome is most pronounced are where naive analysis is guaranteed to mis-identify the mechanism. Design analysis further shows that visitation data alone are insufficient (0% unique recovery; 95% false-mechanism survival), that a single interaction-level channel — effective stigma pollen deposition — restores it (91%), and that usable discrimination needs ~90 plant-units per island. From these we derive concrete meta-analytic replication targets and an improved eligibility screen.
+We assemble the test entirely from public data, using a workflow generalised and improved from a single-species channel-identification pipeline. From GBIF we identify **156 insect-pollinated angiosperms** that span the mainland + ≥2 Izu islands (16 on all six). We classify each by pollination functional group (the moderator): **30 bumblebee/long-tongue specialists vs 89 open-flower generalists**, plus 13 large-flowered non-bee species. Every trait observation is graded on an explicit **A–E evidence hierarchy** (peer-reviewed quantitative → web/flora description), and pooled at full weight and rank-A/B-only. A comprehensive simulation (90 parameter cells) shows the design can recover the true mechanism across the space **only if the environmental background is calibrated** (95–99% vs 0% for naive analysis at realistic loss depths), and that visitation data alone are insufficient — an interaction-level channel is required.
 
-We contribute (i) a reusable, comprehensively-validated simulation for the pollinator-loss/mating-system phenomenon, (ii) simulation-derived design and meta-analysis requirements (which channel, how many individuals, islands, and independent lineages), and (iii) an improved data-collection and screening workflow. A worked calibration seed (Izu *C. microdonta*: outcrossing–isolation ρ = −0.96, corolla–isolation ρ = −1.00, autonomous selfing stepping up exactly at the bumblebee-loss boundary) anchors the simulation to a real gradient without being the object of the claim.
+Current synthesis: the fully-measured seed species shows corolla reduction (lnRR = −0.77, −54%) and a selfing increase that **steps** at the bumblebee-loss boundary rather than clining smoothly (an "anti-cline" threshold, detected automatically). A second peer-reviewed species (*Ligustrum ovalifolium*) shows the same island corolla-tube/stamen reduction, most pronounced on the most isolated island. Large-flowered non-bee species (Sakuyuri lily, Ōshima azalea) run the other way, enlarging — as the island rule predicts. The rank-weighted direction score is strongly positive for specialists and intermediate-tubular species and negative for large-flowered ones; the generalist negative-control cells remain the key data gap, to be filled from the photo tier. We present this as a reproducible, honestly-graded framework and a first result, not a completed pooled estimate.
 
 ---
 
 ## 1. Introduction
 
-The shift from outcrossing to selfing is among the most common transitions in flowering plants and is conspicuous on islands, where reduced, less showy flowers and autonomous self-pollination recur. The standard explanation is **reproductive assurance** under pollinator scarcity. Island archipelagos with a distance-structured loss of large-bodied pollinators — the Izu Islands, where bumblebees (*Bombus*) thin out southward, are a clean example — look like natural experiments for this hypothesis.
+The reproductive "island syndrome" — smaller, less conspicuous flowers and increased autonomous selfing — recurs across island floras and is generally explained by reproductive assurance under pollinator scarcity. The explanation is ecologically compelling but inferentially weak when built on one species, because a single mainland→island trait cline is equally consistent with an environmental gradient, drift on small islands, or colonisation history.
 
-The difficulty is inferential, and it does not go away with more careful fieldwork on one species. Along a single geographic axis, reproduction, pollinator regime, establishment probability, environment, and colonisation history are confounded; a trait cline is compatible with all of them. Two things are therefore needed that a single case study structurally cannot provide:
+Two moves strengthen it. First, treat **many co-distributed species as replicates of one shared natural experiment**: if a common pollinator change drives the syndrome, species exposed to the same change should respond in parallel, and species *not* dependent on the lost pollinators should not. Second, make the prediction **directional and mechanism-specific** using the flower-size island rule: under a less diverse, smaller-bodied island pollinator fauna, flowers should evolve toward intermediate, pollinator-matched sizes — so large-flowered bumblebee specialists should reduce most, already-small generalists should barely change, and large non-bee flowers may even enlarge.
 
-1. **Comprehensive simulation** — to establish *where* in the phenomenon's parameter space the pollinator-loss signature is even recoverable, and how badly naive analysis fails, rather than reporting one benchmark point.
-2. **Meta-analysis** — to convert repeated mainland→island transitions across lineages into a cumulative test, which requires knowing in advance how many taxa, islands, and individuals, measured on which channel, are enough.
+The Izu archipelago is an unusually clean setting: bumblebees (*Bombus diversus* on the mainland, *B. ardens* only on the nearest island) drop out with distance, leaving small halictid/megachilid bees. We use it to test whether floral reduction under pollinator loss **generalises across the flora**, and whether its sign matches the island-rule prediction — assembling the whole test from public data (occurrence, literature, and citizen photos) with an explicit evidence hierarchy.
 
-This paper builds both, and does so by **generalising and improving a workflow** first developed for a single system (*Campanula microdonta*, Izu). That workflow contributed a constrained life-history simulator, a scenario-recovery/design-power layer, a taxon-eligibility screen, and a public-data collection pipeline; we reuse its architecture, extend it from one benchmark to a full sweep, and upgrade its data-collection and eligibility rules. The single system is retained only as a calibration seed (§6).
+### 1.1 Contributions
 
----
-
-## 2. The workflow we generalise, and what we improve
-
-| Component (seed workflow) | Role | Improvement in this paper |
-|---|---|---|
-| Constrained life-history simulation (`life_history`, `guide_scenarios`) | retain the parameter set compatible with all declared observations under a declared `W(z)=F(z)·E(z)` life cycle | run it comprehensively over a parameter grid (§3), not at one point |
-| Scenario recovery / design power (`operating_characteristics`, `guide_design_power`) | ask whether a plan recovers a known virtual mechanism, vs sample size & noise | extend to a channel × sample-size × island-count × loss-depth grid; derive meta-analytic replication targets (§4) |
-| Gradient benchmark (`izu_gradient_benchmark`) | calibrated vs flat-environment recovery on one island scaffold | sweep loss depth, environmental confound, and island number; quantify how failure scales with loss (§3) |
-| Taxon eligibility screen (`izu_comparative_taxon_screen`) | four gates: taxonomy, mainland reference, ≥2 island populations, compatible protocol | add quantitative effect-size and phylogenetic/shared-island-dependence gates for a real meta-analysis (§4, §5) |
-| Public-data collection (GBIF / iNaturalist fetchers; source-locked literature; blinded trait review) | availability evidence and trait proxies kept separate from quantitative claims | formalise as a PRISMA-style, provenance-locked collection protocol usable across taxa (§5) |
-
-All components are pure-Python, dependency-free, and unit-tested (257 tests passing).
+1. A public-data, multi-species test framework for pollinator-loss-driven floral evolution, generalised and improved from a single-species workflow.
+2. A GBIF-derived candidate pool (156 species) with a transparent pollination-functional-group moderator (30 specialist vs 89 generalist).
+3. An A–E evidence hierarchy applied to every observation, with rank-weighted synthesis reported at full and high-confidence-only weight.
+4. An automatic step/cline classifier that localises the "anti-cline" threshold to the bumblebee-loss boundary.
+5. A comprehensive simulation delimiting when the signal is recoverable, and honest identification of the remaining data gaps.
 
 ---
 
-## 3. Result 1 — A comprehensive detectability map
+## 2. Materials and methods
 
-We simulate an ordinal island gradient with a known true mechanism (`visit_attraction + assurance`, i.e. pollinator-dependent outcrossing plus selfing assurance) and sweep four controls: **pollinator-loss depth** (drop in service from the mainland-proximate to the isolated end), **environmental confound** (establishment multiplier at the isolated end), **island number** (2/4/8), and **analysis mode** (calibrated vs flat). Each of 90 cells uses 300 replicates. Recovery is invariant to the establishment confound over the tested range, so we tabulate unique-truth recovery by loss depth × island number:
+### 2.1 Shared environment and species pool
 
-| Pollinator-loss depth | Islands | CALIBRATED recovery | FLAT (naive) recovery |
-|---:|---:|---:|---:|
-| 0.00 (no loss) | 2 / 4 / 8 | 0.97 / 0.99 / 0.99 | 0.97 / 0.99 / 0.99 |
-| 0.20 | 2 / 4 / 8 | 0.97 / 0.98 / 0.99 | **0.10 / 0.15 / 0.13** |
-| 0.40 | 2 / 4 / 8 | 0.98 / 0.99 / 0.98 | **0.00 / 0.00 / 0.00** |
-| 0.60 | 2 / 4 / 8 | 0.96 / 0.97 / 0.99 | **0.00 / 0.00 / 0.00** |
-| 0.75 | 2 / 4 / 8 | 0.95 / 0.97 / 0.98 | **0.00 / 0.00 / 0.00** |
+The Izu chain (mainland reference + Ōshima, Toshima, Niijima, Kōzushima, Miyake, Hachijō) carries one distance-structured pollinator gradient. From a broad GBIF envelope (~41,000 plant occurrences) we facet occurrences per island and retain insect-pollinated angiosperms present on the mainland + ≥2 islands: **156 species** (`paper/izu_entomophilous_candidates.csv`), 16 on all six islands.
 
-Two general conclusions follow. First, **environmental calibration is sufficient across the whole space**: knowing the per-island background restores 95–99% recovery regardless of how deep the pollinator loss is. Second, **naive analysis fails in proportion to the signal it is meant to explain**: with no pollinator loss it is fine, but its recovery collapses to ~10% at a modest loss (0.20) and to exactly 0% — rejecting every candidate — once loss reaches 0.40. The systems most likely to show a strong island syndrome (deep pollinator loss on the far islands) are precisely those where an uncalibrated gradient comparison is guaranteed to mis-identify or over-reject. Adding islands modestly improves calibrated recovery but does **not** rescue the naive analysis.
+### 2.2 Moderator: pollination functional group
 
-*Reproduce:* `python paper/comprehensive_sweep.py`
+Each species is assigned specialist_bee / generalist_open / large_flower / nonbee_special / abiotic_ambig by family with genus overrides and a recorded confidence (`paper/classify_functional_groups.py`). Primary contrast: **30 specialist vs 89 generalist**; 13 large-flower (counter-direction), the rest off-hypothesis. Prediction (island rule): specialists reduce most; generalists ≈ 0 (negative control); large non-bee flowers may enlarge.
 
-## 4. Result 2 — From design power to meta-analytic requirements
+### 2.3 Evidence hierarchy and tiers
 
-Holding the true mechanism fixed, we ask what a plan must measure and at what scale.
+Every species×trait observation is graded (`paper/evidence_ranks.csv`): **A** peer-reviewed quantitative (weight 1.0), **B** peer-reviewed qualitative (0.7), **C** blinded photo score (0.5), **D** web/flora description (0.25, low-confidence volume-expander), **E** occurrence-only (0.0). Data tiers: Tier-1 literature; Tier-2 blinded flower photos (iNaturalist/GBIF-media/YAMAP/SNS); Tier-3 occurrence. A blinded photo pipeline (`paper/build_photo_scoring_sheet.py`) shuffles per-region images and hides the island until after scoring.
 
-**Which channel.** Visitation data alone — the most commonly reported observation — fail: unique-truth recovery 0.000 with a false mechanism surviving 95% of the time. Adding one interaction-level channel collapses the ambiguity: legitimate-contact fraction → 0.902, effective stigma pollen deposition → 0.908 (zero false survivors).
+### 2.4 Response shape (anti-cline threshold)
 
-| Plan | Unique recovery | False survivors |
+`channel_id/gradient_shape.py` selects among none/cline/step by AICc (sized for small per-species n) and returns the breakpoint location — the multi-species generalisation of the *Campanula* selfing threshold. A **shared** breakpoint at the bumblebee-loss boundary across independent specialists is stronger evidence of a common driver than any single cline.
+
+### 2.5 Synthesis and design validation
+
+Effect sizes use the log response ratio (mainland vs most-isolated island); where only direction is known, a rank-weighted direction (vote) synthesis by functional group is reported at full and A/B-only weight (`paper/meta_synthesis.py`). A comprehensive simulation over pollinator-loss depth × environmental confound × island number × analysis mode (`paper/comprehensive_sweep.py`) establishes when recovery is possible.
+
+---
+
+## 3. Results
+
+### 3.1 The design works only with environmental calibration (simulation)
+
+Across 90 parameter cells (300 replicates), an analysis that calibrates the per-island environment recovers the true pollinator-loss mechanism in **95–99%** of replicates at every loss depth; the same analysis ignoring the background collapses to **~10%** at a modest loss and to **0%** (rejecting all mechanisms) once service drops by ≥0.40 — worst exactly where the syndrome is strongest. Visitation data alone give 0% unique recovery (95% false-mechanism survival); one interaction-level channel (pollen deposition) restores 91%. Usable discrimination needs ~90 plant-units/island.
+
+### 3.2 The seed species: reduction (cline) + a threshold selfing shift
+
+*Campanula microdonta* corolla length falls from 49.9 mm (mainland) to 23.1 mm (Hachijō): **lnRR = −0.77 (−54%)**, a smooth cline (ρ = −1.00). Autonomous selfing instead **steps**: bagged capsule set jumps 11%→100% exactly at the Ōshima→Toshima bumblebee-loss boundary (classifier: step at order ≈ 1.5), while temperature is flat and precipitation steps at a *different* boundary — climate does not co-localise with the reproductive threshold.
+
+### 3.3 A second species reduces in parallel; large non-bee flowers enlarge
+
+*Ligustrum ovalifolium* (Oleaceae; Kato et al. 2014, Bot. J. Linn. Soc. 174:489) has shorter corolla tubes and stamens on the islands, most pronounced on the most isolated island — the same direction as *Campanula*. In the opposite direction, large-flowered non-bumblebee endemics enlarge: the Sakuyuri lily (world's largest lily flower) and the Ōshima azalea (larger, brighter than mainland *Rhododendron kaempferi*) — as the island rule predicts for flowers not tied to the lost bumblebees.
+
+### 3.4 First rank-weighted synthesis
+
+| Functional group | Weighted direction score | Support / oppose |
 |---|---:|---:|
-| visits only | 0.000 | 0.946 |
-| + legitimate-contact fraction | 0.902 | 0.001 |
-| + effective pollen deposition | 0.908 | 0.000 |
+| specialist_bumblebee | **+3.95** | 5 / 0 |
+| intermediate_tubular (*Ligustrum*) | **+1.40** | 2 / 0 |
+| large_flower (Sakuyuri, azalea) | **−0.50** | 0 / 2 |
+| generalist_open (negative control) | — | **no data yet** |
 
-**How many individuals.** For the leading channel, discrimination becomes usable near n ≈ 90 plant-units per island (unique recovery 0.12 → 0.31 → 0.73 at n = 10 / 30 / 90).
+The predicted structure is already present: specialists and intermediate-tubular species support floral reduction/selfing; large non-bee flowers oppose it. The A/B-only sensitivity preserves the specialist and *Ligustrum* signals. The **generalist control cells are empty** — the decisive falsification test is not yet populated.
 
-**How many islands / lineages.** Result 1 shows 2 islands already give high per-taxon recovery *when calibrated*; the binding constraint for a cross-taxon claim is therefore not islands-per-taxon but **independent lineages**. A meta-analysis of pollinator-loss-driven selfing needs several genuinely independent mainland→island lineages, each cleared for comparable effect sizes and for shared-island/phylogenetic dependence. Translating these into a pre-registration: measure an interaction-level channel (not visits), calibrate per-island environment, target n ≈ 90 per island, ≥2 islands per lineage, and ≥3 independent lineages before pooling.
+---
 
-*Reproduce:* `python examples/handling_deposition_design_power.py`, `python examples/guide_design_power_sweep.py`
+## 4. Discussion
 
-## 5. An improved, provenance-locked data-collection and eligibility workflow
+Assembled from public data across many co-distributed species, the Izu evidence so far is consistent with a shared, pollinator-loss-driven floral response whose **sign tracks pollination biology** rather than geography alone: bumblebee-dependent species reduce and self more (with the reproductive-assurance component appearing as an anti-cline **threshold** at the loss boundary), while large non-bee flowers move the other way. That directional split is what the flower-size island rule predicts and is hard to reproduce with an unstructured environmental gradient or drift, which have no reason to respect pollination functional groups or to place a shared breakpoint at the bumblebee boundary.
 
-Generalising the seed workflow's collection rules into a cross-taxon protocol:
+The honest limits are explicit and drive the remaining work. Only one species is fully quantitative (a variance-weighted random-effects estimate needs more effect sizes); the **generalist negative controls are unfilled**, and because peer-reviewed generalist floral series are scarce, they must come from the blinded photo tier, which single-source coverage shows is sparse (Toshima especially) and needs pooling across iNaturalist, GBIF media, YAMAP, and SNS. *Prunus speciosa* is excluded (island origin, inverted polarity). The simulation (§3.1) is a reminder that even with more data, the analysis must calibrate the per-island environment or it will mis-identify the mechanism.
 
-1. **Availability vs measurement separation.** GBIF/iNaturalist occurrences and photographs are collected as *availability* and *lead* evidence only; they never become quantitative trait values or presence/absence of pollination. (Implemented: `fetch_gbif_occurrences`, `fetch_izu_inaturalist_snapshots`, blinded photo review.)
-2. **Source-locked transcription.** Published reproductive/floral values are transcribed into a source-locked table with per-value provenance, frozen as a pre-field baseline.
-3. **Four-gate eligibility (retained):** accepted taxonomy; traceable mainland reference; ≥2 verified island populations; compatible measurement protocol.
-4. **Two new gates (improvement):** a *quantitative effect-size gate* (a lineage enters the pooled analysis only with a comparable, extractable effect size and its uncertainty) and a *dependence gate* (declared model terms for phylogenetic non-independence and shared-island effects). These convert the screen from a readiness checklist into a meta-analysis admission rule.
-5. **PRISMA-style accounting.** Report candidates identified, screened, excluded (with reason), and admitted, so the synthesis is auditable.
+---
 
-Applied now, the screen admits one focal lineage (*C. microdonta*) and lists candidate lineages (e.g. *Dianthus japonicus*, *Farfugium japonicum*) as discovery-only pending distribution and taxonomic verification — i.e. the meta-analysis is not yet startable, and the protocol says so explicitly rather than pooling prematurely.
+## 5. Reproducibility
 
-## 6. Calibration seed: the Izu *Campanula microdonta* gradient
-
-To keep the simulation anchored to a real system, we calibrate against compiled island-level data for one bellflower (mainland Honshu + six Izu islands; Inoue series, source-locked). This system is a *seed*, not the object of the claim.
-
-- **Pollinator regime:** bumblebees only at the two mainland-proximate sites (*B. diversus* mainland, *B. ardens* Ōshima); halictids ubiquitous; a sharp loss boundary at Ōshima→Toshima.
-- **Reproductive shift:** autonomous selfing (bagged capsule set) steps from 5.5%/11.3% (bumblebee sites) to 90–100% (bumblebee-free) — a threshold at the loss boundary; realised outcrossing declines monotonically with isolation rank (Spearman ρ = −0.96).
-- **Floral reduction:** corolla length contracts monotonically (ρ = −1.00; 49.9 → 23.1 mm, n = 5).
-- **Weak climate covariation:** temperature ρ = +0.49, precipitation ρ = +0.64 (non-monotonic) — a poor alternative to pollinator loss.
-- **Mechanistic ordering:** among competing island scenarios, bumblebee "bridge loss" ranks first (log-marginal compatibility −48.5) over small-bee substitution, body-size-only, and environment-only.
-
-These real values fall in the deep-loss / strong-signal region of the Result 1 map — the region where §3 shows calibration is essential and naive analysis fails — confirming the simulation is anchored to a realistic operating point.
-
-*Reproduce:* `python scripts/run_island_multichannel_analysis.py --input data/inoue_literature_island_traits.csv --output-json out/mc.json --output-md out/mc.md`
-
-## 7. Limitations
-
-The simulation is a declared model of the phenomenon, not a universal law; recovery rates are conditional on the life cycle, parameter ranges, and interval calibration. The calibration seed is compiled historical, correlational data (n = 7 populations; corolla n = 5); isolation rank is a proxy correlated with distance and history. The meta-analysis is a *design*, not yet an execution: only one lineage is eligible. Compatibility orderings are prior-Monte-Carlo rankings, not posterior probabilities.
-
-## 8. Reproducibility
-
-Pure-Python, zero runtime dependencies (Python ≥ 3.10).
+Pure-Python, zero runtime dependencies (Python ≥ 3.10); GitHub Actions runs the pipeline and the 264-test suite.
 
 ```
 pip install -e .
-python paper/comprehensive_sweep.py                 # Result 1 (90-cell sweep)
-python examples/handling_deposition_design_power.py  # Result 2 (channel)
-python examples/guide_design_power_sweep.py          # Result 2 (sample size)
-python scripts/run_island_multichannel_analysis.py --input data/inoue_literature_island_traits.csv \
-    --output-json out/mc.json --output-md out/mc.md  # calibration seed (§6)
-# Windows: run pytest with a short basetemp to avoid MAX_PATH / %TEMP% ACL issues
-python -m pytest --basetemp=C:/pt                    # 257 passing
+python paper/comprehensive_sweep.py            # §3.1 simulation
+python paper/threshold_analysis.py             # §3.2 step/cline classification
+python paper/classify_functional_groups.py     # §2.2 moderator
+python paper/meta_synthesis.py                 # §3.4 synthesis
+python paper/validate_meta_inputs.py           # evidence-table integrity
+python -m pytest --basetemp=C:/pt              # 264 passing (Windows: short basetemp)
 ```
 
-## 9. Data availability
+## 6. Data availability
 
-All simulation code, the compiled source-locked calibration table (`data/inoue_literature_island_traits.csv`), and the collection/eligibility scripts are in this repository. Occurrence and photographic proxies are retained as availability evidence only.
+Candidate pool, evidence tables, classification, and all scripts are in this repository (`paper/`, `channel_id/`, `data/`). Occurrence/photo proxies are availability evidence only; literature values are source-locked.
