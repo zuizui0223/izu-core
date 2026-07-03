@@ -1,0 +1,31 @@
+name: Rebuild GBIF U0 Parent Universe
+
+on:
+  pull_request:
+    paths:
+      - "paper/rebuild_u0_parent_universe.py"
+      - ".github/workflows/rebuild-u0-parent-universe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild source-locked U0 GBIF snapshot
+        run: python paper/rebuild_u0_parent_universe.py --out-dir artifacts/u0_snapshot
+      - name: Show U0 snapshot summary
+        run: cat artifacts/u0_snapshot/u0_snapshot_summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: u0-gbif-parent-universe
+          path: artifacts/u0_snapshot
+          if-no-files-found: error
+          retention-days: 90
