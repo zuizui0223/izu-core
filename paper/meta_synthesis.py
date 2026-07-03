@@ -46,6 +46,7 @@ SUPPORT = {
     ("outcrossing_rate", "reduction"): +1,
     ("autonomous_selfing", "increase"): +1,
     ("breeding_system_SI_to_SC", "increase"): +1,
+    ("self_compatibility", "increase"): +1,
     ("flower_colour", "paler"): +1,
     ("corolla_size", "enlargement"): -1,
 }

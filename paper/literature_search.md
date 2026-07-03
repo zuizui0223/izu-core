@@ -45,10 +45,18 @@ the directional split predicted by the flower-size island rule.
 - Occurrence-only species (bulk of the 156 pool): availability evidence, not a
   response data point (rank E).
 
+## Two response axes have very different data support
+
+The syndrome has two response axes, searched separately:
+
+1. **Floral morphology** (corolla size / tube reduction, colour) — best supported: 3+ independent lineages (Campanula, Ligustrum, Chionographis) reduce; 2 large-flower lineages enlarge.
+2. **Mating system** (selfing rate, self-compatibility) — **thin**: a dedicated selfing-rate search found **no quantitative outcrossing-rate series beyond *Campanula***. Self-compatibility (qualitative SC/SI) is more widely reported — e.g. insular *Clerodendrum izuinsulare* is more self-compatible than widespread *C. trichotomum* (Mizusawa et al. 2014) — but continuous selfing-rate estimates for the candidate flora essentially do not exist in the public literature. The mating-system axis therefore rests on *Campanula* (quantitative) plus qualitative self-compatibility elsewhere, framed by **Baker's law** (uniparental reproduction favours island colonisation; island plants show higher uniparental capacity — PMC11102434). This axis-specific ceiling is documented, not glossed.
+
 ## Related frameworks (context, not Izu data)
 
 - Flower-size "island rule": Annals of Botany 2025 commentary (doi:10.1093/aob/mcaf053); bioRxiv 2023 "Flower size evolution in the Southwest Pacific".
 - Pollinator-loss → rapid selfing-syndrome evolution: Evolution 2022; convergent selfing syndrome 2023.
+- Baker's law / island uniparental reproduction: "Island plants with newly discovered reproductive traits have higher capacity for uniparental reproduction" (PMC11102434).
 
 ## Completeness statement
 
