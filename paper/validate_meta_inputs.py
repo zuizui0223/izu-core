@@ -7,6 +7,7 @@ gate are explicit and mutually consistent.
 from __future__ import annotations
 
 import csv
+import importlib.util
 import pathlib
 import sys
 
@@ -30,6 +31,16 @@ def load(path: pathlib.Path) -> list[dict]:
         sys.exit(f"MISSING required file: {path}")
     with path.open(encoding="utf-8") as f:
         return list(csv.DictReader(f))
+
+
+def validate_source_locked_effects() -> dict[str, int]:
+    """Load the sibling validator without requiring ``paper`` to be a package."""
+    path = HERE / "validate_quantitative_effects.py"
+    spec = importlib.util.spec_from_file_location("_quantitative_effects_gate", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module.validate()
 
 
 def main() -> None:
@@ -74,9 +85,8 @@ def main() -> None:
     if len(candidates) < 50:
         sys.exit(f"candidate pool suspiciously small: {len(candidates)}")
 
-    from validate_quantitative_effects import validate as validate_quantitative_effects
     try:
-        extraction_summary = validate_quantitative_effects()
+        extraction_summary = validate_source_locked_effects()
     except ValueError as error:
         sys.exit(f"quantitative extraction gate failed: {error}")
 
