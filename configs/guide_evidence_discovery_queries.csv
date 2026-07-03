@@ -1,0 +1,9 @@
+query_id,language,query_text,target_source,scope,boundary
+jp_spot_1,ja,シマホタルブクロ 花冠 内側 斑点,web literature and regional flora,island-resolved morphology,Discovery only; text hit is not a trait score
+jp_guide_1,ja,シマホタルブクロ 蜜標 花冠 筒 内側,web literature and illustrated flora,guide terminology,Discovery only; verify taxon and locality
+jp_island_oshima,ja,シマホタルブクロ 大島 写真 花,regional reports and photo archives,Oshima inner corolla,Proxy locality is insufficient
+jp_island_hachijo,ja,シマホタルブクロ 八丈島 写真 花,regional reports and photo archives,Hachijo inner corolla,Proxy locality is insufficient
+en_microdonta_spot,en,"Campanula microdonta" corolla spots,academic indexes and specimen portals,exact taxon,Discovery only; inspect original source
+en_microdonta_guide,en,"Campanula microdonta" nectar guide,academic indexes and specimen portals,exact taxon,Discovery only; inspect original source
+en_punctata_microdonta,en,"Campanula punctata var. microdonta" corolla markings,older taxonomy and museum catalogues,historical taxon label,Candidate only; no automatic taxonomic equivalence
+en_island,en,"Campanula microdonta" Oshima OR Hachijo OR Toshima,academic indexes and public-photo portals,island-localized sources,Require original locality and taxon review
