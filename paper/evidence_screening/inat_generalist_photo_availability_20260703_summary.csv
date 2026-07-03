@@ -1,0 +1,17 @@
+species,successful_queries,failed_queries,islands_with_record,total_returned_records,triage
+Pittosporum tobira,6,0,5,24,reviewable_photo_candidate
+Ajania pacifica,6,0,5,19,reviewable_photo_candidate
+Angelica keiskei,6,0,5,6,reviewable_photo_candidate
+Hydrangea macrophylla,6,0,4,15,reviewable_photo_candidate_define_display_unit
+Hydrangea involucrata,6,0,4,6,reviewable_photo_candidate_define_display_unit
+Ilex crenata,3,3,2,2,retry_required
+Aralia elata,6,0,1,3,insufficient_single_source_coverage
+Farfugium japonicum,3,3,1,3,retry_required
+Aster microcephalus,6,0,1,1,insufficient_single_source_coverage
+Deutzia crenata,6,0,1,1,insufficient_single_source_coverage
+Ligustrum ovalifolium,6,0,1,1,insufficient_single_source_coverage
+Peucedanum japonicum,3,3,1,1,retry_required
+Elaeagnus umbellata,6,0,0,0,insufficient_single_source_coverage
+Euonymus japonicus,3,3,0,0,retry_required
+Rosa luciae,3,3,0,0,retry_required
+Rubus trifidus,3,3,0,0,retry_required
