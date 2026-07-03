@@ -94,8 +94,8 @@ def test_coverage_does_not_treat_zero_scored_visits_as_absence() -> None:
 
 
 def test_coverage_identifies_missing_inner_photo_geometry_and_plant_linked_effort() -> None:
-    guide_only = _guide(plant="P002", photo_id="IMG002", inner_corolla_view_field="no")
-    geometry_only = _geometry(plant="P003", flower_id="F003")
+    guide_only = _guide(plant_id="P002", photo_id="IMG002", inner_corolla_view_field="no")
+    geometry_only = _geometry(plant_id="P003", flower_id="F003")
     coverage = build_field_multichannel_coverage(
         [guide_only], [geometry_only], [], []
     )
@@ -108,7 +108,7 @@ def test_coverage_identifies_missing_inner_photo_geometry_and_plant_linked_effor
 
 
 def test_site_level_effort_without_tagged_plant_is_not_assigned_to_a_plant() -> None:
-    unlinked = _effort(plant="", effort_id="E_SITE", monitored_open_flower_count="4")
+    unlinked = _effort(plant_id="", effort_id="E_SITE", monitored_open_flower_count="4")
     coverage = build_field_multichannel_coverage([], [], [unlinked], [])
 
     assert coverage.plant_rows == ()
@@ -120,7 +120,7 @@ def test_site_level_effort_without_tagged_plant_is_not_assigned_to_a_plant() -> 
 
 
 def test_coverage_rejects_plant_linked_row_with_missing_site_context() -> None:
-    bad = _guide(site="")
+    bad = _guide(site_id="")
     try:
         build_field_multichannel_coverage([bad], [], [], [])
     except ValueError as error:
