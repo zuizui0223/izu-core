@@ -24,7 +24,7 @@ FIELDS = (
     "required_primary_checks", "review_status", "notes",
 )
 TITLE_SCOPE_EXCLUSION = re.compile(
-    r"\b(correction to|erratum|ectomycorrhiz|mycorrhiz|seedling regeneration|vegetation recovery|"
+    r"\b(?:correction to|erratum|ectomycorrhiz\w*|mycorrhiz\w*|seedling regeneration|vegetation recovery|"
     r"landslide|planting|forest composition|phylogenetic relationships|chloroplast genome|genome sequencing|"
     r"flower constituents|components of the flower|cultivar|re-blooming|floral transformation)\b",
     re.I,
@@ -47,7 +47,7 @@ def title_scope_reason(rows: list[dict[str, str]]) -> str:
     for row in rows:
         match = TITLE_SCOPE_EXCLUSION.search(row.get("title", ""))
         if match:
-            matches.append(match.group(1))
+            matches.append(match.group(0))
     return "; ".join(sorted(set(matches)))
 
 
