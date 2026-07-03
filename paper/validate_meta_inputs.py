@@ -1,11 +1,13 @@
 """Validate the meta-analysis input tables (run in CI).
 
-Checks that the evidence-rank rubric, evidence observations, candidate pool, and
-primary-versus-context synthesis boundary are explicit and mutually consistent.
+Checks that the evidence-rank rubric, evidence observations, candidate pool,
+primary-versus-context synthesis boundary, and source-locked numeric-extraction
+gate are explicit and mutually consistent.
 """
 from __future__ import annotations
 
 import csv
+import importlib.util
 import pathlib
 import sys
 
@@ -29,6 +31,16 @@ def load(path: pathlib.Path) -> list[dict]:
         sys.exit(f"MISSING required file: {path}")
     with path.open(encoding="utf-8") as f:
         return list(csv.DictReader(f))
+
+
+def validate_source_locked_effects() -> dict[str, int]:
+    """Load the sibling validator without requiring ``paper`` to be a package."""
+    path = HERE / "validate_quantitative_effects.py"
+    spec = importlib.util.spec_from_file_location("_quantitative_effects_gate", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module.validate()
 
 
 def main() -> None:
@@ -73,6 +85,11 @@ def main() -> None:
     if len(candidates) < 50:
         sys.exit(f"candidate pool suspiciously small: {len(candidates)}")
 
+    try:
+        extraction_summary = validate_source_locked_effects()
+    except ValueError as error:
+        sys.exit(f"quantitative extraction gate failed: {error}")
+
     from collections import Counter
     by_rank = Counter(o["evidence_rank"] for o in obs)
     by_role = Counter(o["synthesis_role"] for o in obs)
@@ -86,6 +103,7 @@ def main() -> None:
         for o in obs if o["synthesis_role"] == "primary_geographic"
     )
     print(f"  primary geographic evidence weight: {primary_weight:.2f}")
+    print(f"  source-recovery records: {extraction_summary['sources']}; source-locked numeric effects: {extraction_summary['numeric_effects']}")
 
 
 if __name__ == "__main__":
