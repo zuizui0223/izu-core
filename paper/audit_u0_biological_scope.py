@@ -29,10 +29,9 @@ API = "https://api.gbif.org/v1/species/"
 USER_AGENT = "izu-core-biological-scope-audit/1.0"
 NONFLOWERING_CLASSES = {
     "Anthocerotopsida", "Bryopsida", "Cycadopsida", "Equisetopsida", "Ginkgoopsida",
-    "Gnetopsida", "Jungermanniopsida", "Liliopsida?", "Lycopodiopsida", "Marchantiopsida",
-    "Pinopsida", "Polypodiopsida", "Psilotopsida", "Sphagnopsida",
+    "Gnetopsida", "Jungermanniopsida", "Lycopodiopsida", "Marchantiopsida", "Pinopsida",
+    "Polypodiopsida", "Psilotopsida", "Sphagnopsida",
 }
-# Liliopsida must not be excluded: the sentinel above is deliberately non-matching.
 
 
 def request_json(key: str, attempts: int = 4) -> tuple[dict, int]:
