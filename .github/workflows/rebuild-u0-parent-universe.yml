@@ -6,6 +6,8 @@ on:
       - "paper/rebuild_u0_parent_universe.py"
       - "paper/build_u1_screening_queue.py"
       - "paper/build_u1_taxon_search_registry.py"
+      - "paper/build_u1_search_query_manifest.py"
+      - "paper/run_u1_crossref_discovery.py"
       - "paper/crosswalk_u0_to_156_pilot.py"
       - ".github/workflows/rebuild-u0-parent-universe.yml"
   workflow_dispatch:
@@ -38,6 +40,18 @@ jobs:
           python paper/build_u1_taxon_search_registry.py \
             --u1 artifacts/u0_snapshot/u1_screening_queue.csv \
             --out artifacts/u0_snapshot/u1_taxon_name_registry.csv
+      - name: Build all-lane U1 query manifest
+        run: |
+          python paper/build_u1_search_query_manifest.py \
+            --u1 artifacts/u0_snapshot/u1_screening_queue.csv \
+            --names artifacts/u0_snapshot/u1_taxon_name_registry.csv \
+            --out artifacts/u0_snapshot/u1_search_query_manifest.csv
+      - name: Discover first Crossref batch from U1
+        run: |
+          python paper/run_u1_crossref_discovery.py \
+            --manifest artifacts/u0_snapshot/u1_search_query_manifest.csv \
+            --out-dir artifacts/u0_snapshot/crossref_batch_001 \
+            --max-taxa 40 --max-queries 160
       - name: Crosswalk U0 with the legacy 156-species pilot
         run: |
           python paper/crosswalk_u0_to_156_pilot.py \
@@ -48,6 +62,8 @@ jobs:
           cat artifacts/u0_snapshot/u0_snapshot_summary.json
           cat artifacts/u0_snapshot/u1_screening_queue.summary.json
           cat artifacts/u0_snapshot/u1_taxon_name_registry.summary.json
+          cat artifacts/u0_snapshot/u1_search_query_manifest.summary.json
+          cat artifacts/u0_snapshot/crossref_batch_001/u1_crossref_summary.json
           cat artifacts/u0_snapshot/u0_to_156_pilot_crosswalk.summary.json
       - uses: actions/upload-artifact@v4
         with:
