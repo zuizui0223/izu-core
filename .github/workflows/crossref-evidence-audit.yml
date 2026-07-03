@@ -1,0 +1,30 @@
+name: Crossref Evidence Lead Audit
+
+on:
+  push:
+    paths:
+      - "paper/crossref_candidate_audit.py"
+      - "paper/evidence_screening/docket_*.csv"
+      - ".github/workflows/crossref-evidence-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Query Crossref candidate leads
+        run: python paper/crossref_candidate_audit.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crossref-batch-001-leads
+          path: paper/evidence_screening/crossref_batch_001_leads.csv
+          if-no-files-found: error
+          retention-days: 30
