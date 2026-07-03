@@ -1,0 +1,5 @@
+priority_rank,screening_id,species_key,scientific_name,family,group_confidence,n_islands,total_occ,coverage_potential,search_bundle,screening_status,why_now
+37,izu-2867087,2867087,Arisaema thunbergii,Araceae,high,6,71,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Non-bee comparison system tests specificity of the proposed bumblebee mechanism.
+38,izu-4183601,4183601,Piper kadsura,Piperaceae,low,5,99,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Non-bee comparison system with high coverage potential.
+39,izu-7293930,7293930,Vitis ficifolia,Vitaceae,medium,6,68,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Ambiguous comparison system retained to test specificity rather than assume all flowers respond alike.
+40,izu-4176844,4176844,Cinnamomum chekiangense,Lauraceae,low,5,69,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Ambiguous comparison system with high coverage potential.
