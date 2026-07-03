@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "paper/rebuild_u0_parent_universe.py"
+      - "paper/build_u1_screening_queue.py"
       - ".github/workflows/rebuild-u0-parent-universe.yml"
   workflow_dispatch:
 
@@ -21,8 +22,15 @@ jobs:
           python-version: "3.12"
       - name: Rebuild source-locked U0 GBIF snapshot
         run: python paper/rebuild_u0_parent_universe.py --out-dir artifacts/u0_snapshot
-      - name: Show U0 snapshot summary
-        run: cat artifacts/u0_snapshot/u0_snapshot_summary.json
+      - name: Build all-taxon U1 screening queue
+        run: |
+          python paper/build_u1_screening_queue.py \
+            --u0 artifacts/u0_snapshot/u0_parent_universe.csv \
+            --out artifacts/u0_snapshot/u1_screening_queue.csv
+      - name: Show cohort summaries
+        run: |
+          cat artifacts/u0_snapshot/u0_snapshot_summary.json
+          cat artifacts/u0_snapshot/u1_screening_queue.summary.json
       - uses: actions/upload-artifact@v4
         with:
           name: u0-gbif-parent-universe
