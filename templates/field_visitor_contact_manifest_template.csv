@@ -1,0 +1,1 @@
+visit_id,field_event_id,island_id,site_id,effort_id,plant_id,flower_id,source_video_id,visit_start_offset_s,visit_end_offset_s,individual_track_id,detection_source,visitor_group,body_size_class,identification_confidence,corolla_entry,anther_contact,stigma_contact,contact_visibility,contact_evidence,scorer_id,scored_at,notes
