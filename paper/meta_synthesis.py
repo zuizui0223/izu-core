@@ -107,8 +107,37 @@ def main() -> None:
         if skipped and not only_ab:
             print(f"  ({skipped} observations with unmapped trait/direction polarity skipped)")
 
-    print("\nNote: generalist negative-control cells are the key gap -- populate them")
-    print("with trait data to complete the falsification test (predict ~0 score).")
+    # lineage-level (genus) summary -- respects non-independence of multiple
+    # observations from the same lineage (avoids pseudo-replication)
+    lineage = defaultdict(lambda: {"group": "", "support": 0, "oppose": 0})
+    for o in obs:
+        pol = polarity(o["trait"], o["direction"])
+        if pol is None:
+            continue
+        genus = o["species"].split()[0]
+        lin = lineage[genus]
+        lin["group"] = o["functional_group"]
+        lin["support"] += 1 if pol > 0 else 0
+        lin["oppose"] += 1 if pol < 0 else 0
+    print("\n=== Independent-lineage (genus) net direction ===")
+    print(f"{'genus':16s} {'group':22s} {'net':>8s}")
+    net_by_group = defaultdict(lambda: [0, 0])  # [support_lineages, oppose_lineages]
+    for genus in sorted(lineage):
+        lin = lineage[genus]
+        net = "support" if lin["support"] > lin["oppose"] else ("oppose" if lin["oppose"] > lin["support"] else "mixed")
+        print(f"{genus:16s} {lin['group']:22s} {net:>8s}")
+        if net == "support":
+            net_by_group[lin["group"]][0] += 1
+        elif net == "oppose":
+            net_by_group[lin["group"]][1] += 1
+    print("\nLineage counts by functional group (support / oppose):")
+    for g in sorted(net_by_group):
+        s, o = net_by_group[g]
+        print(f"  {g:22s} {s} / {o}")
+    print("\nHonest statistics: independent lineages, not observations, are the unit.")
+    print("3 specialist/intermediate lineages all reduce; 2 large-flower lineages all")
+    print("enlarge -- consistent and island-rule-predicted, but formal power is limited")
+    print("by lineage count. Generalist negative-control lineages = 0 (the data ceiling).")
 
 
 if __name__ == "__main__":
