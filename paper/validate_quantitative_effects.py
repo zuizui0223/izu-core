@@ -46,7 +46,7 @@ def header(path: pathlib.Path) -> list[str]:
         return next(reader, [])
 
 
-def finite_number(value: str, field: str, effect_id: str, *, positive: bool = False) -> float:
+def finite_number(value: str, field: str, effect_id: str, *, positive: bool = False, nonnegative: bool = False) -> float:
     try:
         numeric = float(value)
     except ValueError as error:
@@ -55,7 +55,7 @@ def finite_number(value: str, field: str, effect_id: str, *, positive: bool = Fa
         raise ValueError(f"effect {effect_id}: {field} must be finite")
     if positive and numeric <= 0:
         raise ValueError(f"effect {effect_id}: {field} must be > 0")
-    if not positive and numeric < 0:
+    if nonnegative and numeric < 0:
         raise ValueError(f"effect {effect_id}: {field} must be >= 0")
     return numeric
 
@@ -95,7 +95,6 @@ def validate(queue_path: pathlib.Path = QUEUE, schema_path: pathlib.Path = SCHEM
     }
     numeric_positive = {"mean_reference", "mean_focal", "n_reference", "n_focal"}
     numeric_nonnegative = {"variance_reference", "variance_focal", "effect_variance"}
-    numeric_any = {"effect_value"}
 
     for row in effects:
         effect_id = row["effect_id"]
@@ -120,15 +119,8 @@ def validate(queue_path: pathlib.Path = QUEUE, schema_path: pathlib.Path = SCHEM
         for field in numeric_positive:
             finite_number(row[field], field, effect_id, positive=True)
         for field in numeric_nonnegative:
-            finite_number(row[field], field, effect_id)
-        finite_number(row["effect_value"], "effect_value", effect_id, positive=False)
-        # Effect values may be negative; the dedicated conversion above accepts only
-        # nonnegative numbers, so parse this field explicitly.
-        try:
-            if not math.isfinite(float(row["effect_value"])):
-                raise ValueError
-        except ValueError as error:
-            raise ValueError(f"effect {effect_id}: effect_value must be finite numeric") from error
+            finite_number(row[field], field, effect_id, nonnegative=True)
+        finite_number(row["effect_value"], "effect_value", effect_id)
 
     return {"sources": len(queue), "numeric_effects": len(effects)}
 
