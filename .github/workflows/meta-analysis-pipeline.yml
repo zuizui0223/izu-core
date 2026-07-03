@@ -42,6 +42,14 @@ jobs:
           python paper/comprehensive_sweep.py --replicates 200 > artifacts/comprehensive_sweep.csv
           wc -l artifacts/comprehensive_sweep.csv
 
+      - name: Threshold / anti-cline shape classification (calibration seed)
+        run: |
+          python paper/threshold_analysis.py | tee artifacts/threshold_analysis.txt
+
+      - name: Classify candidates by pollination functional group (moderator)
+        run: |
+          python paper/classify_functional_groups.py
+
       - name: Calibration seed — island multichannel analysis (Section 6)
         run: |
           python scripts/run_island_multichannel_analysis.py \
@@ -59,8 +67,10 @@ jobs:
           name: meta-analysis-pipeline
           path: |
             artifacts/comprehensive_sweep.csv
+            artifacts/threshold_analysis.txt
             artifacts/island_multichannel_analysis.json
             artifacts/island_multichannel_analysis.md
             paper/izu_entomophilous_candidates.csv
+            paper/functional_group_classification.csv
             paper/evidence_ranks.csv
           if-no-files-found: error
