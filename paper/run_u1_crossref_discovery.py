@@ -2,7 +2,9 @@
 
 The output is a *lead* table and an exact query log. A title match is never
 converted into an effect, a functional-group assignment, or a retained source
-without primary-source review. Zero result rows are kept deliberately.
+without primary-source review. Zero result rows are kept deliberately. Query
+selection is round-robin across taxa so that early synonyms cannot consume a
+whole batch before other taxa receive a baseline search.
 
 Usage:
     python paper/run_u1_crossref_discovery.py \
@@ -17,6 +19,7 @@ import csv
 import json
 import re
 import time
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -24,7 +27,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 API = "https://api.crossref.org/works"
-USER_AGENT = "izu-core-u1-crossref/1.0 (systematic evidence screening)"
+USER_AGENT = "izu-core-u1-crossref/1.1 (systematic evidence screening)"
 COMPARATIVE = re.compile(r"\b(island|insular|mainland|izu|geograph|population differentiation)\b|伊豆|島嶼|島|本土", re.I)
 TRAIT = re.compile(r"\b(flower|floral|corolla|morpholog|pollinat|reproduct|mating|self.compat)\b|花|形態|送粉|訪花|繁殖|自家", re.I)
 
@@ -106,6 +109,31 @@ def priority(row: dict[str, str]) -> tuple[int, int, int, str]:
     )
 
 
+def select_round_robin(manifest: list[dict[str, str]], max_taxa: int, max_queries: int) -> list[dict[str, str]]:
+    """Give each selected taxon its best query before consuming synonym depth."""
+    by_taxon: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in manifest:
+        by_taxon[row["u0_accepted_key"]].append(row)
+    for rows in by_taxon.values():
+        rows.sort(key=priority)
+    taxon_order = sorted(by_taxon, key=lambda key: priority(by_taxon[key][0]))[:max_taxa]
+    selected: list[dict[str, str]] = []
+    depth = 0
+    while len(selected) < max_queries:
+        added = False
+        for key in taxon_order:
+            rows = by_taxon[key]
+            if depth < len(rows):
+                selected.append(rows[depth])
+                added = True
+                if len(selected) >= max_queries:
+                    break
+        if not added:
+            break
+        depth += 1
+    return selected
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", required=True, type=Path)
@@ -117,15 +145,7 @@ def main() -> None:
 
     with args.manifest.open(encoding="utf-8", newline="") as handle:
         manifest = [row for row in csv.DictReader(handle) if row["source_lane"] == "Crossref"]
-    taxon_keys = {row["u0_accepted_key"] for row in sorted(manifest, key=priority)[:0]}
-    allowed_taxa = []
-    for row in sorted(manifest, key=priority):
-        key = row["u0_accepted_key"]
-        if key not in taxon_keys and len(taxon_keys) >= args.max_taxa:
-            continue
-        taxon_keys.add(key)
-        allowed_taxa.append(row)
-    selected = sorted(allowed_taxa, key=priority)[: args.max_queries]
+    selected = select_round_robin(manifest, args.max_taxa, args.max_queries)
 
     query_log: list[dict[str, str]] = []
     leads: list[dict[str, str]] = []
