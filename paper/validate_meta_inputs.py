@@ -1,10 +1,8 @@
 """Validate the meta-analysis input tables (run in CI).
 
-Checks that the evidence-rank rubric, the evidence observations, and the
-GBIF candidate pool are well-formed and mutually consistent, so the synthesis
-is reproducible and every data point carries an explicit confidence rank.
+Checks that the evidence-rank rubric, evidence observations, candidate pool, and
+primary-versus-context synthesis boundary are explicit and mutually consistent.
 """
-
 from __future__ import annotations
 
 import csv
@@ -21,6 +19,9 @@ VALID_DIRECTIONS = {
     "unknown_pending",
 }
 VALID_SHAPES = {"step", "cline", "none", "unknown"}
+VALID_SYNTHESIS_ROLES = {
+    "primary_geographic", "pending_scope_check", "comparative_context",
+}
 
 
 def load(path: pathlib.Path) -> list[dict]:
@@ -36,10 +37,9 @@ def main() -> None:
     if rank_ids != {"A", "B", "C", "D", "E"}:
         sys.exit(f"evidence_ranks.csv must define exactly ranks A-E, got {sorted(rank_ids)}")
     for r in ranks:
-        w = float(r["default_weight"])
-        if not 0.0 <= w <= 1.0:
-            sys.exit(f"rank {r['rank']} weight out of [0,1]: {w}")
-    # rank E (occurrence-only) must carry zero weight (not a response data point)
+        weight = float(r["default_weight"])
+        if not 0.0 <= weight <= 1.0:
+            sys.exit(f"rank {r['rank']} weight out of [0,1]: {weight}")
     e_weight = float(next(r["default_weight"] for r in ranks if r["rank"] == "E"))
     if e_weight != 0.0:
         sys.exit("rank E (occurrence_only) must have default_weight 0.00")
@@ -47,6 +47,10 @@ def main() -> None:
     obs = load(OBS)
     if not obs:
         sys.exit("evidence_observations.csv is empty")
+    required = {"obs_id", "evidence_rank", "direction", "effect_available", "synthesis_role"}
+    missing = required - set(obs[0])
+    if missing:
+        sys.exit("evidence_observations.csv missing columns: " + ", ".join(sorted(missing)))
     ids = [o["obs_id"] for o in obs]
     if len(ids) != len(set(ids)):
         sys.exit("duplicate obs_id in evidence_observations.csv")
@@ -55,28 +59,33 @@ def main() -> None:
             sys.exit(f"obs {o['obs_id']}: unknown evidence_rank {o['evidence_rank']}")
         if o["direction"] not in VALID_DIRECTIONS:
             sys.exit(f"obs {o['obs_id']}: invalid direction {o['direction']}")
+        if o["synthesis_role"] not in VALID_SYNTHESIS_ROLES:
+            sys.exit(f"obs {o['obs_id']}: invalid synthesis_role {o['synthesis_role']}")
         shape = o.get("response_shape")
         if shape is not None and shape not in VALID_SHAPES:
             sys.exit(f"obs {o['obs_id']}: invalid response_shape {shape}")
         if o["evidence_rank"] == "A" and o["effect_available"] != "yes":
             sys.exit(f"obs {o['obs_id']}: rank A requires effect_available=yes")
+        if o["synthesis_role"] == "comparative_context" and o["effect_available"] == "yes":
+            sys.exit(f"obs {o['obs_id']}: comparative context cannot be an unflagged primary effect")
 
-    cands = load(CANDS)
-    if len(cands) < 50:
-        sys.exit(f"candidate pool suspiciously small: {len(cands)}")
+    candidates = load(CANDS)
+    if len(candidates) < 50:
+        sys.exit(f"candidate pool suspiciously small: {len(candidates)}")
 
-    # summary
     from collections import Counter
     by_rank = Counter(o["evidence_rank"] for o in obs)
-    by_dir = Counter(o["direction"] for o in obs)
-    print(f"OK: {len(ranks)} ranks, {len(obs)} observations, {len(cands)} candidate species")
+    by_role = Counter(o["synthesis_role"] for o in obs)
+    by_direction = Counter(o["direction"] for o in obs)
+    print(f"OK: {len(ranks)} ranks, {len(obs)} observations, {len(candidates)} candidate species")
     print("  observations by rank:", dict(sorted(by_rank.items())))
-    print("  observations by direction:", dict(by_dir))
-    weighted = sum(
+    print("  observations by synthesis role:", dict(sorted(by_role.items())))
+    print("  observations by direction:", dict(by_direction))
+    primary_weight = sum(
         float(next(r["default_weight"] for r in ranks if r["rank"] == o["evidence_rank"]))
-        for o in obs
+        for o in obs if o["synthesis_role"] == "primary_geographic"
     )
-    print(f"  total evidence weight (sum of rank weights): {weighted:.2f}")
+    print(f"  primary geographic evidence weight: {primary_weight:.2f}")
 
 
 if __name__ == "__main__":

@@ -1,34 +1,24 @@
-"""First-pass rank-weighted synthesis of the Izu floral-response evidence.
+"""Evidence-role-aware synthesis of Izu floral-response observations.
 
-Two components:
-  1. A quantitative anchor: the log response ratio (lnRR) of corolla length,
-     mainland vs most-isolated island, for the fully measured seed species.
-  2. A rank-weighted DIRECTION (vote) synthesis across all observations, split
-     by pollination functional group, because most non-seed species currently
-     have direction-only (rank B/D) evidence rather than extractable effect
-     sizes. Reported at full weight AND rank-A/B-only.
+The quantitative anchor remains the source-locked Campanula mainland-to-island
+series. Direction-only observations are summarised only when they are tagged
+`primary_geographic`. Taxonomic comparisons, form-level descriptions and records
+whose comparison scope has not yet been checked are reported separately as
+context; they are never pooled as independent geographic replicates.
 
-Each observation is polarised to whether it SUPPORTS the pollinator-loss
-syndrome (floral reduction / increased selfing = +1) or opposes it
-(enlargement = -1). The pooled score is sum(polarity x rank_weight).
-
-This is a seed synthesis: it makes the framework runnable and exposes exactly
-which cells (esp. generalist negative controls) still need trait data. It is
-NOT yet a variance-weighted random-effects meta-analysis (needs >1 quantitative
-effect size).
-
-  python paper/meta_synthesis.py
+This is not a variance-weighted random-effects meta-analysis. It is an honest
+interim report that exposes the gap between direct evidence, pending source
+recovery and comparative context.
 """
-
 from __future__ import annotations
 
 import csv
 import math
 import pathlib
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 
-try:  # keep output robust on Windows cp932 consoles
+try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
@@ -38,7 +28,6 @@ RANKS = HERE / "evidence_ranks.csv"
 OBS = HERE / "evidence_observations.csv"
 SEED = HERE.parent / "data" / "inoue_literature_island_traits.csv"
 
-# does this (trait, direction) support the pollinator-loss syndrome?
 SUPPORT = {
     ("corolla_length", "reduction"): +1,
     ("corolla_tube_length", "reduction"): +1,
@@ -58,87 +47,101 @@ def polarity(trait: str, direction: str):
 
 def quantitative_anchor() -> None:
     rows = list(csv.DictReader(SEED.open(encoding="utf-8")))
-    def fl(r):
-        v = r["flower_length_mm"].strip()
-        return float(v) if v not in ("", "NA") else None
-    mainland = fl(rows[0])
-    isolated = next(fl(r) for r in reversed(rows) if fl(r) is not None)
+
+    def flower_length(row: dict[str, str]) -> float | None:
+        value = row["flower_length_mm"].strip()
+        return float(value) if value not in ("", "NA") else None
+
+    mainland = flower_length(rows[0])
+    isolated = next(flower_length(row) for row in reversed(rows) if flower_length(row) is not None)
+    assert mainland is not None and isolated is not None
     lnrr = math.log(isolated / mainland)
-    pct = (isolated / mainland - 1) * 100
-    print("Quantitative anchor (corolla length, mainland vs most-isolated island):")
-    print(f"  mainland={mainland} mm  isolated={isolated} mm  lnRR={lnrr:+.3f}  ({pct:+.0f}%)")
+    percentage = (isolated / mainland - 1) * 100
+    print("Quantitative anchor (Campanula corolla length, mainland vs most-isolated island):")
+    print(f"  mainland={mainland} mm  isolated={isolated} mm  lnRR={lnrr:+.3f}  ({percentage:+.0f}%)")
+
+
+def synthesise(observations: list[dict[str, str]], weights: dict[str, float], only_ab: bool):
+    by_group = defaultdict(lambda: {"score": 0.0, "weight": 0.0, "support": 0, "oppose": 0})
+    skipped = 0
+    for observation in observations:
+        if observation["synthesis_role"] != "primary_geographic":
+            continue
+        rank = observation["evidence_rank"]
+        if only_ab and rank not in ("A", "B"):
+            continue
+        sign = polarity(observation["trait"], observation["direction"])
+        if sign is None:
+            skipped += 1
+            continue
+        bucket = by_group[observation["functional_group"]]
+        bucket["score"] += sign * weights[rank]
+        bucket["weight"] += weights[rank]
+        bucket["support"] += int(sign > 0)
+        bucket["oppose"] += int(sign < 0)
+    return by_group, skipped
+
+
+def primary_lineages(observations: list[dict[str, str]]) -> dict[str, dict[str, object]]:
+    result = defaultdict(lambda: {"group": "", "support": 0, "oppose": 0})
+    for observation in observations:
+        if observation["synthesis_role"] != "primary_geographic":
+            continue
+        sign = polarity(observation["trait"], observation["direction"])
+        if sign is None:
+            continue
+        genus = observation["species"].split()[0]
+        entry = result[genus]
+        entry["group"] = observation["functional_group"]
+        entry["support"] += int(sign > 0)
+        entry["oppose"] += int(sign < 0)
+    return result
 
 
 def main() -> None:
-    weights = {r["rank"]: float(r["default_weight"]) for r in csv.DictReader(RANKS.open(encoding="utf-8"))}
-    obs = list(csv.DictReader(OBS.open(encoding="utf-8")))
+    weights = {row["rank"]: float(row["default_weight"]) for row in csv.DictReader(RANKS.open(encoding="utf-8"))}
+    observations = list(csv.DictReader(OBS.open(encoding="utf-8")))
+    roles = Counter(row["synthesis_role"] for row in observations)
 
     quantitative_anchor()
-
-    def synthesise(only_ab: bool):
-        by_group = defaultdict(lambda: {"score": 0.0, "wsum": 0.0, "n": 0, "n_support": 0, "n_oppose": 0})
-        skipped = 0
-        for o in obs:
-            pol = polarity(o["trait"], o["direction"])
-            if pol is None:
-                skipped += 1
-                continue
-            rank = o["evidence_rank"]
-            if only_ab and rank not in ("A", "B"):
-                continue
-            w = weights[rank]
-            g = o["functional_group"]
-            b = by_group[g]
-            b["score"] += pol * w
-            b["wsum"] += w
-            b["n"] += 1
-            b["n_support"] += 1 if pol > 0 else 0
-            b["n_oppose"] += 1 if pol < 0 else 0
-        return by_group, skipped
+    print("\nEvidence-role inventory:")
+    for role, count in sorted(roles.items()):
+        print(f"  {role}: {count}")
 
     for only_ab in (False, True):
         label = "rank A/B only" if only_ab else "full weight (A-D)"
-        by_group, skipped = synthesise(only_ab)
-        print(f"\n=== Rank-weighted direction synthesis by functional group [{label}] ===")
-        print(f"{'group':22s} {'weighted_score':>14s} {'mean_polarity':>13s} {'support':>7s} {'oppose':>6s}")
-        for g in sorted(by_group):
-            b = by_group[g]
-            mean_pol = b["score"] / b["wsum"] if b["wsum"] else 0.0
-            print(f"{g:22s} {b['score']:>+14.2f} {mean_pol:>+13.2f} {b['n_support']:>7d} {b['n_oppose']:>6d}")
-        if skipped and not only_ab:
-            print(f"  ({skipped} observations with unmapped trait/direction polarity skipped)")
-
-    # lineage-level (genus) summary -- respects non-independence of multiple
-    # observations from the same lineage (avoids pseudo-replication)
-    lineage = defaultdict(lambda: {"group": "", "support": 0, "oppose": 0})
-    for o in obs:
-        pol = polarity(o["trait"], o["direction"])
-        if pol is None:
+        by_group, skipped = synthesise(observations, weights, only_ab)
+        print(f"\n=== Direct geographic direction synthesis [{label}] ===")
+        if not by_group:
+            print("  No eligible primary-geographic direction observations.")
             continue
-        genus = o["species"].split()[0]
-        lin = lineage[genus]
-        lin["group"] = o["functional_group"]
-        lin["support"] += 1 if pol > 0 else 0
-        lin["oppose"] += 1 if pol < 0 else 0
-    print("\n=== Independent-lineage (genus) net direction ===")
-    print(f"{'genus':16s} {'group':22s} {'net':>8s}")
-    net_by_group = defaultdict(lambda: [0, 0])  # [support_lineages, oppose_lineages]
-    for genus in sorted(lineage):
-        lin = lineage[genus]
-        net = "support" if lin["support"] > lin["oppose"] else ("oppose" if lin["oppose"] > lin["support"] else "mixed")
-        print(f"{genus:16s} {lin['group']:22s} {net:>8s}")
-        if net == "support":
-            net_by_group[lin["group"]][0] += 1
-        elif net == "oppose":
-            net_by_group[lin["group"]][1] += 1
-    print("\nLineage counts by functional group (support / oppose):")
-    for g in sorted(net_by_group):
-        s, o = net_by_group[g]
-        print(f"  {g:22s} {s} / {o}")
-    print("\nHonest statistics: independent lineages, not observations, are the unit.")
-    print("3 specialist/intermediate lineages all reduce; 2 large-flower lineages all")
-    print("enlarge -- consistent and island-rule-predicted, but formal power is limited")
-    print("by lineage count. Generalist negative-control lineages = 0 (the data ceiling).")
+        print(f"{'group':22s} {'weighted_score':>14s} {'mean_polarity':>13s} {'support':>7s} {'oppose':>6s}")
+        for group in sorted(by_group):
+            bucket = by_group[group]
+            mean = bucket["score"] / bucket["weight"] if bucket["weight"] else 0.0
+            print(f"{group:22s} {bucket['score']:>+14.2f} {mean:>+13.2f} {bucket['support']:>7d} {bucket['oppose']:>6d}")
+        if skipped and not only_ab:
+            print(f"  ({skipped} eligible primary observations had no polarity mapping.)")
+
+    lineages = primary_lineages(observations)
+    print("\n=== Direct-geographic lineage summary ===")
+    if not lineages:
+        print("  No eligible direct-geographic lineages.")
+    else:
+        print(f"{'genus':16s} {'group':22s} {'net':>8s}")
+        for genus in sorted(lineages):
+            record = lineages[genus]
+            net = "support" if record["support"] > record["oppose"] else ("oppose" if record["oppose"] > record["support"] else "mixed")
+            print(f"{genus:16s} {record['group']:22s} {net:>8s}")
+
+    print("\n=== Not pooled pending/context observations ===")
+    for observation in observations:
+        if observation["synthesis_role"] == "primary_geographic":
+            continue
+        print(f"  [{observation['synthesis_role']}] {observation['species']} — {observation['trait']} / {observation['direction']}")
+
+    print("\nInterpretation boundary: only source-checked direct geographic comparisons are pooled above.")
+    print("Pending-scope and comparative-context records remain leads for source recovery, not independent replicates.")
 
 
 if __name__ == "__main__":
