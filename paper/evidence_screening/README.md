@@ -20,9 +20,14 @@ A record can be in several cohorts, but U4 evidence is never converted into U3 b
 
 ## Initial 40-species docket
 
-`high_information_docket.csv` is the first search batch. It protects the key contrast before literature availability biases the synthesis: 30% specialist candidates, 40% generalist negative controls, 20% large-flower counter-direction candidates, and 10% non-bee/ambiguous comparison systems.
+The first search batch is split into four source-locked files:
 
-`screening_registry.schema.csv` specifies the one-row-per-source evidence record. Every retained source receives an exact query, retrieval date, source identifier, page/table/figure, trait definition, comparison design, and inclusion or exclusion reason.
+- `docket_specialists.csv` — 12 specialist candidates.
+- `docket_generalists.csv` — 16 deliberately protected generalist negative controls.
+- `docket_large_flower.csv` — 8 counter-direction candidates.
+- `docket_other_systems.csv` — 4 non-bee or ambiguous comparison systems.
+
+This 30% / 40% / 20% / 10% allocation protects the key contrast before literature availability biases the synthesis. `screening_registry.schema.csv` specifies the one-row-per-source evidence record. Every retained source receives an exact query, retrieval date, source identifier, page/table/figure, trait definition, comparison design, and inclusion or exclusion reason.
 
 ## Expand from 156 to the full U0 universe
 
