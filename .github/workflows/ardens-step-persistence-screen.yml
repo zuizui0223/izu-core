@@ -1,0 +1,42 @@
+name: Ardens Step-Persistence Screen
+
+on:
+  pull_request:
+    paths:
+      - 'channel_id/ardens_step_persistence_smc.py'
+      - 'channel_id/source_level_ardens_step_persistence.py'
+      - 'channel_id/source_level_tempered_smc.py'
+      - 'data/ardens_step_persistence_stages.csv'
+      - 'data/inoue_literature_island_traits.csv'
+      - 'data/two_breakpoint_evidence/**'
+      - 'data/guide_direction_constraints.csv'
+      - 'scripts/run_ardens_step_persistence_smc.py'
+      - '.github/workflows/ardens-step-persistence-screen.yml'
+  workflow_dispatch:
+
+jobs:
+  six-candidate-step-screen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run six-candidate source-level SMC screen
+        run: |
+          mkdir -p ardens_step_persistence_screen
+          python scripts/run_ardens_step_persistence_smc.py \
+            --output-json ardens_step_persistence_screen/SIX_CANDIDATE_SMC.json \
+            --output-md ardens_step_persistence_screen/SIX_CANDIDATE_SMC.md \
+            --particles 500 \
+            --target-ess-fraction 0.70 \
+            --rejuvenation-steps 1 \
+            --seeds 20260711 20260712 20260713
+      - name: Upload step-persistence screen
+        uses: actions/upload-artifact@v4
+        with:
+          name: ardens-step-persistence-screen
+          path: ardens_step_persistence_screen
+          if-no-files-found: error
