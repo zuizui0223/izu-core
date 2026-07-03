@@ -1,0 +1,42 @@
+name: Crossref Source Routes
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/crossref-source-routes.yml"
+      - "paper/evidence_screening/known_source_upgrade_queue.csv"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  routes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve DOI metadata and publisher links
+        run: |
+          mkdir -p source_routes
+          printf 'source_id\tdoi\ttitle\tpublisher\tauthors\tlanding_url\tfulltext_links\n' > source_routes/crossref_source_routes.tsv
+          while IFS=$'\t' read -r source_id doi; do
+            json=$(curl --fail --silent --show-error --retry 3 "https://api.crossref.org/works/${doi}")
+            title=$(printf '%s' "$json" | jq -r '.message.title[0] // ""' | tr '\t\n' ' ')
+            publisher=$(printf '%s' "$json" | jq -r '.message.publisher // ""' | tr '\t\n' ' ')
+            authors=$(printf '%s' "$json" | jq -r '[.message.author[]? | ((.given // "") + " " + (.family // ""))] | join("; ")' | tr '\t\n' ' ')
+            landing=$(printf '%s' "$json" | jq -r '.message.URL // ""')
+            links=$(printf '%s' "$json" | jq -r '[.message.link[]?.URL] | join("; ")')
+            printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$source_id" "$doi" "$title" "$publisher" "$authors" "$landing" "$links" >> source_routes/crossref_source_routes.tsv
+          done <<'EOF'
+          weigela_floral_2010	10.1007/s00606-010-0317-y
+          ligustrum_kato_2013	10.1111/boj.12092
+          sakuyuri_flower_pollinator_2018	10.1111/1442-1984.12222
+          clerodendrum_mizusawa_2012	10.1111/j.1442-1984.2012.00385.x
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crossref-source-routes
+          path: source_routes/crossref_source_routes.tsv
+          if-no-files-found: error
+          retention-days: 30
