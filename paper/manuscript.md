@@ -67,20 +67,20 @@ Across 90 parameter cells (300 replicates), an analysis that calibrates the per-
 
 *Campanula microdonta* corolla length falls from 49.9 mm (mainland) to 23.1 mm (Hachijō): **lnRR = −0.77 (−54%)**, a smooth cline (ρ = −1.00). Autonomous selfing instead **steps**: bagged capsule set jumps 11%→100% exactly at the Ōshima→Toshima bumblebee-loss boundary (classifier: step at order ≈ 1.5), while temperature is flat and precipitation steps at a *different* boundary — climate does not co-localise with the reproductive threshold.
 
-### 3.3 A second species reduces in parallel; large non-bee flowers enlarge
+### 3.3 Three independent specialist lineages reduce; large non-bee flowers enlarge
 
-*Ligustrum ovalifolium* (Oleaceae; Kato et al. 2014, Bot. J. Linn. Soc. 174:489) has shorter corolla tubes and stamens on the islands, most pronounced on the most isolated island — the same direction as *Campanula*. In the opposite direction, large-flowered non-bumblebee endemics enlarge: the Sakuyuri lily (world's largest lily flower) and the Ōshima azalea (larger, brighter than mainland *Rhododendron kaempferi*) — as the island rule predicts for flowers not tied to the lost bumblebees.
+The reduction is not confined to *Campanula*. **Three independent bumblebee-associated lineages** shift the same way: *Ligustrum ovalifolium* (Oleaceae; Kato et al. 2014, Bot. J. Linn. Soc. 174:489) has shorter corolla tubes and stamens on the islands, most pronounced on the most isolated island; and *Chionographis japonica* (Melanthiaceae; Suetsugu et al. 2024, New Phytologist) has **shorter floral tubes on Kōzushima under bumblebee absence**, shifting to short-tongued *Xylocopa*. In the opposite direction, large-flowered non-bumblebee taxa enlarge: the Sakuyuri lily (*Lilium auratum*; Nakajima 2018, Plant Species Biol.) and the Ōshima azalea (larger, brighter than mainland *Rhododendron kaempferi*) — as the island rule predicts for flowers not tied to the lost bumblebees.
 
-### 3.4 First rank-weighted synthesis
+### 3.4 Rank-weighted synthesis
 
 | Functional group | Weighted direction score | Support / oppose |
 |---|---:|---:|
-| specialist_bumblebee | **+3.95** | 5 / 0 |
+| specialist_bumblebee (Campanula, Chionographis) | **+4.65** | 6 / 0 |
 | intermediate_tubular (*Ligustrum*) | **+1.40** | 2 / 0 |
-| large_flower (Sakuyuri, azalea) | **−0.50** | 0 / 2 |
+| large_flower (Sakuyuri, azalea) | **−0.95** | 0 / 2 |
 | generalist_open (negative control) | — | **no data yet** |
 
-The predicted structure is already present: specialists and intermediate-tubular species support floral reduction/selfing; large non-bee flowers oppose it. The A/B-only sensitivity preserves the specialist and *Ligustrum* signals. The **generalist control cells are empty** — the decisive falsification test is not yet populated.
+The predicted structure holds across independent lineages: every specialist/intermediate observation supports floral reduction/selfing; both large non-bee taxa oppose it (enlargement). The A/B-only sensitivity preserves the whole pattern (now mostly peer-reviewed). The **generalist control cells remain empty** — the decisive falsification test cannot be populated from available data (§4), the one acknowledged incompleteness.
 
 ---
 
