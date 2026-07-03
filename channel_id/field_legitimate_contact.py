@@ -41,6 +41,10 @@ RATE_SUMMARY_COLUMNS = (
     "confirmed_both_contact_bouts", "unscorable_contact_bouts", "visit_bouts_per_flower_hour",
     "confirmed_both_per_flower_hour", "confirmed_both_fraction_of_scorable_bouts", "boundary",
 )
+EFFORT_SUMMARY_COLUMNS = (
+    "island_id", "usable_effort_windows", "monitored_flower_hours", "scored_visit_bouts",
+    "boundary",
+)
 
 VISITOR_GROUPS = frozenset({
     "bombus_ardens_confirmed", "bombus_large_other", "bombus_small", "small_bee_non_bombus",
@@ -65,6 +69,7 @@ BOUNDARY = (
 class FieldContactAudit:
     visit_ledger_rows: tuple[dict[str, str], ...]
     rate_summary_rows: tuple[dict[str, str], ...]
+    effort_summary_rows: tuple[dict[str, str], ...]
 
 
 def _text(row: dict[str, str], field: str) -> str:
@@ -237,12 +242,29 @@ def audit_field_contacts(
             "boundary": BOUNDARY,
         })
     usable_efforts = [row for row in effort_rows if _text(row, "usable_observation") == "yes"]
-    # Exposure must include zero-visit effort; group-specific rows inherit island-wide exposure by design.
     island_exposure: dict[str, dict[str, float]] = defaultdict(lambda: {"windows": 0.0, "flower_hours": 0.0})
     for effort in usable_efforts:
         island = _text(effort, "island_id")
         island_exposure[island]["windows"] += 1.0
-        island_exposure[island]["flower_hours"] += _effort_seconds(effort) / 3600.0 * _positive_float(effort, "monitored_open_flower_count", f"effort_id={_text(effort, 'effort_id')!r}")
+        island_exposure[island]["flower_hours"] += _effort_seconds(effort) / 3600.0 * _positive_float(
+            effort, "monitored_open_flower_count", f"effort_id={_text(effort, 'effort_id')!r}"
+        )
+    visit_count_by_island: dict[str, int] = defaultdict(int)
+    for row in ledger:
+        visit_count_by_island[_text(row, "island_id")] += 1
+    effort_summaries = tuple(
+        {
+            "island_id": island,
+            "usable_effort_windows": str(int(exposure["windows"])),
+            "monitored_flower_hours": f"{exposure['flower_hours']:.8f}",
+            "scored_visit_bouts": str(visit_count_by_island[island]),
+            "boundary": (
+                "Effort is a detection denominator, not proof of visitor absence. Zero scored bouts can reflect "
+                "limited time, weather, video coverage, or scoring scope."
+            ),
+        }
+        for island, exposure in sorted(island_exposure.items())
+    )
     group_counts: dict[tuple[str, str, str], dict[str, float]] = defaultdict(lambda: defaultdict(float))
     for row in ledger:
         key = (_text(row, "island_id"), _text(row, "visitor_group"), _text(row, "body_size_class"))
@@ -285,7 +307,7 @@ def audit_field_contacts(
             "confirmed_both_fraction_of_scorable_bouts": f"{both_fraction:.8f}" if scorable else "",
             "boundary": BOUNDARY,
         })
-    return FieldContactAudit(tuple(ledger), tuple(summaries))
+    return FieldContactAudit(tuple(ledger), tuple(summaries), effort_summaries)
 
 
 def _write(path: Path, fields: Sequence[str], rows: Sequence[dict[str, str]]) -> None:
@@ -301,12 +323,14 @@ def write_field_contact_audit(output_dir: Path, audit: FieldContactAudit) -> Non
     output_dir.mkdir(parents=True, exist_ok=True)
     _write(output_dir / "field_contact_visit_ledger.csv", VISIT_LEDGER_COLUMNS, audit.visit_ledger_rows)
     _write(output_dir / "field_contact_rate_summary.csv", RATE_SUMMARY_COLUMNS, audit.rate_summary_rows)
+    _write(output_dir / "field_contact_island_effort_summary.csv", EFFORT_SUMMARY_COLUMNS, audit.effort_summary_rows)
     lines = [
         "# Field visitor-contact audit",
         "",
         f"Validated visit bouts: {len(audit.visit_ledger_rows)}",
+        f"Island effort rows: {len(audit.effort_summary_rows)}",
         f"Island × visitor-group × body-size rows: {len(audit.rate_summary_rows)}",
         "",
-        "Visit rates use total usable island-level monitored flower-hours as the denominator, including windows with zero visits. A confirmed both-contact row is a visual handling proxy, not evidence of actual pollen transfer or fitness.",
+        "Visit rates use total usable island-level monitored flower-hours as the denominator, including windows with zero visits. A confirmed both-contact row is a visual handling proxy, not evidence of actual pollen transfer or fitness. An absent visitor-group row is not evidence of island absence.",
     ]
     (output_dir / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
