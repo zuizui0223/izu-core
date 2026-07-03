@@ -9,6 +9,7 @@ on:
       - "paper/build_u1_search_query_manifest.py"
       - "paper/run_u1_crossref_discovery.py"
       - "paper/triage_u1_crossref_leads.py"
+      - "paper/route_u1_review_sources.py"
       - "paper/crosswalk_u0_to_156_pilot.py"
       - ".github/workflows/rebuild-u0-parent-universe.yml"
   workflow_dispatch:
@@ -58,6 +59,11 @@ jobs:
           python paper/triage_u1_crossref_leads.py \
             --leads artifacts/u0_snapshot/crossref_batch_001/u1_crossref_leads.csv \
             --out artifacts/u0_snapshot/crossref_batch_001/u1_crossref_review_queue.csv
+      - name: Route review candidates to legal full-text paths
+        run: |
+          python paper/route_u1_review_sources.py \
+            --queue artifacts/u0_snapshot/crossref_batch_001/u1_crossref_review_queue.csv \
+            --out artifacts/u0_snapshot/crossref_batch_001/u1_source_access_routes.csv
       - name: Crosswalk U0 with the legacy 156-species pilot
         run: |
           python paper/crosswalk_u0_to_156_pilot.py \
@@ -71,6 +77,7 @@ jobs:
           cat artifacts/u0_snapshot/u1_search_query_manifest.summary.json
           cat artifacts/u0_snapshot/crossref_batch_001/u1_crossref_summary.json
           cat artifacts/u0_snapshot/crossref_batch_001/u1_crossref_review_queue.summary.json
+          cat artifacts/u0_snapshot/crossref_batch_001/u1_source_access_routes.summary.json
           cat artifacts/u0_snapshot/u0_to_156_pilot_crosswalk.summary.json
       - uses: actions/upload-artifact@v4
         with:
