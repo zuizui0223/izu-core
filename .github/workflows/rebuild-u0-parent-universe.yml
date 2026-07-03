@@ -6,6 +6,7 @@ on:
       - "paper/rebuild_u0_parent_universe.py"
       - "paper/build_u1_screening_queue.py"
       - "paper/build_u1_taxon_search_registry.py"
+      - "paper/crosswalk_u0_to_156_pilot.py"
       - ".github/workflows/rebuild-u0-parent-universe.yml"
   workflow_dispatch:
 
@@ -33,11 +34,17 @@ jobs:
           python paper/build_u1_taxon_search_registry.py \
             --u1 artifacts/u0_snapshot/u1_screening_queue.csv \
             --out artifacts/u0_snapshot/u1_taxon_name_registry.csv
+      - name: Crosswalk U0 with the legacy 156-species pilot
+        run: |
+          python paper/crosswalk_u0_to_156_pilot.py \
+            --u0 artifacts/u0_snapshot/u0_parent_universe.csv \
+            --out artifacts/u0_snapshot/u0_to_156_pilot_crosswalk.csv
       - name: Show cohort summaries
         run: |
           cat artifacts/u0_snapshot/u0_snapshot_summary.json
           cat artifacts/u0_snapshot/u1_screening_queue.summary.json
           cat artifacts/u0_snapshot/u1_taxon_name_registry.summary.json
+          cat artifacts/u0_snapshot/u0_to_156_pilot_crosswalk.summary.json
       - uses: actions/upload-artifact@v4
         with:
           name: u0-gbif-parent-universe
