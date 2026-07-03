@@ -1,0 +1,30 @@
+name: GBIF Taxon Search Registry
+
+on:
+  pull_request:
+    paths:
+      - "paper/build_taxon_search_registry.py"
+      - "paper/evidence_screening/docket_*.csv"
+      - ".github/workflows/gbif-taxon-search-registry.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Retrieve GBIF synonym and vernacular-name leads
+        run: python paper/build_taxon_search_registry.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gbif-taxon-search-registry
+          path: paper/evidence_screening/gbif_taxon_search_registry.csv
+          if-no-files-found: error
+          retention-days: 30
