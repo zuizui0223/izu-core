@@ -3,12 +3,9 @@
 Raw Crossref rows are intentionally retained separately because one work can be
 retrieved by several names and queries. This script groups duplicate DOI/title
 leads, preserves their query provenance, and assigns a *review priority* only.
-It does not assert that a work contains a compatible trait effect.
-
-Usage:
-    python paper/triage_u1_crossref_leads.py \
-        --leads artifacts/u0_snapshot/crossref_batch_001/u1_crossref_leads.csv \
-        --out artifacts/u0_snapshot/crossref_batch_001/u1_crossref_review_queue.csv
+It never asserts that a work contains a compatible trait effect. Obvious title
+scopes that cannot inform floral/reproductive geographic response are excluded
+at triage, with the raw lead retained for audit.
 """
 from __future__ import annotations
 
@@ -26,6 +23,12 @@ FIELDS = (
     "matched_query_ids", "matched_query_texts", "matched_search_names", "languages", "title_flags",
     "required_primary_checks", "review_status", "notes",
 )
+TITLE_SCOPE_EXCLUSION = re.compile(
+    r"\b(?:correction to|erratum|ectomycorrhiz\w*|mycorrhiz\w*|seedling regeneration|vegetation recovery|"
+    r"landslide|planting|forest composition|phylogenetic relationships|chloroplast genome|genome sequencing|"
+    r"flower constituents|components of the flower|cultivar|re-blooming|floral transformation)\b",
+    re.I,
+)
 
 
 def clean(value: str) -> str:
@@ -39,7 +42,19 @@ def group_key(row: dict[str, str]) -> str:
     return "title:" + clean(row.get("title", "")) + "|year:" + clean(row.get("year", ""))
 
 
+def title_scope_reason(rows: list[dict[str, str]]) -> str:
+    matches = []
+    for row in rows:
+        match = TITLE_SCOPE_EXCLUSION.search(row.get("title", ""))
+        if match:
+            matches.append(match.group(0))
+    return "; ".join(sorted(set(matches)))
+
+
 def priority(rows: list[dict[str, str]]) -> tuple[int, str, str]:
+    excluded_scope = title_scope_reason(rows)
+    if excluded_scope:
+        return 8, "exclude_title_scope", "exclude"
     review_first = any(row.get("automated_triage") == "review_first" for row in rows)
     taxon = any(row.get("taxon_title_match") == "yes" for row in rows)
     comparative = any(row.get("comparative_title_match") == "yes" for row in rows)
@@ -79,6 +94,10 @@ def main() -> None:
         search_names = sorted({row.get("search_name", "") for row in rows if row.get("search_name")})
         languages = sorted({row.get("language", "") for row in rows if row.get("language")})
         flags = sorted({f"taxon={row.get('taxon_title_match', '')};comparative={row.get('comparative_title_match', '')};trait={row.get('trait_title_match', '')};triage={row.get('automated_triage', '')}" for row in rows})
+        scope = title_scope_reason(rows)
+        note = f"Grouped from {len(rows)} raw Crossref lead rows; title-only priority is not evidence."
+        if scope:
+            note += f" Excluded automatically by title scope: {scope}."
         queue.append({
             "review_rank": "", "review_priority": review_priority, "recommended_synthesis_role": role,
             "u0_accepted_key": first.get("u0_accepted_key", ""), "accepted_name": first.get("accepted_name", ""),
@@ -89,7 +108,7 @@ def main() -> None:
             "matched_search_names": "|".join(search_names), "languages": "|".join(languages),
             "title_flags": " | ".join(flags),
             "required_primary_checks": "Taxonomic concept; locality/population units; wild/cultivated status; page/table/figure; trait definition; n; variance; source independence.",
-            "review_status": "not_reviewed", "notes": f"Grouped from {len(rows)} raw Crossref lead rows; title-only priority is not evidence.",
+            "review_status": "not_reviewed", "notes": note,
             "_priority_code": str(priority_code),
         })
     queue.sort(key=lambda row: (int(row["_priority_code"]), int(row["queue_rank"] or 999999), row["title"].casefold()))
@@ -105,6 +124,7 @@ def main() -> None:
         "raw_lead_rows": len(raw), "deduplicated_source_candidates": len(queue),
         "direct_geographic_candidates": sum(row["review_priority"] == "direct_geographic_candidate" for row in queue),
         "trait_or_function_candidates": sum(row["review_priority"] == "trait_or_function_candidate" for row in queue),
+        "excluded_title_scope": sum(row["review_priority"] == "exclude_title_scope" for row in queue),
         "boundary": "Candidate categories are generated from metadata/title signals and require primary-source verification.",
     }
     args.out.with_suffix(".summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

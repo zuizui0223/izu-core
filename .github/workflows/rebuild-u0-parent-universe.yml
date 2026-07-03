@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "paper/rebuild_u0_parent_universe.py"
+      - "paper/audit_u0_biological_scope.py"
       - "paper/build_u1_screening_queue.py"
       - "paper/build_u1_taxon_search_registry.py"
       - "paper/build_u1_search_query_manifest.py"
@@ -32,10 +33,16 @@ jobs:
           python-version: "3.12"
       - name: Rebuild source-locked U0 GBIF snapshot
         run: python paper/rebuild_u0_parent_universe.py --out-dir artifacts/u0_snapshot --taxon-workers 6
-      - name: Build all-taxon U1 screening queue
+      - name: Audit biological scope before floral screening
+        run: |
+          python paper/audit_u0_biological_scope.py \
+            --u0 artifacts/u0_snapshot/u0_parent_universe.csv \
+            --out-dir artifacts/u0_snapshot \
+            --workers 6
+      - name: Build flowering-candidate U1 screening queue
         run: |
           python paper/build_u1_screening_queue.py \
-            --u0 artifacts/u0_snapshot/u0_parent_universe.csv \
+            --u0 artifacts/u0_snapshot/u0_flowering_candidate_universe.csv \
             --out artifacts/u0_snapshot/u1_screening_queue.csv
       - name: Expand all U1 names for Japanese and historical searching
         run: |
@@ -67,11 +74,12 @@ jobs:
       - name: Crosswalk U0 with the legacy 156-species pilot
         run: |
           python paper/crosswalk_u0_to_156_pilot.py \
-            --u0 artifacts/u0_snapshot/u0_parent_universe.csv \
+            --u0 artifacts/u0_snapshot/u0_flowering_candidate_universe.csv \
             --out artifacts/u0_snapshot/u0_to_156_pilot_crosswalk.csv
       - name: Show cohort summaries
         run: |
           cat artifacts/u0_snapshot/u0_snapshot_summary.json
+          cat artifacts/u0_snapshot/u0_biological_scope.summary.json
           cat artifacts/u0_snapshot/u1_screening_queue.summary.json
           cat artifacts/u0_snapshot/u1_taxon_name_registry.summary.json
           cat artifacts/u0_snapshot/u1_search_query_manifest.summary.json

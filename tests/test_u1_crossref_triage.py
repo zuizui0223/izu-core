@@ -24,7 +24,7 @@ def test_group_key_prefers_doi_over_title_variants():
 
 def test_direct_comparative_metadata_is_reviewed_first():
     module = load_module()
-    rows = [{"automated_triage": "review_first", "taxon_title_match": "yes", "comparative_title_match": "yes", "trait_title_match": "yes"}]
+    rows = [{"automated_triage": "review_first", "taxon_title_match": "yes", "comparative_title_match": "yes", "trait_title_match": "yes", "title": "Floral differentiation among insular and mainland populations"}]
     code, priority, role = module.priority(rows)
     assert code == 0
     assert priority == "direct_geographic_candidate"
@@ -33,8 +33,17 @@ def test_direct_comparative_metadata_is_reviewed_first():
 
 def test_taxon_only_metadata_is_not_promoted_to_primary_effect():
     module = load_module()
-    rows = [{"automated_triage": "taxon_lead", "taxon_title_match": "yes", "comparative_title_match": "no", "trait_title_match": "no"}]
+    rows = [{"automated_triage": "taxon_lead", "taxon_title_match": "yes", "comparative_title_match": "no", "trait_title_match": "no", "title": "A phylogeny of a focal taxon"}]
     code, priority, role = module.priority(rows)
     assert code == 3
     assert priority == "taxon_context_candidate"
     assert role == "comparative_context"
+
+
+def test_mycorrhizal_or_cultivar_titles_are_excluded_before_review_queue():
+    module = load_module()
+    rows = [{"automated_triage": "review_first", "taxon_title_match": "yes", "comparative_title_match": "yes", "trait_title_match": "yes", "title": "Primary succession of ectomycorrhizal fungi associated with Alnus sieboldiana"}]
+    code, priority, role = module.priority(rows)
+    assert code == 8
+    assert priority == "exclude_title_scope"
+    assert role == "exclude"

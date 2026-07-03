@@ -1,6 +1,6 @@
 # Can pollinator-loss-driven floral shifts generalise across an island flora? A source-graded, multi-species test design for the Izu gradient
 
-**Draft manuscript. Version 0.5 (2026-07-03). Evidence-graded comparative design (public data + simulation).**
+**Draft manuscript. Version 0.6 (2026-07-03). Evidence-graded comparative design (public data + simulation).**
 
 *Campanula microdonta* is the fully measured calibration system. The study's contribution at this stage is a reproducible, falsifiable multi-species test and a source-graded evidence map—not a completed cross-lineage meta-analysis.
 
@@ -10,9 +10,9 @@
 
 Island flowers are often described as smaller, less showy and more selfing than mainland relatives, usually as a response to reduced pollinator service. That explanation is difficult to test in a single species because floral traits, environment, colonisation history and pollinator assemblages change together. We develop a source-graded framework for testing whether a shared, distance-structured pollinator-regime transition across the Izu archipelago predicts parallel floral responses among co-distributed plant taxa.
 
-From a GBIF-derived pilot cohort of 156 insect-pollinated angiosperms occurring on the mainland plus at least two Izu islands, we define a protected comparison set: specialist candidates, generalist negative controls, large-flower counter-direction candidates and non-bee specificity controls. Evidence is separated into direct geographic comparisons, source-recovery targets whose taxonomic or sampling scope requires verification, and comparative context that must not be pooled as a within-species island effect. Literature, blinded photo evidence and occurrence records are never treated as interchangeable.
+From a GBIF-derived pilot cohort of 156 insect-pollinated angiosperms occurring on the mainland plus at least two Izu islands, we define a protected comparison set: specialist candidates, generalist negative controls, large-flower counter-direction candidates and non-bee specificity controls. Evidence is separated into direct geographic comparisons, source-recovery targets whose taxonomic or sampling scope requires verification, and comparative context that must not be pooled as a within-species island effect. Literature, blinded photo evidence and occurrence records are never treated as interchangeable. A source-logged U0 proxy reconstruction is used to expand search coverage beyond the 156-species pilot; its biological scope is audited before floral screening.
 
-The source-locked calibration series for *Campanula microdonta* shows corolla reduction from mainland to Hachijō (lnRR = −0.77; −54%) and an autonomous-selfing shift at the Ōshima→Toshima bumblebee-loss boundary. Published reports for *Ligustrum*, *Chionographis*, Sakuyuri lily and *Clerodendrum* are retained as source-recovery or comparative-context leads rather than counted as independent geographic replicates until their primary tables, taxonomic scope and sampling units are checked. Current evidence therefore establishes a strong focal system and a transparent test design, while the cross-lineage conclusion remains explicitly pending.
+The source-locked calibration series for *Campanula microdonta* shows corolla reduction from mainland to Hachijō (lnRR = −0.77; −54%) and an autonomous-selfing shift at the Ōshima→Toshima bumblebee-loss boundary. A publisher-verified abstract for *Ligustrum ovalifolium* independently reports shorter corolla tubes and stamens on Izu than on Honshu, with the strongest shortening on Hachijō and a distinct Hachijō pollinator fauna. This is direct qualitative geographic evidence, but is not yet a numeric effect because population means, variance and sampling units remain untranscribed. *Weigela* is a high-priority direct-effect candidate pending full-text recovery, whereas Sakuyuri, *Clerodendrum* and genetic studies remain comparative context. Current evidence therefore establishes one quantitative anchor, one independent direct direction source, and a transparent test design; the cross-lineage conclusion remains explicitly pending.
 
 ---
 
@@ -27,10 +27,10 @@ This study therefore asks a constrained question: **after direct comparison scop
 ### 1.1 Contributions
 
 1. A source-graded, multi-species design for an Izu floral-response meta-analysis, with direct effects, ordinal evidence and discovery leads kept separate.
-2. A GBIF-derived pilot cohort of 156 gradient-spanning entomophilous angiosperms nested within a reported 319-species mainland + ≥2-island parent universe.
+2. A 156-species entomophilous pilot cohort plus a source-logged U0 occurrence reconstruction and biological-scope audit that make full screening reproducible rather than relying on a reported species count.
 3. Protected specialist, generalist, large-flower and non-bee comparison strata that prevent literature availability from preselecting the result.
 4. An explicit distinction between `primary_geographic`, `pending_scope_check` and `comparative_context` observations.
-5. A calibration analysis for *Campanula microdonta* and a simulation-based statement of what additional channels are required for causal discrimination.
+5. A calibration analysis for *Campanula microdonta*, direct qualitative evidence in *Ligustrum ovalifolium*, and a simulation-based statement of what additional channels are required for causal discrimination.
 
 ---
 
@@ -38,7 +38,7 @@ This study therefore asks a constrained question: **after direct comparison scop
 
 ### 2.1 Geographic candidate universe
 
-The Izu chain comprises a mainland reference plus Ōshima, Toshima, Niijima, Kōzushima, Miyake and Hachijō. A GBIF island-facet probe reported 319 vascular plant species on the mainland plus at least two islands, 289 on at least three islands and 113 on at least five islands. The present 156-species insect-pollinated table is a pilot analysis cohort, not the upper limit of systematic literature screening.
+The Izu chain comprises a mainland reference plus Ōshima, Toshima, Niijima, Kōzushima, Miyake and Hachijō. An earlier GBIF island-facet probe reported 319 vascular plant species on the mainland plus at least two islands, 289 on at least three islands and 113 on at least five islands. We retain those numbers as legacy reference values, not as a fixed denominator. The source-logged proxy reconstruction records exact spatial circles, paginated queries, taxon reconciliation and biological-scope decisions; its output must be compared with the legacy snapshot rather than silently substituted for it. The present 156-species insect-pollinated table is a pilot analysis cohort, not the upper limit of systematic literature screening.
 
 ### 2.2 Protected functional-group comparison
 
@@ -56,7 +56,7 @@ Evidence ranks remain: A = peer-reviewed quantitative, B = peer-reviewed qualita
 
 ### 2.4 Response shape and planned synthesis
 
-For taxa with at least four verified ordered geographic positions, the workflow compares none, smooth cline and step models using AICc. A shared step at a documented pollinator-regime boundary is a planned test, not an assumption. The current `meta_synthesis.py` reports the *Campanula* quantitative anchor and an evidence-role-aware direction summary; it does not produce a variance-weighted meta-analysis until multiple independent effects exist.
+For taxa with at least four verified ordered geographic positions, the workflow compares none, smooth cline and step models using AICc. A shared step at a documented pollinator-regime boundary is a planned test, not an assumption. The current `meta_synthesis.py` reports the *Campanula* quantitative anchor and an evidence-role-aware direction summary; it does not produce a variance-weighted meta-analysis until multiple independent numeric effects exist.
 
 ---
 
@@ -66,23 +66,27 @@ For taxa with at least four verified ordered geographic positions, the workflow 
 
 *Campanula microdonta* corolla length declines from 49.9 mm on the mainland to 23.1 mm on Hachijō (lnRR = −0.77; −54%). Its autonomous-selfing measure shifts from 11% to 100% at the Ōshima→Toshima boundary in the source-locked series. This is the current quantitative calibration system; it demonstrates a pattern that a broader analysis must test rather than presuppose.
 
-### 3.2 Current evidence inventory
+### 3.2 Independent direct qualitative evidence: *Ligustrum*
 
-The current table contains direct geographic *Campanula* observations, five source-recovery targets and three comparative-context observations. *Ligustrum ovalifolium* and *Chionographis japonica* are promising published leads, but their geographic units, taxonomic scope and extractable values have not yet been validated against full text. The Sakuyuri lily and *Clerodendrum izuinsulare* comparisons are retained as evolutionary context rather than being pooled as direct within-species island effects. The Ōshima azalea record is a Web/flora lead requiring an original measurement and taxonomic source.
+The publisher abstract for *Ligustrum ovalifolium* explicitly compares mainland Honshu with Izu populations. Corolla-tube and stamen lengths are shorter on Izu, with more pronounced shortening on Hachijō. The pollinator fauna on Hachijō differs significantly from both mainland Honshu and the other Izu islands. This source is eligible as B-rank `primary_geographic` direction evidence, but cannot contribute a standardized effect size until original trait tables/figures, population-level sample sizes and dispersion estimates are recovered.
 
-### 3.3 No cross-lineage primary estimate yet
+### 3.3 Current evidence inventory and remaining limits
 
-Under the direct-geographic eligibility rule, the present dataset does not yet support a cross-lineage pooled estimate or a specialist-versus-generalist moderator test. Generalist negative controls have no retained trait observations, and large-flower counter-direction cases are not yet primary geographic effects. This is a result about the state of evidence, not evidence that generalists are invariant.
+The current table contains source-locked direct *Campanula* observations and direct qualitative *Ligustrum* observations. *Weigela coraeensis* is an explicit insular–mainland floral-differentiation candidate, but its locality units and extractable values have not yet been validated against full text. The *Campanula* RAPD study and the Weigela genetic study are retained as geographic-history context, not floral effects. The Sakuyuri lily and *Clerodendrum izuinsulare* comparisons are retained as evolutionary context rather than being pooled as direct within-species island effects.
+
+### 3.4 No cross-lineage numeric estimate yet
+
+The present data do not support a cross-lineage pooled numeric estimate or a specialist-versus-generalist moderator test. Generalist negative controls have no retained trait observations, large-flower counter-direction cases are not yet primary geographic effects, and the independent *Ligustrum* record remains direction-only. This is a result about the state of evidence, not evidence that generalists are invariant.
 
 ---
 
 ## 4. Discussion
 
-The present work supports a narrower but stronger claim than a completed Izu-flora meta-analysis: the *Campanula* series provides a well-specified calibration system, and the archipelago supports a falsifiable comparative design. The crucial next test is whether independently verified specialist taxa share a response that generalist negative controls do not, after environmental and taxonomic alternatives are handled explicitly.
+The present work supports a narrower but stronger claim than a completed Izu-flora meta-analysis: the *Campanula* series provides a well-specified quantitative calibration system; *Ligustrum* supplies independent direct qualitative support; and the archipelago supports a falsifiable comparative design. The crucial next test is whether independently verified specialist taxa share a response that generalist negative controls do not, after environmental and taxonomic alternatives are handled explicitly.
 
 The principal risk in public-data synthesis is not merely missing data. It is a false increase in replication when interspecific comparisons, island forms, pictures, distributions and direct population series are pooled under one label. The evidence-role layer prevents this. In particular, a named island taxon may be biologically informative for divergence and speciation, but it cannot be treated automatically as a mainland-to-island within-species effect.
 
-The next empirical targets are: (1) recover original tables and locality/sample information for the five high-priority B-rank sources; (2) reconstruct the full 319-species U0 parent universe and search it systematically in Japanese and English; (3) validate functional groups at taxon level; (4) audit generalist photo availability and phenology across sources; and (5) collect targeted field and paternity/visitor data where public evidence cannot identify mechanism. A future publication can be either a quantitative meta-analysis or, if numeric recovery remains sparse, a systematic evidence map with predeclared exploratory ordinal analyses. The final format follows the evidence recovered, not the initial preferred headline.
+The next empirical targets are: (1) recover original tables and locality/sample information for *Ligustrum* and *Weigela*; (2) finalize biological-scope screening of the U0 occurrence universe before full Japanese/English U1 screening; (3) validate functional groups at taxon level; (4) audit generalist photo availability and phenology across sources; and (5) collect targeted field and paternity/visitor data where public evidence cannot identify mechanism. A future publication can be either a quantitative meta-analysis or, if numeric recovery remains sparse, a systematic evidence map with predeclared exploratory ordinal analyses. The final format follows the evidence recovered, not the initial preferred headline.
 
 ---
 
