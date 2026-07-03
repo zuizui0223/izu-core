@@ -1,0 +1,7 @@
+species,blinded_cards,mainland_cards,island_regions_with_cards,all_regions_with_cards,photo_review_use
+Ajania pacifica,25,6,Oshima|Niijima|Kozushima|Miyake|Hachijo,MAINLAND|Oshima|Niijima|Kozushima|Miyake|Hachijo,stage0_priority
+Pittosporum tobira,23,6,Oshima|Niijima|Kozushima|Miyake|Hachijo,MAINLAND|Oshima|Niijima|Kozushima|Miyake|Hachijo,stage0_priority
+Farfugium japonicum,21,6,Oshima|Kozushima|Miyake,MAINLAND|Oshima|Kozushima|Miyake,stage0_priority_but_no_southern_endpoint
+Rubus trifidus,13,2,Oshima|Niijima|Miyake,MAINLAND|Oshima|Niijima|Miyake,stage0_priority_but_limited_mainland
+Peucedanum japonicum,10,6,Oshima|Kozushima|Miyake,MAINLAND|Oshima|Kozushima|Miyake,stage0_limited
+Angelica keiskei,7,1,Oshima|Toshima|Niijima|Kozushima|Hachijo,MAINLAND|Oshima|Toshima|Niijima|Kozushima|Hachijo,stage0_limited
