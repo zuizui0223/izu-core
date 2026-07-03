@@ -1,0 +1,1406 @@
+[
+  {
+    "key": "3172291",
+    "name": "Ligustrum ovalifolium",
+    "family": "Oleaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 6,
+    "total_occ": 164
+  },
+  {
+    "key": "7296559",
+    "name": "Viola grypoceras",
+    "family": "Violaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 6,
+    "total_occ": 149
+  },
+  {
+    "key": "2985994",
+    "name": "Hydrangea macrophylla",
+    "family": "Hydrangeaceae",
+    "class": "Magnoliopsida",
+    "order": "Cornales",
+    "n_islands": 6,
+    "total_occ": 115
+  },
+  {
+    "key": "2925366",
+    "name": "Clerodendrum trichotomum",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 6,
+    "total_occ": 108
+  },
+  {
+    "key": "3856535",
+    "name": "Weigela coraeensis",
+    "family": "Caprifoliaceae",
+    "class": "Magnoliopsida",
+    "order": "Dipsacales",
+    "n_islands": 6,
+    "total_occ": 102
+  },
+  {
+    "key": "3112282",
+    "name": "Ajania pacifica",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 6,
+    "total_occ": 96
+  },
+  {
+    "key": "2985963",
+    "name": "Deutzia crenata",
+    "family": "Hydrangeaceae",
+    "class": "Magnoliopsida",
+    "order": "Cornales",
+    "n_islands": 6,
+    "total_occ": 92
+  },
+  {
+    "key": "3021417",
+    "name": "Prunus speciosa",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 6,
+    "total_occ": 76
+  },
+  {
+    "key": "7296405",
+    "name": "Viola mandshurica",
+    "family": "Violaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 6,
+    "total_occ": 74
+  },
+  {
+    "key": "7319046",
+    "name": "Hydrangea involucrata",
+    "family": "Hydrangeaceae",
+    "class": "Magnoliopsida",
+    "order": "Cornales",
+    "n_islands": 6,
+    "total_occ": 73
+  },
+  {
+    "key": "2753064",
+    "name": "Lilium maculatum",
+    "family": "Liliaceae",
+    "class": "Liliopsida",
+    "order": "Liliales",
+    "n_islands": 6,
+    "total_occ": 71
+  },
+  {
+    "key": "2867087",
+    "name": "Arisaema thunbergii",
+    "family": "Araceae",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "n_islands": 6,
+    "total_occ": 71
+  },
+  {
+    "key": "7293930",
+    "name": "Vitis ficifolia",
+    "family": "Vitaceae",
+    "class": "Magnoliopsida",
+    "order": "Vitales",
+    "n_islands": 6,
+    "total_occ": 68
+  },
+  {
+    "key": "6026372",
+    "name": "Angelica keiskei",
+    "family": "Apiaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 6,
+    "total_occ": 62
+  },
+  {
+    "key": "3039267",
+    "name": "Elaeagnus umbellata",
+    "family": "Elaeagnaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 6,
+    "total_occ": 56
+  },
+  {
+    "key": "3036892",
+    "name": "Aralia elata",
+    "family": "Araliaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 6,
+    "total_occ": 25
+  },
+  {
+    "key": "7303926",
+    "name": "Stachyurus praecox",
+    "family": "Stachyuraceae",
+    "class": "Magnoliopsida",
+    "order": "Crossosomatales",
+    "n_islands": 5,
+    "total_occ": 139
+  },
+  {
+    "key": "6063614",
+    "name": "Aster microcephalus",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 5,
+    "total_occ": 110
+  },
+  {
+    "key": "5341134",
+    "name": "Callicarpa japonica",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 5,
+    "total_occ": 102
+  },
+  {
+    "key": "4183601",
+    "name": "Piper kadsura",
+    "family": "Piperaceae",
+    "class": "Magnoliopsida",
+    "order": "Piperales",
+    "n_islands": 5,
+    "total_occ": 99
+  },
+  {
+    "key": "7135965",
+    "name": "Rhododendron kaempferi",
+    "family": "Ericaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 5,
+    "total_occ": 88
+  },
+  {
+    "key": "8677924",
+    "name": "Pittosporum tobira",
+    "family": "Pittosporaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 5,
+    "total_occ": 85
+  },
+  {
+    "key": "7304405",
+    "name": "Neolitsea sericea",
+    "family": "Lauraceae",
+    "class": "Magnoliopsida",
+    "order": "Laurales",
+    "n_islands": 5,
+    "total_occ": 79
+  },
+  {
+    "key": "7317060",
+    "name": "Trachelospermum asiaticum",
+    "family": "Apocynaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 5,
+    "total_occ": 72
+  },
+  {
+    "key": "4176844",
+    "name": "Cinnamomum chekiangense",
+    "family": "Lauraceae",
+    "class": "Magnoliopsida",
+    "order": "Laurales",
+    "n_islands": 5,
+    "total_occ": 69
+  },
+  {
+    "key": "3033546",
+    "name": "Clematis terniflora",
+    "family": "Ranunculaceae",
+    "class": "Magnoliopsida",
+    "order": "Ranunculales",
+    "n_islands": 5,
+    "total_occ": 62
+  },
+  {
+    "key": "3189636",
+    "name": "Camellia japonica",
+    "family": "Theaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 5,
+    "total_occ": 62
+  },
+  {
+    "key": "7354625",
+    "name": "Rosa luciae",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 5,
+    "total_occ": 55
+  },
+  {
+    "key": "2909527",
+    "name": "Paederia foetida",
+    "family": "Rubiaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 5,
+    "total_occ": 55
+  },
+  {
+    "key": "3101212",
+    "name": "Farfugium japonicum",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 5,
+    "total_occ": 54
+  },
+  {
+    "key": "5378769",
+    "name": "Mallotus japonicus",
+    "family": "Euphorbiaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 5,
+    "total_occ": 50
+  },
+  {
+    "key": "5414239",
+    "name": "Ilex crenata",
+    "family": "Aquifoliaceae",
+    "class": "Magnoliopsida",
+    "order": "Aquifoliales",
+    "n_islands": 5,
+    "total_occ": 50
+  },
+  {
+    "key": "8146176",
+    "name": "Daphniphyllum teijsmannii",
+    "family": "Daphniphyllaceae",
+    "class": "Magnoliopsida",
+    "order": "Saxifragales",
+    "n_islands": 5,
+    "total_occ": 50
+  },
+  {
+    "key": "5295472",
+    "name": "Smilax china",
+    "family": "Smilacaceae",
+    "class": "Liliopsida",
+    "order": "Liliales",
+    "n_islands": 5,
+    "total_occ": 45
+  },
+  {
+    "key": "2753106",
+    "name": "Lilium auratum",
+    "family": "Liliaceae",
+    "class": "Liliopsida",
+    "order": "Liliales",
+    "n_islands": 5,
+    "total_occ": 39
+  },
+  {
+    "key": "2903461",
+    "name": "Damnacanthus indicus",
+    "family": "Rubiaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 5,
+    "total_occ": 36
+  },
+  {
+    "key": "7307022",
+    "name": "Clinopodium micranthum",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 5,
+    "total_occ": 35
+  },
+  {
+    "key": "8345960",
+    "name": "Peucedanum japonicum",
+    "family": "Apiaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 5,
+    "total_occ": 29
+  },
+  {
+    "key": "2770845",
+    "name": "Disporum sessile",
+    "family": "Colchicaceae",
+    "class": "Liliopsida",
+    "order": "Liliales",
+    "n_islands": 5,
+    "total_occ": 27
+  },
+  {
+    "key": "5554574",
+    "name": "Tetragonia tetragonoides",
+    "family": "Aizoaceae",
+    "class": "Magnoliopsida",
+    "order": "Caryophyllales",
+    "n_islands": 5,
+    "total_occ": 27
+  },
+  {
+    "key": "3624240",
+    "name": "Trichosanthes kirilowii",
+    "family": "Cucurbitaceae",
+    "class": "Magnoliopsida",
+    "order": "Cucurbitales",
+    "n_islands": 5,
+    "total_occ": 23
+  },
+  {
+    "key": "3121258",
+    "name": "Artemisia princeps",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 5,
+    "total_occ": 18
+  },
+  {
+    "key": "11302451",
+    "name": "Leptopetalum coreanum",
+    "family": "Rubiaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 5,
+    "total_occ": 17
+  },
+  {
+    "key": "3068983",
+    "name": "Euphorbia sieboldiana",
+    "family": "Euphorbiaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 4,
+    "total_occ": 62
+  },
+  {
+    "key": "2994808",
+    "name": "Rubus trifidus",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 4,
+    "total_occ": 61
+  },
+  {
+    "key": "7152601",
+    "name": "Eurya japonica",
+    "family": "Pentaphylacaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 4,
+    "total_occ": 60
+  },
+  {
+    "key": "7102937",
+    "name": "Euonymus japonicus",
+    "family": "Celastraceae",
+    "class": "Magnoliopsida",
+    "order": "Celastrales",
+    "n_islands": 4,
+    "total_occ": 60
+  },
+  {
+    "key": "3113139",
+    "name": "Cirsium nipponicum",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 4,
+    "total_occ": 57
+  },
+  {
+    "key": "4177874",
+    "name": "Machilus thunbergii",
+    "family": "Lauraceae",
+    "class": "Magnoliopsida",
+    "order": "Laurales",
+    "n_islands": 4,
+    "total_occ": 52
+  },
+  {
+    "key": "2991442",
+    "name": "Rubus buergeri",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 4,
+    "total_occ": 44
+  },
+  {
+    "key": "2781074",
+    "name": "Hemerocallis fulva",
+    "family": "Asphodelaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 4,
+    "total_occ": 42
+  },
+  {
+    "key": "7293094",
+    "name": "Elaeagnus macrophylla",
+    "family": "Elaeagnaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 4,
+    "total_occ": 41
+  },
+  {
+    "key": "3169368",
+    "name": "Lysimachia mauritiana",
+    "family": "Primulaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 4,
+    "total_occ": 39
+  },
+  {
+    "key": "2925558",
+    "name": "Vitex rotundifolia",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 4,
+    "total_occ": 39
+  },
+  {
+    "key": "2977636",
+    "name": "Pueraria montana",
+    "family": "Fabaceae",
+    "class": "Magnoliopsida",
+    "order": "Fabales",
+    "n_islands": 4,
+    "total_occ": 36
+  },
+  {
+    "key": "5414379",
+    "name": "Ardisia crenata",
+    "family": "Primulaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 4,
+    "total_occ": 36
+  },
+  {
+    "key": "8378552",
+    "name": "Microtropis japonica",
+    "family": "Celastraceae",
+    "class": "Magnoliopsida",
+    "order": "Celastrales",
+    "n_islands": 4,
+    "total_occ": 34
+  },
+  {
+    "key": "5558066",
+    "name": "Ardisia japonica",
+    "family": "Primulaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 4,
+    "total_occ": 34
+  },
+  {
+    "key": "2764179",
+    "name": "Commelina communis",
+    "family": "Commelinaceae",
+    "class": "Liliopsida",
+    "order": "Commelinales",
+    "n_islands": 4,
+    "total_occ": 30
+  },
+  {
+    "key": "3853033",
+    "name": "Neillia incisa",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 4,
+    "total_occ": 24
+  },
+  {
+    "key": "7334050",
+    "name": "Sedum japonicum",
+    "family": "Crassulaceae",
+    "class": "Magnoliopsida",
+    "order": "Saxifragales",
+    "n_islands": 4,
+    "total_occ": 23
+  },
+  {
+    "key": "7646357",
+    "name": "Calystegia soldanella",
+    "family": "Convolvulaceae",
+    "class": "Magnoliopsida",
+    "order": "Solanales",
+    "n_islands": 4,
+    "total_occ": 23
+  },
+  {
+    "key": "7293727",
+    "name": "Ampelopsis glandulosa",
+    "family": "Vitaceae",
+    "class": "Magnoliopsida",
+    "order": "Vitales",
+    "n_islands": 4,
+    "total_occ": 23
+  },
+  {
+    "key": "7480375",
+    "name": "Rhaphiolepis umbellata",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 4,
+    "total_occ": 22
+  },
+  {
+    "key": "3033896",
+    "name": "Berberis thunbergii",
+    "family": "Berberidaceae",
+    "class": "Magnoliopsida",
+    "order": "Ranunculales",
+    "n_islands": 4,
+    "total_occ": 22
+  },
+  {
+    "key": "8427624",
+    "name": "Oxalis corniculata",
+    "family": "Oxalidaceae",
+    "class": "Magnoliopsida",
+    "order": "Oxalidales",
+    "n_islands": 4,
+    "total_occ": 22
+  },
+  {
+    "key": "7277264",
+    "name": "Ranunculus silerifolius",
+    "family": "Ranunculaceae",
+    "class": "Magnoliopsida",
+    "order": "Ranunculales",
+    "n_islands": 4,
+    "total_occ": 21
+  },
+  {
+    "key": "8598984",
+    "name": "Dendropanax trifidus",
+    "family": "Araliaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 4,
+    "total_occ": 21
+  },
+  {
+    "key": "7269097",
+    "name": "Zanthoxylum ailanthoides",
+    "family": "Rutaceae",
+    "class": "Magnoliopsida",
+    "order": "Sapindales",
+    "n_islands": 4,
+    "total_occ": 18
+  },
+  {
+    "key": "2928598",
+    "name": "Ipomoea indica",
+    "family": "Convolvulaceae",
+    "class": "Magnoliopsida",
+    "order": "Solanales",
+    "n_islands": 4,
+    "total_occ": 14
+  },
+  {
+    "key": "7293101",
+    "name": "Elaeagnus glabra",
+    "family": "Elaeagnaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 4,
+    "total_occ": 14
+  },
+  {
+    "key": "7307951",
+    "name": "Teucrium viscidum",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 4,
+    "total_occ": 12
+  },
+  {
+    "key": "5334240",
+    "name": "Lonicera japonica",
+    "family": "Caprifoliaceae",
+    "class": "Magnoliopsida",
+    "order": "Dipsacales",
+    "n_islands": 3,
+    "total_occ": 43
+  },
+  {
+    "key": "3033077",
+    "name": "Aucuba japonica",
+    "family": "Garryaceae",
+    "class": "Magnoliopsida",
+    "order": "Garryales",
+    "n_islands": 3,
+    "total_occ": 43
+  },
+  {
+    "key": "5371678",
+    "name": "Styrax japonicus",
+    "family": "Styracaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 3,
+    "total_occ": 42
+  },
+  {
+    "key": "5384931",
+    "name": "Houttuynia cordata",
+    "family": "Saururaceae",
+    "class": "Magnoliopsida",
+    "order": "Piperales",
+    "n_islands": 3,
+    "total_occ": 37
+  },
+  {
+    "key": "3719723",
+    "name": "Myrsine seguinii",
+    "family": "Primulaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 3,
+    "total_occ": 33
+  },
+  {
+    "key": "7434550",
+    "name": "Dioscorea tokoro",
+    "family": "Dioscoreaceae",
+    "class": "Liliopsida",
+    "order": "Dioscoreales",
+    "n_islands": 3,
+    "total_occ": 30
+  },
+  {
+    "key": "3125901",
+    "name": "Sigesbeckia orientalis",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 3,
+    "total_occ": 27
+  },
+  {
+    "key": "7740617",
+    "name": "Skimmia japonica",
+    "family": "Rutaceae",
+    "class": "Magnoliopsida",
+    "order": "Sapindales",
+    "n_islands": 3,
+    "total_occ": 26
+  },
+  {
+    "key": "5409255",
+    "name": "Adenophora triphylla",
+    "family": "Campanulaceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 3,
+    "total_occ": 26
+  },
+  {
+    "key": "2891707",
+    "name": "Oxalis debilis",
+    "family": "Oxalidaceae",
+    "class": "Magnoliopsida",
+    "order": "Oxalidales",
+    "n_islands": 3,
+    "total_occ": 25
+  },
+  {
+    "key": "3039046",
+    "name": "Fatsia japonica",
+    "family": "Araliaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 3,
+    "total_occ": 25
+  },
+  {
+    "key": "7315826",
+    "name": "Ilex integra",
+    "family": "Aquifoliaceae",
+    "class": "Magnoliopsida",
+    "order": "Aquifoliales",
+    "n_islands": 3,
+    "total_occ": 25
+  },
+  {
+    "key": "5525561",
+    "name": "Vincetoxicum japonicum",
+    "family": "Apocynaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 3,
+    "total_occ": 24
+  },
+  {
+    "key": "3093276",
+    "name": "Picris japonica",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 3,
+    "total_occ": 24
+  },
+  {
+    "key": "3036022",
+    "name": "Hedera rhombea",
+    "family": "Araliaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 3,
+    "total_occ": 23
+  },
+  {
+    "key": "3033129",
+    "name": "Thalictrum minus",
+    "family": "Ranunculaceae",
+    "class": "Magnoliopsida",
+    "order": "Ranunculales",
+    "n_islands": 3,
+    "total_occ": 22
+  },
+  {
+    "key": "8108947",
+    "name": "Cirsium maritimum",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 3,
+    "total_occ": 21
+  },
+  {
+    "key": "2771258",
+    "name": "Hosta longipes",
+    "family": "Asparagaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 3,
+    "total_occ": 20
+  },
+  {
+    "key": "2755706",
+    "name": "Dioscorea japonica",
+    "family": "Dioscoreaceae",
+    "class": "Liliopsida",
+    "order": "Dioscoreales",
+    "n_islands": 3,
+    "total_occ": 20
+  },
+  {
+    "key": "3188867",
+    "name": "Oenothera laciniata",
+    "family": "Onagraceae",
+    "class": "Magnoliopsida",
+    "order": "Myrtales",
+    "n_islands": 3,
+    "total_occ": 19
+  },
+  {
+    "key": "3876453",
+    "name": "Berchemia floribunda",
+    "family": "Rhamnaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 3,
+    "total_occ": 19
+  },
+  {
+    "key": "3115443",
+    "name": "Crassocephalum crepidioides",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 3,
+    "total_occ": 18
+  },
+  {
+    "key": "3112887",
+    "name": "Cirsium japonicum",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 3,
+    "total_occ": 16
+  },
+  {
+    "key": "6026987",
+    "name": "Hydrocotyle javanica",
+    "family": "Araliaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 3,
+    "total_occ": 16
+  },
+  {
+    "key": "7267525",
+    "name": "Dianthus japonicus",
+    "family": "Caryophyllaceae",
+    "class": "Magnoliopsida",
+    "order": "Caryophyllales",
+    "n_islands": 3,
+    "total_occ": 16
+  },
+  {
+    "key": "3173321",
+    "name": "Aeginetia indica",
+    "family": "Orobanchaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 3,
+    "total_occ": 16
+  },
+  {
+    "key": "4191611",
+    "name": "Stauntonia hexaphylla",
+    "family": "Lardizabalaceae",
+    "class": "Magnoliopsida",
+    "order": "Ranunculales",
+    "n_islands": 3,
+    "total_occ": 15
+  },
+  {
+    "key": "2747939",
+    "name": "Crocosmia crocosmiiflora",
+    "family": "Iridaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 3,
+    "total_occ": 15
+  },
+  {
+    "key": "7306109",
+    "name": "Akebia trifoliata",
+    "family": "Lardizabalaceae",
+    "class": "Magnoliopsida",
+    "order": "Ranunculales",
+    "n_islands": 3,
+    "total_occ": 13
+  },
+  {
+    "key": "3034820",
+    "name": "Torilis japonica",
+    "family": "Apiaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 3,
+    "total_occ": 13
+  },
+  {
+    "key": "5664666",
+    "name": "Viola hamiltoniana",
+    "family": "Violaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 3,
+    "total_occ": 12
+  },
+  {
+    "key": "2774115",
+    "name": "Ophiopogon planiscapus",
+    "family": "Asparagaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 3,
+    "total_occ": 12
+  },
+  {
+    "key": "5296298",
+    "name": "Sisyrinchium rosulatum",
+    "family": "Iridaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 3,
+    "total_occ": 11
+  },
+  {
+    "key": "3039209",
+    "name": "Parthenocissus tricuspidata",
+    "family": "Vitaceae",
+    "class": "Magnoliopsida",
+    "order": "Vitales",
+    "n_islands": 3,
+    "total_occ": 11
+  },
+  {
+    "key": "5358748",
+    "name": "Trifolium repens",
+    "family": "Fabaceae",
+    "class": "Magnoliopsida",
+    "order": "Fabales",
+    "n_islands": 3,
+    "total_occ": 11
+  },
+  {
+    "key": "8228544",
+    "name": "Sonchus oleraceus",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 3,
+    "total_occ": 10
+  },
+  {
+    "key": "2866950",
+    "name": "Arisaema serratum",
+    "family": "Araceae",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "n_islands": 2,
+    "total_occ": 50
+  },
+  {
+    "key": "9246881",
+    "name": "Japonicalia delphiniifolia",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 44
+  },
+  {
+    "key": "7304416",
+    "name": "Lindera umbellata",
+    "family": "Lauraceae",
+    "class": "Magnoliopsida",
+    "order": "Laurales",
+    "n_islands": 2,
+    "total_occ": 43
+  },
+  {
+    "key": "3892440",
+    "name": "Clerodendrum izuinsulare",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 2,
+    "total_occ": 36
+  },
+  {
+    "key": "5391845",
+    "name": "Bidens pilosa",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 26
+  },
+  {
+    "key": "3169169",
+    "name": "Celastrus orbiculatus",
+    "family": "Celastraceae",
+    "class": "Magnoliopsida",
+    "order": "Celastrales",
+    "n_islands": 2,
+    "total_occ": 22
+  },
+  {
+    "key": "3130279",
+    "name": "Pertya scandens",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 19
+  },
+  {
+    "key": "3169390",
+    "name": "Lysimachia japonica",
+    "family": "Primulaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 2,
+    "total_occ": 19
+  },
+  {
+    "key": "5387974",
+    "name": "Youngia japonica",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 18
+  },
+  {
+    "key": "3066890",
+    "name": "Euphorbia jolkinii",
+    "family": "Euphorbiaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 2,
+    "total_occ": 18
+  },
+  {
+    "key": "8292939",
+    "name": "Ajuga decumbens",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 2,
+    "total_occ": 18
+  },
+  {
+    "key": "5384848",
+    "name": "Silene gallica",
+    "family": "Caryophyllaceae",
+    "class": "Magnoliopsida",
+    "order": "Caryophyllales",
+    "n_islands": 2,
+    "total_occ": 18
+  },
+  {
+    "key": "7269282",
+    "name": "Zanthoxylum piperitum",
+    "family": "Rutaceae",
+    "class": "Magnoliopsida",
+    "order": "Sapindales",
+    "n_islands": 2,
+    "total_occ": 18
+  },
+  {
+    "key": "3189882",
+    "name": "Acer palmatum",
+    "family": "Sapindaceae",
+    "class": "Magnoliopsida",
+    "order": "Sapindales",
+    "n_islands": 2,
+    "total_occ": 17
+  },
+  {
+    "key": "2988959",
+    "name": "Rubus palmatus",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 2,
+    "total_occ": 17
+  },
+  {
+    "key": "2914653",
+    "name": "Galium bungei",
+    "family": "Rubiaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 2,
+    "total_occ": 17
+  },
+  {
+    "key": "3094854",
+    "name": "Carpesium divaricatum",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 17
+  },
+  {
+    "key": "7290557",
+    "name": "Lysimachia sikokiana",
+    "family": "Primulaceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 2,
+    "total_occ": 16
+  },
+  {
+    "key": "3085404",
+    "name": "Sagina maxima",
+    "family": "Caryophyllaceae",
+    "class": "Magnoliopsida",
+    "order": "Caryophyllales",
+    "n_islands": 2,
+    "total_occ": 15
+  },
+  {
+    "key": "2932779",
+    "name": "Solanum maximowiczii",
+    "family": "Solanaceae",
+    "class": "Magnoliopsida",
+    "order": "Solanales",
+    "n_islands": 2,
+    "total_occ": 15
+  },
+  {
+    "key": "7270205",
+    "name": "Gentiana scabra",
+    "family": "Gentianaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 2,
+    "total_occ": 15
+  },
+  {
+    "key": "2962029",
+    "name": "Canavalia lineata",
+    "family": "Fabaceae",
+    "class": "Magnoliopsida",
+    "order": "Fabales",
+    "n_islands": 2,
+    "total_occ": 15
+  },
+  {
+    "key": "3718199",
+    "name": "Clethra barbinervis",
+    "family": "Clethraceae",
+    "class": "Magnoliopsida",
+    "order": "Ericales",
+    "n_islands": 2,
+    "total_occ": 14
+  },
+  {
+    "key": "7314981",
+    "name": "Corydalis incisa",
+    "family": "Papaveraceae",
+    "class": "Magnoliopsida",
+    "order": "Ranunculales",
+    "n_islands": 2,
+    "total_occ": 13
+  },
+  {
+    "key": "3067119",
+    "name": "Euphorbia maculata",
+    "family": "Euphorbiaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 2,
+    "total_occ": 13
+  },
+  {
+    "key": "3034432",
+    "name": "Cryptotaenia japonica",
+    "family": "Apiaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 2,
+    "total_occ": 13
+  },
+  {
+    "key": "2975014",
+    "name": "Vicia sativa",
+    "family": "Fabaceae",
+    "class": "Magnoliopsida",
+    "order": "Fabales",
+    "n_islands": 2,
+    "total_occ": 13
+  },
+  {
+    "key": "7490831",
+    "name": "Viburnum erosum",
+    "family": "Viburnaceae",
+    "class": "Magnoliopsida",
+    "order": "Dipsacales",
+    "n_islands": 2,
+    "total_occ": 12
+  },
+  {
+    "key": "4191567",
+    "name": "Trochodendron aralioides",
+    "family": "Trochodendraceae",
+    "class": "Magnoliopsida",
+    "order": "Trochodendrales",
+    "n_islands": 2,
+    "total_occ": 12
+  },
+  {
+    "key": "2805472",
+    "name": "Spiranthes australis",
+    "family": "Orchidaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 2,
+    "total_occ": 12
+  },
+  {
+    "key": "7946150",
+    "name": "Comanthosphace japonica",
+    "family": "Lamiaceae",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "n_islands": 2,
+    "total_occ": 11
+  },
+  {
+    "key": "7317023",
+    "name": "Trachelospermum gracilipes",
+    "family": "Apocynaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 2,
+    "total_occ": 11
+  },
+  {
+    "key": "3002003",
+    "name": "Agrimonia pilosa",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 2,
+    "total_occ": 10
+  },
+  {
+    "key": "3008270",
+    "name": "Rosa onoei",
+    "family": "Rosaceae",
+    "class": "Magnoliopsida",
+    "order": "Rosales",
+    "n_islands": 2,
+    "total_occ": 10
+  },
+  {
+    "key": "3132228",
+    "name": "Adenostemma lavenia",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 10
+  },
+  {
+    "key": "5322999",
+    "name": "Liparis nervosa",
+    "family": "Orchidaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 2,
+    "total_occ": 10
+  },
+  {
+    "key": "4063474",
+    "name": "Bothriospermum zeylanicum",
+    "family": "Boraginaceae",
+    "class": "Magnoliopsida",
+    "order": "Boraginales",
+    "n_islands": 2,
+    "total_occ": 10
+  },
+  {
+    "key": "3084015",
+    "name": "Phytolacca americana",
+    "family": "Phytolaccaceae",
+    "class": "Magnoliopsida",
+    "order": "Caryophyllales",
+    "n_islands": 2,
+    "total_occ": 10
+  },
+  {
+    "key": "3639534",
+    "name": "Sanicula chinensis",
+    "family": "Apiaceae",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "n_islands": 2,
+    "total_occ": 10
+  },
+  {
+    "key": "5402831",
+    "name": "Eupatorium lindleyanum",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 9
+  },
+  {
+    "key": "5296278",
+    "name": "Sisyrinchium micranthum",
+    "family": "Iridaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 2,
+    "total_occ": 9
+  },
+  {
+    "key": "7314073",
+    "name": "Illicium anisatum",
+    "family": "Schisandraceae",
+    "class": "Magnoliopsida",
+    "order": "Austrobaileyales",
+    "n_islands": 2,
+    "total_occ": 9
+  },
+  {
+    "key": "5549948",
+    "name": "Liriope minor",
+    "family": "Asparagaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 2,
+    "total_occ": 9
+  },
+  {
+    "key": "2774158",
+    "name": "Ophiopogon japonicus",
+    "family": "Asparagaceae",
+    "class": "Liliopsida",
+    "order": "Asparagales",
+    "n_islands": 2,
+    "total_occ": 9
+  },
+  {
+    "key": "3117449",
+    "name": "Erigeron annuus",
+    "family": "Asteraceae",
+    "class": "Magnoliopsida",
+    "order": "Asterales",
+    "n_islands": 2,
+    "total_occ": 8
+  },
+  {
+    "key": "2770833",
+    "name": "Disporum smilacinum",
+    "family": "Colchicaceae",
+    "class": "Liliopsida",
+    "order": "Liliales",
+    "n_islands": 2,
+    "total_occ": 8
+  },
+  {
+    "key": "5382780",
+    "name": "Phyllanthus urinaria",
+    "family": "Phyllanthaceae",
+    "class": "Magnoliopsida",
+    "order": "Malpighiales",
+    "n_islands": 2,
+    "total_occ": 8
+  },
+  {
+    "key": "5526068",
+    "name": "Vincetoxicum aristolochioides",
+    "family": "Apocynaceae",
+    "class": "Magnoliopsida",
+    "order": "Gentianales",
+    "n_islands": 2,
+    "total_occ": 7
+  }
+]

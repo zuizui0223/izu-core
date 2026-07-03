@@ -1,0 +1,6 @@
+rank,label,tier,confidence,default_weight,description,expands_volume
+A,peer_reviewed_quantitative,literature,high,1.00,Published mainland-vs-island trait values with sample sizes / statistics (extractable standardised effect size). e.g. Inoue Campanula series; Ligustrum ovalifolium floral morphology.,no
+B,peer_reviewed_qualitative,literature,medium_high,0.70,Peer-reviewed statement of direction of change without numbers (e.g. paper states island form has smaller/paler corolla).,no
+C,photo_blinded_score,flower_photo,medium,0.50,iNaturalist/GBIF research-grade image scored blind for relative traits (colour intensity, spot/guide presence, relative corolla proportion). Absolute size only with a scale bar.,yes
+D,web_flora_description,web_description,low,0.25,Non-peer-reviewed textual description asserting a trait difference: flora/field-guide/park-museum/encyclopaedia pages. Low confidence but expands species coverage.,yes
+E,occurrence_only,occurrence,none,0.00,Species spans mainland + islands (GBIF/iNat) but no trait evidence. Defines candidate pool membership; NOT a response data point.,no

@@ -1,0 +1,81 @@
+name: Meta-analysis pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'paper/comprehensive_sweep.py'
+      - 'paper/izu_entomophilous_candidates.csv'
+      - 'paper/evidence_ranks.csv'
+      - 'channel_id/izu_gradient_benchmark.py'
+      - 'channel_id/island_multichannel.py'
+      - 'scripts/run_island_multichannel_analysis.py'
+      - 'data/inoue_literature_island_traits.csv'
+      - '.github/workflows/meta-analysis-pipeline.yml'
+  pull_request:
+    paths:
+      - 'paper/comprehensive_sweep.py'
+      - 'paper/izu_entomophilous_candidates.csv'
+      - 'paper/evidence_ranks.csv'
+      - 'channel_id/izu_gradient_benchmark.py'
+      - 'channel_id/island_multichannel.py'
+      - 'scripts/run_island_multichannel_analysis.py'
+      - 'data/inoue_literature_island_traits.csv'
+      - '.github/workflows/meta-analysis-pipeline.yml'
+  workflow_dispatch:
+
+jobs:
+  meta-analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+
+      - name: Comprehensive detectability sweep (Result 1)
+        run: |
+          mkdir -p artifacts
+          python paper/comprehensive_sweep.py --replicates 200 > artifacts/comprehensive_sweep.csv
+          wc -l artifacts/comprehensive_sweep.csv
+
+      - name: Threshold / anti-cline shape classification (calibration seed)
+        run: |
+          python paper/threshold_analysis.py | tee artifacts/threshold_analysis.txt
+
+      - name: Classify candidates by pollination functional group (moderator)
+        run: |
+          python paper/classify_functional_groups.py
+
+      - name: Calibration seed — island multichannel analysis (Section 6)
+        run: |
+          python scripts/run_island_multichannel_analysis.py \
+            --input data/inoue_literature_island_traits.csv \
+            --output-json artifacts/island_multichannel_analysis.json \
+            --output-md artifacts/island_multichannel_analysis.md
+
+      - name: Validate evidence-ranked candidate table
+        run: |
+          python paper/validate_meta_inputs.py
+
+      - name: First-pass rank-weighted synthesis
+        run: |
+          python paper/meta_synthesis.py | tee artifacts/meta_synthesis.txt
+
+      - name: Upload meta-analysis artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: meta-analysis-pipeline
+          path: |
+            artifacts/comprehensive_sweep.csv
+            artifacts/threshold_analysis.txt
+            artifacts/meta_synthesis.txt
+            artifacts/island_multichannel_analysis.json
+            artifacts/island_multichannel_analysis.md
+            paper/izu_entomophilous_candidates.csv
+            paper/functional_group_classification.csv
+            paper/evidence_ranks.csv
+          if-no-files-found: error

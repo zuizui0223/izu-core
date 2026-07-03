@@ -1,0 +1,6 @@
+species,functional_group,region,card_id,phenology,scoreable_floral,ray_or_corolla_note,evidence_rank,note
+Hydrangea macrophylla,generalist_open,Oshima,hydran_sample,flower,partial,"lacecap: pale blue-white sterile florets present; display = sterile florets not corolla",C,"per-species trait def needed; not size-comparable without scale"
+Farfugium japonicum,generalist_open,MAINLAND,farfug_000,flower,yes,"yellow ray florets, medium head, ~10-13 rays",C,"only 1 of 4 sampled photos was in flower"
+Farfugium japonicum,generalist_open,Oshima,farfug_003,fruit,no,"pappus/seed heads, no petals",E,"phenology: fruiting stage, not floral-scoreable"
+Farfugium japonicum,generalist_open,MAINLAND,farfug_006,vegetative,no,"leaves only",E,"phenology: vegetative"
+Farfugium japonicum,generalist_open,Miyake,farfug_002,vegetative,no,"leaves only",E,"phenology: vegetative; no in-flower island photo in sample -> no mainland-vs-island direction extractable"
