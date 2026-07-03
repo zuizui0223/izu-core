@@ -39,6 +39,25 @@ Selfing / island reproductive-biology research is well advanced; use web search 
 
 Reuses: constrained-simulation power layer (for required replication), four-gate eligibility screen, GBIF/iNat collection, blinded photo review, source-locked transcription. Improvements: pollination-specialisation moderator, counter-direction (enlargement) handling, endemic subset, effect-size + phylogenetic/shared-island dependence gates, PRISMA-style accounting.
 
+## Threshold / anti-cline focus (the headline pattern)
+
+The signature that most strongly implicates pollinator loss — and separates it from a smooth environmental cline — is a **step (breakpoint), not a gradient**. In *Campanula microdonta* autonomous selfing jumps 11%→100% exactly at the *Bombus*-loss boundary (Ōshima→Toshima) instead of rising smoothly (Spearman ρ only +0.34 despite a large mean contrast). The archipelago has **two candidate regime boundaries** — large *Bombus diversus* lost, then *B. ardens* lost, then no bumblebees — already modelled by `channel_id/two_breakpoint_counterfactual.py` (`LARGE_BOMBUS → ARDENS → NO_BOMBUS`) with the Inoue evidence in `data/two_breakpoint_evidence/`.
+
+Meta-analytic test (per species that spans the gradient):
+1. Fit **step vs smooth-cline vs none** to each trait along the ordered islands; record the **breakpoint location**.
+2. **Shared-breakpoint test:** do specialist species step at the *same* boundary (the bumblebee-loss boundary)? A common breakpoint across independent lineages is far stronger evidence of a common driver than any single cline, and cannot be produced by an unstructured environmental gradient.
+3. **Moderator interaction:** predict specialists show a **threshold** at the *Bombus*-loss boundary; generalists show **no step** (flat or weak cline). This is the anti-cline version of the falsification test — a shared threshold in specialists but not generalists is the target result.
+
+Reuses/extends the repo's `two_breakpoint` machinery from one species to the multi-species panel.
+
+## Photo sources incl. SNS / YAMAP (Tier C, with caveats)
+
+Beyond GBIF/iNaturalist, geotagged citizen photos can expand species×island coverage for the blinded photo tier:
+- **YAMAP** (JP hiking app) — dense geotagged plant photos on exactly these islands; strong for presence + relative floral traits.
+- **SNS** (X/Instagram, hashtag/geotag) — high volume, lower reliability.
+
+Handling: treated as **rank C at best** (blinded relative-trait scoring), often demoted to **rank D** when location/ID is uncertain. Mandatory checks before use: (i) licence/ToS permits research use of the image or only derived measurements are retained; (ii) geolocation actually on the focal island (not a cultivated/garden record); (iii) independent species-ID confirmation; (iv) scale bar required for any absolute size, else relative traits only. These sources **expand volume** but never override peer-reviewed (A/B) evidence, consistent with the rank weighting.
+
 ## Evidence ranking (every data point carries an explicit confidence rank)
 
 Each species×trait observation is graded A–E and weighted accordingly (`paper/evidence_ranks.csv`, applied in `paper/evidence_observations.csv`):

@@ -20,6 +20,7 @@ VALID_DIRECTIONS = {
     "reduction", "increase", "enlargement", "paler", "none",
     "unknown_pending",
 }
+VALID_SHAPES = {"step", "cline", "none", "unknown"}
 
 
 def load(path: pathlib.Path) -> list[dict]:
@@ -54,6 +55,9 @@ def main() -> None:
             sys.exit(f"obs {o['obs_id']}: unknown evidence_rank {o['evidence_rank']}")
         if o["direction"] not in VALID_DIRECTIONS:
             sys.exit(f"obs {o['obs_id']}: invalid direction {o['direction']}")
+        shape = o.get("response_shape")
+        if shape is not None and shape not in VALID_SHAPES:
+            sys.exit(f"obs {o['obs_id']}: invalid response_shape {shape}")
         if o["evidence_rank"] == "A" and o["effect_available"] != "yes":
             sys.exit(f"obs {o['obs_id']}: rank A requires effect_available=yes")
 
