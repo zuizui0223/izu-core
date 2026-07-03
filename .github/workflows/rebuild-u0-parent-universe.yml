@@ -1,0 +1,87 @@
+name: Rebuild GBIF U0 Parent Universe
+
+on:
+  pull_request:
+    paths:
+      - "paper/rebuild_u0_parent_universe.py"
+      - "paper/build_u1_screening_queue.py"
+      - "paper/build_u1_taxon_search_registry.py"
+      - "paper/build_u1_search_query_manifest.py"
+      - "paper/run_u1_crossref_discovery.py"
+      - "paper/triage_u1_crossref_leads.py"
+      - "paper/route_u1_review_sources.py"
+      - "paper/crosswalk_u0_to_156_pilot.py"
+      - ".github/workflows/rebuild-u0-parent-universe.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: u0-parent-universe-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild source-locked U0 GBIF snapshot
+        run: python paper/rebuild_u0_parent_universe.py --out-dir artifacts/u0_snapshot --taxon-workers 6
+      - name: Build all-taxon U1 screening queue
+        run: |
+          python paper/build_u1_screening_queue.py \
+            --u0 artifacts/u0_snapshot/u0_parent_universe.csv \
+            --out artifacts/u0_snapshot/u1_screening_queue.csv
+      - name: Expand all U1 names for Japanese and historical searching
+        run: |
+          python paper/build_u1_taxon_search_registry.py \
+            --u1 artifacts/u0_snapshot/u1_screening_queue.csv \
+            --out artifacts/u0_snapshot/u1_taxon_name_registry.csv
+      - name: Build all-lane U1 query manifest
+        run: |
+          python paper/build_u1_search_query_manifest.py \
+            --u1 artifacts/u0_snapshot/u1_screening_queue.csv \
+            --names artifacts/u0_snapshot/u1_taxon_name_registry.csv \
+            --out artifacts/u0_snapshot/u1_search_query_manifest.csv
+      - name: Discover first Crossref batch from U1
+        run: |
+          python paper/run_u1_crossref_discovery.py \
+            --manifest artifacts/u0_snapshot/u1_search_query_manifest.csv \
+            --out-dir artifacts/u0_snapshot/crossref_batch_001 \
+            --max-taxa 40 --max-queries 160
+      - name: Triage Crossref leads into primary-source review queue
+        run: |
+          python paper/triage_u1_crossref_leads.py \
+            --leads artifacts/u0_snapshot/crossref_batch_001/u1_crossref_leads.csv \
+            --out artifacts/u0_snapshot/crossref_batch_001/u1_crossref_review_queue.csv
+      - name: Route review candidates to legal full-text paths
+        run: |
+          python paper/route_u1_review_sources.py \
+            --queue artifacts/u0_snapshot/crossref_batch_001/u1_crossref_review_queue.csv \
+            --out artifacts/u0_snapshot/crossref_batch_001/u1_source_access_routes.csv
+      - name: Crosswalk U0 with the legacy 156-species pilot
+        run: |
+          python paper/crosswalk_u0_to_156_pilot.py \
+            --u0 artifacts/u0_snapshot/u0_parent_universe.csv \
+            --out artifacts/u0_snapshot/u0_to_156_pilot_crosswalk.csv
+      - name: Show cohort summaries
+        run: |
+          cat artifacts/u0_snapshot/u0_snapshot_summary.json
+          cat artifacts/u0_snapshot/u1_screening_queue.summary.json
+          cat artifacts/u0_snapshot/u1_taxon_name_registry.summary.json
+          cat artifacts/u0_snapshot/u1_search_query_manifest.summary.json
+          cat artifacts/u0_snapshot/crossref_batch_001/u1_crossref_summary.json
+          cat artifacts/u0_snapshot/crossref_batch_001/u1_crossref_review_queue.summary.json
+          cat artifacts/u0_snapshot/crossref_batch_001/u1_source_access_routes.summary.json
+          cat artifacts/u0_snapshot/u0_to_156_pilot_crosswalk.summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: u0-gbif-parent-universe
+          path: artifacts/u0_snapshot
+          if-no-files-found: error
+          retention-days: 90
