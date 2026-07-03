@@ -1,0 +1,157 @@
+speciesKey,name,family,n_islands,total_occ,functional_group,confidence,basis
+3172291,Ligustrum ovalifolium,Oleaceae,6,164,generalist_open,medium,family:Oleaceae
+7296559,Viola grypoceras,Violaceae,6,149,specialist_bee,medium,family:Violaceae
+2985994,Hydrangea macrophylla,Hydrangeaceae,6,115,generalist_open,high,family:Hydrangeaceae
+2925366,Clerodendrum trichotomum,Lamiaceae,6,108,specialist_bee,medium,"genus:Clerodendrum (long-tubed, butterfly/large bee)"
+3856535,Weigela coraeensis,Caprifoliaceae,6,102,specialist_bee,medium,family:Caprifoliaceae
+3112282,Ajania pacifica,Asteraceae,6,96,generalist_open,high,family:Asteraceae
+2985963,Deutzia crenata,Hydrangeaceae,6,92,generalist_open,high,family:Hydrangeaceae
+3021417,Prunus speciosa,Rosaceae,6,76,generalist_open,high,family:Rosaceae
+7296405,Viola mandshurica,Violaceae,6,74,specialist_bee,medium,family:Violaceae
+7319046,Hydrangea involucrata,Hydrangeaceae,6,73,generalist_open,high,family:Hydrangeaceae
+2753064,Lilium maculatum,Liliaceae,6,71,large_flower,high,"genus:Lilium (large; hawkmoth/large-bee, incl. Sakuyuri lineage)"
+2867087,Arisaema thunbergii,Araceae,6,71,nonbee_special,high,family:Araceae
+7293930,Vitis ficifolia,Vitaceae,6,68,abiotic_ambig,medium,family:Vitaceae
+6026372,Angelica keiskei,Apiaceae,6,62,generalist_open,high,family:Apiaceae
+3039267,Elaeagnus umbellata,Elaeagnaceae,6,56,generalist_open,medium,family:Elaeagnaceae
+3036892,Aralia elata,Araliaceae,6,25,generalist_open,high,family:Araliaceae
+7303926,Stachyurus praecox,Stachyuraceae,5,139,generalist_open,low,family:Stachyuraceae
+6063614,Aster microcephalus,Asteraceae,5,110,generalist_open,high,family:Asteraceae
+5341134,Callicarpa japonica,Lamiaceae,5,102,specialist_bee,high,family:Lamiaceae
+4183601,Piper kadsura,Piperaceae,5,99,nonbee_special,low,family:Piperaceae
+7135965,Rhododendron kaempferi,Ericaceae,5,88,large_flower,high,genus:Rhododendron (large corolla; counter-direction case)
+8677924,Pittosporum tobira,Pittosporaceae,5,85,generalist_open,medium,family:Pittosporaceae
+7304405,Neolitsea sericea,Lauraceae,5,79,abiotic_ambig,low,family:Lauraceae
+7317060,Trachelospermum asiaticum,Apocynaceae,5,72,specialist_bee,medium,"genus:Trachelospermum (salverform, long-tongued)"
+4176844,Cinnamomum chekiangense,Lauraceae,5,69,abiotic_ambig,low,family:Lauraceae
+3033546,Clematis terniflora,Ranunculaceae,5,62,generalist_open,medium,family:Ranunculaceae
+3189636,Camellia japonica,Theaceae,5,62,large_flower,high,genus:Camellia (winter bird (Zosterops) pollination)
+7354625,Rosa luciae,Rosaceae,5,55,generalist_open,high,family:Rosaceae
+2909527,Paederia foetida,Rubiaceae,5,55,specialist_bee,low,genus:Paederia (long tube; not open-generalist)
+3101212,Farfugium japonicum,Asteraceae,5,54,generalist_open,high,family:Asteraceae
+5378769,Mallotus japonicus,Euphorbiaceae,5,50,abiotic_ambig,medium,family:Euphorbiaceae
+5414239,Ilex crenata,Aquifoliaceae,5,50,generalist_open,high,family:Aquifoliaceae
+8146176,Daphniphyllum teijsmannii,Daphniphyllaceae,5,50,generalist_open,low,family:Daphniphyllaceae
+5295472,Smilax china,Smilacaceae,5,45,abiotic_ambig,low,family:Smilacaceae
+2753106,Lilium auratum,Liliaceae,5,39,large_flower,high,"genus:Lilium (large; hawkmoth/large-bee, incl. Sakuyuri lineage)"
+2903461,Damnacanthus indicus,Rubiaceae,5,36,generalist_open,low,family:Rubiaceae
+7307022,Clinopodium micranthum,Lamiaceae,5,35,specialist_bee,high,family:Lamiaceae
+8345960,Peucedanum japonicum,Apiaceae,5,29,generalist_open,high,family:Apiaceae
+2770845,Disporum sessile,Colchicaceae,5,27,large_flower,medium,family:Colchicaceae
+5554574,Tetragonia tetragonoides,Aizoaceae,5,27,generalist_open,low,family:Aizoaceae
+3624240,Trichosanthes kirilowii,Cucurbitaceae,5,23,generalist_open,low,family:Cucurbitaceae
+3121258,Artemisia princeps,Asteraceae,5,18,abiotic_ambig,high,genus:Artemisia (wind-pollinated Asteraceae)
+11302451,Leptopetalum coreanum,Rubiaceae,5,17,generalist_open,low,family:Rubiaceae
+3068983,Euphorbia sieboldiana,Euphorbiaceae,4,62,abiotic_ambig,medium,family:Euphorbiaceae
+2994808,Rubus trifidus,Rosaceae,4,61,generalist_open,high,family:Rosaceae
+7152601,Eurya japonica,Pentaphylacaceae,4,60,generalist_open,low,family:Pentaphylacaceae
+7102937,Euonymus japonicus,Celastraceae,4,60,generalist_open,high,family:Celastraceae
+3113139,Cirsium nipponicum,Asteraceae,4,57,specialist_bee,medium,genus:Cirsium (thistle: bumblebee/butterfly)
+4177874,Machilus thunbergii,Lauraceae,4,52,abiotic_ambig,low,family:Lauraceae
+2991442,Rubus buergeri,Rosaceae,4,44,generalist_open,high,family:Rosaceae
+2781074,Hemerocallis fulva,Asphodelaceae,4,42,large_flower,high,genus:Hemerocallis (large tepals)
+7293094,Elaeagnus macrophylla,Elaeagnaceae,4,41,generalist_open,medium,family:Elaeagnaceae
+3169368,Lysimachia mauritiana,Primulaceae,4,39,generalist_open,low,family:Primulaceae
+2925558,Vitex rotundifolia,Lamiaceae,4,39,specialist_bee,medium,genus:Vitex (zygomorphic Lamiaceae)
+2977636,Pueraria montana,Fabaceae,4,36,specialist_bee,high,family:Fabaceae
+5414379,Ardisia crenata,Primulaceae,4,36,generalist_open,low,family:Primulaceae
+8378552,Microtropis japonica,Celastraceae,4,34,generalist_open,high,family:Celastraceae
+5558066,Ardisia japonica,Primulaceae,4,34,generalist_open,low,family:Primulaceae
+2764179,Commelina communis,Commelinaceae,4,30,abiotic_ambig,low,family:Commelinaceae
+3853033,Neillia incisa,Rosaceae,4,24,generalist_open,high,family:Rosaceae
+7334050,Sedum japonicum,Crassulaceae,4,23,generalist_open,medium,family:Crassulaceae
+7646357,Calystegia soldanella,Convolvulaceae,4,23,large_flower,medium,"genus:Calystegia (funnelform, large)"
+7293727,Ampelopsis glandulosa,Vitaceae,4,23,abiotic_ambig,medium,family:Vitaceae
+7480375,Rhaphiolepis umbellata,Rosaceae,4,22,generalist_open,high,family:Rosaceae
+3033896,Berberis thunbergii,Berberidaceae,4,22,generalist_open,medium,family:Berberidaceae
+8427624,Oxalis corniculata,Oxalidaceae,4,22,generalist_open,low,family:Oxalidaceae
+7277264,Ranunculus silerifolius,Ranunculaceae,4,21,generalist_open,medium,family:Ranunculaceae
+8598984,Dendropanax trifidus,Araliaceae,4,21,generalist_open,high,family:Araliaceae
+7269097,Zanthoxylum ailanthoides,Rutaceae,4,18,generalist_open,medium,family:Rutaceae
+2928598,Ipomoea indica,Convolvulaceae,4,14,large_flower,medium,"genus:Ipomoea (funnelform, large)"
+7293101,Elaeagnus glabra,Elaeagnaceae,4,14,generalist_open,medium,family:Elaeagnaceae
+7307951,Teucrium viscidum,Lamiaceae,4,12,specialist_bee,high,family:Lamiaceae
+5334240,Lonicera japonica,Caprifoliaceae,3,43,specialist_bee,medium,family:Caprifoliaceae
+3033077,Aucuba japonica,Garryaceae,3,43,generalist_open,low,family:Garryaceae
+5371678,Styrax japonicus,Styracaceae,3,42,large_flower,low,family:Styracaceae
+5384931,Houttuynia cordata,Saururaceae,3,37,nonbee_special,low,family:Saururaceae
+3719723,Myrsine seguinii,Primulaceae,3,33,generalist_open,low,family:Primulaceae
+7434550,Dioscorea tokoro,Dioscoreaceae,3,30,abiotic_ambig,medium,family:Dioscoreaceae
+3125901,Sigesbeckia orientalis,Asteraceae,3,27,generalist_open,medium,"genus:Sigesbeckia (small composite, generalist)"
+7740617,Skimmia japonica,Rutaceae,3,26,generalist_open,medium,family:Rutaceae
+5409255,Adenophora triphylla,Campanulaceae,3,26,specialist_bee,high,family:Campanulaceae
+2891707,Oxalis debilis,Oxalidaceae,3,25,generalist_open,low,family:Oxalidaceae
+3039046,Fatsia japonica,Araliaceae,3,25,generalist_open,high,family:Araliaceae
+7315826,Ilex integra,Aquifoliaceae,3,25,generalist_open,high,family:Aquifoliaceae
+5525561,Vincetoxicum japonicum,Apocynaceae,3,24,specialist_bee,medium,family:Apocynaceae
+3093276,Picris japonica,Asteraceae,3,24,generalist_open,high,family:Asteraceae
+3036022,Hedera rhombea,Araliaceae,3,23,generalist_open,high,family:Araliaceae
+3033129,Thalictrum minus,Ranunculaceae,3,22,generalist_open,medium,family:Ranunculaceae
+8108947,Cirsium maritimum,Asteraceae,3,21,specialist_bee,medium,genus:Cirsium (thistle: bumblebee/butterfly)
+2771258,Hosta longipes,Asparagaceae,3,20,generalist_open,low,family:Asparagaceae
+2755706,Dioscorea japonica,Dioscoreaceae,3,20,abiotic_ambig,medium,family:Dioscoreaceae
+3188867,Oenothera laciniata,Onagraceae,3,19,generalist_open,low,family:Onagraceae
+3876453,Berchemia floribunda,Rhamnaceae,3,19,generalist_open,medium,family:Rhamnaceae
+3115443,Crassocephalum crepidioides,Asteraceae,3,18,generalist_open,high,family:Asteraceae
+3112887,Cirsium japonicum,Asteraceae,3,16,specialist_bee,medium,genus:Cirsium (thistle: bumblebee/butterfly)
+6026987,Hydrocotyle javanica,Araliaceae,3,16,generalist_open,high,family:Araliaceae
+7267525,Dianthus japonicus,Caryophyllaceae,3,16,specialist_bee,high,genus:Dianthus (long-tubed; butterfly/long-tongue (Izu candidate D. japonicus))
+3173321,Aeginetia indica,Orobanchaceae,3,16,specialist_bee,high,family:Orobanchaceae
+4191611,Stauntonia hexaphylla,Lardizabalaceae,3,15,generalist_open,low,family:Lardizabalaceae
+2747939,Crocosmia crocosmiiflora,Iridaceae,3,15,large_flower,medium,family:Iridaceae
+7306109,Akebia trifoliata,Lardizabalaceae,3,13,generalist_open,low,family:Lardizabalaceae
+3034820,Torilis japonica,Apiaceae,3,13,generalist_open,high,family:Apiaceae
+5664666,Viola hamiltoniana,Violaceae,3,12,specialist_bee,medium,family:Violaceae
+2774115,Ophiopogon planiscapus,Asparagaceae,3,12,generalist_open,low,family:Asparagaceae
+5296298,Sisyrinchium rosulatum,Iridaceae,3,11,large_flower,medium,family:Iridaceae
+3039209,Parthenocissus tricuspidata,Vitaceae,3,11,abiotic_ambig,medium,family:Vitaceae
+5358748,Trifolium repens,Fabaceae,3,11,specialist_bee,high,family:Fabaceae
+8228544,Sonchus oleraceus,Asteraceae,3,10,generalist_open,high,family:Asteraceae
+2866950,Arisaema serratum,Araceae,2,50,nonbee_special,high,family:Araceae
+9246881,Japonicalia delphiniifolia,Asteraceae,2,44,generalist_open,high,family:Asteraceae
+7304416,Lindera umbellata,Lauraceae,2,43,abiotic_ambig,low,family:Lauraceae
+3892440,Clerodendrum izuinsulare,Lamiaceae,2,36,specialist_bee,medium,"genus:Clerodendrum (long-tubed, butterfly/large bee)"
+5391845,Bidens pilosa,Asteraceae,2,26,generalist_open,high,family:Asteraceae
+3169169,Celastrus orbiculatus,Celastraceae,2,22,generalist_open,high,family:Celastraceae
+3130279,Pertya scandens,Asteraceae,2,19,generalist_open,high,family:Asteraceae
+3169390,Lysimachia japonica,Primulaceae,2,19,generalist_open,low,family:Primulaceae
+5387974,Youngia japonica,Asteraceae,2,18,generalist_open,high,family:Asteraceae
+3066890,Euphorbia jolkinii,Euphorbiaceae,2,18,abiotic_ambig,medium,family:Euphorbiaceae
+8292939,Ajuga decumbens,Lamiaceae,2,18,specialist_bee,high,family:Lamiaceae
+5384848,Silene gallica,Caryophyllaceae,2,18,generalist_open,low,family:Caryophyllaceae
+7269282,Zanthoxylum piperitum,Rutaceae,2,18,generalist_open,medium,family:Rutaceae
+3189882,Acer palmatum,Sapindaceae,2,17,generalist_open,low,family:Sapindaceae
+2988959,Rubus palmatus,Rosaceae,2,17,generalist_open,high,family:Rosaceae
+2914653,Galium bungei,Rubiaceae,2,17,generalist_open,low,family:Rubiaceae
+3094854,Carpesium divaricatum,Asteraceae,2,17,generalist_open,high,family:Asteraceae
+7290557,Lysimachia sikokiana,Primulaceae,2,16,generalist_open,low,family:Primulaceae
+3085404,Sagina maxima,Caryophyllaceae,2,15,generalist_open,low,family:Caryophyllaceae
+2932779,Solanum maximowiczii,Solanaceae,2,15,specialist_bee,medium,family:Solanaceae
+7270205,Gentiana scabra,Gentianaceae,2,15,specialist_bee,medium,family:Gentianaceae
+2962029,Canavalia lineata,Fabaceae,2,15,specialist_bee,high,family:Fabaceae
+3718199,Clethra barbinervis,Clethraceae,2,14,generalist_open,low,family:Clethraceae
+7314981,Corydalis incisa,Papaveraceae,2,13,generalist_open,medium,family:Papaveraceae
+3067119,Euphorbia maculata,Euphorbiaceae,2,13,abiotic_ambig,medium,family:Euphorbiaceae
+3034432,Cryptotaenia japonica,Apiaceae,2,13,generalist_open,high,family:Apiaceae
+2975014,Vicia sativa,Fabaceae,2,13,specialist_bee,high,family:Fabaceae
+7490831,Viburnum erosum,Viburnaceae,2,12,generalist_open,high,family:Viburnaceae
+4191567,Trochodendron aralioides,Trochodendraceae,2,12,generalist_open,low,family:Trochodendraceae
+2805472,Spiranthes australis,Orchidaceae,2,12,nonbee_special,medium,family:Orchidaceae
+7946150,Comanthosphace japonica,Lamiaceae,2,11,specialist_bee,high,family:Lamiaceae
+7317023,Trachelospermum gracilipes,Apocynaceae,2,11,specialist_bee,medium,"genus:Trachelospermum (salverform, long-tongued)"
+3002003,Agrimonia pilosa,Rosaceae,2,10,generalist_open,high,family:Rosaceae
+3008270,Rosa onoei,Rosaceae,2,10,generalist_open,high,family:Rosaceae
+3132228,Adenostemma lavenia,Asteraceae,2,10,generalist_open,high,family:Asteraceae
+5322999,Liparis nervosa,Orchidaceae,2,10,nonbee_special,medium,family:Orchidaceae
+4063474,Bothriospermum zeylanicum,Boraginaceae,2,10,generalist_open,medium,family:Boraginaceae
+3084015,Phytolacca americana,Phytolaccaceae,2,10,generalist_open,low,family:Phytolaccaceae
+3639534,Sanicula chinensis,Apiaceae,2,10,generalist_open,high,family:Apiaceae
+5402831,Eupatorium lindleyanum,Asteraceae,2,9,generalist_open,high,family:Asteraceae
+5296278,Sisyrinchium micranthum,Iridaceae,2,9,large_flower,medium,family:Iridaceae
+7314073,Illicium anisatum,Schisandraceae,2,9,nonbee_special,low,family:Schisandraceae
+5549948,Liriope minor,Asparagaceae,2,9,generalist_open,low,family:Asparagaceae
+2774158,Ophiopogon japonicus,Asparagaceae,2,9,generalist_open,low,family:Asparagaceae
+3117449,Erigeron annuus,Asteraceae,2,8,generalist_open,high,family:Asteraceae
+2770833,Disporum smilacinum,Colchicaceae,2,8,large_flower,medium,family:Colchicaceae
+5382780,Phyllanthus urinaria,Phyllanthaceae,2,8,abiotic_ambig,low,family:Phyllanthaceae
+5526068,Vincetoxicum aristolochioides,Apocynaceae,2,7,specialist_bee,medium,family:Apocynaceae
