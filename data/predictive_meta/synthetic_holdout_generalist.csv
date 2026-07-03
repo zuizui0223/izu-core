@@ -1,0 +1,4 @@
+observation_id,analysis_partition,lineage_id,taxon,analysis_group,group_confidence,trait_id,trait_family,pollinator_regime,value,value_unit,evidence_tier,source_locator,review_status,weight,notes
+syn-1,holdout,generalist_test,Generalist test,generalist,high,generalist_signal,visible_signal,large_bombus,2,ordinal_score,synthetic,test,reviewed,1,synthetic test row
+syn-2,holdout,generalist_test,Generalist test,generalist,high,generalist_signal,visible_signal,ardens,2,ordinal_score,synthetic,test,reviewed,1,synthetic test row
+syn-3,holdout,generalist_test,Generalist test,generalist,high,generalist_signal,visible_signal,no_bombus,2,ordinal_score,synthetic,test,reviewed,1,synthetic test row
