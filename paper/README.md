@@ -10,14 +10,15 @@ is the fully-measured calibration seed; the question is comparative.
 ```bash
 pip install -e .
 python paper/run_all.py          # runs the whole pipeline -> artifacts/RESULTS.md
-python -m pytest                  # 269 tests (Windows: add --basetemp=C:/pt)
+python -m pytest                 # 269 tests (Windows: add --basetemp=C:/pt)
 ```
 
 Individual stages:
 
-| Stage | Script | Output |
+| Stage | Script / record | Output |
 |---|---|---|
 | Candidate pool (GBIF) | `gbif_coverage` / `gbif_filter` logic → `izu_entomophilous_candidates.csv` | 156 gradient-spanning entomophilous angiosperms |
+| Expanded screening | `evidence_screening/README.md` + four stratified dockets | auditable path from the 156-species pilot to the full 319-species parent universe |
 | Moderator | `classify_functional_groups.py` | `functional_group_classification.csv` (30 specialist / 89 generalist) |
 | Anti-cline threshold | `threshold_analysis.py` (uses `channel_id/gradient_shape.py`) | step/cline/none per trait + breakpoint |
 | Evidence hierarchy | `evidence_ranks.csv`, `evidence_observations.csv`, `validate_meta_inputs.py` | A–E graded observations |
@@ -32,11 +33,14 @@ C blinded photo score (0.5) · D web/flora description (0.25) · E occurrence (0
 Synthesis is reported at full weight **and** rank-A/B-only, so conclusions never
 rest on low-confidence text.
 
-## Data ceiling (honest)
+## Evidence-status boundary
 
-Public data limit the meta-analysis: peer-reviewed generalist floral series are
-scarce, most species have only direction-level evidence, and single-source
-photo coverage is sparse. The workflow is therefore "complete" in the sense that
-it is fully specified, tested, CI-run, and executed to the limit of available
-public data — with the ceiling documented, not hidden. See `NOVELTY.md` for the
+The present synthesis is a reproducible pilot, not the completed public-data
+ceiling. The 156-species entomophilous table is a prefiltered analysis cohort,
+whereas the reported parent universe contains 319 mainland + >=2-island plants.
+`evidence_screening/` fixes the next work unit: a protected 40-species pilot
+docket followed by an auditable reconstruction and systematic screen of the
+full parent universe. Peer-reviewed generalist floral series may remain scarce,
+but that conclusion is only defensible after the registry records the searches,
+source-level exclusions, and image/region coverage. See `NOVELTY.md` for the
 methodological contributions and `meta_analysis_design.md` for the full design.

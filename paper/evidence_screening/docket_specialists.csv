@@ -1,0 +1,13 @@
+priority_rank,screening_id,species_key,scientific_name,family,group_confidence,n_islands,total_occ,coverage_potential,search_bundle,screening_status,why_now
+1,izu-2925366,2925366,Clerodendrum trichotomum,Lamiaceae,medium,6,108,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum gradient coverage and a named island congener lead.
+2,izu-3856535,3856535,Weigela coraeensis,Caprifoliaceae,medium,6,102,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum gradient coverage.
+3,izu-5341134,5341134,Callicarpa japonica,Lamiaceae,high,5,102,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High coverage and record availability.
+4,izu-7317060,7317060,Trachelospermum asiaticum,Apocynaceae,medium,5,72,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Multi-island coverage.
+5,izu-7307022,7307022,Clinopodium micranthum,Lamiaceae,high,5,35,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High-confidence first-pass functional assignment.
+6,izu-3113139,3113139,Cirsium nipponicum,Asteraceae,medium,4,57,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Genus-level pollination assignment requires literature verification.
+7,izu-2925558,2925558,Vitex rotundifolia,Lamiaceae,medium,4,39,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Four-island coverage.
+8,izu-2977636,2977636,Pueraria montana,Fabaceae,high,4,36,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High-confidence first-pass functional assignment.
+9,izu-7307951,7307951,Teucrium viscidum,Lamiaceae,high,4,12,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Retained despite lower availability because functional contrast matters.
+10,izu-5334240,5334240,Lonicera japonica,Caprifoliaceae,medium,3,43,paired_direction_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Paired-comparison candidate.
+11,izu-5409255,5409255,Adenophora triphylla,Campanulaceae,high,3,26,paired_direction_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Campanulaceae replication candidate beyond the seed system.
+12,izu-5525561,5525561,Vincetoxicum japonicum,Apocynaceae,medium,3,24,paired_direction_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Specialist paired-comparison candidate.

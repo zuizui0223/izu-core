@@ -1,0 +1,17 @@
+priority_rank,screening_id,species_key,scientific_name,family,group_confidence,n_islands,total_occ,coverage_potential,search_bundle,screening_status,why_now
+13,izu-3172291,3172291,Ligustrum ovalifolium,Oleaceae,medium,6,164,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum coverage and an existing morphology lead.
+14,izu-2985994,2985994,Hydrangea macrophylla,Hydrangeaceae,high,6,115,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum coverage; define display unit before extraction.
+15,izu-3112282,3112282,Ajania pacifica,Asteraceae,high,6,96,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum coverage.
+16,izu-2985963,2985963,Deutzia crenata,Hydrangeaceae,high,6,92,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum coverage.
+17,izu-7319046,7319046,Hydrangea involucrata,Hydrangeaceae,high,6,73,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum coverage; define display unit before extraction.
+18,izu-6026372,6026372,Angelica keiskei,Apiaceae,high,6,62,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum coverage.
+19,izu-3039267,3039267,Elaeagnus umbellata,Elaeagnaceae,medium,6,56,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Maximum coverage.
+20,izu-3036892,3036892,Aralia elata,Araliaceae,high,6,25,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Retained despite lower availability because it fills the control class.
+21,izu-6063614,6063614,Aster microcephalus,Asteraceae,high,5,110,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High multi-island coverage.
+22,izu-8677924,8677924,Pittosporum tobira,Pittosporaceae,medium,5,85,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High multi-island coverage.
+23,izu-7354625,7354625,Rosa luciae,Rosaceae,high,5,55,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High-confidence first-pass functional assignment.
+24,izu-3101212,3101212,Farfugium japonicum,Asteraceae,high,5,54,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Retained to document phenology limits rather than silently dropping them.
+25,izu-5414239,5414239,Ilex crenata,Aquifoliaceae,high,5,50,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High multi-island coverage.
+26,izu-8345960,8345960,Peucedanum japonicum,Apiaceae,high,5,29,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,High-confidence first-pass assignment.
+27,izu-2994808,2994808,Rubus trifidus,Rosaceae,high,4,61,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Four-island coverage.
+28,izu-7102937,7102937,Euonymus japonicus,Celastraceae,high,4,60,multi-island_shape_potential,P1/P2/P3; Japanese+English+synonym,not_searched,Four-island coverage.
