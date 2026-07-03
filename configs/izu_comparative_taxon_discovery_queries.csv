@@ -1,0 +1,9 @@
+query_id,language,query_text,target_gate,boundary
+campanula_distribution,ja,シマホタルブクロ 伊豆諸島 分布 標本 送粉,confirm and refine focal source scope,Do not replace the pre-field lock without an explicit new phase
+sakuyuri_distribution,ja,サクユリ 伊豆諸島 島別 分布 標本 作百合 Lilium platyphyllum,verify Izu-only auxiliary island coverage,An Izu endemic is not automatically a mainland-to-island comparison
+sakuyuri_pollination,ja,サクユリ 送粉 訪花 蜜 香り 作百合,find interaction and floral-resource leads,Visitor mention is not effectiveness evidence
+coastal_candidate_distribution,ja,ハマナデシコ 伊豆諸島 大島 利島 新島 神津島 八丈島 分布,verify mainland plus repeated island coverage,Do not infer occurrence from broad Japanese coastal range
+farfugium_distribution,ja,ツワブキ 伊豆諸島 大島 利島 新島 神津島 八丈島 分布,verify mainland plus repeated island coverage and later phenology,Later phenology requires a separate field schedule
+aster_distribution,ja,ソナレノギク 伊豆諸島 大島 利島 新島 神津島 八丈島 分布,verify accepted Japanese name and mainland plus repeated island coverage,No candidate is a replicate until source records are audited
+en_taxon_record,en,"Lilium platyphyllum" Izu Islands distribution pollination,find primary taxonomy distribution and interaction sources,Do not use nursery or cultivation sources as wild-island evidence
+en_coastal_record,en,"Dianthus japonicus" Izu Islands occurrence pollination,find primary mainland and island occurrence records,Do not equate a national distribution with focal island presence
