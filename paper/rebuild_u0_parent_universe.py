@@ -28,6 +28,7 @@ from urllib.request import Request, urlopen
 
 API = "https://api.gbif.org/v1"
 PROFILE = "izu_proxy_circles_v1"
+FACET_PAGE_SIZE = 1_000
 REGIONS = {
     "MAINLAND": (34.7500, 138.9500, 25.0),
     "Oshima": (34.7385, 139.4024, 8.0),
@@ -38,7 +39,7 @@ REGIONS = {
     "Hachijo": (33.1025, 139.8077, 8.0),
 }
 ISLANDS = tuple(region for region in REGIONS if region != "MAINLAND")
-USER_AGENT = "izu-core-u0-rebuild/1.0"
+USER_AGENT = "izu-core-u0-rebuild/1.1"
 
 
 def circle_wkt(lat: float, lon: float, radius_km: float, vertices: int = 32) -> str:
@@ -75,14 +76,15 @@ def request_json(url: str, *, attempts: int = 4) -> tuple[dict, int]:
     raise last_error
 
 
-def facet_url(geometry: str) -> str:
+def facet_url(geometry: str, offset: int) -> str:
     params = {
         "kingdom": "Plantae",
         "hasCoordinate": "true",
         "hasGeospatialIssue": "false",
         "geometry": geometry,
         "facet": "speciesKey",
-        "facetLimit": 1000,
+        "facetLimit": FACET_PAGE_SIZE,
+        "facetOffset": offset,
         "limit": 0,
     }
     return API + "/occurrence/search?" + urlencode(params)
@@ -92,12 +94,39 @@ def species_url(key: str) -> str:
     return f"{API}/species/{key}"
 
 
-def species_facets(payload: dict) -> dict[str, int]:
-    facets = payload.get("facets") or []
-    for facet in facets:
-        if facet.get("field") == "SPECIES_KEY" or facet.get("field") == "speciesKey":
-            return {str(entry["name"]): int(entry["count"]) for entry in facet.get("counts", [])}
+def facet_entries(payload: dict) -> list[dict]:
+    for facet in payload.get("facets") or []:
+        if facet.get("field") in {"SPECIES_KEY", "speciesKey"}:
+            return list(facet.get("counts", []))
     raise RuntimeError("GBIF response did not include speciesKey facet")
+
+
+def fetch_all_species_facets(region: str, geometry: str, retrieved_at: str) -> tuple[dict[str, int], list[dict[str, object]], int]:
+    """Page through every GBIF species facet; fail closed on any missing page."""
+    result: dict[str, int] = {}
+    pages: list[dict[str, object]] = []
+    offset = 0
+    total_occurrences: int | None = None
+    while True:
+        url = facet_url(geometry, offset)
+        payload, http_status = request_json(url)
+        entries = facet_entries(payload)
+        if total_occurrences is None:
+            total_occurrences = int(payload.get("count") or 0)
+        pages.append({
+            "profile": PROFILE, "region": region, "facet_offset": offset,
+            "query_url": url, "retrieved_at_utc": retrieved_at,
+            "http_status": http_status, "retrieval_status": "retrieved",
+            "facet_entries": len(entries), "gbif_total_occurrences": total_occurrences,
+        })
+        for entry in entries:
+            key = str(entry["name"])
+            result[key] = result.get(key, 0) + int(entry["count"])
+        if len(entries) < FACET_PAGE_SIZE:
+            break
+        offset += FACET_PAGE_SIZE
+        time.sleep(0.4)
+    return result, pages, int(total_occurrences or 0)
 
 
 def resolve_taxon(key: str, cache: dict[str, dict]) -> dict:
@@ -122,26 +151,26 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
-    query_log: list[dict[str, object]] = []
+    region_log: list[dict[str, object]] = []
+    page_log: list[dict[str, object]] = []
     raw_counts: dict[str, dict[str, int]] = {}
     for region, (lat, lon, radius) in REGIONS.items():
         geometry = circle_wkt(lat, lon, radius)
-        url = facet_url(geometry)
         try:
-            payload, http_status = request_json(url)
-            raw_counts[region] = species_facets(payload)
-            query_log.append({
+            counts, pages, total_occurrences = fetch_all_species_facets(region, geometry, retrieved_at)
+            raw_counts[region] = counts
+            page_log.extend(pages)
+            region_log.append({
                 "profile": PROFILE, "region": region, "lat": lat, "lon": lon,
-                "radius_km": radius, "geometry_wkt": geometry, "query_url": url,
-                "retrieved_at_utc": retrieved_at, "http_status": http_status,
-                "retrieval_status": "retrieved", "facet_species_count": len(raw_counts[region]),
-                "gbif_total_occurrences": payload.get("count", ""),
+                "radius_km": radius, "geometry_wkt": geometry, "retrieved_at_utc": retrieved_at,
+                "retrieval_status": "retrieved", "facet_pages": len(pages),
+                "facet_species_count": len(counts), "gbif_total_occurrences": total_occurrences,
             })
         except HTTPError as error:
-            query_log.append({"profile": PROFILE, "region": region, "lat": lat, "lon": lon, "radius_km": radius, "geometry_wkt": geometry, "query_url": url, "retrieved_at_utc": retrieved_at, "http_status": error.code, "retrieval_status": f"error:HTTPError:{error.code}", "facet_species_count": "", "gbif_total_occurrences": ""})
+            region_log.append({"profile": PROFILE, "region": region, "lat": lat, "lon": lon, "radius_km": radius, "geometry_wkt": geometry, "retrieved_at_utc": retrieved_at, "retrieval_status": f"error:HTTPError:{error.code}", "facet_pages": "", "facet_species_count": "", "gbif_total_occurrences": ""})
             raise RuntimeError(f"GBIF region query failed for {region}: HTTP {error.code}") from error
         except URLError as error:
-            query_log.append({"profile": PROFILE, "region": region, "lat": lat, "lon": lon, "radius_km": radius, "geometry_wkt": geometry, "query_url": url, "retrieved_at_utc": retrieved_at, "http_status": "", "retrieval_status": f"error:URLError:{error.reason}", "facet_species_count": "", "gbif_total_occurrences": ""})
+            region_log.append({"profile": PROFILE, "region": region, "lat": lat, "lon": lon, "radius_km": radius, "geometry_wkt": geometry, "retrieved_at_utc": retrieved_at, "retrieval_status": f"error:URLError:{error.reason}", "facet_pages": "", "facet_species_count": "", "gbif_total_occurrences": ""})
             raise RuntimeError(f"GBIF region query failed for {region}: {error.reason}") from error
         time.sleep(0.4)
 
@@ -153,8 +182,7 @@ def main() -> None:
         for raw_key, count in counts.items():
             record = resolve_taxon(raw_key, taxon_cache)
             accepted_key = str(record.get("key") or raw_key)
-            rank = str(record.get("rank") or "")
-            if rank != "SPECIES":
+            if str(record.get("rank") or "") != "SPECIES":
                 continue
             counts_by_accepted[accepted_key][region] += count
             raw_keys_by_accepted[accepted_key].add(raw_key)
@@ -170,20 +198,13 @@ def main() -> None:
             continue
         record = metadata[key]
         row: dict[str, object] = {
-            "profile": PROFILE,
-            "accepted_key": key,
-            "accepted_name": accepted_name(record),
-            "scientific_name": record.get("scientificName", ""),
-            "family": record.get("family", ""),
-            "order": record.get("order", ""),
-            "class": record.get("class", ""),
-            "taxonomic_status": record.get("taxonomicStatus", ""),
-            "taxon_rank": record.get("rank", ""),
+            "profile": PROFILE, "accepted_key": key, "accepted_name": accepted_name(record),
+            "scientific_name": record.get("scientificName", ""), "family": record.get("family", ""),
+            "order": record.get("order", ""), "class": record.get("class", ""),
+            "taxonomic_status": record.get("taxonomicStatus", ""), "taxon_rank": record.get("rank", ""),
             "raw_species_keys_merged": "|".join(sorted(raw_keys_by_accepted[key])),
-            "mainland_present": "yes",
-            "n_islands": n_islands,
-            "total_occ": sum(by_region.values()),
-            "retrieved_at_utc": retrieved_at,
+            "mainland_present": "yes", "n_islands": n_islands,
+            "total_occ": sum(by_region.values()), "retrieved_at_utc": retrieved_at,
         }
         for region in REGIONS:
             row[f"{region}_occ"] = by_region.get(region, 0)
@@ -200,10 +221,14 @@ def main() -> None:
     with (out_dir / "u0_parent_universe.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=parent_fields)
         writer.writeheader(); writer.writerows(rows)
-    log_fields = ["profile", "region", "lat", "lon", "radius_km", "geometry_wkt", "query_url", "retrieved_at_utc", "http_status", "retrieval_status", "facet_species_count", "gbif_total_occurrences"]
-    with (out_dir / "u0_gbif_query_log.csv").open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=log_fields)
-        writer.writeheader(); writer.writerows(query_log)
+    region_fields = ["profile", "region", "lat", "lon", "radius_km", "geometry_wkt", "retrieved_at_utc", "retrieval_status", "facet_pages", "facet_species_count", "gbif_total_occurrences"]
+    with (out_dir / "u0_gbif_region_log.csv").open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=region_fields)
+        writer.writeheader(); writer.writerows(region_log)
+    page_fields = ["profile", "region", "facet_offset", "query_url", "retrieved_at_utc", "http_status", "retrieval_status", "facet_entries", "gbif_total_occurrences"]
+    with (out_dir / "u0_gbif_query_pages.csv").open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=page_fields)
+        writer.writeheader(); writer.writerows(page_log)
     summary = {
         "profile": PROFILE,
         "retrieved_at_utc": retrieved_at,
