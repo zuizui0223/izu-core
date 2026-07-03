@@ -40,3 +40,17 @@ def test_crossref_priority_prefers_accepted_baseline_query():
     geographic = {"queue_rank": "1", "query_purpose": "island_comparison", "name_type": "accepted_input", "language": "en", "query_id": "c"}
     assert module.priority(accepted) < module.priority(synonym)
     assert module.priority(accepted) < module.priority(geographic)
+
+
+def test_round_robin_covers_each_taxon_before_second_query_depth():
+    module = load("run_u1_crossref_discovery")
+    rows = []
+    for key, rank in (("A", "1"), ("B", "2"), ("C", "3")):
+        for depth, name_type in enumerate(("accepted_input", "gbif_synonym")):
+            rows.append({
+                "u0_accepted_key": key, "queue_rank": rank,
+                "query_purpose": "taxon_baseline", "name_type": name_type,
+                "language": "en", "query_id": f"{key}{depth}",
+            })
+    selected = module.select_round_robin(rows, max_taxa=3, max_queries=3)
+    assert [row["u0_accepted_key"] for row in selected] == ["A", "B", "C"]
