@@ -6,6 +6,11 @@ on:
       - "paper/crossref_candidate_audit.py"
       - "paper/evidence_screening/docket_*.csv"
       - ".github/workflows/crossref-evidence-audit.yml"
+  pull_request:
+    paths:
+      - "paper/crossref_candidate_audit.py"
+      - "paper/evidence_screening/docket_*.csv"
+      - ".github/workflows/crossref-evidence-audit.yml"
   workflow_dispatch:
 
 permissions:
