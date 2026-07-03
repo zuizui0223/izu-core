@@ -15,6 +15,10 @@ The Izu archipelago shares one environment: a distance-structured loss of bumble
 
 Meta-analytic model: random-effects pooling of a standardised mainland→island floral-response effect size, with **pollination specialisation** as the primary moderator, and terms for **phylogenetic non-independence** and **shared-island dependence**.
 
+**Moderator refinement (flower-size "island rule").** Recent work (Annals of Botany 2025 commentary "Does flower size follow the island rule?", doi:10.1093/aob/mcaf053; bioRxiv 2023 "Flower size evolution in the Southwest Pacific") argues island flowers evolve toward **intermediate, pollinator-size-matched** sizes under a less diverse, smaller-bodied pollinator fauna — not uniform shrinkage. This sharpens our prediction: **large-flowered bumblebee specialists reduce most** (Campanula), **already-small generalists change little** (~0, the negative control), and **large non-bee flowers may enlarge or hold** (Sakuyuri, azalea). The specialist/generalist moderator is thus a proxy for distance from the small-pollinator optimum. This study positions the Izu gradient as a within-archipelago, pollinator-mechanism-resolved test of that island-rule claim.
+
+**Data-availability finding (honest).** Peer-reviewed floral-trait data for *generalist* Izu species along the gradient are scarce — targeted searches surfaced specialists (Campanula, Ligustrum) but no generalist quantitative series. So the generalist negative-control cells must be filled from the **photo tier** (iNat/GBIF-media/YAMAP), not literature. Note *Prunus speciosa* (Ōshima cherry) is **unsuitable** as a mainland→island case: it originated on the islands and was moved to the mainland, inverting the polarity.
+
 ## Evidence tiers (honest quality separation — inherited + improved from the seed workflow)
 
 - **Tier 1 — literature (quantitative).** Published mainland vs island floral/mating-system measurements. Anchors so far:
