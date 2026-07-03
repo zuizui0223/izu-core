@@ -1,7 +1,8 @@
 """Validate the meta-analysis input tables (run in CI).
 
-Checks that the evidence-rank rubric, evidence observations, candidate pool, and
-primary-versus-context synthesis boundary are explicit and mutually consistent.
+Checks that the evidence-rank rubric, evidence observations, candidate pool,
+primary-versus-context synthesis boundary, and source-locked numeric-extraction
+gate are explicit and mutually consistent.
 """
 from __future__ import annotations
 
@@ -73,6 +74,12 @@ def main() -> None:
     if len(candidates) < 50:
         sys.exit(f"candidate pool suspiciously small: {len(candidates)}")
 
+    from validate_quantitative_effects import validate as validate_quantitative_effects
+    try:
+        extraction_summary = validate_quantitative_effects()
+    except ValueError as error:
+        sys.exit(f"quantitative extraction gate failed: {error}")
+
     from collections import Counter
     by_rank = Counter(o["evidence_rank"] for o in obs)
     by_role = Counter(o["synthesis_role"] for o in obs)
@@ -86,6 +93,7 @@ def main() -> None:
         for o in obs if o["synthesis_role"] == "primary_geographic"
     )
     print(f"  primary geographic evidence weight: {primary_weight:.2f}")
+    print(f"  source-recovery records: {extraction_summary['sources']}; source-locked numeric effects: {extraction_summary['numeric_effects']}")
 
 
 if __name__ == "__main__":
