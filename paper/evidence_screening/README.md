@@ -18,23 +18,11 @@ The existing 156-species table is an entomophilous, gradient-spanning analysis c
 
 A record can be in several cohorts, but U4 evidence is never converted into U3 by assigning an invented variance or effect size. Occurrence/photos are not evidence of pollinator effectiveness, and absence of public records is not biological absence.
 
-## Build the first registry and balanced docket
+## Initial 40-species docket
 
-```bash
-python paper/build_evidence_screening_docket.py \
-  --candidates paper/izu_entomophilous_candidates.csv \
-  --groups paper/functional_group_classification.csv \
-  --output-dir paper/evidence_screening \
-  --top-n 40
-```
+`high_information_docket.csv` is the first search batch. It protects the key contrast before literature availability biases the synthesis: 30% specialist candidates, 40% generalist negative controls, 20% large-flower counter-direction candidates, and 10% non-bee/ambiguous comparison systems.
 
-This initializes three files:
-
-- `screening_registry.csv`: one auditable row per candidate, initially `not_searched`.
-- `search_queries.csv`: Japanese and English search families for each candidate.
-- `high_information_docket.csv`: a first batch selected by coverage potential and a protected functional-group allocation: 30% specialist, 40% generalist negative controls, 20% large-flower counter-direction candidates, and 10% other/review candidates.
-
-The protected allocation is deliberate. It prevents existing specialist-rich literature from determining the result before the generalist falsification cohort has been searched.
+`screening_registry.schema.csv` specifies the one-row-per-source evidence record. Every retained source receives an exact query, retrieval date, source identifier, page/table/figure, trait definition, comparison design, and inclusion or exclusion reason.
 
 ## Expand from 156 to the full U0 universe
 
@@ -47,7 +35,7 @@ Kozushima_present, Miyake_present, Hachijo_present,
 n_islands, total_occ, retrieval_date, source_url_or_query, source_version
 ```
 
-Run the docket builder against that source-locked U0 table. The present 156-species file is a valid pilot input, but it is not the completed search universe.
+The present 156-species file is a pilot input, not the completed search universe. Once the full table is reconstructed, make a second docket using the same protected functional-group allocation and retain the original 40-species pilot unchanged.
 
 ## Source and measurement axes
 
