@@ -1,7 +1,17 @@
 import csv
+import importlib.util
 from pathlib import Path
 
-from paper.compile_blind_photo_scores import compile_sheet
+ROOT = Path(__file__).resolve().parent.parent
+SCRIPT = ROOT / "paper" / "compile_blind_photo_scores.py"
+
+
+def compiler_module():
+    spec = importlib.util.spec_from_file_location("compile_blind_photo_scores", SCRIPT)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
 
 
 def write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
@@ -36,7 +46,7 @@ def test_compile_joins_only_eligible_blind_score(tmp_path: Path):
         {"card_id": "one", "region": "Oshima", "obs_id": "11"},
         {"card_id": "two", "region": "Hachijo", "obs_id": "12"},
     ])
-    rows, counts = compile_sheet(blind, key, manifest, "Example")
+    rows, counts = compiler_module().compile_sheet(blind, key, manifest, "Example")
     assert counts == {"cards_total": 2, "eligible": 1, "scored": 1, "excluded": 1}
     assert rows[0]["pollinator_regime"] == "ardens"
     assert rows[0]["value"] == "2"
