@@ -1,0 +1,13 @@
+screening_id,accepted_name,search_name,name_type,language,source,review_status,why_priority
+izu-3856535,Weigela coraeensis,ハコネウツギ,GBIF_vernacular,jpn,GBIF_taxon_registry,unreviewed_search_lead,Japanese island and flora search term
+izu-3856535,Weigela coraeensis,Weigela fragrans Ohwi,GBIF_synonym,,GBIF_taxon_registry,unreviewed_search_lead,Historical Japanese taxonomic literature lead
+izu-3856535,Weigela coraeensis,Diervilla grandiflora Siebold & Zucc.,GBIF_synonym,,GBIF_taxon_registry,unreviewed_search_lead,Historical literature lead
+izu-2925366,Clerodendrum trichotomum,Clerodendron trichotomum Thunb.,GBIF_synonym,,GBIF_taxon_registry,unreviewed_search_lead,Orthographic and historical genus lead
+izu-3101212,Farfugium japonicum,ツワブキ,GBIF_vernacular,jpn,GBIF_taxon_registry,unreviewed_search_lead,Japanese island and flora search term
+izu-3101212,Farfugium japonicum,Ligularia tussilaginea (Burm.fil.) Makino,GBIF_synonym,,GBIF_taxon_registry,unreviewed_search_lead,Historical genus lead
+izu-6026372,Angelica keiskei,アシタバ,GBIF_vernacular,jpn,GBIF_taxon_registry,unreviewed_search_lead,Japanese island and flora search term
+izu-6026372,Angelica keiskei,Angelica utilis Makino,GBIF_synonym,,GBIF_taxon_registry,unreviewed_search_lead,Historical name lead
+izu-5409255,Adenophora triphylla,サイヨウシャジン(広義),GBIF_vernacular,jpn,GBIF_taxon_registry,unreviewed_search_lead,Japanese taxonomic literature lead
+izu-5409255,Adenophora triphylla,Adenophora insularis Kitam.,GBIF_synonym,,GBIF_taxon_registry,unreviewed_search_lead,Island-taxon historical literature lead
+izu-5525561,Vincetoxicum japonicum,Vincetoxicum aristolochioides,needs_taxonomic_source,,manual_followup,pending_verification,Check treatment in Izu literature before synonym search
+izu-3172291,Ligustrum ovalifolium,ōba-ibota,GBIF_vernacular,romanized,GBIF_taxon_registry,pending_japanese_script_verification,Resolve Japanese script against an authoritative flora before Japanese search
