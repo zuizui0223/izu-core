@@ -5,6 +5,10 @@ on:
     paths:
       - "paper/inat_generalist_photo_audit.py"
       - ".github/workflows/inat-generalist-photo-audit.yml"
+  pull_request:
+    paths:
+      - "paper/inat_generalist_photo_audit.py"
+      - ".github/workflows/inat-generalist-photo-audit.yml"
   workflow_dispatch:
 
 permissions:
