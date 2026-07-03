@@ -36,12 +36,16 @@ python paper/build_campanula_calibration_observations.py \
   --out data/predictive_meta/campanula_calibration_observations.csv
 ```
 
-Three channels remain separate:
+Three source-locked channels remain separate:
 
 - flower length;
 - multilocus outcrossing; and
 - bagged capsule set, which measures autonomous reproductive capacity rather
   than realized selfing.
+
+A fourth, lower-ranked calibration channel is now predeclared: blinded
+public-photo scoring of *C. microdonta* inner guide strength. Its score enters
+as C-rank ordinal image evidence only after the geographical key is joined.
 
 The calibration result can select which predeclared pollinator scenario is most
 compatible with the locked source summaries. It must not be counted as an
@@ -78,6 +82,20 @@ group and a 0–3 **within-taxon** visible-signal scale before any regional card
 is scored. Scores cannot be compared as absolute colours or sizes between taxa.
 Only each taxon's mainland/ardens/no-Bombus contrast is used.
 
+Before scoring, an iNaturalist research-grade photo availability audit screens
+candidate specialist taxa under the fixed regional proxies. The first audit of
+20 preclassified specialist-bee candidates, stored in
+`data/predictive_meta/specialist_photo_coverage_20260703.csv`, found exactly
+one with at least two available photos in each regime bin: *Viola grypoceras*
+(10 mainland, 4 Oshima, 3 pooled no-Bombus). This is a limitation, not a reason
+to relax the criterion or count one-card contrasts. The other specialist
+lineages remain original-source recovery targets. Photo evidence therefore
+serves three restricted jobs:
+
+1. *Campanula* guide-strength calibration;
+2. a *Viola grypoceras* specialist holdout test; and
+3. generalist negative controls, where balanced cards are available.
+
 Build blinded sheets:
 
 ```bash
@@ -100,7 +118,9 @@ python paper/compile_blind_photo_scores.py \
 
 Cards must be open flowers, show the focal structure, pass the declared
 comparability gate, and have a score inside the manifest range. Missing or
-ineligible cards are not zero values.
+ineligible cards are not zero values. Any photo-derived regime contrast requires
+at least two eligible, scored cards in each contributing regime bin before it
+is treated as a holdout unit.
 
 ## Run the scorer
 
