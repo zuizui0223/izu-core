@@ -1,13 +1,9 @@
 """Rebuild the U0 mainland-plus-island candidate universe from GBIF facets.
 
-This script makes the parent universe auditable. It never silently treats a
-failed island query as absence. Results are written as a dated artifact, together
-with the exact generated query URLs and retrieval outcomes.
-
-The spatial footprint is an explicit proxy profile (mainland Izu-peninsula
-reference plus six island circles). It is reproducible, but not assumed to be
-identical to any earlier undocumented 319-species snapshot. Compare the output
-against that legacy count rather than overwriting it.
+The script distinguishes occurrence retrieval from taxonomic normalization. It
+fails closed on missing facet pages or unresolved taxon records, and writes both
+query and name-resolution logs. Spatial circles are a reproducible proxy profile,
+not a silent replacement for an earlier undocumented species count.
 
 Usage:
     python paper/rebuild_u0_parent_universe.py --out-dir artifacts/u0_snapshot
@@ -20,6 +16,7 @@ import json
 import math
 import time
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -39,24 +36,22 @@ REGIONS = {
     "Hachijo": (33.1025, 139.8077, 8.0),
 }
 ISLANDS = tuple(region for region in REGIONS if region != "MAINLAND")
-USER_AGENT = "izu-core-u0-rebuild/1.1"
+USER_AGENT = "izu-core-u0-rebuild/1.2"
 
 
 def circle_wkt(lat: float, lon: float, radius_km: float, vertices: int = 32) -> str:
     """Return a deterministic local-circle approximation as WKT lon-lat polygon."""
-    points: list[tuple[float, float]] = []
     lat_scale = 111.32
     lon_scale = 111.32 * math.cos(math.radians(lat))
+    points = []
     for index in range(vertices):
         angle = 2 * math.pi * index / vertices
-        y = lat + (radius_km * math.sin(angle) / lat_scale)
-        x = lon + (radius_km * math.cos(angle) / lon_scale)
-        points.append((x, y))
+        points.append((lon + radius_km * math.cos(angle) / lon_scale, lat + radius_km * math.sin(angle) / lat_scale))
     points.append(points[0])
     return "POLYGON((" + ",".join(f"{x:.6f} {y:.6f}" for x, y in points) + "))"
 
 
-def request_json(url: str, *, attempts: int = 4) -> tuple[dict, int]:
+def request_json(url: str, *, attempts: int = 5) -> tuple[dict, int]:
     last_error: Exception | None = None
     for attempt in range(1, attempts + 1):
         request = Request(url, headers={"User-Agent": USER_AGENT})
@@ -71,23 +66,17 @@ def request_json(url: str, *, attempts: int = 4) -> tuple[dict, int]:
             last_error = error
             if attempt == attempts:
                 raise
-        time.sleep(1.25 * attempt)
+        time.sleep(1.2 * attempt)
     assert last_error is not None
     raise last_error
 
 
 def facet_url(geometry: str, offset: int) -> str:
-    params = {
-        "kingdom": "Plantae",
-        "hasCoordinate": "true",
-        "hasGeospatialIssue": "false",
-        "geometry": geometry,
-        "facet": "speciesKey",
-        "facetLimit": FACET_PAGE_SIZE,
-        "facetOffset": offset,
-        "limit": 0,
-    }
-    return API + "/occurrence/search?" + urlencode(params)
+    return API + "/occurrence/search?" + urlencode({
+        "kingdom": "Plantae", "hasCoordinate": "true", "hasGeospatialIssue": "false",
+        "geometry": geometry, "facet": "speciesKey", "facetLimit": FACET_PAGE_SIZE,
+        "facetOffset": offset, "limit": 0,
+    })
 
 
 def species_url(key: str) -> str:
@@ -114,29 +103,41 @@ def fetch_all_species_facets(region: str, geometry: str, retrieved_at: str) -> t
         if total_occurrences is None:
             total_occurrences = int(payload.get("count") or 0)
         pages.append({
-            "profile": PROFILE, "region": region, "facet_offset": offset,
-            "query_url": url, "retrieved_at_utc": retrieved_at,
-            "http_status": http_status, "retrieval_status": "retrieved",
-            "facet_entries": len(entries), "gbif_total_occurrences": total_occurrences,
+            "profile": PROFILE, "region": region, "facet_offset": offset, "query_url": url,
+            "retrieved_at_utc": retrieved_at, "http_status": http_status,
+            "retrieval_status": "retrieved", "facet_entries": len(entries),
+            "gbif_total_occurrences": total_occurrences,
         })
         for entry in entries:
-            key = str(entry["name"])
-            result[key] = result.get(key, 0) + int(entry["count"])
+            raw_key = str(entry["name"])
+            result[raw_key] = result.get(raw_key, 0) + int(entry["count"])
         if len(entries) < FACET_PAGE_SIZE:
             break
         offset += FACET_PAGE_SIZE
-        time.sleep(0.4)
+        time.sleep(0.25)
     return result, pages, int(total_occurrences or 0)
 
 
-def resolve_taxon(key: str, cache: dict[str, dict]) -> dict:
-    if key not in cache:
-        cache[key] = request_json(species_url(key))[0]
-    first = cache[key]
-    accepted_key = str(first.get("acceptedKey") or first.get("key") or key)
-    if accepted_key not in cache:
-        cache[accepted_key] = request_json(species_url(accepted_key))[0]
-    return cache[accepted_key]
+def fetch_species_record(key: str) -> tuple[str, dict, int]:
+    record, status = request_json(species_url(key))
+    return key, record, status
+
+
+def fetch_records_parallel(keys: list[str], workers: int) -> tuple[dict[str, dict], dict[str, int]]:
+    """Fetch distinct GBIF taxon records concurrently, failing closed on error."""
+    records: dict[str, dict] = {}
+    status_codes: dict[str, int] = {}
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = {executor.submit(fetch_species_record, key): key for key in keys}
+        for future in as_completed(futures):
+            key = futures[future]
+            try:
+                result_key, record, status = future.result()
+            except Exception as error:  # preserve key in fatal error
+                raise RuntimeError(f"GBIF taxon normalization failed for speciesKey={key}") from error
+            records[result_key] = record
+            status_codes[result_key] = status
+    return records, status_codes
 
 
 def accepted_name(record: dict) -> str:
@@ -146,7 +147,10 @@ def accepted_name(record: dict) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out-dir", default="artifacts/u0_snapshot", help="directory for CSV and JSON artifacts")
+    parser.add_argument("--taxon-workers", type=int, default=6, help="concurrent GBIF taxon requests (1-12)")
     args = parser.parse_args()
+    if not 1 <= args.taxon_workers <= 12:
+        raise ValueError("--taxon-workers must be between 1 and 12")
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -158,36 +162,52 @@ def main() -> None:
         geometry = circle_wkt(lat, lon, radius)
         try:
             counts, pages, total_occurrences = fetch_all_species_facets(region, geometry, retrieved_at)
-            raw_counts[region] = counts
-            page_log.extend(pages)
-            region_log.append({
-                "profile": PROFILE, "region": region, "lat": lat, "lon": lon,
-                "radius_km": radius, "geometry_wkt": geometry, "retrieved_at_utc": retrieved_at,
-                "retrieval_status": "retrieved", "facet_pages": len(pages),
-                "facet_species_count": len(counts), "gbif_total_occurrences": total_occurrences,
-            })
         except HTTPError as error:
-            region_log.append({"profile": PROFILE, "region": region, "lat": lat, "lon": lon, "radius_km": radius, "geometry_wkt": geometry, "retrieved_at_utc": retrieved_at, "retrieval_status": f"error:HTTPError:{error.code}", "facet_pages": "", "facet_species_count": "", "gbif_total_occurrences": ""})
             raise RuntimeError(f"GBIF region query failed for {region}: HTTP {error.code}") from error
         except URLError as error:
-            region_log.append({"profile": PROFILE, "region": region, "lat": lat, "lon": lon, "radius_km": radius, "geometry_wkt": geometry, "retrieved_at_utc": retrieved_at, "retrieval_status": f"error:URLError:{error.reason}", "facet_pages": "", "facet_species_count": "", "gbif_total_occurrences": ""})
             raise RuntimeError(f"GBIF region query failed for {region}: {error.reason}") from error
-        time.sleep(0.4)
+        raw_counts[region] = counts
+        page_log.extend(pages)
+        region_log.append({
+            "profile": PROFILE, "region": region, "lat": lat, "lon": lon, "radius_km": radius,
+            "geometry_wkt": geometry, "retrieved_at_utc": retrieved_at, "retrieval_status": "retrieved",
+            "facet_pages": len(pages), "facet_species_count": len(counts),
+            "gbif_total_occurrences": total_occurrences,
+        })
+        time.sleep(0.25)
 
-    taxon_cache: dict[str, dict] = {}
+    # Resolve every distinct facet key. This retains synonym-split records that would
+    # be missed by filtering raw keys before their accepted concepts are known.
+    raw_keys = sorted({raw_key for counts in raw_counts.values() for raw_key in counts})
+    raw_records, raw_status = fetch_records_parallel(raw_keys, args.taxon_workers)
+    accepted_keys = sorted({str(record.get("acceptedKey") or record.get("key") or key) for key, record in raw_records.items()})
+    missing_accepted = [key for key in accepted_keys if key not in raw_records]
+    accepted_extra, accepted_extra_status = fetch_records_parallel(missing_accepted, args.taxon_workers)
+    all_records = {**raw_records, **accepted_extra}
+    all_status = {**raw_status, **accepted_extra_status}
+
+    resolution_rows: list[dict[str, object]] = []
     counts_by_accepted: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     raw_keys_by_accepted: dict[str, set[str]] = defaultdict(set)
     metadata: dict[str, dict] = {}
     for region, counts in raw_counts.items():
         for raw_key, count in counts.items():
-            record = resolve_taxon(raw_key, taxon_cache)
-            accepted_key = str(record.get("key") or raw_key)
-            if str(record.get("rank") or "") != "SPECIES":
+            raw_record = raw_records[raw_key]
+            accepted_key = str(raw_record.get("acceptedKey") or raw_record.get("key") or raw_key)
+            accepted_record = all_records[accepted_key]
+            resolution_rows.append({
+                "raw_species_key": raw_key, "accepted_key": accepted_key,
+                "raw_scientific_name": raw_record.get("scientificName", ""),
+                "raw_taxonomic_status": raw_record.get("taxonomicStatus", ""),
+                "accepted_name": accepted_name(accepted_record), "accepted_rank": accepted_record.get("rank", ""),
+                "region": region, "occurrence_count": count, "retrieved_at_utc": retrieved_at,
+                "raw_http_status": raw_status.get(raw_key, ""), "accepted_http_status": all_status.get(accepted_key, ""),
+            })
+            if str(accepted_record.get("rank") or "") != "SPECIES":
                 continue
             counts_by_accepted[accepted_key][region] += count
             raw_keys_by_accepted[accepted_key].add(raw_key)
-            metadata[accepted_key] = record
-            time.sleep(0.08)
+            metadata[accepted_key] = accepted_record
 
     rows: list[dict[str, object]] = []
     for key, by_region in counts_by_accepted.items():
@@ -229,10 +249,13 @@ def main() -> None:
     with (out_dir / "u0_gbif_query_pages.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=page_fields)
         writer.writeheader(); writer.writerows(page_log)
+    resolution_fields = ["raw_species_key", "accepted_key", "raw_scientific_name", "raw_taxonomic_status", "accepted_name", "accepted_rank", "region", "occurrence_count", "retrieved_at_utc", "raw_http_status", "accepted_http_status"]
+    with (out_dir / "u0_gbif_taxon_resolution.csv").open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=resolution_fields)
+        writer.writeheader(); writer.writerows(resolution_rows)
     summary = {
-        "profile": PROFILE,
-        "retrieved_at_utc": retrieved_at,
-        "region_count": len(REGIONS),
+        "profile": PROFILE, "retrieved_at_utc": retrieved_at, "region_count": len(REGIONS),
+        "raw_species_keys_normalized": len(raw_keys), "accepted_species_records": len({row["accepted_key"] for row in resolution_rows}),
         "u0_species_mainland_plus_two_islands": len(rows),
         "u0_species_mainland_plus_three_islands": sum(int(row["n_islands"]) >= 3 for row in rows),
         "u0_species_mainland_plus_five_islands": sum(int(row["n_islands"]) >= 5 for row in rows),
