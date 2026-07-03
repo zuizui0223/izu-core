@@ -1,10 +1,12 @@
-name: Generalist Blinded Photo Bundle
+name: Prediction Meta Blinded Photo Bundle
 
 on:
   pull_request:
     paths:
       - "paper/build_photo_scoring_sheet.py"
-      - "paper/evidence_screening/inat_generalist_photo_availability_20260703_summary.csv"
+      - "paper/build_prediction_photo_bundle.py"
+      - "paper/compile_blind_photo_scores.py"
+      - "data/predictive_meta/photo_cohort_manifest.csv"
       - ".github/workflows/generalist-blind-photo-bundle.yml"
   workflow_dispatch:
 
@@ -14,23 +16,20 @@ permissions:
 jobs:
   bundle:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Build blinded photo sheets for reviewable generalists
+      - name: Build predeclared blinded specialist and generalist sheets
         run: |
-          python paper/build_photo_scoring_sheet.py "Pittosporum tobira" --per-region 6
-          python paper/build_photo_scoring_sheet.py "Ajania pacifica" --per-region 6
-          python paper/build_photo_scoring_sheet.py "Angelica keiskei" --per-region 6
-          python paper/build_photo_scoring_sheet.py "Farfugium japonicum" --per-region 6
-          python paper/build_photo_scoring_sheet.py "Rubus trifidus" --per-region 6
-          python paper/build_photo_scoring_sheet.py "Peucedanum japonicum" --per-region 6
+          python paper/build_prediction_photo_bundle.py \
+            --manifest data/predictive_meta/photo_cohort_manifest.csv \
+            --per-region 6
       - uses: actions/upload-artifact@v4
         with:
-          name: generalist-blinded-photo-bundle
+          name: prediction-meta-blinded-photo-bundle
           path: paper/photo_sheets
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 90
