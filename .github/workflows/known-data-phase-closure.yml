@@ -1,0 +1,40 @@
+name: Pre-field Known-data Closure
+
+on:
+  pull_request:
+    paths:
+      - 'data/known_data_phase_lock.json'
+      - 'data/inoue_literature_island_traits.csv'
+      - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
+      - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
+      - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
+      - 'data/guide_direction_constraints.csv'
+      - 'data/guide_evidence_registry.csv'
+      - 'channel_id/known_data_phase_closure.py'
+      - 'scripts/build_known_data_phase_closure.py'
+      - 'docs/PRE_FIELD_KNOWN_DATA_CLOSEOUT.md'
+      - '.github/workflows/known-data-phase-closure.yml'
+  workflow_dispatch:
+
+jobs:
+  render-known-data-closure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Validate and render the frozen known-data closure
+        run: |
+          mkdir -p known_data_phase_closure
+          python scripts/build_known_data_phase_closure.py \
+            --repository-root . \
+            --output known_data_phase_closure/PRE_FIELD_KNOWN_DATA_CLOSURE.md
+      - name: Upload known-data closure
+        uses: actions/upload-artifact@v4
+        with:
+          name: pre-field-known-data-closure
+          path: known_data_phase_closure
+          if-no-files-found: error
