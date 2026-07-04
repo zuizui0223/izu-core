@@ -1,0 +1,39 @@
+name: Primary Source Holdout Registry
+
+on:
+  pull_request:
+    paths:
+      - "channel_id/primary_source_holdout.py"
+      - "paper/compile_primary_source_holdout.py"
+      - "data/predictive_meta/primary_source_native_evidence.csv"
+      - "data/predictive_meta/primary_source_extraction_queue.csv"
+      - "tests/test_primary_source_holdout.py"
+      - ".github/workflows/primary-source-holdout.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install local package
+        run: python -m pip install -e .
+      - name: Compile score-eligible primary-source observations
+        run: |
+          python paper/compile_primary_source_holdout.py \
+            --registry data/predictive_meta/primary_source_native_evidence.csv \
+            --out artifacts/primary_source_holdout/primary_numeric_holdout_observations.csv \
+            --summary-out artifacts/primary_source_holdout/primary_source_holdout.summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: primary-source-holdout-registry
+          path: artifacts/primary_source_holdout
+          if-no-files-found: error
+          retention-days: 90
