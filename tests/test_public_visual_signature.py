@@ -52,4 +52,4 @@ def test_within_taxon_normalisation_does_not_compare_raw_colours_between_taxa():
     enriched = add_within_taxon_salience(data)
     low = [item for item in enriched if item["taxon"] == "Low"]
     high = [item for item in enriched if item["taxon"] == "High"]
-    assert low[0]["visual_salience_v1"] == high[0]["visual_salience_v1"]
+    assert abs(low[0]["visual_salience_v1"] - high[0]["visual_salience_v1"]) < 1e-12
