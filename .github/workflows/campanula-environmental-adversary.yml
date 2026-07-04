@@ -1,0 +1,37 @@
+name: Campanula Environmental Adversary Audit
+
+on:
+  pull_request:
+    paths:
+      - "channel_id/campanula_environmental_adversary.py"
+      - "paper/run_campanula_environmental_adversary.py"
+      - "data/inoue_literature_island_traits.csv"
+      - "tests/test_campanula_environmental_adversary.py"
+      - ".github/workflows/campanula-environmental-adversary.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install local package
+        run: python -m pip install -e .
+      - name: Run climate-axis versus staged-channel audit
+        run: |
+          python paper/run_campanula_environmental_adversary.py \
+            --input data/inoue_literature_island_traits.csv \
+            --output-dir artifacts/campanula_environmental_adversary
+      - uses: actions/upload-artifact@v4
+        with:
+          name: campanula-environmental-adversary
+          path: artifacts/campanula_environmental_adversary
+          if-no-files-found: error
+          retention-days: 90
