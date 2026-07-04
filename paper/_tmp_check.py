@@ -1,0 +1,1 @@
+"""Visual signature analysis marker."""
