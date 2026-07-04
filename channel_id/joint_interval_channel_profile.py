@@ -1,7 +1,7 @@
 """Joint, interval-aware profile comparison for the Izu Campanula channels.
 
 This module is intentionally a *descriptive partial-identification analysis*.
-It does not estimate a historical pollinator effect.  It compares whether a
+It does not estimate a historical pollinator effect. It compares whether a
 single low-parameter profile can fit three source-locked response channels over
 all admissible endpoint choices for the published outcrossing intervals:
 
@@ -10,7 +10,7 @@ all admissible endpoint choices for the published outcrossing intervals:
 * bagged capsule set (autonomous reproductive capacity, not realised selfing).
 
 The analysis is restricted to the six Izu islands with all three recorded
-climate covariates.  Honshu is excluded from the climate-comparable profile
+climate covariates. Honshu is excluded from the climate-comparable profile
 rather than assigning it a guessed climate proxy.
 
 Profiles are intentionally simple:
@@ -23,7 +23,7 @@ Profiles are intentionally simple:
   reproductive channels are flat, representing the shared testable component
   of body-size-only and complete-small-bee-substitution scenarios.
 
-The output is a profile diagnostic.  Summed AICc values are neither Bayes
+The output is a profile diagnostic. Summed AICc values are neither Bayes
 factors nor evidence of causal identification.
 """
 from __future__ import annotations
@@ -34,7 +34,7 @@ import json
 import math
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable, Iterable, Sequence
+from typing import Iterable, Sequence
 
 ENV_COLUMNS = ("mean_temp_c", "annual_precip_mm", "precip_cv")
 TRAITS = ("flower_length_mm", "outcrossing", "autonomous_capacity")
@@ -152,7 +152,6 @@ def climate_pc1(records: Sequence[IslandRecord]) -> tuple[dict[str, float], dict
     sds = [_sd([row[i] for row in raw]) for i in range(3)]
     z = [[(row[i] - means[i]) / sds[i] for i in range(3)] for row in raw]
     covariance = [[sum(row[i] * row[j] for row in z) / (len(z) - 1) for j in range(3)] for i in range(3)]
-    # Power iteration; covariance is real symmetric and small.
     vector = [1.0, 1.0, 1.0]
     for _ in range(250):
         candidate = [sum(covariance[i][j] * vector[j] for j in range(3)) for i in range(3)]
@@ -160,7 +159,6 @@ def climate_pc1(records: Sequence[IslandRecord]) -> tuple[dict[str, float], dict
         if norm == 0:
             raise ValueError("climate covariance matrix has no leading axis")
         vector = [value / norm for value in candidate]
-    # The sign does not change any fit; orient it deterministically for reports.
     if vector[0] > 0:
         vector = [-value for value in vector]
     scores = {record.island_id: sum(z[index][j] * vector[j] for j in range(3)) for index, record in enumerate(records)}
@@ -228,10 +226,7 @@ def _fit(trait: str, model: str, records: Sequence[IslandRecord], outcross_value
 
 def all_endpoint_cases(records: Sequence[IslandRecord]) -> Iterable[dict[str, float]]:
     for endpoints in itertools.product((0, 1), repeat=len(records)):
-        yield {
-            record.island_id: record.outcross_max if endpoint else record.outcross_min
-            for record, endpoint in zip(records, endpoints)
-        }
+        yield {record.island_id: record.outcross_max if endpoint else record.outcross_min for record, endpoint in zip(records, endpoints)}
 
 
 def profile_cases(records: Sequence[IslandRecord]) -> tuple[list[dict[str, object]], dict[str, float], list[Fit]]:
@@ -250,11 +245,8 @@ def profile_cases(records: Sequence[IslandRecord]) -> tuple[list[dict[str, objec
         winner, winner_score = ordered[0]
         runner_up, runner_score = ordered[1]
         cases.append({
-            "case_id": case_index,
-            "winner": winner,
-            "winner_aicc": winner_score,
-            "runner_up": runner_up,
-            "runner_up_aicc": runner_score,
+            "case_id": case_index, "winner": winner, "winner_aicc": winner_score,
+            "runner_up": runner_up, "runner_up_aicc": runner_score,
             "delta_aicc": runner_score - winner_score,
             **{f"aicc_{profile}": value for profile, value in profile_scores.items()},
             **{f"outcross_{record.island_id}": outcross_values[record.island_id] for record in records},
@@ -274,18 +266,20 @@ def summarize(cases: Sequence[dict[str, object]], loadings: dict[str, float], re
         }
         for profile in profiles
     }
-    hybrid_deltas = [float(case[f"aicc_{profile}"]) - float(case["aicc_two_stage_hybrid"]) for case in cases for profile in profiles if profile != "two_stage_hybrid"]
+    hybrid_deltas = [
+        float(case[f"aicc_{profile}"]) - float(case["aicc_two_stage_hybrid"])
+        for case in cases for profile in profiles if profile != "two_stage_hybrid"
+    ]
     return {
         "scope": "Izu islands with all three measured climate covariates; mainland reference excluded rather than imputed.",
         "n_islands": len(records),
         "n_outcross_interval_cases": len(cases),
         "profile_wins": wins,
+        "profile_aicc_ranges": ranges,
         "two_stage_hybrid_min_delta_against_any_alternative": min(hybrid_deltas),
         "two_stage_hybrid_max_delta_against_any_alternative": max(hybrid_deltas),
         "climate_pc1_loadings": loadings,
-        "boundary": (
-            "This is an interval-aware channel-profile diagnostic. It does not estimate a latent pollinator service, identify a historical pollinator replacement, or reject environmental and colonisation-history alternatives outside the three measured climate covariates."
-        ),
+        "boundary": "This is an interval-aware channel-profile diagnostic. It does not estimate a latent pollinator service, identify a historical pollinator replacement, or reject environmental and colonisation-history alternatives outside the three measured climate covariates.",
     }
 
 
@@ -293,8 +287,7 @@ def write_outputs(output_dir: str | Path, records: Sequence[IslandRecord], cases
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     with (output / "interval_profile_cases.csv").open("w", encoding="utf-8", newline="") as handle:
-        fields = list(cases[0]) if cases else []
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=list(cases[0]) if cases else [])
         writer.writeheader(); writer.writerows(cases)
     with (output / "reference_endpoint_trait_fits.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=("trait", "model", "n", "aicc", "rss"))
@@ -305,19 +298,15 @@ def write_outputs(output_dir: str | Path, records: Sequence[IslandRecord], cases
 
 
 def render_markdown(summary: dict[str, object], cases: Sequence[dict[str, object]]) -> str:
-    wins = summary["profile_wins"]
     lines = [
-        "# Joint interval-aware Campanula channel profile",
-        "",
+        "# Joint interval-aware Campanula channel profile", "",
         "All admissible endpoints of the reported outcrossing intervals are enumerated. The analysis uses only Izu islands with complete observed climate covariates; it does not assign a climate proxy to Honshu.",
-        "",
-        "## Profile wins across outcrossing interval cases",
-        "",
-        "| profile | winning endpoint cases | total cases |",
-        "|---|---:|---:|",
+        "", "## Profile wins across outcrossing interval cases", "",
+        "| profile | winning endpoint cases | total cases | AICc range |", "|---|---:|---:|---:|",
     ]
-    for profile, count in wins.items():
-        lines.append(f"| {profile} | {count} | {summary['n_outcross_interval_cases']} |")
+    for profile, count in summary["profile_wins"].items():
+        window = summary["profile_aicc_ranges"][profile]
+        lines.append(f"| {profile} | {count} | {summary['n_outcross_interval_cases']} | {window['min_aicc']:.3f}–{window['max_aicc']:.3f} |")
     lines.extend((
         "", "## Interpretation", "",
         "`two_stage_hybrid` means flower length and outcrossing are fitted by a continuous island-order trend while bagged capsule set is fitted by the Oshima-to-Toshima step. A stable win says this profile describes the three observed channels more compactly than the listed competitors under every admissible outcrossing endpoint choice. It is not a causal estimate.",
