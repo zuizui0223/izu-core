@@ -73,8 +73,7 @@ def assess(contrasts: list[dict[str, object]], contract: dict[tuple[str, str, st
                 continue
             allowed = {item for item in rule["allowed_directions"].split("|") if item}
             observed = str(contrast["point_direction"])
-            status = rule["rule_status"].strip()
-            result = "not_identified" if status != "active" else ("supported" if observed in allowed else "contradicted")
+            result = "not_identified" if rule["rule_status"].strip() != "active" else ("supported" if observed in allowed else "contradicted")
             rows.append({
                 "scenario": scenario, "taxon": contrast["taxon"], "analysis_group": contrast["analysis_group"],
                 "transition": contrast["transition"], "delta_focal_minus_reference": contrast["delta_focal_minus_reference"],
@@ -96,19 +95,7 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
 
 
 def render(summary: dict[str, object], groups: list[dict[str, object]], assessments: list[dict[str, object]]) -> str:
-    lines = [
-        "# Public-image visual-signature audit", "",
-        "Exploratory scale-free image-descriptor analysis. This is not an absolute size, guide anatomy, pollinator, or causal measurement.", "",
-        "## Data recovery", "",
-        f"- taxa in manifest: {summary['taxa_in_manifest']}",
-        f"- images with descriptors: {summary['images_with_features']}",
-        f"- taxa with any pairwise transition: {summary['taxa_with_any_transition']}",
-        f"- first-transition contrasts: {summary['first_transition_contrasts']}",
-        f"- second-transition contrasts: {summary['second_transition_contrasts']}",
-        f"- endpoint contrasts: {summary['endpoint_contrasts']}", "",
-        "## Taxon-level summary", "",
-        "| group | transition | taxa | median delta | decrease | flat | increase |", "|---|---|---:|---:|---:|---:|---:|",
-    ]
+    lines = ["# Public-image visual-signature audit", "", "Exploratory scale-free image-descriptor analysis. This is not an absolute size, guide anatomy, pollinator, or causal measurement.", "", "## Data recovery", "", f"- taxa in manifest: {summary['taxa_in_manifest']}", f"- images with descriptors: {summary['images_with_features']}", f"- taxa with any pairwise transition: {summary['taxa_with_any_transition']}", f"- first-transition contrasts: {summary['first_transition_contrasts']}", f"- second-transition contrasts: {summary['second_transition_contrasts']}", f"- endpoint contrasts: {summary['endpoint_contrasts']}", "", "## Taxon-level summary", "", "| group | transition | taxa | median delta | decrease | flat | increase |", "|---|---|---:|---:|---:|---:|---:|"]
     for row in groups:
         lines.append(f"| {row['analysis_group']} | {row['transition']} | {row['taxa_contributing']} | {float(row['median_taxon_delta']):.3f} | {row['taxa_decrease']} | {row['taxa_flat']} | {row['taxa_increase']} |")
     scores = Counter((row["scenario"], row["assessment"]) for row in assessments)
@@ -143,18 +130,11 @@ def main() -> None:
     write_csv(args.output_dir / "visual_signature_transition_contrasts.csv", contrasts)
     write_csv(args.output_dir / "visual_signature_group_summary.csv", groups)
     write_csv(args.output_dir / "visual_signature_contract_assessments.csv", assessments)
-    summary = {
-        "taxa_in_manifest": len(manifest),
-        "images_with_features": sum(str(row.get("feature_status")) == "ok" for row in joined),
-        "taxa_with_any_transition": len({str(row["taxon"]) for row in contrasts}),
-        "first_transition_contrasts": sum(row["transition"] == "large_to_ardens" for row in contrasts),
-        "second_transition_contrasts": sum(row["transition"] == "ardens_to_no_bombus" for row in contrasts),
-        "endpoint_contrasts": sum(row["transition"] == "large_to_no_bombus" for row in contrasts),
-        "boundary": "Exploratory public-image signature layer. Taxa, not images, are the analysis unit; descriptors are not validated floral trait measurements.",
-    }
+    summary = {"taxa_in_manifest": len(manifest), "images_with_features": sum(str(row.get("feature_status")) == "ok" for row in joined), "taxa_with_any_transition": len({str(row["taxon"]) for row in contrasts}), "first_transition_contrasts": sum(row["transition"] == "large_to_ardens" for row in contrasts), "second_transition_contrasts": sum(row["transition"] == "ardens_to_no_bombus" for row in contrasts), "endpoint_contrasts": sum(row["transition"] == "large_to_no_bombus" for row in contrasts), "boundary": "Exploratory public-image signature layer. Taxa, not images, are the analysis unit; descriptors are not validated floral trait measurements."}
     (args.output_dir / "visual_signature.summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (args.output_dir / "PUBLIC_VISUAL_SIGNATURE_REPORT.md").write_text(render(summary, groups, assessments), encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False))
 
 
-if __name__ == "__main__":n    main()
+if __name__ == "__main__":
+    main()
