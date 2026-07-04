@@ -1,0 +1,37 @@
+name: Joint Interval Channel Profile
+
+on:
+  pull_request:
+    paths:
+      - "channel_id/joint_interval_channel_profile.py"
+      - "paper/run_joint_interval_channel_profile.py"
+      - "data/inoue_literature_island_traits.csv"
+      - "tests/test_joint_interval_channel_profile.py"
+      - ".github/workflows/joint-interval-channel-profile.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install local package
+        run: python -m pip install -e .
+      - name: Enumerate all valid outcrossing interval endpoints
+        run: |
+          python paper/run_joint_interval_channel_profile.py \
+            --input data/inoue_literature_island_traits.csv \
+            --output-dir artifacts/joint_interval_channel_profile
+      - uses: actions/upload-artifact@v4
+        with:
+          name: joint-interval-channel-profile
+          path: artifacts/joint_interval_channel_profile
+          if-no-files-found: error
+          retention-days: 90
