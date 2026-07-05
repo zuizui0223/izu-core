@@ -1,0 +1,11 @@
+taxon,analysis_group,group_confidence,role,trait_candidate,trait_family,priority,why_include
+Campanula microdonta,specialist,source_locked_focal,calibration,corolla_or_inner_guide_visibility,visible_signal,1,"Focal lineage; specimen images may add image-level morphology only, never replace locked reproductive data."
+Weigela coraeensis,specialist,medium,positive_holdout_candidate,corolla_length_or_throat_contrast,floral_size,1,"Highest-priority independent direct mainland-island floral-comparison lineage; specimen images may supply an auxiliary morphology cohort."
+Lilium auratum,specialist,medium,positive_holdout_candidate,flower_length_or_display,floral_size,2,"Potential independent comparison pending taxonomic audit; image audit can establish whether specimen data are feasible."
+Chionographis japonica,specialist,medium,positive_holdout_candidate,inflorescence_or_flower_length,floral_size,2,"Potential Kozushima floral-reduction source; image audit can establish specimen coverage."
+Viola grypoceras,specialist,medium,positive_holdout_candidate,petal_guide_visibility,visible_signal,2,"Public-photo availability was promising but blind-card balance failed; specimen media may rescue regional coverage."
+Cirsium nipponicum,specialist,medium,positive_holdout_candidate,head_display_or_involucral_visibility,visible_signal,3,"Specialist-bee candidate with insufficient public-photo balance."
+Ligustrum ovalifolium,generalist,medium,direct_source_anchor,corolla_tube_or_stamen_length,floral_size,1,"Verified qualitative mainland-Izu source; specimen media may help locality coverage but cannot substitute the original table."
+Ajania pacifica,generalist,high,negative_control,head_display,visible_signal,2,"Balanced public-photo negative-control cohort; specimen audit adds an independent image source."
+Farfugium japonicum,generalist,high,negative_control,head_display,visible_signal,2,"Balanced public-photo negative-control cohort; specimen audit adds an independent image source."
+Pittosporum tobira,generalist,medium,negative_control,corolla_display,visible_signal,3,"Open-flower control with prior photo availability but insufficient mainland balance."

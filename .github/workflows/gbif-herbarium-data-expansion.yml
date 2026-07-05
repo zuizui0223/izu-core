@@ -1,0 +1,44 @@
+name: GBIF Herbarium Data Expansion
+
+on:
+  pull_request:
+    paths:
+      - "data/predictive_meta/herbarium_cohort_manifest.csv"
+      - "paper/audit_gbif_herbarium_media.py"
+      - "paper/build_gbif_herbarium_blind_sheets.py"
+      - "tests/test_herbarium_media_pipeline.py"
+      - ".github/workflows/gbif-herbarium-data-expansion.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit Japanese preserved-specimen image availability
+        run: |
+          python paper/audit_gbif_herbarium_media.py \
+            --manifest data/predictive_meta/herbarium_cohort_manifest.csv \
+            --output-dir artifacts/gbif_herbarium_media \
+            --max-records-per-taxon 300 \
+            --max-media-per-record 1
+      - name: Build protected blind sheets where candidate balance permits
+        run: |
+          python paper/build_gbif_herbarium_blind_sheets.py \
+            --candidates artifacts/gbif_herbarium_media/gbif_herbarium_media_candidates.csv \
+            --output-dir artifacts/gbif_herbarium_media/blind_sheets \
+            --min-per-regime 2 \
+            --max-per-regime 6
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gbif-herbarium-data-expansion
+          path: artifacts/gbif_herbarium_media
+          if-no-files-found: error
+          retention-days: 90
