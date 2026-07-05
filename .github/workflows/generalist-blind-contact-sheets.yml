@@ -1,0 +1,43 @@
+name: Generalist Blind Contact Sheets
+
+on:
+  pull_request:
+    paths:
+      - "paper/build_photo_scoring_sheet.py"
+      - "paper/render_blind_photo_contact_sheets.py"
+      - ".github/workflows/generalist-blind-contact-sheets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install contact-sheet dependency
+        run: python -m pip install pillow
+      - name: Build blinded Ajania and Farfugium cards
+        run: |
+          rm -rf paper/photo_sheets
+          python paper/build_photo_scoring_sheet.py "Ajania pacifica" --per-region 6 --seed 20260704
+          python paper/build_photo_scoring_sheet.py "Farfugium japonicum" --per-region 6 --seed 20260705
+      - name: Render cards without loading hidden keys
+        run: |
+          python paper/render_blind_photo_contact_sheets.py \
+            --blind paper/photo_sheets/ajania_pacifica_blind_sheet.csv \
+            --blind paper/photo_sheets/farfugium_japonicum_blind_sheet.csv \
+            --output-dir artifacts/generalist_blind_contact_sheets
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generalist-blind-contact-sheets
+          path: |
+            paper/photo_sheets
+            artifacts/generalist_blind_contact_sheets
+          if-no-files-found: error
+          retention-days: 90
