@@ -34,8 +34,9 @@ def test_lilium_registry_is_contextual_and_excluded_from_scorer():
     ]
     assert rows
     assert {row["analysis_group"] for row in rows} == {"excluded"}
-    assert {row["scoring_status"] for row in rows} == {"contextual_alternative_mechanism"}
+    assert {row["scoring_status"] for row in rows} == {"excluded_comparator"}
     assert all("Bombus" not in row["claim"] for row in rows)
+    assert all("Alternative-pollinator mechanism" in row["notes"] for row in rows)
 
 
 def test_descriptive_flower_ranges_are_not_promoted_to_effect_sizes():
