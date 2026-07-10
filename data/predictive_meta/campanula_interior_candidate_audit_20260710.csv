@@ -1,0 +1,7 @@
+region,pollinator_regime,observations_returned,photos_recovered_before_exclusion,candidate_photos_after_known_ineligible_exclusion,status
+Oshima,ardens,3,5,2,ok
+Toshima,no_bombus,0,0,0,ok
+Niijima,no_bombus,0,0,0,ok
+Kozushima,no_bombus,0,0,0,ok
+Miyake,no_bombus,0,0,0,ok
+Hachijo,no_bombus,1,1,0,ok

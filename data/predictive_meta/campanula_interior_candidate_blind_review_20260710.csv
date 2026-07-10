@@ -1,0 +1,3 @@
+card_id,flowering_state,focal_flower_visible,interior_visible,comparable_for_guide_score,guide_score_0_3,reviewer_notes
+campint_000,open,yes,no,no,,"Multiple flowering corollas are visible, but none exposes the inner surface at scoring resolution."
+campint_001,open,yes,no,no,,"The focal flower is side-on/downward-facing; the inner guide cannot be evaluated."
