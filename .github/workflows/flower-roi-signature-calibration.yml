@@ -1,0 +1,57 @@
+name: Flower ROI Signature Calibration
+
+on:
+  pull_request:
+    paths:
+      - "channel_id/flower_roi_signature.py"
+      - "channel_id/public_visual_signature.py"
+      - "paper/extract_roi_visual_fingerprints.py"
+      - "paper/analyze_public_visual_signatures.py"
+      - "tests/test_flower_roi_signature.py"
+      - ".github/workflows/flower-roi-signature-calibration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  calibrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package and image dependencies
+        run: |
+          python -m pip install -e .
+          python -m pip install numpy pillow pytest
+      - name: Run tests
+        run: pytest tests/test_flower_roi_signature.py
+      - name: Build broad public screen if artifact inputs are unavailable
+        run: |
+          mkdir -p artifacts/public_visual_signature
+          python paper/build_public_visual_signature_manifest.py --classification paper/functional_group_classification.csv --out artifacts/public_visual_signature/manifest.csv --max-specialists 12 --max-generalists 12 --min-islands 3 --min-total-occ 10
+          python paper/extract_public_visual_fingerprints.py --manifest artifacts/public_visual_signature/manifest.csv --output-dir artifacts/public_visual_signature/raw --per-region 6 --sleep-seconds 0.2
+      - name: Extract ROI-calibrated fingerprints
+        run: |
+          python paper/extract_roi_visual_fingerprints.py \
+            --blind-features artifacts/public_visual_signature/raw/visual_fingerprint_blind.csv \
+            --output artifacts/public_visual_signature/roi/visual_fingerprint_roi_blind.csv \
+            --summary-out artifacts/public_visual_signature/roi/roi_extraction.summary.json
+      - name: Analyse ROI signatures with existing key
+        run: |
+          python paper/analyze_public_visual_signatures.py \
+            --blind-features artifacts/public_visual_signature/roi/visual_fingerprint_roi_blind.csv \
+            --key artifacts/public_visual_signature/raw/visual_fingerprint_key.csv \
+            --manifest artifacts/public_visual_signature/manifest.csv \
+            --contract data/predictive_meta/public_visual_signature_contract.csv \
+            --output-dir artifacts/public_visual_signature/roi_analysis \
+            --min-images-per-regime 2 --bootstrap-draws 500 --tolerance 0.25
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flower-roi-signature-calibration
+          path: artifacts/public_visual_signature
+          if-no-files-found: error
+          retention-days: 90
