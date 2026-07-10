@@ -1,0 +1,55 @@
+name: Campanula Interior Candidate Expansion
+
+on:
+  pull_request:
+    paths:
+      - "channel_id/campanula_interior_candidates.py"
+      - "paper/build_campanula_interior_candidates.py"
+      - "paper/render_blind_photo_contact_sheets.py"
+      - "tests/test_campanula_interior_candidates.py"
+      - ".github/workflows/campanula-interior-candidate-expansion.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-and-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package and image dependency
+        run: |
+          python -m pip install -e .
+          python -m pip install pillow pytest
+      - name: Test candidate extraction
+        run: python -m pytest tests/test_campanula_interior_candidates.py
+      - name: Acquire all attached photos and split blind/key outputs
+        run: |
+          python paper/build_campanula_interior_candidates.py \
+            --blind-dir artifacts/campanula_interior/blind \
+            --key-dir artifacts/campanula_interior/protected_key \
+            --per-page 200 \
+            --per-region 30 \
+            --sleep-seconds 0.2
+      - name: Render blind cards only
+        run: |
+          python paper/render_blind_photo_contact_sheets.py \
+            --blind artifacts/campanula_interior/blind/campanula_interior_candidates_blind.csv \
+            --output-dir artifacts/campanula_interior/blind/contact_sheets
+      - uses: actions/upload-artifact@v4
+        with:
+          name: campanula-interior-candidates-blind
+          path: artifacts/campanula_interior/blind
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        with:
+          name: campanula-interior-candidates-protected-key
+          path: artifacts/campanula_interior/protected_key
+          if-no-files-found: error
+          retention-days: 90
