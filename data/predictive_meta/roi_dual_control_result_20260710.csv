@@ -1,0 +1,5 @@
+proposal,accepted_cards,flat_large_to_ardens_delta,flat_ardens_to_no_bombus_delta,flat_max_abs_delta,passes_flat_negative_control,paired_cards,median_attenuated_minus_original,negative_pair_fraction,passes_technical_positive_control,passes_dual_technical_gate,biological_positive_control_status,eligible_for_broad_specialist_holdout,workflow_run_id,artifact_digest
+full_frame,10,-0.0664719538,0.0986780681,0.0986780681,yes,10,-1.3296167795,1.0,yes,yes,missing,no,29086553464,sha256:1a28f2a659859ab8258c54819a1cce90b749fea5695feda7436538b624f845ef
+centre_65,10,-0.3075933916,-0.1524747457,0.3075933916,no,10,-1.4100868344,1.0,yes,no,missing,no,29086553464,sha256:1a28f2a659859ab8258c54819a1cce90b749fea5695feda7436538b624f845ef
+max_chroma_65,10,-0.3700492123,0.4645775422,0.4645775422,no,10,-1.4086899503,1.0,yes,no,missing,no,29086553464,sha256:1a28f2a659859ab8258c54819a1cce90b749fea5695feda7436538b624f845ef
+max_chroma_edge_65,10,-0.4295155109,0.3241059254,0.4295155109,no,10,-1.3419318885,1.0,yes,no,missing,no,29086553464,sha256:1a28f2a659859ab8258c54819a1cce90b749fea5695feda7436538b624f845ef
