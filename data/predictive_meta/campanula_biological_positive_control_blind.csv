@@ -1,5 +1,5 @@
 card_id,image_url,flowering_state,focal_flower_visible,interior_visible,comparable_for_guide_score,trait_definition_id,guide_score_0_3,reviewer_notes
-campan_000,https://inaturalist-open-data.s3.amazonaws.com/photos/232356741/medium.jpg,,,,,campanula_inner_guide_strength_0_3,,
-campan_001,https://inaturalist-open-data.s3.amazonaws.com/photos/413359016/medium.jpeg,,,,,campanula_inner_guide_strength_0_3,,
-campan_002,https://inaturalist-open-data.s3.amazonaws.com/photos/413784530/medium.jpeg,,,,,campanula_inner_guide_strength_0_3,,
-campan_003,https://inaturalist-open-data.s3.amazonaws.com/photos/232380133/medium.jpg,,,,,campanula_inner_guide_strength_0_3,,
+campan_000,https://inaturalist-open-data.s3.amazonaws.com/photos/232356741/medium.jpg,open,yes,no,no,campanula_inner_guide_strength_0_3,,"Several open flowers are visible, but the inner corolla surface is too distant/oblique for guide scoring."
+campan_001,https://inaturalist-open-data.s3.amazonaws.com/photos/413359016/medium.jpeg,open,yes,no,no,campanula_inner_guide_strength_0_3,,"Open flowers are present, but all are distant and downward-facing; inner guide cannot be evaluated."
+campan_002,https://inaturalist-open-data.s3.amazonaws.com/photos/413784530/medium.jpeg,open,yes,no,no,campanula_inner_guide_strength_0_3,,"Open flowers are present, but the openings and inner surfaces are not visible at scoring resolution."
+campan_003,https://inaturalist-open-data.s3.amazonaws.com/photos/232380133/medium.jpg,open,yes,no,no,campanula_inner_guide_strength_0_3,,"The focal corolla is clear externally, but the flower is side-on and closed from the camera viewpoint; no inner-guide score."
