@@ -1,0 +1,42 @@
+name: Priority Source Access Routes
+
+on:
+  pull_request:
+    paths:
+      - "channel_id/priority_source_access.py"
+      - "paper/route_priority_extraction_sources.py"
+      - "tests/test_priority_source_access.py"
+      - "data/predictive_meta/primary_source_extraction_queue.csv"
+      - ".github/workflows/priority-source-access.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package and test runner
+        run: |
+          python -m pip install -e .
+          python -m pip install pytest
+      - name: Test access parsing
+        run: python -m pytest tests/test_priority_source_access.py
+      - name: Route priority DOI sources
+        run: |
+          python paper/route_priority_extraction_sources.py \
+            --queue data/predictive_meta/primary_source_extraction_queue.csv \
+            --out artifacts/priority_source_access/priority_source_access_routes.csv \
+            --sleep-seconds 0.2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: priority-source-access-routes
+          path: artifacts/priority_source_access
+          if-no-files-found: error
+          retention-days: 90
