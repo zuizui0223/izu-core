@@ -51,7 +51,7 @@ def saliency_roi_crop(image_bytes: bytes, padding_fraction: float = 0.08, max_si
     hsv = np.asarray(image.convert("HSV"), dtype=np.float32) / 255.0
     saturation = hsv[..., 1]
     value = hsv[..., 2]
-    mask = (saturation >= max(0.12, float(np.quantile(saturation, 0.70)))) & (value >= max(0.18, float(np.quantile(value, 0.40))))
+    mask = (saturation >= 0.20) & (value >= max(0.40, float(np.quantile(value, 0.75))))
     fraction = float(mask.mean())
     if fraction < 0.01 or fraction > 0.65:
         buffer = io.BytesIO()
