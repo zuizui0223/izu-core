@@ -3,9 +3,13 @@ on:
   pull_request:
     paths:
       - "channel_id/roi_observation_calibration.py"
+      - "channel_id/roi_dual_control.py"
+      - "channel_id/roi_visual_core.py"
       - "paper/roi_metrics.py"
+      - "paper/roi_dual_control.py"
       - "data/predictive_meta/generalist_negative_control_card_ledger.csv"
       - "tests/test_roi_calibration.py"
+      - "tests/test_roi_dual_control.py"
       - ".github/workflows/roi-observation-calibration.yml"
   workflow_dispatch:
 permissions:
@@ -22,10 +26,15 @@ jobs:
       - name: Install image dependencies
         run: |
           python -m pip install -e .
-          python -m pip install numpy pillow
-      - name: Evaluate automatic crop proposals on Ajania control
+          python -m pip install numpy pillow pytest
+      - name: Test dual-control gate logic
+        run: python -m pytest tests/test_roi_calibration.py tests/test_roi_dual_control.py
+      - name: Evaluate automatic crop proposals on flat and sensitivity controls
         run: |
-          python paper/roi_metrics.py --ledger data/predictive_meta/generalist_negative_control_card_ledger.csv --output-dir artifacts/roi_observation_calibration --sleep-seconds 0.2
+          python -m paper.roi_dual_control \
+            --ledger data/predictive_meta/generalist_negative_control_card_ledger.csv \
+            --output-dir artifacts/roi_observation_calibration \
+            --sleep-seconds 0.2
       - uses: actions/upload-artifact@v4
         with:
           name: roi-observation-calibration
