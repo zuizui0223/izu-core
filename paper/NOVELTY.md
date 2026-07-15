@@ -1,62 +1,87 @@
-# Methodological novelty — self-audit
+# Methodological novelty — current self-audit
 
-What is genuinely new here, versus a standard island-syndrome study, and where
-each contribution lives. This doubles as a check that the analyses centre the
-novel methods (anti-cline threshold, simulation) rather than re-describing a
-single cline.
+The useful novelty is not a claim that a multi-species island rule has already
+been demonstrated. It is the combination of channel-shape separation,
+prediction locking, explicit falsification controls, and source-native evidence
+gates that makes such a test possible without manufacturing replication.
 
-## 1. Anti-cline threshold detection (not just a cline)
+## 1. Channel-shape separation instead of one island cline
 
-Standard practice reports a monotonic mainland→island cline (a correlation).
-We instead ask whether a trait **steps** at a specific pollinator-regime
-boundary. `channel_id/gradient_shape.py` selects none/cline/**step** by AICc
-(sized for the small per-species n) and returns the breakpoint location.
+The focal *Campanula* evidence is represented as several response channels rather
+than one syndrome score:
 
-- Result: *Campanula* autonomous selfing is a **step at the Ōshima→Toshima
-  bumblebee-loss boundary** (order ≈ 1.5), while corolla length is a smooth
-  cline and climate is flat or steps elsewhere. The reproductive-assurance
-  switch is localised to the pollinator boundary — invisible to a correlation.
-- Novelty for the meta-analysis: a **shared breakpoint across independent
-  specialists** is far stronger evidence of a common driver than any single
-  cline, and cannot be produced by an unstructured environmental gradient.
-  This is the "anti-cline" test the whole comparison is built around.
+- floral size: continuous erosion;
+- multilocus outcrossing: continuous erosion;
+- autonomous reproductive capacity: second-transition step;
+- guide / visible signal: measured second-transition decline.
 
-## 2. Comprehensive detectability simulation (not one benchmark)
+This matters because the biological claim is a temporally staggered response,
+not that every trait makes two sharp steps. The observed step is in autonomous
+capacity; the guide direction is calibrated by standardised scans. Neither fact
+alone identifies a historical pollinator cause.
 
-`paper/comprehensive_sweep.py` sweeps pollinator-loss depth × environmental
-confound × island number × analysis mode (90 cells). It shows recovery of the
-true mechanism is 95–99% **with** environmental calibration but collapses to 0%
-**without** it — worst exactly where the syndrome is strongest. This turns
-"confounding" from a caveat into a quantified precondition and tells any future
-field campaign what it must measure (an interaction-level channel; ~90
-plant-units/island). Reused from, and generalising, the seed workflow's
-`izu_gradient_benchmark`.
+## 2. Prediction locking before independent lineages
 
-## 3. Evidence-ranked, multi-source synthesis (transparent confidence)
+`data/predictive_meta/two_breakpoint_prediction_contract.csv` separates four
+predeclared scenarios and keeps the focal calibration partition distinct from the
+holdout partition. One lineage × trait family × transition is one comparison
+unit, so multiple images or traits from one taxon cannot masquerade as independent
+evolutionary replications.
 
-Every observation carries an A–E rank and weight (`evidence_ranks.csv`), pooled
-at full and A/B-only weight, with a deliberate low-confidence web/flora tier (D)
-to expand coverage without letting it drive conclusions. Rank rules are enforced
-in CI (`validate_meta_inputs.py`; e.g. rank A ⇒ an effect size exists).
+The specialist late-decline prediction and the flat open-generalist prediction
+are therefore prospective tests. A shared specialist breakpoint remains a target
+for future evidence, not a result already obtained.
 
-## 4. Pollination-moderator falsification (built-in negative control)
+## 3. Failed observation operators become falsification results
 
-The moderator (`classify_functional_groups.py`) splits 156 species into
-specialist vs generalist vs large-flower. The prediction is directional (island
-rule): specialists reduce, generalists ≈ 0, large non-bee flowers enlarge. The
-generalist group is an explicit **negative control** — a result where
-generalists also shifted would falsify the pollinator-loss interpretation.
+The public-image work did not simply optimise until a desired regional contrast
+appeared. It required both:
 
-## 5. Public-data-only, reproducible assembly
+- a known-flat biological negative control; and
+- a deterministic technical sensitivity control.
 
-The entire test is assembled from GBIF/iNaturalist/literature with no
-first-party fieldwork, run by one command (`run_all.py`), tested (269 tests),
-and CI-reproduced. The novelty is not any single number but a **falsifiable,
-mechanism-resolved, reproducibly-graded** framework for asking whether an island
-floral response generalises.
+Simple centre/chroma flower crops detected the technical attenuation but created
+false regional differences in the flat *Ajania* control. The full frame passed
+those two technical checks but lacked an independent biological positive control.
+No operator was released to the broad specialist holdout. This is a reusable
+example of validating the observation process before interpreting a phenotype.
 
-## Honest scope
+## 4. Source-native evidence cannot be promoted by titles or metadata
 
-Contributions 1–2 are the methodological core the user asked to foreground.
-Contributions 3–5 make the comparison auditable. None of them manufactures data:
-the synthesis is run to the public-data ceiling and that ceiling is documented.
+The evidence pipeline distinguishes occurrence, discovery leads, qualitative
+source statements, compatible quantitative effects, and contextual comparisons.
+Numeric effects require exact source location, population units, n, uncertainty,
+taxonomy, geography, wild status, and compatible units.
+
+This gate produced scientifically useful exclusions:
+
+- *Lilium* is an inter-varietal, Lepidoptera-focused alternative mechanism, not a
+  within-lineage Bombus replicate;
+- *Clerodendrum* is a between-taxon context comparison;
+- *Ligustrum* has verified qualitative direction but remains unscored until its
+  population table is recovered;
+- *Weigela* remains a high-priority direct candidate without an inferred direction
+  from its title.
+
+## 5. Simulation is a design diagnostic, not empirical replication
+
+The constrained and detectability simulations quantify which observation plans
+can discriminate declared virtual mechanisms, and how environmental confounding
+can defeat naive recovery. These results justify measuring interaction-level and
+environment/history channels. They do not show that the virtual mechanism caused
+the Izu field pattern.
+
+## 6. Current empirical contribution
+
+The present evidence-bearing contribution is:
+
+1. a four-channel focal calibration with a measured guide direction;
+2. a stable descriptive separation between continuous morphological/mating
+   erosion and a sharp autonomous-capacity transition;
+3. one usable generalist negative-control lineage;
+4. a documented ceiling for the public-photo specialist route; and
+5. an auditable queue for acquiring independent source-native lineages.
+
+The project becomes a cross-lineage meta-analysis only after independent taxa
+supply compatible effects or validated ordinal holdout contrasts, and after the
+environment/history alternative is modelled explicitly.
