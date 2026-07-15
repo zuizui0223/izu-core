@@ -13,12 +13,14 @@ than one syndrome score:
 - floral size: continuous erosion;
 - multilocus outcrossing: continuous erosion;
 - autonomous reproductive capacity: second-transition step;
-- guide / visible signal: measured second-transition decline.
+- guide / visible signal: provisional second-transition decline in the locked
+  initial auto-summary; reviewed reaggregation required.
 
 This matters because the biological claim is a temporally staggered response,
 not that every trait makes two sharp steps. The observed step is in autonomous
-capacity; the guide direction is calibrated by standardised scans. Neither fact
-alone identifies a historical pollinator cause.
+capacity. The guide row currently records only the direction produced by an
+initial standardised-scan auto-summary; it is not yet a final reviewed effect.
+Neither result alone identifies a historical pollinator cause.
 
 ## 2. Prediction locking before independent lineages
 
@@ -75,7 +77,8 @@ the Izu field pattern.
 
 The present evidence-bearing contribution is:
 
-1. a four-channel focal calibration with a measured guide direction;
+1. a three-channel source-locked focal core plus a provisional initial guide
+   direction awaiting reviewed reaggregation;
 2. a stable descriptive separation between continuous morphological/mating
    erosion and a sharp autonomous-capacity transition;
 3. one usable generalist negative-control lineage;
