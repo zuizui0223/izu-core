@@ -1,9 +1,17 @@
 import csv
+import importlib.util
 from pathlib import Path
 
 import pytest
 
-from paper.validate_regime_transition_registry import REGISTRY, validate
+ROOT = Path(__file__).resolve().parents[1]
+MODULE_PATH = ROOT / "paper" / "validate_regime_transition_registry.py"
+SPEC = importlib.util.spec_from_file_location("_regime_transition_validator", MODULE_PATH)
+assert SPEC is not None and SPEC.loader is not None
+MODULE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(MODULE)
+REGISTRY = MODULE.REGISTRY
+validate = MODULE.validate
 
 
 def test_committed_regime_transition_registry() -> None:
