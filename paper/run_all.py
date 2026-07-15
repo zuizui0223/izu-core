@@ -1,8 +1,8 @@
 """Run the offline Izu comparative diagnostics and write one report.
 
-The runner combines the current evidence/readiness state, empirical-input checks,
-pilot summaries, and design simulations. It does not convert those stages into
-a completed cross-lineage meta-analysis.
+The runner combines the current evidence/readiness state, registry/input checks,
+pilot summaries, and design simulations. It does not convert those stages into a
+completed cross-lineage meta-analysis.
 
     python paper/run_all.py
 """
@@ -20,6 +20,7 @@ ART = ROOT / "artifacts"
 
 STAGES = [
     ("Current evidence state", "scripts/report_current_evidence_state.py", []),
+    ("Regime-transition registry", "paper/validate_regime_transition_registry.py", []),
     ("Evidence-table integrity", "paper/validate_meta_inputs.py", []),
     ("Functional-group moderator pilot", "paper/classify_functional_groups.py", []),
     ("Anti-cline threshold (focal seed)", "paper/threshold_analysis.py", []),
