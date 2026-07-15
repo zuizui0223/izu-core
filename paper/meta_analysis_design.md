@@ -1,163 +1,150 @@
-# Izu cross-lineage prediction test — prospective design
+# Izu cross-lineage regime-transition test — prospective design
 
-> **Current status:** `focal_core_calibration_established_guide_reaggregation_required_independent_holdout_blocked`.
-> This is a prospective design document. The machine-generated
-> [`docs/CURRENT_EVIDENCE_STATE.md`](../docs/CURRENT_EVIDENCE_STATE.md) defines
-> the current empirical claim boundary and supersedes older pilot counts or
-> simulation summaries when they conflict.
+> **Current status:** `focal_three_channel_calibration_established_independent_holdout_blocked`.
+> The machine-generated [`docs/CURRENT_EVIDENCE_STATE.md`](../docs/CURRENT_EVIDENCE_STATE.md)
+> defines the empirical claim boundary. The fuller scientific design is
+> [`docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md`](../docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md).
 
 ## Core question
 
-Can independent mainland–Izu comparisons test whether specialist-like flowers
-show the same staggered response calibrated in *Campanula microdonta*, while
-open-generalist flowers fail to show the predicted second visible-signal
-threshold?
+Do independent Izu plant lineages repeatedly change at the same pollinator-service
+boundary, or are their responses better described by smooth environmental clines,
+lineage-specific histories, ecological filtering, or no ordered change?
 
-The design does **not** assume in advance that island order is a causal distance
-axis or that all taxa are replicates of one historical natural experiment.
-Pollinator regime, environment, island history, and taxonomy must be mapped and
-modelled explicitly for every admitted lineage.
-
-## Focal calibration contract
-
-The focal lineage is calibration only and is never counted as an independent
-holdout replicate.
-
-| channel | retained focal shape | interpretation boundary |
-|---|---|---|
-| floral size | continuous erosion | real morphology pattern, not a unique staged-loss marker |
-| multilocus outcrossing | continuous erosion | direct mating-system estimate, not a discrete first threshold |
-| autonomous reproductive capacity | second-transition step | bagged capsule set, not realised selfing |
-| guide / visible signal | provisional second-transition decline | locked initial auto-summary; reviewed per-sheet reaggregation required |
-
-The first guide transition remains unobserved because no matching mainland
-large-Bombus scan series is available. The v1.1 visible-signal row is retained as
-frozen audit history, but its present claim use is provisional until reviewed
-per-sheet outputs are reaggregated at plant level.
-
-## Prediction locked before holdout
-
-The three pollinator-regime states are used as a predeclared comparison scaffold:
+The predeclared regime scaffold is:
 
 ```text
 large Bombus -> B. ardens -> no effective Bombus
 ```
 
-The active scenario contracts are:
+This scaffold is not assumed to be a causal distance axis. Climate, island area,
+isolation, colonisation history, taxonomy, and observation effort remain explicit
+competitors.
 
-1. `body_size_only` — floral size can change without a required guide,
-   outcrossing, or autonomous-assurance threshold;
-2. `small_bee_substitution` — effective small-bee replacement predicts no new
-   second-transition collapse;
-3. `ardens_replacement_loss` — specialist visible signal and outcrossing decline
-   and autonomous capacity increases after effective Bombus service is lost;
-4. `environment_only` — remains unranked by regime contrasts until an explicit
-   climate, area, isolation, and history likelihood is implemented.
+## Adopted focal calibration
 
-For open-generalist negative controls, the visible-signal prediction is flat at
-both transitions. This is a falsification control, not a residual category.
+The focal lineage is calibration only and never an independent replicate.
 
-## Independent holdout unit
+| channel | retained focal shape | interpretation boundary |
+|---|---|---|
+| floral size | continuous erosion | real morphology pattern; not a unique staged-loss marker |
+| multilocus outcrossing | continuous erosion | direct mating-system estimate; not a declared first threshold |
+| autonomous reproductive capacity | second-transition step | bagged capsule set; not realised selfing |
 
-One lineage × one prespecified trait family × one transition is one comparison
-unit. Multiple images, populations, or correlated traits from the same lineage
-must be aggregated before scenario scoring.
+Nectar-guide and visible-signal analyses are excluded. They supply no current
+response direction or breakpoint.
 
-A positive specialist lineage enters the holdout only when all required gates
-pass:
+## Competing response shapes
+
+For each eligible lineage-response family, compare:
+
+1. `none`;
+2. `cline`;
+3. `first_step`;
+4. `second_step`;
+5. `two_step`; and
+6. `environment_history`.
+
+The same shape vocabulary may be applied through different native likelihoods:
+continuous, count, proportion, Bernoulli, ordinal, multistate, interaction, or
+occupancy. Effects from different domains are not pooled onto one artificial scale.
+
+## Presence/absence route
+
+Presence/absence is admissible only as an occupancy or state response.
+
+### Species occupancy
+
+A detection-aware model can test whether specialist-like mainland plants are less
+likely than open generalists to occupy islands beyond a regime boundary:
+
+```text
+occupancy ~ regime * dependency_class
+          + climate + area + isolation + history
+          + lineage/phylogeny + observation_effort
+```
+
+This tests ecological filtering or range truncation. It is not evidence that a
+floral or mating-system trait evolved within an island population.
+
+### Binary trait state
+
+Source-native states such as SI/SC, autonomous reproduction absent/present, or
+restrictive/open floral architecture can be analysed with Bernoulli or multistate
+models. The state definition must be fixed before inspecting the island response.
+
+## Generalist negative controls
+
+Open-generalist lineages are controls for a **shared specialist breakpoint**. They
+are not assumed to be absolutely invariant. The main falsification test is a
+dependency-class by boundary interaction, preferably evaluated with lineage-level
+leave-one-out validation.
+
+A convincing pattern would require specialist-like lineages to select the same
+step more often than generalists, while the contrast survives environment/history
+and observation-process sensitivity.
+
+## Mating-system and specialisation transitions
+
+Keep these channels distinct:
+
+- self-incompatibility -> self-compatibility;
+- autonomous reproduction;
+- realised selfing;
+- de-specialisation / functional broadening;
+- replacement by an alternative specialised guild; and
+- interaction loss before morphological change.
+
+“Reverse evolution” is not used as a model state. SI loss is a specific compatibility
+transition, while specialist-to-generalist change is multidimensional ecological
+rewiring.
+
+## Independent comparison unit
+
+One lineage x one prespecified response family is one comparison unit. Multiple
+islands, populations, flowers, images, or correlated traits within that unit are
+observations rather than independent evolutionary replications.
+
+Admission requires:
 
 1. accepted taxonomy and a defensible within-lineage comparison;
-2. named localities mapped to the predeclared regimes without using a generic
-   “Izu” label as a regime;
-3. a source-native quantitative effect with n and uncertainty, or a validated
-   blinded ordinal observation operator;
-4. no unresolved variety-by-geography or taxon-by-geography confounding;
-5. the lineage was not inspected while changing the prediction contract.
+2. named localities mapped to regimes;
+3. source-native response and sampling unit;
+4. fixed response definition and dependency classification;
+5. no unresolved taxon/variety-by-geography confounding; and
+6. separation of calibration, positive holdout, negative control, context, and pending records.
 
-The focal *Campanula* lineage remains calibration even when it supplies a
-provisional initial guide direction pending reviewed reaggregation.
+The executable admission table is
+`data/predictive_meta/regime_transition_registry.csv`.
 
-## Evidence classes
+## Source-native queue
 
-| class | allowed role | never treated as |
-|---|---|---|
-| source-native quantitative | primary holdout effect after all extraction gates | proof of a historical mechanism |
-| source-native qualitative | direction/context until localities and uncertainty are recovered | invented numeric effect size |
-| blinded validated ordinal image score | one within-taxon holdout contrast | flower size, pollinator identity, or effectiveness |
-| occurrence / photo availability | candidate and missingness audit | trait response or biological absence |
-| contextual between-taxon or alternative-guild source | mechanism boundary and counterexample | within-lineage Bombus replicate |
-| simulation | design power and compatibility audit | empirical evolutionary replication |
-
-## Photo route after the failed operators
-
-Public photographs are not currently an admissible positive specialist route.
-The first automatic full-frame descriptors read background and composition. The
-centre/chroma crops detected technical attenuation but manufactured differences
-in a known-flat *Ajania* control. The remaining full-frame proposal lacks an
-independent biological positive control.
-
-Therefore:
-
-- ineligible or unclear flowers are excluded, never scored as zero;
-- no ROI proposal is released to the broad specialist holdout;
-- the public-photo route stays closed until an independent biological positive
-  control validates the observation operator;
-- the initial Campanula scan summary cannot validate public-photo localisation and
-  must itself be rebuilt from reviewed sheet outputs before final guide calibration.
-
-## Source-native route
-
-The immediate independent-lineage work is original-source recovery:
-
-- *Weigela coraeensis*: recover floral means, uncertainty, n, exact populations,
-  and locality-to-regime mapping before assigning any direction;
-- *Ligustrum ovalifolium*: recover population-level floral tables and pollinator
-  sampling units; the publisher abstract supplies direction only;
-- *Lilium auratum*: retain as an alternative Lepidoptera mechanism because
-  variety identity and geography are confounded;
+- *Weigela coraeensis*: recover original trait tables, uncertainty, n, and locality mapping before assigning a response.
+- *Ligustrum ovalifolium*: recover population-level floral tables and island mapping; current abstract-level directions are not shape-test effects.
+- *Lilium auratum*: retain as an alternative Lepidoptera mechanism because variety and geography are confounded.
 - *Clerodendrum izuinsulare*: retain as a between-taxon contextual comparison.
-
-A source title, DOI, abstract, occurrence record, or access-route result is never
-an effect row.
-
-## Statistical synthesis after readiness gates pass
-
-A cross-lineage quantitative model becomes admissible only after several
-independent lineages supply compatible observations. The intended model should
-include:
-
-- lineage-specific effects and uncertainty;
-- shared island/site effects;
-- phylogenetic dependence where justified;
-- specialist/generalist interaction terms;
-- explicit climate, area, isolation, and colonisation/history covariates;
-- missingness and observation-process sensitivity for ordinal evidence.
-
-Until then, scenario scoring is a prediction-alignment diagnostic, not a random-
-effects meta-analysis or a causal estimator.
 
 ## Current stop rules
 
 Do not:
 
 - describe the project as a completed Izu-flora meta-analysis;
-- treat the locked guide values as final reviewed island means;
-- combine strict-purple and oxidised-inclusive guide coverage;
-- infer pollinator effectiveness from visitor identity or occurrence;
+- adopt any unfinished nectar-guide result;
+- infer pollinator effectiveness from visitor identity or raw occurrence;
+- treat occupancy as a floral phenotype;
 - call bagged capsule set realised selfing;
-- reject `environment_only` using regime contrasts alone;
-- reopen the specialist photo holdout without biological-positive-control
-  validation;
-- count calibration, contextual taxa, images, or multiple traits as independent
-  evolutionary replications.
+- equate SC with autonomous selfing;
+- reject `environment_history` using regime contrasts alone;
+- reopen the specialist photo holdout without biological-positive-control validation; or
+- count calibration, contextual taxa, images, or multiple traits as independent replications.
 
-## Next admissible sequence
+## Next sequence
 
-1. reaggregate the reviewed Campanula guide outputs at plant level, keeping
-   strict-purple and oxidised-inclusive traits separate;
+1. validate and expand the regime-transition registry;
 2. recover and source-lock *Weigela* and *Ligustrum* population tables;
-3. implement the explicit environment/history comparison likelihood;
-4. admit only independently eligible specialist and generalist holdout units;
-5. run the locked scenario comparison;
-6. proceed to hierarchical synthesis only if the evidence-state report records
-   enough independent lineages and compatible effects.
+3. screen source-native SI/SC, autonomous reproduction, floral architecture,
+   effective-guild, and occupancy channels;
+4. implement the explicit environment/history competitor;
+5. run native-likelihood shape comparisons with lineage-level validation; and
+6. proceed to hierarchical synthesis only after enough independent lineages pass
+   the evidence gates.
