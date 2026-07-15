@@ -1,6 +1,6 @@
 # Izu cross-lineage prediction test — prospective design
 
-> **Current status:** `focal_calibration_established_independent_holdout_blocked`.
+> **Current status:** `focal_core_calibration_established_guide_reaggregation_required_independent_holdout_blocked`.
 > This is a prospective design document. The machine-generated
 > [`docs/CURRENT_EVIDENCE_STATE.md`](../docs/CURRENT_EVIDENCE_STATE.md) defines
 > the current empirical claim boundary and supersedes older pilot counts or
@@ -28,10 +28,12 @@ holdout replicate.
 | floral size | continuous erosion | real morphology pattern, not a unique staged-loss marker |
 | multilocus outcrossing | continuous erosion | direct mating-system estimate, not a discrete first threshold |
 | autonomous reproductive capacity | second-transition step | bagged capsule set, not realised selfing |
-| guide / visible signal | measured second-transition decline | standardised scan direction, not a causal selection estimate |
+| guide / visible signal | provisional second-transition decline | locked initial auto-summary; reviewed per-sheet reaggregation required |
 
 The first guide transition remains unobserved because no matching mainland
-large-Bombus scan series is available.
+large-Bombus scan series is available. The v1.1 visible-signal row is retained as
+frozen audit history, but its present claim use is provisional until reviewed
+per-sheet outputs are reaggregated at plant level.
 
 ## Prediction locked before holdout
 
@@ -73,7 +75,7 @@ pass:
 5. the lineage was not inspected while changing the prediction contract.
 
 The focal *Campanula* lineage remains calibration even when it supplies a
-measured guide direction.
+provisional initial guide direction pending reviewed reaggregation.
 
 ## Evidence classes
 
@@ -100,8 +102,8 @@ Therefore:
 - no ROI proposal is released to the broad specialist holdout;
 - the public-photo route stays closed until an independent biological positive
   control validates the observation operator;
-- the standardised Campanula scan domain can calibrate the focal direction but
-  cannot automatically validate public-photo localisation.
+- the initial Campanula scan summary cannot validate public-photo localisation and
+  must itself be rebuilt from reviewed sheet outputs before final guide calibration.
 
 ## Source-native route
 
@@ -139,6 +141,8 @@ effects meta-analysis or a causal estimator.
 Do not:
 
 - describe the project as a completed Izu-flora meta-analysis;
+- treat the locked guide values as final reviewed island means;
+- combine strict-purple and oxidised-inclusive guide coverage;
 - infer pollinator effectiveness from visitor identity or occurrence;
 - call bagged capsule set realised selfing;
 - reject `environment_only` using regime contrasts alone;
@@ -149,9 +153,11 @@ Do not:
 
 ## Next admissible sequence
 
-1. recover and source-lock *Weigela* and *Ligustrum* population tables;
-2. implement the explicit environment/history comparison likelihood;
-3. admit only independently eligible specialist and generalist holdout units;
-4. run the locked scenario comparison;
-5. proceed to hierarchical synthesis only if the evidence-state report records
+1. reaggregate the reviewed Campanula guide outputs at plant level, keeping
+   strict-purple and oxidised-inclusive traits separate;
+2. recover and source-lock *Weigela* and *Ligustrum* population tables;
+3. implement the explicit environment/history comparison likelihood;
+4. admit only independently eligible specialist and generalist holdout units;
+5. run the locked scenario comparison;
+6. proceed to hierarchical synthesis only if the evidence-state report records
    enough independent lineages and compatible effects.
