@@ -73,6 +73,7 @@ jobs:
       - name: Run cline-threshold identifiability audit
         run: >-
           python scripts/run_izu_shape_identifiability.py
+          --effort artifacts/izu_nine_islands/izu_9island_effort.csv
           --replicates 300
           --lineages 20
           --output-dir artifacts/izu_shape_identifiability
