@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "source_repository": "zuizui0223/island",
+  "source_commit": "77417f18e713f6eff9567f21ba338f07665fe2bb",
+  "species_snapshot": {
+    "path": "data/v2/staging/gbif/collected/island_species_occurrences.csv.gz",
+    "blob_sha": "d311557334579a7efbef838cc01f927339d16f77"
+  },
+  "effort_snapshot": {
+    "path": "data/v2/staging/gbif/collected/island_observation_effort.csv",
+    "blob_sha": "8abb8203dd60293eb3595a6a8daa0943cc373137"
+  },
+  "scope": "six exact-island Izu pilot polygons already frozen in the source repository",
+  "not_in_scope": [
+    "Toshima",
+    "Shikinejima",
+    "Aogashima"
+  ],
+  "interpretation": "Occurrence-based candidate flora and observation effort only; not reviewed native-flora membership, pollinator service, or biological absence."
+}
