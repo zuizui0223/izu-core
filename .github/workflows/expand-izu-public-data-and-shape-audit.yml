@@ -10,6 +10,7 @@ on:
       - "config/izu_supplemental_gbif_source.json"
       - "channel_id/regime_shape_identifiability.py"
       - "scripts/acquire_supplemental_izu_gbif.py"
+      - "scripts/run_supplemental_izu_gbif.py"
       - "scripts/run_izu_shape_identifiability.py"
       - "tests/test_regime_shape_identifiability.py"
       - "tests/test_supplemental_izu_gbif.py"
@@ -20,6 +21,7 @@ on:
       - "config/izu_supplemental_gbif_source.json"
       - "channel_id/regime_shape_identifiability.py"
       - "scripts/acquire_supplemental_izu_gbif.py"
+      - "scripts/run_supplemental_izu_gbif.py"
       - "scripts/run_izu_shape_identifiability.py"
       - "tests/test_regime_shape_identifiability.py"
       - "tests/test_supplemental_izu_gbif.py"
@@ -58,7 +60,7 @@ jobs:
         run: |
           mkdir -p artifacts/izu_nine_islands
           set -o pipefail
-          python scripts/acquire_supplemental_izu_gbif.py \
+          python scripts/run_supplemental_izu_gbif.py \
             --source-lock config/izu_supplemental_gbif_source.json \
             --scaffold data/design/izu_regime_scaffold.csv \
             --six-island-dir artifacts/izu_six_islands \
