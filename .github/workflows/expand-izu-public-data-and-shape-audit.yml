@@ -52,13 +52,19 @@ jobs:
           --output-dir artifacts/izu_six_islands
           --cache-dir .cache/izu_six_islands
       - name: Acquire Toshima, Shikinejima, and Aogashima
-        run: >-
-          python scripts/acquire_supplemental_izu_gbif.py
-          --source-lock config/izu_supplemental_gbif_source.json
-          --scaffold data/design/izu_regime_scaffold.csv
-          --six-island-dir artifacts/izu_six_islands
-          --output-dir artifacts/izu_nine_islands
-          --cache-dir .cache/izu_supplemental_gbif
+        id: supplemental
+        continue-on-error: true
+        shell: bash
+        run: |
+          mkdir -p artifacts/izu_nine_islands
+          set -o pipefail
+          python scripts/acquire_supplemental_izu_gbif.py \
+            --source-lock config/izu_supplemental_gbif_source.json \
+            --scaffold data/design/izu_regime_scaffold.csv \
+            --six-island-dir artifacts/izu_six_islands \
+            --output-dir artifacts/izu_nine_islands \
+            --cache-dir .cache/izu_supplemental_gbif \
+            2>&1 | tee artifacts/izu_nine_islands/acquisition.log
       - name: Run cline-threshold identifiability audit
         run: >-
           python scripts/run_izu_shape_identifiability.py
@@ -66,9 +72,14 @@ jobs:
           --lineages 20
           --output-dir artifacts/izu_shape_identifiability
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: izu-nine-island-public-data-and-shape-audit
+          if-no-files-found: warn
           path: |
             artifacts/izu_six_islands
             artifacts/izu_nine_islands
             artifacts/izu_shape_identifiability
+      - name: Fail if supplemental acquisition failed
+        if: steps.supplemental.outcome == 'failure'
+        run: exit 1
