@@ -1,54 +1,100 @@
-# Izu multi-species floral-response meta-analysis (`paper/`)
+# Izu prediction-locked comparative programme (`paper/`)
 
-A reproducible, public-data workflow testing whether pollinator-loss-driven
-floral reduction/selfing **generalises across the Izu island flora**, framed as
-a mechanism-resolved test of the flower-size island rule. *Campanula microdonta*
-is the fully-measured calibration seed; the question is comparative.
+This directory tests whether the response calibrated in *Campanula microdonta*
+can be evaluated prospectively in independent Izu lineages. It is not currently
+a completed multi-species meta-analysis.
 
-## Reproduce everything
+## Current decision
 
-```bash
-pip install -e .
-python paper/run_all.py          # runs the whole pipeline -> artifacts/RESULTS.md
-python -m pytest                 # 269 tests (Windows: add --basetemp=C:/pt)
+The machine-generated evidence state is:
+
+```text
+focal_calibration_established_independent_holdout_blocked
 ```
 
-Individual stages:
+The focal calibration has four retained channels:
 
-| Stage | Script / record | Output |
+| channel | retained shape | current evidence |
 |---|---|---|
-| Candidate pool (GBIF) | `gbif_coverage` / `gbif_filter` logic → `izu_entomophilous_candidates.csv` | 156 gradient-spanning entomophilous angiosperms |
-| Expanded screening | `evidence_screening/README.md` + four stratified dockets | auditable path from the 156-species pilot to the full 319-species parent universe |
-| English literature discovery | `crossref_candidate_audit.py` | raw Crossref lead artifact for the first 40-species batch; leads require primary-source review |
-| Generalist photo availability | `inat_generalist_photo_audit.py` | raw island-proxy photo-availability artifact for 16 protected generalist controls |
-| Quantitative source recovery | `evidence_screening/known_source_upgrade_queue.csv` | page/table targets for upgrading current B-rank observations without inventing effects |
-| Moderator | `classify_functional_groups.py` | `functional_group_classification.csv` (30 specialist / 89 generalist) |
-| Anti-cline threshold | `threshold_analysis.py` (uses `channel_id/gradient_shape.py`) | step/cline/none per trait + breakpoint |
-| Evidence hierarchy | `evidence_ranks.csv`, `evidence_observations.csv`, `validate_meta_inputs.py` | A–E graded observations |
-| Synthesis | `meta_synthesis.py` | quantitative anchor + rank-weighted direction by group |
-| Detectability | `comprehensive_sweep.py` | 90-cell calibrated-vs-naive recovery map |
-| Photo tier | `build_photo_scoring_sheet.py`, `photo_scores.csv` | blinded per-island photo scoring |
+| floral size | continuous erosion | source locked |
+| multilocus outcrossing | continuous erosion | source locked |
+| autonomous reproductive capacity | second-transition step | source locked |
+| guide / visible signal | second-transition decline | measured 300-DPI scan summary |
 
-The two raw discovery jobs run in GitHub Actions and upload source-versioned
-artifacts rather than silently committing changing web results. A retrieved
-record remains a lead until its original source, taxonomy, geography, sampling
-unit, and trait definition are reviewed.
+The independent positive specialist holdout remains absent. The current
+cross-lineage evidence is one usable open-generalist negative-control lineage,
+zero source-locked quantitative effect rows in the extraction table, and zero
+ROI proposals released to the broad specialist holdout.
 
-## Evidence hierarchy (every observation is graded)
+Generate the authoritative status report before interpreting older pilot output:
 
-A peer-reviewed quantitative (1.0) · B peer-reviewed qualitative (0.7) ·
-C blinded photo score (0.5) · D web/flora description (0.25) · E occurrence (0.0).
-Synthesis is reported at full weight **and** rank-A/B-only, so conclusions never
-rest on low-confidence text.
+```bash
+python scripts/report_current_evidence_state.py \
+  --markdown-out artifacts/current_evidence_state.md \
+  --json-out artifacts/current_evidence_state.json
+```
 
-## Evidence-status boundary
+The committed copy is [`../docs/CURRENT_EVIDENCE_STATE.md`](../docs/CURRENT_EVIDENCE_STATE.md).
 
-The present synthesis is a reproducible pilot, not the completed public-data
-ceiling. The 156-species entomophilous table is a prefiltered analysis cohort,
-whereas the reported parent universe contains 319 mainland + >=2-island plants.
-`evidence_screening/` fixes the next work unit: a protected 40-species pilot
-docket followed by an auditable reconstruction and systematic screen of the
-full parent universe. Peer-reviewed generalist floral series may remain scarce,
-but that conclusion is only defensible after the registry records the searches,
-source-level exclusions, and image/region coverage. See `NOVELTY.md` for the
-methodological contributions and `meta_analysis_design.md` for the full design.
+## Reproduce the offline programme
+
+```bash
+pip install -e '.[dev]'
+python scripts/report_current_evidence_state.py
+python paper/run_all.py
+python -m pytest
+```
+
+`paper/run_all.py` is a consolidated diagnostic runner. Its simulation and
+rank-weighted pilot stages are planning/audit layers; they do not create
+independent empirical lineages.
+
+## Workstreams
+
+| Workstream | Main files | Scientific role |
+|---|---|---|
+| Current claim/readiness state | `channel_id/current_evidence_state.py`, `scripts/report_current_evidence_state.py` | prevents pilot, discovery, and failed image routes from being reported as completed evidence |
+| Focal calibration | `data/inoue_literature_island_traits.csv`, `data/predictive_meta/campanula_channel_shape_v1_1.csv`, `campanula_guide_scan_summary.csv` | fixes the observed Campanula channel shapes and the measured guide direction |
+| Prospective prediction contract | `data/predictive_meta/two_breakpoint_prediction_contract.csv` | locks scenario directions before independent holdout data are scored |
+| Source-native recovery | `data/predictive_meta/primary_source_extraction_queue.csv`, `primary_source_native_evidence.csv` | recovers direct tables and preserves exclusions/context without inventing effects |
+| Quantitative effect gate | `paper/evidence_screening/quantitative_effects.csv`, `validate_quantitative_effects.py` | admits numeric effects only with source location, units, n, uncertainty, taxonomy, and geography |
+| Generalist negative control | `generalist_negative_control_card_ledger.csv` | tests false visual thresholds where the specialist response is not predicted |
+| Image-operator falsification | `roi_dual_control_result_20260710.csv` | blocks ROI operators that are insensitive or manufacture regional differences |
+| Environment/history competitor | joint profile and source-level likelihood modules | remains a first-class alternative; not fully identified by the regime-only scorer |
+| Detectability simulation | `comprehensive_sweep.py` and related design modules | estimates what future sampling must measure; not evidence that the field mechanism occurred |
+
+## Current evidence-bearing results
+
+1. The focal response is not one universal cline: morphology and outcrossing are
+   retained as continuous erosion, while autonomous reproductive capacity has a
+   sharp second-transition step.
+2. The standardised flattened-corolla series records 28.39% guide coverage on
+   Oshima and a 5.9325% equal-island mean across four no-Bombus islands, a
+   -22.4575 percentage-point focal contrast.
+3. The simple public-image route failed its negative/positive-control gates and
+   remains closed rather than converting ineligible images to zero values.
+4. *Ajania pacifica* supplies one flat three-regime generalist control; this is a
+   calibration against false positives, not a generalist meta-analytic estimate.
+5. The *Lilium* source is retained as an alternative Lepidoptera mechanism and
+   excluded from the within-lineage Bombus holdout because variety and geography
+   are confounded.
+
+## Immediate evidence work
+
+1. Recover the original population tables, locality mapping, n, and uncertainty
+   for *Weigela coraeensis* and *Ligustrum ovalifolium*.
+2. Keep the public-photo specialist route closed until an independent biological
+   positive control validates the observation operator.
+3. Add an explicit climate, island-area, isolation, and history likelihood before
+   ranking `environment_only` against pollinator scenarios.
+4. Start a cross-lineage synthesis only after independent lineages supply
+   compatible source-native effects or validated ordinal holdout contrasts.
+
+## Evidence boundary
+
+Occurrence is availability, not a trait. A visitor name is not pollinator
+effectiveness. Bagged capsule set is autonomous reproductive capacity, not
+realised selfing. Simulation recovery is not historical reconstruction. A
+calibration fit is not an independent replication. Older pilot documents remain
+useful audit history, but the generated current evidence state supersedes them
+when claims conflict.
