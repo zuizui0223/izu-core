@@ -6,7 +6,7 @@ This acquisition creates the first concrete occurrence-based input for the Izu
 regime-transition programme. It belongs in `izu-core`; the global `island`
 repository is used only as a pinned upstream data source.
 
-## Pinned source
+## Pinned six-island source
 
 The source lock is `config/izu_public_data_source_lock.json`.
 
@@ -18,9 +18,9 @@ The source lock is `config/izu_public_data_source_lock.json`.
 The immutable commit and upstream blob SHAs are retained in every generated
 provenance file.
 
-## Current exact-island scope
+## First completed acquisition
 
-The first acquisition covers the six frozen polygons already available upstream:
+The first acquisition covers six exact GSHHG polygons:
 
 - Izu Oshima
 - Niijima
@@ -29,16 +29,9 @@ The first acquisition covers the six frozen polygons already available upstream:
 - Mikurajima
 - Hachijojima
 
-Toshima, Shikinejima, and Aogashima are not silently approximated by bounding
-boxes. They remain a separate supplemental exact-polygon acquisition task.
-
-## First completed acquisition
-
 Workflow run `29403095838` completed successfully against the pinned source. The
 full products are available in the `izu-public-data-audit` artifact, while the
 small audit tables are committed under `data/public/izu_occurrence_audit/`.
-
-Current counts are:
 
 | island | occurrence records | raw species labels | datasets |
 |---|---:|---:|---:|
@@ -61,7 +54,29 @@ six. These figures describe the occurrence snapshot, not endemism or true island
 restriction. Pairwise candidate-flora Jaccard similarity ranges from about 0.230
 (Hachijojima-Niijima) to 0.349 (Kozushima-Niijima).
 
-## Generated products
+## Nine-island supplemental stage
+
+The next stage is implemented by:
+
+- `data/design/izu_regime_scaffold.csv`;
+- `config/izu_supplemental_gbif_source.json`; and
+- `scripts/acquire_supplemental_izu_gbif.py`.
+
+It obtains Toshima, Shikinejima, and Aogashima independently rather than dropping
+them under the global area threshold or approximating them with rectangular
+bounding boxes. The workflow downloads the version-locked GSHHG 2.3.7 high-
+resolution coastline, selects the land polygon containing each declared interior
+seed point, and queries GBIF Plantae records inside that polygon.
+
+The live GBIF response is archived with acquisition time, raw JSONL, page-level
+request log, selected GeoJSON polygons, source and query vertex counts, species
+aggregation, and effort diagnostics. It is then combined with the pinned six-island
+snapshot to create a nine-island candidate data product.
+
+See [`IZU_SHAPE_IDENTIFIABILITY.md`](IZU_SHAPE_IDENTIFIABILITY.md) for the linked
+cline-versus-threshold design-power audit.
+
+## Generated six-island products
 
 Running
 
@@ -80,10 +95,6 @@ writes:
 - `izu_public_data_summary.json`: counts, missing scope, and interpretation limits; and
 - `SOURCE_PROVENANCE.json`: pinned upstream provenance.
 
-The GitHub Actions workflow `Acquire Izu public data` performs the real download,
-runs the focused extraction test, and publishes these files as the
-`izu-public-data-audit` artifact.
-
 ## Interpretation boundary
 
 These products are suitable for data-availability auditing and later
@@ -94,23 +105,25 @@ In particular:
 - an occurrence is not proof of native establishment;
 - non-detection is not biological absence;
 - a species label does not reveal pollinator dependence;
-- occupancy is not a floral phenotype; and
+- occupancy is not a floral phenotype;
+- a regime label is not measured pollinator effectiveness; and
 - the outputs cannot by themselves identify a cline, threshold, or causal loss of
   pollination service.
 
-The observation process is highly uneven. For example, the snapshot is dominated
-by preserved specimens on Hachijojima and Mikurajima, while Oshima has a larger
-human-observation component. Coordinate uncertainty is also heterogeneous. These
-terms must enter any occupancy or boundary-crossing analysis.
+The observation process is highly uneven. The six-island snapshot is dominated by
+preserved specimens on Hachijojima and Mikurajima, while Oshima has a larger human-
+observation component. Coordinate uncertainty is also heterogeneous. These terms
+must enter any occupancy or boundary-crossing analysis.
 
 ## Next acquisition stages
 
-1. Add exact polygons and occurrence extraction for Toshima, Shikinejima, and
-   Aogashima.
+1. Complete and archive the nine-island supplemental workflow.
 2. Normalize taxonomy and retain synonym decisions.
 3. Join island flora/checklist and specimen evidence to classify native,
    introduced, cultivated, transient, and unresolved records.
 4. Build effort-aware Apidae/Bombus availability products for the same island
-   universe.
-5. Join only source-direct reproductive and floral-trait evidence, keeping
+   polygons.
+5. Assign specialist-like/generalist-like dependency classes before inspecting
+   island response shapes.
+6. Join only source-direct reproductive and floral-trait evidence, keeping
    continuous, binary, ordinal, interaction, and occupancy domains separate.
