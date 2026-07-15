@@ -11,19 +11,30 @@ For a predeclared trait \(z\), can a difference between island regimes be assign
 - **local reproduction** \(F(z)\), or
 - **establishment / reachability conditional on viable seed output** \(E(z)\),
 
-rather than merely described as a difference in flower size, selfing, or visitor identity?
+rather than merely described as a difference in flower size, mating system, visitor identity, or island position?
 
 ## Current empirical state
 
-The repository is currently a **focal Campanula calibration plus a prediction-locked comparative programme**, not a completed cross-lineage meta-analysis.
+The repository is currently a **three-channel focal Campanula calibration plus a prediction-locked cross-lineage regime-transition programme**, not a completed multi-species meta-analysis.
 
 - floral size and multilocus outcrossing are retained as continuous erosion across the focal island series;
-- autonomous reproductive capacity shows the source-locked Oshima-to-no-Bombus second-transition step;
-- an initial 300-DPI flattened-corolla auto-segmentation summary suggests a focal guide decline from Oshima to the no-Bombus islands, but reviewed per-sheet outputs still require reaggregation;
+- autonomous reproductive capacity shows a source-locked Oshima-to-no-Bombus second-transition step;
+- nectar-guide and visible-signal analyses are not adopted and contribute no current direction, breakpoint, or effect estimate;
 - no independent specialist lineage is yet eligible for the positive holdout;
 - one open-generalist lineage supplies a usable three-regime negative control;
 - no public-photo ROI proposal is eligible for broad specialist release; and
 - `environment_only` remains unranked until climate, area, isolation, and history enter an explicit comparison likelihood.
+
+The comparative target is not a universal island cline. Each eligible lineage is tested against competing response shapes:
+
+```text
+no response
+smooth cline
+step at large-Bombus -> B. ardens
+step at B. ardens -> no effective Bombus
+two-step response
+explicit environment/history alternative
+```
 
 The current counts, claim boundaries, and next admissible actions are generated from committed tables:
 
@@ -33,85 +44,59 @@ python scripts/report_current_evidence_state.py \
   --json-out artifacts/current_evidence_state.json
 ```
 
-See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md) and the guide-specific provenance audit in [`docs/CAMPANULA_GUIDE_SOURCE_AUDIT_20260715.md`](docs/CAMPANULA_GUIDE_SOURCE_AUDIT_20260715.md). When an older pilot or simulation document conflicts with that generated state, the generated state and its machine-readable source tables take precedence.
+See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md) and [`docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md`](docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md). When an older pilot or simulation document conflicts with the generated state, the generated state and its machine-readable source tables take precedence.
 
 ## What this repository does
 
 - records the minimum theorem-compatible measurement design for the factorisation above;
 - distinguishes direct measurements from proxies whose calibration must be stable or independently checked;
 - keeps published patterns, prospective field measurements, and pollinator-specific claims separate;
+- compares cline, threshold, no-response, and environment/history response shapes;
+- permits continuous, ordinal, binary, and occupancy channels only through separate observation models;
+- uses open-generalist taxa as negative controls for shared pollinator-regime breakpoints;
 - generates a current evidence/readiness report so discovery counts and failed operators cannot be mistaken for empirical replication;
 - provides a lightweight readiness checker for a proposed sampling design;
-- provides a constrained life-history simulation layer for comparing explicitly declared mechanisms against predeclared observation intervals;
-- ranks proposed future measurements by how strongly they distinguish the parameter candidates still compatible with current observations;
-- provides a nectar-guide mechanism model that separates guide effects on visitation, legitimate handling/pollen placement, and guide-expression cost;
-- extends that model, in explicit layers, to paternal success, pollinator guilds, late inbreeding depression, temporal variation, genetic-versus-plastic expression, and spatial recruitment;
-- turns those layers into restricted competing scenarios and tests whether a planned observation set can recover a known virtual mechanism;
-- simulates whether candidate measurement plans, their effective sample sizes, and their declared observation variation can actually discriminate those scenarios;
-- maps fruit-level seed set plus partial paternity assignment into selfed and outcrossed seed observations without pretending every mature seed is genotyped.
+- provides constrained life-history simulations for comparing explicitly declared mechanisms against predeclared observation intervals;
+- ranks future measurements by how strongly they distinguish the parameter candidates still compatible with current observations; and
+- keeps unfinished nectar-guide work outside the current evidence state.
 
-The simulation layer does not estimate an unobserved cost from a trait alone. It retains the **set of parameter values compatible with all declared observations**, then makes the remaining uncertainty explicit. The measurement-ranking layer identifies which proposed observable would split that remaining set most strongly at a predeclared assay resolution. The guide-evolution layers specify which intermediate observation is needed before a proposed evolutionary mechanism can be used in a field-facing claim. The scenario-recovery layer asks whether those observations actually discriminate competing mechanisms before field data are collected. The design-power layer asks how that discrimination changes as effective sample size and total measurement variation change. See [the simulation specification](docs/constrained_life_history_simulation.md), [the measurement-ranking specification](docs/discriminating_measurements.md), [the nectar-guide mechanism model](docs/nectar_guide_mechanism_model.md), [the full six-layer guide-evolution model](docs/guide_evolution_model.md), [the scenario recovery workflow](docs/guide_scenario_recovery.md), [the design-power workflow](docs/guide_design_power.md), and [the seed-set/paternity sampling protocol](docs/seed_set_paternity_sampling.md).
+## Response domains
 
-## Guide-evolution layers
+A lineage may enter through one of several explicitly separated domains:
 
-```text
-1. maternal + paternal genetic contribution
-2. guild-resolved visit, handling, deposition, and export
-3. late inbreeding depression after seed set
-4. temporal fitness and geometric mean performance
-5. genetic guide baseline versus plastic expression
-6. spatial dispersal, establishment, and capacity-limited recruitment
-```
+| domain | examples | what it can test |
+|---|---|---|
+| quantitative trait | flower size, outcrossing rate, bagged capsule set | within-lineage cline or step |
+| binary/ordinal state | SI/SC, autonomous reproduction absent/present, accessible/restrictive floral form | regime-associated state transition |
+| interaction state | effective guild, partner breadth, legitimate-contact class | ecological rewiring, after effectiveness gates |
+| island occupancy | species present/absent by island | filtering or range truncation, not trait evolution |
 
-These layers are deliberately modular. Do not activate a layer merely because it exists: activate it only when its required intermediate quantity is measured or has a defensible calibration.
+Raw occurrence is never converted into a floral phenotype. An occupancy analysis asks whether a dependency class crosses a regime boundary less often than a control class; it does not show that an extant island population evolved a particular trait.
 
-## Competing scenario workflow
+## Generalist falsification
 
-```text
-M0 null guide
-M1 guide → visits
-M2 guide → handling / pollen placement
-M3 guide → paternal export and siring
-M4 assurance compensation
-M5 spatial establishment
-M6 mixed
-```
+Open-generalist lineages are not assumed to be absolutely invariant. The prospective prediction is narrower: they should not repeatedly share a specialist-specific breakpoint at the same pollinator-regime boundary. The primary contrast is therefore a dependency-class × boundary interaction, with climate, area, isolation, history, observation effort, and lineage dependence modelled explicitly.
 
-A coarse terminal outcome such as recruit number should generally leave several scenarios compatible. The model becomes useful when intermediate measurements—guild-resolved visits, contact/pollen deposition, cross type, paternity, or patch recruitment—reduce that compatible set.
+## Simulation boundary
 
-## Design-power workflow
-
-For a virtual truth and declared alternatives, a measurement plan now reports:
-
-```text
-truth retention rate
-unique true-scenario recovery rate
-mean compatible scenarios
-false-scenario survival rate
-```
-
-The current error model uses the effective independent sample size and total individual-level SD on each measured scale. It is a planning approximation, not a replacement for a count, binomial, or hierarchical observation model when those are required by the data.
+The simulation layer does not estimate an unobserved cost from a trait alone. It retains the **set of parameter values compatible with all declared observations**, then makes the remaining uncertainty explicit. A successful virtual reconstruction is not evidence that the same mechanism generated the field pattern.
 
 ## What it does not claim
 
-A visit count is not automatically a measurement of local reproduction. Likewise, flower-size means, selfing rates, and pollinator turnover alone do not identify \(F\) versus \(E\).
+A visit count is not automatically a measurement of local reproduction. Flower-size means, mating-system estimates, pollinator turnover, and occupancy alone do not identify \(F\) versus \(E\).
 
-A successful simulated reconstruction is not proof that its mechanism generated the field pattern. It is only a compatibility result conditional on a declared life cycle, parameter ranges, and measurement intervals.
-
-A high-ranked measurement is not automatically the best field protocol: its feasibility, sampling variance, biological relevance, and cost still require an explicit field-design check.
-
-A positive nectar-guide relative-performance contrast is not itself evidence that guides evolved by that mechanism. It must be paired with heritable or otherwise genetically grounded guide variation, a measured intermediate pathway, and comparison against selfing compensation and E-stage explanations.
+A high-ranked measurement is not automatically the best field protocol: feasibility, sampling variance, biological relevance, and cost still require an explicit design check.
 
 The factorisation is a declared model choice. It does not claim that all natural processes are multiplicative or independent.
 
 ## Repository boundary
 
-This is the active empirical design home for the Campanula/Izu channel-identification program extracted from `microdonta`.
+This is the active empirical design home for the Campanula/Izu channel-identification programme extracted from `microdonta`.
 
-The model architecture can represent the major routes by which nectar-guide variation could affect long-term genetic contribution. It does **not** make those routes identifiable without data: every guide-evolution claim still requires a declared life cycle, a common census scale, measured intermediates, and a competing-model comparison.
+Nectar-guide mechanism models remain available as future design modules, but no unfinished guide dataset is part of the adopted empirical state.
 
 ## Relationship to RACH causal invariants
 
 [`rach-causal-invariants`](https://github.com/zuizui0223/rach-causal-invariants) is the separate general-methods repository. It provides finite qualitative-program grammars, robust-admissibility classifications, coverage labels, and exact known-truth observation-channel calibration. It does not specify floral fitness, island geography, pollinator guilds, pollen deposition, recruitment, or any Campanula parameter.
 
-This repository owns those biological assumptions: the \(F(z)E(z)\) factorisation, the nectar-guide life cycle, scenario parameters, observation units, and field protocol. A small predeclared subset of Campanula scenarios may be translated into a RACH candidate universe to audit the logical consequences of a qualitative observation design. That translation is an audit layer, not a code dependency and not empirical validation of a Campanula mechanism.
+This repository owns those biological assumptions: the \(F(z)E(z)\) factorisation, island-regime definitions, response-shape contracts, observation units, and field protocols. A predeclared subset may be translated into a RACH candidate universe to audit logical consequences; that translation is not empirical validation of a biological mechanism.
