@@ -1,0 +1,7 @@
+island_id,island_name,n_records,n_unique_gbif_ids,n_species,n_datasets,n_preserved_specimen,n_human_observation,n_other_basis_of_record,n_uncertainty_reported,median_coordinate_uncertainty_m,p90_coordinate_uncertainty_m,n_coordinate_uncertainty_gt_1000m,n_establishment_native,n_establishment_introduced,n_establishment_cultivated,year_min,year_max
+gshhg_2.3.7_h_79143661e5762bf8fa25,Hachijojima,3991,3991,469,45,3763,183,45,946,10000.0,10000.0,882,2,0,0,1887.0,2026.0
+gshhg_2.3.7_h_3f48d601bf60ade348ae,Izu Oshima,2392,2392,439,36,1666,712,14,839,55.0,10000.0,394,0,0,0,1884.0,2026.0
+gshhg_2.3.7_h_ab48ddfcdcd4ccc62870,Kozushima,691,691,206,9,628,63,0,63,8.0,153.0000000000004,0,0,0,0,1887.0,2026.0
+gshhg_2.3.7_h_78b9099b78b447bab1fd,Mikurajima,1186,1186,260,10,1185,1,0,1,5.0,5.0,0,0,0,0,1879.0,2025.0
+gshhg_2.3.7_h_cc2a3ac665156bf28969,Miyakejima,1177,1177,282,18,1036,138,3,99,16.0,10000.0,27,0,0,0,1879.0,2026.0
+gshhg_2.3.7_h_80bd057071c9043cebcc,Niijima,441,441,173,10,338,103,0,103,20.0,23.0,2,0,0,0,1887.0,2026.0
