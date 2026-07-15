@@ -19,7 +19,7 @@ The repository is currently a **focal Campanula calibration plus a prediction-lo
 
 - floral size and multilocus outcrossing are retained as continuous erosion across the focal island series;
 - autonomous reproductive capacity shows the source-locked Oshima-to-no-Bombus second-transition step;
-- 300-DPI flattened-corolla scans now support a measured focal guide decline from Oshima to the no-Bombus islands;
+- an initial 300-DPI flattened-corolla auto-segmentation summary suggests a focal guide decline from Oshima to the no-Bombus islands, but reviewed per-sheet outputs still require reaggregation;
 - no independent specialist lineage is yet eligible for the positive holdout;
 - one open-generalist lineage supplies a usable three-regime negative control;
 - no public-photo ROI proposal is eligible for broad specialist release; and
@@ -33,7 +33,7 @@ python scripts/report_current_evidence_state.py \
   --json-out artifacts/current_evidence_state.json
 ```
 
-See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md). When an older pilot or simulation document conflicts with that generated state, the generated state and its machine-readable source tables take precedence.
+See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md) and the guide-specific provenance audit in [`docs/CAMPANULA_GUIDE_SOURCE_AUDIT_20260715.md`](docs/CAMPANULA_GUIDE_SOURCE_AUDIT_20260715.md). When an older pilot or simulation document conflicts with that generated state, the generated state and its machine-readable source tables take precedence.
 
 ## What this repository does
 
