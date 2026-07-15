@@ -14,6 +14,7 @@ on:
       - "scripts/run_izu_shape_identifiability.py"
       - "tests/test_regime_shape_identifiability.py"
       - "tests/test_supplemental_izu_gbif.py"
+      - "tests/test_supplemental_izu_gbif_transport.py"
       - ".github/workflows/expand-izu-public-data-and-shape-audit.yml"
   pull_request:
     paths:
@@ -25,6 +26,7 @@ on:
       - "scripts/run_izu_shape_identifiability.py"
       - "tests/test_regime_shape_identifiability.py"
       - "tests/test_supplemental_izu_gbif.py"
+      - "tests/test_supplemental_izu_gbif_transport.py"
       - ".github/workflows/expand-izu-public-data-and-shape-audit.yml"
 
 permissions:
@@ -47,6 +49,7 @@ jobs:
           python -m pytest
           tests/test_regime_shape_identifiability.py
           tests/test_supplemental_izu_gbif.py
+          tests/test_supplemental_izu_gbif_transport.py
       - name: Rebuild pinned six-island audit
         run: >-
           python scripts/acquire_izu_public_data.py
