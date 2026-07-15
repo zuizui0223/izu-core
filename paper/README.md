@@ -1,31 +1,31 @@
-# Izu prediction-locked comparative programme (`paper/`)
+# Izu prediction-locked regime-transition programme (`paper/`)
 
-This directory tests whether the response calibrated in *Campanula microdonta*
-can be evaluated prospectively in independent Izu lineages. It is not currently
+This directory tests whether independent Izu plant lineages show repeatable
+response shapes at predeclared pollinator-regime boundaries. It is not currently
 a completed multi-species meta-analysis.
 
 ## Current decision
 
-The machine-generated evidence state is:
-
 ```text
-focal_core_calibration_established_guide_reaggregation_required_independent_holdout_blocked
+focal_three_channel_calibration_established_independent_holdout_blocked
 ```
 
-The focal source-locked core has three retained nonvisual channels; the guide row
-is a provisional v1.1 contract entry pending reviewed reaggregation:
+The adopted *Campanula microdonta* calibration contains three source-locked
+channels only:
 
 | channel | retained shape | current evidence |
 |---|---|---|
 | floral size | continuous erosion | source locked |
 | multilocus outcrossing | continuous erosion | source locked |
 | autonomous reproductive capacity | second-transition step | source locked |
-| guide / visible signal | provisional second-transition decline | initial 300-DPI auto-summary; reviewed reaggregation required |
 
-The independent positive specialist holdout remains absent. The current
-cross-lineage evidence is one usable open-generalist negative-control lineage,
-zero source-locked quantitative effect rows in the extraction table, and zero
-ROI proposals released to the broad specialist holdout.
+Nectar-guide and visible-signal analyses are excluded from the current evidence
+state. They contribute no adopted direction, breakpoint, or effect estimate.
+
+The independent positive specialist holdout remains absent. Current cross-lineage
+evidence comprises one usable open-generalist negative-control lineage, zero
+source-locked quantitative effect rows in the extraction table, and zero ROI
+operators released to the broad specialist photo holdout.
 
 Generate the authoritative status report before interpreting older pilot output:
 
@@ -33,74 +33,89 @@ Generate the authoritative status report before interpreting older pilot output:
 python scripts/report_current_evidence_state.py \
   --markdown-out artifacts/current_evidence_state.md \
   --json-out artifacts/current_evidence_state.json
+python paper/validate_regime_transition_registry.py
 ```
 
-The committed copy is [`../docs/CURRENT_EVIDENCE_STATE.md`](../docs/CURRENT_EVIDENCE_STATE.md).
+See [`../docs/CURRENT_EVIDENCE_STATE.md`](../docs/CURRENT_EVIDENCE_STATE.md) and
+[`../docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md`](../docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md).
 
-## Reproduce the offline programme
+## Competing response shapes
 
-```bash
-pip install -e '.[dev]'
-python scripts/report_current_evidence_state.py
-python paper/run_all.py
-python -m pytest
+Each eligible lineage-response unit may compare:
+
+```text
+none
+cline
+first_step
+second_step
+two_step
+environment_history
 ```
 
-`paper/run_all.py` is a consolidated diagnostic runner. Its simulation and
-rank-weighted pilot stages are planning/audit layers; they do not create
-independent empirical lineages.
+The goal is not to force all traits into the same island syndrome. A lineage may
+show a smooth morphological cline, a discrete mating-system transition, a binary
+state change, ecological filtering in occupancy, or no ordered response.
+
+## Response domains
+
+| domain | examples | model family |
+|---|---|---|
+| quantitative trait | size, outcrossing, bagged set | continuous/count/proportion |
+| binary or ordinal state | SI/SC, autonomous capacity, accessibility | Bernoulli/ordinal/multistate |
+| effective interaction | guild breadth, legitimate-contact link | count/binary/network with effort |
+| occupancy | species present/absent by island | detection-aware occupancy |
+
+These domains share a response-shape vocabulary but not an effect-size scale.
+They must not be pooled as though presence/absence were a noisy flower-size value.
+
+## Generalist falsification
+
+Open-generalist lineages are negative controls for a **shared specialist-specific
+breakpoint**, not a claim that all generalist traits must equal zero. The intended
+moderator test is a dependency-class by boundary interaction, with environment,
+history, observation effort, lineage, and phylogeny handled explicitly.
 
 ## Workstreams
 
 | Workstream | Main files | Scientific role |
 |---|---|---|
-| Current claim/readiness state | `channel_id/current_evidence_state.py`, `scripts/report_current_evidence_state.py` | prevents pilot, discovery, and failed image routes from being reported as completed evidence |
-| Focal calibration | `data/inoue_literature_island_traits.csv`, `data/predictive_meta/campanula_channel_shape_v1_1.csv`, `campanula_guide_scan_summary.csv` | fixes the source-locked Campanula channels and records a provisional initial guide direction |
-| Guide provenance audit | `campanula_guide_scan_provenance.csv`, `docs/CAMPANULA_GUIDE_SOURCE_AUDIT_20260715.md` | separates exact transcription from final reviewed estimation |
-| Prospective prediction contract | `data/predictive_meta/two_breakpoint_prediction_contract.csv` | locks scenario directions before independent holdout data are scored |
-| Source-native recovery | `data/predictive_meta/primary_source_extraction_queue.csv`, `primary_source_native_evidence.csv` | recovers direct tables and preserves exclusions/context without inventing effects |
+| Current claim/readiness state | `channel_id/current_evidence_state.py`, `scripts/report_current_evidence_state.py` | excludes unfinished analyses and prevents pilot output becoming evidence |
+| Regime-transition registry | `data/predictive_meta/regime_transition_registry.csv`, `validate_regime_transition_registry.py` | fixes response domain, observation unit, dependency class, regime coverage, and allowed models |
+| Focal calibration | `data/inoue_literature_island_traits.csv`, `campanula_channel_shape_v1.csv` | supplies three calibration channels; never an independent holdout replicate |
+| Prospective prediction contract | `data/predictive_meta/two_breakpoint_prediction_contract.csv` | locks scenario directions before independent data are scored |
+| Source-native recovery | `primary_source_extraction_queue.csv`, `primary_source_native_evidence.csv` | recovers direct tables and preserves exclusions/context without inventing effects |
 | Quantitative effect gate | `paper/evidence_screening/quantitative_effects.csv`, `validate_quantitative_effects.py` | admits numeric effects only with source location, units, n, uncertainty, taxonomy, and geography |
-| Generalist negative control | `generalist_negative_control_card_ledger.csv` | tests false visual thresholds where the specialist response is not predicted |
-| Image-operator falsification | `roi_dual_control_result_20260710.csv` | blocks ROI operators that are insensitive or manufacture regional differences |
-| Environment/history competitor | joint profile and source-level likelihood modules | remains a first-class alternative; not fully identified by the regime-only scorer |
-| Detectability simulation | `comprehensive_sweep.py` and related design modules | estimates what future sampling must measure; not evidence that the field mechanism occurred |
+| Generalist negative control | `generalist_negative_control_card_ledger.csv` | tests whether the observation process manufactures a shared breakpoint |
+| Image-operator falsification | `roi_dual_control_result_20260710.csv` | blocks operators that are insensitive or create regional differences |
+| Environment/history competitor | joint profile and source-level likelihood modules | remains a first-class alternative to regime steps |
+| Detectability simulation | `comprehensive_sweep.py` and related modules | plans sampling; does not establish a field mechanism |
 
-## Current evidence-bearing results
+## Presence/absence boundary
 
-1. The focal response is not one universal cline: morphology and outcrossing are
-   retained as continuous erosion, while autonomous reproductive capacity has a
-   sharp second-transition step.
-2. The locked initial auto-segmentation summary records 28.39% guide coverage
-   on Oshima and a 5.9325% equal-island mean across four no-Bombus islands.
-   These exact transcribed values are provisional until the later reviewed
-   per-sheet outputs are reaggregated, with strict-purple and oxidised-inclusive
-   coverage kept separate.
-3. The simple public-image route failed its negative/positive-control gates and
-   remains closed rather than converting ineligible images to zero values.
-4. *Ajania pacifica* supplies one flat three-regime generalist control; this is a
-   calibration against false positives, not a generalist meta-analytic estimate.
-5. The *Lilium* source is retained as an alternative Lepidoptera mechanism and
-   excluded from the within-lineage Bombus holdout because variety and geography
-   are confounded.
+Occurrence can support a separate ecological-filtering question: do mainland
+specialist-like plants cross the second regime boundary less often than open
+generalists after area, isolation, climate, history, and observation effort are
+controlled? It cannot show that an extant island population evolved a floral or
+mating-system trait.
 
 ## Immediate evidence work
 
-1. Reaggregate the reviewed Campanula guide outputs at plant level, keeping
-   strict-purple and oxidised-inclusive coverage separate.
-2. Recover the original population tables, locality mapping, n, and uncertainty
-   for *Weigela coraeensis* and *Ligustrum ovalifolium*.
-3. Keep the public-photo specialist route closed until an independent biological
+1. Recover original population tables, n, uncertainty, and locality mapping for
+   *Weigela coraeensis* and *Ligustrum ovalifolium*.
+2. Expand the registry with source-native SI/SC, autonomous-reproduction,
+   flower-size, accessibility, effective-guild, and occupancy channels.
+3. Implement the explicit climate, area, isolation, and history competitor.
+4. Keep the public-photo specialist route closed until an independent biological
    positive control validates the observation operator.
-4. Add an explicit climate, island-area, isolation, and history likelihood before
-   ranking `environment_only` against pollinator scenarios.
-5. Start a cross-lineage synthesis only after independent lineages supply
-   compatible source-native effects or validated ordinal holdout contrasts.
+5. Start hierarchical synthesis only after independent lineages supply compatible
+   native-scale observations.
+6. Keep every nectar-guide result outside current evidence until a final dataset
+   and analysis are explicitly declared.
 
 ## Evidence boundary
 
-Occurrence is availability, not a trait. A visitor name is not pollinator
-effectiveness. Bagged capsule set is autonomous reproductive capacity, not
-realised selfing. Simulation recovery is not historical reconstruction. A
-calibration fit is not an independent replication. Older pilot documents remain
-useful audit history, but the generated current evidence state supersedes them
-when claims conflict.
+Occurrence is availability or occupancy evidence, not a floral trait. Visitor
+identity is not pollinator effectiveness. Bagged capsule set is autonomous
+reproductive capacity, not realised selfing. SC is not synonymous with autonomous
+selfing. Simulation recovery is not historical reconstruction. Calibration is not
+independent replication.
