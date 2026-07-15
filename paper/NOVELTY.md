@@ -1,90 +1,115 @@
 # Methodological novelty — current self-audit
 
 The useful novelty is not a claim that a multi-species island rule has already
-been demonstrated. It is the combination of channel-shape separation,
-prediction locking, explicit falsification controls, and source-native evidence
-gates that makes such a test possible without manufacturing replication.
+been demonstrated. It is a prospective framework for testing **response shape and
+breakpoint repeatability** across independent lineages without manufacturing
+replication.
 
-## 1. Channel-shape separation instead of one island cline
+## 1. Step, cline, and no-response are competing biological hypotheses
 
-The focal *Campanula* evidence is represented as several response channels rather
-than one syndrome score:
+The adopted focal *Campanula* evidence contains three channels:
 
 - floral size: continuous erosion;
-- multilocus outcrossing: continuous erosion;
-- autonomous reproductive capacity: second-transition step;
-- guide / visible signal: provisional second-transition decline in the locked
-  initial auto-summary; reviewed reaggregation required.
+- multilocus outcrossing: continuous erosion; and
+- autonomous reproductive capacity: second-transition step.
 
-This matters because the biological claim is a temporally staggered response,
-not that every trait makes two sharp steps. The observed step is in autonomous
-capacity. The guide row currently records only the direction produced by an
-initial standardised-scan auto-summary; it is not yet a final reviewed effect.
-Neither result alone identifies a historical pollinator cause.
+Nectar-guide and visible-signal analyses are not adopted.
 
-## 2. Prediction locking before independent lineages
+This separation matters because island responses need not form one syndrome or
+one monotonic axis. A trait may change gradually, switch after an ecological
+boundary, remain stable, or follow environment/history rather than pollinator
+regime.
 
-`data/predictive_meta/two_breakpoint_prediction_contract.csv` separates four
-predeclared scenarios and keeps the focal calibration partition distinct from the
-holdout partition. One lineage × trait family × transition is one comparison
-unit, so multiple images or traits from one taxon cannot masquerade as independent
-evolutionary replications.
+The cross-lineage test therefore compares:
 
-The specialist late-decline prediction and the flat open-generalist prediction
-are therefore prospective tests. A shared specialist breakpoint remains a target
-for future evidence, not a result already obtained.
+```text
+none | cline | first_step | second_step | two_step | environment_history
+```
 
-## 3. Failed observation operators become falsification results
+A shared breakpoint across independent specialist-like lineages is a target
+result, not a conclusion inferred from the focal species.
 
-The public-image work did not simply optimise until a desired regional contrast
-appeared. It required both:
+## 2. Heterogeneous data can share a question without sharing an effect scale
 
-- a known-flat biological negative control; and
-- a deterministic technical sensitivity control.
+The registry accepts separate native observation models for:
 
-Simple centre/chroma flower crops detected the technical attenuation but created
-false regional differences in the flat *Ajania* control. The full frame passed
-those two technical checks but lacked an independent biological positive control.
-No operator was released to the broad specialist holdout. This is a reusable
-example of validating the observation process before interpreting a phenotype.
+- continuous and proportional traits;
+- binary or ordinal states, including SI/SC;
+- effective interaction states; and
+- detection-aware island occupancy.
 
-## 4. Source-native evidence cannot be promoted by titles or metadata
+This permits broader screening when exact floral measurements are scarce while
+preventing a presence/absence record from being treated as a noisy trait value.
 
-The evidence pipeline distinguishes occurrence, discovery leads, qualitative
-source statements, compatible quantitative effects, and contextual comparisons.
+## 3. Generalists provide a difference-in-differences falsification
+
+The negative-control prediction is not that every open-generalist trait is
+perfectly flat. It is that generalists should not repeatedly share the same
+specialist-specific breakpoint at a Bombus-service boundary.
+
+The informative quantity is therefore the dependency-class by boundary
+interaction after climate, area, isolation, history, observation effort,
+lineage, and phylogeny are considered.
+
+## 4. Mating-system and interaction rewiring are explicit alternatives
+
+The design distinguishes:
+
+- loss of self-incompatibility / gain of self-compatibility;
+- autonomous reproduction;
+- realised selfing;
+- de-specialisation or functional broadening;
+- replacement by a different specialised guild; and
+- ecological interaction loss without immediate morphological change.
+
+These are not collapsed into one “selfing syndrome” or described loosely as
+reverse evolution.
+
+## 5. Prediction locking precedes independent lineages
+
+`data/predictive_meta/regime_transition_registry.csv` fixes the analysis role,
+dependency class, response domain, observation unit, regime coverage, evidence
+status, and allowed response models. One lineage x one prespecified response
+family is one comparison unit, so multiple islands, images, or correlated traits
+cannot masquerade as independent evolutionary replications.
+
+## 6. Failed observation operators remain falsification results
+
+The public-image work required both a known-flat biological control and a
+technical sensitivity control. Several crop operators detected technical changes
+but manufactured regional differences in the flat *Ajania* control. No operator
+was released to the broad specialist holdout.
+
+This is a reusable contribution: validate the observation process before
+interpreting a regional phenotype.
+
+## 7. Source-native evidence cannot be promoted by titles or metadata
+
 Numeric effects require exact source location, population units, n, uncertainty,
-taxonomy, geography, wild status, and compatible units.
+taxonomy, geography, wild status, and compatible units. This gate currently keeps
+*Weigela* and *Ligustrum* pending rather than inferring missing tables, and keeps
+*Lilium* and *Clerodendrum* as contextual alternatives rather than within-lineage
+Bombus replications.
 
-This gate produced scientifically useful exclusions:
+## 8. Simulation is a design diagnostic, not empirical replication
 
-- *Lilium* is an inter-varietal, Lepidoptera-focused alternative mechanism, not a
-  within-lineage Bombus replicate;
-- *Clerodendrum* is a between-taxon context comparison;
-- *Ligustrum* has verified qualitative direction but remains unscored until its
-  population table is recovered;
-- *Weigela* remains a high-priority direct candidate without an inferred direction
-  from its title.
+Constrained and detectability simulations quantify which observation plans can
+discriminate declared virtual mechanisms. They do not show that a virtual
+mechanism caused the Izu field pattern.
 
-## 5. Simulation is a design diagnostic, not empirical replication
-
-The constrained and detectability simulations quantify which observation plans
-can discriminate declared virtual mechanisms, and how environmental confounding
-can defeat naive recovery. These results justify measuring interaction-level and
-environment/history channels. They do not show that the virtual mechanism caused
-the Izu field pattern.
-
-## 6. Current empirical contribution
+## Current empirical contribution
 
 The present evidence-bearing contribution is:
 
-1. a three-channel source-locked focal core plus a provisional initial guide
-   direction awaiting reviewed reaggregation;
-2. a stable descriptive separation between continuous morphological/mating
-   erosion and a sharp autonomous-capacity transition;
+1. a three-channel source-locked focal calibration;
+2. a stable contrast between continuous erosion and a sharp autonomous-capacity
+   transition within that calibration;
 3. one usable generalist negative-control lineage;
-4. a documented ceiling for the public-photo specialist route; and
-5. an auditable queue for acquiring independent source-native lineages.
+4. an executable registry for continuous, binary, ordinal, interaction, and
+   occupancy responses;
+5. a documented ceiling for the public-photo specialist route; and
+6. an auditable queue for independent source-native lineages.
 
-The project becomes a cross-lineage meta-analysis only after independent taxa
-supply compatible effects or validated ordinal holdout contrasts, and after the
-environment/history alternative is modelled explicitly.
+The project becomes a cross-lineage synthesis only after independent taxa supply
+eligible observations and the environment/history alternative is modelled
+explicitly.
