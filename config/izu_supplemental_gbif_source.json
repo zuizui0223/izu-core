@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "gshhg": {
+    "version": "2.3.7",
+    "resolution": "high",
+    "level": 1,
+    "url": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+    "archive_member_prefix": "GSHHS_shp/h/GSHHS_h_L1"
+  },
+  "gbif": {
+    "occurrence_search_url": "https://api.gbif.org/v1/occurrence/search",
+    "taxon_key": 6,
+    "has_coordinate": true,
+    "occurrence_status": "PRESENT",
+    "page_size": 300,
+    "maximum_offset": 100000
+  },
+  "targets_from_scaffold": [
+    "toshima",
+    "shikinejima",
+    "aogashima"
+  ],
+  "interpretation": "Live GBIF occurrence-search acquisition inside version-locked GSHHG coastlines. Outputs are candidate occurrence evidence, not a reviewed native flora or biological absence matrix."
+}
