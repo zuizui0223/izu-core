@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "scope": "six frozen exact-island Izu pilot polygons",
   "source": {
     "repository": "zuizui0223/island",
@@ -9,15 +9,17 @@
     "effort_path": "data/v2/staging/gbif/collected/island_observation_effort.csv",
     "effort_blob_sha": "8abb8203dd60293eb3595a6a8daa0943cc373137"
   },
-  "workflow_run_id": 29402819451,
-  "artifact_id": 8337770106,
-  "artifact_digest": "sha256:e7f8d94a0e2775616d582cb0793f35a99f26928063f32246f1b5043f2cc5d1c2",
+  "workflow_run_id": 29403095838,
+  "artifact_id": 8337877788,
+  "artifact_digest": "sha256:459e04dd1a540a36fdd7ef0407aec31dae9d2b57bc7aca510fd3167b78749fd2",
   "n_islands_expected": 6,
   "n_islands_with_effort_rows": 6,
   "missing_island_ids": [],
   "n_island_species_pairs": 1829,
   "n_unique_species_labels": 863,
-  "n_total_records": 9795,
+  "n_records_in_effort_table": 9878,
+  "n_records_in_species_rows": 9795,
+  "n_records_not_assigned_to_retained_species_rows": 83,
   "n_species_on_all_six_islands": 54,
   "n_single_island_species_labels": 457,
   "island_rows": [
@@ -32,6 +34,7 @@
     "Occurrence-based species labels are not a reviewed native flora.",
     "Cultivated, introduced, transient, and taxonomically unresolved records may remain.",
     "Toshima, Shikinejima, and Aogashima require a supplemental exact-polygon acquisition.",
-    "Presence records do not measure pollinator dependence, floral evolution, or pollination service."
+    "Presence records do not measure pollinator dependence, floral evolution, or pollination service.",
+    "The effort total can exceed the sum of retained species rows when records lack a retained non-empty species label or are excluded upstream from the species aggregation."
   ]
 }
