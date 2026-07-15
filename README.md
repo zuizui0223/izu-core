@@ -13,11 +13,34 @@ For a predeclared trait \(z\), can a difference between island regimes be assign
 
 rather than merely described as a difference in flower size, selfing, or visitor identity?
 
+## Current empirical state
+
+The repository is currently a **focal Campanula calibration plus a prediction-locked comparative programme**, not a completed cross-lineage meta-analysis.
+
+- floral size and multilocus outcrossing are retained as continuous erosion across the focal island series;
+- autonomous reproductive capacity shows the source-locked Oshima-to-no-Bombus second-transition step;
+- 300-DPI flattened-corolla scans now support a measured focal guide decline from Oshima to the no-Bombus islands;
+- no independent specialist lineage is yet eligible for the positive holdout;
+- one open-generalist lineage supplies a usable three-regime negative control;
+- no public-photo ROI proposal is eligible for broad specialist release; and
+- `environment_only` remains unranked until climate, area, isolation, and history enter an explicit comparison likelihood.
+
+The current counts, claim boundaries, and next admissible actions are generated from committed tables:
+
+```bash
+python scripts/report_current_evidence_state.py \
+  --markdown-out artifacts/current_evidence_state.md \
+  --json-out artifacts/current_evidence_state.json
+```
+
+See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md). When an older pilot or simulation document conflicts with that generated state, the generated state and its machine-readable source tables take precedence.
+
 ## What this repository does
 
 - records the minimum theorem-compatible measurement design for the factorisation above;
 - distinguishes direct measurements from proxies whose calibration must be stable or independently checked;
 - keeps published patterns, prospective field measurements, and pollinator-specific claims separate;
+- generates a current evidence/readiness report so discovery counts and failed operators cannot be mistaken for empirical replication;
 - provides a lightweight readiness checker for a proposed sampling design;
 - provides a constrained life-history simulation layer for comparing explicitly declared mechanisms against predeclared observation intervals;
 - ranks proposed future measurements by how strongly they distinguish the parameter candidates still compatible with current observations;
@@ -85,7 +108,7 @@ The factorisation is a declared model choice. It does not claim that all natural
 
 This is the active empirical design home for the Campanula/Izu channel-identification program extracted from `microdonta`.
 
-The model architecture can now represent the major routes by which nectar-guide variation could affect long-term genetic contribution. It does **not** make those routes identifiable without data: every guide-evolution claim still requires a declared life cycle, a common census scale, measured intermediates, and a competing-model comparison.
+The model architecture can represent the major routes by which nectar-guide variation could affect long-term genetic contribution. It does **not** make those routes identifiable without data: every guide-evolution claim still requires a declared life cycle, a common census scale, measured intermediates, and a competing-model comparison.
 
 ## Relationship to RACH causal invariants
 
