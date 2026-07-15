@@ -9,17 +9,17 @@ a completed multi-species meta-analysis.
 The machine-generated evidence state is:
 
 ```text
-focal_calibration_established_independent_holdout_blocked
+focal_core_calibration_established_guide_reaggregation_required_independent_holdout_blocked
 ```
 
-The focal calibration has four retained channels:
+The focal source-locked core has three retained nonvisual channels; the guide row is a provisional v1.1 contract entry pending reviewed reaggregation:
 
 | channel | retained shape | current evidence |
 |---|---|---|
 | floral size | continuous erosion | source locked |
 | multilocus outcrossing | continuous erosion | source locked |
 | autonomous reproductive capacity | second-transition step | source locked |
-| guide / visible signal | second-transition decline | measured 300-DPI scan summary |
+| guide / visible signal | provisional second-transition decline | initial 300-DPI auto-summary; reviewed reaggregation required |
 
 The independent positive specialist holdout remains absent. The current
 cross-lineage evidence is one usable open-generalist negative-control lineage,
@@ -54,7 +54,7 @@ independent empirical lineages.
 | Workstream | Main files | Scientific role |
 |---|---|---|
 | Current claim/readiness state | `channel_id/current_evidence_state.py`, `scripts/report_current_evidence_state.py` | prevents pilot, discovery, and failed image routes from being reported as completed evidence |
-| Focal calibration | `data/inoue_literature_island_traits.csv`, `data/predictive_meta/campanula_channel_shape_v1_1.csv`, `campanula_guide_scan_summary.csv` | fixes the observed Campanula channel shapes and the measured guide direction |
+| Focal calibration | `data/inoue_literature_island_traits.csv`, `data/predictive_meta/campanula_channel_shape_v1_1.csv`, `campanula_guide_scan_summary.csv` | fixes the source-locked Campanula channels and records a provisional initial guide direction |
 | Prospective prediction contract | `data/predictive_meta/two_breakpoint_prediction_contract.csv` | locks scenario directions before independent holdout data are scored |
 | Source-native recovery | `data/predictive_meta/primary_source_extraction_queue.csv`, `primary_source_native_evidence.csv` | recovers direct tables and preserves exclusions/context without inventing effects |
 | Quantitative effect gate | `paper/evidence_screening/quantitative_effects.csv`, `validate_quantitative_effects.py` | admits numeric effects only with source location, units, n, uncertainty, taxonomy, and geography |
@@ -68,9 +68,11 @@ independent empirical lineages.
 1. The focal response is not one universal cline: morphology and outcrossing are
    retained as continuous erosion, while autonomous reproductive capacity has a
    sharp second-transition step.
-2. The standardised flattened-corolla series records 28.39% guide coverage on
-   Oshima and a 5.9325% equal-island mean across four no-Bombus islands, a
-   -22.4575 percentage-point focal contrast.
+2. The locked initial auto-segmentation summary records 28.39% guide coverage
+   on Oshima and a 5.9325% equal-island mean across four no-Bombus islands.
+   These exact transcribed values are provisional until the later reviewed
+   per-sheet outputs are reaggregated, with strict-purple and oxidised-inclusive
+   coverage kept separate.
 3. The simple public-image route failed its negative/positive-control gates and
    remains closed rather than converting ineligible images to zero values.
 4. *Ajania pacifica* supplies one flat three-regime generalist control; this is a
@@ -81,13 +83,15 @@ independent empirical lineages.
 
 ## Immediate evidence work
 
-1. Recover the original population tables, locality mapping, n, and uncertainty
+1. Reaggregate the reviewed Campanula guide outputs at plant level, keeping
+   strict-purple and oxidised-inclusive coverage separate.
+2. Recover the original population tables, locality mapping, n, and uncertainty
    for *Weigela coraeensis* and *Ligustrum ovalifolium*.
-2. Keep the public-photo specialist route closed until an independent biological
+3. Keep the public-photo specialist route closed until an independent biological
    positive control validates the observation operator.
-3. Add an explicit climate, island-area, isolation, and history likelihood before
+4. Add an explicit climate, island-area, isolation, and history likelihood before
    ranking `environment_only` against pollinator scenarios.
-4. Start a cross-lineage synthesis only after independent lineages supply
+5. Start a cross-lineage synthesis only after independent lineages supply
    compatible source-native effects or validated ordinal holdout contrasts.
 
 ## Evidence boundary
