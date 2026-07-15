@@ -11,6 +11,10 @@ from typing import Iterable
 class CurrentEvidenceState:
     project_stage: str
     focal_channel_shapes: tuple[tuple[str, str, str], ...]
+    guide_source_stage: str
+    guide_reviewed_reaggregation_status: str
+    guide_locked_source_commit: str
+    guide_locked_summary_blob_sha: str
     focal_guide_oshima_mean_pct: float
     focal_guide_no_bombus_equal_island_mean_pct: float
     focal_guide_second_transition_delta_pp: float
@@ -79,10 +83,44 @@ def summarize_current_evidence(root: str | Path) -> CurrentEvidenceState:
             f"expected {expected!r}, got {actual!r}"
         )
 
+    provenance_rows = _rows(
+        predictive / "campanula_guide_scan_provenance.csv",
+        {
+            "source_repository",
+            "locked_commit",
+            "locked_summary_path",
+            "locked_summary_blob_sha",
+            "source_stage",
+            "reviewed_reaggregation_status",
+            "evidence_use",
+        },
+    )
+    if len(provenance_rows) != 1:
+        raise ValueError("campanula guide provenance must contain exactly one active audit row")
+    provenance = provenance_rows[0]
+    if provenance["evidence_use"] != "provisional_direction_only":
+        raise ValueError("guide source audit must remain provisional until reviewed reaggregation is complete")
+
     guide_rows = _rows(
         predictive / "campanula_guide_scan_summary.csv",
-        {"island", "pollinator_regime", "guide_cov_pct_mean", "evidence_status"},
+        {
+            "source_repository",
+            "source_commit",
+            "source_path",
+            "island",
+            "pollinator_regime",
+            "guide_cov_pct_mean",
+            "evidence_status",
+        },
     )
+    for row in guide_rows:
+        if row["source_repository"] != provenance["source_repository"]:
+            raise ValueError("guide summary source repository disagrees with provenance audit")
+        if row["source_commit"] != provenance["locked_commit"]:
+            raise ValueError("guide summary source commit disagrees with provenance audit")
+        if row["source_path"] != provenance["locked_summary_path"]:
+            raise ValueError("guide summary source path disagrees with provenance audit")
+
     measured = [row for row in guide_rows if row["evidence_status"] == "measured_scan_summary"]
     oshima = [row for row in measured if row["island"] == "Oshima" and row["pollinator_regime"] == "ardens"]
     no_bombus = [row for row in measured if row["pollinator_regime"] == "no_bombus"]
@@ -130,8 +168,11 @@ def summarize_current_evidence(root: str | Path) -> CurrentEvidenceState:
         )
     )
 
-    if positive:
+    guide_reviewed = provenance["reviewed_reaggregation_status"] == "completed"
+    if positive and effect_count and guide_reviewed:
         stage = "independent_cross_lineage_holdout_available"
+    elif not guide_reviewed:
+        stage = "focal_core_calibration_established_guide_reaggregation_required_independent_holdout_blocked"
     elif guide_delta < 0:
         stage = "focal_calibration_established_independent_holdout_blocked"
     else:
@@ -141,6 +182,10 @@ def summarize_current_evidence(root: str | Path) -> CurrentEvidenceState:
     return CurrentEvidenceState(
         project_stage=stage,
         focal_channel_shapes=focal_shapes,
+        guide_source_stage=provenance["source_stage"],
+        guide_reviewed_reaggregation_status=provenance["reviewed_reaggregation_status"],
+        guide_locked_source_commit=provenance["locked_commit"],
+        guide_locked_summary_blob_sha=provenance["locked_summary_blob_sha"],
         focal_guide_oshima_mean_pct=oshima_mean,
         focal_guide_no_bombus_equal_island_mean_pct=no_bombus_mean,
         focal_guide_second_transition_delta_pp=guide_delta,
@@ -151,12 +196,14 @@ def summarize_current_evidence(root: str | Path) -> CurrentEvidenceState:
         unresolved_primary_source_ids=unresolved_ids,
         unresolved_primary_source_taxa=unresolved_taxa,
         allowed_claims=(
-            "The focal Campanula channels do not share one response shape: floral size and outcrossing are retained as continuous erosion, while autonomous assurance is a second-transition step.",
-            f"The measured flattened-corolla scan series supports a focal second-transition guide decline of {guide_delta:.4f} percentage points using islands as comparative units.",
+            "The source-locked focal Campanula size, outcrossing, and autonomous-assurance channels do not share one response shape.",
+            f"The initial automated scan summary has a negative Oshima-to-no-Bombus contrast of {guide_delta:.4f} percentage points; this is provisional direction evidence, not a final reviewed effect estimate.",
             f"Exactly {generalists} open-generalist lineage currently supplies a usable three-regime negative-control contrast.",
             "The present repository supports a prediction-locked comparative programme, not a completed cross-lineage meta-analysis.",
         ),
         prohibited_claims=(
+            "Do not call the locked 28.39%, 5.9325%, or -22.4575 values final reviewed guide estimates until all reviewed sheet outputs are reaggregated.",
+            "Do not combine strict-purple coverage with oxidised-inclusive coverage; they are different traits.",
             "Do not claim that historical Bombus loss has been causally identified.",
             "Do not claim a general Izu-flora rule from the focal calibration lineage and one generalist control.",
             "Do not treat occurrence, visitor identity, public photographs, or non-report as pollinator effectiveness.",
@@ -164,6 +211,7 @@ def summarize_current_evidence(root: str | Path) -> CurrentEvidenceState:
             "Do not reopen the broad specialist photo holdout while no ROI proposal has an independent biological positive-control validation.",
         ),
         next_actions=(
+            "Reaggregate guide traits from the reviewed per-sheet outputs, using plant-level units where plant IDs are resolved and reporting strict-purple and oxidised-inclusive coverage separately.",
             f"Recover and source-lock the unresolved primary tables/locality maps for: {source_text}.",
             "Keep the public-photo specialist route closed until an independent biological positive control validates the observation operator.",
             "Implement the explicit environment/history likelihood before formally ranking environment-only against pollinator scenarios.",
@@ -180,21 +228,31 @@ def render_markdown(state: CurrentEvidenceState) -> str:
         "boundary for the comparative programme, not a manuscript conclusion generated",
         "from discovery counts or simulation output.", "", "## Decision", "",
         f"**Project stage:** `{state.project_stage}`.", "",
-        "The focal *Campanula* calibration is established across four distinct channels,",
-        "but the independent positive specialist holdout is still absent. The repository",
-        "therefore does not yet contain a completed cross-lineage meta-analysis.", "",
+        "The source-locked nonvisual *Campanula* calibration is retained, but the guide",
+        "summary still comes from an initial automated segmentation table that has not",
+        "been regenerated from the later reviewed sheet outputs. The independent positive",
+        "specialist holdout is also absent, so no completed cross-lineage meta-analysis exists.", "",
         "## Focal channel contract", "",
-        "| trait family | evidence status | retained response shape |",
+        "| trait family | v1.1 evidence status | v1.1 retained response shape |",
         "|---|---|---|",
     ]
     lines.extend(f"| `{trait}` | `{status}` | `{shape}` |" for trait, status, shape in state.focal_channel_shapes)
     lines.extend([
-        "", "## Measured guide calibration", "",
-        f"- Oshima mean guide coverage: **{state.focal_guide_oshima_mean_pct:.4f}%**.",
-        f"- Equal-island mean across no-Bombus islands: **{state.focal_guide_no_bombus_equal_island_mean_pct:.4f}%**.",
-        f"- Second-transition difference: **{state.focal_guide_second_transition_delta_pp:.4f} percentage points**.", "",
-        "This is a measured focal direction. It is not a causal estimate of Bombus loss,",
-        "selection on the guide, or an independent evolutionary replication.", "",
+        "", "The visible-signal row above records the frozen v1.1 contract. Its current claim",
+        "use is demoted by the source audit below until reviewed reaggregation is complete.", "",
+        "## Guide-source audit", "",
+        f"- Locked source commit: `{state.guide_locked_source_commit}`.",
+        f"- Locked summary blob: `{state.guide_locked_summary_blob_sha}`.",
+        f"- Source stage: `{state.guide_source_stage}`.",
+        f"- Reviewed reaggregation: `{state.guide_reviewed_reaggregation_status}`.",
+        f"- Initial Oshima mean: **{state.focal_guide_oshima_mean_pct:.4f}%**.",
+        f"- Initial equal-island no-Bombus mean: **{state.focal_guide_no_bombus_equal_island_mean_pct:.4f}%**.",
+        f"- Initial second-transition difference: **{state.focal_guide_second_transition_delta_pp:.4f} percentage points**.", "",
+        "These three numbers are exact transcriptions of the locked initial automatic",
+        "summary. They are not final reviewed estimates. Subsequent source-repository QC",
+        "changed segmentation, spot detection, scale handling, and the number of retained",
+        "corollas on at least one sheet; strict-purple and oxidised-inclusive coverage must",
+        "also remain separate.", "",
         "## Cross-lineage readiness", "",
         f"- Source-locked quantitative effect rows beyond the extraction header: **{state.quantitative_effect_count}**.",
         f"- Eligible independent specialist holdout lineages: **{state.positive_specialist_holdout_lineages}**.",
@@ -211,7 +269,7 @@ def render_markdown(state: CurrentEvidenceState) -> str:
     lines.extend([
         "", "## Supersession rule", "",
         "Older pilot documents and simulation summaries remain audit history. When they",
-        "conflict with this generated state, the machine-readable v1.1 channel contract,",
+        "conflict with this generated state, the source-audited guide provenance,",
         "source-native evidence registry, quantitative-effect gate, blinded-card ledger,",
         "and ROI dual-control result take precedence.", "",
     ])
