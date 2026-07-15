@@ -12,8 +12,7 @@ the source-locked *Campanula microdonta* calibration:
 Nectar-guide and visible-signal data remain excluded. They contribute no direction,
 effect size, breakpoint, or simulation truth.
 
-The comparative question is whether an independent response is better represented
-by:
+The competing response shapes are:
 
 ```text
 none
@@ -32,14 +31,14 @@ island occupancy universe.
 
 Toshima is the immediate post-Oshima unit, making it the most direct observation
 for distinguishing a smooth chain-wide cline from a discontinuity at the second
-boundary. Regime labels remain working hypotheses and must not be converted into
-measured pollinator effectiveness without source-direct interaction evidence.
+boundary. Regime labels remain working hypotheses and are not measured pollinator
+effectiveness.
 
 ## Completed nine-island public-data acquisition
 
-The previous pinned audit covered Izu Oshima, Niijima, Kozushima, Miyakejima,
-Mikurajima, and Hachijojima. The supplemental workflow used GSHHG 2.3.7 exact land
-polygons and the GBIF occurrence-search API to add:
+The pinned audit covered Izu Oshima, Niijima, Kozushima, Miyakejima, Mikurajima,
+and Hachijojima. The supplemental workflow used GSHHG 2.3.7 exact land polygons
+and GBIF occurrence search to add:
 
 | island | GBIF records | raw species labels | datasets |
 |---|---:|---:|---:|
@@ -53,25 +52,26 @@ The combined nine-island candidate product contains:
 - **2,321 island × raw-species-label rows**; and
 - **1,243 distinct raw species labels**.
 
-The full raw acquisition is retained in workflow artifact `8340718650` from run
-`29409801950`, with digest
-`sha256:4edd2519f3110c928e4d1e24ac1d5240055ce465a2bf0b68d98519219772ddfa`.
-Small audit products are committed as:
+The effort-corrected full artifact is `8340962440` from workflow run
+`29410478908`, digest
+`sha256:0b229a6b94847fd1caa7a331819963d32a080cde69e9a82be274e75af090fc5b`.
+Small committed products are:
 
 - `data/public/izu_occurrence_audit/izu_supplemental_summary.json`;
 - `data/public/izu_occurrence_audit/izu_9island_effort.csv`; and
 - `data/design/izu_supplemental_polygons.geojson`.
 
-These are candidate occurrence data, not a native-flora matrix. The two acquisition
-paths have not yet undergone one shared taxonomic normalization, and Aogashima's
-high label count must be reviewed rather than interpreted as true native richness.
+These are occurrence candidates, not a native-flora matrix. The two acquisition
+paths still require one shared taxonomic normalization. Aogashima's high raw-label
+count must be audited rather than interpreted as native richness.
 
 ## Design-power simulation
 
 `channel_id/regime_shape_identifiability.py` generates virtual continuous, binary,
 and occupancy responses under each candidate shape and selects among the same
-models using BIC. Each reported cell used 300 replicates and 20 independent virtual
-lineages.
+models using BIC. Each cell used 300 replicates and 20 virtual lineages. Occupancy
+non-detection uses the acquired nine-island record effort rather than a uniform
+placeholder.
 
 ### Recovery of a true second-transition step
 
@@ -79,53 +79,48 @@ lineages.
 |---|---:|---:|---:|
 | continuous, with mainland reference | 0.953 | **0.993** | 0.983 |
 | binary, with mainland reference | 0.570 | 0.650 | **0.687** |
-| occupancy, islands only | 0.743 | 0.747 | **0.813** |
+| occupancy, islands only | 0.743 | 0.787 | **0.850** |
 
-The simulation implies three design lessons, conditional on its declared effect
-size and observation model:
+Conditional on the declared effect size and observation model:
 
 1. Continuous source-native traits can distinguish a strong second step with the
-   present geometry, and Toshima removes most residual cline confusion.
-2. Binary states such as SI/SC or autonomous reproduction require multiple
+   current geometry, and Toshima removes most residual cline confusion.
+2. Binary states such as SI/SC or autonomous reproduction require several
    independent lineages; nine islands improve recovery, but ambiguity remains.
-3. Occupancy gains more from completing the nine-island effort surface than from
-   adding Toshima alone, because non-detection and island-level effort dominate.
+3. Occupancy benefits from both the immediate post-Oshima island and completion of
+   the full effort surface. The gain after replacing placeholder effort confirms
+   that detection design is part of the biological test, not a nuisance added later.
 
 ### Structural limitations
 
 The first transition cannot be identified from island-only responses because every
 island lies after the mainland-to-island boundary. A mainland or equivalent
-large-Bombus reference is therefore mandatory for `first_step` and `two_step`
-claims.
+large-Bombus reference is mandatory for `first_step` and `two_step` claims.
 
-Under the present simulation, the full two-step truth is recovered poorly even
-when a mainland reference is included. The first- and second-step parameters are
-too correlated for the declared number of units and noise. A two-step biological
-claim should therefore require either stronger source-direct trait information,
-more mainland/large-Bombus reference populations, or a hierarchical mechanism
-that links channels without pretending each trait independently estimates both
-breakpoints.
+The full two-step truth is recovered poorly even with a mainland reference. The
+first- and second-step parameters are too correlated for the declared units and
+noise. A two-step biological claim therefore needs stronger source-direct traits,
+more mainland/large-Bombus reference populations, or a hierarchical multichannel
+mechanism rather than pretending each trait independently estimates both breaks.
 
-The committed compact result is
-`data/design/izu_shape_identifiability_summary.json`; the full 90-cell confusion
-output is in the workflow artifact.
+The compact result is `data/design/izu_shape_identifiability_summary.json`; the
+full 90-cell confusion output is retained in the workflow artifact.
 
 ## Interpretation boundary
 
-The following claims remain prohibited:
+Do not infer that:
 
-- a successful virtual recovery proves staged pollinator loss;
-- latitude is a complete environmental/history model;
+- successful virtual recovery proves staged pollinator loss;
+- latitude is a complete environment/history model;
 - occurrence is native establishment;
 - non-detection is biological absence;
-- the same species label on several islands is an independent evolutionary replicate;
+- repeated island records are independent evolutionary replicates;
 - a regime label is pollinator effectiveness; or
-- the unfinished nectar-guide analysis supports a second threshold.
+- unfinished nectar-guide work supports a second threshold.
 
-The environmental/history competitor must use measured climate, island area,
+The environment/history competitor must use measured climate, island area,
 isolation, geology, disturbance history, habitat, and observation process. The
-simulation's latitude axis is only an order-correlated adversary used to expose
-confounding in the sampling geometry.
+latitude axis is only an order-correlated adversary.
 
 ## Next empirical stage
 
@@ -137,8 +132,7 @@ confounding in the sampling geometry.
 5. Assign specialist-like/generalist-like dependency classes before inspecting
    island response shapes.
 6. Admit source-direct SI/SC, autonomous reproduction, outcrossing, flower-size,
-   accessibility, and effective-interaction channels through their native
-   observation models.
+   accessibility, and effective-interaction channels through their native models.
 7. Replace the latitude surrogate with an explicit climate, area, isolation, and
    geological-history likelihood.
 
