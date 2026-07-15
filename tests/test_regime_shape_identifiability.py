@@ -12,7 +12,7 @@ from channel_id.regime_shape_identifiability import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SCAFFOLD = ROOT / "data" / "design" / "izu_regime_scaffold.csv"
-EFFORT = ROOT / "data" / "public" / "izu_occurrence_audit" / "izu_island_effort.csv"
+EFFORT = ROOT / "data" / "public" / "izu_occurrence_audit" / "izu_9island_effort.csv"
 
 
 def test_nine_island_scaffold_locks_two_boundaries() -> None:
