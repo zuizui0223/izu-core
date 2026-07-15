@@ -1,32 +1,37 @@
-# Campanula guide-scan calibration and contract v1.1
+# Campanula guide-scan contract v1.1 — post-freeze provenance correction
 
-## Why v1.1 exists
+## Historical purpose of v1.1
 
 Contract v1.0.0 was frozen before an independent specialist holdout was opened.
-It correctly recorded that `izu-core` itself did not then contain a measured
-island guide series. A subsequent audit found an already measured focal dataset
-in the private companion repository `zuizui0223/shimahotarubukuro`.
+A later audit found a numerical island summary in
+`zuizui0223/shimahotarubukuro`, so v1.1 recorded the visible-signal channel as a
+measured scan summary before any evaluated holdout lineage was opened.
 
-The discovery occurred before running the holdout. Version 1.0.0 is therefore
-retained unchanged as the audit trail, and version 1.1.0 records the newly
-recovered calibration evidence. No evaluated holdout lineage informed this
-amendment.
+The original v1.1 files remain unchanged as audit history. The 2026-07-15 source
+audit found that the numerical table was an **initial automated segmentation
+summary**, not the final aggregate of the later reviewed sheet outputs. Its
+current claim use is therefore demoted to provisional direction evidence.
 
-## Source
+See `docs/CAMPANULA_GUIDE_SOURCE_AUDIT_20260715.md` and
+`data/predictive_meta/campanula_guide_scan_provenance.csv`.
+
+## Locked source
 
 - source repository: `zuizui0223/shimahotarubukuro`
 - locked source commit: `6343d152a743c240348c736baf5c65768c9b7020`
 - source table: `results/per_island_summary.csv`
+- source blob SHA: `822fb14d8bb7cc481800d58be503eb9308687304`
 - measurement basis: flattened corollas scanned at 300 DPI
-- guide trait: purple-guide area as percentage of segmented corolla area
+- operational trait: strict-purple pigment area as percentage of segmented
+  corolla area
 
 The public-safe transcription is
-`data/predictive_meta/campanula_guide_scan_summary.csv`. Raw scans remain outside
-`izu-core`; the numerical rows retain the source commit and table path.
+`data/predictive_meta/campanula_guide_scan_summary.csv`. The transcription is
+exact for the locked table.
 
-## Measured pattern
+## Locked initial pattern
 
-| island | regime | corollas | mean guide coverage | guide present | degraded fraction |
+| island | regime | corollas | initial mean guide coverage | guide present | degraded fraction |
 |---|---|---:|---:|---:|---:|
 | Oshima | *B. ardens* | 88 | 28.39% | 1.00 | 0.15 |
 | Toshima | no effective Bombus | 63 | 5.27% | 0.83 | 0.10 |
@@ -34,43 +39,37 @@ The public-safe transcription is
 | Shikinejima | no effective Bombus | 5 | 2.00% | 0.20 | 0.20 |
 | Kozushima | no effective Bombus | 18 | 4.31% | 0.94 | 0.11 |
 
-Using islands—not individual flowers—as the comparative units, the equal-island
-mean across the four no-Bombus islands is 5.9325%. Relative to Oshima, the
-second-transition difference is -22.4575 percentage points. Every no-Bombus
-island is below Oshima, and every leave-one-no-Bombus-island-out difference
-remains negative.
+The arithmetic equal-island mean across the four no-Bombus islands is 5.9325%,
+and the locked Oshima-to-no-Bombus difference is -22.4575 percentage points
+when written as focal minus reference.
 
-## Contract amendment
+These numbers are not transcription errors. They are also not final reviewed
+effect estimates.
 
-`data/predictive_meta/campanula_channel_shape_v1_1.csv` changes only the focal
-visible-signal evidence status:
+## Why the evidence was demoted
+
+The source repository is 92 commits beyond the locked commit and now contains
+reviewed masks, split/exclusion corrections, improved scale/orientation logic,
+reviewed spot detection, and a separate oxidised-inclusive guide trait. The old
+island summary retains its original blob and was not rebuilt from those reviewed
+outputs. At least one row count changed: Shikinejima is five corollas in the
+locked table but six in the reviewed sheet output.
+
+Consequently:
 
 ```text
-v1.0.0: blocked_unmeasured / not estimated
-v1.1.0: measured_scan_summary / second-transition decline
+v1.1 frozen metadata: measured_scan_summary / second-transition decline
+current claim use:      provisional initial auto-summary / reaggregation required
 ```
 
-The first guide transition remains `not_observed` because no matching mainland
-large-Bombus scan reference is available. The cross-lineage prospective
-prediction remains unchanged: specialist-like visible signal may be flat or
-weakly declining at the first transition and should decrease at the second;
-open-generalist negative controls should remain flat.
+A new scientific contract version is required after reviewed plant-level
+reaggregation. v1.1 must not be silently rewritten into the future result.
 
-## What this does and does not establish
+## What remains permissible
 
-This dataset now supplies a genuine biological calibration anchor for the
-**direction** of the focal second-transition guide pattern. It is stronger than
-a public-photo pixel proxy.
+The locked table can be cited as evidence that the initial automated analysis
+produced a negative Oshima-to-no-Bombus direction. It cannot currently supply a
+final effect size, a definitive island mean, or a validated causal calibration.
 
-It does not by itself:
-
-- identify Bombus loss as the causal mechanism;
-- estimate selection on the guide;
-- establish a first-transition guide response;
-- remove preservation or unequal-sample-size concerns;
-- validate the public-photo ROI operator across domains; or
-- count as an independent cross-lineage replication.
-
-The public-photo specialist holdout therefore remains unopened. Its observation
-operator still needs independent biological validation on images that were not
-used to formulate the final holdout result.
+The first guide transition remains unobserved because no matching mainland scan
+reference exists. The public-photo specialist holdout also remains unopened.
