@@ -12,7 +12,8 @@ The machine-generated evidence state is:
 focal_core_calibration_established_guide_reaggregation_required_independent_holdout_blocked
 ```
 
-The focal source-locked core has three retained nonvisual channels; the guide row is a provisional v1.1 contract entry pending reviewed reaggregation:
+The focal source-locked core has three retained nonvisual channels; the guide row
+is a provisional v1.1 contract entry pending reviewed reaggregation:
 
 | channel | retained shape | current evidence |
 |---|---|---|
@@ -55,6 +56,7 @@ independent empirical lineages.
 |---|---|---|
 | Current claim/readiness state | `channel_id/current_evidence_state.py`, `scripts/report_current_evidence_state.py` | prevents pilot, discovery, and failed image routes from being reported as completed evidence |
 | Focal calibration | `data/inoue_literature_island_traits.csv`, `data/predictive_meta/campanula_channel_shape_v1_1.csv`, `campanula_guide_scan_summary.csv` | fixes the source-locked Campanula channels and records a provisional initial guide direction |
+| Guide provenance audit | `campanula_guide_scan_provenance.csv`, `docs/CAMPANULA_GUIDE_SOURCE_AUDIT_20260715.md` | separates exact transcription from final reviewed estimation |
 | Prospective prediction contract | `data/predictive_meta/two_breakpoint_prediction_contract.csv` | locks scenario directions before independent holdout data are scored |
 | Source-native recovery | `data/predictive_meta/primary_source_extraction_queue.csv`, `primary_source_native_evidence.csv` | recovers direct tables and preserves exclusions/context without inventing effects |
 | Quantitative effect gate | `paper/evidence_screening/quantitative_effects.csv`, `validate_quantitative_effects.py` | admits numeric effects only with source location, units, n, uncertainty, taxonomy, and geography |
