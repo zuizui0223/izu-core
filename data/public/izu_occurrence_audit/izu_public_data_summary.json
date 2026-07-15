@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.1",
+  "scope": "six frozen exact-island Izu pilot polygons",
+  "source": {
+    "repository": "zuizui0223/island",
+    "commit": "77417f18e713f6eff9567f21ba338f07665fe2bb",
+    "species_path": "data/v2/staging/gbif/collected/island_species_occurrences.csv.gz",
+    "species_blob_sha": "d311557334579a7efbef838cc01f927339d16f77",
+    "effort_path": "data/v2/staging/gbif/collected/island_observation_effort.csv",
+    "effort_blob_sha": "8abb8203dd60293eb3595a6a8daa0943cc373137"
+  },
+  "workflow_run_id": 29403095838,
+  "artifact_id": 8337877788,
+  "artifact_digest": "sha256:459e04dd1a540a36fdd7ef0407aec31dae9d2b57bc7aca510fd3167b78749fd2",
+  "n_islands_expected": 6,
+  "n_islands_with_effort_rows": 6,
+  "missing_island_ids": [],
+  "n_island_species_pairs": 1829,
+  "n_unique_species_labels": 863,
+  "n_records_in_effort_table": 9878,
+  "n_records_in_species_rows": 9795,
+  "n_records_not_assigned_to_retained_species_rows": 83,
+  "n_species_on_all_six_islands": 54,
+  "n_single_island_species_labels": 457,
+  "island_rows": [
+    {"island_name": "Hachijojima", "n_records": 3991, "n_species": 469, "n_datasets": 45},
+    {"island_name": "Izu Oshima", "n_records": 2392, "n_species": 439, "n_datasets": 36},
+    {"island_name": "Kozushima", "n_records": 691, "n_species": 206, "n_datasets": 9},
+    {"island_name": "Mikurajima", "n_records": 1186, "n_species": 260, "n_datasets": 10},
+    {"island_name": "Miyakejima", "n_records": 1177, "n_species": 282, "n_datasets": 18},
+    {"island_name": "Niijima", "n_records": 441, "n_species": 173, "n_datasets": 10}
+  ],
+  "limitations": [
+    "Occurrence-based species labels are not a reviewed native flora.",
+    "Cultivated, introduced, transient, and taxonomically unresolved records may remain.",
+    "Toshima, Shikinejima, and Aogashima require a supplemental exact-polygon acquisition.",
+    "Presence records do not measure pollinator dependence, floral evolution, or pollination service.",
+    "The effort total can exceed the sum of retained species rows when records lack a retained non-empty species label or are excluded upstream from the species aggregation."
+  ]
+}

@@ -1,0 +1,50 @@
+name: Current evidence state
+
+on:
+  push:
+    paths:
+      - "channel_id/current_evidence_state.py"
+      - "scripts/report_current_evidence_state.py"
+      - "docs/CURRENT_EVIDENCE_STATE.md"
+      - "docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md"
+      - "data/predictive_meta/**"
+      - "paper/evidence_screening/quantitative_effects.csv"
+      - "paper/validate_regime_transition_registry.py"
+      - "tests/test_current_evidence_state.py"
+      - "tests/test_regime_transition_registry.py"
+      - ".github/workflows/current-evidence-state.yml"
+  pull_request:
+    paths:
+      - "channel_id/current_evidence_state.py"
+      - "scripts/report_current_evidence_state.py"
+      - "docs/CURRENT_EVIDENCE_STATE.md"
+      - "docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md"
+      - "data/predictive_meta/**"
+      - "paper/evidence_screening/quantitative_effects.csv"
+      - "paper/validate_regime_transition_registry.py"
+      - "tests/test_current_evidence_state.py"
+      - "tests/test_regime_transition_registry.py"
+      - ".github/workflows/current-evidence-state.yml"
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - run: >-
+          python scripts/report_current_evidence_state.py
+          --markdown-out artifacts/current_evidence_state.md
+          --json-out artifacts/current_evidence_state.json
+      - run: python paper/validate_regime_transition_registry.py
+      - run: >-
+          python -m pytest
+          tests/test_current_evidence_state.py
+          tests/test_regime_transition_registry.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: current-evidence-state
+          path: artifacts/current_evidence_state.*
