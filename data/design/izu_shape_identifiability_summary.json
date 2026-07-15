@@ -3,6 +3,7 @@
   "replicates": 300,
   "lineages_per_replicate": 20,
   "seed": 20260715,
+  "effort_source": "data/public/izu_occurrence_audit/izu_9island_effort.csv",
   "focus": {
     "continuous_second_step_recovery": {
       "current_six_plus_mainland": 0.9533333333333334,
@@ -16,8 +17,8 @@
     },
     "occupancy_second_step_recovery": {
       "current_six_island_only": 0.7433333333333333,
-      "add_toshima": 0.7466666666666667,
-      "full_nine_island_only": 0.8133333333333334
+      "add_toshima": 0.7866666666666666,
+      "full_nine_island_only": 0.85
     },
     "first_step_identifiable": {
       "current_six_plus_mainland": true,
