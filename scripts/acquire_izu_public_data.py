@@ -2,7 +2,7 @@
 """Acquire and extract the pinned six-island Izu public-data snapshot.
 
 The upstream files are occurrence-derived products from the global ``island``
-repository.  This script downloads exactly one immutable commit, retains only the
+repository. This script downloads exactly one immutable commit, retains only the
 six frozen Izu island IDs, and writes small auditable products for ``izu-core``.
 It does not promote occurrence labels to a reviewed native flora.
 """
@@ -15,7 +15,6 @@ import json
 import shutil
 import tempfile
 import urllib.request
-from collections import defaultdict
 from itertools import combinations
 from pathlib import Path
 from typing import Iterable
@@ -56,7 +55,12 @@ def _reader(path: Path) -> Iterable[dict[str, str]]:
         yield from csv.DictReader(handle)
 
 
-def _write_csv(path: Path, fields: list[str], rows: Iterable[dict[str, object]], gzip_output: bool = False) -> None:
+def _write_csv(
+    path: Path,
+    fields: list[str],
+    rows: Iterable[dict[str, object]],
+    gzip_output: bool = False,
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     opener = gzip.open if gzip_output else open
     with opener(path, "wt", encoding="utf-8", newline="") as handle:
@@ -65,7 +69,12 @@ def _write_csv(path: Path, fields: list[str], rows: Iterable[dict[str, object]],
         writer.writerows(rows)
 
 
-def extract(species_path: Path, effort_path: Path, output_dir: Path, provenance: dict[str, object]) -> dict[str, object]:
+def extract(
+    species_path: Path,
+    effort_path: Path,
+    output_dir: Path,
+    provenance: dict[str, object],
+) -> dict[str, object]:
     species_rows: list[dict[str, object]] = []
     island_species: dict[str, set[str]] = {name: set() for name in IZU_ISLANDS.values()}
     incidence: dict[str, dict[str, object]] = {}
@@ -93,7 +102,12 @@ def extract(species_path: Path, effort_path: Path, output_dir: Path, provenance:
         island_species[island_name].add(species)
         record = incidence.setdefault(
             species,
-            {"species": species, "islands": set(), "n_records": 0, "n_unique_gbif_ids": 0},
+            {
+                "species": species,
+                "islands": set(),
+                "n_records": 0,
+                "n_unique_gbif_ids": 0,
+            },
         )
         record["islands"].add(island_name)  # type: ignore[index]
         record["n_records"] = int(record["n_records"]) + n_records
@@ -106,7 +120,10 @@ def extract(species_path: Path, effort_path: Path, output_dir: Path, provenance:
         island_id = row.get("island_id", "")
         if island_id not in IZU_ISLANDS:
             continue
-        retained: dict[str, object] = {"island_id": island_id, "island_name": IZU_ISLANDS[island_id]}
+        retained: dict[str, object] = {
+            "island_id": island_id,
+            "island_name": IZU_ISLANDS[island_id],
+        }
         for key, value in row.items():
             if key == "island_id":
                 continue
@@ -172,8 +189,12 @@ def extract(species_path: Path, effort_path: Path, output_dir: Path, provenance:
     )
 
     effort_ids = {str(row["island_id"]) for row in effort_rows}
+    records_in_species_rows = sum(int(row["n_records"]) for row in species_rows)
+    records_in_effort_table = sum(
+        _integer(str(row.get("n_records", 0))) for row in effort_rows
+    )
     summary = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "scope": "six frozen exact-island Izu pilot polygons",
         "source": provenance,
         "n_islands_expected": len(IZU_ISLANDS),
@@ -181,9 +202,17 @@ def extract(species_path: Path, effort_path: Path, output_dir: Path, provenance:
         "missing_island_ids": sorted(set(IZU_ISLANDS) - effort_ids),
         "n_island_species_pairs": len(species_rows),
         "n_unique_species_labels": len(incidence_rows),
-        "n_total_records": sum(int(row["n_records"]) for row in species_rows),
-        "n_species_on_all_six_islands": sum(int(row["n_islands"]) == 6 for row in incidence_rows),
-        "n_single_island_species_labels": sum(int(row["n_islands"]) == 1 for row in incidence_rows),
+        "n_records_in_effort_table": records_in_effort_table,
+        "n_records_in_species_rows": records_in_species_rows,
+        "n_records_not_assigned_to_retained_species_rows": (
+            records_in_effort_table - records_in_species_rows
+        ),
+        "n_species_on_all_six_islands": sum(
+            int(row["n_islands"]) == 6 for row in incidence_rows
+        ),
+        "n_single_island_species_labels": sum(
+            int(row["n_islands"]) == 1 for row in incidence_rows
+        ),
         "island_rows": [
             {
                 "island_name": row["island_name"],
@@ -198,6 +227,7 @@ def extract(species_path: Path, effort_path: Path, output_dir: Path, provenance:
             "Cultivated, introduced, transient, and taxonomically unresolved records may remain.",
             "Toshima, Shikinejima, and Aogashima require a supplemental exact-polygon acquisition.",
             "Presence records do not measure pollinator dependence, floral evolution, or pollination service.",
+            "The effort total can exceed the sum of retained species rows when records lack a retained non-empty species label or are excluded upstream from the species aggregation.",
         ],
     }
     (output_dir / "izu_public_data_summary.json").write_text(
@@ -211,7 +241,11 @@ def extract(species_path: Path, effort_path: Path, output_dir: Path, provenance:
     return summary
 
 
-def acquire(source_lock: Path, output_dir: Path, cache_dir: Path | None = None) -> dict[str, object]:
+def acquire(
+    source_lock: Path,
+    output_dir: Path,
+    cache_dir: Path | None = None,
+) -> dict[str, object]:
     lock = json.loads(source_lock.read_text(encoding="utf-8"))
     repository = str(lock["source_repository"])
     commit = str(lock["source_commit"])
@@ -228,9 +262,25 @@ def acquire(source_lock: Path, output_dir: Path, cache_dir: Path | None = None) 
 
     if cache_dir is None:
         with tempfile.TemporaryDirectory(prefix="izu_public_data_") as temporary:
-            return _acquire_into(Path(temporary), output_dir, repository, commit, species_entry, effort_entry, provenance)
+            return _acquire_into(
+                Path(temporary),
+                output_dir,
+                repository,
+                commit,
+                species_entry,
+                effort_entry,
+                provenance,
+            )
     cache_dir.mkdir(parents=True, exist_ok=True)
-    return _acquire_into(cache_dir, output_dir, repository, commit, species_entry, effort_entry, provenance)
+    return _acquire_into(
+        cache_dir,
+        output_dir,
+        repository,
+        commit,
+        species_entry,
+        effort_entry,
+        provenance,
+    )
 
 
 def _acquire_into(
@@ -245,9 +295,15 @@ def _acquire_into(
     species_path = cache_dir / "island_species_occurrences.csv.gz"
     effort_path = cache_dir / "island_observation_effort.csv"
     if not species_path.exists():
-        _download(_raw_url(repository, commit, str(species_entry["path"])), species_path)
+        _download(
+            _raw_url(repository, commit, str(species_entry["path"])),
+            species_path,
+        )
     if not effort_path.exists():
-        _download(_raw_url(repository, commit, str(effort_entry["path"])), effort_path)
+        _download(
+            _raw_url(repository, commit, str(effort_entry["path"])),
+            effort_path,
+        )
     return extract(species_path, effort_path, output_dir, provenance)
 
 
