@@ -2,8 +2,8 @@
 
 ## Purpose
 
-This stage connects the first public-data acquisition to the biological question
-raised by the source-locked *Campanula microdonta* calibration:
+This stage connects public-data acquisition to the biological question raised by
+the source-locked *Campanula microdonta* calibration:
 
 - floral size changes as continuous erosion;
 - multilocus outcrossing changes as continuous erosion; and
@@ -12,8 +12,8 @@ raised by the source-locked *Campanula microdonta* calibration:
 Nectar-guide and visible-signal data remain excluded. They contribute no direction,
 effect size, breakpoint, or simulation truth.
 
-The next question is not merely whether an island differs from the mainland. It is
-whether an independent response is better represented by:
+The comparative question is whether an independent response is better represented
+by:
 
 ```text
 none
@@ -30,66 +30,85 @@ environment/history alternative
 reference. The mainland row is a trait-calibration reference and is not part of the
 island occupancy universe.
 
-The scaffold makes Toshima special by design. It is the immediate post-Oshima unit,
-so it is the most direct public-data target for deciding whether a response changes
-smoothly along the chain or discontinuously at the second boundary.
+Toshima is the immediate post-Oshima unit, making it the most direct observation
+for distinguishing a smooth chain-wide cline from a discontinuity at the second
+boundary. Regime labels remain working hypotheses and must not be converted into
+measured pollinator effectiveness without source-direct interaction evidence.
 
-The regime labels are working hypotheses. They must not be converted into measured
-pollinator effectiveness without source-direct interaction evidence.
+## Completed nine-island public-data acquisition
 
-## Supplemental public-data acquisition
+The previous pinned audit covered Izu Oshima, Niijima, Kozushima, Miyakejima,
+Mikurajima, and Hachijojima. The supplemental workflow used GSHHG 2.3.7 exact land
+polygons and the GBIF occurrence-search API to add:
 
-The previous audit acquired six exact GSHHG polygons:
+| island | GBIF records | raw species labels | datasets |
+|---|---:|---:|---:|
+| Toshima | 263 | 88 | 4 |
+| Shikinejima | 348 | 100 | 8 |
+| Aogashima | 615 | 304 | 5 |
 
-- Izu Oshima;
-- Niijima;
-- Kozushima;
-- Miyakejima;
-- Mikurajima; and
-- Hachijojima.
+The combined nine-island candidate product contains:
 
-`scripts/acquire_supplemental_izu_gbif.py` adds:
+- **11,104 occurrence records**;
+- **2,321 island × raw-species-label rows**; and
+- **1,243 distinct raw species labels**.
 
-- Toshima;
-- Shikinejima; and
-- Aogashima.
+The full raw acquisition is retained in workflow artifact `8340718650` from run
+`29409801950`, with digest
+`sha256:4edd2519f3110c928e4d1e24ac1d5240055ce465a2bf0b68d98519219772ddfa`.
+Small audit products are committed as:
 
-The script downloads the version-locked GSHHG 2.3.7 high-resolution shoreline,
-selects the land polygon containing each declared interior seed point, and queries
-GBIF Plantae occurrences within the resulting polygon. It archives the raw records,
-query log, source and query vertex counts, selected polygons, species aggregation,
-and observation-effort summary.
+- `data/public/izu_occurrence_audit/izu_supplemental_summary.json`;
+- `data/public/izu_occurrence_audit/izu_9island_effort.csv`; and
+- `data/design/izu_supplemental_polygons.geojson`.
 
-This is deliberately separate from the global `island` repository. `izu-core` owns
-the nine-island universe, extraction outputs, interpretation limits, and subsequent
-response-shape analyses.
+These are candidate occurrence data, not a native-flora matrix. The two acquisition
+paths have not yet undergone one shared taxonomic normalization, and Aogashima's
+high label count must be reviewed rather than interpreted as true native richness.
 
 ## Design-power simulation
 
 `channel_id/regime_shape_identifiability.py` generates virtual continuous, binary,
-and occupancy responses under each candidate shape. It then selects among the same
-candidate models using BIC.
+and occupancy responses under each candidate shape and selects among the same
+models using BIC. Each reported cell used 300 replicates and 20 independent virtual
+lineages.
 
-The simulation compares five observation designs:
+### Recovery of a true second-transition step
 
-1. the current six islands plus mainland;
-2. the current six islands only;
-3. the current design plus Toshima;
-4. all nine islands plus mainland; and
-5. all nine islands only.
+| response domain | current six | add Toshima | full nine |
+|---|---:|---:|---:|
+| continuous, with mainland reference | 0.953 | **0.993** | 0.983 |
+| binary, with mainland reference | 0.570 | 0.650 | **0.687** |
+| occupancy, islands only | 0.743 | 0.747 | **0.813** |
 
-For occupancy, the mainland row is automatically excluded and non-detection is
-simulated from the committed island-level occurrence effort. Missing islands use a
-declared target effort rather than being treated as perfectly observed.
+The simulation implies three design lessons, conditional on its declared effect
+size and observation model:
 
-The output answers design questions such as:
+1. Continuous source-native traits can distinguish a strong second step with the
+   present geometry, and Toshima removes most residual cline confusion.
+2. Binary states such as SI/SC or autonomous reproduction require multiple
+   independent lineages; nine islands improve recovery, but ambiguity remains.
+3. Occupancy gains more from completing the nine-island effort surface than from
+   adding Toshima alone, because non-detection and island-level effort dominate.
 
-- Can the present geometry distinguish a cline from a second step?
-- How much does the immediate post-Oshima Toshima observation help?
-- Which hypotheses are structurally unidentifiable without a mainland reference?
-- How often can uneven public-record effort manufacture a false threshold?
+### Structural limitations
 
-It does **not** answer which response shape is true in nature.
+The first transition cannot be identified from island-only responses because every
+island lies after the mainland-to-island boundary. A mainland or equivalent
+large-Bombus reference is therefore mandatory for `first_step` and `two_step`
+claims.
+
+Under the present simulation, the full two-step truth is recovered poorly even
+when a mainland reference is included. The first- and second-step parameters are
+too correlated for the declared number of units and noise. A two-step biological
+claim should therefore require either stronger source-direct trait information,
+more mainland/large-Bombus reference populations, or a hierarchical mechanism
+that links channels without pretending each trait independently estimates both
+breakpoints.
+
+The committed compact result is
+`data/design/izu_shape_identifiability_summary.json`; the full 90-cell confusion
+output is in the workflow artifact.
 
 ## Interpretation boundary
 
@@ -103,24 +122,25 @@ The following claims remain prohibited:
 - a regime label is pollinator effectiveness; or
 - the unfinished nectar-guide analysis supports a second threshold.
 
-The environmental/history competitor must later use measured climate, island area,
+The environmental/history competitor must use measured climate, island area,
 isolation, geology, disturbance history, habitat, and observation process. The
 simulation's latitude axis is only an order-correlated adversary used to expose
-confounding in the proposed sampling geometry.
+confounding in the sampling geometry.
 
-## Decision rule for the next empirical stage
+## Next empirical stage
 
-After the nine-island artifact is generated:
-
-1. normalize taxonomy and preserve synonym decisions;
-2. classify native, introduced, cultivated, transient, and unresolved records;
-3. create effort-aware plant occupancy candidates;
-4. obtain Apidae/Bombus availability under the same island polygons;
-5. assign specialist-like/generalist-like dependency classes before inspecting
-   island response shapes; and
-6. admit source-direct SI/SC, autonomous reproduction, outcrossing, flower-size,
+1. Normalize taxonomy across the pinned and live-GBIF acquisitions and preserve
+   synonym decisions.
+2. Classify native, introduced, cultivated, transient, and unresolved records.
+3. Create effort-aware plant occupancy candidates.
+4. Obtain Apidae/Bombus availability under the same exact island polygons.
+5. Assign specialist-like/generalist-like dependency classes before inspecting
+   island response shapes.
+6. Admit source-direct SI/SC, autonomous reproduction, outcrossing, flower-size,
    accessibility, and effective-interaction channels through their native
    observation models.
+7. Replace the latitude surrogate with an explicit climate, area, isolation, and
+   geological-history likelihood.
 
-The first empirical comparison should report model ambiguity, not force every
-lineage into a single island-syndrome trajectory.
+The first empirical comparison must report model ambiguity rather than force every
+lineage into one island-syndrome trajectory.
