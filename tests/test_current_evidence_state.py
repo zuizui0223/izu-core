@@ -7,10 +7,17 @@ from channel_id.current_evidence_state import render_markdown, summarize_current
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_current_evidence_state_keeps_calibration_separate_from_holdout() -> None:
+def test_current_evidence_state_demotes_unreviewed_guide_summary() -> None:
     state = summarize_current_evidence(ROOT)
 
-    assert state.project_stage == "focal_calibration_established_independent_holdout_blocked"
+    assert state.project_stage == (
+        "focal_core_calibration_established_guide_reaggregation_required_"
+        "independent_holdout_blocked"
+    )
+    assert state.guide_source_stage == "initial_auto_segmentation_summary"
+    assert state.guide_reviewed_reaggregation_status == "not_completed"
+    assert state.guide_locked_source_commit == "6343d152a743c240348c736baf5c65768c9b7020"
+    assert state.guide_locked_summary_blob_sha == "822fb14d8bb7cc481800d58be503eb9308687304"
     assert state.focal_guide_oshima_mean_pct == pytest.approx(28.39)
     assert state.focal_guide_no_bombus_equal_island_mean_pct == pytest.approx(5.9325)
     assert state.focal_guide_second_transition_delta_pp == pytest.approx(-22.4575)
