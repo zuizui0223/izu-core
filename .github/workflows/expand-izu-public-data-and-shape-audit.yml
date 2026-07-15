@@ -1,0 +1,74 @@
+name: Expand Izu public data and shape audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/izu-shape-identifiability
+    paths:
+      - "data/design/izu_regime_scaffold.csv"
+      - "config/izu_supplemental_gbif_source.json"
+      - "channel_id/regime_shape_identifiability.py"
+      - "scripts/acquire_supplemental_izu_gbif.py"
+      - "scripts/run_izu_shape_identifiability.py"
+      - "tests/test_regime_shape_identifiability.py"
+      - "tests/test_supplemental_izu_gbif.py"
+      - ".github/workflows/expand-izu-public-data-and-shape-audit.yml"
+  pull_request:
+    paths:
+      - "data/design/izu_regime_scaffold.csv"
+      - "config/izu_supplemental_gbif_source.json"
+      - "channel_id/regime_shape_identifiability.py"
+      - "scripts/acquire_supplemental_izu_gbif.py"
+      - "scripts/run_izu_shape_identifiability.py"
+      - "tests/test_regime_shape_identifiability.py"
+      - "tests/test_supplemental_izu_gbif.py"
+      - ".github/workflows/expand-izu-public-data-and-shape-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install package, tests, and GSHHG reader
+        run: python -m pip install -e '.[dev]' 'pyshp>=2.3.1'
+      - name: Run focused tests
+        run: >-
+          python -m pytest
+          tests/test_regime_shape_identifiability.py
+          tests/test_supplemental_izu_gbif.py
+      - name: Rebuild pinned six-island audit
+        run: >-
+          python scripts/acquire_izu_public_data.py
+          --source-lock config/izu_public_data_source_lock.json
+          --output-dir artifacts/izu_six_islands
+          --cache-dir .cache/izu_six_islands
+      - name: Acquire Toshima, Shikinejima, and Aogashima
+        run: >-
+          python scripts/acquire_supplemental_izu_gbif.py
+          --source-lock config/izu_supplemental_gbif_source.json
+          --scaffold data/design/izu_regime_scaffold.csv
+          --six-island-dir artifacts/izu_six_islands
+          --output-dir artifacts/izu_nine_islands
+          --cache-dir .cache/izu_supplemental_gbif
+      - name: Run cline-threshold identifiability audit
+        run: >-
+          python scripts/run_izu_shape_identifiability.py
+          --replicates 300
+          --lineages 20
+          --output-dir artifacts/izu_shape_identifiability
+      - uses: actions/upload-artifact@v4
+        with:
+          name: izu-nine-island-public-data-and-shape-audit
+          path: |
+            artifacts/izu_six_islands
+            artifacts/izu_nine_islands
+            artifacts/izu_shape_identifiability
