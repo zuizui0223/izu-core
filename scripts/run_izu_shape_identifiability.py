@@ -24,7 +24,7 @@ def main() -> None:
     parser.add_argument(
         "--effort",
         type=Path,
-        default=Path("data/public/izu_occurrence_audit/izu_island_effort.csv"),
+        default=Path("data/public/izu_occurrence_audit/izu_9island_effort.csv"),
     )
     parser.add_argument(
         "--output-dir",
