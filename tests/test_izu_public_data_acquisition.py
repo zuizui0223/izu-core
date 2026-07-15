@@ -12,7 +12,12 @@ SPEC.loader.exec_module(MODULE)
 extract = MODULE.extract
 
 
-def _write(path: Path, fields: list[str], rows: list[dict[str, str]], compressed: bool = False) -> None:
+def _write(
+    path: Path,
+    fields: list[str],
+    rows: list[dict[str, str]],
+    compressed: bool = False,
+) -> None:
     opener = gzip.open if compressed else open
     with opener(path, "wt", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
@@ -76,7 +81,7 @@ def test_extracts_only_frozen_izu_islands(tmp_path: Path) -> None:
         [
             {
                 "island_id": "gshhg_2.3.7_h_3f48d601bf60ade348ae",
-                "n_records": "2",
+                "n_records": "3",
                 "n_species": "1",
                 "n_datasets": "1",
             },
@@ -98,9 +103,14 @@ def test_extracts_only_frozen_izu_islands(tmp_path: Path) -> None:
 
     assert summary["n_island_species_pairs"] == 3
     assert summary["n_unique_species_labels"] == 2
-    assert summary["n_total_records"] == 6
+    assert summary["n_records_in_species_rows"] == 6
+    assert summary["n_records_in_effort_table"] == 7
+    assert summary["n_records_not_assigned_to_retained_species_rows"] == 1
     assert (output_dir / "izu_island_species.csv.gz").exists()
-    with (output_dir / "izu_species_incidence.csv").open(encoding="utf-8", newline="") as handle:
+    with (output_dir / "izu_species_incidence.csv").open(
+        encoding="utf-8",
+        newline="",
+    ) as handle:
         rows = list(csv.DictReader(handle))
     alpha = next(row for row in rows if row["species"] == "Alpha beta")
     assert alpha["n_islands"] == "2"
