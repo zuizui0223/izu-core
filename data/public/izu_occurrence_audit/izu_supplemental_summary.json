@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "acquired_at_utc": "2026-07-15T10:57:31.520253+00:00",
-  "workflow_run_id": 29409801950,
-  "artifact_id": 8340718650,
-  "artifact_digest": "sha256:4edd2519f3110c928e4d1e24ac1d5240055ce465a2bf0b68d98519219772ddfa",
+  "acquired_at_utc": "2026-07-15T11:08:56.329402+00:00",
+  "workflow_run_id": 29410478908,
+  "artifact_id": 8340962440,
+  "artifact_digest": "sha256:0b229a6b94847fd1caa7a331819963d32a080cde69e9a82be274e75af090fc5b",
   "geography_source": {
     "name": "GSHHG",
     "version": "2.3.7",
