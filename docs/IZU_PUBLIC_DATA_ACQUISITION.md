@@ -32,6 +32,35 @@ The first acquisition covers the six frozen polygons already available upstream:
 Toshima, Shikinejima, and Aogashima are not silently approximated by bounding
 boxes. They remain a separate supplemental exact-polygon acquisition task.
 
+## First completed acquisition
+
+Workflow run `29403095838` completed successfully against the pinned source. The
+full products are available in the `izu-public-data-audit` artifact, while the
+small audit tables are committed under `data/public/izu_occurrence_audit/`.
+
+Current counts are:
+
+| island | occurrence records | raw species labels | datasets |
+|---|---:|---:|---:|
+| Hachijojima | 3,991 | 469 | 45 |
+| Izu Oshima | 2,392 | 439 | 36 |
+| Mikurajima | 1,186 | 260 | 10 |
+| Miyakejima | 1,177 | 282 | 18 |
+| Kozushima | 691 | 206 | 9 |
+| Niijima | 441 | 173 | 10 |
+
+Across the six islands, the effort table contains **9,878 occurrence records**.
+The species aggregation retains **9,795 records** assigned to **1,829
+island-species rows** and **863 distinct raw species labels**. The 83-record gap is
+reported explicitly rather than hidden; it represents records not assigned to a
+retained non-empty species row or otherwise excluded by the upstream species
+aggregation.
+
+Among the 863 labels, 54 occur on all six islands and 457 occur on only one of the
+six. These figures describe the occurrence snapshot, not endemism or true island
+restriction. Pairwise candidate-flora Jaccard similarity ranges from about 0.230
+(Hachijojima-Niijima) to 0.349 (Kozushima-Niijima).
+
 ## Generated products
 
 Running
@@ -68,6 +97,11 @@ In particular:
 - occupancy is not a floral phenotype; and
 - the outputs cannot by themselves identify a cline, threshold, or causal loss of
   pollination service.
+
+The observation process is highly uneven. For example, the snapshot is dominated
+by preserved specimens on Hachijojima and Mikurajima, while Oshima has a larger
+human-observation component. Coordinate uncertainty is also heterogeneous. These
+terms must enter any occupancy or boundary-crossing analysis.
 
 ## Next acquisition stages
 
