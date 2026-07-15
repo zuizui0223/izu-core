@@ -1,0 +1,74 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "unit_id": "toshima",
+        "unit_name": "Toshima",
+        "sequence_order": 2,
+        "shape_index": 8986,
+        "source_vertex_count": 9,
+        "query_vertex_count": 9,
+        "gshhg_attributes": {
+          "id": "9293",
+          "level": 1,
+          "source": "WVS",
+          "parent_id": -1,
+          "sibling_id": 9294,
+          "area": 4.43549299673
+        }
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[139.270806,34.512111],[139.277472,34.512083],[139.291278,34.522472],[139.290361,34.529139],[139.281639,34.533722],[139.270778,34.532889],[139.265417,34.526611],[139.265417,34.519972],[139.270806,34.512111]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "unit_id": "shikinejima",
+        "unit_name": "Shikinejima",
+        "sequence_order": 4,
+        "shape_index": 9409,
+        "source_vertex_count": 15,
+        "query_vertex_count": 15,
+        "gshhg_attributes": {
+          "id": "9727",
+          "level": 1,
+          "source": "WVS",
+          "parent_id": -1,
+          "sibling_id": 9728,
+          "area": 4.10789629841
+        }
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[139.199194,34.317083],[139.205,34.320361],[139.213361,34.317056],[139.219111,34.317889],[139.227028,34.325],[139.227861,34.330833],[139.218333,34.33375],[139.213361,34.339556],[139.207889,34.335806],[139.208778,34.330861],[139.205833,34.32875],[139.202472,34.330417],[139.195361,34.320806],[139.195417,34.32],[139.199194,34.317083]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "unit_id": "aogashima",
+        "unit_name": "Aogashima",
+        "sequence_order": 9,
+        "shape_index": 7390,
+        "source_vertex_count": 10,
+        "query_vertex_count": 10,
+        "gshhg_attributes": {
+          "id": "7661",
+          "level": 1,
+          "source": "WVS",
+          "parent_id": -1,
+          "sibling_id": 7662,
+          "area": 6.22429411248
+        }
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[139.770778,32.440389],[139.779972,32.442889],[139.784583,32.4475],[139.784583,32.4525],[139.77625,32.464972],[139.762444,32.470389],[139.757028,32.468333],[139.757056,32.454972],[139.757056,32.45],[139.770778,32.440389]]]
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "acquired_at_utc": "2026-07-15T11:08:56.329402+00:00",
+  "workflow_run_id": 29410478908,
+  "artifact_id": 8340962440,
+  "artifact_digest": "sha256:0b229a6b94847fd1caa7a331819963d32a080cde69e9a82be274e75af090fc5b",
+  "geography_source": {
+    "name": "GSHHG",
+    "version": "2.3.7",
+    "resolution": "high",
+    "level": 1
+  },
+  "occurrence_source": {
+    "name": "GBIF occurrence search API",
+    "taxon_key": 6,
+    "has_coordinate": true,
+    "occurrence_status": "present"
+  },
+  "targets": [
+    {
+      "unit_id": "toshima",
+      "unit_name": "Toshima",
+      "gshhg_shape_index": 8986,
+      "gshhg_area_km2": 4.43549299673,
+      "source_vertex_count": 9,
+      "query_vertex_count": 9,
+      "n_records": 263,
+      "n_species_labels": 88,
+      "n_datasets": 4
+    },
+    {
+      "unit_id": "shikinejima",
+      "unit_name": "Shikinejima",
+      "gshhg_shape_index": 9409,
+      "gshhg_area_km2": 4.10789629841,
+      "source_vertex_count": 15,
+      "query_vertex_count": 15,
+      "n_records": 348,
+      "n_species_labels": 100,
+      "n_datasets": 8
+    },
+    {
+      "unit_id": "aogashima",
+      "unit_name": "Aogashima",
+      "gshhg_shape_index": 7390,
+      "gshhg_area_km2": 6.22429411248,
+      "source_vertex_count": 10,
+      "query_vertex_count": 10,
+      "n_records": 615,
+      "n_species_labels": 304,
+      "n_datasets": 5
+    }
+  ],
+  "combined_nine_island_summary": {
+    "n_islands": 9,
+    "n_records": 11104,
+    "n_island_species_rows": 2321,
+    "n_unique_raw_species_labels": 1243
+  },
+  "limitations": [
+    "The six-island component is a pinned upstream snapshot; the three supplemental islands are a live GBIF acquisition archived with a timestamp.",
+    "Raw species labels are not yet taxonomically normalized across the two acquisition paths.",
+    "Occurrence records are candidate evidence, not reviewed native establishment.",
+    "Non-detection is not biological absence and observation effort is highly uneven.",
+    "Pollinator-regime labels are working hypotheses and are not inferred from plant occurrences."
+  ]
+}

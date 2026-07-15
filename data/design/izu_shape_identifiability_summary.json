@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "replicates": 300,
+  "lineages_per_replicate": 20,
+  "seed": 20260715,
+  "effort_source": "data/public/izu_occurrence_audit/izu_9island_effort.csv",
+  "focus": {
+    "continuous_second_step_recovery": {
+      "current_six_plus_mainland": 0.9533333333333334,
+      "add_toshima": 0.9933333333333333,
+      "full_nine_plus_mainland": 0.9833333333333333
+    },
+    "binary_second_step_recovery": {
+      "current_six_plus_mainland": 0.57,
+      "add_toshima": 0.65,
+      "full_nine_plus_mainland": 0.6866666666666666
+    },
+    "occupancy_second_step_recovery": {
+      "current_six_island_only": 0.7433333333333333,
+      "add_toshima": 0.7866666666666666,
+      "full_nine_island_only": 0.85
+    },
+    "first_step_identifiable": {
+      "current_six_plus_mainland": true,
+      "current_six_island_only": false,
+      "add_toshima": true,
+      "full_nine_plus_mainland": true,
+      "full_nine_island_only": false
+    },
+    "two_step_warning": "The first and second step cannot both be identified from island-only responses because the first-boundary state is constant across all islands; a mainland reference or an equivalent large-Bombus comparison is required.",
+    "toshima_priority_reason": "Toshima is the only immediate post-Oshima unit in the declared sequence; adding it directly tests whether an apparent trend is a smooth cline or a discontinuity at the second pollinator boundary."
+  },
+  "interpretation_limits": [
+    "This is virtual design power, not evidence that any response shape generated the field pattern.",
+    "The latitude adversary is only an order-correlated surrogate and cannot replace measured climate, area, isolation, or geological history.",
+    "The working pollinator-regime assignments remain hypotheses until source-direct effectiveness evidence is locked.",
+    "Occupancy simulations include effort-dependent non-detection but do not yet reproduce the full GBIF/S-Net observation process.",
+    "Nectar-guide data are absent from both the scaffold and the simulation truth set."
+  ]
+}
