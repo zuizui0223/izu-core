@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.1",
+  "central_hypothesis": "Flower size and multilocus outcrossing can erode continuously as effective outcross service declines, whereas autonomous reproduction changes only after a critical reproductive-assurance threshold is crossed.",
+  "adopted_channels": {
+    "flower_size": "cline candidate",
+    "multilocus_outcrossing": "cline candidate",
+    "autonomous_reproduction": "second-step threshold candidate"
+  },
+  "excluded_from_current_inference": [
+    "nectar-guide change",
+    "GBIF-derived complete flora, abundance, occupancy or diversity",
+    "automatic public-image embeddings as floral phenotype",
+    "causal attribution to Bombus ardens from regime labels alone"
+  ],
+  "candidate_response_shapes": ["cline", "second_step"],
+  "simulation_role": "Quantify discrimination between a smooth cline and a predeclared second-step threshold, including false threshold selection and recovery. Simulation does not establish that a real threshold exists.",
+  "boundary": "A no-change model requires a separate penalized or replicated-data analysis and is intentionally outside this three-regime two-shape diagnostic."
+}
