@@ -1,4 +1,4 @@
-"""Threshold-versus-cline identifiability for ordered Izu regimes.
+"""Cline-versus-threshold identifiability for ordered Izu regimes.
 
 This is a design diagnostic, not a historical causal estimator.
 """
@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
 
-CANDIDATE_SHAPES = ("none", "cline", "second_step")
+CANDIDATE_SHAPES = ("cline", "second_step")
 
 
 @dataclass(frozen=True)
@@ -40,12 +40,7 @@ def expected_profile(regimes: Sequence[Regime], shape: str, effect_size: float) 
     values = []
     for regime in regimes:
         x = (regime.order - low) / span
-        if shape == "none":
-            value = 0.0
-        elif shape == "cline":
-            value = -effect_size * x
-        else:
-            value = -effect_size * regime.second_step_state
+        value = -effect_size * x if shape == "cline" else -effect_size * regime.second_step_state
         values.append(value)
     return tuple(values)
 
@@ -59,11 +54,6 @@ def simulate_observation(rng: random.Random, regimes: Sequence[Regime], shape: s
 
 def _sse(observed: Sequence[float], fitted: Sequence[float]) -> float:
     return sum((a - b) ** 2 for a, b in zip(observed, fitted))
-
-
-def _fit_none(observed: Sequence[float]) -> tuple[float, ...]:
-    mean = sum(observed) / len(observed)
-    return tuple(mean for _ in observed)
 
 
 def _fit_cline(regimes: Sequence[Regime], observed: Sequence[float]) -> tuple[float, ...]:
@@ -87,7 +77,7 @@ def _fit_second_step(regimes: Sequence[Regime], observed: Sequence[float]) -> tu
 
 
 def classify_profile(regimes: Sequence[Regime], observed: Sequence[float]) -> tuple[str, dict[str, float]]:
-    fits = {"none": _fit_none(observed), "cline": _fit_cline(regimes, observed), "second_step": _fit_second_step(regimes, observed)}
+    fits = {"cline": _fit_cline(regimes, observed), "second_step": _fit_second_step(regimes, observed)}
     scores = {name: _sse(observed, fitted) for name, fitted in fits.items()}
     return min(scores, key=scores.get), scores
 
@@ -103,4 +93,4 @@ def run_recovery_audit(regimes: Sequence[Regime], *, replicates: int = 5000, eff
             selected, _ = classify_profile(regimes, observed)
             matrix[truth][selected] += 1
     rates = {truth: {selected: count / replicates for selected, count in choices.items()} for truth, choices in matrix.items()}
-    return {"replicates": replicates, "effect_size": effect_size, "noise_sd": noise_sd, "samples_per_regime": samples_per_regime, "selection_rates": rates, "cline_false_second_step_rate": rates["cline"]["second_step"], "second_step_recovery_rate": rates["second_step"]["second_step"], "boundary": "Design diagnostic only; recovery under declared assumptions is not evidence that a real threshold exists."}
+    return {"replicates": replicates, "effect_size": effect_size, "noise_sd": noise_sd, "samples_per_regime": samples_per_regime, "selection_rates": rates, "cline_false_second_step_rate": rates["cline"]["second_step"], "second_step_recovery_rate": rates["second_step"]["second_step"], "boundary": "Two-shape design diagnostic only; recovery under declared assumptions is not evidence that a real threshold exists."}
