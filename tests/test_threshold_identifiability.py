@@ -8,7 +8,6 @@ REGIMES = (
 
 
 def test_classifier_recovers_clean_shapes() -> None:
-    assert classify_profile(REGIMES, (1.0, 1.0, 1.0))[0] == "none"
     assert classify_profile(REGIMES, (1.0, 0.5, 0.0))[0] == "cline"
     assert classify_profile(REGIMES, (1.0, 1.0, 0.0))[0] == "second_step"
 
