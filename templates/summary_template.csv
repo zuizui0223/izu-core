@@ -1,0 +1,4 @@
+channel,regime_id,order,second_step_state,mean,sd,se,n
+trait_a,reference,0,0,10.0,2.0,,20
+trait_a,intermediate,1,0,8.5,2.0,,20
+trait_a,post_threshold,2,1,4.0,2.0,,20
