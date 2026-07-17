@@ -1,0 +1,4 @@
+regime_id,order,second_step_state,biological_role
+mainland_large_bombus,0,0,large Bombus reference
+oshima_ardens,1,0,Bombus ardens bridge
+non_oshima,2,1,no confirmed effective Bombus regime
