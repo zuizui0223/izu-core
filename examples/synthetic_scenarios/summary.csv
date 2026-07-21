@@ -1,0 +1,11 @@
+trait,regime_id,order,bombus_loss_state,mean,se,n
+flower_size,oshima,0,0,10.0,0.25,20
+flower_size,toshima,1,1,8.2,0.25,20
+flower_size,niijima,2,1,6.1,0.25,20
+flower_size,shikinejima,3,1,4.0,0.25,20
+flower_size,kozushima,4,1,2.1,0.25,20
+guide_coverage,oshima,0,0,10.0,0.30,20
+guide_coverage,toshima,1,1,2.2,0.30,20
+guide_coverage,niijima,2,1,2.0,0.30,20
+guide_coverage,shikinejima,3,1,2.1,0.30,20
+guide_coverage,kozushima,4,1,1.9,0.30,20
