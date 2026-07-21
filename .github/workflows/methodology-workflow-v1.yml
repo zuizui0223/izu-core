@@ -6,8 +6,12 @@ on:
   pull_request:
     paths:
       - channel_id/study_workflow.py
+      - channel_id/scenario_workflow.py
       - scripts/run_study_workflow.py
+      - scripts/run_scenario_workflow.py
+      - scripts/prepare_shimahotarubukuro_example.py
       - tests/test_study_workflow.py
+      - tests/test_scenario_workflow.py
       - examples/synthetic_threshold/summary.csv
       - .github/workflows/methodology-workflow-v1.yml
   workflow_dispatch:
@@ -21,13 +25,14 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e . pytest
-      - run: pytest tests/test_study_workflow.py tests/test_threshold_identifiability.py
+      - run: pytest tests/test_study_workflow.py tests/test_threshold_identifiability.py tests/test_scenario_workflow.py
       - run: |
-          python scripts/run_study_workflow.py \
-            examples/synthetic_threshold/summary.csv \
-            --output results/methodology-example.json \
-            --replicates 1000
+          python scripts/run_study_workflow.py examples/synthetic_threshold/summary.csv \
+            --output results/methodology-example.json --replicates 300
+      - run: |
+          python scripts/run_scenario_workflow.py examples/synthetic_threshold/summary.csv \
+            --output results/scenario-example.json --replicates 100
       - uses: actions/upload-artifact@v4
         with:
           name: methodology-workflow-example
-          path: results/methodology-example.json
+          path: results/*.json
