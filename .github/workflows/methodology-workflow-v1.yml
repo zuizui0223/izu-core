@@ -22,6 +22,7 @@ on:
       - examples/synthetic_scenarios/summary.csv
       - examples/negative_control/contrasts.csv
       - data/candidate_lineages.csv
+      - docs/CANDIDATE_REGISTRY.md
       - .github/workflows/methodology-workflow-v1.yml
   workflow_dispatch:
 
