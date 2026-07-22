@@ -1,0 +1,5 @@
+lineage,group,trait,mainland_mean,island_mean,mainland_se,island_se,boundary,matched_set
+specialist_a,specialist,corolla_length,10.0,8.6,0.20,0.22,bombus_loss,pair_1
+generalist_a,generalist,corolla_length,10.0,9.95,0.18,0.18,bombus_loss,pair_1
+specialist_b,specialist,mouth_width,6.0,5.1,0.16,0.17,bombus_loss,pair_2
+generalist_b,generalist,mouth_width,6.0,6.04,0.15,0.16,bombus_loss,pair_2
