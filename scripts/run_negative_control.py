@@ -5,7 +5,13 @@ import argparse
 import json
 from pathlib import Path
 
-from channel_id.negative_control import analyse_negative_control, load_contrasts, simulate_refutation_power
+from channel_id.negative_control import (
+    analyse_negative_control,
+    leave_one_lineage_out,
+    load_contrasts,
+    precision_multiplier_audit,
+    simulate_refutation_power,
+)
 
 
 def main() -> None:
@@ -20,7 +26,17 @@ def main() -> None:
 
     contrasts = load_contrasts(args.input)
     result = analyse_negative_control(contrasts, equivalence_margin=args.equivalence_margin)
+    result["leave_one_lineage_out"] = leave_one_lineage_out(
+        contrasts, equivalence_margin=args.equivalence_margin,
+    )
     result["refutation_power"] = simulate_refutation_power(
+        contrasts,
+        equivalence_margin=args.equivalence_margin,
+        specialist_effect=args.specialist_effect,
+        generalist_effect=args.generalist_effect,
+        replicates=args.replicates,
+    )
+    result["precision_audit"] = precision_multiplier_audit(
         contrasts,
         equivalence_margin=args.equivalence_margin,
         specialist_effect=args.specialist_effect,
