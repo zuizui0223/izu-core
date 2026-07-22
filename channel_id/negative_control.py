@@ -1,18 +1,17 @@
 """Negative-control analysis for specialist versus generalist island responses.
 
-This module separates three conclusions that are often conflated:
-(1) evidence of change, (2) evidence of practical equivalence, and
-(3) insufficient precision. It then asks whether a predeclared pollinator
-boundary is selectively expressed in specialist lineages.
+This module separates evidence of change, practical equivalence, and insufficient
+precision, then asks whether a predeclared pollinator boundary is selectively
+expressed in specialist lineages.
 """
 from __future__ import annotations
 
 import csv
 import math
 import random
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
 
 GROUPS = {"specialist", "generalist"}
 
@@ -106,22 +105,21 @@ def analyse_negative_control(
     if any(not values for values in groups.values()):
         raise ValueError("target boundary requires specialist and generalist contrasts")
 
-    lineages = []
-    for item in target:
-        lineages.append({
-            "lineage": item.lineage, "group": item.group, "trait": item.trait,
-            "matched_set": item.matched_set,
-            **classify_effect(item, equivalence_margin=equivalence_margin),
-        })
+    lineages = [{
+        "lineage": item.lineage, "group": item.group, "trait": item.trait,
+        "matched_set": item.matched_set,
+        **classify_effect(item, equivalence_margin=equivalence_margin),
+    } for item in target]
 
     summary = {}
     for name, values in groups.items():
         mean, se = _weighted_mean(values)
+        statuses = [classify_effect(v, equivalence_margin=equivalence_margin)["status"] for v in values]
         summary[name] = {
             "n_contrasts": len(values), "pooled_effect": mean, "pooled_se": se,
-            "changed": sum(classify_effect(v, equivalence_margin=equivalence_margin)["status"] == "changed" for v in values),
-            "equivalent": sum(classify_effect(v, equivalence_margin=equivalence_margin)["status"] == "equivalent" for v in values),
-            "inconclusive": sum(classify_effect(v, equivalence_margin=equivalence_margin)["status"] == "inconclusive" for v in values),
+            "changed": statuses.count("changed"),
+            "equivalent": statuses.count("equivalent"),
+            "inconclusive": statuses.count("inconclusive"),
         }
     interaction = summary["specialist"]["pooled_effect"] - summary["generalist"]["pooled_effect"]
     interaction_se = math.sqrt(summary["specialist"]["pooled_se"] ** 2 + summary["generalist"]["pooled_se"] ** 2)
@@ -139,6 +137,33 @@ def analyse_negative_control(
             "A generalist non-response is supported only when its interval lies inside the predeclared "
             "equivalence margin. Non-significance alone is not evidence of no change."
         ),
+    }
+
+
+def leave_one_lineage_out(
+    contrasts: Sequence[Contrast], *, equivalence_margin: float,
+    target_boundary: str = "bombus_loss",
+) -> dict[str, object]:
+    """Recalculate the interaction after removing each lineage once."""
+    target = [item for item in contrasts if item.boundary == target_boundary]
+    lineages = sorted({item.lineage for item in target})
+    estimates = []
+    for lineage in lineages:
+        reduced = [item for item in target if item.lineage != lineage]
+        if {item.group for item in reduced} != GROUPS:
+            estimates.append({"removed": lineage, "estimable": False})
+            continue
+        result = analyse_negative_control(
+            reduced, equivalence_margin=equivalence_margin, target_boundary=target_boundary,
+        )
+        interaction = result["specialist_minus_generalist"]
+        estimates.append({"removed": lineage, "estimable": True, **interaction})
+    valid = [x["effect"] for x in estimates if x.get("estimable")]
+    return {
+        "estimates": estimates,
+        "effect_range": [min(valid), max(valid)] if valid else None,
+        "sign_stable": bool(valid) and (all(x < 0 for x in valid) or all(x > 0 for x in valid)),
+        "boundary": "Sign stability is a robustness check, not protection from shared confounding.",
     }
 
 
@@ -171,3 +196,35 @@ def simulate_refutation_power(
         else:
             outcomes["inconclusive"] += 1
     return {"replicates": replicates, "rates": {k: v / replicates for k, v in outcomes.items()}}
+
+
+def precision_multiplier_audit(
+    contrasts: Sequence[Contrast], *, equivalence_margin: float,
+    specialist_effect: float, generalist_effect: float,
+    multipliers: Sequence[float] = (1.0, 0.8, 0.6, 0.4),
+    replicates: int = 1000,
+) -> list[dict[str, object]]:
+    """Estimate gains from reducing every SE; 0.5 approximates fourfold sample size."""
+    out = []
+    for index, multiplier in enumerate(multipliers):
+        if multiplier <= 0:
+            raise ValueError("precision multipliers must be positive")
+        scaled = [replace(
+            item,
+            mainland_se=item.mainland_se * multiplier,
+            island_se=item.island_se * multiplier,
+        ) for item in contrasts]
+        audit = simulate_refutation_power(
+            scaled,
+            equivalence_margin=equivalence_margin,
+            specialist_effect=specialist_effect,
+            generalist_effect=generalist_effect,
+            replicates=replicates,
+            seed=20260722 + index,
+        )
+        out.append({
+            "se_multiplier": multiplier,
+            "approximate_sample_size_multiplier": 1.0 / (multiplier ** 2),
+            **audit,
+        })
+    return out
