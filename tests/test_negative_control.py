@@ -1,4 +1,11 @@
-from channel_id.negative_control import Contrast, analyse_negative_control, classify_effect, simulate_refutation_power
+from channel_id.negative_control import (
+    Contrast,
+    analyse_negative_control,
+    classify_effect,
+    leave_one_lineage_out,
+    precision_multiplier_audit,
+    simulate_refutation_power,
+)
 
 
 def rows():
@@ -11,9 +18,7 @@ def rows():
 
 
 def test_equivalence_is_not_non_significance():
-    generalist = rows()[1]
-    result = classify_effect(generalist, equivalence_margin=0.5)
-    assert result["status"] == "equivalent"
+    assert classify_effect(rows()[1], equivalence_margin=0.5)["status"] == "equivalent"
 
 
 def test_specialist_generalist_interaction():
@@ -31,3 +36,19 @@ def test_refutation_power_returns_rates():
     )
     assert abs(sum(result["rates"].values()) - 1.0) < 1e-12
     assert result["rates"]["supports_selective_response"] > 0.5
+
+
+def test_leave_one_lineage_out_preserves_sign():
+    result = leave_one_lineage_out(rows(), equivalence_margin=0.5)
+    assert result["sign_stable"] is True
+    assert len(result["estimates"]) == 4
+
+
+def test_precision_audit_improves_support():
+    result = precision_multiplier_audit(
+        rows(), equivalence_margin=0.5,
+        specialist_effect=-1.0, generalist_effect=0.0,
+        multipliers=(1.0, 0.5), replicates=300,
+    )
+    assert result[1]["approximate_sample_size_multiplier"] == 4.0
+    assert result[1]["rates"]["supports_selective_response"] >= result[0]["rates"]["supports_selective_response"]
