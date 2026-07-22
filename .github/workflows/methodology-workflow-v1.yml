@@ -8,16 +8,20 @@ on:
       - channel_id/study_workflow.py
       - channel_id/scenario_workflow.py
       - channel_id/negative_control.py
+      - channel_id/candidate_registry.py
       - scripts/run_study_workflow.py
       - scripts/run_scenario_workflow.py
       - scripts/run_negative_control.py
+      - scripts/audit_candidate_registry.py
       - scripts/prepare_shimahotarubukuro_example.py
       - tests/test_study_workflow.py
       - tests/test_scenario_workflow.py
       - tests/test_negative_control.py
+      - tests/test_candidate_registry.py
       - examples/synthetic_threshold/summary.csv
       - examples/synthetic_scenarios/summary.csv
       - examples/negative_control/contrasts.csv
+      - data/candidate_lineages.csv
       - .github/workflows/methodology-workflow-v1.yml
   workflow_dispatch:
 
@@ -30,7 +34,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e . pytest
-      - run: pytest tests/test_study_workflow.py tests/test_threshold_identifiability.py tests/test_scenario_workflow.py tests/test_negative_control.py
+      - run: pytest tests/test_study_workflow.py tests/test_threshold_identifiability.py tests/test_scenario_workflow.py tests/test_negative_control.py tests/test_candidate_registry.py
       - run: |
           python scripts/run_study_workflow.py examples/synthetic_threshold/summary.csv \
             --output results/methodology-example.json --replicates 300
@@ -41,6 +45,9 @@ jobs:
           python scripts/run_negative_control.py examples/negative_control/contrasts.csv \
             --output results/negative-control-example.json \
             --equivalence-margin 0.5 --replicates 300
+      - run: |
+          python scripts/audit_candidate_registry.py data/candidate_lineages.csv \
+            --output results/candidate-registry-audit.json
       - uses: actions/upload-artifact@v4
         with:
           name: methodology-workflow-example
