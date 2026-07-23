@@ -48,4 +48,15 @@ Primary outputs are:
 - dominant off-diagonal confusions;
 - classification margins and feature overlap for every held-out replicate.
 
+## Initial CI diagnostic
+
+The deliberately small CI run uses three reference and three held-out replicates per world. It produced 46.7% overall recovery. `pollinator_regime` was recovered in all three held-out runs, whereas `environment_only`, `environment_plus_pollinator`, and `small_bee_substitution` were frequently confused. This result is diagnostic only because the replicate count is tiny, but it already shows that final abundance, lineage richness, specialization, and selfing summaries alone do not reliably separate all mixed-mechanism worlds.
+
+The next observation-model layer should therefore test incremental information gain from:
+
+- temporal trajectories rather than final state only;
+- specialist and generalist strata rather than pooled means;
+- lineage-level extinction and boundary-crossing histories;
+- outcross success or pollinator-service observations.
+
 Interpretation is restricted to the declared model family. High recovery means the synthetic mechanisms are distinguishable under the selected observation design; it does not establish that any scenario is historically true for the real Izu Islands.
