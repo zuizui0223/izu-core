@@ -1,0 +1,8 @@
+lineage,group,growth_form,flowering_season,mainland_coverage,island_coverage,trait_channel,evidence_grade,quantitative_ready,specialization_source,trait_source,matched_set,status,next_action
+Campanula punctata complex,specialist,perennial herb,summer,Japan mainland,Oshima and southern Izu islands,corolla size; outcrossing; autonomous reproduction,B,false,existing Izu pollination literature,companion shimahotarubukuro measurements,bluebell_pair,candidate,extract original breeding-system statistics
+Ligustrum lineage,uncertain,woody,unknown,Honshu,Izu and Hachijo floral comparison,floral tube and stamen length,B,false,,candidate comparative source,,candidate,verify pollinator dependence and extract means variance n
+Weigela lineage,uncertain,woody,spring,mainland Japan,Izu comparison reported,floral morphology,B,false,,candidate comparative source,,candidate,locate original tables and resolve taxon scope
+Ajania candidate,generalist,perennial herb,autumn,mainland Japan,Izu photo cohorts,ordinal floral openness,C,false,,,photo_generalist_1,candidate,verify distribution and pollinator evidence
+Farfugium candidate,generalist,perennial herb,autumn,mainland Japan,Izu photo cohorts,ordinal floral openness,C,false,,,photo_generalist_2,candidate,verify distribution and pollinator evidence
+Peucedanum candidate,generalist,perennial herb,summer-autumn,mainland Japan,Izu photo cohorts,ordinal floral openness,C,false,,,photo_generalist_3,candidate,verify distribution and pollinator evidence
+Pittosporum candidate,generalist,woody,spring,mainland Japan,Izu photo cohorts,ordinal floral morphology,C,false,,,photo_generalist_4,candidate,verify distribution and pollinator evidence
