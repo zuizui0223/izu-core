@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Aggregate the shimahotarubukuro corolla_master table for scenario analysis."""
+"""Aggregate the shimahotarubukuro morphology table for scenario analysis.
+
+This adapter is deliberately morphology-only.  The adopted Campanula evidence
+state in izu-core uses three source-locked channels elsewhere: floral size,
+multilocus outcrossing, and autonomous reproductive capacity.  Nectar-guide
+traits are not part of the current adopted calibration and therefore are not
+default inputs here.
+"""
 from __future__ import annotations
 
 import argparse
@@ -15,8 +22,6 @@ DEFAULT_TRAITS = (
     "throat_width_mm",
     "mouth_width_mm",
     "style_length_mm",
-    "guide_coverage_pct",
-    "n_guide_spots",
 )
 
 
