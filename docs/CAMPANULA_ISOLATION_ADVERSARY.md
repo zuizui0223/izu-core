@@ -41,11 +41,39 @@ Composite diagnostics additionally compare:
 
 The frozen coordinate scaffold does not make mainland distance equivalent to north-to-south order. In particular, Toshima is slightly closer to the mainland anchor than Oshima, while it is the immediate post-Oshima second-boundary island. The second boundary can therefore be tested against a continuous isolation surrogate rather than being guaranteed by construction.
 
+## Current frozen result
+
+Workflow run `31194228837` completed successfully and uploaded artifact `campanula-isolation-adversary`.
+
+### Channel-level comparison
+
+| channel | focal shape | AICc | mainland-distance AICc | reading |
+|---|---|---:|---:|---|
+| flower length | island-order cline | 31.78 | 37.44 | only four island observations; null AICc is 29.94, so do not declare a resolved single-channel shape from AICc alone |
+| multilocus outcrossing midpoint | island-order cline | -10.20 | 0.56 | smooth island-order erosion fits substantially better than simple mainland distance |
+| autonomous capsule set | Oshima-to-Toshima step | -16.46 | 10.86 | the second-transition step is far better than a continuous mainland-distance cline |
+
+For flower length, leave-one-island-out MSE is lower for island order than for the null and vastly lower than for mainland distance, but the small `n=4` remains the dominant limitation.
+
+### Composite diagnostic
+
+| composite | composite AICc |
+|---|---:|
+| two-stage order hybrid | 5.12 |
+| two-stage distance hybrid | 21.53 |
+| single island-order cline | 30.25 |
+| null | 36.28 |
+| single mainland-distance cline | 48.86 |
+
+Within this deliberately narrow adversary set, replacing island order with great-circle mainland distance worsens the two-stage composite by about 16.4 AICc units. The current three-channel pattern therefore does **not** collapse to a simple continuous mainland-distance gradient.
+
 ## Interpretation
 
-A distance model that fits well would strengthen geographic isolation/demographic history as an alternative explanation. A poor distance model does **not** reject all geographic or historical mechanisms: stepping-stone connectivity, island area, volcanism, source-population identity, habitat and genetic founder history remain viable adversaries.
+A distance model that fits well would strengthen geographic isolation/demographic history as an alternative explanation. Here the simple distance model fits poorly, but that does **not** reject all geographic or historical mechanisms: stepping-stone connectivity, island area, volcanism, source-population identity, habitat and genetic founder history remain viable adversaries.
 
 Likewise, superior fit of the predeclared step for autonomous capacity does not identify historical *Bombus* loss as the cause. It establishes only that the observed island-side response is difficult to approximate with this particular continuous mainland-distance axis.
+
+The next adversary should therefore add measured island area/connectivity and a source-locked history or disturbance layer rather than treating latitude/order as a sufficient stand-in for environment and history.
 
 Run:
 
