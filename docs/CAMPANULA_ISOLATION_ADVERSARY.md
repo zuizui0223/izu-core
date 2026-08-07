@@ -17,6 +17,10 @@ The Honshu trait row is **not** assigned the mainland-anchor coordinate. Its flo
 
 Great-circle mainland distance is a geographic-isolation surrogate. It is not colonisation-path length, gene flow, island age, habitat similarity or demographic history.
 
+## Why isolation is a serious adversary
+
+The geography/history alternative is not included as a straw man. An independent population-genetic study of *Weigela coraeensis* across Honshu and the Izu Islands (Yamada & Maki 2012; DOI `10.1111/j.1365-2699.2011.02634.x`) analysed 349 mainland and 504 island individuals. Its abstract reports that island genetic diversity decreased with distance from Honshu and discusses repeated founder effects during north-to-south inter-island colonisation plus stepping-stone dispersal. This does not establish the same process in *Campanula*, but it shows that mainland isolation and demographic history can covary strongly with the same island sequence and therefore deserve an explicit competing model.
+
 ## Candidate shapes
 
 Each channel is compared with the same low-parameter candidates:
