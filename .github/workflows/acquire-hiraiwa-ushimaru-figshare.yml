@@ -9,6 +9,7 @@ on:
       - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
       - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
       - "scripts/analyze_hiraiwa_ushimaru_community_response.py"
+      - "scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py"
       - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
       - "scripts/audit_hiraiwa_ushimaru_island_baseline_specificity.py"
       - "scripts/select_hiraiwa_ushimaru_functional_control.py"
@@ -20,6 +21,7 @@ on:
       - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
       - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
       - "scripts/analyze_hiraiwa_ushimaru_community_response.py"
+      - "scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py"
       - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
       - "scripts/audit_hiraiwa_ushimaru_island_baseline_specificity.py"
       - "scripts/select_hiraiwa_ushimaru_functional_control.py"
@@ -43,6 +45,8 @@ jobs:
         run: python scripts/analyze_hiraiwa_ushimaru_tube_morphology.py
       - name: Analyze community-level seasonal network responses
         run: python scripts/analyze_hiraiwa_ushimaru_community_response.py
+      - name: Audit continuous pollinator functional exposure
+        run: python scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py
       - name: Audit leave-one-post-island trait matching sensitivity
         run: python scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py
       - name: Audit alternate-island baseline specificity
