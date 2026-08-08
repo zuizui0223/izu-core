@@ -45,6 +45,14 @@ def test_qualitative_registry_rows_are_retained_but_not_emitted(tmp_path: Path):
     assert compile_holdout_observations(records) == ()
 
 
+def test_unresolved_group_is_retained_but_not_emitted(tmp_path: Path):
+    registry = tmp_path / "registry.csv"
+    write_registry(registry, [base_row(analysis_group="uncertain", group_confidence="unresolved")])
+    records = load_native_evidence(registry)
+    assert summarize(records)["unresolved_group_rows"] == 1
+    assert compile_holdout_observations(records) == ()
+
+
 def test_only_explicit_mapped_numeric_rows_enter_holdout(tmp_path: Path):
     registry = tmp_path / "registry.csv"
     row = base_row(
@@ -76,3 +84,20 @@ def test_ready_row_rejects_missing_variance(tmp_path: Path):
         assert "requires n and variance" in str(error)
     else:
         raise AssertionError("missing variance must block holdout compilation")
+
+
+def test_ready_row_rejects_unresolved_dependency_group(tmp_path: Path):
+    registry = tmp_path / "registry.csv"
+    row = base_row(
+        analysis_group="uncertain", group_confidence="unresolved",
+        numeric_status="numeric_extracted", value="12.5", value_unit="mm", n="20", variance="4",
+        pollinator_regime="no_effective_bombus", geographic_mapping_status="mapped_explicit",
+        scoring_status="ready_for_holdout",
+    )
+    write_registry(registry, [row])
+    try:
+        load_native_evidence(registry)
+    except ValueError as error:
+        assert "requires resolved specialist/generalist group" in str(error)
+    else:
+        raise AssertionError("unresolved dependency class must block holdout compilation")
