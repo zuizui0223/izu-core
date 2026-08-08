@@ -27,7 +27,7 @@ from pathlib import Path
 TAXON = "Farfugium japonicum"
 OSHIMA_LAT = 34.7385
 OSHIMA_LNG = 139.4024
-RADIUS_KM = 8
+RADIUS_KM = 15
 EXISTING_OSHIMA_OBSERVATIONS = {
     233837146,
     323971845,
@@ -110,9 +110,6 @@ def fetch_candidates() -> list[dict[str, object]]:
             "uri": raw.get("uri") or f"https://www.inaturalist.org/observations/{observation_id}",
         })
 
-    # Predeclared visibility-oriented ordering: autumn records first because the
-    # candidate registry already declares autumn flowering; within strata use a
-    # deterministic shuffle, not phenotype information.
     rng = random.Random(SEED)
     autumn = [row for row in observations if row["autumn_priority"]]
     other = [row for row in observations if not row["autumn_priority"]]
@@ -207,7 +204,9 @@ def main() -> None:
         "claim_boundary": (
             "Candidate acquisition and autumn prioritisation are visibility-recovery steps, not phenotype data. "
             "Multiple photos from one observation are never independent biological samples. Region/date keys "
-            "must not be joined before stage-0 visibility and phenotype scores are frozen."
+            "must not be joined before stage-0 visibility and phenotype scores are frozen. The 15-km radius is "
+            "a retrieval envelope around Izu Oshima and does not itself prove island membership; protected-key "
+            "coordinates/source records must be checked before any accepted card is promoted."
         ),
     }
     (args.output_dir / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
