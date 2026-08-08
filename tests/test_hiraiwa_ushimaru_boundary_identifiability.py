@@ -39,6 +39,9 @@ def test_descriptive_contrast_is_allowed_but_causal_boundary_effect_is_not_ident
 def test_next_design_gain_requires_geographic_or_temporal_regime_replication():
     data = load_design()
     text = data["next_design_gain"].lower()
+    consequence = data["consequence"].lower()
     assert "independent geographic replication" in text
     assert "temporal regime transition" in text
-    assert "causal boundary effect" in data["consequence"]
+    assert "inseparable" in consequence
+    assert "oshima-specific site effect" in consequence
+    assert "species-level 8/8 directions cannot be treated as eight independent boundary replications" in consequence
