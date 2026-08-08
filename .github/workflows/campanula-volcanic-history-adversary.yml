@@ -1,0 +1,40 @@
+name: Campanula volcanic history adversary
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/campanula_volcanic_history_adversary.py"
+      - "paper/run_campanula_volcanic_history_adversary.py"
+      - "tests/test_campanula_volcanic_history_adversary.py"
+      - "data/design/izu_volcanic_history_pre1986.csv"
+      - "data/inoue_literature_island_traits.csv"
+      - ".github/workflows/campanula-volcanic-history-adversary.yml"
+  pull_request:
+    paths:
+      - "channel_id/campanula_volcanic_history_adversary.py"
+      - "paper/run_campanula_volcanic_history_adversary.py"
+      - "tests/test_campanula_volcanic_history_adversary.py"
+      - "data/design/izu_volcanic_history_pre1986.csv"
+      - "data/inoue_literature_island_traits.csv"
+      - ".github/workflows/campanula-volcanic-history-adversary.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Test volcanic history adversary
+        run: python -m pytest -q tests/test_campanula_volcanic_history_adversary.py
+      - name: Run volcanic history adversary
+        run: python paper/run_campanula_volcanic_history_adversary.py
+      - name: Upload audit outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: campanula-volcanic-history-adversary
+          path: artifacts/campanula_volcanic_history_adversary/
