@@ -45,7 +45,7 @@ def test_current_directional_layer_has_no_independent_shared_step_support():
     assert summary["shared_second_step_support_lineages"] == []
     assert summary["universal_shared_second_step_status"] == "not_supported_by_current_directional_layer"
     assert summary["generalist_change_observed_lineages"] == ["ligustrum_ovalifolium"]
-    assert summary["unresolved_dependency_lineages"] == ["hosta_longipes"]
+    assert summary["unresolved_dependency_lineages"] == ["hosta_longipes", "weigela_coraeensis"]
     assert summary["numeric_holdout_rows"] == 0
 
 
