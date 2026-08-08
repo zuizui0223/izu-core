@@ -1,0 +1,10 @@
+unit_id,area_km2,area_source,source_locator,source_commit,notes
+izu_oshima,91.960201,GSHHG 2.3.7 high-resolution level-1 polygon,zuizui0223/island:data/v2/curation/pilot_island_registry.csv,79e6be52efb1c434897a52b3b022a19400c2fc2e,Reviewed polygon identity and area.
+toshima,4.43549299673,GSHHG 2.3.7 high-resolution level-1 polygon,data/public/izu_occurrence_audit/izu_supplemental_summary.json,46079f708b28e0d52a3df04cf4887b4ca0b292d6,Exact supplemental polygon acquired in PR 88.
+niijima,25.215470,GSHHG 2.3.7 high-resolution level-1 polygon,zuizui0223/island:data/v2/curation/pilot_island_registry.csv,79e6be52efb1c434897a52b3b022a19400c2fc2e,Reviewed polygon identity and area.
+shikinejima,4.10789629841,GSHHG 2.3.7 high-resolution level-1 polygon,data/public/izu_occurrence_audit/izu_supplemental_summary.json,46079f708b28e0d52a3df04cf4887b4ca0b292d6,Exact supplemental polygon acquired in PR 88.
+kozushima,18.881773,GSHHG 2.3.7 high-resolution level-1 polygon,zuizui0223/island:data/v2/curation/pilot_island_registry.csv,79e6be52efb1c434897a52b3b022a19400c2fc2e,Reviewed polygon identity and area.
+miyakejima,56.552894,GSHHG 2.3.7 high-resolution level-1 polygon,zuizui0223/island:data/v2/curation/pilot_island_registry.csv,79e6be52efb1c434897a52b3b022a19400c2fc2e,Reviewed polygon identity and area.
+mikurajima,20.285914,GSHHG 2.3.7 high-resolution level-1 polygon,zuizui0223/island:data/v2/curation/pilot_island_registry.csv,79e6be52efb1c434897a52b3b022a19400c2fc2e,Reviewed polygon identity and area.
+hachijojima,71.673701,GSHHG 2.3.7 high-resolution level-1 polygon,zuizui0223/island:data/v2/curation/pilot_island_registry.csv,79e6be52efb1c434897a52b3b022a19400c2fc2e,Reviewed polygon identity and area.
+aogashima,6.22429411248,GSHHG 2.3.7 high-resolution level-1 polygon,data/public/izu_occurrence_audit/izu_supplemental_summary.json,46079f708b28e0d52a3df04cf4887b4ca0b292d6,Exact supplemental polygon acquired in PR 88.
