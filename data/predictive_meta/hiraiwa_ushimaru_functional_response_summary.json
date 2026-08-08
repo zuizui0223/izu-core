@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31252316762,
+  "source_artifact": 9020370227,
+  "site_definition": {
+    "mainland": ["hitachi", "hitachinaka", "tateyama"],
+    "oshima": ["oshima"],
+    "post_boundary": ["niijima", "kozu", "miyake", "hachijo"]
+  },
+  "aggregation_unit": "plant x site with seasonal rows averaged within site before Oshima-versus-post contrasts",
+  "minimum_post_sites": 2,
+  "all_network_plants": {
+    "functional_generality": {"eligible": 14, "lower_post": 6, "higher_post": 8, "equal": 0},
+    "corrected_trait_matching": {"eligible": 16, "lower_post": 10, "higher_post": 6, "equal": 0},
+    "shared_second_step_reading": "heterogeneous_not_universal"
+  },
+  "pollen_success_target_plants": {
+    "source_defined_target_species": [
+      "Ampelopsis glandulosa var. hancei",
+      "Calystegia soldanella",
+      "Farfugium japonicum",
+      "Glehnia littoralis",
+      "Lonicera japonica",
+      "Lysimachia mauritiana",
+      "Melanthera prostrata",
+      "Oxalis corniculata var. trichocaulon",
+      "Persicaria senticosa",
+      "Vitex rotundifolia"
+    ],
+    "functional_generality": {"eligible": 8, "lower_post": 3, "higher_post": 5, "equal": 0},
+    "corrected_trait_matching": {"eligible": 8, "lower_post": 8, "higher_post": 0, "equal": 0},
+    "pollen_receipt": {"eligible": 9, "lower_post": 5, "higher_post": 4, "equal": 0},
+    "reading": "trait_matching_is_directionally_coherent_in_the_source_defined_pollen_target_subset_but_generality_and_pollen_receipt_are_mixed"
+  },
+  "focal_examples": {
+    "Campanula microdonta": {
+      "functional_generality_second_delta": 0.5076881348630684,
+      "corrected_trait_matching_second_delta": 0.5707631494179812,
+      "reading": "both contemporary network metrics are higher post-boundary than Oshima; they do not mimic the historical autonomous-reproduction step"
+    },
+    "Farfugium japonicum": {
+      "functional_generality_second_delta": 0.0026496093560850476,
+      "corrected_trait_matching_second_delta": -2.806650661104169,
+      "pollen_receipt_second_delta": -0.887727684897683,
+      "reading": "interaction breadth is essentially unchanged while trait matching and pollen receipt are lower post-boundary"
+    }
+  },
+  "claim_boundary": "These are contemporary source-native network and open-pollination responses. Species share the same site-level environments and are not independent experimental replicates. The metrics do not establish floral evolution, autonomous reproductive capacity, historical pollinator loss, or causal selection."
+}
