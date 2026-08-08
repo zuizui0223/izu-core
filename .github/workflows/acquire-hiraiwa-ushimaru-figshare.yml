@@ -7,6 +7,7 @@ on:
       - "config/hiraiwa_ushimaru_figshare_source.json"
       - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
       - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
+      - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
       - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
       - "scripts/select_hiraiwa_ushimaru_functional_control.py"
       - ".github/workflows/acquire-hiraiwa-ushimaru-figshare.yml"
@@ -15,6 +16,7 @@ on:
       - "config/hiraiwa_ushimaru_figshare_source.json"
       - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
       - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
+      - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
       - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
       - "scripts/select_hiraiwa_ushimaru_functional_control.py"
       - ".github/workflows/acquire-hiraiwa-ushimaru-figshare.yml"
@@ -33,6 +35,8 @@ jobs:
         run: python scripts/acquire_hiraiwa_ushimaru_figshare.py
       - name: Analyze site-level plant responses
         run: python scripts/analyze_hiraiwa_ushimaru_species_response.py
+      - name: Analyze source-native site-level tube morphology
+        run: python scripts/analyze_hiraiwa_ushimaru_tube_morphology.py
       - name: Audit leave-one-post-island trait matching sensitivity
         run: python scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py
       - name: Select prospective high-functional-generality phenotype control
