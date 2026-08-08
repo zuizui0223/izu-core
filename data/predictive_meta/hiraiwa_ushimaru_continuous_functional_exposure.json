@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31254987357,
+  "source_artifact": 9021181786,
+  "source_native_model": {
+    "source_full_candidate_formula": "TM_z ~ richness + D + FDQ + FRic + FEve + (1|season) + (1|site)",
+    "source_figure_best_model_fdq_coefficient": 1.554,
+    "source_figure_best_model_feve_coefficient": -9.2976,
+    "source_figure_best_model_intercept": 2.4023,
+    "source_code_locator": "archived code.R Figure 3 community-level trait-matching block"
+  },
+  "fixed_effect_sensitivity": {
+    "formula": "TM_z ~ FDQ + FEve + site_fixed_effects + season_fixed_effects",
+    "n_site_season_rows": 40,
+    "n_sites": 8,
+    "n_seasons": 5,
+    "fdq_coefficient": 1.834565481801662,
+    "feve_coefficient": -12.654878107729147,
+    "r_squared": 0.6073423154691433,
+    "reading": "The positive FDQ association persists after absorbing every time-invariant site difference and common seasonal shifts."
+  },
+  "within_site_model_free_sensitivity": {
+    "site_centered_fdq_tm_correlation": 0.3024905993990573,
+    "reading": "After subtracting each site's own mean FDQ and TM, seasons with above-site-average FDQ tend to have above-site-average corrected trait matching."
+  },
+  "mechanistic_gain": "FDQ varies continuously across multiple sites and seasons. The positive source-model and site-fixed-effect relationships provide a contemporary functional-exposure bridge between pollinator community structure and flower-pollinator trait matching that cannot be reduced to static island identity alone.",
+  "relation_to_binary_boundary": "This continuous exposure does not identify a historical Oshima-Toshima causal boundary, but it supplies a mechanism-compatible axis that varies within geographic sites and therefore is less confounded with island identity than the binary regime label.",
+  "claim_boundary": "Observational contemporary association only. Site fixed effects remove time-invariant site confounding but not time-varying weather/resources, measurement error, feedback within networks or historical selection. The result does not identify the historical cause of Campanula floral or breeding-system change."
+}
