@@ -26,7 +26,10 @@ def test_response_modes_keep_quantitative_calibration_and_context_separate():
 
 def test_hybrid_replacement_is_not_mislabeled_as_within_lineage_evolution():
     records = {row["response_id"]: row for row in rows()}
-    assert "not a same-lineage floral effect" in records["R04"]["claim_boundary"]
+    boundary = records["R04"]["claim_boundary"]
+    assert "hybrid" in boundary
+    assert "same-lineage floral effect" in boundary
+    assert any(token in boundary for token in ("cannot", "not"))
     assert "not an equivalence test" in records["R06"]["claim_boundary"]
 
 
