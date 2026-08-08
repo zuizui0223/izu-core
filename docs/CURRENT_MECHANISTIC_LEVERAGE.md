@@ -10,7 +10,7 @@ The adopted evidence is best read at three levels:
 2. **mechanistic leverage** — whether explicit alternative axes can reproduce that response;
 3. **causal attribution** — which remains blocked until independent lineage-level predictions and controls are available.
 
-`data/predictive_meta/current_mechanistic_leverage.csv` is the machine-readable claim boundary.
+`data/predictive_meta/current_mechanistic_leverage.csv` is the machine-readable claim boundary, and CI requires every current evidence unit to retain `causal_claim_allowed = no`.
 
 ## Campanula: split the continuous channels from the breakpoint channel
 
@@ -40,7 +40,7 @@ The source-recovery audit currently reaches verified abstract/full-text access r
 
 ### Ligustrum
 
-The primary source describes the system as generalist and reports shorter Izu corolla tubes/stamens, with the strongest shortening on Hachijo. Therefore the negative-control prediction cannot be “generalists never change.” The relevant prediction remains that a generalist should not repeatedly show the same specialist-specific breakpoint after environmental/history alternatives are accounted for.
+The primary source reports shorter Izu corolla tubes/stamens, with the strongest shortening on Hachijo, in a broadly generalist pollination context. Therefore the negative-control prediction cannot be “generalists never change.” The relevant prediction remains that a generalist should not repeatedly show the same specialist-specific breakpoint after environmental/history alternatives are accounted for.
 
 Accessible supporting-information metadata identifies a significance matrix and a pollinator table, but significance markers are not effect sizes. Population means, uncertainty, sample sizes and exact locality mapping remain required.
 
