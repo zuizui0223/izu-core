@@ -36,9 +36,13 @@ That gives the channel substantially more mechanistic leverage than the two cont
 
 The primary abstract reports a gradual mainland-distance decline in corolla length. This is useful precisely because it does **not** supply a universal second-step response. The same lineage has independent genetic evidence of repeated founder effects and stepping-stone colonisation, making it a strong reminder that distance/order clines are mechanistically ambiguous.
 
+The source-recovery audit currently reaches verified abstract/full-text access routes but not the population-level means, sample sizes and uncertainty required by the quantitative holdout gate. The missing original table is therefore an explicit access bottleneck; numbers are not reconstructed from the abstract.
+
 ### Ligustrum
 
 The primary source describes the system as generalist and reports shorter Izu corolla tubes/stamens, with the strongest shortening on Hachijo. Therefore the negative-control prediction cannot be “generalists never change.” The relevant prediction remains that a generalist should not repeatedly show the same specialist-specific breakpoint after environmental/history alternatives are accounted for.
+
+Accessible supporting-information metadata identifies a significance matrix and a pollinator table, but significance markers are not effect sizes. Population means, uncertainty, sample sizes and exact locality mapping remain required.
 
 ### Hosta
 
