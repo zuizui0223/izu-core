@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31254086784,
+  "source_artifact": 9020867216,
+  "contrast": "within each of five seasons: mean(Niijima,Kozu,Miyake,Hachijo) minus Oshima",
+  "independent_oshima_bridge_sites": 1,
+  "temporal_repeats": 5,
+  "metrics": {
+    "FDQ": {
+      "mean_delta": -0.49449793839801937,
+      "n_lower_post_seasons": 3,
+      "n_higher_post_seasons": 2
+    },
+    "corrected_community_trait_matching_TM_z": {
+      "mean_delta": -1.7308480334683196,
+      "n_lower_post_seasons": 4,
+      "n_higher_post_seasons": 1
+    },
+    "pollinator_functional_generality_FG_Pol_z": {
+      "mean_delta": 1.5842479620294558,
+      "n_lower_post_seasons": 1,
+      "n_higher_post_seasons": 4
+    },
+    "plant_functional_generality_FG_Pla_z": {
+      "mean_delta": 0.828410018242503,
+      "n_lower_post_seasons": 2,
+      "n_higher_post_seasons": 3
+    },
+    "pollinator_richness": {
+      "mean_delta": -6.85,
+      "n_lower_post_seasons": 4,
+      "n_higher_post_seasons": 1
+    }
+  },
+  "reading": "Community corrected trait matching is lower post-Oshima in four of five seasons and has a negative mean contrast. Pollinator and plant functional generality do not share that direction and are often higher post-Oshima. Pollinator richness is lower in four of five seasons. The contemporary community pattern is therefore channel-specific rather than a synchronous network collapse.",
+  "claim_boundary": "Five seasons estimate temporal consistency for the same sites; they are not five independent geographic boundary replications. Oshima remains the only bridge-state site, so these are descriptive network contrasts and cannot identify a causal second-boundary effect."
+}
