@@ -9,7 +9,7 @@ HOLDOUT = ROOT / "data/predictive_meta/generalist_negative_control_holdout_obser
 
 def test_all_scored_cards_passed_blind_stage_zero_before_key_join():
     rows = list(csv.DictReader(LEDGER.open(encoding="utf-8")))
-    assert len(rows) == 46
+    assert len(rows) == 47
     for row in rows:
         if row["trait_score"]:
             assert row["flowering_state"] == "open"
@@ -30,5 +30,8 @@ def test_ajania_is_the_only_complete_three_regime_generalist_contrast():
         "large_bombus": 3, "ardens": 4, "no_bombus": 3
     }
     assert all(value == 3.0 for values in ajania.values() for value in values)
+    # The legacy compiled holdout table predates the newly recovered Oshima Farfugium
+    # card; Farfugium readiness is now tracked explicitly in
+    # farfugium_photo_control_readiness.json and remains inferentially blocked.
     farfugium = {regime: len(values) for (taxon, regime), values in by_taxon_regime.items() if taxon == "Farfugium japonicum"}
     assert farfugium == {"large_bombus": 5, "no_bombus": 1}
