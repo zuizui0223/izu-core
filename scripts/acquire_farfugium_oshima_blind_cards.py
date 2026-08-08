@@ -17,9 +17,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
-import io
 import json
-import math
 import random
 import urllib.parse
 import urllib.request
@@ -69,7 +67,6 @@ def parse_month(observed_on: object) -> int | None:
 
 
 def photo_medium_url(url: str) -> str:
-    # iNaturalist API typically returns .../square.jpg; use medium for review.
     for token in ("square", "small", "thumb"):
         if f"/{token}." in url:
             return url.replace(f"/{token}.", "/medium.")
@@ -133,6 +130,7 @@ def build_rows(observations: list[dict[str, object]]) -> tuple[list[dict[str, ob
             observation["photo_records"],
             key=lambda photo: int(photo.get("id") or 0),
         )[:MAX_PHOTOS_PER_OBSERVATION]
+        observation_group = f"OBS-{hashlib.sha256(str(obs_id).encode()).hexdigest()[:8].upper()}"
         for photo_index, photo in enumerate(photos, start=1):
             photo_id = int(photo.get("id") or 0)
             raw_url = str(photo.get("url") or "")
@@ -141,8 +139,8 @@ def build_rows(observations: list[dict[str, object]]) -> tuple[list[dict[str, ob
             opaque = card_id(obs_id, photo_id)
             blind.append({
                 "card_id": opaque,
-                "observation_group": f"OBS-{hashlib.sha256(str(obs_id).encode()).hexdigest()[:8].upper()}",
-                "photo_url": photo_medium_url(raw_url),
+                "observation_group": observation_group,
+                "image_url": photo_medium_url(raw_url),
                 "trait_definition_id": "farfugium_visible_signal_0_3",
                 "stage0_open_flower": "",
                 "stage0_focal_head_visible": "",
@@ -152,7 +150,7 @@ def build_rows(observations: list[dict[str, object]]) -> tuple[list[dict[str, ob
             })
             key.append({
                 "card_id": opaque,
-                "observation_group": blind[-1]["observation_group"],
+                "observation_group": observation_group,
                 "observation_id": obs_id,
                 "photo_id": photo_id,
                 "photo_index_within_observation": photo_index,
