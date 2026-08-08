@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "taxon": "Farfugium japonicum",
+  "trait_definition_id": "farfugium_visible_signal_0_3",
+  "prospective_control_basis": "highest source-native functional generality among coverage-eligible Hiraiwa-Ushimaru pollen-target plants; selection did not use phenotype response",
+  "independence_unit": "iNaturalist observation",
+  "scored_open_comparable_observations": {
+    "large_bombus": {
+      "n": 5,
+      "scores": [3, 3, 3, 3, 3]
+    },
+    "ardens": {
+      "n": 1,
+      "scores": [3],
+      "new_observation_id": 329756251,
+      "new_blind_card_id": "FO-C3BBA76B52",
+      "blind_score_frozen_before_key_join": true
+    },
+    "no_bombus": {
+      "n": 1,
+      "scores": [3]
+    }
+  },
+  "descriptive_pattern": "all currently eligible independent observations score 3 in all represented regimes",
+  "minimum_independent_observations_per_regime_for_inference": 2,
+  "three_regime_inference_gate_open": false,
+  "current_status": "descriptive_flat_inferentially_inconclusive",
+  "additional_iNaturalist_search": {
+    "research_grade_radius_km": 15,
+    "existing_oshima_observations_excluded": 6,
+    "new_independent_observations_found": 3,
+    "new_independent_open_comparable_observations": 1,
+    "additional_radius_search_added_open_independent_observations": 0
+  },
+  "gbif_herbarium_rescue": {
+    "workflow_run": 31253150111,
+    "artifact_id": 9020616475,
+    "japanese_preserved_specimen_records_retrieved": 33,
+    "records_with_media": 33,
+    "media_candidates_in_fixed_region_proxies": 0,
+    "rescued_oshima_cell": false
+  },
+  "claim_boundary": "The current scores are descriptively flat, but Oshima and post-boundary each have only one independent eligible observation. No equivalence, no-change, or shared-breakpoint negative-control inference is allowed. Multiple photos from observation 329756251 remain one biological observation."
+}
