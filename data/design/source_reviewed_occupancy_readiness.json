@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "goal": "Test establishment/filtering across Izu pollinator-regime geography without treating public-record non-detection as biological absence.",
+  "status": "blocked_missing_multisland_source_reviewed_species_matrix",
+  "candidate_sources": [
+    {
+      "source_id": "sugiyama_izu_flora_4th_1987",
+      "title": "伊豆諸島の植物誌 第4版",
+      "author_editor": "杉山武久",
+      "year": 1987,
+      "coverage": "Izu Islands flora; expected best candidate for a reviewed multi-island species matrix",
+      "current_access": "bibliographic metadata verified via National Diet Library search; species-by-island contents not recovered through the current public route",
+      "analysis_ready": false,
+      "next_action": "obtain a lawful readable copy or structured transcription before any island-absence analysis"
+    },
+    {
+      "source_id": "suzuki_1956_izu_distribution",
+      "doi": "10.15281/jplantres1887.69.598",
+      "title": "On the Plant Distribution over Izu-Islands",
+      "coverage": "archipelago-wide phytogeographic discussion",
+      "current_access": "open J-STAGE article",
+      "analysis_ready": false,
+      "limitation": "supports broad north/south floristic boundary context but is not treated here as a complete modern species-by-island establishment matrix"
+    },
+    {
+      "source_id": "aogashima_annotated_checklist",
+      "title": "An Annotated Checklist of the Vascular Plants of Aogashima Island in the Izu Islands, Japan",
+      "coverage": "Aogashima only",
+      "current_access": "article metadata/individual checklist source identified",
+      "analysis_ready": false,
+      "limitation": "single-island checklist cannot by itself support the nine-island transition comparison"
+    }
+  ],
+  "explicitly_rejected_shortcuts": [
+    "treat GBIF or iNaturalist non-detection as biological absence",
+    "combine unequal public-record effort into an uncorrected island presence/absence matrix",
+    "infer native establishment from occurrence coordinates alone",
+    "use the 1956 phytogeographic summary as if it were a complete species-by-island checklist"
+  ],
+  "minimum_source_matrix_requirements": [
+    "named taxon",
+    "island-level established/present status from a reviewed flora or checklist",
+    "native/introduced/cultivated status where available",
+    "explicit source citation and locality scope",
+    "taxonomy normalization across islands",
+    "documented handling of historical versus contemporary status"
+  ],
+  "planned_analysis_once_open": {
+    "response_domain": "source-reviewed establishment/occupancy",
+    "primary_question": "Are source-resolved high pollinator-dependency mainland lineages less likely than broader-dependency lineages to persist as comparable established taxa across the Oshima/post-boundary geography after area isolation habitat/history controls?",
+    "separate_modes": [
+      "same-lineage persistence",
+      "absence/non-establishment",
+      "hybrid replacement",
+      "taxonomic replacement or insular derivative"
+    ],
+    "claim_boundary": "Even a reviewed presence/absence matrix would test ecological filtering/establishment, not within-population floral evolution or historical pollinator causation."
+  },
+  "claim_boundary": "The occupancy workstream is intentionally blocked rather than substituting public-record zeros for absence. The current evidence supports a survivorship-selection concern but does not yet quantify its archipelago-wide magnitude."
+}
