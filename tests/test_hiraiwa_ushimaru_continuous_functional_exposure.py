@@ -58,11 +58,30 @@ def test_island_subset_fdq_direction_survives_every_single_site_omission():
     }
 
 
-def test_continuous_exposure_is_beyond_binary_boundary_but_not_bombus_causal_proof():
+def test_sampled_post_boundary_network_has_zero_observed_bombus_rows_without_claiming_absence():
+    context = load_data()["sampled_bombus_context"]
+    assert context["bombus_species_site_season_rows"] == 12
+    assert context["bombus_site_seasons"] == 10
+    assert context["mainland_bombus_rows"] == 10
+    assert context["mainland_bombus_site_seasons"] == 8
+    assert context["oshima_bombus_rows"] == 2
+    assert context["oshima_bombus_site_seasons"] == 2
+    assert context["post_oshima_bombus_rows"] == 0
+    assert context["post_oshima_bombus_site_seasons"] == 0
+    assert set(context["observed_bombus_taxa"]) == {
+        "Bombus ardens ardens", "Bombus diversus diversus"
+    }
+    assert "not a biological absence assertion" in context["reading"]
+
+
+def test_continuous_exposure_is_beyond_sampled_bombus_boundary_but_not_bombus_causal_proof():
     data = load_data()
-    assert "inside the post-boundary region" in data["relation_to_binary_boundary"]
-    assert "should not be reduced to a binary Bombus-present/absent label" in data["relation_to_binary_boundary"]
-    assert "Observational contemporary association only" in data["claim_boundary"]
-    assert "time-varying weather/resources" in data["claim_boundary"]
-    assert "does not identify Bombus loss as the cause" in data["claim_boundary"]
-    assert "beyond the binary geographic regime label" in data["claim_boundary"]
+    relation = data["relation_to_binary_boundary"]
+    claim = data["claim_boundary"]
+    assert "zero observed Bombus" in relation
+    assert "binary observed-Bombus label" in relation
+    assert "Observational contemporary association only" in claim
+    assert "time-varying weather/resources" in claim
+    assert "sampled Bombus audit is not an archipelago-wide biological absence statement" in claim
+    assert "does not identify Bombus loss as the cause" in claim
+    assert "binary sampled-network contrast" in claim
