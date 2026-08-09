@@ -77,5 +77,6 @@ def test_claim_is_noncausal_and_does_not_read_proxy_moderation_as_dependency_tes
     assert "contemporary observational" in text
     assert "historical dependency-by-boundary evolutionary effect" in text
     design = load_design()
-    assert "code legacy floral-form or family labels" in design["what_is_not_allowed"]
-    assert "interpret unstable proxy moderation as evidence that dependency does not matter" in design["what_is_not_allowed"]
+    prohibited = design["what_is_not_allowed"]
+    assert any("code legacy floral-form or family labels" in item for item in prohibited)
+    assert any("interpret unstable proxy moderation as evidence that dependency does not matter" in item for item in prohibited)
