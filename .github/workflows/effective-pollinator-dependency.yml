@@ -1,0 +1,46 @@
+name: Effective pollinator dependency field protocol
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/effective_pollinator_dependency.py"
+      - "scripts/audit_effective_pollinator_dependency.py"
+      - "templates/field_dependency_plant_registry_template.csv"
+      - "templates/field_single_visit_pollen_deposition_template.csv"
+      - "templates/field_pollination_treatment_template.csv"
+      - "data/design/effective_pollinator_dependency_field_readiness.json"
+      - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
+      - "docs/field_geometry_and_interaction_linkage.md"
+      - "tests/test_effective_pollinator_dependency.py"
+      - "tests/test_effective_pollinator_dependency_readiness.py"
+      - ".github/workflows/effective-pollinator-dependency.yml"
+  pull_request:
+    paths:
+      - "channel_id/effective_pollinator_dependency.py"
+      - "scripts/audit_effective_pollinator_dependency.py"
+      - "templates/field_dependency_plant_registry_template.csv"
+      - "templates/field_single_visit_pollen_deposition_template.csv"
+      - "templates/field_pollination_treatment_template.csv"
+      - "data/design/effective_pollinator_dependency_field_readiness.json"
+      - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
+      - "docs/field_geometry_and_interaction_linkage.md"
+      - "tests/test_effective_pollinator_dependency.py"
+      - "tests/test_effective_pollinator_dependency_readiness.py"
+      - ".github/workflows/effective-pollinator-dependency.yml"
+
+jobs:
+  field-protocol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependency
+        run: python -m pip install pytest
+      - name: Run effective-dependency field tests
+        run: >-
+          python -m pytest -q
+          tests/test_effective_pollinator_dependency.py
+          tests/test_effective_pollinator_dependency_readiness.py
