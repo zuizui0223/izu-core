@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "implementation_ready_field_data_missing",
+  "goal": "Measure effective pollinator dependency directly in the same tagged Izu populations rather than inferring dependency from floral form, family or realized interaction breadth.",
+  "required_linked_channels": [
+    "tagged plant registry",
+    "usable observation effort",
+    "visitor bout identity/contact",
+    "single-visit pollen deposition on previously unvisited receptive stigmas",
+    "no-visit SVD controls",
+    "open_pollinated reproductive treatment",
+    "bagged_autonomous reproductive treatment",
+    "supplemental_outcross reproductive treatment",
+    "fruit outcome linkage"
+  ],
+  "effective_service_definition": "observed visit bouts per monitored flower-hour multiplied by background-adjusted mean single-visit conspecific pollen deposition for the same visitor group and population",
+  "core_reproductive_ratios": [
+    "bagged_autonomous capsule set / supplemental_outcross capsule set",
+    "open_pollinated capsule set / supplemental_outcross capsule set"
+  ],
+  "structural_readiness_only": true,
+  "sample_size_or_power_threshold_locked": false,
+  "why_no_fixed_sample_threshold_yet": "SVD and treatment dispersion must come from a pilot or external species-specific calibration. Structural completion is intentionally separated from precision/power adequacy.",
+  "focal_anchor": "Campanula microdonta",
+  "comparator_rule": "Choose comparators from direct interaction/reproductive evidence and phenological feasibility; do not assign specialist/generalist classes from floral syndrome labels.",
+  "high_dependency_endpoint_rule": "A high-dependency endpoint must be demonstrated by direct effective-pollinator data or an external prespecified calibration; it is not preassigned from corolla morphology.",
+  "survivorship_rule": "Non-establishment, hybrid replacement and interaction rewiring remain response modes and must not be excluded solely because a pure same-lineage island survivor is unavailable.",
+  "same_population_linkage": {
+    "required_ids": [
+      "population_id",
+      "field_event_id",
+      "island_id",
+      "site_id",
+      "plant_id",
+      "flower_id"
+    ],
+    "svd_visit_ids": ["effort_id", "visit_id"],
+    "mature_fruit_id": "fruit_id"
+  },
+  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. It does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, or a causal Oshima-Toshima boundary effect."
+}
