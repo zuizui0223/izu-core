@@ -12,10 +12,10 @@ fixed-effect sensitivities:
     TM_z ~ FDQ + FEve + site fixed effects + season fixed effects
 
 The model is fitted to all sites and then separately to mainland sites, the five
-Izu island sites, and the four post-Oshima islands.  Leave-one-site sensitivity
-is added for the island subsets.  These analyses ask whether the FDQ direction
-is merely a mainland/island or Oshima contrast. They remain contemporary
-observational associations, not historical causal estimates.
+Izu island sites, and the four post-Oshima islands. Leave-one-site sensitivity
+is added for the island subsets. The sampled pollinator species table is also
+audited for *observed* Bombus rows; this is network-sampling context and is never
+promoted to a biological absence statement.
 """
 from __future__ import annotations
 
@@ -36,6 +36,10 @@ EXPECTED_SOURCE_FEVE_COEF = -9.2976
 MAINLAND_SITES = {'hitachi', 'hitachinaka', 'tateyama'}
 ISLAND_SITES = {'oshima', 'niijima', 'kozu', 'miyake', 'hachijo'}
 POST_OSHIMA_SITES = {'niijima', 'kozu', 'miyake', 'hachijo'}
+SITE_BY_ID = {
+    1: 'hitachi', 2: 'hitachinaka', 3: 'tateyama', 4: 'oshima',
+    5: 'niijima', 6: 'kozu', 7: 'miyake', 8: 'hachijo',
+}
 
 
 def solve(matrix: Sequence[Sequence[float]], vector: Sequence[float]) -> list[float]:
@@ -82,11 +86,11 @@ def correlation(x: list[float], y: list[float]) -> float:
     return num / den
 
 
-def load_rows(path: Path) -> list[dict[str, str]]:
+def load_rows(path: Path, expected: int | None = None) -> list[dict[str, str]]:
     with path.open(encoding='utf-8-sig', newline='') as handle:
         rows = list(csv.DictReader(handle))
-    if len(rows) != 40:
-        raise ValueError(f'expected 40 site-season network rows, found {len(rows)}')
+    if expected is not None and len(rows) != expected:
+        raise ValueError(f'expected {expected} rows in {path.name}, found {len(rows)}')
     return rows
 
 
@@ -169,14 +173,53 @@ def leave_one_site_out(rows: list[dict[str, str]], sites: set[str]) -> dict[str,
     }
 
 
+def sampled_bombus_context(rows: list[dict[str, str]]) -> dict[str, object]:
+    bombus = []
+    for row in rows:
+        insect = str(row.get('insect') or '')
+        if 'bombus' not in insect.lower():
+            continue
+        siteid = int(row['siteid'])
+        if siteid not in SITE_BY_ID:
+            raise ValueError(f'unknown siteid in pollinator table: {siteid}')
+        bombus.append({
+            'site': SITE_BY_ID[siteid],
+            'season': int(row['season']),
+            'insect': insect,
+        })
+    unique_site_seasons = {(row['site'], row['season']) for row in bombus}
+    post_rows = [row for row in bombus if row['site'] in POST_OSHIMA_SITES]
+    post_site_seasons = {(row['site'], row['season']) for row in post_rows}
+    mainland_rows = [row for row in bombus if row['site'] in MAINLAND_SITES]
+    oshima_rows = [row for row in bombus if row['site'] == 'oshima']
+    return {
+        'bombus_species_site_season_rows': len(bombus),
+        'bombus_site_seasons': len(unique_site_seasons),
+        'mainland_bombus_rows': len(mainland_rows),
+        'mainland_bombus_site_seasons': len({(row['site'], row['season']) for row in mainland_rows}),
+        'oshima_bombus_rows': len(oshima_rows),
+        'oshima_bombus_site_seasons': len({(row['site'], row['season']) for row in oshima_rows}),
+        'post_oshima_bombus_rows': len(post_rows),
+        'post_oshima_bombus_site_seasons': len(post_site_seasons),
+        'observed_bombus_taxa': sorted({row['insect'] for row in bombus}),
+        'reading': (
+            'This is observed network-sampling context only. Zero Bombus rows in a subset mean no Bombus taxon was '
+            'recorded in the archived pollinator species x site x season network table; this is not a biological '
+            'absence assertion outside the sampled networks.'
+        ),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', type=Path, default=Path('artifacts/hiraiwa_ushimaru_figshare/files/data_main.csv'))
+    parser.add_argument('--pollinator-data', type=Path, default=Path('artifacts/hiraiwa_ushimaru_figshare/files/data_sp_pollinator.csv'))
     parser.add_argument('--code', type=Path, default=Path('artifacts/hiraiwa_ushimaru_figshare/files/code.R'))
     parser.add_argument('--out', type=Path, default=Path('artifacts/hiraiwa_ushimaru_figshare/continuous_exposure/summary.json'))
     args = parser.parse_args()
 
-    rows = load_rows(args.data)
+    rows = load_rows(args.data, expected=40)
+    pollinator_rows = load_rows(args.pollinator_data)
     source = verify_source_code(args.code)
     subsets = {
         'all_eight_sites': fit_fixed_effect_subset(rows, set(MAINLAND_SITES | ISLAND_SITES)),
@@ -188,12 +231,14 @@ def main() -> None:
         'izu_five_islands_leave_one_site_out': leave_one_site_out(rows, set(ISLAND_SITES)),
         'post_oshima_four_islands_leave_one_site_out': leave_one_site_out(rows, set(POST_OSHIMA_SITES)),
     }
+    bombus_context = sampled_bombus_context(pollinator_rows)
 
     report = {
         'source_dataset': '10.6084/m9.figshare.25025000.v1',
         'source_native_model': source,
         'fixed_effect_subsets': subsets,
         'leave_one_site_sensitivity': sensitivity,
+        'sampled_bombus_context': bombus_context,
         'mechanistic_gain': (
             'FDQ remains positively associated with corrected trait matching when the analysis is restricted to '
             'the five Izu islands and even to the four post-Oshima islands. The association therefore does not '
@@ -201,15 +246,17 @@ def main() -> None:
             'further show that no single island is required for the direction.'
         ),
         'relation_to_bombus_boundary': (
-            'The positive FDQ association within Niijima, Kozu, Miyake and Hachijo shows continuous pollinator-functional '
-            'structure within the post-boundary region itself. This is compatible with a general functional-diversity '
-            'mechanism and should not be reduced to a binary Bombus-present/absent label.'
+            'The positive FDQ association within Niijima, Kozu, Miyake and Hachijo occurs in a subset with zero '
+            'observed Bombus rows in the archived pollinator species x site x season network table. Continuous '
+            'pollinator-functional structure therefore varies within the sampled post-boundary networks and should '
+            'not be reduced to a binary observed-Bombus label.'
         ),
         'claim_boundary': (
             'This remains observational contemporary association. Fixed effects remove time-invariant site differences '
             'and common season effects, but not time-varying weather/resources, measurement error, feedback within '
-            'networks or historical selection. The post-boundary result does not identify Bombus loss as the cause; '
-            'rather, it shows that pollinator functional diversity contains explanatory variation beyond that binary boundary.'
+            'networks or historical selection. The sampled Bombus audit is not an archipelago-wide biological absence '
+            'statement. The post-boundary result does not identify Bombus loss as the cause; rather, it shows that '
+            'pollinator functional diversity contains explanatory variation beyond that binary sampled-network contrast.'
         ),
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
