@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31287617286,
+  "source_artifact_id": 9030342331,
+  "source_native_model": {
+    "source_candidate_formula": "pollen_z ~ TM_z * tube + FG_pla_z * tube + (1|site) + (1|season) + (1|order/family/plant)",
+    "source_figure_tm_coefficient": 0.04865,
+    "source_figure_intercept": -0.22128,
+    "source_code_locator": "archived code.R Figure 5 plant reproductive-success block"
+  },
+  "aggregation_unit": "plant x site x season mean pollen_z; multiple flowers from a cell are not treated as independent network exposures",
+  "fixed_effect_subsets": {
+    "all_eight_sites": {
+      "n_cells": 124,
+      "n_sites": 8,
+      "n_seasons": 5,
+      "n_plants": 10,
+      "tm_coefficient": 0.029492160092120624,
+      "r_squared": 0.22322824000631036
+    },
+    "mainland_three_sites": {
+      "n_cells": 46,
+      "n_sites": 3,
+      "n_seasons": 5,
+      "n_plants": 10,
+      "tm_coefficient": 0.046828939435037346,
+      "r_squared": 0.40853112005550063
+    },
+    "izu_five_islands": {
+      "n_cells": 78,
+      "n_sites": 5,
+      "n_seasons": 5,
+      "n_plants": 10,
+      "tm_coefficient": 0.03528541439362932,
+      "r_squared": 0.29101962093912126
+    },
+    "post_oshima_four_islands": {
+      "n_cells": 60,
+      "n_sites": 4,
+      "n_seasons": 5,
+      "n_plants": 10,
+      "tm_coefficient": 0.03415875775284908,
+      "r_squared": 0.4095688457684765
+    }
+  },
+  "leave_one_site_sensitivity": {
+    "izu_five_islands": {
+      "tm_coefficients_by_omitted_site": {
+        "hachijo": -0.004185019040317069,
+        "kozu": 0.0734920358744932,
+        "miyake": 0.03213550559494582,
+        "niijima": 0.03464792855471745,
+        "oshima": 0.03415875775284908
+      },
+      "tm_coefficient_range": [-0.004185019040317069, 0.0734920358744932],
+      "all_positive": false
+    },
+    "post_oshima_four_islands": {
+      "tm_coefficients_by_omitted_site": {
+        "hachijo": -0.07826426974316998,
+        "kozu": 0.10090747286227582,
+        "miyake": 0.026988212459464814,
+        "niijima": 0.04692498658922785
+      },
+      "tm_coefficient_range": [-0.07826426974316998, 0.10090747286227582],
+      "all_positive": false
+    }
+  },
+  "mechanistic_reading": "The source Figure-5 line and fixed-effect sensitivities point in the same positive direction across the full, mainland, Izu-island and post-Oshima subsets. Unlike FDQ-to-trait-matching, however, the island-only leave-one-site ranges cross zero. The downstream matching-to-pollen-receipt link is therefore positive but materially less robust.",
+  "relation_to_response_heterogeneity": "A robust upstream functional-diversity-to-matching association need not translate into a uniform reproductive response across plants or islands. This attenuation is consistent with the independent 2017 sensitivity/resilience/counterdirectional reproductive modes.",
+  "claim_boundary": "Contemporary observational reproductive-function context only; not a mediation analysis. TM_z is a site-season community metric shared by plants, while pollen receipt varies among plants and flowers. Time-varying environment, plant condition, measurement error and network feedback remain. Do not infer that historical FDQ change caused pollen receipt, breeding-system evolution or floral evolution."
+}
