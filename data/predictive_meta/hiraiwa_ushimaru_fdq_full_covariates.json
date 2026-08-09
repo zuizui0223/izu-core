@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31288012194,
+  "source_artifact_id": 9030464059,
+  "source_candidate_predictors": ["richness", "D", "FDQ", "FRic", "FEve"],
+  "model_formula": "TM_z ~ richness + D + FDQ + FRic + FEve + site_fixed_effects + season_fixed_effects",
+  "subsets": {
+    "all_eight_sites": {
+      "n_rows": 40,
+      "n_sites": 8,
+      "fdq_coefficient": 1.8233137691189418,
+      "full_r_squared": 0.6225792630713561,
+      "fdq_partial_r_squared": 0.3406956922033885
+    },
+    "izu_five_islands": {
+      "n_rows": 25,
+      "n_sites": 5,
+      "fdq_coefficient": 1.9454982741801234,
+      "full_r_squared": 0.7252916503923075,
+      "fdq_partial_r_squared": 0.5026834732067934
+    },
+    "post_oshima_four_islands": {
+      "n_rows": 20,
+      "n_sites": 4,
+      "fdq_coefficient": 2.0713955360226177,
+      "full_r_squared": 0.7044075802853464,
+      "fdq_partial_r_squared": 0.48485090877505316
+    }
+  },
+  "leave_one_site_sensitivity": {
+    "izu_five_islands": {
+      "fdq_coefficients_by_omitted_site": {
+        "hachijo": 1.4919869010400215,
+        "kozu": 2.149103180673406,
+        "miyake": 1.9931384432645658,
+        "niijima": 1.7973034907666001,
+        "oshima": 2.0713955360226177
+      },
+      "range": [1.4919869010400215, 2.149103180673406],
+      "all_positive": true
+    },
+    "post_oshima_four_islands": {
+      "fdq_coefficients_by_omitted_site": {
+        "hachijo": 1.2101182450474102,
+        "kozu": 2.2589990388712398,
+        "miyake": 2.1985150053712794,
+        "niijima": 2.604196200195513
+      },
+      "range": [1.2101182450474102, 2.604196200195513],
+      "all_positive": true
+    }
+  },
+  "mechanistic_gain": "FDQ remains strongly positive after pollinator richness, D, FRic and FEve are simultaneously included with site and season fixed effects. The result persists within Izu alone and within the four post-Oshima islands, and remains positive after every single-island omission. This makes the FDQ-trait-matching relationship less consistent with being only a proxy for pollinator richness or another archived functional-diversity metric.",
+  "claim_boundary": "Observational sensitivity only. The network predictors are correlated, island subset sample sizes are small, and partial R2 is incremental model fit rather than variance causally attributable to FDQ. No coefficient identifies historical pollinator causation or floral evolution."
+}
