@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "status": "implementation_ready_field_data_missing",
   "goal": "Measure effective pollinator dependency directly in the same tagged Izu populations rather than inferring dependency from floral form, family or realized interaction breadth.",
   "required_linked_channels": [
@@ -21,6 +21,34 @@
   "structural_readiness_only": true,
   "sample_size_or_power_threshold_locked": false,
   "why_no_fixed_sample_threshold_yet": "SVD and treatment dispersion must come from a pilot or external species-specific calibration. Structural completion is intentionally separated from precision/power adequacy.",
+  "pilot_precision_state_machine": [
+    {
+      "state": "implementation_ready_field_data_missing",
+      "next_gate": "collect linked pilot rows from multiple independent plants"
+    },
+    {
+      "state": "pilot_dispersion_estimable",
+      "next_gate": "lock biologically meaningful absolute CI half-width and confidence before confirmatory expansion"
+    },
+    {
+      "state": "precision_goal_locked",
+      "next_gate": "calculate approximate independent-plant replication from pilot between-plant SD"
+    },
+    {
+      "state": "confirmatory_replication_proposed",
+      "next_gate": "stress-test site/time replication, expected loss, visitor availability and hierarchical model by simulation before final field lock"
+    }
+  ],
+  "precision_planning": {
+    "independent_unit": "plant",
+    "within_plant_subsamples": ["flowers", "single-visit SVD events"],
+    "available_pilot_metrics": ["background_adjusted_svd", "capsule_set_proportion"],
+    "precision_target_type": "absolute two-sided CI half-width",
+    "precision_goal_template": "templates/effective_dependency_precision_goals_template.csv",
+    "pilot_cli": "scripts/plan_effective_dependency_pilot_precision.py",
+    "draft_goal_generates_sample_size": false,
+    "normal_approximation_is_final_power_analysis": false
+  },
   "focal_anchor": "Campanula microdonta",
   "comparator_rule": "Choose comparators from direct interaction/reproductive evidence and phenological feasibility; do not assign specialist/generalist classes from floral syndrome labels.",
   "high_dependency_endpoint_rule": "A high-dependency endpoint must be demonstrated by direct effective-pollinator data or an external prespecified calibration; it is not preassigned from corolla morphology.",
@@ -37,5 +65,6 @@
     "svd_visit_ids": ["effort_id", "visit_id"],
     "mature_fruit_id": "fruit_id"
   },
+  "service_output_guard": "Official CLI output withholds background-adjusted SVD, rate-weighted effective service and service share when a visitor group lacks a no-visit SVD control.",
   "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. It does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, or a causal Oshima-Toshima boundary effect."
 }
