@@ -10,7 +10,7 @@ Evidence is kept at three levels:
 2. **mechanistic leverage** — whether explicit alternatives or source-native functional exposures constrain interpretation;
 3. **causal attribution** — still blocked. `data/predictive_meta/current_mechanistic_leverage.csv` keeps `causal_claim_allowed = no` for every current evidence unit.
 
-The strongest historical breakpoint remains the focal *Campanula microdonta* autonomous-reproduction transition. The strongest contemporary mechanism-compatible link is now **pollinator functional diversity (FDQ) → corrected flower–pollinator trait matching**. Independent morphology, interaction breadth and reproductive responses remain heterogeneous rather than collapsing into one response syndrome.
+The strongest historical breakpoint remains the focal *Campanula microdonta* autonomous-reproduction transition. The strongest contemporary mechanism-compatible link is **pollinator functional diversity (FDQ) → corrected flower–pollinator trait matching**. Independent morphology, interaction breadth and reproductive responses remain heterogeneous rather than collapsing into one response syndrome.
 
 ## Campanula: continuous channels and breakpoint channel must remain separate
 
@@ -69,7 +69,7 @@ Corrected trait matching is directionally coherent in this source-defined subset
 
 Leave-one-post-island sensitivity is strong but not perfect: 7/7 lower after omitting Niijima or Kozu, 6/8 after omitting Miyake, and 7/8 after omitting Hachijo.
 
-Among seven target plants with complete five-island coverage, Oshima is also the only possible island baseline for which the mean of the other four islands is lower in **7/7** species; the corresponding values are Niijima `5/7`, Kozu `5/7`, Miyake `2/7`, Hachijo `1/7`. This argues against an arbitrary-baseline artifact, but Oshima remains a single geographic bridge-state site.
+Among seven target plants with complete five-island coverage, Oshima is the only possible island baseline for which the mean of the other four islands is lower in **7/7** species; corresponding values are Niijima `5/7`, Kozu `5/7`, Miyake `2/7`, Hachijo `1/7`. This argues against an arbitrary-baseline artifact, but Oshima remains a single geographic bridge-state site.
 
 ### Boundary identifiability remains limited
 
@@ -77,7 +77,7 @@ The contemporary design contains three mainland sites, **one Oshima bridge-state
 
 A site-aware model can estimate a descriptive Oshima/post contrast, but cannot separate an Oshima-specific site effect from a causal second-boundary effect.
 
-## Continuous pollinator functional exposure is a stronger contemporary mechanism link
+## Continuous pollinator functional exposure is the strongest contemporary mechanism link
 
 The binary boundary is not the only available exposure. The same network dataset contains pollinator functional diversity (`FDQ`) varying across all eight sites and five seasons.
 
@@ -86,20 +86,29 @@ The archived source code fits community corrected trait matching using functiona
 - FDQ coefficient: `+1.5540`;
 - FEve coefficient: `-9.2976`.
 
-A separate sensitivity model on all 40 site × season rows,
+A transparent fixed-effect sensitivity model,
 
 `TM_z ~ FDQ + FEve + site fixed effects + season fixed effects`,
 
-retains:
+produces the following FDQ coefficients:
 
-- FDQ coefficient: `+1.8346`;
-- `R² = 0.6073`.
+| subset | site × season rows | FDQ coefficient | site-centered FDQ–TM correlation |
+|---|---:|---:|---:|
+| all 8 sites | 40 | `+1.8346` | `+0.3025` |
+| mainland 3 sites | 15 | `+1.5414` | `+0.1810` |
+| Izu 5 islands | 25 | `+1.9426` | `+0.4034` |
+| post-Oshima 4 islands | 20 | `+2.0590` | `+0.3410` |
 
-After subtracting each site's own mean FDQ and trait matching, the site-centered FDQ–TM correlation remains `+0.3025`.
+The relationship therefore does **not** require mainland observations. More importantly, it persists after Oshima is removed: within Niijima, Kozu, Miyake and Hachijo alone, higher pollinator functional diversity is associated with higher corrected trait matching after time-invariant site differences and common seasonal shifts are absorbed.
 
-This is the most direct current bridge between pollinator community function and matching: the positive relationship persists after absorbing every time-invariant site difference and common seasonal shift. It therefore cannot be reduced to static island identity alone.
+The island-only direction is not carried by a single site. Leave-one-island FDQ coefficients are:
 
-It remains observational. Time-varying weather/resources, network feedback, measurement error and historical selection are not removed, so this is a **contemporary functional mechanism link**, not a historical causal estimate.
+- Izu 5-island subset: `+1.432` to `+2.226`, all positive;
+- post-Oshima 4-island subset: `+1.456` to `+2.333`, all positive.
+
+This materially changes the interpretation. The FDQ → matching signal is not simply another encoding of mainland versus island, Oshima versus southern islands, or Bombus-present versus Bombus-absent geography. **Continuous pollinator functional structure still matters inside the post-boundary region itself.**
+
+It remains observational. Time-varying weather/resources, network feedback, measurement error and historical selection are not removed, so this is a **contemporary functional mechanism link**, not a historical causal estimate and not proof that Bombus loss generated the pattern.
 
 Source lock: `data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json`.
 
@@ -109,7 +118,7 @@ Source lock: `data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposu
 
 The old candidate-screening classification based on family/floral form is not an effective-pollinator dependency dataset and is excluded from this test.
 
-Two source-native continuous plant moderators were therefore estimated using **mainland sites only**, before using island response rows:
+Two source-native continuous plant moderators were estimated using **mainland sites only**, before using island response rows:
 
 1. mainland realized plant functional generality (`FG_Pla_sp_z`) — interaction breadth, not dependency;
 2. mainland corolla-tube length (`tube`) — morphology, not dependency.
@@ -143,27 +152,27 @@ Source lock: `data/predictive_meta/hiraiwa_ushimaru_functional_moderation.json`.
 
 ## Why direct dependency moderation is currently not identifiable in the 10 target plants
 
-A primary-source audit now constrains nine of the ten source-defined target pollination systems:
+A primary-source audit constrains nine of the ten source-defined target pollination systems:
 
 - **resolved external species-level: 4**;
 - **partial: 5**;
 - **unresolved: 1** (*Persicaria senticosa*).
 
-The resolved systems are not a Bombus-dependency gradient:
+The resolved systems do not span a Bombus-dependency gradient:
 
 - *Ampelopsis glandulosa*: functional specialization on short-tongued scoliid wasps and solitary bees (`10.1016/j.flora.2021.151921`); the 2024 target is var. *hancei*, so transfer remains species-level external evidence;
 - *Calystegia soldanella*: self-incompatible, pollinator-dependent broad bee system (`10.2307/2656764`), plus strong 2017 reproductive sensitivity to long-tongued-pollinator loss;
 - *Lonicera japonica*: effective mixed diurnal-bee + nocturnal-hawkmoth system (`10.1139/b98-119`);
 - *Vitex rotundifolia*: multiple hymenopteran pollinators with *Megachile kobensis* dominant/well matched in coastal Japan (Maeta et al. 2004).
 
-Partial evidence further indicates broad/diverse entomophily for *Farfugium* and *Glehnia*, a population-variable selfing/outcrossing system in *Oxalis corniculata*, and non-exclusive functional responses/interactions in *Lysimachia* and *Melanthera*.
+Partial evidence further constrains broad/diverse entomophily for *Farfugium* and *Glehnia*, a population-variable selfing/outcrossing system in *Oxalis corniculata*, and non-exclusive functional responses/interactions in *Lysimachia* and *Melanthera*.
 
 Crucially:
 
 - source-resolved high-dependency Bombus targets in this 10-species set: **0**;
 - effective dependency measured in the exact 2024 Izu target populations: **0**.
 
-Therefore a direct `dependency × FDQ` model is currently **design-blocked**, not null. The dominant target set is also survivor-conditioned: strict high-dependency lineages that fail to establish, hybridize or rewire are less likely to appear among shared dominant coastal plants in the first place.
+Therefore a direct `dependency × FDQ` model is currently **design-blocked**, not null. The dominant target set is survivor-conditioned: strict high-dependency lineages that fail to establish, hybridize or rewire are less likely to appear among shared dominant coastal plants in the first place.
 
 Files:
 
@@ -211,7 +220,7 @@ A clean same-lineage specialist survivor is not an unbiased sample of high depen
 - *Calanthe aristulifera* supplies a same-lineage example in which a mainland large-bee interaction is replaced by a plausible small-sweat-bee route on Mikura;
 - *Lilium auratum* var. *platyphyllum* supplies an alternative Lepidoptera timing mechanism, although variety and geography are confounded.
 
-Establishment failure, taxonomic/hybrid replacement and interaction rewiring are therefore response domains, not invalid missing data.
+Establishment failure, taxonomic/hybrid replacement and interaction rewiring are response domains, not invalid missing data.
 
 ## General floristic boundary is not the Oshima–Toshima boundary
 
@@ -223,7 +232,7 @@ This historical external control weakens the alternative that every Oshima–pos
 
 The strongest defensible synthesis is:
 
-> **Plant responses to altered pollination environments in the Izu Islands are channel- and lineage-specific, but contemporary network data expose a common functional mechanism axis.** In focal *Campanula*, continuous morphology/outcrossing erosion is separated from a sharp autonomous-reproduction transition. Independent contemporary data reject a universal morphological, interaction-breadth or reproductive response, while pollinator functional diversity is positively associated with flower–pollinator trait matching even after time-invariant site effects are absorbed. Available breadth and tube-length proxies do not robustly moderate that relationship, and direct dependency moderation remains unidentified because the shared dominant target set lacks a source-resolved high-dependency Bombus endpoint and is survivor-conditioned.
+> **Plant responses to altered pollination environments in the Izu Islands are channel- and lineage-specific, but contemporary network data expose a common functional mechanism axis.** In focal *Campanula*, continuous morphology/outcrossing erosion is separated from a sharp autonomous-reproduction transition. Independent contemporary data reject a universal morphological, interaction-breadth or reproductive response, while pollinator functional diversity is positively associated with flower–pollinator trait matching even within the post-Oshima islands and after time-invariant site effects are absorbed. Available breadth and tube-length proxies do not robustly moderate that relationship, and direct dependency moderation remains unidentified because the shared dominant target set lacks a source-resolved high-dependency Bombus endpoint and is survivor-conditioned.
 
 The pollinator hypothesis is therefore not a universal-syndrome claim and not yet a fitted binary specialist/generalist effect. It is a structured hypothesis about **functional pollinator exposure × effective dependency × response mode × establishment history**.
 
