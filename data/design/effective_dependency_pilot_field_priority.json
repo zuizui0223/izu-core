@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "status": "pilot_priority_locked_sample_size_unlocked",
+  "purpose": "Collect the minimum informative pilot needed to estimate between-plant dispersion and visitor-group SVD feasibility before confirmatory replication is chosen.",
+  "priority_order": [
+    {
+      "priority": 1,
+      "role": "focal_anchor",
+      "taxon": "Campanula microdonta",
+      "population_scope": "same source-resolved Izu populations whenever feasible",
+      "required_channels": [
+        "camera/direct observation effort",
+        "visitor group and floral contact",
+        "single-visit pollen deposition with no-visit controls",
+        "open_pollinated treatment",
+        "bagged_autonomous treatment",
+        "supplemental_outcross treatment",
+        "fruit/seed linkage"
+      ],
+      "reason": "Focal historical calibration has the strongest autonomous-reproduction breakpoint but lacks directly measured contemporary effective-pollinator dependency in matched populations."
+    },
+    {
+      "priority": 2,
+      "role": "functional_control_or_comparator",
+      "taxon": "not preassigned",
+      "population_scope": "choose only from phenologically feasible taxa with direct interaction/reproductive evidence",
+      "required_channels": ["same SVD and reproductive panel as focal anchor"],
+      "reason": "A comparator is useful only if dependency/effectiveness is measured rather than inferred from floral syndrome labels."
+    },
+    {
+      "priority": 3,
+      "role": "high_dependency_endpoint",
+      "taxon": "not preassigned",
+      "population_scope": "admit only after direct effective-pollinator evidence or external prespecified calibration",
+      "required_channels": ["effective visitor identity", "SVD/effective service", "reproductive dependence"],
+      "reason": "The existing 10-target contemporary survivor set has zero source-resolved high-dependency Bombus endpoints in the exact Izu populations."
+    }
+  ],
+  "geographic_rule": "Pilot feasibility may use available populations, but repeated plants within one Oshima site do not create a second independent bridge-state geography. Confirmatory causal boundary inference still requires independent geographic or temporal regime replication.",
+  "replication_rule": "Do not lock a universal flower or plant count before pilot between-plant dispersion is available. Flowers and SVD events within a plant are subsamples, not independent n.",
+  "pilot_success_definition": "At least two independent plants are needed before between-plant SD can be estimated for a specific population x visitor-group SVD or population x treatment response; this is a dispersion-estimation condition, not a confirmatory sample-size target.",
+  "next_transition": "pilot data -> plant-level dispersion audit -> biologically meaningful absolute CI half-width lock -> approximate independent-plant n -> hierarchical design stress test",
+  "claim_boundary": "This is a prospective field-priority document, not empirical evidence that any taxon or island is pollinator-dependent."
+}
