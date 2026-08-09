@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "channel_id/effective_pollinator_dependency.py"
+      - "channel_id/effective_dependency_output.py"
       - "channel_id/effective_dependency_precision.py"
       - "scripts/audit_effective_pollinator_dependency.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
@@ -22,6 +23,7 @@ on:
   pull_request:
     paths:
       - "channel_id/effective_pollinator_dependency.py"
+      - "channel_id/effective_dependency_output.py"
       - "channel_id/effective_dependency_precision.py"
       - "scripts/audit_effective_pollinator_dependency.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
