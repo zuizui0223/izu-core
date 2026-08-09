@@ -26,13 +26,13 @@ def test_available_source_native_moderators_are_not_promoted_to_dependency():
     assert all(row["direct_dependency_moderation_eligible"] == "no" for row in rows)
 
 
-def test_dependency_readiness_resolves_some_systems_but_not_a_bombus_gradient():
+def test_dependency_readiness_constrains_most_targets_but_lacks_bombus_endpoint():
     rows = list(csv.DictReader(READINESS.open(encoding="utf-8")))
     counts = Counter(row["resolution_status"] for row in rows)
     assert counts == {
         "resolved_external_species_level": 4,
-        "partial": 3,
-        "unresolved": 3,
+        "partial": 5,
+        "unresolved": 1,
     }
     resolved = {row["taxon"]: row["effective_pollinator_or_dependency_class"] for row in rows if row["resolution_status"] == "resolved_external_species_level"}
     assert set(resolved) == {
@@ -42,8 +42,11 @@ def test_dependency_readiness_resolves_some_systems_but_not_a_bombus_gradient():
         "Vitex rotundifolia",
     }
     assert not any("bombus" in value.lower() and "dependent" in value.lower() for value in resolved.values())
+    unresolved = [row["taxon"] for row in rows if row["resolution_status"] == "unresolved"]
+    assert unresolved == ["Persicaria senticosa"]
     design = load_design()
     assert design["resolved_high_dependency_bombus_targets"] == 0
+    assert design["resolved_exact_2024_izu_population_dependency_targets"] == 0
     assert design["direct_dependency_moderation_eligible"] is False
     assert design["survivor_conditioning"] is True
 
@@ -70,6 +73,7 @@ def test_claim_is_noncausal_and_does_not_read_proxy_moderation_as_dependency_tes
     text = load_moderation()["claim_boundary"].lower()
     assert "do not conclude that dependency has no effect" in text
     assert "lacks a resolved high-dependency bombus end of the gradient" in text
+    assert "exact 2024 izu target populations" in text
     assert "contemporary observational" in text
     assert "historical dependency-by-boundary evolutionary effect" in text
     design = load_design()
