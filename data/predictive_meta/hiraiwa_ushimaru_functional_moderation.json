@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source_dataset": "10.6084/m9.figshare.25025000.v1",
   "source_workflow_run": 31286828377,
   "source_artifact_id": 9030095797,
@@ -33,7 +33,16 @@
     "interaction_sign_stable_leave_one_plant": false,
     "interpretation": "A weak positive interaction estimate is not robust to site or plant omission and is not treated as a stable tube-length moderator."
   },
+  "dependency_readiness": {
+    "resolved_external_species_level": 4,
+    "partial": 3,
+    "unresolved": 3,
+    "resolved_high_dependency_bombus_targets": 0,
+    "target_matched_direct_dependency_gradient_available": false,
+    "direct_dependency_moderation_eligible": false,
+    "reading": "External primary sources resolve several target plants as non-Bombus, mixed-guild or broad-bee systems, but no source-defined target has a resolved high-dependency Bombus class matched to the 2024 Izu populations. The target set therefore does not span the direct dependency gradient needed for a dependency-by-FDQ moderation test."
+  },
   "dependency_reading": "The positive community-level FDQ-to-trait-matching relationship is not currently explained by a stable moderator based on mainland realized interaction breadth or tube length. These moderators are source-native proxies for network breadth/morphology, not effective pollinator-dependency classes.",
-  "direct_dependency_status": "unresolved_for_all_10_source_defined_targets",
-  "claim_boundary": "Do not conclude that dependency has no effect. Direct effective-pollinator dependency is unresolved for the source-defined target set; the analysis only shows that two available source-native continuous moderators do not robustly explain FDQ-slope heterogeneity. Contemporary observational data cannot identify a historical dependency-by-boundary evolutionary effect."
+  "direct_dependency_status": "insufficient_target_matched_dependency_gradient_for_moderation",
+  "claim_boundary": "Do not conclude that dependency has no effect. Several target species now have external source-resolved pollination systems, but the set lacks a resolved high-dependency Bombus end of the gradient and most evidence is not measured in the exact 2024 Izu populations. The analysis only shows that two available source-native continuous proxies do not robustly explain FDQ-slope heterogeneity. Contemporary observational data cannot identify a historical dependency-by-boundary evolutionary effect."
 }
