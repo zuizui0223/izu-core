@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source_dataset": "10.6084/m9.figshare.25025000.v1",
-  "source_workflow_run": 31254987357,
-  "source_artifact": 9021181786,
+  "source_workflow_run": 31287381573,
+  "source_artifact_id": 9030271387,
   "source_native_model": {
     "source_full_candidate_formula": "TM_z ~ richness + D + FDQ + FRic + FEve + (1|season) + (1|site)",
     "source_figure_best_model_fdq_coefficient": 1.554,
@@ -10,21 +10,65 @@
     "source_figure_best_model_intercept": 2.4023,
     "source_code_locator": "archived code.R Figure 3 community-level trait-matching block"
   },
-  "fixed_effect_sensitivity": {
-    "formula": "TM_z ~ FDQ + FEve + site_fixed_effects + season_fixed_effects",
-    "n_site_season_rows": 40,
-    "n_sites": 8,
-    "n_seasons": 5,
-    "fdq_coefficient": 1.834565481801662,
-    "feve_coefficient": -12.654878107729147,
-    "r_squared": 0.6073423154691433,
-    "reading": "The positive FDQ association persists after absorbing every time-invariant site difference and common seasonal shifts."
+  "fixed_effect_subsets": {
+    "all_eight_sites": {
+      "formula": "TM_z ~ FDQ + FEve + site_fixed_effects + season_fixed_effects",
+      "n_site_season_rows": 40,
+      "n_sites": 8,
+      "n_seasons": 5,
+      "fdq_coefficient": 1.8345653281752352,
+      "r_squared": 0.6074575443548559,
+      "site_centered_fdq_tm_correlation": 0.30250894261260436
+    },
+    "mainland_three_sites": {
+      "n_site_season_rows": 15,
+      "n_sites": 3,
+      "n_seasons": 5,
+      "fdq_coefficient": 1.5414413086717733,
+      "r_squared": 0.6109232130356416,
+      "site_centered_fdq_tm_correlation": 0.18097880296521165
+    },
+    "izu_five_islands": {
+      "n_site_season_rows": 25,
+      "n_sites": 5,
+      "n_seasons": 5,
+      "fdq_coefficient": 1.94255840267522,
+      "r_squared": 0.7231868010784537,
+      "site_centered_fdq_tm_correlation": 0.40340800955063677
+    },
+    "post_oshima_four_islands": {
+      "n_site_season_rows": 20,
+      "n_sites": 4,
+      "n_seasons": 5,
+      "fdq_coefficient": 2.0589617769543915,
+      "r_squared": 0.7004763028366725,
+      "site_centered_fdq_tm_correlation": 0.3410478941617556
+    }
   },
-  "within_site_model_free_sensitivity": {
-    "site_centered_fdq_tm_correlation": 0.3024905993990573,
-    "reading": "After subtracting each site's own mean FDQ and TM, seasons with above-site-average FDQ tend to have above-site-average corrected trait matching."
+  "leave_one_site_sensitivity": {
+    "izu_five_islands": {
+      "fdq_coefficients_by_omitted_site": {
+        "hachijo": 1.4320111895257946,
+        "kozu": 1.873772023620831,
+        "miyake": 2.126679300069317,
+        "niijima": 2.225704603861239,
+        "oshima": 2.0589617769543915
+      },
+      "fdq_coefficient_range": [1.4320111895257946, 2.225704603861239],
+      "all_positive": true
+    },
+    "post_oshima_four_islands": {
+      "fdq_coefficients_by_omitted_site": {
+        "hachijo": 1.456147510684977,
+        "kozu": 2.1433427636877237,
+        "miyake": 2.220671761040659,
+        "niijima": 2.3325371412563174
+      },
+      "fdq_coefficient_range": [1.456147510684977, 2.3325371412563174],
+      "all_positive": true
+    }
   },
-  "mechanistic_gain": "FDQ varies continuously across multiple sites and seasons. The positive source-model and site-fixed-effect relationships provide a contemporary functional-exposure bridge between pollinator community structure and flower-pollinator trait matching that cannot be reduced to static island identity alone.",
-  "relation_to_binary_boundary": "This continuous exposure does not identify a historical Oshima-Toshima causal boundary, but it supplies a mechanism-compatible axis that varies within geographic sites and therefore is less confounded with island identity than the binary regime label.",
-  "claim_boundary": "Observational contemporary association only. Site fixed effects remove time-invariant site confounding but not time-varying weather/resources, measurement error, feedback within networks or historical selection. The result does not identify the historical cause of Campanula floral or breeding-system change."
+  "mechanistic_gain": "FDQ remains positively associated with corrected trait matching in all eight sites, in the five Izu island sites alone, and even within the four post-Oshima islands. The post-boundary association therefore does not require mainland observations or the Oshima bridge-state site. Leave-one-island coefficients remain positive throughout both island subsets, so no single island is required for the direction.",
+  "relation_to_binary_boundary": "Within Niijima, Kozu, Miyake and Hachijo, FDQ still explains positive trait-matching variation after site and season fixed effects. Pollinator functional diversity therefore contains explanatory variation inside the post-boundary region itself and should not be reduced to a binary Bombus-present/absent label.",
+  "claim_boundary": "Observational contemporary association only. Site fixed effects remove time-invariant site confounding and common season effects are absorbed, but time-varying weather/resources, measurement error, feedback within networks and historical selection remain. The post-boundary result does not identify Bombus loss as the cause; it shows that continuous pollinator functional diversity contains explanatory variation beyond the binary geographic regime label."
 }
