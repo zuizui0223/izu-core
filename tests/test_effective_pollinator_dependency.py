@@ -1,5 +1,5 @@
+from channel_id.effective_dependency_output import mask_uncontrolled_effective_service
 from channel_id.effective_pollinator_dependency import audit_effective_pollinator_dependency
-from scripts.audit_effective_pollinator_dependency import mask_uncontrolled_effective_service
 
 
 def plant_registry():
