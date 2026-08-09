@@ -26,6 +26,29 @@ def test_direct_dependency_design_requires_svd_and_three_core_reproductive_treat
     assert "no-visit SVD controls" in channels
 
 
+def test_pilot_precision_state_machine_does_not_invent_sample_size_before_dispersion():
+    data = load_readiness()
+    states = [item["state"] for item in data["pilot_precision_state_machine"]]
+    assert states == [
+        "implementation_ready_field_data_missing",
+        "pilot_dispersion_estimable",
+        "precision_goal_locked",
+        "confirmatory_replication_proposed",
+    ]
+    plan = data["precision_planning"]
+    assert plan["independent_unit"] == "plant"
+    assert set(plan["within_plant_subsamples"]) == {"flowers", "single-visit SVD events"}
+    assert plan["draft_goal_generates_sample_size"] is False
+    assert plan["normal_approximation_is_final_power_analysis"] is False
+    assert "absolute two-sided CI half-width" in plan["precision_target_type"]
+
+
+def test_official_service_output_is_withheld_without_background_control():
+    text = load_readiness()["service_output_guard"].lower()
+    assert "withholds background-adjusted svd" in text
+    assert "lacks a no-visit svd control" in text
+
+
 def test_design_does_not_relabel_floral_form_as_dependency():
     data = load_readiness()
     assert "do not assign specialist/generalist classes from floral syndrome labels" in data["comparator_rule"]
