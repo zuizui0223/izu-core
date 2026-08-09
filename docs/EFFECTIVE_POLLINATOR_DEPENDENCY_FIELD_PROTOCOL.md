@@ -42,6 +42,8 @@ The audit also reports each measured visitor group's share of the rate-weighted 
 
 This is a **sampled-window service estimate**. It is not proof that a visitor is absent from an island when no bouts were recorded.
 
+The official CLI withholds background-adjusted SVD, effective pollen delivery, and service share when that visitor group lacks a no-visit SVD control. Raw visit rate and raw SVD remain auditable, but an uncontrolled value is not silently presented as effective service.
+
 ### 3. Plant reproductive dependence
 
 Use three core flower treatments on tagged plants:
@@ -86,6 +88,7 @@ New templates:
 - `templates/field_dependency_plant_registry_template.csv`
 - `templates/field_single_visit_pollen_deposition_template.csv`
 - `templates/field_pollination_treatment_template.csv`
+- `templates/effective_dependency_precision_goals_template.csv`
 
 Existing linked files:
 
@@ -188,6 +191,88 @@ summary.json
 That status is **not** a sample-size, precision, equivalence, or power claim. Pilot dispersion must be used to predeclare the number of independent plants, SVD events per visitor group, treatment flowers per plant/site, and repeated temporal blocks needed for inference.
 
 The audit intentionally does not define a universal `high dependency` cutoff. If a later analysis dichotomizes dependency, the threshold must be preregistered biologically or derived from an external calibration rather than selected to maximize the Izu result.
+
+## Pilot first, precision lock second
+
+Do **not** begin the field programme by declaring an arbitrary universal number such as `10 flowers per treatment` or by treating all flowers as independent replicates.
+
+The planning unit is the **independent plant**. Repeated flowers or SVD visits first form a within-plant mean/proportion; pilot dispersion is then estimated among plant means.
+
+### Step 1 — pilot without a precision target
+
+Run:
+
+```bash
+python scripts/plan_effective_dependency_pilot_precision.py \
+  --svd field_single_visit_pollen_deposition.csv \
+  --treatments field_pollination_treatments.csv \
+  --output-dir dependency_pilot_precision
+```
+
+This produces:
+
+```text
+svd_plant_pilot.csv
+svd_pilot_dispersion.csv
+treatment_plant_pilot.csv
+treatment_pilot_dispersion.csv
+precision_recommendations.csv
+```
+
+With no goal file, `precision_recommendations.csv` contains no invented target. The pilot summaries report the number of independent plants, the number of within-plant events/flowers, mean plant response, and between-plant SD/CV when at least two independent plants are available.
+
+### Step 2 — lock an absolute CI half-width
+
+Copy `templates/effective_dependency_precision_goals_template.csv` and add a row only after deciding what precision is biologically useful. Available pilot metrics are:
+
+- `background_adjusted_svd` for a named visitor group;
+- `capsule_set_proportion` for a named treatment.
+
+A goal row records:
+
+```text
+goal_id
+metric
+population_id
+group_label
+absolute_half_width
+confidence
+status
+notes
+```
+
+Keep `status=draft` while the target is undecided. A draft row generates **no sample-size recommendation**.
+
+Only after the target is fixed, set `status=locked`, then rerun:
+
+```bash
+python scripts/plan_effective_dependency_pilot_precision.py \
+  --svd field_single_visit_pollen_deposition.csv \
+  --treatments field_pollination_treatments.csv \
+  --goals effective_dependency_precision_goals.csv \
+  --output-dir dependency_pilot_precision
+```
+
+The current calculator uses the normal-approximation planning identity
+
+```text
+n ≈ ceil[( z * between-plant SD / absolute half-width )²]
+```
+
+for the number of independent plants. It is deliberately a **first planning diagnostic**, not final power analysis. Confirmatory design must additionally account for site and temporal replication, expected flower/fruit loss, rare visitor groups, unequal SVD availability, and the eventual hierarchical model.
+
+The scientific order is therefore:
+
+```text
+pilot -> estimate plant-level dispersion -> lock biologically meaningful precision
+      -> calculate approximate independent-plant n -> simulate/check final hierarchical design
+```
+
+not:
+
+```text
+inspect desired result -> choose a convenient n or precision target
+```
 
 ## Quantities that may be reported descriptively
 
