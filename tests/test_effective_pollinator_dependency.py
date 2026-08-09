@@ -1,4 +1,5 @@
 from channel_id.effective_pollinator_dependency import audit_effective_pollinator_dependency
+from scripts.audit_effective_pollinator_dependency import mask_uncontrolled_effective_service
 
 
 def plant_registry():
@@ -168,6 +169,19 @@ def test_missing_no_visit_control_keeps_effective_service_readiness_closed():
     readiness = audit.population_readiness_rows[0]
     assert readiness["effective_service_structurally_estimable"] == "no"
     assert readiness["dependency_panel_structurally_complete"] == "no"
+
+
+def test_cli_mask_withholds_uncontrolled_service_values_and_shares():
+    raw = audit_effective_pollinator_dependency(
+        plant_registry(), effort_rows(), visit_rows(), svd_rows()[:2], treatment_rows(), fruit_rows()
+    )
+    masked = mask_uncontrolled_effective_service(raw)
+    assert len(masked.effective_service_rows) == 2
+    for row in masked.effective_service_rows:
+        assert row["mean_background_adjusted_svd"] == ""
+        assert row["effective_pollen_delivery_per_flower_hour"] == ""
+        assert row["effective_service_share"] == ""
+        assert "withheld" in row["boundary"].lower()
 
 
 def test_supplemental_outcross_cannot_use_same_maternal_plant_as_donor(tmp_path):
