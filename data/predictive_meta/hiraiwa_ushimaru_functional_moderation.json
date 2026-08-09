@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31286828377,
+  "source_artifact_id": 9030095797,
+  "model_family": "descriptive OLS sensitivity with plant, site and season fixed effects plus FEve",
+  "coverage_gate": {
+    "source_defined_pollen_target_species": 10,
+    "minimum_mainland_moderator_rows_per_plant": 3,
+    "admitted_plants": 9,
+    "model_rows": 105,
+    "sites": 8,
+    "seasons": 5,
+    "excluded_for_moderator_coverage": ["Lonicera japonica"]
+  },
+  "mainland_realized_interaction_breadth": {
+    "source_column": "FG_Pla_sp_z",
+    "fdq_coefficient_at_mean_moderator": 0.28799144378176256,
+    "fdq_x_moderator_coefficient": 0.007231939420622067,
+    "leave_one_site_interaction_range": [-0.1282536911664665, 0.0926397881317935],
+    "leave_one_plant_interaction_range": [-0.1508253465173229, 0.19683641863286333],
+    "interaction_sign_stable_leave_one_site": false,
+    "interaction_sign_stable_leave_one_plant": false,
+    "interpretation": "No stable evidence that the FDQ-trait-matching association is stronger or weaker as a function of mainland realized interaction breadth."
+  },
+  "mainland_corolla_tube_length": {
+    "source_column": "tube",
+    "fdq_coefficient_at_mean_moderator": 0.2951754036552168,
+    "fdq_x_moderator_coefficient": 0.0675004738980392,
+    "leave_one_site_interaction_range": [-0.044913590361962887, 0.2044583284905513],
+    "leave_one_plant_interaction_range": [-0.24349280424122358, 0.21215290741083634],
+    "interaction_sign_stable_leave_one_site": false,
+    "interaction_sign_stable_leave_one_plant": false,
+    "interpretation": "A weak positive interaction estimate is not robust to site or plant omission and is not treated as a stable tube-length moderator."
+  },
+  "dependency_reading": "The positive community-level FDQ-to-trait-matching relationship is not currently explained by a stable moderator based on mainland realized interaction breadth or tube length. These moderators are source-native proxies for network breadth/morphology, not effective pollinator-dependency classes.",
+  "direct_dependency_status": "unresolved_for_all_10_source_defined_targets",
+  "claim_boundary": "Do not conclude that dependency has no effect. Direct effective-pollinator dependency is unresolved for the source-defined target set; the analysis only shows that two available source-native continuous moderators do not robustly explain FDQ-slope heterogeneity. Contemporary observational data cannot identify a historical dependency-by-boundary evolutionary effect."
+}
