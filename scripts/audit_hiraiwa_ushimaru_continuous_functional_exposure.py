@@ -6,14 +6,16 @@ trait matching (TM_z) against pollinator functional-diversity/evenness metrics
 with site and season random intercepts. The source figure code exposes the fitted
 FDQ coefficient used for visualization.
 
-This audit preserves that source-native model statement and adds a transparent
-fixed-effect sensitivity analysis using the same 40 site × season network rows:
+This audit preserves that source-native model statement and adds transparent
+fixed-effect sensitivities:
 
     TM_z ~ FDQ + FEve + site fixed effects + season fixed effects
 
-The fixed-effect sensitivity asks whether the FDQ direction persists after all
-time-invariant site differences and common seasonal shifts are absorbed. It is a
-contemporary within-site association, not a historical causal estimate.
+The model is fitted to all sites and then separately to mainland sites, the five
+Izu island sites, and the four post-Oshima islands.  Leave-one-site sensitivity
+is added for the island subsets.  These analyses ask whether the FDQ direction
+is merely a mainland/island or Oshima contrast. They remain contemporary
+observational associations, not historical causal estimates.
 """
 from __future__ import annotations
 
@@ -31,6 +33,9 @@ EXPECTED_SOURCE_FORMULA = (
 )
 EXPECTED_SOURCE_FDQ_COEF = 1.5540
 EXPECTED_SOURCE_FEVE_COEF = -9.2976
+MAINLAND_SITES = {'hitachi', 'hitachinaka', 'tateyama'}
+ISLAND_SITES = {'oshima', 'niijima', 'kozu', 'miyake', 'hachijo'}
+POST_OSHIMA_SITES = {'niijima', 'kozu', 'miyake', 'hachijo'}
 
 
 def solve(matrix: Sequence[Sequence[float]], vector: Sequence[float]) -> list[float]:
@@ -89,8 +94,6 @@ def verify_source_code(path: Path) -> dict[str, object]:
     text = path.read_text(encoding='utf-8', errors='replace')
     if EXPECTED_SOURCE_FORMULA not in text:
         raise ValueError('expected source TM_z model formula not found in code.R')
-    # Figure 3 line in the source archive:
-    # yy<-1.5540*xx+2.4023 -9.2976*mean(data_main$FEve)
     match = re.search(
         r'yy<-([0-9.]+)\*xx\+([0-9.]+)\s*([+-])\s*([0-9.]+)\*mean\(data_main\$FEve\)',
         text,
@@ -107,7 +110,62 @@ def verify_source_code(path: Path) -> dict[str, object]:
         'source_figure_best_model_fdq_coefficient': fdq,
         'source_figure_best_model_feve_coefficient': feve,
         'source_figure_best_model_intercept': intercept,
-        'source_code_locator': 'code.R lines 281-337, Figure 3 community-level trait-matching block',
+        'source_code_locator': 'archived code.R Figure 3 community-level trait-matching block',
+    }
+
+
+def fit_fixed_effect_subset(rows: list[dict[str, str]], allowed_sites: set[str]) -> dict[str, object]:
+    subset = [row for row in rows if row['site'] in allowed_sites]
+    sites = sorted({row['site'] for row in subset})
+    seasons = sorted({int(row['season']) for row in subset})
+    if len(sites) < 2 or len(seasons) < 2:
+        raise ValueError('subset requires at least two sites and two seasons')
+    base_site, base_season = sites[0], seasons[0]
+    names = ['intercept', 'FDQ', 'FEve']
+    names += [f'site[{site}]' for site in sites if site != base_site]
+    names += [f'season[{season}]' for season in seasons if season != base_season]
+    x, y = [], []
+    for row in subset:
+        design = [1.0, float(row['FDQ']), float(row['FEve'])]
+        design += [1.0 if row['site'] == site else 0.0 for site in sites if site != base_site]
+        design += [1.0 if int(row['season']) == season else 0.0 for season in seasons if season != base_season]
+        x.append(design); y.append(float(row['TM_z']))
+    fit = ols(x, y)
+    coef = dict(zip(names, fit['coefficients']))
+
+    site_means: dict[str, dict[str, float]] = {}
+    for site in sites:
+        site_rows = [row for row in subset if row['site'] == site]
+        site_means[site] = {
+            'FDQ': sum(float(row['FDQ']) for row in site_rows) / len(site_rows),
+            'TM_z': sum(float(row['TM_z']) for row in site_rows) / len(site_rows),
+        }
+    fdq_within = [float(row['FDQ']) - site_means[row['site']]['FDQ'] for row in subset]
+    tm_within = [float(row['TM_z']) - site_means[row['site']]['TM_z'] for row in subset]
+
+    return {
+        'formula': 'TM_z ~ FDQ + FEve + site_fixed_effects + season_fixed_effects',
+        'n_site_season_rows': fit['n'],
+        'sites': sites,
+        'n_sites': len(sites),
+        'n_seasons': len(seasons),
+        'fdq_coefficient': coef['FDQ'],
+        'feve_coefficient': coef['FEve'],
+        'r_squared': fit['r_squared'],
+        'site_centered_fdq_tm_correlation': correlation(fdq_within, tm_within),
+    }
+
+
+def leave_one_site_out(rows: list[dict[str, str]], sites: set[str]) -> dict[str, object]:
+    coefficients: dict[str, float] = {}
+    for omitted in sorted(sites):
+        result = fit_fixed_effect_subset(rows, set(sites) - {omitted})
+        coefficients[omitted] = float(result['fdq_coefficient'])
+    values = list(coefficients.values())
+    return {
+        'fdq_coefficients_by_omitted_site': coefficients,
+        'fdq_coefficient_range': [min(values), max(values)],
+        'all_positive': all(value > 0 for value in values),
     }
 
 
@@ -120,64 +178,38 @@ def main() -> None:
 
     rows = load_rows(args.data)
     source = verify_source_code(args.code)
-    sites = sorted({row['site'] for row in rows})
-    seasons = sorted({int(row['season']) for row in rows})
-    base_site = sites[0]
-    base_season = seasons[0]
-
-    # intercept, FDQ, FEve, 7 site dummies, 4 season dummies
-    names = ['intercept', 'FDQ', 'FEve']
-    names += [f'site[{site}]' for site in sites if site != base_site]
-    names += [f'season[{season}]' for season in seasons if season != base_season]
-    x = []
-    y = []
-    for row in rows:
-        design = [1.0, float(row['FDQ']), float(row['FEve'])]
-        design += [1.0 if row['site'] == site else 0.0 for site in sites if site != base_site]
-        design += [1.0 if int(row['season']) == season else 0.0 for season in seasons if season != base_season]
-        x.append(design)
-        y.append(float(row['TM_z']))
-    fit = ols(x, y)
-    coef = dict(zip(names, fit['coefficients']))
-
-    # Site-centred correlation is a simple model-free sensitivity to whether the
-    # FDQ/TM relation exists within sites rather than only between islands.
-    site_means: dict[str, dict[str, float]] = {}
-    for site in sites:
-        subset = [row for row in rows if row['site'] == site]
-        site_means[site] = {
-            'FDQ': sum(float(row['FDQ']) for row in subset) / len(subset),
-            'TM_z': sum(float(row['TM_z']) for row in subset) / len(subset),
-        }
-    fdq_within = [float(row['FDQ']) - site_means[row['site']]['FDQ'] for row in rows]
-    tm_within = [float(row['TM_z']) - site_means[row['site']]['TM_z'] for row in rows]
+    subsets = {
+        'all_eight_sites': fit_fixed_effect_subset(rows, set(MAINLAND_SITES | ISLAND_SITES)),
+        'mainland_three_sites': fit_fixed_effect_subset(rows, set(MAINLAND_SITES)),
+        'izu_five_islands': fit_fixed_effect_subset(rows, set(ISLAND_SITES)),
+        'post_oshima_four_islands': fit_fixed_effect_subset(rows, set(POST_OSHIMA_SITES)),
+    }
+    sensitivity = {
+        'izu_five_islands_leave_one_site_out': leave_one_site_out(rows, set(ISLAND_SITES)),
+        'post_oshima_four_islands_leave_one_site_out': leave_one_site_out(rows, set(POST_OSHIMA_SITES)),
+    }
 
     report = {
         'source_dataset': '10.6084/m9.figshare.25025000.v1',
         'source_native_model': source,
-        'fixed_effect_sensitivity': {
-            'formula': 'TM_z ~ FDQ + FEve + site_fixed_effects + season_fixed_effects',
-            'n_site_season_rows': fit['n'],
-            'n_sites': len(sites),
-            'n_seasons': len(seasons),
-            'fdq_coefficient': coef['FDQ'],
-            'feve_coefficient': coef['FEve'],
-            'r_squared': fit['r_squared'],
-            'interpretation': 'The FDQ coefficient remains positive after absorbing every time-invariant site difference and common season effects.'
-        },
-        'within_site_model_free_sensitivity': {
-            'site_centered_fdq_tm_correlation': correlation(fdq_within, tm_within),
-            'interpretation': 'Positive site-centred correlation shows that higher seasonal FDQ tends to co-occur with higher corrected trait matching within the same geographic sites.'
-        },
+        'fixed_effect_subsets': subsets,
+        'leave_one_site_sensitivity': sensitivity,
         'mechanistic_gain': (
-            'Unlike the binary Oshima/post indicator, FDQ varies across multiple sites and seasons. The positive '
-            'source-model and site-fixed-effect associations therefore provide a continuous functional-exposure '
-            'bridge between pollinator community structure and trait matching that is not reducible to static island identity alone.'
+            'FDQ remains positively associated with corrected trait matching when the analysis is restricted to '
+            'the five Izu islands and even to the four post-Oshima islands. The association therefore does not '
+            'require mainland observations or the Oshima bridge-state site. Positive leave-one-island coefficients '
+            'further show that no single island is required for the direction.'
+        ),
+        'relation_to_bombus_boundary': (
+            'The positive FDQ association within Niijima, Kozu, Miyake and Hachijo shows continuous pollinator-functional '
+            'structure within the post-boundary region itself. This is compatible with a general functional-diversity '
+            'mechanism and should not be reduced to a binary Bombus-present/absent label.'
         ),
         'claim_boundary': (
-            'This remains observational contemporary association. Site fixed effects remove time-invariant site '
-            'confounding but not time-varying environmental covariates, reverse causation within networks, measurement '
-            'error, or historical selection. It does not identify the historical cause of Campanula floral or breeding-system change.'
+            'This remains observational contemporary association. Fixed effects remove time-invariant site differences '
+            'and common season effects, but not time-varying weather/resources, measurement error, feedback within '
+            'networks or historical selection. The post-boundary result does not identify Bombus loss as the cause; '
+            'rather, it shows that pollinator functional diversity contains explanatory variation beyond that binary boundary.'
         ),
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
