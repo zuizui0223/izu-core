@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "source_dataset": "10.6084/m9.figshare.25025000.v1",
-  "source_workflow_run": 31287381573,
-  "source_artifact_id": 9030271387,
+  "source_workflow_run": 31287851102,
+  "source_artifact_id": 9030413803,
   "source_native_model": {
     "source_full_candidate_formula": "TM_z ~ richness + D + FDQ + FRic + FEve + (1|season) + (1|site)",
     "source_figure_best_model_fdq_coefficient": 1.554,
@@ -68,7 +68,19 @@
       "all_positive": true
     }
   },
+  "sampled_bombus_context": {
+    "bombus_species_site_season_rows": 12,
+    "bombus_site_seasons": 10,
+    "mainland_bombus_rows": 10,
+    "mainland_bombus_site_seasons": 8,
+    "oshima_bombus_rows": 2,
+    "oshima_bombus_site_seasons": 2,
+    "post_oshima_bombus_rows": 0,
+    "post_oshima_bombus_site_seasons": 0,
+    "observed_bombus_taxa": ["Bombus ardens ardens", "Bombus diversus diversus"],
+    "reading": "Observed network-sampling context only. Zero Bombus rows mean no Bombus taxon was recorded in the archived pollinator species x site x season network table for that subset; this is not a biological absence assertion outside the sampled networks."
+  },
   "mechanistic_gain": "FDQ remains positively associated with corrected trait matching in all eight sites, in the five Izu island sites alone, and even within the four post-Oshima islands. The post-boundary association therefore does not require mainland observations or the Oshima bridge-state site. Leave-one-island coefficients remain positive throughout both island subsets, so no single island is required for the direction.",
-  "relation_to_binary_boundary": "Within Niijima, Kozu, Miyake and Hachijo, FDQ still explains positive trait-matching variation after site and season fixed effects. Pollinator functional diversity therefore contains explanatory variation inside the post-boundary region itself and should not be reduced to a binary Bombus-present/absent label.",
-  "claim_boundary": "Observational contemporary association only. Site fixed effects remove time-invariant site confounding and common season effects are absorbed, but time-varying weather/resources, measurement error, feedback within networks and historical selection remain. The post-boundary result does not identify Bombus loss as the cause; it shows that continuous pollinator functional diversity contains explanatory variation beyond the binary geographic regime label."
+  "relation_to_binary_boundary": "Within Niijima, Kozu, Miyake and Hachijo, FDQ still explains positive trait-matching variation after site and season fixed effects. The archived pollinator table contains zero observed Bombus species x site x season rows in this post-Oshima subset. Continuous pollinator functional structure therefore contains explanatory variation inside sampled post-boundary networks and should not be reduced to a binary observed-Bombus label.",
+  "claim_boundary": "Observational contemporary association only. Site fixed effects remove time-invariant site confounding and common season effects are absorbed, but time-varying weather/resources, measurement error, feedback within networks and historical selection remain. The sampled Bombus audit is not an archipelago-wide biological absence statement. The post-boundary result does not identify Bombus loss as the cause; it shows that continuous pollinator functional diversity contains explanatory variation beyond the binary sampled-network contrast."
 }
