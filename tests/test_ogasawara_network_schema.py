@@ -1,7 +1,6 @@
 import importlib.util
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = ROOT / "scripts" / "audit_ogasawara_network_schema.py"
 SPEC = importlib.util.spec_from_file_location("ogasawara_schema", MODULE_PATH)
@@ -25,6 +24,31 @@ def test_contextual_long_table_is_detected_without_biological_relabelling():
     assert record["long_network_candidate"] is True
     assert record["contextual_long_network_candidate"] is True
     assert record["role_matches"]["anole_context"] == ["green anole presence"]
+
+
+def test_source_workbook_headers_are_recognized():
+    headers = [
+        "Island",
+        "Invasional Context",
+        "Season",
+        "Forest_Status",
+        "Anole",
+        "Plant_sp",
+        "Clase",
+        "Order",
+        "Ord_Fam",
+        "Poll_sp",
+        "N.Int",
+    ]
+    record = MODULE.table_record(
+        Path("source.xlsx"), "Data interactions", headers, 2746, len(headers), None
+    )
+    assert record["long_network_candidate"] is True
+    assert record["contextual_long_network_candidate"] is True
+    assert record["role_matches"]["site"] == ["Invasional Context"]
+    assert record["role_matches"]["plant"] == ["Plant_sp"]
+    assert record["role_matches"]["pollinator"] == ["Poll_sp"]
+    assert record["role_matches"]["interaction_count"] == ["N.Int"]
 
 
 def test_wide_matrix_remains_a_candidate_not_a_confirmed_network():
