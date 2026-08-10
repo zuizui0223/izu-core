@@ -53,6 +53,9 @@ ZONE_CONTEXT = {
     },
 }
 SPECIES_CODE_PATTERN = re.compile(r"^[a-z]{3}\.[a-z0-9]{2,3}$")
+MONTH_TOKEN_PATTERN = re.compile(
+    r"^(?P<index>\d+)(?:\((?P<label>[^)]+)\))?$"
+)
 MONTH_LABEL_PATTERN = re.compile(r"^\(([^)]+)\)$")
 COLUMNS = (
     "source_logical_id",
@@ -124,18 +127,22 @@ def parse_derived_lines(
                 f"{line!r}"
             )
         remainder = list(tokens[code_index + 1 :])
-        if not remainder or not remainder[0].isdigit():
+        if not remainder:
             raise ValueError(f"row {line_number} lacks integer month: {line!r}")
-        month_index = int(remainder.pop(0))
+        month_token = remainder.pop(0)
+        month_match = MONTH_TOKEN_PATTERN.fullmatch(month_token)
+        if month_match is None:
+            raise ValueError(f"row {line_number} lacks integer month: {line!r}")
+        month_index = int(month_match.group("index"))
         if month_index not in {1, 2, 3, 4}:
             raise ValueError(
                 f"unexpected relative month {month_index} on row {line_number}"
             )
-        month_label = ""
-        if remainder:
-            month_match = MONTH_LABEL_PATTERN.fullmatch(remainder[0])
-            if month_match:
-                month_label = month_match.group(1)
+        month_label = month_match.group("label") or ""
+        if not month_label and remainder:
+            separate_label_match = MONTH_LABEL_PATTERN.fullmatch(remainder[0])
+            if separate_label_match:
+                month_label = separate_label_match.group(1)
                 remainder.pop(0)
         if len(remainder) != 4:
             raise ValueError(
