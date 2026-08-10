@@ -1,0 +1,187 @@
+{
+  "status": "partial_or_failed",
+  "source_id": "galapagos_pollination_networks",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "selected_version_id": 26579,
+  "selected_version": {
+    "_links": {
+      "self": {
+        "href": "/api/v2/versions/26579"
+      },
+      "stash:dataset": {
+        "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.0c3cn5f"
+      },
+      "stash:files": {
+        "href": "/api/v2/versions/26579/files"
+      },
+      "stash:download": {
+        "href": "/api/v2/versions/26579/download"
+      },
+      "curies": [
+        {
+          "name": "stash",
+          "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+          "templated": "true"
+        }
+      ]
+    },
+    "title": "Data from: Fine-tuning the nested structure of pollination networks by adaptive interaction switching, biogeography and sampling effect in the Galápagos Islands",
+    "authors": [
+      {
+        "firstName": "Chinenye A.",
+        "lastName": "Nnakenyi",
+        "email": null,
+        "affiliation": "Stellenbosch University",
+        "affiliationROR": "https://ror.org/05bk57929",
+        "affiliations": [
+          {
+            "name": "Stellenbosch University",
+            "ror_id": "https://ror.org/05bk57929"
+          }
+        ],
+        "orcid": null,
+        "order": null
+      },
+      {
+        "firstName": "Anna",
+        "lastName": "Traveset",
+        "email": null,
+        "affiliation": "Mediterranean Institute for Advanced Studies",
+        "affiliationROR": "https://ror.org/02e9dby02",
+        "affiliations": [
+          {
+            "name": "Mediterranean Institute for Advanced Studies",
+            "ror_id": "https://ror.org/02e9dby02"
+          }
+        ],
+        "orcid": null,
+        "order": null
+      },
+      {
+        "firstName": "Ruben",
+        "lastName": "Heleno",
+        "email": null,
+        "affiliation": "University of Coimbra",
+        "affiliationROR": "https://ror.org/04z8k9a98",
+        "affiliations": [
+          {
+            "name": "University of Coimbra",
+            "ror_id": "https://ror.org/04z8k9a98"
+          }
+        ],
+        "orcid": null,
+        "order": null
+      },
+      {
+        "firstName": "Henintsoa O.",
+        "lastName": "Minoarivelo",
+        "email": null,
+        "affiliation": "Stellenbosch University",
+        "affiliationROR": "https://ror.org/05bk57929",
+        "affiliations": [
+          {
+            "name": "Stellenbosch University",
+            "ror_id": "https://ror.org/05bk57929"
+          }
+        ],
+        "orcid": null,
+        "order": null
+      },
+      {
+        "firstName": "Cang",
+        "lastName": "Hui",
+        "email": null,
+        "affiliation": "Stellenbosch University",
+        "affiliationROR": "https://ror.org/05bk57929",
+        "affiliations": [
+          {
+            "name": "Stellenbosch University",
+            "ror_id": "https://ror.org/05bk57929"
+          }
+        ],
+        "orcid": null,
+        "order": null
+      }
+    ],
+    "abstract": "The structure of pollination networks, particularly its nestedness, contains important information on network assemblages. However, there is still limited understanding of the mechanisms underlying nested pollination network structures. Here, we investigate the role of Adaptive Interaction Switching (AIS), island area, isolation, age and sampling effort in explaining the nestedness of pollination networks across ten Galápagos Islands. The AIS algorithm is inspired by Wallace’s elimination of the unfit, where a species constantly replaces its least profitable mutualistic partner with a new partner selected at random. To explain network structures, we first use a dynamic model that includes functional response of pollination and AIS, with only species richness and binary connectance as input (hereafter the AIS model). Thereafter, other explanatory variables (isolation, area, age and sampling effort) were added to the model. In four out of ten islands, the pollination network was significantly nested, and predictions from the AIS model correlated with observed structures, explaining 69% variation in nestedness. Overall, in terms of independent contribution from hierarchical partitioning of variation in observed nestedness, the AIS model predictions contributed the most (37%), followed by sampling effort (28%) and island area (22%), with only trivial contributions from island isolation and age. Therefore, adaptive switching of biotic interactions seems to be key to ensure network function, with island biogeographic factors only secondary. Although large islands could harbour more diverse assemblages and thus foster more nested structures, sufficient sampling proves to be essential for detecting non-random network structures.",
+    "funders": [
+      {
+        "organization": "U.S. National Science Foundation",
+        "identifierType": "ror",
+        "identifier": "https://ror.org/021nxhr62",
+        "awardNumber": "NO",
+        "awardURI": null,
+        "awardDescription": null,
+        "awardTitle": null,
+        "order": null
+      }
+    ],
+    "keywords": [
+      "Adaptive rewiring",
+      "nestedness",
+      "pollination network",
+      "sampling effort"
+    ],
+    "usageNotes": "<div class=\"o-metadata__file-usage-entry\"><h4 class=\"o-heading__level3-file-title\">Pollination data of ten Galapagos Islands</h4><div class=\"o-metadata__file-description\">The pollination data consists of a survey of pollination events on 10 islands, including Fernandina, Pinta, San Cristóbal, Santa Cruz and Santiago (reported in Traveset et al. 2013 Proc R Soc B; surveyed in February 2010 and 2011); and Española, Floreana, Genovesa, Isabela and Marchena (reported in this paper; surveyed from 2012 to 2015).</div><div class=\"o-metadata__file-name\">data_galapagos_islands.zip</br></div></div>",
+    "locations": [
+      {
+        "place": "Galapagos Islands"
+      }
+    ],
+    "relatedWorks": [
+      {
+        "relationship": "primary_article",
+        "identifierType": "DOI",
+        "identifier": "https://doi.org/10.1111/oik.06053"
+      }
+    ],
+    "versionNumber": 1,
+    "versionStatus": "submitted",
+    "curationStatus": "Published",
+    "versionChanges": "none",
+    "publicationDate": "2019-05-21",
+    "lastModificationDate": "2020-06-24",
+    "visibility": "public",
+    "sharingLink": "http://datadryad.org/dataset/doi:10.5061/dryad.0c3cn5f"
+  },
+  "file_listing_audit": [
+    {
+      "version_id": 26579,
+      "version_number": 1.0,
+      "n_file_rows": 1,
+      "page_errors": []
+    }
+  ],
+  "n_source_files": 1,
+  "n_downloaded": 0,
+  "files": [
+    {
+      "file_id": 94461,
+      "source_filename": "data_galapagos_islands.zip",
+      "source_size": 14001,
+      "source_digest": "8e6c3e84ea713a6817bb403c4de7f3c5",
+      "status": "download_failed",
+      "local_name": null,
+      "size_downloaded": null,
+      "sha256": null,
+      "successful_download_url_without_query": null,
+      "preview_kind": null,
+      "archive_members": null,
+      "sheet_names": []
+    }
+  ],
+  "errors": [
+    {
+      "stage": "zip_assembly_info",
+      "url": "https://datadryad.org/downloads/zip_assembly_info/26579.json",
+      "error": "RuntimeError(\"HTTP 403 Forbidden; body='<html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> </body> </html>'\")"
+    }
+  ],
+  "expected_source_components": [
+    "multiple island-level quantitative plant-pollinator networks",
+    "island identity",
+    "sampling effort or study metadata where supplied",
+    "island area, isolation and/or age variables where supplied"
+  ],
+  "claim_boundary": "The package may support source-native multi-island network and biogeographic comparisons. Visit-frequency networks do not identify single-visit effectiveness, effective dependency, reproductive success, adaptive interaction switching, historical selection, or a causal isolation effect without additional design and evidence."
+}
