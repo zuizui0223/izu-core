@@ -4,24 +4,40 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "channel_id/external_archipelago_network.py"
+      - "channel_id/paired_effect_uncertainty.py"
+      - "channel_id/ogasawara_context_network.py"
       - "config/ogasawara_zenodo_source.json"
       - "scripts/acquire_ogasawara_zenodo.py"
       - "scripts/audit_ogasawara_network_schema.py"
+      - "scripts/analyze_ogasawara_context_network.py"
+      - "scripts/summarize_ogasawara_context_analysis.py"
       - "tests/test_ogasawara_network_schema.py"
+      - "tests/test_ogasawara_context_network.py"
+      - "data/results/ogasawara/context_analysis/effect_rows.json"
+      - "data/results/ogasawara/context_analysis/analysis_summary.json"
       - ".github/workflows/ogasawara-external-source.yml"
   pull_request:
     paths:
+      - "channel_id/external_archipelago_network.py"
+      - "channel_id/paired_effect_uncertainty.py"
+      - "channel_id/ogasawara_context_network.py"
       - "config/ogasawara_zenodo_source.json"
       - "scripts/acquire_ogasawara_zenodo.py"
       - "scripts/audit_ogasawara_network_schema.py"
+      - "scripts/analyze_ogasawara_context_network.py"
+      - "scripts/summarize_ogasawara_context_analysis.py"
       - "tests/test_ogasawara_network_schema.py"
+      - "tests/test_ogasawara_context_network.py"
+      - "data/results/ogasawara/context_analysis/effect_rows.json"
+      - "data/results/ogasawara/context_analysis/analysis_summary.json"
       - ".github/workflows/ogasawara-external-source.yml"
 
 permissions:
   contents: write
 
 jobs:
-  acquire-and-audit:
+  acquire-audit-analyze:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,8 +49,11 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: python -m pip install -e . openpyxl pytest
-      - name: Test schema-discovery guards
-        run: python -m pytest -q tests/test_ogasawara_network_schema.py
+      - name: Test source-schema and context-analysis guards
+        run: >-
+          python -m pytest -q
+          tests/test_ogasawara_network_schema.py
+          tests/test_ogasawara_context_network.py
       - name: Acquire source-native Zenodo files
         id: acquire
         continue-on-error: true
@@ -42,18 +61,36 @@ jobs:
       - name: Audit tabular schemas
         if: steps.acquire.outcome == 'success'
         run: python scripts/audit_ogasawara_network_schema.py
-      - name: Materialize compact source record
+      - name: Analyse source-native context networks
+        if: steps.acquire.outcome == 'success'
+        run: python scripts/analyze_ogasawara_context_network.py
+      - name: Build compact checked analysis summary
+        if: steps.acquire.outcome == 'success'
+        run: python scripts/summarize_ogasawara_context_analysis.py
+      - name: Verify checked context effects and compact summary
+        if: steps.acquire.outcome == 'success' && github.event_name == 'pull_request'
+        run: |
+          cmp artifacts/ogasawara_context_analysis/effect_rows.json \
+              data/results/ogasawara/context_analysis/effect_rows.json
+          cmp artifacts/ogasawara_context_analysis/analysis_summary.json \
+              data/results/ogasawara/context_analysis/analysis_summary.json
+      - name: Materialize compact source and context records
         if: always()
         run: |
           python - <<'PY'
           import json
+          import shutil
           from pathlib import Path
 
           source_path = Path("artifacts/ogasawara_zenodo/source_inventory.json")
           failure_path = Path("artifacts/ogasawara_zenodo/acquisition_failure.json")
           schema_path = Path("artifacts/ogasawara_zenodo/schema_audit.json")
+          analysis_path = Path("artifacts/ogasawara_context_analysis/analysis_summary.json")
+          effects_path = Path("artifacts/ogasawara_context_analysis/effect_rows.json")
           out = Path("data/results/ogasawara")
+          context_out = out / "context_analysis"
           out.mkdir(parents=True, exist_ok=True)
+          context_out.mkdir(parents=True, exist_ok=True)
 
           if source_path.exists():
               source = json.loads(source_path.read_text(encoding="utf-8"))
@@ -78,6 +115,7 @@ jobs:
                   files.append(
                       {
                           "key": row.get("key"),
+                          "local_name": row.get("local_name"),
                           "status": row.get("status"),
                           "size_reported": row.get("size_reported"),
                           "size_downloaded": row.get("size_downloaded"),
@@ -107,14 +145,24 @@ jobs:
                   encoding="utf-8",
               )
               if schema_path.exists():
-                  (out / "schema_audit.json").write_text(
-                      schema_path.read_text(encoding="utf-8"), encoding="utf-8"
-                  )
-              old_failure = out / "acquisition_failure.json"
-              if old_failure.exists():
-                  old_failure.unlink()
+                  shutil.copyfile(schema_path, out / "schema_audit.json")
+              if analysis_path.exists():
+                  shutil.copyfile(analysis_path, context_out / "analysis_summary.json")
+              if effects_path.exists():
+                  shutil.copyfile(effects_path, context_out / "effect_rows.json")
+              for stale in (
+                  out / "acquisition_failure.json",
+                  context_out / "acquisition_failure.json",
+                  context_out / "analysis_blocked.json",
+              ):
+                  if stale.exists():
+                      stale.unlink()
           else:
-              failure = json.loads(failure_path.read_text(encoding="utf-8")) if failure_path.exists() else {}
+              failure = (
+                  json.loads(failure_path.read_text(encoding="utf-8"))
+                  if failure_path.exists()
+                  else {}
+              )
               compact = {
                   "status": failure.get("status", "acquisition_failed_without_record"),
                   "source_id": failure.get("source_id"),
@@ -133,17 +181,19 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/results/ogasawara
+          git add -A data/results/ogasawara
           if ! git diff --cached --quiet; then
-            git commit -m "Materialize Ogasawara external source audit"
+            git commit -m "Materialize Ogasawara context-network audit"
             git push origin HEAD:${{ github.ref_name }}
           fi
-      - name: Upload full source audit
+      - name: Upload full source and context analyses
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ogasawara-external-source-audit
-          path: artifacts/ogasawara_zenodo/
+          path: |
+            artifacts/ogasawara_zenodo/
+            artifacts/ogasawara_context_analysis/
           if-no-files-found: warn
       - name: Fail after preserving diagnosis when acquisition failed
         if: steps.acquire.outcome != 'success'
