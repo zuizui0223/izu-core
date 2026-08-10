@@ -1,8 +1,15 @@
 {
   "source_id": "southwest_pacific_mainland_island_floral_pairs",
   "article_doi": "10.1093/aob/mcaf005",
-  "landing_page_url": "https://academic.oup.com/aob/advance-article/doi/10.1093/aob/mcaf005/7960047",
+  "pmcid": "PMC12445859",
+  "landing_page_url": "https://oup.silverchair-cdn.com/article-minimal/7960047",
+  "canonical_article_url": "https://academic.oup.com/aob/article/136/2/287/7960047",
   "crossref_url": "https://api.crossref.org/works/10.1093%2Faob%2Fmcaf005",
+  "expected_supplementary_files": [
+    "mcaf005_suppl_supplementary_data_s1.xlsx",
+    "mcaf005_suppl_supplementary_data_s2.xlsx",
+    "mcaf005_suppl_supplementary_materials.docx"
+  ],
   "external_validation_role": "independent_mainland_island_colonisation_pair_morphology",
   "expected_context_to_verify_from_source": [
     "independent colonisation or island-mainland comparison identifier",
