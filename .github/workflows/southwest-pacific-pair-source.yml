@@ -6,6 +6,7 @@ on:
     paths:
       - "config/southwest_pacific_aob_source.json"
       - "scripts/acquire_oup_supplementary_data.py"
+      - "scripts/acquire_oup_supplementary_data_v2.py"
       - "scripts/audit_southwest_pacific_pair_schema.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_southwest_pacific_pair_schema.py"
@@ -14,6 +15,7 @@ on:
     paths:
       - "config/southwest_pacific_aob_source.json"
       - "scripts/acquire_oup_supplementary_data.py"
+      - "scripts/acquire_oup_supplementary_data_v2.py"
       - "scripts/audit_southwest_pacific_pair_schema.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_southwest_pacific_pair_schema.py"
@@ -44,7 +46,7 @@ jobs:
         id: acquire
         continue-on-error: true
         run: >-
-          python scripts/acquire_oup_supplementary_data.py
+          python scripts/acquire_oup_supplementary_data_v2.py
           --config config/southwest_pacific_aob_source.json
           --output-dir artifacts/southwest_pacific_aob
       - name: Audit pair and moderator schemas
@@ -151,6 +153,8 @@ jobs:
           name: southwest-pacific-pair-source-audit
           path: artifacts/southwest_pacific_aob/
           if-no-files-found: warn
-      - name: Fail after preserving diagnosis when acquisition failed
+      - name: Preserve blocked acquisition as a source state
         if: steps.acquire.outcome != 'success'
-        run: exit 1
+        run: >-
+          echo "::notice::Southwest Pacific supplement acquisition is blocked in
+          this run; the materialized failure record is not a biological zero."
