@@ -1,0 +1,126 @@
+name: Galapagos multi-island network analysis
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/analyze_galapagos_source_networks.py"
+      - "tests/test_galapagos_source_networks.py"
+      - ".github/workflows/galapagos-network-analysis.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  analyse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl pytest
+      - name: Test source gates and network analysis
+        run: >-
+          python -m pytest -q
+          tests/test_dryad_external_acquisition.py
+          tests/test_galapagos_dryad_schema.py
+          tests/test_galapagos_source_networks.py
+      - name: Acquire all source-native Dryad files
+        id: acquire
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_dryad_external_dataset.py
+          --config config/galapagos_dryad_source.json
+          --output-dir artifacts/galapagos_dryad
+      - name: Audit source schema
+        if: steps.acquire.outcome == 'success'
+        run: >-
+          python scripts/audit_galapagos_dryad_schema.py
+          --input-dir artifacts/galapagos_dryad
+          --output artifacts/galapagos_dryad/schema_audit.json
+      - name: Run source-admitted analysis or retain blocked state
+        if: steps.acquire.outcome == 'success'
+        run: >-
+          python scripts/analyze_galapagos_source_networks.py
+          --schema artifacts/galapagos_dryad/schema_audit.json
+          --output-dir artifacts/galapagos_analysis
+      - name: Materialize result or diagnosis
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import shutil
+          from pathlib import Path
+
+          out = Path("data/results/galapagos/network_analysis")
+          out.mkdir(parents=True, exist_ok=True)
+          for old in out.iterdir():
+              if old.is_file():
+                  old.unlink()
+
+          source_path = Path("artifacts/galapagos_dryad/source_inventory.json")
+          schema_path = Path("artifacts/galapagos_dryad/schema_audit.json")
+          analysis_dir = Path("artifacts/galapagos_analysis")
+
+          if source_path.exists():
+              source = json.loads(source_path.read_text(encoding="utf-8"))
+              lock = {
+                  "status": source.get("status"),
+                  "source_id": source.get("source_id"),
+                  "dataset_doi": source.get("dataset_doi"),
+                  "selected_version_id": source.get("selected_version_id"),
+                  "n_source_files": source.get("n_source_files"),
+                  "n_downloaded": source.get("n_downloaded"),
+                  "file_sha256": {
+                      row.get("source_filename"): row.get("sha256")
+                      for row in source.get("files", [])
+                  },
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "source_lock.json").write_text(
+                  json.dumps(lock, indent=2, ensure_ascii=False, default=str) + "\n",
+                  encoding="utf-8",
+              )
+              if schema_path.exists():
+                  shutil.copy2(schema_path, out / "schema_audit.json")
+              if analysis_dir.exists():
+                  for path in analysis_dir.iterdir():
+                      if path.is_file() and path.suffix.casefold() in {".json", ".csv", ".md"}:
+                          shutil.copy2(path, out / path.name)
+          else:
+              failure = {
+                  "status": "acquisition_failed_without_inventory",
+                  "dataset_doi": "10.5061/dryad.0c3cn5f",
+                  "claim_boundary": "No network or biogeographic result is inferred from a failed source acquisition."
+              }
+              (out / "acquisition_failure.json").write_text(
+                  json.dumps(failure, indent=2) + "\n", encoding="utf-8"
+              )
+          PY
+      - name: Commit materialized state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/galapagos/network_analysis
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Galapagos multi-island network analysis"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload full audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: galapagos-multi-island-network-analysis
+          path: |
+            artifacts/galapagos_dryad/
+            artifacts/galapagos_analysis/
+          if-no-files-found: warn
+      - name: Fail only when acquisition itself failed
+        if: steps.acquire.outcome != 'success'
+        run: exit 1
