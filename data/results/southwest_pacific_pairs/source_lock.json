@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "status": "source_files_checksum_locked",
+  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+  "article_doi": "10.1093/aob/mcaf005",
+  "pmcid": "PMC12445859",
+  "acquisition_route": "oup_article_minimal_public_supplement_links",
+  "analysis_file": "mcaf005_suppl_supplementary_data_s2.xlsx",
+  "analysis_sheet": "Flower dataframe",
+  "files": {
+    "mcaf005_suppl_supplementary_data_s1.xlsx": {
+      "size_bytes": 24823,
+      "sha256": "6d79b008ea26ddb9e0334f8b5300f352548b647380e95a35c63b3c9f783c6056"
+    },
+    "mcaf005_suppl_supplementary_data_s2.xlsx": {
+      "size_bytes": 79835,
+      "sha256": "452c6f83143eb17e8249faae9659386be7b162f93742c4e137921952a9b88677"
+    },
+    "mcaf005_suppl_supplementary_materials.docx": {
+      "size_bytes": 677144,
+      "sha256": "c422b0309697ff886e3b7f0c5998535f3d3946ff323a0741cceee86bd45900c1"
+    }
+  },
+  "n_source_rows": 129,
+  "claim_boundary": "This source supports an independent colonisation-event morphology response and robustness audit. It is not pooled with visit-network effects and does not identify pollinator dependency or geological-origin causation."
+}
