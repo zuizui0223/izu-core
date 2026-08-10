@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "status": "supplementary_acquisition_blocked_directional_evidence_available",
+  "source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
+  "article_doi": "10.1111/boj.12134",
+  "article_title": "Differences in flower visitation networks between an oceanic and a continental island",
+  "source_design": {
+    "oceanic_archipelago": "Canary Islands",
+    "continental_archipelago": "Balearic Islands",
+    "communities_per_archipelago": 2,
+    "network_type": "quantitative flower visitation networks"
+  },
+  "acquisition_audit": {
+    "n_supplement_candidates_resolved": 0,
+    "n_supplement_files_downloaded": 0,
+    "blocked_route": "Oxford Academic article and supplementary-data pages returned Cloudflare HTTP 403 responses in GitHub Actions",
+    "blocked_delivery_is_biological_zero": false
+  },
+  "next_gate": "Recover source supplementary files through a lawful public, institutional, repository, author-supplied, or user-supplied route, then verify four community identities, sampling effort, raw matrices and metric definitions.",
+  "claim_boundary": "The blocked supplementary route does not support numeric effect extraction. Article-level directional evidence remains separate from source-matrix reanalysis and does not measure pollinator effectiveness, effective dependency, pollen deposition or reproductive success."
+}
