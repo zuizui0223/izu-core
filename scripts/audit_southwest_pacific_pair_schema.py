@@ -85,7 +85,10 @@ def classify(
         and bool(matched & {"comparison_id", "island_taxon", "mainland_taxon"})
     )
     moderator_table = bool(matched & {"pollination_mode", "breeding_system", "island_type", "growth_form"})
-    quantitative_ready = (paired_wide or paired_long) and bool(matched & {"trait", "unit"})
+    quantitative_ready = (
+        (paired_wide or paired_long)
+        and {"trait", "unit"}.issubset(matched)
+    )
     return {
         "file": str(path),
         "sheet": sheet,
