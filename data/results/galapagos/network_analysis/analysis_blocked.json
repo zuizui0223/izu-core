@@ -1,0 +1,8 @@
+{
+  "status": "blocked_network_source_not_resolved",
+  "error": "ValueError('network source not uniquely admitted: long=0, oriented_matrices=0')",
+  "n_long_candidates": 0,
+  "n_oriented_matrix_candidates": 0,
+  "next_gate": "Inspect the source package and add an explicit source mapping rather than choosing a table or matrix orientation post hoc.",
+  "claim_boundary": "Schema classification is not a biological result. Network matrices contain interactions or visits, not per-visit effectiveness, effective dependency or reproductive success. Island area, age and isolation are descriptive moderators unless the source design identifies them causally."
+}
