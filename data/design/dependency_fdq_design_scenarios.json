@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "analysis_name": "dependency_fdq_design_simulation",
+  "synthetic_dependency_values": true,
+  "empirical_structure_anchor": {
+    "source": "Hiraiwa-Ushimaru 2024 source-native archive acquired in PR #90",
+    "source_paths": [
+      "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json",
+      "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json",
+      "data/predictive_meta/hiraiwa_ushimaru_functional_moderation.json",
+      "data/design/pollen_target_dependency_moderation_readiness.json"
+    ],
+    "community_sites": 8,
+    "community_seasons": 5,
+    "source_defined_pollen_targets": 10,
+    "proxy_moderation_eligible_taxa": 9,
+    "proxy_moderation_rows": 105,
+    "resolved_high_dependency_bombus_endpoints": 0,
+    "exact_2024_izu_effective_dependency_measurements": 0,
+    "observed_fdq_result": "FDQ remains positive after site/season fixed effects, full functional-covariate adjustment, mainland exclusion, and Oshima exclusion.",
+    "anchor_boundary": "The empirical archive anchors dimensions and the need for a direct dependency endpoint. It does not provide true dependency values or an empirical dependency x FDQ interaction."
+  },
+  "simulation": {
+    "seed": 20260810,
+    "null_calibration_replicates": 250,
+    "null_validation_replicates": 250,
+    "effect_replicates": 400,
+    "interaction_effects": [
+      0.4,
+      0.8
+    ],
+    "effect_scale": "standardized outcome units per 1-SD FDQ change across a full 0-to-1 dependency contrast",
+    "fdq_main_effect": 0.8,
+    "cluster_shock_sd": 0.35,
+    "observation_error_sd": 0.8,
+    "fdq_site_sd": 0.8,
+    "fdq_season_sd": 0.45,
+    "fdq_residual_sd": 0.65,
+    "taxon_intercept_sd": 0.55,
+    "site_intercept_sd": 0.45,
+    "season_intercept_sd": 0.25,
+    "inference": "taxon + site + season additive fixed effects; site-season clustered sandwich SE; scenario-specific empirical null critical value",
+    "coverage_rule": "Each synthetic replicate retains every taxon and every site-season cluster, then samples the remaining rows to the declared coverage fraction.",
+    "assumption_boundary": "All coefficients, dependency supports, reliabilities, error scales and prospective coverage fractions are synthetic sensitivity assumptions, not estimates from the Izu archive."
+  },
+  "scenarios": [
+    {
+      "scenario_id": "survivor_proxy_current",
+      "dependency_values": [
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55
+      ],
+      "sites": 8,
+      "seasons": 5,
+      "dependency_reliability": 0.5,
+      "coverage_fraction": 0.2916666666666667,
+      "description": "Current-structure diagnostic: nine eligible survivor taxa, 105 rows, a truncated synthetic dependency range, and proxy-like reliability."
+    },
+    {
+      "scenario_id": "survivor_proxy_more_seasons",
+      "dependency_values": [
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55
+      ],
+      "sites": 8,
+      "seasons": 10,
+      "dependency_reliability": 0.5,
+      "coverage_fraction": 0.2916666666666667,
+      "description": "Double seasons while retaining the same truncated dependency support, proxy reliability, and sparse coverage fraction."
+    },
+    {
+      "scenario_id": "survivor_proxy_more_sites",
+      "dependency_values": [
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55
+      ],
+      "sites": 12,
+      "seasons": 5,
+      "dependency_reliability": 0.5,
+      "coverage_fraction": 0.2916666666666667,
+      "description": "Add four sites while retaining the same truncated dependency support, proxy reliability, and sparse coverage fraction."
+    },
+    {
+      "scenario_id": "direct_narrow_9",
+      "dependency_values": [
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55
+      ],
+      "sites": 8,
+      "seasons": 5,
+      "dependency_reliability": 0.85,
+      "coverage_fraction": 0.5,
+      "description": "Direct dependency measurement and denser matched sampling, but no extension of the synthetic dependency range."
+    },
+    {
+      "scenario_id": "direct_add_high_endpoint",
+      "dependency_values": [
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.95
+      ],
+      "sites": 8,
+      "seasons": 5,
+      "dependency_reliability": 0.85,
+      "coverage_fraction": 0.5,
+      "description": "Add one directly measured high-dependency endpoint to the narrow survivor-like support."
+    },
+    {
+      "scenario_id": "direct_full_span_10",
+      "dependency_values": [
+        0.05,
+        0.15,
+        0.25,
+        0.35,
+        0.45,
+        0.55,
+        0.65,
+        0.75,
+        0.85,
+        0.95
+      ],
+      "sites": 8,
+      "seasons": 5,
+      "dependency_reliability": 0.85,
+      "coverage_fraction": 0.5,
+      "description": "Ten directly measured taxa spanning the synthetic dependency scale with matched half-panel coverage."
+    },
+    {
+      "scenario_id": "direct_narrow_16",
+      "dependency_values": [
+        0.15,
+        0.1766666667,
+        0.2033333333,
+        0.23,
+        0.2566666667,
+        0.2833333333,
+        0.31,
+        0.3366666667,
+        0.3633333333,
+        0.39,
+        0.4166666667,
+        0.4433333333,
+        0.47,
+        0.4966666667,
+        0.5233333333,
+        0.55
+      ],
+      "sites": 8,
+      "seasons": 5,
+      "dependency_reliability": 0.85,
+      "coverage_fraction": 0.5,
+      "description": "Sixteen directly measured taxa, but still restricted to the narrow synthetic dependency range."
+    },
+    {
+      "scenario_id": "direct_full_span_16",
+      "dependency_values": [
+        0.05,
+        0.11,
+        0.17,
+        0.23,
+        0.29,
+        0.35,
+        0.41,
+        0.47,
+        0.53,
+        0.59,
+        0.65,
+        0.71,
+        0.77,
+        0.83,
+        0.89,
+        0.95
+      ],
+      "sites": 8,
+      "seasons": 5,
+      "dependency_reliability": 0.85,
+      "coverage_fraction": 0.5,
+      "description": "Sixteen directly measured taxa spanning the synthetic dependency scale."
+    }
+  ],
+  "design_contrasts": [
+    {
+      "contrast_id": "more_seasons_vs_current_proxy",
+      "left_scenario": "survivor_proxy_more_seasons",
+      "right_scenario": "survivor_proxy_current",
+      "interpretation": "Information gained by doubling seasons without repairing dependency support."
+    },
+    {
+      "contrast_id": "more_sites_vs_current_proxy",
+      "left_scenario": "survivor_proxy_more_sites",
+      "right_scenario": "survivor_proxy_current",
+      "interpretation": "Information gained by adding sites without repairing dependency support."
+    },
+    {
+      "contrast_id": "direct_measurement_dense_vs_current",
+      "left_scenario": "direct_narrow_9",
+      "right_scenario": "survivor_proxy_current",
+      "interpretation": "Information gained by direct measurement and denser sampling while dependency support stays narrow."
+    },
+    {
+      "contrast_id": "add_high_endpoint_vs_direct_narrow",
+      "left_scenario": "direct_add_high_endpoint",
+      "right_scenario": "direct_narrow_9",
+      "interpretation": "Increment from adding one high-dependency endpoint after measurement improves."
+    },
+    {
+      "contrast_id": "full_span_10_vs_high_endpoint_only",
+      "left_scenario": "direct_full_span_10",
+      "right_scenario": "direct_add_high_endpoint",
+      "interpretation": "Increment from filling the dependency gradient rather than relying on one endpoint."
+    },
+    {
+      "contrast_id": "full_span_16_vs_narrow_16",
+      "left_scenario": "direct_full_span_16",
+      "right_scenario": "direct_narrow_16",
+      "interpretation": "Dependency-range information at fixed taxon count and coverage."
+    }
+  ],
+  "claim_boundary": "This simulation ranks prospective designs under declared synthetic alternatives. It does not estimate empirical power, an empirical dependency x FDQ coefficient, historical selection, Bombus causation, or a causal Oshima-Toshima boundary effect."
+}
