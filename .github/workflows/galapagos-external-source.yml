@@ -7,18 +7,24 @@ on:
       - "config/galapagos_dryad_source.json"
       - "scripts/acquire_dryad_external_dataset.py"
       - "scripts/acquire_dryad_external_dataset_v2.py"
+      - "scripts/acquire_galapagos_dataone.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "tests/test_dryad_external_acquisition.py"
+      - "tests/test_galapagos_dataone_acquisition.py"
       - "tests/test_galapagos_dryad_schema.py"
+      - "docs/GALAPAGOS_DATAONE_RECOVERY.md"
       - ".github/workflows/galapagos-external-source.yml"
   pull_request:
     paths:
       - "config/galapagos_dryad_source.json"
       - "scripts/acquire_dryad_external_dataset.py"
       - "scripts/acquire_dryad_external_dataset_v2.py"
+      - "scripts/acquire_galapagos_dataone.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "tests/test_dryad_external_acquisition.py"
+      - "tests/test_galapagos_dataone_acquisition.py"
       - "tests/test_galapagos_dryad_schema.py"
+      - "docs/GALAPAGOS_DATAONE_RECOVERY.md"
       - ".github/workflows/galapagos-external-source.yml"
 
 permissions:
@@ -37,20 +43,57 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: python -m pip install -e . openpyxl pytest
-      - name: Test Dryad resolver and schema guards
+      - name: Test Dryad, DataONE, and schema guards
         run: >-
           python -m pytest -q
           tests/test_dryad_external_acquisition.py
+          tests/test_galapagos_dataone_acquisition.py
           tests/test_galapagos_dryad_schema.py
-      - name: Acquire all files from latest visible file-owning Dryad version
-        id: acquire
+      - name: Acquire from latest visible file-owning Dryad version
+        id: dryad_acquire
         continue-on-error: true
         run: >-
           python scripts/acquire_dryad_external_dataset_v2.py
           --config config/galapagos_dryad_source.json
           --output-dir artifacts/galapagos_dryad
+      - name: Test whether Dryad yielded valid source bytes
+        id: dryad_state
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          path = Path("artifacts/galapagos_dryad/source_inventory.json")
+          data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+          print(f"available={'true' if int(data.get('n_downloaded') or 0) > 0 else 'false'}")
+          PY
+      - name: Try DOI-locked DataONE fallback
+        id: dataone_acquire
+        if: steps.dryad_state.outputs.available != 'true'
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_galapagos_dataone.py
+          --config config/galapagos_dryad_source.json
+          --output-dir artifacts/galapagos_dryad
+      - name: Resolve final source state
+        id: source
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          path = Path("artifacts/galapagos_dryad/source_inventory.json")
+          data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+          downloaded = int(data.get("n_downloaded") or 0)
+          route = data.get("acquisition_route")
+          if not route and data.get("selected_version_id") is not None:
+              route = "dryad_api_v2"
+          print(f"available={'true' if downloaded > 0 else 'false'}")
+          print(f"route={route or 'blocked'}")
+          print(f"status={data.get('status') or 'inventory_missing'}")
+          PY
       - name: Audit downloaded and extracted tabular schemas
-        if: steps.acquire.outcome == 'success'
+        if: steps.source.outputs.available == 'true'
         run: >-
           python scripts/audit_galapagos_dryad_schema.py
           --input-dir artifacts/galapagos_dryad
@@ -85,14 +128,19 @@ jobs:
                   files.append(
                       {
                           "file_id": row.get("file_id"),
+                          "dataone_id": row.get("dataone_id"),
                           "source_filename": row.get("source_filename"),
                           "source_size": row.get("source_size"),
-                          "source_digest": row.get("source_digest"),
+                          "source_digest": row.get("source_digest") or row.get("source_checksum"),
+                          "source_checksum_algorithm": row.get("source_checksum_algorithm"),
                           "status": row.get("status"),
                           "local_name": row.get("local_name"),
                           "size_downloaded": row.get("size_downloaded"),
                           "sha256": row.get("sha256"),
-                          "successful_download_url_without_query": redact(row.get("successful_download_url")),
+                          "successful_download_url_without_query": redact(
+                              row.get("successful_download_url")
+                              or row.get("successful_download_url_without_query")
+                          ),
                           "preview_kind": (row.get("preview") or {}).get("kind"),
                           "archive_members": (row.get("preview") or {}).get("archive_members"),
                           "sheet_names": [
@@ -101,17 +149,26 @@ jobs:
                           ],
                       }
                   )
+              route = source.get("acquisition_route")
+              if not route and source.get("selected_version_id") is not None:
+                  route = "dryad_api_v2"
               compact = {
                   "status": source.get("status"),
+                  "acquisition_route": route or "blocked",
                   "source_id": source.get("source_id"),
                   "dataset_doi": source.get("dataset_doi"),
                   "selected_version_id": source.get("selected_version_id"),
                   "selected_version": source.get("selected_version"),
                   "file_listing_audit": source.get("file_listing_audit"),
+                  "n_initial_documents": source.get("n_initial_documents"),
+                  "n_doi_locked_documents": source.get("n_doi_locked_documents"),
+                  "n_expanded_documents": source.get("n_expanded_documents"),
+                  "n_data_candidates": source.get("n_data_candidates"),
                   "n_source_files": source.get("n_source_files"),
                   "n_downloaded": source.get("n_downloaded"),
                   "files": files,
                   "errors": source.get("errors"),
+                  "next_gate": source.get("next_gate"),
                   "expected_source_components": source.get("expected_source_components"),
                   "claim_boundary": source.get("claim_boundary"),
               }
@@ -126,6 +183,7 @@ jobs:
           else:
               failure = {
                   "status": "acquisition_failed_without_inventory",
+                  "acquisition_route": "dryad_then_dataone",
                   "source_id": "galapagos_pollination_networks",
                   "dataset_doi": "10.5061/dryad.0c3cn5f",
                   "claim_boundary": "No biological result is inferred from a failed acquisition."
@@ -152,7 +210,8 @@ jobs:
           path: artifacts/galapagos_dryad/
           if-no-files-found: warn
       - name: Preserve blocked acquisition as a source state
-        if: steps.acquire.outcome != 'success'
+        if: always() && steps.source.outputs.available != 'true'
         run: >-
-          echo "::notice::Galapagos source acquisition is blocked in this run;
-          the materialized failure record is not a biological zero."
+          echo "::notice::Galapagos raw source acquisition remains blocked after
+          Dryad and DOI-locked DataONE routes; the materialized diagnosis is not
+          a biological zero."
