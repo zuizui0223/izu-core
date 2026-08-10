@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "status": "article_level_directional_evidence_only",
+  "source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
+  "article_doi": "10.1111/boj.12134",
+  "source_locator": "article abstract and source design description",
+  "comparison": {
+    "oceanic_system": "Canary Islands",
+    "continental_system": "Balearic Islands",
+    "replication": "two quantitative flower-visitation communities in each island system"
+  },
+  "directional_findings": [
+    {
+      "response": "total species number",
+      "reported_direction": "Balearic greater than Canary",
+      "numeric_effect_ready": false
+    },
+    {
+      "response": "total number of interactions",
+      "reported_direction": "no difference reported between island systems",
+      "numeric_effect_ready": false
+    },
+    {
+      "response": "interaction diversity",
+      "reported_direction": "no difference reported between island systems",
+      "numeric_effect_ready": false
+    },
+    {
+      "response": "quantitative connectance",
+      "reported_direction": "Canary greater than Balearic",
+      "numeric_effect_ready": false
+    },
+    {
+      "response": "quantitative nestedness",
+      "reported_direction": "Canary greater than Balearic",
+      "numeric_effect_ready": false
+    }
+  ],
+  "interpretation": "The oceanic-island networks were species-poorer but were not uniformly interaction-poorer. Higher connectance and nestedness were attributed in the article to opportunistic and super-generalist species. This is consistent with reorganisation rather than one-dimensional network collapse.",
+  "admission_status": "directional_external_validation_not_effect_registry",
+  "cross_system_model_eligible": false,
+  "causal_claim_allowed": false,
+  "claim_boundary": "Abstract-level directions are not effect sizes and cannot be combined with Wanshan-Yongxing plant-level log response ratios. Supplementary matrices, metric values, uncertainty and effort must be recovered before quantitative geological-origin analysis."
+}
