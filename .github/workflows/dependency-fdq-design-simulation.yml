@@ -38,6 +38,35 @@ jobs:
           python scripts/run_dependency_fdq_design_simulation.py
           --config data/design/dependency_fdq_design_scenarios.json
           --output artifacts/dependency_fdq_design_simulation/summary.json
+      - name: Verify checked operating characteristics
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          generated = json.loads(
+              Path("artifacts/dependency_fdq_design_simulation/summary.json").read_text()
+          )
+          checked = json.loads(
+              Path("data/results/dependency_fdq_design_simulation.json").read_text()
+          )
+          generated_index = {
+              row["scenario_id"]: row for row in generated["scenario_results"]
+          }
+          for row in checked["scenario_results"]:
+              current = generated_index[row["scenario_id"]]
+              assert current["target_analysis_rows"] == row["rows"]
+              assert current["synthetic_dependency_span"] == row["dependency_span"]
+              assert current["dependency_reliability"] == row["dependency_reliability"]
+              effect_index = {
+                  item["declared_synthetic_interaction"]: item
+                  for item in current["effect_results"]
+              }
+              for effect in row["effect_results"]:
+                  reproduced = effect_index[effect["synthetic_interaction"]]
+                  assert reproduced["calibrated_detection_probability"] == effect["detection_probability"]
+                  assert reproduced["attenuation_ratio"] == effect["attenuation_ratio"]
+          PY
       - name: Upload simulation report
         uses: actions/upload-artifact@v4
         with:
