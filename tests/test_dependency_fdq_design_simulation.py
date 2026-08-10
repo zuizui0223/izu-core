@@ -84,18 +84,16 @@ def test_checked_result_prioritizes_dependency_span_over_more_rows_alone():
         row = next(
             item
             for item in rows
-            if item["declared_synthetic_interaction"] == effect
+            if item["synthetic_interaction"] == effect
         )
-        return row["calibrated_detection_probability"]
+        return row["detection_probability"]
 
     assert detect("direct_add_high_endpoint") > detect("direct_narrow_9")
     assert detect("direct_full_span_10") > detect("survivor_proxy_more_seasons")
     assert detect("direct_full_span_16") > detect("direct_narrow_16")
-    assert all(
-        row["claim_boundary"] == report["claim_boundary"]
-        or "synthetic" in row["claim_boundary"].lower()
-        for row in report["scenario_results"]
-    )
+    boundary = report["claim_boundary"].lower()
+    assert "does not estimate empirical power" in boundary
+    assert "causal oshima-toshima" in boundary
 
 
 def test_invalid_config_cannot_hide_empirical_status(tmp_path: Path):
