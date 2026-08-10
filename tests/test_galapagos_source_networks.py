@@ -3,8 +3,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE_PATH = ROOT / "scripts" / "analyze_galapagos_source_networks.py"
-SPEC = importlib.util.spec_from_file_location("galapagos_analysis", MODULE_PATH)
+MODULE_PATH = ROOT / "scripts" / "analyze_galapagos_source_networks_v2.py"
+SPEC = importlib.util.spec_from_file_location("galapagos_analysis_v2", MODULE_PATH)
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
@@ -84,7 +84,7 @@ def test_pairwise_metrics_retain_shared_plant_turnover(tmp_path: Path):
     pairs, contrasts = MODULE.pairwise_metrics(networks)
     assert len(pairs) == 1
     assert pairs[0]["n_shared_plants"] == 1
-    assert {row["plant"] for row in contrasts} == {"P1"}
+    assert {row["plant_name"] for row in contrasts} == {"P1"}
 
 
 def test_covariate_links_are_descriptive_and_require_four_islands():
