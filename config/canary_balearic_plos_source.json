@@ -1,0 +1,70 @@
+{
+  "source_id": "castro_urgal_traveset_2016_plos_same_communities",
+  "article_doi": "10.1371/journal.pone.0150824",
+  "pmcid": "PMC4777429",
+  "source_role": "lawful_same_community_recovery_probe_for_2014_canary_balearic_networks",
+  "target_source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
+  "target_article_doi": "10.1111/boj.12134",
+  "europe_pmc_supplementary_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4777429/supplementaryFiles",
+  "plos_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150824",
+  "expected_files": [
+    {
+      "logical_id": "s001",
+      "title": "Information on selected plant species",
+      "declared_scope": "selected_species_metadata"
+    },
+    {
+      "logical_id": "s002",
+      "title": "Information on selected flower-visitor species",
+      "declared_scope": "selected_species_metadata"
+    },
+    {
+      "logical_id": "s003",
+      "title": "Detailed plant dataset",
+      "declared_scope": "derived_or_row_level_plant_dataset_to_audit"
+    },
+    {
+      "logical_id": "s004",
+      "title": "Detailed flower-visitor dataset",
+      "declared_scope": "derived_or_row_level_visitor_dataset_to_audit"
+    }
+  ],
+  "community_map_to_verify": [
+    {
+      "community_code": "SB",
+      "community_name": "Son Bosc",
+      "island": "Mallorca",
+      "archipelago": "Balearic Islands",
+      "geological_origin": "continental_island_system"
+    },
+    {
+      "community_code": "CM",
+      "community_name": "Cala Mesquida",
+      "island": "Mallorca",
+      "archipelago": "Balearic Islands",
+      "geological_origin": "continental_island_system"
+    },
+    {
+      "community_code": "CB",
+      "community_name": "Caleton Blanco",
+      "island": "Lanzarote",
+      "archipelago": "Canary Islands",
+      "geological_origin": "oceanic_island_system"
+    },
+    {
+      "community_code": "LC",
+      "community_name": "Las Conchas",
+      "island": "Lanzarote",
+      "archipelago": "Canary Islands",
+      "geological_origin": "oceanic_island_system"
+    }
+  ],
+  "cross_source_identity_gate": [
+    "verify that the four community codes and localities are the same as the 2014 comparison",
+    "verify whether the 2016 supporting rows reproduce full-season networks or only the selected 117-species derivative dataset",
+    "do not infer missing plant-by-visitor cells or reconstruct matrices from specialization summaries",
+    "preserve the 2010 Mallorca and 2011 Lanzarote sampling-year contrast",
+    "do not promote community replicates to independent archipelagos"
+  ],
+  "claim_boundary": "The open PLOS supporting information is a lawful same-community recovery route, not automatic proof that it contains the complete 2014 source matrices. Selected-species or derived partner-trait tables cannot be treated as full network matrices. Flower-visitation rates do not measure per-visit effectiveness, effective dependency, pollen deposition, reproductive success or geological-origin causation."
+}
