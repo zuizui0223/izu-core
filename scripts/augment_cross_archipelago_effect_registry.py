@@ -15,8 +15,26 @@ import json
 from pathlib import Path
 from typing import Mapping, Sequence
 
-from scripts.compile_cross_archipelago_effect_registry import COLUMNS
 
+COLUMNS = (
+    "effect_id",
+    "system_id",
+    "system_cluster",
+    "source_path",
+    "evidence_family",
+    "response",
+    "predictor_or_contrast",
+    "estimate",
+    "uncertainty_type",
+    "uncertainty_value",
+    "unit",
+    "independent_unit",
+    "row_role",
+    "admission_status",
+    "cross_system_model_eligible",
+    "causal_claim_allowed",
+    "notes",
+)
 
 INCOMPLETE_UNCERTAINTY = {
     "",
