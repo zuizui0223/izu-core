@@ -14,9 +14,9 @@ SPEC.loader.exec_module(MODULE)
 
 def fake_xlsx() -> bytes:
     buffer = io.BytesIO()
-    with zipfile.ZipFile(buffer, "w") as archive:
-        archive.writestr("[Content_Types].xml", "<Types/>")
-        archive.writestr("xl/workbook.xml", "<workbook/>")
+    with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_STORED) as archive:
+        archive.writestr("[Content_Types].xml", "<Types/>" + " " * 1200)
+        archive.writestr("xl/workbook.xml", "<workbook/>" + " " * 1200)
     return buffer.getvalue()
 
 
