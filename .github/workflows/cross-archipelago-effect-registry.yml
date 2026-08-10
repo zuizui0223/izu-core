@@ -72,12 +72,58 @@ jobs:
           --registry artifacts/cross_archipelago_effect_registry/registry.csv
           --summary artifacts/cross_archipelago_effect_registry/summary.json
           --ogasawara-effects data/results/ogasawara/context_analysis/effect_rows.json
-      - name: Verify checked registry
+      - name: Verify checked effect rows and summary
         run: |
-          cmp artifacts/cross_archipelago_effect_registry/registry.csv \
-              data/results/cross_archipelago_effect_registry.csv
-          cmp artifacts/cross_archipelago_effect_registry/summary.json \
-              data/results/cross_archipelago_effect_registry_summary.json
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          def read_rows(path):
+              with Path(path).open(encoding="utf-8", newline="") as handle:
+                  return list(csv.DictReader(handle))
+
+          generated = read_rows(
+              "artifacts/cross_archipelago_effect_registry/registry.csv"
+          )
+          checked = read_rows(
+              "data/results/cross_archipelago_effect_registry.csv"
+          )
+
+          # Numerical effects are frozen exactly. Source-state paths/statuses may
+          # legitimately move from acquisition_failure to source_inventory when a
+          # remote repository becomes reachable, but they must remain nonnumeric
+          # and causally closed.
+          def effect_index(rows):
+              return {
+                  row["effect_id"]: row
+                  for row in rows
+                  if row["estimate"]
+                  or row["row_role"] in {
+                      "external_effect",
+                      "external_context_effect",
+                  }
+              }
+
+          assert effect_index(generated) == effect_index(checked)
+          for row in generated:
+              if row["row_role"] in {"source_state", "blocked_state"}:
+                  assert row["estimate"] == ""
+                  assert row["cross_system_model_eligible"] == "no"
+                  assert row["causal_claim_allowed"] == "no"
+
+          generated_summary = json.loads(
+              Path(
+                  "artifacts/cross_archipelago_effect_registry/summary.json"
+              ).read_text(encoding="utf-8")
+          )
+          checked_summary = json.loads(
+              Path(
+                  "data/results/cross_archipelago_effect_registry_summary.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert generated_summary == checked_summary
+          PY
       - name: Upload registry audit
         if: always()
         uses: actions/upload-artifact@v4
