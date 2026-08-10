@@ -1,0 +1,120 @@
+name: Ogasawara network context analysis
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/analyze_ogasawara_network_context.py"
+      - "tests/test_ogasawara_network_context.py"
+      - ".github/workflows/ogasawara-network-context-analysis.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  analyse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl pytest
+      - name: Test source gate and context analysis
+        run: >-
+          python -m pytest -q
+          tests/test_ogasawara_network_schema.py
+          tests/test_ogasawara_network_context.py
+      - name: Acquire Zenodo source
+        id: acquire
+        continue-on-error: true
+        run: python scripts/acquire_ogasawara_zenodo.py
+      - name: Audit source schema
+        if: steps.acquire.outcome == 'success'
+        run: python scripts/audit_ogasawara_network_schema.py
+      - name: Run source-resolved descriptive analysis
+        if: steps.acquire.outcome == 'success'
+        run: python scripts/analyze_ogasawara_network_context.py
+      - name: Materialize result or blocked state
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import shutil
+          from pathlib import Path
+
+          out = Path("data/results/ogasawara/context_analysis")
+          out.mkdir(parents=True, exist_ok=True)
+          acquisition = Path("artifacts/ogasawara_zenodo/source_inventory.json")
+          failure = Path("artifacts/ogasawara_zenodo/acquisition_failure.json")
+          schema = Path("artifacts/ogasawara_zenodo/schema_audit.json")
+          analysis = Path("artifacts/ogasawara_context_analysis")
+
+          for old in out.iterdir():
+              if old.is_file():
+                  old.unlink()
+
+          if acquisition.exists():
+              source = json.loads(acquisition.read_text(encoding="utf-8"))
+              compact = {
+                  "status": source.get("status"),
+                  "source_id": source.get("source_id"),
+                  "dataset_doi": source.get("dataset_doi"),
+                  "title": source.get("title"),
+                  "license": source.get("license"),
+                  "n_files": source.get("n_files"),
+                  "n_downloaded": source.get("n_downloaded"),
+                  "file_keys": [row.get("key") for row in source.get("files", [])],
+                  "file_sha256": {row.get("key"): row.get("sha256") for row in source.get("files", [])},
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "source_lock.json").write_text(
+                  json.dumps(compact, indent=2, ensure_ascii=False) + "\n",
+                  encoding="utf-8",
+              )
+              if schema.exists():
+                  shutil.copy2(schema, out / "schema_audit.json")
+              if analysis.exists():
+                  for path in analysis.iterdir():
+                      if path.is_file() and path.suffix.lower() in {".json", ".csv", ".md"}:
+                          shutil.copy2(path, out / path.name)
+          else:
+              source = json.loads(failure.read_text(encoding="utf-8")) if failure.exists() else {}
+              compact = {
+                  "status": source.get("status", "acquisition_failed_without_diagnostic"),
+                  "source_id": source.get("source_id"),
+                  "dataset_doi": source.get("dataset_doi"),
+                  "error": source.get("error"),
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "acquisition_failure.json").write_text(
+                  json.dumps(compact, indent=2, ensure_ascii=False) + "\n",
+                  encoding="utf-8",
+              )
+          PY
+      - name: Commit materialized state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/ogasawara/context_analysis
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Ogasawara network context analysis"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload full audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ogasawara-network-context-analysis
+          path: |
+            artifacts/ogasawara_zenodo/
+            artifacts/ogasawara_context_analysis/
+          if-no-files-found: warn
+      - name: Fail after preserving acquisition diagnosis
+        if: steps.acquire.outcome != 'success'
+        run: exit 1
