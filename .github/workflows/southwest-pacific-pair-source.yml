@@ -1,0 +1,156 @@
+name: Southwest Pacific pair source audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_oup_supplementary_data.py"
+      - "scripts/audit_southwest_pacific_pair_schema.py"
+      - "tests/test_oup_supplementary_acquisition.py"
+      - "tests/test_southwest_pacific_pair_schema.py"
+      - ".github/workflows/southwest-pacific-pair-source.yml"
+  pull_request:
+    paths:
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_oup_supplementary_data.py"
+      - "scripts/audit_southwest_pacific_pair_schema.py"
+      - "tests/test_oup_supplementary_acquisition.py"
+      - "tests/test_southwest_pacific_pair_schema.py"
+      - ".github/workflows/southwest-pacific-pair-source.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  acquire-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl python-docx pytest
+      - name: Test acquisition and admission guards
+        run: >-
+          python -m pytest -q
+          tests/test_oup_supplementary_acquisition.py
+          tests/test_southwest_pacific_pair_schema.py
+      - name: Discover and acquire public supplementary files
+        id: acquire
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_oup_supplementary_data.py
+          --config config/southwest_pacific_aob_source.json
+          --output-dir artifacts/southwest_pacific_aob
+      - name: Audit pair and moderator schemas
+        if: steps.acquire.outcome == 'success'
+        run: >-
+          python scripts/audit_southwest_pacific_pair_schema.py
+          --input-dir artifacts/southwest_pacific_aob
+          --output artifacts/southwest_pacific_aob/schema_audit.json
+      - name: Materialize compact source state
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlsplit, urlunsplit
+
+          source_path = Path("artifacts/southwest_pacific_aob/source_inventory.json")
+          schema_path = Path("artifacts/southwest_pacific_aob/schema_audit.json")
+          out = Path("data/results/southwest_pacific_pairs")
+          out.mkdir(parents=True, exist_ok=True)
+          for old in out.iterdir():
+              if old.is_file():
+                  old.unlink()
+
+          def redact(url):
+              if not url:
+                  return url
+              parts = urlsplit(str(url))
+              return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+
+          if source_path.exists():
+              source = json.loads(source_path.read_text(encoding="utf-8"))
+              files = []
+              for row in source.get("files", []):
+                  files.append(
+                      {
+                          "text": row.get("text"),
+                          "status": row.get("status"),
+                          "source_url_without_query": redact(row.get("url")),
+                          "final_url_without_query": redact(row.get("final_url")),
+                          "content_type": row.get("content_type"),
+                          "local_name": row.get("local_name"),
+                          "size": row.get("size"),
+                          "sha256": row.get("sha256"),
+                          "archive_members": row.get("archive_members"),
+                          "error": row.get("error"),
+                      }
+                  )
+              compact = {
+                  "status": source.get("status"),
+                  "source_id": source.get("source_id"),
+                  "article_doi": source.get("article_doi"),
+                  "crossref_title": (source.get("crossref_message") or {}).get("title"),
+                  "n_candidates": source.get("n_candidates"),
+                  "n_downloaded": source.get("n_downloaded"),
+                  "discovery_pages": [
+                      {
+                          "requested_url_without_query": redact(row.get("requested_url")),
+                          "final_url_without_query": redact(row.get("final_url")),
+                          "content_type": row.get("content_type"),
+                          "size": row.get("size"),
+                          "n_links": row.get("n_links"),
+                      }
+                      for row in source.get("discovery_pages", [])
+                  ],
+                  "files": files,
+                  "errors": source.get("errors"),
+                  "expected_context_to_verify_from_source": source.get("expected_context_to_verify_from_source"),
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "source_inventory.json").write_text(
+                  json.dumps(compact, indent=2, ensure_ascii=False, default=str) + "\n",
+                  encoding="utf-8",
+              )
+              if schema_path.exists():
+                  (out / "schema_audit.json").write_text(
+                      schema_path.read_text(encoding="utf-8"), encoding="utf-8"
+                  )
+          else:
+              failure = {
+                  "status": "supplementary_acquisition_failed_without_inventory",
+                  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+                  "article_doi": "10.1093/aob/mcaf005",
+                  "claim_boundary": "No pair-level morphology result is reconstructed from a failed supplementary acquisition."
+              }
+              (out / "acquisition_failure.json").write_text(
+                  json.dumps(failure, indent=2) + "\n", encoding="utf-8"
+              )
+          PY
+      - name: Commit materialized state on push or manual run
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/southwest_pacific_pairs
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Southwest Pacific pair source audit"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload full source audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: southwest-pacific-pair-source-audit
+          path: artifacts/southwest_pacific_aob/
+          if-no-files-found: warn
+      - name: Fail after preserving diagnosis when acquisition failed
+        if: steps.acquire.outcome != 'success'
+        run: exit 1
