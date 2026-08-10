@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "source_id": "nnakenyi_et_al_2019_galapagos_published_tables",
+  "article_doi": "10.1111/oik.06053",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "article_title": "Fine-tuning the nested structure of pollination networks by adaptive interaction switching, biogeography and sampling effect in the Galápagos Islands",
+  "source_locator": [
+    "article Table 1: flower-visitation network descriptors and island covariates",
+    "article Table 2: observed nestedness and AIS/null prediction intervals"
+  ],
+  "transcription_status": "source_published_table_values_only",
+  "n_islands": 10,
+  "columns": {
+    "plant_richness": "S_P in Table 1",
+    "pollinator_richness": "S_A in Table 1",
+    "interaction_count": "I in Table 1",
+    "weighted_connectance": "WC in Table 1",
+    "sampling_hours": "Sampling (h) in Table 1",
+    "isolation_km": "mean nearest-shore distance in km, as defined by the article",
+    "area_km2": "island area in km2",
+    "age_ma": "island age in millions of years",
+    "observed_nestedness": "observed value in Table 2",
+    "ais_prediction_mean": "AIS model prediction mean in Table 2",
+    "ais_prediction_half_width_95": "reported ± half-width of the AIS 95% interval",
+    "null_prediction_mean": "null model prediction mean in Table 2",
+    "null_prediction_half_width_95": "reported ± half-width of the null 95% interval"
+  },
+  "not_transcribed": [
+    "boldface significance coding for observed nestedness",
+    "underlining that marks predictions not significantly different from observed values",
+    "raw plant-by-pollinator matrices",
+    "species identities and interaction weights"
+  ],
+  "use_boundary": "These published summaries can reproduce article-level network and model-fit checks while the raw Dryad ZIP is unavailable. They cannot reconstruct plant-pollinator edges, shared-plant turnover, per-visit effectiveness, effective dependency, pollen deposition or reproductive outcomes.",
+  "causal_claim_allowed": false
+}
