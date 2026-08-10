@@ -11,9 +11,12 @@ on:
       - "scripts/acquire_canary_balearic_plos_support.py"
       - "scripts/audit_canary_balearic_network_source.py"
       - "scripts/audit_canary_balearic_plos_support.py"
+      - "scripts/parse_canary_balearic_plos_derived.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_canary_balearic_network_source.py"
       - "tests/test_canary_balearic_plos_support.py"
+      - "tests/test_canary_balearic_plos_derived.py"
+      - "data/results/canary_balearic/**"
       - ".github/workflows/canary-balearic-external-source.yml"
   pull_request:
     paths:
@@ -24,9 +27,12 @@ on:
       - "scripts/acquire_canary_balearic_plos_support.py"
       - "scripts/audit_canary_balearic_network_source.py"
       - "scripts/audit_canary_balearic_plos_support.py"
+      - "scripts/parse_canary_balearic_plos_derived.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_canary_balearic_network_source.py"
       - "tests/test_canary_balearic_plos_support.py"
+      - "tests/test_canary_balearic_plos_derived.py"
+      - "data/results/canary_balearic/**"
       - ".github/workflows/canary-balearic-external-source.yml"
 
 permissions:
@@ -43,22 +49,31 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Ensure legacy Word text extractor is available
+      - name: Ensure legacy Word vector-table toolchain is available
         run: |
-          if ! command -v antiword >/dev/null 2>&1; then
+          packages=()
+          command -v antiword >/dev/null 2>&1 || packages+=(antiword)
+          if ! command -v libreoffice >/dev/null 2>&1 && ! command -v soffice >/dev/null 2>&1; then
+            packages+=(libreoffice-writer)
+          fi
+          command -v pdftotext >/dev/null 2>&1 || packages+=(poppler-utils)
+          if (( ${#packages[@]} )); then
             sudo apt-get update
-            sudo apt-get install -y antiword
+            sudo apt-get install -y "${packages[@]}"
           fi
           antiword -h >/dev/null 2>&1 || true
+          (libreoffice --version || soffice --version) 2>/dev/null
+          pdftotext -v 2>&1 | head -n 1
       - name: Install source-audit dependencies
         run: python -m pip install -e . openpyxl python-docx pytest
-      - name: Test source-discovery and schema guards
+      - name: Test source-discovery, vector-table and parser guards
         id: tests
         run: >-
           python -m pytest -q
           tests/test_oup_supplementary_acquisition.py
           tests/test_canary_balearic_network_source.py
           tests/test_canary_balearic_plos_support.py
+          tests/test_canary_balearic_plos_derived.py
       - name: Discover and acquire original Oxford supplementary files
         id: oup_acquire
         continue-on-error: true
@@ -102,6 +117,14 @@ jobs:
           --config config/canary_balearic_plos_source.json
           --input-dir artifacts/canary_balearic_plos
           --output artifacts/canary_balearic_plos/content_audit.json
+      - name: Parse source-locked selected-species monthly partner traits
+        if: steps.plos_acquire.outcome == 'success'
+        run: >-
+          python scripts/parse_canary_balearic_plos_derived.py
+          --input-dir artifacts/canary_balearic_plos
+          --audit artifacts/canary_balearic_plos/content_audit.json
+          --output-csv artifacts/canary_balearic_plos/derived_partner_traits.csv
+          --summary-output artifacts/canary_balearic_plos/derived_partner_traits_summary.json
       - name: Preserve PLOS recovery diagnosis when blocked
         if: steps.plos_acquire.outcome != 'success'
         run: |
@@ -122,22 +145,27 @@ jobs:
           JSON
           fi
           echo "::notice::PLOS same-community recovery is blocked in this run; the source state is preserved."
-      - name: Materialize compact same-community recovery state
+      - name: Materialize compact same-community and parsed-derivative state
         if: always() && steps.tests.outcome == 'success'
         run: |
           python - <<'PY'
           import json
+          import shutil
           from pathlib import Path
 
           source_path = Path("artifacts/canary_balearic_plos/source_inventory.json")
           audit_path = Path("artifacts/canary_balearic_plos/content_audit.json")
-          output_path = Path("data/results/canary_balearic/plos_same_community_source.json")
-          output_path.parent.mkdir(parents=True, exist_ok=True)
+          derived_path = Path("artifacts/canary_balearic_plos/derived_partner_traits_summary.json")
+          derived_csv = Path("artifacts/canary_balearic_plos/derived_partner_traits.csv")
+          output_dir = Path("data/results/canary_balearic")
+          output_path = output_dir / "plos_same_community_source.json"
+          output_dir.mkdir(parents=True, exist_ok=True)
 
           source = json.loads(source_path.read_text(encoding="utf-8")) if source_path.exists() else {}
           audit = json.loads(audit_path.read_text(encoding="utf-8")) if audit_path.exists() else {}
+          derived = json.loads(derived_path.read_text(encoding="utf-8")) if derived_path.exists() else {}
           compact = {
-              "schema_version": "1.0",
+              "schema_version": "1.1",
               "status": audit.get("status") or source.get("status") or "not_materialized",
               "source_id": source.get("source_id", "castro_urgal_traveset_2016_plos_same_communities"),
               "article_doi": source.get("article_doi", "10.1371/journal.pone.0150824"),
@@ -145,21 +173,37 @@ jobs:
               "target_source_id": source.get("target_source_id", "castro_urgal_traveset_2014_canary_balearic_networks"),
               "target_article_doi": source.get("target_article_doi", "10.1111/boj.12134"),
               "source_inventory_status": source.get("status"),
+              "source_package_sha256": (source.get("package") or {}).get("sha256"),
+              "source_file_sha256": {
+                  row.get("logical_id"): row.get("sha256")
+                  for row in source.get("files", [])
+                  if row.get("logical_id")
+              },
               "n_expected_supporting_files": source.get("n_expected", 4),
               "n_recovered_supporting_files": source.get("n_recovered", 0),
               "recovered_logical_ids": source.get("recovered_logical_ids", []),
               "community_codes_present": audit.get("community_codes_present", []),
               "same_four_communities_supported": audit.get("same_four_communities_supported", False),
+              "n_derived_species_partner_summary_files": audit.get("n_derived_species_partner_summary_files", 0),
+              "caption_content_role_mismatch_detected": audit.get("caption_content_role_mismatch_detected", False),
+              "resolved_content_roles": audit.get("resolved_content_roles", {}),
+              "code_domain_crosswalk": audit.get("code_domain_crosswalk", {}),
               "n_pairwise_interaction_header_candidates": audit.get("n_pairwise_interaction_header_candidates", 0),
               "n_numeric_matrix_candidate_files": audit.get("n_numeric_matrix_candidate_files", 0),
+              "derived_table_status": derived.get("status"),
+              "derived_row_count": derived.get("n_rows", 0),
+              "derived_rows_by_domain": derived.get("rows_by_domain", {}),
+              "derived_unique_species_codes_by_domain": derived.get("unique_species_codes_by_domain", {}),
               "full_network_source_admitted": False,
               "effect_registry_eligible": False,
               "reading": audit.get("reading") or (
                   "The open PLOS source is a same-community recovery probe. It is not automatically the complete 2014 network source."
               ),
               "next_gate": audit.get("next_gate") or source.get("next_gate") or (
-                  "Inspect recovered files and preserve selected-species or derived tables outside the effect registry."
+                  "Retain selected-species derived rows outside the cross-system effect registry and continue searching for the original full matrices."
               ),
+              "selection_boundary": derived.get("selection_boundary"),
+              "independent_unit": derived.get("independent_unit"),
               "claim_boundary": audit.get("claim_boundary") or source.get("claim_boundary") or (
                   "Same community identity does not establish complete source-data equivalence or a geological-origin effect."
               ),
@@ -168,19 +212,29 @@ jobs:
               json.dumps(compact, indent=2, ensure_ascii=False) + "\n",
               encoding="utf-8",
           )
+          if derived_path.exists():
+              shutil.copyfile(
+                  derived_path,
+                  output_dir / "plos_derived_partner_traits_summary.json",
+              )
+          if derived_csv.exists():
+              shutil.copyfile(
+                  derived_csv,
+                  output_dir / "plos_derived_partner_traits.csv",
+              )
           print(output_path)
           PY
-      - name: Commit compact recovery state on push or manual run
+      - name: Commit compact recovery and parsed derivative state on push or manual run
         if: github.event_name != 'pull_request' && steps.tests.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/results/canary_balearic/plos_same_community_source.json
+          git add data/results/canary_balearic
           if ! git diff --cached --quiet; then
-            git commit -m "Materialize Canary-Balearic PLOS source audit"
+            git commit -m "Materialize Canary-Balearic PLOS derivative audit"
             git push origin HEAD:${{ github.ref_name }}
           fi
-      - name: Upload source and scope audits
+      - name: Upload source, scope and parsed-table audits
         if: always()
         uses: actions/upload-artifact@v4
         with:
