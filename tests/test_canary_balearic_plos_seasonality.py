@@ -1,3 +1,4 @@
+import csv
 import importlib.util
 import json
 from pathlib import Path
@@ -118,19 +119,26 @@ def test_bootstrap_interval_is_deterministic_and_contains_single_value():
 
 
 def test_current_checked_source_has_no_multiplicity_robust_common_direction():
-    input_path = (
-        ROOT
-        / "data/results/canary_balearic/plos_derived_partner_traits.csv"
+    result_dir = ROOT / "data/results/canary_balearic"
+    input_path = result_dir / "plos_derived_partner_traits.csv"
+    source_state_path = result_dir / "plos_same_community_source.json"
+    checked_summary_path = (
+        result_dir / "plos_selected_species_seasonality_summary.json"
     )
-    source_state_path = (
-        ROOT
-        / "data/results/canary_balearic/plos_same_community_source.json"
+    checked_profiles_path = (
+        result_dir / "plos_selected_species_seasonality.csv"
     )
+
     rows = MODULE.load_rows(input_path)
     profiles, summary = MODULE.build_profiles(
         rows, bootstrap_repetitions=300
     )
     source_state = json.loads(source_state_path.read_text(encoding="utf-8"))
+    checked_summary = json.loads(
+        checked_summary_path.read_text(encoding="utf-8")
+    )
+    with checked_profiles_path.open(encoding="utf-8", newline="") as handle:
+        checked_profiles = list(csv.DictReader(handle))
 
     assert summary["n_input_rows"] == 457
     assert summary["n_profile_rows"] == 24
@@ -144,6 +152,27 @@ def test_current_checked_source_has_no_multiplicity_robust_common_direction():
         profile["cross_system_model_eligible"] == "no"
         and profile["causal_claim_allowed"] == "no"
         for profile in profiles
+    )
+
+    assert checked_summary["n_input_rows"] == summary["n_input_rows"]
+    assert checked_summary["n_profile_rows"] == summary["n_profile_rows"]
+    assert (
+        checked_summary["n_nominal_sign_tests_below_0_05"]
+        == summary["n_nominal_sign_tests_below_0_05"]
+    )
+    assert (
+        checked_summary["n_bh_q_values_below_0_05"]
+        == summary["n_bh_q_values_below_0_05"]
+    )
+    assert checked_summary["minimum_bh_q_value"] == pytest.approx(
+        summary["minimum_bh_q_value"]
+    )
+    assert checked_summary["effect_registry_eligible"] is False
+    assert len(checked_profiles) == 24
+    assert all(
+        row["cross_system_model_eligible"] == "no"
+        and row["causal_claim_allowed"] == "no"
+        for row in checked_profiles
     )
 
     registry_rows, registry_summary = compile_registry(ROOT)
