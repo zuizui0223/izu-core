@@ -1,8 +1,8 @@
 {
-  "status": "blocked_network_source_not_resolved",
-  "error": "ValueError('network source not uniquely admitted: long=0, oriented_matrices=0')",
-  "n_long_candidates": 0,
-  "n_oriented_matrix_candidates": 0,
-  "next_gate": "Inspect the source package and add an explicit source mapping rather than choosing a table or matrix orientation post hoc.",
-  "claim_boundary": "Schema classification is not a biological result. Network matrices contain interactions or visits, not per-visit effectiveness, effective dependency or reproductive success. Island area, age and isolation are descriptive moderators unless the source design identifies them causally."
+  "status": "blocked_raw_source_not_recovered",
+  "acquisition_route": "dataone_cn_v2_doi_locked",
+  "source_status": "dataone_doi_not_indexed_or_unreachable",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "next_gate": "If no valid object is recovered, obtain the same Dryad package through a lawful repository, author, institutional or user-supplied route. Do not reconstruct raw networks from article summaries.",
+  "claim_boundary": "No raw-network or biogeographic effect is inferred from failed transport or indexing."
 }
