@@ -13,7 +13,7 @@ import argparse
 import csv
 import json
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any, Iterable
 
 
 COLUMNS = (
@@ -50,9 +50,10 @@ def row(**values: object) -> dict[str, str]:
             raise ValueError(f"unknown effect-registry field {key!r}")
         if isinstance(value, bool):
             output[key] = "yes" if value else "no"
+        elif isinstance(value, (list, tuple, dict)):
+            output[key] = json.dumps(value, ensure_ascii=False, separators=(",", ":"))
         elif value is not None:
             output[key] = str(value)
-    output.setdefault("causal_claim_allowed", "no")
     if not output["causal_claim_allowed"]:
         output["causal_claim_allowed"] = "no"
     return output
@@ -78,8 +79,7 @@ def compile_izu_fdq(root: Path) -> list[dict[str, str]]:
             )
         ]
     output = []
-    subsets = data.get("fixed_effect_subsets") or {}
-    for subset_name, result in subsets.items():
+    for subset_name, result in (data.get("fixed_effect_subsets") or {}).items():
         coefficient = result.get("fdq_coefficient")
         if coefficient is None:
             continue
@@ -105,8 +105,9 @@ def compile_izu_fdq(root: Path) -> list[dict[str, str]]:
                 admission_status="empirical_numeric_uncertainty_incomplete",
                 cross_system_model_eligible=False,
                 notes=(
-                    "Empirical contemporary slope. Subsets are sensitivity analyses, not independent archipelagos; "
-                    "a leave-one-site range is not a standard error."
+                    "Empirical contemporary slope. Subsets are sensitivity analyses, "
+                    "not independent archipelagos; a leave-one-site range is not a "
+                    "standard error."
                 ),
             )
         )
@@ -131,7 +132,9 @@ def compile_izu_full_covariate(root: Path) -> list[dict[str, str]]:
                 source_path=path.relative_to(root),
                 evidence_family="contemporary_network_slope",
                 response="corrected_trait_matching",
-                predictor_or_contrast=f"FDQ adjusted for richness D FRic FEve in {subset_name}",
+                predictor_or_contrast=(
+                    f"FDQ adjusted for richness D FRic FEve in {subset_name}"
+                ),
                 estimate=coefficient,
                 uncertainty_type="partial_r_squared_not_effect_uncertainty",
                 uncertainty_value=result.get("fdq_partial_r_squared"),
@@ -153,8 +156,7 @@ def compile_pair_turnover(
     system_cluster: str,
     source_path: str,
 ) -> list[dict[str, str]]:
-    path = root / source_path
-    data = load_json(path)
+    data = load_json(root / source_path)
     if data is None:
         return []
     if str(data.get("status", "")).startswith("blocked"):
@@ -197,7 +199,10 @@ def compile_pair_turnover(
                 row_role="descriptive_within_system",
                 admission_status="empirical_numeric_uncertainty_missing",
                 cross_system_model_eligible=False,
-                notes="Island pairs within one archipelago are correlated and are not independent evolutionary replicates.",
+                notes=(
+                    "Island pairs within one archipelago are correlated and are not "
+                    "independent evolutionary replicates."
+                ),
             )
         )
     if output:
@@ -212,11 +217,51 @@ def compile_pair_turnover(
             response="network_analysis",
             predictor_or_contrast="current materialized source",
             row_role="source_state",
-            admission_status=str(data.get("status") or "materialized_without_compatible_effect"),
+            admission_status=str(
+                data.get("status") or "materialized_without_compatible_effect"
+            ),
             cross_system_model_eligible=False,
-            notes="Source may support within-system description but does not yet expose a compatible effect with uncertainty.",
+            notes=(
+                "Source may support within-system description but does not yet expose "
+                "a compatible effect with uncertainty."
+            ),
         )
     ]
+
+
+def compile_effect_document(root: Path, source_path: str) -> list[dict[str, str]]:
+    data = load_json(root / source_path)
+    if data is None:
+        return []
+    effects = data.get("effects") or []
+    output = []
+    for effect in effects:
+        if not isinstance(effect, dict):
+            raise ValueError(f"effect rows in {source_path} must be objects")
+        output.append(
+            row(
+                effect_id=effect.get("effect_id"),
+                system_id=effect.get("system_id"),
+                system_cluster=effect.get("system_cluster"),
+                source_path=source_path,
+                evidence_family=effect.get("evidence_family"),
+                response=effect.get("response"),
+                predictor_or_contrast=effect.get("predictor_or_contrast"),
+                estimate=effect.get("estimate"),
+                uncertainty_type=effect.get("uncertainty_type"),
+                uncertainty_value=effect.get("uncertainty_value"),
+                unit=effect.get("unit"),
+                independent_unit=effect.get("independent_unit"),
+                row_role=effect.get("row_role"),
+                admission_status=effect.get("admission_status"),
+                cross_system_model_eligible=bool(
+                    effect.get("cross_system_model_eligible")
+                ),
+                causal_claim_allowed=bool(effect.get("causal_claim_allowed")),
+                notes=effect.get("notes"),
+            )
+        )
+    return output
 
 
 def compile_source_state(
@@ -265,9 +310,10 @@ def compile_source_state(
 
 
 def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object]]:
-    rows = []
+    rows: list[dict[str, str]] = []
     rows.extend(compile_izu_fdq(root))
     rows.extend(compile_izu_full_covariate(root))
+
     rows.extend(
         compile_pair_turnover(
             root,
@@ -291,6 +337,7 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
                 notes="Interaction counts remain distinct from effectiveness and dependency.",
             )
         )
+
     rows.extend(
         compile_pair_turnover(
             root,
@@ -311,23 +358,37 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
                     "data/results/galapagos/network_analysis/acquisition_failure.json",
                     "data/results/galapagos/source_inventory.json",
                 ),
-                notes="Network/covariate description remains separate from effective dependency.",
+                notes=(
+                    "Network/covariate description remains separate from effective "
+                    "dependency."
+                ),
             )
         )
-    rows.extend(
-        compile_source_state(
-            root,
-            effect_id="wanshan_yongxing_source_state",
-            system_id="wanshan_yongxing",
-            system_cluster="wanshan_yongxing_paired_system",
-            candidates=(
-                "data/results/wanshan_yongxing/analysis.json",
-                "data/results/wanshan_yongxing/source_inventory.json",
-                "data/results/wanshan_yongxing/acquisition_failure.json",
-            ),
-            notes="One continental-island/oceanic-island pair does not estimate geological-origin heterogeneity.",
-        )
+
+    wanshan_effects = compile_effect_document(
+        root, "data/results/wanshan_yongxing/effect_rows.json"
     )
+    if wanshan_effects:
+        rows.extend(wanshan_effects)
+    else:
+        rows.extend(
+            compile_source_state(
+                root,
+                effect_id="wanshan_yongxing_source_state",
+                system_id="wanshan_yongxing",
+                system_cluster="wanshan_yongxing_paired_system",
+                candidates=(
+                    "data/results/wanshan_yongxing/analysis.json",
+                    "data/results/wanshan_yongxing/source_inventory.json",
+                    "data/results/wanshan_yongxing/acquisition_failure.json",
+                ),
+                notes=(
+                    "One continental-island/oceanic-island pair does not estimate "
+                    "geological-origin heterogeneity."
+                ),
+            )
+        )
+
     rows.extend(
         compile_source_state(
             root,
@@ -339,41 +400,69 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
                 "data/results/southwest_pacific_pairs/source_inventory.json",
                 "data/results/southwest_pacific_pairs/acquisition_failure.json",
             ),
-            notes="Pair effects require source-resolved orientation, trait unit, sampling hierarchy and uncertainty.",
+            notes=(
+                "Pair effects require source-resolved orientation, trait unit, "
+                "sampling hierarchy and uncertainty."
+            ),
         )
     )
 
     numerical = [result for result in rows if result["estimate"]]
+    incomplete_uncertainty = {
+        "",
+        "none",
+        "leave_one_site_direction_only",
+        "partial_r_squared_not_effect_uncertainty",
+    }
     uncertainty_complete = [
         result
         for result in numerical
-        if result["uncertainty_type"] not in {"", "none", "leave_one_site_direction_only", "partial_r_squared_not_effect_uncertainty"}
+        if result["uncertainty_type"] not in incomplete_uncertainty
         and result["uncertainty_value"]
     ]
-    eligible = [result for result in rows if result["cross_system_model_eligible"] == "yes"]
+    eligible = [
+        result for result in rows
+        if result["cross_system_model_eligible"] == "yes"
+    ]
     eligible_systems = sorted({result["system_cluster"] for result in eligible})
     compatible_families: dict[str, set[str]] = {}
     for result in eligible:
-        compatible_families.setdefault(result["evidence_family"], set()).add(result["system_cluster"])
+        compatible_families.setdefault(result["evidence_family"], set()).add(
+            result["system_cluster"]
+        )
     families_with_multiple_systems = sorted(
-        family for family, systems in compatible_families.items() if len(systems) >= 2
+        family
+        for family, systems in compatible_families.items()
+        if len(systems) >= 2
     )
+    external_eligible = [
+        result for result in eligible
+        if result["system_cluster"] != "izu_2024_network"
+    ]
     summary = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "total_registry_rows": len(rows),
         "empirical_numeric_rows": len(numerical),
         "numeric_rows_with_effect_uncertainty": len(uncertainty_complete),
         "cross_system_model_eligible_rows": len(eligible),
         "cross_system_model_eligible_systems": eligible_systems,
-        "effect_families_with_two_or_more_independent_systems": families_with_multiple_systems,
+        "external_model_eligible_rows": len(external_eligible),
+        "effect_families_with_two_or_more_independent_systems": (
+            families_with_multiple_systems
+        ),
         "formal_cross_system_fit_ready": bool(families_with_multiple_systems),
         "reading": (
-            "Current external expansion increases source and response-mode coverage, but compatible effect-level uncertainty "
-            "is not yet present in multiple independent systems. Raw island or plant rows must not be pooled to bypass this gate."
+            "Wanshan-Yongxing now contributes source-native matched-plant effects "
+            "with plant-level uncertainty, but it is still one paired system. "
+            "Compatible effect-level uncertainty is not yet present in a second "
+            "independent system, so raw island or plant rows must not be pooled to "
+            "bypass the gate."
         ),
         "claim_boundary": (
-            "Readiness counts do not estimate a biological mean effect, heterogeneity or causality. Correlated subsets and island pairs "
-            "within one archipelago count as one system cluster."
+            "Readiness counts do not estimate a biological mean effect, "
+            "heterogeneity or causality. Correlated subsets and island pairs within "
+            "one archipelago count as one system cluster; plant-level bootstrap "
+            "uncertainty does not create geographic replication."
         ),
     }
     return rows, summary
