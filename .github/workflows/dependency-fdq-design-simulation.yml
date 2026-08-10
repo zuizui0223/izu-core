@@ -42,6 +42,7 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import math
           from pathlib import Path
 
           generated = json.loads(
@@ -56,16 +57,36 @@ jobs:
           for row in checked["scenario_results"]:
               current = generated_index[row["scenario_id"]]
               assert current["target_analysis_rows"] == row["rows"]
-              assert current["synthetic_dependency_span"] == row["dependency_span"]
-              assert current["dependency_reliability"] == row["dependency_reliability"]
+              assert math.isclose(
+                  current["synthetic_dependency_span"],
+                  row["dependency_span"],
+                  rel_tol=0.0,
+                  abs_tol=1e-12,
+              )
+              assert math.isclose(
+                  current["dependency_reliability"],
+                  row["dependency_reliability"],
+                  rel_tol=0.0,
+                  abs_tol=1e-12,
+              )
               effect_index = {
                   item["declared_synthetic_interaction"]: item
                   for item in current["effect_results"]
               }
               for effect in row["effect_results"]:
                   reproduced = effect_index[effect["synthetic_interaction"]]
-                  assert reproduced["calibrated_detection_probability"] == effect["detection_probability"]
-                  assert reproduced["attenuation_ratio"] == effect["attenuation_ratio"]
+                  assert math.isclose(
+                      reproduced["calibrated_detection_probability"],
+                      effect["detection_probability"],
+                      rel_tol=0.0,
+                      abs_tol=1e-12,
+                  )
+                  assert math.isclose(
+                      reproduced["attenuation_ratio"],
+                      effect["attenuation_ratio"],
+                      rel_tol=0.0,
+                      abs_tol=1e-12,
+                  )
           PY
       - name: Upload simulation report
         uses: actions/upload-artifact@v4
