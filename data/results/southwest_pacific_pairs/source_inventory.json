@@ -13,17 +13,17 @@
     {
       "stage": "discovery_page",
       "url": "https://academic.oup.com/aob/advance-article/doi/10.1093/aob/mcaf005/7960047",
-      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-ayQU1GNN2qKaE4U4S8HEom&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
+      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-wJeCM7jxBewG74pfjGjkaJ&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
     },
     {
       "stage": "discovery_page",
       "url": "https://academic.oup.com/aob/advance-article/doi/10.1093/aob/mcaf005/7960047/supplementary-data",
-      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-qOtQzoT5nCY9cTkA7u1r1E&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
+      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-XmYMFENgGNIkpDqpnSDp45&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
     },
     {
       "stage": "discovery_page",
       "url": "https://academic.oup.com/aob/advance-article/doi/10.1093/aob/mcaf005/7960047?login=false",
-      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-ryrdVCF20hljtBOewyP70E&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
+      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-VBgTux99wJo0MfLpyVMP2Q&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
     }
   ],
   "expected_context_to_verify_from_source": [
