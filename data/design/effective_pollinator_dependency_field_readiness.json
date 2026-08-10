@@ -96,5 +96,5 @@
     "field_pilot": 91,
     "independent_primary_source_recovery": 92
   },
-  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. The prospective design simulation uses synthetic dependency/effect assumptions. Neither by itself identifies historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, or a causal Oshima-Toshima boundary effect."
+  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. It does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, or a causal Oshima-Toshima boundary effect. The prospective design simulation uses synthetic dependency and effect assumptions only."
 }
