@@ -1,8 +1,8 @@
 {
   "status": "schema_candidates_found",
   "n_tabular_units": 1,
-  "n_contextual_long_candidates": 0,
-  "n_long_candidates": 0,
+  "n_contextual_long_candidates": 1,
+  "n_long_candidates": 1,
   "n_wide_candidates": 0,
   "tables": [
     {
@@ -28,7 +28,9 @@
         "island": [
           "Island"
         ],
-        "site": [],
+        "site": [
+          "Invasional Context"
+        ],
         "season": [
           "Season"
         ],
@@ -41,11 +43,15 @@
         "plant": [
           "Plant_sp"
         ],
-        "pollinator": [],
-        "interaction_count": []
+        "pollinator": [
+          "Poll_sp"
+        ],
+        "interaction_count": [
+          "N.Int"
+        ]
       },
-      "long_network_candidate": false,
-      "contextual_long_network_candidate": false,
+      "long_network_candidate": true,
+      "contextual_long_network_candidate": true,
       "wide_interaction_matrix_candidate": false
     }
   ],
