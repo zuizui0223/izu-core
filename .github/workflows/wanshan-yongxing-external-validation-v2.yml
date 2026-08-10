@@ -45,20 +45,29 @@ jobs:
         id: acquire
         continue-on-error: true
         run: python scripts/acquire_wanshan_yongxing_dryad_v2.py
+      - name: Detect acquired workbook
+        id: source
+        if: always()
+        run: |
+          file="artifacts/wanshan_yongxing_dryad/The_plant-pollinator_interaction_data_in_this_study..xlsx"
+          if test -f "$file"; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Dryad delivery is blocked in this run; this is not a biological zero."
+          fi
       - name: Upload acquisition diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: wanshan-yongxing-acquisition-diagnostics-v2
           path: artifacts/wanshan_yongxing_dryad/
-          if-no-files-found: error
-      - name: Require acquired workbook
-        run: >-
-          test -f
-          artifacts/wanshan_yongxing_dryad/The_plant-pollinator_interaction_data_in_this_study..xlsx
+          if-no-files-found: warn
       - name: Reanalyse whole and matched shared-plant networks
+        if: steps.source.outputs.available == 'true'
         run: python scripts/analyze_wanshan_yongxing_networks.py
       - name: Upload acquisition and analysis audit
+        if: steps.source.outputs.available == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: wanshan-yongxing-external-validation-v2
