@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "status": "source_published_summary_analysis_complete",
+  "source_id": "nnakenyi_et_al_2019_galapagos_published_tables",
+  "article_doi": "10.1111/oik.06053",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "source_scope": "article Tables 1 and 2; ten island-level published summary rows",
+  "raw_dryad_network_source_recovered": false,
+  "n_islands": 10,
+  "model_comparison": {
+    "n_islands": 10,
+    "observed_vs_ais_pearson_r": 0.8283710576404889,
+    "observed_vs_ais_r_squared": 0.6861986091364222,
+    "observed_vs_null_pearson_r": 0.7903585914650206,
+    "observed_vs_null_r_squared": 0.6246667031025713,
+    "ais_mean_absolute_error": 0.0268,
+    "null_mean_absolute_error": 0.0367,
+    "ais_root_mean_squared_error": 0.03561460374621624,
+    "null_root_mean_squared_error": 0.051731035172321846,
+    "mean_absolute_error_improvement_null_minus_ais": 0.009900000000000004,
+    "median_absolute_error_improvement_null_minus_ais": -0.01649999999999999,
+    "exact_paired_sign_flip_pvalue_for_mean_absolute_error_improvement": 0.572265625,
+    "n_islands_where_ais_has_lower_absolute_error": 4,
+    "n_ais_intervals_covering_observed": 6,
+    "n_null_intervals_covering_observed": 6,
+    "published_69_percent_reproduced": true,
+    "reading": "The source-published means reproduce the article's approximately 69% observed-versus-AIS association. AIS has lower aggregate MAE and RMSE than the null prediction, but lower absolute error on only four of ten islands and no paired sign-flip support for a consistent island-level improvement."
+  },
+  "observed_nestedness_covariate_correlations": [
+    {
+      "predictor": "plant_richness",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.6098456346796679,
+      "pearson_r_squared": 0.37191169813784697,
+      "leave_one_island_r_min": 0.5418013859433733,
+      "leave_one_island_r_max": 0.7969571807253731,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "pollinator_richness",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.6672471066563953,
+      "pearson_r_squared": 0.44521870134133096,
+      "leave_one_island_r_min": 0.5502162114576972,
+      "leave_one_island_r_max": 0.8972250502599359,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "interaction_count",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.7118296504801054,
+      "pearson_r_squared": 0.506701451302629,
+      "leave_one_island_r_min": 0.609545055191575,
+      "leave_one_island_r_max": 0.9398620016448361,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "weighted_connectance",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": -0.7365939909353626,
+      "pearson_r_squared": 0.542570707482085,
+      "leave_one_island_r_min": -0.8803057694242944,
+      "leave_one_island_r_max": -0.5148150106818389,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "sampling_hours",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.6988496051250593,
+      "pearson_r_squared": 0.4883907705834514,
+      "leave_one_island_r_min": 0.6322015083740408,
+      "leave_one_island_r_max": 0.8892889751650571,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "isolation_km",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": -0.4056057710887725,
+      "pearson_r_squared": 0.16451604154051772,
+      "leave_one_island_r_min": -0.6604140680730994,
+      "leave_one_island_r_max": -0.2846844830795204,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "area_km2",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.5073715356300018,
+      "pearson_r_squared": 0.2574258751675462,
+      "leave_one_island_r_min": 0.48031768857075996,
+      "leave_one_island_r_max": 0.691485892222423,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "age_ma",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.2507781522310612,
+      "pearson_r_squared": 0.0628896816364253,
+      "leave_one_island_r_min": -0.07577245669133709,
+      "leave_one_island_r_max": 0.4589920373050272,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "log10_sampling_hours",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.7644323419859035,
+      "pearson_r_squared": 0.5843568054740533,
+      "leave_one_island_r_min": 0.6334863342877243,
+      "leave_one_island_r_max": 0.8980184479808838,
+      "status": "descriptive_fixed_published_table_values"
+    },
+    {
+      "predictor": "log10_area_km2",
+      "response": "observed_nestedness",
+      "n_islands": 10,
+      "pearson_r": 0.6532356515977079,
+      "pearson_r_squared": 0.426716816518282,
+      "leave_one_island_r_min": 0.5811605533663283,
+      "leave_one_island_r_max": 0.7694908826528372,
+      "status": "descriptive_fixed_published_table_values"
+    }
+  ],
+  "effect_registry_eligible": false,
+  "cross_system_model_eligible": false,
+  "independent_unit": "island within one Galápagos archipelago; ten islands do not constitute ten independent archipelagos",
+  "uncertainty_boundary": "Published AIS/null intervals describe simulation predictions. They are not sampling uncertainty for island-level network metrics, and leave-one-island ranges are sensitivity summaries rather than standard errors.",
+  "reading": "While raw interaction matrices remain blocked, the article's published table values support a reproducible ten-island model-performance and covariate description. They reproduce the approximately 69% AIS association but do not establish universal adaptive rewiring, geological causation, partner turnover, or reproductive consequences.",
+  "next_gate": "Recover data_galapagos_islands.zip or an author/institutional copy with matching provenance before calculating plant-level partner turnover, shared-species effects, or raw-network uncertainty.",
+  "claim_boundary": "These are fixed source-published summaries. No raw plant-pollinator edges are reconstructed; no visit is relabelled as effectiveness; no island-level correlation is interpreted causally."
+}
