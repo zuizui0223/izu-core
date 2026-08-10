@@ -4,7 +4,7 @@
 
 `implementation_ready_field_data_missing`
 
-The direct effective-pollinator dependency gap is no longer a missing-method problem. The branch now contains a linked field protocol, schemas, validators, audit code, output guards, pilot-dispersion summaries, and precision-driven replication planning.
+The direct effective-pollinator dependency gap is no longer a missing-method problem. The branch now contains a linked field protocol, schemas, validators, audit code, output guards, pilot-dispersion summaries, precision-driven replication planning, and a prospective `dependency × FDQ` design simulation.
 
 What is **not** yet present is empirical pilot data from the same tagged Izu populations.
 
@@ -29,6 +29,7 @@ No universal sample size is locked.
 ```text
 pilot data from multiple independent plants
     -> plant-level SVD and treatment dispersion
+    -> replace synthetic reliability / error / loss assumptions
     -> lock biologically meaningful absolute CI half-width
     -> approximate independent-plant replication
     -> hierarchical/site/time design stress test
@@ -39,24 +40,56 @@ Flowers and SVD events within one plant are subsamples, not independent `n`.
 
 A draft precision goal produces no sample-size recommendation. Only a goal explicitly marked `locked` is converted to an approximate independent-plant count.
 
+## Prospective dependency × FDQ result
+
+The existing archive anchors 8 sites, 5 seasons, 9 proxy-eligible taxa and 105 plant × site × season rows, but supplies no direct dependency value and no high-dependency endpoint in the exact target populations.
+
+Under explicitly synthetic interaction, dependency-support and reliability assumptions:
+
+| design | moderate-effect detection |
+|---|---:|
+| current proxy-like structure | 0.065 |
+| proxy + doubled seasons | 0.075 |
+| proxy + four sites | 0.085 |
+| direct measurement, narrow 9 taxa | 0.125 |
+| direct + one high endpoint | 0.248 |
+| direct full span, 10 taxa | 0.428 |
+| direct narrow span, 16 taxa | 0.213 |
+| direct full span, 16 taxa | 0.525 |
+
+These are null-calibrated synthetic design operating characteristics, not empirical power. They imply that additional seasons/sites cannot substitute for directly measuring dependency and extending its support across multiple lineages. A single high endpoint is useful, but intermediate dependency values are also needed so one lineage does not determine the slope.
+
+See:
+
+- `docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md`
+- `data/design/dependency_fdq_design_scenarios.json`
+- `data/results/dependency_fdq_design_simulation.json`
+
 ## Pilot priority
 
 1. *Campanula microdonta* is the focal anchor because it contains the strongest historical autonomous-reproduction breakpoint while matched contemporary effective dependency remains unmeasured.
 2. Functional controls/comparators are not preassigned from floral form; they must be phenologically feasible and supported by direct interaction/reproductive evidence.
 3. A high-dependency endpoint is admitted only after direct effective-pollinator evidence or an external prespecified calibration.
+4. Confirmatory expansion should distribute directly measured taxa across low, intermediate and high dependency values, rather than adding many taxa inside one narrow survivor range.
+5. Non-establishment, hybrid replacement and interaction rewiring remain response modes and potential causes of predictor truncation.
 
 Pilot feasibility does not solve geographic identification: repeated plants at one Oshima site are still one bridge-state geographic unit.
 
 ## Files
 
 - `docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md`
+- `docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md`
 - `data/design/effective_pollinator_dependency_field_readiness.json`
 - `data/design/effective_dependency_pilot_field_priority.json`
+- `data/design/dependency_fdq_design_scenarios.json`
+- `data/results/dependency_fdq_design_simulation.json`
 - `channel_id/effective_pollinator_dependency.py`
 - `channel_id/effective_dependency_output.py`
 - `channel_id/effective_dependency_precision.py`
+- `channel_id/dependency_fdq_design_simulation.py`
 - `scripts/audit_effective_pollinator_dependency.py`
 - `scripts/plan_effective_dependency_pilot_precision.py`
+- `scripts/run_dependency_fdq_design_simulation.py`
 - `templates/field_dependency_plant_registry_template.csv`
 - `templates/field_single_visit_pollen_deposition_template.csv`
 - `templates/field_pollination_treatment_template.csv`
@@ -64,4 +97,4 @@ Pilot feasibility does not solve geographic identification: repeated plants at o
 
 ## Claim boundary
 
-This implementation can support contemporary per-visit effectiveness, sampled rate-weighted service, and reproductive-dependence estimates once data exist. It does not itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, or a causal Oshima–Toshima boundary effect.
+This implementation can support contemporary per-visit effectiveness, sampled rate-weighted service, and reproductive-dependence estimates once data exist. The design simulation ranks declared synthetic structures only. Neither identifies historical Bombus loss, historical selection, self-compatibility, realized selfing, or a causal Oshima–Toshima boundary effect.
