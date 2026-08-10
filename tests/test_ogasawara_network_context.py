@@ -48,7 +48,7 @@ def test_source_resolved_rows_and_network_metrics(tmp_path: Path):
     pairs, plant_rows = MODULE.island_pair_summaries(rows)
     assert len(pairs) == 1
     assert pairs[0]["n_shared_plants"] == 1
-    assert {row["plant"] for row in plant_rows} == {"P1"}
+    assert {row["plant_name"] for row in plant_rows} == {"P1"}
 
 
 def test_generic_count_header_is_not_promoted_to_legitimate_interaction(tmp_path: Path):
