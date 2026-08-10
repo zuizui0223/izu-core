@@ -97,3 +97,32 @@ def test_derived_table_does_not_become_raw_pair_header():
         if count
     }
     assert present == {"SB", "CM", "CB", "LC"}
+
+
+def test_picture_only_antiword_output_triggers_render_fallback():
+    assert AUDIT.needs_render_fallback("Table S3a\n[pic]\nTable S3b\n[pic]")
+    assert not AUDIT.needs_render_fallback(
+        "Table S1\nZone Family Plant species sp.cod L d-prime specificity"
+    )
+
+
+def test_split_vector_table_header_is_recognized_as_derived_summary():
+    text = """
+    Functional Rank Evenness of
+    Specificity Zone sp.cod Month L
+    richness abundance abundances
+    Generalized CB las.sp 1 (January) 3 3 3.00 0.314
+    """
+    assert AUDIT.is_derived_partner_summary(text) is True
+    assert AUDIT.has_pairwise_header(text.splitlines()) is False
+
+
+def test_species_code_crosswalk_retains_source_mismatches():
+    plant = set(AUDIT.species_codes("cak.mar teu.dun myo.ten"))
+    visitor = set(AUDIT.species_codes("las.sp api.mel cam.fea"))
+    derived = set(AUDIT.species_codes("las.sp api.mel ana.pro"))
+    summary = AUDIT.overlap_summary(derived, visitor)
+    assert plant.isdisjoint(visitor)
+    assert summary["n_shared_codes"] == 2
+    assert summary["query_only_codes"] == ["ana.pro"]
+    assert summary["reference_only_codes"] == ["cam.fea"]
