@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "issue_number": 92,
+  "updated_on": "2026-08-10",
+  "purpose": "Track lawful acquisition and admission readiness for priority independent lineages without converting publisher metadata or abstract directions into effect sizes.",
+  "sources": [
+    {
+      "source_id": "weigela_yamada_2010",
+      "taxon": "Weigela coraeensis",
+      "doi": "10.1007/s00606-010-0317-y",
+      "directional_status": "active_B_grade",
+      "directional_pattern": "smaller Izu corollas with a gradual mainland-distance decline; no reported scent difference",
+      "shared_second_step_status": "does_not_demonstrate",
+      "access_status": "publisher_metadata_only",
+      "numeric_effect_status": "blocked",
+      "dependency_moderation_status": "blocked",
+      "numeric_gate": {
+        "source_recovered": false,
+        "named_population_localities": false,
+        "trait_mean_or_raw_values": false,
+        "independent_biological_n": false,
+        "uncertainty_or_raw_values": false,
+        "trait_definition_and_unit": false,
+        "numeric_source_locator": false,
+        "exact_geographic_mapping": false
+      },
+      "dependency_gate": {
+        "effective_pollinator_dependency_resolved": false,
+        "same_population_or_prespecified_transfer": false
+      },
+      "supplements": [],
+      "issue_number": 92,
+      "next_action": "Recover a lawful full text or author manuscript, then transcribe the locality table, trait estimates, independent n and uncertainty before mapping any population to a regime.",
+      "claim_boundary": "The abstract supports a gradual source-native response shape only. It does not supply a numeric effect, exact island breakpoint, equivalence result or effective Bombus-dependency classification."
+    },
+    {
+      "source_id": "ligustrum_yamada_2014",
+      "taxon": "Ligustrum ovalifolium",
+      "doi": "10.1111/boj.12092",
+      "directional_status": "active_B_grade",
+      "directional_pattern": "shorter Izu corolla tubes and stamens, with strongest reported shortening on Hachijo",
+      "shared_second_step_status": "does_not_demonstrate",
+      "access_status": "publisher_metadata_only",
+      "numeric_effect_status": "blocked",
+      "dependency_moderation_status": "blocked",
+      "numeric_gate": {
+        "source_recovered": false,
+        "named_population_localities": false,
+        "trait_mean_or_raw_values": false,
+        "independent_biological_n": false,
+        "uncertainty_or_raw_values": false,
+        "trait_definition_and_unit": false,
+        "numeric_source_locator": false,
+        "exact_geographic_mapping": false
+      },
+      "dependency_gate": {
+        "effective_pollinator_dependency_resolved": false,
+        "same_population_or_prespecified_transfer": false
+      },
+      "supplements": [
+        {
+          "filename": "boj12092-sup-0001-si.doc",
+          "role": "pairwise_test_context",
+          "sufficient_for_numeric_gate": false
+        },
+        {
+          "filename": "boj12092-sup-0002-si.doc",
+          "role": "pollinator_context",
+          "sufficient_for_numeric_gate": false
+        }
+      ],
+      "issue_number": 92,
+      "next_action": "Recover the full article plus both supporting files; extract named localities, population estimates, independent n/uncertainty and pollinator effort. A pairwise-test matrix alone cannot supply an effect size.",
+      "claim_boundary": "The source labels a generalist comparison and a Hachijo endpoint, but current metadata do not localize an Oshima-to-Toshima step or supply population-level uncertainty."
+    },
+    {
+      "source_id": "hosta_yamada_2014",
+      "taxon": "Hosta longipes",
+      "doi": "10.1111/1442-1984.12002",
+      "directional_status": "active_B_grade",
+      "directional_pattern": "shorter southern-Izu corollas with complex non-monotonic variation in other floral parts",
+      "shared_second_step_status": "does_not_demonstrate",
+      "access_status": "publisher_metadata_only",
+      "numeric_effect_status": "blocked",
+      "dependency_moderation_status": "blocked",
+      "numeric_gate": {
+        "source_recovered": false,
+        "named_population_localities": false,
+        "trait_mean_or_raw_values": false,
+        "independent_biological_n": false,
+        "uncertainty_or_raw_values": false,
+        "trait_definition_and_unit": false,
+        "numeric_source_locator": false,
+        "exact_geographic_mapping": false
+      },
+      "dependency_gate": {
+        "effective_pollinator_dependency_resolved": false,
+        "same_population_or_prespecified_transfer": false
+      },
+      "supplements": [
+        {
+          "filename": "psbi12002-sup-0001-si.doc",
+          "role": "locality_mapping",
+          "sufficient_for_numeric_gate": false
+        },
+        {
+          "filename": "psbi12002-sup-0002-si.doc",
+          "role": "photo_context",
+          "sufficient_for_numeric_gate": false
+        },
+        {
+          "filename": "psbi12002-sup-0003-si.doc",
+          "role": "pollinator_context",
+          "sufficient_for_numeric_gate": false
+        },
+        {
+          "filename": "psbi12002-sup-0004-si.doc",
+          "role": "trait_context",
+          "sufficient_for_numeric_gate": false
+        },
+        {
+          "filename": "psbi12002-sup-0005-si.doc",
+          "role": "pollinator_context",
+          "sufficient_for_numeric_gate": false
+        }
+      ],
+      "issue_number": 92,
+      "next_action": "Recover the full article and all five supporting files; transcribe exact population mapping, locality-level trait estimates with n/uncertainty, and pollinator identities/effort before any dependency or breakpoint test.",
+      "claim_boundary": "Southern Izu is not automatically the Oshima-to-Toshima boundary. A dissimilarity matrix, photographs or pollinator metadata cannot substitute for locality-level effect estimates and effective-dependency evidence."
+    }
+  ]
+}
