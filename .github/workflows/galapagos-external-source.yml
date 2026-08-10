@@ -1,0 +1,154 @@
+name: Galapagos external source audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/galapagos_dryad_source.json"
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/audit_galapagos_dryad_schema.py"
+      - "tests/test_dryad_external_acquisition.py"
+      - "tests/test_galapagos_dryad_schema.py"
+      - ".github/workflows/galapagos-external-source.yml"
+  pull_request:
+    paths:
+      - "config/galapagos_dryad_source.json"
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/audit_galapagos_dryad_schema.py"
+      - "tests/test_dryad_external_acquisition.py"
+      - "tests/test_galapagos_dryad_schema.py"
+      - ".github/workflows/galapagos-external-source.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  acquire-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl pytest
+      - name: Test Dryad resolver and schema guards
+        run: >-
+          python -m pytest -q
+          tests/test_dryad_external_acquisition.py
+          tests/test_galapagos_dryad_schema.py
+      - name: Acquire all files from latest visible file-owning Dryad version
+        id: acquire
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_dryad_external_dataset.py
+          --config config/galapagos_dryad_source.json
+          --output-dir artifacts/galapagos_dryad
+      - name: Audit downloaded and extracted tabular schemas
+        if: steps.acquire.outcome == 'success'
+        run: >-
+          python scripts/audit_galapagos_dryad_schema.py
+          --input-dir artifacts/galapagos_dryad
+          --output artifacts/galapagos_dryad/schema_audit.json
+      - name: Materialize compact source state
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlsplit, urlunsplit
+
+          source_path = Path("artifacts/galapagos_dryad/source_inventory.json")
+          schema_path = Path("artifacts/galapagos_dryad/schema_audit.json")
+          out = Path("data/results/galapagos")
+          out.mkdir(parents=True, exist_ok=True)
+
+          def redact(url):
+              if not url:
+                  return url
+              parts = urlsplit(str(url))
+              return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+
+          for old in out.iterdir():
+              if old.is_file():
+                  old.unlink()
+
+          if source_path.exists():
+              source = json.loads(source_path.read_text(encoding="utf-8"))
+              files = []
+              for row in source.get("files", []):
+                  files.append(
+                      {
+                          "file_id": row.get("file_id"),
+                          "source_filename": row.get("source_filename"),
+                          "source_size": row.get("source_size"),
+                          "source_digest": row.get("source_digest"),
+                          "status": row.get("status"),
+                          "local_name": row.get("local_name"),
+                          "size_downloaded": row.get("size_downloaded"),
+                          "sha256": row.get("sha256"),
+                          "successful_download_url_without_query": redact(row.get("successful_download_url")),
+                          "preview_kind": (row.get("preview") or {}).get("kind"),
+                          "archive_members": (row.get("preview") or {}).get("archive_members"),
+                          "sheet_names": [
+                              item.get("sheet")
+                              for item in (row.get("preview") or {}).get("sheets", [])
+                          ],
+                      }
+                  )
+              compact = {
+                  "status": source.get("status"),
+                  "source_id": source.get("source_id"),
+                  "dataset_doi": source.get("dataset_doi"),
+                  "selected_version_id": source.get("selected_version_id"),
+                  "selected_version": source.get("selected_version"),
+                  "file_listing_audit": source.get("file_listing_audit"),
+                  "n_source_files": source.get("n_source_files"),
+                  "n_downloaded": source.get("n_downloaded"),
+                  "files": files,
+                  "errors": source.get("errors"),
+                  "expected_source_components": source.get("expected_source_components"),
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "source_inventory.json").write_text(
+                  json.dumps(compact, indent=2, ensure_ascii=False, default=str) + "\n",
+                  encoding="utf-8",
+              )
+              if schema_path.exists():
+                  (out / "schema_audit.json").write_text(
+                      schema_path.read_text(encoding="utf-8"), encoding="utf-8"
+                  )
+          else:
+              failure = {
+                  "status": "acquisition_failed_without_inventory",
+                  "source_id": "galapagos_pollination_networks",
+                  "dataset_doi": "10.5061/dryad.0c3cn5f",
+                  "claim_boundary": "No biological result is inferred from a failed acquisition."
+              }
+              (out / "acquisition_failure.json").write_text(
+                  json.dumps(failure, indent=2) + "\n", encoding="utf-8"
+              )
+          PY
+      - name: Commit materialized state on push or manual run
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/galapagos
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Galapagos external source audit"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload full acquisition audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: galapagos-external-source-audit
+          path: artifacts/galapagos_dryad/
+          if-no-files-found: warn
+      - name: Fail after preserving diagnosis when acquisition failed
+        if: steps.acquire.outcome != 'success'
+        run: exit 1
