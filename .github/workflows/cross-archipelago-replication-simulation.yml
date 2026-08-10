@@ -23,11 +23,17 @@ on:
       - "tests/test_cross_archipelago_design.py"
       - ".github/workflows/cross-archipelago-replication-simulation.yml"
 
+permissions:
+  contents: write
+
 jobs:
   simulation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -47,6 +53,23 @@ jobs:
           name: cross-archipelago-replication-simulation
           path: artifacts/cross_archipelago_replication/
           if-no-files-found: error
+      - name: Materialize checked operating characteristics on push or manual run
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p data/results
+          cp artifacts/cross_archipelago_replication/report.json \
+             data/results/cross_archipelago_replication_simulation.json
+          cp artifacts/cross_archipelago_replication/scenario_summary.csv \
+             data/results/cross_archipelago_replication_simulation.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/results/cross_archipelago_replication_simulation.json \
+            data/results/cross_archipelago_replication_simulation.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize cross-archipelago replication simulation"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
       - name: Verify checked operating characteristics when materialized
         run: |
           python - <<'PY'
