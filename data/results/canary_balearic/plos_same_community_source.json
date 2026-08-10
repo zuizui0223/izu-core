@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "status": "supporting_files_recovered_community_identity_incomplete",
+  "status": "supporting_file_content_not_readable",
   "source_id": "castro_urgal_traveset_2016_plos_same_communities",
   "article_doi": "10.1371/journal.pone.0150824",
   "pmcid": "PMC4777429",
@@ -21,7 +21,7 @@
   "n_numeric_matrix_candidate_files": 0,
   "full_network_source_admitted": false,
   "effect_registry_eligible": false,
-  "reading": "The supporting files can establish a lawful cross-source link to the four named communities. They are not admitted as complete 2014 network matrices unless plant, flower-visitor, interaction-weight, community and effort fields are jointly source-resolved.",
-  "next_gate": "If a raw interaction candidate is present, write an explicit source-specific column and community mapping and compare full-season network totals against the 2014 article. Otherwise retain these files as a derived same-community subset and continue searching for the original matrices.",
+  "reading": "The supporting files establish only the scope reported by the audit; no missing interaction matrix is reconstructed.",
+  "next_gate": "If a raw interaction candidate is present, write an explicit source-specific column and community mapping; otherwise continue searching for the original matrices.",
   "claim_boundary": "The open PLOS supporting information is a lawful same-community recovery route, not automatic proof that it contains the complete 2014 source matrices. Selected-species or derived partner-trait tables cannot be treated as full network matrices. Flower-visitation rates do not measure per-visit effectiveness, effective dependency, pollen deposition, reproductive success or geological-origin causation."
 }
