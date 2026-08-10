@@ -1,0 +1,54 @@
+{
+  "status": "schema_candidates_found",
+  "n_tabular_units": 1,
+  "n_contextual_long_candidates": 0,
+  "n_long_candidates": 0,
+  "n_wide_candidates": 0,
+  "tables": [
+    {
+      "file": "artifacts/ogasawara_zenodo/files/Data_Quitianetal2026_B.xlsx",
+      "sheet": "Data interactions",
+      "n_rows_reported": 2746,
+      "n_columns_reported": 11,
+      "delimiter": null,
+      "headers": [
+        "Island",
+        "Invasional Context",
+        "Season",
+        "Forest_Status",
+        "Anole",
+        "Plant_sp",
+        "Clase",
+        "Order",
+        "Ord_Fam",
+        "Poll_sp",
+        "N.Int"
+      ],
+      "role_matches": {
+        "island": [
+          "Island"
+        ],
+        "site": [],
+        "season": [
+          "Season"
+        ],
+        "habitat": [
+          "Forest_Status"
+        ],
+        "anole_context": [
+          "Anole"
+        ],
+        "plant": [
+          "Plant_sp"
+        ],
+        "pollinator": [],
+        "interaction_count": []
+      },
+      "long_network_candidate": false,
+      "contextual_long_network_candidate": false,
+      "wide_interaction_matrix_candidate": false
+    }
+  ],
+  "next_gate": "Select source-defined table(s), verify legitimate-interaction semantics and sampling effort, then implement a source-specific parser.",
+  "claim_boundary": "Header matching is a schema-discovery aid, not biological classification. A visit or interaction count is not pollinator effectiveness, effective dependency or reproductive success."
+}
