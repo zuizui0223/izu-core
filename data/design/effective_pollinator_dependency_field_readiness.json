@@ -1,10 +1,10 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "status": "implementation_ready_field_data_missing",
   "goal": "Measure effective pollinator dependency directly in the same tagged Izu populations rather than inferring dependency from floral form, family or realized interaction breadth.",
   "required_linked_channels": [
     "tagged plant registry",
-    "usable observation effort",
+    "usable observation effort including zero-visit windows",
     "visitor bout identity/contact",
     "single-visit pollen deposition on previously unvisited receptive stigmas",
     "no-visit SVD controls",
@@ -28,7 +28,7 @@
     },
     {
       "state": "pilot_dispersion_estimable",
-      "next_gate": "lock biologically meaningful absolute CI half-width and confidence before confirmatory expansion"
+      "next_gate": "replace synthetic reliability, variance, coverage and loss assumptions, then lock a biologically meaningful absolute CI half-width"
     },
     {
       "state": "precision_goal_locked",
@@ -36,13 +36,19 @@
     },
     {
       "state": "confirmatory_replication_proposed",
-      "next_gate": "stress-test site/time replication, expected loss, visitor availability and hierarchical model by simulation before final field lock"
+      "next_gate": "stress-test site/time replication, dependency support, expected loss, visitor availability and hierarchical model by simulation before final field lock"
     }
   ],
   "precision_planning": {
     "independent_unit": "plant",
-    "within_plant_subsamples": ["flowers", "single-visit SVD events"],
-    "available_pilot_metrics": ["background_adjusted_svd", "capsule_set_proportion"],
+    "within_plant_subsamples": [
+      "flowers",
+      "single-visit SVD events"
+    ],
+    "available_pilot_metrics": [
+      "background_adjusted_svd",
+      "capsule_set_proportion"
+    ],
     "precision_target_type": "absolute two-sided CI half-width",
     "precision_goal_template": "templates/effective_dependency_precision_goals_template.csv",
     "pilot_cli": "scripts/plan_effective_dependency_pilot_precision.py",
@@ -52,6 +58,23 @@
   "focal_anchor": "Campanula microdonta",
   "comparator_rule": "Choose comparators from direct interaction/reproductive evidence and phenological feasibility; do not assign specialist/generalist classes from floral syndrome labels.",
   "high_dependency_endpoint_rule": "A high-dependency endpoint must be demonstrated by direct effective-pollinator data or an external prespecified calibration; it is not preassigned from corolla morphology.",
+  "dependency_gradient_rule": "A confirmatory dependency x FDQ test should distribute directly measured taxa across low, intermediate and high dependency support. One endpoint or many taxa inside one narrow survivor range is insufficient.",
+  "prospective_design_simulation": {
+    "status": "completed_synthetic_operating_characteristics",
+    "config": "data/design/dependency_fdq_design_scenarios.json",
+    "result": "data/results/dependency_fdq_design_simulation.json",
+    "documentation": "docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md",
+    "empirical_structure_anchor": {
+      "sites": 8,
+      "seasons": 5,
+      "proxy_eligible_taxa": 9,
+      "proxy_rows": 105,
+      "direct_high_dependency_endpoints": 0,
+      "exact_population_dependency_measurements": 0
+    },
+    "main_design_result": "Under declared synthetic alternatives, broad directly measured dependency support improves interaction recovery more than adding proxy rows while support remains narrow.",
+    "not_empirical_power": true
+  },
   "survivorship_rule": "Non-establishment, hybrid replacement and interaction rewiring remain response modes and must not be excluded solely because a pure same-lineage island survivor is unavailable.",
   "same_population_linkage": {
     "required_ids": [
@@ -62,9 +85,16 @@
       "plant_id",
       "flower_id"
     ],
-    "svd_visit_ids": ["effort_id", "visit_id"],
+    "svd_visit_ids": [
+      "effort_id",
+      "visit_id"
+    ],
     "mature_fruit_id": "fruit_id"
   },
   "service_output_guard": "Official CLI output withholds background-adjusted SVD, rate-weighted effective service and service share when a visitor group lacks a no-visit SVD control.",
-  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. It does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, or a causal Oshima-Toshima boundary effect."
+  "tracked_issues": {
+    "field_pilot": 91,
+    "independent_primary_source_recovery": 92
+  },
+  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. The prospective design simulation uses synthetic dependency/effect assumptions. Neither by itself identifies historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, or a causal Oshima-Toshima boundary effect."
 }
