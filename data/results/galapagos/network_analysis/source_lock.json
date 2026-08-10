@@ -1,0 +1,12 @@
+{
+  "status": "partial_or_failed",
+  "source_id": "galapagos_pollination_networks",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "selected_version_id": 26579,
+  "n_source_files": 1,
+  "n_downloaded": 0,
+  "file_sha256": {
+    "data_galapagos_islands.zip": null
+  },
+  "claim_boundary": "The package may support source-native multi-island network and biogeographic comparisons. Visit-frequency networks do not identify single-visit effectiveness, effective dependency, reproductive success, adaptive interaction switching, historical selection, or a causal isolation effect without additional design and evidence."
+}
