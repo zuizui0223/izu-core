@@ -5,52 +5,75 @@ on:
   push:
     paths:
       - "config/canary_balearic_oup_source.json"
+      - "config/canary_balearic_plos_source.json"
       - "scripts/acquire_oup_supplementary_data.py"
       - "scripts/acquire_oup_supplementary_data_v2.py"
+      - "scripts/acquire_canary_balearic_plos_support.py"
       - "scripts/audit_canary_balearic_network_source.py"
+      - "scripts/audit_canary_balearic_plos_support.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_canary_balearic_network_source.py"
+      - "tests/test_canary_balearic_plos_support.py"
       - ".github/workflows/canary-balearic-external-source.yml"
   pull_request:
     paths:
       - "config/canary_balearic_oup_source.json"
+      - "config/canary_balearic_plos_source.json"
       - "scripts/acquire_oup_supplementary_data.py"
       - "scripts/acquire_oup_supplementary_data_v2.py"
+      - "scripts/acquire_canary_balearic_plos_support.py"
       - "scripts/audit_canary_balearic_network_source.py"
+      - "scripts/audit_canary_balearic_plos_support.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_canary_balearic_network_source.py"
+      - "tests/test_canary_balearic_plos_support.py"
       - ".github/workflows/canary-balearic-external-source.yml"
+
+permissions:
+  contents: write
 
 jobs:
   acquire-and-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Ensure legacy Word text extractor is available
+        run: |
+          if ! command -v antiword >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y antiword
+          fi
+          antiword -h >/dev/null 2>&1 || true
       - name: Install source-audit dependencies
         run: python -m pip install -e . openpyxl python-docx pytest
       - name: Test source-discovery and schema guards
+        id: tests
         run: >-
           python -m pytest -q
           tests/test_oup_supplementary_acquisition.py
           tests/test_canary_balearic_network_source.py
-      - name: Discover and acquire public supplementary files
-        id: acquire
+          tests/test_canary_balearic_plos_support.py
+      - name: Discover and acquire original Oxford supplementary files
+        id: oup_acquire
         continue-on-error: true
         run: >-
           python scripts/acquire_oup_supplementary_data_v2.py
           --config config/canary_balearic_oup_source.json
           --output-dir artifacts/canary_balearic_oup
-      - name: Audit acquired tabular sources
-        if: steps.acquire.outcome == 'success'
+      - name: Audit original Oxford tabular sources
+        if: steps.oup_acquire.outcome == 'success'
         run: >-
           python scripts/audit_canary_balearic_network_source.py
           --input-dir artifacts/canary_balearic_oup
           --output artifacts/canary_balearic_oup/schema_audit.json
-      - name: Preserve a machine-readable blocked state when acquisition fails
-        if: steps.acquire.outcome != 'success'
+      - name: Preserve original-source blocked state
+        if: steps.oup_acquire.outcome != 'success'
         run: |
           mkdir -p artifacts/canary_balearic_oup
           if ! test -f artifacts/canary_balearic_oup/acquisition_failure.json; then
@@ -64,11 +87,105 @@ jobs:
           }
           JSON
           fi
-          echo "::notice::Canary-Balearic supplementary acquisition is blocked in this run; this is not a biological zero."
-      - name: Upload source and schema audit
+          echo "::notice::Original Canary-Balearic supplementary acquisition remains blocked; this is not a biological zero."
+      - name: Recover open PLOS supporting files from the same four communities
+        id: plos_acquire
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_canary_balearic_plos_support.py
+          --config config/canary_balearic_plos_source.json
+          --output-dir artifacts/canary_balearic_plos
+      - name: Audit PLOS community identity and data scope
+        if: steps.plos_acquire.outcome == 'success'
+        run: >-
+          python scripts/audit_canary_balearic_plos_support.py
+          --config config/canary_balearic_plos_source.json
+          --input-dir artifacts/canary_balearic_plos
+          --output artifacts/canary_balearic_plos/content_audit.json
+      - name: Preserve PLOS recovery diagnosis when blocked
+        if: steps.plos_acquire.outcome != 'success'
+        run: |
+          mkdir -p artifacts/canary_balearic_plos
+          if ! test -f artifacts/canary_balearic_plos/source_inventory.json; then
+            cat > artifacts/canary_balearic_plos/source_inventory.json <<'JSON'
+          {
+            "schema_version": "1.0",
+            "status": "blocked",
+            "source_id": "castro_urgal_traveset_2016_plos_same_communities",
+            "article_doi": "10.1371/journal.pone.0150824",
+            "pmcid": "PMC4777429",
+            "n_expected": 4,
+            "n_recovered": 0,
+            "next_gate": "Retry Europe PMC, PLOS and PMC open supporting-file routes without treating transport failure as a biological zero.",
+            "claim_boundary": "A failed open-data route does not establish source absence or any biological effect."
+          }
+          JSON
+          fi
+          echo "::notice::PLOS same-community recovery is blocked in this run; the source state is preserved."
+      - name: Materialize compact same-community recovery state
+        if: always() && steps.tests.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          source_path = Path("artifacts/canary_balearic_plos/source_inventory.json")
+          audit_path = Path("artifacts/canary_balearic_plos/content_audit.json")
+          output_path = Path("data/results/canary_balearic/plos_same_community_source.json")
+          output_path.parent.mkdir(parents=True, exist_ok=True)
+
+          source = json.loads(source_path.read_text(encoding="utf-8")) if source_path.exists() else {}
+          audit = json.loads(audit_path.read_text(encoding="utf-8")) if audit_path.exists() else {}
+          compact = {
+              "schema_version": "1.0",
+              "status": audit.get("status") or source.get("status") or "not_materialized",
+              "source_id": source.get("source_id", "castro_urgal_traveset_2016_plos_same_communities"),
+              "article_doi": source.get("article_doi", "10.1371/journal.pone.0150824"),
+              "pmcid": source.get("pmcid", "PMC4777429"),
+              "target_source_id": source.get("target_source_id", "castro_urgal_traveset_2014_canary_balearic_networks"),
+              "target_article_doi": source.get("target_article_doi", "10.1111/boj.12134"),
+              "source_inventory_status": source.get("status"),
+              "n_expected_supporting_files": source.get("n_expected", 4),
+              "n_recovered_supporting_files": source.get("n_recovered", 0),
+              "recovered_logical_ids": source.get("recovered_logical_ids", []),
+              "community_codes_present": audit.get("community_codes_present", []),
+              "same_four_communities_supported": audit.get("same_four_communities_supported", False),
+              "n_pairwise_interaction_header_candidates": audit.get("n_pairwise_interaction_header_candidates", 0),
+              "n_numeric_matrix_candidate_files": audit.get("n_numeric_matrix_candidate_files", 0),
+              "full_network_source_admitted": False,
+              "effect_registry_eligible": False,
+              "reading": audit.get("reading") or (
+                  "The open PLOS source is a same-community recovery probe. It is not automatically the complete 2014 network source."
+              ),
+              "next_gate": audit.get("next_gate") or source.get("next_gate") or (
+                  "Inspect recovered files and preserve selected-species or derived tables outside the effect registry."
+              ),
+              "claim_boundary": audit.get("claim_boundary") or source.get("claim_boundary") or (
+                  "Same community identity does not establish complete source-data equivalence or a geological-origin effect."
+              ),
+          }
+          output_path.write_text(
+              json.dumps(compact, indent=2, ensure_ascii=False) + "\n",
+              encoding="utf-8",
+          )
+          print(output_path)
+          PY
+      - name: Commit compact recovery state on push or manual run
+        if: github.event_name != 'pull_request' && steps.tests.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/canary_balearic/plos_same_community_source.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Canary-Balearic PLOS source audit"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload source and scope audits
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: canary-balearic-external-source-audit
-          path: artifacts/canary_balearic_oup/
+          path: |
+            artifacts/canary_balearic_oup/
+            artifacts/canary_balearic_plos/
           if-no-files-found: error
