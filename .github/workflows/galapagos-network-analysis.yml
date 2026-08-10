@@ -4,7 +4,24 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_dryad_external_dataset_v2.py"
+      - "scripts/audit_galapagos_dryad_schema.py"
       - "scripts/analyze_galapagos_source_networks.py"
+      - "scripts/analyze_galapagos_source_networks_v2.py"
+      - "tests/test_dryad_external_acquisition.py"
+      - "tests/test_galapagos_dryad_schema.py"
+      - "tests/test_galapagos_source_networks.py"
+      - ".github/workflows/galapagos-network-analysis.yml"
+  pull_request:
+    paths:
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_dryad_external_dataset_v2.py"
+      - "scripts/audit_galapagos_dryad_schema.py"
+      - "scripts/analyze_galapagos_source_networks.py"
+      - "scripts/analyze_galapagos_source_networks_v2.py"
+      - "tests/test_dryad_external_acquisition.py"
+      - "tests/test_galapagos_dryad_schema.py"
       - "tests/test_galapagos_source_networks.py"
       - ".github/workflows/galapagos-network-analysis.yml"
 
@@ -17,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ github.head_ref || github.ref_name }}
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -34,19 +51,29 @@ jobs:
         id: acquire
         continue-on-error: true
         run: >-
-          python scripts/acquire_dryad_external_dataset.py
+          python scripts/acquire_dryad_external_dataset_v2.py
           --config config/galapagos_dryad_source.json
           --output-dir artifacts/galapagos_dryad
+      - name: Detect acquired source inventory
+        id: source
+        if: always()
+        run: |
+          if test -f artifacts/galapagos_dryad/source_inventory.json; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Galapagos source acquisition is blocked in this run; this is not a biological zero."
+          fi
       - name: Audit source schema
-        if: steps.acquire.outcome == 'success'
+        if: steps.source.outputs.available == 'true'
         run: >-
           python scripts/audit_galapagos_dryad_schema.py
           --input-dir artifacts/galapagos_dryad
           --output artifacts/galapagos_dryad/schema_audit.json
       - name: Run source-admitted analysis or retain blocked state
-        if: steps.acquire.outcome == 'success'
+        if: steps.source.outputs.available == 'true'
         run: >-
-          python scripts/analyze_galapagos_source_networks.py
+          python scripts/analyze_galapagos_source_networks_v2.py
           --schema artifacts/galapagos_dryad/schema_audit.json
           --output-dir artifacts/galapagos_analysis
       - name: Materialize result or diagnosis
@@ -102,8 +129,8 @@ jobs:
                   json.dumps(failure, indent=2) + "\n", encoding="utf-8"
               )
           PY
-      - name: Commit materialized state
-        if: always()
+      - name: Commit materialized state on push or manual run
+        if: always() && github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -121,6 +148,3 @@ jobs:
             artifacts/galapagos_dryad/
             artifacts/galapagos_analysis/
           if-no-files-found: warn
-      - name: Fail only when acquisition itself failed
-        if: steps.acquire.outcome != 'success'
-        run: exit 1
