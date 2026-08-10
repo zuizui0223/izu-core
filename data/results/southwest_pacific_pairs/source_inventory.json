@@ -1,0 +1,39 @@
+{
+  "status": "supplementary_acquisition_blocked",
+  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+  "article_doi": "10.1093/aob/mcaf005",
+  "crossref_title": [
+    "Flower size evolution in the Southwest Pacific"
+  ],
+  "n_candidates": 0,
+  "n_downloaded": 0,
+  "discovery_pages": [],
+  "files": [],
+  "errors": [
+    {
+      "stage": "discovery_page",
+      "url": "https://academic.oup.com/aob/advance-article/doi/10.1093/aob/mcaf005/7960047",
+      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-ayQU1GNN2qKaE4U4S8HEom&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
+    },
+    {
+      "stage": "discovery_page",
+      "url": "https://academic.oup.com/aob/advance-article/doi/10.1093/aob/mcaf005/7960047/supplementary-data",
+      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-qOtQzoT5nCY9cTkA7u1r1E&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
+    },
+    {
+      "stage": "discovery_page",
+      "url": "https://academic.oup.com/aob/advance-article/doi/10.1093/aob/mcaf005/7960047?login=false",
+      "error": "RuntimeError('HTTP 403 Forbidden; body=\\'<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-ryrdVCF20hljtBOewyP70E&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-s\\'')"
+    }
+  ],
+  "expected_context_to_verify_from_source": [
+    "independent colonisation or island-mainland comparison identifier",
+    "archipelago or island",
+    "island and mainland taxa or populations",
+    "floral size or display traits",
+    "pollination mode",
+    "breeding or reproductive-system covariates where supplied",
+    "geological island type or source-region context where supplied"
+  ],
+  "claim_boundary": "Supplementary morphology data may support source-defined island-mainland response sizes and moderators. They do not directly measure pollinator functional diversity, visit effectiveness, effective dependency, reproductive success, historical selection, or the Izu Oshima-Toshima boundary."
+}
