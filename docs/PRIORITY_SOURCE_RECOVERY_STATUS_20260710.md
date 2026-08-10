@@ -1,5 +1,11 @@
 # Priority primary-source recovery status — 2026-07-10
 
+> **Historical snapshot.** The current machine-readable acquisition status and
+> two-stage admission gates are now maintained in
+> `docs/INDEPENDENT_PRIMARY_SOURCE_ACQUISITION_STATUS.md` and
+> `data/design/independent_primary_source_acquisition.json`. Source recovery is
+> tracked in Issue #92.
+
 ## Access audit
 
 The four predeclared DOI records were resolved successfully through OpenAlex.
@@ -10,7 +16,7 @@ current all-location metadata.
 |---:|---|---|---|
 | 1 | Weigela 2010 | closed / publisher only | institutional library or author manuscript request |
 | 2 | Ligustrum 2013 | closed / publisher only | institutional library or author manuscript request |
-| 3 | Lilium 2018 | closed / publisher only | institutional library or author manuscript request |
+| 3 | Lilium 2018 | closed / publisher only | retain as context unless full text is needed |
 | 4 | Clerodendrum 2012 | closed / publisher only | retain as context unless full text is needed |
 
 The machine-readable result is
@@ -42,17 +48,18 @@ island effect automatically.
 This is explicitly a comparison between taxa. It remains contextual and cannot
 be used as a within-lineage prediction replicate.
 
-## Current decision
+## Current decision at the time of this snapshot
 
-No source is promoted. `quantitative_effects.csv` remains empty for these
-papers. The ordered workflow is blocked at original-source acquisition, not at
+No source was promoted. `quantitative_effects.csv` remained empty for these
+papers. The ordered workflow was blocked at original-source acquisition, not at
 analysis code.
 
-The next evidence-bearing action requires one of:
+The next evidence-bearing action required one of:
 
 1. authenticated institutional-library retrieval;
 2. a PDF supplied by the user; or
 3. a lawful author manuscript supplied by an author or repository.
 
-Until then, the independent specialist holdout remains unopened and the
-environment-only final comparison is not advanced ahead of it.
+The current programme has since separated numeric morphology admission from
+effective-dependency moderation and added Hosta as a priority source; consult
+the current status files rather than using this snapshot as the active queue.
