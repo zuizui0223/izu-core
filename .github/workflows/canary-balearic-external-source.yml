@@ -54,24 +54,15 @@ jobs:
         run: |
           mkdir -p artifacts/canary_balearic_oup
           if ! test -f artifacts/canary_balearic_oup/acquisition_failure.json; then
-            python - <<'PY'
-          import json
-          from pathlib import Path
-
-          Path("artifacts/canary_balearic_oup/acquisition_failure.json").write_text(
-              json.dumps(
-                  {
-                      "status": "supplementary_acquisition_blocked",
-                      "source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
-                      "article_doi": "10.1111/boj.12134",
-                      "next_gate": "Recover source supplementary files through a lawful public, institutional, repository, author-supplied, or user-supplied route.",
-                      "claim_boundary": "No network or geological-origin result is inferred from a failed source acquisition."
-                  },
-                  indent=2
-              ) + "\n",
-              encoding="utf-8"
-          )
-          PY
+            cat > artifacts/canary_balearic_oup/acquisition_failure.json <<'JSON'
+          {
+            "status": "supplementary_acquisition_blocked",
+            "source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
+            "article_doi": "10.1111/boj.12134",
+            "next_gate": "Recover source supplementary files through a lawful public, institutional, repository, author-supplied, or user-supplied route.",
+            "claim_boundary": "No network or geological-origin result is inferred from a failed source acquisition."
+          }
+          JSON
           fi
           echo "::notice::Canary-Balearic supplementary acquisition is blocked in this run; this is not a biological zero."
       - name: Upload source and schema audit
