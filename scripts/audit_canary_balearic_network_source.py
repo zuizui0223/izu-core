@@ -2,9 +2,9 @@
 """Audit Canary–Balearic supplementary tables without inventing network roles.
 
 The source paper compares two oceanic-island communities in the Canary Islands
-with two continental-island communities in the Balearic Islands.  This audit
-only discovers source-native tables that could contain interaction matrices,
-long interaction records, network metrics, or community metadata.  Admission to
+with two continental-island communities in the Balearic Islands. This audit only
+discovers source-native tables that could contain interaction matrices, long
+interaction records, network metrics, or community metadata. Admission to
 analysis requires explicit community identity, geological-origin mapping,
 interaction semantics, and sampling information.
 """
@@ -50,14 +50,32 @@ def norm(value: object) -> str:
     return re.sub(r"[^a-z0-9]+", "_", str(value or "").strip().casefold()).strip("_")
 
 
+def alias_matches(key: str, alias: str) -> bool:
+    """Match aliases on normalized token boundaries.
+
+    Short aliases such as ``visit`` must not match ``visitor``. Multi-token
+    source labels may contain a role inside a longer normalized phrase, so those
+    aliases retain substring matching after exact matching.
+    """
+    if key == alias:
+        return True
+    if "_" not in alias:
+        return alias in key.split("_")
+    return alias in key
+
+
 def role_matches(headers: Sequence[object]) -> dict[str, list[str]]:
-    normalized = [(norm(value), str(value or "")) for value in headers if str(value or "").strip()]
+    normalized = [
+        (norm(value), str(value or ""))
+        for value in headers
+        if str(value or "").strip()
+    ]
     output: dict[str, list[str]] = {}
     for role, aliases in ROLE_ALIASES.items():
         output[role] = [
             original
             for key, original in normalized
-            if any(key == alias or alias in key for alias in aliases)
+            if any(alias_matches(key, alias) for alias in aliases)
         ]
     return output
 
