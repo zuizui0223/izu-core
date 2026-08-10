@@ -1,0 +1,132 @@
+name: Materialize Wanshan-Yongxing external result
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/wanshan-yongxing-materialize.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl pytest
+      - name: Validate resolver and network layer
+        run: >-
+          python -m pytest -q
+          tests/test_external_archipelago_network.py
+          tests/test_cross_archipelago_external_validation.py
+          tests/test_wanshan_dryad_acquisition_v2.py
+      - name: Acquire source workbook
+        id: acquire
+        continue-on-error: true
+        run: python scripts/acquire_wanshan_yongxing_dryad_v2.py
+      - name: Analyse when acquisition succeeded
+        if: steps.acquire.outcome == 'success'
+        run: python scripts/analyze_wanshan_yongxing_networks.py
+      - name: Materialize compact source and analysis records
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import shutil
+          from pathlib import Path
+          from urllib.parse import urlsplit, urlunsplit
+
+          out = Path("data/results/wanshan_yongxing")
+          out.mkdir(parents=True, exist_ok=True)
+          workbook = Path("artifacts/wanshan_yongxing_dryad/The_plant-pollinator_interaction_data_in_this_study..xlsx")
+          inventory = Path("artifacts/wanshan_yongxing_dryad/source_inventory_v2.json")
+          diagnostic = Path("artifacts/wanshan_yongxing_dryad/acquisition_diagnostics_v2.json")
+          analysis = Path("artifacts/wanshan_yongxing_analysis")
+
+          def redact(url):
+              if not url:
+                  return url
+              parts = urlsplit(str(url))
+              return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+
+          if workbook.exists() and inventory.exists() and analysis.exists():
+              source = json.loads(inventory.read_text(encoding="utf-8"))
+              compact = {
+                  "status": "acquired_and_analysed",
+                  "source_id": source.get("source_id"),
+                  "article_doi": source.get("article_doi"),
+                  "dataset_doi": source.get("dataset_doi"),
+                  "filename": source.get("filename"),
+                  "size_downloaded": source.get("size_downloaded"),
+                  "sha256": source.get("sha256"),
+                  "source_container_kind": source.get("source_container_kind"),
+                  "resolved_version_ids": source.get("resolved_version_ids"),
+                  "resolved_file_ids": source.get("resolved_file_ids"),
+                  "sheet_names": [row.get("sheet") for row in source.get("sheets", [])],
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "source_inventory.json").write_text(
+                  json.dumps(compact, indent=2, ensure_ascii=False) + "\n",
+                  encoding="utf-8",
+              )
+              for path in analysis.iterdir():
+                  if path.is_file() and path.suffix.lower() in {".json", ".csv", ".md"}:
+                      shutil.copy2(path, out / path.name)
+              failure = out / "acquisition_failure.json"
+              if failure.exists():
+                  failure.unlink()
+          else:
+              source = json.loads(diagnostic.read_text(encoding="utf-8")) if diagnostic.exists() else {}
+              errors = []
+              for row in source.get("errors", [])[-20:]:
+                  errors.append({
+                      "stage": row.get("stage"),
+                      "url_without_query": redact(row.get("url")),
+                      "error": row.get("error"),
+                  })
+              compact = {
+                  "status": "acquisition_failed",
+                  "source_id": source.get("source_id"),
+                  "article_doi": source.get("article_doi"),
+                  "dataset_doi": source.get("dataset_doi"),
+                  "resolved_version_ids": source.get("resolved_version_ids"),
+                  "resolved_file_ids": source.get("resolved_file_ids"),
+                  "candidate_count": len(source.get("download_candidates", [])),
+                  "errors": errors,
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "acquisition_failure.json").write_text(
+                  json.dumps(compact, indent=2, ensure_ascii=False) + "\n",
+                  encoding="utf-8",
+              )
+          PY
+      - name: Commit materialized record
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/wanshan_yongxing
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Wanshan-Yongxing external validation"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Preserve full diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wanshan-yongxing-materialized-audit
+          path: |
+            artifacts/wanshan_yongxing_dryad/
+            artifacts/wanshan_yongxing_analysis/
+          if-no-files-found: warn
+      - name: Fail after preserving diagnosis when acquisition failed
+        if: steps.acquire.outcome != 'success'
+        run: exit 1
