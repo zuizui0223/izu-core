@@ -55,9 +55,9 @@ After seasonal rows are aggregated within `plant × site`:
 
 There is no universal species-level Oshima/post response in contemporary network function.
 
-### Source-defined pollen-success target plants show a bounded matching signal
+### Source-defined pollen-success targets show a bounded matching signal
 
-The source study independently selected 10 dominant outcrossing insect-pollinated plants for pollen-receipt measurements. Among eligible members:
+Among eligible members of the source-defined target set:
 
 | response | eligible species | lower post | higher post |
 |---|---:|---:|---:|
@@ -65,184 +65,99 @@ The source study independently selected 10 dominant outcrossing insect-pollinate
 | corrected trait matching | 8 | 8 | 0 |
 | pollen receipt | 9 | 5 | 4 |
 
-Corrected trait matching is directionally coherent in this source-defined subset, while interaction breadth and pollen receipt are not.
+Corrected trait matching is directionally coherent in this subset, while interaction breadth and pollen receipt are not.
 
-Leave-one-post-island sensitivity is strong but not perfect: 7/7 lower after omitting Niijima or Kozu, 6/8 after omitting Miyake, and 7/8 after omitting Hachijo.
+## Continuous FDQ is the strongest contemporary mechanism link
 
-Among seven target plants with complete five-island coverage, Oshima is the only possible island baseline for which the mean of the other four islands is lower in **7/7** species; corresponding values are Niijima `5/7`, Kozu `5/7`, Miyake `2/7`, Hachijo `1/7`. This argues against an arbitrary-baseline artifact, but Oshima remains a single geographic bridge-state site.
+The archived source model gives FDQ coefficient `+1.5540`. A site/season fixed-effect sensitivity gives:
 
-### Boundary identifiability remains limited
+| subset | FDQ coefficient |
+|---|---:|
+| all 8 sites | `+1.8346` |
+| mainland 3 sites | `+1.5414` |
+| Izu 5 islands | `+1.9426` |
+| post-Oshima 4 islands | `+2.0590` |
 
-The contemporary design contains three mainland sites, **one Oshima bridge-state site**, and four post-boundary sites. Five seasons are temporal replication, not five independent Oshima-like geographic units. Plant species sharing sites are not independent boundary experiments.
+Every leave-one-island FDQ coefficient remains positive. A full functional-covariate model retaining richness, `D`, FDQ, FRic and FEve also retains positive FDQ coefficients and substantial incremental fit.
 
-A site-aware model can estimate a descriptive Oshima/post contrast, but cannot separate an Oshima-specific site effect from a causal second-boundary effect.
+This relationship persists without mainland sites and without Oshima. It is therefore not merely a binary mainland/island, Oshima/post or sampled Bombus label. It remains observational: time-varying weather/resources, network feedback and measurement error are not removed.
 
-## Continuous pollinator functional exposure is the strongest contemporary mechanism link
+## Downstream matching → pollen receipt is attenuated
 
-The binary boundary is not the only available exposure. The same network dataset contains pollinator functional diversity (`FDQ`) varying across all eight sites and five seasons.
+After flowers are averaged within `plant × site × season`, trait-matching coefficients remain positive in all sites, Izu5 and post4, but leave-one-island ranges cross zero. The mechanism chain is deliberately asymmetric:
 
-The archived source code fits community corrected trait matching using functional diversity and evenness; the source Figure-3 best model has:
+> **FDQ → trait matching: robust**  
+> **trait matching → pollen receipt: positive but materially less robust**
 
-- FDQ coefficient: `+1.5540`;
-- FEve coefficient: `-9.2976`.
+The 2017 experiment likewise supplies sensitive, resilient and counterdirectional reproductive responses among *Calystegia*, *Vitex* and *Lysimachia*.
 
-A transparent fixed-effect sensitivity model,
+## Direct dependency moderation remains empirically blocked
 
-`TM_z ~ FDQ + FEve + site fixed effects + season fixed effects`,
+The 10 source-defined pollen targets contain 4 externally resolved, 5 partial and 1 unresolved pollination systems, but:
 
-produces the following FDQ coefficients:
+- source-resolved high-dependency Bombus targets = `0`;
+- direct effective dependency measured in the exact 2024 Izu populations = `0`.
 
-| subset | site × season rows | FDQ coefficient | site-centered FDQ–TM correlation |
-|---|---:|---:|---:|
-| all 8 sites | 40 | `+1.8346` | `+0.3025` |
-| mainland 3 sites | 15 | `+1.5414` | `+0.1810` |
-| Izu 5 islands | 25 | `+1.9426` | `+0.4034` |
-| post-Oshima 4 islands | 20 | `+2.0590` | `+0.3410` |
+Mainland realized breadth and tube length do not robustly moderate the FDQ slope and cannot be promoted to dependency.
 
-The relationship therefore does **not** require mainland observations. More importantly, it persists after Oshima is removed: within Niijima, Kozu, Miyake and Hachijo alone, higher pollinator functional diversity is associated with higher corrected trait matching after time-invariant site differences and common seasonal shifts are absorbed.
+The field measurement chain is now implementation-ready:
 
-The island-only direction is not carried by a single site. Leave-one-island FDQ coefficients are:
+```text
+plant/flower
+  -> observation effort
+  -> visitor bout/contact
+  -> single-visit pollen deposition
+  -> rate-weighted effective service
+  -> open / bagged-autonomous / supplemental-outcross outcome
+  -> fruit / seed / optional parentage
+```
 
-- Izu 5-island subset: `+1.432` to `+2.226`, all positive;
-- post-Oshima 4-island subset: `+1.456` to `+2.333`, all positive.
+Issue #91 now records the full raw-data acceptance specification. Issue #92 records the independent-source locality/n/uncertainty/dependency admission specification.
 
-This materially changes the interpretation. The FDQ → matching signal is not simply another encoding of mainland versus island, Oshima versus southern islands, or Bombus-present versus Bombus-absent geography. **Continuous pollinator functional structure still matters inside the post-boundary region itself.**
+## Prospective dependency × FDQ design simulation
 
-It remains observational. Time-varying weather/resources, network feedback, measurement error and historical selection are not removed, so this is a **contemporary functional mechanism link**, not a historical causal estimate and not proof that Bombus loss generated the pattern.
+Existing data can still answer a design question before field collection. The simulation anchors only the observed structure — 8 sites, 5 seasons, 9 proxy-eligible taxa and 105 rows — while treating dependency values, reliability and interaction effects as explicitly synthetic.
 
-Source lock: `data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json`.
+For a declared moderate interaction:
 
-## Does plant specialization moderate the FDQ → matching slope?
+| design | calibrated detection probability |
+|---|---:|
+| current proxy-like structure | `0.065` |
+| proxy + doubled seasons | `0.075` |
+| proxy + four sites | `0.085` |
+| direct measurement, narrow 9 taxa | `0.125` |
+| direct + one high endpoint | `0.248` |
+| direct full span, 10 taxa | `0.428` |
+| direct narrow span, 16 taxa | `0.213` |
+| direct full span, 16 taxa | `0.525` |
 
-### Do not use legacy floral-form labels as dependency
-
-The old candidate-screening classification based on family/floral form is not an effective-pollinator dependency dataset and is excluded from this test.
-
-Two source-native continuous plant moderators were estimated using **mainland sites only**, before using island response rows:
-
-1. mainland realized plant functional generality (`FG_Pla_sp_z`) — interaction breadth, not dependency;
-2. mainland corolla-tube length (`tube`) — morphology, not dependency.
-
-Nine source-defined pollen-success target plants pass the minimum three-mainland-observation gate, producing 105 plant × site × season rows. The descriptive sensitivity model includes plant, site and season fixed effects plus FEve.
-
-### Realized interaction breadth does not robustly moderate the FDQ slope
-
-At mean moderator value:
-
-- FDQ coefficient: `+0.2880`;
-- `FDQ × mainland breadth`: `+0.00723`.
-
-The interaction changes sign under sensitivity:
-
-- leave-one-site range: `-0.128` to `+0.093`;
-- leave-one-plant range: `-0.151` to `+0.197`.
-
-### Tube length also does not provide a stable moderator
-
-- FDQ coefficient: `+0.2952`;
-- `FDQ × mainland tube length`: `+0.0675`;
-- leave-one-site range: `-0.045` to `+0.204`;
-- leave-one-plant range: `-0.243` to `+0.212`.
-
-The sign is not stable. Therefore neither available proxy explains species-level FDQ-slope heterogeneity robustly.
-
-This is **not evidence that pollinator dependency is irrelevant**. It only bounds two available proxies.
-
-Source lock: `data/predictive_meta/hiraiwa_ushimaru_functional_moderation.json`.
-
-## Why direct dependency moderation is currently not identifiable in the 10 target plants
-
-A primary-source audit constrains nine of the ten source-defined target pollination systems:
-
-- **resolved external species-level: 4**;
-- **partial: 5**;
-- **unresolved: 1** (*Persicaria senticosa*).
-
-The resolved systems do not span a Bombus-dependency gradient:
-
-- *Ampelopsis glandulosa*: functional specialization on short-tongued scoliid wasps and solitary bees (`10.1016/j.flora.2021.151921`); the 2024 target is var. *hancei*, so transfer remains species-level external evidence;
-- *Calystegia soldanella*: self-incompatible, pollinator-dependent broad bee system (`10.2307/2656764`), plus strong 2017 reproductive sensitivity to long-tongued-pollinator loss;
-- *Lonicera japonica*: effective mixed diurnal-bee + nocturnal-hawkmoth system (`10.1139/b98-119`);
-- *Vitex rotundifolia*: multiple hymenopteran pollinators with *Megachile kobensis* dominant/well matched in coastal Japan (Maeta et al. 2004).
-
-Partial evidence further constrains broad/diverse entomophily for *Farfugium* and *Glehnia*, a population-variable selfing/outcrossing system in *Oxalis corniculata*, and non-exclusive functional responses/interactions in *Lysimachia* and *Melanthera*.
-
-Crucially:
-
-- source-resolved high-dependency Bombus targets in this 10-species set: **0**;
-- effective dependency measured in the exact 2024 Izu target populations: **0**.
-
-Therefore a direct `dependency × FDQ` model is currently **design-blocked**, not null. The dominant target set is survivor-conditioned: strict high-dependency lineages that fail to establish, hybridize or rewire are less likely to appear among shared dominant coastal plants in the first place.
+These values are synthetic operating characteristics, not empirical power. Their design implication is nevertheless clear: **additional rows cannot substitute for missing predictor support**. Direct dependency measurement reduces attenuation, one high endpoint is valuable, and a distributed low–intermediate–high dependency gradient is more informative than adding many taxa inside a narrow survivor range.
 
 Files:
 
-- `data/predictive_meta/hiraiwa_ushimaru_pollen_target_dependency_readiness.csv`;
-- `data/design/pollen_target_dependency_moderation_readiness.json`.
+- `docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md`;
+- `data/design/dependency_fdq_design_scenarios.json`;
+- `data/results/dependency_fdq_design_simulation.json`.
 
-## Direct morphology also rejects one common response direction
+## Independent source layer
 
-The 2024 archive stores species × site mean tube lengths based on five measured flowers per species per site. Within-site SD/SE are absent, so these are B+ directional data rather than A-grade effect sizes.
+*Weigela*, *Ligustrum* and *Hosta* remain B-grade directional sources. They currently constrain response shape but do not provide population means, independent `n`, uncertainty and exact locality mapping sufficient for quantitative admission. None independently localizes the predeclared Oshima–Toshima shared step.
 
-Among eight eligible target species:
-
-- shorter post: 3;
-- longer post: 4;
-- equal: 1.
-
-Thus direct floral morphology does not show a universal second-boundary direction.
-
-### Farfugium: high interaction breadth does not mean stasis
-
-*Farfugium japonicum* was prospectively selected using only realized functional generality and coverage (`mean FG_Pla_sp_z = 1.675`, eight sites). Its channels are non-synchronous:
-
-- functional generality: `+0.00265` Oshima→post;
-- corrected trait matching: `-2.80665`;
-- pollen receipt: `-0.88773`;
-- site-mean tube length: `11.276 mm` on Oshima vs `10.339 mm` post (`-8.3%`).
-
-The blind visible-display control is still inferentially inconclusive: mainland `n=5`, Oshima `n=1`, post `n=1`, all score 3. No equivalence/no-change claim is allowed.
-
-## Direct reproductive sensitivity is heterogeneous
-
-The 2017 Hiraiwa–Ushimaru natural experiment provides a separate validation layer:
-
-- *Calystegia soldanella*: fruit set decreases as long-tongued-pollinator biomass/matching decrease;
-- *Vitex rotundifolia*: fruit set shows no significant relationship with those exposures;
-- *Lysimachia mauritiana*: fruit set changes in the counterdirection with long-tongued-pollinator biomass.
-
-Oshima fruit-set data were unavailable after a landslide, so these responses cannot localize the focal second boundary. They nevertheless establish sensitivity, resilience and counterdirectional reproductive modes under the same functional exposure gradient.
-
-## Survivor conditioning and alternative response modes
-
-A clean same-lineage specialist survivor is not an unbiased sample of high dependency.
-
-- mainland pure *Goodyera henryi* is Bombus-dependent, but on Kozu pure *G. henryi* was not recovered; the island comparator is hybrid with *G. similis* and uses a scoliid-wasp interaction → `hybrid replacement + interaction rewiring`;
-- *Calanthe aristulifera* supplies a same-lineage example in which a mainland large-bee interaction is replaced by a plausible small-sweat-bee route on Mikura;
-- *Lilium auratum* var. *platyphyllum* supplies an alternative Lepidoptera timing mechanism, although variety and geography are confounded.
-
-Establishment failure, taxonomic/hybrid replacement and interaction rewiring are response domains, not invalid missing data.
-
-## General floristic boundary is not the Oshima–Toshima boundary
-
-Suzuki (1956) reports 1038 archipelago taxa, including 103 southern and 43 northern elements, and places the conspicuous southern-element northern limit at **Miyakejima** and northern-element southern limit at **Mikurajima**, rather than Oshima–Toshima.
-
-This historical external control weakens the alternative that every Oshima–post pattern merely reflects the archipelago's generic whole-flora north–south boundary. It is not a modern normalized species × island matrix; the source-reviewed occupancy analysis remains blocked until such a matrix is obtained.
+*Goodyera* supplies hybrid replacement plus interaction rewiring; *Calanthe* supplies same-lineage rewiring; *Lilium* supplies an alternative Lepidoptera timing mechanism with variety–geography confounding.
 
 ## What the paper can now argue
 
-The strongest defensible synthesis is:
+> **Plant responses to altered pollination environments in the Izu Islands are channel- and lineage-specific, but contemporary network data expose a common functional mechanism axis.** Focal *Campanula* separates continuous morphology/outcrossing erosion from a sharp autonomous-reproduction transition. Contemporary FDQ is strongly associated with flower–pollinator matching even within post-Oshima networks, while the downstream reproductive link attenuates. Direct effective dependency is the next prospective measurement, and design simulation shows that a distributed dependency gradient is more informative than simply expanding proxy rows.
 
-> **Plant responses to altered pollination environments in the Izu Islands are channel- and lineage-specific, but contemporary network data expose a common functional mechanism axis.** In focal *Campanula*, continuous morphology/outcrossing erosion is separated from a sharp autonomous-reproduction transition. Independent contemporary data reject a universal morphological, interaction-breadth or reproductive response, while pollinator functional diversity is positively associated with flower–pollinator trait matching even within the post-Oshima islands and after time-invariant site effects are absorbed. Available breadth and tube-length proxies do not robustly moderate that relationship, and direct dependency moderation remains unidentified because the shared dominant target set lacks a source-resolved high-dependency Bombus endpoint and is survivor-conditioned.
-
-The pollinator hypothesis is therefore not a universal-syndrome claim and not yet a fitted binary specialist/generalist effect. It is a structured hypothesis about **functional pollinator exposure × effective dependency × response mode × establishment history**.
+The pollinator hypothesis is therefore about **functional pollinator exposure × directly measured effective dependency × response mode × establishment history**.
 
 ## Decisive next evidence
 
-1. obtain effective-pollinator dependency measurements for the **same Izu populations**, especially a high-dependency endpoint;
-2. broaden the sampling frame beyond shared dominant survivors so failure to persist, hybrid replacement and rewiring can enter as outcomes;
-3. recover population-level uncertainty for independent morphology (Weigela, Ligustrum, Hosta or equivalent) to open A-grade effect-size synthesis;
-4. recover a reviewed multi-island flora matrix for establishment/filtering without occurrence-zero shortcuts;
-5. match population-history covariates to the same trait populations rather than using island order as history;
-6. obtain another independent bridge-state geography or a temporal regime transition before interpreting Oshima/post contrasts causally.
+1. collect the Issue #91 *Campanula* SVD + reproductive-treatment pilot and replace synthetic reliability/variance/loss assumptions;
+2. extend direct dependency measurements across low, intermediate and high dependency lineages rather than one endpoint alone;
+3. recover at least one Issue #92 population-level independent morphology source with locality, biological `n` and uncertainty;
+4. broaden beyond shared survivors so non-establishment, hybrid replacement and rewiring enter the sampling frame;
+5. recover a reviewed multi-island flora matrix for establishment filtering;
+6. obtain independent bridge-state or temporal regime replication before interpreting Oshima/post causally.
 
 Until those gates are met, causal attribution remains closed.
