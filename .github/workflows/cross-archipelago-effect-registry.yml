@@ -15,6 +15,7 @@ on:
       - "data/results/cross_archipelago_effect_registry_summary.json"
       - "data/results/wanshan_yongxing/effect_rows.json"
       - "data/results/ogasawara/context_analysis/effect_rows.json"
+      - "data/results/southwest_pacific_pairs/effect_rows.json"
       - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
       - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
       - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
@@ -36,6 +37,7 @@ on:
       - "data/results/cross_archipelago_effect_registry_summary.json"
       - "data/results/wanshan_yongxing/effect_rows.json"
       - "data/results/ogasawara/context_analysis/effect_rows.json"
+      - "data/results/southwest_pacific_pairs/effect_rows.json"
       - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
       - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
       - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
@@ -61,17 +63,19 @@ jobs:
           tests/test_cross_archipelago_effect_registry.py
           tests/test_cross_archipelago_effect_registry_augmentation.py
           tests/test_wanshan_yongxing_effects.py
+          tests/test_southwest_pacific_flower_size_analysis.py
       - name: Recompile base registry
         run: >-
           python scripts/compile_cross_archipelago_effect_registry.py
           --csv-output artifacts/cross_archipelago_effect_registry/registry.csv
           --summary-output artifacts/cross_archipelago_effect_registry/summary.json
-      - name: Admit source-specific Ogasawara context effects
+      - name: Admit source-specific Ogasawara and Southwest Pacific effects
         run: >-
           python scripts/augment_cross_archipelago_effect_registry.py
           --registry artifacts/cross_archipelago_effect_registry/registry.csv
           --summary artifacts/cross_archipelago_effect_registry/summary.json
           --ogasawara-effects data/results/ogasawara/context_analysis/effect_rows.json
+          --southwest-pacific-effects data/results/southwest_pacific_pairs/effect_rows.json
       - name: Verify checked effect rows and summary
         run: |
           python - <<'PY'
@@ -91,9 +95,8 @@ jobs:
           )
 
           # Numerical effects are frozen exactly. Source-state paths/statuses may
-          # legitimately move from acquisition_failure to source_inventory when a
-          # remote repository becomes reachable, but they must remain nonnumeric
-          # and causally closed.
+          # legitimately move when a remote repository becomes reachable, but
+          # they must remain nonnumeric and causally closed.
           def effect_index(rows):
               return {
                   row["effect_id"]: row
