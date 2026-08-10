@@ -1,0 +1,45 @@
+name: Dependency x FDQ design simulation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/dependency_fdq_design_simulation.py"
+      - "scripts/run_dependency_fdq_design_simulation.py"
+      - "data/design/dependency_fdq_design_scenarios.json"
+      - "data/results/dependency_fdq_design_simulation.json"
+      - "docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md"
+      - "tests/test_dependency_fdq_design_simulation.py"
+      - ".github/workflows/dependency-fdq-design-simulation.yml"
+  pull_request:
+    paths:
+      - "channel_id/dependency_fdq_design_simulation.py"
+      - "scripts/run_dependency_fdq_design_simulation.py"
+      - "data/design/dependency_fdq_design_scenarios.json"
+      - "data/results/dependency_fdq_design_simulation.json"
+      - "docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md"
+      - "tests/test_dependency_fdq_design_simulation.py"
+      - ".github/workflows/dependency-fdq-design-simulation.yml"
+
+jobs:
+  design-simulation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependency
+        run: python -m pip install -e . pytest
+      - name: Run design-simulation tests
+        run: python -m pytest -q tests/test_dependency_fdq_design_simulation.py
+      - name: Re-run prospective simulation
+        run: >-
+          python scripts/run_dependency_fdq_design_simulation.py
+          --config data/design/dependency_fdq_design_scenarios.json
+          --output artifacts/dependency_fdq_design_simulation/summary.json
+      - name: Upload simulation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-fdq-design-simulation
+          path: artifacts/dependency_fdq_design_simulation/summary.json
