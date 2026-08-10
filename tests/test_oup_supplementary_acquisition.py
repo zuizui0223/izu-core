@@ -5,8 +5,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE_PATH = ROOT / "scripts" / "acquire_oup_supplementary_data.py"
-SPEC = importlib.util.spec_from_file_location("oup_supplement", MODULE_PATH)
+MODULE_PATH = ROOT / "scripts" / "acquire_oup_supplementary_data_v2.py"
+SPEC = importlib.util.spec_from_file_location("oup_supplement_v2", MODULE_PATH)
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
