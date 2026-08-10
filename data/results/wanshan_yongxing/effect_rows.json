@@ -17,7 +17,7 @@
       "uncertainty_type": "exact_nonparametric_bootstrap_percentile_interval_for_median",
       "uncertainty_value": [
         -3.3227312083827223,
-        -2.0516050569583557
+        -2.0516050569583553
       ],
       "confidence": 0.95,
       "unit": "ln(oceanic visitation / continental visitation)",
@@ -37,11 +37,11 @@
       "evidence_family": "matched_shared_plant_pollinator_richness_log_response_ratio",
       "response": "pollinator_richness_log_response_ratio",
       "predictor_or_contrast": "Yongxing oceanic coral island versus Wanshan continental island, matched seven-plant subnetwork",
-      "estimate": -0.1053605156578262,
+      "estimate": -0.10536051565782628,
       "uncertainty_type": "exact_nonparametric_bootstrap_percentile_interval_for_median",
       "uncertainty_value": [
         -1.3217558399823195,
-        0.2876820724517808
+        0.28768207245178085
       ],
       "confidence": 0.95,
       "unit": "ln(oceanic pollinator richness / continental pollinator richness)",
