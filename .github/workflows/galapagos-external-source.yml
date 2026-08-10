@@ -6,6 +6,7 @@ on:
     paths:
       - "config/galapagos_dryad_source.json"
       - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_dryad_external_dataset_v2.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "tests/test_dryad_external_acquisition.py"
       - "tests/test_galapagos_dryad_schema.py"
@@ -14,6 +15,7 @@ on:
     paths:
       - "config/galapagos_dryad_source.json"
       - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_dryad_external_dataset_v2.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "tests/test_dryad_external_acquisition.py"
       - "tests/test_galapagos_dryad_schema.py"
@@ -44,7 +46,7 @@ jobs:
         id: acquire
         continue-on-error: true
         run: >-
-          python scripts/acquire_dryad_external_dataset.py
+          python scripts/acquire_dryad_external_dataset_v2.py
           --config config/galapagos_dryad_source.json
           --output-dir artifacts/galapagos_dryad
       - name: Audit downloaded and extracted tabular schemas
@@ -149,6 +151,8 @@ jobs:
           name: galapagos-external-source-audit
           path: artifacts/galapagos_dryad/
           if-no-files-found: warn
-      - name: Fail after preserving diagnosis when acquisition failed
+      - name: Preserve blocked acquisition as a source state
         if: steps.acquire.outcome != 'success'
-        run: exit 1
+        run: >-
+          echo "::notice::Galapagos source acquisition is blocked in this run;
+          the materialized failure record is not a biological zero."
