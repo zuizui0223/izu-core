@@ -1,0 +1,106 @@
+name: Cross-archipelago replication simulation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/cross_archipelago_design.py"
+      - "data/design/cross_archipelago_replication_scenarios.json"
+      - "data/results/cross_archipelago_replication_simulation.json"
+      - "data/results/cross_archipelago_replication_simulation.csv"
+      - "docs/CROSS_ARCHIPELAGO_REPLICATION_SIMULATION.md"
+      - "scripts/run_cross_archipelago_replication_simulation.py"
+      - "tests/test_cross_archipelago_design.py"
+      - ".github/workflows/cross-archipelago-replication-simulation.yml"
+  pull_request:
+    paths:
+      - "channel_id/cross_archipelago_design.py"
+      - "data/design/cross_archipelago_replication_scenarios.json"
+      - "data/results/cross_archipelago_replication_simulation.json"
+      - "data/results/cross_archipelago_replication_simulation.csv"
+      - "docs/CROSS_ARCHIPELAGO_REPLICATION_SIMULATION.md"
+      - "scripts/run_cross_archipelago_replication_simulation.py"
+      - "tests/test_cross_archipelago_design.py"
+      - ".github/workflows/cross-archipelago-replication-simulation.yml"
+
+jobs:
+  simulation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and tests
+        run: python -m pip install -e . pytest
+      - name: Run design tests
+        run: python -m pytest -q tests/test_cross_archipelago_design.py
+      - name: Re-run simulation
+        run: >-
+          python scripts/run_cross_archipelago_replication_simulation.py
+          --config data/design/cross_archipelago_replication_scenarios.json
+          --output artifacts/cross_archipelago_replication/report.json
+          --csv-output artifacts/cross_archipelago_replication/scenario_summary.csv
+      - name: Verify checked operating characteristics
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          checked = json.loads(
+              Path("data/results/cross_archipelago_replication_simulation.json").read_text()
+          )
+          generated = json.loads(
+              Path("artifacts/cross_archipelago_replication/report.json").read_text()
+          )
+          assert checked["analysis_status"] == generated["analysis_status"]
+          assert checked["simulation"] == generated["simulation"]
+          checked_rows = {
+              (
+                  row["scenario_id"],
+                  row["population_mean"],
+                  row["between_archipelago_sd"],
+              ): row
+              for row in checked["scenario_results"]
+          }
+          generated_rows = {
+              (
+                  row["scenario_id"],
+                  row["population_mean"],
+                  row["between_archipelago_sd"],
+              ): row
+              for row in generated["scenario_results"]
+          }
+          assert checked_rows.keys() == generated_rows.keys()
+          for key in checked_rows:
+              left = checked_rows[key]
+              right = generated_rows[key]
+              for block in ("naive_island_level", "system_level"):
+                  for metric in (
+                      "mean_estimate",
+                      "mean_reported_se",
+                      "empirical_sd_of_estimates",
+                      "coverage_of_population_mean",
+                      "positive_detection_probability",
+                      "negative_detection_probability",
+                      "type_s_false_direction_probability",
+                  ):
+                      assert math.isclose(
+                          left[block][metric],
+                          right[block][metric],
+                          rel_tol=0,
+                          abs_tol=1e-12,
+                      )
+              assert math.isclose(
+                  left["reported_se_ratio_naive_to_system"],
+                  right["reported_se_ratio_naive_to_system"],
+                  rel_tol=0,
+                  abs_tol=1e-12,
+              )
+          PY
+      - name: Upload reproducible report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-archipelago-replication-simulation
+          path: artifacts/cross_archipelago_replication/
