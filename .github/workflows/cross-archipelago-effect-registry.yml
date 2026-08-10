@@ -1,0 +1,61 @@
+name: Cross-archipelago effect registry
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/compile_cross_archipelago_effect_registry.py"
+      - "tests/test_cross_archipelago_effect_registry.py"
+      - "data/results/cross_archipelago_effect_registry.csv"
+      - "data/results/cross_archipelago_effect_registry_summary.json"
+      - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
+      - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
+      - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
+      - "data/results/wanshan_yongxing/**"
+      - "data/results/ogasawara/**"
+      - "data/results/galapagos/**"
+      - "data/results/southwest_pacific_pairs/**"
+      - ".github/workflows/cross-archipelago-effect-registry.yml"
+  pull_request:
+    paths:
+      - "scripts/compile_cross_archipelago_effect_registry.py"
+      - "tests/test_cross_archipelago_effect_registry.py"
+      - "data/results/cross_archipelago_effect_registry.csv"
+      - "data/results/cross_archipelago_effect_registry_summary.json"
+      - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
+      - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
+      - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
+      - "data/results/wanshan_yongxing/**"
+      - "data/results/ogasawara/**"
+      - "data/results/galapagos/**"
+      - "data/results/southwest_pacific_pairs/**"
+      - ".github/workflows/cross-archipelago-effect-registry.yml"
+
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and tests
+        run: python -m pip install -e . pytest
+      - name: Run effect-admission tests
+        run: python -m pytest -q tests/test_cross_archipelago_effect_registry.py
+      - name: Recompile registry
+        run: >-
+          python scripts/compile_cross_archipelago_effect_registry.py
+          --csv-output artifacts/cross_archipelago_effect_registry/registry.csv
+          --summary-output artifacts/cross_archipelago_effect_registry/summary.json
+      - name: Verify checked registry
+        run: |
+          cmp artifacts/cross_archipelago_effect_registry/registry.csv \
+              data/results/cross_archipelago_effect_registry.csv
+          cmp artifacts/cross_archipelago_effect_registry/summary.json \
+              data/results/cross_archipelago_effect_registry_summary.json
+      - name: Upload registry audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-archipelago-effect-registry
+          path: artifacts/cross_archipelago_effect_registry/
