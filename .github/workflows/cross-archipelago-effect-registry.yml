@@ -6,12 +6,15 @@ on:
     paths:
       - "channel_id/paired_effect_uncertainty.py"
       - "scripts/compile_cross_archipelago_effect_registry.py"
+      - "scripts/augment_cross_archipelago_effect_registry.py"
       - "scripts/summarize_wanshan_yongxing_effects.py"
       - "tests/test_cross_archipelago_effect_registry.py"
+      - "tests/test_cross_archipelago_effect_registry_augmentation.py"
       - "tests/test_wanshan_yongxing_effects.py"
       - "data/results/cross_archipelago_effect_registry.csv"
       - "data/results/cross_archipelago_effect_registry_summary.json"
       - "data/results/wanshan_yongxing/effect_rows.json"
+      - "data/results/ogasawara/context_analysis/effect_rows.json"
       - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
       - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
       - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
@@ -24,12 +27,15 @@ on:
     paths:
       - "channel_id/paired_effect_uncertainty.py"
       - "scripts/compile_cross_archipelago_effect_registry.py"
+      - "scripts/augment_cross_archipelago_effect_registry.py"
       - "scripts/summarize_wanshan_yongxing_effects.py"
       - "tests/test_cross_archipelago_effect_registry.py"
+      - "tests/test_cross_archipelago_effect_registry_augmentation.py"
       - "tests/test_wanshan_yongxing_effects.py"
       - "data/results/cross_archipelago_effect_registry.csv"
       - "data/results/cross_archipelago_effect_registry_summary.json"
       - "data/results/wanshan_yongxing/effect_rows.json"
+      - "data/results/ogasawara/context_analysis/effect_rows.json"
       - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
       - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
       - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
@@ -53,12 +59,19 @@ jobs:
         run: >-
           python -m pytest -q
           tests/test_cross_archipelago_effect_registry.py
+          tests/test_cross_archipelago_effect_registry_augmentation.py
           tests/test_wanshan_yongxing_effects.py
-      - name: Recompile registry
+      - name: Recompile base registry
         run: >-
           python scripts/compile_cross_archipelago_effect_registry.py
           --csv-output artifacts/cross_archipelago_effect_registry/registry.csv
           --summary-output artifacts/cross_archipelago_effect_registry/summary.json
+      - name: Admit source-specific Ogasawara context effects
+        run: >-
+          python scripts/augment_cross_archipelago_effect_registry.py
+          --registry artifacts/cross_archipelago_effect_registry/registry.csv
+          --summary artifacts/cross_archipelago_effect_registry/summary.json
+          --ogasawara-effects data/results/ogasawara/context_analysis/effect_rows.json
       - name: Verify checked registry
         run: |
           cmp artifacts/cross_archipelago_effect_registry/registry.csv \
