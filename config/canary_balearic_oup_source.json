@@ -1,0 +1,17 @@
+{
+  "source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
+  "article_doi": "10.1111/boj.12134",
+  "landing_page_url": "https://academic.oup.com/botlinnean/article/174/3/478/2416390",
+  "crossref_url": "https://api.crossref.org/works/10.1111%2Fboj.12134",
+  "external_validation_role": "replicated_oceanic_vs_continental_island_flower_visitation_networks",
+  "expected_context_to_verify_from_source": [
+    "two Canary Island oceanic-island communities",
+    "two Balearic Island continental-island communities",
+    "quantitative plant by flower-visitor interaction matrices or source-native network metrics",
+    "sampling locality, period and effort",
+    "plant and pollinator labels",
+    "network-level species richness, interaction diversity, connectance, nestedness or specialisation definitions",
+    "community identity nested within archipelago and geological origin"
+  ],
+  "claim_boundary": "The source can provide an independent oceanic-versus-continental island network contrast. It does not measure pollinator effectiveness, single-visit pollen deposition, plant effective dependency, reproductive success, or historical selection. Two communities per island system do not by themselves establish a universal geological-origin effect."
+}
