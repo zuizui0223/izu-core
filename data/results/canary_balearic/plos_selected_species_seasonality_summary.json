@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "status": "selected_species_seasonality_screen_complete",
+  "source_id": "castro_urgal_traveset_2016_plos_same_communities",
+  "article_doi": "10.1371/journal.pone.0150824",
+  "target_source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
+  "target_article_doi": "10.1111/boj.12134",
+  "n_input_rows": 457,
+  "unique_species_codes_by_domain": {
+    "flower_visitor": 51,
+    "plant": 52
+  },
+  "n_species_community_delta_rows": 475,
+  "n_species_level_delta_rows": 445,
+  "n_profile_rows": 24,
+  "bootstrap_repetitions": 10000,
+  "n_nominal_sign_tests_below_0_05": 3,
+  "n_bh_q_values_below_0_05": 0,
+  "minimum_bh_q_value": 0.305419921875,
+  "nominal_profile_keys": [
+    {
+      "resolved_domain": "plant",
+      "specificity": "Generalized",
+      "metric": "partner_abundance_evenness",
+      "median_first_last_delta": 0.109,
+      "exact_sign_test_two_sided": 0.049041748046875,
+      "bh_q_value": 0.3375
+    },
+    {
+      "resolved_domain": "plant",
+      "specificity": "Opportunistic",
+      "metric": "partner_abundance_evenness",
+      "median_first_last_delta": 0.05499999999999999,
+      "exact_sign_test_two_sided": 0.012725830078125,
+      "bh_q_value": 0.305419921875
+    },
+    {
+      "resolved_domain": "plant",
+      "specificity": "Selective",
+      "metric": "partner_functional_richness",
+      "median_first_last_delta": 1.0,
+      "exact_sign_test_two_sided": 0.03857421875,
+      "bh_q_value": 0.3375
+    }
+  ],
+  "raw_interaction_edges_available": false,
+  "full_network_matrix_available": false,
+  "effect_registry_eligible": false,
+  "selection_boundary": "Species were deliberately selected from extreme linkage or selectiveness classes and had to occur in at least two temporal networks. Generalized/specialized and opportunistic/selective are overlapping selection axes, so the 24 profile rows are not independent biological replicates.",
+  "independence_boundary": "First-last changes are calculated within species x community x selection class, then averaged within species across communities. Monthly rows are repeated observations; two communities on one island do not create independent geological-origin replicates.",
+  "reading": "The selected-species screen produced 3 nominal sign-test results below 0.05 across 24 profile families, but 0 remained below a Benjamini-Hochberg q-value of 0.05. The source therefore supports heterogeneous seasonal partner-trait trajectories, not a common multiplicity-robust direction or a geological-origin effect.",
+  "claim_boundary": "This is a selected-species, within-source seasonal description. It does not reconstruct plant-by-visitor edges, estimate a full network response, measure pollinator effectiveness or effective dependency, or identify continental-versus-oceanic island causation."
+}
