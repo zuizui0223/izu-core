@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "analysis_status": "synthetic_design_operating_characteristics",
+  "configuration_path": "data/design/dependency_fdq_design_scenarios.json",
+  "seed": 20260810,
+  "replicates": {
+    "null_calibration": 250,
+    "null_validation": 250,
+    "per_effect": 400
+  },
+  "scenario_results": [
+    {
+      "scenario_id": "survivor_proxy_current",
+      "taxa": 9,
+      "sites": 8,
+      "seasons": 5,
+      "rows": 105,
+      "dependency_span": 0.4,
+      "dependency_reliability": 0.5,
+      "null_false_positive_rate": 0.06,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.18041234595020825,
+          "attenuation_ratio": 0.4510308648755206,
+          "sign_recovery": 0.6425,
+          "detection_probability": 0.065,
+          "detection_mc_se": 0.01232629303562105
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.37927597035393523,
+          "attenuation_ratio": 0.47409496294241904,
+          "sign_recovery": 0.745,
+          "detection_probability": 0.0825,
+          "detection_mc_se": 0.01375624858019075
+        }
+      ]
+    },
+    {
+      "scenario_id": "survivor_proxy_more_seasons",
+      "taxa": 9,
+      "sites": 8,
+      "seasons": 10,
+      "rows": 210,
+      "dependency_span": 0.4,
+      "dependency_reliability": 0.5,
+      "null_false_positive_rate": 0.044,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.2388096234370598,
+          "attenuation_ratio": 0.5970240585926495,
+          "sign_recovery": 0.75,
+          "detection_probability": 0.075,
+          "detection_mc_se": 0.013169567191065924
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.4111377363747048,
+          "attenuation_ratio": 0.513922170468381,
+          "sign_recovery": 0.8625,
+          "detection_probability": 0.1825,
+          "detection_mc_se": 0.019312803395675107
+        }
+      ]
+    },
+    {
+      "scenario_id": "survivor_proxy_more_sites",
+      "taxa": 9,
+      "sites": 12,
+      "seasons": 5,
+      "rows": 158,
+      "dependency_span": 0.4,
+      "dependency_reliability": 0.5,
+      "null_false_positive_rate": 0.068,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.25906005589540515,
+          "attenuation_ratio": 0.6476501397385128,
+          "sign_recovery": 0.695,
+          "detection_probability": 0.085,
+          "detection_mc_se": 0.013944084767384343
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.4798399314137753,
+          "attenuation_ratio": 0.5997999142672191,
+          "sign_recovery": 0.8525,
+          "detection_probability": 0.2175,
+          "detection_mc_se": 0.02062727260206739
+        }
+      ]
+    },
+    {
+      "scenario_id": "direct_narrow_9",
+      "taxa": 9,
+      "sites": 8,
+      "seasons": 5,
+      "rows": 180,
+      "dependency_span": 0.4,
+      "dependency_reliability": 0.85,
+      "null_false_positive_rate": 0.04,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.34334587540815836,
+          "attenuation_ratio": 0.8583646885203958,
+          "sign_recovery": 0.735,
+          "detection_probability": 0.125,
+          "detection_mc_se": 0.016535945694153693
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.7376829537606533,
+          "attenuation_ratio": 0.9221036922008166,
+          "sign_recovery": 0.94,
+          "detection_probability": 0.24,
+          "detection_mc_se": 0.021354156504062624
+        }
+      ]
+    },
+    {
+      "scenario_id": "direct_add_high_endpoint",
+      "taxa": 10,
+      "sites": 8,
+      "seasons": 5,
+      "rows": 200,
+      "dependency_span": 0.8,
+      "dependency_reliability": 0.85,
+      "null_false_positive_rate": 0.06,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.35078115671071036,
+          "attenuation_ratio": 0.8769528917767758,
+          "sign_recovery": 0.9075,
+          "detection_probability": 0.2475,
+          "detection_mc_se": 0.021577983571223702
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.7105273736540673,
+          "attenuation_ratio": 0.888159217067584,
+          "sign_recovery": 0.9925,
+          "detection_probability": 0.685,
+          "detection_mc_se": 0.02322579385080303
+        }
+      ]
+    },
+    {
+      "scenario_id": "direct_full_span_10",
+      "taxa": 10,
+      "sites": 8,
+      "seasons": 5,
+      "rows": 200,
+      "dependency_span": 0.9,
+      "dependency_reliability": 0.85,
+      "null_false_positive_rate": 0.044,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.3687222287156827,
+          "attenuation_ratio": 0.9218055717892067,
+          "sign_recovery": 0.95,
+          "detection_probability": 0.4275,
+          "detection_mc_se": 0.02473579137606072
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.745018231256213,
+          "attenuation_ratio": 0.9312727890702662,
+          "sign_recovery": 1.0,
+          "detection_probability": 0.915,
+          "detection_mc_se": 0.013944084767384337
+        }
+      ]
+    },
+    {
+      "scenario_id": "direct_narrow_16",
+      "taxa": 16,
+      "sites": 8,
+      "seasons": 5,
+      "rows": 320,
+      "dependency_span": 0.4,
+      "dependency_reliability": 0.85,
+      "null_false_positive_rate": 0.06,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.3513571011358748,
+          "attenuation_ratio": 0.878392752839687,
+          "sign_recovery": 0.82,
+          "detection_probability": 0.2125,
+          "detection_mc_se": 0.020453835214941964
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.7246018849035427,
+          "attenuation_ratio": 0.9057523561294284,
+          "sign_recovery": 0.9875,
+          "detection_probability": 0.5075,
+          "detection_mc_se": 0.024997187341779074
+        }
+      ]
+    },
+    {
+      "scenario_id": "direct_full_span_16",
+      "taxa": 16,
+      "sites": 8,
+      "seasons": 5,
+      "rows": 320,
+      "dependency_span": 0.9,
+      "dependency_reliability": 0.85,
+      "null_false_positive_rate": 0.06,
+      "effect_results": [
+        {
+          "synthetic_interaction": 0.4,
+          "mean_estimate": 0.36027089092653897,
+          "attenuation_ratio": 0.9006772273163474,
+          "sign_recovery": 0.985,
+          "detection_probability": 0.525,
+          "detection_mc_se": 0.02496873044429772
+        },
+        {
+          "synthetic_interaction": 0.8,
+          "mean_estimate": 0.7113550660090988,
+          "attenuation_ratio": 0.8891938325113735,
+          "sign_recovery": 1.0,
+          "detection_probability": 0.9725,
+          "detection_mc_se": 0.00817675822071314
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "This simulation ranks prospective designs under declared synthetic alternatives. It does not estimate empirical power, an empirical dependency x FDQ coefficient, historical selection, Bombus causation, or a causal Oshima-Toshima boundary effect."
+}
