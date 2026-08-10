@@ -17,9 +17,9 @@ SPEC.loader.exec_module(MODULE)
 def test_parse_visitor_rows_carries_specificity_zone_and_species_context():
     lines = [
         "Specificity Zone sp.cod Month L Functional richness Rank abundance Evenness",
-        "Generalized CB las.sp 1 (January) 3 3 3.00 0.314",
+        "Generalized CB las.sp 1(January) 3 3 3.00 0.314",
         "las.sp 2 (February) 7 5 2.57 0.362",
-        "CM api.mel 1 (April) 3 2 3.67 0.207",
+        "CM api.mel 1(April) 3 2 3.67 0.207",
     ]
     rows = MODULE.parse_derived_lines(
         lines,
@@ -27,10 +27,13 @@ def test_parse_visitor_rows_carries_specificity_zone_and_species_context():
         resolved_domain="flower_visitor",
     )
     assert len(rows) == 3
+    assert rows[0]["month_index"] == 1
+    assert rows[0]["month_label"] == "January"
     assert rows[1]["specificity"] == "Generalized"
     assert rows[1]["zone"] == "CB"
     assert rows[1]["month_label"] == "February"
     assert rows[2]["zone"] == "CM"
+    assert rows[2]["month_label"] == "April"
     assert rows[2]["classification_metric"] == "L"
     assert rows[2]["geological_origin"] == "continental_island_system"
 
