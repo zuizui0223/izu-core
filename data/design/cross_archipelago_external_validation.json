@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "status": "external_validation_expansion_active",
+  "mechanistic_anchor": {
+    "system": "Izu Islands",
+    "role": "high-resolution historical plus contemporary mechanism anchor",
+    "reason": "Campanula history, mating-system channels, contemporary network structure, and prospective SVD/reproductive-dependency measurements can be linked at unusually high resolution."
+  },
+  "analysis_rule": "Estimate source-native within-system effects first; compare effects across systems second. Do not pool community networks, population contrasts, sister-taxon comparisons, reproductive experiments, and historical records as exchangeable raw rows.",
+  "systems": [
+    {
+      "system_id": "wanshan_yongxing_2025",
+      "priority": 1,
+      "status": "active_source_acquisition_and_reanalysis",
+      "article_doi": "10.1111/btp.70027",
+      "dataset_doi": "10.5061/dryad.t76hdr8bj",
+      "geographic_design": "one continental island versus one oceanic coral island",
+      "source_native_units": ["whole-community visitation matrix", "matched seven-plant visitation subnetwork"],
+      "direct_dependency_available": false,
+      "pollen_or_reproductive_function_available": false,
+      "admissible_question": "Do shared plants experience lower visitation/partner richness and pollinator-assemblage turnover on the oceanic island?",
+      "forbidden_promotion": "Do not call visitation FDQ, trait matching, pollinator effectiveness, effective dependency, or replicated island-origin causation."
+    },
+    {
+      "system_id": "ogasawara_quitian_2026",
+      "priority": 2,
+      "status": "queued_open_source_acquisition",
+      "dataset_doi": "10.5281/zenodo.19221853",
+      "license": "CC-BY-4.0",
+      "geographic_design": "four oceanic islands with site, forest, anole and seasonal contexts",
+      "source_native_units": ["legitimate plant-pollinator interaction events"],
+      "direct_dependency_available": false,
+      "pollen_or_reproductive_function_available": false,
+      "admissible_question": "How do invasion and habitat contexts restructure legitimate interactions within an oceanic archipelago?",
+      "forbidden_promotion": "Do not use Ogasawara as a direct mainland-distance replicate or infer per-visit effectiveness from interaction counts."
+    },
+    {
+      "system_id": "galapagos_nnakenyi_2019",
+      "priority": 3,
+      "status": "queued_open_source_acquisition",
+      "dataset_doi": "10.5061/dryad.0c3cn5f",
+      "geographic_design": "ten oceanic islands with area, isolation, age and sampling effort",
+      "source_native_units": ["island pollination networks", "island biogeographic covariates"],
+      "direct_dependency_available": false,
+      "pollen_or_reproductive_function_available": false,
+      "admissible_question": "How much network structure and turnover remain after explicitly auditing sampling effort and island context?",
+      "forbidden_promotion": "Adaptive interaction switching and nestedness are not direct effective-dependency evidence."
+    },
+    {
+      "system_id": "southwest_pacific_ciarle_2025",
+      "priority": 4,
+      "status": "primary_table_recovery_required",
+      "article_doi": "10.1093/aob/mcaf005",
+      "geographic_design": "129 independent island-endemic versus mainland-relative colonisation events across ten archipelagos",
+      "source_native_units": ["sister-taxon floral trait contrast"],
+      "direct_dependency_available": false,
+      "pollen_or_reproductive_function_available": false,
+      "admissible_question": "Does flower-size response depend on mainland starting size and pollination mode?",
+      "forbidden_promotion": "Sister-taxon morphology is not contemporary network function or a direct pollinator-causation test."
+    }
+  ],
+  "harmonisation_fields": [
+    "source DOI and dataset DOI",
+    "license, version, checksum and lawful acquisition route",
+    "source-defined sampling unit",
+    "mainland or source-pool definition",
+    "geological origin, island age, source distance and stepping-stone context",
+    "sampling year, season and effort",
+    "plant identity, lineage and hybrid status",
+    "interaction measurement level",
+    "direct effective-dependency status",
+    "survivor, non-establishment, hybrid-replacement or rewiring status",
+    "response channel",
+    "allowed claim level and prohibited causal interpretation"
+  ],
+  "claim_boundary": "External systems test recurrence and boundary conditions. They do not retroactively identify historical Bombus causation in Izu, and absolute mainland distance is not treated as a universal exposure across archipelagos."
+}

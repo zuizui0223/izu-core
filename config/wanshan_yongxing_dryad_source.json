@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "source_id": "wang_etal_2025_wanshan_yongxing",
+  "article_title": "Differences in Plant–Pollinator Network Structure and Pollinator Importance Between a Continental and an Oceanic Island Community",
+  "article_doi": "10.1111/btp.70027",
+  "dataset_doi": "10.5061/dryad.t76hdr8bj",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.t76hdr8bj",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.t76hdr8bj",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.t76hdr8bj/versions",
+  "known_file": {
+    "file_id": 3999470,
+    "filename": "The_plant-pollinator_interaction_data_in_this_study..xlsx",
+    "reported_size_bytes_approx": 30730
+  },
+  "public_download_candidates": [
+    "https://datadryad.org/downloads/file_stream/3999470",
+    "https://datadryad.org/stash/downloads/file_stream/3999470",
+    "https://datadryad.org/api/v2/files/3999470/download",
+    "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.t76hdr8bj/download"
+  ],
+  "sheet_roles": [
+    {"sheet_index": 0, "role": "wanshan_full", "island": "Wanshan", "comparison_scope": "whole_community"},
+    {"sheet_index": 1, "role": "yongxing_full", "island": "Yongxing", "comparison_scope": "whole_community"},
+    {"sheet_index": 2, "role": "wanshan_shared_plants", "island": "Wanshan", "comparison_scope": "seven_shared_plants"},
+    {"sheet_index": 3, "role": "yongxing_shared_plants", "island": "Yongxing", "comparison_scope": "seven_shared_plants"}
+  ],
+  "expected_shared_plant_count": 7,
+  "source_reported_site_context": {
+    "Wanshan": {
+      "island_origin": "continental_island_separated_by_Holocene_sea_level_rise",
+      "distance_to_source_km": 40,
+      "source_reference": "Zhuhai city/mainland China",
+      "area_km2": 8.2,
+      "sampling_window": "2019-07-01 to 2019-08-30"
+    },
+    "Yongxing": {
+      "island_origin": "oceanic_coral_island",
+      "distance_to_source_km": 350,
+      "source_reference": "southeast Hainan Island",
+      "area_km2": 2.6,
+      "sampling_window": "2018-07-01 to 2018-08-30"
+    }
+  },
+  "interaction_definition": "visits in which a visitor body touched reproductive organs for more than one second; matrix values are flower visitation rates standardized by flowers observed and censuses",
+  "claim_boundary": "One continental island and one oceanic island were sampled in different years. The workbook measures visitation-rate networks and shared-plant pollinator assemblages, not FDQ, trait matching, pollen deposition, reproductive success, or effective pollinator dependency."
+}
