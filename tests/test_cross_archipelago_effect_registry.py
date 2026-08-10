@@ -1,4 +1,3 @@
-import csv
 import json
 from pathlib import Path
 
@@ -59,7 +58,9 @@ def test_external_island_pairs_remain_nested_descriptive_rows(tmp_path: Path):
     rows, summary = compile_registry(tmp_path)
     galapagos = [row for row in rows if row["system_id"] == "galapagos_networks"]
     assert len(galapagos) == 2
-    assert {row["system_cluster"] for row in galapagos} == {"galapagos_oceanic_archipelago"}
+    assert {row["system_cluster"] for row in galapagos} == {
+        "galapagos_oceanic_archipelago"
+    }
     assert all(row["row_role"] == "descriptive_within_system" for row in galapagos)
     assert all(row["uncertainty_type"] == "none" for row in galapagos)
     assert all(row["cross_system_model_eligible"] == "no" for row in galapagos)
@@ -83,11 +84,56 @@ def test_blocked_sources_are_retained_instead_of_becoming_zeros(tmp_path: Path):
     assert ogasawara[0]["cross_system_model_eligible"] == "no"
 
 
-def test_current_repository_registry_keeps_formal_meta_analysis_closed():
+def test_one_external_effect_document_opens_rows_but_not_meta_analysis(tmp_path: Path):
+    write_json(
+        tmp_path,
+        "data/results/wanshan_yongxing/effect_rows.json",
+        {
+            "status": "effect_rows_ready_single_external_system",
+            "effects": [
+                {
+                    "effect_id": "wanshan_visitation_lrr",
+                    "system_id": "wanshan_yongxing",
+                    "system_cluster": "wanshan_yongxing_paired_system",
+                    "evidence_family": "matched_shared_plant_visitation_log_response_ratio",
+                    "response": "visitation_log_response_ratio",
+                    "predictor_or_contrast": "oceanic versus continental island",
+                    "estimate": -2.5,
+                    "uncertainty_type": "exact_nonparametric_bootstrap_percentile_interval_for_median",
+                    "uncertainty_value": [-3.3, -2.1],
+                    "unit": "ln response ratio",
+                    "independent_unit": "seven matched plant species within one island pair",
+                    "row_role": "external_effect",
+                    "admission_status": "empirical_numeric_effect_with_plant_level_uncertainty_single_system",
+                    "cross_system_model_eligible": True,
+                    "causal_claim_allowed": False,
+                    "notes": "Plant bootstrap is not geographic replication.",
+                }
+            ],
+        },
+    )
+    rows, summary = compile_registry(tmp_path)
+    wanshan = [row for row in rows if row["system_id"] == "wanshan_yongxing"]
+    assert len(wanshan) == 1
+    assert wanshan[0]["cross_system_model_eligible"] == "yes"
+    assert wanshan[0]["uncertainty_value"] == "[-3.3,-2.1]"
+    assert summary["cross_system_model_eligible_rows"] == 1
+    assert summary["cross_system_model_eligible_systems"] == [
+        "wanshan_yongxing_paired_system"
+    ]
+    assert summary["effect_families_with_two_or_more_independent_systems"] == []
+    assert summary["formal_cross_system_fit_ready"] is False
+
+
+def test_current_repository_has_first_external_effects_but_keeps_formal_fit_closed():
     root = Path(__file__).resolve().parents[1]
     rows, summary = compile_registry(root)
     assert rows
     assert summary["formal_cross_system_fit_ready"] is False
-    assert summary["cross_system_model_eligible_rows"] == 0
+    assert summary["cross_system_model_eligible_rows"] == 3
+    assert summary["external_model_eligible_rows"] == 3
+    assert summary["cross_system_model_eligible_systems"] == [
+        "wanshan_yongxing_paired_system"
+    ]
     assert summary["effect_families_with_two_or_more_independent_systems"] == []
     assert all(row["causal_claim_allowed"] == "no" for row in rows)
