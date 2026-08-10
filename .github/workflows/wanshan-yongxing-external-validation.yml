@@ -6,8 +6,10 @@ on:
     paths:
       - "channel_id/external_archipelago_network.py"
       - "config/wanshan_yongxing_dryad_source.json"
+      - "config/wanshan_yongxing_dryad_version_lock.json"
       - "data/design/cross_archipelago_external_validation.json"
       - "scripts/acquire_wanshan_yongxing_dryad.py"
+      - "scripts/acquire_wanshan_yongxing_presigned.py"
       - "scripts/analyze_wanshan_yongxing_networks.py"
       - "tests/test_external_archipelago_network.py"
       - "tests/test_cross_archipelago_external_validation.py"
@@ -17,8 +19,10 @@ on:
     paths:
       - "channel_id/external_archipelago_network.py"
       - "config/wanshan_yongxing_dryad_source.json"
+      - "config/wanshan_yongxing_dryad_version_lock.json"
       - "data/design/cross_archipelago_external_validation.json"
       - "scripts/acquire_wanshan_yongxing_dryad.py"
+      - "scripts/acquire_wanshan_yongxing_presigned.py"
       - "scripts/analyze_wanshan_yongxing_networks.py"
       - "tests/test_external_archipelago_network.py"
       - "tests/test_cross_archipelago_external_validation.py"
@@ -43,7 +47,9 @@ jobs:
       - name: Acquire source-native Dryad workbook
         id: acquire
         continue-on-error: true
-        run: python scripts/acquire_wanshan_yongxing_dryad.py
+        run: |
+          python scripts/acquire_wanshan_yongxing_dryad.py || \
+          python scripts/acquire_wanshan_yongxing_presigned.py
       - name: Reanalyse whole and matched shared-plant networks
         if: steps.acquire.outcome == 'success'
         run: python scripts/analyze_wanshan_yongxing_networks.py
