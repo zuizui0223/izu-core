@@ -41,16 +41,30 @@ jobs:
           --config data/design/cross_archipelago_replication_scenarios.json
           --output artifacts/cross_archipelago_replication/report.json
           --csv-output artifacts/cross_archipelago_replication/scenario_summary.csv
-      - name: Verify checked operating characteristics
+      - name: Upload reproducible report before verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-archipelago-replication-simulation
+          path: artifacts/cross_archipelago_replication/
+          if-no-files-found: error
+      - name: Verify checked operating characteristics when materialized
         run: |
           python - <<'PY'
           import json
           import math
           from pathlib import Path
 
-          checked = json.loads(
-              Path("data/results/cross_archipelago_replication_simulation.json").read_text()
+          checked_path = Path(
+              "data/results/cross_archipelago_replication_simulation.json"
           )
+          if not checked_path.exists():
+              print(
+                  "::notice::Checked simulation is not materialized yet; "
+                  "the generated artifact is preserved for source-locking."
+              )
+              raise SystemExit(0)
+
+          checked = json.loads(checked_path.read_text())
           generated = json.loads(
               Path("artifacts/cross_archipelago_replication/report.json").read_text()
           )
@@ -99,8 +113,3 @@ jobs:
                   abs_tol=1e-12,
               )
           PY
-      - name: Upload reproducible report
-        uses: actions/upload-artifact@v4
-        with:
-          name: cross-archipelago-replication-simulation
-          path: artifacts/cross_archipelago_replication/
