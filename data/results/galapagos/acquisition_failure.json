@@ -1,0 +1,6 @@
+{
+  "status": "acquisition_failed_without_inventory",
+  "source_id": "galapagos_pollination_networks",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "claim_boundary": "No biological result is inferred from a failed acquisition."
+}
