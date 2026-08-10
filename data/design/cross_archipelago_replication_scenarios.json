@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Compare a fixed total island-unit budget allocated to deep within-archipelago sampling versus replication across independently evolved archipelagos.",
+  "simulation": {
+    "seed": 20260810,
+    "replicates": 4000,
+    "confidence": 0.95,
+    "population_means": [0.0, 0.3],
+    "between_archipelago_sds": [0.0, 0.2, 0.5],
+    "within_archipelago_sd": 0.4
+  },
+  "scenarios": [
+    {
+      "scenario_id": "two_archipelagos_deep",
+      "n_archipelagos": 2,
+      "islands_per_archipelago": 12,
+      "description": "Twenty-four island units concentrated in two independent systems."
+    },
+    {
+      "scenario_id": "four_archipelagos",
+      "n_archipelagos": 4,
+      "islands_per_archipelago": 6,
+      "description": "Twenty-four island units distributed across four independent systems."
+    },
+    {
+      "scenario_id": "eight_archipelagos",
+      "n_archipelagos": 8,
+      "islands_per_archipelago": 3,
+      "description": "Twenty-four island units distributed across eight independent systems."
+    },
+    {
+      "scenario_id": "twelve_archipelagos",
+      "n_archipelagos": 12,
+      "islands_per_archipelago": 2,
+      "description": "Twenty-four island units distributed across twelve independent systems."
+    },
+    {
+      "scenario_id": "twentyfour_archipelagos_shallow",
+      "n_archipelagos": 24,
+      "islands_per_archipelago": 1,
+      "description": "Twenty-four independent systems sampled once each; an upper-bound replication diagnostic rather than a literal field recommendation."
+    }
+  ],
+  "claim_boundary": "All effects and variance components are synthetic. Archipelago means are equal-weight diagnostics, not a final random-effects meta-analysis or an empirical sample-size recommendation."
+}
