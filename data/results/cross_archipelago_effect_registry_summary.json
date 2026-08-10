@@ -1,15 +1,16 @@
 {
-  "schema_version": "1.1",
-  "total_registry_rows": 13,
-  "empirical_numeric_rows": 10,
-  "numeric_rows_with_effect_uncertainty": 3,
+  "schema_version": "1.2",
+  "total_registry_rows": 15,
+  "empirical_numeric_rows": 13,
+  "numeric_rows_with_effect_uncertainty": 6,
   "cross_system_model_eligible_rows": 3,
   "cross_system_model_eligible_systems": [
     "wanshan_yongxing_paired_system"
   ],
   "external_model_eligible_rows": 3,
+  "external_context_effect_rows": 3,
   "effect_families_with_two_or_more_independent_systems": [],
   "formal_cross_system_fit_ready": false,
-  "reading": "Wanshan-Yongxing now contributes source-native matched-plant effects with plant-level uncertainty, but it is still one paired system. Compatible effect-level uncertainty is not yet present in a second independent system, so raw island or plant rows must not be pooled to bypass the gate.",
-  "claim_boundary": "Readiness counts do not estimate a biological mean effect, heterogeneity or causality. Correlated subsets and island pairs within one archipelago count as one system cluster; plant-level bootstrap uncertainty does not create geographic replication."
+  "reading": "Wanshan-Yongxing supplies three source-native matched-plant effects with plant-level uncertainty. Ogasawara now supplies three numeric Anijima anole-context effects, but those rows are context-specific and not commensurate with the continental-island/oceanic-island contrast. No compatible effect family yet has uncertainty in two independent system clusters.",
+  "claim_boundary": "Plant-level bootstrap uncertainty does not create independent islands, invasion contexts, or archipelagos. Effect rows with different exposures must not be pooled merely because their response metric is similar."
 }
