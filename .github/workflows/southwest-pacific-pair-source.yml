@@ -8,8 +8,12 @@ on:
       - "scripts/acquire_oup_supplementary_data.py"
       - "scripts/acquire_oup_supplementary_data_v2.py"
       - "scripts/audit_southwest_pacific_pair_schema.py"
+      - "scripts/analyze_southwest_pacific_flower_size.py"
+      - "scripts/summarize_southwest_pacific_flower_size.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_southwest_pacific_pair_schema.py"
+      - "tests/test_southwest_pacific_flower_size_analysis.py"
+      - "data/results/southwest_pacific_pairs/**"
       - ".github/workflows/southwest-pacific-pair-source.yml"
   pull_request:
     paths:
@@ -17,15 +21,19 @@ on:
       - "scripts/acquire_oup_supplementary_data.py"
       - "scripts/acquire_oup_supplementary_data_v2.py"
       - "scripts/audit_southwest_pacific_pair_schema.py"
+      - "scripts/analyze_southwest_pacific_flower_size.py"
+      - "scripts/summarize_southwest_pacific_flower_size.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_southwest_pacific_pair_schema.py"
+      - "tests/test_southwest_pacific_flower_size_analysis.py"
+      - "data/results/southwest_pacific_pairs/**"
       - ".github/workflows/southwest-pacific-pair-source.yml"
 
 permissions:
   contents: write
 
 jobs:
-  acquire-and-audit:
+  acquire-audit-and-analyse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,11 +45,12 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: python -m pip install -e . openpyxl python-docx pytest
-      - name: Test acquisition and admission guards
+      - name: Test acquisition, admission, and source-analysis guards
         run: >-
           python -m pytest -q
           tests/test_oup_supplementary_acquisition.py
           tests/test_southwest_pacific_pair_schema.py
+          tests/test_southwest_pacific_flower_size_analysis.py
       - name: Discover and acquire public supplementary files
         id: acquire
         continue-on-error: true
@@ -55,6 +64,43 @@ jobs:
           python scripts/audit_southwest_pacific_pair_schema.py
           --input-dir artifacts/southwest_pacific_aob
           --output artifacts/southwest_pacific_aob/schema_audit.json
+      - name: Run the source-native 129-pair flower-size analysis
+        if: steps.acquire.outcome == 'success'
+        run: >-
+          python scripts/analyze_southwest_pacific_flower_size.py
+          --input-dir artifacts/southwest_pacific_aob
+          --output-dir artifacts/southwest_pacific_analysis
+          --bootstrap-repetitions 5000
+      - name: Build compact checked analysis summary
+        if: steps.acquire.outcome == 'success'
+        run: >-
+          python scripts/summarize_southwest_pacific_flower_size.py
+          --analysis artifacts/southwest_pacific_analysis/analysis.json
+          --output artifacts/southwest_pacific_analysis/analysis_summary.json
+      - name: Verify checked source-native results
+        if: steps.acquire.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          checked = Path("data/results/southwest_pacific_pairs")
+          generated = Path("artifacts/southwest_pacific_analysis")
+          for filename in ("source_lock.json", "analysis_summary.json", "effect_rows.json"):
+              expected = json.loads((checked / filename).read_text(encoding="utf-8"))
+              observed = json.loads((generated / filename).read_text(encoding="utf-8"))
+              if expected != observed:
+                  raise SystemExit(f"checked Southwest Pacific result drift: {filename}")
+
+          def rows(path):
+              with path.open(encoding="utf-8", newline="") as handle:
+                  return list(csv.DictReader(handle))
+
+          if rows(checked / "subgroup_slopes.csv") != rows(generated / "subgroup_slopes.csv"):
+              raise SystemExit("checked Southwest Pacific subgroup table drift")
+          print("checked Southwest Pacific analysis matches source regeneration")
+          PY
       - name: Materialize compact source state
         if: always()
         run: |
@@ -67,9 +113,10 @@ jobs:
           schema_path = Path("artifacts/southwest_pacific_aob/schema_audit.json")
           out = Path("data/results/southwest_pacific_pairs")
           out.mkdir(parents=True, exist_ok=True)
-          for old in out.iterdir():
-              if old.is_file():
-                  old.unlink()
+          for filename in ("source_inventory.json", "schema_audit.json", "acquisition_failure.json"):
+              path = out / filename
+              if path.exists():
+                  path.unlink()
 
           def redact(url):
               if not url:
@@ -139,19 +186,31 @@ jobs:
       - name: Commit materialized state on push or manual run
         if: always() && github.event_name != 'pull_request'
         run: |
+          if test -d artifacts/southwest_pacific_analysis; then
+            cp artifacts/southwest_pacific_analysis/source_lock.json \
+               data/results/southwest_pacific_pairs/source_lock.json
+            cp artifacts/southwest_pacific_analysis/analysis_summary.json \
+               data/results/southwest_pacific_pairs/analysis_summary.json
+            cp artifacts/southwest_pacific_analysis/effect_rows.json \
+               data/results/southwest_pacific_pairs/effect_rows.json
+            cp artifacts/southwest_pacific_analysis/subgroup_slopes.csv \
+               data/results/southwest_pacific_pairs/subgroup_slopes.csv
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/results/southwest_pacific_pairs
           if ! git diff --cached --quiet; then
-            git commit -m "Materialize Southwest Pacific pair source audit"
+            git commit -m "Materialize Southwest Pacific pair analysis"
             git push origin HEAD:${{ github.ref_name }}
           fi
-      - name: Upload full source audit
+      - name: Upload full source and analysis audit
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: southwest-pacific-pair-source-audit
-          path: artifacts/southwest_pacific_aob/
+          path: |
+            artifacts/southwest_pacific_aob/
+            artifacts/southwest_pacific_analysis/
           if-no-files-found: warn
       - name: Preserve blocked acquisition as a source state
         if: steps.acquire.outcome != 'success'
