@@ -41,13 +41,20 @@ jobs:
           tests/test_external_archipelago_network.py
           tests/test_cross_archipelago_external_validation.py
       - name: Acquire source-native Dryad workbook
+        id: acquire
+        continue-on-error: true
         run: python scripts/acquire_wanshan_yongxing_dryad.py
       - name: Reanalyse whole and matched shared-plant networks
+        if: steps.acquire.outcome == 'success'
         run: python scripts/analyze_wanshan_yongxing_networks.py
       - name: Upload acquisition and analysis audit
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: wanshan-yongxing-external-validation
           path: |
             artifacts/wanshan_yongxing_dryad/
             artifacts/wanshan_yongxing_analysis/
+      - name: Fail after preserving acquisition diagnostics
+        if: steps.acquire.outcome != 'success'
+        run: exit 1

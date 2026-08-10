@@ -5,6 +5,7 @@
   "article_doi": "10.1111/btp.70027",
   "dataset_doi": "10.5061/dryad.t76hdr8bj",
   "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.t76hdr8bj",
+  "linkset_json_url": "https://datadryad.org/dataset/doi:10.5061/dryad.t76hdr8bj/linkset.json",
   "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.t76hdr8bj",
   "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.t76hdr8bj/versions",
   "known_file": {

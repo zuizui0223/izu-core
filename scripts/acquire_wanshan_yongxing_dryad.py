@@ -7,6 +7,8 @@ import hashlib
 import http.cookiejar
 import json
 import re
+import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -48,9 +50,12 @@ def request_bytes(
         return response.read()
 
 
-def request_json(opener: urllib.request.OpenerDirector, url: str) -> dict[str, Any]:
+def request_json(opener: urllib.request.OpenerDirector, url: str) -> dict[str, Any] | list[Any]:
     payload = request_bytes(opener, url, accept="application/json")
-    return json.loads(payload.decode("utf-8"))
+    decoded = json.loads(payload.decode("utf-8"))
+    if not isinstance(decoded, (dict, list)):
+        raise ValueError(f"JSON response from {url} must be an object or array")
+    return decoded
 
 
 def recursive_values(value: object, key_name: str) -> list[object]:
@@ -66,13 +71,22 @@ def recursive_values(value: object, key_name: str) -> list[object]:
     return found
 
 
-def latest_version_id(versions: dict[str, Any]) -> int | None:
+def latest_version_id(versions: object) -> int | None:
+    if isinstance(versions, dict):
+        embedded = versions.get("_embedded")
+        if isinstance(embedded, dict):
+            rows = embedded.get("stash:versions")
+            if isinstance(rows, list):
+                ids = [row.get("id") for row in rows if isinstance(row, dict)]
+                integers = [value for value in ids if isinstance(value, int)]
+                if integers:
+                    return max(integers)
     candidates = recursive_values(versions, "id")
     integers = [value for value in candidates if isinstance(value, int)]
     return max(integers) if integers else None
 
 
-def candidate_file_ids(file_listing: dict[str, Any], target_filename: str) -> list[int]:
+def candidate_file_ids(file_listing: object, target_filename: str) -> list[int]:
     ids: list[int] = []
     embedded = file_listing.get("_embedded") if isinstance(file_listing, dict) else None
     rows: list[dict[str, Any]] = []
@@ -87,6 +101,49 @@ def candidate_file_ids(file_listing: dict[str, Any], target_filename: str) -> li
             if isinstance(file_id, int):
                 ids.append(file_id)
     return ids
+
+
+def extract_linkset_download_urls(linkset: object) -> list[str]:
+    """Extract current public file-stream URLs from a Dryad linkset response."""
+    urls: list[str] = []
+    for href in recursive_values(linkset, "href"):
+        if isinstance(href, str) and "/downloads/file_stream/" in href and href not in urls:
+            urls.append(href)
+    return urls
+
+
+def zip_assembly_candidates(
+    opener: urllib.request.OpenerDirector,
+    *,
+    version_id: int,
+    target_filename: str,
+    errors: list[dict[str, str]],
+) -> tuple[list[str], object]:
+    """Ask the public UI endpoint for permanent presigned file URLs."""
+    payload: object = {}
+    urls: list[str] = []
+    endpoints = (
+        f"https://datadryad.org/downloads/zip_assembly_info/{version_id}.json",
+        f"https://datadryad.org/downloads/zip_assembly_info/{version_id}?format=json",
+    )
+    for endpoint in endpoints:
+        try:
+            payload = request_json(opener, endpoint)
+            rows = payload if isinstance(payload, list) else []
+            for row in rows:
+                if not isinstance(row, dict):
+                    continue
+                filename = str(row.get("filename") or "")
+                url = row.get("url")
+                if isinstance(url, str) and (
+                    filename == target_filename or filename.lower().endswith(".xlsx")
+                ) and url not in urls:
+                    urls.append(url)
+            if urls:
+                break
+        except Exception as error:
+            errors.append({"stage": "zip_assembly_info", "url": endpoint, "error": repr(error)})
+    return urls, payload
 
 
 def is_xlsx(payload: bytes) -> bool:
@@ -155,9 +212,11 @@ def main() -> None:
     except Exception as error:
         errors.append({"stage": "landing_page_warmup", "error": repr(error)})
 
-    metadata: dict[str, object] = {}
-    versions: dict[str, object] = {}
-    file_listing: dict[str, object] = {}
+    metadata: object = {}
+    versions: object = {}
+    file_listing: object = {}
+    linkset: object = {}
+    zip_info: object = {}
     try:
         metadata = request_json(opener, str(config["api_dataset_url"]))
     except Exception as error:
@@ -166,6 +225,22 @@ def main() -> None:
         versions = request_json(opener, str(config["api_versions_url"]))
     except Exception as error:
         errors.append({"stage": "dataset_versions", "error": repr(error)})
+
+    download_candidates = list(map(str, config.get("public_download_candidates", [])))
+
+    linkset_urls = (
+        str(config.get("linkset_json_url") or ""),
+        str(config["landing_page_url"]).rstrip("/") + "/linkset.json",
+    )
+    for linkset_url in dict.fromkeys(url for url in linkset_urls if url):
+        try:
+            linkset = request_json(opener, linkset_url)
+            for url in extract_linkset_download_urls(linkset):
+                if url not in download_candidates:
+                    download_candidates.append(url)
+            break
+        except Exception as error:
+            errors.append({"stage": "linkset", "url": linkset_url, "error": repr(error)})
 
     file_ids: list[int] = []
     version_id = latest_version_id(versions)
@@ -177,13 +252,22 @@ def main() -> None:
                 candidate_file_ids(file_listing, str(config["known_file"]["filename"]))
             )
         except Exception as error:
-            errors.append({"stage": "version_files", "error": repr(error)})
+            errors.append({"stage": "version_files", "url": files_url, "error": repr(error)})
+
+        presigned_urls, zip_info = zip_assembly_candidates(
+            opener,
+            version_id=version_id,
+            target_filename=str(config["known_file"]["filename"]),
+            errors=errors,
+        )
+        for url in presigned_urls:
+            if url not in download_candidates:
+                download_candidates.insert(0, url)
 
     known_id = int(config["known_file"]["file_id"])
     if known_id not in file_ids:
         file_ids.append(known_id)
 
-    download_candidates = list(map(str, config.get("public_download_candidates", [])))
     for file_id in file_ids:
         for url in (
             f"https://datadryad.org/downloads/file_stream/{file_id}",
@@ -216,11 +300,25 @@ def main() -> None:
             errors.append({"stage": "download", "url": url, "error": repr(error)})
 
     if payload is None or successful_url is None:
-        (args.output_dir / "acquisition_errors.json").write_text(
-            json.dumps(errors, indent=2, ensure_ascii=False) + "\n",
+        diagnostic = {
+            "source_id": config["source_id"],
+            "dataset_doi": config["dataset_doi"],
+            "version_id": version_id,
+            "api_dataset_metadata": metadata,
+            "api_versions_metadata": versions,
+            "api_file_listing": file_listing,
+            "linkset_metadata": linkset,
+            "zip_assembly_info": zip_info,
+            "download_candidates": download_candidates,
+            "errors": errors,
+        }
+        diagnostic_path = args.output_dir / "acquisition_errors.json"
+        diagnostic_path.write_text(
+            json.dumps(diagnostic, indent=2, ensure_ascii=False, default=str) + "\n",
             encoding="utf-8",
         )
-        raise RuntimeError("unable to acquire Dryad workbook; see acquisition_errors.json")
+        print(json.dumps(diagnostic, indent=2, ensure_ascii=False, default=str))
+        raise RuntimeError(f"unable to acquire Dryad workbook; see {diagnostic_path}")
 
     destination = args.output_dir / str(config["known_file"]["filename"])
     destination.write_bytes(payload)
@@ -236,6 +334,8 @@ def main() -> None:
         "api_dataset_metadata": metadata,
         "api_versions_metadata": versions,
         "api_file_listing": file_listing,
+        "linkset_metadata": linkset,
+        "zip_assembly_info": zip_info,
         "download_attempt_errors": errors,
         **preview,
         "claim_boundary": config["claim_boundary"],
