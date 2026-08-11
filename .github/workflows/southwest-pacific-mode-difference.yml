@@ -43,18 +43,31 @@ jobs:
           tests/test_southwest_pacific_mode_difference.py
           tests/test_southwest_pacific_pmc_acquisition.py
       - name: Recover checksum-identical source through Europe PMC
+        id: recover
+        continue-on-error: true
         run: >-
           python scripts/acquire_southwest_pacific_pmc_support.py
           --config config/southwest_pacific_aob_source.json
           --output-dir artifacts/southwest_pacific_aob
           --source-lock data/results/southwest_pacific_pairs/source_lock.json
+      - name: Detect recovered source
+        id: source
+        run: |
+          if test -s artifacts/southwest_pacific_aob/mcaf005_suppl_supplementary_data_s2.xlsx; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Europe PMC supplementary delivery is unavailable in this run. The checksum-locked checked mode contrast is retained; no biological result is changed or inferred from transport failure."
+          fi
       - name: Estimate animal-minus-wind contrasts
+        if: steps.source.outputs.available == 'true'
         run: >-
           python scripts/analyze_southwest_pacific_mode_difference.py
           --source artifacts/southwest_pacific_aob/mcaf005_suppl_supplementary_data_s2.xlsx
           --output artifacts/southwest_pacific_mode_difference/pollination_mode_contrast.json
           --bootstrap-repetitions 5000
-      - name: Verify checked output when present
+      - name: Verify checked output when source is recovered
+        if: steps.source.outputs.available == 'true'
         run: |
           if test -f data/results/southwest_pacific_pairs/pollination_mode_contrast.json; then
             cmp artifacts/southwest_pacific_mode_difference/pollination_mode_contrast.json \
@@ -63,7 +76,7 @@ jobs:
             echo "::notice::Mode-contrast output is not checked yet; current push/manual run can materialize it."
           fi
       - name: Commit checked contrast on push or manual run
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.source.outputs.available == 'true'
         run: |
           cp artifacts/southwest_pacific_mode_difference/pollination_mode_contrast.json \
              data/results/southwest_pacific_pairs/pollination_mode_contrast.json
