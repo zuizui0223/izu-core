@@ -13,7 +13,7 @@ from collections import defaultdict
 from statistics import fmean
 from typing import Mapping, Sequence
 
-from scripts import analyze_tribulus_flower_context as base
+import analyze_tribulus_flower_context as base
 
 
 def _labels(group: Sequence[Mapping[str, object]], key: str) -> list[str]:
