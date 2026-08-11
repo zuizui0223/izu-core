@@ -78,7 +78,7 @@ def compile_izu_fdq(root: Path) -> list[dict[str, str]]:
                 notes="Expected source-native Izu FDQ result was not found.",
             )
         ]
-    output = []
+    output: list[dict[str, str]] = []
     for subset_name, result in (data.get("fixed_effect_subsets") or {}).items():
         coefficient = result.get("fdq_coefficient")
         if coefficient is None:
@@ -119,7 +119,7 @@ def compile_izu_full_covariate(root: Path) -> list[dict[str, str]]:
     data = load_json(path)
     if data is None:
         return []
-    output = []
+    output: list[dict[str, str]] = []
     for subset_name, result in (data.get("subsets") or {}).items():
         coefficient = result.get("fdq_coefficient")
         if coefficient is None:
@@ -132,9 +132,7 @@ def compile_izu_full_covariate(root: Path) -> list[dict[str, str]]:
                 source_path=path.relative_to(root),
                 evidence_family="contemporary_network_slope",
                 response="corrected_trait_matching",
-                predictor_or_contrast=(
-                    f"FDQ adjusted for richness D FRic FEve in {subset_name}"
-                ),
+                predictor_or_contrast=f"FDQ adjusted for richness D FRic FEve in {subset_name}",
                 estimate=coefficient,
                 uncertainty_type="partial_r_squared_not_effect_uncertainty",
                 uncertainty_value=result.get("fdq_partial_r_squared"),
@@ -176,7 +174,7 @@ def compile_pair_turnover(
             )
         ]
     pair_rows = data.get("pair_metrics") or data.get("island_pair_metrics") or []
-    output = []
+    output: list[dict[str, str]] = []
     for index, result in enumerate(pair_rows, start=1):
         estimate = result.get("mean_shared_plant_pollinator_turnover")
         if estimate is None:
@@ -217,9 +215,7 @@ def compile_pair_turnover(
             response="network_analysis",
             predictor_or_contrast="current materialized source",
             row_role="source_state",
-            admission_status=str(
-                data.get("status") or "materialized_without_compatible_effect"
-            ),
+            admission_status=str(data.get("status") or "materialized_without_compatible_effect"),
             cross_system_model_eligible=False,
             notes=(
                 "Source may support within-system description but does not yet expose "
@@ -233,9 +229,8 @@ def compile_effect_document(root: Path, source_path: str) -> list[dict[str, str]
     data = load_json(root / source_path)
     if data is None:
         return []
-    effects = data.get("effects") or []
-    output = []
-    for effect in effects:
+    output: list[dict[str, str]] = []
+    for effect in data.get("effects") or []:
         if not isinstance(effect, dict):
             raise ValueError(f"effect rows in {source_path} must be objects")
         output.append(
@@ -254,9 +249,7 @@ def compile_effect_document(root: Path, source_path: str) -> list[dict[str, str]
                 independent_unit=effect.get("independent_unit"),
                 row_role=effect.get("row_role"),
                 admission_status=effect.get("admission_status"),
-                cross_system_model_eligible=bool(
-                    effect.get("cross_system_model_eligible")
-                ),
+                cross_system_model_eligible=bool(effect.get("cross_system_model_eligible")),
                 causal_claim_allowed=bool(effect.get("causal_claim_allowed")),
                 notes=effect.get("notes"),
             )
@@ -314,39 +307,45 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
     rows.extend(compile_izu_fdq(root))
     rows.extend(compile_izu_full_covariate(root))
 
-    rows.extend(
-        compile_pair_turnover(
+    ogasawara_effects = compile_effect_document(
+        root, "data/results/ogasawara/context_analysis/effect_rows.json"
+    )
+    if ogasawara_effects:
+        rows.extend(ogasawara_effects)
+    else:
+        ogasawara_analysis = compile_pair_turnover(
             root,
             system_id="ogasawara_2026",
             system_cluster="ogasawara_oceanic_archipelago",
             source_path="data/results/ogasawara/context_analysis/analysis.json",
         )
-    )
-    if not any(result["system_id"] == "ogasawara_2026" for result in rows):
-        rows.extend(
-            compile_source_state(
-                root,
-                effect_id="ogasawara_source_state",
-                system_id="ogasawara_2026",
-                system_cluster="ogasawara_oceanic_archipelago",
-                candidates=(
-                    "data/results/ogasawara/context_analysis/analysis_blocked.json",
-                    "data/results/ogasawara/context_analysis/acquisition_failure.json",
-                    "data/results/ogasawara/source_inventory.json",
-                ),
-                notes="Interaction counts remain distinct from effectiveness and dependency.",
+        if ogasawara_analysis:
+            rows.extend(ogasawara_analysis)
+        else:
+            rows.extend(
+                compile_source_state(
+                    root,
+                    effect_id="ogasawara_source_state",
+                    system_id="ogasawara_2026",
+                    system_cluster="ogasawara_oceanic_archipelago",
+                    candidates=(
+                        "data/results/ogasawara/context_analysis/analysis_blocked.json",
+                        "data/results/ogasawara/context_analysis/acquisition_failure.json",
+                        "data/results/ogasawara/source_inventory.json",
+                    ),
+                    notes="Interaction counts remain distinct from effectiveness and dependency.",
+                )
             )
-        )
 
-    rows.extend(
-        compile_pair_turnover(
-            root,
-            system_id="galapagos_networks",
-            system_cluster="galapagos_oceanic_archipelago",
-            source_path="data/results/galapagos/network_analysis/analysis.json",
-        )
+    galapagos = compile_pair_turnover(
+        root,
+        system_id="galapagos_networks",
+        system_cluster="galapagos_oceanic_archipelago",
+        source_path="data/results/galapagos/network_analysis/analysis.json",
     )
-    if not any(result["system_id"] == "galapagos_networks" for result in rows):
+    if galapagos:
+        rows.extend(galapagos)
+    else:
         rows.extend(
             compile_source_state(
                 root,
@@ -358,10 +357,7 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
                     "data/results/galapagos/network_analysis/acquisition_failure.json",
                     "data/results/galapagos/source_inventory.json",
                 ),
-                notes=(
-                    "Network/covariate description remains separate from effective "
-                    "dependency."
-                ),
+                notes="Network/covariate description remains separate from effective dependency.",
             )
         )
 
@@ -389,23 +385,29 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
             )
         )
 
-    rows.extend(
-        compile_source_state(
-            root,
-            effect_id="southwest_pacific_pair_source_state",
-            system_id="southwest_pacific_pairs",
-            system_cluster="southwest_pacific_multi_archipelago_pairs",
-            candidates=(
-                "data/results/southwest_pacific_pairs/schema_audit.json",
-                "data/results/southwest_pacific_pairs/source_inventory.json",
-                "data/results/southwest_pacific_pairs/acquisition_failure.json",
-            ),
-            notes=(
-                "Pair effects require source-resolved orientation, trait unit, "
-                "sampling hierarchy and uncertainty."
-            ),
-        )
+    southwest_effects = compile_effect_document(
+        root, "data/results/southwest_pacific_pairs/effect_rows.json"
     )
+    if southwest_effects:
+        rows.extend(southwest_effects)
+    else:
+        rows.extend(
+            compile_source_state(
+                root,
+                effect_id="southwest_pacific_pair_source_state",
+                system_id="southwest_pacific_pairs",
+                system_cluster="southwest_pacific_multi_archipelago_pairs",
+                candidates=(
+                    "data/results/southwest_pacific_pairs/schema_audit.json",
+                    "data/results/southwest_pacific_pairs/source_inventory.json",
+                    "data/results/southwest_pacific_pairs/acquisition_failure.json",
+                ),
+                notes=(
+                    "Pair effects require source-resolved orientation, trait unit, "
+                    "sampling hierarchy and uncertainty."
+                ),
+            )
+        )
 
     numerical = [result for result in rows if result["estimate"]]
     incomplete_uncertainty = {
@@ -421,8 +423,7 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
         and result["uncertainty_value"]
     ]
     eligible = [
-        result for result in rows
-        if result["cross_system_model_eligible"] == "yes"
+        result for result in rows if result["cross_system_model_eligible"] == "yes"
     ]
     eligible_systems = sorted({result["system_cluster"] for result in eligible})
     compatible_families: dict[str, set[str]] = {}
@@ -436,33 +437,35 @@ def compile_registry(root: Path) -> tuple[list[dict[str, str]], dict[str, object
         if len(systems) >= 2
     )
     external_eligible = [
-        result for result in eligible
-        if result["system_cluster"] != "izu_2024_network"
+        result for result in eligible if result["system_cluster"] != "izu_2024_network"
+    ]
+    external_context = [
+        result for result in rows if result["row_role"] == "external_context_effect"
     ]
     summary = {
-        "schema_version": "1.1",
+        "schema_version": "1.3",
         "total_registry_rows": len(rows),
         "empirical_numeric_rows": len(numerical),
         "numeric_rows_with_effect_uncertainty": len(uncertainty_complete),
         "cross_system_model_eligible_rows": len(eligible),
         "cross_system_model_eligible_systems": eligible_systems,
         "external_model_eligible_rows": len(external_eligible),
-        "effect_families_with_two_or_more_independent_systems": (
-            families_with_multiple_systems
-        ),
+        "external_context_effect_rows": len(external_context),
+        "effect_families_with_two_or_more_independent_systems": families_with_multiple_systems,
         "formal_cross_system_fit_ready": bool(families_with_multiple_systems),
         "reading": (
-            "Wanshan-Yongxing now contributes source-native matched-plant effects "
-            "with plant-level uncertainty, but it is still one paired system. "
-            "Compatible effect-level uncertainty is not yet present in a second "
-            "independent system, so raw island or plant rows must not be pooled to "
-            "bypass the gate."
+            "Wanshan-Yongxing supplies three matched-plant network effects, and the "
+            "Southwest Pacific source supplies three independent morphology response "
+            "summaries from 129 source-defined colonisation events. Ogasawara supplies "
+            "three numeric Anijima context effects. These systems use different "
+            "exposures, responses, and independent units; no compatible effect family "
+            "yet has uncertainty in two independent system clusters."
         ),
         "claim_boundary": (
-            "Readiness counts do not estimate a biological mean effect, "
-            "heterogeneity or causality. Correlated subsets and island pairs within "
-            "one archipelago count as one system cluster; plant-level bootstrap "
-            "uncertainty does not create geographic replication."
+            "Plant- or event-level uncertainty does not create independent island "
+            "transitions or archipelagos. Visit-network, invasion-context, flower-size "
+            "starting-value, and floral-display effects must not be pooled merely "
+            "because all concern island systems."
         ),
     }
     return rows, summary
