@@ -14,7 +14,7 @@ from typing import Any
 
 import pandas as pd
 
-from scripts import analyze_tribulus_flower_divergence as base
+import analyze_tribulus_flower_divergence as base
 
 
 STABLE_ID_COLUMNS = (
