@@ -1,0 +1,133 @@
+name: Tribulus island-continent flower source
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/tribulus_dryad_source.json"
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_dryad_external_dataset_v2.py"
+      - "scripts/audit_tribulus_flower_source.py"
+      - "tests/test_dryad_external_acquisition.py"
+      - "tests/test_tribulus_flower_source.py"
+      - ".github/workflows/tribulus-external-source.yml"
+  pull_request:
+    paths:
+      - "config/tribulus_dryad_source.json"
+      - "scripts/audit_tribulus_flower_source.py"
+      - "tests/test_tribulus_flower_source.py"
+      - ".github/workflows/tribulus-external-source.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  acquire-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl pytest
+      - name: Test Dryad and Tribulus source guards
+        run: >-
+          python -m pytest -q
+          tests/test_dryad_external_acquisition.py
+          tests/test_tribulus_flower_source.py
+      - name: Acquire all source-native Dryad files
+        id: acquire
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_dryad_external_dataset_v2.py
+          --config config/tribulus_dryad_source.json
+          --output-dir artifacts/tribulus_dryad
+      - name: Detect flower source bytes
+        id: source
+        if: always()
+        run: |
+          if find artifacts/tribulus_dryad -type f -name 'Tribulus_flower_data_clean.csv' -size +0c | grep -q .; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Tribulus flower CSV was not recovered in this run; no biological zero is inferred."
+          fi
+      - name: Audit source-native flower schema
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/audit_tribulus_flower_source.py
+          --input-dir artifacts/tribulus_dryad
+          --filename Tribulus_flower_data_clean.csv
+          --output artifacts/tribulus_dryad/flower_schema_audit.json
+      - name: Materialize compact acquisition and schema state
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out = Path("data/results/tribulus")
+          out.mkdir(parents=True, exist_ok=True)
+          source_path = Path("artifacts/tribulus_dryad/source_inventory.json")
+          audit_path = Path("artifacts/tribulus_dryad/flower_schema_audit.json")
+          if source_path.exists():
+              source = json.loads(source_path.read_text(encoding="utf-8"))
+              compact = {
+                  "status": source.get("status"),
+                  "source_id": source.get("source_id"),
+                  "dataset_doi": source.get("dataset_doi"),
+                  "selected_version_id": source.get("selected_version_id"),
+                  "n_source_files": source.get("n_source_files"),
+                  "n_downloaded": source.get("n_downloaded"),
+                  "files": [
+                      {
+                          "file_id": row.get("file_id"),
+                          "source_filename": row.get("source_filename"),
+                          "size_downloaded": row.get("size_downloaded"),
+                          "sha256": row.get("sha256"),
+                          "status": row.get("status"),
+                      }
+                      for row in source.get("files", [])
+                  ],
+                  "errors": source.get("errors"),
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "source_inventory.json").write_text(
+                  json.dumps(compact, indent=2, ensure_ascii=False, default=str) + "\n",
+                  encoding="utf-8",
+              )
+          else:
+              (out / "source_inventory.json").write_text(
+                  json.dumps({
+                      "status": "acquisition_failed_without_inventory",
+                      "source_id": "tribulus_cistoides_island_continent_flower_traits",
+                      "dataset_doi": "10.5061/dryad.h70rxwdnz",
+                      "claim_boundary": "No biological result is inferred from failed source transport."
+                  }, indent=2) + "\n",
+                  encoding="utf-8",
+              )
+          if audit_path.exists():
+              (out / "flower_schema_audit.json").write_text(
+                  audit_path.read_text(encoding="utf-8"), encoding="utf-8"
+              )
+          PY
+      - name: Commit compact source state on push or manual run
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/tribulus
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Tribulus flower source audit"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload source audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tribulus-island-continent-flower-source
+          path: artifacts/tribulus_dryad/
+          if-no-files-found: warn
