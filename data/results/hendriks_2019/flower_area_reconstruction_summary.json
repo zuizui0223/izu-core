@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "status": "indexed_author_upload_numeric_reconstruction_audited",
+  "n_pairs": 35,
+  "transform": "natural log",
+  "reconstructed_models": {
+    "direct_log_island_on_log_mainland_ols": {
+      "intercept": -0.5959886964353331,
+      "slope": 0.5833358843917842,
+      "correlation": 0.6481370484653718,
+      "r_squared": 0.4200816335934037
+    },
+    "log_island_mainland_ratio_on_log_mainland_ols": {
+      "intercept": -0.595988696435333,
+      "slope": -0.41666411560821565,
+      "correlation": -0.5194670899597478,
+      "r_squared": 0.2698460575512487
+    },
+    "direct_log_island_on_log_mainland_sma_slope": 0.9000193489524775
+  },
+  "author_reported_anchors": {
+    "model_1_slope": -0.39,
+    "model_1_slope_95_ci": [-0.63, -0.16],
+    "model_2_slope": 0.58,
+    "model_2_slope_95_ci": [0.36, 0.82]
+  },
+  "anchor_reproduction": {
+    "direct_ols_absolute_slope_difference": 0.0033358843917842274,
+    "direct_ols_reproduces_reported_slope_within_0_01": true,
+    "log_ratio_ols_absolute_slope_difference": 0.026664115608215633,
+    "log_ratio_ols_reproduces_reported_slope_within_0_03": true,
+    "reading": "The rounded Table B9 values closely reproduce both reported flower-area slope anchors; small differences are retained rather than silently corrected."
+  },
+  "pair_bootstrap": {
+    "repetitions_requested": 20000,
+    "repetitions_valid": 20000,
+    "seed": 20260811,
+    "ols_slope_percentiles": {
+      "p2_5": 0.3060057234718329,
+      "p50": 0.5851859255491446,
+      "p97_5": 0.8491308233786676
+    },
+    "sma_slope_percentiles": {
+      "p2_5": 0.7006826788086139,
+      "p50": 0.8978662677005351,
+      "p97_5": 1.1291800196601678
+    }
+  },
+  "measurement_error_sensitivity": {
+    "classical_x_error_model": "beta_observed = reliability_x * beta_true",
+    "ols_point_below_isometry_if_reliability_exceeds": 0.5833358843917842,
+    "ols_bootstrap_upper_below_isometry_if_reliability_exceeds": 0.8491308233786676,
+    "author_reported_ols_upper_below_isometry_if_reliability_exceeds": 0.82,
+    "sma_point_slope": 0.9000193489524775,
+    "sma_point_below_isometry": true,
+    "sma_bootstrap_interval": [0.7006826788086139, 1.1291800196601678],
+    "sma_bootstrap_interval_excludes_isometry": false,
+    "reading": "The direct OLS pattern is substantially less coupled than log(I/M) ~ log(M), but attenuation from error in mainland size can still move the corrected slope toward or above isometry. SMA is a structural sensitivity, not a uniquely identified measurement-error correction."
+  },
+  "formal_cross_system_fit_ready": false,
+  "effect_registry_eligible": false,
+  "blocking_gates": [
+    "underlying PDF/data artifact not checksum locked",
+    "island/family clustering for the 35 pairs not yet recovered into the checked table",
+    "SMA pair-bootstrap interval includes the line-of-isometry slope of 1"
+  ],
+  "claim_boundary": "This reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS. It does not identify pollinator mechanism, does not resolve measurement error, and is not admitted to the formal cross-system fit.",
+  "source_id": "hendriks_2019_flower_area_table_b9",
+  "source_retrieval_state": "complete_numeric_reconstruction_from_search_indexed_author_upload"
+}
