@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "status": "classical_eiv_joint_reliability_envelope_complete",
+  "comparison_statistic": "slope of log(island floral trait) on log(mainland floral trait)",
+  "assumption": "Classical independent measurement error in each observed mainland log-trait. The scenario value r is a lower bound on reliability in both systems; reliabilities need not be equal. Island-side error is treated as residual variance rather than predictor coupling.",
+  "reliability_is_empirically_estimated_in_either_system": false,
+  "system_specific_thresholds": {
+    "southwest_pacific_ciarle_2025_animal": {
+      "point_below_isometry_requires_reliability_gt": 0.8490052881072877,
+      "island_cluster_interval_below_isometry_requires_reliability_gt": 0.9258992384647143
+    },
+    "new_zealand_hendriks_2019": {
+      "point_below_isometry_requires_reliability_gt": 0.5833358843917842,
+      "island_cluster_interval_below_isometry_requires_reliability_gt": 0.7784929080550151
+    }
+  },
+  "joint_lower_bound_thresholds": {
+    "both_points_below_isometry_requires_reliability_gt": 0.8490052881072877,
+    "binding_system_for_point": "southwest_pacific_ciarle_2025_animal",
+    "both_island_cluster_intervals_below_isometry_requires_reliability_gt": 0.9258992384647143,
+    "binding_system_for_cluster_interval": "southwest_pacific_ciarle_2025_animal"
+  },
+  "selected_scenarios": {
+    "r_0_90": {
+      "reliability_lower_bound": 0.9,
+      "all_points_below_isometry": true,
+      "all_island_cluster_intervals_below_isometry": false,
+      "southwest_pacific_ciarle_2025_animal__corrected_point_upper": 0.9433392090080972,
+      "southwest_pacific_ciarle_2025_animal__corrected_cluster_lower": 0.7684936579548125,
+      "southwest_pacific_ciarle_2025_animal__corrected_cluster_upper": 1.0286672615002646,
+      "southwest_pacific_ciarle_2025_animal__point_below_isometry": true,
+      "southwest_pacific_ciarle_2025_animal__cluster_interval_below_isometry": false,
+      "new_zealand_hendriks_2019__corrected_point_upper": 0.648150982657538,
+      "new_zealand_hendriks_2019__corrected_cluster_lower": 0.2364296726883503,
+      "new_zealand_hendriks_2019__corrected_cluster_upper": 0.8649921200611279,
+      "new_zealand_hendriks_2019__point_below_isometry": true,
+      "new_zealand_hendriks_2019__cluster_interval_below_isometry": true
+    },
+    "r_0_93": {
+      "reliability_lower_bound": 0.93,
+      "all_points_below_isometry": true,
+      "all_island_cluster_intervals_below_isometry": true,
+      "southwest_pacific_ciarle_2025_animal__corrected_point_upper": 0.9129089119433198,
+      "southwest_pacific_ciarle_2025_animal__corrected_cluster_lower": 0.7437035399562701,
+      "southwest_pacific_ciarle_2025_animal__corrected_cluster_upper": 0.9954844466131592,
+      "southwest_pacific_ciarle_2025_animal__point_below_isometry": true,
+      "southwest_pacific_ciarle_2025_animal__cluster_interval_below_isometry": true,
+      "new_zealand_hendriks_2019__corrected_point_upper": 0.6272428864427787,
+      "new_zealand_hendriks_2019__corrected_cluster_lower": 0.22880290905324221,
+      "new_zealand_hendriks_2019__corrected_cluster_upper": 0.8370891484462528,
+      "new_zealand_hendriks_2019__point_below_isometry": true,
+      "new_zealand_hendriks_2019__cluster_interval_below_isometry": true
+    },
+    "r_1_00": {
+      "reliability_lower_bound": 1.0,
+      "all_points_below_isometry": true,
+      "all_island_cluster_intervals_below_isometry": true,
+      "southwest_pacific_ciarle_2025_animal__corrected_point_upper": 0.8490052881072875,
+      "southwest_pacific_ciarle_2025_animal__corrected_cluster_lower": 0.6916442921593313,
+      "southwest_pacific_ciarle_2025_animal__corrected_cluster_upper": 0.9258005353502381,
+      "southwest_pacific_ciarle_2025_animal__point_below_isometry": true,
+      "southwest_pacific_ciarle_2025_animal__cluster_interval_below_isometry": true,
+      "new_zealand_hendriks_2019__corrected_point_upper": 0.5833358843917842,
+      "new_zealand_hendriks_2019__corrected_cluster_lower": 0.21278670541951528,
+      "new_zealand_hendriks_2019__corrected_cluster_upper": 0.7784929080550151,
+      "new_zealand_hendriks_2019__point_below_isometry": true,
+      "new_zealand_hendriks_2019__cluster_interval_below_isometry": true
+    }
+  },
+  "structural_sensitivity_boundary": {
+    "hendriks_island_cluster_sma_interval": [
+      0.7296694231411485,
+      1.0731043040917998
+    ],
+    "hendriks_sma_interval_excludes_isometry": false,
+    "reading": "The classical-reliability envelope and SMA answer different sensitivity questions. Hendriks' island-cluster SMA interval includes slope 1, so satisfying a chosen classical reliability lower bound is not treated as a general errors-in-variables resolution."
+  },
+  "directional_replication_under_declared_classical_model": {
+    "point_estimates_preserved_if_both_reliabilities_exceed": 0.8490052881072877,
+    "island_cluster_interval_exclusion_preserved_if_both_reliabilities_exceed": 0.9258992384647143,
+    "reading": "Under the declared classical x-error model, a reliability lower bound above the joint threshold preserves the 2/2 below-isometry OLS direction. These thresholds are admissibility conditions, not estimated reliabilities."
+  },
+  "effect_registry_eligible": false,
+  "formal_same_family_meta_analysis_ready": false,
+  "claim_boundary": "This envelope quantifies assumptions required to preserve the observed directional recurrence. It does not estimate reliability, correct the source effects, identify a universal island-rule coefficient, or justify pooling flower size with flower area."
+}
