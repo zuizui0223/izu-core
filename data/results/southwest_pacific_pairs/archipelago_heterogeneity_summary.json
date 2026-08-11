@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "status": "archipelago_heterogeneity_descriptive_audit_complete",
+  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+  "article_doi": "10.1093/aob/mcaf005",
+  "source_file": "mcaf005_suppl_supplementary_data_s2.xlsx",
+  "source_sheet": "Flower dataframe",
+  "pollination_subset": "source-coded animal only; unresolved syndrome excluded",
+  "minimum_pairs_for_island_slope": 5,
+  "n_archipelagos_with_valid_animal_pairs": 10,
+  "n_archipelagos_with_estimable_slope": 6,
+  "n_estimated_negative_slopes": 6,
+  "n_estimated_positive_slopes": 0,
+  "estimated_slope_range": [
+    -0.5209101393879704,
+    -0.011719742537337196
+  ],
+  "estimated_slope_median": -0.12404070761755805,
+  "n_archipelagos_with_negative_mean_lr": 4,
+  "n_archipelagos_with_positive_mean_lr": 6,
+  "mean_lr_range": [
+    -0.18811410496458092,
+    0.13554356829180336
+  ],
+  "reading": "Archipelago-specific slopes and mean log response ratios are a descriptive heterogeneity audit. They test whether one global island-rule coefficient hides different regional response shapes; they do not make island groups independent experimental treatments or identify pollinator dependency.",
+  "claim_boundary": "Flower morphology and source-coded pollination syndrome are not effective-dependency measures. Small archipelago subsets are not used for causal geological-origin claims, and these rows are not entered as independent effects in the cross-system registry."
+}
