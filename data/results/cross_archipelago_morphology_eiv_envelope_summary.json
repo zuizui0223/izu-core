@@ -6,8 +6,8 @@
   "reliability_is_empirically_estimated_in_either_system": false,
   "system_specific_thresholds": {
     "southwest_pacific_ciarle_2025_animal": {
-      "point_below_isometry_requires_reliability_gt": 0.8490052881072877,
-      "island_cluster_interval_below_isometry_requires_reliability_gt": 0.9258992384647143
+      "point_below_isometry_requires_reliability_gt": 0.8490052881072875,
+      "island_cluster_interval_below_isometry_requires_reliability_gt": 0.9258005353502381
     },
     "new_zealand_hendriks_2019": {
       "point_below_isometry_requires_reliability_gt": 0.5833358843917842,
@@ -15,9 +15,9 @@
     }
   },
   "joint_lower_bound_thresholds": {
-    "both_points_below_isometry_requires_reliability_gt": 0.8490052881072877,
+    "both_points_below_isometry_requires_reliability_gt": 0.8490052881072875,
     "binding_system_for_point": "southwest_pacific_ciarle_2025_animal",
-    "both_island_cluster_intervals_below_isometry_requires_reliability_gt": 0.9258992384647143,
+    "both_island_cluster_intervals_below_isometry_requires_reliability_gt": 0.9258005353502381,
     "binding_system_for_cluster_interval": "southwest_pacific_ciarle_2025_animal"
   },
   "selected_scenarios": {
@@ -76,8 +76,8 @@
     "reading": "The classical-reliability envelope and SMA answer different sensitivity questions. Hendriks' island-cluster SMA interval includes slope 1, so satisfying a chosen classical reliability lower bound is not treated as a general errors-in-variables resolution."
   },
   "directional_replication_under_declared_classical_model": {
-    "point_estimates_preserved_if_both_reliabilities_exceed": 0.8490052881072877,
-    "island_cluster_interval_exclusion_preserved_if_both_reliabilities_exceed": 0.9258992384647143,
+    "point_estimates_preserved_if_both_reliabilities_exceed": 0.8490052881072875,
+    "island_cluster_interval_exclusion_preserved_if_both_reliabilities_exceed": 0.9258005353502381,
     "reading": "Under the declared classical x-error model, a reliability lower bound above the joint threshold preserves the 2/2 below-isometry OLS direction. These thresholds are admissibility conditions, not estimated reliabilities."
   },
   "effect_registry_eligible": false,
