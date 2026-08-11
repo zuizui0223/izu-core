@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "status": "external_validation_expansion_active",
   "mechanistic_anchor": {
     "system": "Izu Islands",
@@ -8,10 +8,10 @@
   },
   "analysis_rule": "Estimate source-native within-system effects first; compare effects across systems second. Do not pool community networks, population contrasts, sister-taxon comparisons, reproductive experiments, and historical records as exchangeable raw rows.",
   "next_external_gate": {
-    "requirement": "Obtain compatible uncertainty for the same response/exposure family in at least two independent system clusters before opening a formal cross-system model.",
-    "current_state": "The checked effect registry has two eligible system clusters but no effect family represented with compatible uncertainty in both clusters.",
-    "priority_candidate": "pacific_sister_taxa_hetherington_rauth_johnson_2020",
-    "reason": "Its 136 phylogenetically independent island-mainland sister-taxon contrasts are an independent flower-size morphology system, but the source-native numeric contrast table and compatible uncertainty have not yet been recovered."
+    "requirement": "Obtain compatible uncertainty for the same response/exposure family in at least two independent system clusters before opening a formal cross-system model, and do not count a starting-size effect as formally admissible while its measurement-error sensitivity is unresolved.",
+    "current_state": "The checked effect registry has two eligible system clusters but no effect family represented with compatible uncertainty in both clusters. Southwest Pacific starting-size slopes are retained numerically but blocked from formal admission by the measurement-error denominator-coupling gate.",
+    "priority_candidate": "new_zealand_hendriks_2019",
+    "reason": "The 2019 thesis exposes a 35-pair flower-area analysis and Appendix B Table B9 in the author-uploaded full text. It reports a direct ln(island flower area) versus ln(mainland flower area) slope of 0.58 with 95% CI 0.36-0.82. The pair table still needs a stable lawful acquisition route and provenance lock, and slope attenuation from error in mainland size must be audited before formal same-family admission."
   },
   "systems": [
     {
@@ -21,7 +21,10 @@
       "article_doi": "10.1111/btp.70027",
       "dataset_doi": "10.5061/dryad.t76hdr8bj",
       "geographic_design": "one continental island versus one oceanic coral island",
-      "source_native_units": ["whole-community visitation matrix", "matched seven-plant visitation subnetwork"],
+      "source_native_units": [
+        "whole-community visitation matrix",
+        "matched seven-plant visitation subnetwork"
+      ],
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
       "admissible_question": "Do shared plants experience lower visitation/partner richness and pollinator-assemblage turnover on the oceanic island?",
@@ -35,7 +38,9 @@
       "dataset_doi": "10.5281/zenodo.19221853",
       "license": "CC-BY-4.0",
       "geographic_design": "four oceanic islands with site, forest, anole and seasonal contexts",
-      "source_native_units": ["legitimate plant-pollinator interaction events"],
+      "source_native_units": [
+        "legitimate plant-pollinator interaction events"
+      ],
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
       "admissible_question": "How do invasion and habitat contexts restructure legitimate interactions within an oceanic archipelago?",
@@ -48,7 +53,9 @@
       "status": "published_summary_complete_raw_network_blocked",
       "dataset_doi": "10.5061/dryad.0c3cn5f",
       "geographic_design": "ten oceanic islands with area, isolation, age and sampling effort",
-      "source_native_units": ["published island network summaries and model predictions; raw island networks remain blocked"],
+      "source_native_units": [
+        "published island network summaries and model predictions; raw island networks remain blocked"
+      ],
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
       "admissible_question": "How well do the published AIS and null predictions track observed island nestedness after explicitly auditing sampling effort and island context?",
@@ -58,11 +65,13 @@
     {
       "system_id": "southwest_pacific_ciarle_2025",
       "priority": 4,
-      "status": "source_locked_129_pair_analysis_complete",
+      "status": "source_locked_129_pair_analysis_complete_starting_size_formal_admission_blocked",
       "article_doi": "10.1093/aob/mcaf005",
       "pmcid": "PMC12445859",
       "geographic_design": "129 source-defined island-endemic versus mainland-relative colonisation events across ten archipelagos",
-      "source_native_units": ["paired floral morphology contrast"],
+      "source_native_units": [
+        "paired floral morphology contrast"
+      ],
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
       "checked_result_state": {
@@ -73,19 +82,51 @@
         "animal_minus_wind_slope": -0.07488038704528203,
         "direct_mode_difference_robust": false,
         "archipelagos_with_estimable_animal_slope": 6,
-        "negative_estimable_animal_slopes": 6
+        "negative_estimable_animal_slopes": 6,
+        "starting_size_effects_formal_model_eligible": false,
+        "measurement_error_reliability_empirically_estimated": false,
+        "animal_point_negative_reliability_threshold": 0.8490052881072877,
+        "animal_ci_negative_reliability_threshold": 0.9258992384647143
       },
-      "admissible_question": "Does island-mainland flower-size response depend on mainland starting size, and how heterogeneous is that relationship across source-defined pollination modes and archipelagos?",
-      "forbidden_promotion": "Sister-taxon morphology is not contemporary network function or direct effective dependency. A robust animal slope plus an uncertain wind slope is not itself a robust between-mode difference.",
-      "next_gate": "Replicate the same flower-size response/exposure family in an independent source with compatible uncertainty."
+      "admissible_question": "Does island-mainland flower-size response depend on mainland starting size, how heterogeneous is that relationship across source-defined pollination modes and archipelagos, and how sensitive is the response-shape estimate to shared-denominator measurement error?",
+      "forbidden_promotion": "Sister-taxon morphology is not contemporary network function or direct effective dependency. A robust animal slope plus an uncertain wind slope is not itself a robust between-mode difference. Starting-size slopes must not enter a formal cross-system model while mainland-size reliability remains unidentified.",
+      "next_gate": "Recover an independent raw paired-flower dataset that supports a measurement-error-aware same-family analysis."
+    },
+    {
+      "system_id": "new_zealand_hendriks_2019",
+      "priority": 5,
+      "status": "candidate_pair_table_visible_in_author_full_text_not_checksum_locked",
+      "source_identifier": "10.13140/RG.2.2.25945.08805",
+      "source_type": "Victoria University of Wellington MSc thesis, author-uploaded full text currently indexed through ResearchGate",
+      "geographic_design": "65 island endemic-mainland sister pairs overall across New Zealand and southwest Pacific islands; flower-area subset n=35",
+      "source_native_units": [
+        "island-mainland sister-taxon pair"
+      ],
+      "direct_dependency_available": false,
+      "pollen_or_reproductive_function_available": false,
+      "reported_flower_area_result": {
+        "n_pairs": 35,
+        "model_1_log_ratio_on_log_mainland_slope": -0.39,
+        "model_1_slope_95_ci": [-0.63, -0.16],
+        "model_2_log_island_on_log_mainland_slope": 0.58,
+        "model_2_slope_95_ci": [0.36, 0.82],
+        "model_2_minus_isometry_slope": -0.42,
+        "model_2_minus_isometry_95_ci": [-0.64, -0.18],
+        "raw_pair_table_location": "Appendix B Table B9"
+      },
+      "admissible_question": "Can the independent New Zealand/southwest-Pacific flower-area sister-pair data reproduce a starting-size-dependent island response when analysed directly on paired island and mainland values?",
+      "forbidden_promotion": "Do not treat the reported OLS slope below isometry as measurement-error-free. Do not enter a transformed same-family effect before the 35 pair rows are recovered, provenance-locked, and reanalysed with explicit error-aware sensitivity.",
+      "next_gate": "Recover Appendix B Table B9 from a stable lawful source, lock source provenance, reproduce the reported 0.58 direct slope, then compare OLS, SMA/error-aware sensitivity, and cluster structure."
     },
     {
       "system_id": "pacific_sister_taxa_hetherington_rauth_johnson_2020",
-      "priority": 5,
+      "priority": 6,
       "status": "candidate_primary_data_route_unresolved",
       "article_doi": "10.1086/709018",
       "geographic_design": "556 species forming 136 phylogenetically independent island-mainland sister-taxon contrasts across seven tropical and subtropical Pacific island systems",
-      "source_native_units": ["phylogenetically independent island-mainland sister-taxon contrast"],
+      "source_native_units": [
+        "phylogenetically independent island-mainland sister-taxon contrast"
+      ],
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
       "admissible_question": "Can an independent Pacific sister-taxon dataset reproduce a compatible flower-size island-mainland response family, including context heterogeneity among islands and families?",
