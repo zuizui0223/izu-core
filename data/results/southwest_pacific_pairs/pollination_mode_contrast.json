@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "status": "pollination_mode_slope_difference_audited",
+  "n_animal": 88,
+  "n_wind": 38,
+  "animal_slope": -0.15099471189271235,
+  "wind_slope": -0.07611432484743032,
+  "animal_minus_wind_slope": -0.07488038704528203,
+  "animal_minus_wind_mean_lr": -0.038966477023563414,
+  "event_bootstrap": {
+    "slope_difference": {
+      "n_valid": 5000,
+      "median": -0.07788005514453067,
+      "ci_95": [
+        -0.26478776142760313,
+        0.11882363769749966
+      ],
+      "fraction_below_zero": 0.7872
+    },
+    "mean_lr_difference": {
+      "n_valid": 5000,
+      "median": -0.0392697317168926,
+      "ci_95": [
+        -0.10146961110818196,
+        0.020709910103370494
+      ],
+      "fraction_below_zero": 0.8942
+    }
+  },
+  "island_cluster_bootstrap": {
+    "cluster": "Island",
+    "n_source_clusters": 10,
+    "slope_difference": {
+      "n_valid": 5000,
+      "median": -0.08826566432343261,
+      "ci_95": [
+        -0.3832711574594448,
+        0.045504789138290556
+      ],
+      "fraction_below_zero": 0.875
+    },
+    "mean_lr_difference": {
+      "n_valid": 5000,
+      "median": -0.037517348316623185,
+      "ci_95": [
+        -0.1462845500298405,
+        0.06435885267306392
+      ],
+      "fraction_below_zero": 0.7008
+    }
+  },
+  "family_cluster_bootstrap": {
+    "cluster": "Family",
+    "n_source_clusters": 44,
+    "slope_difference": {
+      "n_valid": 5000,
+      "median": -0.07051387198634078,
+      "ci_95": [
+        -0.3141733906567662,
+        0.24219351429394448
+      ],
+      "fraction_below_zero": 0.7144
+    },
+    "mean_lr_difference": {
+      "n_valid": 5000,
+      "median": -0.03896832117017461,
+      "ci_95": [
+        -0.0956492076803309,
+        0.021054891825244563
+      ],
+      "fraction_below_zero": 0.8928
+    }
+  },
+  "robust_mode_difference": false,
+  "effect_registry_eligible": false,
+  "causal_claim_allowed": false,
+  "reading": "The animal-vs-wind slope difference is tested directly; significance in only one stratum is not itself evidence of a between-stratum difference.",
+  "claim_boundary": "Pollination mode is not effective dependency or specialist/generalist status, and this contrast does not identify adaptive causation."
+}
