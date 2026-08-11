@@ -19,19 +19,26 @@ def test_registry_keeps_izu_as_anchor_and_external_systems_as_validation():
     assert "do not retroactively identify" in data["claim_boundary"].lower()
 
 
-def test_next_morphology_gate_prioritizes_recoverable_hendriks_pair_table():
+def test_next_morphology_gate_prioritizes_audited_hendriks_reconstruction():
     data = json.loads(REGISTRY.read_text(encoding="utf-8"))
     assert data["next_external_gate"]["priority_candidate"] == "new_zealand_hendriks_2019"
     systems = {row["system_id"]: row for row in data["systems"]}
     hendriks = systems["new_zealand_hendriks_2019"]
-    result = hendriks["reported_flower_area_result"]
+    reported = hendriks["reported_flower_area_result"]
+    checked = hendriks["checked_reconstruction_result"]
     assert hendriks["priority"] == 5
-    assert result["n_pairs"] == 35
-    assert result["model_2_log_island_on_log_mainland_slope"] == 0.58
-    assert result["model_2_slope_95_ci"] == [0.36, 0.82]
-    assert result["model_2_minus_isometry_slope"] == -0.42
-    assert result["model_2_minus_isometry_95_ci"] == [-0.64, -0.18]
-    assert result["raw_pair_table_location"] == "Appendix B Table B9"
+    assert hendriks["status"] == "numeric_reconstruction_audited_unlocked_source"
+    assert reported["n_pairs"] == 35
+    assert reported["model_2_log_island_on_log_mainland_slope"] == 0.58
+    assert reported["model_2_slope_95_ci"] == [0.36, 0.82]
+    assert reported["raw_pair_table_location"] == "Appendix B Table B9"
+    assert abs(checked["direct_log_island_on_log_mainland_ols_slope"] - 0.58) < 0.01
+    assert checked["direct_sma_slope"] < 1.0
+    assert checked["sma_pair_bootstrap_95_interval"][0] < 1.0
+    assert checked["sma_pair_bootstrap_95_interval"][1] > 1.0
+    assert checked["sma_interval_excludes_isometry"] is False
+    assert checked["raw_pdf_checksum_locked"] is False
+    assert checked["effect_registry_eligible"] is False
     assert "measurement-error-free" in hendriks["forbidden_promotion"]
 
 
