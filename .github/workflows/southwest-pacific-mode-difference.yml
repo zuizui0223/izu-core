@@ -8,7 +8,7 @@ on:
       - "scripts/acquire_southwest_pacific_pmc_support.py"
       - "scripts/analyze_southwest_pacific_mode_difference.py"
       - "tests/test_southwest_pacific_mode_difference.py"
-      - "tests/test_southwest_pacific_pmc_support.py"
+      - "tests/test_southwest_pacific_pmc_acquisition.py"
       - "data/results/southwest_pacific_pairs/source_lock.json"
       - ".github/workflows/southwest-pacific-mode-difference.yml"
   pull_request:
@@ -17,7 +17,7 @@ on:
       - "scripts/acquire_southwest_pacific_pmc_support.py"
       - "scripts/analyze_southwest_pacific_mode_difference.py"
       - "tests/test_southwest_pacific_mode_difference.py"
-      - "tests/test_southwest_pacific_pmc_support.py"
+      - "tests/test_southwest_pacific_pmc_acquisition.py"
       - "data/results/southwest_pacific_pairs/source_lock.json"
       - ".github/workflows/southwest-pacific-mode-difference.yml"
 
@@ -41,7 +41,7 @@ jobs:
         run: >-
           python -m pytest -q
           tests/test_southwest_pacific_mode_difference.py
-          tests/test_southwest_pacific_pmc_support.py
+          tests/test_southwest_pacific_pmc_acquisition.py
       - name: Recover checksum-identical source through Europe PMC
         run: >-
           python scripts/acquire_southwest_pacific_pmc_support.py
