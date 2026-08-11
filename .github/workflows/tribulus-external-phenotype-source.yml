@@ -7,6 +7,7 @@ on:
       - "config/tribulus_zenodo_source.json"
       - "scripts/acquire_ogasawara_zenodo.py"
       - "scripts/analyze_tribulus_flower_context.py"
+      - "scripts/analyze_tribulus_flower_context_idaware.py"
       - "tests/test_tribulus_source_config.py"
       - "tests/test_tribulus_flower_context.py"
       - "data/results/tribulus_island_continent/**"
@@ -16,6 +17,7 @@ on:
       - "config/tribulus_zenodo_source.json"
       - "scripts/acquire_ogasawara_zenodo.py"
       - "scripts/analyze_tribulus_flower_context.py"
+      - "scripts/analyze_tribulus_flower_context_idaware.py"
       - "tests/test_tribulus_source_config.py"
       - "tests/test_tribulus_flower_context.py"
       - "data/results/tribulus_island_continent/**"
@@ -68,7 +70,7 @@ jobs:
           PY
       - name: Run specimen-ID flower context audit
         run: >-
-          python scripts/analyze_tribulus_flower_context.py
+          python scripts/analyze_tribulus_flower_context_idaware.py
           --source artifacts/tribulus_zenodo/files/Tribulus_flower_data_clean.csv
           --output artifacts/tribulus_analysis/analysis.json
           --bootstrap-repetitions 5000
