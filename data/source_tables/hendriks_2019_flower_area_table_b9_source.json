@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source_id": "hendriks_2019_flower_area_table_b9",
   "title": "The island rule and its application to multiple plant traits",
   "author": "Annemieke Lona Hedi Hendriks",
@@ -12,10 +12,32 @@
   "source_reported_pair_count": 35,
   "reconstructed_numeric_pair_count": 35,
   "reconstruction_scope": "Only island species, island flower area, mainland relative, and mainland flower area were transcribed. Measurement-reference columns were intentionally not copied into the reconstructed numeric table.",
-  "retrieval_state": "complete_numeric_reconstruction_from_search_indexed_author_upload",
+  "retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_search_indexed_author_upload",
   "raw_pdf_artifact_recovered": false,
   "raw_pdf_checksum_locked": false,
   "stable_institutional_download_recovered": false,
+  "island_group_mapping": {
+    "mapping_file": "data/source_tables/hendriks_2019_flower_area_island_mapping.csv",
+    "source_tables": "Appendix A Tables A1-A12",
+    "frequency_check_source": "Appendix A Table A14",
+    "source_reported_flower_area_frequency": {
+      "Antipodes": 1,
+      "Auckland": 1,
+      "Bounty": 0,
+      "Campbell": 1,
+      "Chatham": 10,
+      "Kermadec": 4,
+      "Lord Howe": 11,
+      "Macquarie": 0,
+      "Norfolk": 3,
+      "Snares": 0,
+      "Stewart": 1,
+      "Three Kings": 3
+    },
+    "mapped_nonzero_groups": 9,
+    "mapped_pair_count": 35,
+    "frequency_vector_matches_table_a14": true
+  },
   "source_reported_analysis": {
     "measurements_natural_logged_before_analysis": true,
     "model_1_description": "linear regression of Si ratio on mainland value",
@@ -30,6 +52,6 @@
     "model_2_p": 0.0000088,
     "figure_2_3_reported_correlation": 0.66
   },
-  "admission_boundary": "The 35 displayed numeric pairs can be used for a transparent reconstruction audit, but this reconstructed table is not treated as a checksum-locked primary source. It must not enter the formal cross-system effect registry until a stable lawful source artifact is recovered or independently verified, source grouping is audited, and measurement-error sensitivity is resolved.",
-  "next_gate": "Recover a stable institutional or author-distributed PDF/data artifact; verify all 35 Table B9 values against it; recover island/family grouping; then rerun the checked reconstruction and measurement-error audit."
+  "admission_boundary": "The 35 displayed numeric pairs and their Appendix-A island-group assignments can be used for a transparent reconstruction and island-cluster audit, but the reconstruction is not treated as a checksum-locked primary source. It must not enter the formal cross-system effect registry until a stable lawful source artifact is recovered or independently verified and measurement-error sensitivity is resolved.",
+  "next_gate": "Recover a stable institutional or author-distributed PDF/data artifact; verify all 35 Table B9 values and Appendix-A island assignments against it; then rerun the checked OLS, island-cluster, and errors-in-variables audits."
 }
