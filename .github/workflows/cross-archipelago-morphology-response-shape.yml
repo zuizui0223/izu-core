@@ -1,0 +1,53 @@
+name: Cross-archipelago morphology response-shape audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/audit_cross_archipelago_morphology_response_shape.py"
+      - "tests/test_cross_archipelago_morphology_response_shape.py"
+      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
+      - "data/results/southwest_pacific_pairs/analysis_summary.json"
+      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
+      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
+      - ".github/workflows/cross-archipelago-morphology-response-shape.yml"
+  pull_request:
+    paths:
+      - "scripts/audit_cross_archipelago_morphology_response_shape.py"
+      - "tests/test_cross_archipelago_morphology_response_shape.py"
+      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
+      - "data/results/southwest_pacific_pairs/analysis_summary.json"
+      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
+      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
+      - ".github/workflows/cross-archipelago-morphology-response-shape.yml"
+
+jobs:
+  response-shape-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and tests
+        run: python -m pip install -e . pytest
+      - name: Run response-shape audit tests
+        run: python -m pytest -q tests/test_cross_archipelago_morphology_response_shape.py
+      - name: Regenerate checked audit
+        run: >-
+          python scripts/audit_cross_archipelago_morphology_response_shape.py
+          --southwest-summary data/results/southwest_pacific_pairs/analysis_summary.json
+          --southwest-coupling data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json
+          --hendriks-summary data/results/hendriks_2019/flower_area_reconstruction_summary.json
+          --output artifacts/cross_archipelago_morphology/response_shape_summary.json
+      - name: Verify checked audit
+        run: >-
+          cmp artifacts/cross_archipelago_morphology/response_shape_summary.json
+          data/results/cross_archipelago_morphology_response_shape_summary.json
+      - name: Upload audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-archipelago-morphology-response-shape
+          path: artifacts/cross_archipelago_morphology/
+          if-no-files-found: error
