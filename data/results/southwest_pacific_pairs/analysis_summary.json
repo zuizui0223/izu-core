@@ -1,1 +1,392 @@
-{"schema_version":"1.0","status":"source_native_129_pair_analysis_complete","source_id":"southwest_pacific_mainland_island_floral_pairs","article_doi":"10.1093/aob/mcaf005","source_file":"mcaf005_suppl_supplementary_data_s2.xlsx","source_file_sha256":"452c6f83143eb17e8249faae9659386be7b162f93742c4e137921952a9b88677","n_source_rows":129,"source_integrity":{"pair_numbers_exactly_1_to_129":true,"formula_lr_log10_fi_over_fm_mismatch_pair_numbers":[],"syndrome_counts":{"animal":89,"wind":39,"unresolved":1},"valid_size_counts_by_syndrome":{"animal":88,"wind":38,"unresolved":1},"invalid_or_missing_size_pair_numbers":[69,77],"unresolved_syndrome_pair_numbers":[54],"paper_reported_counts":{"animal_pairs":90,"wind_pairs":39,"animal_analysis_n":87,"wind_analysis_n":36},"source_count_discrepancy_retained":true,"count_alignment_reading":"Assigning the unresolved pair 54 to animal pollination reproduces the paper total of 90 animal pairs and the display-data n=80, but transparent size-data counts remain 89 valid animal and 38 valid wind before any undocumented exclusions."},"primary_models":{"animal_source_coded":{"status":"estimated","n":88,"islands":10,"families":35,"ols_slope":-0.15099471189271235,"ols_slope_se":0.05859848386155344,"event_ci_95":[-0.2821706393581845,-0.02928631486046792],"island_ci_95":[-0.29979094098608416,-0.07389949382250384],"family_ci_95":[-0.24845652647204852,-0.019795600314589462],"sma_slope":-0.5640076965384593,"crossover_mainland_mm":4.490564649489246,"leave_one_island_range":[-0.19862374882123038,-0.12405477149229269],"leave_one_island_all_negative":true,"coupling_slope":0.8490052881072877,"coupling_island_ci_95":[0.7005415130113272,0.9258992384647143],"mean_fsLR":{"n":88,"mean":-0.007699101781209284,"ci_95":[-0.05591141271323139,0.037367308809009535],"median_bootstrap_mean":-0.007838189987856665}},"wind_source_coded":{"status":"estimated","n":38,"islands":7,"families":12,"ols_slope":-0.07611432484743032,"ols_slope_se":0.07423758716046035,"event_ci_95":[-0.22772606399711298,0.07203289784909164],"island_ci_95":[-0.14839881010645037,0.1094552175329115],"family_ci_95":[-0.32648568432445113,0.11832494357723225],"sma_slope":-0.4518819391761859,"crossover_mainland_mm":6.613941860117257,"leave_one_island_range":[-0.11128561201828079,-0.04468519407947227],"leave_one_island_all_negative":true,"coupling_slope":0.9238856751525697,"coupling_island_ci_95":[0.85137732473438,1.1082510511604158],"mean_fsLR":{"n":38,"mean":0.03126737524235413,"ci_95":[-0.008606833871076249,0.07073662116189389],"median_bootstrap_mean":0.03142701860420827}}},"key_sensitivities":{"phylogenetic_animal":{"status":"estimated","n":61,"islands":8,"families":25,"ols_slope":-0.19634148790829312,"ols_slope_se":0.06989159214773746,"event_ci_95":[-0.3298201571107864,-0.07387633304720995],"island_ci_95":[-0.2792466810380051,-0.13831450304639134],"family_ci_95":[-0.26595972733057877,-0.04715402756066702],"sma_slope":-0.5716250732760394,"crossover_mainland_mm":5.744446168072625,"leave_one_island_range":[-0.22673429052685168,-0.17647385159677687],"leave_one_island_all_negative":true,"coupling_slope":0.803658512091707,"coupling_island_ci_95":[0.7182024358283117,0.8639478254766756],"mean_fsLR":{"n":61,"mean":0.009143036450385276,"ci_95":[-0.04757337059039158,0.06564960801895901],"median_bootstrap_mean":0.00881132067610484}},"phylogenetic_wind":{"status":"estimated","n":22,"islands":6,"families":9,"ols_slope":-0.07824995901850465,"ols_slope_se":0.11312531949996821,"event_ci_95":[-0.3444268014312577,0.1274898215728465],"island_ci_95":[-0.18203552530451897,0.06597530672573489],"family_ci_95":[-0.4908451442542628,0.2632709736713238],"sma_slope":-0.5119275479262622,"crossover_mainland_mm":6.792004237757157,"leave_one_island_range":[-0.13178467343177416,-0.018229955514267548],"leave_one_island_all_negative":true,"coupling_slope":0.9217500409814953,"coupling_island_ci_95":[0.8175183823469264,1.0606659244062133],"mean_fsLR":{"n":22,"mean":0.036410964143722545,"ci_95":[-0.02365129746991534,0.09039700751085535],"median_bootstrap_mean":0.03721007109343915}},"actinomorphic_fused_petals":{"status":"estimated","n":30,"islands":9,"families":14,"ols_slope":-0.4028965070654841,"ols_slope_se":0.11892198778194059,"event_ci_95":[-0.5791676381145416,-0.14858340760833658],"island_ci_95":[-0.6179481329526999,-0.12794692278195957],"family_ci_95":[-0.6090319232908705,-0.08833949009405756],"sma_slope":-0.7472040500357264,"crossover_mainland_mm":3.4230935958566175,"leave_one_island_range":[-0.5045127299855785,-0.3181150535100107],"leave_one_island_all_negative":true,"coupling_slope":0.597103492934516,"coupling_island_ci_95":[0.3686570553173627,0.8663493160320224],"mean_fsLR":{"n":30,"mean":0.0037855377861918393,"ci_95":[-0.06972227039079008,0.07452625974067006],"median_bootstrap_mean":0.003243914644241928}},"actinomorphic_free_petals":{"status":"estimated","n":56,"islands":8,"families":21,"ols_slope":-0.10844173204261007,"ols_slope_se":0.07396987503104767,"event_ci_95":[-0.2659255597712263,0.043683397343041844],"island_ci_95":[-0.17106861048132632,-0.04933267879594045],"family_ci_95":[-0.23752077281697945,0.08740931553590107],"sma_slope":-0.5542769159024007,"crossover_mainland_mm":4.945424248493189,"leave_one_island_range":[-0.13055268640818984,-0.09192775614973532],"leave_one_island_all_negative":true,"coupling_slope":0.8915582679573899,"coupling_island_ci_95":[0.8296113042227937,0.9508660968813332],"mean_fsLR":{"n":56,"mean":-0.010434709888855056,"ci_95":[-0.07288695194925746,0.0530982610313498],"median_bootstrap_mean":-0.011015158935191493}},"zygomorphic":{"status":"blocked_n_too_small","n":2},"unresolved_pair_as_animal":{"pair_numbers":[54],"model":{"status":"estimated","n":89,"islands":10,"families":35,"ols_slope":-0.15439013139613175,"ols_slope_se":0.05752413723378202,"event_ci_95":[-0.27240036636466136,-0.03557922052621429],"island_ci_95":[-0.3032440057697918,-0.07756499489184104],"family_ci_95":[-0.25040002802303485,-0.02978085045819198],"sma_slope":-0.5583203438736858,"crossover_mainland_mm":4.561158703848968,"leave_one_island_range":[-0.19938478458029443,-0.12790011665431858],"leave_one_island_all_negative":true,"coupling_slope":0.8456098686038683,"coupling_island_ci_95":[0.6917989406547973,0.9219753446582752],"mean_fsLR":{"n":89,"mean":-0.005743702640223505,"ci_95":[-0.05066446198271033,0.041148905847141405],"median_bootstrap_mean":-0.006037262137803912}}}},"animal_floral_display":{"n":79,"mean_LFR":{"n":79,"mean":0.02174087631829396,"ci_95":[-0.05596191381341954,0.1010915786793913],"median_bootstrap_mean":0.021715020726949405},"negative":32,"positive":42,"zero":5,"reading":"The aggregate floral-display log ratio is evaluated separately from flower-size starting-value dependence."},"regression_method_audit":{"source_methods_label":"The article states that reduced major axis regressions were conducted with lmodel2.","source_reported_animal_slope":-0.15,"source_reported_animal_ci_95":[-0.27,-0.04],"source_reported_wind_slope":-0.09,"source_reported_wind_ci_95":[-0.23,0.06],"workbook_ols_animal_slope":-0.15099471189271235,"workbook_sma_animal_slope":-0.5640076965384593,"workbook_ols_wind_slope":-0.07611432484743032,"workbook_sma_wind_slope":-0.4518819391761859,"reported_animal_slope_absolute_difference_from_ols":0.0009947118927123577,"reported_animal_slope_absolute_difference_from_sma":0.41400769653845926,"reading":"The reported animal coefficient is numerically reproduced by OLS on the released workbook, whereas a conventional standardized-major-axis calculation is materially steeper. This is a reproducibility sensitivity, not a correction of author intent; mixed-model and source exclusion details may account for differences."},"effect_registry_eligible":false,"claim_boundary":"This source supports an independent colonisation-event morphology response and robustness audit. It is not pooled with visit-network effects and does not identify pollinator dependency or geological-origin causation."}
+{
+  "schema_version": "1.0",
+  "status": "source_native_129_pair_analysis_complete",
+  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+  "article_doi": "10.1093/aob/mcaf005",
+  "source_file": "mcaf005_suppl_supplementary_data_s2.xlsx",
+  "source_file_sha256": "452c6f83143eb17e8249faae9659386be7b162f93742c4e137921952a9b88677",
+  "n_source_rows": 129,
+  "source_integrity": {
+    "pair_numbers_exactly_1_to_129": true,
+    "formula_lr_log10_fi_over_fm_mismatch_pair_numbers": [],
+    "syndrome_counts": {
+      "animal": 89,
+      "wind": 39,
+      "unresolved": 1
+    },
+    "valid_size_counts_by_syndrome": {
+      "animal": 88,
+      "wind": 38,
+      "unresolved": 1
+    },
+    "invalid_or_missing_size_pair_numbers": [
+      69,
+      77
+    ],
+    "unresolved_syndrome_pair_numbers": [
+      54
+    ],
+    "paper_reported_counts": {
+      "animal_pairs": 90,
+      "wind_pairs": 39,
+      "animal_analysis_n": 87,
+      "wind_analysis_n": 36
+    },
+    "source_count_discrepancy_retained": true,
+    "count_alignment_reading": "Assigning unresolved pair 54 to animal pollination reproduces the paper total of 90 animal pairs and display-data n=80. Transparent size-data counts remain 89 valid animal and 38 valid wind before any undocumented exclusions."
+  },
+  "primary_models": {
+    "animal_source_coded": {
+      "status": "estimated",
+      "n": 88,
+      "islands": 10,
+      "families": 35,
+      "ols_slope": -0.1509947118927123,
+      "ols_slope_se": 0.05859848386155344,
+      "event_ci_95": [
+        -0.2785016454997544,
+        -0.028937705391436554
+      ],
+      "island_ci_95": [
+        -0.3040562773559898,
+        -0.07251784059209347
+      ],
+      "family_ci_95": [
+        -0.24833678997365197,
+        -0.020758981447738082
+      ],
+      "sma_slope": -0.5640076965384593,
+      "crossover_mainland_mm": 4.490564649489248,
+      "leave_one_island_range": [
+        -0.19862374882123032,
+        -0.1240547714922927
+      ],
+      "leave_one_island_all_negative": true,
+      "coupling_slope": 0.8490052881072875,
+      "coupling_island_ci_95": [
+        0.6916442921593313,
+        0.9258005353502381
+      ],
+      "mean_fsLR": {
+        "n": 88,
+        "mean": -0.007699101781209284,
+        "ci_95": [
+          -0.054862703944347536,
+          0.0392802012196677
+        ],
+        "median_bootstrap_mean": -0.007379332810759873
+      }
+    },
+    "wind_source_coded": {
+      "status": "estimated",
+      "n": 38,
+      "islands": 7,
+      "families": 12,
+      "ols_slope": -0.07611432484743035,
+      "ols_slope_se": 0.07423758716046036,
+      "event_ci_95": [
+        -0.2329347184603204,
+        0.07448157103575272
+      ],
+      "island_ci_95": [
+        -0.14875953757334207,
+        0.11631431362580721
+      ],
+      "family_ci_95": [
+        -0.3219090480686758,
+        0.11961265283943745
+      ],
+      "sma_slope": -0.4518819391761859,
+      "crossover_mainland_mm": 6.613941860117255,
+      "leave_one_island_range": [
+        -0.11128561201828083,
+        -0.044685194079472274
+      ],
+      "leave_one_island_all_negative": true,
+      "coupling_slope": 0.9238856751525703,
+      "coupling_island_ci_95": [
+        0.8522584427453627,
+        1.1163143136258074
+      ],
+      "mean_fsLR": {
+        "n": 38,
+        "mean": 0.03126737524235413,
+        "ci_95": [
+          -0.010532700030062056,
+          0.06843770246603068
+        ],
+        "median_bootstrap_mean": 0.03146782743983195
+      }
+    }
+  },
+  "key_sensitivities": {
+    "phylogenetic_animal": {
+      "status": "estimated",
+      "n": 61,
+      "islands": 8,
+      "families": 25,
+      "ols_slope": -0.1963414879082931,
+      "ols_slope_se": 0.06989159214773746,
+      "event_ci_95": [
+        -0.33329292150595763,
+        -0.07404892980302785
+      ],
+      "island_ci_95": [
+        -0.28209262725848305,
+        -0.13501735506726878
+      ],
+      "family_ci_95": [
+        -0.26679406322439664,
+        -0.051138933764789
+      ],
+      "sma_slope": -0.5716250732760394,
+      "crossover_mainland_mm": 5.744446168072627,
+      "leave_one_island_range": [
+        -0.22673429052685173,
+        -0.17647385159677684
+      ],
+      "leave_one_island_all_negative": true,
+      "coupling_slope": 0.8036585120917067,
+      "coupling_island_ci_95": [
+        0.7196294315812898,
+        0.8628677655314435
+      ],
+      "mean_fsLR": {
+        "n": 61,
+        "mean": 0.009143036450385276,
+        "ci_95": [
+          -0.04796512387601469,
+          0.06467496215655352
+        ],
+        "median_bootstrap_mean": 0.009156648000857387
+      }
+    },
+    "phylogenetic_wind": {
+      "status": "estimated",
+      "n": 22,
+      "islands": 6,
+      "families": 9,
+      "ols_slope": -0.07824995901850465,
+      "ols_slope_se": 0.11312531949996822,
+      "event_ci_95": [
+        -0.35199786203294736,
+        0.12899204208194756
+      ],
+      "island_ci_95": [
+        -0.18248161765307366,
+        0.06066592440621343
+      ],
+      "family_ci_95": [
+        -0.5062014442387592,
+        0.26946655582276324
+      ],
+      "sma_slope": -0.5119275479262622,
+      "crossover_mainland_mm": 6.792004237757157,
+      "leave_one_island_range": [
+        -0.1317846734317742,
+        -0.01822995551426754
+      ],
+      "leave_one_island_all_negative": true,
+      "coupling_slope": 0.9217500409814956,
+      "coupling_island_ci_95": [
+        0.8176966337144138,
+        1.0606659244062138
+      ],
+      "mean_fsLR": {
+        "n": 22,
+        "mean": 0.036410964143722545,
+        "ci_95": [
+          -0.02281909548535332,
+          0.09132050613310762
+        ],
+        "median_bootstrap_mean": 0.03762330973343593
+      }
+    },
+    "actinomorphic_fused_petals": {
+      "status": "estimated",
+      "n": 30,
+      "islands": 9,
+      "families": 14,
+      "ols_slope": -0.40289650706548386,
+      "ols_slope_se": 0.11892198778194057,
+      "event_ci_95": [
+        -0.5695974847605321,
+        -0.14718348463444128
+      ],
+      "island_ci_95": [
+        -0.6214454478157206,
+        -0.13163359590567272
+      ],
+      "family_ci_95": [
+        -0.6101778711879878,
+        -0.0890747945952726
+      ],
+      "sma_slope": -0.7472040500357264,
+      "crossover_mainland_mm": 3.4230935958566175,
+      "leave_one_island_range": [
+        -0.5045127299855785,
+        -0.31811505351001074
+      ],
+      "leave_one_island_all_negative": true,
+      "coupling_slope": 0.5971034929345159,
+      "coupling_island_ci_95": [
+        0.36915131481646807,
+        0.8696737293151333
+      ],
+      "mean_fsLR": {
+        "n": 30,
+        "mean": 0.0037855377861918393,
+        "ci_95": [
+          -0.07009798568324277,
+          0.07661115723383055
+        ],
+        "median_bootstrap_mean": 0.003140223314013614
+      }
+    },
+    "actinomorphic_free_petals": {
+      "status": "estimated",
+      "n": 56,
+      "islands": 8,
+      "families": 21,
+      "ols_slope": -0.10844173204261007,
+      "ols_slope_se": 0.07396987503104767,
+      "event_ci_95": [
+        -0.2689195822569906,
+        0.03714309519099775
+      ],
+      "island_ci_95": [
+        -0.1689974720871566,
+        -0.04747375346060808
+      ],
+      "family_ci_95": [
+        -0.24073800806649057,
+        0.08678523229941204
+      ],
+      "sma_slope": -0.5542769159024007,
+      "crossover_mainland_mm": 4.945424248493189,
+      "leave_one_island_range": [
+        -0.13055268640818982,
+        -0.09192775614973529
+      ],
+      "leave_one_island_all_negative": true,
+      "coupling_slope": 0.89155826795739,
+      "coupling_island_ci_95": [
+        0.829556721234155,
+        0.9506673212040595
+      ],
+      "mean_fsLR": {
+        "n": 56,
+        "mean": -0.010434709888855056,
+        "ci_95": [
+          -0.07314970767706476,
+          0.05130184702222709
+        ],
+        "median_bootstrap_mean": -0.009957816165824893
+      }
+    },
+    "zygomorphic": {
+      "status": "blocked_n_too_small",
+      "n": 2
+    },
+    "unresolved_pair_as_animal": {
+      "pair_numbers": [
+        54
+      ],
+      "model": {
+        "status": "estimated",
+        "n": 89,
+        "islands": 10,
+        "families": 35,
+        "ols_slope": -0.1543901313961318,
+        "ols_slope_se": 0.05752413723378202,
+        "event_ci_95": [
+          -0.2758287259996676,
+          -0.042467135546315316
+        ],
+        "island_ci_95": [
+          -0.2936706217267432,
+          -0.07911099918107761
+        ],
+        "family_ci_95": [
+          -0.2485935752253001,
+          -0.031517162653671695
+        ],
+        "sma_slope": -0.5583203438736858,
+        "crossover_mainland_mm": 4.561158703848968,
+        "leave_one_island_range": [
+          -0.19938478458029446,
+          -0.1279001166543187
+        ],
+        "leave_one_island_all_negative": true,
+        "coupling_slope": 0.845609868603868,
+        "coupling_island_ci_95": [
+          0.7039821820997708,
+          0.9186764956850556
+        ],
+        "mean_fsLR": {
+          "n": 89,
+          "mean": -0.005743702640223505,
+          "ci_95": [
+            -0.053738113803567654,
+            0.04033879564544679
+          ],
+          "median_bootstrap_mean": -0.005572517757299368
+        }
+      }
+    }
+  },
+  "animal_floral_display": {
+    "n": 79,
+    "mean_LFR": {
+      "n": 79,
+      "mean": 0.02174087631829396,
+      "ci_95": [
+        -0.059443351387046546,
+        0.10344170207211405
+      ],
+      "median_bootstrap_mean": 0.021798364210906807
+    },
+    "negative": 32,
+    "positive": 42,
+    "zero": 5,
+    "reading": "The aggregate display log ratio is evaluated separately from flower-size starting-value dependence."
+  },
+  "regression_method_audit": {
+    "source_methods_label": "The article states that reduced major axis regressions were conducted with lmodel2.",
+    "source_reported_animal_slope": -0.15,
+    "source_reported_animal_ci_95": [
+      -0.27,
+      -0.04
+    ],
+    "source_reported_wind_slope": -0.09,
+    "source_reported_wind_ci_95": [
+      -0.23,
+      0.06
+    ],
+    "workbook_ols_animal_slope": -0.1509947118927123,
+    "workbook_sma_animal_slope": -0.5640076965384593,
+    "workbook_ols_wind_slope": -0.07611432484743035,
+    "workbook_sma_wind_slope": -0.4518819391761859,
+    "reported_animal_slope_absolute_difference_from_ols": 0.0009947118927123022,
+    "reported_animal_slope_absolute_difference_from_sma": 0.41400769653845926,
+    "reading": "The printed animal coefficient is numerically reproduced by OLS on the released workbook, whereas a conventional standardized-major-axis calculation is materially steeper. This is a method sensitivity, not a correction of author intent; mixed-model and source-exclusion details may account for differences."
+  },
+  "interpretation": {
+    "supported": [
+      "Animal-pollinated pairs show negative starting-size dependence under OLS, retained under event-, island-, and family-resampling.",
+      "The animal coupling check estimates a log-island-on-log-mainland slope below one.",
+      "Both common actinomorphic morphology classes have negative point slopes; the pattern is not restricted to two zygomorphic pairs.",
+      "Wind-pollinated starting-size slope intervals overlap zero in the released-workbook analysis.",
+      "Animal floral display has no common directional shift in the released-workbook analysis."
+    ],
+    "not_supported_or_not_identified": [
+      "The source-coded wind mean is positive but its transparent event-bootstrap interval overlaps zero; the paper-significant gigantism result is not reproduced without additional source exclusions.",
+      "The dataset does not directly measure pollinator functional diversity, per-visit effectiveness, effective dependency, pollen deposition, reproductive success, or the Izu transition.",
+      "Flower morphology categories are not direct specialist/generalist or dependency measurements.",
+      "Archipelago, mainland-source, island, and lineage effects are partly confounded and are not causal moderators in this audit.",
+      "The source workbook and article analysis counts are not identical; no hidden exclusions are invented."
+    ]
+  },
+  "effect_registry_eligible": false,
+  "claim_boundary": "This source supports an independent colonisation-event morphology response and robustness audit. It is not pooled with visit-network effects and does not identify pollinator dependency or geological-origin causation."
+}
