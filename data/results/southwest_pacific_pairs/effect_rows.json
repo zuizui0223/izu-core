@@ -73,8 +73,8 @@
     "coupling_summary_status": "classical_measurement_error_coupling_sensitivity_complete",
     "reliability_is_empirically_estimated_here": false,
     "starting_size_effects_model_eligible": false,
-    "animal_point_negative_reliability_threshold": 0.8490052881072877,
-    "animal_ci_negative_reliability_threshold": 0.9258992384647143,
+    "animal_point_negative_reliability_threshold": 0.8490052881072875,
+    "animal_ci_negative_reliability_threshold": 0.9258005353502381,
     "claim_boundary": "This is a partial-identification sensitivity, not evidence that measurement error caused the observed pattern and not a correction of the source estimate. Nonclassical, correlated, phylogenetic, or source-specific errors can behave differently. Pollination mode remains distinct from effective dependency."
   }
 }
