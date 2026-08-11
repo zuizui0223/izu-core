@@ -1,0 +1,114 @@
+name: Tribulus external phenotype source
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/tribulus_zenodo_source.json"
+      - "scripts/acquire_ogasawara_zenodo.py"
+      - "tests/test_tribulus_source_config.py"
+      - ".github/workflows/tribulus-external-phenotype-source.yml"
+  pull_request:
+    paths:
+      - "config/tribulus_zenodo_source.json"
+      - "scripts/acquire_ogasawara_zenodo.py"
+      - "tests/test_tribulus_source_config.py"
+      - ".github/workflows/tribulus-external-phenotype-source.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependency
+        run: python -m pip install -e . pytest
+      - name: Test source and claim boundary
+        run: python -m pytest -q tests/test_tribulus_source_config.py
+      - name: Acquire Zenodo record and verify declared checksums
+        run: >-
+          python scripts/acquire_ogasawara_zenodo.py
+          --config config/tribulus_zenodo_source.json
+          --output-dir artifacts/tribulus_zenodo
+      - name: Require the declared flower dataset
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          config = json.loads(Path("config/tribulus_zenodo_source.json").read_text())
+          inventory = json.loads(Path("artifacts/tribulus_zenodo/source_inventory.json").read_text())
+          rows = {row.get("key"): row for row in inventory.get("files", [])}
+          target = config["analysis_target"]
+          if target not in rows or rows[target].get("status") != "downloaded":
+              raise SystemExit(f"declared Tribulus analysis target not acquired: {target}")
+          if rows[target].get("checksum_verification", {}).get("verified") is not True:
+              raise SystemExit("Tribulus flower source checksum did not verify")
+          expected = set(config["expected_files"])
+          missing = sorted(expected - set(rows))
+          if missing:
+              raise SystemExit(f"expected Tribulus files missing: {missing}")
+          print(target, rows[target].get("sha256"))
+          PY
+      - name: Materialize compact source inventory
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source = json.loads(Path("artifacts/tribulus_zenodo/source_inventory.json").read_text())
+          config = json.loads(Path("config/tribulus_zenodo_source.json").read_text())
+          out = Path("data/results/tribulus_island_continent")
+          out.mkdir(parents=True, exist_ok=True)
+          compact = {
+              "schema_version": "1.0",
+              "status": source.get("status"),
+              "source_id": source.get("source_id"),
+              "article_doi": config.get("article_doi"),
+              "dataset_doi": source.get("dataset_doi"),
+              "zenodo_record_id": source.get("zenodo_record_id"),
+              "title": source.get("title"),
+              "license": source.get("license"),
+              "n_files": source.get("n_files"),
+              "n_downloaded": source.get("n_downloaded"),
+              "analysis_target": config.get("analysis_target"),
+              "analysis_role": config.get("analysis_role"),
+              "files": [
+                  {
+                      "key": row.get("key"),
+                      "status": row.get("status"),
+                      "size_downloaded": row.get("size_downloaded"),
+                      "sha256": row.get("sha256"),
+                      "declared_checksum": (row.get("checksum_verification") or {}).get("declared_checksum"),
+                      "checksum_verified": (row.get("checksum_verification") or {}).get("verified"),
+                      "preview": row.get("preview"),
+                  }
+                  for row in source.get("files", [])
+              ],
+              "claim_boundary": config.get("claim_boundary"),
+          }
+          (out / "source_inventory.json").write_text(json.dumps(compact, indent=2, ensure_ascii=False) + "\n")
+          PY
+      - name: Commit compact source inventory on push/manual
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/tribulus_island_continent/source_inventory.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Tribulus external phenotype source"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload raw source audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tribulus-external-phenotype-source
+          path: artifacts/tribulus_zenodo/
+          if-no-files-found: error
