@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "status": "external_validation_expansion_active",
   "mechanistic_anchor": {
     "system": "Izu Islands",
@@ -7,11 +7,17 @@
     "reason": "Campanula history, mating-system channels, contemporary network structure, and prospective SVD/reproductive-dependency measurements can be linked at unusually high resolution."
   },
   "analysis_rule": "Estimate source-native within-system effects first; compare effects across systems second. Do not pool community networks, population contrasts, sister-taxon comparisons, reproductive experiments, and historical records as exchangeable raw rows.",
+  "next_external_gate": {
+    "requirement": "Obtain compatible uncertainty for the same response/exposure family in at least two independent system clusters before opening a formal cross-system model.",
+    "current_state": "The checked effect registry has two eligible system clusters but no effect family represented with compatible uncertainty in both clusters.",
+    "priority_candidate": "pacific_sister_taxa_hetherington_rauth_johnson_2020",
+    "reason": "Its 136 phylogenetically independent island-mainland sister-taxon contrasts are an independent flower-size morphology system, but the source-native numeric contrast table and compatible uncertainty have not yet been recovered."
+  },
   "systems": [
     {
       "system_id": "wanshan_yongxing_2025",
       "priority": 1,
-      "status": "active_source_acquisition_and_reanalysis",
+      "status": "source_locked_reanalysis_complete",
       "article_doi": "10.1111/btp.70027",
       "dataset_doi": "10.5061/dryad.t76hdr8bj",
       "geographic_design": "one continental island versus one oceanic coral island",
@@ -19,12 +25,13 @@
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
       "admissible_question": "Do shared plants experience lower visitation/partner richness and pollinator-assemblage turnover on the oceanic island?",
-      "forbidden_promotion": "Do not call visitation FDQ, trait matching, pollinator effectiveness, effective dependency, or replicated island-origin causation."
+      "forbidden_promotion": "Do not call visitation FDQ, trait matching, pollinator effectiveness, effective dependency, or replicated island-origin causation.",
+      "next_gate": "Obtain a second independent system with the same visit-network response/exposure family and compatible uncertainty."
     },
     {
       "system_id": "ogasawara_quitian_2026",
       "priority": 2,
-      "status": "queued_open_source_acquisition",
+      "status": "source_locked_context_analysis_complete",
       "dataset_doi": "10.5281/zenodo.19221853",
       "license": "CC-BY-4.0",
       "geographic_design": "four oceanic islands with site, forest, anole and seasonal contexts",
@@ -32,31 +39,58 @@
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
       "admissible_question": "How do invasion and habitat contexts restructure legitimate interactions within an oceanic archipelago?",
-      "forbidden_promotion": "Do not use Ogasawara as a direct mainland-distance replicate or infer per-visit effectiveness from interaction counts."
+      "forbidden_promotion": "Do not use Ogasawara as a direct mainland-distance replicate or infer per-visit effectiveness from interaction counts.",
+      "next_gate": "Obtain replicated site identifiers or another independently replicated invasion transition before causal anole-effect inference."
     },
     {
       "system_id": "galapagos_nnakenyi_2019",
       "priority": 3,
-      "status": "queued_open_source_acquisition",
+      "status": "published_summary_complete_raw_network_blocked",
       "dataset_doi": "10.5061/dryad.0c3cn5f",
       "geographic_design": "ten oceanic islands with area, isolation, age and sampling effort",
-      "source_native_units": ["island pollination networks", "island biogeographic covariates"],
+      "source_native_units": ["published island network summaries and model predictions; raw island networks remain blocked"],
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
-      "admissible_question": "How much network structure and turnover remain after explicitly auditing sampling effort and island context?",
-      "forbidden_promotion": "Adaptive interaction switching and nestedness are not direct effective-dependency evidence."
+      "admissible_question": "How well do the published AIS and null predictions track observed island nestedness after explicitly auditing sampling effort and island context?",
+      "forbidden_promotion": "Published summary tables do not provide plant-level partner turnover, adaptive causation, pollinator effectiveness, or effective dependency.",
+      "next_gate": "Recover data_galapagos_islands.zip or a provenance-matched author/institutional copy before raw plant-level network analyses."
     },
     {
       "system_id": "southwest_pacific_ciarle_2025",
       "priority": 4,
-      "status": "primary_table_recovery_required",
+      "status": "source_locked_129_pair_analysis_complete",
       "article_doi": "10.1093/aob/mcaf005",
-      "geographic_design": "129 independent island-endemic versus mainland-relative colonisation events across ten archipelagos",
-      "source_native_units": ["sister-taxon floral trait contrast"],
+      "pmcid": "PMC12445859",
+      "geographic_design": "129 source-defined island-endemic versus mainland-relative colonisation events across ten archipelagos",
+      "source_native_units": ["paired floral morphology contrast"],
       "direct_dependency_available": false,
       "pollen_or_reproductive_function_available": false,
-      "admissible_question": "Does flower-size response depend on mainland starting size and pollination mode?",
-      "forbidden_promotion": "Sister-taxon morphology is not contemporary network function or a direct pollinator-causation test."
+      "checked_result_state": {
+        "valid_animal_flower_size_pairs": 88,
+        "valid_wind_flower_size_pairs": 38,
+        "animal_starting_size_slope": -0.15099471189271235,
+        "wind_starting_size_slope": -0.07611432484743032,
+        "animal_minus_wind_slope": -0.07488038704528203,
+        "direct_mode_difference_robust": false,
+        "archipelagos_with_estimable_animal_slope": 6,
+        "negative_estimable_animal_slopes": 6
+      },
+      "admissible_question": "Does island-mainland flower-size response depend on mainland starting size, and how heterogeneous is that relationship across source-defined pollination modes and archipelagos?",
+      "forbidden_promotion": "Sister-taxon morphology is not contemporary network function or direct effective dependency. A robust animal slope plus an uncertain wind slope is not itself a robust between-mode difference.",
+      "next_gate": "Replicate the same flower-size response/exposure family in an independent source with compatible uncertainty."
+    },
+    {
+      "system_id": "pacific_sister_taxa_hetherington_rauth_johnson_2020",
+      "priority": 5,
+      "status": "candidate_primary_data_route_unresolved",
+      "article_doi": "10.1086/709018",
+      "geographic_design": "556 species forming 136 phylogenetically independent island-mainland sister-taxon contrasts across seven tropical and subtropical Pacific island systems",
+      "source_native_units": ["phylogenetically independent island-mainland sister-taxon contrast"],
+      "direct_dependency_available": false,
+      "pollen_or_reproductive_function_available": false,
+      "admissible_question": "Can an independent Pacific sister-taxon dataset reproduce a compatible flower-size island-mainland response family, including context heterogeneity among islands and families?",
+      "forbidden_promotion": "Do not infer a starting-size slope, effect uncertainty, or pollinator mechanism from the abstract alone; do not enter this source in the cross-system effect registry before the source-native numeric table is recovered and audited.",
+      "next_gate": "Recover the source-native numeric contrast table and identify the exact flower-size scale, island/mainland orientation, sampling hierarchy, and uncertainty."
     }
   ],
   "harmonisation_fields": [
