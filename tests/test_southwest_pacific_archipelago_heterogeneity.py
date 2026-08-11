@@ -103,5 +103,5 @@ def test_summary_counts_direction_without_claiming_independent_effects():
     assert summary["n_estimated_negative_slopes"] == 1
     assert summary["n_estimated_positive_slopes"] == 1
     assert summary["estimated_slope_range"] == pytest.approx([-0.2, 0.1])
-    assert "not effective-dependency" not in summary["claim_boundary"].casefold()
-    assert "not effective-dependency" not in summary["reading"].casefold()
+    assert "not effective-dependency measures" in summary["claim_boundary"].casefold()
+    assert "not entered" in summary["claim_boundary"].casefold()
