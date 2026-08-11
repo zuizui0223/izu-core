@@ -66,19 +66,47 @@ def test_adjusted_model_returns_group_coefficient_on_specimen_ids():
 
 
 def test_full_audit_separates_galapagos_from_other_islands():
-    # Build a larger non-collinear panel by perturbing climate covariates.
+    # Build a larger panel with deterministic nonlinear specimen-by-replicate
+    # perturbations.  Pure replicate offsets can remain exact linear combinations
+    # of the original synthetic climate columns after ID aggregation, so they do
+    # not actually test the full adjusted audit.
     rows = []
     base = synthetic_rows()
     for replicate in range(4):
         for source in base:
             row = dict(source)
+            specimen = int(source["ind_num"])
+            interaction = replicate * ((specimen % 7) + 1)
             row["ID"] = f"{source['ID']}_{replicate}"
-            row["ind_num"] = int(source["ind_num"]) + 100 * replicate
-            row["year_collected"] = float(source["year_collected"]) + replicate
-            row["Bio_1"] = float(source["Bio_1"]) + (replicate % 2) * 0.7
-            row["Bio_4"] = float(source["Bio_4"]) + replicate * 2.3 + (source["ind_num"] % 2)
-            row["Bio_12"] = float(source["Bio_12"]) - replicate * 13 + (source["ind_num"] % 3)
-            row["Bio_15"] = float(source["Bio_15"]) + replicate * 1.7 + (source["ind_num"] % 5)
+            row["ind_num"] = specimen + 100 * replicate
+            row["year_collected"] = (
+                float(source["year_collected"])
+                + replicate
+                + 0.013 * interaction
+            )
+            row["Bio_1"] = (
+                float(source["Bio_1"])
+                + (replicate % 2) * 0.7
+                + 0.017 * (replicate ** 2) * ((specimen % 5) + 1)
+            )
+            row["Bio_4"] = (
+                float(source["Bio_4"])
+                + replicate * 2.3
+                + (specimen % 2)
+                + 0.031 * interaction
+            )
+            row["Bio_12"] = (
+                float(source["Bio_12"])
+                - replicate * 13
+                + (specimen % 3)
+                + 0.047 * (replicate ** 2) * ((specimen % 4) + 1)
+            )
+            row["Bio_15"] = (
+                float(source["Bio_15"])
+                + replicate * 1.7
+                + (specimen % 5)
+                - 0.029 * interaction
+            )
             rows.append(row)
     result = analyse(rows, repetitions=200)
     contrasts = {row["contrast"]: row for row in result["contrasts"]}
