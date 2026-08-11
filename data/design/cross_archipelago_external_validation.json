@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "status": "external_validation_expansion_active",
   "mechanistic_anchor": {
     "system": "Izu Islands",
@@ -7,11 +7,37 @@
     "reason": "Campanula history, mating-system channels, contemporary network structure, and prospective SVD/reproductive-dependency measurements can be linked at unusually high resolution."
   },
   "analysis_rule": "Estimate source-native within-system effects first; compare effects across systems second. Do not pool community networks, population contrasts, sister-taxon comparisons, reproductive experiments, and historical records as exchangeable raw rows.",
+  "prior_art_boundary": {
+    "broad_pollinator_compression_hypothesis_is_novel": false,
+    "reason": "Inoue already linked smaller Izu Campanula flowers and mating-system change to altered pollinators/pollinator availability, and Hendriks 2019 explicitly proposed the Pollinator Potential Paradigm. The current project targets response-channel, functional-exposure, effective-dependency, provenance, and measurement-error identification beyond that broad hypothesis.",
+    "machine_readable_source": "data/design/pollinator_potential_prior_art.json"
+  },
   "next_external_gate": {
-    "requirement": "Obtain compatible uncertainty for the same response/exposure family in at least two independent system clusters before opening a formal cross-system model, and do not count a starting-size effect as formally admissible while its measurement-error sensitivity or source provenance is unresolved.",
-    "current_state": "The checked effect registry has two eligible system clusters but no effect family represented with compatible uncertainty in both clusters. Southwest Pacific starting-size slopes remain blocked by shared-denominator measurement-error coupling. Hendriks 2019 now supplies all 35 flower-area pairs plus source-native mapping to nine populated island groups; island-cluster OLS remains below isometry, but the island-cluster SMA interval includes slope 1 and the source artifact is not checksum locked.",
+    "requirement": "Obtain compatible source-locked uncertainty and defensible errors-in-variables constraints for the same response/exposure family in at least two independent system clusters before opening a formal cross-system model.",
+    "current_state": "The checked effect registry has two eligible system clusters but no effect family represented with compatible uncertainty in both clusters. Southwest Pacific and Hendriks independently reproduce below-isometry OLS morphology response directions under island-cluster resampling, and a joint classical EIV envelope is now quantified, but mainland-trait reliability is not empirically identified and the Hendriks source artifact remains un-checksummed.",
     "priority_candidate": "new_zealand_hendriks_2019",
-    "reason": "Hendriks 2019 is now the closest independent response-shape replication: the reconstructed direct ln(island) versus ln(mainland) OLS slope is 0.5833 versus the reported 0.58; Appendix-A island-cluster bootstrap 95% is 0.2128-0.7785. Formal admission remains closed because the underlying source artifact is not locked and the corresponding island-cluster SMA interval 0.7297-1.0731 includes isometry."
+    "reason": "Hendriks 2019 is the closest independent response-shape replication. The remaining gate is no longer reconstructing the 35-pair analysis or island hierarchy; it is locking the source artifact and obtaining an empirical or otherwise defensible errors-in-variables constraint."
+  },
+  "cross_system_morphology_directional_audit": {
+    "independent_systems": 2,
+    "systems_with_ols_island_cluster_interval_below_isometry": 2,
+    "direction_replicated": true,
+    "formal_effect_pooling_allowed": false,
+    "checked_output": "data/results/cross_archipelago_morphology_response_shape_summary.json"
+  },
+  "cross_system_morphology_eiv_envelope": {
+    "status": "classical_eiv_joint_reliability_envelope_complete",
+    "reliability_empirically_estimated_in_either_system": false,
+    "both_points_below_isometry_requires_reliability_gt": 0.8490052881072877,
+    "both_island_cluster_intervals_below_isometry_requires_reliability_gt": 0.9258992384647143,
+    "binding_system": "southwest_pacific_ciarle_2025_animal",
+    "r_0_90_points_preserved": true,
+    "r_0_90_cluster_intervals_preserved": false,
+    "r_0_93_cluster_intervals_preserved": true,
+    "hendriks_sma_island_cluster_interval_excludes_isometry": false,
+    "formal_same_family_meta_analysis_ready": false,
+    "checked_output": "data/results/cross_archipelago_morphology_eiv_envelope_summary.json",
+    "claim_boundary": "The thresholds are required reliability conditions under a declared classical x-error model; they are not estimates of source reliability and do not resolve the broader SMA/errors-in-variables boundary."
   },
   "systems": [
     {
@@ -82,7 +108,7 @@
       },
       "admissible_question": "Does island-mainland flower-size response depend on mainland starting size, how heterogeneous is that relationship across source-defined pollination modes and archipelagos, and how sensitive is the response-shape estimate to shared-denominator measurement error?",
       "forbidden_promotion": "Sister-taxon morphology is not contemporary network function or direct effective dependency. A robust animal slope plus an uncertain wind slope is not itself a robust between-mode difference. Starting-size slopes must not enter a formal cross-system model while mainland-size reliability remains unidentified.",
-      "next_gate": "Use independent paired-flower systems for directional replication and recover reliability/source information needed for a measurement-error-aware same-family model."
+      "next_gate": "Obtain source measurement precision/reliability or another defensible EIV constraint; keep the directional result separate from formal effect admission."
     },
     {
       "system_id": "new_zealand_hendriks_2019",
@@ -122,7 +148,7 @@
       },
       "admissible_question": "Can the independent New Zealand/southwest-Pacific flower-area sister-pair data reproduce a starting-size-dependent island response under source-native island clustering, and how sensitive is that response to errors-in-variables treatment?",
       "forbidden_promotion": "Do not treat the reported or reconstructed OLS slope below isometry as measurement-error-free. Do not enter this same-family effect into the formal registry before the source artifact and error-in-variables sensitivity are resolved.",
-      "next_gate": "Recover a stable institutional or author-distributed source artifact and checksum; verify all 35 Table B9 values and island assignments; obtain measurement reliability or another defensible errors-in-variables constraint."
+      "next_gate": "Recover a stable institutional or author-distributed source artifact and checksum; verify all 35 Table B9 values and island assignments; obtain empirical measurement reliability or another defensible EIV constraint."
     },
     {
       "system_id": "pacific_sister_taxa_hetherington_rauth_johnson_2020",
