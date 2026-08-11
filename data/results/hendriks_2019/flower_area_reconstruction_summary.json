@@ -1,8 +1,24 @@
 {
-  "schema_version": "1.0",
-  "status": "indexed_author_upload_numeric_reconstruction_audited",
+  "schema_version": "1.1",
+  "status": "indexed_author_upload_numeric_and_island_cluster_reconstruction_audited",
   "n_pairs": 35,
   "transform": "natural log",
+  "island_group_structure": {
+    "available": true,
+    "n_groups": 9,
+    "pair_counts": {
+      "Antipodes": 1,
+      "Auckland": 1,
+      "Campbell": 1,
+      "Chatham": 10,
+      "Kermadec": 4,
+      "Lord Howe": 11,
+      "Norfolk": 3,
+      "Stewart": 1,
+      "Three Kings": 3
+    },
+    "matches_appendix_a14": true
+  },
   "reconstructed_models": {
     "direct_log_island_on_log_mainland_ols": {
       "intercept": -0.5959886964353331,
@@ -46,25 +62,109 @@
       "p97_5": 1.1291800196601678
     }
   },
+  "island_cluster_bootstrap": {
+    "repetitions_requested": 20000,
+    "repetitions_valid": 20000,
+    "seed": 20260811,
+    "ols_slope_percentiles": {
+      "p2_5": 0.21278670541951528,
+      "p50": 0.5965253271557353,
+      "p97_5": 0.7784929080550151
+    },
+    "sma_slope_percentiles": {
+      "p2_5": 0.7296694231411485,
+      "p50": 0.9092038783590125,
+      "p97_5": 1.0731043040917998
+    },
+    "cluster_unit": "Appendix-A island group",
+    "n_clusters": 9,
+    "clusters": [
+      "Antipodes",
+      "Auckland",
+      "Campbell",
+      "Chatham",
+      "Kermadec",
+      "Lord Howe",
+      "Norfolk",
+      "Stewart",
+      "Three Kings"
+    ]
+  },
+  "leave_one_island": {
+    "estimates": {
+      "Antipodes": {
+        "n_pairs": 34,
+        "ols_slope": 0.5994183559876025,
+        "sma_slope": 0.9143969043133585
+      },
+      "Auckland": {
+        "n_pairs": 34,
+        "ols_slope": 0.5696917254839303,
+        "sma_slope": 0.8637169852312907
+      },
+      "Campbell": {
+        "n_pairs": 34,
+        "ols_slope": 0.587561190729038,
+        "sma_slope": 0.8834673591339469
+      },
+      "Chatham": {
+        "n_pairs": 25,
+        "ols_slope": 0.4447415241496691,
+        "sma_slope": 0.8925227108268328
+      },
+      "Kermadec": {
+        "n_pairs": 31,
+        "ols_slope": 0.5767896351598976,
+        "sma_slope": 0.9074231773065353
+      },
+      "Lord Howe": {
+        "n_pairs": 24,
+        "ols_slope": 0.5978471156576555,
+        "sma_slope": 0.887345661332604
+      },
+      "Norfolk": {
+        "n_pairs": 32,
+        "ols_slope": 0.5785479689463364,
+        "sma_slope": 0.8971517576401101
+      },
+      "Stewart": {
+        "n_pairs": 34,
+        "ols_slope": 0.5959622727682208,
+        "sma_slope": 0.929565934540957
+      },
+      "Three Kings": {
+        "n_pairs": 32,
+        "ols_slope": 0.6778699719401503,
+        "sma_slope": 0.9338747635711069
+      }
+    },
+    "ols_slope_range": [0.4447415241496691, 0.6778699719401503],
+    "sma_slope_range": [0.8637169852312907, 0.9338747635711069],
+    "all_leave_one_island_ols_below_isometry": true,
+    "all_leave_one_island_sma_below_isometry": true
+  },
   "measurement_error_sensitivity": {
     "classical_x_error_model": "beta_observed = reliability_x * beta_true",
     "ols_point_below_isometry_if_reliability_exceeds": 0.5833358843917842,
-    "ols_bootstrap_upper_below_isometry_if_reliability_exceeds": 0.8491308233786676,
+    "pair_bootstrap_upper_below_isometry_if_reliability_exceeds": 0.8491308233786676,
+    "island_cluster_bootstrap_upper_below_isometry_if_reliability_exceeds": 0.7784929080550151,
     "author_reported_ols_upper_below_isometry_if_reliability_exceeds": 0.82,
     "sma_point_slope": 0.9000193489524775,
     "sma_point_below_isometry": true,
-    "sma_bootstrap_interval": [0.7006826788086139, 1.1291800196601678],
-    "sma_bootstrap_interval_excludes_isometry": false,
-    "reading": "The direct OLS pattern is substantially less coupled than log(I/M) ~ log(M), but attenuation from error in mainland size can still move the corrected slope toward or above isometry. SMA is a structural sensitivity, not a uniquely identified measurement-error correction."
+    "pair_sma_bootstrap_interval": [0.7006826788086139, 1.1291800196601678],
+    "pair_sma_bootstrap_interval_excludes_isometry": false,
+    "island_cluster_sma_bootstrap_interval": [0.7296694231411485, 1.0731043040917998],
+    "island_cluster_sma_bootstrap_interval_excludes_isometry": false,
+    "reading": "The direct OLS pattern is not an artefact of treating the 35 pairs as independent: the Appendix-A island-cluster OLS interval remains below isometry. However, attenuation from error in mainland size can still move the corrected slope toward or above isometry, and both pair- and island-cluster SMA intervals include slope 1. SMA is a structural sensitivity, not a uniquely identified measurement-error correction."
   },
   "formal_cross_system_fit_ready": false,
   "effect_registry_eligible": false,
   "blocking_gates": [
     "underlying PDF/data artifact not checksum locked",
-    "island/family clustering for the 35 pairs not yet recovered into the checked table",
-    "SMA pair-bootstrap interval includes the line-of-isometry slope of 1"
+    "mainland flower-area measurement reliability is not empirically identified",
+    "SMA island-cluster bootstrap interval includes the line-of-isometry slope of 1"
   ],
-  "claim_boundary": "This reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS. It does not identify pollinator mechanism, does not resolve measurement error, and is not admitted to the formal cross-system fit.",
+  "claim_boundary": "This reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS, including island-cluster resampling. It does not identify pollinator mechanism, does not resolve errors in variables, and is not admitted to the formal cross-system fit.",
   "source_id": "hendriks_2019_flower_area_table_b9",
-  "source_retrieval_state": "complete_numeric_reconstruction_from_search_indexed_author_upload"
+  "source_retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_search_indexed_author_upload"
 }
