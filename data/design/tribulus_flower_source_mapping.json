@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source_id": "tribulus_cistoides_island_continent_flower_traits",
   "dataset_doi": "10.5061/dryad.h70rxwdnz",
   "article_doi": "10.1002/ece3.9766",
@@ -10,6 +10,12 @@
   "source_file_expected_md5_from_zenodo": "2b76bcce298d49b4116b2b96082de846",
   "source_rows_expected_from_readme": 773,
   "source_columns_expected_from_readme": 29,
+  "source_dimensions_observed_in_author_blob": {
+    "csv_lines_including_header": 773,
+    "data_rows": 772,
+    "header_fields": 28
+  },
+  "source_dimension_discrepancy": "The author README reports 773 rows x 29 columns, while the checksum-identified author-repository CSV has 773 physical lines including the header (772 data rows) and 28 header fields. Both source statements are retained; no missing row or column is reconstructed.",
   "columns": {
     "ind_num": "measurement-row identifier",
     "ID": "source-defined grouping unit: herbarium voucher when applicable or field site for field-collected samples",
