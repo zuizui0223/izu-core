@@ -14,8 +14,8 @@
       "island_cluster_interval": [0.6916442921593313, 0.9258005353502381],
       "interval_excludes_isometry_below_one": true,
       "measurement_error_reliability_empirically_estimated": false,
-      "point_below_isometry_reliability_threshold": 0.8490052881072877,
-      "cluster_interval_below_isometry_reliability_threshold": 0.9258992384647143,
+      "point_below_isometry_reliability_threshold": 0.8490052881072875,
+      "cluster_interval_below_isometry_reliability_threshold": 0.9258005353502381,
       "formal_effect_registry_eligible": false
     },
     {
