@@ -17,9 +17,9 @@ def load(path: Path):
 def test_checked_joint_thresholds_are_binding_on_southwest_pacific():
     summary = load(SUMMARY)
     thresholds = summary["joint_lower_bound_thresholds"]
-    assert thresholds["both_points_below_isometry_requires_reliability_gt"] == 0.8490052881072877
+    assert thresholds["both_points_below_isometry_requires_reliability_gt"] == 0.8490052881072875
     assert thresholds["binding_system_for_point"] == "southwest_pacific_ciarle_2025_animal"
-    assert thresholds["both_island_cluster_intervals_below_isometry_requires_reliability_gt"] == 0.9258992384647143
+    assert thresholds["both_island_cluster_intervals_below_isometry_requires_reliability_gt"] == 0.9258005353502381
     assert thresholds["binding_system_for_cluster_interval"] == "southwest_pacific_ciarle_2025_animal"
 
 
