@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv"
+      - "data/source_tables/hendriks_2019_flower_area_island_mapping.csv"
       - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
       - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
       - "scripts/analyze_hendriks_2019_flower_area.py"
@@ -13,6 +14,7 @@ on:
   pull_request:
     paths:
       - "data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv"
+      - "data/source_tables/hendriks_2019_flower_area_island_mapping.csv"
       - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
       - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
       - "scripts/analyze_hendriks_2019_flower_area.py"
@@ -35,6 +37,7 @@ jobs:
         run: >-
           python scripts/analyze_hendriks_2019_flower_area.py
           --input data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv
+          --island-mapping data/source_tables/hendriks_2019_flower_area_island_mapping.csv
           --source data/source_tables/hendriks_2019_flower_area_table_b9_source.json
           --output artifacts/hendriks_2019/flower_area_reconstruction_summary.json
           --bootstrap-repetitions 20000
