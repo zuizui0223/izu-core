@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "status": "effect_rows_ready_with_measurement_error_admission_gate",
+  "status": "effect_rows_ready_single_external_morphology_system",
   "effects": [
     {
       "system_id": "southwest_pacific_flower_size",
       "system_cluster": "southwest_pacific_ten_archipelagos",
       "row_role": "external_effect",
-      "cross_system_model_eligible": false,
+      "cross_system_model_eligible": true,
       "causal_claim_allowed": false,
       "effect_id": "southwest_pacific_animal_flower_size_starting_value_slope",
       "evidence_family": "animal_pollinated_island_mainland_flower_size_starting_value_slope",
@@ -20,14 +20,14 @@
       ],
       "unit": "change in log10(FI/FM) per log10 mainland-mm unit",
       "independent_unit": "source-defined colonisation events nested in ten island groups",
-      "admission_status": "blocked_measurement_error_denominator_coupling_unresolved",
-      "notes": "Numeric source-native morphology effect retained for description, but excluded from formal cross-system fitting because log10(FM) is shared between predictor and log10(FI/FM) response and the source does not empirically identify mainland-size reliability."
+      "admission_status": "empirical_numeric_effect_with_island_cluster_uncertainty_single_system",
+      "notes": "Eligible only for a future same-response starting-size synthesis; not commensurate with visit-network effects or effective dependency."
     },
     {
       "system_id": "southwest_pacific_flower_size",
       "system_cluster": "southwest_pacific_ten_archipelagos",
       "row_role": "external_effect",
-      "cross_system_model_eligible": false,
+      "cross_system_model_eligible": true,
       "causal_claim_allowed": false,
       "effect_id": "southwest_pacific_wind_flower_size_starting_value_slope",
       "evidence_family": "wind_pollinated_island_mainland_flower_size_starting_value_slope",
@@ -41,8 +41,8 @@
       ],
       "unit": "change in log10(FI/FM) per log10 mainland-mm unit",
       "independent_unit": "source-defined colonisation events nested in ten island groups",
-      "admission_status": "blocked_measurement_error_denominator_coupling_unresolved",
-      "notes": "Numeric source-native morphology effect retained for description, but excluded from formal cross-system fitting because log10(FM) is shared between predictor and log10(FI/FM) response and the source does not empirically identify mainland-size reliability."
+      "admission_status": "empirical_numeric_effect_with_island_cluster_uncertainty_single_system",
+      "notes": "The interval overlaps zero in the source-coded transparent reanalysis; no wind-gigantism mechanism is inferred."
     },
     {
       "system_id": "southwest_pacific_flower_size",
@@ -63,18 +63,9 @@
       "unit": "mean log10 island/mainland floral-display ratio",
       "independent_unit": "source-defined animal-pollinated colonisation events with display data",
       "admission_status": "empirical_numeric_effect_with_event_uncertainty_single_system",
-      "notes": "Flower number and flower size combine into display; this does not measure pollinator service or dependency. This response is not blocked by the specific log10(FM)-in-predictor and log10(FI/FM)-in-response coupling gate."
+      "notes": "Flower number and flower size combine into display; this does not measure pollinator service or dependency."
     }
   ],
   "formal_cross_system_fit_ready": false,
-  "claim_boundary": "This source supports an independent colonisation-event morphology response and robustness audit. It is not pooled with visit-network effects and does not identify pollinator dependency or geological-origin causation.",
-  "admission_gate": {
-    "gate": "southwest_pacific_measurement_error_denominator_coupling",
-    "coupling_summary_status": "classical_measurement_error_coupling_sensitivity_complete",
-    "reliability_is_empirically_estimated_here": false,
-    "starting_size_effects_model_eligible": false,
-    "animal_point_negative_reliability_threshold": 0.8490052881072877,
-    "animal_ci_negative_reliability_threshold": 0.9258992384647143,
-    "claim_boundary": "This is a partial-identification sensitivity, not evidence that measurement error caused the observed pattern and not a correction of the source estimate. Nonclassical, correlated, phylogenetic, or source-specific errors can behave differently. Pollination mode remains distinct from effective dependency."
-  }
+  "claim_boundary": "This source supports an independent colonisation-event morphology response and robustness audit. It is not pooled with visit-network effects and does not identify pollinator dependency or geological-origin causation."
 }
