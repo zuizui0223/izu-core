@@ -26,6 +26,7 @@ STARTING_SIZE_EFFECT_IDS = {
     "southwest_pacific_animal_flower_size_starting_value_slope",
     "southwest_pacific_wind_flower_size_starting_value_slope",
 }
+FLORAL_DISPLAY_EFFECT_ID = "southwest_pacific_animal_floral_display_mean_log_ratio"
 
 
 def apply_admission_gate(
@@ -47,10 +48,20 @@ def apply_admission_gate(
 
     coupling_gate_open = bool(coupling_summary.get("effect_registry_eligible"))
     seen_starting_size_ids: set[str] = set()
+    seen_floral_display = False
     for effect in effects:
         if not isinstance(effect, dict):
             raise ValueError("each effect row must be an object")
         effect_id = str(effect.get("effect_id", ""))
+        if effect_id == FLORAL_DISPLAY_EFFECT_ID:
+            seen_floral_display = True
+            effect["notes"] = (
+                "Flower number and flower size combine into display; this does not "
+                "measure pollinator service or dependency. This response is not "
+                "blocked by the specific log10(FM)-in-predictor and "
+                "log10(FI/FM)-in-response coupling gate."
+            )
+            continue
         if effect_id not in STARTING_SIZE_EFFECT_IDS:
             continue
         seen_starting_size_ids.add(effect_id)
@@ -70,6 +81,8 @@ def apply_admission_gate(
     if seen_starting_size_ids != STARTING_SIZE_EFFECT_IDS:
         missing = sorted(STARTING_SIZE_EFFECT_IDS - seen_starting_size_ids)
         raise ValueError(f"missing expected starting-size effects: {missing}")
+    if not seen_floral_display:
+        raise ValueError(f"missing expected floral-display effect: {FLORAL_DISPLAY_EFFECT_ID}")
 
     document["status"] = "effect_rows_ready_with_measurement_error_admission_gate"
     document["admission_gate"] = {
