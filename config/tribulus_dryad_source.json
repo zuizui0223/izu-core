@@ -1,0 +1,23 @@
+{
+  "source_id": "tribulus_cistoides_island_continent_flower_traits",
+  "dataset_doi": "10.5061/dryad.h70rxwdnz",
+  "article_doi": "10.1002/ece3.9766",
+  "pmcid": "PMC10031297",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.h70rxwdnz",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.h70rxwdnz/versions",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.h70rxwdnz",
+  "analysis_filename": "Tribulus_flower_data_clean.csv",
+  "readme_filename": "README.md",
+  "source_published_anchor": {
+    "reported_island_petal_length_difference_percent": -9,
+    "reported_context": "petal length was on average smaller in island than continental populations, especially in Galapagos"
+  },
+  "external_validation_role": "single_lineage_multi_population_island_continent_flower_trait_response",
+  "expected_source_components": [
+    "flower-level or specimen-level petal measurements",
+    "island versus continental habitat or locality identity",
+    "geographic population or collection metadata",
+    "environmental covariates where supplied"
+  ],
+  "claim_boundary": "This widespread-species dataset may support island-versus-continent petal-length divergence and environmental moderation within Tribulus cistoides. It is one lineage, not an independent sister-taxon meta-analysis. Flower size is not effective pollinator dependency, and habitat contrasts do not identify pollinator or geological-origin causation."
+}
