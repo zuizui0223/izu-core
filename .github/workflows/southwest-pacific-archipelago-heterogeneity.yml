@@ -1,0 +1,128 @@
+name: Southwest Pacific archipelago heterogeneity
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_oup_supplementary_data.py"
+      - "scripts/acquire_oup_supplementary_data_v2.py"
+      - "scripts/acquire_southwest_pacific_pmc_support.py"
+      - "scripts/analyze_southwest_pacific_flower_size.py"
+      - "scripts/analyze_southwest_pacific_archipelago_heterogeneity.py"
+      - "tests/test_southwest_pacific_pmc_acquisition.py"
+      - "tests/test_southwest_pacific_archipelago_heterogeneity.py"
+      - "data/results/southwest_pacific_pairs/archipelago_heterogeneity.csv"
+      - "data/results/southwest_pacific_pairs/archipelago_heterogeneity_summary.json"
+      - ".github/workflows/southwest-pacific-archipelago-heterogeneity.yml"
+  pull_request:
+    paths:
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_southwest_pacific_pmc_support.py"
+      - "scripts/analyze_southwest_pacific_archipelago_heterogeneity.py"
+      - "tests/test_southwest_pacific_pmc_acquisition.py"
+      - "tests/test_southwest_pacific_archipelago_heterogeneity.py"
+      - ".github/workflows/southwest-pacific-archipelago-heterogeneity.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  heterogeneity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl python-docx pytest
+      - name: Test transport and heterogeneity guards
+        run: >-
+          python -m pytest -q
+          tests/test_southwest_pacific_pmc_acquisition.py
+          tests/test_southwest_pacific_archipelago_heterogeneity.py
+      - name: Try Oxford source route
+        id: oup
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_oup_supplementary_data_v2.py
+          --config config/southwest_pacific_aob_source.json
+          --output-dir artifacts/southwest_pacific_aob
+      - name: Detect analysis workbook after Oxford route
+        id: source1
+        run: |
+          if test -s artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_data_s2.xlsx; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Try Europe PMC package fallback
+        if: steps.source1.outputs.available != 'true'
+        id: pmc
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_southwest_pacific_pmc_support.py
+          --config config/southwest_pacific_aob_source.json
+          --output-dir artifacts/southwest_pacific_aob
+      - name: Detect final analysis workbook
+        id: source
+        run: |
+          if test -s artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_data_s2.xlsx; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Run archipelago heterogeneity audit
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/analyze_southwest_pacific_archipelago_heterogeneity.py
+          --input-dir artifacts/southwest_pacific_aob
+          --output-csv artifacts/southwest_pacific_heterogeneity/archipelago_heterogeneity.csv
+          --summary-output artifacts/southwest_pacific_heterogeneity/archipelago_heterogeneity_summary.json
+          --bootstrap-repetitions 5000
+      - name: Verify checked outputs when already materialized
+        if: steps.source.outputs.available == 'true'
+        run: |
+          if test -f data/results/southwest_pacific_pairs/archipelago_heterogeneity.csv \
+             && test -f data/results/southwest_pacific_pairs/archipelago_heterogeneity_summary.json; then
+            cmp artifacts/southwest_pacific_heterogeneity/archipelago_heterogeneity.csv \
+                data/results/southwest_pacific_pairs/archipelago_heterogeneity.csv
+            cmp artifacts/southwest_pacific_heterogeneity/archipelago_heterogeneity_summary.json \
+                data/results/southwest_pacific_pairs/archipelago_heterogeneity_summary.json
+          else
+            echo "::notice::Checked heterogeneity outputs are not materialized yet."
+          fi
+      - name: Materialize checked outputs on push or manual run
+        if: steps.source.outputs.available == 'true' && github.event_name != 'pull_request'
+        run: |
+          mkdir -p data/results/southwest_pacific_pairs
+          cp artifacts/southwest_pacific_heterogeneity/archipelago_heterogeneity.csv \
+             data/results/southwest_pacific_pairs/archipelago_heterogeneity.csv
+          cp artifacts/southwest_pacific_heterogeneity/archipelago_heterogeneity_summary.json \
+             data/results/southwest_pacific_pairs/archipelago_heterogeneity_summary.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/southwest_pacific_pairs/archipelago_heterogeneity.csv \
+                  data/results/southwest_pacific_pairs/archipelago_heterogeneity_summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Southwest Pacific archipelago heterogeneity"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Record blocked transport without inventing results
+        if: steps.source.outputs.available != 'true'
+        run: >-
+          echo "::notice::Southwest Pacific source workbook was not recovered in
+          this run; no archipelago-level biological result is inferred."
+      - name: Upload audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: southwest-pacific-archipelago-heterogeneity
+          path: |
+            artifacts/southwest_pacific_aob/
+            artifacts/southwest_pacific_heterogeneity/
+          if-no-files-found: warn
