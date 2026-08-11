@@ -8,6 +8,7 @@ from scripts.analyze_hendriks_2019_flower_area import (
     read_island_mapping,
     read_pairs,
 )
+from scripts.compare_json_numeric_tolerant import assert_json_close
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -82,7 +83,10 @@ def test_checked_summary_is_deterministically_regenerable():
     source = json.loads(SOURCE.read_text(encoding="utf-8"))
     observed["source_id"] = source["source_id"]
     observed["source_retrieval_state"] = source["retrieval_state"]
-    assert observed == expected
+    # Python/libm versions can differ at the final floating-point bit.  The
+    # scientific result and all categorical gates must remain exact, while
+    # numeric values are compared at a tolerance far below reported precision.
+    assert_json_close(observed, expected, atol=1e-12)
 
 
 def test_source_provenance_keeps_formal_admission_closed():
