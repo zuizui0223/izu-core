@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Recover the open Southwest Pacific supplementary package via Europe PMC.
+"""Recover the Southwest Pacific supplementary package via Europe PMC.
 
 The Annals of Botany article is indexed in PMC as PMC12445859 and exposes the
 same three supplementary files described by the publisher page. This route is
 used only as a transport fallback when Oxford Academic delivery is blocked.
-Expected filenames are taken from the source config; unexpected files are kept
-in the audit but cannot silently replace the configured analysis source.
 
-On complete recovery the script writes the same ``source_inventory.json`` path
-used by the Oxford acquirer so downstream schema and analysis steps do not need
-a transport-specific branch. A previous Oxford inventory may be preserved by
-the workflow as ``oup_source_inventory.json`` before this fallback runs.
+Admission is strict: filenames must match the configured supplements, OOXML
+files must be structurally valid, and—when the checked source lock is present—
+all recovered SHA-256 values must reproduce the already locked source bytes.
+The emitted inventory mirrors the OUP lane so downstream schema and analysis
+steps do not need a transport-specific branch.
 """
 from __future__ import annotations
 
@@ -23,10 +22,10 @@ import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath
-from typing import Any, Iterable
+from typing import Any, Iterable, Mapping
 
 
-USER_AGENT = "izu-core-source-audit/1.0 (+https://github.com/zuizui0223/izu-core)"
+USER_AGENT = "izu-core-source-audit/1.1 (+https://github.com/zuizui0223/izu-core)"
 
 
 def load_config(path: Path) -> dict[str, Any]:
@@ -45,7 +44,9 @@ def load_config(path: Path) -> dict[str, Any]:
     return data
 
 
-def request_bytes(url: str, *, timeout: float = 90.0) -> tuple[bytes, dict[str, str], str]:
+def request_bytes(
+    url: str, *, timeout: float = 90.0
+) -> tuple[bytes, dict[str, str], str]:
     request = urllib.request.Request(
         url,
         headers={
@@ -76,9 +77,11 @@ def extract_zip(payload: bytes, output_dir: Path) -> list[Path]:
     package = output_dir / "europe_pmc_supplementary_files.zip"
     package.write_bytes(payload)
     extracted_dir = output_dir / "pmc_extracted"
+    if extracted_dir.exists():
+        shutil.rmtree(extracted_dir)
     extracted_dir.mkdir(parents=True, exist_ok=True)
     extracted: list[Path] = []
-    with zipfile.ZipFile(package) as archive:
+    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
         for info in archive.infolist():
             if info.is_dir():
                 continue
@@ -95,18 +98,22 @@ def normalize_filename(name: str) -> str:
     return Path(name).name.casefold()
 
 
-def file_record(path: Path, *, root: Path) -> dict[str, object]:
-    payload = path.read_bytes()
-    return {
-        "status": "downloaded",
-        "source_filename": path.name,
-        "local_name": path.name,
-        "relative_path": str(path.relative_to(root)),
-        "size": len(payload),
-        "sha256": hashlib.sha256(payload).hexdigest(),
-        "content_type": None,
-        "archive_members": [],
-    }
+def validate_office_file(path: Path) -> tuple[bool, str]:
+    suffix = path.suffix.casefold()
+    if suffix not in {".xlsx", ".docx"}:
+        return False, "unsupported_extension"
+    try:
+        with zipfile.ZipFile(path) as archive:
+            names = set(archive.namelist())
+    except zipfile.BadZipFile:
+        return False, "invalid_ooxml_zip"
+    if "[Content_Types].xml" not in names:
+        return False, "missing_content_types"
+    if suffix == ".xlsx" and not any(name.startswith("xl/") for name in names):
+        return False, "missing_xlsx_structure"
+    if suffix == ".docx" and not any(name.startswith("word/") for name in names):
+        return False, "missing_docx_structure"
+    return True, "accepted"
 
 
 def map_expected(
@@ -121,22 +128,74 @@ def map_expected(
             matched[expected] = candidate
     expected_keys = {normalize_filename(name) for name in expected_names}
     unexpected = [
-        path for path in extracted if normalize_filename(path.name) not in expected_keys
+        path
+        for path in extracted
+        if normalize_filename(path.name) not in expected_keys
     ]
     return matched, unexpected
 
 
+def load_checked_hashes(path: Path | None) -> dict[str, str]:
+    if path is None or not path.exists():
+        return {}
+    document = json.loads(path.read_text(encoding="utf-8"))
+    files = document.get("files") or {}
+    if not isinstance(files, dict):
+        return {}
+    return {
+        normalize_filename(filename): str(record["sha256"])
+        for filename, record in files.items()
+        if isinstance(record, Mapping) and record.get("sha256")
+    }
+
+
 def materialize_expected_files(
-    matched: dict[str, Path], *, output_dir: Path
-) -> list[dict[str, object]]:
+    matched: dict[str, Path],
+    *,
+    output_dir: Path,
+    source_url: str,
+    checked_hashes: Mapping[str, str],
+) -> tuple[list[dict[str, object]], list[dict[str, str]]]:
     files_dir = output_dir / "files"
+    if files_dir.exists():
+        shutil.rmtree(files_dir)
     files_dir.mkdir(parents=True, exist_ok=True)
-    records = []
+    records: list[dict[str, object]] = []
+    mismatches: list[dict[str, str]] = []
     for expected_name, source in sorted(matched.items()):
         target = files_dir / expected_name
         shutil.copy2(source, target)
-        records.append(file_record(target, root=output_dir))
-    return records
+        accepted, reason = validate_office_file(target)
+        digest = hashlib.sha256(target.read_bytes()).hexdigest()
+        expected_digest = checked_hashes.get(normalize_filename(expected_name))
+        if expected_digest and digest != expected_digest:
+            mismatches.append(
+                {
+                    "filename": expected_name,
+                    "expected_sha256": expected_digest,
+                    "observed_sha256": digest,
+                }
+            )
+        with zipfile.ZipFile(target) as archive:
+            members = archive.namelist()
+        verified = accepted and (not expected_digest or digest == expected_digest)
+        records.append(
+            {
+                "text": expected_name,
+                "status": "downloaded_checksum_verified" if verified else reason,
+                "url": source_url,
+                "final_url": source_url,
+                "content_type": None,
+                "local_name": expected_name,
+                "size": target.stat().st_size,
+                "sha256": digest,
+                "archive_members": members,
+                "error": None if verified else reason,
+            }
+        )
+        # The current analysis searches the source root for the configured file.
+        shutil.copy2(target, output_dir / expected_name)
+    return records, mismatches
 
 
 def main() -> None:
@@ -151,6 +210,11 @@ def main() -> None:
         type=Path,
         default=Path("artifacts/southwest_pacific_aob"),
     )
+    parser.add_argument(
+        "--source-lock",
+        type=Path,
+        default=Path("data/results/southwest_pacific_pairs/source_lock.json"),
+    )
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -160,6 +224,7 @@ def main() -> None:
     extracted: list[Path] = []
 
     url = str(config["europe_pmc_supplementary_url"])
+    final_url = url
     try:
         payload, headers, final_url = request_bytes(url)
         if not zipfile.is_zipfile(io.BytesIO(payload)):
@@ -189,32 +254,50 @@ def main() -> None:
 
     expected = [str(name) for name in config["expected_supplementary_files"]]
     matched, unexpected = map_expected(extracted, expected)
-    materialized = materialize_expected_files(matched, output_dir=args.output_dir)
+    checked_hashes = load_checked_hashes(args.source_lock)
+    records, mismatches = materialize_expected_files(
+        matched,
+        output_dir=args.output_dir,
+        source_url=final_url,
+        checked_hashes=checked_hashes,
+    )
     missing = [name for name in expected if name not in matched]
-    complete = not missing
+    complete = not missing and not mismatches and len(records) == len(expected)
     status = (
-        "supplementary_files_acquired"
+        "supplementary_files_acquired_checksum_verified"
         if complete
         else "supplementary_acquisition_partial"
         if matched
         else "supplementary_acquisition_blocked"
     )
     inventory = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": status,
         "acquisition_route": "europe_pmc_supplementary_files",
         "source_id": config["source_id"],
         "article_doi": config["article_doi"],
         "pmcid": config["pmcid"],
+        "crossref_message": {
+            "title": ["Flower size evolution in the Southwest Pacific"]
+        },
         "package": package,
-        "n_candidates": len(extracted),
-        "n_downloaded": len(materialized),
+        "n_candidates": len(expected),
+        "n_downloaded": len(records),
         "expected_supplementary_files": expected,
         "recovered_supplementary_files": sorted(matched),
         "missing_supplementary_files": missing,
-        "files": materialized,
+        "checksum_lock_path": str(args.source_lock) if checked_hashes else None,
+        "checksum_mismatches": mismatches,
+        "discovery_pages": [],
+        "files": records,
         "unexpected_package_files": [
-            file_record(path, root=args.output_dir) for path in unexpected
+            {
+                "filename": path.name,
+                "relative_path": str(path.relative_to(args.output_dir)),
+                "size_bytes": path.stat().st_size,
+                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            }
+            for path in unexpected
         ],
         "errors": errors,
         "analysis_source": config.get("analysis_source"),
@@ -229,10 +312,12 @@ def main() -> None:
         encoding="utf-8",
     )
     print(f"Europe PMC supporting files recovered: {len(matched)}/{len(expected)}")
+    print(f"checksum mismatches: {len(mismatches)}")
     print(f"status: {status}")
     if not complete:
         raise RuntimeError(
-            "Europe PMC supplementary recovery incomplete; see source_inventory.json"
+            "Europe PMC supplementary recovery did not reproduce the checked "
+            "source; see source_inventory.json"
         )
 
 
