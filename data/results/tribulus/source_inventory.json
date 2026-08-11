@@ -1,0 +1,53 @@
+{
+  "status": "partial_or_failed",
+  "source_id": "tribulus_cistoides_island_continent_flower_traits",
+  "dataset_doi": "10.5061/dryad.h70rxwdnz",
+  "selected_version_id": 216075,
+  "n_source_files": 5,
+  "n_downloaded": 0,
+  "files": [
+    {
+      "file_id": 2046430,
+      "source_filename": "mericarp_ind.csv",
+      "size_downloaded": null,
+      "sha256": null,
+      "status": "download_failed"
+    },
+    {
+      "file_id": 2046429,
+      "source_filename": "mericarp_means.csv",
+      "size_downloaded": null,
+      "sha256": null,
+      "status": "download_failed"
+    },
+    {
+      "file_id": 2046428,
+      "source_filename": "README.md",
+      "size_downloaded": null,
+      "sha256": null,
+      "status": "download_failed"
+    },
+    {
+      "file_id": 2046433,
+      "source_filename": "Tribulus_flower_data_clean.csv",
+      "size_downloaded": null,
+      "sha256": null,
+      "status": "download_failed"
+    },
+    {
+      "file_id": 2046432,
+      "source_filename": "Tribulus_mericarp_data_clean.csv",
+      "size_downloaded": null,
+      "sha256": null,
+      "status": "download_failed"
+    }
+  ],
+  "errors": [
+    {
+      "stage": "zip_assembly_info",
+      "url": "https://datadryad.org/downloads/zip_assembly_info/216075.json",
+      "error": "RuntimeError(\"HTTP 403 Forbidden; body='<html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> </body> </html>'\")"
+    }
+  ],
+  "claim_boundary": "This widespread-species dataset may support island-versus-continent petal-length divergence and environmental moderation within Tribulus cistoides. It is one lineage, not an independent sister-taxon meta-analysis. Flower size is not effective pollinator dependency, and habitat contrasts do not identify pollinator or geological-origin causation."
+}
