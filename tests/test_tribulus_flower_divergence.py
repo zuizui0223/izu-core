@@ -23,6 +23,15 @@ def test_source_mapping_matches_author_readme_and_scripts():
     )
     assert mapping["source_rows_expected_from_readme"] == 773
     assert mapping["source_columns_expected_from_readme"] == 29
+    observed = mapping["source_dimensions_observed_in_author_blob"]
+    assert observed == {
+        "csv_lines_including_header": 773,
+        "data_rows": 772,
+        "header_fields": 28,
+    }
+    assert "no missing row or column is reconstructed" in mapping[
+        "source_dimension_discrepancy"
+    ]
     assert mapping["columns"]["petal_length"].endswith("millimetres")
     assert "(1|ID)" in mapping["author_model_anchors"]["bioclimate_mixed_model"][
         "formula"
