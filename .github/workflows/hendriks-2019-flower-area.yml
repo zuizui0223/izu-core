@@ -1,0 +1,52 @@
+name: Hendriks 2019 flower-area reconstruction audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv"
+      - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
+      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
+      - "scripts/analyze_hendriks_2019_flower_area.py"
+      - "tests/test_hendriks_2019_flower_area.py"
+      - ".github/workflows/hendriks-2019-flower-area.yml"
+  pull_request:
+    paths:
+      - "data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv"
+      - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
+      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
+      - "scripts/analyze_hendriks_2019_flower_area.py"
+      - "tests/test_hendriks_2019_flower_area.py"
+      - ".github/workflows/hendriks-2019-flower-area.yml"
+
+jobs:
+  reconstruction-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and tests
+        run: python -m pip install -e . pytest
+      - name: Run Hendriks reconstruction tests
+        run: python -m pytest -q tests/test_hendriks_2019_flower_area.py
+      - name: Regenerate checked summary
+        run: >-
+          python scripts/analyze_hendriks_2019_flower_area.py
+          --input data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv
+          --source data/source_tables/hendriks_2019_flower_area_table_b9_source.json
+          --output artifacts/hendriks_2019/flower_area_reconstruction_summary.json
+          --bootstrap-repetitions 20000
+          --seed 20260811
+      - name: Verify checked summary
+        run: >-
+          cmp artifacts/hendriks_2019/flower_area_reconstruction_summary.json
+          data/results/hendriks_2019/flower_area_reconstruction_summary.json
+      - name: Upload audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hendriks-2019-flower-area-audit
+          path: artifacts/hendriks_2019/
+          if-no-files-found: error
