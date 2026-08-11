@@ -2,15 +2,21 @@
 """Recover the open Southwest Pacific supplementary package via Europe PMC.
 
 The Annals of Botany article is indexed in PMC as PMC12445859 and exposes the
-same three supplementary files described by the publisher page.  This route is
+same three supplementary files described by the publisher page. This route is
 used only as a transport fallback when Oxford Academic delivery is blocked.
 Expected filenames are taken from the source config; unexpected files are kept
 in the audit but cannot silently replace the configured analysis source.
+
+On complete recovery the script writes the same ``source_inventory.json`` path
+used by the Oxford acquirer so downstream schema and analysis steps do not need
+a transport-specific branch. A previous Oxford inventory may be preserved by
+the workflow as ``oup_source_inventory.json`` before this fallback runs.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import shutil
 import urllib.parse
@@ -92,26 +98,30 @@ def normalize_filename(name: str) -> str:
 def file_record(path: Path, *, root: Path) -> dict[str, object]:
     payload = path.read_bytes()
     return {
-        "filename": path.name,
+        "status": "downloaded",
+        "source_filename": path.name,
+        "local_name": path.name,
         "relative_path": str(path.relative_to(root)),
-        "size_bytes": len(payload),
+        "size": len(payload),
         "sha256": hashlib.sha256(payload).hexdigest(),
-        "suffix": path.suffix.casefold(),
+        "content_type": None,
+        "archive_members": [],
     }
 
 
-def map_expected(extracted: Iterable[Path], expected_names: Iterable[str]) -> tuple[dict[str, Path], list[Path]]:
+def map_expected(
+    extracted: Iterable[Path], expected_names: Iterable[str]
+) -> tuple[dict[str, Path], list[Path]]:
+    expected_names = list(expected_names)
     by_name = {normalize_filename(path.name): path for path in extracted}
     matched: dict[str, Path] = {}
     for expected in expected_names:
         candidate = by_name.get(normalize_filename(expected))
         if candidate is not None:
             matched[expected] = candidate
+    expected_keys = {normalize_filename(name) for name in expected_names}
     unexpected = [
-        path
-        for path in extracted
-        if normalize_filename(path.name)
-        not in {normalize_filename(name) for name in expected_names}
+        path for path in extracted if normalize_filename(path.name) not in expected_keys
     ]
     return matched, unexpected
 
@@ -152,7 +162,7 @@ def main() -> None:
     url = str(config["europe_pmc_supplementary_url"])
     try:
         payload, headers, final_url = request_bytes(url)
-        if not zipfile.is_zipfile(__import__("io").BytesIO(payload)):
+        if not zipfile.is_zipfile(io.BytesIO(payload)):
             raise ValueError(
                 "Europe PMC supplementary endpoint did not return a ZIP; "
                 f"content_type={headers.get('content-type')!r}, prefix={payload[:80]!r}"
@@ -181,7 +191,14 @@ def main() -> None:
     matched, unexpected = map_expected(extracted, expected)
     materialized = materialize_expected_files(matched, output_dir=args.output_dir)
     missing = [name for name in expected if name not in matched]
-    status = "complete" if not missing else "partial" if matched else "blocked"
+    complete = not missing
+    status = (
+        "supplementary_files_acquired"
+        if complete
+        else "supplementary_acquisition_partial"
+        if matched
+        else "supplementary_acquisition_blocked"
+    )
     inventory = {
         "schema_version": "1.0",
         "status": status,
@@ -190,11 +207,11 @@ def main() -> None:
         "article_doi": config["article_doi"],
         "pmcid": config["pmcid"],
         "package": package,
+        "n_candidates": len(extracted),
+        "n_downloaded": len(materialized),
         "expected_supplementary_files": expected,
         "recovered_supplementary_files": sorted(matched),
         "missing_supplementary_files": missing,
-        "n_expected": len(expected),
-        "n_recovered": len(matched),
         "files": materialized,
         "unexpected_package_files": [
             file_record(path, root=args.output_dir) for path in unexpected
@@ -206,15 +223,17 @@ def main() -> None:
         ),
         "claim_boundary": config["claim_boundary"],
     }
-    path = args.output_dir / "pmc_source_inventory.json"
+    path = args.output_dir / "source_inventory.json"
     path.write_text(
         json.dumps(inventory, indent=2, ensure_ascii=False, default=str) + "\n",
         encoding="utf-8",
     )
     print(f"Europe PMC supporting files recovered: {len(matched)}/{len(expected)}")
     print(f"status: {status}")
-    if status != "complete":
-        raise RuntimeError("Europe PMC supplementary recovery incomplete; see pmc_source_inventory.json")
+    if not complete:
+        raise RuntimeError(
+            "Europe PMC supplementary recovery incomplete; see source_inventory.json"
+        )
 
 
 if __name__ == "__main__":
