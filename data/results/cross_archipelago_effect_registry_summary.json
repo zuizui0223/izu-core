@@ -3,12 +3,12 @@
   "total_registry_rows": 17,
   "empirical_numeric_rows": 16,
   "numeric_rows_with_effect_uncertainty": 9,
-  "cross_system_model_eligible_rows": 6,
+  "cross_system_model_eligible_rows": 4,
   "cross_system_model_eligible_systems": [
     "southwest_pacific_ten_archipelagos",
     "wanshan_yongxing_paired_system"
   ],
-  "external_model_eligible_rows": 6,
+  "external_model_eligible_rows": 4,
   "external_context_effect_rows": 3,
   "effect_families_with_two_or_more_independent_systems": [],
   "formal_cross_system_fit_ready": false,
