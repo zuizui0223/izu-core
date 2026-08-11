@@ -22,7 +22,10 @@ from typing import Sequence
 
 DEFAULT_BOOTSTRAP_REPETITIONS = 5000
 DEFAULT_SEED = 20260811
-CROSS_SYSTEM_CLUSTER_THRESHOLD = 0.9258992384647143
+# Current upper island-cluster coupling bound from the source-native Southwest
+# Pacific animal analysis.  This is a comparison threshold only: Tribulus is
+# never used to impute reliability into another system.
+CROSS_SYSTEM_CLUSTER_THRESHOLD = 0.9258005353502381
 
 
 def find_source_csv(source_dir: Path) -> Path:
