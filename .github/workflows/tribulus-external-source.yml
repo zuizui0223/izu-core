@@ -11,6 +11,7 @@ on:
       - "scripts/acquire_dryad_external_dataset_v2.py"
       - "scripts/audit_tribulus_flower_source.py"
       - "scripts/analyze_tribulus_flower_divergence.py"
+      - "scripts/analyze_tribulus_flower_divergence_idaware.py"
       - "tests/test_dryad_external_acquisition.py"
       - "tests/test_tribulus_flower_source.py"
       - "tests/test_tribulus_flower_divergence.py"
@@ -22,6 +23,7 @@ on:
       - "scripts/acquire_tribulus_zenodo.py"
       - "scripts/audit_tribulus_flower_source.py"
       - "scripts/analyze_tribulus_flower_divergence.py"
+      - "scripts/analyze_tribulus_flower_divergence_idaware.py"
       - "tests/test_tribulus_flower_source.py"
       - "tests/test_tribulus_flower_divergence.py"
       - ".github/workflows/tribulus-external-source.yml"
@@ -92,7 +94,7 @@ jobs:
       - name: Run source-native flower divergence analysis
         if: steps.source.outputs.available == 'true'
         run: >-
-          python scripts/analyze_tribulus_flower_divergence.py
+          python scripts/analyze_tribulus_flower_divergence_idaware.py
           --input-dir artifacts/tribulus_dryad
           --filename Tribulus_flower_data_clean.csv
           --mapping data/design/tribulus_flower_source_mapping.json
