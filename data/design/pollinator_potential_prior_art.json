@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "status": "prior_art_boundary_locked",
+  "broad_hypothesis_not_novel": "Reduced or compositionally altered island pollinator assemblages can favour smaller or less size-diverse flowers relative to mainland/source populations.",
+  "sources": [
+    {
+      "source_id": "inoue_1986_izu_campanula",
+      "citation": "Inoue K. 1986. Evolution of Campanula punctata Lam. in the Izu Islands: Changes of Pollinators and Evolution of Breeding Systems. Plant Species Biology 1:89-97.",
+      "doi": "10.1111/j.1442-1984.1986.tb00018.x",
+      "source_supported_boundary": "The abstract reports smaller island Campanula flowers than mainland flowers and proposes that this might have resulted from adaptation to small pollinators.",
+      "prior_art_role": "Direct Izu precedent for linking reduced flower size to altered/smaller pollinators.",
+      "does_not_establish": [
+        "population-specific effective pollinator dependency",
+        "FDQ-to-trait-matching mechanism",
+        "cross-system response-shape replication",
+        "measurement-error-resolved universal island coefficient"
+      ]
+    },
+    {
+      "source_id": "inoue_1990_pollinator_availability",
+      "citation": "Inoue K. 1990. Evolution of Mating Systems in Island Populations of Campanula microdonta: Pollinator Availability Hypothesis. Plant Species Biology 5:57-64.",
+      "doi": "10.1111/j.1442-1984.1990.tb00192.x",
+      "source_supported_boundary": "The paper explicitly frames Izu Campanula mating-system evolution as a pollinator-availability hypothesis.",
+      "prior_art_role": "Direct Izu precedent for pollinator-availability explanations of reproductive-system evolution.",
+      "does_not_establish": [
+        "direct contemporary FDQ-to-trait-matching effect",
+        "single-visit pollen deposition based effective service",
+        "effective-dependency moderation across lineages"
+      ]
+    },
+    {
+      "source_id": "hendriks_2019_pollinator_potential_paradigm",
+      "citation": "Hendriks ALH. 2019. The island rule and its application to multiple plant traits. MSc thesis, Victoria University of Wellington.",
+      "identifier": "10.13140/RG.2.2.25945.08805",
+      "source_supported_boundary": "The thesis introduces the Pollinator Potential Paradigm: reduced island pollinator diversity and a reduced pollinator body-size range, conceived as a subset of the mainland pool, may reduce island floral-size range. The thesis also notes that Inoue (1990) had partly recognized the idea for Izu.",
+      "empirical_scope": "The floral chapter tests island-mainland floral response shapes and additional geographic/climatic factors using floral trait data; the thesis does not directly measure island-versus-mainland pollinator body-size distributions, single-visit pollen transfer, or population-specific effective dependency for the 35 flower-area pairs.",
+      "prior_art_role": "General conceptual/theoretical precedent for pollinator-potential compression of island floral-size diversity.",
+      "does_not_establish": [
+        "direct functional-exposure measurement for the sister pairs",
+        "effective pollinator dependency",
+        "FDQ-to-trait-matching-to-pollen causal chain",
+        "source-locked cross-system measurement-error-aware synthesis"
+      ]
+    }
+  ],
+  "izu_core_defensible_novelty": [
+    "separating cline, breakpoint, no-response, rewiring, and environment/history response modes rather than imposing one island syndrome",
+    "separating functional pollinator exposure from effective reproductive dependency",
+    "testing contemporary FDQ against corrected flower-pollinator trait matching and downstream pollen function",
+    "predeclaring direct single-visit pollen deposition plus reproductive-treatment measurements for effective dependency",
+    "using independent-system replication without manufacturing replication from islands, taxa, images, or correlated traits",
+    "keeping non-establishment, hybrid replacement, rewiring, and survivorship as explicit alternatives",
+    "using source-provenance and measurement-error admission gates that can demote apparently supportive effects",
+    "requiring compatible source-locked effects and uncertainty in independent system clusters before formal cross-system pooling"
+  ],
+  "prohibited_novelty_claims": [
+    "first proposal that island pollinator limitation can reduce flower size",
+    "first proposal that smaller island pollinators can favour smaller flowers",
+    "first proposal that reduced island pollinator diversity or body-size range can compress floral-size range",
+    "current proof that pollinator functional simplification causally explains the cross-system morphology response",
+    "current proof of a universal island-rule coefficient for flowers"
+  ],
+  "prospective_strongest_advance": "A reproducible functional-exposure × directly measured effective-dependency interaction across independently prespecified response modes, while declared environment/history, rewiring, establishment, source-provenance, and measurement-error alternatives remain controlled or falsified.",
+  "claim_boundary": "Prior art is used to narrow novelty, not to weaken the biological motivation. Current cross-system morphology evidence supports directional recurrence under OLS/island-cluster resampling, while causal attribution and formal errors-in-variables-resolved synthesis remain closed."
+}
