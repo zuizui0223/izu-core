@@ -1,0 +1,36 @@
+pair_id,island_species,island_flower_area_cm2,mainland_relative,mainland_flower_area_cm2
+1,Abrotanella rosulata,0.067,Abrotanella spathulata,0.38
+2,Alectryon excelsus grandis,0.63,Alectryon excelsus excelsus,0.03
+3,Alyxia squamulosa,0.48,Alyxia reinwardtii,0.39
+4,Brachyglottis arborescens,0.17,Brachyglottis repanda,0.14
+5,Brachyglottis huntii,1.34,Brachyglottis stewartiae,0.97
+6,Carmichaelia exsul,0.19,Carmichaelia williamsii,3.49
+7,Corokia macrocarpa,0.23,Corokia cotoneaster,0.12
+8,Cryptocarya gregsonii,0.25,Cryptocarya densiflora,0.23
+9,Dendrobium moorei,0.85,Dendrobium kingianum,2.02
+10,Gentianella antipoda,0.32,Gentianella cerina,1.37
+11,Gentianella chathamica subsp. chathamica,1.56,Gentianella saxosa,1.72
+12,Lepidium oblitum,0.02,Lepidium obtusatum,0.03
+13,Leptecophylla robusta,0.07,Leptecophylla juniperina,0.06
+14,Leptinella featherstonii,0.51,Leptinella serrulata,0.22
+15,Melaleuca howeana,0.06,Melaleuca ericifolia,0.04
+16,Melicope polybotrya,0.15,Sacromelicope simpliciafolia,0.12
+17,Melicytus novae-zelandia subsp. centurionis,0.19,Melicytus novae-zelandia subsp. novae-zelandiae,0.42
+18,Metrosideros kermadecensis,0.84,Metrosideros excelsa,3.23
+19,Myosotidium hortensia,0.23,Cynoglossum paniculatum,0.08
+20,Myrsine chathamica,0.07,Myrsine aquilonia,0.13
+21,Negria rhabdothamusides,7.25,Lenbrassia australiana,2.16
+22,Olearia mooneyi,0.16,Olearia argophylla,0.63
+23,Pennantia endlicheri,0.15,Pennantia corymbosa,0.063
+24,Pittosporum bracteolatum,1.32,Pittosporum umbellatum,0.63
+25,Plantago aucklandica,0.033,Plantago lanigera,0.19
+26,Plectorrhiza erecta,0.1,Plectorrhiza tridentata,0.39
+27,Pseudopanax chathamicus,0.26,Pseudopanax crassifolius,0.09
+28,Pseudopanax kermadecensis,0.13,Pseudopanax arboreus,0.49
+29,Raoulia goyenii,0.1,Raoulia buchananii,0.03
+30,Senecio australis,0.41,Senecio minimus,0.48
+31,Senecio kermadecensis,0.25,Senecio hauwai,0.42
+32,Sonchus grandifolius,3.0,Sonchus novae-zelandiae,6.0
+33,Sonchus kirkii,2.02,Sonchus oleraceus,1.26
+34,Veronica insularis,0.63,Veronica orchidea,0.19
+35,Xylosma parvifolium,0.14,Xylosma vincentii,0.24
