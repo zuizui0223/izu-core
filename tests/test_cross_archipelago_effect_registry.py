@@ -182,11 +182,22 @@ def test_current_repository_has_two_external_systems_but_keeps_formal_fit_closed
     assert summary["total_registry_rows"] == 17
     assert summary["empirical_numeric_rows"] == 16
     assert summary["numeric_rows_with_effect_uncertainty"] == 9
-    assert summary["cross_system_model_eligible_rows"] == 6
-    assert summary["external_model_eligible_rows"] == 6
+    assert summary["cross_system_model_eligible_rows"] == 4
+    assert summary["external_model_eligible_rows"] == 4
     assert summary["cross_system_model_eligible_systems"] == [
         "southwest_pacific_ten_archipelagos",
         "wanshan_yongxing_paired_system",
     ]
     assert summary["effect_families_with_two_or_more_independent_systems"] == []
+
+    by_id = {row["effect_id"]: row for row in rows}
+    assert by_id[
+        "southwest_pacific_animal_flower_size_starting_value_slope"
+    ]["cross_system_model_eligible"] == "no"
+    assert by_id[
+        "southwest_pacific_wind_flower_size_starting_value_slope"
+    ]["cross_system_model_eligible"] == "no"
+    assert by_id[
+        "southwest_pacific_animal_floral_display_mean_log_ratio"
+    ]["cross_system_model_eligible"] == "yes"
     assert all(row["causal_claim_allowed"] == "no" for row in rows)
