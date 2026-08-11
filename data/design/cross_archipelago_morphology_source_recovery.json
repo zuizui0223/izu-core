@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-12",
+  "purpose": "Track provenance recovery for independent island-mainland floral morphology systems without promoting abstract-level or unverified transcriptions to formal cross-system effects.",
+  "sources": [
+    {
+      "source_id": "hendriks_2019_flower_area",
+      "title": "The island rule and its application to multiple plant traits",
+      "author": "Annemieke Lona Hedi Hendriks",
+      "year": 2019,
+      "degree_institution": "Victoria University of Wellington",
+      "author_upload_identifier": "10.13140/RG.2.2.25945.08805",
+      "current_numeric_state": "35_of_35_appendix_B_table_B9_pairs_reconstructed",
+      "current_source_state": "author_uploaded_full_text_available_but_stable_institutional_artifact_not_recovered",
+      "institutional_repository": {
+        "name": "Te Herenga Waka—Victoria University of Wellington Open Access Repository",
+        "base_url": "https://openaccess.wgtn.ac.nz/",
+        "exact_record_recovered": false,
+        "search_status": "repository_is_live_but_exact_hendriks_thesis_record_not_resolved"
+      },
+      "admission_gate": {
+        "stable_source_bytes_recovered": false,
+        "checksum_locked": false,
+        "all_35_pairs_verified_against_locked_bytes": false,
+        "island_assignments_verified_against_locked_bytes": false,
+        "empirical_mainland_trait_reliability_identified": false,
+        "formal_same_family_effect_admitted": false
+      },
+      "next_action": "Recover a stable institutional or author-distributed artifact, checksum the exact bytes, then re-verify Appendix B Table B9 and Appendix A island assignments before changing provenance status. Keep EIV as sensitivity unless reliability is empirically identified.",
+      "claim_boundary": "The reconstructed OLS response shape is directional replication evidence. An author-upload transcription is not treated as a checksum-locked institutional source, and the EIV envelope is not an empirical reliability estimate."
+    },
+    {
+      "source_id": "hetherington_rauth_johnson_2020_136_pairs",
+      "title": "Floral Trait Evolution of Angiosperms on Pacific Islands",
+      "article_doi": "10.1086/709018",
+      "thesis_title": "The Comparative Evolution of the Floral Traits of Island Angiosperms",
+      "thesis_author": "Molly Christina Hetherington-Rauth",
+      "thesis_year": 2019,
+      "thesis_institution": "University of Toronto",
+      "theses_canada_oclc": "1335043730",
+      "current_numeric_state": "no_source_native_pair_effect_admitted",
+      "current_source_state": "theses_canada_confirms_full_text_routes_but_exact_repository_or_pdf_target_not_resolved",
+      "known_routes": [
+        {
+          "route": "Theses Canada catalogue record",
+          "url": "https://library-archives.canada.ca/eng/services/services-libraries/theses/Pages/item.aspx?idNumber=1335043730",
+          "verified_metadata": "MSc University of Toronto 2019; 136 island-mainland sister-taxon pairs across seven islands; catalogue advertises LAC, TSpace and Handle full-text links",
+          "exact_source_bytes_recovered": false
+        },
+        {
+          "route": "publisher article",
+          "url": "https://doi.org/10.1086/709018",
+          "verified_metadata": "556 species and 136 phylogenetically independent island-mainland contrasts; overall mean direction is heterogeneous among islands and families",
+          "exact_pair_table_recovered": false
+        }
+      ],
+      "admission_gate": {
+        "thesis_or_supplement_bytes_recovered": false,
+        "checksum_locked": false,
+        "source_native_pair_table_recovered": false,
+        "island_and_mainland_trait_columns_identified": false,
+        "trait_definition_and_units_identified": false,
+        "pair_independence_and_island_grouping_verified": false,
+        "uncertainty_or_raw_values_available": false,
+        "formal_effect_admitted": false
+      },
+      "next_action": "Resolve one advertised full-text route to concrete bytes, checksum it, then inspect appendices/data availability for the source-native 136-pair table. Do not reconstruct a slope or effect size from the thesis/article abstract.",
+      "claim_boundary": "Abstract and catalogue metadata establish the study design and qualitative heterogeneity only. They do not supply a source-native pair table, a compatible response-shape slope, or uncertainty suitable for the cross-system registry."
+    }
+  ]
+}
