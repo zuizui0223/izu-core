@@ -11,10 +11,12 @@ on:
       - "scripts/audit_southwest_pacific_pair_schema.py"
       - "scripts/analyze_southwest_pacific_flower_size.py"
       - "scripts/summarize_southwest_pacific_flower_size.py"
+      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_southwest_pacific_pmc_acquisition.py"
       - "tests/test_southwest_pacific_pair_schema.py"
       - "tests/test_southwest_pacific_flower_size_analysis.py"
+      - "tests/test_southwest_pacific_effect_admission_gate.py"
       - "data/results/southwest_pacific_pairs/**"
       - ".github/workflows/southwest-pacific-pair-source.yml"
   pull_request:
@@ -26,10 +28,12 @@ on:
       - "scripts/audit_southwest_pacific_pair_schema.py"
       - "scripts/analyze_southwest_pacific_flower_size.py"
       - "scripts/summarize_southwest_pacific_flower_size.py"
+      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
       - "tests/test_oup_supplementary_acquisition.py"
       - "tests/test_southwest_pacific_pmc_acquisition.py"
       - "tests/test_southwest_pacific_pair_schema.py"
       - "tests/test_southwest_pacific_flower_size_analysis.py"
+      - "tests/test_southwest_pacific_effect_admission_gate.py"
       - "data/results/southwest_pacific_pairs/**"
       - ".github/workflows/southwest-pacific-pair-source.yml"
 
@@ -57,6 +61,7 @@ jobs:
           tests/test_southwest_pacific_pmc_acquisition.py
           tests/test_southwest_pacific_pair_schema.py
           tests/test_southwest_pacific_flower_size_analysis.py
+          tests/test_southwest_pacific_effect_admission_gate.py
       - name: Recover checksum-locked source through Europe PMC first
         id: pmc_acquire
         continue-on-error: true
@@ -138,6 +143,13 @@ jobs:
           python scripts/summarize_southwest_pacific_flower_size.py
           --analysis artifacts/southwest_pacific_analysis/analysis.json
           --output artifacts/southwest_pacific_analysis/analysis_summary.json
+      - name: Apply measurement-error admission gate before verification or materialization
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/apply_southwest_pacific_effect_admission_gate.py
+          --effect-rows artifacts/southwest_pacific_analysis/effect_rows.json
+          --coupling-summary data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json
+          --output artifacts/southwest_pacific_analysis/effect_rows.json
       - name: Verify checked source-native results
         if: steps.source.outputs.available == 'true'
         run: |
