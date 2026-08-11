@@ -6,20 +6,26 @@ on:
     paths:
       - "config/tribulus_zenodo_source.json"
       - "scripts/acquire_ogasawara_zenodo.py"
+      - "scripts/analyze_tribulus_flower_context.py"
       - "tests/test_tribulus_source_config.py"
+      - "tests/test_tribulus_flower_context.py"
+      - "data/results/tribulus_island_continent/**"
       - ".github/workflows/tribulus-external-phenotype-source.yml"
   pull_request:
     paths:
       - "config/tribulus_zenodo_source.json"
       - "scripts/acquire_ogasawara_zenodo.py"
+      - "scripts/analyze_tribulus_flower_context.py"
       - "tests/test_tribulus_source_config.py"
+      - "tests/test_tribulus_flower_context.py"
+      - "data/results/tribulus_island_continent/**"
       - ".github/workflows/tribulus-external-phenotype-source.yml"
 
 permissions:
   contents: write
 
 jobs:
-  acquire:
+  acquire-and-analyse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,8 +37,11 @@ jobs:
           python-version: "3.11"
       - name: Install package and test dependency
         run: python -m pip install -e . pytest
-      - name: Test source and claim boundary
-        run: python -m pytest -q tests/test_tribulus_source_config.py
+      - name: Test source, hierarchy, and claim boundaries
+        run: >-
+          python -m pytest -q
+          tests/test_tribulus_source_config.py
+          tests/test_tribulus_flower_context.py
       - name: Acquire Zenodo record and verify declared checksums
         run: >-
           python scripts/acquire_ogasawara_zenodo.py
@@ -57,12 +66,19 @@ jobs:
               raise SystemExit(f"expected Tribulus files missing: {missing}")
           print(target, rows[target].get("sha256"))
           PY
-      - name: Materialize compact source inventory
+      - name: Run specimen-ID flower context audit
+        run: >-
+          python scripts/analyze_tribulus_flower_context.py
+          --source artifacts/tribulus_zenodo/files/Tribulus_flower_data_clean.csv
+          --output artifacts/tribulus_analysis/analysis.json
+          --bootstrap-repetitions 5000
+      - name: Materialize compact source and analysis state
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           source = json.loads(Path("artifacts/tribulus_zenodo/source_inventory.json").read_text())
+          analysis = json.loads(Path("artifacts/tribulus_analysis/analysis.json").read_text())
           config = json.loads(Path("config/tribulus_zenodo_source.json").read_text())
           out = Path("data/results/tribulus_island_continent")
           out.mkdir(parents=True, exist_ok=True)
@@ -94,21 +110,24 @@ jobs:
               "claim_boundary": config.get("claim_boundary"),
           }
           (out / "source_inventory.json").write_text(json.dumps(compact, indent=2, ensure_ascii=False) + "\n")
+          (out / "analysis.json").write_text(json.dumps(analysis, indent=2, ensure_ascii=False) + "\n")
           PY
-      - name: Commit compact source inventory on push/manual
+      - name: Commit compact results on push/manual
         if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/results/tribulus_island_continent/source_inventory.json
+          git add data/results/tribulus_island_continent
           if ! git diff --cached --quiet; then
-            git commit -m "Materialize Tribulus external phenotype source"
+            git commit -m "Materialize Tribulus flower context audit"
             git push origin HEAD:${{ github.ref_name }}
           fi
-      - name: Upload raw source audit
+      - name: Upload raw source and analysis audit
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: tribulus-external-phenotype-source
-          path: artifacts/tribulus_zenodo/
+          path: |
+            artifacts/tribulus_zenodo/
+            artifacts/tribulus_analysis/
           if-no-files-found: error
