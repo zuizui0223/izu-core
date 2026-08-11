@@ -1,13 +1,17 @@
 import importlib.util
+import sys
 from pathlib import Path
 
 import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = ROOT / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
 SPEC = importlib.util.spec_from_file_location(
     "swp_archipelago_heterogeneity",
-    ROOT / "scripts" / "analyze_southwest_pacific_archipelago_heterogeneity.py",
+    SCRIPTS / "analyze_southwest_pacific_archipelago_heterogeneity.py",
 )
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
@@ -60,7 +64,6 @@ def test_predeclared_minimum_blocks_small_island_slope():
 
 
 def test_estimable_island_reports_slope_and_keeps_it_descriptive():
-    # Larger mainland flowers shrink proportionally more on the island.
     rows = [
         row(index, "A", "NZ", fm, fi)
         for index, (fm, fi) in enumerate(
