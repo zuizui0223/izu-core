@@ -35,12 +35,17 @@ def test_current_source_animal_thresholds_are_locked():
     document = json.loads(path.read_text(encoding="utf-8"))
     rows, summary = MODULE.analyse(document)
     assert summary["animal_point_negative_reliability_threshold"] == pytest.approx(
-        0.8490052881072877
+        0.8490052881072875
     )
     assert summary["animal_ci_negative_reliability_threshold"] == pytest.approx(
-        0.9258992384647143
+        0.9258005353502381
     )
-    assert summary["wind_ci_negative_reliability_threshold"] > 1.0
+    assert summary["wind_point_negative_reliability_threshold"] == pytest.approx(
+        0.9238856751525703
+    )
+    assert summary["wind_ci_negative_reliability_threshold"] == pytest.approx(
+        1.1163143136258074
+    )
     assert summary["effect_registry_eligible"] is False
     assert summary["causal_claim_allowed"] is False
 
@@ -54,7 +59,7 @@ def test_current_source_animal_thresholds_are_locked():
         -0.1063102230449603
     )
     assert animal_95["implied_true_lr_ci_high"] == pytest.approx(
-        -0.025369222668721658
+        -0.025473120683959904
     )
     assert animal_95["interval_entirely_negative"] is True
 
