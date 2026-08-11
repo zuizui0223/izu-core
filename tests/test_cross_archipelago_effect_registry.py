@@ -125,15 +125,68 @@ def test_one_external_effect_document_opens_rows_but_not_meta_analysis(tmp_path:
     assert summary["formal_cross_system_fit_ready"] is False
 
 
-def test_current_repository_has_first_external_effects_but_keeps_formal_fit_closed():
+def test_two_external_systems_with_noncommensurate_effect_families_keep_fit_closed(tmp_path: Path):
+    write_json(
+        tmp_path,
+        "data/results/wanshan_yongxing/effect_rows.json",
+        {
+            "effects": [
+                {
+                    "effect_id": "wanshan_visitation_lrr",
+                    "system_id": "wanshan_yongxing",
+                    "system_cluster": "wanshan_yongxing_paired_system",
+                    "evidence_family": "matched_shared_plant_visitation_log_response_ratio",
+                    "response": "visitation_log_response_ratio",
+                    "estimate": -2.5,
+                    "uncertainty_type": "bootstrap_interval",
+                    "uncertainty_value": [-3.3, -2.1],
+                    "cross_system_model_eligible": True,
+                }
+            ]
+        },
+    )
+    write_json(
+        tmp_path,
+        "data/results/southwest_pacific_pairs/effect_rows.json",
+        {
+            "effects": [
+                {
+                    "effect_id": "swp_flower_slope",
+                    "system_id": "southwest_pacific_flower_size",
+                    "system_cluster": "southwest_pacific_ten_archipelagos",
+                    "evidence_family": "animal_pollinated_island_mainland_flower_size_starting_value_slope",
+                    "response": "flower_size_log10_response_ratio",
+                    "estimate": -0.15,
+                    "uncertainty_type": "island_cluster_bootstrap_percentile_interval",
+                    "uncertainty_value": [-0.30, -0.07],
+                    "cross_system_model_eligible": True,
+                }
+            ]
+        },
+    )
+    _, summary = compile_registry(tmp_path)
+    assert summary["cross_system_model_eligible_rows"] == 2
+    assert summary["cross_system_model_eligible_systems"] == [
+        "southwest_pacific_ten_archipelagos",
+        "wanshan_yongxing_paired_system",
+    ]
+    assert summary["effect_families_with_two_or_more_independent_systems"] == []
+    assert summary["formal_cross_system_fit_ready"] is False
+
+
+def test_current_repository_has_two_external_systems_but_keeps_formal_fit_closed():
     root = Path(__file__).resolve().parents[1]
     rows, summary = compile_registry(root)
     assert rows
     assert summary["formal_cross_system_fit_ready"] is False
-    assert summary["cross_system_model_eligible_rows"] == 3
-    assert summary["external_model_eligible_rows"] == 3
+    assert summary["total_registry_rows"] == 17
+    assert summary["empirical_numeric_rows"] == 16
+    assert summary["numeric_rows_with_effect_uncertainty"] == 9
+    assert summary["cross_system_model_eligible_rows"] == 6
+    assert summary["external_model_eligible_rows"] == 6
     assert summary["cross_system_model_eligible_systems"] == [
-        "wanshan_yongxing_paired_system"
+        "southwest_pacific_ten_archipelagos",
+        "wanshan_yongxing_paired_system",
     ]
     assert summary["effect_families_with_two_or_more_independent_systems"] == []
     assert all(row["causal_claim_allowed"] == "no" for row in rows)
