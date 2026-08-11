@@ -19,6 +19,15 @@ def test_registry_keeps_izu_as_anchor_and_external_systems_as_validation():
     assert "do not retroactively identify" in data["claim_boundary"].lower()
 
 
+def test_prior_art_boundary_prevents_generic_pollinator_compression_novelty():
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    prior = data["prior_art_boundary"]
+    assert prior["broad_pollinator_compression_hypothesis_is_novel"] is False
+    assert "Inoue" in prior["reason"]
+    assert "Pollinator Potential Paradigm" in prior["reason"]
+    assert prior["machine_readable_source"] == "data/design/pollinator_potential_prior_art.json"
+
+
 def test_next_morphology_gate_prioritizes_island_cluster_audited_hendriks_reconstruction():
     data = json.loads(REGISTRY.read_text(encoding="utf-8"))
     assert data["next_external_gate"]["priority_candidate"] == "new_zealand_hendriks_2019"
@@ -58,6 +67,26 @@ def test_southwest_pacific_starting_size_is_not_formally_admitted():
     assert state["animal_point_negative_reliability_threshold"] > 0.84
     assert state["animal_ci_negative_reliability_threshold"] > 0.92
     assert state["animal_equivalent_direct_log_island_on_log_mainland_slope"] < 1.0
+
+
+def test_joint_morphology_eiv_envelope_is_complete_but_not_empirically_resolved():
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    directional = data["cross_system_morphology_directional_audit"]
+    assert directional["independent_systems"] == 2
+    assert directional["systems_with_ols_island_cluster_interval_below_isometry"] == 2
+    assert directional["direction_replicated"] is True
+    assert directional["formal_effect_pooling_allowed"] is False
+
+    eiv = data["cross_system_morphology_eiv_envelope"]
+    assert eiv["status"] == "classical_eiv_joint_reliability_envelope_complete"
+    assert eiv["reliability_empirically_estimated_in_either_system"] is False
+    assert eiv["both_points_below_isometry_requires_reliability_gt"] == 0.8490052881072877
+    assert eiv["both_island_cluster_intervals_below_isometry_requires_reliability_gt"] == 0.9258992384647143
+    assert eiv["r_0_90_points_preserved"] is True
+    assert eiv["r_0_90_cluster_intervals_preserved"] is False
+    assert eiv["r_0_93_cluster_intervals_preserved"] is True
+    assert eiv["hendriks_sma_island_cluster_interval_excludes_isometry"] is False
+    assert eiv["formal_same_family_meta_analysis_ready"] is False
 
 
 def test_wanshan_config_preserves_one_pair_and_different_year_boundary():
