@@ -69,30 +69,52 @@ def cluster_bootstrap(
             sample.extend(grouped[rng.choice(keys)])
         try:
             animal, wind = split(sample)
-            slope_diff.append(slope(animal) - slope(wind))
-            mean_diff.append(mean_lr(animal) - mean_lr(wind))
+            slope_value = slope(animal) - slope(wind)
         except ValueError:
             continue
+        slope_diff.append(slope_value)
+        mean_diff.append(mean_lr(animal) - mean_lr(wind))
     if len(slope_diff) < max(100, repetitions // 2):
         raise RuntimeError(f"too few valid {cluster} bootstrap replicates")
     return {
         "cluster": cluster,
         "n_source_clusters": len(keys),
+        "repetitions_requested": repetitions,
+        "repetitions_valid": len(slope_diff),
+        "attempts": attempts,
         "slope_difference": summarize(slope_diff),
         "mean_lr_difference": summarize(mean_diff),
     }
 
 
 def event_bootstrap(animal, wind, repetitions: int) -> dict[str, object]:
+    """Bootstrap source events while discarding unidentified zero-variance draws.
+
+    With small strata, resampling can occasionally select the same predictor value
+    for every draw in one pollination mode.  Such a replicate contains no
+    information about a slope and should be treated as an invalid bootstrap draw,
+    not as a fatal analysis error or an implicit zero slope.
+    """
     rng = random.Random(stable_seed("southwest-mode:event"))
-    slope_diff = []
-    mean_diff = []
-    for _ in range(repetitions):
+    slope_diff: list[float] = []
+    mean_diff: list[float] = []
+    attempts = 0
+    while len(slope_diff) < repetitions and attempts < repetitions * 10:
+        attempts += 1
         aa = [animal[rng.randrange(len(animal))] for _ in animal]
         ww = [wind[rng.randrange(len(wind))] for _ in wind]
-        slope_diff.append(slope(aa) - slope(ww))
+        try:
+            slope_value = slope(aa) - slope(ww)
+        except ValueError:
+            continue
+        slope_diff.append(slope_value)
         mean_diff.append(mean_lr(aa) - mean_lr(ww))
+    if len(slope_diff) < max(100, repetitions // 2):
+        raise RuntimeError("too few valid event bootstrap replicates")
     return {
+        "repetitions_requested": repetitions,
+        "repetitions_valid": len(slope_diff),
+        "attempts": attempts,
         "slope_difference": summarize(slope_diff),
         "mean_lr_difference": summarize(mean_diff),
     }
