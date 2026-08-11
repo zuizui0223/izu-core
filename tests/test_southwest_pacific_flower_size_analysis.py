@@ -138,15 +138,23 @@ def test_regression_method_audit_is_explicit_not_silent():
     assert "not a correction of author intent" in audit["reading"]
 
 
-def test_effect_rows_are_future_same_family_candidates_not_current_pooling():
+def test_effect_rows_apply_measurement_error_gate_before_formal_registry():
     document = json.loads(
         (RESULT_DIR / "effect_rows.json").read_text(encoding="utf-8")
     )
     assert document["formal_cross_system_fit_ready"] is False
     assert len(document["effects"]) == 3
     assert all(effect["causal_claim_allowed"] is False for effect in document["effects"])
-    assert all(
-        effect["cross_system_model_eligible"] is True
-        for effect in document["effects"]
-    )
+
+    by_id = {effect["effect_id"]: effect for effect in document["effects"]}
+    assert by_id[
+        "southwest_pacific_animal_flower_size_starting_value_slope"
+    ]["cross_system_model_eligible"] is False
+    assert by_id[
+        "southwest_pacific_wind_flower_size_starting_value_slope"
+    ]["cross_system_model_eligible"] is False
+    assert by_id[
+        "southwest_pacific_animal_floral_display_mean_log_ratio"
+    ]["cross_system_model_eligible"] is True
+    assert document["admission_gate"]["starting_size_effects_model_eligible"] is False
     assert len({effect["system_cluster"] for effect in document["effects"]}) == 1
