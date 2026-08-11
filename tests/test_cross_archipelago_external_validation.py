@@ -19,6 +19,33 @@ def test_registry_keeps_izu_as_anchor_and_external_systems_as_validation():
     assert "do not retroactively identify" in data["claim_boundary"].lower()
 
 
+def test_next_morphology_gate_prioritizes_recoverable_hendriks_pair_table():
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    assert data["next_external_gate"]["priority_candidate"] == "new_zealand_hendriks_2019"
+    systems = {row["system_id"]: row for row in data["systems"]}
+    hendriks = systems["new_zealand_hendriks_2019"]
+    result = hendriks["reported_flower_area_result"]
+    assert hendriks["priority"] == 5
+    assert result["n_pairs"] == 35
+    assert result["model_2_log_island_on_log_mainland_slope"] == 0.58
+    assert result["model_2_slope_95_ci"] == [0.36, 0.82]
+    assert result["model_2_minus_isometry_slope"] == -0.42
+    assert result["model_2_minus_isometry_95_ci"] == [-0.64, -0.18]
+    assert result["raw_pair_table_location"] == "Appendix B Table B9"
+    assert "measurement-error-free" in hendriks["forbidden_promotion"]
+
+
+def test_southwest_pacific_starting_size_is_not_formally_admitted():
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    systems = {row["system_id"]: row for row in data["systems"]}
+    southwest = systems["southwest_pacific_ciarle_2025"]
+    state = southwest["checked_result_state"]
+    assert state["starting_size_effects_formal_model_eligible"] is False
+    assert state["measurement_error_reliability_empirically_estimated"] is False
+    assert state["animal_point_negative_reliability_threshold"] > 0.84
+    assert state["animal_ci_negative_reliability_threshold"] > 0.92
+
+
 def test_wanshan_config_preserves_one_pair_and_different_year_boundary():
     data = json.loads(CONFIG.read_text(encoding="utf-8"))
     assert data["expected_shared_plant_count"] == 7
