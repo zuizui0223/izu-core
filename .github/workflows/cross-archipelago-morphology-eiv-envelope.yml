@@ -1,0 +1,52 @@
+name: Cross-archipelago morphology EIV envelope
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/audit_cross_archipelago_morphology_eiv_envelope.py"
+      - "tests/test_cross_archipelago_morphology_eiv_envelope.py"
+      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
+      - "data/results/cross_archipelago_morphology_eiv_envelope_summary.json"
+      - "data/results/cross_archipelago_morphology_eiv_envelope.csv"
+      - ".github/workflows/cross-archipelago-morphology-eiv-envelope.yml"
+  pull_request:
+    paths:
+      - "scripts/audit_cross_archipelago_morphology_eiv_envelope.py"
+      - "tests/test_cross_archipelago_morphology_eiv_envelope.py"
+      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
+      - "data/results/cross_archipelago_morphology_eiv_envelope_summary.json"
+      - "data/results/cross_archipelago_morphology_eiv_envelope.csv"
+      - ".github/workflows/cross-archipelago-morphology-eiv-envelope.yml"
+
+jobs:
+  eiv-envelope:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and tests
+        run: python -m pip install -e . pytest
+      - name: Run EIV envelope tests
+        run: python -m pytest -q tests/test_cross_archipelago_morphology_eiv_envelope.py
+      - name: Regenerate checked envelope
+        run: >-
+          python scripts/audit_cross_archipelago_morphology_eiv_envelope.py
+          --response-shape-summary data/results/cross_archipelago_morphology_response_shape_summary.json
+          --summary-output artifacts/cross_archipelago_morphology_eiv/summary.json
+          --csv-output artifacts/cross_archipelago_morphology_eiv/scenarios.csv
+      - name: Verify checked outputs
+        run: |
+          cmp artifacts/cross_archipelago_morphology_eiv/summary.json \
+              data/results/cross_archipelago_morphology_eiv_envelope_summary.json
+          cmp artifacts/cross_archipelago_morphology_eiv/scenarios.csv \
+              data/results/cross_archipelago_morphology_eiv_envelope.csv
+      - name: Upload audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-archipelago-morphology-eiv-envelope
+          path: artifacts/cross_archipelago_morphology_eiv/
+          if-no-files-found: error
