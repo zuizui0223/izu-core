@@ -1,10 +1,17 @@
 from __future__ import annotations
 
+import subprocess
+import sys
+from pathlib import Path
+
 import pandas as pd
 import pytest
 
 from scripts import analyze_tribulus_flower_context_idaware as context
 from scripts import analyze_tribulus_flower_divergence_idaware as divergence
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_divergence_id_aggregation_averages_environment_but_not_broad_strata():
@@ -90,3 +97,23 @@ def test_context_id_aggregation_does_not_coerce_mixed_island_group():
     broken[1]["mainland_island"] = "continent"
     with pytest.raises(ValueError, match="conflicting mainland_island"):
         context.aggregate_ids(broken)
+
+
+@pytest.mark.parametrize(
+    "script_name",
+    [
+        "analyze_tribulus_flower_divergence_idaware.py",
+        "analyze_tribulus_flower_context_idaware.py",
+    ],
+)
+def test_idaware_entrypoints_are_directly_executable(script_name: str):
+    completed = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / script_name), "--help"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        timeout=30,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert "usage:" in completed.stdout.lower()
