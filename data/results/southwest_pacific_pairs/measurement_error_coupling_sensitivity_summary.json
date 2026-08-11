@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "status": "classical_measurement_error_coupling_sensitivity_complete",
+  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+  "article_doi": "10.1093/aob/mcaf005",
+  "response": "log10(FI/FM) against log10(FM)",
+  "assumption": "Classical independent measurement error in observed log10 mainland flower size; island-side error is independent and contributes residual variance rather than predictor coupling.",
+  "reliability_is_empirically_estimated_here": false,
+  "animal_point_negative_reliability_threshold": 0.8490052881072877,
+  "animal_ci_negative_reliability_threshold": 0.9258992384647143,
+  "wind_point_negative_reliability_threshold": 0.9238856751525697,
+  "wind_ci_negative_reliability_threshold": 1.1082510511604158,
+  "interpretation": "For the source-coded animal subset, the observed point slope remains negative under the declared classical-error model only when mainland log-flower-size reliability exceeds the observed log-island-on-log-mainland slope (~0.849). To keep the island-cluster interval entirely below zero, reliability must exceed its upper coupling bound (~0.926). The source does not provide a reliability estimate that closes this sensitivity.",
+  "claim_boundary": "This is a partial-identification sensitivity, not evidence that measurement error caused the observed pattern and not a correction of the source estimate. Nonclassical, correlated, phylogenetic, or source-specific errors can behave differently. Pollination mode remains distinct from effective dependency.",
+  "effect_registry_eligible": false,
+  "causal_claim_allowed": false
+}
