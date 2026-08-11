@@ -8,14 +8,17 @@ on:
       - "scripts/compile_cross_archipelago_effect_registry.py"
       - "scripts/augment_cross_archipelago_effect_registry.py"
       - "scripts/summarize_wanshan_yongxing_effects.py"
+      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
       - "tests/test_cross_archipelago_effect_registry.py"
       - "tests/test_cross_archipelago_effect_registry_augmentation.py"
       - "tests/test_wanshan_yongxing_effects.py"
+      - "tests/test_southwest_pacific_effect_admission_gate.py"
       - "data/results/cross_archipelago_effect_registry.csv"
       - "data/results/cross_archipelago_effect_registry_summary.json"
       - "data/results/wanshan_yongxing/effect_rows.json"
       - "data/results/ogasawara/context_analysis/effect_rows.json"
       - "data/results/southwest_pacific_pairs/effect_rows.json"
+      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
       - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
       - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
       - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
@@ -30,14 +33,17 @@ on:
       - "scripts/compile_cross_archipelago_effect_registry.py"
       - "scripts/augment_cross_archipelago_effect_registry.py"
       - "scripts/summarize_wanshan_yongxing_effects.py"
+      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
       - "tests/test_cross_archipelago_effect_registry.py"
       - "tests/test_cross_archipelago_effect_registry_augmentation.py"
       - "tests/test_wanshan_yongxing_effects.py"
+      - "tests/test_southwest_pacific_effect_admission_gate.py"
       - "data/results/cross_archipelago_effect_registry.csv"
       - "data/results/cross_archipelago_effect_registry_summary.json"
       - "data/results/wanshan_yongxing/effect_rows.json"
       - "data/results/ogasawara/context_analysis/effect_rows.json"
       - "data/results/southwest_pacific_pairs/effect_rows.json"
+      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
       - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
       - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
       - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
@@ -64,18 +70,25 @@ jobs:
           tests/test_cross_archipelago_effect_registry_augmentation.py
           tests/test_wanshan_yongxing_effects.py
           tests/test_southwest_pacific_flower_size_analysis.py
+          tests/test_southwest_pacific_effect_admission_gate.py
       - name: Recompile base registry
         run: >-
           python scripts/compile_cross_archipelago_effect_registry.py
           --csv-output artifacts/cross_archipelago_effect_registry/registry.csv
           --summary-output artifacts/cross_archipelago_effect_registry/summary.json
-      - name: Admit source-specific Ogasawara and Southwest Pacific effects
+      - name: Apply Southwest Pacific measurement-error admission gate
+        run: >-
+          python scripts/apply_southwest_pacific_effect_admission_gate.py
+          --effect-rows data/results/southwest_pacific_pairs/effect_rows.json
+          --coupling-summary data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json
+          --output artifacts/cross_archipelago_effect_registry/southwest_pacific_effect_rows_gated.json
+      - name: Admit source-specific Ogasawara and gated Southwest Pacific effects
         run: >-
           python scripts/augment_cross_archipelago_effect_registry.py
           --registry artifacts/cross_archipelago_effect_registry/registry.csv
           --summary artifacts/cross_archipelago_effect_registry/summary.json
           --ogasawara-effects data/results/ogasawara/context_analysis/effect_rows.json
-          --southwest-pacific-effects data/results/southwest_pacific_pairs/effect_rows.json
+          --southwest-pacific-effects artifacts/cross_archipelago_effect_registry/southwest_pacific_effect_rows_gated.json
       - name: Verify checked effect rows and summary
         run: |
           python - <<'PY'
@@ -126,6 +139,18 @@ jobs:
               ).read_text(encoding="utf-8")
           )
           assert generated_summary == checked_summary
+
+          gated_effects = json.loads(
+              Path(
+                  "artifacts/cross_archipelago_effect_registry/southwest_pacific_effect_rows_gated.json"
+              ).read_text(encoding="utf-8")
+          )
+          checked_effects = json.loads(
+              Path("data/results/southwest_pacific_pairs/effect_rows.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          assert gated_effects == checked_effects
           PY
       - name: Upload registry audit
         if: always()
