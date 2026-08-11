@@ -5,6 +5,7 @@
   "landing_page_url": "https://oup.silverchair-cdn.com/article-minimal/7960047",
   "canonical_article_url": "https://academic.oup.com/aob/article/136/2/287/7960047",
   "crossref_url": "https://api.crossref.org/works/10.1093%2Faob%2Fmcaf005",
+  "europe_pmc_supplementary_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12445859/supplementaryFiles",
   "expected_supplementary_files": [
     "mcaf005_suppl_supplementary_data_s1.xlsx",
     "mcaf005_suppl_supplementary_data_s2.xlsx",
