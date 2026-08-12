@@ -31,9 +31,6 @@ DEFAULT_MAPPING = ROOT / "data/source_tables/hendriks_2019_flower_area_island_ma
 DEFAULT_OUTPUT = ROOT / "artifacts/hendriks_2019/source_lock/pdf_reverification.json"
 EXPECTED_N = 35
 
-# Exact source-native spellings observed in the locked Appendix-A tables where
-# they differ from the Table-B9/mapping transcription.  Keying by pair_id makes
-# this an auditable transcription bridge rather than permissive fuzzy matching.
 APPENDIX_SOURCE_TAXON_ALIASES: dict[int, tuple[str, ...]] = {
     2: ("Alectryon excelsus subsp. grandis",),
     17: ("Melicytus novae-zelandieae ssp. centurionis",),
@@ -89,13 +86,14 @@ def table_region(text: str, label: str, next_label: str | None = None) -> str:
 
 
 def contains_taxon(region: str, taxon: str) -> bool:
+    normalized_region = normalize_text(region)
     normalized_taxon = normalize_text(taxon)
-    if normalized_taxon in region:
+    if normalized_taxon in normalized_region:
         return True
     tokens = [re.escape(token) for token in normalized_taxon.split()]
     if not tokens:
         return False
-    return re.search(r"\s+".join(tokens), region) is not None
+    return re.search(r"\s+".join(tokens), normalized_region) is not None
 
 
 def matched_taxon_variant(region: str, variants: Iterable[str]) -> str | None:
@@ -106,8 +104,9 @@ def matched_taxon_variant(region: str, variants: Iterable[str]) -> str | None:
 
 
 def contains_numeric(region: str, value: str) -> bool:
+    normalized_region = normalize_text(region)
     for variant in numeric_variants(value):
-        if re.search(rf"(?<![0-9.]){re.escape(variant)}(?![0-9.])", region):
+        if re.search(rf"(?<![0-9.]){re.escape(variant)}(?![0-9.])", normalized_region):
             return True
     return False
 
