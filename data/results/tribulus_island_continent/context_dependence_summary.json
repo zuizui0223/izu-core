@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "status": "source_native_context_dependence_boundary_complete",
+  "source_id": "tribulus_cistoides_island_continent_flower_traits",
+  "article_doi": "10.1002/ece3.9766",
+  "dataset_doi": "10.5061/dryad.h70rxwdnz",
+  "source_file": "Tribulus_flower_data_clean.csv",
+  "source_file_sha256": "5781735eb6e7cec268b012a2821e1e59ff782ffb061796118ec21027f0d921c5",
+  "n_flower_rows": 772,
+  "n_source_ids": 411,
+  "id_level_results": {
+    "year_adjusted_island_minus_continent_mm": {
+      "estimate": -0.48211158236906454,
+      "hc3_ci_95": [-1.311159530444997, 0.34693636570686787],
+      "n_id": 402
+    },
+    "bioclimate_adjusted_island_minus_continent_mm": {
+      "estimate": -1.5661164449424052,
+      "hc3_ci_95": [-2.5478029455098046, -0.5844299443750058],
+      "n_id": 396
+    },
+    "bioclimate_plus_continent_fe_island_minus_continent_mm": {
+      "estimate": -1.6829145865551416,
+      "hc3_ci_95": [-2.6822077591307805, -0.6836214139795029],
+      "n_id": 396
+    },
+    "bioclimate_excluding_galapagos_island_minus_continent_mm": {
+      "estimate": -0.06657380142952575,
+      "hc3_ci_95": [-1.0528109535739956, 0.9196633507149441],
+      "n_id": 365
+    },
+    "galapagos_minus_other_islands_mm": {
+      "estimate": -8.511623707024318,
+      "hc3_ci_95": [-10.434677505566464, -6.588569908482173],
+      "n_id": 220
+    }
+  },
+  "interpretation": "The environment-adjusted island-continent flower-size contrast is not a geographically general island effect: excluding Galapagos collapses the ID-level estimate to near zero, while Galapagos itself shows a very large negative contrast relative to other islands. This supports context-dependent floral divergence rather than universal island floral dwarfism.",
+  "cross_system_role": "boundary_adversarial_evidence_only",
+  "formal_same_family_response_shape_replication": false,
+  "effect_registry_eligible": false,
+  "claim_boundary": "Tribulus is one widespread lineage with repeated flowers nested within source-defined IDs. These contrasts do not create independent island-mainland sister-pair systems, do not estimate effective pollinator dependency, and do not identify pollinator or geological-origin causation. The result is used to test geographic heterogeneity, not to increase the 2/2 floral response-shape replication count."
+}
