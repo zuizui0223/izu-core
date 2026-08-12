@@ -22,6 +22,32 @@ def test_table_region_and_taxon_numeric_matching_are_strict():
     assert not contains_numeric(region, "999")
 
 
+def test_table_region_uses_data_table_not_earlier_toc_copy():
+    text = '''
+    List of tables
+    Table A4 Campbell Island species ................................ 77
+    Table A5 Chatham Island species ................................. 78
+    Table B9 Flower area dataset .................................... 96
+    Table B10 Next dataset .......................................... 98
+
+    Appendix A
+    Table A4 Campbell Island species
+    Abrotanella rosulata
+    Table A5 Chatham Island species
+    Brachyglottis huntii
+
+    Appendix B
+    Table B9 Flower area dataset measurements and measurement references
+    Abrotanella rosulata 0.067 Abrotanella spathulata 0.38
+    Table B10 Next dataset
+    '''
+    a4 = table_region(text, "A4", "A5")
+    b9 = table_region(text, "B9", "B10")
+    assert contains_taxon(a4, "Abrotanella rosulata")
+    assert contains_taxon(b9, "Abrotanella rosulata")
+    assert contains_numeric(b9, "0.067")
+
+
 def test_b9_requires_both_taxa_and_both_values_for_every_row():
     rows = [
         {
@@ -35,7 +61,6 @@ def test_b9_requires_both_taxa_and_both_values_for_every_row():
     text = "Table B9 Abrotanella rosulata 0.067 Abrotanella spathulata 0.38 Table B10"
     result = verify_b9(text, rows)
     assert result["n_verified"] == 1
-    # One synthetic row can verify locally but can never pass the real 35-row gate.
     assert result["all_rows_verified"] is False
 
 
