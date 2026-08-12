@@ -1,20 +1,29 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-12",
   "purpose": "Canonical blocking-task ledger for PR #90. These tasks are deliberately separated so provenance, measurement-error identifiability, third-system replication, and Izu field causality cannot substitute for one another.",
   "tasks": [
     {
       "task_id": "hendriks_provenance",
       "issue": 94,
-      "state": "institutional_record_resolved_exact_bytes_blocked",
+      "state": "complete_exact_institutional_bytes_checksum_locked_and_reverified",
       "progress": {
         "institutional_record_resolved": true,
         "institutional_identifier": "10.26686/wgtn.17136800",
         "institutional_record_url": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
         "institutional_download_target_resolved": true,
         "institutional_download_url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
-        "exact_pdf_bytes_recovered": false,
-        "current_delivery_block": "403_or_download_failure_in_current_automation_environment"
+        "exact_pdf_bytes_recovered": true,
+        "n_bytes": 3758444,
+        "sha256": "4abbe2b1c4b7b1a809df0127e66184385425919a45043260cd2c51a45df37c42",
+        "md5": "9d66f35e04e3058364237ede2f84ca1d",
+        "figshare_md5_matched": true,
+        "table_b9_pairs_reverified": 35,
+        "table_b9_pairs_expected": 35,
+        "appendix_a_assignments_reverified": 35,
+        "appendix_a_assignments_expected": 35,
+        "author_ols_anchor_reproduced": true,
+        "provenance_gate_open": true
       },
       "goal": "Checksum-lock exact Hendriks 2019 source bytes from the resolved institutional/author route, then re-verify all 35 floral pairs and island assignments against those bytes.",
       "opens": ["hendriks_provenance_gate"],
@@ -25,16 +34,22 @@
         "35_of_35_pairs_reverified",
         "island_assignments_reverified",
         "author_ols_anchor_reproduced"
-      ]
+      ],
+      "completion_met": true
     },
     {
       "task_id": "third_floral_system",
       "issue": 95,
-      "state": "repository_api_recovery_in_progress_pair_table_unresolved",
+      "state": "exact_repository_item_and_original_bundle_resolved_pdf_selection_in_progress",
       "progress": {
         "theses_canada_record_resolved": true,
         "advertised_lac_tspace_handle_routes_known": true,
         "scholaris_dspace_rest_discovery_implemented": true,
+        "exact_scholaris_item_resolved": true,
+        "exact_item_handle": "1807/96116",
+        "exact_item_uuid": "4fe4945e-d284-4b0d-b306-97c2a02d51ad",
+        "original_bundle_resolved": true,
+        "pdf_bitstream_candidates_found": 2,
         "exact_thesis_bytes_recovered": false,
         "source_native_136_pair_table_recovered": false
       },
@@ -101,7 +116,7 @@
       "abstract_level_effect_reconstruction"
     ]
   },
-  "execution_priority": [94, 96, 95, 91],
-  "priority_rationale": "Hendriks now has an exact institutional record and download target, making byte recovery the nearest provenance blocker. Reliability has a checked current-source unidentifiability result but still needs external validation recovery. The 136-pair system now has repository API discovery wired. Issue #91 remains the decisive new empirical mechanism gate and proceeds as field data become available.",
-  "claim_boundary": "This ledger tracks what must be completed before evidence is promoted. It does not itself change any biological result, effect-registry eligibility, causal claim, or formal model admission."
+  "execution_priority": [96, 95, 91],
+  "priority_rationale": "Hendriks provenance is complete and no longer consumes source-recovery effort, but its EIV boundary remains. Reliability is now the nearest formal-admission blocker. The 136-pair system has its exact UofT item and ORIGINAL bundle resolved and is at PDF-bitstream disambiguation. Issue #91 remains the decisive new empirical mechanism gate and proceeds as field data become available.",
+  "claim_boundary": "This ledger tracks what must be completed before evidence is promoted. Completing Hendriks provenance does not itself change measurement-reliability status, causal claims, or formal cross-system model admission."
 }
