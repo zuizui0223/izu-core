@@ -13,7 +13,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import urllib.error
+import re
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -64,6 +64,12 @@ def expected_file_id_from_source(source: dict[str, Any]) -> int:
     return int(token)
 
 
+def canonical_figshare_doi(value: str) -> str:
+    """Compare Figshare record DOI identity while tolerating only a terminal .vN."""
+    doi = value.casefold().strip()
+    return re.sub(r"\.v\d+$", "", doi)
+
+
 def validate_article_metadata(metadata: dict[str, Any], source: dict[str, Any]) -> None:
     expected_title = str(source["title"]).casefold().strip()
     observed_title = str(metadata.get("title") or "").casefold().strip()
@@ -74,7 +80,11 @@ def validate_article_metadata(metadata: dict[str, Any], source: dict[str, Any]) 
 
     expected_doi = str(source.get("institutional_identifier") or "").casefold().strip()
     observed_doi = str(metadata.get("doi") or "").casefold().strip()
-    if expected_doi and observed_doi and expected_doi != observed_doi:
+    if (
+        expected_doi
+        and observed_doi
+        and canonical_figshare_doi(expected_doi) != canonical_figshare_doi(observed_doi)
+    ):
         raise ValueError(
             f"institutional DOI mismatch: {observed_doi!r} != {expected_doi!r}"
         )
