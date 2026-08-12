@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """Recover the Hetherington-Rauth 2019 thesis through the public UofT DSpace API.
 
-This script discovers the exact thesis item from source-registry metadata,
-resolves its ORIGINAL bundle and PDF bitstream, downloads exact bytes, and writes
-a source-lock record. Acquisition never creates a third-system numeric effect;
-the source-native 136-pair table, trait definition, grouping and uncertainty must
-still be verified separately.
+Discover the exact thesis item, resolve its ORIGINAL bundle, select the full
+thesis PDF while explicitly excluding an expanded-abstract PDF, download exact
+bytes, and write a source-lock record. Acquisition alone never creates a
+third-system effect.
 """
 from __future__ import annotations
 
@@ -17,7 +16,6 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any, Iterable
-
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REGISTRY = ROOT / "data/design/cross_archipelago_morphology_source_recovery.json"
@@ -42,10 +40,7 @@ def normalize(value: str) -> str:
 
 
 def source_record(registry: dict[str, Any]) -> dict[str, Any]:
-    matches = [
-        source for source in registry.get("sources", [])
-        if source.get("source_id") == "hetherington_rauth_johnson_2020_136_pairs"
-    ]
+    matches = [s for s in registry.get("sources", []) if s.get("source_id") == "hetherington_rauth_johnson_2020_136_pairs"]
     if len(matches) != 1:
         raise ValueError("expected exactly one 136-pair source-registry entry")
     return dict(matches[0])
@@ -66,9 +61,8 @@ def discover_item_candidates(payload: dict[str, Any]) -> list[dict[str, Any]]:
     for item in recursive_dicts(payload):
         uuid = item.get("uuid") or item.get("id")
         name = item.get("name") or item.get("title")
-        handle = item.get("handle")
         if isinstance(uuid, str) and re.fullmatch(r"[0-9a-fA-F-]{36}", uuid) and isinstance(name, str):
-            candidates[uuid] = {"uuid": uuid, "name": name, "handle": handle}
+            candidates[uuid] = {"uuid": uuid, "name": name, "handle": item.get("handle")}
     return list(candidates.values())
 
 
@@ -77,11 +71,7 @@ def select_exact_item(candidates: list[dict[str, Any]], expected_title: str) -> 
     exact = [item for item in candidates if normalize(str(item.get("name") or "")) == expected]
     if len(exact) == 1:
         return exact[0]
-    close = [
-        item for item in candidates
-        if expected in normalize(str(item.get("name") or ""))
-        or normalize(str(item.get("name") or "")) in expected
-    ]
+    close = [item for item in candidates if expected in normalize(str(item.get("name") or "")) or normalize(str(item.get("name") or "")) in expected]
     if len(close) == 1:
         return close[0]
     raise ValueError(f"could not uniquely resolve thesis item from {len(candidates)} candidates")
@@ -89,90 +79,79 @@ def select_exact_item(candidates: list[dict[str, Any]], expected_title: str) -> 
 
 def discover_exact_item(source: dict[str, Any], timeout: float = 30.0) -> tuple[dict[str, Any], list[str]]:
     title = str(source["thesis_title"])
-    author = str(source["thesis_author"])
-    queries = [title, author, "Hetherington-Rauth floral traits island angiosperms"]
+    queries = [title, str(source["thesis_author"]), "Hetherington-Rauth floral traits island angiosperms"]
     attempted: list[str] = []
     pooled: dict[str, dict[str, Any]] = {}
     for query in queries:
         url = BASE + "/discover/search/objects?dsoType=item&size=50&query=" + urllib.parse.quote(query, safe="")
         attempted.append(url)
-        payload = get_json(url, timeout=timeout)
-        for candidate in discover_item_candidates(payload):
+        for candidate in discover_item_candidates(get_json(url, timeout=timeout)):
             pooled[candidate["uuid"]] = candidate
     selected = select_exact_item(list(pooled.values()), title)
     item_url = BASE + "/core/items/" + selected["uuid"]
     attempted.append(item_url)
     details = get_json(item_url, timeout=timeout)
-    observed_name = str(details.get("name") or selected.get("name") or "")
-    if normalize(observed_name) != normalize(title):
-        if normalize(title) not in normalize(observed_name) and normalize(observed_name) not in normalize(title):
-            raise ValueError(f"resolved item title mismatch: {observed_name!r}")
-    selected.update({"name": observed_name, "handle": details.get("handle") or selected.get("handle")})
+    observed = str(details.get("name") or selected.get("name") or "")
+    if normalize(observed) != normalize(title) and normalize(title) not in normalize(observed) and normalize(observed) not in normalize(title):
+        raise ValueError(f"resolved item title mismatch: {observed!r}")
+    selected.update({"name": observed, "handle": details.get("handle") or selected.get("handle")})
     return selected, attempted
 
 
-def object_candidates(payload: dict[str, Any], *, kind: str) -> list[dict[str, Any]]:
+def object_candidates(payload: dict[str, Any]) -> list[dict[str, Any]]:
     output: dict[str, dict[str, Any]] = {}
     for item in recursive_dicts(payload):
         uuid = item.get("uuid") or item.get("id")
         name = item.get("name")
-        if not (isinstance(uuid, str) and re.fullmatch(r"[0-9a-fA-F-]{36}", uuid)):
-            continue
-        if not isinstance(name, str):
-            continue
-        output[uuid] = dict(item)
+        if isinstance(uuid, str) and re.fullmatch(r"[0-9a-fA-F-]{36}", uuid) and isinstance(name, str):
+            output[uuid] = dict(item)
     return list(output.values())
 
 
 def resolve_original_bundle(item_uuid: str, timeout: float = 30.0) -> tuple[dict[str, Any], str]:
     url = BASE + f"/core/items/{item_uuid}/bundles?size=100"
-    payload = get_json(url, timeout=timeout)
-    candidates = object_candidates(payload, kind="bundle")
-    original = [bundle for bundle in candidates if str(bundle.get("name") or "").casefold() == "original"]
+    original = [b for b in object_candidates(get_json(url, timeout=timeout)) if str(b.get("name") or "").casefold() == "original"]
     if len(original) != 1:
         raise ValueError(f"expected one ORIGINAL bundle, found {len(original)}")
     return original[0], url
 
 
 def pdf_candidate_summary(item: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "uuid": item.get("uuid") or item.get("id"),
-        "name": item.get("name"),
-        "mimeType": item.get("mimeType"),
-        "sizeBytes": item.get("sizeBytes"),
-        "sequenceId": item.get("sequenceId"),
-        "description": item.get("description"),
-    }
+    return {key: item.get(key) for key in ("uuid", "name", "mimeType", "sizeBytes", "sequenceId", "description")}
+
+
+def select_full_thesis_pdf(pdfs: list[dict[str, Any]]) -> dict[str, Any]:
+    """Select only an explicit full-thesis filename; never infer from size alone."""
+    non_abstract = [item for item in pdfs if "expandedabstract" not in normalize(str(item.get("name") or "")).replace(" ", "")]
+    exact = [
+        item for item in non_abstract
+        if re.search(r"_msc_thesis\.pdf$", str(item.get("name") or ""), flags=re.IGNORECASE)
+    ]
+    if len(exact) == 1:
+        return exact[0]
+    if len(non_abstract) == 1 and str(non_abstract[0].get("name") or "").casefold().endswith(".pdf"):
+        return non_abstract[0]
+    raise ValueError("could not uniquely distinguish full thesis PDF; candidates=" + json.dumps([pdf_candidate_summary(i) for i in pdfs], sort_keys=True))
 
 
 def resolve_pdf_bitstream(bundle_uuid: str, timeout: float = 30.0) -> tuple[dict[str, Any], str]:
     url = BASE + f"/core/bundles/{bundle_uuid}/bitstreams?size=100"
-    payload = get_json(url, timeout=timeout)
-    candidates = object_candidates(payload, kind="bitstream")
+    candidates = object_candidates(get_json(url, timeout=timeout))
     pdfs = []
     for item in candidates:
         name = str(item.get("name") or "")
         mime = str(item.get("mimeType") or item.get("metadata", {}).get("dc.format") or "")
         if name.casefold().endswith(".pdf") or "pdf" in mime.casefold():
             pdfs.append(item)
-    if len(pdfs) != 1:
-        summaries = [pdf_candidate_summary(item) for item in pdfs]
-        raise ValueError(
-            "expected one thesis PDF bitstream, found "
-            + str(len(pdfs))
-            + "; candidates="
-            + json.dumps(summaries, sort_keys=True)
-        )
-    return pdfs[0], url
+    if not pdfs:
+        raise ValueError("no PDF bitstream found in ORIGINAL bundle")
+    return select_full_thesis_pdf(pdfs), url
 
 
 def download_bitstream(bitstream_uuid: str, timeout: float = 60.0) -> tuple[bytes, str]:
-    candidates = [
-        BASE + f"/core/bitstreams/{bitstream_uuid}/content",
-        "https://utoronto.scholaris.ca/server/api/core/bitstreams/" + bitstream_uuid + "/content",
-    ]
+    urls = [BASE + f"/core/bitstreams/{bitstream_uuid}/content"]
     error: Exception | None = None
-    for url in dict.fromkeys(candidates):
+    for url in urls:
         try:
             data, final_url, _ = get_bytes(url, accept="application/pdf,*/*;q=0.8", timeout=timeout)
             return data, final_url
@@ -187,7 +166,7 @@ def build_lock(source: dict[str, Any], item: dict[str, Any], bundle: dict[str, A
         raise ValueError("recovered UofT bitstream is not PDF bytes")
     handle = str(item.get("handle") or "")
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "utoronto_thesis_pdf_bytes_recovered_and_checksum_locked",
         "source_id": source.get("source_id"),
         "thesis_title": source.get("thesis_title"),
@@ -197,6 +176,8 @@ def build_lock(source: dict[str, Any], item: dict[str, Any], bundle: dict[str, A
         "original_bundle_uuid": bundle["uuid"],
         "pdf_bitstream_uuid": bitstream["uuid"],
         "pdf_name": bitstream.get("name"),
+        "pdf_sequence_id": bitstream.get("sequenceId"),
+        "repository_reported_size_bytes": bitstream.get("sizeBytes"),
         "final_download_url": final_url,
         "n_bytes": len(data),
         "sha256": hashlib.sha256(data).hexdigest(),
@@ -205,24 +186,13 @@ def build_lock(source: dict[str, Any], item: dict[str, Any], bundle: dict[str, A
         "source_native_136_pair_table_verified": False,
         "third_response_shape_admitted": False,
         "formal_cross_system_fit_opened": False,
-        "claim_boundary": (
-            "Exact thesis bytes establish provenance only. The 136-pair source table, trait definitions, "
-            "pair/island grouping and usable uncertainty must still be verified before any third-system effect is created."
-        ),
+        "claim_boundary": "Exact thesis bytes establish provenance only. The source-native 136-pair table, trait definitions, grouping and usable uncertainty must still be verified before any third-system effect is created."
     }
 
 
 def write_failure(path: Path, error: Exception) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    payload = {
-        "schema_version": "1.0",
-        "status": "utoronto_thesis_acquisition_blocked_this_run",
-        "error_type": type(error).__name__,
-        "error": str(error),
-        "biological_result_changed": False,
-        "third_response_shape_admitted": False,
-    }
-    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps({"schema_version": "1.1", "status": "utoronto_thesis_acquisition_blocked_this_run", "error_type": type(error).__name__, "error": str(error), "biological_result_changed": False, "third_response_shape_admitted": False}, indent=2) + "\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -231,9 +201,7 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--timeout", type=float, default=30.0)
     args = parser.parse_args()
-
-    registry = json.loads(args.registry.read_text(encoding="utf-8"))
-    source = source_record(registry)
+    source = source_record(json.loads(args.registry.read_text(encoding="utf-8")))
     args.output_dir.mkdir(parents=True, exist_ok=True)
     attempted: list[str] = []
     try:
@@ -245,9 +213,8 @@ def main() -> None:
         data, final_url = download_bitstream(bitstream["uuid"], timeout=max(args.timeout, 60.0))
         attempted.append(final_url)
         lock = build_lock(source, item, bundle, bitstream, data, final_url, attempted)
-        pdf_path = args.output_dir / "hetherington_rauth_2019_thesis.pdf"
+        (args.output_dir / "hetherington_rauth_2019_thesis.pdf").write_bytes(data)
         lock_path = args.output_dir / "source_lock.json"
-        pdf_path.write_bytes(data)
         lock_path.write_text(json.dumps(lock, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(lock_path)
     except Exception as error:
