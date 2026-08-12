@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "analysis_role": "source_method_adversarial_sensitivity_not_measurement_error_correction",
+  "response_shape": "log10(island flower size) ~ log10(mainland flower size)",
+  "pollination_subset": "source-coded animal-pollinated pairs",
+  "bootstrap": {
+    "cluster": "Island",
+    "repetitions": 5000,
+    "seed": 20260812,
+    "degenerate_draw_policy": "discard_and_resample"
+  },
+  "strata": {
+    "all_animal": {
+      "n_pairs": 88,
+      "n_islands": 10,
+      "direct_response_shape_slope": 0.8490052881072877,
+      "island_cluster_95": [0.6958366626052138, 0.9286834861198299],
+      "point_below_isometry": true,
+      "cluster_interval_wholly_below_isometry": true
+    },
+    "online_only": {
+      "n_pairs": 74,
+      "n_islands": 9,
+      "direct_response_shape_slope": 0.852949208341371,
+      "island_cluster_95": [0.7026667514440437, 0.942970984050357],
+      "point_below_isometry": true,
+      "cluster_interval_wholly_below_isometry": true
+    },
+    "herbaria_only": {
+      "n_pairs": 14,
+      "n_islands": 8,
+      "direct_response_shape_slope": 0.9699856519536085,
+      "island_cluster_95": [0.5033716801869769, 1.4352166156723882],
+      "point_below_isometry": true,
+      "cluster_interval_wholly_below_isometry": false
+    }
+  },
+  "adversarial_reading": "passes_online_only_below_isometry",
+  "formal_consequence": {
+    "compression_like_signal_requires_herbarium_pairs": false,
+    "source_method_difference_identified": false,
+    "empirical_predictor_reliability_identified": false,
+    "EIV_gate_opened": false,
+    "formal_cross_system_admission_opened": false
+  },
+  "claim_boundary": "Persistence in the online-only subset argues against the full response shape being created solely by herbarium-source pairs. The strata are observational and imbalanced, so this analysis does not identify a source-method effect, estimate predictor reliability, or correct measurement error."
+}
