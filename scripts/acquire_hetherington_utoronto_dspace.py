@@ -77,7 +77,6 @@ def select_exact_item(candidates: list[dict[str, Any]], expected_title: str) -> 
     exact = [item for item in candidates if normalize(str(item.get("name") or "")) == expected]
     if len(exact) == 1:
         return exact[0]
-    # A narrowly normalized containment fallback tolerates repository-added thesis punctuation/subtitles.
     close = [
         item for item in candidates
         if expected in normalize(str(item.get("name") or ""))
@@ -95,11 +94,7 @@ def discover_exact_item(source: dict[str, Any], timeout: float = 30.0) -> tuple[
     attempted: list[str] = []
     pooled: dict[str, dict[str, Any]] = {}
     for query in queries:
-        url = (
-            BASE
-            + "/discover/search/objects?dsoType=item&size=50&query="
-            + urllib.parse.quote(query, safe="")
-        )
+        url = BASE + "/discover/search/objects?dsoType=item&size=50&query=" + urllib.parse.quote(query, safe="")
         attempted.append(url)
         payload = get_json(url, timeout=timeout)
         for candidate in discover_item_candidates(payload):
@@ -125,8 +120,6 @@ def object_candidates(payload: dict[str, Any], *, kind: str) -> list[dict[str, A
             continue
         if not isinstance(name, str):
             continue
-        if kind == "bundle" and item.get("bundleName") and not name:
-            name = item.get("bundleName")
         output[uuid] = dict(item)
     return list(output.values())
 
@@ -141,6 +134,17 @@ def resolve_original_bundle(item_uuid: str, timeout: float = 30.0) -> tuple[dict
     return original[0], url
 
 
+def pdf_candidate_summary(item: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "uuid": item.get("uuid") or item.get("id"),
+        "name": item.get("name"),
+        "mimeType": item.get("mimeType"),
+        "sizeBytes": item.get("sizeBytes"),
+        "sequenceId": item.get("sequenceId"),
+        "description": item.get("description"),
+    }
+
+
 def resolve_pdf_bitstream(bundle_uuid: str, timeout: float = 30.0) -> tuple[dict[str, Any], str]:
     url = BASE + f"/core/bundles/{bundle_uuid}/bitstreams?size=100"
     payload = get_json(url, timeout=timeout)
@@ -152,7 +156,13 @@ def resolve_pdf_bitstream(bundle_uuid: str, timeout: float = 30.0) -> tuple[dict
         if name.casefold().endswith(".pdf") or "pdf" in mime.casefold():
             pdfs.append(item)
     if len(pdfs) != 1:
-        raise ValueError(f"expected one thesis PDF bitstream, found {len(pdfs)}")
+        summaries = [pdf_candidate_summary(item) for item in pdfs]
+        raise ValueError(
+            "expected one thesis PDF bitstream, found "
+            + str(len(pdfs))
+            + "; candidates="
+            + json.dumps(summaries, sort_keys=True)
+        )
     return pdfs[0], url
 
 
@@ -166,7 +176,7 @@ def download_bitstream(bitstream_uuid: str, timeout: float = 60.0) -> tuple[byte
         try:
             data, final_url, _ = get_bytes(url, accept="application/pdf,*/*;q=0.8", timeout=timeout)
             return data, final_url
-        except Exception as caught:  # preserve final error only after lawful public routes are exhausted
+        except Exception as caught:
             error = caught
     assert error is not None
     raise error
@@ -190,7 +200,7 @@ def build_lock(source: dict[str, Any], item: dict[str, Any], bundle: dict[str, A
         "final_download_url": final_url,
         "n_bytes": len(data),
         "sha256": hashlib.sha256(data).hexdigest(),
-        "md5": hashlib.md5(data).hexdigest(),  # nosec B324 - integrity only
+        "md5": hashlib.md5(data).hexdigest(),
         "attempted_public_api_routes": attempted,
         "source_native_136_pair_table_verified": False,
         "third_response_shape_admitted": False,
