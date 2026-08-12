@@ -1,3 +1,5 @@
+import pytest
+
 from scripts.acquire_hendriks_vuw_figshare import (
     article_id_from_source,
     build_lock,
@@ -39,6 +41,16 @@ def test_article_identity_and_expected_file_are_strict():
     validate_article_metadata(metadata, source)
     selected = select_expected_file(metadata, 31690700)
     assert selected["id"] == 31690700
+
+
+def test_article_identity_accepts_figshare_terminal_version_suffix_only():
+    source = source_fixture()
+    metadata = {"title": source["title"], "doi": "10.26686/wgtn.17136800.v1"}
+    validate_article_metadata(metadata, source)
+
+    metadata["doi"] = "10.26686/wgtn.17136801.v1"
+    with pytest.raises(ValueError, match="institutional DOI mismatch"):
+        validate_article_metadata(metadata, source)
 
 
 def test_checksum_lock_does_not_auto_open_provenance_or_eiv():
