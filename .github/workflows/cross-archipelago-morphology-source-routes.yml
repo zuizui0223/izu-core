@@ -6,7 +6,10 @@ on:
     paths:
       - "data/design/cross_archipelago_morphology_source_recovery.json"
       - "scripts/audit_cross_archipelago_morphology_source_routes.py"
+      - "scripts/acquire_hetherington_utoronto_dspace.py"
+      - "scripts/screen_hetherington_thesis_source_table.py"
       - "tests/test_cross_archipelago_morphology_source_routes.py"
+      - "tests/test_acquire_hetherington_utoronto_dspace.py"
       - ".github/workflows/cross-archipelago-morphology-source-routes.yml"
 
 jobs:
@@ -17,14 +20,51 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install test dependency
-        run: python -m pip install pytest
-      - name: Test discovery-only route contract
-        run: python -m pytest -q tests/test_cross_archipelago_morphology_source_routes.py
+      - name: Install test and PDF dependencies
+        run: python -m pip install pytest pypdf
+      - name: Test source-route and DSpace acquisition contracts
+        run: >-
+          python -m pytest -q
+          tests/test_cross_archipelago_morphology_source_routes.py
+          tests/test_acquire_hetherington_utoronto_dspace.py
       - name: Probe known lawful routes
         run: python scripts/audit_cross_archipelago_morphology_source_routes.py
+      - name: Acquire exact UofT thesis through public DSpace API
+        id: acquire_hetherington
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_hetherington_utoronto_dspace.py
+          --registry data/design/cross_archipelago_morphology_source_recovery.json
+          --output-dir artifacts/hetherington_2019/source_lock
+      - name: Screen recovered thesis for source-native 136-pair routes
+        if: steps.acquire_hetherington.outcome == 'success'
+        run: >-
+          python scripts/screen_hetherington_thesis_source_table.py
+          --pdf artifacts/hetherington_2019/source_lock/hetherington_rauth_2019_thesis.pdf
+          --output artifacts/hetherington_2019/source_lock/source_table_screen.json
+      - name: Record third-system acquisition state
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("artifacts/hetherington_2019/source_lock")
+          root.mkdir(parents=True, exist_ok=True)
+          state = {
+              "thesis_pdf_bytes_recovered_this_run": (root / "source_lock.json").is_file(),
+              "source_table_screen_completed": (root / "source_table_screen.json").is_file(),
+              "source_native_136_pair_table_verified": False,
+              "third_response_shape_admitted": False,
+              "formal_cross_system_fit_opened": False,
+          }
+          (root / "workflow_state.json").write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+          PY
       - name: Upload route state
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cross-archipelago-morphology-source-routes
-          path: artifacts/cross_archipelago_morphology_source_routes/summary.json
+          path: |
+            artifacts/cross_archipelago_morphology_source_routes/summary.json
+            artifacts/hetherington_2019/source_lock/
+          if-no-files-found: error
