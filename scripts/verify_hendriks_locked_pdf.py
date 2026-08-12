@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Verify the Hendriks 35-pair reconstruction against exact locked PDF bytes.
 
-The verifier uses text extracted from the acquired institutional PDF.  It is
+The verifier uses text extracted from the acquired institutional PDF. It is
 strict: every reconstructed Table B9 row must find both taxa and both displayed
 numeric values within the Table B9 region, and every island species must occur in
-its declared Appendix-A source-table region.  Incomplete extraction or any
-unmatched row keeps provenance admission closed rather than guessing.
+its declared Appendix-A source-table region. Source-native Appendix spelling
+variants are allowed only through explicit pair-specific aliases recorded below;
+there is no fuzzy taxon matching. Incomplete extraction or any unmatched row
+keeps provenance admission closed rather than guessing.
 """
 from __future__ import annotations
 
@@ -29,13 +31,19 @@ DEFAULT_MAPPING = ROOT / "data/source_tables/hendriks_2019_flower_area_island_ma
 DEFAULT_OUTPUT = ROOT / "artifacts/hendriks_2019/source_lock/pdf_reverification.json"
 EXPECTED_N = 35
 
+# Exact source-native spellings observed in the locked Appendix-A tables where
+# they differ from the Table-B9/mapping transcription.  Keying by pair_id makes
+# this an auditable transcription bridge rather than permissive fuzzy matching.
+APPENDIX_SOURCE_TAXON_ALIASES: dict[int, tuple[str, ...]] = {
+    2: ("Alectryon excelsus subsp. grandis",),
+    17: ("Melicytus novae-zelandieae ssp. centurionis",),
+    21: ("Negria rhabdothamnoides",),
+}
+
 
 def normalize_text(value: str) -> str:
     value = unicodedata.normalize("NFKD", value)
     value = value.replace("\u00ad", "").replace("–", "-").replace("—", "-")
-    # pypdf can retain a visual line-break as "novae- zelandiae".  Treat only
-    # whitespace immediately adjacent to an existing hyphen as layout noise;
-    # this does not alter ordinary taxon spelling.
     value = re.sub(r"-\s+", "-", value)
     value = re.sub(r"\s+-", "-", value)
     value = re.sub(r"\s+", " ", value)
@@ -56,10 +64,7 @@ def extract_pdf_text(path: Path) -> tuple[str, int]:
 
 
 def table_header_positions(normalized: str, label: str) -> list[int]:
-    """Return all explicit table-header positions, including possible TOC copies."""
     patterns = [
-        # Appendix A is extracted as both "Table A4" and "TableA4" depending
-        # on page/layout, so the inter-token whitespace must be optional.
         rf"\btable\s*{re.escape(label.casefold())}\b",
         rf"\b{re.escape(label.casefold())}\s*:\s*",
     ]
@@ -71,11 +76,6 @@ def table_region(text: str, label: str, next_label: str | None = None) -> str:
     starts = table_header_positions(normalized, label)
     if not starts:
         return ""
-
-    # Thesis tables are named once in the table of contents and again at the
-    # actual appendix/table.  The last explicit occurrence is therefore the
-    # data-bearing occurrence; using the first occurrence silently selects TOC
-    # text for Appendix A tables.
     start = starts[-1]
     if next_label:
         later_next = [
@@ -85,7 +85,6 @@ def table_region(text: str, label: str, next_label: str | None = None) -> str:
         ]
         if later_next:
             return normalized[start : later_next[0]]
-
     return normalized[start : start + 50000]
 
 
@@ -97,6 +96,13 @@ def contains_taxon(region: str, taxon: str) -> bool:
     if not tokens:
         return False
     return re.search(r"\s+".join(tokens), region) is not None
+
+
+def matched_taxon_variant(region: str, variants: Iterable[str]) -> str | None:
+    for variant in variants:
+        if contains_taxon(region, variant):
+            return variant
+    return None
 
 
 def contains_numeric(region: str, value: str) -> bool:
@@ -148,19 +154,23 @@ def verify_appendix_mapping(text: str, rows: Iterable[dict[str, str]]) -> dict[s
     cache: dict[str, str] = {}
     results = []
     for row in rows:
+        pair_id = int(row["pair_id"])
         label = row["appendix_source_table"].upper().strip()
         if label not in cache:
             cache[label] = table_region(text, label, appendix_next_label(label))
         region = cache[label]
-        found = bool(region) and contains_taxon(region, row["island_species"])
+        variants = (row["island_species"],) + APPENDIX_SOURCE_TAXON_ALIASES.get(pair_id, ())
+        matched = matched_taxon_variant(region, variants) if region else None
         results.append(
             {
-                "pair_id": int(row["pair_id"]),
+                "pair_id": pair_id,
                 "island_species": row["island_species"],
                 "island_group": row["island_group"],
                 "appendix_source_table": label,
                 "table_region_found": bool(region),
-                "species_verified_in_declared_table": found,
+                "source_taxon_variants_checked": list(variants),
+                "matched_source_taxon_variant": matched,
+                "species_verified_in_declared_table": matched is not None,
             }
         )
     return {
@@ -168,6 +178,7 @@ def verify_appendix_mapping(text: str, rows: Iterable[dict[str, str]]) -> dict[s
         "n_verified": sum(bool(row["species_verified_in_declared_table"]) for row in results),
         "all_rows_verified": len(results) == EXPECTED_N
         and all(bool(row["species_verified_in_declared_table"]) for row in results),
+        "explicit_source_alias_pair_ids": sorted(APPENDIX_SOURCE_TAXON_ALIASES),
         "rows": results,
     }
 
