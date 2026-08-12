@@ -34,8 +34,26 @@ def test_136_pair_metadata_route_is_not_misrepresented_as_numeric_source():
         if row["source_id"] == "hetherington_rauth_johnson_2020_136_pairs"
     )
     assert hrj["current_numeric_state"] == "no_source_native_pair_effect_admitted"
-    assert all(route["exact_source_bytes_recovered"] is False for route in hrj["known_routes"] if "exact_source_bytes_recovered" in route)
+    assert all(
+        route["exact_source_bytes_recovered"] is False
+        for route in hrj["known_routes"]
+        if "exact_source_bytes_recovered" in route
+    )
     boundary = hrj["claim_boundary"].lower()
     assert "do not supply" in boundary
     assert "slope" in boundary
     assert "uncertainty" in boundary
+
+
+def test_nonfloral_island_rule_study_is_boundary_comparator_not_third_floral_system():
+    document = load_registry()
+    song = next(
+        row
+        for row in document["sources"]
+        if row["source_id"] == "song_2026_eastern_china_functional_traits"
+    )
+    assert song["article_doi"] == "10.1111/nph.71040"
+    assert song["same_family_floral_replication"] is False
+    assert song["formal_floral_effect_admitted"] is False
+    assert song["role"] == "non_floral_island_rule_boundary_comparator"
+    assert "do not count" in song["next_action"].lower()
