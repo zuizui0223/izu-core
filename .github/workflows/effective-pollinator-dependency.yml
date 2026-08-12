@@ -8,10 +8,15 @@ on:
       - "channel_id/effective_dependency_output.py"
       - "channel_id/effective_dependency_precision.py"
       - "scripts/audit_effective_pollinator_dependency.py"
+      - "scripts/audit_effective_dependency_parentage.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "templates/field_dependency_plant_registry_template.csv"
+      - "templates/field_observation_effort_template.csv"
+      - "templates/field_visitor_contact_manifest_template.csv"
       - "templates/field_single_visit_pollen_deposition_template.csv"
       - "templates/field_pollination_treatment_template.csv"
+      - "templates/field_mature_fruit_template.csv"
+      - "templates/field_seed_parentage_template.csv"
       - "templates/effective_dependency_precision_goals_template.csv"
       - "data/design/effective_pollinator_dependency_field_readiness.json"
       - "data/design/effective_dependency_pilot_field_priority.json"
@@ -21,6 +26,8 @@ on:
       - "tests/test_effective_pollinator_dependency.py"
       - "tests/test_effective_pollinator_dependency_readiness.py"
       - "tests/test_effective_dependency_precision.py"
+      - "tests/test_effective_dependency_field_linkage_templates.py"
+      - "tests/test_effective_dependency_parentage.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
   pull_request:
     paths:
@@ -28,10 +35,15 @@ on:
       - "channel_id/effective_dependency_output.py"
       - "channel_id/effective_dependency_precision.py"
       - "scripts/audit_effective_pollinator_dependency.py"
+      - "scripts/audit_effective_dependency_parentage.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "templates/field_dependency_plant_registry_template.csv"
+      - "templates/field_observation_effort_template.csv"
+      - "templates/field_visitor_contact_manifest_template.csv"
       - "templates/field_single_visit_pollen_deposition_template.csv"
       - "templates/field_pollination_treatment_template.csv"
+      - "templates/field_mature_fruit_template.csv"
+      - "templates/field_seed_parentage_template.csv"
       - "templates/effective_dependency_precision_goals_template.csv"
       - "data/design/effective_pollinator_dependency_field_readiness.json"
       - "data/design/effective_dependency_pilot_field_priority.json"
@@ -41,6 +53,8 @@ on:
       - "tests/test_effective_pollinator_dependency.py"
       - "tests/test_effective_pollinator_dependency_readiness.py"
       - "tests/test_effective_dependency_precision.py"
+      - "tests/test_effective_dependency_field_linkage_templates.py"
+      - "tests/test_effective_dependency_parentage.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
 
 jobs:
@@ -59,3 +73,5 @@ jobs:
           tests/test_effective_pollinator_dependency.py
           tests/test_effective_pollinator_dependency_readiness.py
           tests/test_effective_dependency_precision.py
+          tests/test_effective_dependency_field_linkage_templates.py
+          tests/test_effective_dependency_parentage.py
