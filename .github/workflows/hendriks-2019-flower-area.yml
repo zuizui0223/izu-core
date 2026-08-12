@@ -8,8 +8,10 @@ on:
       - "data/source_tables/hendriks_2019_flower_area_island_mapping.csv"
       - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
       - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
+      - "scripts/acquire_hendriks_vuw_figshare.py"
       - "scripts/analyze_hendriks_2019_flower_area.py"
       - "scripts/compare_json_numeric_tolerant.py"
+      - "tests/test_acquire_hendriks_vuw_figshare.py"
       - "tests/test_hendriks_2019_flower_area.py"
       - ".github/workflows/hendriks-2019-flower-area.yml"
   pull_request:
@@ -18,8 +20,10 @@ on:
       - "data/source_tables/hendriks_2019_flower_area_island_mapping.csv"
       - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
       - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
+      - "scripts/acquire_hendriks_vuw_figshare.py"
       - "scripts/analyze_hendriks_2019_flower_area.py"
       - "scripts/compare_json_numeric_tolerant.py"
+      - "tests/test_acquire_hendriks_vuw_figshare.py"
       - "tests/test_hendriks_2019_flower_area.py"
       - ".github/workflows/hendriks-2019-flower-area.yml"
 
@@ -33,8 +37,34 @@ jobs:
           python-version: "3.11"
       - name: Install package and tests
         run: python -m pip install -e . pytest
-      - name: Run Hendriks reconstruction tests
-        run: python -m pytest -q tests/test_hendriks_2019_flower_area.py
+      - name: Run Hendriks reconstruction and acquisition tests
+        run: >-
+          python -m pytest -q
+          tests/test_hendriks_2019_flower_area.py
+          tests/test_acquire_hendriks_vuw_figshare.py
+      - name: Acquire exact institutional PDF through public Figshare API
+        id: acquire_pdf
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_hendriks_vuw_figshare.py
+          --source data/source_tables/hendriks_2019_flower_area_table_b9_source.json
+          --output-dir artifacts/hendriks_2019/source_lock
+      - name: Record institutional acquisition state
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("artifacts/hendriks_2019/source_lock")
+          lock = root / "source_lock.json"
+          state = {
+              "institutional_pdf_bytes_recovered_this_run": lock.is_file(),
+              "provenance_gate_opened": False,
+              "pair_reverification_required_before_provenance_admission": True,
+              "eiv_gate_remains_separate": True,
+          }
+          (root / "workflow_state.json").write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+          PY
       - name: Regenerate checked summary
         run: >-
           python scripts/analyze_hendriks_2019_flower_area.py
