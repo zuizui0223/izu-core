@@ -9,6 +9,7 @@ on:
       - "channel_id/effective_dependency_precision.py"
       - "scripts/audit_effective_pollinator_dependency.py"
       - "scripts/audit_effective_dependency_parentage.py"
+      - "scripts/audit_effective_dependency_admission.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "templates/field_dependency_plant_registry_template.csv"
       - "templates/field_observation_effort_template.csv"
@@ -28,6 +29,7 @@ on:
       - "tests/test_effective_dependency_precision.py"
       - "tests/test_effective_dependency_field_linkage_templates.py"
       - "tests/test_effective_dependency_parentage.py"
+      - "tests/test_effective_dependency_admission.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
   pull_request:
     paths:
@@ -36,6 +38,7 @@ on:
       - "channel_id/effective_dependency_precision.py"
       - "scripts/audit_effective_pollinator_dependency.py"
       - "scripts/audit_effective_dependency_parentage.py"
+      - "scripts/audit_effective_dependency_admission.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "templates/field_dependency_plant_registry_template.csv"
       - "templates/field_observation_effort_template.csv"
@@ -55,6 +58,7 @@ on:
       - "tests/test_effective_dependency_precision.py"
       - "tests/test_effective_dependency_field_linkage_templates.py"
       - "tests/test_effective_dependency_parentage.py"
+      - "tests/test_effective_dependency_admission.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
 
 jobs:
@@ -75,3 +79,4 @@ jobs:
           tests/test_effective_dependency_precision.py
           tests/test_effective_dependency_field_linkage_templates.py
           tests/test_effective_dependency_parentage.py
+          tests/test_effective_dependency_admission.py
