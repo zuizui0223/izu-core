@@ -1,0 +1,96 @@
+name: Southwest Pacific source-method sensitivity
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/analyze_southwest_pacific_source_method_sensitivity.py"
+      - "tests/test_southwest_pacific_source_method_sensitivity.py"
+      - "data/results/southwest_pacific_pairs/source_method_sensitivity.json"
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_southwest_pacific_pmc_support.py"
+      - "scripts/acquire_oup_supplementary_data_v2.py"
+      - ".github/workflows/southwest-pacific-source-method-sensitivity.yml"
+  pull_request:
+    paths:
+      - "scripts/analyze_southwest_pacific_source_method_sensitivity.py"
+      - "tests/test_southwest_pacific_source_method_sensitivity.py"
+      - "data/results/southwest_pacific_pairs/source_method_sensitivity.json"
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_southwest_pacific_pmc_support.py"
+      - "scripts/acquire_oup_supplementary_data_v2.py"
+      - ".github/workflows/southwest-pacific-source-method-sensitivity.yml"
+
+jobs:
+  sensitivity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl pytest
+      - name: Test source-method claim boundary
+        run: python -m pytest -q tests/test_southwest_pacific_source_method_sensitivity.py
+      - name: Try checksum-locked Europe PMC source route
+        id: pmc
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_southwest_pacific_pmc_support.py
+          --config config/southwest_pacific_aob_source.json
+          --output-dir artifacts/southwest_pacific_source_method/source
+          --source-lock data/results/southwest_pacific_pairs/source_lock.json
+      - name: Check source availability
+        id: source1
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          from pathlib import Path
+          root = Path("artifacts/southwest_pacific_source_method/source/files")
+          names = ["mcaf005_suppl_supplementary_data_s1.xlsx", "mcaf005_suppl_supplementary_data_s2.xlsx"]
+          print("available=" + ("true" if all((root / name).is_file() for name in names) else "false"))
+          PY
+      - name: Try Oxford Academic fallback
+        if: steps.source1.outputs.available != 'true'
+        continue-on-error: true
+        timeout-minutes: 4
+        run: >-
+          python scripts/acquire_oup_supplementary_data_v2.py
+          --config config/southwest_pacific_aob_source.json
+          --output-dir artifacts/southwest_pacific_source_method/source
+      - name: Resolve final source state
+        id: source
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          from pathlib import Path
+          root = Path("artifacts/southwest_pacific_source_method/source/files")
+          names = ["mcaf005_suppl_supplementary_data_s1.xlsx", "mcaf005_suppl_supplementary_data_s2.xlsx"]
+          print("available=" + ("true" if all((root / name).is_file() for name in names) else "false"))
+          PY
+      - name: Regenerate source-method sensitivity
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/analyze_southwest_pacific_source_method_sensitivity.py
+          --s1 artifacts/southwest_pacific_source_method/source/files/mcaf005_suppl_supplementary_data_s1.xlsx
+          --s2 artifacts/southwest_pacific_source_method/source/files/mcaf005_suppl_supplementary_data_s2.xlsx
+          --output artifacts/southwest_pacific_source_method/source_method_sensitivity.json
+          --bootstrap-repetitions 5000
+          --seed 20260812
+      - name: Verify checked result when source is available
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python -c "import json,pathlib; a=json.loads(pathlib.Path('data/results/southwest_pacific_pairs/source_method_sensitivity.json').read_text()); b=json.loads(pathlib.Path('artifacts/southwest_pacific_source_method/source_method_sensitivity.json').read_text()); assert a==b, 'checked source-method sensitivity drift'"
+      - name: Preserve blocked transport state without changing biological result
+        if: steps.source.outputs.available != 'true'
+        run: |
+          mkdir -p artifacts/southwest_pacific_source_method
+          printf '%s\n' '{"status":"source_transport_unavailable_this_run","biological_result_changed":false,"checked_result_retained":true}' > artifacts/southwest_pacific_source_method/transport_state.json
+      - name: Upload sensitivity audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: southwest-pacific-source-method-sensitivity
+          path: artifacts/southwest_pacific_source_method/
+          if-no-files-found: error
