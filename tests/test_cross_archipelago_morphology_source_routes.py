@@ -1,4 +1,8 @@
-from scripts.audit_cross_archipelago_morphology_source_routes import candidate_links
+from scripts.audit_cross_archipelago_morphology_source_routes import (
+    candidate_links,
+    repository_search_urls,
+    route_urls,
+)
 
 
 def test_candidate_links_extracts_repository_and_pdf_routes_only():
@@ -13,6 +17,39 @@ def test_candidate_links_extracts_repository_and_pdf_routes_only():
     assert "https://hdl.handle.net/1807/12345" in links
     assert "https://library-archives.canada.ca/files/thesis.pdf" in links
     assert "https://example.org/about" not in links
+
+
+def test_hendriks_route_generation_queries_title_and_author():
+    source = {
+        "source_id": "hendriks_2019_flower_area",
+        "title": "The island rule and its application to multiple plant traits",
+        "author": "Annemieke Lona Hedi Hendriks",
+        "institutional_repository": {"base_url": "https://openaccess.wgtn.ac.nz/"},
+    }
+    searches = repository_search_urls(source)
+    assert len(searches) == 3
+    assert all(url.startswith("https://openaccess.wgtn.ac.nz/search?q=") for url in searches)
+    urls = route_urls(source)
+    assert "https://openaccess.wgtn.ac.nz/" in urls
+    assert any("island+rule" in url.lower() for url in urls)
+    assert any("annemieke" in url.lower() for url in urls)
+
+
+def test_hetherington_route_generation_queries_both_utoronto_frontends():
+    source = {
+        "source_id": "hetherington_rauth_johnson_2020_136_pairs",
+        "thesis_title": "The Comparative Evolution of the Floral Traits of Island Angiosperms",
+        "thesis_author": "Molly Christina Hetherington-Rauth",
+        "known_routes": [{"url": "https://library-archives.canada.ca/example"}],
+    }
+    searches = repository_search_urls(source)
+    assert len(searches) == 6
+    assert any(url.startswith("https://utoronto.scholaris.ca/search?query=") for url in searches)
+    assert any(url.startswith("https://tspace.library.utoronto.ca/simple-search?query=") for url in searches)
+    urls = route_urls(source)
+    assert urls[0] == "https://library-archives.canada.ca/example"
+    assert any("comparative+evolution" in url.lower() for url in urls)
+    assert any("molly+christina" in url.lower() for url in urls)
 
 
 def test_route_discovery_never_implies_admission():
