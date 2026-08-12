@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "source_id": "hendriks_2019_flower_area_table_b9",
   "title": "The island rule and its application to multiple plant traits",
   "author": "Annemieke Lona Hedi Hendriks",
@@ -10,10 +10,14 @@
   "author_upload_page": "https://www.researchgate.net/publication/370843836_The_island_rule_and_its_application_to_multiple_plant_traits",
   "institutional_record_recovered": true,
   "institutional_identifier": "10.26686/wgtn.17136800",
+  "institutional_record_versioned_identifier": "10.26686/wgtn.17136800.v1",
   "institutional_record_page": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
   "institutional_record_publisher": "Te Herenga Waka—Victoria University of Wellington",
   "institutional_download_url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
-  "institutional_download_route_state": "stable_record_and_file_route_identified_but_exact_pdf_bytes_not_delivered_in_current_environment",
+  "institutional_figshare_article_id": 17136800,
+  "institutional_figshare_file_id": 31690700,
+  "institutional_file_name": "thesis_access.pdf",
+  "institutional_download_route_state": "exact_institutional_pdf_recovered_checksum_locked_and_strictly_reverified",
   "institutional_record_support": {
     "download_label": "Download (3.58 MB)",
     "posted_on": "2021-12-07 17:11",
@@ -23,14 +27,31 @@
     "advisor": "Burns, Kevin",
     "rights_license": "Author Retains Copyright"
   },
+  "locked_artifact": {
+    "n_bytes": 3758444,
+    "sha256": "4abbe2b1c4b7b1a809df0127e66184385425919a45043260cd2c51a45df37c42",
+    "md5": "9d66f35e04e3058364237ede2f84ca1d",
+    "figshare_supplied_md5_matches": true,
+    "figshare_computed_md5_matches": true,
+    "pdf_magic_valid": true
+  },
   "source_table": "Appendix B Table B9: Flower area dataset measurements and measurement references",
   "source_reported_pair_count": 35,
   "reconstructed_numeric_pair_count": 35,
   "reconstruction_scope": "Only island species, island flower area, mainland relative, and mainland flower area were transcribed. Measurement-reference columns were intentionally not copied into the reconstructed numeric table.",
-  "retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_author_upload_plus_stable_institutional_record_identified_but_pdf_bytes_unlocked",
-  "raw_pdf_artifact_recovered": false,
-  "raw_pdf_checksum_locked": false,
-  "stable_institutional_download_recovered": false,
+  "retrieval_state": "institutional_pdf_checksum_locked_and_35_pair_plus_island_mapping_reverification_complete",
+  "raw_pdf_artifact_recovered": true,
+  "raw_pdf_checksum_locked": true,
+  "stable_institutional_download_recovered": true,
+  "strict_locked_pdf_reverification": {
+    "table_b9_pairs_verified": 35,
+    "table_b9_pairs_expected": 35,
+    "appendix_a_island_assignments_verified": 35,
+    "appendix_a_island_assignments_expected": 35,
+    "provenance_gate_opened": true,
+    "explicit_appendix_source_alias_pair_ids": [2, 17, 21],
+    "alias_policy": "Only exact pair-specific source-native Appendix spellings are accepted where Appendix A and Table B9 use different taxon strings; fuzzy matching is not used."
+  },
   "island_group_mapping": {
     "mapping_file": "data/source_tables/hendriks_2019_flower_area_island_mapping.csv",
     "source_tables": "Appendix A Tables A1-A12",
@@ -67,6 +88,6 @@
     "model_2_p": 0.0000088,
     "figure_2_3_reported_correlation": 0.66
   },
-  "admission_boundary": "The 35 displayed numeric pairs and their Appendix-A island-group assignments can be used for a transparent reconstruction and island-cluster audit, and a stable Victoria University of Wellington repository record has been identified. However, the exact PDF/data bytes are not delivered and checksum locked in the current environment, so the reconstruction is not treated as a checksum-locked primary source. It must not enter the formal cross-system effect registry until the exact lawful source artifact is recovered and verified, and measurement-error sensitivity is resolved.",
-  "next_gate": "Recover the exact PDF bytes from the stable VUW Open Access route or another lawful author/institutional route, checksum them, verify all 35 Table B9 values and Appendix-A island assignments against those bytes, then rerun the checked OLS, island-cluster, and errors-in-variables audits."
+  "admission_boundary": "The exact lawful institutional PDF is now checksum locked and all 35 Table B9 pairs plus all 35 Appendix-A island assignments have been strictly reverified against those bytes, so the Hendriks provenance gate is complete. This provenance repair does not identify mainland flower-area measurement reliability, does not resolve errors-in-variables, and does not by itself admit a formal cross-system effect.",
+  "next_gate": "Keep provenance complete. Resolve or formally exhaust the empirical measurement-reliability/EIV gate before any formal cross-system admission; retain the existing island-cluster/SMA uncertainty boundary."
 }
