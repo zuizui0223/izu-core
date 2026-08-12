@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-12",
+  "status": "empirical_reliability_unidentifiable_from_current_source_native_materials",
+  "scope": "Current checksum-locked Southwest Pacific supplements plus the currently reconstructed Hendriks appendix source state. This is not yet a claim that no external reliability source exists anywhere.",
+  "southwest_pacific": {
+    "predictor": "log10(mainland flower size)",
+    "available_source_native_information": [
+      "pair-level mainland flower-size means",
+      "pair-level island flower-size means",
+      "source-method labels (Online databases / Herbaria)",
+      "trait min/max fields in source material",
+      "published statement describing a 30-species online-vs-herbarium validation"
+    ],
+    "missing_for_empirical_reliability": [
+      "paired raw values for the 30-species method validation",
+      "repeat-measurement IDs on the predictor scale",
+      "replicate counts tied to each mainland mean",
+      "within-pair measurement SD or SE on the predictor scale",
+      "a source-native ICC/repeatability/reliability estimate"
+    ],
+    "not_valid_reliability_substitutes": [
+      "trait min/max range",
+      "source-method category",
+      "a non-significant online-vs-herbarium group comparison without paired raw measurements",
+      "an assumed reliability selected to preserve below-isometry direction"
+    ],
+    "existing_classical_x_error_thresholds": {
+      "point_direction_requires_reliability_above": 0.8490052881072877,
+      "island_cluster_interval_wholly_below_isometry_requires_reliability_above": 0.9258005353502381
+    },
+    "source_method_adversary_role": "The online-only and geographic-overlap analyses test whether the observed response shape requires herbarium-source pairs; they do not estimate predictor reliability."
+  },
+  "hendriks_2019": {
+    "predictor": "log(mainland flower area)",
+    "available_source_information": [
+      "reconstructed pair-level source-derived average flower-area values",
+      "source citations and appendix pair definitions"
+    ],
+    "missing_for_empirical_reliability": [
+      "repeat-measurement IDs corresponding to the predictor values",
+      "replicate counts and within-source measurement variance tied to each reconstructed mean",
+      "a source-native reliability/repeatability estimate on the flower-area predictor scale"
+    ],
+    "not_valid_reliability_substitutes": [
+      "between-source spread without a defined repeated-measurement model",
+      "pair-level cross-species variation",
+      "OLS/SMA disagreement itself"
+    ]
+  },
+  "current_consequence": {
+    "eiv_sensitivity_envelope_completed": true,
+    "empirical_reliability_identified": false,
+    "formal_cross_system_admission_opened": false,
+    "issue_96_complete": false
+  },
+  "next_search_targets": [
+    "Southwest Pacific 30-species paired online-vs-herbarium validation values",
+    "supplementary or repository material containing repeated floral measurements or predictor-scale measurement error",
+    "Hendriks thesis/source appendices or cited primary measurements with repeat information"
+  ],
+  "claim_boundary": "The present source-native files do not identify empirical predictor reliability. This result forbids substituting an assumed reliability for an observed one, but it does not prove that no suitable external validation source can be recovered."
+}
