@@ -33,6 +33,11 @@ EXPECTED_N = 35
 def normalize_text(value: str) -> str:
     value = unicodedata.normalize("NFKD", value)
     value = value.replace("\u00ad", "").replace("–", "-").replace("—", "-")
+    # pypdf can retain a visual line-break as "novae- zelandiae".  Treat only
+    # whitespace immediately adjacent to an existing hyphen as layout noise;
+    # this does not alter ordinary taxon spelling.
+    value = re.sub(r"-\s+", "-", value)
+    value = re.sub(r"\s+-", "-", value)
     value = re.sub(r"\s+", " ", value)
     return value.casefold().strip()
 
@@ -53,7 +58,9 @@ def extract_pdf_text(path: Path) -> tuple[str, int]:
 def table_header_positions(normalized: str, label: str) -> list[int]:
     """Return all explicit table-header positions, including possible TOC copies."""
     patterns = [
-        rf"\btable\s+{re.escape(label.casefold())}\b",
+        # Appendix A is extracted as both "Table A4" and "TableA4" depending
+        # on page/layout, so the inter-token whitespace must be optional.
+        rf"\btable\s*{re.escape(label.casefold())}\b",
         rf"\b{re.escape(label.casefold())}\s*:\s*",
     ]
     return sorted({match.start() for pattern in patterns for match in re.finditer(pattern, normalized)})
@@ -79,8 +86,6 @@ def table_region(text: str, label: str, next_label: str | None = None) -> str:
         if later_next:
             return normalized[start : later_next[0]]
 
-    # A generous bounded fallback tolerates wrapped final tables while keeping
-    # unrelated earlier document text out of the verification region.
     return normalized[start : start + 50000]
 
 
