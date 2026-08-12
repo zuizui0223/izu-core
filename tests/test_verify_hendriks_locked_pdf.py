@@ -22,7 +22,7 @@ def test_table_region_and_taxon_numeric_matching_are_strict():
     assert not contains_numeric(region, "999")
 
 
-def test_table_region_uses_data_table_not_earlier_toc_copy():
+def test_table_region_uses_compact_data_header_not_earlier_toc_copy():
     text = '''
     List of tables
     Table A4 Campbell Island species ................................ 77
@@ -31,9 +31,9 @@ def test_table_region_uses_data_table_not_earlier_toc_copy():
     Table B10 Next dataset .......................................... 98
 
     Appendix A
-    Table A4 Campbell Island species
+    TableA4 Campbell Island species
     Abrotanella rosulata
-    Table A5 Chatham Island species
+    TableA5 Chatham Island species
     Brachyglottis huntii
 
     Appendix B
@@ -46,6 +46,13 @@ def test_table_region_uses_data_table_not_earlier_toc_copy():
     assert contains_taxon(a4, "Abrotanella rosulata")
     assert contains_taxon(b9, "Abrotanella rosulata")
     assert contains_numeric(b9, "0.067")
+
+
+def test_taxon_matching_tolerates_pdf_line_break_after_existing_hyphen():
+    region = "herbarium sonchus novae- zelandiae 6"
+    assert contains_taxon(region, "Sonchus novae-zelandiae")
+    region = "melicytus novae- zelandia subsp. centurionis"
+    assert contains_taxon(region, "Melicytus novae-zelandia subsp. centurionis")
 
 
 def test_b9_requires_both_taxa_and_both_values_for_every_row():
@@ -73,7 +80,7 @@ def test_appendix_mapping_checks_declared_table_not_global_occurrence():
             "appendix_source_table": "A4",
         }
     ]
-    correct = "Table A4 Campbell species Abrotanella rosulata Table A5 other"
-    wrong = "Abrotanella rosulata Table A4 Campbell species other Taxon Table A5"
+    correct = "TableA4 Campbell species Abrotanella rosulata TableA5 other"
+    wrong = "Abrotanella rosulata TableA4 Campbell species other Taxon TableA5"
     assert verify_appendix_mapping(correct, rows)["n_verified"] == 1
     assert verify_appendix_mapping(wrong, rows)["n_verified"] == 0
