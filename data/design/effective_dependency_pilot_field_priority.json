@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "status": "pilot_priority_locked_sample_size_unlocked",
   "purpose": "Collect the minimum informative pilot needed to estimate between-plant dispersion and visitor-group SVD feasibility before confirmatory replication is chosen.",
   "priority_order": [
@@ -36,9 +36,31 @@
       "reason": "The existing 10-target contemporary survivor set has zero source-resolved high-dependency Bombus endpoints in the exact Izu populations."
     }
   ],
+  "within_population_collection_order": [
+    "establish plant/flower IDs and observation-effort denominator first",
+    "secure no-visit SVD controls before interpreting visitor-group pollen deposition",
+    "obtain controlled SVD on at least two independent plants for one relevant visitor group before expanding repeated flowers within the same plant",
+    "complete all three reproductive treatments on at least two independent plants before adding many treatment subsamples to one plant",
+    "preserve terminal fruit/seed outcomes and explicit loss/damage states before precision planning",
+    "add parentage only as an optional downstream layer after fruit/seed linkage is intact"
+  ],
+  "continue_rules": [
+    "If structural channels are missing, prioritize the missing channel over additional within-plant replication.",
+    "If controlled SVD exists on fewer than two independent plants for every visitor group, prioritize a new independent plant over another flower on an already represented plant.",
+    "If any core reproductive treatment has terminal outcomes from fewer than two independent plants, prioritize that treatment on a new independent plant.",
+    "Once pilot dispersion is estimable, replace synthetic variance/reliability/loss assumptions before choosing confirmatory sample size."
+  ],
+  "stop_or_do_not_promote_rules": [
+    "Do not call structural completion pilot dispersion readiness.",
+    "Do not call two independent plants a sufficient confirmatory sample size; it is only the minimum for defining between-plant dispersion.",
+    "Do not report adjusted SVD or effective service for a visitor group lacking a no-visit control.",
+    "Do not convert pending, lost, damaged, unscorable, failed-QC, or unresolved-parentage records into zero effect, successful reproduction, or selfing.",
+    "Do not infer an Oshima-Toshima causal boundary from repeated plants at one site or one season.",
+    "Do not infer a cross-lineage dependency x FDQ interaction from Campanula alone."
+  ],
   "geographic_rule": "Pilot feasibility may use available populations, but repeated plants within one Oshima site do not create a second independent bridge-state geography. Confirmatory causal boundary inference still requires independent geographic or temporal regime replication.",
   "replication_rule": "Do not lock a universal flower or plant count before pilot between-plant dispersion is available. Flowers and SVD events within a plant are subsamples, not independent n.",
   "pilot_success_definition": "At least two independent plants are needed before between-plant SD can be estimated for a specific population x visitor-group SVD or population x treatment response; this is a dispersion-estimation condition, not a confirmatory sample-size target.",
-  "next_transition": "pilot data -> plant-level dispersion audit -> biologically meaningful absolute CI half-width lock -> approximate independent-plant n -> hierarchical design stress test",
+  "next_transition": "pilot data -> structural audit -> plant-level dispersion admission audit -> pilot variance/reliability/loss replacement -> biologically meaningful absolute CI half-width lock -> approximate independent-plant n -> hierarchical design stress test",
   "claim_boundary": "This is a prospective field-priority document, not empirical evidence that any taxon or island is pollinator-dependent."
 }
