@@ -9,9 +9,11 @@ on:
       - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
       - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
       - "scripts/acquire_hendriks_vuw_figshare.py"
+      - "scripts/verify_hendriks_locked_pdf.py"
       - "scripts/analyze_hendriks_2019_flower_area.py"
       - "scripts/compare_json_numeric_tolerant.py"
       - "tests/test_acquire_hendriks_vuw_figshare.py"
+      - "tests/test_verify_hendriks_locked_pdf.py"
       - "tests/test_hendriks_2019_flower_area.py"
       - ".github/workflows/hendriks-2019-flower-area.yml"
   pull_request:
@@ -21,9 +23,11 @@ on:
       - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
       - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
       - "scripts/acquire_hendriks_vuw_figshare.py"
+      - "scripts/verify_hendriks_locked_pdf.py"
       - "scripts/analyze_hendriks_2019_flower_area.py"
       - "scripts/compare_json_numeric_tolerant.py"
       - "tests/test_acquire_hendriks_vuw_figshare.py"
+      - "tests/test_verify_hendriks_locked_pdf.py"
       - "tests/test_hendriks_2019_flower_area.py"
       - ".github/workflows/hendriks-2019-flower-area.yml"
 
@@ -36,12 +40,13 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install package and tests
-        run: python -m pip install -e . pytest
-      - name: Run Hendriks reconstruction and acquisition tests
+        run: python -m pip install -e . pytest pypdf
+      - name: Run Hendriks reconstruction, acquisition, and PDF-verification tests
         run: >-
           python -m pytest -q
           tests/test_hendriks_2019_flower_area.py
           tests/test_acquire_hendriks_vuw_figshare.py
+          tests/test_verify_hendriks_locked_pdf.py
       - name: Acquire exact institutional PDF through public Figshare API
         id: acquire_pdf
         continue-on-error: true
@@ -49,7 +54,18 @@ jobs:
           python scripts/acquire_hendriks_vuw_figshare.py
           --source data/source_tables/hendriks_2019_flower_area_table_b9_source.json
           --output-dir artifacts/hendriks_2019/source_lock
-      - name: Record institutional acquisition state
+      - name: Strictly reverify Table B9 and Appendix-A mapping against locked PDF
+        id: reverify_pdf
+        if: steps.acquire_pdf.outcome == 'success'
+        continue-on-error: true
+        run: >-
+          python scripts/verify_hendriks_locked_pdf.py
+          --pdf artifacts/hendriks_2019/source_lock/hendriks_2019_vuw_thesis.pdf
+          --lock artifacts/hendriks_2019/source_lock/source_lock.json
+          --pairs data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv
+          --mapping data/source_tables/hendriks_2019_flower_area_island_mapping.csv
+          --output artifacts/hendriks_2019/source_lock/pdf_reverification.json
+      - name: Record institutional acquisition and verification state
         if: always()
         run: |
           python - <<'PY'
@@ -57,12 +73,19 @@ jobs:
           from pathlib import Path
           root = Path("artifacts/hendriks_2019/source_lock")
           lock = root / "source_lock.json"
+          verification = root / "pdf_reverification.json"
+          verified = False
+          if verification.is_file():
+              payload = json.loads(verification.read_text(encoding="utf-8"))
+              verified = bool(payload.get("provenance_gate_opened"))
           state = {
               "institutional_pdf_bytes_recovered_this_run": lock.is_file(),
-              "provenance_gate_opened": False,
-              "pair_reverification_required_before_provenance_admission": True,
+              "strict_35_pair_and_mapping_reverification_complete": verified,
+              "provenance_gate_opened": verified,
               "eiv_gate_remains_separate": True,
+              "formal_cross_system_admission_opened": False,
           }
+          root.mkdir(parents=True, exist_ok=True)
           (root / "workflow_state.json").write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
           PY
       - name: Regenerate checked summary
