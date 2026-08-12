@@ -40,7 +40,6 @@ def normalize_text(value: str) -> str:
 def numeric_variants(value: str) -> set[str]:
     number = float(value)
     variants = {value.strip(), f"{number:g}"}
-    # Tables may preserve or drop trailing zeroes, but never change precision by rounding.
     variants.add(f"{number:.10f}".rstrip("0").rstrip("."))
     return {item for item in variants if item}
 
@@ -51,23 +50,37 @@ def extract_pdf_text(path: Path) -> tuple[str, int]:
     return "\n".join(pages), len(pages)
 
 
-def table_region(text: str, label: str, next_label: str | None = None) -> str:
-    normalized = normalize_text(text)
-    start_patterns = [
+def table_header_positions(normalized: str, label: str) -> list[int]:
+    """Return all explicit table-header positions, including possible TOC copies."""
+    patterns = [
         rf"\btable\s+{re.escape(label.casefold())}\b",
         rf"\b{re.escape(label.casefold())}\s*:\s*",
     ]
-    starts = [match.start() for pattern in start_patterns for match in re.finditer(pattern, normalized)]
+    return sorted({match.start() for pattern in patterns for match in re.finditer(pattern, normalized)})
+
+
+def table_region(text: str, label: str, next_label: str | None = None) -> str:
+    normalized = normalize_text(text)
+    starts = table_header_positions(normalized, label)
     if not starts:
         return ""
-    start = starts[-1] if label.casefold() == "b9" else starts[0]
+
+    # Thesis tables are named once in the table of contents and again at the
+    # actual appendix/table.  The last explicit occurrence is therefore the
+    # data-bearing occurrence; using the first occurrence silently selects TOC
+    # text for Appendix A tables.
+    start = starts[-1]
     if next_label:
-        next_pattern = rf"\btable\s+{re.escape(next_label.casefold())}\b"
-        next_match = re.search(next_pattern, normalized[start + 1 :])
-        if next_match:
-            end = start + 1 + next_match.start()
-            return normalized[start:end]
-    # A generous bounded region avoids unrelated earlier occurrences while tolerating table wrapping.
+        later_next = [
+            position
+            for position in table_header_positions(normalized, next_label)
+            if position > start
+        ]
+        if later_next:
+            return normalized[start : later_next[0]]
+
+    # A generous bounded fallback tolerates wrapped final tables while keeping
+    # unrelated earlier document text out of the verification region.
     return normalized[start : start + 50000]
 
 
@@ -75,7 +88,6 @@ def contains_taxon(region: str, taxon: str) -> bool:
     normalized_taxon = normalize_text(taxon)
     if normalized_taxon in region:
         return True
-    # tolerate PDF line breaks/hyphenation becoming spaces around punctuation
     tokens = [re.escape(token) for token in normalized_taxon.split()]
     if not tokens:
         return False
