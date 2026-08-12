@@ -3,10 +3,10 @@
 
 This audit is intentionally discovery-only. It checks known catalogue and
 repository pages, records delivery state, and extracts candidate full-text links
-for later checksum locking. Repository-specific title/author search URLs are
-also generated from registry metadata so the audit does not stop at repository
-home pages. A successful HTTP response never by itself opens a numeric or
-provenance gate.
+for later checksum locking. Repository-specific title/author search URLs and
+public repository APIs are generated from registry metadata so the audit does
+not stop at repository home pages or client-side search shells. A successful
+HTTP response never by itself opens a numeric or provenance gate.
 """
 from __future__ import annotations
 
@@ -25,32 +25,85 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REGISTRY = ROOT / "data/design/cross_archipelago_morphology_source_recovery.json"
 DEFAULT_OUTPUT = ROOT / "artifacts/cross_archipelago_morphology_source_routes/summary.json"
-USER_AGENT = "izu-core-source-route-audit/1.1 (+research reproducibility audit)"
-CANDIDATE_TOKENS = (
-    "tspace.library.utoronto.ca",
-    "utoronto.scholaris.ca",
-    "hdl.handle.net",
-    "dam-oclc.bac-lac.gc.ca",
-    "openaccess.wgtn.ac.nz/articles/",
-    "openaccess.wgtn.ac.nz/ndownloader/files/",
-    ".pdf",
-)
+USER_AGENT = "izu-core-source-route-audit/1.2 (+research reproducibility audit)"
 
 
-def candidate_links(html: str, base_url: str) -> list[str]:
-    """Extract plausible full-text/repository links from HTML without trusting them."""
-    hrefs = re.findall(r"(?i)href\s*=\s*[\"']([^\"']+)[\"']", html)
+def _is_candidate_url(url: str) -> bool:
+    lower = url.lower()
+    static_suffixes = (".css", ".js", ".json", ".ico", ".png", ".svg", ".woff", ".woff2")
+    if lower.endswith(static_suffixes) or "/assets/" in lower:
+        return False
+    return any(
+        token in lower
+        for token in (
+            "hdl.handle.net/",
+            "dam-oclc.bac-lac.gc.ca/",
+            "openaccess.wgtn.ac.nz/articles/",
+            "openaccess.wgtn.ac.nz/ndownloader/files/",
+            "/server/api/core/items/",
+            "/server/api/core/bitstreams/",
+            ".pdf",
+        )
+    ) or (
+        ("tspace.library.utoronto.ca/" in lower or "utoronto.scholaris.ca/" in lower)
+        and lower.rstrip("/") not in {
+            "https://tspace.library.utoronto.ca",
+            "https://utoronto.scholaris.ca",
+        }
+    )
+
+
+def candidate_links(text: str, base_url: str) -> list[str]:
+    """Extract plausible source/repository URLs from HTML or JSON text."""
+    raw: set[str] = set()
+    for href in re.findall(r"(?i)href\s*=\s*[\"']([^\"']+)[\"']", text):
+        raw.add(urllib.parse.urljoin(base_url, unescape(href.strip())))
+    for value in re.findall(r'(?i)[\"\'](?:href|url)[\"\']\s*:\s*[\"\']([^\"\']+)[\"\']', text):
+        raw.add(urllib.parse.urljoin(base_url, unescape(value.strip()).replace("\\/", "/")))
+    for value in re.findall(r"https?://[^\s\"'<>]+", text):
+        raw.add(unescape(value.rstrip(",]}")))
+    return sorted(url for url in raw if _is_candidate_url(url))
+
+
+def _json_discovery_candidates(text: str, base_url: str) -> list[str]:
+    """Extract DSpace item/handle candidates from a REST discovery response."""
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        return []
+
     output: set[str] = set()
-    for href in hrefs:
-        absolute = urllib.parse.urljoin(base_url, unescape(href.strip()))
-        lower = absolute.lower()
-        if any(token in lower for token in CANDIDATE_TOKENS):
-            output.add(absolute)
+
+    def walk(value: Any) -> None:
+        if isinstance(value, dict):
+            handle = value.get("handle")
+            if isinstance(handle, str) and "/" in handle:
+                output.add("https://hdl.handle.net/" + handle.lstrip("/"))
+            item_id = value.get("uuid") or value.get("id")
+            if isinstance(item_id, str) and re.fullmatch(r"[0-9a-fA-F-]{36}", item_id):
+                output.add("https://utoronto.scholaris.ca/server/api/core/items/" + item_id)
+            for child in value.values():
+                walk(child)
+        elif isinstance(value, list):
+            for child in value:
+                walk(child)
+        elif isinstance(value, str):
+            absolute = urllib.parse.urljoin(base_url, value)
+            if _is_candidate_url(absolute):
+                output.add(absolute)
+
+    walk(payload)
     return sorted(output)
 
 
 def probe(url: str, timeout: float = 20.0) -> dict[str, Any]:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "application/json, text/html, application/pdf;q=0.9, */*;q=0.8",
+        },
+    )
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             data = response.read()
@@ -69,7 +122,10 @@ def probe(url: str, timeout: float = 20.0) -> dict[str, Any]:
             }
             if not record["is_pdf_bytes"]:
                 text = data.decode("utf-8", errors="replace")
-                record["candidate_links"] = candidate_links(text, final_url)
+                candidates = set(candidate_links(text, final_url))
+                if "json" in content_type.lower() or text.lstrip().startswith(("{", "[")):
+                    candidates.update(_json_discovery_candidates(text, final_url))
+                record["candidate_links"] = sorted(candidates)
             return record
     except urllib.error.HTTPError as error:
         return {
@@ -79,7 +135,7 @@ def probe(url: str, timeout: float = 20.0) -> dict[str, Any]:
             "error": str(error),
             "candidate_links": [],
         }
-    except Exception as error:  # network state is recorded, not biological failure
+    except Exception as error:
         return {
             "url": url,
             "status": "delivery_error",
@@ -90,11 +146,7 @@ def probe(url: str, timeout: float = 20.0) -> dict[str, Any]:
 
 
 def repository_search_urls(source: dict[str, Any]) -> list[str]:
-    """Generate narrow repository search URLs from source metadata.
-
-    These are discovery routes only. Endpoint delivery or search hits do not
-    change provenance/admission state until exact source bytes are verified.
-    """
+    """Generate narrow repository search/API URLs from source metadata."""
     urls: list[str] = []
     source_id = str(source.get("source_id") or "")
 
@@ -103,19 +155,21 @@ def repository_search_urls(source: dict[str, Any]) -> list[str]:
         author = str(source.get("author") or "").strip()
         for query in (title, author, "Hendriks island rule plant traits"):
             if query:
-                urls.append(
-                    "https://openaccess.wgtn.ac.nz/search?q="
-                    + urllib.parse.quote_plus(query)
-                )
+                urls.append("https://openaccess.wgtn.ac.nz/search?q=" + urllib.parse.quote_plus(query))
 
     if source_id == "hetherington_rauth_johnson_2020_136_pairs":
         title = str(source.get("thesis_title") or "").strip()
         author = str(source.get("thesis_author") or "").strip()
         for query in (title, author, "Hetherington-Rauth floral traits island angiosperms"):
             if query:
-                encoded = urllib.parse.quote_plus(query)
-                urls.append("https://utoronto.scholaris.ca/search?query=" + encoded)
-                urls.append("https://tspace.library.utoronto.ca/simple-search?query=" + encoded)
+                encoded_plus = urllib.parse.quote_plus(query)
+                encoded = urllib.parse.quote(query, safe="")
+                urls.append("https://utoronto.scholaris.ca/search?query=" + encoded_plus)
+                urls.append("https://tspace.library.utoronto.ca/simple-search?query=" + encoded_plus)
+                urls.append(
+                    "https://utoronto.scholaris.ca/server/api/discover/search/objects?"
+                    + "dsoType=item&size=20&query=" + encoded
+                )
 
     return urls
 
@@ -140,13 +194,7 @@ def build_report(registry: dict[str, Any], timeout: float = 20.0) -> dict[str, A
     for source in registry.get("sources", []):
         urls = route_urls(source)
         probes = [probe(url, timeout=timeout) for url in urls]
-        candidates = sorted(
-            {
-                link
-                for item in probes
-                for link in item.get("candidate_links", [])
-            }
-        )
+        candidates = sorted({link for item in probes for link in item.get("candidate_links", [])})
         all_candidates.update(candidates)
         sources.append(
             {
@@ -158,14 +206,14 @@ def build_report(registry: dict[str, Any], timeout: float = 20.0) -> dict[str, A
             }
         )
     return {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "status": "route_probe_complete",
         "sources": sources,
         "all_candidate_links": sorted(all_candidates),
         "claim_boundary": (
-            "Route delivery, repository search hits, and candidate links are acquisition evidence only. "
-            "No source becomes checksum-locked, numerically admitted, or formally meta-analytic "
-            "until exact source bytes and the predeclared gates are verified."
+            "Route delivery, repository API/search hits, and candidate links are acquisition evidence only. "
+            "No source becomes checksum-locked, numerically admitted, or formally meta-analytic until exact "
+            "source bytes and the predeclared gates are verified."
         ),
     }
 
