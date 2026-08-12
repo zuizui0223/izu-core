@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-12",
+  "purpose": "Canonical blocking-task ledger for PR #90. These tasks are deliberately separated so provenance, measurement-error identifiability, third-system replication, and Izu field causality cannot substitute for one another.",
+  "tasks": [
+    {
+      "task_id": "hendriks_provenance",
+      "issue": 94,
+      "state": "open_blocking",
+      "goal": "Recover and checksum-lock exact Hendriks 2019 source bytes, then re-verify all 35 floral pairs and island assignments against those bytes.",
+      "opens": ["hendriks_provenance_gate"],
+      "does_not_open": ["empirical_reliability_gate", "formal_cross_system_fit"],
+      "completion_requires": [
+        "exact_source_artifact_recovered",
+        "sha256_locked",
+        "35_of_35_pairs_reverified",
+        "island_assignments_reverified",
+        "author_ols_anchor_reproduced"
+      ]
+    },
+    {
+      "task_id": "third_floral_system",
+      "issue": 95,
+      "state": "open_blocking",
+      "goal": "Recover the source-native 136-pair Pacific floral table and determine whether a compatible third response-shape system can be reproduced.",
+      "opens": ["third_system_directional_replication_if_source_supports_it"],
+      "does_not_open": ["formal_meta_analysis_by_itself"],
+      "completion_requires": [
+        "source_bytes_locked",
+        "source_native_pair_table_recovered_or_explicitly_absent",
+        "trait_definition_and_units_verified",
+        "pair_and_island_grouping_verified",
+        "response_shape_reproduced_or_impossibility_documented"
+      ]
+    },
+    {
+      "task_id": "empirical_reliability",
+      "issue": 96,
+      "state": "open_blocking",
+      "goal": "Identify a defensible empirical floral measurement reliability source, or prove that reliability remains unidentifiable from available source-native materials.",
+      "opens": ["empirical_EIV_admission_only_if_supported"],
+      "does_not_open": ["assumed_reliability_substitution"],
+      "completion_requires_one_of": [
+        "source_locked_reliability_with_uncertainty_propagated",
+        "machine_readable_empirical_reliability_unidentifiable_result"
+      ]
+    },
+    {
+      "task_id": "izu_direct_mechanism",
+      "issue": 91,
+      "state": "open_field_blocking",
+      "goal": "Collect linked SVD, observation-effort, reproductive-treatment, fruit/seed and optional parentage data sufficient to estimate contemporary effective-pollinator dependency without conflating structural completion with confirmatory adequacy.",
+      "opens": ["pilot_dispersion_estimation", "pilot_precision_planning_after_dispersion"],
+      "does_not_open": ["historical_Bombus_causation", "Oshima_Toshima_causal_boundary_by_itself"],
+      "completion_requires": [
+        "structural_dependency_panel_complete",
+        "no_visit_controls_for_adjusted_SVD",
+        "plant_level_SVD_dispersion_estimable",
+        "plant_level_core_treatment_dispersion_estimable",
+        "loss_damage_pending_and_unresolved_parentage_explicit",
+        "pilot_variance_reliability_coverage_and_loss_inputs_replace_synthetic_defaults"
+      ]
+    }
+  ],
+  "formal_cross_system_fit_gate": {
+    "current_state": "closed",
+    "rule": "Open only after compatible source-locked effects with uncertainty exist in at least two independent system clusters for the same effect family, with relevant provenance and measurement-error gates satisfied.",
+    "cannot_be_opened_by": [
+      "more_raw_island_rows_without_independent_system_replication",
+      "provenance_repair_alone",
+      "sensitivity_assumptions_treated_as_observed_reliability",
+      "abstract_level_effect_reconstruction"
+    ]
+  },
+  "execution_priority": [94, 96, 95, 91],
+  "priority_rationale": "Hendriks provenance and empirical reliability are the nearest blockers on already reconstructed evidence; the 136-pair source can add independent external replication; Issue #91 remains the decisive new empirical mechanism gate and proceeds as field data become available.",
+  "claim_boundary": "This ledger tracks what must be completed before evidence is promoted. It does not itself change any biological result, effect-registry eligibility, causal claim, or formal model admission."
+}
