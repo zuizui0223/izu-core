@@ -1,0 +1,30 @@
+name: Cross-archipelago morphology source routes
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "data/design/cross_archipelago_morphology_source_recovery.json"
+      - "scripts/audit_cross_archipelago_morphology_source_routes.py"
+      - "tests/test_cross_archipelago_morphology_source_routes.py"
+      - ".github/workflows/cross-archipelago-morphology-source-routes.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependency
+        run: python -m pip install pytest
+      - name: Test discovery-only route contract
+        run: python -m pytest -q tests/test_cross_archipelago_morphology_source_routes.py
+      - name: Probe known lawful routes
+        run: python scripts/audit_cross_archipelago_morphology_source_routes.py
+      - name: Upload route state
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-archipelago-morphology-source-routes
+          path: artifacts/cross_archipelago_morphology_source_routes/summary.json
