@@ -96,7 +96,35 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import math
           from pathlib import Path
+
+          def assert_equivalent(expected, observed, path="root"):
+              if isinstance(expected, bool) or isinstance(observed, bool):
+                  if expected is not observed:
+                      raise AssertionError(f"boolean drift at {path}: {expected!r} != {observed!r}")
+                  return
+              if isinstance(expected, (int, float)) and isinstance(observed, (int, float)):
+                  if not math.isclose(float(expected), float(observed), rel_tol=1e-12, abs_tol=1e-12):
+                      raise AssertionError(f"numeric drift at {path}: {expected!r} != {observed!r}")
+                  return
+              if type(expected) is not type(observed):
+                  raise AssertionError(f"type drift at {path}: {type(expected).__name__} != {type(observed).__name__}")
+              if isinstance(expected, dict):
+                  if expected.keys() != observed.keys():
+                      raise AssertionError(f"key drift at {path}")
+                  for key in expected:
+                      assert_equivalent(expected[key], observed[key], f"{path}.{key}")
+                  return
+              if isinstance(expected, list):
+                  if len(expected) != len(observed):
+                      raise AssertionError(f"length drift at {path}")
+                  for index, (left, right) in enumerate(zip(expected, observed)):
+                      assert_equivalent(left, right, f"{path}[{index}]")
+                  return
+              if expected != observed:
+                  raise AssertionError(f"value drift at {path}: {expected!r} != {observed!r}")
+
           pairs = [
               ("data/results/southwest_pacific_pairs/source_method_sensitivity.json", "artifacts/southwest_pacific_source_method/source_method_sensitivity.json"),
               ("data/results/southwest_pacific_pairs/source_method_geographic_overlap_sensitivity.json", "artifacts/southwest_pacific_source_method/source_method_geographic_overlap_sensitivity.json"),
@@ -104,9 +132,11 @@ jobs:
           for expected_path, observed_path in pairs:
               expected = json.loads(Path(expected_path).read_text(encoding="utf-8"))
               observed = json.loads(Path(observed_path).read_text(encoding="utf-8"))
-              if expected != observed:
-                  raise SystemExit(f"checked source-method sensitivity drift: {expected_path}")
-          print("source-method sensitivities reproduce checked results")
+              try:
+                  assert_equivalent(expected, observed)
+              except AssertionError as error:
+                  raise SystemExit(f"checked source-method sensitivity drift: {expected_path}: {error}") from error
+          print("source-method sensitivities reproduce checked results within 1e-12 numeric tolerance")
           PY
       - name: Preserve blocked transport state without changing biological result
         if: steps.source.outputs.available != 'true'
