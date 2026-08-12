@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "updated_on": "2026-08-12",
-  "purpose": "Track provenance recovery for independent island-mainland floral morphology systems without promoting abstract-level or unverified transcriptions to formal cross-system effects.",
+  "purpose": "Track provenance recovery for independent island-mainland floral morphology systems without promoting abstract-level, non-floral, or unverified transcriptions to formal cross-system floral effects.",
   "sources": [
     {
       "source_id": "hendriks_2019_flower_area",
@@ -66,6 +66,20 @@
       },
       "next_action": "Resolve one advertised full-text route to concrete bytes, checksum it, then inspect appendices/data availability for the source-native 136-pair table. Do not reconstruct a slope or effect size from the thesis/article abstract.",
       "claim_boundary": "Abstract and catalogue metadata establish the study design and qualitative heterogeneity only. They do not supply a source-native pair table, a compatible response-shape slope, or uncertainty suitable for the cross-system registry."
+    },
+    {
+      "source_id": "song_2026_eastern_china_functional_traits",
+      "title": "Island influences on plant functional traits and trait-trait associations across species- and community-scales",
+      "article_doi": "10.1111/nph.71040",
+      "year": 2026,
+      "design_summary": "37 shared tree species across 35 eastern Chinese islands and 66 nearby mainland plots; 13 carbon-, water-, wood-anatomical, hydraulic, and size-related functional traits",
+      "current_source_state": "published_primary_article_available",
+      "role": "non_floral_island_rule_boundary_comparator",
+      "same_family_floral_replication": false,
+      "formal_floral_effect_admitted": false,
+      "usefulness": "Tests whether starting-value-dependent island compression extends beyond floral morphology, while preventing non-floral traits from inflating floral independent-system replication.",
+      "next_action": "Use only as an external boundary comparison unless a prespecified compatible non-floral synthesis is opened. Do not count its islands, species, or traits as a third floral-morphology system.",
+      "claim_boundary": "This study is relevant to the broader island-rule response shape but does not provide an independent floral morphology effect compatible with the current Southwest Pacific/Hendriks floral comparison."
     }
   ]
 }
