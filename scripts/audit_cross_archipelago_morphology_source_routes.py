@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Probe lawful morphology source routes without changing evidence admission state.
 
-This audit is intentionally discovery-only.  It checks known catalogue and
+This audit is intentionally discovery-only. It checks known catalogue and
 repository pages, records delivery state, and extracts candidate full-text links
-for later checksum locking.  A successful HTTP response never by itself opens a
-numeric or provenance gate.
+for later checksum locking. Repository-specific title/author search URLs are
+also generated from registry metadata so the audit does not stop at repository
+home pages. A successful HTTP response never by itself opens a numeric or
+provenance gate.
 """
 from __future__ import annotations
 
@@ -23,13 +25,13 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REGISTRY = ROOT / "data/design/cross_archipelago_morphology_source_recovery.json"
 DEFAULT_OUTPUT = ROOT / "artifacts/cross_archipelago_morphology_source_routes/summary.json"
-USER_AGENT = "izu-core-source-route-audit/1.0 (+research reproducibility audit)"
+USER_AGENT = "izu-core-source-route-audit/1.1 (+research reproducibility audit)"
 CANDIDATE_TOKENS = (
     "tspace.library.utoronto.ca",
     "utoronto.scholaris.ca",
     "hdl.handle.net",
     "dam-oclc.bac-lac.gc.ca",
-    "openaccess.wgtn.ac.nz",
+    "openaccess.wgtn.ac.nz/articles/",
     ".pdf",
 )
 
@@ -86,6 +88,37 @@ def probe(url: str, timeout: float = 20.0) -> dict[str, Any]:
         }
 
 
+def repository_search_urls(source: dict[str, Any]) -> list[str]:
+    """Generate narrow repository search URLs from source metadata.
+
+    These are discovery routes only. Endpoint delivery or search hits do not
+    change provenance/admission state until exact source bytes are verified.
+    """
+    urls: list[str] = []
+    source_id = str(source.get("source_id") or "")
+
+    if source_id == "hendriks_2019_flower_area":
+        title = str(source.get("title") or "").strip()
+        author = str(source.get("author") or "").strip()
+        for query in (title, author, "Hendriks island rule plant traits"):
+            if query:
+                urls.append(
+                    "https://openaccess.wgtn.ac.nz/search?q="
+                    + urllib.parse.quote_plus(query)
+                )
+
+    if source_id == "hetherington_rauth_johnson_2020_136_pairs":
+        title = str(source.get("thesis_title") or "").strip()
+        author = str(source.get("thesis_author") or "").strip()
+        for query in (title, author, "Hetherington-Rauth floral traits island angiosperms"):
+            if query:
+                encoded = urllib.parse.quote_plus(query)
+                urls.append("https://utoronto.scholaris.ca/search?query=" + encoded)
+                urls.append("https://tspace.library.utoronto.ca/simple-search?query=" + encoded)
+
+    return urls
+
+
 def route_urls(source: dict[str, Any]) -> list[str]:
     urls: list[str] = []
     for route in source.get("known_routes", []):
@@ -96,6 +129,7 @@ def route_urls(source: dict[str, Any]) -> list[str]:
     base_url = str(repository.get("base_url") or "").strip()
     if base_url:
         urls.append(base_url)
+    urls.extend(repository_search_urls(source))
     return list(dict.fromkeys(urls))
 
 
@@ -103,7 +137,8 @@ def build_report(registry: dict[str, Any], timeout: float = 20.0) -> dict[str, A
     sources = []
     all_candidates: set[str] = set()
     for source in registry.get("sources", []):
-        probes = [probe(url, timeout=timeout) for url in route_urls(source)]
+        urls = route_urls(source)
+        probes = [probe(url, timeout=timeout) for url in urls]
         candidates = sorted(
             {
                 link
@@ -115,20 +150,21 @@ def build_report(registry: dict[str, Any], timeout: float = 20.0) -> dict[str, A
         sources.append(
             {
                 "source_id": source.get("source_id"),
+                "route_count": len(urls),
                 "probes": probes,
                 "candidate_full_text_or_repository_links": candidates,
                 "admission_changed": False,
             }
         )
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "route_probe_complete",
         "sources": sources,
         "all_candidate_links": sorted(all_candidates),
         "claim_boundary": (
-            "Route delivery and candidate links are acquisition evidence only. "
-            "No source becomes checksum-locked, numerically admitted, or formally "
-            "meta-analytic until exact source bytes and the predeclared gates are verified."
+            "Route delivery, repository search hits, and candidate links are acquisition evidence only. "
+            "No source becomes checksum-locked, numerically admitted, or formally meta-analytic "
+            "until exact source bytes and the predeclared gates are verified."
         ),
     }
 
