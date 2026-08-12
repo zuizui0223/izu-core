@@ -78,9 +78,9 @@ island-cluster 95% = [0.2128, 0.7785]
 SMA island-cluster 95% = [0.7297, 1.0731]
 ```
 
-The underlying author-upload artifact is not checksum locked, and the SMA
-interval includes isometry. Hendriks is therefore independent directional
-replication, not a formal effect-registry row.
+The VUW Open Access record is resolved, but the exact source bytes are not
+checksum locked, and the SMA interval includes isometry. Hendriks is therefore
+independent directional replication, not a formal effect-registry row.
 
 ### Directional recurrence
 

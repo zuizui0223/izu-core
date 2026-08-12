@@ -36,9 +36,15 @@
   },
   "author_reported_anchors": {
     "model_1_slope": -0.39,
-    "model_1_slope_95_ci": [-0.63, -0.16],
+    "model_1_slope_95_ci": [
+      -0.63,
+      -0.16
+    ],
     "model_2_slope": 0.58,
-    "model_2_slope_95_ci": [0.36, 0.82]
+    "model_2_slope_95_ci": [
+      0.36,
+      0.82
+    ]
   },
   "anchor_reproduction": {
     "direct_ols_absolute_slope_difference": 0.0033358843917842274,
@@ -138,8 +144,14 @@
         "sma_slope": 0.9338747635711069
       }
     },
-    "ols_slope_range": [0.4447415241496691, 0.6778699719401503],
-    "sma_slope_range": [0.8637169852312907, 0.9338747635711069],
+    "ols_slope_range": [
+      0.4447415241496691,
+      0.6778699719401503
+    ],
+    "sma_slope_range": [
+      0.8637169852312907,
+      0.9338747635711069
+    ],
     "all_leave_one_island_ols_below_isometry": true,
     "all_leave_one_island_sma_below_isometry": true
   },
@@ -151,9 +163,15 @@
     "author_reported_ols_upper_below_isometry_if_reliability_exceeds": 0.82,
     "sma_point_slope": 0.9000193489524775,
     "sma_point_below_isometry": true,
-    "pair_sma_bootstrap_interval": [0.7006826788086139, 1.1291800196601678],
+    "pair_sma_bootstrap_interval": [
+      0.7006826788086139,
+      1.1291800196601678
+    ],
     "pair_sma_bootstrap_interval_excludes_isometry": false,
-    "island_cluster_sma_bootstrap_interval": [0.7296694231411485, 1.0731043040917998],
+    "island_cluster_sma_bootstrap_interval": [
+      0.7296694231411485,
+      1.0731043040917998
+    ],
     "island_cluster_sma_bootstrap_interval_excludes_isometry": false,
     "reading": "The direct OLS pattern is not an artefact of treating the 35 pairs as independent: the Appendix-A island-cluster OLS interval remains below isometry. However, attenuation from error in mainland size can still move the corrected slope toward or above isometry, and both pair- and island-cluster SMA intervals include slope 1. SMA is a structural sensitivity, not a uniquely identified measurement-error correction."
   },
@@ -166,5 +184,5 @@
   ],
   "claim_boundary": "This reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS, including island-cluster resampling. It does not identify pollinator mechanism, does not resolve errors in variables, and is not admitted to the formal cross-system fit.",
   "source_id": "hendriks_2019_flower_area_table_b9",
-  "source_retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_search_indexed_author_upload"
+  "source_retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_author_upload_plus_stable_institutional_record_identified_but_pdf_bytes_unlocked"
 }

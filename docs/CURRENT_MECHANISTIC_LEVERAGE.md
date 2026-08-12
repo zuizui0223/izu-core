@@ -263,10 +263,10 @@ reconstructed direct OLS = 0.5833
 island-cluster 95% = [0.2128, 0.7785]
 ```
 
-The island-cluster SMA interval is `[0.7297, 1.0731]`, which includes isometry,
-and the underlying author-upload source artifact is not checksum locked.
-Hendriks therefore remains directional replication evidence rather than a
-formal effect-registry row.
+The island-cluster SMA interval is `[0.7297, 1.0731]`, which includes isometry.
+The VUW Open Access thesis record is now resolved, but the exact PDF/data bytes
+remain undelivered and not checksum locked. Hendriks therefore remains
+directional replication evidence rather than a formal effect-registry row.
 
 ### Cross-system response-shape result
 

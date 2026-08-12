@@ -185,9 +185,10 @@ uncertainty, taxonomy, geography, wild status and compatible units.
 The Hendriks flower-area reconstruction illustrates the distinction. All 35
 Appendix B Table B9 numerical pairs and their nine populated Appendix-A island
 groups have been reconstructed; the OLS anchors reproduce the thesis results.
-But the underlying author-upload artifact is not checksum locked. The dataset
-can therefore support a transparent directional reconstruction audit but does
-not enter the formal effect registry.
+But the resolved VUW Open Access page is not the same as checksum-locked source
+bytes; the exact artifact is still not locked. The dataset can therefore support
+a transparent directional reconstruction audit but does not enter the formal
+effect registry.
 
 Likewise, the 136-pair Hetherington-Rauth & Johnson (2020) Pacific source remains
 candidate-only until its source-native numeric table is recovered.

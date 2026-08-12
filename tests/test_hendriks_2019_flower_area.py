@@ -94,6 +94,8 @@ def test_source_provenance_keeps_formal_admission_closed():
     summary = json.loads(SUMMARY.read_text(encoding="utf-8"))
     assert source["source_reported_pair_count"] == 35
     assert source["reconstructed_numeric_pair_count"] == 35
+    assert source["institutional_record_recovered"] is True
+    assert source["institutional_identifier"] == "10.26686/wgtn.17136800"
     assert source["island_group_mapping"]["frequency_vector_matches_table_a14"] is True
     assert source["raw_pdf_checksum_locked"] is False
     assert source["stable_institutional_download_recovered"] is False

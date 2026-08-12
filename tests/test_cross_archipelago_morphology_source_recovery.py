@@ -15,6 +15,10 @@ def test_recovery_registry_keeps_unlocked_sources_out_of_formal_admission():
     sources = {row["source_id"]: row for row in document["sources"]}
 
     hendriks = sources["hendriks_2019_flower_area"]
+    assert hendriks["institutional_repository"]["exact_record_recovered"] is True
+    assert hendriks["institutional_repository"]["identifier"] == "10.26686/wgtn.17136800"
+    assert any(route["route"] == "VUW Open Access institutional record" for route in hendriks["known_routes"])
+    assert all(route["exact_source_bytes_recovered"] is False for route in hendriks["known_routes"])
     assert hendriks["admission_gate"]["checksum_locked"] is False
     assert hendriks["admission_gate"]["formal_same_family_effect_admitted"] is False
     assert hendriks["admission_gate"]["empirical_mainland_trait_reliability_identified"] is False

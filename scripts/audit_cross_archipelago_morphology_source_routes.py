@@ -32,6 +32,7 @@ CANDIDATE_TOKENS = (
     "hdl.handle.net",
     "dam-oclc.bac-lac.gc.ca",
     "openaccess.wgtn.ac.nz/articles/",
+    "openaccess.wgtn.ac.nz/ndownloader/files/",
     ".pdf",
 )
 

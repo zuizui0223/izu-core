@@ -42,6 +42,7 @@ def test_next_morphology_gate_prioritizes_island_cluster_audited_hendriks_recons
     assert reported["model_2_slope_95_ci"] == [0.36, 0.82]
     assert reported["raw_pair_table_location"] == "Appendix B Table B9"
     assert reported["island_group_frequency_location"] == "Appendix A Table A14"
+    assert hendriks["institutional_identifier"] == "10.26686/wgtn.17136800"
     assert checked["n_island_groups"] == 9
     assert checked["island_group_counts_match_table_a14"] is True
     assert abs(checked["direct_log_island_on_log_mainland_ols_slope"] - 0.58) < 0.01
@@ -52,6 +53,8 @@ def test_next_morphology_gate_prioritizes_island_cluster_audited_hendriks_recons
     assert checked["sma_island_cluster_interval_excludes_isometry"] is False
     assert checked["all_leave_one_island_ols_below_isometry"] is True
     assert checked["all_leave_one_island_sma_below_isometry"] is True
+    assert checked["institutional_record_recovered"] is True
+    assert checked["stable_source_bytes_recovered"] is False
     assert checked["raw_pdf_checksum_locked"] is False
     assert checked["effect_registry_eligible"] is False
     assert "measurement-error-free" in hendriks["forbidden_promotion"]

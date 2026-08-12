@@ -14,7 +14,7 @@
   },
   "next_external_gate": {
     "requirement": "Obtain compatible source-locked uncertainty and defensible errors-in-variables constraints for the same response/exposure family in at least two independent system clusters before opening a formal cross-system model.",
-    "current_state": "The checked effect registry has two eligible system clusters but no effect family represented with compatible uncertainty in both clusters. Southwest Pacific and Hendriks independently reproduce below-isometry OLS morphology response directions under island-cluster resampling, and a joint classical EIV envelope is now quantified, but mainland-trait reliability is not empirically identified and the Hendriks source artifact remains un-checksummed.",
+    "current_state": "The checked effect registry has two eligible system clusters but no effect family represented with compatible uncertainty in both clusters. Southwest Pacific and Hendriks independently reproduce below-isometry OLS morphology response directions under island-cluster resampling, and a joint classical EIV envelope is now quantified, but mainland-trait reliability is not empirically identified. The Hendriks VUW record is resolved, but exact source bytes remain un-checksummed.",
     "priority_candidate": "new_zealand_hendriks_2019",
     "reason": "Hendriks 2019 is the closest independent response-shape replication. The remaining gate is no longer reconstructing the 35-pair analysis or island hierarchy; it is locking the source artifact and obtaining an empirical or otherwise defensible errors-in-variables constraint."
   },
@@ -115,7 +115,10 @@
       "priority": 5,
       "status": "numeric_and_island_cluster_reconstruction_audited_unlocked_source",
       "source_identifier": "10.13140/RG.2.2.25945.08805",
-      "source_type": "Victoria University of Wellington MSc thesis, author-uploaded full text currently indexed through ResearchGate",
+      "institutional_identifier": "10.26686/wgtn.17136800",
+      "institutional_record_url": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
+      "institutional_download_url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
+      "source_type": "Victoria University of Wellington MSc thesis; author-upload and stable VUW Open Access record identified, exact source bytes not yet checksum locked",
       "geographic_design": "65 island endemic-mainland sister pairs overall across New Zealand and southwest Pacific islands; flower-area subset n=35 across nine populated island groups",
       "source_native_units": ["island-mainland sister-taxon pair nested in Appendix-A island group"],
       "direct_dependency_available": false,
@@ -143,12 +146,14 @@
         "all_leave_one_island_ols_below_isometry": true,
         "all_leave_one_island_sma_below_isometry": true,
         "sma_island_cluster_interval_excludes_isometry": false,
+        "institutional_record_recovered": true,
+        "stable_source_bytes_recovered": false,
         "raw_pdf_checksum_locked": false,
         "effect_registry_eligible": false
       },
       "admissible_question": "Can the independent New Zealand/southwest-Pacific flower-area sister-pair data reproduce a starting-size-dependent island response under source-native island clustering, and how sensitive is that response to errors-in-variables treatment?",
       "forbidden_promotion": "Do not treat the reported or reconstructed OLS slope below isometry as measurement-error-free. Do not enter this same-family effect into the formal registry before the source artifact and error-in-variables sensitivity are resolved.",
-      "next_gate": "Recover a stable institutional or author-distributed source artifact and checksum; verify all 35 Table B9 values and island assignments; obtain empirical measurement reliability or another defensible EIV constraint."
+      "next_gate": "Recover exact source bytes from the resolved VUW route or another lawful author/institutional artifact and checksum them; verify all 35 Table B9 values and island assignments; obtain empirical measurement reliability or another defensible EIV constraint."
     },
     {
       "system_id": "pacific_sister_taxa_hetherington_rauth_johnson_2020",

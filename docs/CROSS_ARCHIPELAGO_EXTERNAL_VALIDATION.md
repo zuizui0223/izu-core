@@ -172,7 +172,8 @@ sensitivities, not independent experimental effects.
 
 Hendriks' 2019 Victoria University of Wellington MSc thesis (*The island rule
 and its application to multiple plant traits*; author-upload identifier
-`10.13140/RG.2.2.25945.08805`) supplies an independent plant dataset around New
+`10.13140/RG.2.2.25945.08805`; VUW Open Access identifier
+`10.26686/wgtn.17136800`) supplies an independent plant dataset around New
 Zealand and the southwest Pacific.
 
 The author-uploaded full text exposes Appendix B Table B9 with **35
@@ -202,10 +203,11 @@ pairs as geographically independent. However, the symmetric-axis SMA interval
 still includes the line of isometry, and mainland flower-area measurement
 reliability is not empirically identified.
 
-The numeric table is reconstructed from an indexed author upload, not from a
-checksum-locked PDF/data artifact. Hendriks therefore remains **directional
-replication evidence, not a formal registry effect** until the source artifact
-is locked and the errors-in-variables boundary is better constrained.
+The VUW institutional record and its `ndownloader` route are now identified, but
+the exact PDF/data bytes were not delivered in the current execution environment
+and are not checksum locked. Hendriks therefore remains **directional
+replication evidence, not a formal registry effect** until the exact source
+artifact is locked and the errors-in-variables boundary is better constrained.
 
 ## Cross-system morphology response-shape audit
 

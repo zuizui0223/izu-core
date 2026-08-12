@@ -11,13 +11,37 @@
       "degree_institution": "Victoria University of Wellington",
       "author_upload_identifier": "10.13140/RG.2.2.25945.08805",
       "current_numeric_state": "35_of_35_appendix_B_table_B9_pairs_reconstructed",
-      "current_source_state": "author_uploaded_full_text_available_but_stable_institutional_artifact_not_recovered",
+      "current_source_state": "stable_vuw_institutional_record_and_download_route_identified_but_exact_pdf_bytes_not_checksum_locked",
       "institutional_repository": {
         "name": "Te Herenga Waka—Victoria University of Wellington Open Access Repository",
         "base_url": "https://openaccess.wgtn.ac.nz/",
-        "exact_record_recovered": false,
-        "search_status": "repository_is_live_but_exact_hendriks_thesis_record_not_resolved"
+        "exact_record_recovered": true,
+        "record_url": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
+        "identifier": "10.26686/wgtn.17136800",
+        "download_url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
+        "search_status": "exact_hendriks_thesis_record_resolved_but_current_environment_receives_403_for_exact_pdf_download"
       },
+      "known_routes": [
+        {
+          "route": "VUW Open Access institutional record",
+          "url": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
+          "verified_metadata": "Awarded Research Masters Thesis; DOI 10.26686/wgtn.17136800; publisher and degree grantor Te Herenga Waka—Victoria University of Wellington; download advertised as 3.58 MB",
+          "exact_source_bytes_recovered": false
+        },
+        {
+          "route": "VUW Open Access ndownloader file route",
+          "url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
+          "verified_metadata": "Download target exposed by the institutional record",
+          "exact_source_bytes_recovered": false,
+          "current_environment_delivery_state": "403_forbidden_from_shell_and_failed_fetch_from_web_click"
+        },
+        {
+          "route": "author ResearchGate upload",
+          "url": "https://www.researchgate.net/publication/370843836_The_island_rule_and_its_application_to_multiple_plant_traits",
+          "verified_metadata": "Author-upload identifier 10.13140/RG.2.2.25945.08805",
+          "exact_source_bytes_recovered": false
+        }
+      ],
       "admission_gate": {
         "stable_source_bytes_recovered": false,
         "checksum_locked": false,
@@ -26,8 +50,8 @@
         "empirical_mainland_trait_reliability_identified": false,
         "formal_same_family_effect_admitted": false
       },
-      "next_action": "Recover a stable institutional or author-distributed artifact, checksum the exact bytes, then re-verify Appendix B Table B9 and Appendix A island assignments before changing provenance status. Keep EIV as sensitivity unless reliability is empirically identified.",
-      "claim_boundary": "The reconstructed OLS response shape is directional replication evidence. An author-upload transcription is not treated as a checksum-locked institutional source, and the EIV envelope is not an empirical reliability estimate."
+      "next_action": "Recover exact bytes from the resolved VUW institutional download route or another lawful author/institutional artifact, checksum the exact file, then re-verify Appendix B Table B9 and Appendix A island assignments before changing provenance status. Keep EIV as sensitivity unless reliability is empirically identified.",
+      "claim_boundary": "The reconstructed OLS response shape is directional replication evidence. The resolved VUW record improves route provenance, but a page-level record is not a checksum-locked source artifact, and the EIV envelope is not an empirical reliability estimate."
     },
     {
       "source_id": "hetherington_rauth_johnson_2020_136_pairs",

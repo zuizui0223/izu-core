@@ -207,15 +207,17 @@ formal effect admission.
 
 ### 2.6 Hendriks 2019 flower-area reconstruction
 
-The author-uploaded Hendriks MSc thesis exposes Appendix B Table B9. All 35
-island–mainland flower-area pairs were transcribed into a checked reconstruction.
-Appendix A species lists were used to assign the flower-area pairs to island
-groups, and the resulting counts were required to reproduce Table A14 exactly.
+The author-uploaded Hendriks MSc thesis exposes Appendix B Table B9, and the
+VUW Open Access record is now resolved at `10.26686/wgtn.17136800`. All 35
+island–mainland flower-area pairs were transcribed into a checked
+reconstruction. Appendix A species lists were used to assign the flower-area
+pairs to island groups, and the resulting counts were required to reproduce
+Table A14 exactly.
 
 We reproduce the thesis OLS anchor, bootstrap pairs, bootstrap Appendix-A island
 groups, perform leave-one-island deletion, and calculate standard-major-axis
-(SMA) sensitivity. Because the underlying source artifact is not checksum
-locked, this reconstruction cannot enter the formal effect registry.
+(SMA) sensitivity. Because the exact source bytes are still not checksum locked,
+this reconstruction cannot enter the formal effect registry.
 
 ### 2.7 Directional cross-system audit
 
@@ -483,8 +485,7 @@ rather than biological zeros.
 
 Source-locked public datasets retain their DOI/version/checksum information in
 the repository. Reconstructed Hendriks flower-area values are explicitly marked
-as a numerical reconstruction from a search-indexed author upload; the
-underlying source artifact remains un-checksummed and is not promoted to a
-formal effect row. Candidate sources enter formal synthesis only after their
-source-native values, sampling hierarchy and uncertainty pass the declared
-admission gates.
+as a numerical reconstruction with a resolved VUW Open Access record but without
+checksum-locked source bytes; the result is not promoted to a formal effect row.
+Candidate sources enter formal synthesis only after their source-native values,
+sampling hierarchy and uncertainty pass the declared admission gates.

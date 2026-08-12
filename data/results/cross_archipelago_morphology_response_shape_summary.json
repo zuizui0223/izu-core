@@ -23,7 +23,7 @@
     },
     {
       "system_id": "new_zealand_hendriks_2019",
-      "source_state": "complete_numeric_reconstruction_and_island_group_mapping_from_search_indexed_author_upload",
+      "source_state": "complete_numeric_reconstruction_and_island_group_mapping_from_author_upload_plus_stable_institutional_record_identified_but_pdf_bytes_unlocked",
       "trait_definition": "flower area",
       "n_pairs": 35,
       "n_island_groups": 9,

@@ -8,11 +8,26 @@
   "institution": "Victoria University of Wellington",
   "author_upload_identifier": "10.13140/RG.2.2.25945.08805",
   "author_upload_page": "https://www.researchgate.net/publication/370843836_The_island_rule_and_its_application_to_multiple_plant_traits",
+  "institutional_record_recovered": true,
+  "institutional_identifier": "10.26686/wgtn.17136800",
+  "institutional_record_page": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
+  "institutional_record_publisher": "Te Herenga Waka—Victoria University of Wellington",
+  "institutional_download_url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
+  "institutional_download_route_state": "stable_record_and_file_route_identified_but_exact_pdf_bytes_not_delivered_in_current_environment",
+  "institutional_record_support": {
+    "download_label": "Download (3.58 MB)",
+    "posted_on": "2021-12-07 17:11",
+    "degree_grantor": "Te Herenga Waka—Victoria University of Wellington",
+    "degree_name": "Master of Science",
+    "school": "School of Biological Sciences",
+    "advisor": "Burns, Kevin",
+    "rights_license": "Author Retains Copyright"
+  },
   "source_table": "Appendix B Table B9: Flower area dataset measurements and measurement references",
   "source_reported_pair_count": 35,
   "reconstructed_numeric_pair_count": 35,
   "reconstruction_scope": "Only island species, island flower area, mainland relative, and mainland flower area were transcribed. Measurement-reference columns were intentionally not copied into the reconstructed numeric table.",
-  "retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_search_indexed_author_upload",
+  "retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_author_upload_plus_stable_institutional_record_identified_but_pdf_bytes_unlocked",
   "raw_pdf_artifact_recovered": false,
   "raw_pdf_checksum_locked": false,
   "stable_institutional_download_recovered": false,
@@ -52,6 +67,6 @@
     "model_2_p": 0.0000088,
     "figure_2_3_reported_correlation": 0.66
   },
-  "admission_boundary": "The 35 displayed numeric pairs and their Appendix-A island-group assignments can be used for a transparent reconstruction and island-cluster audit, but the reconstruction is not treated as a checksum-locked primary source. It must not enter the formal cross-system effect registry until a stable lawful source artifact is recovered or independently verified and measurement-error sensitivity is resolved.",
-  "next_gate": "Recover a stable institutional or author-distributed PDF/data artifact; verify all 35 Table B9 values and Appendix-A island assignments against it; then rerun the checked OLS, island-cluster, and errors-in-variables audits."
+  "admission_boundary": "The 35 displayed numeric pairs and their Appendix-A island-group assignments can be used for a transparent reconstruction and island-cluster audit, and a stable Victoria University of Wellington repository record has been identified. However, the exact PDF/data bytes are not delivered and checksum locked in the current environment, so the reconstruction is not treated as a checksum-locked primary source. It must not enter the formal cross-system effect registry until the exact lawful source artifact is recovered and verified, and measurement-error sensitivity is resolved.",
+  "next_gate": "Recover the exact PDF bytes from the stable VUW Open Access route or another lawful author/institutional route, checksum them, verify all 35 Table B9 values and Appendix-A island assignments against those bytes, then rerun the checked OLS, island-cluster, and errors-in-variables audits."
 }
