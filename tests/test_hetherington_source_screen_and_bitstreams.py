@@ -18,6 +18,21 @@ def test_supplemental_a2_identity_table_does_not_become_numeric_table():
     assert result["numeric_flower_size_columns_found"] is False
 
 
+def test_supplemental_a2_skips_toc_mention_and_selects_real_table_header():
+    pages = [
+        "Table of contents Supplemental Table A.2 ................................ 74",
+        "Chapter text without table columns",
+        "Supplemental Table A.2 Table A.2 Island-mainland pairs of taxa are sorted by island family and genus.",
+        "Family Endemic Island Taxa Mainland Sister Taxa Data Source Reference California Channel Islands",
+        "Literature cited in Table A.2",
+    ]
+    result = audit_supplemental_a2(pages)
+    assert result["candidate_start_pages"] == [1, 3]
+    assert result["pdf_page_start"] == 3
+    assert result["pair_identity_table_verified"] is True
+    assert result["numeric_flower_size_columns_found"] is False
+
+
 def test_bitstream_inventory_excludes_readme_and_finds_explicit_data_attachment():
     lock = {
         "item_handle": "1807/96116",
