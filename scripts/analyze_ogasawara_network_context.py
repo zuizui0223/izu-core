@@ -96,7 +96,10 @@ def standardize_rows(record: Mapping[str, object]) -> tuple[list[dict[str, objec
         "interaction_count": choose_role(record, "interaction_count", required=True),
     }
     count_header = norm(columns["interaction_count"])
-    if not any(token in count_header for token in ("legitimate", "interaction", "visit")):
+    source_native_count_headers = {"n_int"}
+    if count_header not in source_native_count_headers and not any(
+        token in count_header for token in ("legitimate", "interaction", "visit")
+    ):
         raise ValueError(
             "interaction-count header is too generic for source-specific analysis; "
             f"resolved header={columns['interaction_count']!r}"
