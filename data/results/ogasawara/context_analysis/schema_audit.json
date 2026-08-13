@@ -25,14 +25,30 @@
         "N.Int"
       ],
       "role_matches": {
-        "island": ["Island"],
-        "site": ["Invasional Context"],
-        "season": ["Season"],
-        "habitat": ["Forest_Status"],
-        "anole_context": ["Anole"],
-        "plant": ["Plant_sp"],
-        "pollinator": ["Poll_sp"],
-        "interaction_count": ["N.Int"]
+        "island": [
+          "Island"
+        ],
+        "site": [
+          "Invasional Context"
+        ],
+        "season": [
+          "Season"
+        ],
+        "habitat": [
+          "Forest_Status"
+        ],
+        "anole_context": [
+          "Anole"
+        ],
+        "plant": [
+          "Plant_sp"
+        ],
+        "pollinator": [
+          "Poll_sp"
+        ],
+        "interaction_count": [
+          "N.Int"
+        ]
       },
       "long_network_candidate": true,
       "contextual_long_network_candidate": true,
