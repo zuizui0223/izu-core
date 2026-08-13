@@ -221,7 +221,9 @@ precision_recommendations.csv
 
 With no goal file, `precision_recommendations.csv` contains no invented target. The pilot summaries report the number of independent plants, the number of within-plant events/flowers, mean plant response, and between-plant SD/CV when at least two independent plants are available.
 
-### Step 2 — lock an absolute CI half-width
+### Step 2 — freeze, admit, then lock an absolute CI half-width
+
+Before confirmatory precision planning, freeze the complete raw field bundle and run the admission audit on the exact frozen pilot inputs. The admission artifact records SHA256 identities for the plant, SVD, and treatment files used to determine the pilot-dispersion gate.
 
 Copy `templates/effective_dependency_precision_goals_template.csv` and add a row only after deciding what precision is biologically useful. Available pilot metrics are:
 
@@ -243,15 +245,26 @@ notes
 
 Keep `status=draft` while the target is undecided. A draft row generates **no sample-size recommendation**.
 
-Only after the target is fixed, set `status=locked`, then rerun:
+Only after the target is fixed, set `status=locked`, then rerun with the frozen bundle and matching admission artifact:
 
 ```bash
 python scripts/plan_effective_dependency_pilot_precision.py \
   --svd field_single_visit_pollen_deposition.csv \
   --treatments field_pollination_treatments.csv \
   --goals effective_dependency_precision_goals.csv \
+  --freeze-manifest effective_dependency_raw_bundle.freeze.json \
+  --admission effective_dependency_admission.json \
   --output-dir dependency_pilot_precision
 ```
+
+Locked-goal planning is rejected unless all of the following are true:
+
+- the freeze manifest declares the complete six-channel raw field bundle;
+- current SVD and treatment bytes match the SHA256 values in that frozen bundle;
+- the admission artifact fingerprints the same current SVD and treatment bytes;
+- every population referenced by a locked goal has `pilot_dispersion_gate_pass=true`.
+
+This prevents a stale admission result or post-freeze edited pilot file from being used to justify confirmatory replication. Draft goals and pilot dispersion summaries remain available without these confirmatory-planning artifacts.
 
 The current calculator uses the normal-approximation planning identity
 
@@ -264,8 +277,10 @@ for the number of independent plants. It is deliberately a **first planning diag
 The scientific order is therefore:
 
 ```text
-pilot -> estimate plant-level dispersion -> lock biologically meaningful precision
-      -> calculate approximate independent-plant n -> simulate/check final hierarchical design
+raw bundle freeze -> linkage/QC -> admission audit -> pilot plant-level dispersion
+                  -> lock biologically meaningful precision
+                  -> calculate approximate independent-plant n
+                  -> simulate/check final hierarchical design
 ```
 
 not:
