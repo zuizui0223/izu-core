@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0",
-  "updated_on": "2026-08-12",
-  "purpose": "Track provenance recovery for independent island-mainland floral morphology systems without promoting abstract-level, non-floral, or unverified transcriptions to formal cross-system floral effects.",
+  "schema_version": "1.1",
+  "updated_on": "2026-08-13",
+  "purpose": "Track provenance recovery for independent island-mainland floral morphology systems without promoting abstract-level, non-floral, pair-identity-only, or measurement-consistency-only evidence to formal cross-system floral effects.",
   "sources": [
     {
       "source_id": "hendriks_2019_flower_area",
@@ -10,48 +10,50 @@
       "year": 2019,
       "degree_institution": "Victoria University of Wellington",
       "author_upload_identifier": "10.13140/RG.2.2.25945.08805",
-      "current_numeric_state": "35_of_35_appendix_B_table_B9_pairs_reconstructed",
-      "current_source_state": "stable_vuw_institutional_record_and_download_route_identified_but_exact_pdf_bytes_not_checksum_locked",
+      "current_numeric_state": "35_of_35_appendix_B_table_B9_pairs_reconstructed_and_reverified",
+      "current_source_state": "exact_vuw_institutional_pdf_checksum_locked_and_strict_reverification_complete",
       "institutional_repository": {
         "name": "Te Herenga Waka—Victoria University of Wellington Open Access Repository",
         "base_url": "https://openaccess.wgtn.ac.nz/",
         "exact_record_recovered": true,
         "record_url": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
         "identifier": "10.26686/wgtn.17136800",
+        "figshare_article_id": 17136800,
+        "file_id": 31690700,
         "download_url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
-        "search_status": "exact_hendriks_thesis_record_resolved_but_current_environment_receives_403_for_exact_pdf_download"
+        "pdf_name": "thesis_access.pdf",
+        "n_bytes": 3758444,
+        "sha256": "4abbe2b1c4b7b1a809df0127e66184385425919a45043260cd2c51a45df37c42",
+        "md5": "9d66f35e04e3058364237ede2f84ca1d",
+        "search_status": "exact_institutional_record_and_pdf_bytes_recovered_via_public_figshare_api"
       },
       "known_routes": [
         {
-          "route": "VUW Open Access institutional record",
+          "route": "VUW Open Access institutional record / public Figshare API",
           "url": "https://openaccess.wgtn.ac.nz/articles/thesis/The_island_rule_and_its_application_to_multiple_plant_traits/17136800",
-          "verified_metadata": "Awarded Research Masters Thesis; DOI 10.26686/wgtn.17136800; publisher and degree grantor Te Herenga Waka—Victoria University of Wellington; download advertised as 3.58 MB",
-          "exact_source_bytes_recovered": false
-        },
-        {
-          "route": "VUW Open Access ndownloader file route",
-          "url": "https://openaccess.wgtn.ac.nz/ndownloader/files/31690700",
-          "verified_metadata": "Download target exposed by the institutional record",
-          "exact_source_bytes_recovered": false,
-          "current_environment_delivery_state": "403_forbidden_from_shell_and_failed_fetch_from_web_click"
+          "verified_metadata": "DOI 10.26686/wgtn.17136800; Te Herenga Waka—Victoria University of Wellington; exact file 31690700",
+          "exact_source_bytes_recovered": true,
+          "checksum_locked": true
         },
         {
           "route": "author ResearchGate upload",
           "url": "https://www.researchgate.net/publication/370843836_The_island_rule_and_its_application_to_multiple_plant_traits",
           "verified_metadata": "Author-upload identifier 10.13140/RG.2.2.25945.08805",
-          "exact_source_bytes_recovered": false
+          "exact_source_bytes_recovered": false,
+          "role": "secondary author-distributed route no longer needed for provenance completion"
         }
       ],
       "admission_gate": {
-        "stable_source_bytes_recovered": false,
-        "checksum_locked": false,
-        "all_35_pairs_verified_against_locked_bytes": false,
-        "island_assignments_verified_against_locked_bytes": false,
+        "stable_source_bytes_recovered": true,
+        "checksum_locked": true,
+        "all_35_pairs_verified_against_locked_bytes": true,
+        "island_assignments_verified_against_locked_bytes": true,
+        "author_ols_anchor_reproduced": true,
         "empirical_mainland_trait_reliability_identified": false,
         "formal_same_family_effect_admitted": false
       },
-      "next_action": "Recover exact bytes from the resolved VUW institutional download route or another lawful author/institutional artifact, checksum the exact file, then re-verify Appendix B Table B9 and Appendix A island assignments before changing provenance status. Keep EIV as sensitivity unless reliability is empirically identified.",
-      "claim_boundary": "The reconstructed OLS response shape is directional replication evidence. The resolved VUW record improves route provenance, but a page-level record is not a checksum-locked source artifact, and the EIV envelope is not an empirical reliability estimate."
+      "next_action": "Keep provenance closed as complete. Do not reopen it to solve EIV. Hendriks formal effect admission remains blocked by empirical predictor reliability and the symmetric-axis/isometry sensitivity boundary.",
+      "claim_boundary": "The exact institutional PDF now supports checksum-locked provenance and strict transcription verification. This repairs provenance only; it does not identify measurement reliability, resolve EIV, or by itself create a formally model-eligible effect."
     },
     {
       "source_id": "hetherington_rauth_johnson_2020_136_pairs",
@@ -62,34 +64,73 @@
       "thesis_year": 2019,
       "thesis_institution": "University of Toronto",
       "theses_canada_oclc": "1335043730",
-      "current_numeric_state": "no_source_native_pair_effect_admitted",
-      "current_source_state": "theses_canada_confirms_full_text_routes_but_exact_repository_or_pdf_target_not_resolved",
+      "current_numeric_state": "source_native_pair_identity_table_verified_but_numeric_136_pair_flower_measurement_table_unresolved",
+      "current_source_state": "exact_utoronto_full_thesis_checksum_locked_and_public_source_routes_under_numeric_table_audit",
+      "institutional_repository": {
+        "name": "University of Toronto Scholaris",
+        "handle": "1807/96116",
+        "item_uuid": "4fe4945e-d284-4b0d-b306-97c2a02d51ad",
+        "original_bundle_uuid": "e7584ca9-97fb-47bf-a6b1-e8aeee5e0ba9",
+        "full_thesis_bitstream_uuid": "fa56a964-8e77-47bb-9d42-476b1e2ed97e",
+        "full_thesis_name": "Hetherington-Rauth_Molly_C_201906_MSc_thesis.pdf",
+        "full_thesis_n_bytes": 175645192,
+        "full_thesis_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+        "expanded_abstract_name": "Hetherington-Rauth_Molly_C_201906_MSc_thesis_expandedabstract.pdf",
+        "expanded_abstract_n_bytes": 50571,
+        "full_thesis_selected_by_exact_filename_semantics": true
+      },
+      "source_native_thesis_findings": {
+        "supplemental_table_a2_found": true,
+        "supplemental_table_a2_role": "island-mainland pair identity and provenance table",
+        "verified_a2_columns": [
+          "Family",
+          "Endemic Island Taxa",
+          "Mainland Sister Taxa",
+          "Data Source",
+          "Reference"
+        ],
+        "numeric_flower_size_or_log_ratio_column_verified_in_a2": false,
+        "appendix_a1_measurement_consistency_found": true,
+        "appendix_a1_role": "external repeated-measurement consistency evidence; not the 136-pair numeric contrast table"
+      },
       "known_routes": [
         {
           "route": "Theses Canada catalogue record",
           "url": "https://library-archives.canada.ca/eng/services/services-libraries/theses/Pages/item.aspx?idNumber=1335043730",
-          "verified_metadata": "MSc University of Toronto 2019; 136 island-mainland sister-taxon pairs across seven islands; catalogue advertises LAC, TSpace and Handle full-text links",
-          "exact_source_bytes_recovered": false
+          "verified_metadata": "MSc University of Toronto 2019; 136 island-mainland sister-taxon pairs across seven Pacific island systems; catalogue advertises full-text routes",
+          "exact_source_bytes_recovered": false,
+          "role": "discovery metadata"
+        },
+        {
+          "route": "UofT Scholaris public DSpace API",
+          "url": "https://utoronto.scholaris.ca/",
+          "verified_metadata": "Exact item, ORIGINAL bundle, expanded abstract and full thesis bitstreams resolved",
+          "exact_source_bytes_recovered": true,
+          "checksum_locked": true,
+          "numeric_pair_table_recovered": false,
+          "bitstream_inventory_state": "workflow_audit_active"
         },
         {
           "route": "publisher article",
           "url": "https://doi.org/10.1086/709018",
-          "verified_metadata": "556 species and 136 phylogenetically independent island-mainland contrasts; overall mean direction is heterogeneous among islands and families",
-          "exact_pair_table_recovered": false
+          "verified_metadata": "556 species and 136 phylogenetically independent island-mainland contrasts; context-dependent flower-size evolution among islands and families",
+          "publisher_indexed_numeric_supplement_found": false,
+          "route_state": "article_index_found_no_separate_numeric_supplement_exposed_by_current_primary-source_search"
         }
       ],
       "admission_gate": {
-        "thesis_or_supplement_bytes_recovered": false,
-        "checksum_locked": false,
-        "source_native_pair_table_recovered": false,
+        "thesis_or_supplement_bytes_recovered": true,
+        "checksum_locked": true,
+        "source_native_pair_identity_table_recovered": true,
+        "source_native_numeric_pair_table_recovered": false,
         "island_and_mainland_trait_columns_identified": false,
-        "trait_definition_and_units_identified": false,
-        "pair_independence_and_island_grouping_verified": false,
+        "trait_definition_and_units_identified_for_numeric_136_pair_table": false,
+        "pair_independence_and_island_grouping_verified_for_numeric_effect": false,
         "uncertainty_or_raw_values_available": false,
         "formal_effect_admitted": false
       },
-      "next_action": "Resolve one advertised full-text route to concrete bytes, checksum it, then inspect appendices/data availability for the source-native 136-pair table. Do not reconstruct a slope or effect size from the thesis/article abstract.",
-      "claim_boundary": "Abstract and catalogue metadata establish the study design and qualitative heterogeneity only. They do not supply a source-native pair table, a compatible response-shape slope, or uncertainty suitable for the cross-system registry."
+      "next_action": "Complete the exact UofT ORIGINAL-bundle bitstream inventory and exhaust lawful publisher/author/public-repository routes for a source-native numeric 136-pair floral table. If none is recoverable, record an explicit source-availability/impossibility result rather than reconstructing pair values from prose or figures.",
+      "claim_boundary": "The checksum-locked thesis establishes the study provenance and verifies source-native pair identities, but pair identities are not numeric floral contrasts. No compatible third-system slope or uncertainty is admitted until source-native numeric measurements are recovered."
     },
     {
       "source_id": "song_2026_eastern_china_functional_traits",
