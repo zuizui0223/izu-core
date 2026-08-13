@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Audit the Hendriks (2019) flower-area island/mainland reconstruction.
 
-The checked numeric table is reconstructed from the author-uploaded thesis as
-indexed by public search, not from a checksum-locked PDF.  The separate island
-mapping is reconstructed from Appendix-A island checklists and checked against
-Table A14's flower-area frequency vector.  This script reproduces the reported
-OLS anchors and stress-tests the slope-to-isometry claim at both pair and island
-cluster levels; it deliberately does not emit a formally model-eligible effect.
+The checked numeric table is now tied to a checksum-locked institutional PDF.
+The separate island mapping is reconstructed from Appendix-A island checklists
+and checked against Table A14's flower-area frequency vector. This script
+reproduces the reported OLS anchors and stress-tests the slope-to-isometry claim
+at both pair and island-cluster levels; provenance completion does not by itself
+emit a formally model-eligible effect because measurement-error and symmetric-
+axis uncertainty remain separate gates.
 """
 from __future__ import annotations
 
@@ -413,11 +414,10 @@ def analyze(
         "formal_cross_system_fit_ready": False,
         "effect_registry_eligible": False,
         "blocking_gates": [
-            "underlying PDF/data artifact not checksum locked",
             "mainland flower-area measurement reliability is not empirically identified",
             "SMA island-cluster bootstrap interval includes the line-of-isometry slope of 1"
         ],
-        "claim_boundary": "This reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS, including island-cluster resampling. It does not identify pollinator mechanism, does not resolve errors in variables, and is not admitted to the formal cross-system fit."
+        "claim_boundary": "The checksum-locked reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS, including island-cluster resampling. Provenance is complete, but this does not identify pollinator mechanism, does not resolve errors in variables, and is not admitted to the formal cross-system fit."
     }
 
 
@@ -438,8 +438,15 @@ def main() -> None:
     source = json.loads(args.source.read_text(encoding="utf-8"))
     if source.get("reconstructed_numeric_pair_count") != EXPECTED_N:
         raise ValueError("source provenance does not declare 35 reconstructed pairs")
-    if source.get("raw_pdf_checksum_locked") is not False:
-        raise ValueError("unexpected source-lock state")
+    if source.get("raw_pdf_checksum_locked") is not True:
+        raise ValueError("Hendriks provenance requires checksum-locked institutional PDF bytes")
+    strict = source.get("strict_locked_pdf_reverification") or {}
+    if strict.get("provenance_gate_opened") is not True:
+        raise ValueError("Hendriks strict locked-PDF reverification is incomplete")
+    if strict.get("table_b9_pairs_verified") != EXPECTED_N:
+        raise ValueError("Hendriks Table B9 locked-PDF reverification is incomplete")
+    if strict.get("appendix_a_island_assignments_verified") != EXPECTED_N:
+        raise ValueError("Hendriks Appendix-A locked-PDF reverification is incomplete")
     mapping_state = source.get("island_group_mapping") or {}
     if mapping_state.get("frequency_vector_matches_table_a14") is not True:
         raise ValueError("source provenance has not validated the Appendix-A mapping")
