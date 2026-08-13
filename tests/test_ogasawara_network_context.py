@@ -53,7 +53,10 @@ def test_source_resolved_rows_and_network_metrics(tmp_path: Path):
 
 def test_source_native_n_int_header_is_accepted(tmp_path: Path):
     table = tmp_path / "network.csv"
-    table.write_text("island,plant,pollinator,N.Int\nI,P,B,3\n", encoding="utf-8")
+    table.write_text(
+        "island,plant species,pollinator species,N.Int\nI,P,B,3\n",
+        encoding="utf-8",
+    )
     record = candidate(table)
     record["role_matches"]["interaction_count"] = ["N.Int"]
     rows, columns = MODULE.standardize_rows(record)
