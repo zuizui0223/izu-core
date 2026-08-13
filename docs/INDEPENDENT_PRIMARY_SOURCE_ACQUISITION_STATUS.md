@@ -21,7 +21,11 @@ Source discovery has advanced, but source delivery and numeric admission remain 
 - *Hosta longipes*: the publisher confirms all five supporting files, including `psbi12002-sup-0001-si.doc` as the population-locality key, plus photograph, pollinator-sample, morphology-dissimilarity and pollinator-identity appendices. The binaries are not recovered from the current lawful execution route.
 - *Weigela coraeensis*: the Springer/CiNii article route is confirmed and an external listing identifies a matching `Supplementary material 1`, but that binary is not recovered and its role is not inferred. A same-taxon Honshu–Izu population-genetic study (DOI `10.1111/j.1365-2699.2011.02634.x`) is retained only as a possible future geography cross-check after population identity is established; it cannot substitute for the 2010 morphology source.
 
-Thus `identified route`, `binary recovered`, and `numeric gate satisfied` are three different states. No source is promoted merely because a publisher or external index exposes a filename, record, or supplement label.
+The latest automated OpenAlex route audit (workflow run `31685365432`) independently classified all three priority sources as closed/non-OA: each has one publisher DOI location, **0 OA PDF locations**, **0 OA repository landing locations**, and `access_class=library_or_author`. The route artifact is recorded in `data/design/independent_primary_source_access_exhaustion.json` with digest `sha256:da67dc8598da45b228a6f05d96fee12e0b6119915ac263fb56ada08988146b00`.
+
+This is a **public-route exhaustion result, not a data-nonexistence result**. It means the current automated OA/repository search adds no lawful downloadable source beyond the already identified publisher/support routes. Issue #92 remains open and advances if institutional-library access, an author-supplied copy, another lawful repository copy, or a user-supplied source exposes the required population-level measurements.
+
+Thus `identified route`, `binary recovered`, `numeric gate satisfied`, and `public route exhausted` are different states. No source is promoted merely because a publisher, external index or access aggregator exposes a filename, record or supplement label.
 
 ## Why publisher supplement listings do not open the holdout
 
@@ -103,19 +107,15 @@ Together these sources strengthen the heterogeneous-response reading. They do no
 python scripts/audit_independent_source_acquisition.py
 ```
 
-Output:
-
-```text
-artifacts/independent_source_acquisition/summary.json
-```
-
-The audit reads:
+Outputs/state inputs include:
 
 - `data/design/independent_primary_source_acquisition.json`;
-- `data/predictive_meta/primary_source_native_evidence.csv`.
+- `data/design/independent_primary_source_access_exhaustion.json`;
+- `data/predictive_meta/primary_source_native_evidence.csv`;
+- `artifacts/independent_source_acquisition/summary.json`.
 
-It fails if publisher metadata is promoted to a numeric result, if a shared-step claim lacks exact geographic mapping, if a priority DOI/source is missing from the native registry, or if stored admission status disagrees with the required gates.
+CI fails if publisher/access metadata is promoted to a numeric result, if a shared-step claim lacks exact geographic mapping, if a priority DOI/source is missing from the native registry, if source-route exhaustion is treated as source recovery, or if stored admission status disagrees with the required gates.
 
 ## Claim boundary
 
-The present evidence supports B-grade response-shape constraints only. It does not support effect sizes, equivalence/no-change claims, effective-dependency classes, an empirical dependency × FDQ coefficient, or a cross-lineage causal breakpoint.
+The present evidence supports B-grade response-shape constraints only. It does not support effect sizes, equivalence/no-change claims, effective-dependency classes, an empirical dependency × FDQ coefficient, or a cross-lineage causal breakpoint. Current public-route exhaustion is an acquisition state, not evidence that author-held or library-accessible source data never existed.
