@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "status": "implementation_ready_field_data_missing",
   "goal": "Measure effective pollinator dependency directly in the same tagged Izu populations rather than inferring dependency from floral form, family or realized interaction breadth.",
   "required_linked_channels": [
@@ -12,6 +12,9 @@
     "bagged_autonomous reproductive treatment",
     "supplemental_outcross reproductive treatment",
     "fruit outcome linkage"
+  ],
+  "optional_calibration_channels": [
+    "blinded technical recounts of the same preserved SVD sample linked by svd_id"
   ],
   "effective_service_definition": "observed visit bouts per monitored flower-hour multiplied by background-adjusted mean single-visit conspecific pollen deposition for the same visitor group and population",
   "core_reproductive_ratios": [
@@ -28,17 +31,38 @@
     },
     {
       "state": "pilot_dispersion_estimable",
-      "next_gate": "replace synthetic reliability, variance, coverage and loss assumptions, then lock a biologically meaningful absolute CI half-width"
+      "next_gate": "replace synthetic variance, coverage and loss assumptions with pilot summaries; separately identify measurement reliability/error rather than relabelling biological repeats; then lock a biologically meaningful absolute CI half-width"
     },
     {
       "state": "precision_goal_locked",
-      "next_gate": "calculate approximate independent-plant replication from pilot between-plant SD"
+      "next_gate": "calculate approximate independent-plant replication from pilot between-plant SD only after frozen-byte and admission guards pass"
     },
     {
       "state": "confirmatory_replication_proposed",
       "next_gate": "stress-test site/time replication, dependency support, expected loss, visitor availability and hierarchical model by simulation before final field lock"
     }
   ],
+  "pilot_assumption_audit": {
+    "cli": "scripts/audit_effective_dependency_pilot_assumptions.py",
+    "empirically_summarized": [
+      "registered-plant panel coverage",
+      "core-treatment terminal coverage",
+      "lost/damaged fraction",
+      "pending fraction",
+      "repeated-SVD structure"
+    ],
+    "dependency_reliability_status": "not_identified_from_biological_repeats_alone",
+    "automatic_design_simulation_injection": false
+  },
+  "measurement_calibration": {
+    "template": "templates/field_svd_recount_calibration_template.csv",
+    "cli": "scripts/audit_effective_dependency_svd_recount_calibration.py",
+    "freeze_channel": "calibration",
+    "estimand": "technical repeatability of conspecific pollen counting on the same preserved SVD sample",
+    "minimum_for_repeatability_estimation": "at least three distinct SVD samples with two or more independent recounts each",
+    "direct_dependency_reliability_identified": false,
+    "boundary": "Technical recount repeatability informs only the pollen-count measurement component. It must not be substituted directly for dependency_reliability in the dependency x FDQ design simulation."
+  },
   "precision_planning": {
     "independent_unit": "plant",
     "within_plant_subsamples": [
@@ -53,6 +77,7 @@
     "precision_goal_template": "templates/effective_dependency_precision_goals_template.csv",
     "pilot_cli": "scripts/plan_effective_dependency_pilot_precision.py",
     "draft_goal_generates_sample_size": false,
+    "locked_goal_requires_frozen_matching_bytes_and_passed_admission": true,
     "normal_approximation_is_final_power_analysis": false
   },
   "focal_anchor": "Campanula microdonta",
@@ -96,5 +121,5 @@
     "field_pilot": 91,
     "independent_primary_source_recovery": 92
   },
-  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. It does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, or a causal Oshima-Toshima boundary effect. The prospective design simulation uses synthetic dependency and effect assumptions only."
+  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. Technical recounts can estimate pollen-count repeatability only. The panel does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, a direct-dependency reliability ratio, or a causal Oshima-Toshima boundary effect. The prospective design simulation uses synthetic dependency and effect assumptions only."
 }
