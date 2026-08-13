@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.2",
-  "updated_on": "2026-08-12",
+  "schema_version": "1.3",
+  "updated_on": "2026-08-13",
   "purpose": "Canonical blocking-task ledger for PR #90. These tasks are deliberately separated so provenance, measurement-error identifiability, third-system replication, and Izu field causality cannot substitute for one another.",
   "tasks": [
     {
@@ -40,7 +40,7 @@
     {
       "task_id": "third_floral_system",
       "issue": 95,
-      "state": "exact_repository_item_and_original_bundle_resolved_pdf_selection_in_progress",
+      "state": "exact_thesis_checksum_locked_pair_identity_table_found_numeric_contrast_table_unresolved",
       "progress": {
         "theses_canada_record_resolved": true,
         "advertised_lac_tspace_handle_routes_known": true,
@@ -49,16 +49,20 @@
         "exact_item_handle": "1807/96116",
         "exact_item_uuid": "4fe4945e-d284-4b0d-b306-97c2a02d51ad",
         "original_bundle_resolved": true,
-        "pdf_bitstream_candidates_found": 2,
-        "exact_thesis_bytes_recovered": false,
-        "source_native_136_pair_table_recovered": false
+        "full_thesis_bitstream_selected_over_expanded_abstract": true,
+        "exact_thesis_bytes_recovered": true,
+        "thesis_n_bytes": 175645192,
+        "thesis_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+        "supplemental_pair_identity_table_found": true,
+        "source_native_136_pair_numeric_flower_size_table_recovered": false,
+        "third_response_shape_admitted": false
       },
-      "goal": "Recover the source-native 136-pair Pacific floral table and determine whether a compatible third response-shape system can be reproduced.",
+      "goal": "Recover the source-native 136-pair Pacific floral numeric contrast table, or establish reproducibly that the exact thesis/public source corpus exposes pair identities without the required numeric source table.",
       "opens": ["third_system_directional_replication_if_source_supports_it"],
       "does_not_open": ["formal_meta_analysis_by_itself"],
       "completion_requires": [
         "source_bytes_locked",
-        "source_native_pair_table_recovered_or_explicitly_absent",
+        "source_native_pair_numeric_table_recovered_or_explicitly_absent_after_public_route_audit",
         "trait_definition_and_units_verified",
         "pair_and_island_grouping_verified",
         "response_shape_reproduced_or_impossibility_documented"
@@ -67,17 +71,26 @@
     {
       "task_id": "empirical_reliability",
       "issue": 96,
-      "state": "current_source_unidentifiable_external_validation_search_open",
+      "state": "source_locked_external_repeat_measurement_evidence_recovered_formal_reliability_still_unidentified",
       "progress": {
         "classical_eiv_envelope_complete": true,
         "current_source_native_unidentifiability_checked": true,
         "published_30_species_validation_statement_identified": true,
         "paired_30_species_validation_values_recovered": false,
-        "external_reliability_source_recovered": false
+        "external_repeat_measurement_source_recovered": true,
+        "external_repeat_measurement_source": "Hetherington-Rauth 2019 thesis Appendix A.1",
+        "external_source_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+        "same_individual_repeat_r_squared": [0.94, 0.88, 0.93],
+        "same_individual_repeat_slopes": [0.97, 0.82, 0.88],
+        "equal_error_sqrt_r2_proxies": [0.9695359714832658, 0.938083151964686, 0.9643650760992956],
+        "all_equal_error_proxies_exceed_southwest_pacific_cluster_threshold": true,
+        "equal_error_proxy_is_formally_admissible_reliability": false,
+        "empirical_reliability_coefficient_identified": false,
+        "external_validation_artifact": "data/results/cross_archipelago_morphology/hetherington_2019_measurement_consistency_validation.json"
       },
       "goal": "Identify a defensible empirical floral measurement reliability source, or prove that reliability remains unidentifiable from available source-native materials.",
       "opens": ["empirical_EIV_admission_only_if_supported"],
-      "does_not_open": ["assumed_reliability_substitution"],
+      "does_not_open": ["assumed_reliability_substitution", "sqrt_r_squared_substitution_without_equal_error_validation"],
       "completion_requires_one_of": [
         "source_locked_reliability_with_uncertainty_propagated",
         "machine_readable_empirical_reliability_unidentifiable_result_after_external_validation_search"
@@ -113,10 +126,11 @@
       "more_raw_island_rows_without_independent_system_replication",
       "provenance_repair_alone",
       "sensitivity_assumptions_treated_as_observed_reliability",
-      "abstract_level_effect_reconstruction"
+      "abstract_level_effect_reconstruction",
+      "external_repeatability_R2_treated_as_ICC_without_identifying_assumptions"
     ]
   },
   "execution_priority": [96, 95, 91],
-  "priority_rationale": "Hendriks provenance is complete and no longer consumes source-recovery effort, but its EIV boundary remains. Reliability is now the nearest formal-admission blocker. The 136-pair system has its exact UofT item and ORIGINAL bundle resolved and is at PDF-bitstream disambiguation. Issue #91 remains the decisive new empirical mechanism gate and proceeds as field data become available.",
-  "claim_boundary": "This ledger tracks what must be completed before evidence is promoted. Completing Hendriks provenance does not itself change measurement-reliability status, causal claims, or formal cross-system model admission."
+  "priority_rationale": "Hendriks provenance is complete. Reliability now has a source-locked external repeated-measurement validation, but it is not yet the reliability-ratio estimand required by the EIV correction, so #96 remains the nearest formal-admission blocker. The 136-pair UofT thesis is now checksum locked and exposes pair identities; #95 is narrowed to recovery or explicit absence of the numeric contrast table. Issue #91 remains the decisive new empirical mechanism gate and proceeds as field data become available.",
+  "claim_boundary": "This ledger tracks what must be completed before evidence is promoted. High repeated-measurement R-squared values are genuine empirical consistency evidence but are not silently converted into a reliability coefficient; completing Hendriks provenance likewise does not itself change EIV or causal admission."
 }
