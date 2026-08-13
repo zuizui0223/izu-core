@@ -5,12 +5,15 @@ on:
   pull_request:
     paths:
       - "data/design/cross_archipelago_morphology_source_recovery.json"
+      - "data/results/cross_archipelago_morphology/hetherington_2019_measurement_consistency_validation.json"
       - "scripts/audit_cross_archipelago_morphology_source_routes.py"
       - "scripts/acquire_hetherington_utoronto_dspace.py"
       - "scripts/audit_hetherington_dspace_bitstreams.py"
       - "scripts/screen_hetherington_thesis_source_table.py"
       - "tests/test_cross_archipelago_morphology_source_routes.py"
       - "tests/test_acquire_hetherington_utoronto_dspace.py"
+      - "tests/test_hetherington_source_screen_and_bitstreams.py"
+      - "tests/test_hetherington_measurement_consistency_validation.py"
       - ".github/workflows/cross-archipelago-morphology-source-routes.yml"
 
 jobs:
@@ -23,11 +26,13 @@ jobs:
           python-version: "3.11"
       - name: Install test and PDF dependencies
         run: python -m pip install pytest pypdf
-      - name: Test source-route and DSpace acquisition contracts
+      - name: Test source-route, DSpace, thesis-screen, and reliability contracts
         run: >-
           python -m pytest -q
           tests/test_cross_archipelago_morphology_source_routes.py
           tests/test_acquire_hetherington_utoronto_dspace.py
+          tests/test_hetherington_source_screen_and_bitstreams.py
+          tests/test_hetherington_measurement_consistency_validation.py
       - name: Probe known lawful routes
         run: python scripts/audit_cross_archipelago_morphology_source_routes.py
       - name: Acquire exact UofT thesis through public DSpace API
