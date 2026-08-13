@@ -11,10 +11,7 @@
       "n_pairs": 88,
       "n_island_groups": 10,
       "direct_ols_slope": 0.8490052881072875,
-      "island_cluster_interval": [
-        0.6916442921593313,
-        0.9258005353502381
-      ],
+      "island_cluster_interval": [0.6916442921593313, 0.9258005353502381],
       "interval_excludes_isometry_below_one": true,
       "measurement_error_reliability_empirically_estimated": false,
       "point_below_isometry_reliability_threshold": 0.8490052881072875,
@@ -28,18 +25,12 @@
       "n_pairs": 35,
       "n_island_groups": 9,
       "direct_ols_slope": 0.5833358843917842,
-      "island_cluster_interval": [
-        0.21278670541951528,
-        0.7784929080550151
-      ],
+      "island_cluster_interval": [0.21278670541951528, 0.7784929080550151],
       "interval_excludes_isometry_below_one": true,
       "measurement_error_reliability_empirically_estimated": false,
       "point_below_isometry_reliability_threshold": 0.5833358843917842,
       "cluster_interval_below_isometry_reliability_threshold": 0.7784929080550151,
-      "sma_island_cluster_interval": [
-        0.7296694231411485,
-        1.0731043040917998
-      ],
+      "sma_island_cluster_interval": [0.7296694231411485, 1.0731043040917998],
       "sma_interval_excludes_isometry": false,
       "formal_effect_registry_eligible": false
     }
@@ -52,10 +43,10 @@
   },
   "robustness_boundary": {
     "errors_in_variables_jointly_resolved": false,
-    "source_provenance_jointly_locked": false,
+    "source_provenance_jointly_locked": true,
     "trait_definitions_identical": false,
     "formal_same_family_meta_analysis_ready": false,
-    "reading": "The OLS directional recurrence survives island-cluster resampling, but neither source supplies an empirically identified mainland-trait reliability, Hendriks SMA uncertainty includes isometry, Hendriks source provenance is not checksum locked, and flower size versus flower area are not treated as identical raw effect scales."
+    "reading": "The OLS directional recurrence survives island-cluster resampling and both source artifacts are checksum locked, but neither source supplies an empirically identified mainland-trait reliability, Hendriks SMA uncertainty includes isometry, and flower size versus flower area are not treated as identical raw effect scales."
   },
   "effect_registry_eligible": false,
   "formal_cross_system_fit_ready": false,
