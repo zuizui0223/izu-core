@@ -11,7 +11,14 @@
       "directional_status": "active_B_grade",
       "directional_pattern": "smaller Izu corollas with a gradual mainland-distance decline; no reported scent difference",
       "shared_second_step_status": "does_not_demonstrate",
-      "access_status": "publisher_metadata_only",
+      "access_status": "publisher_article_route_and_external_supplement_listing_binary_unrecovered",
+      "access_audit": {
+        "checked_on": "2026-08-13",
+        "publisher_article_route_confirmed": true,
+        "external_listing_confirms_supplementary_material_1": true,
+        "supplement_binary_recovered": false,
+        "do_not_treat_as_source_recovered": true
+      },
       "numeric_effect_status": "blocked",
       "dependency_moderation_status": "blocked",
       "numeric_gate": {
@@ -28,10 +35,25 @@
         "effective_pollinator_dependency_resolved": false,
         "same_population_or_prespecified_transfer": false
       },
-      "supplements": [],
+      "supplements": [
+        {
+          "label": "Supplementary material 1",
+          "listing_status": "externally_listed_by_title_and_authors",
+          "binary_recovered": false,
+          "role": "unknown_until_binary_recovery",
+          "sufficient_for_numeric_gate": false
+        }
+      ],
+      "context_sources": [
+        {
+          "doi": "10.1111/j.1365-2699.2011.02634.x",
+          "role": "same-taxon Honshu-Izu population-genetic geography cross-check only",
+          "admission_use": "may cross-check population geography after source-population identity is demonstrated; may not substitute for the 2010 morphology source"
+        }
+      ],
       "issue_number": 92,
-      "next_action": "Recover a lawful full text or author manuscript, then transcribe the locality table, trait estimates, independent n and uncertainty before mapping any population to a regime.",
-      "claim_boundary": "The abstract supports a gradual source-native response shape only. It does not supply a numeric effect, exact island breakpoint, equivalence result or effective Bombus-dependency classification."
+      "next_action": "Recover a lawful full text or author manuscript and Supplementary material 1, checksum the recovered artifact, then transcribe locality labels, trait estimates, independent n and uncertainty. Use the 2012 population-genetic study only as an external geography cross-check after population identity is demonstrated.",
+      "claim_boundary": "The abstract supports a gradual source-native response shape only. The existence of a separately listed supplement and a same-taxon population-genetic study does not supply the missing morphology values, exact island breakpoint, equivalence result or effective Bombus-dependency classification."
     },
     {
       "source_id": "ligustrum_yamada_2014",
