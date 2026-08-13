@@ -47,7 +47,6 @@ def svd_rows():
 
 def treatment_rows():
     rows = []
-    # p1: 1/2 capsules; p2: 2/2 capsules.
     outcomes = {"p1": ("mature_fruit", "aborted"), "p2": ("mature_fruit", "mature_fruit")}
     for plant, plant_outcomes in outcomes.items():
         for index, outcome in enumerate(plant_outcomes, start=1):
@@ -71,6 +70,33 @@ def locked_goal():
         "status": "locked",
         "notes": "synthetic",
     }
+
+
+def _sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _write_freeze(path, svd, treatments):
+    path.write_text(json.dumps({
+        "status": "effective_dependency_raw_field_bundle_frozen",
+        "required_channels": ["plants", "effort", "visits", "svd", "treatments", "fruits"],
+        "channels": [
+            {"channel": "svd", "sha256": _sha(svd)},
+            {"channel": "treatments", "sha256": _sha(treatments)},
+        ],
+    }), encoding="utf-8")
+
+
+def _write_admission(path, svd, treatments, *, svd_sha=None, pass_gate=True):
+    path.write_text(json.dumps({
+        "schema_version": "effective_dependency_admission_v1",
+        "input_sha256": {
+            "plants": "synthetic-plants-sha",
+            "svd": svd_sha or _sha(svd),
+            "treatments": _sha(treatments),
+        },
+        "populations": [{"population_id": "pop-1", "pilot_dispersion_gate_pass": pass_gate}],
+    }), encoding="utf-8")
 
 
 def test_svd_pilot_summarizes_events_within_plant_before_between_plant_sd():
@@ -195,19 +221,9 @@ def test_locked_goal_rejects_bytes_changed_after_freeze(tmp_path):
     svd.write_text("original-svd\n", encoding="utf-8")
     treatments.write_text("treatments\n", encoding="utf-8")
     freeze = tmp_path / "freeze.json"
-    freeze.write_text(json.dumps({
-        "status": "effective_dependency_raw_field_bundle_frozen",
-        "required_channels": ["plants", "effort", "visits", "svd", "treatments", "fruits"],
-        "channels": [
-            {"channel": "svd", "sha256": hashlib.sha256(svd.read_bytes()).hexdigest()},
-            {"channel": "treatments", "sha256": hashlib.sha256(treatments.read_bytes()).hexdigest()},
-        ],
-    }), encoding="utf-8")
     admission = tmp_path / "admission.json"
-    admission.write_text(json.dumps({
-        "schema_version": "effective_dependency_admission_v1",
-        "populations": [{"population_id": "pop-1", "pilot_dispersion_gate_pass": True}],
-    }), encoding="utf-8")
+    _write_freeze(freeze, svd, treatments)
+    _write_admission(admission, svd, treatments)
     svd.write_text("changed-svd\n", encoding="utf-8")
     with pytest.raises(ValueError, match="svd bytes do not match"):
         validate_precision_inputs(
@@ -219,25 +235,34 @@ def test_locked_goal_rejects_bytes_changed_after_freeze(tmp_path):
         )
 
 
-def test_locked_goal_accepts_frozen_bytes_after_admission_pass(tmp_path):
+def test_locked_goal_rejects_stale_admission_even_when_freeze_matches(tmp_path):
     svd = tmp_path / "svd.csv"
     treatments = tmp_path / "treatments.csv"
     svd.write_text("svd\n", encoding="utf-8")
     treatments.write_text("treatments\n", encoding="utf-8")
     freeze = tmp_path / "freeze.json"
-    freeze.write_text(json.dumps({
-        "status": "effective_dependency_raw_field_bundle_frozen",
-        "required_channels": ["plants", "effort", "visits", "svd", "treatments", "fruits"],
-        "channels": [
-            {"channel": "svd", "sha256": hashlib.sha256(svd.read_bytes()).hexdigest()},
-            {"channel": "treatments", "sha256": hashlib.sha256(treatments.read_bytes()).hexdigest()},
-        ],
-    }), encoding="utf-8")
     admission = tmp_path / "admission.json"
-    admission.write_text(json.dumps({
-        "schema_version": "effective_dependency_admission_v1",
-        "populations": [{"population_id": "pop-1", "pilot_dispersion_gate_pass": True}],
-    }), encoding="utf-8")
+    _write_freeze(freeze, svd, treatments)
+    _write_admission(admission, svd, treatments, svd_sha="stale-admission-sha")
+    with pytest.raises(ValueError, match="admission artifact was not built from the current svd bytes"):
+        validate_precision_inputs(
+            goals=[locked_goal()],
+            svd_path=svd,
+            treatments_path=treatments,
+            freeze_manifest_path=freeze,
+            admission_path=admission,
+        )
+
+
+def test_locked_goal_accepts_frozen_bytes_after_matching_admission_pass(tmp_path):
+    svd = tmp_path / "svd.csv"
+    treatments = tmp_path / "treatments.csv"
+    svd.write_text("svd\n", encoding="utf-8")
+    treatments.write_text("treatments\n", encoding="utf-8")
+    freeze = tmp_path / "freeze.json"
+    admission = tmp_path / "admission.json"
+    _write_freeze(freeze, svd, treatments)
+    _write_admission(admission, svd, treatments)
     validate_precision_inputs(
         goals=[locked_goal()],
         svd_path=svd,
