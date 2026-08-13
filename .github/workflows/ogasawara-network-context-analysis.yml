@@ -54,9 +54,19 @@ jobs:
           schema = Path("artifacts/ogasawara_zenodo/schema_audit.json")
           analysis = Path("artifacts/ogasawara_context_analysis")
 
-          for old in out.iterdir():
-              if old.is_file():
-                  old.unlink()
+          owned_success = (
+              "analysis.json",
+              "island_metrics.csv",
+              "context_metrics.csv",
+              "island_pair_metrics.csv",
+              "shared_plant_pair_contrasts.csv",
+          )
+          core_success = (
+              "analysis.json",
+              "island_metrics.csv",
+              "context_metrics.csv",
+              "island_pair_metrics.csv",
+          )
 
           if acquisition.exists():
               source = json.loads(acquisition.read_text(encoding="utf-8"))
@@ -78,10 +88,29 @@ jobs:
               )
               if schema.exists():
                   shutil.copy2(schema, out / "schema_audit.json")
-              if analysis.exists():
-                  for path in analysis.iterdir():
-                      if path.is_file() and path.suffix.lower() in {".json", ".csv", ".md"}:
-                          shutil.copy2(path, out / path.name)
+
+              analysis_complete = all((analysis / name).exists() for name in core_success)
+              blocked = analysis / "analysis_blocked.json"
+              if analysis_complete:
+                  for name in owned_success:
+                      source_path = analysis / name
+                      if source_path.exists():
+                          shutil.copy2(source_path, out / name)
+                  for stale in (out / "analysis_blocked.json", out / "acquisition_failure.json"):
+                      if stale.exists():
+                          stale.unlink()
+              elif blocked.exists():
+                  shutil.copy2(blocked, out / "analysis_blocked.json")
+                  for name in owned_success:
+                      stale = out / name
+                      if stale.exists():
+                          stale.unlink()
+                  failure_state = out / "acquisition_failure.json"
+                  if failure_state.exists():
+                      failure_state.unlink()
+              # If analysis crashed without producing a complete or explicit blocked
+              # state, preserve the last materialized descriptive outputs. The job
+              # remains failed, so partial artifacts never overwrite a known-good run.
           else:
               source = json.loads(failure.read_text(encoding="utf-8")) if failure.exists() else {}
               compact = {
@@ -95,6 +124,8 @@ jobs:
                   json.dumps(compact, indent=2, ensure_ascii=False) + "\n",
                   encoding="utf-8",
               )
+              # Transport failure is diagnostic only. Never erase source-locked
+              # summaries/effect rows or prior successful descriptive outputs here.
           PY
       - name: Commit materialized state
         if: always()
