@@ -24,17 +24,25 @@ def test_recovery_registry_tracks_completed_provenance_without_formal_admission(
     assert hrj["theses_canada_oclc"] == "1335043730"
     assert hrj["admission_gate"]["checksum_locked"] is True
     assert hrj["admission_gate"]["source_native_pair_identity_table_recovered"] is True
+    assert hrj["admission_gate"]["public_original_bundle_inventory_complete"] is True
+    assert hrj["admission_gate"]["public_original_bundle_tabular_attachment_count"] == 0
     assert hrj["admission_gate"]["source_native_numeric_pair_table_recovered"] is False
+    assert hrj["admission_gate"]["numeric_table_unrecoverable_from_inspected_public_routes"] is True
     assert hrj["admission_gate"]["formal_effect_admitted"] is False
+    assert hrj["completion_state"]["completion_met"] is True
 
 
 def test_136_pair_identity_table_is_not_misrepresented_as_numeric_source():
     hrj = next(row for row in load_registry()["sources"] if row["source_id"] == "hetherington_rauth_johnson_2020_136_pairs")
-    assert hrj["current_numeric_state"] == "source_native_pair_identity_table_verified_but_numeric_136_pair_flower_measurement_table_unresolved"
+    assert hrj["current_numeric_state"] == "public_source_audit_complete_pair_identity_verified_numeric_136_pair_table_unrecoverable"
     assert hrj["source_native_thesis_findings"]["supplemental_table_a2_found"] is True
+    assert hrj["source_native_thesis_findings"]["supplemental_table_a2_selected_pdf_page"] == 83
     assert hrj["source_native_thesis_findings"]["numeric_flower_size_or_log_ratio_column_verified_in_a2"] is False
     assert hrj["admission_gate"]["source_native_numeric_pair_table_recovered"] is False
-    assert "No compatible third-system slope or uncertainty is admitted" in hrj["claim_boundary"]
+    assert hrj["admission_gate"]["third_response_shape_computable_from_recovered_source_native_values"] is False
+    boundary = hrj["claim_boundary"].lower()
+    assert "source-availability result" in boundary
+    assert "no third effect" in boundary
 
 
 def test_nonfloral_island_rule_study_is_boundary_comparator_not_third_floral_system():
