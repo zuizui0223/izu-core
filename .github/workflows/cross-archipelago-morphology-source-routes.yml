@@ -7,6 +7,7 @@ on:
       - "data/design/cross_archipelago_morphology_source_recovery.json"
       - "scripts/audit_cross_archipelago_morphology_source_routes.py"
       - "scripts/acquire_hetherington_utoronto_dspace.py"
+      - "scripts/audit_hetherington_dspace_bitstreams.py"
       - "scripts/screen_hetherington_thesis_source_table.py"
       - "tests/test_cross_archipelago_morphology_source_routes.py"
       - "tests/test_acquire_hetherington_utoronto_dspace.py"
@@ -36,6 +37,12 @@ jobs:
           python scripts/acquire_hetherington_utoronto_dspace.py
           --registry data/design/cross_archipelago_morphology_source_recovery.json
           --output-dir artifacts/hetherington_2019/source_lock
+      - name: Inventory all UofT ORIGINAL-bundle bitstreams
+        if: steps.acquire_hetherington.outcome == 'success'
+        run: >-
+          python scripts/audit_hetherington_dspace_bitstreams.py
+          --lock artifacts/hetherington_2019/source_lock/source_lock.json
+          --output artifacts/hetherington_2019/source_lock/bitstream_inventory.json
       - name: Screen recovered thesis for source-native 136-pair routes
         if: steps.acquire_hetherington.outcome == 'success'
         run: >-
@@ -50,10 +57,19 @@ jobs:
           from pathlib import Path
           root = Path("artifacts/hetherington_2019/source_lock")
           root.mkdir(parents=True, exist_ok=True)
+          screen = {}
+          inventory = {}
+          if (root / "source_table_screen.json").is_file():
+              screen = json.loads((root / "source_table_screen.json").read_text(encoding="utf-8"))
+          if (root / "bitstream_inventory.json").is_file():
+              inventory = json.loads((root / "bitstream_inventory.json").read_text(encoding="utf-8"))
           state = {
               "thesis_pdf_bytes_recovered_this_run": (root / "source_lock.json").is_file(),
-              "source_table_screen_completed": (root / "source_table_screen.json").is_file(),
-              "source_native_136_pair_table_verified": False,
+              "source_table_screen_completed": bool(screen),
+              "bitstream_inventory_completed": bool(inventory),
+              "source_native_pair_identity_table_verified": bool(screen.get("source_native_pair_identity_table_verified")),
+              "source_native_136_pair_numeric_flower_size_table_verified": bool(screen.get("source_native_136_pair_numeric_flower_size_table_verified")),
+              "separate_tabular_attachment_count": inventory.get("n_tabular_data_attachments"),
               "third_response_shape_admitted": False,
               "formal_cross_system_fit_opened": False,
           }
