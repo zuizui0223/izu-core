@@ -14,11 +14,9 @@ from typing import Any
 
 from scripts.acquire_hetherington_utoronto_dspace import BASE, get_json, object_candidates
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LOCK = ROOT / "artifacts/hetherington_2019/source_lock/source_lock.json"
 DEFAULT_OUTPUT = ROOT / "artifacts/hetherington_2019/source_lock/bitstream_inventory.json"
-
 
 def looks_like_tabular_data(name: str) -> bool:
     lower = name.casefold()
@@ -29,7 +27,6 @@ def looks_like_tabular_data(name: str) -> bool:
     if any(token in lower for token in ("readme", "license", "licence", "manifest")):
         return False
     return any(token in lower for token in ("data", "table", "measurement", "trait", "pair", "contrast"))
-
 
 def summarize(item: dict[str, Any]) -> dict[str, Any]:
     name = str(item.get("name") or "")
@@ -47,9 +44,8 @@ def summarize(item: dict[str, Any]) -> dict[str, Any]:
         "looks_like_tabular_data_attachment": looks_like_tabular_data(name),
     }
 
-
 def build_inventory(lock: dict[str, Any], payload: dict[str, Any], api_url: str) -> dict[str, Any]:
-    items = object_candidates(payload, kind="bitstream")
+    items = object_candidates(payload)
     summaries = sorted(
         (summarize(item) for item in items),
         key=lambda row: (row["sequenceId"] is None, row["sequenceId"] or 0, row["name"]),
@@ -71,11 +67,8 @@ def build_inventory(lock: dict[str, Any], payload: dict[str, Any], api_url: str)
         "n_tabular_data_attachments": len(tabular),
         "tabular_data_attachments": tabular,
         "separate_numeric_136_pair_attachment_verified": False,
-        "claim_boundary": (
-            "This inventory reports public ORIGINAL-bundle attachments. A zero candidate tabular-attachment count narrows the public repository route but does not prove that source-native numeric data never existed or are unavailable from every author/publisher route."
-        ),
+        "claim_boundary": "This inventory reports public ORIGINAL-bundle attachments. A zero candidate tabular-attachment count narrows the public repository route but does not prove that source-native numeric data never existed or are unavailable from every author/publisher route.",
     }
-
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -83,7 +76,6 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--timeout", type=float, default=30.0)
     args = parser.parse_args()
-
     lock = json.loads(args.lock.read_text(encoding="utf-8"))
     bundle_uuid = str(lock["original_bundle_uuid"])
     api_url = BASE + f"/core/bundles/{bundle_uuid}/bitstreams?size=100"
@@ -92,7 +84,6 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(args.output)
-
 
 if __name__ == "__main__":
     main()
