@@ -12,6 +12,7 @@ from channel_id.independent_source_acquisition import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "data" / "design" / "independent_primary_source_acquisition.json"
+EXHAUSTION = ROOT / "data" / "design" / "independent_primary_source_access_exhaustion.json"
 NATIVE = ROOT / "data" / "predictive_meta" / "primary_source_native_evidence.csv"
 
 
@@ -53,6 +54,41 @@ def test_identified_but_unrecovered_routes_remain_below_numeric_gate():
         assert row.numeric_gate["source_recovered"] is False
         assert numeric_effect_ready(row) is False
         assert dependency_moderation_ready(row) is False
+
+
+def test_openalex_route_exhaustion_is_not_source_recovery_or_admission():
+    audit = json.loads(EXHAUSTION.read_text(encoding="utf-8"))
+    assert audit["schema_version"] == "independent_primary_source_access_exhaustion_v1"
+    assert audit["issue_number"] == 92
+    assert audit["completion_state"] == "blocked_external_source_delivery"
+    assert audit["issue_complete"] is False
+    rows = {row["source_id"]: row for row in audit["sources"]}
+    assert set(rows) == {
+        "weigela_yamada_2010",
+        "ligustrum_yamada_2014",
+        "hosta_yamada_2014",
+    }
+    for source_id, row in rows.items():
+        assert row["retrieval_status"] == "retrieved"
+        assert row["openalex_is_oa"] is False
+        assert row["openalex_oa_status"] == "closed"
+        assert row["openalex_oa_pdf_location_count"] == 0
+        assert row["openalex_oa_landing_location_count"] == 0
+        assert row["access_class"] == "library_or_author"
+        assert row["source_recovered"] is False
+        assert row["numeric_morphology_gate_open"] is False
+        assert row["dependency_moderation_gate_open"] is False
+        source = next(item for item in records() if item.source_id == source_id)
+        assert source.numeric_gate["source_recovered"] is False
+        assert numeric_effect_ready(source) is False
+        assert dependency_moderation_ready(source) is False
+
+
+def test_source_exhaustion_does_not_claim_nonexistence_of_author_held_data():
+    audit = json.loads(EXHAUSTION.read_text(encoding="utf-8"))
+    assert "lawful full article/supporting binary or user-supplied source" in audit["reopen_or_advance_when"]
+    assert "No effect size" in audit["claim_boundary"]
+    assert "access metadata" in audit["claim_boundary"]
 
 
 def test_publisher_supplement_filenames_are_routes_not_effect_sizes():
