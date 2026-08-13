@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "status": "cross_scale_archipelago_context_convergence_recorded",
+  "context": "Galapagos floral-size divergence",
+  "within_lineage_source_native_evidence": {
+    "source_id": "tribulus_cistoides_island_continent_flower_traits",
+    "scale": "within-species population divergence",
+    "dataset_doi": "10.5061/dryad.h70rxwdnz",
+    "article_doi": "10.1002/ece3.9766",
+    "galapagos_minus_other_islands_mm": -8.511623707024318,
+    "hc3_ci_95": [-10.434677505566464, -6.588569908482173],
+    "bioclimate_excluding_galapagos_island_minus_continent_mm": -0.06657380142952575,
+    "exclusion_hc3_ci_95": [-1.0528109535739956, 0.9196633507149441],
+    "reading": "The adjusted pooled island contrast collapses after Galapagos removal, while Galapagos is strongly smaller than other island populations."
+  },
+  "between_lineage_published_directional_evidence": {
+    "source_id": "hetherington_rauth_johnson_2020_136_pairs",
+    "scale": "phylogenetically independent island-mainland sister-taxon contrasts",
+    "article_doi": "10.1086/709018",
+    "n_contrasts": 136,
+    "n_species": 556,
+    "directional_reading": "No overall island flower-size reduction, but Galapagos and Revillagigedo island taxa show smaller flowers relative to mainland sister taxa; direction also varies among families.",
+    "source_native_pair_table_recovered": false,
+    "numeric_effect_admitted": false
+  },
+  "independence_note": "The Tribulus study reports that Tribulus cistoides was not included in the Hetherington-Rauth and Johnson macroevolutionary dataset, so the Galapagos directional correspondence is not duplicate reuse of the same focal taxon.",
+  "synthesis": "Galapagos-specific floral shrinkage recurs across a within-species population comparison and a separate multi-lineage macroevolutionary comparison, while neither study supports universal island floral dwarfism. This elevates archipelago-specific context as a candidate moderator rather than a universal island effect.",
+  "formal_cross_system_numeric_fit_ready": false,
+  "effect_registry_eligible": false,
+  "causal_claim_allowed": false,
+  "claim_boundary": "This is cross-scale directional convergence, not a pooled effect. The 136-pair source-native table is not recovered, the two studies use different biological units, and neither comparison identifies which Galapagos mechanism caused floral shrinkage. Climate, pollinator environment, mating-system change, ecological filtering and lineage composition remain competing explanations."
+}

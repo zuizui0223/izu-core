@@ -8,10 +8,11 @@ confused:
 * **prediction-meta observations**: numeric observations with an explicit
   locality-to-regime mapping, suitable for the locked holdout scorer.
 
-This module enforces that separation.  A qualitative abstract statement, a
+This module enforces that separation. A qualitative abstract statement, a
 comparison whose localities cannot be mapped to the declared three-regime
-scaffold, or a source with no n/variance extraction can remain valuable in the
-source-native registry but cannot become a prediction-test data point.
+scaffold, a source with no n/variance extraction, or a lineage whose dependency
+class is unresolved can remain valuable in the source-native registry but cannot
+become a prediction-test data point.
 """
 from __future__ import annotations
 
@@ -36,7 +37,8 @@ OUTPUT_FIELDS = (
 VALID_NUMERIC_STATUS = {"not_extracted", "qualitative_only", "numeric_extracted"}
 VALID_MAPPING = {"unmapped_source_native", "needs_locality_table", "mapped_explicit"}
 VALID_SCORING = {"not_scoreable", "ready_for_holdout", "excluded_comparator"}
-VALID_GROUPS = {"specialist", "generalist", "excluded"}
+VALID_GROUPS = {"specialist", "generalist", "uncertain", "excluded"}
+HOLDOUT_GROUPS = {"specialist", "generalist"}
 
 
 @dataclass(frozen=True)
@@ -122,6 +124,10 @@ def load_native_evidence(path: str | Path) -> tuple[NativeEvidence, ...]:
         if numeric_status != "numeric_extracted" and value is not None:
             raise ValueError(f"{evidence_id}: only numeric_extracted may contain value")
         if scoring == "ready_for_holdout":
+            if group not in HOLDOUT_GROUPS:
+                raise ValueError(
+                    f"{evidence_id}: ready_for_holdout requires resolved specialist/generalist group"
+                )
             if numeric_status != "numeric_extracted":
                 raise ValueError(f"{evidence_id}: ready_for_holdout requires numeric_extracted")
             if mapping != "mapped_explicit":
@@ -155,6 +161,7 @@ def compile_holdout_observations(records: Iterable[NativeEvidence]) -> tuple[dic
     for record in records:
         if record.scoring_status != "ready_for_holdout":
             continue
+        assert record.analysis_group in HOLDOUT_GROUPS
         assert record.value is not None and record.n is not None and record.variance is not None
         weight = record.n / (record.variance + 1e-12)
         rows.append({
@@ -197,6 +204,7 @@ def summarize(records: Iterable[NativeEvidence]) -> dict[str, int]:
         "qualitative_rows": sum(row.numeric_status == "qualitative_only" for row in rows),
         "numeric_extracted_rows": sum(row.numeric_status == "numeric_extracted" for row in rows),
         "ready_for_holdout_rows": sum(row.scoring_status == "ready_for_holdout" for row in rows),
+        "unresolved_group_rows": sum(row.analysis_group == "uncertain" for row in rows),
         "unmapped_or_incomplete_rows": sum(row.scoring_status == "not_scoreable" for row in rows),
         "excluded_comparator_rows": sum(row.scoring_status == "excluded_comparator" for row in rows),
     }

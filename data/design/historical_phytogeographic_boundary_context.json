@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "source_id": "suzuki_1956_izu_distribution",
+  "doi": "10.15281/jplantres1887.69.598",
+  "source": "Tai Suzuki (1956), On the Plant Distribution over Izu-Islands, Botanical Magazine Tokyo 69:598-601",
+  "source_scope": {
+    "islands": ["Oshima", "Toshima", "Niijima", "Shikinejima", "Kozushima", "Miyakejima", "Mikurajima", "Hachijojima", "Aogashima"],
+    "historical_collection_period": "1949 onward; article published 1956",
+    "archipelago_total_taxa_reported": 1038,
+    "southern_element_taxa_marked": 103,
+    "northern_element_taxa_marked": 43,
+    "source_caveat": "Obvious field-crop species were excluded, but the author states that some transplanted and naturalized plants remained; north/south element marking is acknowledged by the author to involve judgement."
+  },
+  "source_selected_indicator_elements": {
+    "southern": ["ヘゴ", "リュウビンタイ", "タニワタリ", "スジヒトツバ", "カギカズラ", "ハドノキ"],
+    "northern": ["ウメガサソウ", "ウメバチソウ", "イワガラミ", "コイワザクラ", "マイヅルソウ", "ノギラン", "ヤマブキショウマ"]
+  },
+  "source_inferred_floristic_limits": {
+    "southern_elements_northern_limit": "Miyakejima",
+    "northern_elements_southern_limit": "Mikurajima",
+    "historical_general_phytogeographic_transition_zone": "Miyakejima-Mikurajima",
+    "focal_pollinator_second_boundary": "Oshima-Toshima",
+    "coincident_with_focal_pollinator_boundary": false
+  },
+  "source_mechanistic_context": {
+    "volcanism": "The article notes Toshima and Mikurajima as islands with no eruption record in the cited historical sources and argues that volcanic disturbance can eliminate locally patchy plant populations.",
+    "kuroshio": "The article proposes changing Kuroshio position/width as a major explanation for the Miyake-Mikura floristic transition."
+  },
+  "analysis_role": "historical_external_control_for_generic_floristic_boundary",
+  "interpretation": "A historical source that explicitly searched for an archipelago-wide plant-distribution boundary placed the principal north/south floristic transition much farther south than Oshima-Toshima. This weakens the specific alternative that the focal Oshima-Toshima response is merely a generic whole-flora biogeographic boundary by construction.",
+  "limitations": [
+    "This 1956 source is historical and cannot substitute for a contemporary reviewed species-by-island matrix.",
+    "The indicator species were deliberately selected for conspicuous north/south distributions rather than sampled as an unbiased modern flora.",
+    "Taxonomy and establishment status require modern normalization before species-level occupancy analysis.",
+    "A noncoincident broad floristic boundary does not rule out habitat, source-pool, dispersal or other environmental differences at Oshima-Toshima."
+  ],
+  "claim_boundary": "Use only as an external historical adversary showing that the source-defined broad floristic boundary is Miyake-Mikura rather than Oshima-Toshima. Do not treat it as a modern occupancy matrix or causal proof of a pollinator boundary."
+}

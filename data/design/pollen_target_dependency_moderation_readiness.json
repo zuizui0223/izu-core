@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.1",
+  "target_universe": "Hiraiwa-Ushimaru 2024 source-defined pollen-success target plants",
+  "n_targets": 10,
+  "dependency_evidence_counts": {
+    "resolved_external_species_level": 4,
+    "partial": 5,
+    "unresolved": 1
+  },
+  "resolved_external_species_level_targets": {
+    "Ampelopsis glandulosa var. hancei": "A. glandulosa source: functional specialization on short-tongued scoliid wasps and solitary bees; target variety/Izu population not directly measured",
+    "Calystegia soldanella": "self-incompatible and pollinator-dependent broad bee system in Japanese populations; not exclusive Bombus dependence",
+    "Lonicera japonica": "mixed effective diurnal bee and nocturnal hawkmoth system",
+    "Vitex rotundifolia": "multiple hymenopteran pollinators with Megachile kobensis dominant/well matched in coastal Japan"
+  },
+  "partial_targets": {
+    "Farfugium japonicum": "broad bee/fly/syrphid/butterfly pollination context exists, but exact target-population effectiveness dependence is not measured",
+    "Glehnia littoralis": "direct diverse-insect entomophily study exists from China, but Japanese/Izu dependency transfer is unresolved",
+    "Lysimachia mauritiana": "reproductive response to long-tongued-pollinator gradient resolved, exclusive dependency unresolved",
+    "Melanthera prostrata": "source-observed functional pollinator interactions, independent effectiveness dependency unresolved",
+    "Oxalis corniculata var. trichocaulon": "species-level breeding system is strongly population/morph dependent; exact Izu target state unresolved"
+  },
+  "unresolved_targets": ["Persicaria senticosa"],
+  "resolved_high_dependency_bombus_targets": 0,
+  "resolved_non_bombus_or_mixed_targets": 4,
+  "resolved_exact_2024_izu_population_dependency_targets": 0,
+  "survivor_conditioning": true,
+  "direct_dependency_moderation_eligible": false,
+  "why_blocked": "The source-defined dominant pollen-success target set is dominated by externally documented non-Bombus, mixed-guild, broad-insect or population-variable pollination systems. No target has a source-resolved high-dependency Bombus state measured in the exact 2024 Izu populations. A dependency-by-FDQ slope comparison would therefore lack the high-dependency end of the predictor gradient and would be selection-conditioned on dominant surviving coastal plants.",
+  "what_is_allowed_now": [
+    "report the source-native FDQ-to-trait-matching association",
+    "report that realized breadth and tube length do not robustly moderate the FDQ slope",
+    "use resolved/partial external pollination evidence to characterize the target universe and its survivorship bias",
+    "treat 2017 reproductive sensitivity/resilience/counterresponse as separate validation modes"
+  ],
+  "what_is_not_allowed": [
+    "code legacy floral-form or family labels as effective dependency",
+    "interpret realized interaction breadth as effective pollinator dependence",
+    "fit a binary specialist/generalist interaction using the 10 targets as if both ends of the dependency gradient were source-resolved",
+    "interpret unstable proxy moderation as evidence that dependency does not matter",
+    "treat external species-level pollination studies as if they were measurements from the exact 2024 Izu populations"
+  ],
+  "next_decisive_evidence": "Add source-resolved high-dependency lineages or directly measure effective-pollinator dependence in the same Izu populations, while keeping establishment failure/hybrid replacement/interaction rewiring as outcomes rather than excluding them from the sampling frame.",
+  "claim_boundary": "This readiness audit diagnoses predictor support and survivorship conditioning. It is not a test of the biological dependency hypothesis itself."
+}

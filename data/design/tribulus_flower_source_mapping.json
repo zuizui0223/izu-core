@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.1",
+  "source_id": "tribulus_cistoides_island_continent_flower_traits",
+  "dataset_doi": "10.5061/dryad.h70rxwdnz",
+  "article_doi": "10.1002/ece3.9766",
+  "author_repository": "Winer-DanielR/Tribulus-mericarp-morphology",
+  "author_repository_branch": "master",
+  "source_file": "Data/Processed/Tribulus_flower_data_clean.csv",
+  "source_file_git_blob_sha": "ac55573f1b804af8973b62f3a44541ef228c4ae3",
+  "source_file_expected_md5_from_zenodo": "2b76bcce298d49b4116b2b96082de846",
+  "source_rows_expected_from_readme": 773,
+  "source_columns_expected_from_readme": 29,
+  "source_dimensions_observed_in_author_blob": {
+    "csv_lines_including_header": 773,
+    "data_rows": 772,
+    "header_fields": 28
+  },
+  "source_dimension_discrepancy": "The author README reports 773 rows x 29 columns, while the checksum-identified author-repository CSV has 773 physical lines including the header (772 data rows) and 28 header fields. Both source statements are retained; no missing row or column is reconstructed.",
+  "columns": {
+    "ind_num": "measurement-row identifier",
+    "ID": "source-defined grouping unit: herbarium voucher when applicable or field site for field-collected samples",
+    "year_collected": "collection year; used numerically in the released R model scripts",
+    "continent": "source-defined continental region",
+    "mainland_island": "source-defined origin factor with island for archipelago records and continent for mainland records; used in model 1",
+    "galapagos_other": "source-defined island factor separating Galapagos from other island systems; continental rows are missing; used in model 2",
+    "island_group": "source-defined island-system factor; continental rows are missing",
+    "flower_num": "flower identifier nested within ID",
+    "petal_length": "flower-size response in millimetres",
+    "Bio_1": "annual mean temperature",
+    "Bio_4": "temperature seasonality",
+    "Bio_12": "annual precipitation",
+    "Bio_15": "precipitation seasonality"
+  },
+  "author_model_anchors": {
+    "unadjusted_filtered_mixed_model": {
+      "script": "Scripts/03_Models_per_trait.R",
+      "formula": "petal_length ~ mainland_island + year_collected + (1|ID)",
+      "pre_filter": "drop missing petal_length and missing Bio_4; fit initial model; retain residuals strictly between -5 and +5; refit",
+      "reported_emmean_mainland_mm": 16.7,
+      "reported_emmean_island_mm": 16.3,
+      "reported_manual_comment": "approximately 2 percent smaller on islands"
+    },
+    "bioclimate_mixed_model": {
+      "script": "Scripts/04_Models_per_trait_Bioclimate.R",
+      "formula": "petal_length ~ mainland_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15 + (1|ID)",
+      "pre_filter": "drop missing petal_length and missing Bio_4; model machinery drops other incomplete covariates",
+      "reported_emmean_mainland_mm": 17.3,
+      "reported_emmean_island_mm": 15.8,
+      "reported_interpretation": "about 9 percent smaller on islands after bioclimate adjustment"
+    },
+    "galapagos_vs_other_islands_bioclimate": {
+      "script": "Scripts/04_Models_per_trait_Bioclimate.R",
+      "formula": "petal_length ~ galapagos_other + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15 + (1|ID)",
+      "subset": "island rows only",
+      "reported_emmean_galapagos_mm": 8.62,
+      "reported_emmean_other_islands_mm": 17.45,
+      "reported_interpretation": "Galapagos flowers approximately 50 percent shorter than other islands"
+    }
+  },
+  "izu_core_sensitivity_plan": [
+    "reproduce source row, specimen-ID, island-system, and continental composition before modelling",
+    "retain the author mixed-model estimates as source-script anchors rather than silently replacing their modelling choices",
+    "average repeated flower rows within ID and fit specimen-level HC3 OLS as an independence sensitivity",
+    "fit specimen-level year plus Bio_1/Bio_4/Bio_12/Bio_15 adjustment",
+    "add continent fixed effects where estimable to reduce source-pool composition confounding",
+    "repeat the adjusted island-continent contrast after removing Galapagos to quantify leverage",
+    "report Galapagos versus other islands separately",
+    "never classify this dataset as an effective-dependency or specialist/generalist comparison"
+  ],
+  "claim_boundary": "Tribulus is one widespread lineage with repeated flower measurements nested within source-defined IDs. Island/continent contrasts may show within-lineage floral divergence but do not create independent island colonisation pairs, do not measure effective pollinator dependency, and do not identify pollinator or geological-origin causation."
+}

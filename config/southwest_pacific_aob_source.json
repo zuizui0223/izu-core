@@ -1,0 +1,45 @@
+{
+  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+  "article_doi": "10.1093/aob/mcaf005",
+  "pmcid": "PMC12445859",
+  "landing_page_url": "https://oup.silverchair-cdn.com/article-minimal/7960047",
+  "canonical_article_url": "https://academic.oup.com/aob/article/136/2/287/7960047",
+  "crossref_url": "https://api.crossref.org/works/10.1093%2Faob%2Fmcaf005",
+  "europe_pmc_supplementary_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12445859/supplementaryFiles",
+  "expected_supplementary_files": [
+    "mcaf005_suppl_supplementary_data_s1.xlsx",
+    "mcaf005_suppl_supplementary_data_s2.xlsx",
+    "mcaf005_suppl_supplementary_materials.docx"
+  ],
+  "analysis_source": {
+    "filename": "mcaf005_suppl_supplementary_data_s2.xlsx",
+    "sheet": "Flower dataframe",
+    "expected_pair_numbers": "1..129",
+    "flower_size_unit": "mm",
+    "response_definition": "LR = log10(FI/FM)",
+    "display_definition": "LFR = log10((FI/FM) * flower-number ratio)"
+  },
+  "source_published_anchors": {
+    "reported_total_pairs": 129,
+    "reported_animal_pairs": 90,
+    "reported_wind_pairs": 39,
+    "reported_animal_analysis_n": 87,
+    "reported_wind_analysis_n": 36,
+    "reported_animal_slope": -0.15,
+    "reported_animal_slope_ci_95": [-0.27, -0.04],
+    "reported_wind_slope": -0.09,
+    "reported_wind_slope_ci_95": [-0.23, 0.06],
+    "reported_regression_label": "reduced major axis regression with lmodel2"
+  },
+  "external_validation_role": "independent_mainland_island_colonisation_pair_morphology",
+  "expected_context_to_verify_from_source": [
+    "independent colonisation or island-mainland comparison identifier",
+    "archipelago or island",
+    "island and mainland taxa or populations",
+    "floral size or display traits",
+    "pollination mode",
+    "breeding or reproductive-system covariates where supplied",
+    "geological island type or source-region context where supplied"
+  ],
+  "claim_boundary": "Supplementary morphology data may support source-defined island-mainland response sizes and moderators. Flower morphology is not a direct specialist/generalist or effective-dependency measurement. These data do not directly measure pollinator functional diversity, visit effectiveness, pollen deposition, reproductive success, historical selection, geological-origin causation, or the Izu Oshima-Toshima boundary."
+}

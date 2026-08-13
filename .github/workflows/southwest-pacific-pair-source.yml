@@ -1,0 +1,271 @@
+name: Southwest Pacific pair source audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_oup_supplementary_data.py"
+      - "scripts/acquire_oup_supplementary_data_v2.py"
+      - "scripts/acquire_southwest_pacific_pmc_support.py"
+      - "scripts/audit_southwest_pacific_pair_schema.py"
+      - "scripts/analyze_southwest_pacific_flower_size.py"
+      - "scripts/summarize_southwest_pacific_flower_size.py"
+      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
+      - "tests/test_oup_supplementary_acquisition.py"
+      - "tests/test_southwest_pacific_pmc_acquisition.py"
+      - "tests/test_southwest_pacific_pair_schema.py"
+      - "tests/test_southwest_pacific_flower_size_analysis.py"
+      - "tests/test_southwest_pacific_effect_admission_gate.py"
+      - "data/results/southwest_pacific_pairs/**"
+      - ".github/workflows/southwest-pacific-pair-source.yml"
+  pull_request:
+    paths:
+      - "config/southwest_pacific_aob_source.json"
+      - "scripts/acquire_oup_supplementary_data.py"
+      - "scripts/acquire_oup_supplementary_data_v2.py"
+      - "scripts/acquire_southwest_pacific_pmc_support.py"
+      - "scripts/audit_southwest_pacific_pair_schema.py"
+      - "scripts/analyze_southwest_pacific_flower_size.py"
+      - "scripts/summarize_southwest_pacific_flower_size.py"
+      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
+      - "tests/test_oup_supplementary_acquisition.py"
+      - "tests/test_southwest_pacific_pmc_acquisition.py"
+      - "tests/test_southwest_pacific_pair_schema.py"
+      - "tests/test_southwest_pacific_flower_size_analysis.py"
+      - "tests/test_southwest_pacific_effect_admission_gate.py"
+      - "data/results/southwest_pacific_pairs/**"
+      - ".github/workflows/southwest-pacific-pair-source.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  acquire-audit-and-analyse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -e . openpyxl python-docx pytest
+      - name: Test acquisition, admission, and source-analysis guards
+        id: tests
+        run: >-
+          python -m pytest -q
+          tests/test_oup_supplementary_acquisition.py
+          tests/test_southwest_pacific_pmc_acquisition.py
+          tests/test_southwest_pacific_pair_schema.py
+          tests/test_southwest_pacific_flower_size_analysis.py
+          tests/test_southwest_pacific_effect_admission_gate.py
+      - name: Recover checksum-locked source through Europe PMC first
+        id: pmc_acquire
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_southwest_pacific_pmc_support.py
+          --config config/southwest_pacific_aob_source.json
+          --output-dir artifacts/southwest_pacific_aob
+          --source-lock data/results/southwest_pacific_pairs/source_lock.json
+      - name: Detect complete Europe PMC package
+        id: pmc_source
+        if: always() && steps.tests.outcome == 'success'
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          from pathlib import Path
+          root = Path("artifacts/southwest_pacific_aob/files")
+          expected = [
+              "mcaf005_suppl_supplementary_data_s1.xlsx",
+              "mcaf005_suppl_supplementary_data_s2.xlsx",
+              "mcaf005_suppl_supplementary_materials.docx",
+          ]
+          available = all((root / name).is_file() and (root / name).stat().st_size > 0 for name in expected)
+          print(f"available={'true' if available else 'false'}")
+          PY
+      - name: Preserve Europe PMC diagnosis before fallback
+        if: always() && steps.pmc_source.outputs.available != 'true'
+        run: |
+          if test -f artifacts/southwest_pacific_aob/source_inventory.json; then
+            cp artifacts/southwest_pacific_aob/source_inventory.json \
+               artifacts/southwest_pacific_aob/pmc_source_inventory.json
+          fi
+      - name: Try Oxford Academic route only as fallback
+        id: oup_acquire
+        if: steps.pmc_source.outputs.available != 'true'
+        continue-on-error: true
+        timeout-minutes: 4
+        run: >-
+          python scripts/acquire_oup_supplementary_data_v2.py
+          --config config/southwest_pacific_aob_source.json
+          --output-dir artifacts/southwest_pacific_aob
+      - name: Resolve final package availability and transport route
+        id: source
+        if: always() && steps.tests.outcome == 'success'
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          root = Path("artifacts/southwest_pacific_aob/files")
+          expected = [
+              "mcaf005_suppl_supplementary_data_s1.xlsx",
+              "mcaf005_suppl_supplementary_data_s2.xlsx",
+              "mcaf005_suppl_supplementary_materials.docx",
+          ]
+          available = all((root / name).is_file() and (root / name).stat().st_size > 0 for name in expected)
+          inventory_path = Path("artifacts/southwest_pacific_aob/source_inventory.json")
+          inventory = json.loads(inventory_path.read_text(encoding="utf-8")) if inventory_path.exists() else {}
+          route = inventory.get("acquisition_route")
+          if not route and available:
+              route = "oup_public_supplement_links"
+          print(f"available={'true' if available else 'false'}")
+          print(f"route={route or 'blocked'}")
+          print(f"status={inventory.get('status') or 'inventory_missing'}")
+          PY
+      - name: Audit pair and moderator schemas
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/audit_southwest_pacific_pair_schema.py
+          --input-dir artifacts/southwest_pacific_aob
+          --output artifacts/southwest_pacific_aob/schema_audit.json
+      - name: Run source-native 129-pair flower-size analysis
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/analyze_southwest_pacific_flower_size.py
+          --input-dir artifacts/southwest_pacific_aob
+          --output-dir artifacts/southwest_pacific_analysis
+          --bootstrap-repetitions 5000
+      - name: Build compact checked analysis summary
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/summarize_southwest_pacific_flower_size.py
+          --analysis artifacts/southwest_pacific_analysis/analysis.json
+          --output artifacts/southwest_pacific_analysis/analysis_summary.json
+      - name: Apply measurement-error admission gate before verification or materialization
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          python scripts/apply_southwest_pacific_effect_admission_gate.py
+          --effect-rows artifacts/southwest_pacific_analysis/effect_rows.json
+          --coupling-summary data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json
+          --output artifacts/southwest_pacific_analysis/effect_rows.json
+      - name: Verify checked source-native results
+        if: steps.source.outputs.available == 'true'
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+          checked = Path("data/results/southwest_pacific_pairs")
+          generated = Path("artifacts/southwest_pacific_analysis")
+          json_files = ("source_lock.json", "analysis_summary.json", "effect_rows.json")
+          table_file = "subgroup_slopes.csv"
+          for filename in json_files:
+              if not (checked / filename).exists():
+                  print("checked output missing; this run will materialize", filename)
+                  continue
+              expected = json.loads((checked / filename).read_text(encoding="utf-8"))
+              observed = json.loads((generated / filename).read_text(encoding="utf-8"))
+              if expected != observed:
+                  raise SystemExit(f"checked Southwest Pacific result drift: {filename}")
+          if (checked / table_file).exists():
+              def rows(path):
+                  with path.open(encoding="utf-8", newline="") as handle:
+                      return list(csv.DictReader(handle))
+              if rows(checked / table_file) != rows(generated / table_file):
+                  raise SystemExit("checked Southwest Pacific subgroup table drift")
+          print("Southwest Pacific checked outputs verified where present")
+          PY
+      - name: Materialize compact source state or blocked diagnosis
+        if: always() && steps.tests.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlsplit, urlunsplit
+          source_path = Path("artifacts/southwest_pacific_aob/source_inventory.json")
+          schema_path = Path("artifacts/southwest_pacific_aob/schema_audit.json")
+          out = Path("data/results/southwest_pacific_pairs")
+          out.mkdir(parents=True, exist_ok=True)
+          def redact(url):
+              if not url:
+                  return url
+              parts = urlsplit(str(url))
+              return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+          if source_path.exists():
+              source = json.loads(source_path.read_text(encoding="utf-8"))
+              files = []
+              for row in source.get("files", []):
+                  files.append({
+                      "text": row.get("text"),
+                      "status": row.get("status"),
+                      "source_filename": row.get("source_filename") or row.get("local_name"),
+                      "source_url_without_query": redact(row.get("url")),
+                      "final_url_without_query": redact(row.get("final_url")),
+                      "content_type": row.get("content_type"),
+                      "local_name": row.get("local_name"),
+                      "size": row.get("size") or row.get("size_bytes"),
+                      "sha256": row.get("sha256"),
+                      "archive_members": row.get("archive_members"),
+                      "error": row.get("error"),
+                  })
+              compact = {
+                  "status": source.get("status"),
+                  "acquisition_route": source.get("acquisition_route") or ("oup_public_supplement_links" if int(source.get("n_downloaded") or 0) > 0 else "blocked"),
+                  "source_id": source.get("source_id"),
+                  "article_doi": source.get("article_doi"),
+                  "pmcid": source.get("pmcid"),
+                  "crossref_title": (source.get("crossref_message") or {}).get("title"),
+                  "n_candidates": source.get("n_candidates"),
+                  "n_downloaded": source.get("n_downloaded"),
+                  "package": source.get("package"),
+                  "recovered_supplementary_files": source.get("recovered_supplementary_files"),
+                  "missing_supplementary_files": source.get("missing_supplementary_files"),
+                  "checksum_mismatches": source.get("checksum_mismatches"),
+                  "files": files,
+                  "errors": source.get("errors"),
+                  "expected_context_to_verify_from_source": source.get("expected_context_to_verify_from_source"),
+                  "claim_boundary": source.get("claim_boundary"),
+              }
+              (out / "source_inventory.json").write_text(json.dumps(compact, indent=2, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
+              if schema_path.exists():
+                  (out / "schema_audit.json").write_text(schema_path.read_text(encoding="utf-8"), encoding="utf-8")
+          else:
+              failure = {
+                  "status": "supplementary_acquisition_failed_without_inventory",
+                  "source_id": "southwest_pacific_mainland_island_floral_pairs",
+                  "article_doi": "10.1093/aob/mcaf005",
+                  "pmcid": "PMC12445859",
+                  "claim_boundary": "No pair-level morphology result is reconstructed from a failed supplementary acquisition."
+              }
+              (out / "acquisition_failure.json").write_text(json.dumps(failure, indent=2) + "\n", encoding="utf-8")
+          PY
+      - name: Commit materialized source and analysis state on push or manual run
+        if: always() && github.event_name != 'pull_request' && steps.tests.outcome == 'success'
+        run: |
+          if test -d artifacts/southwest_pacific_analysis; then
+            cp artifacts/southwest_pacific_analysis/source_lock.json data/results/southwest_pacific_pairs/source_lock.json
+            cp artifacts/southwest_pacific_analysis/analysis_summary.json data/results/southwest_pacific_pairs/analysis_summary.json
+            cp artifacts/southwest_pacific_analysis/effect_rows.json data/results/southwest_pacific_pairs/effect_rows.json
+            cp artifacts/southwest_pacific_analysis/subgroup_slopes.csv data/results/southwest_pacific_pairs/subgroup_slopes.csv
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/results/southwest_pacific_pairs
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Southwest Pacific source and pair analysis"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload full source and analysis audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: southwest-pacific-pair-source-audit
+          path: |
+            artifacts/southwest_pacific_aob/
+            artifacts/southwest_pacific_analysis/
+          if-no-files-found: warn
+      - name: Preserve blocked acquisition as a source state
+        if: steps.source.outputs.available != 'true'
+        run: echo "::notice::Southwest Pacific supplement acquisition remains blocked after Europe PMC and Oxford routes; this is not a biological zero."

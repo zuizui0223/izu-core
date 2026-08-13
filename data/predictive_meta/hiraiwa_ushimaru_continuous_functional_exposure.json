@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.2",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31287851102,
+  "source_artifact_id": 9030413803,
+  "source_native_model": {
+    "source_full_candidate_formula": "TM_z ~ richness + D + FDQ + FRic + FEve + (1|season) + (1|site)",
+    "source_figure_best_model_fdq_coefficient": 1.554,
+    "source_figure_best_model_feve_coefficient": -9.2976,
+    "source_figure_best_model_intercept": 2.4023,
+    "source_code_locator": "archived code.R Figure 3 community-level trait-matching block"
+  },
+  "fixed_effect_subsets": {
+    "all_eight_sites": {
+      "formula": "TM_z ~ FDQ + FEve + site_fixed_effects + season_fixed_effects",
+      "n_site_season_rows": 40,
+      "n_sites": 8,
+      "n_seasons": 5,
+      "fdq_coefficient": 1.8345653281752352,
+      "r_squared": 0.6074575443548559,
+      "site_centered_fdq_tm_correlation": 0.30250894261260436
+    },
+    "mainland_three_sites": {
+      "n_site_season_rows": 15,
+      "n_sites": 3,
+      "n_seasons": 5,
+      "fdq_coefficient": 1.5414413086717733,
+      "r_squared": 0.6109232130356416,
+      "site_centered_fdq_tm_correlation": 0.18097880296521165
+    },
+    "izu_five_islands": {
+      "n_site_season_rows": 25,
+      "n_sites": 5,
+      "n_seasons": 5,
+      "fdq_coefficient": 1.94255840267522,
+      "r_squared": 0.7231868010784537,
+      "site_centered_fdq_tm_correlation": 0.40340800955063677
+    },
+    "post_oshima_four_islands": {
+      "n_site_season_rows": 20,
+      "n_sites": 4,
+      "n_seasons": 5,
+      "fdq_coefficient": 2.0589617769543915,
+      "r_squared": 0.7004763028366725,
+      "site_centered_fdq_tm_correlation": 0.3410478941617556
+    }
+  },
+  "leave_one_site_sensitivity": {
+    "izu_five_islands": {
+      "fdq_coefficients_by_omitted_site": {
+        "hachijo": 1.4320111895257946,
+        "kozu": 1.873772023620831,
+        "miyake": 2.126679300069317,
+        "niijima": 2.225704603861239,
+        "oshima": 2.0589617769543915
+      },
+      "fdq_coefficient_range": [1.4320111895257946, 2.225704603861239],
+      "all_positive": true
+    },
+    "post_oshima_four_islands": {
+      "fdq_coefficients_by_omitted_site": {
+        "hachijo": 1.456147510684977,
+        "kozu": 2.1433427636877237,
+        "miyake": 2.220671761040659,
+        "niijima": 2.3325371412563174
+      },
+      "fdq_coefficient_range": [1.456147510684977, 2.3325371412563174],
+      "all_positive": true
+    }
+  },
+  "sampled_bombus_context": {
+    "bombus_species_site_season_rows": 12,
+    "bombus_site_seasons": 10,
+    "mainland_bombus_rows": 10,
+    "mainland_bombus_site_seasons": 8,
+    "oshima_bombus_rows": 2,
+    "oshima_bombus_site_seasons": 2,
+    "post_oshima_bombus_rows": 0,
+    "post_oshima_bombus_site_seasons": 0,
+    "observed_bombus_taxa": ["Bombus ardens ardens", "Bombus diversus diversus"],
+    "reading": "Observed network-sampling context only. Zero Bombus rows mean no Bombus taxon was recorded in the archived pollinator species x site x season network table for that subset; this is not a biological absence assertion outside the sampled networks."
+  },
+  "mechanistic_gain": "FDQ remains positively associated with corrected trait matching in all eight sites, in the five Izu island sites alone, and even within the four post-Oshima islands. The post-boundary association therefore does not require mainland observations or the Oshima bridge-state site. Leave-one-island coefficients remain positive throughout both island subsets, so no single island is required for the direction.",
+  "relation_to_binary_boundary": "Within Niijima, Kozu, Miyake and Hachijo, FDQ still explains positive trait-matching variation after site and season fixed effects. The archived pollinator table contains zero observed Bombus species x site x season rows in this post-Oshima subset. Continuous pollinator functional structure therefore contains explanatory variation inside sampled post-boundary networks and should not be reduced to a binary observed-Bombus label.",
+  "claim_boundary": "Observational contemporary association only. Site fixed effects remove time-invariant site confounding and common season effects are absorbed, but time-varying weather/resources, measurement error, feedback within networks and historical selection remain. The sampled Bombus audit is not an archipelago-wide biological absence statement. The post-boundary result does not identify Bombus loss as the cause; it shows that continuous pollinator functional diversity contains explanatory variation beyond the binary sampled-network contrast."
+}

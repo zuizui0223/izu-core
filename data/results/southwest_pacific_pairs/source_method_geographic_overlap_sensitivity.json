@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "analysis_role": "source_method_geographic_overlap_adversary",
+  "mixed_source_islands": [
+    "Antipodes",
+    "Campbell",
+    "Chatham",
+    "Kermadec",
+    "Lord Howe",
+    "Macquarie",
+    "Norfolk"
+  ],
+  "all_pairs_within_mixed_source_islands": {
+    "n_pairs": 79,
+    "n_islands": 7,
+    "slope": 0.8729434387592827,
+    "island_cluster_95": [0.7376433101422238, 0.9477253987047327],
+    "cluster_interval_wholly_below_isometry": true
+  },
+  "online_only_within_mixed_source_islands": {
+    "n_pairs": 66,
+    "n_islands": 7,
+    "slope": 0.8800572253368499,
+    "island_cluster_95": [0.7295657133128306, 0.9613220349740669],
+    "cluster_interval_wholly_below_isometry": true
+  },
+  "herbaria_only_within_mixed_source_islands": {
+    "n_pairs": 13,
+    "n_islands": 7,
+    "slope": 0.9894147244040292,
+    "island_cluster_95": [0.5430574260292719, 1.4431728252996352],
+    "cluster_interval_wholly_below_isometry": false
+  },
+  "adversarial_reading": "online_only_below_isometry_with_geographic_overlap_preserved",
+  "formal_consequence": {
+    "online_only_result_explained_by_nonoverlapping_island_composition": false,
+    "source_method_causal_effect_identified": false,
+    "empirical_reliability_identified": false,
+    "formal_admission_opened": false
+  },
+  "claim_boundary": "Restricting to islands represented by both source methods reduces geographic-composition confounding but does not randomize measurement source, estimate measurement reliability, or identify a source-method effect."
+}

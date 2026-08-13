@@ -1,0 +1,26 @@
+{
+  "source_id": "tribulus_cistoides_island_continent",
+  "article_doi": "10.1002/ece3.9766",
+  "record_id": 7551873,
+  "dataset_doi": "10.5061/dryad.h70rxwdnz",
+  "api_url": "https://zenodo.org/api/records/7551873",
+  "landing_page_url": "https://zenodo.org/records/7551873",
+  "expected_files": [
+    "Tribulus_flower_data_clean.csv",
+    "Tribulus_mericarp_data_clean.csv",
+    "mericarp_ind.csv",
+    "mericarp_means.csv",
+    "README.md"
+  ],
+  "analysis_target": "Tribulus_flower_data_clean.csv",
+  "expected_design_context": [
+    "globally distributed single species Tribulus cistoides",
+    "island and continental herbarium flower measurements",
+    "site or region identity",
+    "petal length or source-native flower-size measurement",
+    "Galapagos and other island contexts",
+    "climate variables or join keys only where supplied by the source"
+  ],
+  "analysis_role": "single_lineage_external_phenotype_falsification_not_independent_cross_lineage_meta_system",
+  "claim_boundary": "This source can test within-species island-continent floral divergence and context heterogeneity. A single widespread species is not a second independent cross-lineage effect system, petal length is not pollinator effectiveness or effective dependency, and island-continent differences do not by themselves identify pollinator-driven causation."
+}

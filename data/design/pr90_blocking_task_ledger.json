@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.5",
+  "updated_on": "2026-08-13",
+  "purpose": "Canonical blocking-task ledger for PR #90. Provenance, measurement-error identifiability, third-system source recovery, and Izu field causality are deliberately separated so one gate cannot substitute for another.",
+  "tasks": [
+    {
+      "task_id": "hendriks_provenance",
+      "issue": 94,
+      "state": "complete_exact_institutional_bytes_checksum_locked_and_reverified",
+      "progress": {
+        "institutional_identifier": "10.26686/wgtn.17136800",
+        "exact_pdf_bytes_recovered": true,
+        "n_bytes": 3758444,
+        "sha256": "4abbe2b1c4b7b1a809df0127e66184385425919a45043260cd2c51a45df37c42",
+        "md5": "9d66f35e04e3058364237ede2f84ca1d",
+        "figshare_md5_matched": true,
+        "table_b9_pairs_reverified": 35,
+        "appendix_a_assignments_reverified": 35,
+        "author_ols_anchor_reproduced": true,
+        "provenance_gate_open": true
+      },
+      "opens": ["hendriks_provenance_gate"],
+      "does_not_open": ["empirical_reliability_gate", "formal_cross_system_fit"],
+      "completion_met": true
+    },
+    {
+      "task_id": "third_floral_system",
+      "issue": 95,
+      "state": "complete_public_source_audit_numeric_136_pair_table_unrecoverable",
+      "progress": {
+        "exact_item_handle": "1807/96116",
+        "exact_item_uuid": "4fe4945e-d284-4b0d-b306-97c2a02d51ad",
+        "original_bundle_uuid": "e7584ca9-97fb-47bf-a6b1-e8aeee5e0ba9",
+        "full_thesis_bitstream_selected_over_expanded_abstract": true,
+        "exact_thesis_bytes_recovered": true,
+        "thesis_n_bytes": 175645192,
+        "thesis_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+        "u_of_t_all_bitstream_inventory_complete": true,
+        "u_of_t_original_bundle_bitstream_count": 2,
+        "u_of_t_candidate_tabular_attachment_count": 0,
+        "supplemental_pair_identity_table_found": true,
+        "supplemental_pair_identity_table_selected_pdf_page": 83,
+        "source_native_136_pair_numeric_flower_size_table_recovered": false,
+        "publisher_primary_source_search_numeric_supplement_found": false,
+        "numeric_table_unrecoverable_from_inspected_public_routes": true,
+        "third_response_shape_admitted": false,
+        "formal_cross_system_fit_opened": false,
+        "completion_route": "B_public_route_audit_complete_numeric_table_unrecoverable_and_impossibility_documented"
+      },
+      "goal": "Recover the source-native 136-pair Pacific floral numeric contrast table, or establish reproducibly that the inspected lawful public corpus exposes pair identities without the required numeric source table.",
+      "opens": [],
+      "does_not_open": ["third_system_effect_without_numeric_source_values", "formal_meta_analysis_by_itself"],
+      "completion_requires_one_of": [
+        "source_native_numeric_pair_table_recovered_trait_units_grouping_verified_response_shape_reproduced",
+        "public_route_audit_complete_numeric_table_unrecoverable_and_impossibility_documented"
+      ],
+      "completion_met": true,
+      "reopen_only_if": [
+        "new_source_native_numeric_136_pair_values_are_released",
+        "a_lawful_unseen_numeric_attachment_is_discovered"
+      ]
+    },
+    {
+      "task_id": "empirical_reliability",
+      "issue": 96,
+      "state": "complete_negative_identification_empirical_reliability_unidentifiable_from_available_sources",
+      "progress": {
+        "classical_eiv_envelope_complete": true,
+        "source_native_replicate_error_information_checked": true,
+        "published_30_species_validation_statement_identified": true,
+        "published_30_species_wilcoxon_V": 177.5,
+        "published_30_species_wilcoxon_p": 0.39,
+        "paired_30_species_validation_values_recovered": false,
+        "public_article_associated_data_inventory_checked": true,
+        "separate_public_30_species_validation_attachment_advertised": false,
+        "external_repeat_measurement_source_recovered": true,
+        "external_repeat_measurement_source": "Hetherington-Rauth 2019 thesis Appendix A.1",
+        "external_source_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+        "same_individual_repeat_r_squared": [0.94, 0.88, 0.93],
+        "same_individual_repeat_slopes": [0.97, 0.82, 0.88],
+        "conditional_r2_lower_bounds_exceed_point_threshold_all_traits": true,
+        "conditional_r2_lower_bounds_exceed_cluster_threshold_all_traits": false,
+        "equal_error_sqrt_r2_proxies": [0.9695359714832658, 0.938083151964686, 0.9643650760992956],
+        "equal_error_proxy_is_formally_admissible_reliability": false,
+        "empirical_reliability_coefficient_identified": false,
+        "uncertainty_distribution_for_target_reliability_identified": false,
+        "southwest_pacific_eiv_gate_opened": false,
+        "hendriks_eiv_gate_opened": false,
+        "completion_route": "B_unidentifiable_from_available_sources"
+      },
+      "goal": "Identify a defensible empirical floral measurement reliability source, or prove that reliability remains unidentifiable from available source-native/public materials.",
+      "opens": [],
+      "does_not_open": ["assumed_reliability_substitution", "sqrt_r_squared_substitution_without_equal_error_validation", "formal_cross_system_fit"],
+      "completion_requires_one_of": [
+        "source_locked_reliability_with_uncertainty_propagated",
+        "machine_readable_empirical_reliability_unidentifiable_result_after_external_validation_search"
+      ],
+      "completion_met": true,
+      "reopen_only_if": [
+        "paired_30_species_validation_values_are_recovered",
+        "predictor_scale_replicate_measurements_or_variance_are_recovered",
+        "a_demonstrably_transportable_external_reliability_distribution_becomes_available"
+      ]
+    },
+    {
+      "task_id": "izu_direct_mechanism",
+      "issue": 91,
+      "state": "protocol_and_raw_bundle_freeze_ready_field_data_blocking",
+      "progress": {
+        "linked_templates_ready": true,
+        "structural_vs_dispersion_vs_confirmatory_gates_separated": true,
+        "collection_stop_continue_rule_ready": true,
+        "raw_bundle_freeze_contract_ready": true,
+        "raw_bundle_freeze_ci_tested": true,
+        "post_collection_order": "freeze_then_linkage_qc_then_admission_then_dispersion_then_precision_planning",
+        "focal_field_data_available": false
+      },
+      "goal": "Collect linked SVD, observation-effort, reproductive-treatment, fruit/seed and optional parentage data sufficient to estimate contemporary effective-pollinator dependency without conflating structural completion with confirmatory adequacy.",
+      "opens": ["pilot_dispersion_estimation", "pilot_precision_planning_after_dispersion"],
+      "does_not_open": ["historical_Bombus_causation", "Oshima_Toshima_causal_boundary_by_itself"]
+    }
+  ],
+  "formal_cross_system_fit_gate": {
+    "current_state": "closed",
+    "rule": "Open only after compatible source-locked effects with uncertainty exist in at least two independent system clusters for the same effect family, with relevant provenance and measurement-error gates satisfied.",
+    "cannot_be_opened_by": [
+      "more_raw_island_rows_without_independent_system_replication",
+      "provenance_repair_alone",
+      "sensitivity_assumptions_treated_as_observed_reliability",
+      "abstract_level_effect_reconstruction",
+      "external_repeatability_R2_treated_as_reliability_without_identifying_assumptions",
+      "completion_of_a_negative_identification_task",
+      "pair_identity_table_without_numeric_trait_values"
+    ],
+    "current_measurement_error_consequence": "The empirical reliability task is complete via a negative identification result; because target reliability remains unidentified, the morphology EIV admission gate stays closed.",
+    "current_third_system_consequence": "The third-system source-recovery task is complete via a public-source unavailability result; no third effect is created because source-native numeric 136-pair measurements were not recovered."
+  },
+  "execution_priority": [91],
+  "priority_rationale": "Hendriks provenance (#94), third-system source recovery (#95), and reliability-source audit (#96) are complete as investigations. #95 and #96 both completed through negative/source-unavailability routes and therefore do not promote new effects. The remaining decisive blocker is #91: direct linked field measurements of effective pollinator dependency and reproductive outcomes.",
+  "claim_boundary": "Task completion is not synonymous with evidence promotion. #95 is complete because the inspected public corpus was exhausted without recoverable numeric 136-pair measurements; #96 is complete because target reliability unidentifiability was established. Neither completion opens the formal cross-system fit."
+}

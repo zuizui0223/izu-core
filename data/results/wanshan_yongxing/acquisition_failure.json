@@ -1,0 +1,11 @@
+{
+  "status": "acquisition_failed",
+  "source_id": null,
+  "article_doi": null,
+  "dataset_doi": null,
+  "resolved_version_ids": null,
+  "resolved_file_ids": null,
+  "candidate_count": 0,
+  "errors": [],
+  "claim_boundary": null
+}

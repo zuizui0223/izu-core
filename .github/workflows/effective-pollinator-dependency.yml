@@ -1,0 +1,105 @@
+name: Effective pollinator dependency field protocol
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/effective_pollinator_dependency.py"
+      - "channel_id/effective_dependency_output.py"
+      - "channel_id/effective_dependency_precision.py"
+      - "channel_id/effective_dependency_pilot_assumptions.py"
+      - "channel_id/effective_dependency_measurement_calibration.py"
+      - "scripts/audit_effective_pollinator_dependency.py"
+      - "scripts/audit_effective_dependency_parentage.py"
+      - "scripts/audit_effective_dependency_admission.py"
+      - "scripts/audit_effective_dependency_pilot_assumptions.py"
+      - "scripts/audit_effective_dependency_svd_recount_calibration.py"
+      - "scripts/plan_effective_dependency_pilot_precision.py"
+      - "scripts/freeze_effective_dependency_field_bundle.py"
+      - "templates/field_dependency_plant_registry_template.csv"
+      - "templates/field_observation_effort_template.csv"
+      - "templates/field_visitor_contact_manifest_template.csv"
+      - "templates/field_single_visit_pollen_deposition_template.csv"
+      - "templates/field_pollination_treatment_template.csv"
+      - "templates/field_svd_recount_calibration_template.csv"
+      - "templates/field_mature_fruit_template.csv"
+      - "templates/field_seed_parentage_template.csv"
+      - "templates/effective_dependency_precision_goals_template.csv"
+      - "data/design/effective_pollinator_dependency_field_readiness.json"
+      - "data/design/effective_dependency_pilot_field_priority.json"
+      - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
+      - "docs/DIRECT_DEPENDENCY_PILOT_STATUS.md"
+      - "docs/EFFECTIVE_DEPENDENCY_FIELD_FREEZE.md"
+      - "docs/field_geometry_and_interaction_linkage.md"
+      - "tests/test_effective_pollinator_dependency.py"
+      - "tests/test_effective_pollinator_dependency_readiness.py"
+      - "tests/test_effective_dependency_precision.py"
+      - "tests/test_effective_dependency_pilot_assumptions.py"
+      - "tests/test_effective_dependency_measurement_calibration.py"
+      - "tests/test_effective_dependency_field_linkage_templates.py"
+      - "tests/test_effective_dependency_parentage.py"
+      - "tests/test_effective_dependency_admission.py"
+      - "tests/test_freeze_effective_dependency_field_bundle.py"
+      - ".github/workflows/effective-pollinator-dependency.yml"
+  pull_request:
+    paths:
+      - "channel_id/effective_pollinator_dependency.py"
+      - "channel_id/effective_dependency_output.py"
+      - "channel_id/effective_dependency_precision.py"
+      - "channel_id/effective_dependency_pilot_assumptions.py"
+      - "channel_id/effective_dependency_measurement_calibration.py"
+      - "scripts/audit_effective_pollinator_dependency.py"
+      - "scripts/audit_effective_dependency_parentage.py"
+      - "scripts/audit_effective_dependency_admission.py"
+      - "scripts/audit_effective_dependency_pilot_assumptions.py"
+      - "scripts/audit_effective_dependency_svd_recount_calibration.py"
+      - "scripts/plan_effective_dependency_pilot_precision.py"
+      - "scripts/freeze_effective_dependency_field_bundle.py"
+      - "templates/field_dependency_plant_registry_template.csv"
+      - "templates/field_observation_effort_template.csv"
+      - "templates/field_visitor_contact_manifest_template.csv"
+      - "templates/field_single_visit_pollen_deposition_template.csv"
+      - "templates/field_pollination_treatment_template.csv"
+      - "templates/field_svd_recount_calibration_template.csv"
+      - "templates/field_mature_fruit_template.csv"
+      - "templates/field_seed_parentage_template.csv"
+      - "templates/effective_dependency_precision_goals_template.csv"
+      - "data/design/effective_pollinator_dependency_field_readiness.json"
+      - "data/design/effective_dependency_pilot_field_priority.json"
+      - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
+      - "docs/DIRECT_DEPENDENCY_PILOT_STATUS.md"
+      - "docs/EFFECTIVE_DEPENDENCY_FIELD_FREEZE.md"
+      - "docs/field_geometry_and_interaction_linkage.md"
+      - "tests/test_effective_pollinator_dependency.py"
+      - "tests/test_effective_pollinator_dependency_readiness.py"
+      - "tests/test_effective_dependency_precision.py"
+      - "tests/test_effective_dependency_pilot_assumptions.py"
+      - "tests/test_effective_dependency_measurement_calibration.py"
+      - "tests/test_effective_dependency_field_linkage_templates.py"
+      - "tests/test_effective_dependency_parentage.py"
+      - "tests/test_effective_dependency_admission.py"
+      - "tests/test_freeze_effective_dependency_field_bundle.py"
+      - ".github/workflows/effective-pollinator-dependency.yml"
+
+jobs:
+  field-protocol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependency
+        run: python -m pip install pytest
+      - name: Run effective-dependency field tests
+        run: >-
+          python -m pytest -q
+          tests/test_effective_pollinator_dependency.py
+          tests/test_effective_pollinator_dependency_readiness.py
+          tests/test_effective_dependency_precision.py
+          tests/test_effective_dependency_pilot_assumptions.py
+          tests/test_effective_dependency_measurement_calibration.py
+          tests/test_effective_dependency_field_linkage_templates.py
+          tests/test_effective_dependency_parentage.py
+          tests/test_effective_dependency_admission.py
+          tests/test_freeze_effective_dependency_field_bundle.py

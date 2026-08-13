@@ -1,0 +1,40 @@
+name: Campanula isolation adversary
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/campanula_isolation_adversary.py"
+      - "paper/run_campanula_isolation_adversary.py"
+      - "tests/test_campanula_isolation_adversary.py"
+      - "data/inoue_literature_island_traits.csv"
+      - "data/design/izu_regime_scaffold.csv"
+      - ".github/workflows/campanula-isolation-adversary.yml"
+  pull_request:
+    paths:
+      - "channel_id/campanula_isolation_adversary.py"
+      - "paper/run_campanula_isolation_adversary.py"
+      - "tests/test_campanula_isolation_adversary.py"
+      - "data/inoue_literature_island_traits.csv"
+      - "data/design/izu_regime_scaffold.csv"
+      - ".github/workflows/campanula-isolation-adversary.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Test isolation adversary
+        run: python -m pytest -q tests/test_campanula_isolation_adversary.py
+      - name: Run isolation adversary
+        run: python paper/run_campanula_isolation_adversary.py
+      - name: Upload audit outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: campanula-isolation-adversary
+          path: artifacts/campanula_isolation_adversary/

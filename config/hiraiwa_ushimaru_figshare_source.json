@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "source_id": "hiraiwa_ushimaru_2024_function",
+  "article_doi": "10.1111/1365-2435.14527",
+  "dataset_doi": "10.6084/m9.figshare.25025000.v1",
+  "figshare_article_id": 25025000,
+  "api_url": "https://api.figshare.com/v2/articles/25025000",
+  "study_scope": "40 coastal plant-pollinator networks from eight Japanese continental/oceanic-island sites across five seasons plus pollination-success observations for 10 plant species",
+  "analysis_role": "source-native pollinator dependency, interaction breadth, trait matching, and plant pollination-success evidence",
+  "permitted_inference": [
+    "archived plant-pollinator interactions conditional on sampling design",
+    "source-native species-level interaction breadth and functional-group use",
+    "source-native pollination-success responses when the archived variables and units are explicit"
+  ],
+  "prohibited_inference": [
+    "pollinator effectiveness from visit identity alone",
+    "historical causal attribution from the contemporary network snapshot",
+    "floral evolutionary change from network metrics alone",
+    "biological absence from unobserved links"
+  ]
+}

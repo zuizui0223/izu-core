@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "pandas>=2.0", "statsmodels>=0.14", "openpyxl>=3.1", "pypdf>=6.0"]
 
 [tool.setuptools]
 packages = ["channel_id"]
@@ -19,3 +19,4 @@ packages = ["channel_id"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+pythonpath = [".", "scripts"]

@@ -1,0 +1,573 @@
+{
+  "schema_version": "1.0",
+  "status": "tribulus_single_lineage_flower_context_audited",
+  "source_id": "tribulus_cistoides_island_continent",
+  "article_doi": "10.1002/ece3.9766",
+  "dataset_doi": "10.5061/dryad.h70rxwdnz",
+  "n_measurement_rows": 772,
+  "n_specimen_ids": 411,
+  "bootstrap_repetitions": 5000,
+  "independent_unit": "herbarium specimen ID; repeated flowers are averaged within ID",
+  "contrasts": [
+    {
+      "contrast": "all_islands_vs_continents",
+      "exposed": "island",
+      "reference": "continent",
+      "n_exposed_ids": 232,
+      "n_reference_ids": 179,
+      "exposed_mean_petal_length": 16.223769396551724,
+      "reference_mean_petal_length": 16.80916852886406,
+      "raw_mean_difference": -0.585399132312336,
+      "raw_percent_difference_from_reference": -3.482618020677888,
+      "adjusted_group_coefficient": -1.5661164449422105,
+      "adjusted_complete_case_ids": 396,
+      "covariates": [
+        "year_collected",
+        "Bio_1",
+        "Bio_4",
+        "Bio_12",
+        "Bio_15"
+      ],
+      "n_valid": 5000,
+      "raw_difference_ci_95": [
+        -1.4113137315987576,
+        0.25667192506661957
+      ],
+      "adjusted_coefficient_ci_95": [
+        -2.537126623868402,
+        -0.569944628198813
+      ]
+    },
+    {
+      "contrast": "galapagos_vs_other_islands",
+      "exposed": "galapagos",
+      "reference": "other",
+      "n_exposed_ids": 31,
+      "n_reference_ids": 201,
+      "exposed_mean_petal_length": 9.236112903225807,
+      "reference_mean_petal_length": 17.301467661691543,
+      "raw_mean_difference": -8.065354758465736,
+      "raw_percent_difference_from_reference": -46.61659297450143,
+      "adjusted_group_coefficient": -8.511623707024714,
+      "adjusted_complete_case_ids": 220,
+      "covariates": [
+        "year_collected",
+        "Bio_1",
+        "Bio_4",
+        "Bio_12",
+        "Bio_15"
+      ],
+      "n_valid": 5000,
+      "raw_difference_ci_95": [
+        -9.019299993313004,
+        -7.022088603354198
+      ],
+      "adjusted_coefficient_ci_95": [
+        -10.462632967121372,
+        -6.795441345760317
+      ]
+    },
+    {
+      "contrast": "other_islands_vs_continents",
+      "exposed": "other_island",
+      "reference": "continent",
+      "n_exposed_ids": 201,
+      "n_reference_ids": 179,
+      "exposed_mean_petal_length": 17.301467661691543,
+      "reference_mean_petal_length": 16.80916852886406,
+      "raw_mean_difference": 0.4922991328274833,
+      "raw_percent_difference_from_reference": 2.9287536262256286,
+      "adjusted_group_coefficient": -0.06657380142950098,
+      "adjusted_complete_case_ids": 365,
+      "covariates": [
+        "year_collected",
+        "Bio_1",
+        "Bio_4",
+        "Bio_12",
+        "Bio_15"
+      ],
+      "n_valid": 5000,
+      "raw_difference_ci_95": [
+        -0.3044050707820291,
+        1.2807921383538532
+      ],
+      "adjusted_coefficient_ci_95": [
+        -1.052528790882823,
+        0.8869092345975491
+      ]
+    }
+  ],
+  "island_group_summary": [
+    {
+      "island_group": "ABC islands (Leeward Antilles)",
+      "n_ids": 2,
+      "mean_id_petal_length": 20.230666666666664,
+      "median_id_petal_length": 20.230666666666664
+    },
+    {
+      "island_group": "Aldabra",
+      "n_ids": 1,
+      "mean_id_petal_length": 10.681,
+      "median_id_petal_length": 10.681
+    },
+    {
+      "island_group": "Assumption",
+      "n_ids": 1,
+      "mean_id_petal_length": 10.102,
+      "median_id_petal_length": 10.102
+    },
+    {
+      "island_group": "Bahamas",
+      "n_ids": 1,
+      "mean_id_petal_length": 25.7845,
+      "median_id_petal_length": 25.7845
+    },
+    {
+      "island_group": "Baker island",
+      "n_ids": 1,
+      "mean_id_petal_length": 10.782499999999999,
+      "median_id_petal_length": 10.782499999999999
+    },
+    {
+      "island_group": "Barlavento Islands",
+      "n_ids": 1,
+      "mean_id_petal_length": 15.161,
+      "median_id_petal_length": 15.161
+    },
+    {
+      "island_group": "Captiva Islands",
+      "n_ids": 1,
+      "mean_id_petal_length": 16.986,
+      "median_id_petal_length": 16.986
+    },
+    {
+      "island_group": "Caroline Atoll",
+      "n_ids": 1,
+      "mean_id_petal_length": 14.739,
+      "median_id_petal_length": 14.739
+    },
+    {
+      "island_group": "Clarion I.",
+      "n_ids": 4,
+      "mean_id_petal_length": 19.330000000000002,
+      "median_id_petal_length": 20.6275
+    },
+    {
+      "island_group": "Cosmoledo",
+      "n_ids": 1,
+      "mean_id_petal_length": 10.289,
+      "median_id_petal_length": 10.289
+    },
+    {
+      "island_group": "Cuba",
+      "n_ids": 9,
+      "mean_id_petal_length": 17.912537037037037,
+      "median_id_petal_length": 18.141
+    },
+    {
+      "island_group": "Curacao",
+      "n_ids": 3,
+      "mean_id_petal_length": 17.334444444444443,
+      "median_id_petal_length": 16.667
+    },
+    {
+      "island_group": "Enderbury",
+      "n_ids": 2,
+      "mean_id_petal_length": 12.032,
+      "median_id_petal_length": 12.032
+    },
+    {
+      "island_group": "Fife Island",
+      "n_ids": 1,
+      "mean_id_petal_length": 13.284,
+      "median_id_petal_length": 13.284
+    },
+    {
+      "island_group": "Florida Keys",
+      "n_ids": 6,
+      "mean_id_petal_length": 16.570555555555554,
+      "median_id_petal_length": 18.108916666666666
+    },
+    {
+      "island_group": "Galapagos Islands",
+      "n_ids": 31,
+      "mean_id_petal_length": 9.236112903225807,
+      "median_id_petal_length": 9.394
+    },
+    {
+      "island_group": "Greater Antilles",
+      "n_ids": 8,
+      "mean_id_petal_length": 19.28125,
+      "median_id_petal_length": 19.784
+    },
+    {
+      "island_group": "Hatutaa",
+      "n_ids": 2,
+      "mean_id_petal_length": 20.3455,
+      "median_id_petal_length": 20.3455
+    },
+    {
+      "island_group": "Hawaiian Islands",
+      "n_ids": 7,
+      "mean_id_petal_length": 20.199,
+      "median_id_petal_length": 20.468
+    },
+    {
+      "island_group": "Hawes island",
+      "n_ids": 1,
+      "mean_id_petal_length": 15.220666666666668,
+      "median_id_petal_length": 15.220666666666668
+    },
+    {
+      "island_group": "Heron Island",
+      "n_ids": 1,
+      "mean_id_petal_length": 17.269,
+      "median_id_petal_length": 17.269
+    },
+    {
+      "island_group": "Hispaniola",
+      "n_ids": 18,
+      "mean_id_petal_length": 19.264342592592595,
+      "median_id_petal_length": 19.06475
+    },
+    {
+      "island_group": "Hiva Oa",
+      "n_ids": 2,
+      "mean_id_petal_length": 17.1265,
+      "median_id_petal_length": 17.1265
+    },
+    {
+      "island_group": "Howland",
+      "n_ids": 1,
+      "mean_id_petal_length": 16.049,
+      "median_id_petal_length": 16.049
+    },
+    {
+      "island_group": "Isla de Margarita",
+      "n_ids": 2,
+      "mean_id_petal_length": 18.5155,
+      "median_id_petal_length": 18.5155
+    },
+    {
+      "island_group": "Jamaica",
+      "n_ids": 3,
+      "mean_id_petal_length": 20.88716666666667,
+      "median_id_petal_length": 21.064
+    },
+    {
+      "island_group": "Jarvis island",
+      "n_ids": 1,
+      "mean_id_petal_length": 11.016,
+      "median_id_petal_length": 11.016
+    },
+    {
+      "island_group": "Johnston Island",
+      "n_ids": 1,
+      "mean_id_petal_length": 13.944,
+      "median_id_petal_length": 13.944
+    },
+    {
+      "island_group": "Key West",
+      "n_ids": 1,
+      "mean_id_petal_length": 14.545,
+      "median_id_petal_length": 14.545
+    },
+    {
+      "island_group": "Key west",
+      "n_ids": 2,
+      "mean_id_petal_length": 18.686999999999998,
+      "median_id_petal_length": 18.686999999999998
+    },
+    {
+      "island_group": "Kiritimati [Christmas] Atoll",
+      "n_ids": 2,
+      "mean_id_petal_length": 17.7695,
+      "median_id_petal_length": 17.7695
+    },
+    {
+      "island_group": "Kure Atoll",
+      "n_ids": 1,
+      "mean_id_petal_length": 23.624,
+      "median_id_petal_length": 23.624
+    },
+    {
+      "island_group": "Laysan",
+      "n_ids": 2,
+      "mean_id_petal_length": 19.789,
+      "median_id_petal_length": 19.789
+    },
+    {
+      "island_group": "Leeward Antilles",
+      "n_ids": 1,
+      "mean_id_petal_length": 17.671666666666667,
+      "median_id_petal_length": 17.671666666666667
+    },
+    {
+      "island_group": "Leeward Islands",
+      "n_ids": 1,
+      "mean_id_petal_length": 15.976,
+      "median_id_petal_length": 15.976
+    },
+    {
+      "island_group": "Lisianski",
+      "n_ids": 1,
+      "mean_id_petal_length": 14.810333333333332,
+      "median_id_petal_length": 14.810333333333332
+    },
+    {
+      "island_group": "Lizard island",
+      "n_ids": 1,
+      "mean_id_petal_length": 12.962,
+      "median_id_petal_length": 12.962
+    },
+    {
+      "island_group": "Malay Archipelago",
+      "n_ids": 1,
+      "mean_id_petal_length": 20.606,
+      "median_id_petal_length": 20.606
+    },
+    {
+      "island_group": "Manra [Sydney] Island",
+      "n_ids": 3,
+      "mean_id_petal_length": 12.550666666666666,
+      "median_id_petal_length": 12.588
+    },
+    {
+      "island_group": "Margarita",
+      "n_ids": 3,
+      "mean_id_petal_length": 17.209500000000002,
+      "median_id_petal_length": 18.432
+    },
+    {
+      "island_group": "Marie Galante",
+      "n_ids": 4,
+      "mean_id_petal_length": 15.75175,
+      "median_id_petal_length": 15.465
+    },
+    {
+      "island_group": "Martinique",
+      "n_ids": 1,
+      "mean_id_petal_length": 11.272,
+      "median_id_petal_length": 11.272
+    },
+    {
+      "island_group": "Maui",
+      "n_ids": 2,
+      "mean_id_petal_length": 13.932916666666667,
+      "median_id_petal_length": 13.932916666666667
+    },
+    {
+      "island_group": "McKean",
+      "n_ids": 3,
+      "mean_id_petal_length": 10.02677777777778,
+      "median_id_petal_length": 9.347666666666667
+    },
+    {
+      "island_group": "Midway Atoll",
+      "n_ids": 1,
+      "mean_id_petal_length": 19.2535,
+      "median_id_petal_length": 19.2535
+    },
+    {
+      "island_group": "Mona I.",
+      "n_ids": 1,
+      "mean_id_petal_length": 19.142,
+      "median_id_petal_length": 19.142
+    },
+    {
+      "island_group": "New Caledonia",
+      "n_ids": 1,
+      "mean_id_petal_length": 8.756,
+      "median_id_petal_length": 8.756
+    },
+    {
+      "island_group": "New Providence",
+      "n_ids": 3,
+      "mean_id_petal_length": 17.805833333333332,
+      "median_id_petal_length": 16.737
+    },
+    {
+      "island_group": "O`ahu",
+      "n_ids": 6,
+      "mean_id_petal_length": 17.012083333333333,
+      "median_id_petal_length": 16.92125
+    },
+    {
+      "island_group": "Pearl and Hermes Atoll",
+      "n_ids": 2,
+      "mean_id_petal_length": 16.70225,
+      "median_id_petal_length": 16.70225
+    },
+    {
+      "island_group": "Philippines",
+      "n_ids": 2,
+      "mean_id_petal_length": 16.05325,
+      "median_id_petal_length": 16.05325
+    },
+    {
+      "island_group": "Pipon Island",
+      "n_ids": 1,
+      "mean_id_petal_length": 11.152000000000001,
+      "median_id_petal_length": 11.152000000000001
+    },
+    {
+      "island_group": "Puerto Rico",
+      "n_ids": 3,
+      "mean_id_petal_length": 21.0585,
+      "median_id_petal_length": 19.9215
+    },
+    {
+      "island_group": "Revillagigedo Archipelago",
+      "n_ids": 1,
+      "mean_id_petal_length": 18.152,
+      "median_id_petal_length": 18.152
+    },
+    {
+      "island_group": "Sanibel & Captiva Islands",
+      "n_ids": 1,
+      "mean_id_petal_length": 19.306,
+      "median_id_petal_length": 19.306
+    },
+    {
+      "island_group": "Socorro I.",
+      "n_ids": 4,
+      "mean_id_petal_length": 20.490875,
+      "median_id_petal_length": 20.935083333333335
+    },
+    {
+      "island_group": "Sri Lanka",
+      "n_ids": 7,
+      "mean_id_petal_length": 18.629833333333334,
+      "median_id_petal_length": 19.359333333333336
+    },
+    {
+      "island_group": "St. Croix Island",
+      "n_ids": 4,
+      "mean_id_petal_length": 17.378416666666666,
+      "median_id_petal_length": 17.819333333333333
+    },
+    {
+      "island_group": "St. Thomas I.",
+      "n_ids": 1,
+      "mean_id_petal_length": 18.541666666666668,
+      "median_id_petal_length": 18.541666666666668
+    },
+    {
+      "island_group": "Starbuck",
+      "n_ids": 2,
+      "mean_id_petal_length": 19.230666666666664,
+      "median_id_petal_length": 19.230666666666664
+    },
+    {
+      "island_group": "Tanzanian archipelago of Zanzibar",
+      "n_ids": 1,
+      "mean_id_petal_length": 11.666,
+      "median_id_petal_length": 11.666
+    },
+    {
+      "island_group": "The Bahamas  (Lucayan Archipelago)",
+      "n_ids": 5,
+      "mean_id_petal_length": 16.589066666666668,
+      "median_id_petal_length": 15.868500000000001
+    },
+    {
+      "island_group": "The Revillagigedo Islands",
+      "n_ids": 3,
+      "mean_id_petal_length": 16.554777777777776,
+      "median_id_petal_length": 16.528333333333332
+    },
+    {
+      "island_group": "Tortola Island",
+      "n_ids": 1,
+      "mean_id_petal_length": 15.758,
+      "median_id_petal_length": 15.758
+    },
+    {
+      "island_group": "Turks and Caicos Islands (Lucayan Archipelago)",
+      "n_ids": 6,
+      "mean_id_petal_length": 19.961111111111112,
+      "median_id_petal_length": 20.530083333333334
+    },
+    {
+      "island_group": "Ua Huka",
+      "n_ids": 1,
+      "mean_id_petal_length": 9.524,
+      "median_id_petal_length": 9.524
+    },
+    {
+      "island_group": "Ua Pou",
+      "n_ids": 3,
+      "mean_id_petal_length": 15.822000000000001,
+      "median_id_petal_length": 17.109
+    },
+    {
+      "island_group": "Virgin Gorda Island",
+      "n_ids": 1,
+      "mean_id_petal_length": 18.466,
+      "median_id_petal_length": 18.466
+    },
+    {
+      "island_group": "Virgin Islands",
+      "n_ids": 2,
+      "mean_id_petal_length": 15.863916666666668,
+      "median_id_petal_length": 15.863916666666668
+    },
+    {
+      "island_group": "West Indies",
+      "n_ids": 15,
+      "mean_id_petal_length": 17.094877777777775,
+      "median_id_petal_length": 17.798000000000002
+    },
+    {
+      "island_group": "West summerland key",
+      "n_ids": 1,
+      "mean_id_petal_length": 17.502666666666666,
+      "median_id_petal_length": 17.502666666666666
+    },
+    {
+      "island_group": "Yule",
+      "n_ids": 1,
+      "mean_id_petal_length": 9.081,
+      "median_id_petal_length": 9.081
+    },
+    {
+      "island_group": "west indies",
+      "n_ids": 1,
+      "mean_id_petal_length": 20.657,
+      "median_id_petal_length": 20.657
+    }
+  ],
+  "source_model_context": {
+    "paper_model_1": "petal_length ~ island/continent + year + (1|ID); climate sensitivity adds Bio1 Bio4 Bio12 Bio15",
+    "paper_model_2": "petal_length ~ Galapagos/other islands + year + (1|ID); climate sensitivity adds Bio1 Bio4 Bio12 Bio15",
+    "independent_audit_difference": "this audit uses specimen-ID means plus OLS and specimen bootstrap rather than refitting the source mixed model"
+  },
+  "reading": "The single-lineage audit separates a general island contrast from a Galapagos-specific contrast and from non-Galapagos islands versus continents. It is designed to test whether an apparent island flower-size direction is broadly shared or concentrated in one archipelago.",
+  "claim_boundary": "Tribulus is one widespread species, not an independent cross-lineage meta-analysis system. Climate adjustment is observational. Petal length does not measure pollinator effectiveness or effective dependency, and this audit does not identify pollinator-driven adaptation.",
+  "effect_registry_eligible": false,
+  "causal_claim_allowed": false,
+  "source_id_aggregation": {
+    "id_definition": "source ID may denote a herbarium voucher or a field site",
+    "broad_model_strata_required_stable_within_id": [
+      "mainland_island",
+      "galapagos_other"
+    ],
+    "continuous_covariates": "mean within source ID, matching the existing specimen-ID collapse",
+    "ambiguous_island_group_ids": {
+      "HUH_30": [
+        "Jamaica",
+        "West Indies"
+      ],
+      "Smithsonian_1045104": [
+        "Jamaica",
+        "West Indies"
+      ],
+      "Smithsonian_1380056": [
+        "Jamaica",
+        "West Indies"
+      ]
+    },
+    "island_group_summary_rule": "IDs with multiple source island_group labels are excluded from island-group descriptive summaries rather than coerced to one label",
+    "claim_boundary": "Ambiguous island-group labels do not alter the predeclared mainland/island or Galapagos/other contrasts because those broad strata are stable within the affected IDs."
+  }
+}

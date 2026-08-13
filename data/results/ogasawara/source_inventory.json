@@ -1,0 +1,81 @@
+{
+  "status": "acquired",
+  "source_id": "ogasawara_pollination_network_2026",
+  "record_id": 19221853,
+  "dataset_doi": "10.5281/zenodo.19221853",
+  "title": "Dataset on island pollinator networks, a study on co-invasions",
+  "publication_date": "2026-03-25",
+  "version": null,
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "resource_type": {
+    "title": "Data paper",
+    "type": "publication",
+    "subtype": "datapaper"
+  },
+  "n_files": 1,
+  "n_downloaded": 1,
+  "files": [
+    {
+      "key": "Data_Quitianetal2026_B.xlsx",
+      "local_name": "Data_Quitianetal2026_B.xlsx",
+      "status": "downloaded",
+      "size_reported": 129502,
+      "size_downloaded": 129502,
+      "sha256": "4e0c4a293e2a522e67bc1f87f567249d45b42000b78eaef9d355e8658b1987a6",
+      "checksum_verification": {
+        "declared_checksum": "md5:68f295b91605ea82bce0c05bffc7f884",
+        "observed_checksum": "md5:68f295b91605ea82bce0c05bffc7f884",
+        "verified": true
+      },
+      "preview": {
+        "kind": "xlsx",
+        "sheets": [
+          {
+            "sheet": "Data interactions",
+            "max_row": 2746,
+            "max_column": 11,
+            "header": [
+              "Island",
+              "Invasional Context",
+              "Season",
+              "Forest_Status",
+              "Anole",
+              "Plant_sp",
+              "Clase",
+              "Order",
+              "Ord_Fam",
+              "Poll_sp",
+              "N.Int"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "expected_design_context": {
+    "islands": [
+      "Chichijima",
+      "Hahajima",
+      "Anijima",
+      "Otoutojima"
+    ],
+    "seasons_or_months": [
+      "May",
+      "July",
+      "September"
+    ],
+    "context_fields_to_audit": [
+      "island",
+      "site",
+      "season_or_month",
+      "natural_or_disturbed_habitat",
+      "green_anole_context",
+      "plant_taxon",
+      "pollinator_taxon",
+      "legitimate_interaction_count"
+    ]
+  },
+  "claim_boundary": "The source may support contemporary interaction-network, habitat and invasion-context analyses within an oceanic archipelago. Interaction counts are not single-visit pollen deposition, pollinator effectiveness, effective dependency, reproductive success, historical selection, or a direct mainland-distance replicate."
+}

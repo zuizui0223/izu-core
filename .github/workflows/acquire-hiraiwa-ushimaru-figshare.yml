@@ -1,0 +1,72 @@
+name: Acquire Hiraiwa-Ushimaru Figshare data
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "config/hiraiwa_ushimaru_figshare_source.json"
+      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
+      - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
+      - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
+      - "scripts/analyze_hiraiwa_ushimaru_community_response.py"
+      - "scripts/analyze_hiraiwa_ushimaru_functional_moderation.py"
+      - "scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py"
+      - "scripts/audit_hiraiwa_ushimaru_fdq_full_covariates.py"
+      - "scripts/audit_hiraiwa_ushimaru_matching_to_pollen.py"
+      - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
+      - "scripts/audit_hiraiwa_ushimaru_island_baseline_specificity.py"
+      - "scripts/select_hiraiwa_ushimaru_functional_control.py"
+      - ".github/workflows/acquire-hiraiwa-ushimaru-figshare.yml"
+  pull_request:
+    paths:
+      - "config/hiraiwa_ushimaru_figshare_source.json"
+      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
+      - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
+      - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
+      - "scripts/analyze_hiraiwa_ushimaru_community_response.py"
+      - "scripts/analyze_hiraiwa_ushimaru_functional_moderation.py"
+      - "scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py"
+      - "scripts/audit_hiraiwa_ushimaru_fdq_full_covariates.py"
+      - "scripts/audit_hiraiwa_ushimaru_matching_to_pollen.py"
+      - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
+      - "scripts/audit_hiraiwa_ushimaru_island_baseline_specificity.py"
+      - "scripts/select_hiraiwa_ushimaru_functional_control.py"
+      - ".github/workflows/acquire-hiraiwa-ushimaru-figshare.yml"
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install analysis dependencies
+        run: python -m pip install openpyxl numpy
+      - name: Acquire Figshare files
+        run: python scripts/acquire_hiraiwa_ushimaru_figshare.py
+      - name: Analyze site-level plant responses
+        run: python scripts/analyze_hiraiwa_ushimaru_species_response.py
+      - name: Analyze source-native site-level tube morphology
+        run: python scripts/analyze_hiraiwa_ushimaru_tube_morphology.py
+      - name: Analyze community-level seasonal network responses
+        run: python scripts/analyze_hiraiwa_ushimaru_community_response.py
+      - name: Audit continuous pollinator functional exposure
+        run: python scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py
+      - name: Audit FDQ against full source functional covariates
+        run: python scripts/audit_hiraiwa_ushimaru_fdq_full_covariates.py
+      - name: Audit trait matching to pollen receipt
+        run: python scripts/audit_hiraiwa_ushimaru_matching_to_pollen.py
+      - name: Audit source-native functional moderation
+        run: python scripts/analyze_hiraiwa_ushimaru_functional_moderation.py
+      - name: Audit leave-one-post-island trait matching sensitivity
+        run: python scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py
+      - name: Audit alternate-island baseline specificity
+        run: python scripts/audit_hiraiwa_ushimaru_island_baseline_specificity.py
+      - name: Select prospective high-functional-generality phenotype control
+        run: python scripts/select_hiraiwa_ushimaru_functional_control.py
+      - name: Upload source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: hiraiwa-ushimaru-figshare-audit
+          path: artifacts/hiraiwa_ushimaru_figshare/

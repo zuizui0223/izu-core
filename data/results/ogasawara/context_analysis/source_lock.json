@@ -1,0 +1,18 @@
+{
+  "status": "acquired",
+  "source_id": "ogasawara_pollination_network_2026",
+  "dataset_doi": "10.5281/zenodo.19221853",
+  "title": "Dataset on island pollinator networks, a study on co-invasions",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "n_files": 1,
+  "n_downloaded": 1,
+  "file_keys": [
+    "Data_Quitianetal2026_B.xlsx"
+  ],
+  "file_sha256": {
+    "Data_Quitianetal2026_B.xlsx": "4e0c4a293e2a522e67bc1f87f567249d45b42000b78eaef9d355e8658b1987a6"
+  },
+  "claim_boundary": "The source may support contemporary interaction-network, habitat and invasion-context analyses within an oceanic archipelago. Interaction counts are not single-visit pollen deposition, pollinator effectiveness, effective dependency, reproductive success, historical selection, or a direct mainland-distance replicate."
+}

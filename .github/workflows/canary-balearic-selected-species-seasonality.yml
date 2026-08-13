@@ -1,0 +1,85 @@
+name: Canary-Balearic selected-species seasonality
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/analyze_canary_balearic_plos_seasonality.py"
+      - "tests/test_canary_balearic_plos_seasonality.py"
+      - "data/results/canary_balearic/plos_derived_partner_traits.csv"
+      - "data/results/canary_balearic/plos_same_community_source.json"
+      - "data/results/canary_balearic/plos_selected_species_seasonality.csv"
+      - "data/results/canary_balearic/plos_selected_species_seasonality_summary.json"
+      - ".github/workflows/canary-balearic-selected-species-seasonality.yml"
+  pull_request:
+    paths:
+      - "scripts/analyze_canary_balearic_plos_seasonality.py"
+      - "tests/test_canary_balearic_plos_seasonality.py"
+      - "data/results/canary_balearic/plos_derived_partner_traits.csv"
+      - "data/results/canary_balearic/plos_same_community_source.json"
+      - "data/results/canary_balearic/plos_selected_species_seasonality.csv"
+      - "data/results/canary_balearic/plos_selected_species_seasonality_summary.json"
+      - ".github/workflows/canary-balearic-selected-species-seasonality.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  selected-species-seasonality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependency
+        run: python -m pip install -e . pytest
+      - name: Test species-level aggregation and claim boundaries
+        run: >-
+          python -m pytest -q
+          tests/test_canary_balearic_plos_seasonality.py
+      - name: Build selected-species seasonality screen
+        run: >-
+          python scripts/analyze_canary_balearic_plos_seasonality.py
+          --input data/results/canary_balearic/plos_derived_partner_traits.csv
+          --output-csv artifacts/canary_balearic_seasonality/profile.csv
+          --summary-output artifacts/canary_balearic_seasonality/summary.json
+          --bootstrap-repetitions 10000
+      - name: Verify checked seasonality outputs when present
+        run: |
+          if test -f data/results/canary_balearic/plos_selected_species_seasonality.csv \
+             && test -f data/results/canary_balearic/plos_selected_species_seasonality_summary.json; then
+            cmp artifacts/canary_balearic_seasonality/profile.csv \
+                data/results/canary_balearic/plos_selected_species_seasonality.csv
+            cmp artifacts/canary_balearic_seasonality/summary.json \
+                data/results/canary_balearic/plos_selected_species_seasonality_summary.json
+          else
+            echo "::notice::Checked seasonality outputs are not materialized yet."
+          fi
+      - name: Commit checked outputs on push or manual run
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p data/results/canary_balearic
+          cp artifacts/canary_balearic_seasonality/profile.csv \
+             data/results/canary_balearic/plos_selected_species_seasonality.csv
+          cp artifacts/canary_balearic_seasonality/summary.json \
+             data/results/canary_balearic/plos_selected_species_seasonality_summary.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/results/canary_balearic/plos_selected_species_seasonality.csv \
+            data/results/canary_balearic/plos_selected_species_seasonality_summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Materialize Canary-Balearic seasonality screen"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+      - name: Upload source-level seasonality audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: canary-balearic-selected-species-seasonality
+          path: artifacts/canary_balearic_seasonality/
+          if-no-files-found: error

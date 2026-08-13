@@ -1,0 +1,7 @@
+channel,regime_id,order,second_step_state,mean,sd,se,n
+flower_size,reference,0,0,30.0,3.0,,25
+flower_size,bridge,1,0,26.0,3.0,,25
+flower_size,loss,2,1,22.0,3.0,,25
+autonomous_reproduction,reference,0,0,0.05,0.10,,30
+autonomous_reproduction,bridge,1,0,0.08,0.10,,30
+autonomous_reproduction,loss,2,1,0.62,0.10,,30

@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.1",
+  "updated_on": "2026-08-12",
+  "status": "empirical_predictor_reliability_not_identifiable_from_current_source_native_materials",
+  "purpose": "Separate a completed classical errors-in-variables sensitivity envelope from an empirical estimate of predictor reliability, while retaining concrete recovery targets for Issue #96.",
+  "scope": "Current checksum-locked Southwest Pacific supplements plus the currently reconstructed Hendriks appendix source state. This does not prove that no suitable external reliability source exists.",
+  "systems": {
+    "southwest_pacific_ciarle_2025_animal": {
+      "source_state": "checksum_locked_supplementary_data_s1_s2",
+      "predictor": "FM: mainland relative flower size mean in mm",
+      "source_native_structure": {
+        "flower_dataframe_has_pair_level_FM_mean": true,
+        "flower_dataframe_has_replicate_n_for_FM": false,
+        "flower_dataframe_has_sd_or_se_for_FM": false,
+        "flower_dataframe_has_repeat_measurement_identifier_for_FM": false,
+        "island_mainland_pairs_table_has_trait_min_max": true,
+        "trait_min_max_is_valid_reliability_replication": false,
+        "article_describes_30_species_online_vs_herbarium_validation": true,
+        "paired_raw_30_species_validation_values_present_in_s1_s2": false
+      },
+      "identifiability": "blocked",
+      "reason": "S1/S2 supply pair-level FI/FM means, source-method labels and trait ranges, but no replicate-level mainland measurements, sampling variance, repeat-measurement identifiers, paired raw values for the published 30-species online-versus-herbarium validation, or independently calibrated measurement error from which reliability of log(FM) can be estimated.",
+      "source_method_adversary_role": "Online-only and geographic-overlap analyses test whether the observed response shape requires herbarium-source pairs; they do not estimate predictor reliability.",
+      "not_valid_reliability_substitutes": [
+        "trait min/max range",
+        "source-method category",
+        "non-significant online-versus-herbarium comparison without paired raw measurements",
+        "assumed reliability selected because it preserves below-isometry direction"
+      ],
+      "admissible_next_evidence": [
+        "paired raw values for the published 30-species online-versus-herbarium validation",
+        "source-level raw replicate flower measurements with stable taxon/population identifiers",
+        "published n plus within-source SD/SE tied to the exact FM estimate",
+        "independent validation or repeatability study applicable to the exact measurement process"
+      ]
+    },
+    "new_zealand_hendriks_2019": {
+      "source_state": "35_of_35_pair_means_reconstructed_from_author_uploaded_thesis_but_bytes_not_checksum_locked",
+      "predictor": "mainland flower area",
+      "source_native_structure": {
+        "appendix_has_pair_level_mainland_values": true,
+        "appendix_has_replicate_n_for_mainland_flower_area": false,
+        "appendix_has_sd_or_se_for_mainland_flower_area": false,
+        "appendix_has_repeat_measurement_identifier_for_mainland_flower_area": false
+      },
+      "identifiability": "blocked",
+      "reason": "The reconstructed appendix supplies source-derived pair-level mainland flower-area values but not repeat-measurement information, sampling variance or a calibrated error model that identifies reliability of the predictor.",
+      "not_valid_reliability_substitutes": [
+        "between-source spread without a defined repeated-measurement model",
+        "pair-level cross-species variation",
+        "OLS/SMA disagreement itself"
+      ],
+      "admissible_next_evidence": [
+        "checksum-locked source bytes plus source-linked raw replicate measurements",
+        "published sampling variance or repeatability tied to the exact flower-area estimates",
+        "independent measurement validation applicable to the source protocol"
+      ]
+    }
+  },
+  "completed_sensitivity_result": {
+    "both_OLS_points_below_isometry_if_both_reliabilities_exceed": 0.8490052881072877,
+    "both_island_cluster_OLS_intervals_below_isometry_if_both_reliabilities_exceed": 0.9258005353502381,
+    "these_are_estimated_reliabilities": false
+  },
+  "formal_consequence": {
+    "classical_EIV_envelope_complete": true,
+    "empirical_reliability_gate_complete": false,
+    "issue_96_complete": false,
+    "effect_registry_eligible": false,
+    "formal_same_family_meta_analysis_ready": false
+  },
+  "next_search_targets": [
+    "Southwest Pacific 30-species paired online-versus-herbarium validation values",
+    "supplementary or repository material containing repeated floral measurements or predictor-scale measurement error",
+    "Hendriks thesis/source appendices or cited primary measurements with repeat information"
+  ],
+  "claim_boundary": "The EIV sensitivity analysis is complete as an assumption envelope. Current source-native materials do not identify empirical predictor reliability, so the thresholds cannot be treated as observed support for correction or formal admission. This current-source unidentifiability result does not prove that no suitable external validation source can be recovered."
+}

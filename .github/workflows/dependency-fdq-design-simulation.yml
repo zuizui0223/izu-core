@@ -1,0 +1,95 @@
+name: Dependency x FDQ design simulation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/dependency_fdq_design_simulation.py"
+      - "scripts/run_dependency_fdq_design_simulation.py"
+      - "data/design/dependency_fdq_design_scenarios.json"
+      - "data/results/dependency_fdq_design_simulation.json"
+      - "docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md"
+      - "tests/test_dependency_fdq_design_simulation.py"
+      - ".github/workflows/dependency-fdq-design-simulation.yml"
+  pull_request:
+    paths:
+      - "channel_id/dependency_fdq_design_simulation.py"
+      - "scripts/run_dependency_fdq_design_simulation.py"
+      - "data/design/dependency_fdq_design_scenarios.json"
+      - "data/results/dependency_fdq_design_simulation.json"
+      - "docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md"
+      - "tests/test_dependency_fdq_design_simulation.py"
+      - ".github/workflows/dependency-fdq-design-simulation.yml"
+
+jobs:
+  design-simulation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependency
+        run: python -m pip install -e . pytest
+      - name: Run design-simulation tests
+        run: python -m pytest -q tests/test_dependency_fdq_design_simulation.py
+      - name: Re-run prospective simulation
+        run: >-
+          python scripts/run_dependency_fdq_design_simulation.py
+          --config data/design/dependency_fdq_design_scenarios.json
+          --output artifacts/dependency_fdq_design_simulation/summary.json
+      - name: Verify checked operating characteristics
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          generated = json.loads(
+              Path("artifacts/dependency_fdq_design_simulation/summary.json").read_text()
+          )
+          checked = json.loads(
+              Path("data/results/dependency_fdq_design_simulation.json").read_text()
+          )
+          generated_index = {
+              row["scenario_id"]: row for row in generated["scenario_results"]
+          }
+          for row in checked["scenario_results"]:
+              current = generated_index[row["scenario_id"]]
+              assert current["target_analysis_rows"] == row["rows"]
+              assert math.isclose(
+                  current["synthetic_dependency_span"],
+                  row["dependency_span"],
+                  rel_tol=0.0,
+                  abs_tol=1e-12,
+              )
+              assert math.isclose(
+                  current["dependency_reliability"],
+                  row["dependency_reliability"],
+                  rel_tol=0.0,
+                  abs_tol=1e-12,
+              )
+              effect_index = {
+                  item["declared_synthetic_interaction"]: item
+                  for item in current["effect_results"]
+              }
+              for effect in row["effect_results"]:
+                  reproduced = effect_index[effect["synthetic_interaction"]]
+                  assert math.isclose(
+                      reproduced["calibrated_detection_probability"],
+                      effect["detection_probability"],
+                      rel_tol=0.0,
+                      abs_tol=1e-12,
+                  )
+                  assert math.isclose(
+                      reproduced["attenuation_ratio"],
+                      effect["attenuation_ratio"],
+                      rel_tol=0.0,
+                      abs_tol=1e-12,
+                  )
+          PY
+      - name: Upload simulation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-fdq-design-simulation
+          path: artifacts/dependency_fdq_design_simulation/summary.json

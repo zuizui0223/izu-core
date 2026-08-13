@@ -1,0 +1,44 @@
+name: Independent primary-source acquisition gate
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/independent_source_acquisition.py"
+      - "scripts/audit_independent_source_acquisition.py"
+      - "tests/test_independent_source_acquisition.py"
+      - "data/design/independent_primary_source_acquisition.json"
+      - "data/predictive_meta/primary_source_native_evidence.csv"
+      - "paper/evidence_screening/known_source_upgrade_queue.csv"
+      - "docs/INDEPENDENT_PRIMARY_SOURCE_ACQUISITION_STATUS.md"
+      - ".github/workflows/independent-source-acquisition.yml"
+  pull_request:
+    paths:
+      - "channel_id/independent_source_acquisition.py"
+      - "scripts/audit_independent_source_acquisition.py"
+      - "tests/test_independent_source_acquisition.py"
+      - "data/design/independent_primary_source_acquisition.json"
+      - "data/predictive_meta/primary_source_native_evidence.csv"
+      - "paper/evidence_screening/known_source_upgrade_queue.csv"
+      - "docs/INDEPENDENT_PRIMARY_SOURCE_ACQUISITION_STATUS.md"
+      - ".github/workflows/independent-source-acquisition.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependency
+        run: python -m pip install -e . pytest
+      - name: Test acquisition and admission gates
+        run: python -m pytest -q tests/test_independent_source_acquisition.py
+      - name: Build acquisition readiness report
+        run: python scripts/audit_independent_source_acquisition.py
+      - name: Upload readiness report
+        uses: actions/upload-artifact@v4
+        with:
+          name: independent-primary-source-acquisition
+          path: artifacts/independent_source_acquisition/summary.json

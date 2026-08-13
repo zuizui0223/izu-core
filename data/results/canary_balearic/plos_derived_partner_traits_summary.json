@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "status": "parsed_selected_species_monthly_partner_traits",
+  "source_id": "castro_urgal_traveset_2016_plos_same_communities",
+  "article_doi": "10.1371/journal.pone.0150824",
+  "target_source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
+  "target_article_doi": "10.1111/boj.12134",
+  "n_rows": 457,
+  "domains": [
+    "flower_visitor",
+    "plant"
+  ],
+  "zones": [
+    "CB",
+    "CM",
+    "LC",
+    "SB"
+  ],
+  "specificity_classes": [
+    "Generalized",
+    "Opportunistic",
+    "Selective",
+    "Specialized"
+  ],
+  "rows_by_domain": {
+    "flower_visitor": 227,
+    "plant": 230
+  },
+  "rows_by_zone": {
+    "CB": 119,
+    "CM": 103,
+    "LC": 129,
+    "SB": 106
+  },
+  "rows_by_specificity": {
+    "Generalized": 140,
+    "Specialized": 92,
+    "Opportunistic": 118,
+    "Selective": 107
+  },
+  "unique_species_codes_by_domain": {
+    "flower_visitor": 51,
+    "plant": 52
+  },
+  "source_role_mismatch_retained": true,
+  "raw_interaction_edges_available": false,
+  "full_network_matrix_available": false,
+  "effect_registry_eligible": false,
+  "independent_unit": "selected species x community; monthly rows are repeated observations and two communities per island do not create independent geological-origin replicates",
+  "selection_boundary": "Species were deliberately selected from extreme linkage/selectiveness classes and were required to occur in at least two temporal networks. These rows do not represent the full plant or visitor assemblage.",
+  "reading": "The recovered package supports selected-species seasonal partner-trait analyses and source-quality checks. It cannot reproduce the complete 2014 quantitative networks or supply a compatible Wanshan-Yongxing plant-level island effect.",
+  "claim_boundary": "The open PLOS supporting information is a lawful same-community recovery route, not automatic proof that it contains the complete 2014 source matrices. Selected-species or derived partner-trait tables cannot be treated as full network matrices. Flower-visitation rates do not measure per-visit effectiveness, effective dependency, pollen deposition, reproductive success or geological-origin causation."
+}

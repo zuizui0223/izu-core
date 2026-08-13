@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "question": "Can a clean mainland-versus-southern-Izu same-lineage Bombus-dependent holdout be treated as an unbiased test of pollinator-regime response?",
+  "answer": "no",
+  "reason": "Requiring the same pure Bombus-dependent lineage to persist on both sides conditions the analysis on survival/establishment across the very pollinator filter being studied.",
+  "source_native_examples": [
+    {
+      "source_id": "goodyera_suetsugu_2024",
+      "doi": "10.1111/nph.19325",
+      "mainland_state": "pure Goodyera henryi; source-supported exclusive Bombus diversus pollination",
+      "kozu_state": "pure G. henryi not recovered; plants initially identified as G. henryi are G. henryi x G. similis hybrids",
+      "response_mode": "hybrid_replacement_plus_interaction_rewiring",
+      "implication": "The strongest dependency class can fail the pure same-lineage comparator requirement because persistence itself changes lineage identity."
+    },
+    {
+      "source_id": "goodyera_suetsugu_2024_background",
+      "doi": "10.1111/nph.19325",
+      "source_statement_scope": "The primary article summarizes prior Izu work as showing that plant species exclusively reliant on bumblebee pollination are conspicuously absent, whereas plants using bumblebees plus other insects can persist by using available island pollinators.",
+      "implication": "A survivor-only cross-island trait analysis is expected to underrepresent the most Bombus-dependent mainland lineages."
+    }
+  ],
+  "selection_bias": {
+    "conditioning_event": "lineage is present as the same biological comparator on mainland/Oshima/post-boundary sites",
+    "selected_for": [
+      "ability to persist without the mainland Bombus interaction",
+      "pre-existing pollinator breadth",
+      "autonomous reproductive assurance",
+      "interaction rewiring",
+      "hybridization or other lineage change",
+      "long life span or clonal buffering"
+    ],
+    "selected_against": [
+      "strict Bombus dependence without alternative reproductive or interaction pathways"
+    ]
+  },
+  "analysis_consequence": {
+    "same_lineage_trait_holdout": "tests responses among survivors and must be labelled survivor-conditional",
+    "occupancy_or_establishment_filtering": "required as a separate response domain for lineages that do not survive the boundary as comparable populations",
+    "hybrid_replacement": "must remain a separate response mode rather than being discarded as an invalid comparator",
+    "generalist_control": "tests whether a shared breakpoint is repeated among high-breadth survivors; it is not a control for establishment filtering",
+    "universal_pollinator_effect_claim": "not identifiable from survivor-only lineages"
+  },
+  "clean_bombus_holdout_status": "biologically_selection_conditioned_not_merely_data_missing",
+  "next_test": "Build a source-reviewed occupancy/establishment layer comparing Bombus-dependent versus broader-dependency mainland lineages across the Oshima/post-boundary transition, while modelling observation effort and never treating public-record non-detection as biological absence.",
+  "claim_boundary": "This is a design/selection-bias constraint. It does not prove that pollinator loss caused any particular absence; habitat, dispersal, island history and source-pool composition remain competing filters."
+}

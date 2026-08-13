@@ -1,0 +1,24 @@
+{
+  "source_id": "ogasawara_pollination_network_2026",
+  "record_id": 19221853,
+  "api_url": "https://zenodo.org/api/records/19221853",
+  "landing_page_url": "https://zenodo.org/records/19221853",
+  "dataset_doi": "10.5281/zenodo.19221853",
+  "expected_license": "CC-BY-4.0",
+  "external_validation_role": "oceanic_archipelago_rewiring_and_invasion_context",
+  "expected_design_context": {
+    "islands": ["Chichijima", "Hahajima", "Anijima", "Otoutojima"],
+    "seasons_or_months": ["May", "July", "September"],
+    "context_fields_to_audit": [
+      "island",
+      "site",
+      "season_or_month",
+      "natural_or_disturbed_habitat",
+      "green_anole_context",
+      "plant_taxon",
+      "pollinator_taxon",
+      "legitimate_interaction_count"
+    ]
+  },
+  "claim_boundary": "The source may support contemporary interaction-network, habitat and invasion-context analyses within an oceanic archipelago. Interaction counts are not single-visit pollen deposition, pollinator effectiveness, effective dependency, reproductive success, historical selection, or a direct mainland-distance replicate."
+}

@@ -1,0 +1,832 @@
+{
+  "status": "tabular_schema_audited",
+  "n_tabular_units": 9,
+  "n_paired_wide_candidates": 0,
+  "n_paired_long_candidates": 0,
+  "n_quantitative_pair_candidates": 0,
+  "n_moderator_table_candidates": 3,
+  "tables": [
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_data_s1.xlsx",
+      "sheet": "METADATA",
+      "n_rows_reported": 18,
+      "n_columns_reported": 2,
+      "delimiter": null,
+      "headers": [
+        "Pair number",
+        "Island-mainland pair number"
+      ],
+      "role_matches": {
+        "comparison_id": [
+          "Pair number",
+          "Island-mainland pair number"
+        ],
+        "archipelago": [],
+        "island": [
+          "Island-mainland pair number"
+        ],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [
+          "Island-mainland pair number"
+        ],
+        "value": [],
+        "pollination_mode": [],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": false,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          "Island ",
+          "Island where the species is present"
+        ],
+        [
+          "Family",
+          "Taxonomic family of the species"
+        ],
+        [
+          "Island species",
+          "Island endemic species"
+        ],
+        [
+          "Mainland relative(s)",
+          "Closest mainland relative(s) of the island endemic species"
+        ],
+        [
+          "Data source",
+          "Source from which the data was collected. Either online databases or herbaria at Te Papa Tongarewa New Zealand National Museum "
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_data_s1.xlsx",
+      "sheet": "Data",
+      "n_rows_reported": 130,
+      "n_columns_reported": 9,
+      "delimiter": null,
+      "headers": [
+        "Pair number",
+        "Island ",
+        "Family",
+        "Island species",
+        "Mainland relative(s)",
+        "Data source",
+        "Mean of identification of sister taxa",
+        "Reference",
+        ""
+      ],
+      "role_matches": {
+        "comparison_id": [
+          "Pair number"
+        ],
+        "archipelago": [],
+        "island": [
+          "Island ",
+          "Island species"
+        ],
+        "island_taxon": [
+          "Island species"
+        ],
+        "mainland_taxon": [],
+        "trait": [],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [
+          "Mean of identification of sister taxa"
+        ],
+        "pollination_mode": [],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": false,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          1,
+          "Chatham",
+          "Aizoaceae",
+          "Disphyma papillatum",
+          "Disphyma australe subsp. australe, clavellatum",
+          "Online databases",
+          "Phylogenetic evidence",
+          "Heenan, P. B., Mitchell, A. D., De Lange, P. J., Keeling, J., & Paterson, A. M. (2010). Late-Cenozoic origin and diversification of Chatham Islands endemic plant species revealed by analyses of DNA sequence data. New Zealand Journal of Botany, 48(2), 83-136.",
+          null
+        ],
+        [
+          2,
+          "Kermadec",
+          "Aizoaceae",
+          "Disphyma australe subsp. stricticaule",
+          "Disphyma australe subsp. australe",
+          "Online databases",
+          "Morphological evidence",
+          "New Zealand Plant Conservation Network",
+          null
+        ],
+        [
+          3,
+          "Norfolk",
+          "Amaranthaceae",
+          "Achyranthes arborescens/margaretarum",
+          "Achyranthes aspera, bidentata",
+          "Online databases",
+          "Morphological evidence",
+          "Flora of Australia. Volume 49. Oceanic islands 1.",
+          null
+        ],
+        [
+          4,
+          "Chatham",
+          "Apiaceae",
+          "Aciphylla dieffenbachii/traversii",
+          "Aciphylla aurea, kirkii, horrida, crenulata, colensoi, squarrosa",
+          "Herbaria",
+          "Phylogenetic evidence",
+          "Radford, E. A., Watson, M. F., & Preston, J. (2001). Phylogenetic relationships of species of Aciphylla (Apiaceae, subfamily Apioideae) and related genera using molecular, morphological, and combined data sets. New Zealand Journal of Botany, 39(2), 183-208.",
+          null
+        ],
+        [
+          5,
+          "Macquarie",
+          "Apiaceae",
+          "Azorella macquariensis",
+          "Azorella selago",
+          "Online databases",
+          "Phylogenetic evidence",
+          "Plunkett, G. M., & Nicolas, A. N. (2017). Assessing Azorella (Apiaceae) and its allies: Phylogenetics and a new classification. Brittonia, 69, 31-61.",
+          null
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_data_s2.xlsx",
+      "sheet": "METADATA",
+      "n_rows_reported": 38,
+      "n_columns_reported": 2,
+      "delimiter": null,
+      "headers": [
+        "Flower dataframe",
+        ""
+      ],
+      "role_matches": {
+        "comparison_id": [],
+        "archipelago": [],
+        "island": [],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [],
+        "pollination_mode": [],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": false,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          "Pair number",
+          "Island-mainland pair number"
+        ],
+        [
+          "Family",
+          "Plant taxonomic family"
+        ],
+        [
+          "FI",
+          "Island flower size (mean) in mm"
+        ],
+        [
+          "FM",
+          "Mainland relative flower size (mean) in mm"
+        ],
+        [
+          "R",
+          "Ratio. FI/FM"
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_data_s2.xlsx",
+      "sheet": "Flower dataframe",
+      "n_rows_reported": 130,
+      "n_columns_reported": 21,
+      "delimiter": null,
+      "headers": [
+        "Pair number",
+        "Family",
+        "FI",
+        "FM",
+        "R",
+        "LR",
+        "Island",
+        "Mainland",
+        "Degree",
+        "Unit of pollination",
+        "Flower morphology",
+        "Syndrome",
+        "System",
+        "Flo num",
+        "FR",
+        "LFR",
+        "LI",
+        "LM",
+        "SI",
+        "SM",
+        "Mean of identification of sister taxa"
+      ],
+      "role_matches": {
+        "comparison_id": [
+          "Pair number"
+        ],
+        "archipelago": [],
+        "island": [
+          "Island"
+        ],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [],
+        "unit": [
+          "Unit of pollination"
+        ],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [
+          "Mean of identification of sister taxa"
+        ],
+        "pollination_mode": [
+          "Unit of pollination"
+        ],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": true,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          1,
+          "Aizoaceae",
+          30,
+          30,
+          1,
+          0,
+          "Chatham",
+          1,
+          1,
+          1,
+          2,
+          1,
+          "M",
+          1,
+          1,
+          0,
+          73.4325625,
+          130,
+          1.05,
+          1.05,
+          "Phylogenetic evidence"
+        ],
+        [
+          2,
+          "Aizoaceae",
+          30,
+          30,
+          1,
+          0,
+          "Kermadec",
+          1,
+          0,
+          1,
+          2,
+          1,
+          "M",
+          1,
+          1,
+          0,
+          117.41356250000001,
+          117.41356250000001,
+          1.05,
+          1.05,
+          "Morphological evidence"
+        ],
+        [
+          3,
+          "Amaranthaceae",
+          6.25,
+          4,
+          1.5625,
+          0.19382002601611284,
+          "Norfolk",
+          2,
+          1,
+          1,
+          1,
+          1,
+          "M",
+          0.27,
+          0.421875,
+          -0.3748162098248999,
+          1161.37328125,
+          2600,
+          "n/a",
+          "n/a",
+          "Morphological evidence"
+        ],
+        [
+          4,
+          "Apiaceae",
+          1.365,
+          1.335,
+          1.0224719101123596,
+          0.009651385676180839,
+          "Chatham",
+          1,
+          1,
+          2,
+          2,
+          1,
+          "D",
+          0.98,
+          1.0020224719101123,
+          0.0008774613686756413,
+          37305.3125,
+          3141.5,
+          11,
+          5,
+          "Phylogenetic evidence"
+        ],
+        [
+          5,
+          "Apiaceae",
+          1.75,
+          1.7,
+          1.0294117647058825,
+          0.01258912730802056,
+          "Macquarie",
+          1,
+          1,
+          "n/a",
+          2,
+          1,
+          "M",
+          1,
+          1.0294117647058825,
+          0.01258912730802056,
+          2.2383187500000004,
+          27.488125,
+          "n/a",
+          "n/a",
+          "Phylogenetic evidence"
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_data_s2.xlsx",
+      "sheet": "Island-mainland pairs",
+      "n_rows_reported": 846,
+      "n_columns_reported": 14,
+      "delimiter": null,
+      "headers": [
+        "Pair number",
+        "Family",
+        "Species",
+        "Flower traits",
+        "Trait used for the analysis",
+        "Trait min (mm)",
+        "Trait max (mm)",
+        "Animal pollinated",
+        "Fleshy-fruited",
+        "Breeding system",
+        "Flowers per inflorescence",
+        "Island",
+        "",
+        ""
+      ],
+      "role_matches": {
+        "comparison_id": [
+          "Pair number"
+        ],
+        "archipelago": [],
+        "island": [
+          "Island"
+        ],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [
+          "Flower traits",
+          "Trait used for the analysis",
+          "Trait min (mm)",
+          "Trait max (mm)"
+        ],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [],
+        "pollination_mode": [
+          "Animal pollinated"
+        ],
+        "breeding_system": [
+          "Breeding system"
+        ],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": [
+          "Trait used for the analysis"
+        ]
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": true,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": true,
+      "sample_preview": [
+        [
+          1,
+          "Aizoaceae",
+          "Disphyma papillatum",
+          "Flower diam.",
+          "x",
+          20,
+          40,
+          "yes",
+          "no",
+          "H",
+          1,
+          "Chatham",
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          "Petal length",
+          null,
+          10,
+          30,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          "Disphyma australe subsp. australe",
+          "Flower diam.",
+          null,
+          20,
+          40,
+          "yes",
+          "no",
+          "H",
+          1,
+          "Mainland",
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          "Petal length",
+          null,
+          10,
+          30,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          "Disphyma clavellatum",
+          "Flower diam.",
+          null,
+          20,
+          40,
+          "yes",
+          "no",
+          "H",
+          1,
+          "Mainland",
+          null,
+          null
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_materials.docx",
+      "sheet": "docx_table_1",
+      "n_rows_reported": 13,
+      "n_columns_reported": 3,
+      "delimiter": null,
+      "headers": [
+        "Family",
+        "Traits",
+        "Coefficient"
+      ],
+      "role_matches": {
+        "comparison_id": [],
+        "archipelago": [],
+        "island": [],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [
+          "Traits"
+        ],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [],
+        "pollination_mode": [],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": false,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          "Boraginaceae",
+          "Lobe length~Flower diameter",
+          "0.92"
+        ],
+        [
+          "Asteraceae",
+          "Disk diameter~Total diameter",
+          "0.89"
+        ],
+        [
+          "Asteraceae",
+          "Ray floret length~Total diameter",
+          "0.84"
+        ],
+        [
+          "Asteraceae",
+          "Disk diameter~Ray floret length",
+          "0.75"
+        ],
+        [
+          "Gentianaceae",
+          "Tube width~Lobe length",
+          "0.98"
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_materials.docx",
+      "sheet": "docx_table_2",
+      "n_rows_reported": 3,
+      "n_columns_reported": 5,
+      "delimiter": null,
+      "headers": [
+        "Group",
+        "n",
+        "LR mean",
+        "t",
+        "P"
+      ],
+      "role_matches": {
+        "comparison_id": [],
+        "archipelago": [],
+        "island": [],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [
+          "LR mean"
+        ],
+        "pollination_mode": [],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": false,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          "Animal-pollinated",
+          "80",
+          "0.09",
+          "1.43",
+          "0.16"
+        ],
+        [
+          "Wind-pollinated",
+          "31",
+          "-0.04",
+          "-0.52",
+          "0.61"
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_materials.docx",
+      "sheet": "docx_table_3",
+      "n_rows_reported": 6,
+      "n_columns_reported": 4,
+      "delimiter": null,
+      "headers": [
+        "",
+        "Model",
+        "Slope",
+        "P"
+      ],
+      "role_matches": {
+        "comparison_id": [],
+        "archipelago": [],
+        "island": [],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [],
+        "pollination_mode": [],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": false,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          "\n",
+          "LR ~ intercept + LM + error",
+          "-0.15 [-0.45, -0.09]",
+          "0.01**"
+        ],
+        [
+          "\n\nAnimal-pollinated flowers",
+          "LR ~ intercept + LM + (island) + error",
+          "-0.12 [-0.19, -0.01]",
+          "0.02**"
+        ],
+        [
+          "\n\n\n",
+          "LR ~ intercept + LM + Breeding system + (Family) + error",
+          "-0.08 [-0.13, -0.01]",
+          "0.04**"
+        ],
+        [
+          "Wind-pollinated flowers",
+          "LR ~ intercept + LM + error",
+          "-0.01 [-0.13, 0.10]",
+          "0.81"
+        ]
+      ]
+    },
+    {
+      "file": "artifacts/southwest_pacific_aob/files/mcaf005_suppl_supplementary_materials.docx",
+      "sheet": "docx_table_4",
+      "n_rows_reported": 6,
+      "n_columns_reported": 4,
+      "delimiter": null,
+      "headers": [
+        "\n",
+        "Animal-pollinated flowers",
+        "Wind-pollinated flowers",
+        ""
+      ],
+      "role_matches": {
+        "comparison_id": [],
+        "archipelago": [],
+        "island": [],
+        "island_taxon": [],
+        "mainland_taxon": [],
+        "trait": [],
+        "unit": [],
+        "island_value": [],
+        "mainland_value": [],
+        "group": [],
+        "value": [],
+        "pollination_mode": [
+          "Animal-pollinated flowers",
+          "Wind-pollinated flowers"
+        ],
+        "breeding_system": [],
+        "island_type": [],
+        "growth_form": [],
+        "sample_size": [],
+        "uncertainty": []
+      },
+      "paired_wide_candidate": false,
+      "paired_long_candidate": false,
+      "moderator_table_candidate": true,
+      "quantitative_pair_candidate": false,
+      "contains_sample_size_field": false,
+      "contains_uncertainty_field": false,
+      "sample_preview": [
+        [
+          "Breeding system",
+          "Chi-squared = 6.12, df = 1, P = 0.04**",
+          "Chi-squared = 0.43, df = 1, P = 0.14",
+          "\n\n"
+        ],
+        [
+          "Mainland source",
+          "Chi-squared = 2.57, df = 1, P = 0.23",
+          "Chi-squared = 2.25, df = 1, P = 0.14",
+          "\n\n"
+        ],
+        [
+          "Degree of taxonomic differentiation",
+          "Chi-squared = 2.04, df = 1, P = 0.34",
+          "Chi-squared = 0.39, df = 1, P = 0.22",
+          "\n\n"
+        ],
+        [
+          "Phylogenetic conservatism (Taxonomic families)",
+          "Chi-squared = 9.10, df = 8, P = 0.18",
+          "Chi-squared = 0.74, df = 3, P = 0.14",
+          "\n\n\n"
+        ],
+        [
+          "Islands",
+          "Chi-squared = 18.98, df = 10, P = 0.04**",
+          "Chi-squared = 6.37, df = 6, P = 0.39",
+          "\n\n"
+        ]
+      ]
+    }
+  ],
+  "errors": [],
+  "next_gate": "Verify the source-defined comparison identifier, island/mainland orientation, trait units and shared sampling hierarchy. Only then compute within-comparison response sizes.",
+  "claim_boundary": "Header matching does not establish 129 independent biological replicates, pollinator dependency or causal island evolution. Pair-level morphology may be analysed only after comparison identity, orientation and trait definition are source-resolved."
+}

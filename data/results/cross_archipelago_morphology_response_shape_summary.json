@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "status": "directional_response_shape_replication_audited",
+  "comparison_statistic": "slope of log(island floral trait) on log(mainland floral trait)",
+  "isometry_slope": 1.0,
+  "systems": [
+    {
+      "system_id": "southwest_pacific_ciarle_2025_animal",
+      "source_state": "checksum_locked_source_native_129_pair_analysis",
+      "trait_definition": "source-defined flower size",
+      "n_pairs": 88,
+      "n_island_groups": 10,
+      "direct_ols_slope": 0.8490052881072875,
+      "island_cluster_interval": [
+        0.6916442921593313,
+        0.9258005353502381
+      ],
+      "interval_excludes_isometry_below_one": true,
+      "measurement_error_reliability_empirically_estimated": false,
+      "point_below_isometry_reliability_threshold": 0.8490052881072875,
+      "cluster_interval_below_isometry_reliability_threshold": 0.9258005353502381,
+      "formal_effect_registry_eligible": false
+    },
+    {
+      "system_id": "new_zealand_hendriks_2019",
+      "source_state": "institutional_pdf_checksum_locked_and_35_pair_plus_island_mapping_reverification_complete",
+      "trait_definition": "flower area",
+      "n_pairs": 35,
+      "n_island_groups": 9,
+      "direct_ols_slope": 0.5833358843917842,
+      "island_cluster_interval": [
+        0.21278670541951528,
+        0.7784929080550151
+      ],
+      "interval_excludes_isometry_below_one": true,
+      "measurement_error_reliability_empirically_estimated": false,
+      "point_below_isometry_reliability_threshold": 0.5833358843917842,
+      "cluster_interval_below_isometry_reliability_threshold": 0.7784929080550151,
+      "sma_island_cluster_interval": [
+        0.7296694231411485,
+        1.0731043040917998
+      ],
+      "sma_interval_excludes_isometry": false,
+      "formal_effect_registry_eligible": false
+    }
+  ],
+  "directional_replication": {
+    "source_native_ols_island_cluster_direction_replicated": true,
+    "systems_with_cluster_interval_below_isometry": 2,
+    "independent_systems_evaluated": 2,
+    "reading": "Both independent datasets show a direct OLS response-shape slope below isometry and island-cluster intervals below one. This is directional replication of a compression-like island response shape, not a pooled effect estimate."
+  },
+  "robustness_boundary": {
+    "errors_in_variables_jointly_resolved": false,
+    "source_provenance_jointly_locked": true,
+    "trait_definitions_identical": false,
+    "formal_same_family_meta_analysis_ready": false,
+    "reading": "The OLS directional recurrence survives island-cluster resampling and both source artifacts are checksum locked, but neither source supplies an empirically identified mainland-trait reliability, Hendriks SMA uncertainty includes isometry, and flower size versus flower area are not treated as identical raw effect scales."
+  },
+  "effect_registry_eligible": false,
+  "formal_cross_system_fit_ready": false,
+  "claim_boundary": "Use this result as an independent directional replication of response shape only. Do not infer a universal island-rule coefficient, pollinator causation, effective dependency, or geological-origin causation, and do not pool the two slopes as exchangeable effects."
+}

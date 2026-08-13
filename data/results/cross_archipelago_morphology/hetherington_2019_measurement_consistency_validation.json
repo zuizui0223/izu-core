@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.1",
+  "source_id": "hetherington_rauth_2019_thesis_measurement_consistency",
+  "source_lock": {
+    "repository": "University of Toronto Scholaris",
+    "handle": "1807/96116",
+    "pdf_name": "Hetherington-Rauth_Molly_C_201906_MSc_thesis.pdf",
+    "n_bytes": 175645192,
+    "sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+    "appendix": "Appendix A.1 Consistency of Floral Measurements",
+    "thesis_pdf_pages": [68, 69, 70, 71]
+  },
+  "measurement_protocol": {
+    "instrument": "ImageJ calibrated to millimeters",
+    "within_island_mainland_pair_same_measurer": true,
+    "between_individual_validation": "three individuals measured the same subset of herbarium specimens",
+    "within_individual_validation": "the same individual repeated measurements on the same subset roughly one month later",
+    "source_interpretation_of_r_squared": "consistency of measurements",
+    "source_interpretation_of_slope": "accuracy/scale agreement; slope 1 denotes exact proportional agreement"
+  },
+  "between_individual_regressions": [
+    {"trait": "radial_flower_radius", "comparison": "Vanessa_on_Molly", "slope": 0.85, "r_squared": 0.88},
+    {"trait": "radial_flower_radius", "comparison": "Simon_on_Molly", "slope": 0.86, "r_squared": 0.86},
+    {"trait": "radial_flower_radius", "comparison": "Simon_on_Vanessa", "slope": 1.03, "r_squared": 0.85},
+    {"trait": "tubular_flower_tube_length", "comparison": "Vanessa_on_Molly", "slope": 0.96, "r_squared": 0.97},
+    {"trait": "tubular_flower_tube_length", "comparison": "Simon_on_Molly", "slope": 1.01, "r_squared": 0.96},
+    {"trait": "tubular_flower_diameter", "comparison": "Vanessa_on_Molly", "slope": 0.86, "r_squared": 0.86},
+    {"trait": "tubular_flower_diameter", "comparison": "Simon_on_Molly", "slope": 1.07, "r_squared": 0.85}
+  ],
+  "within_individual_repeat_regressions": [
+    {"trait": "radial_flower_radius", "slope": 0.97, "intercept": -0.10, "r_squared": 0.94, "classical_independent_error_each_reliability_lower_bound": 0.94, "sqrt_r_squared_equal_error_proxy": 0.9695359714832658},
+    {"trait": "tubular_flower_tube_length", "slope": 0.82, "intercept": 2.72, "r_squared": 0.88, "classical_independent_error_each_reliability_lower_bound": 0.88, "sqrt_r_squared_equal_error_proxy": 0.938083151964686},
+    {"trait": "tubular_flower_diameter", "slope": 0.88, "intercept": 0.50, "r_squared": 0.93, "classical_independent_error_each_reliability_lower_bound": 0.93, "sqrt_r_squared_equal_error_proxy": 0.9643650760992956}
+  ],
+  "southwest_pacific_eiv_reference_thresholds": {
+    "animal_point_direction_reliability_gt": 0.8490053,
+    "animal_island_cluster_interval_reliability_gt": 0.9258005,
+    "under_classical_independent_replicate_error_all_r2_lower_bounds_exceed_point_threshold": true,
+    "under_classical_independent_replicate_error_traits_whose_r2_lower_bound_exceeds_cluster_threshold": [
+      "radial_flower_radius",
+      "tubular_flower_diameter"
+    ],
+    "under_classical_independent_replicate_error_all_r2_lower_bounds_exceed_cluster_threshold": false,
+    "all_three_equal_error_proxies_exceed_point_threshold": true,
+    "all_three_equal_error_proxies_exceed_island_cluster_threshold": true
+  },
+  "estimand_assessment": {
+    "r_squared_is_direct_reliability_coefficient": false,
+    "conditional_independent_error_bound": "If two repeat measurements equal the same latent trait plus mutually independent classical errors, their squared correlation equals the product of their reliabilities. Since each reliability is at most 1, each is then at least R-squared. This is a conditional bound, not an observed reliability estimate.",
+    "r_squared_lower_bound_is_admissible_without_same_latent_scale_and_independent_error_assumptions": false,
+    "sqrt_r_squared_is_admissible_reliability_without_extra_assumptions": false,
+    "equal_error_proxy_assumptions": [
+      "both replicate measurements equal the same latent trait plus independent homoscedastic zero-mean error",
+      "both replicate measurements have equal reliability",
+      "replicate measurements share the same scale with no systematic proportional or additive bias",
+      "the external herbarium measurement process transfers to the predictor scale and source mixture used in the Southwest Pacific analysis"
+    ],
+    "assumptions_supported_by_source": false,
+    "transferability_limit": "The validation directly concerns ImageJ herbarium measurements in the Hetherington thesis. The Southwest Pacific predictor mixes herbarium and literature/online source measurements and combines trait definitions within families, so the external repeatability evidence is not automatically transportable to the full predictor distribution.",
+    "reason": "Several repeat/inter-observer slopes differ materially from 1 and intercepts are nonzero; the validation is from a different study and trait-combination protocol. R-squared therefore demonstrates empirical consistency and supports conditional sensitivity bounds but does not identify the reliability ratio required by the classical x-error correction."
+  },
+  "admission_state": {
+    "external_empirical_measurement_consistency_source_recovered": true,
+    "conditional_point_direction_supported_under_classical_independent_replicate_error": true,
+    "conditional_cluster_interval_supported_for_all_measured_trait_types_under_classical_independent_replicate_error": false,
+    "conditional_cluster_interval_supported_for_all_measured_trait_types_under_equal_error_model": true,
+    "empirical_reliability_coefficient_identified": false,
+    "southwest_pacific_eiv_gate_opened": false,
+    "hendriks_eiv_gate_opened": false,
+    "formal_cross_system_admission_opened": false
+  },
+  "claim_boundary": "The source-locked thesis supplies genuine repeated-measurement evidence and shows high floral measurement consistency. Under a classical independent-replicate-error model, the observed R-squared values conditionally bound each replicate reliability from below; all three bounds exceed the point-direction threshold, but the tube-length bound does not exceed the stricter island-cluster threshold. Under the stronger equal-error/no-bias model, sqrt(R-squared) proxies exceed both thresholds. Because the source does not establish these transport and error assumptions and several repeat slopes depart from one, all such quantities remain sensitivity evidence rather than observed reliability coefficients."
+}

@@ -1,0 +1,83 @@
+name: Methodology workflow v1
+
+on:
+  push:
+    branches: [agent/methodology-workflow-v1]
+  pull_request:
+    paths:
+      - channel_id/study_workflow.py
+      - channel_id/scenario_workflow.py
+      - channel_id/negative_control.py
+      - channel_id/candidate_registry.py
+      - channel_id/virtual_izu_abm.py
+      - channel_id/abm_recovery.py
+      - channel_id/abm_design_audit.py
+      - scripts/run_study_workflow.py
+      - scripts/run_scenario_workflow.py
+      - scripts/run_negative_control.py
+      - scripts/audit_candidate_registry.py
+      - scripts/run_virtual_izu_abm.py
+      - scripts/run_abm_recovery.py
+      - scripts/run_abm_design_audit.py
+      - scripts/prepare_shimahotarubukuro_example.py
+      - tests/test_study_workflow.py
+      - tests/test_scenario_workflow.py
+      - tests/test_negative_control.py
+      - tests/test_candidate_registry.py
+      - tests/test_virtual_izu_abm.py
+      - tests/test_abm_recovery.py
+      - tests/test_abm_design_audit.py
+      - examples/synthetic_threshold/summary.csv
+      - examples/synthetic_scenarios/summary.csv
+      - examples/negative_control/contrasts.csv
+      - data/candidate_lineages.csv
+      - docs/CANDIDATE_REGISTRY.md
+      - docs/VIRTUAL_IZU_ABM.md
+      - docs/ABM_RECOVERY.md
+      - docs/ABM_DESIGN_AUDIT.md
+      - .github/workflows/methodology-workflow-v1.yml
+  workflow_dispatch:
+
+jobs:
+  test-and-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e . pytest
+      - run: pytest tests/test_study_workflow.py tests/test_threshold_identifiability.py tests/test_scenario_workflow.py tests/test_negative_control.py tests/test_candidate_registry.py tests/test_virtual_izu_abm.py tests/test_abm_recovery.py tests/test_abm_design_audit.py
+      - run: |
+          python scripts/run_study_workflow.py examples/synthetic_threshold/summary.csv \
+            --output results/methodology-example.json --replicates 300
+      - run: |
+          python scripts/run_scenario_workflow.py examples/synthetic_scenarios/summary.csv \
+            --output results/scenario-example.json --replicates 100
+      - run: |
+          python scripts/run_negative_control.py examples/negative_control/contrasts.csv \
+            --output results/negative-control-example.json \
+            --equivalence-margin 0.5 --replicates 300
+      - run: |
+          python scripts/audit_candidate_registry.py data/candidate_lineages.csv \
+            --output results/candidate-registry-audit.json
+      - run: |
+          python scripts/run_virtual_izu_abm.py \
+            --scenario environment_plus_pollinator \
+            --generations 30 --founders 100 --seed 7 \
+            --output results/virtual-izu-abm.json
+      - run: |
+          python scripts/run_abm_recovery.py \
+            --reference-replicates 3 --test-replicates 3 \
+            --generations 20 --founders 70 --seed 11 \
+            --output results/abm-recovery-example.json
+      - run: |
+          python scripts/run_abm_design_audit.py \
+            --target-accuracy 0.40 \
+            --reference-replicates 2 --test-replicates 1 \
+            --generations 5 --founders 25 --seed 13 \
+            --output results/abm-design-audit-example.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: methodology-workflow-example
+          path: results/*.json

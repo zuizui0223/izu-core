@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "source_id": "hiraiwa_ushimaru_2017_network",
+  "article_doi": "10.1098/rspb.2016.2218",
+  "dataset_doi": "10.5061/dryad.pm29d",
+  "dataset_file_doi": "10.5061/dryad.pm29d/1",
+  "download_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.pm29d/download",
+  "expected_workbook": "primary_data.xlsx",
+  "study_scope": "three Honshu coastal sites and Izu Oshima, Niijima, Kozu, Miyake, Hachijo; 2013-2014 coastal plant-pollinator networks",
+  "analysis_role": "source-native pollinator-dependency and interaction-network evidence",
+  "permitted_inference": [
+    "observed plant-pollinator interactions conditional on the archived sampling design",
+    "source-native pollinator functional-group use for plant taxa represented in the data"
+  ],
+  "prohibited_inference": [
+    "pollinator effectiveness from visit identity alone",
+    "biological absence from unobserved links",
+    "floral trait evolution from interaction data alone",
+    "historical causation from the 2013-2014 network snapshot"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "dataset_doi": "10.5061/dryad.t76hdr8bj",
+  "resource_version_id": 356411,
+  "version_number": 8,
+  "source_locator": "Dryad public metadata _links.stash:version.href and /api/v2/datasets/.../versions response retrieved 2026-08-10",
+  "target_filename": "The_plant-pollinator_interaction_data_in_this_study..xlsx",
+  "target_file_id": 3999470,
+  "license": "CC0-1.0",
+  "claim_boundary": "This file locks public repository identifiers only. It does not contain or reconstruct interaction values."
+}

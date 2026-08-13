@@ -1,0 +1,69 @@
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+RESULT = ROOT / "data/results/cross_archipelago_morphology/hetherington_2019_measurement_consistency_validation.json"
+VALIDATION30 = ROOT / "data/results/cross_archipelago_morphology/southwest_pacific_30_species_validation_source_audit.json"
+ADMISSION = ROOT / "data/results/cross_archipelago_morphology/empirical_reliability_admission_state.json"
+
+
+def load_result():
+    return json.loads(RESULT.read_text(encoding="utf-8"))
+
+
+def test_source_locked_repeat_measurements_are_recorded_exactly():
+    result = load_result()
+    lock = result["source_lock"]
+    assert lock["handle"] == "1807/96116"
+    assert lock["sha256"] == "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453"
+    repeats = result["within_individual_repeat_regressions"]
+    assert [row["r_squared"] for row in repeats] == [0.94, 0.88, 0.93]
+    assert [row["slope"] for row in repeats] == [0.97, 0.82, 0.88]
+
+
+def test_conditional_reliability_bounds_do_not_become_observed_reliability():
+    result = load_result()
+    thresholds = result["southwest_pacific_eiv_reference_thresholds"]
+    assessment = result["estimand_assessment"]
+    state = result["admission_state"]
+    assert thresholds["under_classical_independent_replicate_error_all_r2_lower_bounds_exceed_point_threshold"] is True
+    assert thresholds["under_classical_independent_replicate_error_all_r2_lower_bounds_exceed_cluster_threshold"] is False
+    assert thresholds["all_three_equal_error_proxies_exceed_island_cluster_threshold"] is True
+    assert assessment["r_squared_is_direct_reliability_coefficient"] is False
+    assert assessment["sqrt_r_squared_is_admissible_reliability_without_extra_assumptions"] is False
+    assert assessment["assumptions_supported_by_source"] is False
+    assert state["external_empirical_measurement_consistency_source_recovered"] is True
+    assert state["empirical_reliability_coefficient_identified"] is False
+    assert state["southwest_pacific_eiv_gate_opened"] is False
+    assert state["hendriks_eiv_gate_opened"] is False
+    assert state["formal_cross_system_admission_opened"] is False
+
+
+def test_30_species_wilcoxon_summary_does_not_identify_eiv_reliability():
+    audit = json.loads(VALIDATION30.read_text(encoding="utf-8"))
+    reported = audit["source_reported_validation"]
+    paired = audit["paired_validation_values"]
+    admissibility = audit["admissibility"]
+    assert reported["n_species"] == 30
+    assert reported["V"] == 177.5
+    assert reported["p"] == 0.39
+    assert len(audit["public_associated_data_inventory"]) == 3
+    assert paired["separate_public_attachment_advertised"] is False
+    assert paired["recovered_as_machine_readable_30_pair_table"] is False
+    assert admissibility["wilcoxon_non_significance_is_reliability_coefficient"] is False
+    assert admissibility["can_open_classical_eiv_gate"] is False
+
+
+def test_public_source_audit_completes_negative_identification_without_opening_eiv():
+    admission = json.loads(ADMISSION.read_text(encoding="utf-8"))
+    decision = admission["decision"]
+    assert admission["status"] == "empirical_reliability_unidentifiable_from_available_public_and_source_native_materials"
+    assert decision["issue_96_completion_route"] == "B_unidentifiable_from_available_sources"
+    assert decision["empirical_reliability_coefficient_identified"] is False
+    assert decision["uncertainty_distribution_for_target_reliability_identified"] is False
+    assert decision["southwest_pacific_eiv_gate_opened"] is False
+    assert decision["hendriks_eiv_gate_opened"] is False
+    assert decision["formal_cross_system_starting_size_effect_admission_opened"] is False
+    assert decision["assumed_reliability_substitution_allowed"] is False
+    assert admission["reopen_conditions"]

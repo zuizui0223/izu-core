@@ -1,0 +1,16 @@
+{
+  "status": "blocked_raw_source_not_recovered",
+  "acquisition_routes_tested": [
+    "dryad_api_v2_file_and_zip_delivery",
+    "dataone_cn_v2_doi_locked"
+  ],
+  "dryad_status": "metadata_and_file_record_resolved_download_403",
+  "dataone_status": "dataone_doi_not_indexed",
+  "dataone_workflow_run_id": 31425342831,
+  "dataone_query_errors": 0,
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "published_summary_fallback": "data/results/galapagos/published_summary/analysis.json",
+  "published_summary_status": "source_published_summary_analysis_complete",
+  "next_gate": "Obtain data_galapagos_islands.zip through restored Dryad delivery or a lawful author, institutional, repository, or user-supplied route with matching provenance. Do not reconstruct plant-pollinator edges from the article tables.",
+  "claim_boundary": "The raw network remains unavailable. The source-published ten-island summary analysis is separate and cannot identify plant-level partner turnover, effectiveness, effective dependency, reproduction, or island-biogeographic causation."
+}

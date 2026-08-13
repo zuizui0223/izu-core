@@ -1,0 +1,87 @@
+name: Wanshan-Yongxing external validation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "channel_id/external_archipelago_network.py"
+      - "channel_id/paired_effect_uncertainty.py"
+      - "config/wanshan_yongxing_dryad_source.json"
+      - "config/wanshan_yongxing_dryad_version_lock.json"
+      - "data/design/cross_archipelago_external_validation.json"
+      - "data/results/wanshan_yongxing/effect_rows.json"
+      - "scripts/acquire_wanshan_yongxing_dryad.py"
+      - "scripts/acquire_wanshan_yongxing_presigned.py"
+      - "scripts/analyze_wanshan_yongxing_networks.py"
+      - "scripts/summarize_wanshan_yongxing_effects.py"
+      - "tests/test_external_archipelago_network.py"
+      - "tests/test_cross_archipelago_external_validation.py"
+      - "tests/test_wanshan_yongxing_effects.py"
+      - "docs/CROSS_ARCHIPELAGO_EXTERNAL_VALIDATION.md"
+      - ".github/workflows/wanshan-yongxing-external-validation.yml"
+  pull_request:
+    paths:
+      - "channel_id/external_archipelago_network.py"
+      - "channel_id/paired_effect_uncertainty.py"
+      - "config/wanshan_yongxing_dryad_source.json"
+      - "config/wanshan_yongxing_dryad_version_lock.json"
+      - "data/design/cross_archipelago_external_validation.json"
+      - "data/results/wanshan_yongxing/effect_rows.json"
+      - "scripts/acquire_wanshan_yongxing_dryad.py"
+      - "scripts/acquire_wanshan_yongxing_presigned.py"
+      - "scripts/analyze_wanshan_yongxing_networks.py"
+      - "scripts/summarize_wanshan_yongxing_effects.py"
+      - "tests/test_external_archipelago_network.py"
+      - "tests/test_cross_archipelago_external_validation.py"
+      - "tests/test_wanshan_yongxing_effects.py"
+      - "docs/CROSS_ARCHIPELAGO_EXTERNAL_VALIDATION.md"
+      - ".github/workflows/wanshan-yongxing-external-validation.yml"
+
+jobs:
+  external-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install workbook and test dependencies
+        run: python -m pip install -e . openpyxl pytest
+      - name: Run transparent network and effect tests
+        run: >-
+          python -m pytest -q
+          tests/test_external_archipelago_network.py
+          tests/test_cross_archipelago_external_validation.py
+          tests/test_wanshan_yongxing_effects.py
+      - name: Acquire source-native Dryad workbook
+        id: acquire
+        continue-on-error: true
+        run: |
+          python scripts/acquire_wanshan_yongxing_dryad.py || \
+          python scripts/acquire_wanshan_yongxing_presigned.py
+      - name: Reanalyse whole and matched shared-plant networks
+        if: steps.acquire.outcome == 'success'
+        run: python scripts/analyze_wanshan_yongxing_networks.py
+      - name: Add exact matched-plant uncertainty
+        if: steps.acquire.outcome == 'success'
+        run: python scripts/summarize_wanshan_yongxing_effects.py
+      - name: Verify checked external effect rows
+        if: steps.acquire.outcome == 'success'
+        run: >-
+          cmp artifacts/wanshan_yongxing_analysis/effect_rows.json
+          data/results/wanshan_yongxing/effect_rows.json
+      - name: Preserve blocked transport state without changing checked biological result
+        if: steps.acquire.outcome != 'success'
+        run: |
+          mkdir -p artifacts/wanshan_yongxing_dryad
+          printf '%s\n' '{"status":"source_transport_unavailable_this_run","checked_result_retained":true,"biological_result_changed":false,"note":"Dryad transport failure is not a biological zero or result invalidation; acquisition diagnostics are preserved."}' \
+            > artifacts/wanshan_yongxing_dryad/transport_state.json
+          echo "::notice::Dryad transport unavailable on this runner; retaining checksum/source-locked checked Wanshan-Yongxing result and uploaded diagnostics."
+      - name: Upload acquisition and analysis audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wanshan-yongxing-external-validation
+          path: |
+            artifacts/wanshan_yongxing_dryad/
+            artifacts/wanshan_yongxing_analysis/

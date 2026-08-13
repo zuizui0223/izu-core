@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31252598594,
+  "source_artifact": 9020457625,
+  "source_subset": "source-defined pollen-success target species",
+  "response": "corrected species-level trait matching",
+  "method": "Oshima versus mean retained post-Oshima sites; omit each post island once; minimum two retained post sites",
+  "sensitivity": {
+    "none": {"eligible": 8, "lower_post": 8, "higher_post": 0},
+    "omit_niijima": {"eligible": 7, "lower_post": 7, "higher_post": 0},
+    "omit_kozu": {"eligible": 7, "lower_post": 7, "higher_post": 0},
+    "omit_miyake": {"eligible": 8, "lower_post": 6, "higher_post": 2, "higher_species": ["Lysimachia mauritiana", "Melanthera prostrata"]},
+    "omit_hachijo": {"eligible": 8, "lower_post": 7, "higher_post": 1, "higher_species": ["Melanthera prostrata"]}
+  },
+  "reading": "The 8/8 full-subset direction is not a single-island artifact but is not uniformly leave-one-post-island invariant. Miyake contributes importantly to the coherence for Lysimachia and Melanthera, and Hachijo contributes for Melanthera.",
+  "claim_boundary": "Descriptive robustness audit under shared site environments; not a species-independent sign test, causal estimate, or universal all-network-plant breakpoint."
+}

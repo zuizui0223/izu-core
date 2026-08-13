@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "status": "source_resolved_context_network_analysis",
+  "source_id": "ogasawara_pollination_network_2026",
+  "dataset_doi": "10.5281/zenodo.19221853",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "source_workbook": "Data_Quitianetal2026_B.xlsx",
+  "source_sha256": "4e0c4a293e2a522e67bc1f87f567249d45b42000b78eaef9d355e8658b1987a6",
+  "n_source_rows": 2745,
+  "n_zero_marker_rows": 25,
+  "n_contexts": 7,
+  "n_context_season_networks": 21,
+  "context_metadata": [
+    {
+      "context": "ANI_A",
+      "island": "C_Anijima",
+      "forest_status": "Natural",
+      "anole": "Absence"
+    },
+    {
+      "context": "ANI_P",
+      "island": "C_Anijima",
+      "forest_status": "Natural",
+      "anole": "Presence"
+    },
+    {
+      "context": "CHI_D",
+      "island": "A_Chichijima",
+      "forest_status": "Disturbed",
+      "anole": "Presence"
+    },
+    {
+      "context": "CHI_N",
+      "island": "A_Chichijima",
+      "forest_status": "Natural",
+      "anole": "Presence"
+    },
+    {
+      "context": "HA_D",
+      "island": "B_Hahajima",
+      "forest_status": "Disturbed",
+      "anole": "Presence"
+    },
+    {
+      "context": "HA_N",
+      "island": "B_Hahajima",
+      "forest_status": "Natural",
+      "anole": "Presence"
+    },
+    {
+      "context": "OT_N",
+      "island": "D_Ototojima",
+      "forest_status": "Natural",
+      "anole": "Absence"
+    }
+  ],
+  "anijima_anole_contrast_summary": {
+    "absence_context": "ANI_A",
+    "presence_context": "ANI_P",
+    "shared_seasons": [
+      "A_MAY",
+      "B_JULY",
+      "C_SEP"
+    ],
+    "n_plant_season_contrasts": 12,
+    "n_unique_shared_plants": 8,
+    "visitation_direction": {
+      "presence_lower": 6,
+      "presence_higher": 2,
+      "equal": 0,
+      "exact_two_sided_sign_test": 0.2890625
+    },
+    "pollinator_richness_direction": {
+      "presence_lower": 5,
+      "presence_higher": 2,
+      "equal": 1,
+      "exact_two_sided_sign_test": 0.453125
+    },
+    "effects": [
+      {
+        "effect_id": "ogasawara_anijima_visitation_lrr",
+        "system_id": "ogasawara_2026",
+        "system_cluster": "ogasawara_oceanic_archipelago",
+        "evidence_family": "matched_shared_plant_visitation_log_response_ratio",
+        "response": "visitation_log_response_ratio",
+        "predictor_or_contrast": "Anijima natural forest with green-anole presence versus natural forest without green anoles, matched plant species within shared seasons",
+        "estimate": -0.607544274316224,
+        "uncertainty_type": "exact_nonparametric_bootstrap_percentile_interval_for_median",
+        "uncertainty_value": [
+          -1.341558467278499,
+          0.23081768978760953
+        ],
+        "confidence": 0.95,
+        "unit": "ln(anole-presence legitimate interactions / anole-absence legitimate interactions)",
+        "independent_unit": "plant species after taking the within-plant median across shared seasons; plants do not create independent invasion contexts or archipelagos",
+        "n_effect_units": 8,
+        "bootstrap_support_size": 6435,
+        "row_role": "external_context_effect",
+        "admission_status": "empirical_numeric_effect_with_plant_level_uncertainty_context_specific",
+        "cross_system_model_eligible": false,
+        "causal_claim_allowed": false,
+        "source_sha256": "4e0c4a293e2a522e67bc1f87f567249d45b42000b78eaef9d355e8658b1987a6",
+        "notes": "The contrast is source-defined and within Anijima, but invasion contexts are spatially distinct rather than randomized. Plant-level uncertainty does not supply geographic replication."
+      },
+      {
+        "effect_id": "ogasawara_anijima_pollinator_richness_lrr",
+        "system_id": "ogasawara_2026",
+        "system_cluster": "ogasawara_oceanic_archipelago",
+        "evidence_family": "matched_shared_plant_pollinator_richness_log_response_ratio",
+        "response": "pollinator_richness_log_response_ratio",
+        "predictor_or_contrast": "Anijima natural forest with green-anole presence versus natural forest without green anoles, matched plant species within shared seasons",
+        "estimate": -0.31461524740250146,
+        "uncertainty_type": "exact_nonparametric_bootstrap_percentile_interval_for_median",
+        "uncertainty_value": [
+          -0.8754687373538999,
+          0.4054651081081644
+        ],
+        "confidence": 0.95,
+        "unit": "ln(anole-presence pollinator richness / anole-absence pollinator richness)",
+        "independent_unit": "plant species after taking the within-plant median across shared seasons; plants do not create independent invasion contexts or archipelagos",
+        "n_effect_units": 8,
+        "bootstrap_support_size": 6435,
+        "row_role": "external_context_effect",
+        "admission_status": "empirical_numeric_effect_with_plant_level_uncertainty_context_specific",
+        "cross_system_model_eligible": false,
+        "causal_claim_allowed": false,
+        "source_sha256": "4e0c4a293e2a522e67bc1f87f567249d45b42000b78eaef9d355e8658b1987a6",
+        "notes": "The contrast is source-defined and within Anijima, but invasion contexts are spatially distinct rather than randomized. Plant-level uncertainty does not supply geographic replication."
+      },
+      {
+        "effect_id": "ogasawara_anijima_partner_turnover",
+        "system_id": "ogasawara_2026",
+        "system_cluster": "ogasawara_oceanic_archipelago",
+        "evidence_family": "matched_shared_plant_pollinator_assemblage_turnover",
+        "response": "pollinator_morisita_horn_turnover",
+        "predictor_or_contrast": "Anijima natural forest with green-anole presence versus natural forest without green anoles, matched plant species within shared seasons",
+        "estimate": 0.6816731479429761,
+        "uncertainty_type": "exact_nonparametric_bootstrap_percentile_interval_for_median",
+        "uncertainty_value": [
+          0.49749331369503497,
+          0.9652568511362428
+        ],
+        "confidence": 0.95,
+        "unit": "Morisita-Horn turnover (1 - similarity)",
+        "independent_unit": "plant species after taking the within-plant median across shared seasons; plants do not create independent invasion contexts or archipelagos",
+        "n_effect_units": 8,
+        "bootstrap_support_size": 6435,
+        "row_role": "external_context_effect",
+        "admission_status": "empirical_numeric_effect_with_plant_level_uncertainty_context_specific",
+        "cross_system_model_eligible": false,
+        "causal_claim_allowed": false,
+        "source_sha256": "4e0c4a293e2a522e67bc1f87f567249d45b42000b78eaef9d355e8658b1987a6",
+        "notes": "The contrast is source-defined and within Anijima, but invasion contexts are spatially distinct rather than randomized. Plant-level uncertainty does not supply geographic replication."
+      }
+    ]
+  },
+  "methods": {
+    "interaction_semantics": "Source N.Int legitimate-contact counts; No_pollinator rows with zero count are retained as source markers but excluded from weighted partner vectors.",
+    "context_networks": "Each source-defined invasion context and season is summarized separately before any contrast.",
+    "matched_contrast": "Within Anijima natural forest, plants are matched between source-defined anole-presence and anole-absence contexts within season. Repeated seasons are collapsed to a within-plant median before exact plant bootstrap."
+  },
+  "formal_cross_system_fit_ready": false,
+  "claim_boundary": "The analysis quantifies legitimate-contact network structure and a spatially structured Anijima anole-context contrast. Contexts are not randomized, source rows lack site identifiers, and plant bootstrap intervals do not create independent invasion contexts or archipelagos. Legitimate interaction counts are not pollen deposition, pollinator effectiveness, reproductive success, effective dependency, or historical mainland-distance effects."
+}

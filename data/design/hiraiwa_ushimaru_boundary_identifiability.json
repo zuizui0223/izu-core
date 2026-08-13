@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "geographic_units": {
+    "mainland_sites": ["hitachi", "hitachinaka", "tateyama"],
+    "oshima_bridge_sites": ["oshima"],
+    "post_boundary_sites": ["niijima", "kozu", "miyake", "hachijo"]
+  },
+  "n_independent_geographic_units": {
+    "mainland": 3,
+    "oshima_bridge": 1,
+    "post_boundary": 4,
+    "total": 8
+  },
+  "repeated_seasons_per_site": 5,
+  "network_snapshots_total": 40,
+  "second_boundary_independent_site_replication": {
+    "pre_boundary_oshima_like_sites": 1,
+    "post_boundary_sites": 4
+  },
+  "identifiability": {
+    "species_rows_are_independent_boundary_replicates": false,
+    "season_rows_are_independent_geographic_boundary_replicates": false,
+    "oshima_site_effect_separable_from_second_boundary_intercept": false,
+    "temporal_variance_estimable_from_repeated_seasons": true,
+    "descriptive_oshima_vs_post_contrast_estimable": true,
+    "causal_second_boundary_effect_identifiable_from_this_dataset_alone": false
+  },
+  "consequence": "A site-aware model may estimate a descriptive Oshima-versus-post difference while accounting for repeated seasons/species, but the second-boundary coefficient remains inseparable from an Oshima-specific site effect because Oshima is the only bridge-state geographic unit. Species-level 8/8 directions cannot be treated as eight independent boundary replications.",
+  "next_design_gain": "Independent geographic replication of the bridge pollinator regime, a temporal regime transition within a site, or an external matched-site design is required for a causal boundary effect. Until then, use the network layer as contemporary functional context and falsification of universal-response claims."
+}

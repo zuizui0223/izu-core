@@ -1,0 +1,7 @@
+card_id,observation_group,stage0_open_flower,stage0_focal_head_visible,stage0_comparable,stage0_notes,score_0_3,independent_use
+FO-42A33296B2,OBS-4F288F22,no,no,no,vegetative rosette only,,excluded
+FO-C3BBA76B52,OBS-B00CE6F5,yes,yes,yes,open capitula with clear ray/disc display,3,representative_first_eligible_photo
+FO-EF9F609E5D,OBS-B00CE6F5,yes,yes,yes,open flowering plant; same biological observation as representative,3,duplicate_photo_same_observation
+FO-91F5F60776,OBS-B00CE6F5,yes,yes,yes,open flowering plant; same biological observation as representative,3,duplicate_photo_same_observation
+FO-FDE4AED97B,OBS-A34E1A81,no,no,no,post-flowering seed heads,,excluded
+FO-C35C9FC8A5,OBS-A34E1A81,no,no,no,post-flowering seed heads,,excluded

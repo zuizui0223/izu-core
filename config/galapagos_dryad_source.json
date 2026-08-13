@@ -1,0 +1,15 @@
+{
+  "source_id": "galapagos_pollination_networks",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.0c3cn5f",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.0c3cn5f/versions",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.0c3cn5f",
+  "external_validation_role": "oceanic_multi_island_network_and_biogeographic_context",
+  "expected_source_components": [
+    "multiple island-level quantitative plant-pollinator networks",
+    "island identity",
+    "sampling effort or study metadata where supplied",
+    "island area, isolation and/or age variables where supplied"
+  ],
+  "claim_boundary": "The package may support source-native multi-island network and biogeographic comparisons. Visit-frequency networks do not identify single-visit effectiveness, effective dependency, reproductive success, adaptive interaction switching, historical selection, or a causal isolation effect without additional design and evidence."
+}

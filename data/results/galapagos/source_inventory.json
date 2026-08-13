@@ -1,0 +1,25 @@
+{
+  "status": "dataone_doi_not_indexed_or_unreachable",
+  "acquisition_route": "dataone_cn_v2_doi_locked",
+  "source_id": "galapagos_pollination_networks",
+  "dataset_doi": "10.5061/dryad.0c3cn5f",
+  "selected_version_id": null,
+  "selected_version": null,
+  "file_listing_audit": null,
+  "n_initial_documents": 0,
+  "n_doi_locked_documents": 0,
+  "n_expanded_documents": 0,
+  "n_data_candidates": 0,
+  "n_source_files": 0,
+  "n_downloaded": 0,
+  "files": [],
+  "errors": [],
+  "next_gate": "If no valid object is recovered, obtain the same Dryad package through a lawful repository, author, institutional or user-supplied route. Do not reconstruct raw networks from article summaries.",
+  "expected_source_components": [
+    "multiple island-level quantitative plant-pollinator networks",
+    "island identity",
+    "sampling effort or study metadata where supplied",
+    "island area, isolation and/or age variables where supplied"
+  ],
+  "claim_boundary": "The package may support source-native multi-island network and biogeographic comparisons. Visit-frequency networks do not identify single-visit effectiveness, effective dependency, reproductive success, adaptive interaction switching, historical selection, or a causal isolation effect without additional design and evidence."
+}
