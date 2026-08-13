@@ -83,13 +83,13 @@ def test_checked_summary_is_deterministically_regenerable():
     source = json.loads(SOURCE.read_text(encoding="utf-8"))
     observed["source_id"] = source["source_id"]
     observed["source_retrieval_state"] = source["retrieval_state"]
-    # Python/libm versions can differ at the final floating-point bit.  The
+    # Python/libm versions can differ at the final floating-point bit. The
     # scientific result and all categorical gates must remain exact, while
     # numeric values are compared at a tolerance far below reported precision.
     assert_json_close(observed, expected, atol=1e-12)
 
 
-def test_source_provenance_keeps_formal_admission_closed():
+def test_source_provenance_is_complete_while_formal_admission_remains_closed():
     source = json.loads(SOURCE.read_text(encoding="utf-8"))
     summary = json.loads(SUMMARY.read_text(encoding="utf-8"))
     assert source["source_reported_pair_count"] == 35
@@ -97,8 +97,11 @@ def test_source_provenance_keeps_formal_admission_closed():
     assert source["institutional_record_recovered"] is True
     assert source["institutional_identifier"] == "10.26686/wgtn.17136800"
     assert source["island_group_mapping"]["frequency_vector_matches_table_a14"] is True
-    assert source["raw_pdf_checksum_locked"] is False
-    assert source["stable_institutional_download_recovered"] is False
+    assert source["raw_pdf_checksum_locked"] is True
+    assert source["stable_institutional_download_recovered"] is True
+    assert source["strict_locked_pdf_reverification"]["provenance_gate_opened"] is True
+    assert source["strict_locked_pdf_reverification"]["table_b9_pairs_verified"] == 35
+    assert source["strict_locked_pdf_reverification"]["appendix_a_island_assignments_verified"] == 35
     assert summary["island_group_structure"]["matches_appendix_a14"] is True
     assert summary["formal_cross_system_fit_ready"] is False
     assert summary["effect_registry_eligible"] is False
