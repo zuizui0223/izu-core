@@ -11,6 +11,7 @@ on:
       - "scripts/audit_effective_dependency_parentage.py"
       - "scripts/audit_effective_dependency_admission.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
+      - "scripts/freeze_effective_dependency_field_bundle.py"
       - "templates/field_dependency_plant_registry_template.csv"
       - "templates/field_observation_effort_template.csv"
       - "templates/field_visitor_contact_manifest_template.csv"
@@ -23,6 +24,7 @@ on:
       - "data/design/effective_dependency_pilot_field_priority.json"
       - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
       - "docs/DIRECT_DEPENDENCY_PILOT_STATUS.md"
+      - "docs/EFFECTIVE_DEPENDENCY_FIELD_FREEZE.md"
       - "docs/field_geometry_and_interaction_linkage.md"
       - "tests/test_effective_pollinator_dependency.py"
       - "tests/test_effective_pollinator_dependency_readiness.py"
@@ -30,6 +32,7 @@ on:
       - "tests/test_effective_dependency_field_linkage_templates.py"
       - "tests/test_effective_dependency_parentage.py"
       - "tests/test_effective_dependency_admission.py"
+      - "tests/test_freeze_effective_dependency_field_bundle.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
   pull_request:
     paths:
@@ -40,6 +43,7 @@ on:
       - "scripts/audit_effective_dependency_parentage.py"
       - "scripts/audit_effective_dependency_admission.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
+      - "scripts/freeze_effective_dependency_field_bundle.py"
       - "templates/field_dependency_plant_registry_template.csv"
       - "templates/field_observation_effort_template.csv"
       - "templates/field_visitor_contact_manifest_template.csv"
@@ -52,6 +56,7 @@ on:
       - "data/design/effective_dependency_pilot_field_priority.json"
       - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
       - "docs/DIRECT_DEPENDENCY_PILOT_STATUS.md"
+      - "docs/EFFECTIVE_DEPENDENCY_FIELD_FREEZE.md"
       - "docs/field_geometry_and_interaction_linkage.md"
       - "tests/test_effective_pollinator_dependency.py"
       - "tests/test_effective_pollinator_dependency_readiness.py"
@@ -59,6 +64,7 @@ on:
       - "tests/test_effective_dependency_field_linkage_templates.py"
       - "tests/test_effective_dependency_parentage.py"
       - "tests/test_effective_dependency_admission.py"
+      - "tests/test_freeze_effective_dependency_field_bundle.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
 
 jobs:
@@ -80,3 +86,4 @@ jobs:
           tests/test_effective_dependency_field_linkage_templates.py
           tests/test_effective_dependency_parentage.py
           tests/test_effective_dependency_admission.py
+          tests/test_freeze_effective_dependency_field_bundle.py
