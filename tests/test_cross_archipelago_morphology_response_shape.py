@@ -35,7 +35,7 @@ def test_directional_replication_does_not_open_formal_pooling():
     audit = load(CHECKED)
     boundary = audit["robustness_boundary"]
     assert boundary["errors_in_variables_jointly_resolved"] is False
-    assert boundary["source_provenance_jointly_locked"] is False
+    assert boundary["source_provenance_jointly_locked"] is True
     assert boundary["trait_definitions_identical"] is False
     assert boundary["formal_same_family_meta_analysis_ready"] is False
     assert audit["effect_registry_eligible"] is False
