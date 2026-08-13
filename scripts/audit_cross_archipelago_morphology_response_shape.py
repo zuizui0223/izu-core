@@ -5,8 +5,8 @@ This comparison deliberately avoids pooling effect sizes.  It converts the
 Southwest-Pacific animal flower-size result to its algebraically equivalent
 slope of log(island trait) on log(mainland trait), then compares only the
 response-shape direction against the independently reconstructed Hendriks (2019)
-flower-area result.  Formal synthesis remains closed when source provenance,
-trait definition, or errors-in-variables constraints are unresolved.
+flower-area result.  Formal synthesis remains closed when trait definition or
+errors-in-variables constraints are unresolved.
 """
 from __future__ import annotations
 
@@ -131,10 +131,10 @@ def build_audit(
         },
         "robustness_boundary": {
             "errors_in_variables_jointly_resolved": False,
-            "source_provenance_jointly_locked": False,
+            "source_provenance_jointly_locked": True,
             "trait_definitions_identical": False,
             "formal_same_family_meta_analysis_ready": False,
-            "reading": "The OLS directional recurrence survives island-cluster resampling, but neither source supplies an empirically identified mainland-trait reliability, Hendriks SMA uncertainty includes isometry, Hendriks source provenance is not checksum locked, and flower size versus flower area are not treated as identical raw effect scales."
+            "reading": "The OLS directional recurrence survives island-cluster resampling and both source artifacts are checksum locked, but neither source supplies an empirically identified mainland-trait reliability, Hendriks SMA uncertainty includes isometry, and flower size versus flower area are not treated as identical raw effect scales."
         },
         "effect_registry_eligible": False,
         "formal_cross_system_fit_ready": False,
