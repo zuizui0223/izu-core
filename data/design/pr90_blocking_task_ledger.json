@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "updated_on": "2026-08-13",
-  "purpose": "Canonical blocking-task ledger for PR #90. Provenance, measurement-error identifiability, third-system replication, and Izu field causality are deliberately separated so one gate cannot substitute for another.",
+  "purpose": "Canonical blocking-task ledger for PR #90. Provenance, measurement-error identifiability, third-system source recovery, and Izu field causality are deliberately separated so one gate cannot substitute for another.",
   "tasks": [
     {
       "task_id": "hendriks_provenance",
@@ -26,7 +26,7 @@
     {
       "task_id": "third_floral_system",
       "issue": 95,
-      "state": "exact_thesis_checksum_locked_pair_identity_table_found_numeric_contrast_table_unresolved",
+      "state": "complete_public_source_audit_numeric_136_pair_table_unrecoverable",
       "progress": {
         "exact_item_handle": "1807/96116",
         "exact_item_uuid": "4fe4945e-d284-4b0d-b306-97c2a02d51ad",
@@ -35,18 +35,29 @@
         "exact_thesis_bytes_recovered": true,
         "thesis_n_bytes": 175645192,
         "thesis_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+        "u_of_t_all_bitstream_inventory_complete": true,
+        "u_of_t_original_bundle_bitstream_count": 2,
+        "u_of_t_candidate_tabular_attachment_count": 0,
         "supplemental_pair_identity_table_found": true,
+        "supplemental_pair_identity_table_selected_pdf_page": 83,
         "source_native_136_pair_numeric_flower_size_table_recovered": false,
-        "u_of_t_all_bitstream_inventory_implemented": true,
         "publisher_primary_source_search_numeric_supplement_found": false,
-        "third_response_shape_admitted": false
+        "numeric_table_unrecoverable_from_inspected_public_routes": true,
+        "third_response_shape_admitted": false,
+        "formal_cross_system_fit_opened": false,
+        "completion_route": "B_public_route_audit_complete_numeric_table_unrecoverable_and_impossibility_documented"
       },
       "goal": "Recover the source-native 136-pair Pacific floral numeric contrast table, or establish reproducibly that the inspected lawful public corpus exposes pair identities without the required numeric source table.",
-      "opens": ["third_system_directional_replication_if_source_supports_it"],
-      "does_not_open": ["formal_meta_analysis_by_itself"],
+      "opens": [],
+      "does_not_open": ["third_system_effect_without_numeric_source_values", "formal_meta_analysis_by_itself"],
       "completion_requires_one_of": [
         "source_native_numeric_pair_table_recovered_trait_units_grouping_verified_response_shape_reproduced",
         "public_route_audit_complete_numeric_table_unrecoverable_and_impossibility_documented"
+      ],
+      "completion_met": true,
+      "reopen_only_if": [
+        "new_source_native_numeric_136_pair_values_are_released",
+        "a_lawful_unseen_numeric_attachment_is_discovered"
       ]
     },
     {
@@ -75,18 +86,11 @@
         "uncertainty_distribution_for_target_reliability_identified": false,
         "southwest_pacific_eiv_gate_opened": false,
         "hendriks_eiv_gate_opened": false,
-        "completion_route": "B_unidentifiable_from_available_sources",
-        "external_validation_artifact": "data/results/cross_archipelago_morphology/hetherington_2019_measurement_consistency_validation.json",
-        "thirty_species_source_audit_artifact": "data/results/cross_archipelago_morphology/southwest_pacific_30_species_validation_source_audit.json",
-        "final_admission_artifact": "data/results/cross_archipelago_morphology/empirical_reliability_admission_state.json"
+        "completion_route": "B_unidentifiable_from_available_sources"
       },
       "goal": "Identify a defensible empirical floral measurement reliability source, or prove that reliability remains unidentifiable from available source-native/public materials.",
       "opens": [],
-      "does_not_open": [
-        "assumed_reliability_substitution",
-        "sqrt_r_squared_substitution_without_equal_error_validation",
-        "formal_cross_system_fit"
-      ],
+      "does_not_open": ["assumed_reliability_substitution", "sqrt_r_squared_substitution_without_equal_error_validation", "formal_cross_system_fit"],
       "completion_requires_one_of": [
         "source_locked_reliability_with_uncertainty_propagated",
         "machine_readable_empirical_reliability_unidentifiable_result_after_external_validation_search"
@@ -101,11 +105,14 @@
     {
       "task_id": "izu_direct_mechanism",
       "issue": 91,
-      "state": "protocol_ready_field_data_blocking",
+      "state": "protocol_and_raw_bundle_freeze_ready_field_data_blocking",
       "progress": {
         "linked_templates_ready": true,
         "structural_vs_dispersion_vs_confirmatory_gates_separated": true,
         "collection_stop_continue_rule_ready": true,
+        "raw_bundle_freeze_contract_ready": true,
+        "raw_bundle_freeze_ci_tested": true,
+        "post_collection_order": "freeze_then_linkage_qc_then_admission_then_dispersion_then_precision_planning",
         "focal_field_data_available": false
       },
       "goal": "Collect linked SVD, observation-effort, reproductive-treatment, fruit/seed and optional parentage data sufficient to estimate contemporary effective-pollinator dependency without conflating structural completion with confirmatory adequacy.",
@@ -122,11 +129,13 @@
       "sensitivity_assumptions_treated_as_observed_reliability",
       "abstract_level_effect_reconstruction",
       "external_repeatability_R2_treated_as_reliability_without_identifying_assumptions",
-      "completion_of_a_negative_identification_task"
+      "completion_of_a_negative_identification_task",
+      "pair_identity_table_without_numeric_trait_values"
     ],
-    "current_measurement_error_consequence": "The empirical reliability task is complete via a negative identification result; because target reliability remains unidentified, the morphology EIV admission gate stays closed rather than being treated as an unresolved workflow task."
+    "current_measurement_error_consequence": "The empirical reliability task is complete via a negative identification result; because target reliability remains unidentified, the morphology EIV admission gate stays closed.",
+    "current_third_system_consequence": "The third-system source-recovery task is complete via a public-source unavailability result; no third effect is created because source-native numeric 136-pair measurements were not recovered."
   },
-  "execution_priority": [95, 91],
-  "priority_rationale": "Hendriks provenance (#94) and the reliability-source audit (#96) are complete. #96 completed by demonstrating that the target reliability ratio is not identified from the available public/source-native corpus, so no assumed correction is allowed. The remaining analytic source-recovery task is #95; the decisive new empirical mechanism task remains #91 as field data become available.",
-  "claim_boundary": "Task completion is not synonymous with evidence promotion. In particular, #96 is completed because unidentifiability was established reproducibly; its EIV gates remain closed."
+  "execution_priority": [91],
+  "priority_rationale": "Hendriks provenance (#94), third-system source recovery (#95), and reliability-source audit (#96) are complete as investigations. #95 and #96 both completed through negative/source-unavailability routes and therefore do not promote new effects. The remaining decisive blocker is #91: direct linked field measurements of effective pollinator dependency and reproductive outcomes.",
+  "claim_boundary": "Task completion is not synonymous with evidence promotion. #95 is complete because the inspected public corpus was exhausted without recoverable numeric 136-pair measurements; #96 is complete because target reliability unidentifiability was established. Neither completion opens the formal cross-system fit."
 }
