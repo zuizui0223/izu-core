@@ -1,3 +1,4 @@
+import csv
 import importlib.util
 import json
 from pathlib import Path
@@ -89,6 +90,25 @@ def test_generic_n_header_is_not_promoted_to_legitimate_interaction(tmp_path: Pa
         assert "too generic" in str(error)
     else:
         raise AssertionError("generic N header should be blocked")
+
+
+def test_write_csv_unions_heterogeneous_context_columns(tmp_path: Path):
+    output = tmp_path / "context.csv"
+    MODULE.write_csv(
+        output,
+        [
+            {"island": "I", "season": "May", "metric": 1},
+            {"island": "I", "habitat": "Natural", "metric": 2},
+        ],
+    )
+    with output.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        rows = list(reader)
+    assert reader.fieldnames == ["island", "season", "metric", "habitat"]
+    assert rows[0]["season"] == "May"
+    assert rows[0]["habitat"] == ""
+    assert rows[1]["season"] == ""
+    assert rows[1]["habitat"] == "Natural"
 
 
 def test_multiple_candidate_tables_remain_blocked_by_main_gate(tmp_path: Path, monkeypatch):
