@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "status": "empirical_reliability_unidentifiable_from_available_public_and_source_native_materials",
+  "decision_date": "2026-08-13",
+  "target_estimand": {
+    "name": "mainland floral predictor reliability ratio for classical errors-in-variables correction",
+    "definition": "Var(latent true predictor) / Var(observed predictor) on the predictor scale used in the direct island-on-mainland response-shape analysis",
+    "required_for": [
+      "Southwest Pacific starting-size EIV correction",
+      "Hendriks starting-size EIV correction"
+    ],
+    "not_equivalent_to": [
+      "non-significant Wilcoxon paired location test",
+      "Pearson R-squared by itself",
+      "sqrt(R-squared) without equal-error assumptions",
+      "SMA slope",
+      "source-method robustness or leave-one-source sensitivity"
+    ]
+  },
+  "southwest_pacific_source_native_evidence": {
+    "article_doi": "10.1093/aob/mcaf005",
+    "pmcid": "PMC12445859",
+    "source_native_pair_table_available": true,
+    "pair_level_means_available": true,
+    "replicate_n_available_for_predictor_values": false,
+    "replicate_sd_or_se_available_for_predictor_values": false,
+    "repeated_measurement_ids_available": false,
+    "published_30_species_validation": {
+      "n_species": 30,
+      "test": "Wilcoxon signed-rank",
+      "V": 177.5,
+      "p": 0.39,
+      "paired_raw_values_recovered": false,
+      "public_associated_data_files_advertised": [
+        "mcaf005_suppl_supplementary_materials.docx",
+        "mcaf005_suppl_supplementary_data_s1.xlsx",
+        "mcaf005_suppl_supplementary_data_s2.xlsx"
+      ],
+      "separate_paired_validation_attachment_advertised": false,
+      "source_audit_artifact": "data/results/cross_archipelago_morphology/southwest_pacific_30_species_validation_source_audit.json"
+    },
+    "identifies_target_reliability_ratio": false
+  },
+  "hendriks_source_native_evidence": {
+    "source_provenance_complete": true,
+    "exact_pdf_sha256": "4abbe2b1c4b7b1a809df0127e66184385425919a45043260cd2c51a45df37c42",
+    "pair_values_verified": 35,
+    "island_assignments_verified": 35,
+    "source_native_repeated_measurement_error_model_available": false,
+    "identifies_target_reliability_ratio": false
+  },
+  "external_validation_evidence": {
+    "source": "Hetherington-Rauth 2019 University of Toronto thesis Appendix A.1",
+    "source_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
+    "same_individual_repeat_r_squared": [0.94, 0.88, 0.93],
+    "same_individual_repeat_slopes": [0.97, 0.82, 0.88],
+    "genuine_empirical_measurement_consistency_evidence": true,
+    "conditional_classical_independent_error_bounds_informative": true,
+    "conditional_equal_error_sqrt_r2_proxies_informative": true,
+    "directly_transportable_to_southwest_pacific_predictor_distribution": false,
+    "directly_transportable_to_hendriks_flower_area_predictor_distribution": false,
+    "reason_not_admissible_as_target_reliability": [
+      "validation is from a different study and measurement protocol",
+      "Southwest Pacific mixes herbarium and online/literature source measurements",
+      "family-specific floral dimensions are combined in the Southwest Pacific analysis",
+      "several repeat and inter-observer slopes depart materially from 1 and intercepts are nonzero",
+      "source does not identify a reliability distribution for either target predictor"
+    ],
+    "validation_artifact": "data/results/cross_archipelago_morphology/hetherington_2019_measurement_consistency_validation.json"
+  },
+  "public_source_route_audit": {
+    "article_associated_data_inventory_checked": true,
+    "publisher_index_search_checked": true,
+    "figshare_search_checked": true,
+    "zenodo_search_checked": true,
+    "dryad_search_checked": true,
+    "vuw_institutional_search_checked": true,
+    "separate_public_30_species_pair_file_found": false,
+    "remaining_nonpublic_or_unindexed_possibilities": [
+      "author-held paired validation measurements",
+      "unindexed institutional/project archive",
+      "future author data release"
+    ],
+    "interpretation": "The result is limited to currently available public and source-native materials. It does not assert that the measurements never existed or cannot later be supplied by an author."
+  },
+  "southwest_pacific_threshold_context": {
+    "point_direction_reliability_gt": 0.8490053,
+    "island_cluster_interval_reliability_gt": 0.9258005,
+    "thresholds_are_observed_reliability_estimates": false
+  },
+  "decision": {
+    "empirical_reliability_coefficient_identified": false,
+    "uncertainty_distribution_for_target_reliability_identified": false,
+    "southwest_pacific_eiv_gate_opened": false,
+    "hendriks_eiv_gate_opened": false,
+    "formal_cross_system_starting_size_effect_admission_opened": false,
+    "issue_96_completion_route": "B_unidentifiable_from_available_sources",
+    "assumed_reliability_substitution_allowed": false
+  },
+  "reopen_conditions": [
+    "recover the actual paired 30-species online-versus-herbarium validation values with trait/source mapping",
+    "recover replicate-level measurements or replicate variance on the actual Southwest Pacific predictor scale",
+    "recover a source-native repeated-measurement error model for Hendriks flower area",
+    "obtain an external validation whose measurement protocol and predictor distribution are demonstrably transportable, with uncertainty propagated"
+  ],
+  "claim_boundary": "The available evidence is sufficient to conclude that the reliability ratio required for formal classical-EIV admission is not identified from the current public/source-native corpus. This is a completed negative identification result, not evidence that measurement quality is poor. High external repeatability remains informative sensitivity evidence, but no assumed reliability value is substituted and the formal starting-size EIV gates stay closed."
+}
