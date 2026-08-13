@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "source_id": "ciarle_burns_mologni_2025_30_species_online_herbarium_validation",
+  "article": {
+    "title": "Flower size evolution in the Southwest Pacific",
+    "doi": "10.1093/aob/mcaf005",
+    "pmcid": "PMC12445859",
+    "primary_public_record": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12445859/"
+  },
+  "source_reported_validation": {
+    "design": "30 species with floral data available online were randomly selected and measured in the herbarium collection; paired data types were compared with a Wilcoxon signed-rank test",
+    "n_species": 30,
+    "test": "Wilcoxon signed-rank",
+    "V": 177.5,
+    "p": 0.39,
+    "source_claim": "no significant difference between herbarium measurements and data obtained from other sources"
+  },
+  "public_associated_data_inventory": [
+    {
+      "label": "Supplementary Materials",
+      "filename": "mcaf005_suppl_supplementary_materials.docx",
+      "type": "docx"
+    },
+    {
+      "label": "Supplementary Data S1",
+      "filename": "mcaf005_suppl_supplementary_data_s1.xlsx",
+      "type": "xlsx"
+    },
+    {
+      "label": "Supplementary Data S2",
+      "filename": "mcaf005_suppl_supplementary_data_s2.xlsx",
+      "type": "xlsx"
+    }
+  ],
+  "article_data_availability_statement": "Plant species lists, flower traits measured, and models used for the analysis are available in the supplementary materials of this article.",
+  "paired_validation_values": {
+    "separate_public_attachment_advertised": false,
+    "recovered_from_current_repo_source_native_s1_s2_audit": false,
+    "recovered_as_machine_readable_30_pair_table": false,
+    "status": "paired_30_species_values_not_recovered_from_publicly_advertised_article_attachments"
+  },
+  "admissibility": {
+    "wilcoxon_non_significance_is_reliability_coefficient": false,
+    "V_and_p_identify_measurement_error_variance": false,
+    "can_open_classical_eiv_gate": false,
+    "reason": "A paired location-shift test can reject or fail to reject systematic difference, but without the paired measurements or replicate/error variance it does not identify the reliability ratio required for errors-in-variables correction."
+  },
+  "remaining_routes": [
+    "author-held paired validation values",
+    "unadvertised publisher/source deposit if one exists",
+    "institutional or project archive not linked in the article record"
+  ],
+  "claim_boundary": "The article establishes that a 30-species paired online-versus-herbarium validation was performed and reports its Wilcoxon statistic, but the public associated-data inventory does not advertise a separate paired-validation file and the current source-native audit has not recovered the 30 paired values. This narrows the source search; it does not prove that the values never existed or are unavailable from every author/institutional route."
+}
