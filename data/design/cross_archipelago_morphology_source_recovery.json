@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-13",
   "purpose": "Track provenance recovery for independent island-mainland floral morphology systems without promoting abstract-level, non-floral, pair-identity-only, or measurement-consistency-only evidence to formal cross-system floral effects.",
   "sources": [
@@ -64,8 +64,8 @@
       "thesis_year": 2019,
       "thesis_institution": "University of Toronto",
       "theses_canada_oclc": "1335043730",
-      "current_numeric_state": "source_native_pair_identity_table_verified_but_numeric_136_pair_flower_measurement_table_unresolved",
-      "current_source_state": "exact_utoronto_full_thesis_checksum_locked_and_public_source_routes_under_numeric_table_audit",
+      "current_numeric_state": "public_source_audit_complete_pair_identity_verified_numeric_136_pair_table_unrecoverable",
+      "current_source_state": "exact_utoronto_thesis_checksum_locked_original_bundle_and_thesis_screen_complete",
       "institutional_repository": {
         "name": "University of Toronto Scholaris",
         "handle": "1807/96116",
@@ -77,18 +77,17 @@
         "full_thesis_sha256": "15e0f48f0bb48e8516e848bafc73b89e1a7c2303e558e4fae84ee18a8cf5f453",
         "expanded_abstract_name": "Hetherington-Rauth_Molly_C_201906_MSc_thesis_expandedabstract.pdf",
         "expanded_abstract_n_bytes": 50571,
-        "full_thesis_selected_by_exact_filename_semantics": true
+        "full_thesis_selected_by_exact_filename_semantics": true,
+        "original_bundle_inventory_workflow_run": 31667315849,
+        "original_bundle_bitstream_count": 2,
+        "original_bundle_candidate_tabular_attachment_count": 0
       },
       "source_native_thesis_findings": {
         "supplemental_table_a2_found": true,
+        "supplemental_table_a2_selected_pdf_page": 83,
+        "toc_false_start_pages_excluded": [5, 7],
         "supplemental_table_a2_role": "island-mainland pair identity and provenance table",
-        "verified_a2_columns": [
-          "Family",
-          "Endemic Island Taxa",
-          "Mainland Sister Taxa",
-          "Data Source",
-          "Reference"
-        ],
+        "verified_a2_columns": ["Family", "Endemic Island Taxa", "Mainland Sister Taxa", "Data Source", "Reference"],
         "numeric_flower_size_or_log_ratio_column_verified_in_a2": false,
         "appendix_a1_measurement_consistency_found": true,
         "appendix_a1_role": "external repeated-measurement consistency evidence; not the 136-pair numeric contrast table"
@@ -98,17 +97,18 @@
           "route": "Theses Canada catalogue record",
           "url": "https://library-archives.canada.ca/eng/services/services-libraries/theses/Pages/item.aspx?idNumber=1335043730",
           "verified_metadata": "MSc University of Toronto 2019; 136 island-mainland sister-taxon pairs across seven Pacific island systems; catalogue advertises full-text routes",
-          "exact_source_bytes_recovered": false,
           "role": "discovery metadata"
         },
         {
           "route": "UofT Scholaris public DSpace API",
           "url": "https://utoronto.scholaris.ca/",
-          "verified_metadata": "Exact item, ORIGINAL bundle, expanded abstract and full thesis bitstreams resolved",
+          "verified_metadata": "Exact item and ORIGINAL bundle resolved; public ORIGINAL bundle contains exactly the expanded abstract and full thesis",
           "exact_source_bytes_recovered": true,
           "checksum_locked": true,
-          "numeric_pair_table_recovered": false,
-          "bitstream_inventory_state": "workflow_audit_active"
+          "bitstream_inventory_complete": true,
+          "bitstream_count": 2,
+          "candidate_tabular_attachment_count": 0,
+          "numeric_pair_table_recovered": false
         },
         {
           "route": "publisher article",
@@ -122,15 +122,20 @@
         "thesis_or_supplement_bytes_recovered": true,
         "checksum_locked": true,
         "source_native_pair_identity_table_recovered": true,
+        "public_original_bundle_inventory_complete": true,
+        "public_original_bundle_tabular_attachment_count": 0,
         "source_native_numeric_pair_table_recovered": false,
-        "island_and_mainland_trait_columns_identified": false,
-        "trait_definition_and_units_identified_for_numeric_136_pair_table": false,
-        "pair_independence_and_island_grouping_verified_for_numeric_effect": false,
-        "uncertainty_or_raw_values_available": false,
+        "numeric_table_unrecoverable_from_inspected_public_routes": true,
+        "third_response_shape_computable_from_recovered_source_native_values": false,
         "formal_effect_admitted": false
       },
-      "next_action": "Complete the exact UofT ORIGINAL-bundle bitstream inventory and exhaust lawful publisher/author/public-repository routes for a source-native numeric 136-pair floral table. If none is recoverable, record an explicit source-availability/impossibility result rather than reconstructing pair values from prose or figures.",
-      "claim_boundary": "The checksum-locked thesis establishes the study provenance and verifies source-native pair identities, but pair identities are not numeric floral contrasts. No compatible third-system slope or uncertainty is admitted until source-native numeric measurements are recovered."
+      "completion_state": {
+        "issue_95_completion_route": "B_public_route_audit_complete_numeric_table_unrecoverable_and_impossibility_documented",
+        "completion_met": true,
+        "reopen_only_if_new_source_native_numeric_values_become_available": true
+      },
+      "next_action": "Do not reconstruct a third response-shape effect from pair identities, figures, or prose. Reopen source recovery only if a lawful author, publisher, or repository route exposes source-native numeric island/mainland floral measurements with trait definitions and grouping.",
+      "claim_boundary": "The checksum-locked thesis and full public ORIGINAL-bundle audit establish study provenance and source-native pair identities. The inspected public corpus does not expose the numeric island/mainland floral measurements required for the prespecified third response-shape analysis. This is a source-availability result, not a claim that author-held measurements never existed. No third effect or uncertainty is admitted."
     },
     {
       "source_id": "song_2026_eastern_china_functional_traits",
