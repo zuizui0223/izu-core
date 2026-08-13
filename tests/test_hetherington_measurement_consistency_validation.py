@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RESULT = ROOT / "data/results/cross_archipelago_morphology/hetherington_2019_measurement_consistency_validation.json"
 VALIDATION30 = ROOT / "data/results/cross_archipelago_morphology/southwest_pacific_30_species_validation_source_audit.json"
+ADMISSION = ROOT / "data/results/cross_archipelago_morphology/empirical_reliability_admission_state.json"
 
 
 def load_result():
@@ -52,3 +53,17 @@ def test_30_species_wilcoxon_summary_does_not_identify_eiv_reliability():
     assert paired["recovered_as_machine_readable_30_pair_table"] is False
     assert admissibility["wilcoxon_non_significance_is_reliability_coefficient"] is False
     assert admissibility["can_open_classical_eiv_gate"] is False
+
+
+def test_public_source_audit_completes_negative_identification_without_opening_eiv():
+    admission = json.loads(ADMISSION.read_text(encoding="utf-8"))
+    decision = admission["decision"]
+    assert admission["status"] == "empirical_reliability_unidentifiable_from_available_public_and_source_native_materials"
+    assert decision["issue_96_completion_route"] == "B_unidentifiable_from_available_sources"
+    assert decision["empirical_reliability_coefficient_identified"] is False
+    assert decision["uncertainty_distribution_for_target_reliability_identified"] is False
+    assert decision["southwest_pacific_eiv_gate_opened"] is False
+    assert decision["hendriks_eiv_gate_opened"] is False
+    assert decision["formal_cross_system_starting_size_effect_admission_opened"] is False
+    assert decision["assumed_reliability_substitution_allowed"] is False
+    assert admission["reopen_conditions"]
