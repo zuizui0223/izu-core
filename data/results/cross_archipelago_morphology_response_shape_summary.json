@@ -11,10 +11,7 @@
       "n_pairs": 88,
       "n_island_groups": 10,
       "direct_ols_slope": 0.8490052881072875,
-      "island_cluster_interval": [
-        0.6916442921593313,
-        0.9258005353502381
-      ],
+      "island_cluster_interval": [0.6916442921593313, 0.9258005353502381],
       "interval_excludes_isometry_below_one": true,
       "measurement_error_reliability_empirically_estimated": false,
       "point_below_isometry_reliability_threshold": 0.8490052881072875,
@@ -23,23 +20,17 @@
     },
     {
       "system_id": "new_zealand_hendriks_2019",
-      "source_state": "complete_numeric_reconstruction_and_island_group_mapping_from_author_upload_plus_stable_institutional_record_identified_but_pdf_bytes_unlocked",
+      "source_state": "institutional_pdf_checksum_locked_and_35_pair_plus_island_mapping_reverification_complete",
       "trait_definition": "flower area",
       "n_pairs": 35,
       "n_island_groups": 9,
       "direct_ols_slope": 0.5833358843917842,
-      "island_cluster_interval": [
-        0.21278670541951528,
-        0.7784929080550151
-      ],
+      "island_cluster_interval": [0.21278670541951528, 0.7784929080550151],
       "interval_excludes_isometry_below_one": true,
       "measurement_error_reliability_empirically_estimated": false,
       "point_below_isometry_reliability_threshold": 0.5833358843917842,
       "cluster_interval_below_isometry_reliability_threshold": 0.7784929080550151,
-      "sma_island_cluster_interval": [
-        0.7296694231411485,
-        1.0731043040917998
-      ],
+      "sma_island_cluster_interval": [0.7296694231411485, 1.0731043040917998],
       "sma_interval_excludes_isometry": false,
       "formal_effect_registry_eligible": false
     }
