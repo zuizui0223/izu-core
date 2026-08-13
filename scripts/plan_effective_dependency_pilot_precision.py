@@ -51,7 +51,7 @@ def validate_precision_inputs(
     freeze_manifest_path: Path | None,
     admission_path: Path | None,
 ) -> None:
-    """Require frozen bytes and a passed pilot gate before locked-goal planning."""
+    """Require frozen bytes and a matching passed pilot gate before planning."""
     locked_populations = _locked_goal_populations(goals)
     if not locked_populations:
         return
@@ -59,6 +59,11 @@ def validate_precision_inputs(
         raise ValueError("locked precision goals require --freeze-manifest")
     if admission_path is None:
         raise ValueError("locked precision goals require --admission")
+
+    observed_hashes = {
+        "svd": _sha256_file(svd_path),
+        "treatments": _sha256_file(treatments_path),
+    }
 
     freeze = json.loads(freeze_manifest_path.read_text(encoding="utf-8"))
     if freeze.get("status") != "effective_dependency_raw_field_bundle_frozen":
@@ -71,17 +76,23 @@ def validate_precision_inputs(
         for row in freeze.get("channels", ())
         if isinstance(row, dict)
     }
-    for name, path in (("svd", svd_path), ("treatments", treatments_path)):
+    for name in ("svd", "treatments"):
         frozen = channels.get(name)
         if frozen is None:
             raise ValueError(f"freeze manifest is missing channel {name}")
-        observed = _sha256_file(path)
-        if observed != frozen.get("sha256"):
+        if observed_hashes[name] != frozen.get("sha256"):
             raise ValueError(f"{name} bytes do not match the frozen raw bundle")
 
     admission = json.loads(admission_path.read_text(encoding="utf-8"))
     if admission.get("schema_version") != "effective_dependency_admission_v1":
         raise ValueError("admission artifact has unexpected schema")
+    admission_hashes = admission.get("input_sha256")
+    if not isinstance(admission_hashes, dict):
+        raise ValueError("admission artifact does not fingerprint its input files")
+    for name in ("svd", "treatments"):
+        if admission_hashes.get(name) != observed_hashes[name]:
+            raise ValueError(f"admission artifact was not built from the current {name} bytes")
+
     populations = {
         str(row.get("population_id", "")): row
         for row in admission.get("populations", ())
