@@ -18,7 +18,7 @@ def test_supplemental_a2_identity_table_does_not_become_numeric_table():
     assert result["numeric_flower_size_columns_found"] is False
 
 
-def test_bitstream_inventory_distinguishes_thesis_abstract_and_tabular_attachment():
+def test_bitstream_inventory_excludes_readme_and_finds_explicit_data_attachment():
     lock = {
         "item_handle": "1807/96116",
         "item_uuid": "4fe4945e-d284-4b0d-b306-97c2a02d51ad",
@@ -45,6 +45,12 @@ def test_bitstream_inventory_distinguishes_thesis_abstract_and_tabular_attachmen
                     "sequenceId": 5,
                     "sizeBytes": 100,
                 },
+                {
+                    "uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+                    "name": "floral_trait_data.csv",
+                    "sequenceId": 6,
+                    "sizeBytes": 5000,
+                },
             ]
         }
     }
@@ -52,5 +58,5 @@ def test_bitstream_inventory_distinguishes_thesis_abstract_and_tabular_attachmen
     assert result["n_full_thesis_pdfs"] == 1
     assert result["n_expanded_abstract_pdfs"] == 1
     assert result["n_tabular_data_attachments"] == 1
-    assert result["tabular_data_attachments"][0]["name"] == "README.txt"
+    assert result["tabular_data_attachments"][0]["name"] == "floral_trait_data.csv"
     assert result["separate_numeric_136_pair_attachment_verified"] is False
