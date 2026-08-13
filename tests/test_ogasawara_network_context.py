@@ -51,6 +51,17 @@ def test_source_resolved_rows_and_network_metrics(tmp_path: Path):
     assert {row["plant_name"] for row in plant_rows} == {"P1"}
 
 
+def test_source_native_n_int_header_is_accepted(tmp_path: Path):
+    table = tmp_path / "network.csv"
+    table.write_text("island,plant,pollinator,N.Int\nI,P,B,3\n", encoding="utf-8")
+    record = candidate(table)
+    record["role_matches"]["interaction_count"] = ["N.Int"]
+    rows, columns = MODULE.standardize_rows(record)
+    assert columns["interaction_count"] == "N.Int"
+    assert len(rows) == 1
+    assert rows[0]["interaction_count"] == 3.0
+
+
 def test_generic_count_header_is_not_promoted_to_legitimate_interaction(tmp_path: Path):
     table = tmp_path / "network.csv"
     table.write_text("island,plant,pollinator,count\nI,P,B,1\n", encoding="utf-8")
@@ -62,6 +73,19 @@ def test_generic_count_header_is_not_promoted_to_legitimate_interaction(tmp_path
         assert "too generic" in str(error)
     else:
         raise AssertionError("generic count header should be blocked")
+
+
+def test_generic_n_header_is_not_promoted_to_legitimate_interaction(tmp_path: Path):
+    table = tmp_path / "network.csv"
+    table.write_text("island,plant,pollinator,N\nI,P,B,1\n", encoding="utf-8")
+    record = candidate(table)
+    record["role_matches"]["interaction_count"] = ["N"]
+    try:
+        MODULE.standardize_rows(record)
+    except ValueError as error:
+        assert "too generic" in str(error)
+    else:
+        raise AssertionError("generic N header should be blocked")
 
 
 def test_multiple_candidate_tables_remain_blocked_by_main_gate(tmp_path: Path, monkeypatch):
