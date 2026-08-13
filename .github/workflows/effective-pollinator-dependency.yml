@@ -8,10 +8,12 @@ on:
       - "channel_id/effective_dependency_output.py"
       - "channel_id/effective_dependency_precision.py"
       - "channel_id/effective_dependency_pilot_assumptions.py"
+      - "channel_id/effective_dependency_measurement_calibration.py"
       - "scripts/audit_effective_pollinator_dependency.py"
       - "scripts/audit_effective_dependency_parentage.py"
       - "scripts/audit_effective_dependency_admission.py"
       - "scripts/audit_effective_dependency_pilot_assumptions.py"
+      - "scripts/audit_effective_dependency_svd_recount_calibration.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "scripts/freeze_effective_dependency_field_bundle.py"
       - "templates/field_dependency_plant_registry_template.csv"
@@ -19,6 +21,7 @@ on:
       - "templates/field_visitor_contact_manifest_template.csv"
       - "templates/field_single_visit_pollen_deposition_template.csv"
       - "templates/field_pollination_treatment_template.csv"
+      - "templates/field_svd_recount_calibration_template.csv"
       - "templates/field_mature_fruit_template.csv"
       - "templates/field_seed_parentage_template.csv"
       - "templates/effective_dependency_precision_goals_template.csv"
@@ -32,6 +35,7 @@ on:
       - "tests/test_effective_pollinator_dependency_readiness.py"
       - "tests/test_effective_dependency_precision.py"
       - "tests/test_effective_dependency_pilot_assumptions.py"
+      - "tests/test_effective_dependency_measurement_calibration.py"
       - "tests/test_effective_dependency_field_linkage_templates.py"
       - "tests/test_effective_dependency_parentage.py"
       - "tests/test_effective_dependency_admission.py"
@@ -43,10 +47,12 @@ on:
       - "channel_id/effective_dependency_output.py"
       - "channel_id/effective_dependency_precision.py"
       - "channel_id/effective_dependency_pilot_assumptions.py"
+      - "channel_id/effective_dependency_measurement_calibration.py"
       - "scripts/audit_effective_pollinator_dependency.py"
       - "scripts/audit_effective_dependency_parentage.py"
       - "scripts/audit_effective_dependency_admission.py"
       - "scripts/audit_effective_dependency_pilot_assumptions.py"
+      - "scripts/audit_effective_dependency_svd_recount_calibration.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "scripts/freeze_effective_dependency_field_bundle.py"
       - "templates/field_dependency_plant_registry_template.csv"
@@ -54,6 +60,7 @@ on:
       - "templates/field_visitor_contact_manifest_template.csv"
       - "templates/field_single_visit_pollen_deposition_template.csv"
       - "templates/field_pollination_treatment_template.csv"
+      - "templates/field_svd_recount_calibration_template.csv"
       - "templates/field_mature_fruit_template.csv"
       - "templates/field_seed_parentage_template.csv"
       - "templates/effective_dependency_precision_goals_template.csv"
@@ -67,6 +74,7 @@ on:
       - "tests/test_effective_pollinator_dependency_readiness.py"
       - "tests/test_effective_dependency_precision.py"
       - "tests/test_effective_dependency_pilot_assumptions.py"
+      - "tests/test_effective_dependency_measurement_calibration.py"
       - "tests/test_effective_dependency_field_linkage_templates.py"
       - "tests/test_effective_dependency_parentage.py"
       - "tests/test_effective_dependency_admission.py"
@@ -90,6 +98,7 @@ jobs:
           tests/test_effective_pollinator_dependency_readiness.py
           tests/test_effective_dependency_precision.py
           tests/test_effective_dependency_pilot_assumptions.py
+          tests/test_effective_dependency_measurement_calibration.py
           tests/test_effective_dependency_field_linkage_templates.py
           tests/test_effective_dependency_parentage.py
           tests/test_effective_dependency_admission.py
