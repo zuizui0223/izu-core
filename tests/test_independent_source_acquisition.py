@@ -38,8 +38,26 @@ def test_no_priority_source_is_promoted_to_numeric_or_dependency_moderation():
     assert all(row.dependency_moderation_status == "blocked" for row in rows)
 
 
+def test_identified_but_unrecovered_routes_remain_below_numeric_gate():
+    by_id = {row.source_id: row for row in records()}
+    assert by_id["weigela_yamada_2010"].access_status == (
+        "publisher_article_route_and_external_supplement_listing_binary_unrecovered"
+    )
+    assert by_id["ligustrum_yamada_2014"].access_status == (
+        "publisher_supporting_files_identified_binary_delivery_blocked"
+    )
+    assert by_id["hosta_yamada_2014"].access_status == (
+        "publisher_supporting_files_identified_binary_delivery_blocked"
+    )
+    for row in by_id.values():
+        assert row.numeric_gate["source_recovered"] is False
+        assert numeric_effect_ready(row) is False
+        assert dependency_moderation_ready(row) is False
+
+
 def test_publisher_supplement_filenames_are_routes_not_effect_sizes():
     by_id = {row.source_id: row for row in records()}
+    assert by_id["weigela_yamada_2010"].supplements == ()
     assert [
         item["filename"] for item in by_id["ligustrum_yamada_2014"].supplements
     ] == [
