@@ -1,4 +1,8 @@
+import hashlib
+import json
 import math
+
+import pytest
 
 from channel_id.effective_dependency_precision import (
     build_precision_recommendations,
@@ -6,6 +10,7 @@ from channel_id.effective_dependency_precision import (
     summarize_svd_pilot,
     summarize_treatment_pilot,
 )
+from scripts.plan_effective_dependency_pilot_precision import validate_precision_inputs
 
 
 def svd_rows():
@@ -55,6 +60,19 @@ def treatment_rows():
     return rows
 
 
+def locked_goal():
+    return {
+        "goal_id": "g-svd",
+        "metric": "background_adjusted_svd",
+        "population_id": "pop-1",
+        "group_label": "bombus_ardens_confirmed",
+        "absolute_half_width": "5",
+        "confidence": "0.95",
+        "status": "locked",
+        "notes": "synthetic",
+    }
+
+
 def test_svd_pilot_summarizes_events_within_plant_before_between_plant_sd():
     plant_rows, summaries = summarize_svd_pilot(svd_rows())
     assert len(plant_rows) == 2
@@ -85,16 +103,7 @@ def test_locked_absolute_half_width_generates_independent_plant_recommendation()
     _, svd_summary = summarize_svd_pilot(svd_rows())
     _, treatment_summary = summarize_treatment_pilot(treatment_rows())
     goals = [
-        {
-            "goal_id": "g-svd",
-            "metric": "background_adjusted_svd",
-            "population_id": "pop-1",
-            "group_label": "bombus_ardens_confirmed",
-            "absolute_half_width": "5",
-            "confidence": "0.95",
-            "status": "locked",
-            "notes": "synthetic",
-        },
+        locked_goal(),
         {
             "goal_id": "g-open",
             "metric": "capsule_set_proportion",
@@ -149,3 +158,90 @@ def test_missing_background_control_does_not_produce_svd_dispersion():
     assert summaries[0]["independent_plants_with_controlled_svd"] == "0"
     assert summaries[0]["between_plant_sd"] == ""
     assert summaries[0]["pilot_status"] == "needs_more_independent_plants"
+
+
+def test_draft_goal_does_not_require_freeze_or_admission(tmp_path):
+    svd = tmp_path / "svd.csv"
+    treatments = tmp_path / "treatments.csv"
+    svd.write_text("svd\n", encoding="utf-8")
+    treatments.write_text("treatments\n", encoding="utf-8")
+    validate_precision_inputs(
+        goals=[{**locked_goal(), "status": "draft"}],
+        svd_path=svd,
+        treatments_path=treatments,
+        freeze_manifest_path=None,
+        admission_path=None,
+    )
+
+
+def test_locked_goal_requires_freeze_manifest(tmp_path):
+    svd = tmp_path / "svd.csv"
+    treatments = tmp_path / "treatments.csv"
+    svd.write_text("svd\n", encoding="utf-8")
+    treatments.write_text("treatments\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="--freeze-manifest"):
+        validate_precision_inputs(
+            goals=[locked_goal()],
+            svd_path=svd,
+            treatments_path=treatments,
+            freeze_manifest_path=None,
+            admission_path=tmp_path / "admission.json",
+        )
+
+
+def test_locked_goal_rejects_bytes_changed_after_freeze(tmp_path):
+    svd = tmp_path / "svd.csv"
+    treatments = tmp_path / "treatments.csv"
+    svd.write_text("original-svd\n", encoding="utf-8")
+    treatments.write_text("treatments\n", encoding="utf-8")
+    freeze = tmp_path / "freeze.json"
+    freeze.write_text(json.dumps({
+        "status": "effective_dependency_raw_field_bundle_frozen",
+        "required_channels": ["plants", "effort", "visits", "svd", "treatments", "fruits"],
+        "channels": [
+            {"channel": "svd", "sha256": hashlib.sha256(svd.read_bytes()).hexdigest()},
+            {"channel": "treatments", "sha256": hashlib.sha256(treatments.read_bytes()).hexdigest()},
+        ],
+    }), encoding="utf-8")
+    admission = tmp_path / "admission.json"
+    admission.write_text(json.dumps({
+        "schema_version": "effective_dependency_admission_v1",
+        "populations": [{"population_id": "pop-1", "pilot_dispersion_gate_pass": True}],
+    }), encoding="utf-8")
+    svd.write_text("changed-svd\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="svd bytes do not match"):
+        validate_precision_inputs(
+            goals=[locked_goal()],
+            svd_path=svd,
+            treatments_path=treatments,
+            freeze_manifest_path=freeze,
+            admission_path=admission,
+        )
+
+
+def test_locked_goal_accepts_frozen_bytes_after_admission_pass(tmp_path):
+    svd = tmp_path / "svd.csv"
+    treatments = tmp_path / "treatments.csv"
+    svd.write_text("svd\n", encoding="utf-8")
+    treatments.write_text("treatments\n", encoding="utf-8")
+    freeze = tmp_path / "freeze.json"
+    freeze.write_text(json.dumps({
+        "status": "effective_dependency_raw_field_bundle_frozen",
+        "required_channels": ["plants", "effort", "visits", "svd", "treatments", "fruits"],
+        "channels": [
+            {"channel": "svd", "sha256": hashlib.sha256(svd.read_bytes()).hexdigest()},
+            {"channel": "treatments", "sha256": hashlib.sha256(treatments.read_bytes()).hexdigest()},
+        ],
+    }), encoding="utf-8")
+    admission = tmp_path / "admission.json"
+    admission.write_text(json.dumps({
+        "schema_version": "effective_dependency_admission_v1",
+        "populations": [{"population_id": "pop-1", "pilot_dispersion_gate_pass": True}],
+    }), encoding="utf-8")
+    validate_precision_inputs(
+        goals=[locked_goal()],
+        svd_path=svd,
+        treatments_path=treatments,
+        freeze_manifest_path=freeze,
+        admission_path=admission,
+    )
