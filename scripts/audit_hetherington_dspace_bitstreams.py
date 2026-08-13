@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Inventory every public bitstream in the locked Hetherington UofT ORIGINAL bundle.
 
-The inventory distinguishes the full thesis, expanded abstract, and any non-PDF
-attachments. It is a source-availability audit only and never treats absence of
-an attachment as absence of a biological effect.
+The inventory distinguishes the full thesis, expanded abstract, and candidate
+numeric/tabular attachments. It is a source-availability audit only and never
+treats absence of an attachment as absence of a biological effect.
 """
 from __future__ import annotations
 
@@ -20,6 +20,17 @@ DEFAULT_LOCK = ROOT / "artifacts/hetherington_2019/source_lock/source_lock.json"
 DEFAULT_OUTPUT = ROOT / "artifacts/hetherington_2019/source_lock/bitstream_inventory.json"
 
 
+def looks_like_tabular_data(name: str) -> bool:
+    lower = name.casefold()
+    if lower.endswith((".csv", ".tsv", ".xlsx", ".xls", ".rds", ".rdata")):
+        return True
+    if not lower.endswith(".txt"):
+        return False
+    if any(token in lower for token in ("readme", "license", "licence", "manifest")):
+        return False
+    return any(token in lower for token in ("data", "table", "measurement", "trait", "pair", "contrast"))
+
+
 def summarize(item: dict[str, Any]) -> dict[str, Any]:
     name = str(item.get("name") or "")
     lower = name.casefold()
@@ -33,18 +44,21 @@ def summarize(item: dict[str, Any]) -> dict[str, Any]:
         "is_pdf": lower.endswith(".pdf"),
         "is_full_thesis_pdf": lower.endswith("_msc_thesis.pdf") and "expandedabstract" not in lower,
         "is_expanded_abstract_pdf": "expandedabstract" in lower and lower.endswith(".pdf"),
-        "looks_like_tabular_data_attachment": lower.endswith((".csv", ".tsv", ".xlsx", ".xls", ".rds", ".rdata", ".txt")),
+        "looks_like_tabular_data_attachment": looks_like_tabular_data(name),
     }
 
 
 def build_inventory(lock: dict[str, Any], payload: dict[str, Any], api_url: str) -> dict[str, Any]:
     items = object_candidates(payload, kind="bitstream")
-    summaries = sorted((summarize(item) for item in items), key=lambda row: (row["sequenceId"] is None, row["sequenceId"] or 0, row["name"]))
+    summaries = sorted(
+        (summarize(item) for item in items),
+        key=lambda row: (row["sequenceId"] is None, row["sequenceId"] or 0, row["name"]),
+    )
     full = [row for row in summaries if row["is_full_thesis_pdf"]]
     expanded = [row for row in summaries if row["is_expanded_abstract_pdf"]]
     tabular = [row for row in summaries if row["looks_like_tabular_data_attachment"]]
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "utoronto_original_bundle_bitstream_inventory_complete",
         "item_handle": lock.get("item_handle"),
         "item_uuid": lock.get("item_uuid"),
@@ -58,7 +72,7 @@ def build_inventory(lock: dict[str, Any], payload: dict[str, Any], api_url: str)
         "tabular_data_attachments": tabular,
         "separate_numeric_136_pair_attachment_verified": False,
         "claim_boundary": (
-            "This inventory reports public ORIGINAL-bundle attachments. A zero tabular-attachment count narrows the public repository route but does not prove that source-native numeric data never existed or are unavailable from every author/publisher route."
+            "This inventory reports public ORIGINAL-bundle attachments. A zero candidate tabular-attachment count narrows the public repository route but does not prove that source-native numeric data never existed or are unavailable from every author/publisher route."
         ),
     }
 
