@@ -178,11 +178,10 @@
   "formal_cross_system_fit_ready": false,
   "effect_registry_eligible": false,
   "blocking_gates": [
-    "underlying PDF/data artifact not checksum locked",
     "mainland flower-area measurement reliability is not empirically identified",
     "SMA island-cluster bootstrap interval includes the line-of-isometry slope of 1"
   ],
-  "claim_boundary": "This reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS, including island-cluster resampling. It does not identify pollinator mechanism, does not resolve errors in variables, and is not admitted to the formal cross-system fit.",
+  "claim_boundary": "The checksum-locked reconstruction supports an independent descriptive replication of a starting-size-dependent island flower-area response under OLS, including island-cluster resampling. Provenance is complete, but this does not identify pollinator mechanism, does not resolve errors in variables, and is not admitted to the formal cross-system fit.",
   "source_id": "hendriks_2019_flower_area_table_b9",
-  "source_retrieval_state": "complete_numeric_reconstruction_and_island_group_mapping_from_author_upload_plus_stable_institutional_record_identified_but_pdf_bytes_unlocked"
+  "source_retrieval_state": "institutional_pdf_checksum_locked_and_35_pair_plus_island_mapping_reverification_complete"
 }
