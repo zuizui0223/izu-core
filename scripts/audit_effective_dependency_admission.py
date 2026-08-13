@@ -2,7 +2,7 @@
 """Audit whether direct dependency field data can move beyond structural completion.
 
 This is deliberately stricter than the structural panel audit and deliberately
-weaker than a power/precision claim.  It separates three states:
+weaker than a power/precision claim. It separates three states:
 
 1. structural completion: linked channels exist;
 2. plant-level dispersion estimability: at least two independent plants
@@ -10,7 +10,7 @@ weaker than a power/precision claim.  It separates three states:
 3. confirmatory adequacy: never inferred here; it requires a separately chosen
    precision target and pilot-derived variance/loss assumptions.
 
-Flowers and repeated visits within one plant are subsamples.  Missing,
+Flowers and repeated visits within one plant are subsamples. Missing,
 pending, lost, damaged, unresolved, or unscorable records never manufacture
 independent plant replication.
 """
@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -32,6 +33,14 @@ NO_VISIT_CONTROLS = frozenset({"exposed_no_visit_control", "bagged_unvisited_con
 def _read(path: Path) -> tuple[dict[str, str], ...]:
     with path.open(newline="", encoding="utf-8") as handle:
         return tuple(csv.DictReader(handle))
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def _text(row: Mapping[str, object], field: str) -> str:
@@ -139,6 +148,11 @@ def main() -> None:
     args = parser.parse_args()
     try:
         result = build_admission(_read(args.plants), _read(args.svd), _read(args.treatments))
+        result["input_sha256"] = {
+            "plants": _sha256_file(args.plants),
+            "svd": _sha256_file(args.svd),
+            "treatments": _sha256_file(args.treatments),
+        }
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     except (OSError, ValueError) as error:
