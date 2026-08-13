@@ -6,6 +6,7 @@ on:
     paths:
       - "data/design/cross_archipelago_morphology_source_recovery.json"
       - "data/results/cross_archipelago_morphology/hetherington_2019_measurement_consistency_validation.json"
+      - "data/results/cross_archipelago_morphology/southwest_pacific_30_species_validation_source_audit.json"
       - "scripts/audit_cross_archipelago_morphology_source_routes.py"
       - "scripts/acquire_hetherington_utoronto_dspace.py"
       - "scripts/audit_hetherington_dspace_bitstreams.py"
