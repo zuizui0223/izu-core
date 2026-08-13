@@ -111,6 +111,18 @@ def test_write_csv_unions_heterogeneous_context_columns(tmp_path: Path):
     assert rows[1]["habitat"] == "Natural"
 
 
+def test_context_workflow_materializer_owns_only_descriptive_outputs():
+    workflow = (ROOT / ".github" / "workflows" / "ogasawara-network-context-analysis.yml").read_text(
+        encoding="utf-8"
+    )
+    assert "for old in out.iterdir()" not in workflow
+    assert '"analysis.json"' in workflow
+    assert '"context_metrics.csv"' in workflow
+    assert '"analysis_summary.json"' not in workflow
+    assert '"effect_rows.json"' not in workflow
+    assert "Never erase source-locked" in workflow
+
+
 def test_multiple_candidate_tables_remain_blocked_by_main_gate(tmp_path: Path, monkeypatch):
     schema = tmp_path / "schema.json"
     first = candidate(tmp_path / "a.csv")
