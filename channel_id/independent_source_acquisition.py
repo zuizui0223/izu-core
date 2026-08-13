@@ -39,6 +39,8 @@ ALLOWED_STEP_STATUS = {"supports", "does_not_demonstrate", "unresolved"}
 ALLOWED_ADMISSION_STATUS = {"blocked", "ready"}
 ALLOWED_ACCESS_STATUS = {
     "publisher_metadata_only",
+    "publisher_supporting_files_identified_binary_delivery_blocked",
+    "publisher_article_route_and_external_supplement_listing_binary_unrecovered",
     "full_text_recovered",
     "author_manuscript_recovered",
     "lawful_repository_copy_recovered",
