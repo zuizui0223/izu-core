@@ -62,6 +62,7 @@ NUMERIC_TRAIT_COLUMN_TERMS = (
     "diameter (mm",
     "log ratio",
 )
+A2_HEADER_WINDOW_CHARS = 1800
 
 
 def normalize(text: str) -> str:
@@ -99,8 +100,14 @@ def audit_supplemental_a2(page_texts: list[str]) -> dict[str, object]:
         len(normalized),
     )
     region = " ".join(normalized[start:end])
-    columns = {column: column in region for column in A2_EXPECTED_COLUMNS}
-    numeric_terms = [term for term in NUMERIC_TRAIT_COLUMN_TERMS if term in region]
+    # Column identity is read from the opening table page/header only. Searching
+    # the whole A.2 region for terms such as "flower size" can match cited paper
+    # titles and falsely promote a reference phrase into a numeric source column.
+    header_region = normalized[start][:A2_HEADER_WINDOW_CHARS]
+    columns = {column: column in header_region for column in A2_EXPECTED_COLUMNS}
+    numeric_terms = [
+        term for term in NUMERIC_TRAIT_COLUMN_TERMS if term in header_region
+    ]
     return {
         "found": True,
         "pdf_page_start": start + 1,
@@ -109,6 +116,7 @@ def audit_supplemental_a2(page_texts: list[str]) -> dict[str, object]:
         "declared_sorting": "island, family, genus",
         "expected_identity_columns": columns,
         "pair_identity_table_verified": all(columns.values()),
+        "numeric_column_detection_scope": "opening A.2 table header page/window only; reference titles excluded",
         "numeric_trait_column_terms_checked": list(NUMERIC_TRAIT_COLUMN_TERMS),
         "numeric_trait_column_terms_found": numeric_terms,
         "numeric_flower_size_columns_found": bool(numeric_terms),
@@ -146,7 +154,7 @@ def screen_pages(pdf_path: Path) -> dict[str, object]:
             )
     a2 = audit_supplemental_a2(page_texts)
     return {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "status": "thesis_source_table_screen_complete",
         "n_pages": len(reader.pages),
         "candidate_pages": hits,
