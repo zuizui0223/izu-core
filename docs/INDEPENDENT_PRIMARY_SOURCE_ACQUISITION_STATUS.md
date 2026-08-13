@@ -13,17 +13,25 @@ This is not a failed meta-analysis. It is a clear separation between a useful di
 
 Issue #92 tracks lawful source recovery, source-package provenance, double transcription, locality mapping, sampling hierarchy, uncertainty and dependency admission.
 
+## Source-route audit — 2026-08-13
+
+Source discovery has advanced, but source delivery and numeric admission remain separate states.
+
+- *Ligustrum ovalifolium*: the publisher confirms `boj12092-sup-0001-si.doc` (Table S1; pairwise Tukey–Kramer floral-trait context) and `boj12092-sup-0002-si.doc` (Table S2; pollinator identities). The supporting binaries are not recovered from the current lawful execution route.
+- *Hosta longipes*: the publisher confirms all five supporting files, including `psbi12002-sup-0001-si.doc` as the population-locality key, plus photograph, pollinator-sample, morphology-dissimilarity and pollinator-identity appendices. The binaries are not recovered from the current lawful execution route.
+- *Weigela coraeensis*: the Springer/CiNii article route is confirmed and an external listing identifies a matching `Supplementary material 1`, but that binary is not recovered and its role is not inferred. A same-taxon Honshu–Izu population-genetic study (DOI `10.1111/j.1365-2699.2011.02634.x`) is retained only as a possible future geography cross-check after population identity is established; it cannot substitute for the 2010 morphology source.
+
+Thus `identified route`, `binary recovered`, and `numeric gate satisfied` are three different states. No source is promoted merely because a publisher or external index exposes a filename, record, or supplement label.
+
 ## Why publisher supplement listings do not open the holdout
 
-Publisher metadata identifies acquisition routes for two sources:
-
-| taxon | listed supporting files | what they can help recover | why they are insufficient alone |
+| taxon | identified supporting route | what it can help recover | why it is insufficient alone |
 |---|---|---|---|
 | *Ligustrum ovalifolium* | `boj12092-sup-0001-si.doc`, `boj12092-sup-0002-si.doc` | pairwise floral-trait context and pollinator identities | a pairwise test/significance table and identities do not supply population means, independent `n`, uncertainty or effective dependency |
 | *Hosta longipes* | `psbi12002-sup-0001-si.doc` through `psbi12002-sup-0005-si.doc` | localities, photographs, pollinator sample context, morphology dissimilarity, pollinator identities | localities/dissimilarity/metadata do not by themselves supply locality-level effect estimates and effective-dependency evidence |
-| *Weigela coraeensis* | no current supplement route locked | full text and locality/trait tables remain the decisive route | the abstract supplies a gradual response shape only |
+| *Weigela coraeensis* | externally listed `Supplementary material 1`; exact binary/role unresolved | potentially relevant source material after lawful recovery | an external listing is not a publisher-confirmed source file and supplies no morphology value, `n`, uncertainty or locality mapping by itself |
 
-A filename or publisher listing is an **acquisition route**, not source data. No values are reconstructed from metadata.
+A filename, supplement label or publisher listing is an **acquisition route**, not source data. No values are reconstructed from metadata.
 
 ## Source package required after acquisition
 
