@@ -213,7 +213,13 @@ def island_pair_summaries(rows: list[dict[str, object]]) -> tuple[list[dict[str,
 def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
     if not rows:
         return
-    columns = list(rows[0])
+    columns: list[str] = []
+    seen: set[str] = set()
+    for row in rows:
+        for column in row:
+            if column not in seen:
+                seen.add(column)
+                columns.append(column)
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=columns)
         writer.writeheader()
