@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "data/design/cross_archipelago_morphology_source_recovery.json"
 
@@ -10,52 +9,36 @@ def load_registry():
     return json.loads(REGISTRY.read_text(encoding="utf-8"))
 
 
-def test_recovery_registry_keeps_unlocked_sources_out_of_formal_admission():
-    document = load_registry()
-    sources = {row["source_id"]: row for row in document["sources"]}
-
+def test_recovery_registry_tracks_completed_provenance_without_formal_admission():
+    sources = {row["source_id"]: row for row in load_registry()["sources"]}
     hendriks = sources["hendriks_2019_flower_area"]
     assert hendriks["institutional_repository"]["exact_record_recovered"] is True
     assert hendriks["institutional_repository"]["identifier"] == "10.26686/wgtn.17136800"
-    assert any(route["route"] == "VUW Open Access institutional record" for route in hendriks["known_routes"])
-    assert all(route["exact_source_bytes_recovered"] is False for route in hendriks["known_routes"])
-    assert hendriks["admission_gate"]["checksum_locked"] is False
+    assert hendriks["admission_gate"]["checksum_locked"] is True
+    assert hendriks["admission_gate"]["all_35_pairs_verified_against_locked_bytes"] is True
+    assert hendriks["admission_gate"]["island_assignments_verified_against_locked_bytes"] is True
     assert hendriks["admission_gate"]["formal_same_family_effect_admitted"] is False
     assert hendriks["admission_gate"]["empirical_mainland_trait_reliability_identified"] is False
 
     hrj = sources["hetherington_rauth_johnson_2020_136_pairs"]
     assert hrj["theses_canada_oclc"] == "1335043730"
-    assert hrj["admission_gate"]["source_native_pair_table_recovered"] is False
+    assert hrj["admission_gate"]["checksum_locked"] is True
+    assert hrj["admission_gate"]["source_native_pair_identity_table_recovered"] is True
+    assert hrj["admission_gate"]["source_native_numeric_pair_table_recovered"] is False
     assert hrj["admission_gate"]["formal_effect_admitted"] is False
-    assert "Do not reconstruct" in hrj["next_action"]
 
 
-def test_136_pair_metadata_route_is_not_misrepresented_as_numeric_source():
-    document = load_registry()
-    hrj = next(
-        row
-        for row in document["sources"]
-        if row["source_id"] == "hetherington_rauth_johnson_2020_136_pairs"
-    )
-    assert hrj["current_numeric_state"] == "no_source_native_pair_effect_admitted"
-    assert all(
-        route["exact_source_bytes_recovered"] is False
-        for route in hrj["known_routes"]
-        if "exact_source_bytes_recovered" in route
-    )
-    boundary = hrj["claim_boundary"].lower()
-    assert "do not supply" in boundary
-    assert "slope" in boundary
-    assert "uncertainty" in boundary
+def test_136_pair_identity_table_is_not_misrepresented_as_numeric_source():
+    hrj = next(row for row in load_registry()["sources"] if row["source_id"] == "hetherington_rauth_johnson_2020_136_pairs")
+    assert hrj["current_numeric_state"] == "source_native_pair_identity_table_verified_but_numeric_136_pair_flower_measurement_table_unresolved"
+    assert hrj["source_native_thesis_findings"]["supplemental_table_a2_found"] is True
+    assert hrj["source_native_thesis_findings"]["numeric_flower_size_or_log_ratio_column_verified_in_a2"] is False
+    assert hrj["admission_gate"]["source_native_numeric_pair_table_recovered"] is False
+    assert "No compatible third-system slope or uncertainty is admitted" in hrj["claim_boundary"]
 
 
 def test_nonfloral_island_rule_study_is_boundary_comparator_not_third_floral_system():
-    document = load_registry()
-    song = next(
-        row
-        for row in document["sources"]
-        if row["source_id"] == "song_2026_eastern_china_functional_traits"
-    )
+    song = next(row for row in load_registry()["sources"] if row["source_id"] == "song_2026_eastern_china_functional_traits")
     assert song["article_doi"] == "10.1111/nph.71040"
     assert song["same_family_floral_replication"] is False
     assert song["formal_floral_effect_admitted"] is False
