@@ -3,7 +3,9 @@ name: Virtual Izu Field Stress
 on:
   pull_request:
     paths:
-      - 'channel_id/**'
+      - 'channel_id/izu_*.py'
+      - 'channel_id/guide_*.py'
+      - 'channel_id/nectar_guide.py'
       - 'scripts/generate_izu_field_stress_report.py'
       - '.github/workflows/izu-field-stress.yml'
   workflow_dispatch:
