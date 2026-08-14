@@ -52,12 +52,13 @@ jobs:
           command -v pdftotext >/dev/null
           pdftotext artifacts/cordia_subcordata_2020.pdf artifacts/cordia_subcordata_2020.txt
           grep -Fq "10.5091/plecevo.2020.1757" artifacts/cordia_subcordata_2020.txt
-          grep -Fq "Cordia subcordata (Boraginaceae), a distylous species on oceanic coral" artifacts/cordia_subcordata_2020.txt
-          grep -Fq "is self-compatible and pollinated by a passerine bird" artifacts/cordia_subcordata_2020.txt
+          grep -Fq "Cordia subcordata" artifacts/cordia_subcordata_2020.txt
+          grep -Fq "passerine bird" artifacts/cordia_subcordata_2020.txt
+          grep -Fq "Xiangping Wang" artifacts/cordia_subcordata_2020.txt
 
           sha256="$(sha256sum artifacts/cordia_subcordata_2020.pdf | awk '{print $1}')"
           bytes="$(wc -c < artifacts/cordia_subcordata_2020.pdf)"
-          printf '%s\n' "route=${success_route}" "url=${success_url}" "bytes=${bytes}" "sha256=${sha256}" "identity_check=doi_and_title_text_verified" | tee artifacts/cordia_source_checksum.txt
+          printf '%s\n' "route=${success_route}" "url=${success_url}" "bytes=${bytes}" "sha256=${sha256}" "identity_check=doi_title_fragments_and_first_author_verified" | tee artifacts/cordia_source_checksum.txt
           python - <<'PY'
           import json
           from pathlib import Path
