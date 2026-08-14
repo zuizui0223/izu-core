@@ -5,7 +5,6 @@ on:
   push:
     paths:
       - "scripts/acquire_dryad_external_dataset.py"
-      - "scripts/acquire_dryad_external_dataset_v2.py"
       - "scripts/acquire_galapagos_dataone.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "scripts/analyze_galapagos_source_networks.py"
@@ -19,7 +18,6 @@ on:
   pull_request:
     paths:
       - "scripts/acquire_dryad_external_dataset.py"
-      - "scripts/acquire_dryad_external_dataset_v2.py"
       - "scripts/acquire_galapagos_dataone.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "scripts/analyze_galapagos_source_networks.py"
@@ -58,7 +56,7 @@ jobs:
         id: dryad_acquire
         continue-on-error: true
         run: >-
-          python scripts/acquire_dryad_external_dataset_v2.py
+          python scripts/acquire_dryad_external_dataset.py
           --config config/galapagos_dryad_source.json
           --output-dir artifacts/galapagos_dryad
       - name: Test whether Dryad yielded valid source bytes
