@@ -14,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install PDF identity checker
+        run: python -m pip install --disable-pip-version-check 'pypdf>=6,<7'
       - name: Fetch exact open article PDF and write checksum manifest
         shell: bash
         run: |
@@ -49,11 +54,15 @@ jobs:
             exit 1
           fi
 
-          command -v pdftotext >/dev/null
-          pdftotext artifacts/cordia_subcordata_2020.pdf artifacts/cordia_subcordata_2020.txt
           python - <<'PY'
           from pathlib import Path
-          text = ' '.join(Path('artifacts/cordia_subcordata_2020.txt').read_text(errors='replace').lower().split())
+          from pypdf import PdfReader
+          path = Path('artifacts/cordia_subcordata_2020.pdf')
+          reader = PdfReader(str(path))
+          text = ' '.join(
+              ' '.join((page.extract_text() or '').lower().split())
+              for page in reader.pages[:3]
+          )
           required = (
               'cordia subcordata',
               'plecevo.2020.1757',
@@ -61,13 +70,13 @@ jobs:
           )
           missing = [fragment for fragment in required if fragment not in text]
           if missing:
-              raise SystemExit(f'PDF identity fragments missing after whitespace normalization: {missing}')
-          print('PDF identity verified from normalized text:', ', '.join(required))
+              raise SystemExit(f'PDF identity fragments missing: {missing}')
+          print(f'PDF identity verified across first {min(3, len(reader.pages))} pages; total_pages={len(reader.pages)}')
           PY
 
           sha256="$(sha256sum artifacts/cordia_subcordata_2020.pdf | awk '{print $1}')"
           bytes="$(wc -c < artifacts/cordia_subcordata_2020.pdf)"
-          printf '%s\n' "route=${success_route}" "url=${success_url}" "bytes=${bytes}" "sha256=${sha256}" "identity_check=doi_and_title_fragments_verified_after_whitespace_normalization" | tee artifacts/cordia_source_checksum.txt
+          printf '%s\n' "route=${success_route}" "url=${success_url}" "bytes=${bytes}" "sha256=${sha256}" "identity_check=doi_and_title_fragments_verified_with_pypdf" | tee artifacts/cordia_source_checksum.txt
           python - <<'PY'
           import json
           from pathlib import Path
