@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "analysis_name": "hiraiwa_ushimaru_cross_channel_concordance",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31783753368,
+  "source_artifact_id": 9212677967,
+  "scope": "source-defined pollen-success target plants with matched corrected-trait-matching, tube-morphology and pollen-receipt Oshima-to-post contrasts",
+  "n_shared_targets": 8,
+  "directions": {
+    "corrected_trait_matching": {
+      "lower_post": 8,
+      "higher_post": 0
+    },
+    "tube_morphology": {
+      "shorter_post": 3,
+      "longer_post": 4,
+      "equal": 1
+    },
+    "pollen_receipt": {
+      "lower_post": 4,
+      "higher_post": 4
+    }
+  },
+  "concordance": {
+    "matching_lower_and_tube_shorter_n": 3,
+    "matching_lower_and_pollen_lower_n": 4,
+    "matching_lower_tube_shorter_pollen_lower_n": 2,
+    "matching_lower_tube_shorter_pollen_lower_plants": [
+      "Farfugium japonicum",
+      "Oxalis corniculata var. trichocaulon"
+    ],
+    "tube_shorter_but_pollen_higher_plants": [
+      "Vitex rotundifolia"
+    ],
+    "tube_longer_or_equal_but_pollen_lower_plants": [
+      "Lysimachia mauritiana",
+      "Melanthera prostrata"
+    ],
+    "strong_counterexamples_to_uniform_cascade": {
+      "Calystegia soldanella": "matching lower, tube longer, pollen receipt higher",
+      "Vitex rotundifolia": "matching lower, tube shorter, pollen receipt higher",
+      "Lysimachia mauritiana": "matching lower, tube longer, pollen receipt lower",
+      "Melanthera prostrata": "matching lower, tube longer, pollen receipt lower"
+    }
+  },
+  "descriptive_rank_alignment": {
+    "matching_delta_vs_tube_delta_spearman": 0.09523809523809523,
+    "matching_delta_vs_pollen_delta_spearman": -0.5476190476190477,
+    "tube_delta_vs_pollen_delta_spearman": 0.2857142857142857,
+    "inferential_p_values_allowed": false,
+    "reason": "The eight species share island/site environments and are not independent boundary experiments; rank coefficients are descriptive only."
+  },
+  "empirical_reading": "Corrected trait matching declines in all eight source-defined shared targets, but floral tube morphology and pollen receipt do not follow a common direction. Only two of eight plants show the full matching-lower / tube-shorter / pollen-lower pattern. The contemporary functional shift therefore does not propagate as a uniform multichannel response syndrome.",
+  "mechanistic_implication": "A shared pollinator-functional change can branch into different downstream biological response modes. This supports an architecture in which effective service, reproductive dependency/assurance, lineage biology and network state determine how a common functional-environment shift is expressed, rather than a universal island floral-response coefficient.",
+  "decision_state": "shared_matching_decline_with_multichannel_response_divergence",
+  "claim_boundary": "This is a within-source concordance audit, not a cross-species causal regression. Species share environments, tube means lack within-site variance, and pollen receipt is open-pollinated observational function. Do not infer that matching decline caused tube evolution, that tube change caused pollen receipt, or that eight species provide eight independent boundary experiments. Descriptive rank coefficients are not assigned inferential p values."
+}
