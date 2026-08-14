@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "system_id": "california_channel_islands_nicotiana_glauca",
+  "parent_issue": 100,
+  "admission_state": "bridge_system_partial",
+  "formal_cross_system_model_eligible": false,
+  "bridge_complete": false,
+  "sources": [
+    {
+      "source_id": "schueller_2004_self_pollination",
+      "doi": "10.3732/ajb.91.5.672",
+      "title": "Self-pollination in island and mainland populations of the introduced hummingbird-pollinated plant, Nicotiana glauca (Solanaceae)",
+      "sites": ["Santa Catalina Island", "Santa Cruz Island", "Sedgwick Reserve", "Starr Ranch"],
+      "measured_links": [
+        "hummingbird visitation frequency",
+        "pollen removal and stigma pollen deposition",
+        "open versus supplemental-hand-cross pollen limitation",
+        "open intact versus open emasculated reproductive-assurance test",
+        "autonomous versus hand-self-pollinated fruit set",
+        "self-compatibility and herkogamy"
+      ],
+      "sampling_notes": {
+        "autogamy": "1998 CAT n=18 plants, SED n=11, STA n=12; 1999 CRU n=9 and STA n=9",
+        "pollen_limitation": "1998 CAT n=24, SED n=11, STA n=12; 1999 CRU n=10, CAT n=17, STA n=13",
+        "emasculation": "paired treatments on at least 10 plants at CAT, SED and STA in spring 1998, STA again summer 1998, and CRU summer 1999",
+        "pollen_transfer": "at least five flowers per plant on at least six plants per site; CRU and STA in Nov 1999 and CRU, CAT, STA and MON in Jun 2000"
+      },
+      "source_route": {
+        "publisher_full_text": "Wiley / American Journal of Botany free-access article",
+        "institutional_record": "University of Michigan Deep Blue handle 2027.42/142032",
+        "institutional_file_name": "ajb20672.pdf",
+        "institutional_file_publicly_listed": true,
+        "checksum_locked": false,
+        "checksum_blocker": "Exact Deep Blue PDF bytes were not recovered in the current automated route; keep byte-level source lock pending."
+      },
+      "source_native_conclusion": "Island populations had higher self-pollination capacity, especially the recently colonized Santa Cruz population, but current island pollinator service was not lower and island plants were not pollen limited; emasculation did not reveal stronger current reproductive-assurance dependence on selfing on islands.",
+      "role": "same-system effective-service plus reproductive-dependency/assurance bridge"
+    },
+    {
+      "source_id": "schueller_2007_corolla_selection",
+      "doi": "10.1007/s10682-006-9125-9",
+      "title": "Island-mainland difference in Nicotiana glauca (Solanaceae) corolla length: a product of pollinator-mediated selection?",
+      "sites": ["Santa Catalina Island", "Santa Cruz Island", "Sedgwick Reserve", "Starr Ranch", "Santa Monica Mountains selection populations"],
+      "measured_links": [
+        "island-mainland corolla length and width",
+        "pollinator composition",
+        "phenotypic selection using pollen transfer, fruit set and seed count",
+        "single-visit hummingbird pollen deposition and removal at CAT and STA",
+        "supplemental hand-pollination control for non-pollinator fecundity effects"
+      ],
+      "source_native_numeric_anchors": {
+        "island_corolla_difference": "approximately 1 mm longer on islands on average",
+        "single_visit_design": "sets of 20 tagged flowers; repeated for 3 days for two sets at CAT and five at STA; at least six Allen's and three Anna's hummingbirds at CAT and at least two Anna's at STA",
+        "per_visit_result": "Allen's hummingbirds deposited and removed significantly less pollen per visit than Anna's, but per-visit effectiveness was not associated with corolla length"
+      },
+      "source_route": {
+        "publisher_record": "Springer Evolutionary Ecology article DOI record",
+        "publisher_full_pdf_public": false,
+        "lawful_institutional_or_author_pdf_recovered": false,
+        "checksum_locked": false
+      },
+      "role": "same-system floral-response plus per-visit-effectiveness bridge"
+    }
+  ],
+  "cross_source_linkage": {
+    "shared_named_sites": ["Santa Catalina Island", "Santa Cruz Island", "Sedgwick Reserve", "Starr Ranch"],
+    "strongest_overlap": ["Santa Catalina Island", "Starr Ranch"],
+    "why_partial_not_complete": "The two papers share named populations and overlapping study years, and together cover floral response, pollinator effectiveness/service, and reproductive dependency/assurance. However, the current source record does not establish that the floral, per-visit, and reproductive experiments used the same tagged plants or an exact prespecified temporal transfer unit. Numeric effect extraction and byte-level source locking are also incomplete.",
+    "allowed_claim": "This system supplies a genuine partial mechanistic bridge and, importantly, an alternative-mechanism test: current island pollinator service did not explain the stronger selfing capacity, making colonization/establishment filtering a live mechanism rather than assuming post-establishment pollinator scarcity.",
+    "blocked_claims": [
+      "do not call this a complete causal chain",
+      "do not infer historical selection from current contrasts",
+      "do not treat self-compatibility alone as effective dependency",
+      "do not pool the 2004 and 2007 measurements as if they were the same individual-level observations",
+      "do not admit a cross-system effect size until source-native numeric estimates, uncertainty, hierarchy and provenance are locked"
+    ]
+  },
+  "next_actions": [
+    "Recover exact 2004 Table 1/Table 5/Figure 2/Figure 7 numeric values and uncertainty from a stable source artifact without digitizing when machine-readable or tabular values are available.",
+    "Recover a lawful stable 2007 full-text artifact or author/institutional copy and checksum it.",
+    "Map experiment-by-site-by-year overlap across the 2004 and 2007 studies and declare any site/year transfer rule before effect extraction.",
+    "Extract source-native per-visit effectiveness, floral response, pollen-limitation and reproductive-assurance effects with biological n and uncertainty.",
+    "Only then decide whether any matched estimand can enter the formal cross-archipelago effect registry."
+  ]
+}
