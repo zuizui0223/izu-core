@@ -5,24 +5,32 @@ on:
   push:
     paths:
       - "channel_id/external_archipelago_network.py"
+      - "channel_id/paired_effect_uncertainty.py"
       - "config/wanshan_yongxing_dryad_source.json"
       - "data/design/cross_archipelago_external_validation.json"
+      - "data/results/wanshan_yongxing/effect_rows.json"
       - "scripts/acquire_wanshan_yongxing_dryad_v2.py"
       - "scripts/analyze_wanshan_yongxing_networks.py"
+      - "scripts/summarize_wanshan_yongxing_effects.py"
       - "tests/test_external_archipelago_network.py"
       - "tests/test_cross_archipelago_external_validation.py"
       - "tests/test_wanshan_dryad_acquisition_v2.py"
+      - "tests/test_wanshan_yongxing_effects.py"
       - ".github/workflows/wanshan-yongxing-external-validation-v2.yml"
   pull_request:
     paths:
       - "channel_id/external_archipelago_network.py"
+      - "channel_id/paired_effect_uncertainty.py"
       - "config/wanshan_yongxing_dryad_source.json"
       - "data/design/cross_archipelago_external_validation.json"
+      - "data/results/wanshan_yongxing/effect_rows.json"
       - "scripts/acquire_wanshan_yongxing_dryad_v2.py"
       - "scripts/analyze_wanshan_yongxing_networks.py"
+      - "scripts/summarize_wanshan_yongxing_effects.py"
       - "tests/test_external_archipelago_network.py"
       - "tests/test_cross_archipelago_external_validation.py"
       - "tests/test_wanshan_dryad_acquisition_v2.py"
+      - "tests/test_wanshan_yongxing_effects.py"
       - ".github/workflows/wanshan-yongxing-external-validation-v2.yml"
 
 jobs:
@@ -35,12 +43,13 @@ jobs:
           python-version: "3.11"
       - name: Install workbook and test dependencies
         run: python -m pip install -e . openpyxl pytest
-      - name: Run network and acquisition tests
+      - name: Run network, acquisition, and effect tests
         run: >-
           python -m pytest -q
           tests/test_external_archipelago_network.py
           tests/test_cross_archipelago_external_validation.py
           tests/test_wanshan_dryad_acquisition_v2.py
+          tests/test_wanshan_yongxing_effects.py
       - name: Acquire source-native Dryad workbook
         id: acquire
         continue-on-error: true
@@ -66,6 +75,14 @@ jobs:
       - name: Reanalyse whole and matched shared-plant networks
         if: steps.source.outputs.available == 'true'
         run: python scripts/analyze_wanshan_yongxing_networks.py
+      - name: Rebuild matched-plant effect rows and exact uncertainty
+        if: steps.source.outputs.available == 'true'
+        run: python scripts/summarize_wanshan_yongxing_effects.py
+      - name: Verify exact checked effect equivalence
+        if: steps.source.outputs.available == 'true'
+        run: >-
+          cmp artifacts/wanshan_yongxing_analysis/effect_rows.json
+          data/results/wanshan_yongxing/effect_rows.json
       - name: Upload acquisition and analysis audit
         if: steps.source.outputs.available == 'true'
         uses: actions/upload-artifact@v4
