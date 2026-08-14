@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "system_id": "xisha_cordia_subcordata_two_island_system",
+  "searched_on": "2026-08-14",
+  "purpose": "Try to close the two missing Dong Island mechanism links before considering Cordia a complete bridge.",
+  "target_missing_links": [
+    "Dong Island single-visit pollen deposition or another direct visitor-effectiveness measure",
+    "Dong Island controlled autonomous/bagged and hand-pollination reproductive-dependency treatments"
+  ],
+  "routes_checked": [
+    {
+      "route": "2020 primary reproductive/pollination study and indexed full-text routes",
+      "doi": "10.5091/plecevo.2020.1757",
+      "result": "Dong contributes morph ratio, natural fruit set and visitor rate; controlled breeding and single-visit pollen deposition are reported from Yongxing."
+    },
+    {
+      "route": "targeted public search for later Cordia subcordata Dong Island pollen-deposition, bagging, breeding-system and pollination studies",
+      "result": "No later source exposing the two target Dong channels was recovered in the indexed public search."
+    },
+    {
+      "route": "recent heterostyly/genomic follow-up",
+      "doi": "10.1093/molbev/msaf322",
+      "result": "Recent material is from Sanya and Yongxing Island and addresses heterostyly genomics; it does not provide the missing Dong direct effectiveness or dependency experiment."
+    }
+  ],
+  "status": "targeted_public_followup_no_dong_direct_effectiveness_or_dependency_recovered",
+  "bridge_admission_change": false,
+  "bridge_system_complete": false,
+  "formal_cross_system_model_eligible": false,
+  "not_a_nonexistence_claim": true,
+  "claim_boundary": "This is a targeted public-source availability result. It does not show that unpublished, author-held, institutional, future or currently unindexed Dong Island measurements do not exist.",
+  "reopen_conditions": [
+    "author- or institution-supplied Dong single-visit pollen-function data",
+    "Dong controlled bagging/hand-pollination data",
+    "a lawful public or repository source exposing either target channel",
+    "new field data collected at Dong using a prespecified linked protocol"
+  ]
+}
