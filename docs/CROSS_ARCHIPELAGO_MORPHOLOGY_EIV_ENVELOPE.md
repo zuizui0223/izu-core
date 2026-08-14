@@ -42,7 +42,7 @@ not assume that the two reliabilities are numerically equal.
 
 - point estimate remains below isometry if reliability > **0.849005**;
 - island-cluster interval remains wholly below isometry if reliability >
-  **0.925899**.
+  **0.925801**.
 
 ### Hendriks 2019 flower area
 
@@ -60,7 +60,7 @@ For both independent systems simultaneously:
 - both corrected point estimates stay below isometry if both mainland-trait
   reliabilities are > **0.849005**;
 - both corrected island-cluster intervals stay wholly below isometry if both
-  reliabilities are > **0.925899**.
+  reliabilities are > **0.925801**.
 
 Selected scenarios make the distinction explicit:
 
@@ -89,13 +89,18 @@ assumption is true.
 3. Hendriks' island-cluster SMA interval is `[0.72967, 1.07310]` and includes
    isometry. SMA is not a uniquely correct error model, but it demonstrates that
    a symmetric-axis structural sensitivity is less decisive than OLS.
-4. Hendriks' underlying thesis/data artifact is not yet checksum locked.
+4. Source provenance is now jointly locked: the Southwest Pacific source is
+   checksum locked, and the exact lawful VUW Hendriks institutional PDF is
+   checksum locked with all 35 Table B9 pairs and all 35 Appendix-A island
+   assignments strictly reverified. Provenance no longer closes this gate.
 5. Southwest Pacific uses source-defined flower size while Hendriks uses flower
    area. They are related response shapes, not identical raw effect scales.
 
 Therefore the EIV envelope remains:
 
 ```text
+source_provenance_jointly_locked = true
+errors_in_variables_jointly_resolved = false
 effect_registry_eligible = false
 formal_same_family_meta_analysis_ready = false
 ```
@@ -115,11 +120,13 @@ island-rule coefficient or a measurement-error-resolved meta-analysis.
 
 ## Next empirical gate
 
-The most informative next information is not another OLS p-value. It is one of:
+The most informative next information is not another OLS p-value and no longer
+another Hendriks provenance search. It is one of:
 
 1. repeated mainland-trait measurements that estimate reliability;
 2. source-native measurement-error/precision metadata;
-3. a stable Hendriks source artifact plus raw measurement replication; or
+3. raw measurement replication or explicit reliability information for the
+   Hendriks flower-area measurements; or
 4. a third independent paired-flower system with a design that permits an
    explicit errors-in-variables analysis.
 
@@ -127,3 +134,5 @@ The checked machine-readable outputs are:
 
 - `data/results/cross_archipelago_morphology_eiv_envelope_summary.json`
 - `data/results/cross_archipelago_morphology_eiv_envelope.csv`
+- `data/results/cross_archipelago_morphology_response_shape_summary.json`
+- `data/source_tables/hendriks_2019_flower_area_table_b9_source.json`
