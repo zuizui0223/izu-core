@@ -8,6 +8,7 @@ on:
       - "data/design/tribulus_flower_source_mapping.json"
       - "scripts/acquire_tribulus_zenodo.py"
       - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/compare_json_numeric_tolerant.py"
       - "scripts/audit_tribulus_flower_source.py"
       - "scripts/analyze_tribulus_flower_divergence.py"
       - "scripts/analyze_tribulus_flower_divergence_idaware.py"
@@ -20,6 +21,7 @@ on:
       - "config/tribulus_dryad_source.json"
       - "data/design/tribulus_flower_source_mapping.json"
       - "scripts/acquire_tribulus_zenodo.py"
+      - "scripts/compare_json_numeric_tolerant.py"
       - "scripts/audit_tribulus_flower_source.py"
       - "scripts/analyze_tribulus_flower_divergence.py"
       - "scripts/analyze_tribulus_flower_divergence_idaware.py"
@@ -58,7 +60,6 @@ jobs:
           --output-dir artifacts/tribulus_dryad
       - name: Detect flower source after Zenodo route
         id: source1
-        if: always()
         run: |
           if test -s artifacts/tribulus_dryad/files/Tribulus_flower_data_clean.csv; then
             echo "available=true" >> "$GITHUB_OUTPUT"
@@ -98,6 +99,17 @@ jobs:
           --filename Tribulus_flower_data_clean.csv
           --mapping data/design/tribulus_flower_source_mapping.json
           --output artifacts/tribulus_analysis/analysis.json
+      - name: Verify checked flower divergence result within numeric tolerance
+        if: steps.source.outputs.available == 'true'
+        run: |
+          if test -f data/results/tribulus/analysis.json; then
+            python scripts/compare_json_numeric_tolerant.py \
+              artifacts/tribulus_analysis/analysis.json \
+              data/results/tribulus/analysis.json \
+              --atol 1e-8
+          else
+            echo "::notice::No checked Tribulus analysis exists yet; first materialization remains allowed."
+          fi
       - name: Materialize compact source, schema, and analysis state
         if: always()
         run: |
@@ -153,8 +165,9 @@ jobs:
               (out / "flower_schema_audit.json").write_text(
                   audit_path.read_text(encoding="utf-8"), encoding="utf-8"
               )
-          if analysis_path.exists():
-              (out / "analysis.json").write_text(
+          checked_analysis_path = out / "analysis.json"
+          if analysis_path.exists() and not checked_analysis_path.exists():
+              checked_analysis_path.write_text(
                   analysis_path.read_text(encoding="utf-8"), encoding="utf-8"
               )
           PY
