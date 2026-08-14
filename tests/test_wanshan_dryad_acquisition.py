@@ -5,8 +5,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE_PATH = ROOT / "scripts" / "acquire_wanshan_yongxing_dryad_v2.py"
-SPEC = importlib.util.spec_from_file_location("wanshan_acquire_v2", MODULE_PATH)
+MODULE_PATH = ROOT / "scripts" / "acquire_wanshan_yongxing_dryad.py"
+SPEC = importlib.util.spec_from_file_location("wanshan_acquire", MODULE_PATH)
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
@@ -46,7 +46,7 @@ def test_file_ids_resolve_from_file_links():
     assert MODULE.file_ids(listing, "target.xlsx") == [444]
 
 
-def test_zip_info_urls_are_extracted_without_recalling_legacy_fetch_helper():
+def test_zip_info_urls_are_extracted_from_fetched_payload():
     info = [
         {"filename": "target.xlsx", "url": "https://example.org/target"},
         {"filename": "notes.txt", "url": "https://example.org/notes"},
@@ -58,14 +58,14 @@ def test_zip_info_urls_are_extracted_without_recalling_legacy_fetch_helper():
     ]
 
 
-def test_current_legacy_linkset_helper_extracts_download_urls():
+def test_linkset_helper_extracts_download_urls():
     linkset = {
         "linkset": [
             {"item": [{"href": "https://datadryad.org/downloads/file_stream/123"}]},
             {"item": [{"href": "https://example.org/not-a-download"}]},
         ]
     }
-    assert MODULE.legacy.extract_linkset_download_urls(linkset) == [
+    assert MODULE.extract_linkset_download_urls(linkset) == [
         "https://datadryad.org/downloads/file_stream/123"
     ]
 
