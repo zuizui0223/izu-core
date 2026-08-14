@@ -44,7 +44,7 @@ Useful lessons:
 - source recovery and explicit effect-family compatibility must precede formal cross-system pooling;
 - a diagnostic that is honest as a screening summary can still become misleading once a stricter evidence registry supersedes its admission rules.
 
-The dedicated `meta-analysis-pipeline` workflow is therefore retired, and the consolidated offline runner no longer executes the rank-weighted synthesis, evidence-rank validator, functional-group moderator pilot, or broad detectability sweep. Historical tables and validators remain temporarily in the tree for separate reference audit; current cross-system decisions come from the source-locked effect/bridge registries and `CURRENT_EVIDENCE_STATE`.
+The dedicated `meta-analysis-pipeline` workflow and the rank-weighted observation/rank stack are retired from the active tree, and the consolidated offline runner no longer executes that synthesis. The separate quantitative source-lock validator is retained because it enforces provenance and uncertainty requirements rather than manufacturing a pooled result. Current cross-system decisions come from the source-locked effect/bridge registries and `CURRENT_EVIDENCE_STATE`.
 
 ## Five-candidate ordinal-order / tempered-SMC trial
 
