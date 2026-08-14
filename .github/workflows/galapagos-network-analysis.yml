@@ -8,7 +8,6 @@ on:
       - "scripts/acquire_galapagos_dataone.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "scripts/analyze_galapagos_source_networks.py"
-      - "scripts/analyze_galapagos_source_networks_v2.py"
       - "tests/test_dryad_external_acquisition.py"
       - "tests/test_galapagos_dataone_acquisition.py"
       - "tests/test_galapagos_dryad_schema.py"
@@ -21,7 +20,6 @@ on:
       - "scripts/acquire_galapagos_dataone.py"
       - "scripts/audit_galapagos_dryad_schema.py"
       - "scripts/analyze_galapagos_source_networks.py"
-      - "scripts/analyze_galapagos_source_networks_v2.py"
       - "tests/test_dryad_external_acquisition.py"
       - "tests/test_galapagos_dataone_acquisition.py"
       - "tests/test_galapagos_dryad_schema.py"
@@ -104,7 +102,7 @@ jobs:
       - name: Run source-admitted analysis
         if: steps.source.outputs.available == 'true'
         run: >-
-          python scripts/analyze_galapagos_source_networks_v2.py
+          python scripts/analyze_galapagos_source_networks.py
           --schema artifacts/galapagos_dryad/schema_audit.json
           --output-dir artifacts/galapagos_analysis
       - name: Materialize result or acquisition diagnosis

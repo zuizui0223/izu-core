@@ -15,9 +15,16 @@ from typing import Iterable, Mapping, Sequence
 
 from channel_id.external_archipelago_network import (
     WeightedNetwork,
-    network_metrics,
+    network_metrics as shared_network_metrics,
     shared_plant_contrasts,
 )
+
+
+def network_metrics(network: WeightedNetwork) -> dict[str, float | int | None]:
+    """Expose the shared metrics plus the historical Galápagos weight alias."""
+    result = dict(shared_network_metrics(network))
+    result.setdefault("total_interaction_weight", result["total_visitation_rate"])
+    return result
 
 
 def norm(value: object) -> str:
@@ -181,24 +188,24 @@ def pairwise_metrics(networks: Mapping[str, WeightedNetwork]) -> tuple[list[dict
         contrasts = shared_plant_contrasts(first, second)
         first_links = {
             f"{plant}\t{pollinator}"
-            for plant, row in zip(first.plants, first.weights)
-            for pollinator, weight in zip(first.pollinators, row)
+            for plant, row in zip(first.plant_names, first.matrix)
+            for pollinator, weight in zip(first.pollinator_names, row)
             if weight > 0
         }
         second_links = {
             f"{plant}\t{pollinator}"
-            for plant, row in zip(second.plants, second.weights)
-            for pollinator, weight in zip(second.pollinators, row)
+            for plant, row in zip(second.plant_names, second.matrix)
+            for pollinator, weight in zip(second.pollinator_names, row)
             if weight > 0
         }
         summary.append(
             {
                 "left_island": left,
                 "right_island": right,
-                "plant_jaccard": jaccard(set(first.plants), set(second.plants)),
-                "pollinator_jaccard": jaccard(set(first.pollinators), set(second.pollinators)),
+                "plant_jaccard": jaccard(set(first.plant_names), set(second.plant_names)),
+                "pollinator_jaccard": jaccard(set(first.pollinator_names), set(second.pollinator_names)),
                 "interaction_pair_jaccard": jaccard(first_links, second_links),
-                "n_shared_plants": len(set(first.plants) & set(second.plants)),
+                "n_shared_plants": len(set(first.plant_names) & set(second.plant_names)),
                 "mean_shared_plant_pollinator_turnover": (
                     mean(float(row["pollinator_morisita_horn_turnover"]) for row in contrasts)
                     if contrasts
