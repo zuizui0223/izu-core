@@ -1,6 +1,13 @@
+import json
+from pathlib import Path
+
 import pytest
 
 from channel_id.effective_dependency_reliability import build_dependency_reliability_audit
+
+ROOT = Path(__file__).resolve().parents[1]
+DESIGN = ROOT / "data" / "design" / "effective_dependency_reliability_calibration.json"
+READINESS = ROOT / "data" / "design" / "effective_pollinator_dependency_field_readiness.json"
 
 
 def row(target: str, taxon: str, repeat: str, estimate: float, bundle_char: str, **overrides):
@@ -34,6 +41,18 @@ def repeated_rows():
     )
 
 
+def test_current_machine_readable_state_keeps_final_estimand_reliability_blocked():
+    design = json.loads(DESIGN.read_text(encoding="utf-8"))
+    readiness = json.loads(READINESS.read_text(encoding="utf-8"))
+    assert design["status"] == "blocked_no_repeated_final_estimand"
+    assert design["current_evidence"]["calibration_scope_reliability_identified"] is False
+    assert design["dependency_fdq_design_injection"]["automatic"] is False
+    gate = readiness["direct_dependency_reliability_calibration"]
+    assert gate["ordinary_campanula_pilot_identifies_this_reliability"] is False
+    assert gate["technical_svd_recount_identifies_this_reliability"] is False
+    assert gate["automatic_dependency_fdq_injection"] is False
+
+
 def test_empty_calibration_keeps_reliability_blocked():
     result = build_dependency_reliability_audit(())
     assert result["direct_dependency_reliability_identified_for_calibration_scope"] is False
@@ -57,10 +76,7 @@ def test_independent_repeated_final_estimands_can_identify_calibration_scope_rel
 
 
 def test_overlapping_plant_panels_do_not_count_as_independent_repeats():
-    rows = tuple(
-        dict(item, nonoverlapping_plant_panel="no")
-        for item in repeated_rows()
-    )
+    rows = tuple(dict(item, nonoverlapping_plant_panel="no") for item in repeated_rows())
     result = build_dependency_reliability_audit(rows)
     assert result["eligible_repeat_rows"] == 0
     assert result["direct_dependency_reliability_identified_for_calibration_scope"] is False
@@ -84,10 +100,7 @@ def test_mixed_final_estimand_protocols_are_not_pooled():
 
 
 def test_technical_or_nonfinal_estimand_cannot_open_gate():
-    rows = tuple(
-        dict(item, estimand_name="svd_technical_repeatability")
-        for item in repeated_rows()
-    )
+    rows = tuple(dict(item, estimand_name="svd_technical_repeatability") for item in repeated_rows())
     result = build_dependency_reliability_audit(rows)
     assert result["eligible_repeat_rows"] == 0
     assert result["direct_dependency_reliability_identified_for_calibration_scope"] is False
