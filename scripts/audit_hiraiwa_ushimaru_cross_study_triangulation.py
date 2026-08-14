@@ -86,7 +86,7 @@ def build_audit(
             "doi": "10.1098/rspb.2016.2218",
             "locked_table": "data/predictive_meta/hiraiwa_ushimaru_2017_reproductive_sensitivity.csv",
             "estimand": "fruit-set response to long-tongued-pollinator functional exposure and related visitation/proboscis metrics",
-            "oshima_reproductive_data_available": false,
+            "oshima_reproductive_data_available": False,
         },
         "study_2024_source": {
             "doi": "10.6084/m9.figshare.25025000.v1",
