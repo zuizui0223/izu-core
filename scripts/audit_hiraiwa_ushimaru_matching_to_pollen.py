@@ -3,9 +3,9 @@
 
 The archived Hiraiwa-Ushimaru source code fits pollen receipt against community
 trait matching / plant functional generality / tube length and uses a positive
-TM_z line in Figure 5.  This audit preserves the source-figure coefficient and
-adds a transparent sensitivity analysis that avoids treating multiple flowers
-from one plant x site x season cell as independent network exposures.
+TM_z line in Figure 5. This audit preserves the source-figure coefficient and
+adds transparent sensitivity analyses that avoid treating multiple flowers from
+one plant x site x season cell as independent network exposures.
 
 Flowers are first averaged within plant x site x season, then the descriptive
 model is fitted:
@@ -13,7 +13,9 @@ model is fitted:
     mean(pollen_z) ~ TM_z + plant fixed effects + site fixed effects + season fixed effects
 
 It is repeated for all eight sites, mainland only, Izu islands only and the four
-post-Oshima islands, plus leave-one-site sensitivities for the island subsets.
+post-Oshima islands. Island subsets are then stress-tested by omitting one site,
+one season, one plant, or one whole site x season network state at a time.
+
 The analysis is observational reproductive-function context, not a mediation or
 historical causal analysis.
 """
@@ -22,11 +24,10 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import math
 import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Sequence
+from typing import Callable, Hashable, Sequence
 
 EXPECTED_SOURCE_TM_COEF = 0.04865
 EXPECTED_SOURCE_INTERCEPT = -0.22128
@@ -79,8 +80,7 @@ def verify_source_code(path: Path) -> dict[str, object]:
     source_formula = "pollen_z ~ TM_z * tube +  FG_pla_z * tube + (1|site) +(1|season) + (1|order/family/plant)"
     if source_formula not in text:
         raise ValueError("expected source pollen model formula not found")
-    match = re.search(r"yy<-([0-9.]+)\*xx-([0-9.]+)", text)
-    matches = [m for m in re.finditer(r"yy<-([0-9.]+)\*xx-([0-9.]+)", text)]
+    matches = [m for m in re.finditer(r"yy<-([0-9.]+)\\*xx-([0-9.]+)", text)]
     selected = None
     for item in matches:
         if abs(float(item.group(1)) - EXPECTED_SOURCE_TM_COEF) < 1e-10:
@@ -88,7 +88,8 @@ def verify_source_code(path: Path) -> dict[str, object]:
             break
     if selected is None:
         raise ValueError("source Figure 5 TM coefficient line not found")
-    coef = float(selected.group(1)); intercept = -float(selected.group(2))
+    coef = float(selected.group(1))
+    intercept = -float(selected.group(2))
     if abs(coef - EXPECTED_SOURCE_TM_COEF) > 1e-10 or abs(intercept - EXPECTED_SOURCE_INTERCEPT) > 1e-10:
         raise ValueError("source Figure 5 coefficients changed")
     return {
@@ -145,8 +146,7 @@ def aggregate(pollen: list[dict[str, str]], aliases: dict[str, str]) -> list[dic
     return output
 
 
-def fit_subset(rows: list[dict[str, object]], sites_allowed: set[str]) -> dict[str, object]:
-    subset = [row for row in rows if str(row["site"]) in sites_allowed]
+def fit_rows(subset: list[dict[str, object]]) -> dict[str, object]:
     sites = sorted({str(row["site"]) for row in subset})
     seasons = sorted({int(row["season"]) for row in subset})
     plants = sorted({str(row["plant"]) for row in subset})
@@ -156,17 +156,19 @@ def fit_subset(rows: list[dict[str, object]], sites_allowed: set[str]) -> dict[s
     names += [f"site[{value}]" for value in sites[1:]]
     names += [f"season[{value}]" for value in seasons[1:]]
     names += [f"plant[{value}]" for value in plants[1:]]
-    x: list[list[float]] = []; y: list[float] = []
+    x: list[list[float]] = []
+    y: list[float] = []
     for row in subset:
         design = [1.0, float(row["tm_z"])]
         design += [1.0 if row["site"] == value else 0.0 for value in sites[1:]]
         design += [1.0 if int(row["season"]) == value else 0.0 for value in seasons[1:]]
         design += [1.0 if row["plant"] == value else 0.0 for value in plants[1:]]
-        x.append(design); y.append(float(row["pollen_z_mean"]))
+        x.append(design)
+        y.append(float(row["pollen_z_mean"]))
     result = ols(x, y)
     coef = dict(zip(names, result["coefficients"]))
     return {
-        "n_plant_site_season_cells": result["n"],
+        "n_cells": result["n"],
         "n_sites": len(sites),
         "n_seasons": len(seasons),
         "n_plants": len(plants),
@@ -175,15 +177,98 @@ def fit_subset(rows: list[dict[str, object]], sites_allowed: set[str]) -> dict[s
     }
 
 
-def leave_one_site(rows: list[dict[str, object]], sites: set[str]) -> dict[str, object]:
-    values: dict[str, float] = {}
-    for omitted in sorted(sites):
-        values[omitted] = float(fit_subset(rows, set(sites) - {omitted})["tm_coefficient"])
+def fit_subset(rows: list[dict[str, object]], sites_allowed: set[str]) -> dict[str, object]:
+    return fit_rows([row for row in rows if str(row["site"]) in sites_allowed])
+
+
+def summarize_coefficients(values: dict[str, float], failures: dict[str, str]) -> dict[str, object]:
     coeffs = list(values.values())
+    if not coeffs:
+        raise ValueError("no estimable omission models")
     return {
-        "tm_coefficients_by_omitted_site": values,
+        "tm_coefficients_by_omitted_unit": values,
         "tm_coefficient_range": [min(coeffs), max(coeffs)],
+        "n_estimable": len(values),
+        "n_failed": len(failures),
+        "failed_omissions": failures,
+        "positive_omissions": sum(value > 0 for value in coeffs),
+        "negative_omissions": sum(value < 0 for value in coeffs),
+        "zero_omissions": sum(value == 0 for value in coeffs),
+        "negative_when_omitted": [key for key, value in values.items() if value < 0],
         "all_positive": all(value > 0 for value in coeffs),
+    }
+
+
+def omission_sensitivity(
+    rows: list[dict[str, object]],
+    sites_allowed: set[str],
+    *,
+    key_fn: Callable[[dict[str, object]], Hashable],
+    label_fn: Callable[[Hashable], str],
+) -> dict[str, object]:
+    subset = [row for row in rows if str(row["site"]) in sites_allowed]
+    levels = sorted({key_fn(row) for row in subset}, key=lambda value: str(value))
+    values: dict[str, float] = {}
+    failures: dict[str, str] = {}
+    for omitted in levels:
+        label = label_fn(omitted)
+        reduced = [row for row in subset if key_fn(row) != omitted]
+        try:
+            values[label] = float(fit_rows(reduced)["tm_coefficient"])
+        except ValueError as error:
+            failures[label] = str(error)
+    return summarize_coefficients(values, failures)
+
+
+def leave_one_site(rows: list[dict[str, object]], sites: set[str]) -> dict[str, object]:
+    result = omission_sensitivity(
+        rows,
+        sites,
+        key_fn=lambda row: str(row["site"]),
+        label_fn=lambda value: str(value),
+    )
+    return {
+        "tm_coefficients_by_omitted_site": result.pop("tm_coefficients_by_omitted_unit"),
+        **result,
+    }
+
+
+def leave_one_season(rows: list[dict[str, object]], sites: set[str]) -> dict[str, object]:
+    result = omission_sensitivity(
+        rows,
+        sites,
+        key_fn=lambda row: int(row["season"]),
+        label_fn=lambda value: str(value),
+    )
+    return {
+        "tm_coefficients_by_omitted_season": result.pop("tm_coefficients_by_omitted_unit"),
+        **result,
+    }
+
+
+def leave_one_plant(rows: list[dict[str, object]], sites: set[str]) -> dict[str, object]:
+    result = omission_sensitivity(
+        rows,
+        sites,
+        key_fn=lambda row: str(row["plant"]),
+        label_fn=lambda value: str(value),
+    )
+    return {
+        "tm_coefficients_by_omitted_plant": result.pop("tm_coefficients_by_omitted_unit"),
+        **result,
+    }
+
+
+def leave_one_site_season(rows: list[dict[str, object]], sites: set[str]) -> dict[str, object]:
+    result = omission_sensitivity(
+        rows,
+        sites,
+        key_fn=lambda row: (str(row["site"]), int(row["season"])),
+        label_fn=lambda value: f"{value[0]}|season_{value[1]}",
+    )
+    return {
+        "tm_coefficients_by_omitted_site_season": result.pop("tm_coefficients_by_omitted_unit"),
+        **result,
     }
 
 
@@ -203,23 +288,37 @@ def main() -> None:
         "izu_five_islands": fit_subset(cells, ISLANDS),
         "post_oshima_four_islands": fit_subset(cells, POST),
     }
-    sensitivity = {
+    site_sensitivity = {
         "izu_five_islands": leave_one_site(cells, ISLANDS),
         "post_oshima_four_islands": leave_one_site(cells, POST),
     }
+    unit_sensitivity = {
+        "izu_five_islands": {
+            "leave_one_season": leave_one_season(cells, ISLANDS),
+            "leave_one_plant": leave_one_plant(cells, ISLANDS),
+            "leave_one_site_season": leave_one_site_season(cells, ISLANDS),
+        },
+        "post_oshima_four_islands": {
+            "leave_one_season": leave_one_season(cells, POST),
+            "leave_one_plant": leave_one_plant(cells, POST),
+            "leave_one_site_season": leave_one_site_season(cells, POST),
+        },
+    }
     report = {
+        "schema_version": "1.1",
         "source_dataset": "10.6084/m9.figshare.25025000.v1",
         "source_native_model": source,
-        "aggregation_unit": "plant x site x season mean pollen_z; multiple flowers are not independent network exposures",
+        "aggregation_unit": "plant x site x season mean pollen_z; multiple flowers from a cell are not treated as independent network exposures",
         "fixed_effect_subsets": subsets,
-        "leave_one_site_sensitivity": sensitivity,
+        "leave_one_site_sensitivity": site_sensitivity,
+        "leave_one_unit_sensitivity": unit_sensitivity,
         "interpretation": (
             "The source Figure-5 relationship and fixed-effect sensitivities are positive in the full, mainland, Izu-island and post-Oshima subsets. "
-            "However, the island-only leave-one-site ranges cross zero, so the downstream trait-matching to pollen-receipt link is weaker and less robust than the FDQ-to-trait-matching link."
+            "The omission audits localize whether the weaker island-only downstream link depends on whole islands, individual seasons, plant identities, or single site-season network states."
         ),
         "claim_boundary": (
             "This is contemporary observational reproductive-function context, not a mediation analysis. TM_z is a site-season community metric shared by plants, pollen receipt varies among plants/flowers, and omitted time-varying environment, plant condition and network feedback remain. "
-            "A positive source/model coefficient is not evidence that historical FDQ change caused floral evolution or that every island contributes the same slope."
+            "Omission stability is a robustness diagnostic, not experimental identification; a positive source/model coefficient is not evidence that historical FDQ change caused floral evolution or that every island contributes the same slope."
         ),
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
