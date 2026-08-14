@@ -239,10 +239,11 @@ def main() -> None:
         "source_container_sha256": container_sha,
         **legacy.workbook_preview(destination),
     }
-    (args.output_dir / "source_inventory_v2.json").write_text(
-        json.dumps(inventory, indent=2, ensure_ascii=False, default=str) + "\n",
-        encoding="utf-8",
-    )
+    inventory_text = json.dumps(inventory, indent=2, ensure_ascii=False, default=str) + "\n"
+    (args.output_dir / "source_inventory.json").write_text(inventory_text, encoding="utf-8")
+    # Transitional compatibility for the materialization workflow; the canonical
+    # consumer path is source_inventory.json.
+    (args.output_dir / "source_inventory_v2.json").write_text(inventory_text, encoding="utf-8")
     print(f"downloaded: {destination}")
     print(f"sha256: {inventory['sha256']}")
     print(f"resource IDs: {resources}")
