@@ -51,6 +51,20 @@ def test_current_evidence_next_work_starts_with_issue_91_not_exhausted_source_se
     assert not state.next_actions[0].startswith("Recover and source-lock")
 
 
+def test_current_evidence_keeps_final_dependency_reliability_outside_ordinary_pilot() -> None:
+    state = summarize_current_evidence(ROOT)
+    pilot_action = state.next_actions[1].lower()
+    reliability_action = state.next_actions[2].lower()
+    assert "variance, coverage, and loss" in pilot_action
+    assert "reliability" not in pilot_action
+    assert "repeated-final-estimand" in reliability_action
+    assert "transportability" in reliability_action
+    assert any(
+        "do not relabel pilot biological dispersion" in claim.lower()
+        for claim in state.prohibited_claims
+    )
+
+
 def test_committed_current_state_document_is_generated_from_tables() -> None:
     state = summarize_current_evidence(ROOT)
     expected = render_markdown(state)

@@ -15,7 +15,7 @@ rather than merely described as a difference in flower size, mating system, visi
 
 ## Current development mainline
 
-The mechanistic chain is **not yet causally identified**. The active development target is Issue #91: collect the first real direct effective-pollinator dependency pilot for *Campanula microdonta* and move from a field-ready contract to measured plant-level dispersion, reliability, loss, and precision.
+The mechanistic chain is **not yet causally identified**. The active development target is Issue #91: collect the first real direct effective-pollinator dependency pilot for *Campanula microdonta* and move from a field-ready contract to measured plant-level dispersion, coverage/loss, and precision. Reliability of the final direct-dependency predictor is a separate repeated-final-estimand calibration problem, not an automatic output of the focal pilot.
 
 The immediate empirical path is:
 
@@ -25,10 +25,18 @@ first real six-channel field bundle
 -> linked plant / effort / visit / SVD / treatment / fruit / seed records
 -> structural dependency admission
 -> between-plant SVD and treatment dispersion
--> pilot variance / reliability / coverage-loss estimates
+-> pilot variance / coverage-loss estimates
 -> absolute precision target
 -> confirmatory design
+
+separate final-estimand calibration, if empirical reliability is required
+-> independent non-overlapping plant panels for repeated taxon x site x season targets
+-> calibration-scope dependency reliability
+-> transportability review
+-> only then possible replacement of synthetic dependency_reliability
 ```
+
+Technical SVD recounts estimate pollen-count repeatability only; within-plant flowers or visits and biological dispersion from one unrepeated panel do not identify final predictor reliability.
 
 Until that path is populated with real field data, the repository does **not** claim historical pollinator-loss causation, an Oshima--Toshima causal boundary effect, or a cross-lineage dependency-by-functional-environment interaction.
 

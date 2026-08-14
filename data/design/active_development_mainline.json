@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-14",
   "routing_baseline_sha": "2cf374e42f63294101ba5f4925b8a742f23ddc35",
   "program_hypothesis": "Loss, simplification, or turnover of effective pollination can reduce effective reproductive dependence on the ancestral interaction; increased autonomous reproductive assurance can then relax selection maintaining pollinator-dependent floral traits, producing lineage- and context-dependent floral compression or simplification.",
@@ -44,13 +44,15 @@
         "structural_dependency_panel_pass",
         "between_plant_svd_dispersion_estimable",
         "between_plant_core_treatment_dispersion_estimable",
-        "pilot_variance_reliability_coverage_loss_estimates",
+        "pilot_variance_coverage_loss_estimates",
+        "final_dependency_reliability_remains_separate_repeated_final_estimand_gate",
         "absolute_precision_target_before_confirmatory_planning"
       ],
       "blocked_claims": [
         "historical_pollinator_loss_causation",
         "oshima_toshima_causal_boundary_effect",
-        "cross_lineage_dependency_by_functional_environment_interaction"
+        "cross_lineage_dependency_by_functional_environment_interaction",
+        "final_dependency_reliability_from_single_focal_pilot"
       ]
     },
     {

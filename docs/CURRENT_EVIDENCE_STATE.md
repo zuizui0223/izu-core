@@ -57,17 +57,19 @@ direction, breakpoint, or effect estimate.
 - Do not claim that historical Bombus loss has been causally identified.
 - Do not claim a general Izu-flora rule from the focal calibration lineage and one generalist control.
 - Do not treat raw occurrence, visitor identity, visitation rate, public photographs, pollination syndrome, or non-report as effective reproductive dependency.
+- Do not relabel pilot biological dispersion or technical SVD recount repeatability as reliability of the final direct-dependency predictor.
 - Do not promote partial external bridges to a complete causal chain or formal cross-system mechanism fit.
 - Do not interpret exhausted public source routes as evidence that the underlying primary data never existed.
 
 ## Next admissible work
 
 1. Issue #91: collect the first real linked Campanula field bundle and pass preflight, raw freeze, structural audit, and plant-level dispersion gates.
-2. Replace synthetic variance, reliability, coverage, and loss assumptions only with pilot-derived quantities, then lock a biologically meaningful absolute precision target.
-3. Broaden directly measured Izu dependency across multiple low, intermediate, and high dependency lineages after the focal pilot becomes dispersion-estimable.
-4. Externally, recover or collect the missing Dong Cordia direct effectiveness and controlled-dependency channels, or identify another genuinely complete bridge.
-5. Keep primary-source targets (Hosta longipes, Ligustrum ovalifolium, Weigela coraeensis) as source-triggered reopen gates while access state is blocked_external_source_delivery; do not repeat exhausted automated searches without a new route.
-6. Keep visible-signal / nectar-guide historical inference outside the adopted evidence state unless a final dataset and analysis are explicitly declared.
+2. Use the focal pilot to replace only empirically identified variance, coverage, and loss assumptions, then lock a biologically meaningful absolute precision target.
+3. Keep final direct-dependency reliability behind the independent repeated-final-estimand calibration and transportability gate; do not infer it from biological repeats or technical SVD recounts.
+4. Broaden directly measured Izu dependency across multiple low, intermediate, and high dependency lineages after the focal pilot becomes dispersion-estimable.
+5. Externally, recover or collect the missing Dong Cordia direct effectiveness and controlled-dependency channels, or identify another genuinely complete bridge.
+6. Keep primary-source targets (Hosta longipes, Ligustrum ovalifolium, Weigela coraeensis) as source-triggered reopen gates while access state is blocked_external_source_delivery; do not repeat exhausted automated searches without a new route.
+7. Keep visible-signal / nectar-guide historical inference outside the adopted evidence state unless a final dataset and analysis are explicitly declared.
 
 ## Supersession rule
 
