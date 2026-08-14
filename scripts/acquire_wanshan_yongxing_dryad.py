@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
-"""Acquire and inventory the source-native Wanshan–Yongxing Dryad workbook."""
+"""Acquire the Wanshan–Yongxing workbook across visible Dryad versions.
+
+The resolver checks all visible version/file links and accepts either a direct
+XLSX payload or a dataset ZIP containing one unambiguous XLSX. It writes one
+canonical source inventory and preserves acquisition diagnostics on failure.
+"""
 from __future__ import annotations
 
 import argparse
 import hashlib
 import http.cookiejar
+import io
 import json
 import re
-import urllib.error
-import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 
 USER_AGENT = (
@@ -50,7 +54,10 @@ def request_bytes(
         return response.read()
 
 
-def request_json(opener: urllib.request.OpenerDirector, url: str) -> dict[str, Any] | list[Any]:
+def request_json(
+    opener: urllib.request.OpenerDirector,
+    url: str,
+) -> dict[str, Any] | list[Any]:
     payload = request_bytes(opener, url, accept="application/json")
     decoded = json.loads(payload.decode("utf-8"))
     if not isinstance(decoded, (dict, list)):
@@ -58,99 +65,105 @@ def request_json(opener: urllib.request.OpenerDirector, url: str) -> dict[str, A
     return decoded
 
 
-def recursive_values(value: object, key_name: str) -> list[object]:
-    found: list[object] = []
+def walk(value: object) -> Iterable[object]:
+    yield value
     if isinstance(value, dict):
-        for key, child in value.items():
-            if key == key_name:
-                found.append(child)
-            found.extend(recursive_values(child, key_name))
+        for child in value.values():
+            yield from walk(child)
     elif isinstance(value, list):
         for child in value:
-            found.extend(recursive_values(child, key_name))
-    return found
+            yield from walk(child)
 
 
-def latest_version_id(versions: object) -> int | None:
-    if isinstance(versions, dict):
-        embedded = versions.get("_embedded")
-        if isinstance(embedded, dict):
-            rows = embedded.get("stash:versions")
-            if isinstance(rows, list):
-                ids = [row.get("id") for row in rows if isinstance(row, dict)]
-                integers = [value for value in ids if isinstance(value, int)]
-                if integers:
-                    return max(integers)
-    candidates = recursive_values(versions, "id")
-    integers = [value for value in candidates if isinstance(value, int)]
-    return max(integers) if integers else None
+def linked_ids(value: object, expression: str) -> list[int]:
+    pattern = re.compile(expression)
+    return sorted(
+        {
+            int(match.group(1))
+            for item in walk(value)
+            if isinstance(item, str)
+            for match in pattern.finditer(item)
+        },
+        reverse=True,
+    )
 
 
-def candidate_file_ids(file_listing: object, target_filename: str) -> list[int]:
-    ids: list[int] = []
-    embedded = file_listing.get("_embedded") if isinstance(file_listing, dict) else None
-    rows: list[dict[str, Any]] = []
-    if isinstance(embedded, dict):
-        for value in embedded.values():
-            if isinstance(value, list):
-                rows.extend(item for item in value if isinstance(item, dict))
-    for row in rows:
-        path = str(row.get("path") or row.get("name") or "")
-        if path == target_filename or path.lower().endswith(".xlsx"):
-            file_id = row.get("id")
-            if isinstance(file_id, int):
-                ids.append(file_id)
-    return ids
+def version_ids(value: object) -> list[int]:
+    ids = set(linked_ids(value, r"/versions/(\d+)(?:/|$)"))
+    ids.update(
+        int(item["id"])
+        for item in walk(value)
+        if isinstance(item, dict) and isinstance(item.get("id"), int)
+    )
+    return sorted(ids, reverse=True)
 
 
-def extract_linkset_download_urls(linkset: object) -> list[str]:
-    """Extract current public file-stream URLs from a Dryad linkset response."""
+def file_ids(value: object, target_filename: str) -> list[int]:
+    ids: set[int] = set()
+    for item in walk(value):
+        if not isinstance(item, dict):
+            continue
+        name = str(
+            item.get("path")
+            or item.get("name")
+            or item.get("filename")
+            or item.get("downloadFilename")
+            or ""
+        )
+        if not (name == target_filename or name.casefold().endswith(".xlsx")):
+            continue
+        if isinstance(item.get("id"), int):
+            ids.add(int(item["id"]))
+        ids.update(linked_ids(item, r"/files/(\d+)(?:/|$)"))
+    return sorted(ids, reverse=True)
+
+
+def hrefs(value: object) -> list[str]:
+    return list(
+        dict.fromkeys(
+            item
+            for item in walk(value)
+            if isinstance(item, str)
+            and (
+                "/downloads/file_stream/" in item
+                or ("/api/v2/files/" in item and item.rstrip("/").endswith("download"))
+            )
+        )
+    )
+
+
+def zip_info_urls(value: object, target_filename: str) -> list[str]:
+    """Extract target workbook URLs from an already-fetched zip-assembly response."""
     urls: list[str] = []
-    for href in recursive_values(linkset, "href"):
-        if isinstance(href, str) and "/downloads/file_stream/" in href and href not in urls:
-            urls.append(href)
+    rows = value if isinstance(value, list) else []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        filename = str(row.get("filename") or "")
+        url = row.get("url")
+        if isinstance(url, str) and (
+            filename == target_filename or filename.casefold().endswith(".xlsx")
+        ) and url not in urls:
+            urls.append(url)
     return urls
 
 
-def zip_assembly_candidates(
-    opener: urllib.request.OpenerDirector,
-    *,
-    version_id: int,
-    target_filename: str,
-    errors: list[dict[str, str]],
-) -> tuple[list[str], object]:
-    """Ask the public UI endpoint for permanent presigned file URLs."""
-    payload: object = {}
+def extract_linkset_download_urls(linkset: object) -> list[str]:
+    """Extract public file-stream URLs from a Dryad linkset response."""
     urls: list[str] = []
-    endpoints = (
-        f"https://datadryad.org/downloads/zip_assembly_info/{version_id}.json",
-        f"https://datadryad.org/downloads/zip_assembly_info/{version_id}?format=json",
-    )
-    for endpoint in endpoints:
-        try:
-            payload = request_json(opener, endpoint)
-            rows = payload if isinstance(payload, list) else []
-            for row in rows:
-                if not isinstance(row, dict):
-                    continue
-                filename = str(row.get("filename") or "")
-                url = row.get("url")
-                if isinstance(url, str) and (
-                    filename == target_filename or filename.lower().endswith(".xlsx")
-                ) and url not in urls:
-                    urls.append(url)
-            if urls:
-                break
-        except Exception as error:
-            errors.append({"stage": "zip_assembly_info", "url": endpoint, "error": repr(error)})
-    return urls, payload
+    for item in walk(linkset):
+        if (
+            isinstance(item, str)
+            and "/downloads/file_stream/" in item
+            and item not in urls
+        ):
+            urls.append(item)
+    return urls
 
 
 def is_xlsx(payload: bytes) -> bool:
     if len(payload) < 1000 or not payload.startswith(b"PK"):
         return False
-    import io
-
     try:
         with zipfile.ZipFile(io.BytesIO(payload)) as archive:
             names = set(archive.namelist())
@@ -184,6 +197,42 @@ def workbook_preview(path: Path) -> dict[str, object]:
     return {"sheets": sheets}
 
 
+def add_unique(target: list[str], values: Iterable[str]) -> None:
+    for value in values:
+        if value and value not in target:
+            target.append(value)
+
+
+def extract_workbook(
+    payload: bytes,
+    target_filename: str,
+) -> tuple[bytes, str, list[str]] | None:
+    if is_xlsx(payload):
+        return payload, "direct_xlsx", []
+    try:
+        with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+            members = [name for name in archive.namelist() if name.casefold().endswith(".xlsx")]
+            exact = [name for name in members if Path(name).name == target_filename]
+            selected = exact[0] if exact else (members[0] if len(members) == 1 else None)
+            workbook = archive.read(selected) if selected else b""
+    except zipfile.BadZipFile:
+        return None
+    return (workbook, "dataset_zip", members) if is_xlsx(workbook) else None
+
+
+def get_json(
+    opener: urllib.request.OpenerDirector,
+    url: str,
+    errors: list[dict[str, str]],
+    stage: str,
+) -> Any:
+    try:
+        return request_json(opener, url)
+    except Exception as error:
+        errors.append({"stage": stage, "url": url, "error": repr(error)})
+        return {}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -202,86 +251,62 @@ def main() -> None:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     opener = make_opener()
     errors: list[dict[str, str]] = []
+    target = str(config["known_file"]["filename"])
 
-    try:
-        request_bytes(
-            opener,
-            str(config["landing_page_url"]),
-            accept="text/html,application/xhtml+xml",
-        )
-    except Exception as error:
-        errors.append({"stage": "landing_page_warmup", "error": repr(error)})
-
-    metadata: object = {}
-    versions: object = {}
-    file_listing: object = {}
-    linkset: object = {}
-    zip_info: object = {}
-    try:
-        metadata = request_json(opener, str(config["api_dataset_url"]))
-    except Exception as error:
-        errors.append({"stage": "dataset_metadata", "error": repr(error)})
-    try:
-        versions = request_json(opener, str(config["api_versions_url"]))
-    except Exception as error:
-        errors.append({"stage": "dataset_versions", "error": repr(error)})
-
-    download_candidates = list(map(str, config.get("public_download_candidates", [])))
-
-    linkset_urls = (
-        str(config.get("linkset_json_url") or ""),
-        str(config["landing_page_url"]).rstrip("/") + "/linkset.json",
+    metadata = get_json(opener, str(config["api_dataset_url"]), errors, "metadata")
+    versions = get_json(opener, str(config["api_versions_url"]), errors, "versions")
+    linkset_url = str(
+        config.get("linkset_json_url")
+        or f"{str(config['landing_page_url']).rstrip('/')}/linkset.json"
     )
-    for linkset_url in dict.fromkeys(url for url in linkset_urls if url):
-        try:
-            linkset = request_json(opener, linkset_url)
-            for url in extract_linkset_download_urls(linkset):
-                if url not in download_candidates:
-                    download_candidates.append(url)
-            break
-        except Exception as error:
-            errors.append({"stage": "linkset", "url": linkset_url, "error": repr(error)})
+    linkset = get_json(opener, linkset_url, errors, "linkset")
 
-    file_ids: list[int] = []
-    version_id = latest_version_id(versions)
-    if version_id is not None:
-        files_url = f"https://datadryad.org/api/v2/versions/{version_id}/files"
-        try:
-            file_listing = request_json(opener, files_url)
-            file_ids.extend(
-                candidate_file_ids(file_listing, str(config["known_file"]["filename"]))
-            )
-        except Exception as error:
-            errors.append({"stage": "version_files", "url": files_url, "error": repr(error)})
+    resources = version_ids(versions)
+    listings: dict[str, object] = {}
+    zip_info: dict[str, object] = {}
+    resolved_files: set[int] = set()
+    candidates: list[str] = []
 
-        presigned_urls, zip_info = zip_assembly_candidates(
-            opener,
-            version_id=version_id,
-            target_filename=str(config["known_file"]["filename"]),
-            errors=errors,
+    for resource_id in resources:
+        files_url = f"https://datadryad.org/api/v2/versions/{resource_id}/files"
+        listing = get_json(opener, files_url, errors, "version_files")
+        listings[str(resource_id)] = listing
+        resolved_files.update(file_ids(listing, target))
+        add_unique(candidates, hrefs(listing))
+
+        info_url = f"https://datadryad.org/downloads/zip_assembly_info/{resource_id}.json"
+        info = get_json(opener, info_url, errors, "zip_assembly_info")
+        zip_info[str(resource_id)] = info
+        add_unique(candidates, zip_info_urls(info, target))
+
+    add_unique(candidates, extract_linkset_download_urls(linkset))
+    for file_id in sorted(resolved_files, reverse=True):
+        add_unique(
+            candidates,
+            (
+                f"https://datadryad.org/downloads/file_stream/{file_id}",
+                f"https://datadryad.org/stash/downloads/file_stream/{file_id}",
+                f"https://datadryad.org/api/v2/files/{file_id}/download",
+            ),
         )
-        for url in presigned_urls:
-            if url not in download_candidates:
-                download_candidates.insert(0, url)
+    for resource_id in resources:
+        add_unique(
+            candidates,
+            (
+                f"https://datadryad.org/downloads/download_resource/{resource_id}",
+                f"https://datadryad.org/api/v2/versions/{resource_id}/download",
+            ),
+        )
+    add_unique(candidates, map(str, config.get("public_download_candidates", [])))
 
-    known_id = int(config["known_file"]["file_id"])
-    if known_id not in file_ids:
-        file_ids.append(known_id)
-
-    for file_id in file_ids:
-        for url in (
-            f"https://datadryad.org/downloads/file_stream/{file_id}",
-            f"https://datadryad.org/stash/downloads/file_stream/{file_id}",
-            f"https://datadryad.org/api/v2/files/{file_id}/download",
-        ):
-            if url not in download_candidates:
-                download_candidates.append(url)
-
-    payload: bytes | None = None
-    successful_url: str | None = None
-    for url in download_candidates:
+    workbook: bytes | None = None
+    success_url: str | None = None
+    container_kind: str | None = None
+    container_members: list[str] = []
+    container_sha: str | None = None
+    for url in candidates:
         try:
-            candidate = request_bytes(
+            payload = request_bytes(
                 opener,
                 url,
                 accept=(
@@ -290,62 +315,66 @@ def main() -> None:
                 ),
                 referer=str(config["landing_page_url"]),
             )
-            if not is_xlsx(candidate):
-                sample = re.sub(r"\s+", " ", candidate[:160].decode("utf-8", errors="replace"))
-                raise ValueError(f"response is not an xlsx workbook; prefix={sample!r}")
-            payload = candidate
-            successful_url = url
+            extracted = extract_workbook(payload, target)
+            if extracted is None:
+                prefix = re.sub(
+                    r"\s+",
+                    " ",
+                    payload[:160].decode("utf-8", errors="replace"),
+                )
+                raise ValueError(
+                    f"not an xlsx or unambiguous dataset zip; prefix={prefix!r}"
+                )
+            workbook, container_kind, container_members = extracted
+            success_url = url
+            container_sha = hashlib.sha256(payload).hexdigest()
             break
         except Exception as error:
             errors.append({"stage": "download", "url": url, "error": repr(error)})
 
-    if payload is None or successful_url is None:
-        diagnostic = {
-            "source_id": config["source_id"],
-            "dataset_doi": config["dataset_doi"],
-            "version_id": version_id,
-            "api_dataset_metadata": metadata,
-            "api_versions_metadata": versions,
-            "api_file_listing": file_listing,
-            "linkset_metadata": linkset,
-            "zip_assembly_info": zip_info,
-            "download_candidates": download_candidates,
-            "errors": errors,
-        }
-        diagnostic_path = args.output_dir / "acquisition_errors.json"
-        diagnostic_path.write_text(
-            json.dumps(diagnostic, indent=2, ensure_ascii=False, default=str) + "\n",
-            encoding="utf-8",
-        )
-        print(json.dumps(diagnostic, indent=2, ensure_ascii=False, default=str))
-        raise RuntimeError(f"unable to acquire Dryad workbook; see {diagnostic_path}")
-
-    destination = args.output_dir / str(config["known_file"]["filename"])
-    destination.write_bytes(payload)
-    preview = workbook_preview(destination)
-    summary = {
+    diagnostic = {
         "source_id": config["source_id"],
         "article_doi": config["article_doi"],
         "dataset_doi": config["dataset_doi"],
-        "successful_download_url": successful_url,
-        "filename": destination.name,
-        "size_downloaded": len(payload),
-        "sha256": hashlib.sha256(payload).hexdigest(),
-        "api_dataset_metadata": metadata,
-        "api_versions_metadata": versions,
-        "api_file_listing": file_listing,
-        "linkset_metadata": linkset,
+        "resolved_version_ids": resources,
+        "resolved_file_ids": sorted(resolved_files, reverse=True),
+        "metadata": metadata,
+        "versions": versions,
+        "linkset": linkset,
+        "file_listings": listings,
         "zip_assembly_info": zip_info,
-        "download_attempt_errors": errors,
-        **preview,
+        "download_candidates": candidates,
+        "errors": errors,
         "claim_boundary": config["claim_boundary"],
     }
-    (args.output_dir / "source_inventory.json").write_text(
-        json.dumps(summary, indent=2, ensure_ascii=False, default=str) + "\n", encoding="utf-8"
+    (args.output_dir / "acquisition_diagnostics.json").write_text(
+        json.dumps(diagnostic, indent=2, ensure_ascii=False, default=str) + "\n",
+        encoding="utf-8",
     )
-    print(f"downloaded: {destination} ({len(payload)} bytes)")
-    print(f"sha256: {summary['sha256']}")
-    print(f"sheets: {len(summary.get('sheets', []))}")
+    if workbook is None or success_url is None:
+        raise RuntimeError("unable to acquire Dryad workbook; see acquisition_diagnostics.json")
+
+    destination = args.output_dir / target
+    destination.write_bytes(workbook)
+    inventory = {
+        **diagnostic,
+        "successful_download_url": success_url,
+        "filename": target,
+        "size_downloaded": len(workbook),
+        "sha256": hashlib.sha256(workbook).hexdigest(),
+        "source_container_kind": container_kind,
+        "source_container_members": container_members,
+        "source_container_sha256": container_sha,
+        **workbook_preview(destination),
+    }
+    (args.output_dir / "source_inventory.json").write_text(
+        json.dumps(inventory, indent=2, ensure_ascii=False, default=str) + "\n",
+        encoding="utf-8",
+    )
+    print(f"downloaded: {destination}")
+    print(f"sha256: {inventory['sha256']}")
+    print(f"resource IDs: {resources}")
+    print(f"file IDs: {sorted(resolved_files, reverse=True)}")
 
 
 if __name__ == "__main__":
