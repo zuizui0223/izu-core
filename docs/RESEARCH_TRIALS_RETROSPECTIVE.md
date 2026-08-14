@@ -46,6 +46,19 @@ Useful lessons:
 
 The five-candidate register and its dedicated source-level workflow are no longer active decision surfaces. Current development instead uses the source-locked focal claim boundaries, the direct effective-service × reproductive-dependency field gate, and explicitly admitted external bridge systems. The retired register/workflow remain recoverable from Git and PR history. Lower-level source-analysis components are not retired by this note and require separate reference and claim audits before removal.
 
+## Virtual Izu calibration and stress suite
+
+Fixed-seed virtual baseline, calibration-bias, finite-detection and field-misspecification runs were useful while the model and measurement design were being stress-tested. They remain simulations rather than empirical evidence.
+
+Useful lessons:
+
+- synthetic recovery can expose estimator bias, detection failure and model misspecification, but cannot validate the historical biological mechanism;
+- rerunning the same fixed-seed reports on every unrelated `channel_id/` change adds CI activity without adding empirical information;
+- regression protection belongs in unit tests for the underlying modules, while synthetic reports can remain reproducible through their scripts and historical workflow artifacts;
+- direct field measurements and source-locked evidence should control current claim promotion, not a synthetic benchmark passing.
+
+The four dedicated Virtual Izu report workflows are retired from routine PR CI. Their scripts, modules, tests and existing documentation remain available for targeted reproduction or later audit.
+
 ## Rich attraction-trait model incubator
 
 A richer proposed model combined nectar-guide expression, flower size, delayed-selfing geometry, selfing ability, neutral diversity and spatial position. It was intentionally never promoted to an active inference engine because the richer state space was not linked to a measurement design capable of discriminating the proposed pathways.
