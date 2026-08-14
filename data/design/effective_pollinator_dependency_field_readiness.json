@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "status": "implementation_ready_field_data_missing",
   "goal": "Measure effective pollinator dependency directly in the same tagged Izu populations rather than inferring dependency from floral form, family or realized interaction breadth.",
   "required_linked_channels": [
@@ -14,7 +14,8 @@
     "fruit outcome linkage"
   ],
   "optional_calibration_channels": [
-    "blinded technical recounts of the same preserved SVD sample linked by svd_id"
+    "blinded technical recounts of the same preserved SVD sample linked by svd_id",
+    "independent repeated estimates of the final direct dependency estimand for prespecified taxon x site x season target units"
   ],
   "effective_service_definition": "observed visit bouts per monitored flower-hour multiplied by background-adjusted mean single-visit conspecific pollen deposition for the same visitor group and population",
   "core_reproductive_ratios": [
@@ -62,6 +63,20 @@
     "minimum_for_repeatability_estimation": "at least three distinct SVD samples with two or more independent recounts each",
     "direct_dependency_reliability_identified": false,
     "boundary": "Technical recount repeatability informs only the pollen-count measurement component. It must not be substituted directly for dependency_reliability in the dependency x FDQ design simulation."
+  },
+  "direct_dependency_reliability_calibration": {
+    "status": "blocked_no_repeated_final_estimand",
+    "design": "data/design/effective_dependency_reliability_calibration.json",
+    "template": "templates/effective_dependency_reliability_repeat_template.csv",
+    "cli": "scripts/audit_effective_dependency_reliability.py",
+    "target_estimand": "direct_reproductive_dependency_0_1",
+    "target_unit": "prespecified taxon x site x season unit",
+    "eligible_repeat": "same final estimand and protocol, non-overlapping plant panel, distinct frozen source bundle",
+    "minimum_for_scope_reliability_estimation": "at least three target units with two or more eligible independent repeat blocks each and at least two independent plants per repeat block",
+    "ordinary_campanula_pilot_identifies_this_reliability": false,
+    "technical_svd_recount_identifies_this_reliability": false,
+    "automatic_dependency_fdq_injection": false,
+    "boundary": "An estimable reliability ratio inside the calibration scope still requires a separate transportability review before it can replace synthetic dependency_reliability in a cross-lineage dependency x FDQ design."
   },
   "precision_planning": {
     "independent_unit": "plant",
@@ -121,5 +136,5 @@
     "field_pilot": 91,
     "independent_primary_source_recovery": 92
   },
-  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. Technical recounts can estimate pollen-count repeatability only. The panel does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, a direct-dependency reliability ratio, or a causal Oshima-Toshima boundary effect. The prospective design simulation uses synthetic dependency and effect assumptions only."
+  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. The ordinary pilot can estimate plant-level dispersion, coverage and attrition after admission, while technical recounts estimate pollen-count repeatability only. Neither identifies the final direct-dependency reliability ratio without an independent repeated-final-estimand design. The panel does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, or a causal Oshima-Toshima boundary effect. The prospective design simulation uses synthetic dependency and effect assumptions only."
 }
