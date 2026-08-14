@@ -48,6 +48,20 @@ Useful lessons:
 
 The dedicated `meta-analysis-pipeline` workflow and the rank-weighted observation/rank stack are retired from the active tree, and the consolidated offline runner no longer executes that synthesis. The separate quantitative source-lock validator is retained because it enforces provenance and uncertainty requirements rather than manufacturing a pooled result. Current cross-system decisions come from the source-locked effect/bridge registries and `CURRENT_EVIDENCE_STATE`.
 
+## Exhausted automated primary-source routing
+
+OpenAlex, Crossref, DOI/publisher routing and batch candidate searches were useful for resolving bibliographic identity, landing pages and supplement filenames for the independent Izu holdout queue. They did not recover lawful source binaries for the three remaining priority lineages.
+
+Useful lessons:
+
+- metadata, publisher landing pages, DOI resolution and supplement filenames are source-routing evidence, not recovered source bytes;
+- repeating the same automated route after it has been audited does not add evidence and can make a blocked acquisition state look active;
+- `blocked_external_source_delivery` is a source-availability state, not evidence that the underlying measurements never existed;
+- Gate A/Gate B must reopen only when a lawful article/supporting binary or user/library/author-supplied source exposes the required population-level measurements and uncertainty/raw observations;
+- the durable asset is the machine-readable exhaustion/admission state, not the one-off discovery workflow that produced it.
+
+The routine OpenAlex, Crossref and priority-DOI routing workflows are retired from active CI. Their scripts and tests remain available for targeted manual reuse if a genuinely new route appears. `independent-source-acquisition.yml` remains active because it validates the current admission state and is the correct gate to rerun when new lawful source material is supplied.
+
 ## Five-candidate ordinal-order / tempered-SMC trial
 
 A later source-level trial expanded the restricted candidate family with a fixed ordinal `isolation_order` proxy and used tempered SMC to stabilize numerical integration. The ordinal proxy could lead within that declared family, but its advantage depended materially on retaining the flower-length channel. `ardens_bridge_loss` remained a plausible restricted alternative in the non-flower channels rather than being uniquely rejected.
