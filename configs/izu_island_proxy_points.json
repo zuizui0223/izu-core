@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "selection_source": {
+    "provider": "OpenStreetMap Nominatim search API",
+    "artifact_digest": "sha256:295bee6a3ef0c894a804a54c28a229c5d4e1e96efadd69d5c760ea309e8c5145",
+    "selection_rule": "First candidate from Japanese island-name query where class=place and type=island. This is an algorithmic island-proxy rule, not a human-verified study locality or an island polygon."
+  },
+  "boundary": "Proxy points are used only for environment and geographic-distance sensitivity analyses. They must never be substituted for the historical plant sampling localities or used to calculate a population trait mean.",
+  "points": [
+    {"island_id": "Oshima", "latitude": 34.7384790, "longitude": 139.4023682, "osm_type": "relation", "osm_id": 5304184, "source_query": "伊豆大島, 東京都, 日本"},
+    {"island_id": "Toshima", "latitude": 34.5230122, "longitude": 139.2800339, "osm_type": "relation", "osm_id": 5304185, "source_query": "利島, 東京都, 日本"},
+    {"island_id": "Niijima", "latitude": 34.3812970, "longitude": 139.2654475, "osm_type": "relation", "osm_id": 5304188, "source_query": "新島, 東京都, 日本"},
+    {"island_id": "Kozushima", "latitude": 34.2142250, "longitude": 139.1522742, "osm_type": "relation", "osm_id": 5304189, "source_query": "神津島, 東京都, 日本"},
+    {"island_id": "Miyake", "latitude": 34.0853780, "longitude": 139.5212773, "osm_type": "relation", "osm_id": 5304183, "source_query": "三宅島, 東京都, 日本"},
+    {"island_id": "Hachijo", "latitude": 33.1024935, "longitude": 139.8076939, "osm_type": "relation", "osm_id": 5305016, "source_query": "八丈島, 東京都, 日本"}
+  ]
+}
