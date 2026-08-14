@@ -99,7 +99,7 @@ Useful lessons:
 - regression protection belongs in unit tests for the underlying modules, while synthetic reports can remain reproducible through their scripts and historical workflow artifacts;
 - direct field measurements and source-locked evidence should control current claim promotion, not a synthetic benchmark passing.
 
-The four dedicated Virtual Izu report workflows are retired from routine PR CI. Their scripts, modules, tests and existing documentation remain available for targeted reproduction or later audit.
+The four dedicated Virtual Izu report workflows are retired from routine PR CI. The finite-detection calibration and calibration-bias substack is also retired from the active tree after confirming that it has no current evidence/admission consumer; its historical implementation remains recoverable from Git. Shared gradient, observational-equivalence, pooled-evidence and still-exported field-stress/sensitivity components are retained pending separate consumer audits.
 
 ## Cross-archipelago replication operating-characteristic simulation
 
