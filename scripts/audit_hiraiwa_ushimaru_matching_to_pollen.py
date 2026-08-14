@@ -80,7 +80,7 @@ def verify_source_code(path: Path) -> dict[str, object]:
     source_formula = "pollen_z ~ TM_z * tube +  FG_pla_z * tube + (1|site) +(1|season) + (1|order/family/plant)"
     if source_formula not in text:
         raise ValueError("expected source pollen model formula not found")
-    matches = [m for m in re.finditer(r"yy<-([0-9.]+)\\*xx-([0-9.]+)", text)]
+    matches = [m for m in re.finditer(r"yy<-([0-9.]+)\*xx-([0-9.]+)", text)]
     selected = None
     for item in matches:
         if abs(float(item.group(1)) - EXPECTED_SOURCE_TM_COEF) < 1e-10:
