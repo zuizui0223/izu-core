@@ -182,23 +182,32 @@ process before interpreting a regional phenotype.
 Numeric effects require exact source location, population units, sample size,
 uncertainty, taxonomy, geography, wild status and compatible units.
 
-The Hendriks flower-area reconstruction illustrates the distinction. All 35
-Appendix B Table B9 numerical pairs and their nine populated Appendix-A island
-groups have been reconstructed; the OLS anchors reproduce the thesis results.
-But the resolved VUW Open Access page is not the same as checksum-locked source
-bytes; the exact artifact is still not locked. The dataset can therefore support
-a transparent directional reconstruction audit but does not enter the formal
-effect registry.
+The Hendriks flower-area reconstruction illustrates why provenance and effect
+admission must remain separate gates. The exact lawful VUW institutional PDF is
+now recovered and checksum locked, and all 35 Appendix B Table B9 numerical
+pairs plus all 35 Appendix-A island assignments have been strictly reverified
+against those bytes. The Hendriks provenance gate is therefore complete, and
+the OLS anchors reproduce the thesis results.
+
+That provenance repair does **not** make the Hendriks slope a formal
+cross-system effect. Mainland flower-area measurement reliability is still not
+empirically identified, the island-cluster SMA interval includes isometry, and
+flower area is not treated as an exchangeable raw effect scale with the
+Southwest Pacific source-defined flower-size response. Hendriks therefore
+supports source-locked directional recurrence while formal same-family pooling
+remains closed.
 
 Likewise, the 136-pair Hetherington-Rauth & Johnson (2020) Pacific source remains
 candidate-only until its source-native numeric table is recovered.
 
 ## 10. Simulation and sensitivity are design diagnostics, not empirical replication
 
-Constrained simulations quantify which observation plans can discriminate
-declared virtual mechanisms. Reliability envelopes quantify assumptions needed
-for a result to survive measurement error. Neither is evidence that the
-simulated mechanism or assumed reliability holds in nature.
+Retained constrained diagnostics may quantify which observation plans can
+discriminate declared mechanisms, and reliability envelopes quantify assumptions
+needed for a result to survive measurement error. Neither is evidence that the
+simulated mechanism or assumed reliability holds in nature. Legacy synthetic
+suites that no longer change an admission or field-design decision have been
+retired from the active tree and remain recoverable from Git history.
 
 ## Current empirical contribution
 
@@ -213,8 +222,9 @@ stage, but remains deliberately narrower than a completed causal meta-analysis:
    much stronger than partner-richness decline;
 4. a checksum-locked 129-pair Southwest Pacific morphology source with explicit
    pollination-mode, archipelago and denominator-coupling adversaries;
-5. an independent 35-pair Hendriks flower-area reconstruction across nine island
-   groups that reproduces the reported OLS response shape;
+5. a checksum-locked Hendriks institutional source with all 35 flower-area pairs
+   and all 35 island assignments strictly reverified, reproducing the reported
+   OLS response shape across nine populated island groups;
 6. a 2/2 independent-system directional replication of below-isometry floral
    response under OLS/island-cluster resampling;
 7. an explicit joint EIV envelope showing that interval-level recurrence under
