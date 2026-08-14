@@ -5,8 +5,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE_PATH = ROOT / "scripts" / "acquire_dryad_external_dataset_v2.py"
-SPEC = importlib.util.spec_from_file_location("dryad_external_v2", MODULE_PATH)
+MODULE_PATH = ROOT / "scripts" / "acquire_dryad_external_dataset.py"
+SPEC = importlib.util.spec_from_file_location("dryad_external", MODULE_PATH)
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
