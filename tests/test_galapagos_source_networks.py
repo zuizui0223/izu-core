@@ -3,8 +3,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE_PATH = ROOT / "scripts" / "analyze_galapagos_source_networks_v2.py"
-SPEC = importlib.util.spec_from_file_location("galapagos_analysis_v2", MODULE_PATH)
+MODULE_PATH = ROOT / "scripts" / "analyze_galapagos_source_networks.py"
+SPEC = importlib.util.spec_from_file_location("galapagos_analysis", MODULE_PATH)
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
@@ -49,6 +49,7 @@ def test_long_edge_table_builds_multiple_island_networks(tmp_path: Path):
     assert set(networks) == {"Santa Cruz", "San Cristobal"}
     metrics = [{"island": island, **MODULE.network_metrics(network)} for island, network in networks.items()]
     assert all(row["total_interaction_weight"] > 0 for row in metrics)
+    assert all(row["total_interaction_weight"] == row["total_visitation_rate"] for row in metrics)
 
 
 def test_oriented_wide_matrix_is_admitted_and_unresolved_label_is_blocked(tmp_path: Path):
@@ -59,8 +60,8 @@ def test_oriented_wide_matrix_is_admitted_and_unresolved_label_is_blocked(tmp_pa
     )
     label, network = MODULE.parse_oriented_matrix(matrix_record(path, "Santa Cruz"))
     assert label == "Santa_Cruz"
-    assert network.plants == ("P1", "P2")
-    assert network.pollinators == ("B1", "B2", "B3")
+    assert network.plant_names == ("P1", "P2")
+    assert network.pollinator_names == ("B1", "B2", "B3")
 
     generic = tmp_path / "network.csv"
     generic.write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
