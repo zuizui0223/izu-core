@@ -46,6 +46,19 @@ Useful lessons:
 
 The five-candidate register and its dedicated source-level workflow are no longer active decision surfaces. Current development instead uses the source-locked focal claim boundaries, the direct effective-service × reproductive-dependency field gate, and explicitly admitted external bridge systems. The retired register/workflow remain recoverable from Git and PR history. Lower-level source-analysis components are not retired by this note and require separate reference and claim audits before removal.
 
+## Rich attraction-trait model incubator
+
+A richer proposed model combined nectar-guide expression, flower size, delayed-selfing geometry, selfing ability, neutral diversity and spatial position. It was intentionally never promoted to an active inference engine because the richer state space was not linked to a measurement design capable of discriminating the proposed pathways.
+
+Useful lessons:
+
+- adding biologically plausible latent structure does not make a reconstruction into field evidence;
+- promotion of a mechanistic model requires one explicit biological hypothesis, one declared life cycle with interpretable parameters, one observable measurement set linked to those parameters, and one falsification or discrimination target;
+- pollinator-mediated attraction and selfing / delayed-selfing compensation must be distinguishable by planned observations before the model can adjudicate between them;
+- the smaller constrained life-history simulation is safer when it retains only transparent attraction--assurance hypotheses and does not convert reconstruction into a field claim.
+
+The legacy incubator is therefore retired from the active tree. Its intended attraction-versus-assurance question remains relevant only when direct measurements make that contrast testable.
+
 ## Assets retained
 
 Only the compact threshold-identifiability simulator, fixed three-regime design, central-hypothesis contract and tests remain active. Detailed failed-run products remain recoverable from PR history and workflow artifacts rather than the active tree.
