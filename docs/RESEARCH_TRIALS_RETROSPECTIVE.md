@@ -62,6 +62,18 @@ Useful lessons:
 
 The routine OpenAlex, Crossref and priority-DOI routing workflows are retired from active CI. Their scripts and tests remain available for targeted manual reuse if a genuinely new route appears. `independent-source-acquisition.yml` remains active because it validates the current admission state and is the correct gate to rerun when new lawful source material is supplied.
 
+## Hiraiwa-Ushimaru legacy Dryad recovery route
+
+The older 2017 Dryad bulk-download endpoint for the archived interaction workbook is currently credential-blocked (HTTP 401), while the actively used 2024 Hiraiwa-Ushimaru evidence is reproducibly acquired and reanalysed through the Figshare source workflow.
+
+Useful lessons:
+
+- a failed legacy transport route is not a biological result and should not appear as an active evidence gate;
+- maintaining two source-recovery workflows for the same mechanistic programme is unnecessary when only one route currently supplies the adopted source-native analysis;
+- the legacy acquisition script and source config can remain as a targeted manual recovery tool without occupying the active Actions surface.
+
+The legacy Dryad workflow is retired. The Figshare acquisition-and-analysis workflow remains active because it reproduces the contemporary FDQ, trait-matching, pollen-receipt and functional-moderation evidence used by the current mechanistic synthesis.
+
 ## Five-candidate ordinal-order / tempered-SMC trial
 
 A later source-level trial expanded the restricted candidate family with a fixed ordinal `isolation_order` proxy and used tempered SMC to stabilize numerical integration. The ordinal proxy could lead within that declared family, but its advantage depended materially on retaining the flower-length channel. `ardens_bridge_loss` remained a plausible restricted alternative in the non-flower channels rather than being uniquely rejected.
