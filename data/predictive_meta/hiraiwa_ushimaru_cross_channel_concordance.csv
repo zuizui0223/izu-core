@@ -1,0 +1,9 @@
+plant,matching_delta_post_minus_oshima,matching_direction,tube_delta_mm_post_minus_oshima,tube_percent_change_from_oshima,tube_direction,pollen_delta_post_minus_oshima,pollen_direction,matching_lower_and_tube_shorter,matching_lower_and_pollen_lower,triple_lower_or_shorter
+Ampelopsis glandulosa var. hancei,-0.9869939628876696,lower_post,0.10749999999999998,24.65596330275229,longer_post,0.5823779024112368,higher_post,False,False,False
+Calystegia soldanella,-3.598128110472322,lower_post,4.207000000000001,17.8519901553085,longer_post,0.9269013858507102,higher_post,False,False,False
+Farfugium japonicum,-2.806650661104169,lower_post,-0.9370000000000012,-8.309684285207531,shorter_post,-0.887727684897683,lower_post,True,True,True
+Glehnia littoralis,-2.407325745607472,lower_post,0.0,,equal,1.054867194996187,higher_post,False,False,False
+Lysimachia mauritiana,-0.34898993293490577,lower_post,0.025000000000000355,0.45821114369502114,longer_post,-0.09321335662664698,lower_post,False,True,False
+Melanthera prostrata,-0.10123052632338259,lower_post,0.2237499999999999,4.872604529616723,longer_post,-1.2682488797389047,lower_post,False,True,False
+Oxalis corniculata var. trichocaulon,-0.7512954141502362,lower_post,-0.6429999999999998,-15.907966353290448,shorter_post,-0.7328362790177028,lower_post,True,True,True
+Vitex rotundifolia,-3.592661468050243,lower_post,-0.1319999999999979,-1.3644821170146568,shorter_post,0.06572638266816451,higher_post,True,False,False
