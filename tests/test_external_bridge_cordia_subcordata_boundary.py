@@ -51,6 +51,24 @@ def test_cordia_zosterops_has_higher_conspecific_single_visit_deposition_than_ap
     assert long_morph["conspecific_test"]["p"] == 0.008
 
 
-def test_cordia_byte_level_provenance_stays_open():
+def test_cordia_exact_publisher_pdf_is_checksum_locked_without_promoting_bridge():
     audit = load_audit()
-    assert audit["source"]["source_routes"]["checksum_locked"] is False
+    routes = audit["source"]["source_routes"]
+    assert routes["checksum_locked"] is True
+    lock = routes["byte_lock"]
+    assert lock["route"] == "publisher"
+    assert lock["n_bytes"] == 3133528
+    assert lock["sha256"] == "6c42f4f1037bc1dec517c4e384fc0acffb031d80d341dd3c5a9b38cda241e39a"
+    assert lock["acquisition_workflow_run"] == 31780408963
+    assert lock["acquisition_artifact_id"] == 9211466597
+    assert "alternate mirrors" in lock["byte_scope"]
+    assert audit["bridge_complete"] is False
+    assert audit["formal_cross_system_model_eligible"] is False
+
+
+def test_cordia_next_actions_are_source_triggered_not_repeated_public_search():
+    audit = load_audit()
+    actions = " ".join(audit["next_actions"])
+    assert "Checksum-lock" not in actions
+    assert "source-triggered reopen gates" in actions
+    assert "targeted public follow-up recovered no qualifying matched Dong data" in actions
