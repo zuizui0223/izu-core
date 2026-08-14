@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "parent_issue": 100,
+  "purpose": "Summarize independently screened external island mechanism bridges without converting partial links, source availability, or within-system replication into a formal cross-system causal fit.",
+  "systems": [
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "audit": "data/design/external_bridge_nicotiana_source_audit.json",
+      "admission_state": "bridge_system_partial",
+      "bridge_level": "population_and_site_across_linked_studies",
+      "independent_system_cluster": true,
+      "strength": "direct per-visit/service and reproductive-dependency evidence with floral response, but cross-year/cross-paper linkage",
+      "complete": false
+    },
+    {
+      "system_id": "caribbean_gesneriaceae_island_mainland",
+      "audit": "data/design/external_bridge_caribbean_gesneriaceae_source_audit.json",
+      "admission_state": "bridge_system_partial",
+      "bridge_level": "clade_level",
+      "independent_system_cluster": true,
+      "strength": "broad island-mainland visitation and direct autofertility plus reproductive-assurance and floral-transition recurrence, but no matched per-visit pollen function",
+      "complete": false
+    },
+    {
+      "system_id": "xisha_cordia_subcordata_two_island_system",
+      "audit": "data/design/external_bridge_cordia_subcordata_source_audit.json",
+      "admission_state": "bridge_system_partial",
+      "bridge_level": "near_complete_within_archipelago",
+      "independent_system_cluster": true,
+      "strength": "one source-defined two-island system contains floral morph-state divergence, pollinator-environment contrast, single-visit pollen deposition and controlled reproductive dependence, but effectiveness/dependency are not matched on Dong Island",
+      "complete": false
+    }
+  ],
+  "counts": {
+    "independent_system_clusters_screened_as_partial_or_stronger": 3,
+    "bridge_system_partial": 3,
+    "bridge_system_complete": 0,
+    "near_complete_within_archipelago": 1
+  },
+  "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
+  "formal_cross_system_mechanism_fit_ready": false,
+  "why_formal_fit_remains_closed": [
+    "No external system yet supplies all mechanism links at a matched two-sided population/transition unit.",
+    "The three systems do not yet supply one compatible mechanism estimand family with source-locked uncertainty across at least two independent clusters.",
+    "Nicotiana has cross-year/cross-paper linkage, Caribbean Gesneriaceae lacks matched per-visit pollen function, and Cordia lacks Dong-side direct effectiveness and controlled dependency measurements.",
+    "Partial mechanistic recurrence cannot substitute for Issue #91 direct Izu field measurements."
+  ],
+  "next_decision_gate": "Prioritize source recovery or new data that close the missing effectiveness/dependency side of Cordia or identify another system with floral response, direct visitor pollen function, and reproductive dependency measured at the same transition units.",
+  "claim_boundary": "Three independent partial bridge systems strengthen the plausibility and generality of the mechanism architecture and reveal alternative mechanisms, but they do not establish a universal island response, a universal dependency coefficient, historical pollinator-loss causation, or a formal cross-system causal model."
+}
