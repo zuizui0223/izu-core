@@ -32,6 +32,20 @@ Useful lessons:
 - descriptive edge rankings are not causal threshold tests;
 - uncertainty and observation effort belong in any future community model.
 
+## Five-candidate ordinal-order / tempered-SMC trial
+
+A later source-level trial expanded the restricted candidate family with a fixed ordinal `isolation_order` proxy and used tempered SMC to stabilize numerical integration. The ordinal proxy could lead within that declared family, but its advantage depended materially on retaining the flower-length channel. `ardens_bridge_loss` remained a plausible restricted alternative in the non-flower channels rather than being uniquely rejected.
+
+Useful lessons:
+
+- a fixed island-order scaffold is not geographic distance, dated colonization history, an isolation mechanism, or pollinator service;
+- a candidate winning inside a restricted family does not identify the historical cause represented by its label;
+- tempered SMC can improve numerical integration and ranking stability without adding historical observations or causal identification;
+- candidate preference that changes under channel ablation is evidence of channel dependence, not a universal island mechanism;
+- the bridge-loss and ordinal-order candidates should therefore be treated as competing restricted explanations unless direct mechanism measurements discriminate them.
+
+The five-candidate register and its dedicated source-level workflow are no longer active decision surfaces. Current development instead uses the source-locked focal claim boundaries, the direct effective-service × reproductive-dependency field gate, and explicitly admitted external bridge systems. The retired register/workflow remain recoverable from Git and PR history. Lower-level source-analysis components are not retired by this note and require separate reference and claim audits before removal.
+
 ## Assets retained
 
 Only the compact threshold-identifiability simulator, fixed three-regime design, central-hypothesis contract and tests remain active. Detailed failed-run products remain recoverable from PR history and workflow artifacts rather than the active tree.
