@@ -23,7 +23,7 @@ Useful lessons:
 - blind cards, herbarium/media availability, ROI calibration and public-image positive controls are observation-process diagnostics, not measurements of effective pollination or reproductive dependency;
 - a guide/visible-signal channel remains prospective until a final directly measured dataset and analysis are explicitly declared.
 
-Do not use automatic public-image embeddings or guide-screen outputs as evidence of floral evolution. `CURRENT_EVIDENCE_STATE` keeps `visible_signal = blocked_unmeasured / prospective_only`, so the routine PR workflows that repeatedly acquire/render public-photo, herbarium, ROI and guide-screen artifacts are retired. Their modules, scripts, tests, gate tables, prospective templates and historical artifacts remain available for targeted audit or an explicitly declared future visible-signal dataset.
+Do not use automatic public-image embeddings or guide-screen outputs as evidence of floral evolution. `CURRENT_EVIDENCE_STATE` keeps `visible_signal = blocked_unmeasured / prospective_only`, so the routine PR workflows that repeatedly acquire/render public-photo, herbarium, ROI and guide-screen artifacts are retired. Claim-boundary and operator-falsification modules/results, prospective field templates, and historical artifacts remain where they still reproduce an adopted negative control or future field contract. One-off public-photo availability probes and other exhausted discovery executors are retired from the active tree and remain recoverable from Git history.
 
 ## Edge and life-history screens
 
@@ -60,7 +60,7 @@ Useful lessons:
 - Gate A/Gate B must reopen only when a lawful article/supporting binary or user/library/author-supplied source exposes the required population-level measurements and uncertainty/raw observations;
 - the durable asset is the machine-readable exhaustion/admission state, not the one-off discovery workflow that produced it.
 
-The routine OpenAlex, Crossref and priority-DOI routing workflows are retired from active CI. Their scripts and tests remain available for targeted manual reuse if a genuinely new route appears. `independent-source-acquisition.yml` remains active because it validates the current admission state and is the correct gate to rerun when new lawful source material is supplied.
+The routine OpenAlex, Crossref and priority-DOI routing workflows and their one-off executors/helpers/tests are retired from the active tree. Historical routing outputs and the machine-readable exhaustion/admission state remain; removed implementation is recoverable from Git history if a genuinely new route later warrants it. `independent-source-acquisition.yml` remains active because it validates the current admission state and is the correct gate to rerun when new lawful source material is supplied.
 
 ## Hiraiwa-Ushimaru legacy Dryad recovery route
 
@@ -70,9 +70,9 @@ Useful lessons:
 
 - a failed legacy transport route is not a biological result and should not appear as an active evidence gate;
 - maintaining two source-recovery workflows for the same mechanistic programme is unnecessary when only one route currently supplies the adopted source-native analysis;
-- the legacy acquisition script and source config can remain as a targeted manual recovery tool without occupying the active Actions surface.
+- once the failed Dryad route state and lesson are recorded, its executor and source config do not need to remain in the active tree; they can be recovered from Git history if the endpoint materially changes.
 
-The legacy Dryad workflow is retired. The Figshare acquisition-and-analysis workflow remains active because it reproduces the contemporary FDQ, trait-matching, pollen-receipt and functional-moderation evidence used by the current mechanistic synthesis.
+The legacy Dryad workflow, acquisition script and source config are retired from the active tree. The transport failure remains documented here without being promoted to a biological claim. The Figshare acquisition-and-analysis workflow remains active because it reproduces the contemporary FDQ, trait-matching, pollen-receipt and functional-moderation evidence used by the current mechanistic synthesis.
 
 ## Five-candidate ordinal-order / tempered-SMC trial
 
@@ -130,4 +130,4 @@ The legacy incubator is therefore retired from the active tree. Its intended att
 
 ## Assets retained
 
-Only the compact threshold-identifiability simulator, fixed three-regime design, central-hypothesis contract and tests remain active. Detailed failed-run products remain recoverable from PR history and workflow artifacts rather than the active tree.
+Within this retired-trial family, only components that still enforce a current claim boundary, reproduce an adopted result/negative control, or support a declared field/design gate should remain active. Detailed failed-run products and removed exploratory executors remain recoverable from PR history, Git history and workflow artifacts rather than occupying the active tree.
