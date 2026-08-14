@@ -6,6 +6,7 @@
   "target_source_id": "castro_urgal_traveset_2014_canary_balearic_networks",
   "target_article_doi": "10.1111/boj.12134",
   "europe_pmc_supplementary_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4777429/supplementaryFiles",
+  "locked_package_sha256": "d1d8d0a372c1717ed0f5b73203018474ec5a59446192d9339dddad3c012f7f6f",
   "plos_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150824",
   "expected_files": [
     {
