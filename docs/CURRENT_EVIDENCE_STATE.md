@@ -1,18 +1,16 @@
 # Current Izu evidence state
 
-This file is generated from committed evidence tables by
-`python scripts/report_current_evidence_state.py`. It is the current claim
-boundary for the comparative programme, not a manuscript conclusion generated
-from discovery counts, simulations, or unfinished trait analyses.
+This file is generated from committed evidence tables and machine-readable
+admission states by `python scripts/report_current_evidence_state.py`. It is the
+current claim and development boundary for the comparative programme.
 
 ## Decision
 
-**Project stage:** `focal_three_channel_calibration_established_independent_holdout_blocked`.
+**Focal evidence stage:** `focal_three_channel_calibration_established_independent_holdout_blocked`.
 
-The adopted focal calibration contains three source-locked channels. Nectar-guide
-and visible-signal analyses are excluded from the current evidence state until a
-final dataset and analysis are explicitly declared. The independent positive
-specialist holdout is also absent, so no completed cross-lineage meta-analysis exists.
+The focal calibration still contains three source-locked channels. The focal
+cross-lineage holdout remains incomplete, while the direct dependency field
+pipeline and external bridge registry now determine the next executable gates.
 
 ## Adopted focal channel contract
 
@@ -28,44 +26,52 @@ specialist holdout is also absent, so no completed cross-lineage meta-analysis e
 |---|---|---|
 | `visible_signal` | `blocked_unmeasured` | `prospective_only` |
 
-The excluded rows are design targets only. They contribute no current direction,
-breakpoint, or effect estimate.
+The excluded rows are prospective design targets only. They contribute no current
+direction, breakpoint, or effect estimate.
 
-## Cross-lineage readiness
+## Current readiness
 
-- Source-locked quantitative effect rows beyond the extraction header: **0**.
+- Direct effective-dependency field state: **`implementation_ready_field_data_missing`**.
+- Source-locked quantitative focal holdout effect rows: **0**.
 - Eligible independent specialist holdout lineages: **0**.
 - Usable three-regime generalist negative-control lineages: **1**.
 - ROI proposals eligible for broad specialist holdout: **0**.
-- Unresolved primary-source targets: **Ligustrum ovalifolium, Weigela coraeensis**.
+- External partial mechanism bridges: **3**.
+- External near-complete within-archipelago bridges: **1**.
+- External complete mechanism bridges: **0**.
+- Formal cross-system mechanism fit ready: **false**.
+- Primary-source access state: **`blocked_external_source_delivery`**.
+- Source-triggered primary-source targets: **Hosta longipes, Ligustrum ovalifolium, Weigela coraeensis**.
 
 ## Claims currently supported with boundaries
 
 - The source-locked focal Campanula channels do not share one response shape: floral size and multilocus outcrossing are retained as continuous erosion, while autonomous reproductive capacity has a second-transition step.
-- Step, cline, and no-response models are legitimate competing response shapes for prospective cross-lineage tests; a shared breakpoint is a target hypothesis, not a result already demonstrated across species.
+- Step, cline, and no-response models remain legitimate competing response shapes for prospective cross-lineage tests; a shared breakpoint is not demonstrated across species.
 - Exactly 1 open-generalist lineage currently supplies a usable three-regime negative-control contrast.
-- The present repository supports a prediction-locked comparative programme, not a completed cross-lineage meta-analysis.
+- External screening has 3 independent partial mechanism bridges, including 1 near-complete within-archipelago system, but no complete bridge.
+- The present repository supports an implementation-ready mechanistic programme, not a completed cross-lineage or formal cross-system causal synthesis.
 
 ## Claims that remain blocked
 
 - Do not use any current nectar-guide measurement, direction, or effect size as adopted evidence; visible signal remains blocked and prospective only.
 - Do not claim that historical Bombus loss has been causally identified.
 - Do not claim a general Izu-flora rule from the focal calibration lineage and one generalist control.
-- Do not treat raw occurrence, visitor identity, public photographs, or non-report as pollinator effectiveness or as a floral-trait value.
-- Do not call environment-only rejected until climate, area, isolation, and history enter an explicit comparison likelihood.
-- Do not reopen the broad specialist photo holdout while no ROI proposal has an independent biological positive-control validation.
+- Do not treat raw occurrence, visitor identity, visitation rate, public photographs, pollination syndrome, or non-report as effective reproductive dependency.
+- Do not promote partial external bridges to a complete causal chain or formal cross-system mechanism fit.
+- Do not interpret exhausted public source routes as evidence that the underlying primary data never existed.
 
 ## Next admissible work
 
-1. Recover and source-lock the unresolved primary tables/locality maps for: Ligustrum ovalifolium, Weigela coraeensis.
-2. Build a cross-lineage regime-transition registry that can accept continuous, ordinal, or binary source-native responses while keeping their observation models separate.
-3. Use open-generalist lineages as negative controls for shared pollinator-regime breakpoints, not as proof that every generalist response must be exactly flat.
-4. Test step-at-first-boundary, step-at-second-boundary, smooth-cline, no-response, and explicit environment/history alternatives with leave-one-lineage-out validation.
-5. Keep nectar-guide analyses outside the current evidence state until the user declares a final dataset and analysis.
+1. Issue #91: collect the first real linked Campanula field bundle and pass preflight, raw freeze, structural audit, and plant-level dispersion gates.
+2. Replace synthetic variance, reliability, coverage, and loss assumptions only with pilot-derived quantities, then lock a biologically meaningful absolute precision target.
+3. Broaden directly measured Izu dependency across multiple low, intermediate, and high dependency lineages after the focal pilot becomes dispersion-estimable.
+4. Externally, recover or collect the missing Dong Cordia direct effectiveness and controlled-dependency channels, or identify another genuinely complete bridge.
+5. Keep primary-source targets (Hosta longipes, Ligustrum ovalifolium, Weigela coraeensis) as source-triggered reopen gates while access state is blocked_external_source_delivery; do not repeat exhausted automated searches without a new route.
+6. Keep visible-signal / nectar-guide historical inference outside the adopted evidence state unless a final dataset and analysis are explicitly declared.
 
 ## Supersession rule
 
-Older pilot documents, simulations, and unfinished trait summaries remain audit
-history. When they conflict with this generated state, the v1.0 source-locked
-channel contract, source-native evidence registry, quantitative-effect gate,
-blinded-card ledger, and ROI dual-control result take precedence.
+Older pilot documents, simulations, discovery notes and superseded source-gate
+wording remain audit history. When they conflict with this generated state, the
+source-locked focal contract, current admission registries, Issue #91 field gates,
+external bridge registry and completed provenance/EIV decisions take precedence.

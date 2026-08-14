@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0",
-  "updated_on": "2026-08-13",
-  "baseline_sha": "2cf374e42f63294101ba5f4925b8a742f23ddc35",
+  "schema_version": "1.1",
+  "updated_on": "2026-08-14",
+  "routing_baseline_sha": "2cf374e42f63294101ba5f4925b8a742f23ddc35",
   "program_hypothesis": "Loss, simplification, or turnover of effective pollination can reduce effective reproductive dependence on the ancestral interaction; increased autonomous reproductive assurance can then relax selection maintaining pollinator-dependent floral traits, producing lineage- and context-dependent floral compression or simplification.",
   "claim_state": "mechanistic_chain_not_yet_causally_identified",
   "protected_scientific_state": {
@@ -15,6 +15,12 @@
     "universal_izu_flora_rule": false,
     "external_morphology_directional_replication": "two_independent_systems_below_isometry_under_ols_island_cluster_resampling",
     "external_morphology_pooled_coefficient_allowed": false,
+    "external_mechanism_bridge_state": {
+      "independent_partial_systems": 3,
+      "near_complete_within_archipelago": 1,
+      "complete_systems": 0,
+      "current_best_bridge": "xisha_cordia_subcordata_two_island_system"
+    },
     "formal_cross_system_fit_ready": false
   },
   "workstreams": [
@@ -23,15 +29,17 @@
       "name": "scientific_state_protection_and_cleanup_guard",
       "priority": 0,
       "status": "active",
-      "completion_rule": "source locks, canonical result registries, negative admission states, claim-boundary regression tests, and the Issue #91 field pipeline are explicitly protected before implementation pruning"
+      "completion_rule": "source locks, canonical result registries, negative admission states, claim-boundary regression tests, and the Issue #91 field pipeline remain protected before implementation pruning"
     },
     {
       "id": "P1",
       "name": "izu_direct_effective_dependency_pilot",
       "priority": 1,
       "issue": 91,
-      "status": "active_empirical_gate",
+      "status": "implementation_ready_field_data_missing",
       "required_outputs": [
+        "first_real_six_channel_bundle_passes_preflight",
+        "raw_bundle_freeze",
         "linked_plant_effort_visit_svd_treatment_fruit_seed_records",
         "structural_dependency_panel_pass",
         "between_plant_svd_dispersion_estimable",
@@ -62,6 +70,7 @@
       "name": "cross_archipelago_mechanism_replication",
       "priority": 2,
       "issue": 93,
+      "bridge_issue": 100,
       "status": "active_external_validation",
       "stages": [
         {
@@ -77,13 +86,18 @@
         {
           "stage": "C",
           "name": "effective_service_reproductive_dependency_bridge",
-          "current_state": "major_missing_external_link",
-          "priority_rule": "prefer systems linking floral response with effectiveness_or_pollen_function and independently measured reproductive dependency at matched or prespecified linked units"
+          "current_state": "three_independent_partial_bridges_one_near_complete_zero_complete",
+          "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
+          "missing_best_bridge_links": [
+            "Dong_direct_single_visit_effectiveness",
+            "Dong_controlled_reproductive_dependency"
+          ],
+          "priority_rule": "close the missing side of the strongest bridge or identify another system linking floral response, direct pollen function and independently measured reproductive dependency at matched transition units"
         },
         {
           "stage": "D",
           "name": "within_system_mechanistic_triangulation",
-          "current_state": "not_yet_replicated_across_independent_archipelagos"
+          "current_state": "partial_mechanistic_recurrence_across_three_independent_systems_no_complete_transition"
         },
         {
           "stage": "E",
@@ -130,7 +144,7 @@
       "id": "P5",
       "name": "implementation_consolidation",
       "priority": 3,
-      "status": "parallel_after_P0_freeze",
+      "status": "parallel_conservative_cleanup",
       "order": [
         "remove_unambiguous_temp_and_dead_scaffolding",
         "consolidate_superseded_wrappers_after_reference_audit",
@@ -141,7 +155,7 @@
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "Issue_91_first_real_field_bundle_then_external_bridge_system_prioritization",
+  "next_executable_task": "Issue_91_first_real_field_bundle; in_parallel_close_Cordia_Dong_effectiveness_dependency_gap_without_weakening_admission",
   "not_mainline": [
     "nectar_guide_visible_signal_historical_inference",
     "universal_island_dwarfism_coefficient",

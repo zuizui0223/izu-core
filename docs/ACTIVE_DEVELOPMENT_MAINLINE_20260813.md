@@ -1,215 +1,236 @@
-# Active development mainline — 2026-08-13
+# Active development mainline — refreshed 2026-08-14
 
-Baseline: `main@2cf374e42f63294101ba5f4925b8a742f23ddc35`
+Routing baseline: `main@2cf374e42f63294101ba5f4925b8a742f23ddc35`  
+Machine-readable routing: `data/design/active_development_mainline.json`
 
-This document fixes the active development order after PR #90 and the source/provenance follow-up work. It is a routing document, not a new biological result. When this document conflicts with source-locked result tables or generated claim-boundary reports, the source-locked evidence and their regression/admission gates take precedence.
+This is a routing document, not a new biological result. Current claim boundaries
+come from `docs/CURRENT_EVIDENCE_STATE.md`, `docs/CURRENT_MECHANISTIC_LEVERAGE.md`
+and the source/admission registries. Older discovery notes and virtual-Izu reports
+remain audit history when they conflict with those current states.
 
-## Central hypothesis under test
+## Central hypothesis
 
-The programme tests a conditional mechanism rather than a universal island-flower rule:
-
-> Loss, simplification, or turnover of effective pollination can reduce effective reproductive dependence on the ancestral interaction; increased autonomous reproductive assurance can then relax selection maintaining pollinator-dependent floral traits, producing lineage- and context-dependent floral compression or simplification.
-
-The current repository does **not** yet identify that complete causal chain. The remaining work is ordered to identify the missing links rather than to accumulate more loosely related island correlations.
-
-## Scientific state that must remain protected
-
-### Izu focal calibration
-
-Retain the current source-locked three-channel distinction:
-
-- `floral_size`: continuous erosion;
-- `outcrossing`: continuous erosion;
-- `autonomous_assurance`: second-transition step.
-
-Visible signal / nectar-guide remains outside the adopted historical evidence state unless a final dataset and analysis are explicitly declared.
-
-Do not promote the focal pattern to historical Bombus-loss causation or to a universal Izu-flora rule.
-
-### Contemporary mechanism evidence
-
-Retain the separation between functional pollinator environment and reproductive function. Existing contemporary evidence can support functional-environment / trait-matching associations, but visit identity, visitation frequency, or network turnover must not be silently relabelled as pollinator effectiveness, pollen function, or reproductive dependency.
-
-### Cross-archipelago evidence
-
-Retain the current directional morphology recurrence without pooling it into a universal coefficient:
-
-- Southwest Pacific animal-pollinated pairs: below-isometry OLS response shape under island-cluster resampling;
-- Hendriks 2019: independent below-isometry OLS directional recurrence with provenance locked;
-- measurement-error / reliability boundary remains unresolved for formal same-family admission.
-
-Retain Wanshan–Yongxing as a visitation-collapse / partner-turnover system and Ogasawara as an invasion-context rewiring system. These are not exchangeable with floral-morphology effects.
-
-Current formal cross-system model state remains `false`: no compatible effect family has uncertainty in at least two independent system clusters.
-
-## Development order
-
-### P0 — protect the scientific state while simplifying implementation
-
-Before deleting or consolidating code, preserve:
-
-- source locks, checksums, source locators, transcription verification and admission states;
-- canonical result registries and current claim-boundary outputs;
-- regression tests that prevent overclaiming;
-- the complete Issue #91 direct effective-dependency field pipeline;
-- explicit negative results such as source-route exhaustion, unresolved EIV, blocked formal fit, and excluded visible-signal evidence.
-
-One-off acquisition attempts, superseded wrappers, abandoned pilot/ROI/guide machinery, legacy incubators and obsolete generated summaries may be removed from the active tree only after confirming that no protected artifact or admission gate depends on them.
-
-### P1 — Izu mechanistic anchor: direct effective dependency (Issue #91)
-
-This is the highest-priority empirical gate.
-
-1. Collect linked `plant / effort / visit / SVD / treatment / fruit / seed` records with stable IDs.
-2. Preserve zero-visit effort and no-visit SVD controls.
-3. Pass the structural dependency-panel audit.
-4. Obtain enough independent plants to estimate between-plant dispersion for at least one relevant visitor group and all three reproductive treatments.
-5. Keep loss, damage, pending outcomes and unresolved parentage explicit.
-6. Replace synthetic variance, reliability, coverage and loss assumptions with pilot estimates.
-7. Choose a biologically meaningful **absolute** CI half-width before confirmatory sample-size planning.
-8. Keep confirmatory adequacy closed until the precision step is complete.
-
-The Izu pilot should eventually export source-native population-level estimates and uncertainty for:
-
-- effective per-visit pollen service;
-- sampled rate-weighted service where estimable;
-- autonomous reproductive assurance / effective reproductive dependency;
-- corresponding floral response values at the same population or a prespecified linked unit.
-
-These outputs form the mechanistic anchor for external replication; they do not by themselves create an independent archipelago replicate.
-
-### P2 — broaden direct dependency within Izu / across lineages
-
-After the focal pilot is structurally valid and dispersion is estimable:
-
-- add at least one credible high-dependency endpoint;
-- add multiple intermediate dependency values so one lineage cannot determine the slope;
-- preserve low–intermediate–high direct-dependency support across independent taxa;
-- retain repeated site-season exposure where feasible;
-- keep non-establishment, hybrid replacement and rewiring as possible survivor-range truncation mechanisms;
-- do not substitute floral syndrome, visitor identity, GBIF occurrence, or morphology for effective dependency.
-
-Campanula remains the deep mechanistic anchor, not proof of an empirical cross-lineage `dependency × functional environment` interaction.
-
-### P3 — external island replication as a mechanism ladder (Issue #93)
-
-External systems should be upgraded in stages. A system can contribute at one stage without being promoted to the next.
-
-#### Stage A — recurrent plant-response pattern
-
-Ask whether a source-native floral response recurs across independent island systems. The current 2/2 below-isometry OLS direction is directional replication only; no universal coefficient is inferred.
-
-#### Stage B — recurrent pollinator-environment change
-
-Estimate source-native effects for visitation loss, functional turnover, partner replacement or other prespecified pollinator-environment changes with their correct independent units and uncertainty.
-
-Network or visitation effects remain interaction-environment evidence, not effective dependency.
-
-#### Stage C — effective-service / reproductive-dependency bridge
-
-Highest external-data priority is now a system that can connect the two sides:
-
-- the same population, lineage pair, or prespecified transfer unit has floral response data;
-- pollinator service is measured at an effectiveness or pollen-function level rather than presence alone;
-- reproductive dependence / autonomous assurance is measured independently of floral form or syndrome;
-- uncertainty and sampling hierarchy are recoverable;
-- provenance is source locked.
-
-A bridge system is more informative than simply adding another island floral-size case.
-
-#### Stage D — within-system mechanistic triangulation
-
-For each qualifying independent system test the ordered prediction, without assuming all links must have identical estimands:
-
-`pollinator functional change -> effective service -> reproductive dependency / assurance -> floral response`
-
-Alternative explanations such as demography, establishment history, invasion, rewiring, hybrid replacement, environment and geological history remain explicit competitors where the source supports them.
-
-#### Stage E — cross-system mechanism replication
-
-Only compare compatible source-native estimands across independent system clusters. Independent systems, not the number of plants, islands, visits, or species rows inside a system, determine external replication.
-
-A formal cross-system model may open only when all of the following are satisfied:
-
-1. the same estimand family exists in at least two independent system clusters;
-2. compatible uncertainty is available;
-3. source provenance and sampling hierarchy are locked;
-4. required measurement-error / EIV gates are satisfied for that estimand;
-5. no effect is admitted because a favourable sensitivity assumption was selected;
-6. effective dependency is not inferred from syndrome, visitor identity, or morphology itself.
-
-### P4 — source-controlled reopen conditions
-
-#### Issue #92 — Weigela / Ligustrum / Hosta
-
-The automated public/OpenAlex route is exhausted. Keep the numeric morphology and dependency gates closed until a lawful library, author, repository, or user-supplied source exposes the necessary population-level material. Do not add more code merely to repeat exhausted public discovery routes.
-
-#### Hetherington-Rauth / Johnson 136-pair system
-
-The exact University of Toronto thesis and pair-identity table are source locked, but the inspected public corpus exposes no source-native numeric 136-pair floral table. Do not reconstruct a third effect from identities, figures, or prose. Reopen only if new lawful source-native numeric values appear.
-
-#### Morphology EIV
-
-The reliability investigation is complete as a negative identification result: available public/source-native material does not identify the target reliability ratio. Keep the Southwest Pacific and Hendriks formal starting-size admission closed unless target-scale repeated measurements, replicate variance, or a defensibly transportable reliability distribution becomes available.
-
-#### Galápagos raw network archive
-
-Keep raw plant-level network analysis closed until the source archive is recovered. Published island-level summaries remain descriptive diagnostics rather than compatible plant-level network effects.
-
-### P5 — implementation consolidation
-
-Once P0 is represented by a stable freeze/roadmap and protected artifacts are covered by tests, simplify the active repository in conservative waves:
-
-1. remove obvious temporary files and unreferenced dead scaffolding;
-2. consolidate superseded v1/v2 acquisition wrappers only after downstream-reference checks;
-3. demote completed one-off source-acquisition workflows from routine CI where their locked outputs no longer need regeneration;
-4. isolate or remove legacy/incubator models that are explicitly outside current inference;
-5. prune obsolete pilot/generated summaries while retaining concise machine-readable negative results and provenance records.
-
-Do not combine risky workflow consolidation with scientific result changes in the same cleanup step.
-
-## Priority dependency graph
+The programme tests a conditional mechanism rather than a universal island-flower
+rule:
 
 ```text
-P0 scientific-state protection
-  |
-  +--> P1 Izu direct dependency pilot
-  |      |
-  |      +--> pilot dispersion / reliability / loss estimates
-  |      +--> absolute precision target
-  |      +--> confirmatory design
-  |      +--> P2 direct dependency span across Izu lineages
-  |
-  +--> P3 external mechanism ladder
-         |
-         +--> A morphology recurrence [directional evidence exists]
-         +--> B pollinator-environment recurrence [network evidence exists]
-         +--> C external service/dependency bridge [major missing link]
-         +--> D within-system mechanistic triangulation
-         +--> E same-family replication in >=2 independent systems
-                |
-                +--> formal cross-system model may open
-
-P4 source-controlled reopen gates feed P3 only when new admissible source bytes/data appear.
-P5 cleanup runs in parallel but may not alter protected conclusions or reopen blocked claims.
+pollinator functional environment
+    -> effective pollen service
+    -> reproductive dependency / autonomous assurance
+    -> floral response
 ```
 
-## What is not the active mainline
+Lineage, response channel, colonisation / establishment history, demography,
+rewiring, invasion context and measurement error remain explicit alternatives or
+moderators.
+
+The full causal chain is not yet identified.
+
+## Protected scientific state
+
+Do not change these conclusions during cleanup or workflow consolidation:
+
+- focal `Campanula` floral size = `continuous_erosion`;
+- focal multilocus outcrossing = `continuous_erosion`;
+- focal autonomous assurance = `second_transition_step`;
+- visible signal / nectar guide = `blocked_unmeasured`, prospective only;
+- historical Bombus-loss causation = not identified;
+- universal Izu-flora rule = not supported;
+- Southwest Pacific + Hendriks retain 2/2 below-isometry OLS directional
+  morphology recurrence, not a pooled universal coefficient;
+- Hendriks provenance is complete; morphology EIV admission remains closed by
+  unidentified target reliability;
+- external mechanism bridges = 3 partial, 1 near-complete, 0 complete;
+- formal cross-system mechanism fitting = closed.
+
+## P0 — protect evidence while simplifying implementation
+
+Always retain:
+
+- source locks, checksums, source locators and transcription verification;
+- canonical result/admission registries;
+- negative results and source-route exhaustion states;
+- regression tests that prevent claim promotion;
+- the complete Issue #91 direct dependency field pipeline.
+
+Implementation may be pruned only after those artifacts are protected.
+
+## P1 — Issue #91: first real Izu direct-dependency bundle
+
+This remains the highest-priority empirical gate.
+
+Current state: `implementation_ready_field_data_missing`.
+
+The next real bundle must pass:
+
+```text
+six-channel preflight
+    -> immutable raw freeze
+    -> linked structural audit
+    -> controlled SVD admission
+    -> plant-level SVD dispersion
+    -> plant-level open / bagged-autonomous / supplemental-outcross dispersion
+    -> pilot variance / coverage / loss summaries
+    -> absolute precision target
+```
+
+Required field linkage includes plant / flower, observation effort including
+zero-visit windows, visitor bouts/contact, single-visit pollen deposition with
+no-visit controls, reproductive treatments, fruit/seed and optional parentage.
+
+Flowers and repeated visits within a plant remain subsamples, not independent
+`n`. A pilot does not identify historical selection or an Oshima-Toshima causal
+boundary.
+
+## P2 — direct dependency span across Izu lineages
+
+Only after P1 becomes dispersion-estimable:
+
+- add at least one credible high-dependency endpoint;
+- add multiple intermediate dependency values;
+- distribute directly measured low-intermediate-high support across independent
+  taxa;
+- preserve repeated site-season exposure where feasible;
+- retain non-establishment, hybrid replacement and rewiring as response modes;
+- never substitute syndrome, visitor identity, occurrence or morphology for
+  effective dependency.
+
+Campanula is the mechanistic anchor, not a complete cross-lineage interaction
+result by itself.
+
+## P3 — external archipelagos: mechanism ladder
+
+### Stage A — recurrent plant response
+
+Directional morphology recurrence exists. It remains directional evidence, not a
+universal coefficient.
+
+### Stage B — recurrent pollinator-environment change
+
+Wanshan-Yongxing and Ogasawara show visitation loss / partner turnover / rewiring
+patterns. These are interaction-environment effects, not direct dependency.
+
+### Stage C — effective-service / dependency bridge
+
+Stage C is no longer an empty gap. Issue #100 now contains three independent
+partial bridge systems:
+
+1. California Channel Islands *Nicotiana glauca* — population/site-level partial
+   bridge; direct service and reproductive evidence exist, but cross-study/year
+   linkage is incomplete.
+2. Caribbean Gesneriaceae — clade-level partial bridge; direct visitation and
+   autofertility plus reproductive-assurance/floral-transition recurrence, but
+   matched per-visit pollen function is missing.
+3. Xisha *Cordia subcordata* — current strongest system,
+   `near_complete_within_archipelago`; one two-island study contains floral
+   morph-state divergence, pollinator-environment contrast, single-visit pollen
+   deposition and controlled reproductive dependence.
+
+Cordia is still not complete because Dong supplies the response transition, low
+visitation and low natural fruit set, whereas direct single-visit effectiveness
+and controlled dependency were measured at Yongxing. Yongxing values must not
+be transported to Dong.
+
+A targeted public follow-up did not recover Dong direct-effectiveness or
+controlled-dependency data. This is a source-availability result, not evidence of
+nonexistence.
+
+### Stage D — within-system triangulation
+
+Partial mechanistic recurrence now exists across three independent systems. No
+external system yet identifies every link at matched response-transition units.
+
+### Stage E — formal cross-system mechanism replication
+
+Keep closed until the same estimand family with compatible uncertainty exists in
+at least two independent system clusters and all provenance, hierarchy and
+measurement-error gates pass.
+
+Current state:
+
+```text
+partial bridges = 3
+near-complete bridges = 1
+complete bridges = 0
+formal_cross_system_mechanism_fit_ready = false
+```
+
+## P4 — source-triggered reopen gates
+
+These are not continuous code-development loops:
+
+- Issue #92 Weigela / Ligustrum / Hosta: automated public/OpenAlex routes are
+  exhausted; reopen only on lawful library, author, repository or user-supplied
+  source delivery.
+- Hetherington-Rauth / Johnson 136-pair numeric table: exact thesis and pair
+  identities are locked, but the inspected public bundle lacks the numeric floral
+  table; reopen only on new source-native values.
+- morphology EIV: investigation complete, target reliability unidentifiable;
+  reopen only with target-relevant repeated measurements / variance or a
+  defensibly transportable error model.
+- Galapagos raw archive: raw plant-level analysis remains closed until source
+  bytes are recovered.
+
+Exhausted access is not evidence that underlying data never existed.
+
+## P5 — conservative implementation cleanup
+
+Run in separate, reviewable waves:
+
+1. remove unambiguous temporary / dead scaffolding;
+2. consolidate duplicated wrappers only after downstream-reference audit;
+3. demote completed one-off acquisition workflows only when locked outputs and
+   provenance remain reproducible;
+4. keep boundary documents for explicitly inactive incubator models unless their
+   scientific warning is preserved elsewhere;
+5. prune obsolete generated summaries while retaining concise negative results.
+
+Do not mix risky workflow consolidation with scientific-result changes.
+
+## Priority graph
+
+```text
+P0 protection
+  |
+  +--> P1 #91 first real field bundle
+  |      -> pilot dispersion
+  |      -> observed variance / coverage / loss
+  |      -> absolute precision target
+  |      -> confirmatory design
+  |      -> P2 multi-lineage dependency span
+  |
+  +--> P3 external mechanism replication
+         A response recurrence [exists]
+         B pollinator-environment recurrence [exists]
+         C partial bridges [3; Cordia strongest]
+         D complete matched triangulation [missing]
+         E same-family independent replication [closed]
+
+P4 source gates feed P3 only when new admissible source material appears.
+P5 cleanup runs in parallel without changing P0 conclusions.
+```
+
+## Next executable tasks
+
+1. **Issue #91:** ingest the first real linked field bundle; do not add more
+   methodological complexity while the empirical rows are absent.
+2. After the pilot, replace synthetic design assumptions only with observed pilot
+   quantities and lock the precision target before confirmatory sample planning.
+3. In parallel, close the missing Dong *Cordia* effectiveness/dependency side or
+   identify a genuinely complete external bridge without weakening admission.
+4. Broaden Izu direct dependency across multiple low-intermediate-high lineages
+   only after the focal pilot is estimable.
+5. Continue conservative code/workflow cleanup under the protected scientific
+   state.
+
+## Not the active mainline
 
 Do not spend the next development cycle on:
 
 - reviving nectar-guide / visible-signal historical inference;
-- proving a universal island dwarfism coefficient;
-- increasing raw island counts without independent-system replication;
-- interpreting visitor occurrence as pollination effectiveness;
-- repeatedly probing already exhausted source routes;
-- opening a formal meta-analysis before compatible estimands exist in at least two independent systems;
-- adding complexity to legacy simulation/ABM machinery that does not change an admission decision.
-
-## Next executable tasks
-
-1. Keep Issue #91 as the active empirical implementation target and prepare the first real field bundle to pass structural and plant-dispersion gates.
-2. Recast Issue #93 around the Stage A–E mechanism ladder; Hendriks provenance is complete, while EIV remains closed by negative identification.
-3. Prioritize external **bridge systems** with morphology + effective service/dependency over additional morphology-only examples.
-4. Treat Issue #92 and the 136-pair numeric table as source-triggered reopen tasks rather than continuous code-development loops.
-5. Start conservative cleanup only after this routing is merged, beginning with unambiguously dead temporary/scaffolding files and preserving every source-locked result and claim-boundary guard.
+- a universal island dwarfism coefficient;
+- more raw island counts without independent mechanism replication;
+- visitor occurrence as effectiveness or syndrome as dependency;
+- repeated automated searches of exhausted source routes;
+- formal meta-analysis before compatible same-family effects exist;
+- legacy simulation complexity that does not change an admission decision.
