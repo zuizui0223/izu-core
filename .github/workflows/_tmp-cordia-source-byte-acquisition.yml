@@ -1,0 +1,78 @@
+name: Temporary Cordia source-byte acquisition
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/_tmp-cordia-source-byte-acquisition.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch exact open article PDF and write checksum manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          routes=(
+            "publisher|https://plecevo.eu/article/24681/download/pdf/"
+            "semantic_scholar|https://pdfs.semanticscholar.org/1562/b772dee15adff4ff7238b368065eeb7803b3.pdf"
+          )
+          success_route=""
+          success_url=""
+          for entry in "${routes[@]}"; do
+            route="${entry%%|*}"
+            url="${entry#*|}"
+            echo "Attempting ${route}: ${url}"
+            rm -f artifacts/cordia_subcordata_2020.pdf
+            if curl --location --fail --silent --show-error --retry 2 --retry-all-errors \
+              --connect-timeout 20 --max-time 120 \
+              --user-agent 'Mozilla/5.0 izu-core-source-audit/1.0' \
+              "$url" -o artifacts/cordia_subcordata_2020.pdf; then
+              magic="$(head -c 4 artifacts/cordia_subcordata_2020.pdf || true)"
+              bytes="$(wc -c < artifacts/cordia_subcordata_2020.pdf)"
+              if [[ "$magic" == "%PDF" && "$bytes" -gt 100000 ]]; then
+                success_route="$route"
+                success_url="$url"
+                break
+              fi
+              echo "Rejected non-PDF or implausibly small payload from ${route}: magic=${magic} bytes=${bytes}"
+            fi
+          done
+          if [[ -z "$success_route" ]]; then
+            echo "No route returned valid PDF bytes" >&2
+            exit 1
+          fi
+          sha256="$(sha256sum artifacts/cordia_subcordata_2020.pdf | awk '{print $1}')"
+          bytes="$(wc -c < artifacts/cordia_subcordata_2020.pdf)"
+          printf '%s\n' "route=${success_route}" "url=${success_url}" "bytes=${bytes}" "sha256=${sha256}" | tee artifacts/cordia_source_checksum.txt
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          fields = {}
+          for line in Path('artifacts/cordia_source_checksum.txt').read_text().splitlines():
+              key, value = line.split('=', 1)
+              fields[key] = value
+          fields['bytes'] = int(fields['bytes'])
+          fields.update({
+              'source_id': 'wang_et_al_2020_cordia_subcordata',
+              'doi': '10.5091/plecevo.2020.1757',
+              'expected_title': 'Cordia subcordata (Boraginaceae), a distylous species on oceanic coral islands, is self-compatible and pollinated by a passerine bird',
+              'byte_scope': 'exact bytes returned by the recorded successful open-PDF route; no claim that different mirrors are byte-identical',
+          })
+          Path('artifacts/cordia_source_checksum.json').write_text(json.dumps(fields, indent=2) + '\n')
+          PY
+      - name: Upload checksum manifest and fetched PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: cordia-source-byte-lock
+          path: |
+            artifacts/cordia_source_checksum.txt
+            artifacts/cordia_source_checksum.json
+            artifacts/cordia_subcordata_2020.pdf
+          if-no-files-found: error
