@@ -87,6 +87,22 @@ def hrefs(value: object) -> list[str]:
     )
 
 
+def zip_info_urls(value: object, target_filename: str) -> list[str]:
+    """Extract target workbook URLs from an already-fetched zip-assembly response."""
+    urls: list[str] = []
+    rows = value if isinstance(value, list) else []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        filename = str(row.get("filename") or "")
+        url = row.get("url")
+        if isinstance(url, str) and (
+            filename == target_filename or filename.casefold().endswith(".xlsx")
+        ) and url not in urls:
+            urls.append(url)
+    return urls
+
+
 def add_unique(target: list[str], values: Iterable[str]) -> None:
     for value in values:
         if value and value not in target:
@@ -148,9 +164,9 @@ def main() -> None:
         info_url = f"https://datadryad.org/downloads/zip_assembly_info/{resource_id}.json"
         info = get_json(opener, info_url, errors, "zip_assembly_info")
         zip_info[str(resource_id)] = info
-        add_unique(candidates, legacy.zip_assembly_candidates(info, target))
+        add_unique(candidates, zip_info_urls(info, target))
 
-    add_unique(candidates, legacy.linkset_download_urls(linkset))
+    add_unique(candidates, legacy.extract_linkset_download_urls(linkset))
     for file_id in sorted(resolved_files, reverse=True):
         add_unique(candidates, (
             f"https://datadryad.org/downloads/file_stream/{file_id}",
