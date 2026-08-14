@@ -20,6 +20,15 @@ def test_p1_is_first_real_field_bundle_gate():
     assert "first_real_six_channel_bundle_passes_preflight" in p1["required_outputs"]
 
 
+def test_p1_does_not_relabel_focal_pilot_as_final_dependency_reliability():
+    p1 = workstream(load_mainline(), "P1")
+    outputs = p1["required_outputs"]
+    assert "pilot_variance_coverage_loss_estimates" in outputs
+    assert "final_dependency_reliability_remains_separate_repeated_final_estimand_gate" in outputs
+    assert "pilot_variance_reliability_coverage_loss_estimates" not in outputs
+    assert "final_dependency_reliability_from_single_focal_pilot" in p1["blocked_claims"]
+
+
 def test_stage_c_reflects_three_partial_bridges_and_cordia_gap():
     mainline = load_mainline()
     p3 = workstream(mainline, "P3")
