@@ -186,7 +186,7 @@ def zip_info_urls(info: object, filename: str) -> list[str]:
 
 
 def looks_html(payload: bytes) -> bool:
-    prefix = payload[:500].lstrip().casefold()
+    prefix = payload[:500].lstrip().lower()
     return prefix.startswith(b"<!doctype html") or prefix.startswith(b"<html")
 
 
