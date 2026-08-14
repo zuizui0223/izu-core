@@ -1,0 +1,43 @@
+{
+  "schema_version": "effective_dependency_reliability_calibration_v1",
+  "status": "blocked_no_repeated_final_estimand",
+  "target_estimand": "direct_reproductive_dependency_0_1",
+  "target_unit": "prespecified taxon x site x season unit",
+  "repeat_definition": "A fresh estimate of the same final dependency estimand from a non-overlapping independent plant panel, using the same protocol and a distinct frozen source bundle.",
+  "minimum_for_calibration_scope_reliability_estimation": {
+    "target_units_with_independent_repeats": 3,
+    "eligible_repeat_blocks_per_target_unit": 2,
+    "independent_plants_per_repeat_block": 2,
+    "note": "These are mathematical estimability minima for a variance-component reliability calculation, not a confirmatory sample-size recommendation."
+  },
+  "template": "templates/effective_dependency_reliability_repeat_template.csv",
+  "cli": "scripts/audit_effective_dependency_reliability.py",
+  "module": "channel_id/effective_dependency_reliability.py",
+  "current_evidence": {
+    "focal_field_pilot_rows_present": false,
+    "independent_repeated_final_dependency_panels_present": false,
+    "calibration_scope_reliability_identified": false,
+    "dependency_fdq_design_reliability_admitted": false
+  },
+  "pilot_replacement_scope": {
+    "between_plant_variance": "pilot-estimable after admission and sufficient independent plants",
+    "coverage": "pilot-summarizable but not automatically equal to cross-lineage design coverage",
+    "loss_and_pending": "pilot-summarizable with loss/damage/pending kept distinct",
+    "direct_dependency_reliability": "not identified by the ordinary single pilot panel"
+  },
+  "technical_recount_boundary": "Blinded recounts of the same preserved SVD sample identify pollen-count technical repeatability only and cannot open this final-estimand reliability gate.",
+  "forbidden_substitutions": [
+    "technical SVD recount repeatability",
+    "repeated flowers within one plant",
+    "repeated visits within one plant",
+    "between-plant biological dispersion from one unrepeated target panel",
+    "floral syndrome or visitor identity",
+    "synthetic dependency reliability from dependency_fdq_design_scenarios.json"
+  ],
+  "dependency_fdq_design_injection": {
+    "automatic": false,
+    "current_status": "blocked",
+    "reopen_rule": "First identify calibration-scope reliability from independent repeated final-estimand panels, then separately review whether that reliability is transportable to the prespecified cross-lineage taxon x site x season predictor."
+  },
+  "claim_boundary": "This gate prevents technical repeatability, biological subsampling variation or synthetic sensitivity values from being relabelled as reliability of the final direct-dependency predictor. It does not identify historical Bombus causation, empirical dependency x FDQ moderation or causal island-boundary effects."
+}
