@@ -115,11 +115,11 @@
     "unadjusted_initial": {
       "label": "island_minus_continent",
       "coefficient": "is_island",
-      "estimate_mm": -0.4573459879305094,
-      "se_mm": 0.42860253552642436,
+      "estimate_mm": -0.4573459879316898,
+      "se_mm": 0.4286025355264111,
       "ci_95_mm": [
-        -1.2973915212448501,
-        0.38269954538383133
+        -1.2973915212460045,
+        0.38269954538262496
       ],
       "n_rows": 747,
       "converged": true,
@@ -153,11 +153,11 @@
     "unadjusted_filtered": {
       "label": "island_minus_continent",
       "coefficient": "is_island",
-      "estimate_mm": -0.5071228906088456,
-      "se_mm": 0.4306791131610275,
+      "estimate_mm": -0.5071228906080796,
+      "se_mm": 0.430679113161035,
       "ci_95_mm": [
-        -1.35123844129811,
-        0.3369926600804187
+        -1.3512384412973586,
+        0.33699266008119944
       ],
       "n_rows": 739,
       "converged": true,
@@ -167,11 +167,11 @@
     "bioclimate_adjusted": {
       "label": "island_minus_continent",
       "coefficient": "is_island",
-      "estimate_mm": -1.5183647688932365,
-      "se_mm": 0.479111843897065,
+      "estimate_mm": -1.5183647688944364,
+      "se_mm": 0.4791118438970436,
       "ci_95_mm": [
-        -2.4574067274980607,
-        -0.5793228102884125
+        -2.4574067274992184,
+        -0.5793228102896545
       ],
       "n_rows": 747,
       "converged": true,
@@ -181,11 +181,11 @@
     "galapagos_vs_other_islands_bioclimate": {
       "label": "galapagos_minus_other_islands",
       "coefficient": "is_galapagos",
-      "estimate_mm": -8.803671823350326,
-      "se_mm": 0.9627547925819733,
+      "estimate_mm": -8.803671823345683,
+      "se_mm": 0.9627547925820873,
       "ci_95_mm": [
-        -10.690636542754323,
-        -6.916707103946329
+        -10.690636542749903,
+        -6.916707103941461
       ],
       "n_rows": 389,
       "converged": true,
@@ -198,19 +198,19 @@
       "author_mainland_mm": 16.7,
       "author_island_mm": 16.3,
       "author_difference_mm": -0.3999999999999986,
-      "python_mixedlm_island_coefficient_mm": -0.5071228906088456
+      "python_mixedlm_island_coefficient_mm": -0.5071228906080796
     },
     "bioclimate": {
       "author_mainland_mm": 17.3,
       "author_island_mm": 15.8,
       "author_difference_mm": -1.5,
-      "python_mixedlm_island_coefficient_mm": -1.5183647688932365
+      "python_mixedlm_island_coefficient_mm": -1.5183647688944364
     },
     "galapagos_vs_other": {
       "author_galapagos_mm": 8.62,
       "author_other_islands_mm": 17.45,
       "author_difference_mm": -8.83,
-      "python_mixedlm_galapagos_coefficient_mm": -8.803671823350326
+      "python_mixedlm_galapagos_coefficient_mm": -8.803671823345683
     }
   },
   "ID_level_independence_sensitivity": {
@@ -227,11 +227,11 @@
       "label": "ID_mean_island_minus_continent",
       "formula": "petal_length ~ is_island + year_collected",
       "coefficient": "is_island",
-      "estimate_mm": -0.48211158236906454,
-      "hc3_se_mm": 0.4229914195441125,
+      "estimate_mm": -0.4821115823690682,
+      "hc3_se_mm": 0.422991419544116,
       "hc3_ci_95_mm": [
-        -1.311159530444997,
-        0.34693636570686787
+        -1.3111595304450074,
+        0.3469363657068711
       ],
       "n_ID": 402,
       "design_rank": 3,
@@ -240,18 +240,18 @@
         "is_island",
         "year_collected"
       ],
-      "r_squared": 0.044750289044465874
+      "r_squared": 0.044750289044465985
     },
     "bioclimate_adjusted": {
       "status": "estimated",
       "label": "ID_mean_island_minus_continent",
       "formula": "petal_length ~ is_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15",
       "coefficient": "is_island",
-      "estimate_mm": -1.5661164449424052,
-      "hc3_se_mm": 0.5008696630707591,
+      "estimate_mm": -1.5661164449423577,
+      "hc3_se_mm": 0.500869663070747,
       "hc3_ci_95_mm": [
-        -2.5478029455098046,
-        -0.5844299443750058
+        -2.5478029455097335,
+        -0.5844299443749821
       ],
       "n_ID": 396,
       "design_rank": 7,
@@ -271,11 +271,11 @@
       "label": "ID_mean_island_minus_continent_with_continent_FE",
       "formula": "petal_length ~ is_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15 + C(continent_clean)",
       "coefficient": "is_island",
-      "estimate_mm": -1.6829145865551416,
-      "hc3_se_mm": 0.5098528240610214,
+      "estimate_mm": -1.682914586555139,
+      "hc3_se_mm": 0.5098528240610243,
       "hc3_ci_95_mm": [
-        -2.6822077591307805,
-        -0.6836214139795029
+        -2.682207759130783,
+        -0.6836214139794946
       ],
       "n_ID": 396,
       "design_rank": 11,
@@ -299,11 +299,11 @@
       "label": "ID_mean_island_minus_continent_excluding_Galapagos",
       "formula": "petal_length ~ is_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15",
       "coefficient": "is_island",
-      "estimate_mm": -0.06657380142952575,
-      "hc3_se_mm": 0.5031914667431558,
+      "estimate_mm": -0.06657380142952748,
+      "hc3_se_mm": 0.5031914667431618,
       "hc3_ci_95_mm": [
-        -1.0528109535739956,
-        0.9196633507149441
+        -1.0528109535740091,
+        0.9196633507149541
       ],
       "n_ID": 365,
       "design_rank": 7,
@@ -323,11 +323,11 @@
       "label": "ID_mean_Galapagos_minus_other_islands",
       "formula": "petal_length ~ is_galapagos + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15",
       "coefficient": "is_galapagos",
-      "estimate_mm": -8.511623707024318,
-      "hc3_se_mm": 0.9811679264062749,
+      "estimate_mm": -8.51162370702459,
+      "hc3_se_mm": 0.9811679264062083,
       "hc3_ci_95_mm": [
-        -10.434677505566464,
-        -6.588569908482173
+        -10.434677505566604,
+        -6.588569908482576
       ],
       "n_ID": 220,
       "design_rank": 7,
@@ -340,7 +340,7 @@
         "Bio_12",
         "Bio_15"
       ],
-      "r_squared": 0.4168912502528477
+      "r_squared": 0.416891250252848
     },
     "within_continent_bioclimate": {
       "Africa": {
@@ -348,11 +348,11 @@
         "label": "ID_mean_island_minus_continent_within_Africa",
         "formula": "petal_length ~ is_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15",
         "coefficient": "is_island",
-        "estimate_mm": -4.718128545946395,
-        "hc3_se_mm": 6.656730840520319,
+        "estimate_mm": -4.718128545946331,
+        "hc3_se_mm": 6.656730836778257,
         "hc3_ci_95_mm": [
-          -17.76508124814326,
-          8.328824156250473
+          -17.765081240808893,
+          8.32882414891623
         ],
         "n_ID": 14,
         "design_rank": 7,
@@ -365,18 +365,18 @@
           "Bio_12",
           "Bio_15"
         ],
-        "r_squared": 0.6798263942518672
+        "r_squared": 0.6798263942518683
       },
       "North America": {
         "status": "estimated",
         "label": "ID_mean_island_minus_continent_within_North America",
         "formula": "petal_length ~ is_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15",
         "coefficient": "is_island",
-        "estimate_mm": 1.0254585309845452,
-        "hc3_se_mm": 0.7049115004882534,
+        "estimate_mm": 1.0254585309846491,
+        "hc3_se_mm": 0.7049115004883282,
         "hc3_ci_95_mm": [
-          -0.3561426222605202,
-          2.4070596842296106
+          -0.3561426222605628,
+          2.407059684229861
         ],
         "n_ID": 254,
         "design_rank": 7,
@@ -396,11 +396,11 @@
         "label": "ID_mean_island_minus_continent_within_Oceania",
         "formula": "petal_length ~ is_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15",
         "coefficient": "is_island",
-        "estimate_mm": -0.37569375390787346,
-        "hc3_se_mm": 5.2744761852405695,
+        "estimate_mm": -0.3756937539079433,
+        "hc3_se_mm": 5.274476185246437,
         "hc3_ci_95_mm": [
-          -10.713477114293603,
-          9.962089606477857
+          -10.713477114305174,
+          9.962089606489286
         ],
         "n_ID": 37,
         "design_rank": 7,
@@ -413,18 +413,18 @@
           "Bio_12",
           "Bio_15"
         ],
-        "r_squared": 0.11644834492126876
+        "r_squared": 0.11644834492126865
       },
       "South America": {
         "status": "estimated",
         "label": "ID_mean_island_minus_continent_within_South America",
         "formula": "petal_length ~ is_island + year_collected + Bio_1 + Bio_4 + Bio_12 + Bio_15",
         "coefficient": "is_island",
-        "estimate_mm": -3.8893221139157124,
-        "hc3_se_mm": 1.4444530284392332,
+        "estimate_mm": -3.8893221139157146,
+        "hc3_se_mm": 1.4444530284392574,
         "hc3_ci_95_mm": [
-          -6.72039802701642,
-          -1.058246200815005
+          -6.720398027016469,
+          -1.0582462008149598
         ],
         "n_ID": 82,
         "design_rank": 7,
