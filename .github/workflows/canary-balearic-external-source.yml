@@ -7,7 +7,6 @@ on:
       - "config/canary_balearic_oup_source.json"
       - "config/canary_balearic_plos_source.json"
       - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_oup_supplementary_data_v2.py"
       - "scripts/acquire_canary_balearic_plos_support.py"
       - "scripts/audit_canary_balearic_network_source.py"
       - "scripts/audit_canary_balearic_plos_support.py"
@@ -23,7 +22,6 @@ on:
       - "config/canary_balearic_oup_source.json"
       - "config/canary_balearic_plos_source.json"
       - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_oup_supplementary_data_v2.py"
       - "scripts/acquire_canary_balearic_plos_support.py"
       - "scripts/audit_canary_balearic_network_source.py"
       - "scripts/audit_canary_balearic_plos_support.py"
@@ -78,7 +76,7 @@ jobs:
         id: oup_acquire
         continue-on-error: true
         run: >-
-          python scripts/acquire_oup_supplementary_data_v2.py
+          python scripts/acquire_oup_supplementary_data.py
           --config config/canary_balearic_oup_source.json
           --output-dir artifacts/canary_balearic_oup
       - name: Audit original Oxford tabular sources
