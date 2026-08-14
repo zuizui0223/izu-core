@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "system_id": "xisha_cordia_subcordata_two_island_system",
+  "parent_issue": 100,
+  "admission_state": "bridge_system_partial",
+  "bridge_strength": "near_complete_within_archipelago",
+  "bridge_complete": false,
+  "formal_cross_system_model_eligible": false,
+  "source": {
+    "source_id": "wang_et_al_2020_cordia_subcordata",
+    "doi": "10.5091/plecevo.2020.1757",
+    "title": "Cordia subcordata (Boraginaceae), a distylous species on oceanic coral islands, is self-compatible and pollinated by a passerine bird",
+    "journal": "Plant Ecology and Evolution",
+    "volume_issue_pages": "153(3):361-372",
+    "license": "CC BY 4.0",
+    "study_period": "May-June 2017 and November 2017",
+    "study_islands": ["Yongxing Island", "Dong Island"],
+    "source_routes": {
+      "publisher_article": "Plant Ecology and Evolution / Pensoft article 24681",
+      "open_pdf_mirror": "Semantic Scholar open PDF matching the article DOI/title",
+      "publisher_open_access_metadata_verified": true,
+      "exact_source_pdf_available_publicly": true,
+      "checksum_locked": false,
+      "checksum_boundary": "Public exact article bytes are identifiable and readable, but no repository checksum is recorded yet; do not mark byte-level provenance complete."
+    }
+  },
+  "response_channel": {
+    "type": "floral_morph_system_state",
+    "yongxing_morph_ratio": {
+      "long_morph_n": 34,
+      "short_morph_n": 105,
+      "reported_reading": "approximately 1:3 L:S"
+    },
+    "dong_morph_ratio": {
+      "long_morph_n": 0,
+      "short_morph_n": 27,
+      "reported_reading": "only S-morph individuals observed"
+    },
+    "interpretation_boundary": "The between-island floral response is loss/extreme skew of a floral morph state, not a flower-size compression estimate. The paper does not identify the cause of the morph-ratio difference."
+  },
+  "reproductive_outcome_channel": {
+    "natural_fruit_set": {
+      "dong_short_morph": {"mean": 0.22, "se": 0.03, "n_flowers": 102},
+      "yongxing_short_morph": {"mean": 0.49, "se": 0.03, "n_flowers": 58},
+      "yongxing_long_morph": {"mean": 0.48, "se": 0.03, "n_flowers": 54},
+      "reported_test": {"F": 40.163, "df": 2, "p": "<0.001"}
+    },
+    "interpretation_boundary": "The natural fruit-set contrast is an outcome difference. It does not by itself identify pollinator causation because the two islands differ in other ecological and demographic attributes."
+  },
+  "dependency_channel": {
+    "population": "Yongxing Island",
+    "pollination_treatments": {
+      "hand_inter_morph": "performed; seed set comparable to other hand treatments",
+      "hand_intra_morph": {
+        "long_morph_mean_seed_set": 0.66,
+        "long_morph_se": 0.07,
+        "long_morph_n": 14,
+        "short_morph_mean_seed_set": 0.67,
+        "short_morph_se": 0.07,
+        "short_morph_n": 12
+      },
+      "hand_self": {
+        "long_morph_mean_seed_set": 0.75,
+        "long_morph_se": 0.07,
+        "long_morph_n": 15,
+        "short_morph_mean_seed_set": 0.71,
+        "short_morph_se": 0.07,
+        "short_morph_n": 12
+      },
+      "open_control": {
+        "long_morph_mean_seed_set": 0.58,
+        "long_morph_se": 0.03,
+        "long_morph_n": 75,
+        "short_morph_mean_seed_set": 0.60,
+        "short_morph_se": 0.03,
+        "short_morph_n": 71
+      },
+      "bagged_without_hand_pollination": {
+        "long_morph_seed_set": 0.0,
+        "long_morph_n": 15,
+        "short_morph_seed_set": 0.0,
+        "short_morph_n": 15
+      }
+    },
+    "source_native_reading": "The species is self-compatible under hand self-pollination but does not autonomously set fruit/seed when bagged without pollen transfer, indicating strong dependence on a pollen vector under the tested Yongxing conditions.",
+    "critical_missing_link": "Equivalent controlled dependency treatments were not reported for Dong Island, where morph loss, low visitation and low natural fruit set were observed."
+  },
+  "pollinator_environment_channel": {
+    "yongxing": {
+      "apis_cerana_visits_per_flower_hour_mean": 2.39,
+      "apis_cerana_se": 0.42,
+      "zosterops_japonicus_visits_per_flower_hour_mean": 1.04,
+      "zosterops_japonicus_se": 0.20,
+      "reported_between_visitor_test": {"Z": -2.326, "p": 0.020}
+    },
+    "dong": {
+      "observed_visitor": "Zosterops japonicus",
+      "visits_per_flower_hour_mean": 0.11,
+      "se": 0.06,
+      "observation_duration": "two days in November 2017"
+    },
+    "boundary": "The island difference in visitation is descriptive and not a randomized exposure."
+  },
+  "effective_service_channel": {
+    "population": "Yongxing Island",
+    "design": "Virgin inflorescences were bagged, uncovered for exactly one visit, then stigmas were collected and pollen grains counted.",
+    "single_visit_pollen_deposition": {
+      "long_morph": {
+        "zosterops_japonicus": {
+          "conspecific_mean": 153.7,
+          "conspecific_se": 51.7,
+          "heterospecific_mean": 0.8,
+          "heterospecific_se": 0.6,
+          "n_stigmas": 11
+        },
+        "apis_cerana": {
+          "conspecific_mean": 13.0,
+          "conspecific_se": 3.2,
+          "heterospecific_mean": 19.6,
+          "heterospecific_se": 6.5,
+          "n_stigmas": 5
+        },
+        "conspecific_test": {"Z": -2.662, "p": 0.008},
+        "heterospecific_test": {"Z": -2.736, "p": 0.006}
+      },
+      "short_morph": {
+        "zosterops_japonicus": {
+          "conspecific_mean": 87.3,
+          "conspecific_se": 35.4,
+          "heterospecific_mean": 0.0,
+          "n_stigmas": 3
+        },
+        "apis_cerana": null
+      }
+    },
+    "critical_missing_link": "Single-visit pollen deposition was measured at Yongxing, not Dong. Dong therefore lacks the matched per-visit effectiveness measurement needed to identify whether its lower natural fruit set is caused by lower effective service."
+  },
+  "bridge_assessment": {
+    "same_paper": true,
+    "same_archipelago": true,
+    "same_field_year": true,
+    "floral_response_present": true,
+    "pollinator_environment_present_on_both_islands": true,
+    "single_visit_pollen_function_present": true,
+    "direct_reproductive_dependency_present": true,
+    "all_channels_matched_on_both_sides_of_response_transition": false,
+    "why_near_complete_not_complete": "The paper contains all required channel types, but the strongest mechanistic measurements are asymmetric: controlled breeding and single-visit pollen deposition are from Yongxing, whereas Dong supplies the extreme morph-ratio state, low visitation and low natural fruit set. Without Dong single-visit effectiveness and controlled dependency treatments, the response transition cannot be linked end-to-end at matched population level.",
+    "allowed_claim": "Cordia subcordata is the strongest external near-complete mechanism bridge currently identified: within one source-defined two-island system, floral morph-state divergence, pollinator-environment differences, direct single-visit pollen function and controlled reproductive dependence are all observed. The system supports the plausibility of the proposed mechanism architecture but does not identify the causal chain across the Yongxing-Dong contrast.",
+    "blocked_claims": [
+      "do not call the Dong morph loss a pollinator-caused evolutionary response",
+      "do not transport Yongxing single-visit effectiveness numerically to Dong",
+      "do not transport Yongxing bagging/self-pollination dependency numerically to Dong",
+      "do not equate self-compatibility with autonomous reproductive assurance",
+      "do not treat natural fruit-set differences as an effective-service effect",
+      "do not call this bridge_system_complete until both sides of the response contrast have matched effectiveness and dependency evidence",
+      "do not open formal cross-system mechanism fitting from this system alone"
+    ]
+  },
+  "next_actions": [
+    "Checksum-lock the exact CC-BY article bytes in the source registry.",
+    "Search for Dong Island controlled bagging/hand-pollination data or later follow-up experiments using the same population.",
+    "Search for Dong Island single-visit pollen deposition or another direct visitor-effectiveness measure.",
+    "If both missing Dong channels remain unavailable, preserve Cordia as near-complete partial evidence rather than weakening the matched-population rule.",
+    "Only after matched two-sided effectiveness and dependency data exist should a causal Yongxing-Dong mechanism contrast be considered."
+  ]
+}
