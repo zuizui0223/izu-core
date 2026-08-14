@@ -2,342 +2,348 @@
 
 ## Bottom line
 
-The current Izu programme supports **heterogeneous response modes linked by a
-contemporary pollinator-functional mechanism axis**, not one universal
-island-flower syndrome.
-
-Evidence is kept at three levels:
-
-1. **response shape established** — what changes in a defined biological
-   channel;
-2. **mechanistic leverage** — whether explicit alternatives or source-native
-   functional exposures constrain interpretation;
-3. **causal attribution** — still blocked. Current evidence units retain
-   `causal_claim_allowed = no` unless direct identification is available.
-
-The strongest historical breakpoint remains the focal *Campanula microdonta*
-autonomous-reproduction transition. The strongest contemporary
-mechanism-compatible link is **pollinator functional diversity (FDQ) → corrected
-flower–pollinator trait matching**. A new external layer now gives **2/2
-independent-system directional replication of a below-isometry floral response
-shape under OLS/island-cluster resampling**, but errors-in-variables and source
-provenance gates prevent promotion to a universal coefficient or causal
-pollinator mechanism.
-
-## Prior-art boundary: the broad pollinator-compression idea is not new
-
-The mechanistic claim must be narrower than "island pollinator simplification
-causes smaller flowers".
-
-Inoue's 1986 Izu *Campanula* study already reported smaller island flowers and
-suggested adaptation to smaller pollinators. His subsequent 1988/1990 breeding-
-system work explicitly developed bumblebee-absence / pollinator-availability
-hypotheses for the Izu series.
-
-Hendriks (2019), *The island rule and its application to multiple plant traits*,
-then introduced the **Pollinator Potential Paradigm** as a general explanation
-for reduced island floral-size diversity: an island pollinator assemblage is a
-subset of the mainland pool and may therefore contain a narrower pollinator
-body-size range, which could favour a narrower floral-size range.
-
-That thesis empirically tested floral response shape across island–mainland
-sister taxa, not observed pollinator body-size distributions, single-visit
-pollen transfer, or population-specific effective dependency. The current
-project's mechanistic contribution is therefore the **identification problem**:
-separating functional exposure, effective reproductive dependency, response
-mode, rewiring, establishment history and measurement/source artifacts rather
-than proposing pollinator-potential compression itself.
-
-## Campanula: continuous channels and breakpoint channel must remain separate
-
-### Flower size
-
-The historical focal literature supports island-series floral-size erosion, but
-source-native population-genetic evidence also supports ordered colonisation
-history. The historical size cline is therefore a strong descriptive pattern but
-a weak mechanism discriminator.
-
-A completely independent contemporary field dataset supplies site-level
-corolla-tube means measured from five flowers per plant species at each site. In
-those data, *Campanula microdonta* has Oshima mean `26.9825 mm` and mean across
-Niijima, Kozu, Miyake and Hachijo `19.4534 mm` (`-27.9%`). This independently
-reproduces the lower-post morphology direction.
-
-The contemporary series lacks Toshima and within-site SD/SE, so it cannot
-distinguish a smooth cline from an Oshima/post step or enter the A-grade
-inverse-variance holdout.
-
-### Multilocus outcrossing
-
-Outcrossing declines strongly along the historical island series. Tested climate
-PC1, mainland distance, island area/connectivity and pre-1986 volcanic-recency
-axes do not reproduce the ordered erosion as well as island order.
-
-Island order is nevertheless not a causal exposure. The allozyme literature
-supports progressive southward colonisation, while the RAPD literature
-identifies exceptions including multiple immigration on Miyake. The continuous
-mating-system pattern remains confounded with demographic history.
-
-### Autonomous reproductive capacity
-
-This remains the strongest historical breakpoint channel. The Oshima-to-Toshima
-transition is much sharper than the continuous morphology/outcrossing patterns
-and is not reproduced by tested climate, mainland distance, static geography or
-pre-observation volcanic-history alternatives.
-
-That gives the channel the strongest current breakpoint leverage, but not
-historical causal identification: an unmeasured breeding-system, founder or
-demographic threshold could still coincide with the same boundary.
-
-### Contemporary Campanula network function does not copy the historical breeding step
-
-In the 2024 network data, *Campanula microdonta* shows **higher**, not lower,
-post-Oshima values for both realized functional generality (`+0.508`) and
-corrected trait matching (`+0.571`) relative to Oshima.
-
-Thus the historical autonomous-reproduction step is not a synchronous
-all-channel ecological step. Morphology, mating system, autonomous capacity and
-contemporary network function remain distinct response domains.
-
-## Contemporary network evidence
-
-The reproducibly acquired Hiraiwa–Ushimaru 2024 Figshare dataset
-(`10.6084/m9.figshare.25025000.v1`) spans three Honshu sites, Oshima, Niijima,
-Kozu, Miyake and Hachijo across five seasons.
-
-### All network plants reject a universal second step
-
-After seasonal rows are aggregated within `plant × site`:
-
-| response | eligible species | lower post | higher post |
-|---|---:|---:|---:|
-| functional generality | 14 | 6 | 8 |
-| corrected trait matching | 16 | 10 | 6 |
-
-There is no universal species-level Oshima/post response in contemporary network
-function.
-
-### Source-defined pollen-success targets show a bounded matching signal
-
-Among eligible members of the source-defined target set:
-
-| response | eligible species | lower post | higher post |
-|---|---:|---:|---:|
-| functional generality | 8 | 3 | 5 |
-| corrected trait matching | 8 | 8 | 0 |
-| pollen receipt | 9 | 5 | 4 |
-
-Corrected trait matching is directionally coherent in this subset, while
-interaction breadth and pollen receipt are not.
-
-## Continuous FDQ is the strongest contemporary mechanism link
-
-The archived source model gives FDQ coefficient `+1.5540`. A site/season
-fixed-effect sensitivity gives:
-
-| subset | FDQ coefficient |
-|---|---:|
-| all 8 sites | `+1.8346` |
-| mainland 3 sites | `+1.5414` |
-| Izu 5 islands | `+1.9426` |
-| post-Oshima 4 islands | `+2.0590` |
-
-Every leave-one-island FDQ coefficient remains positive. A full
-functional-covariate model retaining richness, `D`, FDQ, FRic and FEve also
-retains positive FDQ coefficients and substantial incremental fit.
-
-This relationship persists without mainland sites and without Oshima. It is
-therefore not merely a binary mainland/island, Oshima/post or sampled Bombus
-label. It remains observational: time-varying weather/resources, network
-feedback and measurement error are not removed.
-
-## Downstream matching → pollen receipt is attenuated
-
-After flowers are averaged within `plant × site × season`, trait-matching
-coefficients remain positive in all sites, Izu5 and post4, but leave-one-island
-ranges cross zero. The mechanism chain is deliberately asymmetric:
-
-> **FDQ → trait matching: robust**  
-> **trait matching → pollen receipt: positive but materially less robust**
-
-The 2017 experiment likewise supplies sensitive, resilient and
-counterdirectional reproductive responses among *Calystegia*, *Vitex* and
-*Lysimachia*.
-
-## Direct dependency moderation remains empirically blocked
-
-The 10 source-defined pollen targets contain 4 externally resolved, 5 partial
-and 1 unresolved pollination systems, but:
-
-- source-resolved high-dependency Bombus targets = `0`;
-- direct effective dependency measured in the exact 2024 Izu populations = `0`.
-
-Mainland realized breadth and tube length do not robustly moderate the FDQ slope
-and cannot be promoted to dependency.
-
-The field measurement chain is implementation-ready:
+The current programme does **not** support a universal island-flower syndrome.
+It supports a sharper, conditional mechanism architecture:
 
 ```text
-plant/flower
-  -> observation effort
-  -> visitor bout/contact
-  -> single-visit pollen deposition
-  -> rate-weighted effective service
-  -> open / bagged-autonomous / supplemental-outcross outcome
-  -> fruit / seed / optional parentage
+pollinator functional environment
+    -> effective pollen service
+    -> reproductive dependency / autonomous assurance
+    -> floral response
+
+modified by lineage, response channel, colonisation / establishment history,
+demography, rewiring, invasion context and measurement error.
 ```
 
-Issue #91 records the raw-data acceptance specification. Issue #92 records the
-independent-source locality/n/uncertainty/dependency admission specification.
+Izu is the high-resolution mechanistic anchor. Independent archipelagos are used
+as evolutionary replication, not as exchangeable raw rows.
 
-## Prospective dependency × FDQ design simulation
+The main unresolved empirical link is still direct `effective service ×
+reproductive dependency` in the same tagged Izu populations (Issue #91).
+External screening now supplies three independent **partial** mechanism bridges,
+including one near-complete within-archipelago system, but zero complete bridges.
+No formal cross-system mechanism model is open.
 
-Existing data answer a design question before field collection. The simulation
-anchors only the observed structure — 8 sites, 5 seasons, 9 proxy-eligible taxa
-and 105 rows — while treating dependency values, reliability and interaction
-effects as explicitly synthetic.
+## Current claim hierarchy
 
-For a declared moderate interaction:
+Evidence is kept at four levels and must not be collapsed:
 
-| design | calibrated detection probability |
-|---|---:|
-| current proxy-like structure | `0.065` |
-| proxy + doubled seasons | `0.075` |
-| proxy + four sites | `0.085` |
-| direct measurement, narrow 9 taxa | `0.125` |
-| direct + one high endpoint | `0.248` |
-| direct full span, 10 taxa | `0.428` |
-| direct narrow span, 16 taxa | `0.213` |
-| direct full span, 16 taxa | `0.525` |
+1. **response pattern** — a source-native biological channel changes;
+2. **mechanistic leverage** — measured functional exposure, effectiveness,
+   dependency or explicit alternatives constrain interpretation;
+3. **partial mechanism bridge** — adjacent links are measured in one defensible
+   system, but at least one required matched link remains missing;
+4. **causal / formal cross-system attribution** — still closed unless the same
+   estimand family, uncertainty, provenance and identification requirements are
+   satisfied in independent system clusters.
 
-These values are synthetic operating characteristics, not empirical power.
-Their design implication is nevertheless clear: **additional rows cannot
-substitute for missing predictor support**. Direct dependency measurement
-reduces attenuation, one high endpoint is valuable, and a distributed
-low–intermediate–high dependency gradient is more informative than adding many
-taxa inside a narrow survivor range.
+A source lock, a sensitivity analysis, a large within-system `n`, or a second
+partial bridge does not automatically promote evidence to the next level.
 
-## External network systems show rewiring rather than one response syndrome
+## Prior-art boundary
 
-Wanshan–Yongxing provides a matched seven-plant external network contrast in
-which visitation declines strongly while pollinator partner turnover is almost
-complete; partner richness is much less decisive. Ogasawara independently shows
-substantial partner turnover under invasion/habitat context while visitation and
-richness intervals are broader.
+The broad idea that altered or reduced island pollinator assemblages can favour
+smaller or less size-diverse flowers is not the novel claim of this programme.
+Inoue's Izu work already proposed pollinator-availability and pollinator-size
+interpretations for island *Campanula*. Hendriks (2019) explicitly formulated a
+Pollinator Potential Paradigm for reduced island floral-size diversity.
 
-These are useful boundary conditions: ecological interaction structure can
-change through **rewiring and replacement**, not only through monotonic loss of
-visitor richness. Neither system measures direct effective dependency.
+The defensible contribution is therefore the **identification architecture**:
+separating pollinator environment, per-visit pollen function, reproductive
+dependency, response mode and establishment/history, while allowing results to
+be demoted by provenance, measurement-error and independence gates.
 
-## External morphology now has directional, not formal, replication
+## Izu focal calibration: three source-locked channels
 
-### Southwest Pacific 129-pair source
+The adopted historical *Campanula microdonta* calibration remains the
+source-locked three-channel contract:
 
-The checksum-locked source-native analysis of 129 mainland–island colonisation
-events gives a robust negative starting-size response among 88 valid
-source-coded animal flower-size pairs. In equivalent direct form:
+| channel | retained response shape |
+|---|---|
+| floral size | continuous erosion |
+| multilocus outcrossing | continuous erosion |
+| autonomous reproductive capacity | second-transition step |
+
+These channels do not share one response shape. Nectar-guide / visible-signal
+analyses remain outside adopted historical evidence and are prospective only.
+
+The autonomous-reproduction transition is the strongest historical breakpoint,
+but it is **not** identified as historical Bombus-loss causation. Floral-size and
+outcrossing clines remain compatible with colonisation / demographic history.
+The repository therefore does not claim a universal Oshima-Toshima causal
+coefficient or a general Izu-flora rule.
+
+## Contemporary Izu mechanism: functional environment is not dependency
+
+The source-native Hiraiwa-Ushimaru 2024 network data provide the strongest
+current observational functional link. Pollinator functional diversity (FDQ)
+retains a positive association with corrected flower-pollinator trait matching
+across the full dataset, Izu-only subsets and leave-one-island sensitivities.
+That relationship is not merely a binary mainland/island or Oshima/post label.
+
+The downstream matching-to-pollen-receipt relationship is positive but less
+robust and is sensitive to island exclusion. Thus the current chain remains
+asymmetric:
+
+```text
+FDQ -> corrected trait matching: comparatively robust observational link
+matching -> pollen function: positive but materially less robust
+```
+
+Visitor identity, visitation rate, richness, network degree, floral syndrome or
+occurrence are not relabelled as effective reproductive dependency.
+
+## Issue #91: the decisive Izu empirical gate
+
+The direct field pipeline is implementation-ready and now includes a preflight
+that distinguishes header-only templates / partial collection from a candidate
+real six-channel bundle before freezing or analysis.
+
+Required linked chain:
+
+```text
+plant / flower registry
+    -> observation effort, including zero-visit windows
+    -> visitor bout / contact
+    -> single-visit pollen deposition (SVD) + no-visit controls
+    -> rate-weighted effective pollen service
+    -> open / bagged-autonomous / supplemental-outcross treatment
+    -> fruit / mature seed / optional parentage
+```
+
+The current state remains `implementation_ready_field_data_missing`: no real
+linked field bundle is committed in the repository. Flowers and repeated visits
+within one plant are subsamples, not independent `n`.
+
+The pilot must first produce plant-level SVD and treatment dispersion. Only then
+may synthetic variance / reliability / coverage / loss assumptions be replaced,
+a biologically meaningful absolute CI half-width be locked, and confirmatory
+replication be planned. Pilot completion does not identify historical selection
+or a causal geographic boundary.
+
+## Cross-lineage Izu expansion
+
+Campanula is the mechanistic anchor, not by itself a cross-lineage dependency ×
+functional-environment test. Confirmatory Izu expansion should distribute
+**directly measured** dependency across multiple low, intermediate and high
+dependency lineages, rather than increasing proxy rows inside one narrow
+survivor range.
+
+A high-dependency endpoint is useful but cannot alone determine the slope.
+Non-establishment, hybrid replacement and interaction rewiring remain possible
+responses and possible causes of survivor-range truncation.
+
+## External morphology: directional recurrence is retained, formal pooling is not
+
+### Southwest Pacific
+
+The checksum-locked 129-pair source contains 88 valid source-coded
+animal-pollinated flower-size pairs. In direct response-shape form:
 
 ```text
 slope(log island flower size ~ log mainland flower size) = 0.8490
-island-cluster 95% = [0.6916, 0.9258]
+island-cluster 95% interval = [0.6916, 0.9258]
 ```
 
-A direct animal-minus-wind comparison is not robust, so this does not establish
-pollination-mode moderation.
+The animal-minus-wind contrast is not robust, so this does not establish a
+pollination-mode causal effect.
 
-The original `log(FI/FM) ~ log(FM)` formulation shares the mainland measurement
-between predictor and response denominator. The formal starting-size effect is
-therefore blocked by the denominator-coupling admission gate even though the
-numerical pattern is retained.
+### Hendriks 2019
 
-### Hendriks 2019 independent flower-area reconstruction
-
-All 35 Appendix B Table B9 flower-area pairs have been reconstructed, and their
-Appendix-A island assignments exactly match the reported Table A14 frequency
-vector across nine populated island groups. The rounded reconstruction
-reproduces the author OLS slope:
+Hendriks provenance is now **complete**, not an open source gate. The exact Te
+Herenga Waka—Victoria University of Wellington institutional PDF was recovered
+and checksum locked under Issue #94. All 35/35 Appendix B flower-area pairs and
+35/35 Appendix-A island assignments were strictly reverified against those
+bytes, and the author OLS anchor is reproduced:
 
 ```text
-reported direct OLS = 0.58
+reported direct OLS ~ 0.58
 reconstructed direct OLS = 0.5833
-island-cluster 95% = [0.2128, 0.7785]
+island-cluster 95% interval = [0.2128, 0.7785]
 ```
 
-The island-cluster SMA interval is `[0.7297, 1.0731]`, which includes isometry.
-The VUW Open Access thesis record is now resolved, but the exact PDF/data bytes
-remain undelivered and not checksum locked. Hendriks therefore remains
-directional replication evidence rather than a formal effect-registry row.
+The island-cluster SMA interval remains `[0.7297, 1.0731]`, which includes
+isometry.
 
-### Cross-system response-shape result
+### What 2/2 means
 
-On the common directional statistic
+Southwest Pacific and Hendriks therefore retain a genuine **2/2 independent
+below-isometry OLS direction under island-cluster resampling**. This is a
+replicated response direction, not a universal coefficient.
+
+## Morphology EIV gate: investigation complete, admission still closed
+
+Issue #96 completed the reliability investigation through a negative
+identification result. The target reliability ratio needed for formal
+starting-size admission is **not identifiable from the currently available
+public / source-native target corpus**.
+
+External repeated-measurement consistency evidence from the checksum-locked
+Hetherington-Rauth thesis is useful as sensitivity evidence only. It cannot be
+substituted for target predictor reliability. A nonsignificant location-shift
+test, high R2, SMA slope, or assumed reliability does not open the gate.
+
+Therefore the Southwest Pacific / Hendriks starting-size effects remain
+numerically informative but formally blocked from a same-family cross-system fit
+until target-relevant reliability or another defensible propagated EIV model is
+available.
+
+## External interaction systems: turnover and replacement matter
+
+Wanshan-Yongxing supplies source-native matched-plant evidence for strong
+visitation loss and near-complete partner replacement, while richness decline is
+less decisive. Ogasawara independently supplies invasion-context rewiring / turn
+over evidence.
+
+These systems show that island interaction change can occur through rewiring and
+replacement rather than a single monotonic richness-loss syndrome. Neither
+system by itself measures direct effective dependency.
+
+## Stage C external mechanism bridges
+
+Issue #100 now has three independent systems at `bridge_system_partial` and
+zero complete systems. The canonical machine-readable state is
+`data/design/external_bridge_system_registry_summary.json`.
+
+### 1. California Channel Islands — *Nicotiana glauca*
+
+This is a population/site-level partial bridge assembled conservatively across
+linked studies. The system contains island-mainland floral response, hummingbird
+service / pollen-transfer evidence, pollen limitation, autogamy and
+reproductive-assurance experiments.
+
+It is scientifically useful partly because it does **not** simply confirm the
+focal story: island self-pollination capacity is higher, while current island
+pollinator service was not shown to be lower and island plants were not simply
+more pollen limited. Colonisation / establishment filtering therefore remains a
+live alternative to a purely contemporary pollinator-scarcity mechanism.
+
+Cross-paper year / plant linkage and source-byte admission are incomplete, so
+this remains partial.
+
+### 2. Caribbean Gesneriaceae
+
+This is an independent clade-level partial bridge. The 54-species island-mainland
+comparison directly measures visitation and autofertility, while related
+Antillean experiments measure pollen limitation and reproductive assurance and
+phylogenetic work reconstructs repeated floral / pollination-system transitions.
+
+The island-mainland autofertility comparison does **not** show a general island
+increase and is retained as such. Visit-level pollen function is not matched in
+the island-mainland panel, so visitation is not promoted to effectiveness and
+pollination syndrome is not promoted to dependency.
+
+### 3. Xisha / Paracel — *Cordia subcordata*
+
+This is the current strongest bridge and is classified
+`near_complete_within_archipelago`, but still `bridge_system_partial`.
+
+One source-defined two-island study contains all required channel types:
+
+- floral response state: Yongxing `34 L : 105 S` versus Dong `0 L : 27 S`;
+- natural fruit set: Dong S `0.22 ± 0.03` versus Yongxing S `0.49 ± 0.03` and
+  L `0.48 ± 0.03`;
+- pollinator environment: Dong *Zosterops* visitation `0.11 ± 0.06` visits per
+  flower-hour, compared with much higher observed visitation at Yongxing;
+- direct single-visit pollen function at Yongxing: in L-morph flowers,
+  *Zosterops* deposited `153.7 ± 51.7` conspecific grains per visit versus
+  *Apis* `13.0 ± 3.2`;
+- controlled reproductive dependence at Yongxing: hand self-pollination set
+  seeds, while bagged flowers without hand pollination had zero fruit / seed
+  set.
+
+The missing link is crucial: controlled dependency and single-visit pollen
+function were measured at Yongxing, not on both sides of the Yongxing-Dong
+response contrast. Those Yongxing values must not be transported numerically to
+Dong. A targeted public follow-up search did not recover the missing Dong direct
+effectiveness or controlled-dependency channels; this is a source-availability
+result, not a claim that such data cannot exist.
+
+## External bridge registry decision
+
+Current state:
 
 ```text
-slope(log island floral trait ~ log mainland floral trait), isometry = 1
+independent partial-or-stronger systems = 3
+bridge_system_partial = 3
+near_complete_within_archipelago = 1
+bridge_system_complete = 0
+formal_cross_system_mechanism_fit_ready = false
 ```
 
-Southwest Pacific flower size and Hendriks flower area both show OLS slopes and
-island-cluster intervals below one. That is a genuine **2/2 independent-system
-directional recurrence of a compression-like floral response shape**.
+Three partial bridges materially strengthen the plausibility and external
+recurrence of the **mechanism architecture**, but they do not create a common
+formal effect family. The next external gain comes from closing the missing side
+of the strongest bridge or finding another system with response, direct
+visitor-pollen function and reproductive dependency measured at the same
+transition units—not from accumulating more morphology-only examples.
 
-It is not a pooled coefficient because the traits are not identical, Hendriks
-provenance remains unlocked, and errors-in-variables are not jointly resolved.
+## Source-triggered reopen gates, not active code loops
 
-## Joint errors-in-variables envelope
+Several previous tasks are now completed negative / source-availability states
+and should not dominate development:
 
-A classical x-error partial-identification audit now quantifies the assumption
-needed to preserve the 2/2 OLS recurrence:
+- **Hendriks provenance:** complete; do not reopen to solve EIV.
+- **Morphology EIV:** investigation complete; target reliability remains
+  unidentified. Reopen only if target-relevant repeated measurements / variance
+  or a defensibly transportable error model appears.
+- **Hetherington-Rauth / Johnson 136-pair numeric table:** exact thesis and pair
+  identities are source locked, but the inspected public ORIGINAL bundle does
+  not expose the source-native numeric floral table. Reopen only if new lawful
+  source-native values become available.
+- **Issue #92 Weigela / Ligustrum / Hosta:** automated public/OpenAlex routes are
+  exhausted. Reopen numeric admission only when a lawful library, author,
+  repository or user-supplied artifact exposes the required population-level
+  data.
+- **Galapagos raw network archive:** keep raw plant-level analysis closed until
+  the source archive is recovered.
 
-- both point estimates remain below isometry if mainland-trait reliability is
-  above **0.8490** in both systems;
-- both island-cluster intervals remain below isometry if reliability is above
-  **0.9259** in both systems.
+A source route being exhausted is not evidence that the underlying data never
+existed.
 
-At a common lower bound `r = 0.90`, both corrected point estimates remain below
-one but the corrected Southwest Pacific cluster upper bound becomes `1.0287`.
-At `r = 0.93`, both corrected cluster intervals remain below one.
+## What the programme can now argue
 
-These are required conditions under a declared classical error model, not
-estimated reliabilities. The SMA boundary and unobserved reliability keep formal
-same-family synthesis closed.
+The strongest current synthesis is:
 
-## What the paper can now argue
+> Plant responses to altered island pollination environments are
+> channel- and context-dependent. Izu provides a source-locked historical
+> three-channel calibration and a robust observational FDQ-to-trait-matching
+> link, while direct effective dependency remains the decisive empirical gap.
+> Independent archipelagos reproduce morphology response directions, network
+> turnover and several adjacent mechanism links. Three independent partial
+> bridge systems now show that the proposed mechanism architecture recurs beyond
+> Izu, with *Cordia subcordata* approaching a complete within-archipelago bridge,
+> but no external system yet identifies the full response transition with
+> matched effectiveness and dependency on both sides.
 
-The current strongest synthesis is:
-
-> **Plant responses to altered island pollination environments are channel- and
-> context-specific, while two independent island–mainland morphology systems
-> reproduce a compression-like response direction under source-native OLS and
-> island-cluster resampling. In Izu, contemporary FDQ provides an observational
-> functional link to flower–pollinator matching, but direct effective dependency
-> and errors-in-variables remain the critical identification gates.**
-
-This is intentionally different from claiming that reduced pollinator potential
-causes a universal island floral-size rule. That broad hypothesis is prior art.
-The current mechanistic programme tests the sharper interaction:
-
-> **functional pollinator exposure × directly measured effective dependency ×
-> response mode × establishment/history**
-
-while preserving rewiring, replacement, environment and measurement error as
-explicit alternatives.
+This is deliberately different from claiming a universal island floral-size
+rule or historical pollinator-loss causation.
 
 ## Decisive next evidence
 
-1. collect the Issue #91 *Campanula* SVD + reproductive-treatment pilot and
-   replace synthetic reliability/variance/loss assumptions;
-2. extend direct dependency measurements across low, intermediate and high
-   dependency lineages rather than one endpoint alone;
-3. obtain empirical measurement precision/reliability for paired floral traits
-   or another source-native system that supports an explicit errors-in-variables
-   model;
-4. checksum-lock and independently verify the Hendriks 35-pair source artifact;
-5. recover the Hetherington-Rauth & Johnson 2020 136-pair source-native table or
-   another compatible independent morphology system;
-6. broaden beyond shared survivors so non-establishment, hybrid replacement and
-   rewiring enter the sampling frame; and
-7. obtain independent bridge-state or temporal regime replication before
-   interpreting Oshima/post causally.
+Priority order is now:
 
-Until those gates are met, causal attribution and formal cross-system pooling
-remain closed.
+1. **Issue #91:** collect the first real linked *Campanula microdonta* field
+   bundle and pass preflight -> freeze -> structural audit -> plant-level
+   dispersion;
+2. replace synthetic pilot variance / reliability / coverage / loss assumptions
+   only with observed pilot quantities, then lock an absolute precision target;
+3. broaden Izu direct dependency across multiple low-intermediate-high lineages;
+4. externally, recover or collect Dong *Cordia* single-visit effectiveness and
+   controlled dependency, or identify another genuinely complete bridge;
+5. keep target-reliability, Issue #92 and 136-pair source tasks closed until new
+   admissible evidence appears;
+6. preserve rewiring, non-establishment, hybrid replacement and demographic
+   history as explicit alternatives; and
+7. keep formal cross-system fitting closed until compatible source-locked
+   estimands with uncertainty exist in at least two independent system clusters
+   and all required identification gates pass.
+
+## Supersession rule
+
+This document is the current mechanistic synthesis. Older pilot narratives,
+virtual-Izu reports, discovery notes and superseded source-gate wording remain
+audit history. When they conflict with the source-locked channel contract,
+current source/admission registries, Issue #91 field gates, external bridge
+registry, or completed provenance/EIV decisions, the current machine-readable
+states take precedence.
