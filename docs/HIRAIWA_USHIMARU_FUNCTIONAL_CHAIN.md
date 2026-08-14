@@ -105,7 +105,40 @@ Source locks:
 - `data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json`;
 - `data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen_heterogeneity.json`.
 
-## 3. Direct FDQ → pollen receipt is not promoted to a main result
+## 3. The same matching decline does not produce one multichannel response syndrome
+
+The source-defined pollen-success target set provides eight plants with all three Oshima-to-post contrasts available: corrected trait matching, tube morphology and pollen receipt.
+
+Their directions are strikingly asymmetric:
+
+| response channel | lower / shorter post | higher / longer post | equal |
+|---|---:|---:|---:|
+| corrected trait matching | **8** | 0 | 0 |
+| floral tube morphology | **3** | **4** | 1 |
+| pollen receipt | **4** | **4** | 0 |
+
+So a shared functional pattern—lower corrected matching in 8/8 targets—does **not** propagate into a shared morphology or pollen direction.
+
+Only **2/8** plants show the full `matching lower + tube shorter + pollen lower` combination:
+
+- *Farfugium japonicum*;
+- *Oxalis corniculata* var. *trichocaulon*.
+
+The remaining plants provide explicit response-branching examples. In particular:
+
+- *Calystegia soldanella*: matching `-3.598`, tube `+4.207 mm`, pollen `+0.927`;
+- *Vitex rotundifolia*: matching `-3.593`, tube `-0.132 mm`, pollen `+0.066`;
+- *Lysimachia mauritiana*: matching `-0.349`, tube `+0.025 mm`, pollen `-0.093`;
+- *Melanthera prostrata*: matching `-0.101`, tube `+0.224 mm`, pollen `-1.268`;
+- *Glehnia littoralis*: matching lower, tube unchanged, pollen higher.
+
+Descriptive rank alignment is also weak/inconsistent: matching-delta versus tube-delta Spearman `0.095`, matching versus pollen `-0.548`, and tube versus pollen `0.286`. No inferential p values are assigned because these eight plants share island environments and do not constitute eight independent boundary experiments.
+
+**Interpretation:** the real data support response branching, not a universal island floral syndrome. A common pollinator-functional change can be expressed as shorter, longer or unchanged floral tubes and as higher or lower pollen receipt. Effective service, reproductive dependency/assurance, lineage biology and network state are therefore plausible moderators of *how* the common functional environment is translated into a biological response; they are not optional complications to a one-coefficient cascade.
+
+Source lock: `data/predictive_meta/hiraiwa_ushimaru_cross_channel_concordance.json` and its eight-row companion CSV.
+
+## 4. Direct FDQ → pollen receipt is not promoted to a main result
 
 Exploratory fixed-effect fits of pollen receipt directly on FDQ are small and leave-one-island unstable. This is consistent with attenuation through plant-specific reproductive biology and network-state dependence and is not source-locked as a strong mechanism claim.
 
@@ -113,11 +146,11 @@ The paper should therefore not say that pollinator functional diversity uniforml
 
 > **pollinator functional diversity → trait matching: robust contemporary association**  
 > **trait matching → pollen receipt: positive direction, cluster-uncertain and network-state conditional**  
-> **long-term reproductive assurance / morphology / persistence: distinct response modes**
+> **morphology / pollen / reproductive assurance: diverging downstream response channels**
 
 The independent 2017 reproductive study reinforces this structure: *Calystegia soldanella* is sensitive to long-tongued-pollinator loss, *Vitex rotundifolia* is resilient in fruit set, and *Lysimachia mauritiana* changes counterdirectionally. Those plant-specific reproductive modes remain relevant even though no single estimable plant taxon drives the shared contemporary TM coefficient.
 
-## 4. Dependency moderation remains a separate unresolved question
+## 5. Dependency moderation remains a separate unresolved question
 
 Available mainland realized interaction breadth and tube length do not robustly moderate the FDQ → matching slope. Those are not effective-pollinator dependency measures.
 
@@ -131,4 +164,4 @@ Files:
 
 ## Claim boundary
 
-None of these contemporary associations establish that historical Bombus loss caused the focal *Campanula* autonomous-reproduction transition, flower-size erosion, or mating-system change. Site × season clusters are shared observational exposure states, not experimental treatments. Their value is narrower and stronger: the data identify a robust upstream functional-mechanism axis and show directly that its downstream reproductive-function expression is conditional rather than uniform, which sharpens what the prospective dependency measurements must explain.
+None of these contemporary associations establish that historical Bombus loss caused the focal *Campanula* autonomous-reproduction transition, flower-size erosion, or mating-system change. Site × season clusters are shared observational exposure states, not experimental treatments, and the eight joined plant species are not independent boundary experiments. Their value is narrower and stronger: the data identify a robust upstream functional-mechanism axis and directly show that the downstream biological response branches across reproductive-function and morphology channels, which sharpens what the prospective dependency measurements must explain.
