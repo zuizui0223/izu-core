@@ -82,6 +82,22 @@ Flowers and repeated visits within a plant remain subsamples, not independent
 `n`. A pilot does not identify historical selection or an Oshima-Toshima causal
 boundary.
 
+The focal pilot also does **not** identify reliability of the final direct-
+dependency predictor. If an empirical reliability ratio is needed, it follows a
+separate path:
+
+```text
+same final dependency estimand at prespecified taxon x site x season targets
+    -> independent non-overlapping plant panels
+    -> distinct frozen source bundles
+    -> calibration-scope reliability
+    -> transportability review
+    -> only then possible replacement of synthetic dependency_reliability
+```
+
+Technical SVD recounts estimate pollen-count repeatability only and cannot open
+this final-estimand reliability gate.
+
 ## P2 — direct dependency span across Izu lineages
 
 Only after P1 becomes dispersion-estimable:
@@ -199,6 +215,11 @@ P0 protection
   |      -> confirmatory design
   |      -> P2 multi-lineage dependency span
   |
+  |    separate if empirical reliability is needed
+  |      -> repeated final-estimand panels
+  |      -> calibration-scope reliability
+  |      -> transportability review
+  |
   +--> P3 external mechanism replication
          A response recurrence [exists]
          B pollinator-environment recurrence [exists]
@@ -214,13 +235,16 @@ P5 cleanup runs in parallel without changing P0 conclusions.
 
 1. **Issue #91:** ingest the first real linked field bundle; do not add more
    methodological complexity while the empirical rows are absent.
-2. After the pilot, replace synthetic design assumptions only with observed pilot
-   quantities and lock the precision target before confirmatory sample planning.
-3. In parallel, close the missing Dong *Cordia* effectiveness/dependency side or
+2. After the pilot, replace only variance / coverage / loss design assumptions
+   that are actually identified by observed pilot data, then lock the precision
+   target before confirmatory sample planning.
+3. Keep final direct-dependency reliability behind the independent repeated-
+   final-estimand calibration and transportability gate.
+4. In parallel, close the missing Dong *Cordia* effectiveness/dependency side or
    identify a genuinely complete external bridge without weakening admission.
-4. Broaden Izu direct dependency across multiple low-intermediate-high lineages
+5. Broaden Izu direct dependency across multiple low-intermediate-high lineages
    only after the focal pilot is estimable.
-5. Continue conservative code/workflow cleanup under the protected scientific
+6. Continue conservative code/workflow cleanup under the protected scientific
    state.
 
 ## Not the active mainline
