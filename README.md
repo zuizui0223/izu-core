@@ -1,6 +1,6 @@
 # Campanula Channel Identification
 
-A field-design, causal-identification, and constrained-simulation repository for asking a deliberately narrow question about island floral-trait variation:
+A field-design and causal-identification repository for asking a deliberately narrow question about island floral-trait variation:
 
 \[
 W(z)=F(z)E(z).
@@ -13,30 +13,45 @@ For a predeclared trait \(z\), can a difference between island regimes be assign
 
 rather than merely described as a difference in flower size, mating system, visitor identity, or island position?
 
-## Current empirical state
+## Current development mainline
 
-The repository is currently a **three-channel focal Campanula calibration plus a prediction-locked cross-lineage regime-transition programme**, not a completed multi-species meta-analysis.
+The mechanistic chain is **not yet causally identified**. The active development target is Issue #91: collect the first real direct effective-pollinator dependency pilot for *Campanula microdonta* and move from a field-ready contract to measured plant-level dispersion, reliability, loss, and precision.
 
-- floral size and multilocus outcrossing are retained as continuous erosion across the focal island series;
-- autonomous reproductive capacity shows a source-locked Oshima-to-no-Bombus second-transition step;
-- nectar-guide and visible-signal analyses are not adopted and contribute no current direction, breakpoint, or effect estimate;
-- no independent specialist lineage is yet eligible for the positive holdout;
-- one open-generalist lineage supplies a usable three-regime negative control;
-- no public-photo ROI proposal is eligible for broad specialist release; and
-- `environment_only` remains unranked until climate, area, isolation, and history enter an explicit comparison likelihood.
-
-The comparative target is not a universal island cline. Each eligible lineage is tested against competing response shapes:
+The immediate empirical path is:
 
 ```text
-no response
-smooth cline
-step at large-Bombus -> B. ardens
-step at B. ardens -> no effective Bombus
-two-step response
-explicit environment/history alternative
+first real six-channel field bundle
+-> preflight and checksum freeze
+-> linked plant / effort / visit / SVD / treatment / fruit / seed records
+-> structural dependency admission
+-> between-plant SVD and treatment dispersion
+-> pilot variance / reliability / coverage-loss estimates
+-> absolute precision target
+-> confirmatory design
 ```
 
-The current counts, claim boundaries, and next admissible actions are generated from committed tables:
+Until that path is populated with real field data, the repository does **not** claim historical pollinator-loss causation, an Oshima--Toshima causal boundary effect, or a cross-lineage dependency-by-functional-environment interaction.
+
+In parallel, cross-archipelago work may close a missing link in an already source-audited mechanism bridge. The current strongest near-complete bridge is the Xisha *Cordia subcordata* two-island system; it still lacks Dong-specific direct single-visit effectiveness and controlled reproductive-dependency measurements. Source-controlled gates such as the Weigela / Ligustrum / Hosta queue stay parked until genuinely new lawful source material arrives.
+
+Machine-readable routing lives in [`data/design/active_development_mainline.json`](data/design/active_development_mainline.json). The narrative companion is [`docs/ACTIVE_DEVELOPMENT_MAINLINE_20260813.md`](docs/ACTIVE_DEVELOPMENT_MAINLINE_20260813.md).
+
+## Current scientific state
+
+The source-locked focal Campanula calibration currently retains:
+
+- **floral size:** continuous erosion across the focal island series;
+- **multilocus outcrossing:** continuous erosion;
+- **autonomous reproductive assurance:** a second-transition step;
+- **visible signal / nectar-guide channel:** blocked-unmeasured and prospective only;
+- **historical Bombus causation:** not identified; and
+- **universal Izu-flora rule:** not supported as a current claim.
+
+External morphology shows directional recurrence in two independent systems under the declared OLS + island-cluster analysis, but no pooled universal island coefficient is admitted. Measurement-error identification is unresolved, and the formal cross-system fit remains closed because compatible same-family effects are not replicated across enough independent system clusters.
+
+See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md) for the canonical claim boundary. When an older pilot, simulation, discovery note, or manuscript fragment conflicts with the generated/current state, the source-locked registries and current-state contracts take precedence.
+
+The current counts and claim boundaries can be regenerated from committed tables:
 
 ```bash
 python scripts/report_current_evidence_state.py \
@@ -44,21 +59,31 @@ python scripts/report_current_evidence_state.py \
   --json-out artifacts/current_evidence_state.json
 ```
 
-See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md) and [`docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md`](docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md). When an older pilot or simulation document conflicts with the generated state, the generated state and its machine-readable source tables take precedence.
-
 ## What this repository does
 
-- records the minimum theorem-compatible measurement design for the factorisation above;
+- protects source locks, canonical result registries, negative admission states, and claim-boundary regressions before implementation cleanup;
+- defines the direct field measurements needed to distinguish effective service from reproductive dependency;
+- freezes and audits linked plant, observation-effort, visitor-contact, single-visit pollen-deposition, pollination-treatment, fruit, seed, and optional parentage records;
 - distinguishes direct measurements from proxies whose calibration must be stable or independently checked;
 - keeps published patterns, prospective field measurements, and pollinator-specific claims separate;
-- compares cline, threshold, no-response, and environment/history response shapes;
-- permits continuous, ordinal, binary, and occupancy channels only through separate observation models;
-- uses open-generalist taxa as negative controls for shared pollinator-regime breakpoints;
-- generates a current evidence/readiness report so discovery counts and failed operators cannot be mistaken for empirical replication;
-- provides a lightweight readiness checker for a proposed sampling design;
-- provides constrained life-history simulations for comparing explicitly declared mechanisms against predeclared observation intervals;
-- ranks future measurements by how strongly they distinguish the parameter candidates still compatible with current observations; and
-- keeps unfinished nectar-guide work outside the current evidence state.
+- compares cline, threshold, no-response, and environment/history alternatives only where the required observation model is declared;
+- uses source-native or independently replicated systems as falsification / bridge evidence without converting heterogeneous observations into a universal coefficient;
+- retains a small set of constrained diagnostic tools only when they enforce a current claim boundary or measurement decision; and
+- keeps unfinished visible-signal work and exhausted discovery routes outside the active evidence path.
+
+## What is not the development mainline
+
+The following do not advance the current scientific admission state by themselves:
+
+- historical nectar-guide / visible-signal inference from public images;
+- a universal island-dwarfism coefficient;
+- accumulating more island counts without independent-system replication;
+- treating visitor occurrence or identity as pollinator effectiveness;
+- repeating an already exhausted source-recovery route;
+- formal meta-analysis before compatible same-family replication exists; or
+- adding simulation complexity that does not change an admission or field-measurement decision.
+
+Historical implementations and failed routes remain recoverable from Git and PR history; their scientific lessons are summarized in [`docs/RESEARCH_TRIALS_RETROSPECTIVE.md`](docs/RESEARCH_TRIALS_RETROSPECTIVE.md).
 
 ## Response domains
 
@@ -79,7 +104,7 @@ Open-generalist lineages are not assumed to be absolutely invariant. The prospec
 
 ## Simulation boundary
 
-The simulation layer does not estimate an unobserved cost from a trait alone. It retains the **set of parameter values compatible with all declared observations**, then makes the remaining uncertainty explicit. A successful virtual reconstruction is not evidence that the same mechanism generated the field pattern.
+Any retained simulation or diagnostic layer is a design or identifiability aid, not evidence that the same mechanism generated the field pattern. Synthetic recovery, candidate ranking, or a successful virtual reconstruction cannot substitute for direct effectiveness, reproductive-dependency, provenance, and uncertainty measurements.
 
 ## What it does not claim
 
@@ -93,7 +118,7 @@ The factorisation is a declared model choice. It does not claim that all natural
 
 This is the active empirical design home for the Campanula/Izu channel-identification programme extracted from `microdonta`.
 
-Nectar-guide mechanism models remain available as future design modules, but no unfinished guide dataset is part of the adopted empirical state.
+The active tree is intentionally narrower than its Git history. Exploratory public-photo pipelines, broad literature-discovery machinery, legacy synthetic stress suites, and other completed one-off trial implementations are kept out of the current execution surface once their reusable scientific lesson, provenance state, or negative result has been frozen.
 
 ## Relationship to RACH causal invariants
 
