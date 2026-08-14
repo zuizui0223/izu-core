@@ -8,7 +8,6 @@ on:
       - "data/design/tribulus_flower_source_mapping.json"
       - "scripts/acquire_tribulus_zenodo.py"
       - "scripts/acquire_dryad_external_dataset.py"
-      - "scripts/acquire_dryad_external_dataset_v2.py"
       - "scripts/audit_tribulus_flower_source.py"
       - "scripts/analyze_tribulus_flower_divergence.py"
       - "scripts/analyze_tribulus_flower_divergence_idaware.py"
@@ -71,7 +70,7 @@ jobs:
         id: dryad
         continue-on-error: true
         run: >-
-          python scripts/acquire_dryad_external_dataset_v2.py
+          python scripts/acquire_dryad_external_dataset.py
           --config config/tribulus_dryad_source.json
           --output-dir artifacts/tribulus_dryad
       - name: Detect final flower source bytes

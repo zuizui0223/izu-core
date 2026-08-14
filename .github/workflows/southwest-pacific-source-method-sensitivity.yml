@@ -12,7 +12,7 @@ on:
       - "data/results/southwest_pacific_pairs/source_method_geographic_overlap_sensitivity.json"
       - "config/southwest_pacific_aob_source.json"
       - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/acquire_oup_supplementary_data_v2.py"
+      - "scripts/acquire_oup_supplementary_data.py"
       - ".github/workflows/southwest-pacific-source-method-sensitivity.yml"
   pull_request:
     paths:
@@ -24,7 +24,7 @@ on:
       - "data/results/southwest_pacific_pairs/source_method_geographic_overlap_sensitivity.json"
       - "config/southwest_pacific_aob_source.json"
       - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/acquire_oup_supplementary_data_v2.py"
+      - "scripts/acquire_oup_supplementary_data.py"
       - ".github/workflows/southwest-pacific-source-method-sensitivity.yml"
 
 jobs:
@@ -65,7 +65,7 @@ jobs:
         continue-on-error: true
         timeout-minutes: 4
         run: >-
-          python scripts/acquire_oup_supplementary_data_v2.py
+          python scripts/acquire_oup_supplementary_data.py
           --config config/southwest_pacific_aob_source.json
           --output-dir artifacts/southwest_pacific_source_method/source
       - name: Resolve final source state
