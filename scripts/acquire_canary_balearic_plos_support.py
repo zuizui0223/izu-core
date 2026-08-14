@@ -150,6 +150,35 @@ def inventory_expected_files(paths: Iterable[Path]) -> dict[str, Path]:
     return output
 
 
+def reconcile_package_record(
+    package_record: dict[str, object] | None,
+    config: dict[str, Any],
+) -> dict[str, object] | None:
+    """Retain the repository-locked package checksum across transport failures.
+
+    A failed ZIP transport must not erase a checksum established by an earlier
+    successful lawful recovery. If the package is observed again, checksum drift
+    is a provenance gate rather than an automatic source update.
+    """
+    locked = str(config.get("locked_package_sha256") or "").strip().casefold()
+    if locked and not re.fullmatch(r"[0-9a-f]{64}", locked):
+        raise ValueError("locked_package_sha256 must be a 64-character hex digest")
+    if package_record is None:
+        if not locked:
+            return None
+        return {
+            "status": "not_recovered_this_run_locked_checksum_retained",
+            "sha256": locked,
+            "provenance": "repository_locked_prior_successful_package",
+        }
+    observed = str(package_record.get("sha256") or "").strip().casefold()
+    if locked and observed != locked:
+        raise ValueError(
+            f"Europe PMC supplementary package checksum drift: observed={observed!r} locked={locked!r}"
+        )
+    return package_record
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -202,6 +231,8 @@ def main() -> None:
                 "error": repr(error),
             }
         )
+
+    package_record = reconcile_package_record(package_record, config)
 
     expected = {str(row["logical_id"]): row for row in config["expected_files"]}
     discovered = inventory_expected_files(extracted)

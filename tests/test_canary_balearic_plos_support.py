@@ -5,6 +5,7 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
+LOCKED_PACKAGE_SHA256 = "d1d8d0a372c1717ed0f5b73203018474ec5a59446192d9339dddad3c012f7f6f"
 
 
 def load_module(name: str, relative_path: str):
@@ -126,3 +127,23 @@ def test_species_code_crosswalk_retains_source_mismatches():
     assert summary["n_shared_codes"] == 2
     assert summary["query_only_codes"] == ["ana.pro"]
     assert summary["reference_only_codes"] == ["cam.fea"]
+
+
+def test_package_lock_survives_transport_failure_without_claiming_redownload():
+    record = ACQUIRE.reconcile_package_record(
+        None,
+        {"locked_package_sha256": LOCKED_PACKAGE_SHA256},
+    )
+    assert record == {
+        "status": "not_recovered_this_run_locked_checksum_retained",
+        "sha256": LOCKED_PACKAGE_SHA256,
+        "provenance": "repository_locked_prior_successful_package",
+    }
+
+
+def test_package_lock_rejects_checksum_drift():
+    with pytest.raises(ValueError, match="checksum drift"):
+        ACQUIRE.reconcile_package_record(
+            {"status": "downloaded", "sha256": "0" * 64},
+            {"locked_package_sha256": LOCKED_PACKAGE_SHA256},
+        )
