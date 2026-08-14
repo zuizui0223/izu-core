@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "system_id": "xisha_cordia_subcordata_two_island_system",
   "parent_issue": 100,
   "admission_state": "bridge_system_partial",
@@ -20,8 +20,18 @@
       "open_pdf_mirror": "Semantic Scholar open PDF matching the article DOI/title",
       "publisher_open_access_metadata_verified": true,
       "exact_source_pdf_available_publicly": true,
-      "checksum_locked": false,
-      "checksum_boundary": "Public exact article bytes are identifiable and readable, but no repository checksum is recorded yet; do not mark byte-level provenance complete."
+      "checksum_locked": true,
+      "byte_lock": {
+        "route": "publisher",
+        "url": "https://plecevo.eu/article/24681/download/pdf/",
+        "n_bytes": 3133528,
+        "sha256": "6c42f4f1037bc1dec517c4e384fc0acffb031d80d341dd3c5a9b38cda241e39a",
+        "identity_check": "DOI and title fragments verified with pypdf from the first 3 pages; PDF has 12 pages.",
+        "acquisition_workflow_run": 31780408963,
+        "acquisition_artifact_id": 9211466597,
+        "byte_scope": "Exact bytes returned by the recorded publisher PDF route. No claim is made that alternate mirrors are byte-identical."
+      },
+      "checksum_boundary": "Byte-level provenance is complete for the exact publisher PDF bytes recorded here. This provenance repair does not supply the missing Dong effectiveness or dependency channels and does not change bridge admission."
     }
   },
   "response_channel": {
@@ -157,10 +167,9 @@
     ]
   },
   "next_actions": [
-    "Checksum-lock the exact CC-BY article bytes in the source registry.",
-    "Search for Dong Island controlled bagging/hand-pollination data or later follow-up experiments using the same population.",
-    "Search for Dong Island single-visit pollen deposition or another direct visitor-effectiveness measure.",
-    "If both missing Dong channels remain unavailable, preserve Cordia as near-complete partial evidence rather than weakening the matched-population rule.",
+    "Keep Dong direct-effectiveness and controlled-dependency measurements as source-triggered reopen gates after the targeted public follow-up recovered no qualifying matched Dong data.",
+    "Reopen those gates only if an author, institution, lawful repository/public source, or new prespecified field dataset exposes Dong direct effectiveness and/or controlled dependency.",
+    "Until then, preserve Cordia as near-complete partial evidence rather than weakening the matched-population rule.",
     "Only after matched two-sided effectiveness and dependency data exist should a causal Yongxing-Dong mechanism contrast be considered."
   ]
 }
