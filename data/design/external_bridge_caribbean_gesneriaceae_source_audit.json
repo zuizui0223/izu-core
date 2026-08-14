@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "system_id": "caribbean_gesneriaceae_island_mainland",
+  "parent_issue": 100,
+  "admission_state": "bridge_system_partial",
+  "bridge_level": "clade_level",
+  "bridge_complete": false,
+  "formal_cross_system_model_eligible": false,
+  "sources": [
+    {
+      "source_id": "marten_rodriguez_2015_island_mainland_reproductive_strategies",
+      "doi": "10.1111/1365-2745.12457",
+      "title": "A comparison of reproductive strategies between island and mainland Caribbean Gesneriaceae",
+      "design": "54 species studied under natural conditions: 28 insular Caribbean species and 26 mainland Costa Rica/Mexico species, with each species sampled at one study site",
+      "measured_links": [
+        "field pollinator visitation rates",
+        "pollination-system functional specialization",
+        "bagged autonomous fruit set",
+        "hand-outcross fruit set",
+        "autofertility index defined as bagged fruit set divided by outcross fruit set"
+      ],
+      "source_native_numeric_anchors": {
+        "hummingbird_visitation_mainland_mean_visits_per_flower_hour": 0.24,
+        "hummingbird_visitation_mainland_se": 0.035,
+        "hummingbird_visitation_island_mean_visits_per_flower_hour": 0.07,
+        "hummingbird_visitation_island_reported_se": 0.07,
+        "hummingbird_visitation_site_effect_F": 6.11,
+        "hummingbird_visitation_site_effect_df": "1,23",
+        "hummingbird_visitation_site_effect_p": 0.021,
+        "autofertility_index_range_both_environments": "0 to 1",
+        "island_mainland_autofertility_difference": "not detected",
+        "island_functionally_specialized_fraction": 0.71,
+        "mainland_functionally_specialized_fraction": 1.0
+      },
+      "source_route": {
+        "publisher": "Journal of Ecology / Wiley",
+        "publisher_full_text_free_access": true,
+        "checksum_locked": false
+      },
+      "role": "direct island-mainland functional-environment plus reproductive-dependency comparison"
+    },
+    {
+      "source_id": "marten_rodriguez_fenster_2010_pollen_limitation",
+      "doi": "10.1890/08-2115.1",
+      "title": "Pollen limitation and reproductive assurance in Antillean Gesnerieae: a specialists vs. generalist comparison",
+      "design": "Antillean Gesnerieae with contrasting bat, hummingbird and generalist pollination systems; autonomous-selfing survey on 13 species and two-year pollen-supplementation experiments on nine species",
+      "measured_links": [
+        "autonomous self-pollination",
+        "emasculated versus unmanipulated reproductive-assurance comparison",
+        "supplemental-pollen limitation of fruit and seed set",
+        "pollination-system specialization"
+      ],
+      "source_native_results": {
+        "reproductive_assurance": "autonomous selfing acted as reproductive assurance in three of four ornithophilous species",
+        "pollen_limitation": "significant pollen limitation occurred in specialized bat- and hummingbird-pollinated species; none of four generalist species was pollen limited",
+        "exception": "two ornithophilous Gesneria species with low hummingbird visitation and high autonomous self-pollination were not pollen limited"
+      },
+      "source_route": {
+        "publisher": "Ecology",
+        "pubmed_record_verified": true,
+        "stable_full_text_bytes_recovered": false,
+        "checksum_locked": false
+      },
+      "role": "within-island-clade reproductive-function and assurance bridge"
+    },
+    {
+      "source_id": "marten_rodriguez_2010_pollination_specialization_evolution",
+      "doi": "10.1111/j.1469-8137.2010.03330.x",
+      "title": "Evolutionary breakdown of pollination specialization in a Caribbean plant radiation",
+      "design": "Antillean Gesnerieae phylogeny using nuclear markers plus morphology, with stochastic mapping of floral characters, pollination systems and breeding systems",
+      "measured_links": [
+        "floral character evolution",
+        "pollination-system transitions",
+        "breeding-system transitions"
+      ],
+      "source_native_results": {
+        "bat_pollination_origins_minimum": 2,
+        "generalized_pollination_origins_minimum": 2,
+        "generalization_floral_response": "associated with subcampanulate corollas",
+        "bat_pollination_floral_response": "associated with floral transitions matching the chiropterophilous syndrome",
+        "autonomous_breeding_systems": "evolved only in hummingbird-pollinated lineages"
+      },
+      "source_route": {
+        "publisher": "New Phytologist / Wiley",
+        "publisher_article_record_verified": true,
+        "checksum_locked": false
+      },
+      "role": "evolutionary floral-response channel for the same Antillean radiation"
+    }
+  ],
+  "cross_source_linkage": {
+    "shared_biological_system": "Antillean Gesnerieae / Caribbean Gesneriaceae radiation",
+    "direct_population_level_identity_across_sources": false,
+    "visit_level_effectiveness_measured": false,
+    "pollen_function_measured_per_visit": false,
+    "why_partial_not_complete": "The programme has direct island-mainland visitation and autonomous-outcross dependency measurements, plus source-native pollen-limitation/reproductive-assurance experiments and independently reconstructed floral/pollination-system transitions in the same Antillean radiation. However, these are clade-level links assembled across studies rather than one matched population or tagged-plant panel, and no visit-level pollen deposition/effectiveness measure bridges visitor identity to pollen function.",
+    "allowed_claim": "This radiation independently supports a pathway in which low hummingbird visitation on islands co-occurs with reproductive-assurance and pollination-system alternatives, while floral transitions accompany repeated pollination-system evolution. It is a clade-level mechanistic recurrence, not a complete causal chain.",
+    "blocked_claims": [
+      "do not infer per-visit pollinator effectiveness from visitation rate",
+      "do not treat pollination syndrome as effective dependency",
+      "do not treat the three source datasets as one matched population-level panel",
+      "do not infer that autonomous selfing is generally higher on islands because the 2015 island-mainland AFI comparison did not show that pattern",
+      "do not admit a formal cross-system mechanism effect until compatible estimands, uncertainty, provenance and independent system replication are available"
+    ]
+  },
+  "comparison_with_nicotiana": {
+    "independent_system_cluster": true,
+    "complementary_strength": "Nicotiana supplies direct per-visit/service information but crosses years for the dependency bridge; Caribbean Gesneriaceae supplies broad island-mainland dependency and evolutionary response replication but lacks visit-level pollen function.",
+    "does_not_make_formal_cross_system_fit_ready": true
+  },
+  "next_actions": [
+    "Recover stable source bytes or archival versions for the 2010 Ecology and New Phytologist studies and checksum them where lawful.",
+    "Extract species-level 2015 visitation and AFI rows with source locators and biological n, preserving phylogenetic non-independence.",
+    "Map which 2010 experimental species are represented in the 2015 island dataset before any cross-paper species-level linkage.",
+    "Search for source-native per-visit pollen deposition or single-visit reproductive-success data within the same Antillean Gesnerieae species.",
+    "Keep formal cross-system mechanism fitting closed until the missing effectiveness link and compatible independent-system estimands are resolved."
+  ]
+}
