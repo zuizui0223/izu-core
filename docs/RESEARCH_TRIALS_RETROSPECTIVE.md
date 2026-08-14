@@ -12,16 +12,18 @@ Useful lessons:
 
 Do not infer complete flora, abundance, occupancy, alpha diversity, true beta diversity, colonization, extinction or lifecycle filtering from these records.
 
-## Public images
+## Public images and visible-signal exploration
 
 Useful lessons:
 
 - multiple photographs from one observation are pseudoreplicates;
 - view, organ, stage, cultivation and background must be controlled;
 - generic colour and texture ROI features failed a flat Ajania negative control;
-- specialist taxa lacked independent Oshima and non-Oshima observations.
+- specialist taxa lacked independent Oshima and non-Oshima observations;
+- blind cards, herbarium/media availability, ROI calibration and public-image positive controls are observation-process diagnostics, not measurements of effective pollination or reproductive dependency;
+- a guide/visible-signal channel remains prospective until a final directly measured dataset and analysis are explicitly declared.
 
-Do not use automatic public-image embeddings as evidence of floral evolution. Standardized prospective photography remains a future route.
+Do not use automatic public-image embeddings or guide-screen outputs as evidence of floral evolution. `CURRENT_EVIDENCE_STATE` keeps `visible_signal = blocked_unmeasured / prospective_only`, so the routine PR workflows that repeatedly acquire/render public-photo, herbarium, ROI and guide-screen artifacts are retired. Their modules, scripts, tests, gate tables, prospective templates and historical artifacts remain available for targeted audit or an explicitly declared future visible-signal dataset.
 
 ## Edge and life-history screens
 
