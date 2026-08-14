@@ -115,11 +115,25 @@ The current state remains `implementation_ready_field_data_missing`: no real
 linked field bundle is committed in the repository. Flowers and repeated visits
 within one plant are subsamples, not independent `n`.
 
-The pilot must first produce plant-level SVD and treatment dispersion. Only then
-may synthetic variance / reliability / coverage / loss assumptions be replaced,
-a biologically meaningful absolute CI half-width be locked, and confirmatory
-replication be planned. Pilot completion does not identify historical selection
-or a causal geographic boundary.
+The focal pilot must first produce plant-level SVD and treatment dispersion. Once
+admitted, it may replace synthetic **variance / coverage / loss** planning
+assumptions that it actually identifies, after which a biologically meaningful
+absolute CI half-width can be locked and independent-plant precision can be
+planned.
+
+Reliability of the **final direct-dependency predictor is a separate
+identification problem**. Biological repeats inside one focal panel do not
+separate target variation from measurement error, and blinded recounts of one
+preserved SVD sample identify pollen-count technical repeatability only. An
+empirical final-dependency reliability ratio requires independent repeated
+estimates of the same final estimand for prespecified taxon × site × season units
+using non-overlapping plant panels and distinct frozen source bundles. Even an
+estimable calibration-scope ratio requires a separate transportability review
+before it can replace synthetic `dependency_reliability` in a cross-lineage
+FDQ design.
+
+Pilot completion does not identify historical selection or a causal geographic
+boundary.
 
 ## Cross-lineage Izu expansion
 
@@ -326,16 +340,19 @@ Priority order is now:
 1. **Issue #91:** collect the first real linked *Campanula microdonta* field
    bundle and pass preflight -> freeze -> structural audit -> plant-level
    dispersion;
-2. replace synthetic pilot variance / reliability / coverage / loss assumptions
-   only with observed pilot quantities, then lock an absolute precision target;
-3. broaden Izu direct dependency across multiple low-intermediate-high lineages;
-4. externally, recover or collect Dong *Cordia* single-visit effectiveness and
+2. use the focal pilot to replace only observed variance / coverage / loss
+   planning assumptions, then lock an absolute precision target;
+3. keep final direct-dependency reliability behind the independent
+   repeated-final-estimand calibration and transportability gate; do not infer it
+   from biological repeats or SVD technical recounts;
+4. broaden Izu direct dependency across multiple low-intermediate-high lineages;
+5. externally, recover or collect Dong *Cordia* single-visit effectiveness and
    controlled dependency, or identify another genuinely complete bridge;
-5. keep target-reliability, Issue #92 and 136-pair source tasks closed until new
+6. keep target-reliability, Issue #92 and 136-pair source tasks closed until new
    admissible evidence appears;
-6. preserve rewiring, non-establishment, hybrid replacement and demographic
+7. preserve rewiring, non-establishment, hybrid replacement and demographic
    history as explicit alternatives; and
-7. keep formal cross-system fitting closed until compatible source-locked
+8. keep formal cross-system fitting closed until compatible source-locked
    estimands with uncertainty exist in at least two independent system clusters
    and all required identification gates pass.
 
