@@ -59,6 +59,20 @@ Useful lessons:
 
 The four dedicated Virtual Izu report workflows are retired from routine PR CI. Their scripts, modules, tests and existing documentation remain available for targeted reproduction or later audit.
 
+## Cross-archipelago replication operating-characteristic simulation
+
+A fixed-seed synthetic study compared the same total number of island units distributed across different numbers of independent archipelago systems. It was a design diagnostic, not external empirical replication.
+
+Useful lessons:
+
+- the independent inferential unit for cross-system generalization is the archipelago/system cluster, not each island sampled inside a cluster;
+- deep sampling inside only one or two systems cannot substitute for replication across independent systems when between-system heterogeneity is possible;
+- treating island units as exchangeable can produce misleading uncertainty and direction-detection behavior when system-level heterogeneity exists;
+- the number of independent systems, not simply the total number of islands, should control whether a cross-archipelago effect family is considered replicated;
+- synthetic operating characteristics can guide sampling and admission rules but cannot create empirical support for a universal island rule.
+
+The dedicated replication-simulation workflow and its generated JSON/CSV are retired from the active `data/results` surface now that the empirical bridge/effect registries explicitly track independent system clusters. The scenario config, simulator, design module and tests remain available for targeted design work.
+
 ## Rich attraction-trait model incubator
 
 A richer proposed model combined nectar-guide expression, flower size, delayed-selfing geometry, selfing ability, neutral diversity and spatial position. It was intentionally never promoted to an active inference engine because the richer state space was not linked to a measurement design capable of discriminating the proposed pathways.
