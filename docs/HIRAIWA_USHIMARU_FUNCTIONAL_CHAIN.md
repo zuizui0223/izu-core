@@ -40,7 +40,7 @@ This remains observational. Fixed effects remove time-invariant site differences
 
 Source lock: `data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json`.
 
-## 2. Trait matching → pollen receipt is positive but attenuated
+## 2. Trait matching → pollen receipt is positive but network-state sensitive
 
 The archived source Figure-5 reproductive-success line uses a positive TM coefficient of `+0.04865`.
 
@@ -55,24 +55,67 @@ Because the pollen table contains multiple flowers per plant × site × season, 
 
 The average direction is positive in every geographic subset, but the leave-one-island sensitivity crosses zero:
 
-- Izu5: `-0.004..+0.073`;
-- post4: `-0.078..+0.101`.
+- Izu5: `-0.004..+0.073`; only omission of Hachijo is negative;
+- post4: `-0.078..+0.101`; only omission of Hachijo is negative.
 
-**Interpretation:** trait matching has a positive reproductive-function association, but it is materially weaker and less geographically robust than the upstream FDQ → matching association.
+The new real-data omission audit localizes that fragility more precisely.
 
-Source lock: `data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json`.
+### Plant identity does not explain the shared positive coefficient
+
+For both Izu5 and post4, all **9 estimable leave-one-plant models remain positive**:
+
+- Izu5 range: `+0.0217..+0.0532`;
+- post4 range: `+0.0177..+0.0521`.
+
+The *Oxalis corniculata* var. *trichocaulon* omission makes the fixed-effect design singular, so it is explicitly non-estimable and is not counted for either sign.
+
+This does not mean plant biology is homogeneous. It means no single estimable plant taxon is responsible for the positive shared TM coefficient.
+
+### The instability localizes to season 3 and, post-Oshima, Hachijo × season 3
+
+Leaving out one season at a time gives:
+
+- Izu5: `-0.0147..+0.0636`; only season 3 omission is negative;
+- post4: `-0.0316..+0.0654`; only season 3 omission is negative.
+
+Leaving out one complete site × season network state at a time sharpens the result:
+
+- Izu5: all **24/24 estimable** omissions remain positive, `+0.0088..+0.0521`;
+- post4: **18/19** remain positive; the only sign reversal is omission of `Hachijo × season 3`, which gives `-0.0406`.
+
+Thus the positive post-Oshima matching-to-pollen coefficient is not a stable property of every network state. A particularly informative Hachijo season-3 state supplies enough leverage that removing it reverses the post4 coefficient. When Oshima is included, no single site × season omission reverses the Izu5 coefficient, although removing all of Hachijo or all of season 3 still does.
+
+### Site × season clustered uncertainty also remains broad
+
+`TM_z` is shared by plants within one site × season network state, so plant × cell rows cannot be treated as independent exposure replicates. CR1 sandwich uncertainty clustered by site × season gives:
+
+| subset | clusters | TM coefficient | cluster SE | 95% t interval | two-sided p |
+|---|---:|---:|---:|---:|---:|
+| all 8 sites | 38 | `+0.0295` | `0.0232` | `[-0.0175, +0.0765]` | `0.212` |
+| mainland | 14 | `+0.0468` | `0.0457` | `[-0.0518, +0.1455]` | `0.324` |
+| Izu5 | 24 | `+0.0353` | `0.0322` | `[-0.0314, +0.1019]` | `0.285` |
+| post4 | 19 | `+0.0342` | `0.0406` | `[-0.0510, +0.1194]` | `0.411` |
+
+Every point estimate remains positive, but every cluster-aware interval contains zero. Interval overlap with zero is **not** evidence of biological absence; it says that the current network-state replication does not support a precise, geographically stable downstream coefficient.
+
+**Interpretation:** the upstream FDQ → matching relationship is reproducible across island omissions and source covariates, whereas translation from matching into open-pollinated pollen receipt is directional but uncertain and strongly network-state dependent. The contemporary mechanism is therefore not a deterministic `FDQ -> matching -> pollen` cascade with one fixed downstream coefficient.
+
+Source locks:
+
+- `data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json`;
+- `data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen_heterogeneity.json`.
 
 ## 3. Direct FDQ → pollen receipt is not promoted to a main result
 
-Exploratory fixed-effect fits of pollen receipt directly on FDQ are small and leave-one-island unstable. This is consistent with attenuation through plant-specific reproductive biology and is not source-locked as a strong mechanism claim.
+Exploratory fixed-effect fits of pollen receipt directly on FDQ are small and leave-one-island unstable. This is consistent with attenuation through plant-specific reproductive biology and network-state dependence and is not source-locked as a strong mechanism claim.
 
 The paper should therefore not say that pollinator functional diversity uniformly determines reproductive success. The supported structure is:
 
 > **pollinator functional diversity → trait matching: robust contemporary association**  
-> **trait matching → pollen receipt: positive but attenuated/conditional**  
+> **trait matching → pollen receipt: positive direction, cluster-uncertain and network-state conditional**  
 > **long-term reproductive assurance / morphology / persistence: distinct response modes**
 
-The independent 2017 reproductive study reinforces this structure: *Calystegia soldanella* is sensitive to long-tongued-pollinator loss, *Vitex rotundifolia* is resilient in fruit set, and *Lysimachia mauritiana* changes counterdirectionally.
+The independent 2017 reproductive study reinforces this structure: *Calystegia soldanella* is sensitive to long-tongued-pollinator loss, *Vitex rotundifolia* is resilient in fruit set, and *Lysimachia mauritiana* changes counterdirectionally. Those plant-specific reproductive modes remain relevant even though no single estimable plant taxon drives the shared contemporary TM coefficient.
 
 ## 4. Dependency moderation remains a separate unresolved question
 
@@ -88,4 +131,4 @@ Files:
 
 ## Claim boundary
 
-None of these contemporary associations establish that historical Bombus loss caused the focal *Campanula* autonomous-reproduction transition, flower-size erosion, or mating-system change. Their value is narrower and stronger: they supply an independently observed, continuously varying functional mechanism axis against which the historical response modes can be interpreted and prospectively tested.
+None of these contemporary associations establish that historical Bombus loss caused the focal *Campanula* autonomous-reproduction transition, flower-size erosion, or mating-system change. Site × season clusters are shared observational exposure states, not experimental treatments. Their value is narrower and stronger: the data identify a robust upstream functional-mechanism axis and show directly that its downstream reproductive-function expression is conditional rather than uniform, which sharpens what the prospective dependency measurements must explain.

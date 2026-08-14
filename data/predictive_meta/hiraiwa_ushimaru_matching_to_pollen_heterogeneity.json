@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "analysis_name": "hiraiwa_ushimaru_matching_to_pollen_heterogeneity",
+  "source_dataset": "10.6084/m9.figshare.25025000.v1",
+  "source_workflow_run": 31783164531,
+  "source_artifact_id": 9212465318,
+  "parent_result": "data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json",
+  "analysis_unit": "plant x site x season mean pollen_z; TM_z is shared within site x season",
+  "fixed_effect_model": "pollen_z_mean ~ TM_z + plant fixed effects + site fixed effects + season fixed effects",
+  "baseline_point_estimates": {
+    "all_eight_sites": 0.029492160092120624,
+    "mainland_three_sites": 0.046828939435037346,
+    "izu_five_islands": 0.03528541439362932,
+    "post_oshima_four_islands": 0.03415875775284908
+  },
+  "site_season_cluster_inference": {
+    "method": "CR1 sandwich covariance clustered by site x season; Student-t 95% interval and two-sided p with G-1 reference degrees of freedom",
+    "all_eight_sites": {
+      "n_cells": 124,
+      "n_clusters": 38,
+      "tm_coefficient": 0.02949216009212067,
+      "cluster_standard_error": 0.023200154091216618,
+      "reference_df": 37,
+      "two_sided_p": 0.21158936206206957,
+      "interval_95": [-0.017515817268616396, 0.07650013745285773],
+      "interval_excludes_zero": false
+    },
+    "mainland_three_sites": {
+      "n_cells": 46,
+      "n_clusters": 14,
+      "tm_coefficient": 0.046828939435038505,
+      "cluster_standard_error": 0.04566101073992211,
+      "reference_df": 13,
+      "two_sided_p": 0.32379628067685584,
+      "interval_95": [-0.05181567698990011, 0.14547355585997712],
+      "interval_excludes_zero": false
+    },
+    "izu_five_islands": {
+      "n_cells": 78,
+      "n_clusters": 24,
+      "tm_coefficient": 0.03528541439362961,
+      "cluster_standard_error": 0.03221806330817081,
+      "reference_df": 23,
+      "two_sided_p": 0.2847630286634663,
+      "interval_95": [-0.031362727461780655, 0.10193355624903988],
+      "interval_excludes_zero": false
+    },
+    "post_oshima_four_islands": {
+      "n_cells": 60,
+      "n_clusters": 19,
+      "tm_coefficient": 0.03415875775284886,
+      "cluster_standard_error": 0.04055640428115834,
+      "reference_df": 18,
+      "two_sided_p": 0.4106980161381621,
+      "interval_95": [-0.05104708587436269, 0.11936460138006041],
+      "interval_excludes_zero": false
+    }
+  },
+  "omission_localization": {
+    "izu_five_islands": {
+      "leave_one_site": {
+        "negative_when_omitted": ["hachijo"],
+        "coefficient_when_hachijo_omitted": -0.004185019040317069,
+        "range": [-0.004185019040317069, 0.0734920358744932]
+      },
+      "leave_one_season": {
+        "negative_when_omitted": [3],
+        "coefficient_when_season_3_omitted": -0.014746416922553365,
+        "range": [-0.014746416922553365, 0.06361337919210446]
+      },
+      "leave_one_plant": {
+        "estimable_omissions": 9,
+        "positive_estimable_omissions": 9,
+        "range": [0.021709125087546067, 0.053187989699270084],
+        "non_estimable": {
+          "Oxalis corniculata var. trichocaulon": "singular design matrix"
+        }
+      },
+      "leave_one_site_season": {
+        "estimable_omissions": 24,
+        "positive_estimable_omissions": 24,
+        "negative_when_omitted": [],
+        "range": [0.008812053386804792, 0.052132687607070016]
+      }
+    },
+    "post_oshima_four_islands": {
+      "leave_one_site": {
+        "negative_when_omitted": ["hachijo"],
+        "coefficient_when_hachijo_omitted": -0.07826426974316998,
+        "range": [-0.07826426974316998, 0.10090747286227582]
+      },
+      "leave_one_season": {
+        "negative_when_omitted": [3],
+        "coefficient_when_season_3_omitted": -0.03156481954546157,
+        "range": [-0.03156481954546157, 0.0654261427750922]
+      },
+      "leave_one_plant": {
+        "estimable_omissions": 9,
+        "positive_estimable_omissions": 9,
+        "range": [0.017720749578699943, 0.052133769043609356],
+        "non_estimable": {
+          "Oxalis corniculata var. trichocaulon": "singular design matrix"
+        }
+      },
+      "leave_one_site_season": {
+        "estimable_omissions": 19,
+        "positive_estimable_omissions": 18,
+        "negative_when_omitted": ["hachijo|season_3"],
+        "coefficient_when_hachijo_season_3_omitted": -0.04059221616724388,
+        "range": [-0.04059221616724388, 0.06435317571552304]
+      }
+    }
+  },
+  "empirical_reading": "The matching-to-pollen point estimate is positive in every geographic subset, but site-season-clustered 95% intervals include zero throughout. Every estimable leave-one-plant model stays positive, so no single plant taxon explains the shared positive coefficient. The island-only fragility instead localizes to network-state structure: omitting Hachijo or season 3 reverses the sign, and in the post-Oshima subset the only single site-season omission that reverses the sign is Hachijo season 3. Including Oshima buffers this single-network-state fragility because all 24 estimable Izu-five-island leave-one-site-season coefficients remain positive.",
+  "mechanistic_implication": "The upstream FDQ-to-trait-matching association remains much more stable than the downstream matching-to-pollen link. Contemporary functional matching can therefore be treated as a reproducible ecological mechanism axis, while its translation into open-pollinated pollen receipt is conditional on network state and should not be represented as a uniform deterministic cascade.",
+  "decision_state": "directional_positive_but_cluster_uncertain_and_network_state_sensitive",
+  "claim_boundary": "This analysis localizes robustness in contemporary observational data only. Site x season is a shared exposure cluster, not an experimental treatment. The cluster covariance and omission diagnostics do not remove time-varying environmental confounding, plant-condition differences, measurement error, network feedback or historical-selection ambiguity. The Oxalis leave-one-plant omission is non-estimable and is not counted as evidence for either sign. Do not interpret intervals crossing zero as evidence of no biological effect, and do not promote the positive point estimate to causal mediation or historical pollinator-loss causation."
+}
