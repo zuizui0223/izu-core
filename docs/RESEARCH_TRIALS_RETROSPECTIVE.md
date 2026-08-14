@@ -44,7 +44,7 @@ Useful lessons:
 - candidate preference that changes under channel ablation is evidence of channel dependence, not a universal island mechanism;
 - the bridge-loss and ordinal-order candidates should therefore be treated as competing restricted explanations unless direct mechanism measurements discriminate them.
 
-The five-candidate register is no longer an active decision surface. Current development instead uses the source-locked focal claim boundaries, the direct effective-service × reproductive-dependency field gate, and explicitly admitted external bridge systems. The retired implementation remains recoverable from Git and PR history.
+The five-candidate register and its dedicated source-level workflow are no longer active decision surfaces. Current development instead uses the source-locked focal claim boundaries, the direct effective-service × reproductive-dependency field gate, and explicitly admitted external bridge systems. The retired register/workflow remain recoverable from Git and PR history. Lower-level source-analysis components are not retired by this note and require separate reference and claim audits before removal.
 
 ## Assets retained
 
