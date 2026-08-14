@@ -32,6 +32,20 @@ Useful lessons:
 - descriptive edge rankings are not causal threshold tests;
 - uncertainty and observation effort belong in any future community model.
 
+## Rank-weighted pilot synthesis
+
+An early comparative pipeline assigned evidence ranks and functional-group labels to heterogeneous Izu observations, then summarized direction with fixed rank weights. It was useful for exposing source-recovery gaps, but it was never a variance-weighted meta-analysis and its broad observation table predates the current source-locked admission rules.
+
+Useful lessons:
+
+- evidence rank is not an effect-size variance and must not be used as a substitute for formal uncertainty;
+- qualitative direction, between-taxon context, web descriptions and source-unlocked geographic claims cannot become independent quantitative replicates by assigning weights;
+- public colour descriptions and other visible-signal leads remain outside the adopted evidence until prospectively measured or source-locked under the current gate;
+- source recovery and explicit effect-family compatibility must precede formal cross-system pooling;
+- a diagnostic that is honest as a screening summary can still become misleading once a stricter evidence registry supersedes its admission rules.
+
+The dedicated `meta-analysis-pipeline` workflow is therefore retired, and the consolidated offline runner no longer executes the rank-weighted synthesis, evidence-rank validator, functional-group moderator pilot, or broad detectability sweep. Historical tables and validators remain temporarily in the tree for separate reference audit; current cross-system decisions come from the source-locked effect/bridge registries and `CURRENT_EVIDENCE_STATE`.
+
 ## Five-candidate ordinal-order / tempered-SMC trial
 
 A later source-level trial expanded the restricted candidate family with a fixed ordinal `isolation_order` proxy and used tempered SMC to stabilize numerical integration. The ordinal proxy could lead within that declared family, but its advantage depended materially on retaining the flower-length channel. `ardens_bridge_loss` remained a plausible restricted alternative in the non-flower channels rather than being uniquely rejected.
