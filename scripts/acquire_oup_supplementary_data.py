@@ -112,7 +112,7 @@ def content_type(headers: Mapping[str, str]) -> str:
 def looks_html(payload: bytes, headers: Mapping[str, str]) -> bool:
     if content_type(headers) in {"text/html", "application/xhtml+xml"}:
         return True
-    prefix = payload[:500].lstrip().casefold()
+    prefix = payload[:500].lstrip().lower()
     return prefix.startswith(b"<!doctype html") or prefix.startswith(b"<html")
 
 
