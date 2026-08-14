@@ -101,6 +101,19 @@ Useful lessons:
 
 The dedicated Virtual Izu report workflows and the finite-detection, calibration-bias, field-misspecification and virtual sensitivity/report layers are retired from the active tree after confirming that they have no current evidence/admission consumer. Their historical implementation remains recoverable from Git. Shared gradient, observational-equivalence and pooled-evidence components are retained because they still support current claim-boundary analyses.
 
+## Synthetic Izu ABM recovery and design audit
+
+A separate exploratory ABM generated synthetic island worlds, classified held-out simulated worlds by standardized distance to scenario centroids, and ranked observation designs by recovery accuracy and a declared burden score. It was useful as a computational identifiability exercise but never supplied empirical evidence for the historical Izu mechanism.
+
+Useful lessons:
+
+- successful recovery among synthetic worlds only shows separability under the declared simulator, feature set, noise model and candidate family;
+- a design that minimizes a synthetic burden score is not an empirical sampling optimum and cannot replace measured variance, reliability or field linkage;
+- classification accuracy against simulated labels does not identify Bombus loss, reproductive dependency or any historical causal route in nature;
+- once the direct Issue #91 field pipeline exists, maintaining a second ABM-specific recovery/design surface adds implementation weight without advancing an open scientific admission gate.
+
+The synthetic ABM, its recovery classifier, design audit, CLIs, documentation and dedicated tests are retired from the active tree. Their methodological lesson is retained here and the full implementation remains recoverable from Git history. Current design decisions should use source-locked evidence and the direct field measurement/admission/precision pipeline.
+
 ## Cross-archipelago replication operating-characteristic simulation
 
 A fixed-seed synthetic study compared the same total number of island units distributed across different numbers of independent archipelago systems. It was a design diagnostic, not external empirical replication.
