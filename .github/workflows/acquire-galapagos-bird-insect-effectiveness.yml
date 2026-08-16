@@ -1,0 +1,45 @@
+name: Acquire Galapagos bird-insect effectiveness data
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/galapagos_bird_insect_effectiveness_figshare_source.json"
+      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
+      - "scripts/analyze_galapagos_bird_insect_effectiveness.py"
+      - "data/results/galapagos_bird_insect_effectiveness_summary.json"
+      - "tests/test_galapagos_bird_insect_effectiveness.py"
+      - ".github/workflows/acquire-galapagos-bird-insect-effectiveness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install acquisition dependencies
+        run: python -m pip install openpyxl
+      - name: Acquire source-native Figshare files
+        run: >-
+          python scripts/acquire_hiraiwa_ushimaru_figshare.py
+          --config config/galapagos_bird_insect_effectiveness_figshare_source.json
+          --output-dir artifacts/galapagos_bird_insect_effectiveness
+      - name: Analyze source-native effectiveness data when analyzer exists
+        shell: bash
+        run: |
+          if [[ -f scripts/analyze_galapagos_bird_insect_effectiveness.py ]]; then
+            python scripts/analyze_galapagos_bird_insect_effectiveness.py
+          else
+            echo "Analyzer not added yet; source acquisition only."
+          fi
+      - name: Upload source/analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: galapagos-bird-insect-effectiveness-audit
+          path: artifacts/galapagos_bird_insect_effectiveness/
+          if-no-files-found: error
