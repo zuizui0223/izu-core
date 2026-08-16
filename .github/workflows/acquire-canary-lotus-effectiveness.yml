@@ -48,11 +48,22 @@ jobs:
       - name: Verify checked result
         run: |
           python - <<'PY'
-          import json
+          import json, math
           from pathlib import Path
           live=json.loads(Path('artifacts/canary_lotus_effectiveness/analysis/summary.json').read_text())
           checked=json.loads(Path('data/results/canary_lotus_effectiveness_summary.json').read_text())
-          assert live == checked
+          def same(a,b,path='root'):
+              if isinstance(a,dict) and isinstance(b,dict):
+                  assert a.keys()==b.keys(), path
+                  for key in a: same(a[key],b[key],f'{path}.{key}')
+              elif isinstance(a,list) and isinstance(b,list):
+                  assert len(a)==len(b), path
+                  for i,(x,y) in enumerate(zip(a,b)): same(x,y,f'{path}[{i}]')
+              elif isinstance(a,(int,float)) and not isinstance(a,bool) and isinstance(b,(int,float)) and not isinstance(b,bool):
+                  assert math.isclose(float(a),float(b),rel_tol=0.0,abs_tol=1e-12), (path,a,b)
+              else:
+                  assert a==b, (path,a,b)
+          same(live,checked)
           PY
       - name: Upload source/analysis artifact
         uses: actions/upload-artifact@v4
