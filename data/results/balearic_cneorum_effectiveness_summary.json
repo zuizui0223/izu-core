@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "source_id": "fuster_traveset_2020_cneorum_tricoccon_double_mutualism",
+  "article_doi": "10.1111/oik.06659",
+  "dataset_doi": "10.5061/dryad.2ngf1vhj1",
+  "study_system": "Cneorum tricoccon x Podarcis lilfordi, Balearic Islands",
+  "scale": {
+    "pollination_census_rows": 373,
+    "pollination_census_plants": 41,
+    "pollination_census_hours": 109.08333333333333,
+    "flower_selection_interactions": 334,
+    "exclusion_all_rows": 831,
+    "exclusion_pollination_rows": 585,
+    "breeding_rows_kept_separate": 246,
+    "germination_rows": 1387,
+    "seed_dispersal_census_rows": 98
+  },
+  "pollination_census": {
+    "lizard_visits": 142,
+    "insect_visits": 187,
+    "lizard_flowers_contacted": 506,
+    "insect_flowers_contacted": 437,
+    "lizard_visits_per_census_hour": 1.301757066462949,
+    "insect_visits_per_census_hour": 1.7142857142857144,
+    "lizard_flowers_contacted_per_visit": 3.563380281690141,
+    "insect_flowers_contacted_per_visit": 2.336898395721925
+  },
+  "flower_selection_interactions": {
+    "Insect": {
+      "interaction_rows": 190,
+      "total_flowers_contacted": 438.0,
+      "mean_flowers_contacted_per_interaction": 2.305263157894737,
+      "hermaphrodite_flowers_contacted": 31.0,
+      "hermaphrodite_fraction_of_contacted_flowers": 0.07077625570776255
+    },
+    "Lizards": {
+      "interaction_rows": 144,
+      "total_flowers_contacted": 510.0,
+      "mean_flowers_contacted_per_interaction": 3.5416666666666665,
+      "hermaphrodite_flowers_contacted": 114.0,
+      "hermaphrodite_fraction_of_contacted_flowers": 0.2235294117647059
+    }
+  },
+  "pollination_exclusion": {
+    "by_source_label": {
+      "Control": {
+        "n_flower_rows": 253,
+        "n_plants": 20,
+        "weighted_flower_fruit_set": 0.8221343873517787,
+        "weighted_seeds_per_flower": 2.383399209486166,
+        "mean_plant_fruit_set": 0.8223651348651349,
+        "mean_plant_seeds_per_flower": 2.376515567765568
+      },
+      "Insects": {
+        "n_flower_rows": 236,
+        "n_plants": 20,
+        "weighted_flower_fruit_set": 0.7076271186440678,
+        "weighted_seeds_per_flower": 2.016949152542373,
+        "mean_plant_fruit_set": 0.699938639791581,
+        "mean_plant_seeds_per_flower": 1.9941725431431316
+      },
+      "Lizards": {
+        "n_flower_rows": 96,
+        "n_plants": 10,
+        "weighted_flower_fruit_set": 0.6979166666666666,
+        "weighted_seeds_per_flower": 1.8645833333333333,
+        "mean_plant_fruit_set": 0.7207287157287158,
+        "mean_plant_seeds_per_flower": 1.9322655122655124
+      }
+    },
+    "main_control_vs_insects_only_contrast": {
+      "source_mapping": "Control=open pollination; Insects=lizards excluded while insect pollination remains, as defined by the primary article's lizard-exclusion experiment.",
+      "insects_only_to_open_weighted_fruit_set_ratio": 0.8607195241199478,
+      "insects_only_to_open_weighted_seed_ratio": 0.8462489810832842,
+      "open_minus_insects_only_mean_plant_fruit_set": 0.12242649507355385,
+      "open_minus_insects_only_mean_plant_seeds_per_flower": 0.3823430246224362,
+      "reading": "Excluding lizards while retaining insect pollination lowers both fruit-set and seed-per-flower summaries in the source-native experiment, consistent with an additional lizard pollination contribution."
+    },
+    "additional_lizards_label_boundary": "The raw Type=Ex treatment label `Lizards` is summarized numerically but is not assigned an exclusion meaning here because that mapping is not needed for the source-defined Control-versus-Insects lizard-exclusion contrast and has not been separately source-locked."
+  },
+  "separate_seed_dispersal_context": {
+    "germination_rows": 1387,
+    "rows_with_binary_germination": 1363,
+    "germinated": 195,
+    "observed_germination_fraction": 0.14306676449009537,
+    "seed_dispersal_census_rows": 98,
+    "reading": "These rows concern the second mutualistic function and are not mixed into the pollination-effectiveness contrast."
+  },
+  "source_level_result": "The primary article concludes that Podarcis lilfordi is a legitimate pollinator of Cneorum tricoccon; lizards contacted more flowers and selected more hermaphrodite flowers than insects, and lizard access increased fruit and seed set relative to insect-only pollination.",
+  "analysis_unit_boundary": "Census sessions and flower-level exclusion rows are repeated observations, not independent island replicates. Plant-level exclusion means are therefore reported separately from flower-weighted summaries; Control and Insects are separate treatment groups, not treated as paired plants.",
+  "claim_boundary": "This is contemporary within-system pollination-effectiveness evidence. Pollination and seed-dispersal functions remain separate. This distinct Balearic plant experiment is not a distinct archipelago from Malva arborea and does not establish historical floral evolution or a universal island dependency coefficient."
+}
