@@ -29,14 +29,31 @@ jobs:
           python scripts/acquire_hiraiwa_ushimaru_figshare.py
           --config config/canary_lotus_effectiveness_figshare_source.json
           --output-dir artifacts/canary_lotus_effectiveness
-      - name: Analyze source-native data when analyzer exists
-        shell: bash
+      - name: Verify source workbook lock
         run: |
-          if [[ -f scripts/analyze_canary_lotus_effectiveness.py ]]; then
-            python scripts/analyze_canary_lotus_effectiveness.py
-          else
-            echo "Analyzer not added yet; acquisition inventory only."
-          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          config=json.loads(Path('config/canary_lotus_effectiveness_figshare_source.json').read_text())
+          live=json.loads(Path('artifacts/canary_lotus_effectiveness/summary.json').read_text())
+          expected=config['expected_source_file']; actual=live['files'][0]
+          assert len(live['files']) == 1
+          assert actual['name'] == expected['name']
+          assert actual['id'] == expected['figshare_file_id']
+          assert actual['size_downloaded'] == expected['bytes']
+          assert actual['sha256'] == expected['sha256']
+          PY
+      - name: Analyze source-native data
+        run: python scripts/analyze_canary_lotus_effectiveness.py
+      - name: Verify checked result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          live=json.loads(Path('artifacts/canary_lotus_effectiveness/analysis/summary.json').read_text())
+          checked=json.loads(Path('data/results/canary_lotus_effectiveness_summary.json').read_text())
+          assert live == checked
+          PY
       - name: Upload source/analysis artifact
         uses: actions/upload-artifact@v4
         with:
