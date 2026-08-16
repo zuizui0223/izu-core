@@ -8,10 +8,11 @@
   "focal_plant": "Cneorum tricoccon",
   "focal_lizard": "Podarcis lilfordi",
   "source_version_id": 36737,
-  "full_package_lock": {
+  "package_transport": {
     "route": "https://datadryad.org/api/v2/versions/36737/download",
-    "bytes": 403940,
-    "sha256": "a49b52b67ef2652c68ecac1412dbc0691fd0006510c5e7578ef375d65c1280c6"
+    "role": "dynamic ZIP assembly used only to transport the source files",
+    "byte_stability": "not_assumed",
+    "reason": "Repeated downloads returned the same seven source files but different container byte counts/SHA-256 values; provenance is therefore locked on the extracted CSV files."
   },
   "expected_source_components": [
     "Pollination_censues_2015_16.csv",
