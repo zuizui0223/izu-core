@@ -6,6 +6,7 @@ on:
     paths:
       - "config/galapagos_bird_insect_effectiveness_figshare_source.json"
       - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
+      - "scripts/inspect_galapagos_bird_insect_effectiveness.py"
       - "scripts/analyze_galapagos_bird_insect_effectiveness.py"
       - "data/results/galapagos_bird_insect_effectiveness_summary.json"
       - "tests/test_galapagos_bird_insect_effectiveness.py"
@@ -22,20 +23,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install acquisition dependencies
-        run: python -m pip install openpyxl
+      - name: Install workbook reader
+        run: python -m pip install xlrd
       - name: Acquire source-native Figshare files
         run: >-
           python scripts/acquire_hiraiwa_ushimaru_figshare.py
           --config config/galapagos_bird_insect_effectiveness_figshare_source.json
           --output-dir artifacts/galapagos_bird_insect_effectiveness
+      - name: Inventory source-native workbook schema
+        run: python scripts/inspect_galapagos_bird_insect_effectiveness.py
       - name: Analyze source-native effectiveness data when analyzer exists
         shell: bash
         run: |
           if [[ -f scripts/analyze_galapagos_bird_insect_effectiveness.py ]]; then
             python scripts/analyze_galapagos_bird_insect_effectiveness.py
           else
-            echo "Analyzer not added yet; source acquisition only."
+            echo "Analyzer not added yet; schema inventory only."
           fi
       - name: Upload source/analysis artifact
         uses: actions/upload-artifact@v4
