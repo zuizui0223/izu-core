@@ -1,0 +1,45 @@
+{
+  "source_id": "fuster_traveset_2020_cneorum_tricoccon_double_mutualism",
+  "dataset_doi": "10.5061/dryad.2ngf1vhj1",
+  "article_doi": "10.1111/oik.06659",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.2ngf1vhj1",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.2ngf1vhj1/versions",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.2ngf1vhj1",
+  "focal_plant": "Cneorum tricoccon",
+  "focal_lizard": "Podarcis lilfordi",
+  "source_version_id": 36737,
+  "package_transport": {
+    "route": "https://datadryad.org/api/v2/versions/36737/download",
+    "role": "dynamic ZIP assembly used only to transport the source files",
+    "byte_stability": "not_assumed",
+    "reason": "Repeated downloads returned the same seven source files but different container byte counts/SHA-256 values; provenance is therefore locked on the extracted CSV files."
+  },
+  "expected_source_components": [
+    "Pollination_censues_2015_16.csv",
+    "Exclusions.csv",
+    "Fruits-seeds_database.csv",
+    "Flower_selection_database_15_16.csv",
+    "Germination_15_16.csv",
+    "Nectar_15_16.csv",
+    "Seed_dispersal_censuses.csv"
+  ],
+  "source_file_locks": {
+    "Exclusions.csv": {"bytes": 37605, "sha256": "e3d9763144fae5584673abab0f392a87fdccb99695b21a2e91b5b91ec04f109d"},
+    "Flower_selection_database_15_16.csv": {"bytes": 27780, "sha256": "98bc407e0f364f928d179192853df209a89e0d34749227e95cd7a7e54dcc8083"},
+    "Fruits-seeds_database.csv": {"bytes": 208959, "sha256": "0081827a732f0c4c3cbb55f92d13ba18b426545e89dba78cd09b778cd66d3d6a"},
+    "Germination_15_16.csv": {"bytes": 65161, "sha256": "a9184d0528aa5a3f11b0b5e065fb30546a3c884491edd01aff1390fcac9464a1"},
+    "Nectar_15_16.csv": {"bytes": 2206, "sha256": "7ccce450dc8b944eddae7254e23bbb404af7ef1dc941022b0d2a4762b946b190"},
+    "Pollination_censues_2015_16.csv": {"bytes": 52881, "sha256": "7435223f55e5769a188b4d4a8cdb6bad4353ac003027bff515d4ef84e691b989"},
+    "Seed_dispersal_censuses.csv": {"bytes": 8188, "sha256": "52a69804c93f1dbac6e7087d1558deddc854d1865cca469dfeb6fc1994705b96"}
+  },
+  "source_native_channels": [
+    "pollination_census",
+    "lizard_exclusion_fruit_set",
+    "lizard_exclusion_seed_set",
+    "flower_selection",
+    "fruit_seed_traits",
+    "germination",
+    "seed_dispersal"
+  ],
+  "claim_boundary": "This Balearic double-mutualism dataset provides contemporary pollination, exclusion, fruit/seed and germination channels for one plant-lizard system. It is a distinct plant experiment from Malva arborea but not a distinct archipelago. Pollination and seed-dispersal functions remain separate, and no historical floral-evolution or universal island dependency effect is inferred."
+}

@@ -1,0 +1,89 @@
+name: Acquire Balearic Cneorum effectiveness data
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/balearic_cneorum_effectiveness_dryad_source.json"
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_balearic_cneorum_package.py"
+      - "scripts/analyze_balearic_cneorum_effectiveness.py"
+      - "data/results/balearic_cneorum_effectiveness_summary.json"
+      - "tests/test_balearic_cneorum_effectiveness.py"
+      - ".github/workflows/acquire-balearic-cneorum-effectiveness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Try source-native Dryad file API
+        id: file_api
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_dryad_external_dataset.py
+          --config config/balearic_cneorum_effectiveness_dryad_source.json
+          --output-dir artifacts/balearic_cneorum_effectiveness
+      - name: Try public full-package routes
+        id: package
+        if: steps.file_api.outcome != 'success'
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_balearic_cneorum_package.py
+          --config config/balearic_cneorum_effectiveness_dryad_source.json
+          --output-dir artifacts/balearic_cneorum_effectiveness
+      - name: Verify extracted source-file locks
+        if: steps.file_api.outcome == 'success' || steps.package.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          config=json.loads(Path('config/balearic_cneorum_effectiveness_dryad_source.json').read_text())
+          root=Path('artifacts/balearic_cneorum_effectiveness/files')
+          for name, expected in config['source_file_locks'].items():
+              path=root/name
+              assert path.exists(), name
+              payload=path.read_bytes()
+              assert len(payload)==expected['bytes'], (name,len(payload),expected['bytes'])
+              assert hashlib.sha256(payload).hexdigest()==expected['sha256'], name
+          PY
+      - name: Analyze source-native data
+        if: steps.file_api.outcome == 'success' || steps.package.outcome == 'success'
+        run: python scripts/analyze_balearic_cneorum_effectiveness.py
+      - name: Verify checked result
+        if: steps.file_api.outcome == 'success' || steps.package.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+          live=json.loads(Path('artifacts/balearic_cneorum_effectiveness/analysis/summary.json').read_text())
+          checked=json.loads(Path('data/results/balearic_cneorum_effectiveness_summary.json').read_text())
+          def same(a,b,path='root'):
+              if isinstance(a,dict) and isinstance(b,dict):
+                  assert a.keys()==b.keys(), path
+                  for key in a: same(a[key],b[key],f'{path}.{key}')
+              elif isinstance(a,list) and isinstance(b,list):
+                  assert len(a)==len(b), path
+                  for i,(x,y) in enumerate(zip(a,b)): same(x,y,f'{path}[{i}]')
+              elif isinstance(a,(int,float)) and not isinstance(a,bool) and isinstance(b,(int,float)) and not isinstance(b,bool):
+                  assert math.isclose(float(a),float(b),rel_tol=0.0,abs_tol=1e-12), (path,a,b)
+              else:
+                  assert a==b, (path,a,b)
+          same(live,checked)
+          PY
+      - name: Upload source/analysis artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: balearic-cneorum-effectiveness-audit
+          path: artifacts/balearic_cneorum_effectiveness/
+          if-no-files-found: error
+      - name: Fail if all public byte routes are blocked
+        if: steps.file_api.outcome != 'success' && steps.package.outcome != 'success'
+        run: exit 1
