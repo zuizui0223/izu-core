@@ -1,0 +1,31 @@
+{
+  "source_id": "hervias_parejo_traveset_2018_galapagos_pollination_effectiveness",
+  "article_doi": "10.1002/ajb2.1122",
+  "dataset_doi": "10.6084/m9.figshare.6142373",
+  "figshare_article_id": 6142373,
+  "api_url": "https://api.figshare.com/v2/articles/6142373",
+  "license_scope": "Use source metadata returned by Figshare; do not assume a license beyond the source record.",
+  "focal_plants": [
+    "Cryptocarpus pyriformis",
+    "Waltheria ovata",
+    "Cordia lutea",
+    "Opuntia echios"
+  ],
+  "source_native_channels": [
+    "QNC_floral_visit_frequency_x_flowers_contacted",
+    "fruit_set",
+    "seed_set",
+    "fruit_length",
+    "fruit_mass",
+    "seedling_emergence"
+  ],
+  "expected_source_file": {
+    "name": "Hervias Parejo and Traveset - ajb - 2018.xls",
+    "saved_name": "Hervias_Parejo_and_Traveset_-_ajb_-_2018.xls",
+    "figshare_file_id": 11089004,
+    "bytes": 775168,
+    "sha256": "0c5af09a0744e94777ed3c9ae9bf7dde364f5b54da31b46a68399f053fbb7d8a",
+    "supplied_md5": "3b76cb373dbd5be7ca710adb4112af5f"
+  },
+  "claim_boundary": "The four focal plants belong to one Galapagos study system. Birds-versus-insects pollination effectiveness is contemporary reproductive-function evidence, not historical floral evolution or direct Izu dependency. Quantitative and qualitative effectiveness components must remain distinct unless the source-defined composite is reproduced exactly."
+}

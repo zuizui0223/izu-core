@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "source_id": "hervias_parejo_traveset_2018_galapagos_pollination_effectiveness",
+  "article_doi": "10.1002/ajb2.1122",
+  "dataset_doi": "10.6084/m9.figshare.6142373",
+  "study_system": "Santa Cruz, Galapagos",
+  "scale": {
+    "census_species": 4,
+    "census_rows": 693,
+    "fitness_species_with_nonempty_raw_sheet": 3,
+    "fitness_raw_rows": 2601,
+    "id_treatment_units": 102
+  },
+  "quantitative_component_by_plant": {
+    "Cordia lutea": {
+      "n_census_rows": 178,
+      "by_class": {
+        "Birds": {
+          "n_rows": 80,
+          "sum_visits_to_flower": 37.0,
+          "sum_visited_flowers": 194.0,
+          "mean_FVR": 0.2648289431929375,
+          "bird_exclusion_yes_rows": 0,
+          "bird_exclusion_no_rows": 0
+        },
+        "Insecta": {
+          "n_rows": 98,
+          "sum_visits_to_flower": 430.0,
+          "sum_visited_flowers": 517.0,
+          "mean_FVR": 3.7953121011713487,
+          "bird_exclusion_yes_rows": 16,
+          "bird_exclusion_no_rows": 17
+        }
+      }
+    },
+    "Cryptocarpus pyriformis": {
+      "n_census_rows": 172,
+      "by_class": {
+        "Birds": {
+          "n_rows": 64,
+          "sum_visits_to_flower": 36.0,
+          "sum_visited_flowers": 1164.0,
+          "mean_FVR": 3.156413046595972,
+          "bird_exclusion_yes_rows": 0,
+          "bird_exclusion_no_rows": 0
+        },
+        "Insecta": {
+          "n_rows": 108,
+          "sum_visits_to_flower": 258.0,
+          "sum_visited_flowers": 1919.0,
+          "mean_FVR": 21.167837653154045,
+          "bird_exclusion_yes_rows": 11,
+          "bird_exclusion_no_rows": 11
+        }
+      }
+    },
+    "Opuntia echios": {
+      "n_census_rows": 156,
+      "by_class": {
+        "Birds": {
+          "n_rows": 76,
+          "sum_visits_to_flower": 743.0,
+          "sum_visited_flowers": 74.0,
+          "mean_FVR": 0.08521895015316068,
+          "bird_exclusion_yes_rows": 0,
+          "bird_exclusion_no_rows": 0
+        },
+        "Insecta": {
+          "n_rows": 80,
+          "sum_visits_to_flower": 537.0,
+          "sum_visited_flowers": 71.0,
+          "mean_FVR": 0.24999999999999992,
+          "bird_exclusion_yes_rows": 13,
+          "bird_exclusion_no_rows": 11
+        }
+      }
+    },
+    "Waltheria ovata": {
+      "n_census_rows": 187,
+      "by_class": {
+        "Birds": {
+          "n_rows": 60,
+          "sum_visits_to_flower": 14.0,
+          "sum_visited_flowers": 398.0,
+          "mean_FVR": 0.627544443478396,
+          "bird_exclusion_yes_rows": 0,
+          "bird_exclusion_no_rows": 0
+        },
+        "Insecta": {
+          "n_rows": 127,
+          "sum_visits_to_flower": 418.0,
+          "sum_visited_flowers": 3230.0,
+          "mean_FVR": 14.593924302547933,
+          "bird_exclusion_yes_rows": 14,
+          "bird_exclusion_no_rows": 11
+        }
+      }
+    }
+  },
+  "qualitative_component_by_raw_treatment_code": {
+    "C. pyriformis": {
+      "n_raw_rows": 900,
+      "n_unique_individuals": 10,
+      "n_id_treatment_units": 30,
+      "treatment_codes": {
+        "A": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 300,
+          "mean_fruit_set": 0.5814333333333332,
+          "mean_seed_set": 0.16523333333333337,
+          "mean_fruit_length": 1.953,
+          "mean_fruit_mass": 0.5290000000000001,
+          "mean_seedling_emergence_proportion": 0.003333333333333333
+        },
+        "C": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 300,
+          "mean_fruit_set": 0.5390000000000001,
+          "mean_seed_set": 0.29266666666666663,
+          "mean_fruit_length": 2.4314000000000004,
+          "mean_fruit_mass": 0.7596666666666665,
+          "mean_seedling_emergence_proportion": 0.09666666666666665
+        },
+        "E": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 300,
+          "mean_fruit_set": 0.5856666666666668,
+          "mean_seed_set": 0.21166666666666673,
+          "mean_fruit_length": 2.058066666666666,
+          "mean_fruit_mass": 0.593,
+          "mean_seedling_emergence_proportion": 0.06333333333333332
+        }
+      }
+    },
+    "W. ovata": {
+      "n_raw_rows": 900,
+      "n_unique_individuals": 10,
+      "n_id_treatment_units": 30,
+      "treatment_codes": {
+        "A": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 300,
+          "mean_fruit_set": 0.4096666666666667,
+          "mean_seed_set": 0.041999999999999996,
+          "mean_fruit_length": 3.9068000000000005,
+          "mean_fruit_mass": 0.35300000000000004,
+          "mean_seedling_emergence_proportion": 0.016666666666666666
+        },
+        "C": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 300,
+          "mean_fruit_set": 0.5746666666666667,
+          "mean_seed_set": 0.18100000000000005,
+          "mean_fruit_length": 4.390366666666667,
+          "mean_fruit_mass": 0.7566666666666667,
+          "mean_seedling_emergence_proportion": 0.10999999999999999
+        },
+        "E": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 300,
+          "mean_fruit_set": 0.5479999999999998,
+          "mean_seed_set": 0.12733333333333338,
+          "mean_fruit_length": 4.040500000000001,
+          "mean_fruit_mass": 0.5233333333333332,
+          "mean_seedling_emergence_proportion": 0.13333333333333333
+        }
+      }
+    },
+    "O. echios": {
+      "n_raw_rows": 801,
+      "n_unique_individuals": 11,
+      "n_id_treatment_units": 42,
+      "treatment_codes": {
+        "A": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 191,
+          "mean_fruit_set": 1.0,
+          "mean_seed_set": 0.34500000000000003,
+          "mean_fruit_length": 50.21322727272728,
+          "mean_fruit_mass": 9.533636363636365,
+          "mean_seedling_emergence_proportion": 0.025
+        },
+        "C": {
+          "n_id_treatment_units": 10,
+          "raw_rows": 190,
+          "mean_fruit_set": 1.0,
+          "mean_seed_set": 0.95,
+          "mean_fruit_length": 52.458499999999994,
+          "mean_fruit_mass": 18.471500000000002,
+          "mean_seedling_emergence_proportion": 0.18000000000000002
+        },
+        "E": {
+          "n_id_treatment_units": 11,
+          "raw_rows": 210,
+          "mean_fruit_set": 1.0,
+          "mean_seed_set": 0.9545454545454546,
+          "mean_fruit_length": 48.37,
+          "mean_fruit_mass": 15.040909090909093,
+          "mean_seedling_emergence_proportion": 0.09090909090909091
+        },
+        "NE": {
+          "n_id_treatment_units": 11,
+          "raw_rows": 210,
+          "mean_fruit_set": 1.0,
+          "mean_seed_set": 0.8727272727272727,
+          "mean_fruit_length": 52.364545454545436,
+          "mean_fruit_mass": 15.370000000000003,
+          "mean_seedling_emergence_proportion": 0.12727272727272726
+        }
+      }
+    }
+  },
+  "missing_raw_fitness_sheet": {
+    "Cordia lutea": "The source workbook contains an empty C. lutea sheet; no fitness values are reconstructed."
+  },
+  "source_level_result": "The primary article reports that birds were quantitatively less important than insects, while qualitative fitness components improved when both birds and insects could visit flowers, indicating effective opportunistic bird pollination and more generalized systems than floral syndromes alone suggest.",
+  "treatment_code_boundary": "Raw treatment codes A/C/E/NE are retained as opaque labels here because the code-to-exclusion mapping has not yet been source-locked from the supplement. Source-level experimental interpretation is not assigned to individual raw codes until that mapping is verified.",
+  "claim_boundary": "Contemporary one-archipelago effectiveness evidence. Repeated fruit/seed rows are collapsed within ID x treatment. The four plant taxa are not four independent archipelagos, and these data do not identify historical floral evolution or direct Izu reproductive dependency."
+}
