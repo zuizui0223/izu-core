@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "source_id": "fuster_et_al_2020_seychelles_pollination_effectiveness",
+  "article_doi": "10.1002/ajb2.1499",
+  "dataset_doi": "10.6084/m9.figshare.12029580.v2",
+  "source_artifact_run": 31944425554,
+  "source_artifact_id": 9262914774,
+  "scale": {
+    "plant_species": 3,
+    "source_csv_files": 9,
+    "raw_rows": 2292,
+    "visual_census_hours": 174.83333333333331,
+    "single_visit_exclusion_rows": 489,
+    "breeding_treatment_rows": 557
+  },
+  "source_file_sha256": {
+    "P. crassa flw touched.csv": "8ea63bd1a8ee6b7b7d29958e69a773a18506b78526971a96bf2ef9e869ba2174",
+    "P. crassa fruitset.csv": "0926e1c29d8fc5a2a1a08295ece80d60072fd5ed4231ded584a1f014039a3819",
+    "P. crassa census.csv": "7162ada461774b8fdf36035b768ef9cea910d251a2d63a1517f8b6ec4184d47d",
+    "S. wrightii flwtouched.csv": "da9244d7937e67fbfa487e36920cc126f3e637acbb954740cdeeb8e5814fcaaf",
+    "S. wrightii fruitset.csv": "5d7dd3a53a43c8af6d53d008df3180c9ae25e046a534d5fb1d7c24c3566d4910",
+    "S. wrightii census.csv": "2581ae89010885d56d12a59846ccfb4305a067c783771b9638da9f775283a835",
+    "T. populnea fruitset.csv": "cd62ddcb770d4197c1c47a71637e19d31418456df4a448b3b5702f02bb0a1c27",
+    "T. populnea census.csv": "f3a605cb39ef96144a1293a7cdb563dd7f1f3de6f1365573a7332ed0d8546a9e",
+    "T. populnea flw touched.csv": "7352d5bd174ad2211eec0994f09ad0073b089c9802d9d4f1b07eee1cdcb631d4"
+  },
+  "plants": {
+    "Polyscias crassa": {
+      "published_overall_effectiveness_headline": "Phelsuma geckos",
+      "census_rows": 128,
+      "flower_contact_rows": 500,
+      "single_visit_rows": 245,
+      "breeding_rows": 182,
+      "ant_disturbed_to_undisturbed_non_ant_visit_rate_ratio": 0.380523688887611,
+      "single_visit_mature_fruit": {
+        "Phelsuma": {"successes": 28, "n": 51, "proportion": 0.5490196078431373},
+        "Insects": {"successes": 6, "n": 12, "proportion": 0.5},
+        "Mabuya": {"successes": 28, "n": 58, "proportion": 0.4827586206896552},
+        "Sunbird": {"successes": 12, "n": 53, "proportion": 0.22641509433962265},
+        "Ants": {"successes": 0, "n": 17, "proportion": 0.0}
+      },
+      "source_labeled_auto_treatment_present": false
+    },
+    "Syzygium wrightii": {
+      "published_overall_effectiveness_headline": "sunbirds",
+      "census_rows": 61,
+      "flower_contact_rows": 152,
+      "single_visit_rows": 182,
+      "breeding_rows": 247,
+      "ant_disturbed_to_undisturbed_non_ant_visit_rate_ratio": 0.44276202749140897,
+      "single_visit_seed_positive": {
+        "Sunbird": {"successes": 9, "n": 63, "proportion": 0.14285714285714285},
+        "Insects": {"successes": 2, "n": 7, "proportion": 0.2857142857142857},
+        "Mabuya": {"successes": 1, "n": 39, "proportion": 0.02564102564102564},
+        "Phelsuma": {"successes": 0, "n": 26, "proportion": 0.0},
+        "Ants": {"successes": 9, "n": 47, "proportion": 0.19148936170212766}
+      },
+      "source_labeled_auto_treatment": {
+        "n": 56,
+        "green_fruit_successes": 4,
+        "green_fruit_proportion": 0.07142857142857142,
+        "seed_positive_successes": 3,
+        "seed_positive_proportion": 0.05357142857142857
+      }
+    },
+    "Thespesia populnea": {
+      "published_overall_effectiveness_headline": "flying insects",
+      "census_rows": 200,
+      "flower_contact_rows": 205,
+      "single_visit_rows": 62,
+      "breeding_rows": 128,
+      "single_visit_recorded_fruit": {
+        "Insects": {"successes": 14, "n": 30, "proportion": 0.4666666666666667},
+        "Birds": {"successes": 5, "n": 26, "proportion": 0.19230769230769232},
+        "Reptiles": {"successes": 0, "n": 3, "proportion": 0.0}
+      },
+      "source_labeled_auto_treatment": {
+        "n": 39,
+        "fruit_successes": 3,
+        "fruit_proportion": 0.07692307692307693,
+        "seed_positive_successes": 2,
+        "seed_positive_proportion": 0.05128205128205128
+      }
+    }
+  },
+  "empirical_reading": "The added Seychelles raw data expand the downstream evidence to three plant species and show plant-specific pollinator effectiveness rather than one universal guild ranking. Ant-disturbed censuses have substantially lower non-ant pollinator visitation in Polyscias crassa and Syzygium wrightii, while single-visit reproductive outcomes differ strongly among visitor treatments and plants.",
+  "claim_boundary": "The published overall-effectiveness winners are retained as source conclusions; the checked raw summary does not reconstruct the paper's composite QNC x QLC ranking. Visitation, flower contact, single-visit fruit/seed outcomes, and breeding treatments remain separate. Source-labeled Auto treatments are not automatically treated as transportable Izu direct-dependency estimates. All three plants belong to one Seychelles study system and are not independent archipelagos."
+}

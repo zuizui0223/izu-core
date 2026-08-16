@@ -1,0 +1,41 @@
+name: Acquire Seychelles pollination-effectiveness data
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/seychelles_pollination_effectiveness_figshare_source.json"
+      - "data/results/seychelles_pollination_effectiveness_summary.json"
+      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
+      - "scripts/analyze_seychelles_pollination_effectiveness.py"
+      - "scripts/verify_seychelles_pollination_effectiveness_checked.py"
+      - ".github/workflows/acquire-seychelles-pollination-effectiveness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install acquisition dependencies
+        run: python -m pip install openpyxl
+      - name: Acquire source-native Figshare files
+        run: >-
+          python scripts/acquire_hiraiwa_ushimaru_figshare.py
+          --config config/seychelles_pollination_effectiveness_figshare_source.json
+          --output-dir artifacts/seychelles_pollination_effectiveness
+      - name: Analyze source-native effectiveness data
+        run: python scripts/analyze_seychelles_pollination_effectiveness.py
+      - name: Verify checked real-data summary
+        run: python scripts/verify_seychelles_pollination_effectiveness_checked.py
+      - name: Upload acquisition and analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seychelles-pollination-effectiveness-audit
+          path: artifacts/seychelles_pollination_effectiveness/
+          if-no-files-found: error
