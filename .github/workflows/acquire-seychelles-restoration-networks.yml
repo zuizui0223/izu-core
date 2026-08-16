@@ -1,0 +1,42 @@
+name: Acquire Seychelles restoration networks
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/seychelles_restoration_network_iwdb_source.json"
+      - "scripts/acquire_seychelles_restoration_iwdb.py"
+      - "scripts/analyze_seychelles_restoration_networks.py"
+      - "data/results/seychelles_restoration_network_summary.json"
+      - "tests/test_seychelles_restoration_networks.py"
+      - ".github/workflows/acquire-seychelles-restoration-networks.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install workbook readers
+        run: python -m pip install openpyxl xlrd
+      - name: Acquire source-native IWDB workbooks
+        run: python scripts/acquire_seychelles_restoration_iwdb.py
+      - name: Analyze 64-network panel when analyzer exists
+        shell: bash
+        run: |
+          if [[ -f scripts/analyze_seychelles_restoration_networks.py ]]; then
+            python scripts/analyze_seychelles_restoration_networks.py
+          else
+            echo "Analyzer not added yet; primary workbook acquisition only."
+          fi
+      - name: Upload source/analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seychelles-restoration-network-audit
+          path: artifacts/seychelles_restoration_iwdb/
+          if-no-files-found: error
