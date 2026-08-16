@@ -34,7 +34,7 @@ def mean(values):
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--data-dir",type=Path,default=Path("artifacts/balearic_malva_effectiveness/files")); ap.add_argument("--out",type=Path,default=Path("artifacts/balearic_malva_effectiveness/analysis/summary.json")); args=ap.parse_args()
-    fruit=read_csv(args.data_dir/"Fruit and seed set.csv")
+    fruit=read_csv(args.data_dir/"Fruit_and_seed_set.csv")
     fvr=read_csv(args.data_dir/"FVR.csv")
 
     visitor={}
