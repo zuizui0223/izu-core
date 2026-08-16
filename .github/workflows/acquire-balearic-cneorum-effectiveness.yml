@@ -23,11 +23,14 @@ jobs:
         with:
           python-version: "3.11"
       - name: Acquire source-native Dryad files
+        id: acquire
+        continue-on-error: true
         run: >-
           python scripts/acquire_dryad_external_dataset.py
           --config config/balearic_cneorum_effectiveness_dryad_source.json
           --output-dir artifacts/balearic_cneorum_effectiveness
-      - name: Analyze source-native data when analyzer exists
+      - name: Analyze source-native data when acquisition succeeds
+        if: steps.acquire.outcome == 'success'
         shell: bash
         run: |
           if [[ -f scripts/analyze_balearic_cneorum_effectiveness.py ]]; then
@@ -36,8 +39,12 @@ jobs:
             echo "Analyzer not added yet; acquisition inventory only."
           fi
       - name: Upload source/analysis artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: balearic-cneorum-effectiveness-audit
           path: artifacts/balearic_cneorum_effectiveness/
           if-no-files-found: error
+      - name: Fail on incomplete acquisition
+        if: steps.acquire.outcome != 'success'
+        run: exit 1
