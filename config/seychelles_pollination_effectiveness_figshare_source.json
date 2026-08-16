@@ -1,0 +1,15 @@
+{
+  "source_id": "fuster_et_al_2020_seychelles_pollination_effectiveness",
+  "article_doi": "10.1002/ajb2.1499",
+  "dataset_doi": "10.6084/m9.figshare.12029580.v2",
+  "figshare_article_id": 12029580,
+  "api_url": "https://api.figshare.com/v2/articles/12029580",
+  "expected_title": "PE Seychelles Data",
+  "license": "CC BY 4.0",
+  "focal_plants": [
+    "Thespesia populnea",
+    "Polyscias crassa",
+    "Syzygium wrightii"
+  ],
+  "admission_boundary": "Source-native visitor-census and single-visit fruit/seed-set data can quantify pollination-effectiveness components. Do not reinterpret visitation alone as effectiveness, do not infer autonomous reproductive assurance without a matched no-visitor treatment, and do not treat three plant species within one Seychelles study as three independent archipelagos."
+}
