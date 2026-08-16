@@ -2,7 +2,6 @@
 """Analyze source-native Lotus maculatus effectiveness and dependence data."""
 from __future__ import annotations
 import argparse, json, math
-from collections import defaultdict
 from pathlib import Path
 import openpyxl
 
@@ -45,13 +44,15 @@ def main():
 
     pollen=rows(wb["Pollen load by lizards"])
     grains=[int(r["Number of pollen grains"] or 0) for r in pollen]
-    pollen_summary={"n_lizards":len(pollen),"positive_pollen_load":sum(v>0 for v in grains),"positive_fraction":sum(v>0 for v in grains)/len(grains),"total_pollen_grains":sum(grains),"mean_pollen_grains":sum(grains)/len(grains),"median_pollen_grains":sorted(grains)[len(grains)//2-1:len(grains)//2+1] if len(grains)%2==0 else sorted(grains)[len(grains)//2],"max_pollen_grains":max(grains)}
-    if isinstance(pollen_summary["median_pollen_grains"],list): pollen_summary["median_pollen_grains"]=sum(pollen_summary["median_pollen_grains"])/2
+    sorted_grains=sorted(grains)
+    if len(grains)%2==0: median=(sorted_grains[len(grains)//2-1]+sorted_grains[len(grains)//2])/2
+    else: median=sorted_grains[len(grains)//2]
+    pollen_summary={"n_lizards":len(pollen),"positive_pollen_load":sum(v>0 for v in grains),"positive_fraction":sum(v>0 for v in grains)/len(grains),"total_pollen_grains":sum(grains),"mean_pollen_grains":sum(grains)/len(grains),"median_pollen_grains":median,"max_pollen_grains":max(grains)}
 
     plant=rows(wb["Visits and reproductive success"])
     fruit_sets=[float(r["Number of Fruits"])/float(r["Number Flowers"]) for r in plant]
     visit_fields={
-        "Gallotia galloti":" Visits by Gallotia galloti",
+        "Gallotia galloti":"Visits by Gallotia galloti",
         "Lasioglossum arctifrons":"Visits by Lasioglossum arctifrons",
         "Apis mellifera":"Visits by Apis mellifera",
     }
@@ -59,7 +60,8 @@ def main():
     for visitor,field in visit_fields.items():
         vals=[float(r[field] or 0) for r in plant]
         visit_association[visitor]={"total_visits":sum(vals),"pearson_with_plant_fruit_set":pearson(vals,fruit_sets)}
-    plant_summary={"n_plants":len(plant),"n_sites":len({r["Study site"] for r in plant}),"total_flowers":sum(int(r["Number Flowers"] or 0) for r in plant),"total_fruits":sum(int(r["Number of Fruits"] or 0) for r in plant),"weighted_fruit_set":sum(int(r["Number of Fruits"] or 0) for r in plant)/sum(int(r["Number Flowers"] or 0) for r in plant),"mean_plant_fruit_set":mean(fruit_sets),"visit_association":visit_association}
+    total_flowers=sum(int(r["Number Flowers"] or 0) for r in plant); total_fruits=sum(int(r["Number of Fruits"] or 0) for r in plant)
+    plant_summary={"n_plants":len(plant),"n_sites":len({r["Study site"] for r in plant}),"total_flowers":total_flowers,"total_fruits":total_fruits,"weighted_fruit_set":total_fruits/total_flowers,"mean_plant_fruit_set":mean(fruit_sets),"visit_association":visit_association}
     wb.close()
 
     report={
