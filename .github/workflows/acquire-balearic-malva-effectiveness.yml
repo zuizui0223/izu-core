@@ -1,0 +1,43 @@
+name: Acquire Balearic Malva effectiveness data
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/balearic_malva_effectiveness_figshare_source.json"
+      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
+      - "scripts/inspect_balearic_malva_effectiveness.py"
+      - "scripts/analyze_balearic_malva_effectiveness.py"
+      - "data/results/balearic_malva_effectiveness_summary.json"
+      - "tests/test_balearic_malva_effectiveness.py"
+      - ".github/workflows/acquire-balearic-malva-effectiveness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install workbook readers
+        run: python -m pip install openpyxl xlrd
+      - name: Acquire source-native Figshare files
+        run: >-
+          python scripts/acquire_hiraiwa_ushimaru_figshare.py
+          --config config/balearic_malva_effectiveness_figshare_source.json
+          --output-dir artifacts/balearic_malva_effectiveness
+      - name: Inspect or analyze source-native data
+        shell: bash
+        run: |
+          if [[ -f scripts/inspect_balearic_malva_effectiveness.py ]]; then python scripts/inspect_balearic_malva_effectiveness.py; fi
+          if [[ -f scripts/analyze_balearic_malva_effectiveness.py ]]; then python scripts/analyze_balearic_malva_effectiveness.py; fi
+      - name: Upload source/analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: balearic-malva-effectiveness-audit
+          path: artifacts/balearic_malva_effectiveness/
+          if-no-files-found: error
