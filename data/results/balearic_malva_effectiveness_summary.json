@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "source_id": "robles_et_al_2024_malva_arborea_pollination_effectiveness",
+  "article_doi": "10.1093/aobpla/plae010",
+  "dataset_doi": "10.6084/m9.figshare.25204958",
+  "study_system": "Cabrera Grand, Balearic Islands",
+  "focal_plant": "Malva arborea",
+  "source_files": {
+    "Fruit and seed set.csv": {
+      "figshare_file_id": 44507759,
+      "n_bytes": 3953,
+      "sha256": "946de8875630762e9f7b90d54cdaef9087e46d80f2eb59cb2fc4a31a186a9595"
+    },
+    "FVR.csv": {
+      "figshare_file_id": 44507762,
+      "n_bytes": 6458,
+      "sha256": "f2c57f07fd03dded229dff57fb6f84ad62c121b347c57e69596fa8d8cf53a4f9"
+    }
+  },
+  "scale": {
+    "visitor_event_rows": 83,
+    "treatment_rows": 78,
+    "treatment_codes": ["TA", "TC", "TEA", "TEL"]
+  },
+  "quantitative_component": {
+    "source_definition": "number of visits and number of flowers contacted; source article compares insects, birds and lizards",
+    "by_visitor_class": {
+      "bird": {
+        "n_event_rows": 15,
+        "visits": 15.0,
+        "flowers_contacted": 76.0,
+        "mean_standardized_flower_contact": 0.2980392157333333,
+        "mean_standardized_FVR": 0.21391051599999997
+      },
+      "insect": {
+        "n_event_rows": 64,
+        "visits": 198.0,
+        "flowers_contacted": 163.0,
+        "mean_standardized_flower_contact": 0.14981617634374997,
+        "mean_standardized_FVR": 0.08760413407812503
+      },
+      "lizard": {
+        "n_event_rows": 4,
+        "visits": 8.0,
+        "flowers_contacted": 23.0,
+        "mean_standardized_flower_contact": 0.33823529399999996,
+        "mean_standardized_FVR": 0.23824353775
+      }
+    }
+  },
+  "qualitative_component": {
+    "source_treatment_mapping": {
+      "TC": "control_open",
+      "TA": "autogamy_all_pollinators_excluded",
+      "TEA": "bird_exclusion_insects_and_lizards_allowed",
+      "TEL": "lizard_exclusion_insects_and_birds_allowed"
+    },
+    "by_treatment": {
+      "control_open": {
+        "source_code": "TC",
+        "n_rows": 38,
+        "n_individuals": 17,
+        "buds": 210,
+        "fruits": 152,
+        "weighted_fruit_set": 0.7238095238095238,
+        "mean_row_fruit_set": 0.9290068158378378,
+        "mean_seed_count": 6.869299141916666,
+        "n_seed_count_observed": 36,
+        "mean_seed_length": 3.216695483861111,
+        "n_seed_length_observed": 36
+      },
+      "autogamy_all_pollinators_excluded": {
+        "source_code": "TA",
+        "n_rows": 18,
+        "n_individuals": 17,
+        "buds": 201,
+        "fruits": 129,
+        "weighted_fruit_set": 0.6417910447761194,
+        "mean_row_fruit_set": 0.734746228888889,
+        "mean_seed_count": 6.906183729352941,
+        "n_seed_count_observed": 17,
+        "mean_seed_length": 3.144442577,
+        "n_seed_length_observed": 17
+      },
+      "bird_exclusion_insects_and_lizards_allowed": {
+        "source_code": "TEA",
+        "n_rows": 11,
+        "n_individuals": 11,
+        "buds": 226,
+        "fruits": 125,
+        "weighted_fruit_set": 0.5530973451327433,
+        "mean_row_fruit_set": 0.5762137303000001,
+        "mean_seed_count": 6.7345411935,
+        "n_seed_count_observed": 10,
+        "mean_seed_length": 3.2135805556999997,
+        "n_seed_length_observed": 10
+      },
+      "lizard_exclusion_insects_and_birds_allowed": {
+        "source_code": "TEL",
+        "n_rows": 11,
+        "n_individuals": 11,
+        "buds": 240,
+        "fruits": 140,
+        "weighted_fruit_set": 0.5833333333333334,
+        "mean_row_fruit_set": 0.6617259366363636,
+        "mean_seed_count": 6.743109251545454,
+        "n_seed_count_observed": 11,
+        "mean_seed_length": 3.2196270561818183,
+        "n_seed_length_observed": 11
+      }
+    }
+  },
+  "reproductive_assurance_context": {
+    "autogamy_weighted_fruit_set": 0.6417910447761194,
+    "control_weighted_fruit_set": 0.7238095238095238,
+    "autogamy_to_control_ratio": 0.8866849960722702,
+    "reading": "Autogamy produces substantial fruit set in this island population but does not match the open-control weighted fruit set; reproductive assurance is present but incomplete on this observed outcome."
+  },
+  "source_level_result": "The primary article reports insects as the most frequent visitors, with birds and lizards less frequent; control flowers generally had higher qualitative fitness than exclusion treatments, and autogamy demonstrates self-pollination capacity.",
+  "claim_boundary": "Contemporary one-population pollination-effectiveness evidence. Raw standardized visitation/contact variables and exclusion-treatment outcomes are retained separately. The autogamy treatment is direct reproductive-assurance evidence for Malva arborea on Cabrera, but it is not numerically transported to the Izu dependency estimand."
+}
