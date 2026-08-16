@@ -35,6 +35,27 @@ jobs:
         run: |
           if [[ -f scripts/inspect_balearic_malva_effectiveness.py ]]; then python scripts/inspect_balearic_malva_effectiveness.py; fi
           if [[ -f scripts/analyze_balearic_malva_effectiveness.py ]]; then python scripts/analyze_balearic_malva_effectiveness.py; fi
+      - name: Verify live source and analysis against checked result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          checked = json.loads(Path('data/results/balearic_malva_effectiveness_summary.json').read_text())
+          acquired = json.loads(Path('artifacts/balearic_malva_effectiveness/summary.json').read_text())
+          live = json.loads(Path('artifacts/balearic_malva_effectiveness/analysis/summary.json').read_text())
+
+          acquired_files = {row['name']: row for row in acquired['files']}
+          for name, expected in checked['source_files'].items():
+              row = acquired_files[name]
+              assert row['id'] == expected['figshare_file_id']
+              assert row['size_downloaded'] == expected['n_bytes']
+              assert row['sha256'] == expected['sha256']
+
+          for key, value in live.items():
+              assert checked[key] == value, f'checked-result drift in {key}'
+          print('Balearic Malva source hashes and analysis match checked result')
+          PY
       - name: Upload source/analysis artifact
         uses: actions/upload-artifact@v4
         with:
