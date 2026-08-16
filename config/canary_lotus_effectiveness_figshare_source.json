@@ -5,6 +5,14 @@
   "figshare_article_id": 25559724,
   "api_url": "https://api.figshare.com/v2/articles/25559724",
   "study_system": "Lotus maculatus, Tenerife, Canary Islands",
+  "expected_source_file": {
+    "name": "Dataset for statistical analyses.xlsx",
+    "saved_name": "Dataset_for_statistical_analyses.xlsx",
+    "figshare_file_id": 45510765,
+    "bytes": 17784,
+    "sha256": "b0d99b066e78618301322f33aa899671465304043f76a790c27cc31bab9706d8",
+    "supplied_md5": "8f486e70736c1ffe8885f1ab0364c299"
+  },
   "source_native_channels": [
     "visitor_interactions",
     "legitimate_vs_nonlegitimate_visits",
