@@ -6,6 +6,7 @@ on:
     paths:
       - "config/balearic_cneorum_effectiveness_dryad_source.json"
       - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_balearic_cneorum_package.py"
       - "scripts/analyze_balearic_cneorum_effectiveness.py"
       - "data/results/balearic_cneorum_effectiveness_summary.json"
       - "tests/test_balearic_cneorum_effectiveness.py"
@@ -22,15 +23,23 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Acquire source-native Dryad files
-        id: acquire
+      - name: Try source-native Dryad file API
+        id: file_api
         continue-on-error: true
         run: >-
           python scripts/acquire_dryad_external_dataset.py
           --config config/balearic_cneorum_effectiveness_dryad_source.json
           --output-dir artifacts/balearic_cneorum_effectiveness
-      - name: Analyze source-native data when acquisition succeeds
-        if: steps.acquire.outcome == 'success'
+      - name: Try public full-package routes
+        id: package
+        if: steps.file_api.outcome != 'success'
+        continue-on-error: true
+        run: >-
+          python scripts/acquire_balearic_cneorum_package.py
+          --config config/balearic_cneorum_effectiveness_dryad_source.json
+          --output-dir artifacts/balearic_cneorum_effectiveness
+      - name: Analyze source-native data when bytes are available
+        if: steps.file_api.outcome == 'success' || steps.package.outcome == 'success'
         shell: bash
         run: |
           if [[ -f scripts/analyze_balearic_cneorum_effectiveness.py ]]; then
@@ -45,6 +54,6 @@ jobs:
           name: balearic-cneorum-effectiveness-audit
           path: artifacts/balearic_cneorum_effectiveness/
           if-no-files-found: error
-      - name: Fail on incomplete acquisition
-        if: steps.acquire.outcome != 'success'
+      - name: Fail if all public byte routes are blocked
+        if: steps.file_api.outcome != 'success' && steps.package.outcome != 'success'
         run: exit 1
