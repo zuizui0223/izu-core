@@ -1,0 +1,17 @@
+{
+  "source_id": "gonzalez_castro_siverio_2024_lotus_maculatus_effectiveness",
+  "article_doi": "10.26786/1920-7603(2024)777",
+  "dataset_doi": "10.6084/m9.figshare.25559724",
+  "figshare_article_id": 25559724,
+  "api_url": "https://api.figshare.com/v2/articles/25559724",
+  "study_system": "Lotus maculatus, Tenerife, Canary Islands",
+  "source_native_channels": [
+    "visitor_interactions",
+    "legitimate_vs_nonlegitimate_visits",
+    "bagged_vs_control_fruit_set",
+    "bagged_vs_control_seed_set",
+    "lizard_pollen_load",
+    "plant_level_reproductive_success_vs_visitation"
+  ],
+  "claim_boundary": "This is a contemporary one-island effectiveness and reproductive-dependence study of one endemic plant. Legitimate visitation, pollen carriage, exclusion outcomes and plant-level reproduction are kept as distinct source-native channels. The system is an independent Canary Islands context but not an independent replication of every Izu mechanism link or historical floral evolution."
+}
