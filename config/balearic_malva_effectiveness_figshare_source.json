@@ -1,0 +1,17 @@
+{
+  "source_id": "robles_et_al_2024_malva_arborea_pollination_effectiveness",
+  "article_doi": "10.1093/aobpla/plae010",
+  "dataset_doi": "10.6084/m9.figshare.25204958",
+  "figshare_article_id": 25204958,
+  "api_url": "https://api.figshare.com/v2/articles/25204958",
+  "study_system": "Cabrera Grand, Balearic Islands",
+  "focal_plant": "Malva arborea",
+  "source_defined_pollinator_groups": ["insects", "birds", "lizards"],
+  "source_defined_treatments": {
+    "control": "open access to natural pollination",
+    "autogamy": "all pollinators excluded with an organza bag",
+    "bird_exclusion": "birds excluded; insects and lizards allowed",
+    "lizard_exclusion": "lizards excluded; insects and birds allowed"
+  },
+  "claim_boundary": "This is one Balearic island population and one plant species. QNC and QLC may be compared within the source-defined experiment, but the population is not an independent archipelago replicate of every other Balearic study and the source does not establish historical floral evolution. Autogamy is a direct reproductive-assurance channel for this population but is not numerically transported to Izu without an estimand-compatibility review."
+}
