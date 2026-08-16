@@ -1,0 +1,29 @@
+{
+  "source_id": "fuster_traveset_2020_cneorum_tricoccon_double_mutualism",
+  "dataset_doi": "10.5061/dryad.2ngf1vhj1",
+  "article_doi": "10.1111/oik.06659",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.2ngf1vhj1",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.2ngf1vhj1/versions",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.2ngf1vhj1",
+  "focal_plant": "Cneorum tricoccon",
+  "focal_lizard": "Podarcis lilfordi",
+  "expected_source_components": [
+    "Pollination_censues_2015_16.csv",
+    "Exclusions.csv",
+    "Fruits-seeds_database.csv",
+    "Flower_selection_database_15_16.csv",
+    "Germination_15_16.csv",
+    "Nectar_15_16.csv",
+    "Seed_dispersal_censuses.csv"
+  ],
+  "source_native_channels": [
+    "pollination_census",
+    "lizard_exclusion_fruit_set",
+    "lizard_exclusion_seed_set",
+    "flower_selection",
+    "fruit_seed_traits",
+    "germination",
+    "seed_dispersal"
+  ],
+  "claim_boundary": "This Balearic double-mutualism dataset provides contemporary pollination, exclusion, fruit/seed and germination channels for one plant-lizard system. It is a distinct plant experiment from Malva arborea but not a distinct archipelago. Pollination and seed-dispersal functions remain separate, and no historical floral-evolution or universal island dependency effect is inferred."
+}
