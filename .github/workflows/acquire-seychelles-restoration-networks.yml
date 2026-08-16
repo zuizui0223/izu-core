@@ -1,0 +1,52 @@
+name: Acquire Seychelles restoration networks
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/seychelles_restoration_network_iwdb_source.json"
+      - "scripts/acquire_seychelles_restoration_iwdb.py"
+      - "scripts/extract_seychelles_restoration_empirical.R"
+      - "scripts/analyze_seychelles_restoration_networks.py"
+      - "data/results/seychelles_restoration_network_summary.json"
+      - "tests/test_seychelles_restoration_networks.py"
+      - ".github/workflows/acquire-seychelles-restoration-networks.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: r-lib/actions/setup-r@v2
+      - name: Install workbook readers
+        run: python -m pip install openpyxl xlrd
+      - name: Acquire source-native IWDB data or configured transport fallback
+        run: python scripts/acquire_seychelles_restoration_iwdb.py
+      - name: Extract Kaiser-Bunbury empirical object
+        run: Rscript scripts/extract_seychelles_restoration_empirical.R
+      - name: Analyze 64-network panel
+        run: python scripts/analyze_seychelles_restoration_networks.py
+      - name: Verify checked result when present
+        shell: bash
+        run: |
+          if [[ -f data/results/seychelles_restoration_network_summary.json ]]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          live=json.loads(Path('artifacts/seychelles_restoration_iwdb/analysis/summary.json').read_text())
+          checked=json.loads(Path('data/results/seychelles_restoration_network_summary.json').read_text())
+          assert live == checked
+          PY
+          fi
+      - name: Upload source/analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: seychelles-restoration-network-audit
+          path: artifacts/seychelles_restoration_iwdb/
+          if-no-files-found: error

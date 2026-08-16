@@ -1,0 +1,21 @@
+{
+  "source_id": "kaiser_bunbury_et_al_2017_seychelles_restoration_networks",
+  "article_doi": "10.1038/nature21071",
+  "source_page": "https://www.ecologia.ib.usp.br/iwdb/html/kaiser-bunbury_et_al_2017.html",
+  "source_database": "Interaction Web DataBase",
+  "transport_fallback": {
+    "type": "zenodo_repository_snapshot",
+    "record_id": 13598906,
+    "api_url": "https://zenodo.org/api/records/13598906",
+    "doi": "10.5281/zenodo.13598906",
+    "scope": "Transport fallback only. The Zenodo record explicitly states that the Seychelles empirical restoration data were collated from the public Kaiser-Bunbury et al. 2017 IWDB page. Any extracted object must be checked against the primary IWDB study scale/identities before admission."
+  },
+  "expected_networks": 64,
+  "expected_sites": 8,
+  "expected_months": 8,
+  "expected_observation_hours": 1525,
+  "expected_unique_links": 581,
+  "expected_pollinator_visits": 12235,
+  "expected_data_labels": ["64 networks_no.visits", "64 networks_visitfreq"],
+  "claim_boundary": "The 64 monthly networks are repeated site-by-month observations from one Mahé restoration experiment, not 64 independent island systems. Restoration treatment is experimentally assigned at the site level (4 restored, 4 unrestored), while months are repeated observations within sites. A secondary repository may solve byte transport but cannot replace the primary IWDB source definition or relax identity checks. Network structure/visitation must not be equated with direct plant reproductive dependency without matched reproductive outcomes."
+}
