@@ -1,0 +1,73 @@
+name: Acquire Canary Lotus effectiveness data
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/canary_lotus_effectiveness_figshare_source.json"
+      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
+      - "scripts/analyze_canary_lotus_effectiveness.py"
+      - "data/results/canary_lotus_effectiveness_summary.json"
+      - "tests/test_canary_lotus_effectiveness.py"
+      - ".github/workflows/acquire-canary-lotus-effectiveness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install acquisition dependencies
+        run: python -m pip install openpyxl
+      - name: Acquire source-native Figshare files
+        run: >-
+          python scripts/acquire_hiraiwa_ushimaru_figshare.py
+          --config config/canary_lotus_effectiveness_figshare_source.json
+          --output-dir artifacts/canary_lotus_effectiveness
+      - name: Verify source workbook lock
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          config=json.loads(Path('config/canary_lotus_effectiveness_figshare_source.json').read_text())
+          live=json.loads(Path('artifacts/canary_lotus_effectiveness/summary.json').read_text())
+          expected=config['expected_source_file']; actual=live['files'][0]
+          assert len(live['files']) == 1
+          assert actual['name'] == expected['name']
+          assert actual['id'] == expected['figshare_file_id']
+          assert actual['size_downloaded'] == expected['bytes']
+          assert actual['sha256'] == expected['sha256']
+          PY
+      - name: Analyze source-native data
+        run: python scripts/analyze_canary_lotus_effectiveness.py
+      - name: Verify checked result
+        run: |
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+          live=json.loads(Path('artifacts/canary_lotus_effectiveness/analysis/summary.json').read_text())
+          checked=json.loads(Path('data/results/canary_lotus_effectiveness_summary.json').read_text())
+          def same(a,b,path='root'):
+              if isinstance(a,dict) and isinstance(b,dict):
+                  assert a.keys()==b.keys(), path
+                  for key in a: same(a[key],b[key],f'{path}.{key}')
+              elif isinstance(a,list) and isinstance(b,list):
+                  assert len(a)==len(b), path
+                  for i,(x,y) in enumerate(zip(a,b)): same(x,y,f'{path}[{i}]')
+              elif isinstance(a,(int,float)) and not isinstance(a,bool) and isinstance(b,(int,float)) and not isinstance(b,bool):
+                  assert math.isclose(float(a),float(b),rel_tol=0.0,abs_tol=1e-12), (path,a,b)
+              else:
+                  assert a==b, (path,a,b)
+          same(live,checked)
+          PY
+      - name: Upload source/analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: canary-lotus-effectiveness-audit
+          path: artifacts/canary_lotus_effectiveness/
+          if-no-files-found: error
