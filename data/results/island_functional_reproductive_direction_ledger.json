@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-18",
+  "scope": "First directional comparison on the repeated direct-evidence backbone: mating/reproductive assurance + pollinator effectiveness + reproductive outcome.",
+  "systems": [
+    {
+      "system_id": "canary",
+      "source": "data/results/canary_lotus_effectiveness_summary.json",
+      "study_system": "Lotus maculatus, Tenerife",
+      "mating_and_reproductive_assurance": {
+        "direction": "strong_external_pollinator_dependence",
+        "evidence": "Exclusion fruit set 0.0167 versus control 0.7667; exclusion/control fruit-set ratio 0.0217."
+      },
+      "pollinator_effectiveness": {
+        "direction": "function_concentrated_in_key_lizard_pollinator",
+        "evidence": "Gallotia galloti visits were 100% legitimate in the registered observations, 18/34 assayed lizards carried pollen, and the source identifies Gallotia as the key pollination agent."
+      },
+      "reproductive_outcome": {
+        "direction": "higher_reproduction_with_key_pollinator_activity",
+        "evidence": "Plant-level fruit set was positively aligned with Gallotia visitation (descriptive Pearson r=0.647); the source reports reproductive success increasing with lizard visitation."
+      },
+      "response_architecture": "concentrated_key_pollinator_dependence",
+      "boundary": "One contemporary Tenerife population; the descriptive correlation is not a causal effect and does not establish historical floral evolution."
+    },
+    {
+      "system_id": "galapagos",
+      "source": "data/results/galapagos_bird_insect_effectiveness_summary.json",
+      "study_system": "Four focal plants, Santa Cruz",
+      "mating_and_reproductive_assurance": {
+        "direction": "animal_service_matters_but_raw_treatment_direction_not_assignable",
+        "evidence": "The source-level experiment reports improved qualitative fitness components when both birds and insects could visit, but raw A/C/E/NE treatment-code mapping remains source-unlocked."
+      },
+      "pollinator_effectiveness": {
+        "direction": "generalized_complementary_service",
+        "evidence": "Birds were quantitatively less important than insects, while the source reports effective opportunistic bird pollination and improved qualitative fitness when both visitor groups could visit."
+      },
+      "reproductive_outcome": {
+        "direction": "complementarity_over_single_guild_replacement",
+        "evidence": "The source-level conclusion favors higher qualitative fitness with access by both birds and insects rather than a single visitor guild explaining all reproductive function."
+      },
+      "response_architecture": "generalized_complementary_pollination",
+      "boundary": "Treatment codes are intentionally opaque until supplement mapping is source-locked; no individual raw code is relabeled as a specific exclusion treatment."
+    },
+    {
+      "system_id": "seychelles",
+      "source": "data/results/seychelles_pollination_effectiveness_summary.json",
+      "study_system": "Polyscias crassa, Syzygium wrightii, Thespesia populnea",
+      "mating_and_reproductive_assurance": {
+        "direction": "low_autonomous_success_where_source_labeled_auto_is_available",
+        "evidence": "Auto treatment seed-positive proportions were 0.0536 for Syzygium and 0.0513 for Thespesia; Polyscias has no source-labeled Auto treatment in the registered summary."
+      },
+      "pollinator_effectiveness": {
+        "direction": "plant_specific_effective_pollinator_identity",
+        "evidence": "Published overall-effectiveness winners differ among plants: Phelsuma geckos for Polyscias, sunbirds for Syzygium, and flying insects for Thespesia."
+      },
+      "reproductive_outcome": {
+        "direction": "visitor_effects_are_strong_but_taxon_specific",
+        "evidence": "Single-visit reproductive success differs strongly among visitor classes and plants; no universal guild ranking is supported by the registered raw summary."
+      },
+      "response_architecture": "species_specific_pollinator_mosaic",
+      "boundary": "Three plants belong to one Seychelles study system, not three independent archipelagos; composite QNC x QLC ranking is not reconstructed from the raw summary."
+    }
+  ],
+  "cross_system_result": {
+    "shared_pattern": "All three systems support a biologically important role for animal pollinator service in reproductive performance or assurance.",
+    "branching_pattern": [
+      "Canary: concentrated dependence on a key lizard pollinator",
+      "Galapagos: generalized complementary service by insects plus opportunistic birds",
+      "Seychelles: species-specific mosaic with different effective visitor groups among plants"
+    ],
+    "interpretation": "The first repeated three-axis backbone does not converge on one pollinator guild or one interaction architecture. What recurs is functional dependence on animal-mediated service, while the identity and organization of that service branch among island systems.",
+    "hypothesis_status": "comparative_pattern_supported_mechanism_not_yet_formally_pooled"
+  },
+  "claim_boundary": "This is a source-locked qualitative directional synthesis across non-identical estimands. It does not estimate a common effect size, a universal island syndrome, or a causal evolutionary transition."
+}
