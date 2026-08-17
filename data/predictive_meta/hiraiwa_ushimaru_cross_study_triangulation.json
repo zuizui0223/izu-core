@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "analysis_name": "hiraiwa_ushimaru_cross_study_triangulation",
+  "study_2017_source": {
+    "doi": "10.1098/rspb.2016.2218",
+    "locked_table": "data/predictive_meta/hiraiwa_ushimaru_2017_reproductive_sensitivity.csv",
+    "estimand": "fruit-set response to long-tongued-pollinator functional exposure and related visitation/proboscis metrics",
+    "oshima_reproductive_data_available": false
+  },
+  "study_2024_source": {
+    "doi": "10.6084/m9.figshare.25025000.v1",
+    "locked_table": "data/predictive_meta/hiraiwa_ushimaru_cross_channel_concordance.csv",
+    "estimands": [
+      "corrected trait-matching Oshima-to-post contrast",
+      "floral tube Oshima-to-post contrast",
+      "open-pollinated pollen-receipt Oshima-to-post contrast"
+    ]
+  },
+  "n_shared_taxa": 3,
+  "shared_taxa": [
+    "Calystegia soldanella",
+    "Lysimachia mauritiana",
+    "Vitex rotundifolia"
+  ],
+  "study_2017_response_modes": [
+    "counterdirectional_reproductive_response",
+    "long_tongued_pollinator_sensitive",
+    "reproductive_function_resilient_to_RBLP"
+  ],
+  "study_2024_pollen_directions": [
+    "higher_post",
+    "lower_post"
+  ],
+  "study_2024_tube_directions": [
+    "longer_post",
+    "shorter_post"
+  ],
+  "uniform_matching_tube_pollen_decline_n": 0,
+  "uniform_matching_tube_pollen_decline_taxa": [],
+  "heterogeneity_recurrence": {
+    "study_2017_has_multiple_reproductive_response_modes": true,
+    "study_2024_shared_panel_has_multiple_pollen_directions": true,
+    "study_2024_shared_panel_has_multiple_tube_directions": true,
+    "dataset_level_response_heterogeneity_recurs": true
+  },
+  "shared_taxon_profiles": {
+    "Calystegia soldanella": {
+      "study_2017_response_mode": "long_tongued_pollinator_sensitive",
+      "study_2024_matching_direction": "lower_post",
+      "study_2024_tube_direction": "longer_post",
+      "study_2024_pollen_direction": "higher_post",
+      "uniform_matching_tube_pollen_decline": false
+    },
+    "Vitex rotundifolia": {
+      "study_2017_response_mode": "reproductive_function_resilient_to_RBLP",
+      "study_2024_matching_direction": "lower_post",
+      "study_2024_tube_direction": "shorter_post",
+      "study_2024_pollen_direction": "higher_post",
+      "uniform_matching_tube_pollen_decline": false
+    },
+    "Lysimachia mauritiana": {
+      "study_2017_response_mode": "counterdirectional_reproductive_response",
+      "study_2024_matching_direction": "lower_post",
+      "study_2024_tube_direction": "longer_post",
+      "study_2024_pollen_direction": "lower_post",
+      "uniform_matching_tube_pollen_decline": false
+    }
+  },
+  "reading": "The three taxa independently characterized in the 2017 reproductive study do not form a uniform 2024 matching-lower / tube-shorter / pollen-lower cascade: zero of three show all three directions together. The recurring result across the two datasets is response heterogeneity itself, not a stable species-specific sign, because the studies use different years, boundaries and reproductive-function estimands.",
+  "mechanistic_implication": "Direct reproductive dependency/assurance and network-state measurements are needed to explain why taxa exposed to a shared functional-environment shift express different downstream outcomes. The independent 2017 modes can constrain interpretation, but they cannot be transported as numeric dependency values into the 2024 analysis.",
+  "claim_boundary": "Do not call the 2017 and 2024 taxon rows replicated effects: 2017 measures fruit-set sensitivity to a functional exposure gradient, 2024 measures matching/tube/pollen contrasts, and 2017 lacks Oshima reproductive observations. The supported replication level is qualitative recurrence of heterogeneous response modes across independent datasets, not species-specific sign replication, mediation, or historical Bombus causation."
+}
