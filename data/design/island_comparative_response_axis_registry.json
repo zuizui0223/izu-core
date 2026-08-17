@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-18",
+  "programme_unit": "independent_island_system",
+  "central_question": "Across independent island systems, which plant response axes change under altered pollinator functional environments, which combinations recur, and which responses remain system-specific?",
+  "systems_are_parallel": true,
+  "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
+  "response_axes": [
+    {
+      "id": "floral_morphology",
+      "examples": ["flower_size", "tube_length", "morphological_compression"],
+      "admission_rule": "source_native quantitative or explicitly scored morphology within a defined island transition"
+    },
+    {
+      "id": "mating_and_reproductive_assurance",
+      "examples": ["outcrossing", "autonomous_assurance", "selfing_capacity", "controlled_reproductive_dependency"],
+      "admission_rule": "direct reproductive, mating-system, or controlled-treatment evidence; syndrome is not dependency"
+    },
+    {
+      "id": "visual_signal",
+      "examples": ["nectar_guide", "visible_signal", "UV_signal"],
+      "admission_rule": "system-specific measured or source-locked signal evidence; absence of Izu measurement does not exclude this axis programme-wide"
+    },
+    {
+      "id": "pollinator_effectiveness",
+      "examples": ["single_visit_pollen_deposition", "per_visit_reproductive_effectiveness", "rate_weighted_effective_service"],
+      "admission_rule": "direct effectiveness or reproductive-function evidence; visitor occurrence alone is insufficient"
+    },
+    {
+      "id": "interaction_network",
+      "examples": ["partner_turnover", "rewiring", "functional_environment_change", "network_structure"],
+      "admission_rule": "source-native interaction or network evidence with explicit sampling unit and transition"
+    },
+    {
+      "id": "reproductive_outcome",
+      "examples": ["fruit_set", "seed_set", "pollen_receipt", "selection_response"],
+      "admission_rule": "direct outcome data with estimand kept distinct across studies"
+    }
+  ],
+  "comparison_logic": {
+    "primary_target": "recurring_response_combinations_and_branching_across_independent_island_systems",
+    "not_required": "every_system_measures_every_axis",
+    "forbidden_shortcut": "pool_noncommensurate_axes_into_one_effect_size",
+    "heterogeneity_is_a_result": true,
+    "complete_mechanism_bridge_is_high_value_but_not_required_for_an_axis_to_enter_comparative_evidence"
+  },
+  "current_programme_boundaries": {
+    "universal_island_response": false,
+    "formal_cross_system_same_estimand_fit_ready": false,
+    "system_specific_response_axes_may_be_compared_qualitatively_with_locked_boundaries": true,
+    "nectar_guide_axis_programme_status": "active_comparative_axis_system_specific_evidence_required"
+  }
+}
