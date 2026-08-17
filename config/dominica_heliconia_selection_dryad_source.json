@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "source_id": "temeles_bishop_2019_dominica_heliconia_hurricane_selection",
+  "article_title": "A hurricane alters pollinator relationships and natural selection on an introduced island plant",
+  "article_doi": "10.1111/btp.12634",
+  "dataset_doi": "10.5061/dryad.245p3r0",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.245p3r0",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.245p3r0",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.245p3r0/versions",
+  "study_system": "Heliconia wagneriana x Anthracothorax jugularis, Dominica",
+  "expected_source_components": ["Temeles and Bishop data.xls"],
+  "source_native_channels": [
+    "pre_vs_post_hurricane_pollinator_composition",
+    "plant_corolla_length",
+    "hummingbird_bill_length_or_sex_context",
+    "plant_level_visitation",
+    "nectar_removal",
+    "pollinator_mediated_selection_on_corolla_length"
+  ],
+  "claim_boundary": "This is a one-island before/after disturbance system. The hurricane is a natural disturbance, not a randomized treatment. Floral trait matching, visitation and nectar removal are contemporary functional/selection channels; they do not by themselves establish seed-set dependence, historical island colonization effects, or a universal pollinator-loss coefficient."
+}
