@@ -1,0 +1,50 @@
+name: Acquire Macquarie floral colour data
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/macquarie_flower_colour_dryad_source.json"
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/acquire_dryad_version_package.py"
+      - "scripts/analyze_macquarie_flower_colour.py"
+      - "data/results/macquarie_flower_colour_summary.json"
+      - "tests/test_macquarie_flower_colour.py"
+      - ".github/workflows/acquire-macquarie-flower-colour.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Acquire source-native Dryad files
+        run: >-
+          python scripts/acquire_dryad_external_dataset.py
+          --config config/macquarie_flower_colour_dryad_source.json
+          --output-dir artifacts/macquarie_flower_colour
+      - name: Analyze when analyzer exists
+        shell: bash
+        run: |
+          if [[ -f scripts/analyze_macquarie_flower_colour.py ]]; then python scripts/analyze_macquarie_flower_colour.py; fi
+      - name: Verify checked result when present
+        shell: bash
+        run: |
+          if [[ -f data/results/macquarie_flower_colour_summary.json ]]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          assert json.loads(Path('artifacts/macquarie_flower_colour/analysis/summary.json').read_text()) == json.loads(Path('data/results/macquarie_flower_colour_summary.json').read_text())
+          PY
+          fi
+      - name: Upload source/analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macquarie-flower-colour-audit
+          path: artifacts/macquarie_flower_colour/
+          if-no-files-found: error
