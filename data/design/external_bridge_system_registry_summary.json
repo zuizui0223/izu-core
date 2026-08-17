@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "parent_issue": 100,
   "purpose": "Summarize independently screened external island mechanism bridges without converting partial links, source availability, or within-system replication into a formal cross-system causal fit.",
   "systems": [
@@ -29,11 +29,20 @@
       "independent_system_cluster": true,
       "strength": "one source-defined two-island system contains floral morph-state divergence, pollinator-environment contrast, single-visit pollen deposition and controlled reproductive dependence, but effectiveness/dependency are not matched on Dong Island",
       "complete": false
+    },
+    {
+      "system_id": "seychelles_fuster_2020_pollination_effectiveness",
+      "audit": "data/design/external_bridge_seychelles_fuster_source_audit.json",
+      "admission_state": "bridge_system_partial",
+      "bridge_level": "within_study_adjacent_mechanism_links",
+      "independent_system_cluster": true,
+      "strength": "source-locked visitor-class single-visit reproductive outcomes and source-labeled autonomous breeding treatments in the same island study, but no matched floral-response transition",
+      "complete": false
     }
   ],
   "counts": {
-    "independent_system_clusters_screened_as_partial_or_stronger": 3,
-    "bridge_system_partial": 3,
+    "independent_system_clusters_screened_as_partial_or_stronger": 4,
+    "bridge_system_partial": 4,
     "bridge_system_complete": 0,
     "near_complete_within_archipelago": 1
   },
@@ -41,10 +50,12 @@
   "formal_cross_system_mechanism_fit_ready": false,
   "why_formal_fit_remains_closed": [
     "No external system yet supplies all mechanism links at a matched two-sided population/transition unit.",
-    "The three systems do not yet supply one compatible mechanism estimand family with source-locked uncertainty across at least two independent clusters.",
-    "Nicotiana has cross-year/cross-paper linkage, Caribbean Gesneriaceae lacks matched per-visit pollen function, and Cordia lacks Dong-side direct effectiveness and controlled dependency measurements.",
+    "The four systems do not yet supply one compatible mechanism estimand family with source-locked uncertainty across at least two independent clusters.",
+    "Nicotiana has cross-year/cross-paper linkage, Caribbean Gesneriaceae lacks matched per-visit pollen function, Cordia lacks Dong-side direct effectiveness and controlled dependency measurements, and Seychelles lacks a matched floral-response transition.",
     "Partial mechanistic recurrence cannot substitute for Issue #91 direct Izu field measurements."
   ],
-  "next_decision_gate": "Prioritize source recovery or new data that close the missing effectiveness/dependency side of Cordia or identify another system with floral response, direct visitor pollen function, and reproductive dependency measured at the same transition units.",
-  "claim_boundary": "Three independent partial bridge systems strengthen the plausibility and generality of the mechanism architecture and reveal alternative mechanisms, but they do not establish a universal island response, a universal dependency coefficient, historical pollinator-loss causation, or a formal cross-system causal model."
+  "stage_c_search_state": "route_A_complete_unconstrained_search_closed",
+  "reopen_rule": "Reopen external bridge acquisition only when new lawful source-native material can close a named missing link in an existing partial system or provides a candidate matched floral-response, direct effectiveness, and reproductive-dependency transition with compatible uncertainty and hierarchy.",
+  "next_decision_gate": "Issue #91 first real six-channel field bundle remains the active executable gate; external bridge work is source-triggered rather than an unconstrained search loop.",
+  "claim_boundary": "Four independent partial bridge systems strengthen the plausibility and generality of the mechanism architecture and reveal alternative mechanisms, but they do not establish a universal island response, a universal dependency coefficient, historical pollinator-loss causation, or a formal cross-system causal model."
 }
