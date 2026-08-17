@@ -42,7 +42,7 @@
     "not_required": "every_system_measures_every_axis",
     "forbidden_shortcut": "pool_noncommensurate_axes_into_one_effect_size",
     "heterogeneity_is_a_result": true,
-    "complete_mechanism_bridge_is_high_value_but_not_required_for_an_axis_to_enter_comparative_evidence"
+    "complete_mechanism_bridge_is_high_value_but_not_required_for_an_axis_to_enter_comparative_evidence": true
   },
   "current_programme_boundaries": {
     "universal_island_response": false,
