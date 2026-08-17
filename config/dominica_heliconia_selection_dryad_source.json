@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.2",
+  "source_id": "temeles_bishop_2019_dominica_heliconia_hurricane_selection",
+  "article_title": "A hurricane alters pollinator relationships and natural selection on an introduced island plant",
+  "article_doi": "10.1111/btp.12634",
+  "dataset_doi": "10.5061/dryad.245p3r0",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.245p3r0",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.245p3r0",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.245p3r0/versions",
+  "legacy_version_id": 23509,
+  "version_package_url": "https://datadryad.org/api/v2/versions/23509/download",
+  "version_package_role": "byte-transport fallback when legacy per-file stream endpoints fail; provenance is locked on the extracted XLS rather than the assembled package ZIP",
+  "study_system": "Heliconia wagneriana x Anthracothorax jugularis, Dominica",
+  "expected_source_components": ["Temeles and Bishop data.xls"],
+  "source_file_lock": {
+    "source_filename": "Temeles and Bishop data.xls",
+    "saved_name": "Temeles_and_Bishop_data.xls",
+    "bytes": 71168,
+    "sha256": "0e185cffb902bdae4267a3e2754e1e6d2f9c85f95da0d62ad7c1d712079df30b"
+  },
+  "source_native_channels": [
+    "year_specific_corolla_length",
+    "year_specific_seed_output",
+    "year_specific_visitation_rate",
+    "hummingbird_culmen_length_by_sex_and_period",
+    "post_hurricane_visitor_sex_x_plant_corolla_length",
+    "hummingbird_visit_x_nectar_volume"
+  ],
+  "source_level_selection_context": "The primary article reports no directional selection on corolla length before Hurricane Maria, followed by directional selection favoring shorter corollas after the hurricane as male A. jugularis became the dominant visitor. This article-level model result is retained separately from the descriptive raw-data summaries.",
+  "claim_boundary": "This is a one-island before/after disturbance system. The hurricane is a natural disturbance, not a randomized treatment. Seed output, visitation, bird morphology and floral traits are source-native observational channels; descriptive reanalysis does not recreate the source selection model or establish direct experimental reproductive dependency, historical island colonization effects, or a universal pollinator-loss coefficient."
+}
