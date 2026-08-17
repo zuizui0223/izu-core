@@ -12,34 +12,31 @@ def workstream(mainline, workstream_id):
     return next(row for row in mainline["workstreams"] if row["id"] == workstream_id)
 
 
-def test_p1_is_first_real_field_bundle_gate():
+def test_p1_is_island_system_response_matrix_gate():
     mainline = load_mainline()
     p1 = workstream(mainline, "P1")
-    assert p1["issue"] == 91
-    assert p1["status"] == "implementation_ready_field_data_missing"
-    assert "first_real_six_channel_bundle_passes_preflight" in p1["required_outputs"]
+    assert p1["name"] == "island_system_response_matrix"
+    assert p1["status"] == "active"
+    assert "system_by_response_axis_evidence_matrix" in p1["required_outputs"]
+    assert "heterogeneous_branching_summary" in p1["required_outputs"]
 
 
-def test_p1_does_not_relabel_focal_pilot_as_final_dependency_reliability():
-    p1 = workstream(load_mainline(), "P1")
-    outputs = p1["required_outputs"]
-    assert "pilot_variance_coverage_loss_estimates" in outputs
-    assert "final_dependency_reliability_remains_separate_repeated_final_estimand_gate" in outputs
-    assert "pilot_variance_reliability_coverage_loss_estimates" not in outputs
-    assert "final_dependency_reliability_from_single_focal_pilot" in p1["blocked_claims"]
+def test_izu_field_bundle_is_preserved_as_mechanistic_anchor_not_programme_center():
+    mainline = load_mainline()
+    p3 = workstream(mainline, "P3")
+    assert p3["issue"] == 91
+    assert p3["status"] == "implementation_ready_field_data_missing"
+    assert p3["role"] == "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center"
+    assert "first_real_six_channel_bundle_passes_preflight" in p3["required_outputs"]
+    assert "pilot_variance_coverage_loss_estimates" in p3["required_outputs"]
 
 
 def test_stage_c_reflects_four_partial_bridges_and_route_a_closure():
     mainline = load_mainline()
-    p3 = workstream(mainline, "P3")
-    stage_c = next(row for row in p3["stages"] if row["stage"] == "C")
+    p2 = workstream(mainline, "P2")
+    stage_c = next(row for row in p2["stages"] if row["stage"] == "C")
     assert stage_c["current_state"] == "four_independent_partial_bridges_one_near_complete_zero_complete_route_A_complete"
-    assert stage_c["current_best_bridge"] == "xisha_cordia_subcordata_two_island_system"
-    assert stage_c["additional_partial_bridge"] == "seychelles_fuster_2020_pollination_effectiveness"
-    assert stage_c["missing_best_bridge_links"] == [
-        "Dong_direct_single_visit_effectiveness",
-        "Dong_controlled_reproductive_dependency",
-    ]
+    assert "source-triggered only" in stage_c["priority_rule"]
 
 
 def test_formal_fit_and_source_reopen_boundaries_stay_closed():
@@ -50,13 +47,13 @@ def test_formal_fit_and_source_reopen_boundaries_stay_closed():
     assert protected["external_mechanism_bridge_state"]["stage_c_search_state"] == "route_A_complete_unconstrained_search_closed"
     assert protected["formal_cross_system_fit_ready"] is False
 
-    p4 = workstream(mainline, "P4")
-    assert p4["status"] == "wait_for_new_admissible_source_material"
-    issue_100_gate = next(row for row in p4["gates"] if row.get("issue") == 100)
+    p5 = workstream(mainline, "P5")
+    assert p5["status"] == "wait_for_new_admissible_source_material"
+    issue_100_gate = next(row for row in p5["gates"] if row.get("issue") == 100)
     assert issue_100_gate["state"] == "route_A_completed_reopen_only_on_named_source_trigger"
 
 
-def test_next_executable_task_keeps_issue_91_first_and_bridge_search_source_triggered():
+def test_next_executable_task_is_comparative_matrix_not_issue_91_only():
     mainline = load_mainline()
-    assert mainline["next_executable_task"].startswith("Issue_91_first_real_field_bundle")
-    assert "source-triggered only" in mainline["next_executable_task"]
+    assert mainline["next_executable_task"].startswith("build_system_by_response_axis_evidence_matrix")
+    assert mainline["comparison_contract"]["izu_role"] == "calibration_and_mechanistic_anchor_system_not_programme_center"
