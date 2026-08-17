@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-18",
+  "purpose": "Cross-system evidence matrix for the comparative island programme. Cells record source-locked evidence availability and estimand family; missing cells are not biological zeroes.",
+  "response_axes": [
+    "floral_morphology",
+    "mating_and_reproductive_assurance",
+    "visual_signal",
+    "pollinator_effectiveness",
+    "interaction_network",
+    "reproductive_outcome"
+  ],
+  "systems": [
+    {
+      "system_id": "izu",
+      "role": "calibration_and_mechanistic_anchor",
+      "sources": ["data/results/real_data_scale_registry.json", "data/predictive_meta/hiraiwa_ushimaru_cross_study_triangulation.json"],
+      "axes": {
+        "floral_morphology": "source_locked_present",
+        "mating_and_reproductive_assurance": "source_locked_historical_calibration_present_direct_current_dependency_missing",
+        "visual_signal": "missing_current_measurement_not_zero",
+        "pollinator_effectiveness": "direct_current_six_channel_field_bundle_missing",
+        "interaction_network": "source_locked_present",
+        "reproductive_outcome": "source_locked_present_estimands_not_interchangeable_across_studies"
+      }
+    },
+    {
+      "system_id": "seychelles",
+      "role": "independent_comparative_system",
+      "sources": ["data/results/real_data_scale_registry.json", "data/design/external_bridge_seychelles_fuster_source_audit.json"],
+      "axes": {
+        "floral_morphology": "missing_matched_transition_not_zero",
+        "mating_and_reproductive_assurance": "source_locked_present",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "source_locked_single_visit_reproductive_outcome_present",
+        "interaction_network": "source_locked_present",
+        "reproductive_outcome": "source_locked_present"
+      }
+    },
+    {
+      "system_id": "galapagos",
+      "role": "independent_comparative_system",
+      "sources": ["data/results/real_data_scale_registry.json"],
+      "axes": {
+        "floral_morphology": "not_registered",
+        "mating_and_reproductive_assurance": "source_locked_treatment_context_present",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "source_locked_fitness_treatment_evidence_present",
+        "interaction_network": "published_summary_present_raw_network_archive_blocked",
+        "reproductive_outcome": "source_locked_present"
+      }
+    },
+    {
+      "system_id": "balearic",
+      "role": "independent_comparative_system",
+      "sources": ["data/results/real_data_scale_registry.json"],
+      "axes": {
+        "floral_morphology": "source_locked_selection_or_morphology_context_present",
+        "mating_and_reproductive_assurance": "source_locked_present",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "visitation_contact_and_exclusion_present_direct_single_visit_function_not_common_estimand",
+        "interaction_network": "not_primary_axis_in_registered_panels",
+        "reproductive_outcome": "source_locked_present"
+      }
+    },
+    {
+      "system_id": "canary",
+      "role": "independent_comparative_system",
+      "sources": ["data/results/real_data_scale_registry.json"],
+      "axes": {
+        "floral_morphology": "not_registered",
+        "mating_and_reproductive_assurance": "pollinator_exclusion_present",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "source_locked_pollen_transport_present",
+        "interaction_network": "visit_legitimacy_context_present",
+        "reproductive_outcome": "source_locked_present"
+      }
+    },
+    {
+      "system_id": "hawaii",
+      "role": "independent_comparative_system",
+      "sources": ["data/results/real_data_scale_registry.json"],
+      "axes": {
+        "floral_morphology": "not_registered",
+        "mating_and_reproductive_assurance": "article_level_context_only_raw_treatment_table_missing",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "visitor_effectiveness_context_present_not_complete_dependency",
+        "interaction_network": "source_locked_visitation_handling_present",
+        "reproductive_outcome": "raw_treatment_outcome_table_missing"
+      }
+    },
+    {
+      "system_id": "lesser_antilles_dominica",
+      "role": "independent_comparative_system",
+      "sources": ["data/results/real_data_scale_registry.json"],
+      "axes": {
+        "floral_morphology": "source_locked_present",
+        "mating_and_reproductive_assurance": "not_registered_as_controlled_dependency",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "visitation_and_pollinator_morphology_context_present",
+        "interaction_network": "visitor_context_present",
+        "reproductive_outcome": "source_locked_seed_output_and_selection_response_present"
+      }
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "role": "independent_partial_mechanism_bridge",
+      "sources": ["data/design/external_bridge_nicotiana_source_audit.json"],
+      "axes": {
+        "floral_morphology": "source_locked_response_present_across_linked_studies",
+        "mating_and_reproductive_assurance": "source_locked_reproductive_dependency_present",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "source_locked_direct_service_present",
+        "interaction_network": "pollinator_environment_context_present",
+        "reproductive_outcome": "source_locked_present_cross_year_linkage"
+      }
+    },
+    {
+      "system_id": "caribbean_gesneriaceae",
+      "role": "independent_partial_mechanism_bridge",
+      "sources": ["data/design/external_bridge_caribbean_gesneriaceae_source_audit.json"],
+      "axes": {
+        "floral_morphology": "source_locked_floral_transition_recurrence_present",
+        "mating_and_reproductive_assurance": "source_locked_autofertility_and_assurance_present",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "matched_per_visit_pollen_function_missing_not_zero",
+        "interaction_network": "source_locked_visitation_present",
+        "reproductive_outcome": "reproductive_assurance_context_present"
+      }
+    },
+    {
+      "system_id": "xisha_cordia_subcordata",
+      "role": "near_complete_within_archipelago_bridge",
+      "sources": ["data/design/external_bridge_cordia_subcordata_source_audit.json"],
+      "axes": {
+        "floral_morphology": "source_locked_two_island_divergence_present",
+        "mating_and_reproductive_assurance": "controlled_dependency_present_on_yongxing_dong_missing",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "single_visit_pollen_deposition_present_on_yongxing_dong_missing",
+        "interaction_network": "pollinator_environment_contrast_present",
+        "reproductive_outcome": "natural_fruit_set_and_controlled_outcome_context_present"
+      }
+    }
+  ],
+  "current_pattern": {
+    "uniform_response_syndrome_supported": false,
+    "response_heterogeneity_recurs": true,
+    "strongest_current_comparative_reading": "Independent island systems repeatedly show changes in different combinations of morphology, mating or assurance, interaction structure, effectiveness and reproductive outcome. The recurrence is presently stronger for response heterogeneity and alternative mechanism paths than for one universal directional syndrome.",
+    "visual_signal_reading": "Visual signal, including nectar guides, remains an active comparative axis. It is missing in the current Izu measurement contract but is not excluded programme-wide."
+  },
+  "claim_boundary": "This matrix compares evidence structure and response combinations. It does not convert noncommensurate axes into one effect size, treat missing cells as no response, or identify a universal island causal coefficient."
+}
