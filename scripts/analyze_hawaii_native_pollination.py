@@ -40,19 +40,12 @@ def yes(value: object) -> bool:
 def workbook_rows(worksheet) -> list[dict[str, object]]:
     values = list(worksheet.iter_rows(values_only=True))
     headers = [clean(value) for value in values[0]]
-    output = []
-    for row in values[1:]:
-        if not any(value is not None for value in row):
-            continue
-        output.append(dict(zip(headers, row)))
-    return output
+    return [dict(zip(headers, row)) for row in values[1:] if any(value is not None for value in row)]
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--root", type=Path, default=Path("artifacts/hawaii_native_pollination")
-    )
+    parser.add_argument("--root", type=Path, default=Path("artifacts/hawaii_native_pollination"))
     parser.add_argument(
         "--out",
         type=Path,
@@ -66,28 +59,18 @@ def main() -> None:
 
     per_plant: dict[str, object] = {}
     all_focal_labels: Counter[str] = Counter()
-    total_raw_rows = 0
-    total_sessions = 0
-    total_focal_events = 0
+    total_raw_rows = total_sessions = total_focal_events = 0
     total_flowers_probed = 0.0
 
     for sheet, (taxon, status) in SHEETS.items():
         rows = workbook_rows(workbook[sheet])
-        total_raw_rows += len(rows)
         sessions = {
-            (
-                clean(row.get("Site")),
-                clean(row.get("Date")),
-                clean(row.get("Start Time")),
-                clean(row.get("Observer")),
-            )
+            (clean(row.get("Site")), clean(row.get("Date")), clean(row.get("Start Time")), clean(row.get("Observer")))
             for row in rows
-            if clean(row.get("Site"))
-            and row.get("Date") is not None
-            and row.get("Start Time") is not None
+            if clean(row.get("Site")) and row.get("Date") is not None and row.get("Start Time") is not None
         }
-        focal_rows = []
         labels: Counter[str] = Counter()
+        focal_rows = []
         flowers_probed = 0.0
         for row in rows:
             label = clean(row.get("Focal individual visitor Spp")).upper()
@@ -100,36 +83,26 @@ def main() -> None:
             if isinstance(value, (int, float)):
                 flowers_probed += float(value)
 
-        record = {
-            "sheet": sheet,
-            "taxon": taxon,
+        per_plant[taxon] = {
             "source_status": status,
             "raw_rows": len(rows),
             "observation_sessions": len(sessions),
             "focal_visitor_event_rows": len(focal_rows),
             "unique_raw_focal_visitor_labels": len(labels),
             "flowers_probed_in_focal_rows": flowers_probed,
-            "nectar_foraging_yes_rows": sum(yes(row.get("Nectar foraging?")) for row in focal_rows),
-            "pollen_collecting_yes_rows": sum(yes(row.get("Pollen collecting?")) for row in focal_rows),
             "pollen_visible_on_body_yes_rows": sum(yes(row.get("Pollen visible on body?")) for row in focal_rows),
-            "nectar_robbed_flower_count": sum(
-                float(row.get("# flowers nectar robbed") or 0)
-                for row in focal_rows
-                if isinstance(row.get("# flowers nectar robbed"), (int, float))
-            ),
             "top_raw_focal_visitor_labels": [
-                {"label": label, "event_rows": count}
-                for label, count in labels.most_common(10)
+                {"label": label, "event_rows": count} for label, count in labels.most_common(3)
             ],
         }
-        per_plant[taxon] = record
+        total_raw_rows += len(rows)
         total_sessions += len(sessions)
         total_focal_events += len(focal_rows)
         total_flowers_probed += flowers_probed
 
     workbook.close()
     report = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "source_id": "aslan_etal_2019_hawaii_native_pollination",
         "article_doi": "10.1002/ajb2.1233",
         "dataset_doi": "10.5061/dryad.tm575v4",
@@ -151,8 +124,7 @@ def main() -> None:
             "unique_raw_focal_visitor_labels": len(all_focal_labels),
             "flowers_probed_in_focal_rows": total_flowers_probed,
             "top_raw_focal_visitor_labels": [
-                {"label": label, "event_rows": count}
-                for label, count in all_focal_labels.most_common(15)
+                {"label": label, "event_rows": count} for label, count in all_focal_labels.most_common(5)
             ],
         },
         "by_plant": per_plant,
@@ -162,9 +134,9 @@ def main() -> None:
             "reported_endangered_focal_species": 4,
             "reported_species_with_significant_seed_set_reduction_under_bagging": 6,
             "reading": (
-                "These values are article-level source conclusions. The recovered Dryad package contains "
-                "raw visitation observations and keys, not the manual flower-treatment table, so species-level "
-                "bagging effect sizes are not reconstructed here."
+                "These values are article-level source conclusions. The recovered Dryad package contains raw "
+                "visitation observations and keys, not the manual flower-treatment table, so species-level bagging "
+                "effect sizes are not reconstructed here."
             ),
         },
         "scientific_gain": (
