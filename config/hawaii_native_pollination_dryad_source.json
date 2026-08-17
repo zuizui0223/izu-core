@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "source_id": "aslan_etal_2019_hawaii_native_pollination",
+  "article_title": "Non-native insects dominate daytime pollination in a high-elevation Hawaiian dryland ecosystem",
+  "article_doi": "10.1002/ajb2.1233",
+  "dataset_doi": "10.5061/dryad.tm575v4",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.tm575v4",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tm575v4",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tm575v4/versions",
+  "focal_plants": [
+    "Argemone glauca",
+    "Bidens menziesii",
+    "Dubautia linearis",
+    "Haplostachys haplostachya",
+    "Sida fallax",
+    "Silene lanceolata",
+    "Stenogyne angustifolia",
+    "Tetramolopium arenarium"
+  ],
+  "source_reported_scale": {
+    "flower_observation_hours": 576.36,
+    "focal_plant_species": 8,
+    "endangered_focal_species": 4,
+    "reported_non_native_share_of_visits": 0.85,
+    "species_with_reported_significant_seed_set_reduction_under_bagging": 6
+  },
+  "expected_source_components": [
+    "Pollination visitation obs for dryad.xlsx",
+    "README_for_Pollination visitation obs for dryad.docx"
+  ],
+  "claim_boundary": "This is one Hawaii Island dryland ecosystem containing eight focal native plants. Visitation identity/frequency and manual flower-treatment outcomes must remain distinct. Species within this study are plant-level response panels, not eight independent island systems. Non-native visitor dominance does not by itself establish equivalent pollination service, and contemporary seed-set dependence does not identify historical floral evolution."
+}
