@@ -36,7 +36,7 @@ direction, breakpoint, or effect estimate.
 - Eligible independent specialist holdout lineages: **0**.
 - Usable three-regime generalist negative-control lineages: **1**.
 - ROI proposals eligible for broad specialist holdout: **0**.
-- External partial mechanism bridges: **3**.
+- External partial mechanism bridges: **4**.
 - External near-complete within-archipelago bridges: **1**.
 - External complete mechanism bridges: **0**.
 - Formal cross-system mechanism fit ready: **false**.
@@ -48,7 +48,7 @@ direction, breakpoint, or effect estimate.
 - The source-locked focal Campanula channels do not share one response shape: floral size and multilocus outcrossing are retained as continuous erosion, while autonomous reproductive capacity has a second-transition step.
 - Step, cline, and no-response models remain legitimate competing response shapes for prospective cross-lineage tests; a shared breakpoint is not demonstrated across species.
 - Exactly 1 open-generalist lineage currently supplies a usable three-regime negative-control contrast.
-- External screening has 3 independent partial mechanism bridges, including 1 near-complete within-archipelago system, but no complete bridge.
+- External screening has 4 independent partial mechanism bridges, including 1 near-complete within-archipelago system, but no complete bridge.
 - The present repository supports an implementation-ready mechanistic programme, not a completed cross-lineage or formal cross-system causal synthesis.
 
 ## Claims that remain blocked
