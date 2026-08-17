@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.1",
+  "source_id": "aslan_etal_2019_hawaii_native_pollination",
+  "article_doi": "10.1002/ajb2.1233",
+  "dataset_doi": "10.5061/dryad.tm575v4",
+  "source_files": {
+    "visitation_workbook": {
+      "bytes": 579979,
+      "sha256": "2b0ff40226b2a6d511a111ead8a00660532de3d799aed217e4dc30f00c2b3c27"
+    },
+    "readme": {
+      "bytes": 59196,
+      "sha256": "8a664206390b498618adc23d460d81d77022e70550c5c74e66bf87eeafe9b6cd"
+    }
+  },
+  "raw_visitation_scale": {
+    "focal_plant_sheets": 8,
+    "raw_rows": 4499,
+    "observation_sessions": 240,
+    "focal_visitor_event_rows": 1799,
+    "unique_raw_focal_visitor_labels": 197,
+    "flowers_probed_in_focal_rows": 8198.0,
+    "top_raw_focal_visitor_labels": [
+      {"label": "APIMEL", "event_rows": 599},
+      {"label": "SYRPHID", "event_rows": 228},
+      {"label": "MOTH", "event_rows": 113},
+      {"label": "HYLSP.", "event_rows": 102},
+      {"label": "HYL SP.", "event_rows": 47}
+    ]
+  },
+  "by_plant": {
+    "Argemone glauca": {"source_status": "Common", "raw_rows": 464, "observation_sessions": 22, "focal_visitor_event_rows": 257, "unique_raw_focal_visitor_labels": 40, "flowers_probed_in_focal_rows": 302.0, "pollen_visible_on_body_yes_rows": 65, "top_raw_focal_visitor_labels": [{"label": "APIMEL", "event_rows": 93}, {"label": "MOTH", "event_rows": 42}, {"label": "SYRPHID", "event_rows": 36}]},
+    "Bidens menziesii": {"source_status": "Common", "raw_rows": 722, "observation_sessions": 29, "focal_visitor_event_rows": 542, "unique_raw_focal_visitor_labels": 83, "flowers_probed_in_focal_rows": 2938.0, "pollen_visible_on_body_yes_rows": 99, "top_raw_focal_visitor_labels": [{"label": "APIMEL", "event_rows": 132}, {"label": "SYRPHID", "event_rows": 84}, {"label": "HYLSP.", "event_rows": 72}]},
+    "Dubautia linearis": {"source_status": "Common", "raw_rows": 468, "observation_sessions": 22, "focal_visitor_event_rows": 265, "unique_raw_focal_visitor_labels": 45, "flowers_probed_in_focal_rows": 1973.0, "pollen_visible_on_body_yes_rows": 19, "top_raw_focal_visitor_labels": [{"label": "SYRPHID", "event_rows": 75}, {"label": "BLOW FLY - 2", "event_rows": 31}, {"label": "ORT SP", "event_rows": 27}]},
+    "Haplostachys haplostachya": {"source_status": "T&E", "raw_rows": 375, "observation_sessions": 25, "focal_visitor_event_rows": 61, "unique_raw_focal_visitor_labels": 22, "flowers_probed_in_focal_rows": 108.0, "pollen_visible_on_body_yes_rows": 0, "top_raw_focal_visitor_labels": [{"label": "SMALL MOTH (SHINY/ROACH LIKE)", "event_rows": 15}, {"label": "APIMEL", "event_rows": 9}, {"label": "SYRPHID", "event_rows": 6}]},
+    "Sida fallax": {"source_status": "Common", "raw_rows": 675, "observation_sessions": 24, "focal_visitor_event_rows": 517, "unique_raw_focal_visitor_labels": 43, "flowers_probed_in_focal_rows": 2460.0, "pollen_visible_on_body_yes_rows": 191, "top_raw_focal_visitor_labels": [{"label": "APIMEL", "event_rows": 302}, {"label": "HYL SP.", "event_rows": 47}, {"label": "HYLSP.", "event_rows": 23}]},
+    "Silene lanceolata": {"source_status": "T&E", "raw_rows": 712, "observation_sessions": 48, "focal_visitor_event_rows": 55, "unique_raw_focal_visitor_labels": 7, "flowers_probed_in_focal_rows": 118.0, "pollen_visible_on_body_yes_rows": 10, "top_raw_focal_visitor_labels": [{"label": "APIMEL", "event_rows": 33}, {"label": "SYRPHID", "event_rows": 16}, {"label": "MOTH", "event_rows": 2}]},
+    "Stenogyne angustifolia": {"source_status": "T&E", "raw_rows": 861, "observation_sessions": 56, "focal_visitor_event_rows": 35, "unique_raw_focal_visitor_labels": 5, "flowers_probed_in_focal_rows": 36.0, "pollen_visible_on_body_yes_rows": 3, "top_raw_focal_visitor_labels": [{"label": "CERDEN", "event_rows": 18}, {"label": "LASIOGL SP", "event_rows": 14}, {"label": "LASIMP", "event_rows": 1}]},
+    "Tetramolopium arenarium": {"source_status": "T&E", "raw_rows": 222, "observation_sessions": 14, "focal_visitor_event_rows": 67, "unique_raw_focal_visitor_labels": 17, "flowers_probed_in_focal_rows": 263.0, "pollen_visible_on_body_yes_rows": 6, "top_raw_focal_visitor_labels": [{"label": "PACNAS", "event_rows": 15}, {"label": "APIMEL", "event_rows": 10}, {"label": "ORTSP.", "event_rows": 8}]}
+  },
+  "source_reported_context": {
+    "flower_observation_hours": 576.36,
+    "reported_non_native_share_of_visits": 0.85,
+    "reported_endangered_focal_species": 4,
+    "reported_species_with_significant_seed_set_reduction_under_bagging": 6,
+    "reading": "These values are article-level source conclusions. The recovered Dryad package contains raw visitation observations and keys, not the manual flower-treatment table, so species-level bagging effect sizes are not reconstructed here."
+  },
+  "scientific_gain": "Eight native Hawaii plants now contribute source-native visitation/handling rows in one independent island ecosystem. The raw panel includes large among-plant differences in observed visitor-event depth, while the article independently reports pollinator dependence for six focal species.",
+  "analysis_unit_boundary": "Workbook rows and focal visitor events are repeated observations, not independent plants, studies or island systems. Raw visitor labels are retained as recorded and may include spelling/synonym variants; they are not automatically collapsed into species richness.",
+  "claim_boundary": "The raw dataset supports visitation and handling summaries only. The published bagging result is retained as source-level dependency context, not converted into unobserved raw treatment values. Non-native visitor dominance does not demonstrate equal effectiveness, and contemporary dependence does not establish historical floral evolution."
+}
