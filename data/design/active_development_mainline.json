@@ -1,18 +1,31 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "2.0",
   "updated_on": "2026-08-18",
-  "routing_baseline_sha": "45262ac579d0ff0c451ff02f9d5ff472aab32642",
-  "program_hypothesis": "Loss, simplification, or turnover of effective pollination can reduce effective reproductive dependence on the ancestral interaction; increased autonomous reproductive assurance can then relax selection maintaining pollinator-dependent floral traits, producing lineage- and context-dependent floral compression or simplification.",
-  "claim_state": "mechanistic_chain_not_yet_causally_identified",
+  "programme_scope": "comparative_island_pollination_response_programme",
+  "programme_unit": "independent_island_system",
+  "program_hypothesis": "Changes in pollinator functional environments can alter effective pollen service, reproductive dependency or assurance, interaction structure and selection on floral traits, but island plant responses need not collapse onto one syndrome. The programme tests which response axes and combinations recur across independent island systems, which branch, and which remain system-specific.",
+  "central_question": "Across independent island systems, which plant response axes change under altered pollinator functional environments, which combinations recur, and what explains recurrent heterogeneity?",
+  "claim_state": "comparative_response_heterogeneity_supported_complete_common_mechanism_not_yet_identified",
+  "comparison_contract": {
+    "systems_are_parallel": true,
+    "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
+    "response_axis_registry": "data/design/island_comparative_response_axis_registry.json",
+    "every_system_need_not_measure_every_axis": true,
+    "heterogeneity_is_a_result": true,
+    "do_not_pool_noncommensurate_estimands": true,
+    "complete_mechanism_bridge_is_high_value_but_not_required_for_axis_level_comparison": true
+  },
   "protected_scientific_state": {
-    "izu_focal_channels": {
+    "izu_calibration_channels": {
       "floral_size": "continuous_erosion",
       "outcrossing": "continuous_erosion",
       "autonomous_assurance": "second_transition_step"
     },
-    "visible_signal": "blocked_unmeasured_prospective_only",
+    "izu_visible_signal": "currently_unmeasured_not_programme_wide_exclusion",
+    "nectar_guide_programme_status": "active_comparative_response_axis_system_specific_evidence_required",
     "historical_bombus_causation": false,
-    "universal_izu_flora_rule": false,
+    "universal_island_response": false,
+    "cross_study_hiraiwa_result": "qualitative_response_heterogeneity_recurs_zero_of_three_uniform_matching_tube_pollen_decline_cascade",
     "external_morphology_directional_replication": "two_independent_systems_below_isometry_under_ols_island_cluster_resampling",
     "external_morphology_pooled_coefficient_allowed": false,
     "external_mechanism_bridge_state": {
@@ -30,96 +43,110 @@
       "name": "scientific_state_protection_and_cleanup_guard",
       "priority": 0,
       "status": "active",
-      "completion_rule": "source locks, canonical result registries, negative admission states, claim-boundary regression tests, and the Issue #91 field pipeline remain protected before implementation pruning"
+      "completion_rule": "source locks, system identities, response-axis estimands, canonical result registries, negative admission states and claim-boundary tests remain protected"
     },
     {
       "id": "P1",
-      "name": "izu_direct_effective_dependency_pilot",
+      "name": "island_system_response_matrix",
       "priority": 1,
-      "issue": 91,
-      "status": "implementation_ready_field_data_missing",
-      "required_outputs": [
-        "first_real_six_channel_bundle_passes_preflight",
-        "raw_bundle_freeze",
-        "linked_plant_effort_visit_svd_treatment_fruit_seed_records",
-        "structural_dependency_panel_pass",
-        "between_plant_svd_dispersion_estimable",
-        "between_plant_core_treatment_dispersion_estimable",
-        "pilot_variance_coverage_loss_estimates",
-        "final_dependency_reliability_remains_separate_repeated_final_estimand_gate",
-        "absolute_precision_target_before_confirmatory_planning"
+      "status": "active",
+      "objective": "Represent each independent island system against the same response-axis vocabulary without requiring every system to measure every axis.",
+      "response_axes": [
+        "floral_morphology",
+        "mating_and_reproductive_assurance",
+        "visual_signal",
+        "pollinator_effectiveness",
+        "interaction_network",
+        "reproductive_outcome"
       ],
-      "blocked_claims": [
-        "historical_pollinator_loss_causation",
-        "oshima_toshima_causal_boundary_effect",
-        "cross_lineage_dependency_by_functional_environment_interaction",
-        "final_dependency_reliability_from_single_focal_pilot"
+      "required_outputs": [
+        "system_by_response_axis_evidence_matrix",
+        "source_and_estimand_lock_per_cell",
+        "missing_not_zero_state_distinction",
+        "recurring_response_combination_summary",
+        "heterogeneous_branching_summary"
       ]
     },
     {
       "id": "P2",
-      "name": "izu_cross_lineage_direct_dependency_span",
-      "priority": 2,
-      "status": "blocked_on_P1_dispersion",
-      "requirements": [
-        "at_least_one_credible_high_dependency_endpoint",
-        "multiple_intermediate_dependency_values",
-        "low_intermediate_high_direct_dependency_support_across_independent_taxa",
-        "repeated_site_season_exposure_where_feasible"
-      ]
-    },
-    {
-      "id": "P3",
-      "name": "cross_archipelago_mechanism_replication",
-      "priority": 2,
+      "name": "comparative_mechanism_ladder",
+      "priority": 1,
       "issue": 93,
       "bridge_issue": 100,
-      "status": "stage_C_route_A_complete_source_triggered_only",
+      "status": "partial_recurrence_complete_bridge_missing",
       "stages": [
         {
           "stage": "A",
-          "name": "recurrent_plant_response_pattern",
-          "current_state": "directional_replication_exists_no_pooled_coefficient"
+          "name": "recurrent_response_axes",
+          "current_state": "multiple independent systems support morphology reproductive interaction or effectiveness responses; no universal direction is claimed"
         },
         {
           "stage": "B",
           "name": "recurrent_pollinator_environment_change",
-          "current_state": "source_native_network_and_context_effects_exist_but_are_not_dependency"
+          "current_state": "source_native visitation partner-turnover rewiring and effectiveness changes exist across systems"
         },
         {
           "stage": "C",
           "name": "effective_service_reproductive_dependency_bridge",
           "current_state": "four_independent_partial_bridges_one_near_complete_zero_complete_route_A_complete",
-          "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
-          "missing_best_bridge_links": [
-            "Dong_direct_single_visit_effectiveness",
-            "Dong_controlled_reproductive_dependency"
-          ],
-          "additional_partial_bridge": "seychelles_fuster_2020_pollination_effectiveness",
-          "priority_rule": "do not continue unconstrained acquisition; reopen only when new lawful source-native material closes a named missing link or supplies a candidate matched transition with floral response, direct effectiveness and reproductive dependency"
+          "priority_rule": "source-triggered only; do not displace comparative synthesis with unconstrained acquisition"
         },
         {
           "stage": "D",
           "name": "within_system_mechanistic_triangulation",
-          "current_state": "partial_mechanistic_recurrence_across_four_independent_systems_no_complete_transition"
+          "current_state": "partial_mechanistic_recurrence_across_independent_systems_no_complete_common_transition"
         },
         {
           "stage": "E",
-          "name": "cross_system_same_family_replication",
+          "name": "cross_system_same_estimand_replication",
           "current_state": "closed",
           "formal_fit_open_conditions": [
             "same_estimand_family_in_at_least_two_independent_system_clusters",
             "compatible_uncertainty",
             "source_provenance_and_sampling_hierarchy_locked",
             "required_measurement_error_gates_satisfied",
-            "no_favourable_sensitivity_assumption_selected_for_admission",
-            "effective_dependency_not_inferred_from_syndrome_visitor_identity_or_morphology"
+            "no_favourable_sensitivity_assumption_selected_for_admission"
           ]
         }
       ]
     },
     {
+      "id": "P3",
+      "name": "izu_calibration_and_direct_dependency_anchor",
+      "priority": 2,
+      "issue": 91,
+      "status": "implementation_ready_field_data_missing",
+      "role": "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center",
+      "required_outputs": [
+        "first_real_six_channel_bundle_passes_preflight",
+        "raw_bundle_freeze",
+        "linked_plant_effort_visit_svd_treatment_fruit_seed_records",
+        "structural_dependency_panel_pass",
+        "between_plant_dispersion_estimable",
+        "pilot_variance_coverage_loss_estimates",
+        "absolute_precision_target_before_confirmatory_planning"
+      ],
+      "blocked_claims": [
+        "historical_pollinator_loss_causation",
+        "oshima_toshima_causal_boundary_effect",
+        "universal_island_response_from_izu"
+      ]
+    },
+    {
       "id": "P4",
+      "name": "system_specific_axis_completion",
+      "priority": 2,
+      "status": "active_where_admissible_sources_exist",
+      "rule": "Fill high-value missing response axes within existing systems only when source-native evidence exists; missing is not evidence of no response.",
+      "examples": [
+        "visual_signal_or_nectar_guide_where_measured",
+        "direct_effectiveness_for_systems_with_network_only_data",
+        "controlled_dependency_for_systems_with_effectiveness_only_data",
+        "reproductive_outcome_for_systems_with_morphology_only_data"
+      ]
+    },
+    {
+      "id": "P5",
       "name": "source_controlled_reopen_gates",
       "priority": 3,
       "status": "wait_for_new_admissible_source_material",
@@ -127,16 +154,16 @@
         {
           "issue": 92,
           "target": "Weigela_Ligustrum_Hosta_population_level_primary_data",
-          "state": "public_automated_route_exhausted_reopen_on_lawful_external_source_delivery"
+          "state": "reopen_on_lawful_external_source_delivery"
         },
         {
           "target": "Hetherington_Rauth_Johnson_136_pair_numeric_floral_table",
-          "state": "source_locked_pair_identities_numeric_table_unrecoverable_from_inspected_public_routes_reopen_only_on_new_source_native_values"
+          "state": "reopen_only_on_new_source_native_values"
         },
         {
           "issue": 96,
           "target": "morphology_predictor_reliability",
-          "state": "investigation_complete_target_reliability_unidentifiable_EIV_gate_remains_closed"
+          "state": "target_reliability_unidentifiable_EIV_gate_remains_closed"
         },
         {
           "target": "Galapagos_raw_plant_network_archive",
@@ -150,29 +177,23 @@
       ]
     },
     {
-      "id": "P5",
+      "id": "P6",
       "name": "implementation_consolidation",
       "priority": 3,
       "status": "parallel_conservative_cleanup",
-      "order": [
-        "remove_unambiguous_temp_and_dead_scaffolding",
-        "consolidate_superseded_wrappers_after_reference_audit",
-        "demote_completed_one_off_acquisition_workflows_when_locked_outputs_are_preserved",
-        "isolate_or_remove_legacy_incubator_models_outside_current_inference",
-        "prune_obsolete_generated_summaries_while_retaining_negative_results_and_provenance"
-      ],
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "Issue_91_first_real_field_bundle; external bridge acquisition is source-triggered only and must not displace the field anchor",
+  "next_executable_task": "build_system_by_response_axis_evidence_matrix_from_committed_source_locked_systems_then_identify_recurrent_response_combinations_and_high_value_missing_cells",
   "not_mainline": [
-    "nectar_guide_visible_signal_historical_inference",
-    "universal_island_dwarfism_coefficient",
-    "raw_island_count_accumulation_without_independent_system_replication",
+    "universal_island_dwarfism_or_response_coefficient",
+    "raw_island_count_accumulation_without_independent_system_identity",
     "visitor_occurrence_as_effectiveness",
+    "syndrome_as_reproductive_dependency",
     "repeated_search_of_exhausted_source_routes",
     "unconstrained_external_bridge_search_after_issue_100_route_A_completion",
+    "pooling_noncommensurate_response_axes_into_one_effect",
     "formal_meta_analysis_before_same_family_replication",
-    "legacy_simulation_complexity_without_admission_decision_value"
+    "legacy_simulation_complexity_without_comparative_admission_value"
   ]
 }
