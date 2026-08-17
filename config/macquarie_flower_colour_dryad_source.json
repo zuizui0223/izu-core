@@ -1,0 +1,10 @@
+{
+  "source_id": "shrestha_etal_2016_macquarie_flower_colour",
+  "article_doi": "10.1111/plb.12456",
+  "dataset_doi": "10.5061/dryad.1k09d",
+  "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.1k09d",
+  "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.1k09d",
+  "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.1k09d/versions",
+  "expected_source_components": ["ShresthaM_etal_reflect_spectra.csv", "Shrestha_etal_NexusTree.PlantBiology.txt"],
+  "claim_boundary": "Raw floral spectra and colour coordinates are signal data, not direct pollinator effectiveness or reproductive dependency."
+}
