@@ -1,0 +1,55 @@
+name: Acquire Dominica Heliconia selection data
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "config/dominica_heliconia_selection_dryad_source.json"
+      - "scripts/acquire_dryad_external_dataset.py"
+      - "scripts/inspect_dominica_heliconia_selection.py"
+      - "scripts/analyze_dominica_heliconia_selection.py"
+      - "data/results/dominica_heliconia_selection_summary.json"
+      - "tests/test_dominica_heliconia_selection.py"
+      - ".github/workflows/acquire-dominica-heliconia-selection.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install workbook reader
+        run: python -m pip install xlrd
+      - name: Acquire source-native Dryad files
+        run: >-
+          python scripts/acquire_dryad_external_dataset.py
+          --config config/dominica_heliconia_selection_dryad_source.json
+          --output-dir artifacts/dominica_heliconia_selection
+      - name: Inspect or analyze source-native data
+        shell: bash
+        run: |
+          if [[ -f scripts/inspect_dominica_heliconia_selection.py ]]; then python scripts/inspect_dominica_heliconia_selection.py; fi
+          if [[ -f scripts/analyze_dominica_heliconia_selection.py ]]; then python scripts/analyze_dominica_heliconia_selection.py; fi
+      - name: Verify checked result when present
+        shell: bash
+        run: |
+          if [[ -f data/results/dominica_heliconia_selection_summary.json ]]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          live=json.loads(Path('artifacts/dominica_heliconia_selection/analysis/summary.json').read_text())
+          checked=json.loads(Path('data/results/dominica_heliconia_selection_summary.json').read_text())
+          assert live == checked
+          PY
+          fi
+      - name: Upload source/analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dominica-heliconia-selection-audit
+          path: artifacts/dominica_heliconia_selection/
+          if-no-files-found: error
