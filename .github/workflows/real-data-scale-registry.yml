@@ -1,0 +1,48 @@
+name: Real-data scale registry
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/build_real_data_scale_registry.py"
+      - "data/results/real_data_scale_registry.json"
+      - "data/results/seychelles_pollination_effectiveness_summary.json"
+      - "data/results/seychelles_restoration_network_summary.json"
+      - "data/results/galapagos_bird_insect_effectiveness_summary.json"
+      - "data/results/balearic_malva_effectiveness_summary.json"
+      - "data/results/canary_lotus_effectiveness_summary.json"
+      - "data/results/balearic_cneorum_effectiveness_summary.json"
+      - "data/results/hawaii_native_pollination_summary.json"
+      - "data/results/dominica_heliconia_selection_summary.json"
+      - "data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json"
+      - "tests/test_real_data_scale_registry.py"
+      - ".github/workflows/real-data-scale-registry.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build current registry
+        run: python scripts/build_real_data_scale_registry.py --out artifacts/real_data_scale_registry.json
+      - name: Verify checked registry
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          generated=json.loads(Path('artifacts/real_data_scale_registry.json').read_text())
+          checked=json.loads(Path('data/results/real_data_scale_registry.json').read_text())
+          assert generated == checked
+          PY
+      - name: Upload generated registry
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-data-scale-registry
+          path: artifacts/real_data_scale_registry.json
+          if-no-files-found: error
