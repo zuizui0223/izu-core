@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.2",
-  "updated_on": "2026-08-14",
-  "routing_baseline_sha": "2cf374e42f63294101ba5f4925b8a742f23ddc35",
+  "schema_version": "1.3",
+  "updated_on": "2026-08-18",
+  "routing_baseline_sha": "45262ac579d0ff0c451ff02f9d5ff472aab32642",
   "program_hypothesis": "Loss, simplification, or turnover of effective pollination can reduce effective reproductive dependence on the ancestral interaction; increased autonomous reproductive assurance can then relax selection maintaining pollinator-dependent floral traits, producing lineage- and context-dependent floral compression or simplification.",
   "claim_state": "mechanistic_chain_not_yet_causally_identified",
   "protected_scientific_state": {
@@ -16,10 +16,11 @@
     "external_morphology_directional_replication": "two_independent_systems_below_isometry_under_ols_island_cluster_resampling",
     "external_morphology_pooled_coefficient_allowed": false,
     "external_mechanism_bridge_state": {
-      "independent_partial_systems": 3,
+      "independent_partial_systems": 4,
       "near_complete_within_archipelago": 1,
       "complete_systems": 0,
-      "current_best_bridge": "xisha_cordia_subcordata_two_island_system"
+      "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
+      "stage_c_search_state": "route_A_complete_unconstrained_search_closed"
     },
     "formal_cross_system_fit_ready": false
   },
@@ -73,7 +74,7 @@
       "priority": 2,
       "issue": 93,
       "bridge_issue": 100,
-      "status": "active_external_validation",
+      "status": "stage_C_route_A_complete_source_triggered_only",
       "stages": [
         {
           "stage": "A",
@@ -88,18 +89,19 @@
         {
           "stage": "C",
           "name": "effective_service_reproductive_dependency_bridge",
-          "current_state": "three_independent_partial_bridges_one_near_complete_zero_complete",
+          "current_state": "four_independent_partial_bridges_one_near_complete_zero_complete_route_A_complete",
           "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
           "missing_best_bridge_links": [
             "Dong_direct_single_visit_effectiveness",
             "Dong_controlled_reproductive_dependency"
           ],
-          "priority_rule": "close the missing side of the strongest bridge or identify another system linking floral response, direct pollen function and independently measured reproductive dependency at matched transition units"
+          "additional_partial_bridge": "seychelles_fuster_2020_pollination_effectiveness",
+          "priority_rule": "do not continue unconstrained acquisition; reopen only when new lawful source-native material closes a named missing link or supplies a candidate matched transition with floral response, direct effectiveness and reproductive dependency"
         },
         {
           "stage": "D",
           "name": "within_system_mechanistic_triangulation",
-          "current_state": "partial_mechanistic_recurrence_across_three_independent_systems_no_complete_transition"
+          "current_state": "partial_mechanistic_recurrence_across_four_independent_systems_no_complete_transition"
         },
         {
           "stage": "E",
@@ -139,6 +141,11 @@
         {
           "target": "Galapagos_raw_plant_network_archive",
           "state": "blocked_until_source_archive_recovered"
+        },
+        {
+          "issue": 100,
+          "target": "external_complete_mechanism_bridge",
+          "state": "route_A_completed_reopen_only_on_named_source_trigger"
         }
       ]
     },
@@ -157,13 +164,14 @@
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "Issue_91_first_real_field_bundle; in_parallel_close_Cordia_Dong_effectiveness_dependency_gap_without_weakening_admission",
+  "next_executable_task": "Issue_91_first_real_field_bundle; external bridge acquisition is source-triggered only and must not displace the field anchor",
   "not_mainline": [
     "nectar_guide_visible_signal_historical_inference",
     "universal_island_dwarfism_coefficient",
     "raw_island_count_accumulation_without_independent_system_replication",
     "visitor_occurrence_as_effectiveness",
     "repeated_search_of_exhausted_source_routes",
+    "unconstrained_external_bridge_search_after_issue_100_route_A_completion",
     "formal_meta_analysis_before_same_family_replication",
     "legacy_simulation_complexity_without_admission_decision_value"
   ]
