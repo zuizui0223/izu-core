@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source_id": "aslan_etal_2019_hawaii_native_pollination",
   "article_title": "Non-native insects dominate daytime pollination in a high-elevation Hawaiian dryland ecosystem",
   "article_doi": "10.1002/ajb2.1233",
@@ -7,6 +7,9 @@
   "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.tm575v4",
   "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tm575v4",
   "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tm575v4/versions",
+  "legacy_version_id": 3740,
+  "version_package_url": "https://datadryad.org/api/v2/versions/3740/download",
+  "version_package_role": "byte-transport fallback when legacy per-file stream endpoints fail; provenance must be locked on extracted source files, not the dynamically assembled ZIP container",
   "focal_plants": [
     "Argemone glauca",
     "Bidens menziesii",
