@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "source_id": "aslan_etal_2019_hawaii_native_pollination",
   "article_title": "Non-native insects dominate daytime pollination in a high-elevation Hawaiian dryland ecosystem",
   "article_doi": "10.1002/ajb2.1233",
@@ -9,7 +9,7 @@
   "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tm575v4/versions",
   "legacy_version_id": 3740,
   "version_package_url": "https://datadryad.org/api/v2/versions/3740/download",
-  "version_package_role": "byte-transport fallback when legacy per-file stream endpoints fail; provenance must be locked on extracted source files, not the dynamically assembled ZIP container",
+  "version_package_role": "byte-transport fallback when legacy per-file stream endpoints fail; provenance is locked on extracted source files rather than the dynamically assembled ZIP container",
   "focal_plants": [
     "Argemone glauca",
     "Bidens menziesii",
@@ -31,5 +31,16 @@
     "Pollination visitation obs for dryad.xlsx",
     "README_for_Pollination visitation obs for dryad.docx"
   ],
-  "claim_boundary": "This is one Hawaii Island dryland ecosystem containing eight focal native plants. Visitation identity/frequency and manual flower-treatment outcomes must remain distinct. Species within this study are plant-level response panels, not eight independent island systems. Non-native visitor dominance does not by itself establish equivalent pollination service, and contemporary seed-set dependence does not identify historical floral evolution."
+  "source_file_locks": {
+    "Pollination visitation obs for dryad.xlsx": {
+      "bytes": 579979,
+      "sha256": "2b0ff40226b2a6d511a111ead8a00660532de3d799aed217e4dc30f00c2b3c27"
+    },
+    "README_for_Pollination visitation obs for dryad.docx": {
+      "bytes": 59196,
+      "sha256": "8a664206390b498618adc23d460d81d77022e70550c5c74e66bf87eeafe9b6cd"
+    }
+  },
+  "raw_data_scope": "The recovered Dryad package contains raw flower-visitation observations and keys. It does not contain a source-native manual-flower-treatment table. The published bagging result is therefore retained as article-level context only and is not reconstructed as raw species-level treatment values.",
+  "claim_boundary": "This is one Hawaii Island dryland ecosystem containing eight focal native plants. Visitation identity/frequency and manual flower-treatment outcomes must remain distinct. Species within this study are plant-level response panels, not eight independent systems. Non-native visitor dominance does not by itself establish equivalent pollination service, and the published seed-set dependence does not identify historical floral evolution."
 }
