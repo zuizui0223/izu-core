@@ -7,7 +7,6 @@ on:
       - "config/dominica_heliconia_selection_dryad_source.json"
       - "scripts/acquire_dryad_external_dataset.py"
       - "scripts/acquire_dryad_version_package.py"
-      - "scripts/inspect_dominica_heliconia_selection.py"
       - "scripts/analyze_dominica_heliconia_selection.py"
       - "data/results/dominica_heliconia_selection_summary.json"
       - "tests/test_dominica_heliconia_selection.py"
@@ -35,23 +34,17 @@ jobs:
           python scripts/acquire_dryad_version_package.py \
             --config config/dominica_heliconia_selection_dryad_source.json \
             --output-dir artifacts/dominica_heliconia_selection
-      - name: Inspect or analyze source-native data
-        shell: bash
+      - name: Analyze source-native data
+        run: python scripts/analyze_dominica_heliconia_selection.py
+      - name: Verify checked result
         run: |
-          if [[ -f scripts/inspect_dominica_heliconia_selection.py ]]; then python scripts/inspect_dominica_heliconia_selection.py; fi
-          if [[ -f scripts/analyze_dominica_heliconia_selection.py ]]; then python scripts/analyze_dominica_heliconia_selection.py; fi
-      - name: Verify checked result when present
-        shell: bash
-        run: |
-          if [[ -f data/results/dominica_heliconia_selection_summary.json ]]; then
-            python - <<'PY'
+          python - <<'PY'
           import json
           from pathlib import Path
           live=json.loads(Path('artifacts/dominica_heliconia_selection/analysis/summary.json').read_text())
           checked=json.loads(Path('data/results/dominica_heliconia_selection_summary.json').read_text())
           assert live == checked
           PY
-          fi
       - name: Upload source/analysis artifact
         uses: actions/upload-artifact@v4
         with:
