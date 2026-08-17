@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-18",
+  "purpose": "Rank missing comparative cells by ability to discriminate alternative island response architectures, not by completeness for its own sake.",
+  "current_result_anchor": "data/results/island_functional_reproductive_direction_ledger.json",
+  "current_architectures": {
+    "canary": "concentrated_key_pollinator_dependence",
+    "galapagos": "generalized_complementary_pollination",
+    "seychelles": "species_specific_pollinator_mosaic"
+  },
+  "priority_tiers": [
+    {
+      "tier": 1,
+      "target_axis": "floral_morphology",
+      "target_systems": ["canary", "galapagos", "seychelles"],
+      "reason": "These three independent systems already share the strongest direct functional/reproductive backbone but differ in interaction architecture. Adding source-locked morphology at the same relevant populations or transitions directly tests whether concentrated, complementary, and mosaic pollination architectures map to convergent or divergent floral responses.",
+      "decision_value": "highest",
+      "candidate_discriminations": [
+        "shared functional dependence produces convergent floral simplification",
+        "floral response depends on interaction architecture rather than dependence alone",
+        "no consistent floral response despite strong reproductive dependence"
+      ],
+      "admission_rule": "Require source-native quantitative morphology or explicitly defined transition-level morphology; do not use syndrome labels as measured response."
+    },
+    {
+      "tier": 2,
+      "target_axis": "visual_signal",
+      "target_systems": ["canary", "galapagos", "seychelles", "other_source_locked_systems"],
+      "reason": "Visual signal is an active programme axis with 0/10 direct systems. The first admitted systems would determine whether signal change is even available as an independent comparative response and whether it tracks pollinator specialization, complementarity, or mosaic structure.",
+      "decision_value": "high_but_new_axis",
+      "candidate_discriminations": [
+        "signal reduction tracks reduced or concentrated effective-service environments",
+        "signal complexity is retained under generalized complementary service",
+        "signal response is decoupled from reproductive dependence"
+      ],
+      "admission_rule": "Require defined visible/UV/nectar-guide measurement, sampling unit, and transition or comparator. Missing or unreported signal is not absence."
+    },
+    {
+      "tier": 3,
+      "target_axis": "pollinator_effectiveness",
+      "target_systems": ["izu", "caribbean_gesneriaceae", "xisha_cordia_subcordata"],
+      "reason": "Closing effectiveness gaps would connect systems that already carry morphology/network evidence to the functional backbone, increasing the number of systems where phenotype and effective service can be compared together.",
+      "decision_value": "high_mechanistic_bridge",
+      "admission_rule": "Direct per-visit function or reproductive contribution only; visitor occurrence or syndrome is insufficient."
+    },
+    {
+      "tier": 4,
+      "target_axis": "mating_and_reproductive_assurance",
+      "target_systems": ["lesser_antilles_dominica", "xisha_cordia_subcordata", "izu"],
+      "reason": "Direct dependency/assurance would strengthen mechanism linkage, but current comparative branching can already be tested more efficiently by first connecting the three-system functional backbone to phenotype.",
+      "decision_value": "mechanistically_important_not_first",
+      "admission_rule": "Controlled reproductive treatment, mating-system estimate, or direct autonomous-assurance measurement."
+    }
+  ],
+  "next_executable_rule": "Before new acquisition, search the repository and already locked source artifacts for Tier-1 morphology in Canary, Galapagos, and Seychelles. Only if absent should external source acquisition be reopened for those exact cells.",
+  "claim_boundary": "Priority is value-of-information routing, not evidence that any missing response exists. No missing cell is coded as biological zero and no predicted direction is promoted to a result."
+}
