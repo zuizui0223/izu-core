@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "n_systems": 8,
-  "n_ocean_basin_labels": 7,
+  "n_ocean_basin_labels": 6,
   "ocean_basin_counts": {
     "Eastern Pacific": 1,
     "North Atlantic": 2,
