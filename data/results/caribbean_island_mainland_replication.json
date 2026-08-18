@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "study": "Martén-Rodríguez et al. 2015 Journal of Ecology",
+  "doi": "10.1111/1365-2745.12457",
+  "design": "28 insular and 26 mainland Caribbean Gesneriaceae species with field pollinator observations and breeding-system experiments",
+  "geography_layer": {
+    "insular_functional_specialization_fraction": 0.71,
+    "mainland_functional_specialization_fraction": 1.0,
+    "generalized_pollination_more_common_on_islands": true,
+    "hummingbird_visitation_mainland_mean": 0.24,
+    "hummingbird_visitation_island_mean": 0.07,
+    "hummingbird_visitation_units": "visits flower^-1 h^-1",
+    "hummingbird_visitation_p": 0.021
+  },
+  "reproductive_assurance_layer": {
+    "autofertility_differs_island_mainland": false,
+    "interpretation": "Autonomous selfing did not increase as a universal island response; generalized pollination is a candidate alternative assurance route in pollinator-depauperate insular environments."
+  },
+  "replication_verdict": "supports_constraint_dependent_architectural_shift_but_not_direct_architecture_to_function_causality",
+  "why_it_matters": "A geographically distant Caribbean lineage reproduces the key qualitative pattern that insular pollinator constraints can be met by changing interaction architecture without a universal shift to autonomous selfing.",
+  "claim_boundary": "This study does not directly estimate a causal effect of generalized architecture on reproductive success, so it is an independent partial pathway replication rather than a second full geography->architecture->function demonstration."
+}
