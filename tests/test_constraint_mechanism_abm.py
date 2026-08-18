@@ -1,4 +1,5 @@
 import importlib.util
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,6 +10,7 @@ def load_module():
     spec = importlib.util.spec_from_file_location("constraint_mechanism_abm", SCRIPT)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
 
