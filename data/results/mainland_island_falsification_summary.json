@@ -1,32 +1,37 @@
 {
   "schema_version": "1.0",
-  "n_controls": 4,
+  "n_controls": 6,
   "tests": {
     "is_functional_recurrence_island_specific": [
       "contradicted"
     ],
     "does_oceanic_insularity_shift_architectural_opportunity_space": [
-      "supported"
+      "supported",
+      "supported_independently"
     ],
     "is_architectural_contingency_island_specific": [
       "contradicted"
     ],
     "is_species_specific_architectural_response_island_specific": [
       "contradicted"
+    ],
+    "does_geography_link_architecture_to_function": [
+      "supported_in_one_natural_gradient"
     ]
   },
   "hypothesis_assessment": {
     "H0_functional_recurrence_is_island_specific": "rejected",
     "H0_architectural_contingency_is_island_specific": "rejected",
-    "H1_oceanic_insularity_changes_architectural_opportunity_space": "supported_by_global_network_comparison",
-    "H2_island_specificity_of_function_architecture_coupling": "not_yet_established"
+    "H1_oceanic_insularity_changes_architectural_opportunity_space": "supported_by_multiple_independent_comparisons",
+    "H2_geography_to_functional_architecture_to_function_pathway": "supported_in_hiraiwa_2024_requires_independent_replication",
+    "H3_island_specificity_of_macro_architecture_to_reproductive_function_coupling": "not_yet_established"
   },
   "overbroad_claims_falsified": [
     "functional_recurrence_is_island_specific",
     "architectural_contingency_is_island_specific"
   ],
   "surviving_island_specific_candidate": "oceanic_insularity_changes_architectural_opportunity_space",
-  "refined_repository_claim": "Pollination dependence is not island-specific, and architectural contingency also occurs on mainlands. The defensible island-specific candidate is narrower: oceanic insularity changes the available interaction architecture by reducing and reorganizing partner/link diversity, so the same generic reproductive function is maintained under a more constrained and taxonomically disharmonic opportunity space.",
-  "next_test": "Quantitatively compare architecture-to-function coupling across oceanic islands, continental islands and mainlands using source-native network metrics plus reproductive-performance evidence; do not treat the current selected island screen as a prevalence sample.",
-  "claim_boundary": "This ledger falsifies over-broad novelty claims. It does not yet show that oceanic islands have stronger architecture-function coupling, faster floral evolution, or higher dependence on replacement/generalization than matched mainland systems."
+  "refined_repository_claim": "Pollination dependence and architectural contingency are general mutualism biology rather than island-specific discoveries. The surviving island-biogeographic signal is a constraint shift: oceanic insularity changes the partner and link opportunity space, and at least one natural continental-oceanic gradient shows that this loss/reorganization of functional interaction space propagates through trait matching to pollination success.",
+  "next_test": "Seek independent oceanic-versus-continental/mainland systems with both source-native architecture metrics and reproductive-performance measures, then test whether geography modifies architecture-to-function coupling without pooling incompatible estimands.",
+  "claim_boundary": "The current evidence does not yet establish a globally stronger architecture-function coupling on oceanic islands, nor that architecture causes floral divergence. Hiraiwa 2024 is direct but regional; Traveset 2016 and Wang 2025 independently establish geography-architecture differences without the same reproductive endpoint."
 }
