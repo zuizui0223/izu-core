@@ -32,4 +32,10 @@ def test_overbroad_island_specific_claims_are_rejected():
 def test_surviving_candidate_is_narrower_than_functional_recurrence():
     summary = json.loads(SUMMARY.read_text())
     assert summary["surviving_island_specific_candidate"] == "oceanic_insularity_changes_architectural_opportunity_space"
-    assert summary["hypothesis_assessment"]["H2_island_specificity_of_function_architecture_coupling"] == "not_yet_established"
+    assert summary["hypothesis_assessment"]["H1_oceanic_insularity_changes_architectural_opportunity_space"] == "supported_by_multiple_independent_comparisons"
+
+
+def test_direct_geography_function_pathway_is_supported_but_not_globalized():
+    summary = json.loads(SUMMARY.read_text())
+    assert summary["hypothesis_assessment"]["H2_geography_to_functional_architecture_to_function_pathway"] == "supported_in_hiraiwa_2024_requires_independent_replication"
+    assert summary["hypothesis_assessment"]["H3_island_specificity_of_macro_architecture_to_reproductive_function_coupling"] == "not_yet_established"
