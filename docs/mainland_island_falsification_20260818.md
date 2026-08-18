@@ -6,7 +6,7 @@ Is the repository's current `functional recurrence + architectural contingency` 
 
 ## Result
 
-Two broad island-specific claims fail immediately when mainland controls are admitted.
+Two broad island-specific claims fail when explicit controls are admitted.
 
 1. **Functional recurrence is not island-specific.** Bennett et al. (2020) analysed 2,247 study populations and 1,247 wild plant species globally. Pollen limitation is widespread and depends strongly on pollinator dependence and specialization; highly autofertile plants are buffered. Therefore, the repeated importance of pollination function is general plant reproductive biology, not a uniquely insular result.
 
@@ -16,18 +16,39 @@ The broad claim that islands uniquely exhibit `functional recurrence + architect
 
 ## What survives
 
-A narrower geography-specific signal survives and is independently supported by Traveset et al. (2016), who compared 52 quantitative pollination networks: 18 oceanic islands, 23 continental islands and 11 mainland sites.
+A narrower geography-specific signal survives: **oceanic insularity changes the architectural opportunity space in which generic reproductive function has to be maintained.**
+
+Three independent evidence routes support this narrower statement.
+
+### 1. Global network geography
+
+Traveset et al. (2016) compared 52 quantitative pollination networks: 18 oceanic islands, 23 continental islands and 11 mainland sites.
 
 - Continental-island networks were broadly similar to mainland networks.
 - Oceanic-island networks were smaller and topologically simplified.
 - Oceanic islands had lower interaction diversity and higher plant niche overlap.
 - Isolation and elevation further changed oceanic-island network structure.
 
-The surviving candidate is therefore not that pollination function or contingency is unique to islands. It is:
+### 2. Independent continental–oceanic network comparison
 
-> **Oceanic insularity changes the architectural opportunity space in which a generic reproductive function has to be maintained.**
+Wang et al. (2025) compared Wanshan Island (continental) and Yongxing Island (oceanic), including co-occurring plant species.
 
-In other words, plants everywhere need viable pollination, and partner replacement / rewiring can happen everywhere. Oceanic islands differ because colonization filters, taxonomic disharmony, low richness and isolation alter the set of partners and links available for maintaining that function.
+- Species composition was highly dissimilar.
+- The oceanic network had higher connectance, nestedness, specialization and plant niche overlap.
+- Co-occurring plants had lower pollinator richness and visitation on the oceanic island.
+- Dominant pollinator importance shifted between island types.
+
+This independently confirms that geological/isolation context changes realized network architecture even when part of the plant set is held comparable.
+
+### 3. Direct geography → functional architecture → pollination-function pathway
+
+Hiraiwa & Ushimaru (2024) analysed 40 coastal networks across a Japanese continental main island and five oceanic Izu islands over five seasons and measured pollination success in 10 plant species.
+
+- pollinator species richness, functional evenness and functional diversity decreased with distance from the continental main island;
+- community-level flower–pollinator trait matching also decreased with distance;
+- lower community-level trait matching reduced plant pollination success regardless of flower morphology.
+
+This is the strongest current direct evidence that oceanic isolation can alter the functional interaction space and that this change can propagate to pollination function. It is nevertheless one regional natural gradient and therefore cannot alone establish a global island-specific coupling coefficient.
 
 ## Refined working hypothesis
 
@@ -45,34 +66,50 @@ Status: supported; **not island-specific**.
 
 ### H3 — oceanic architectural constraint
 
-Oceanic islands should differ from continental islands and mainlands in the feasible interaction architectures available to satisfy H1, because the partner pool and link diversity are more constrained/reorganized.
+Oceanic islands differ from continental islands and mainlands in the feasible interaction architectures available to satisfy H1 because colonization filtering, lower richness, taxonomic disharmony and isolation alter the partner/link pool.
 
-Status: **supported at network-structure level**, but not yet at architecture-to-reproductive-function coupling level.
+Status: **supported by multiple independent network comparisons**.
 
-### H4 — evolutionary consequence
+### H4 — geography-to-function pathway
 
-If H3 is true, then the response axis used by plants to preserve reproduction — morphology, reproductive assurance, visual signal, partner replacement, or network rewiring — should depend on the local architectural constraint rather than converge on one island syndrome.
+Oceanic isolation can reduce/reorganize functional interaction space, lowering trait matching and thereby pollination success.
 
-Status: current repository evidence is consistent, but a formal oceanic-vs-continental-vs-mainland test is still required.
+Status: **directly supported in Hiraiwa & Ushimaru 2024; independent replication still required**.
+
+### H5 — evolutionary consequence
+
+If H3/H4 generalize, the plant response used to preserve reproduction — morphology, reproductive assurance, visual signal, partner replacement or network rewiring — should depend on the local architectural constraint rather than converge on one island syndrome.
+
+Status: current repository evidence is consistent, but a formal cross-system test remains open.
+
+## Revised central synthesis
+
+The surviving repository-level synthesis is no longer simply `functional recurrence + architectural contingency`. A more discriminating formulation is:
+
+> **constraint-mediated functional conservation**: pollination function is a generic reproductive requirement, while oceanic isolation changes the feasible interaction architecture through which that function can be maintained; floral and reproductive responses are conditional solutions to that constrained architecture rather than a universal island syndrome.
+
+This formulation explains why the same broad reproductive requirement can coexist with concentrated dependence, redundancy, mosaic assembly, novel-partner replacement, selfing/reproductive assurance, and non-convergent floral phenotypes.
 
 ## Falsification boundary
 
 Do not claim yet that:
 
-- oceanic islands have stronger pollinator dependence than mainlands;
-- architecture-function coupling is quantitatively stronger on oceanic islands;
+- oceanic islands have stronger overall pollinator dependence than mainlands;
+- architecture-function coupling is globally stronger on oceanic islands;
 - partner replacement is more frequent on oceanic islands;
+- architecture causes floral divergence;
 - floral evolution is faster on islands;
-- the four architecture classes are globally exhaustive or prevalent.
+- the four architecture macroclasses are globally exhaustive or prevalent.
 
 ## Next discriminating analysis
 
-The next analysis should separate two layers instead of mixing them:
+The next analysis should seek independent systems where geography, interaction architecture and reproductive performance are all measured in the same source-native comparison.
 
-1. **architecture layer:** use source-native network metrics to compare oceanic islands, continental islands and mainlands;
-2. **function layer:** attach reproductive-performance evidence only where the same system has an admissible function measure.
+The decisive model target is conceptually:
 
-The decisive test is the interaction `geographic origin × architecture -> reproductive function`, not a pooled island-versus-mainland effect and not a common effect size made from incompatible estimands.
+`geographic origin / isolation -> functional interaction architecture -> reproductive function`
+
+with tests of whether the architecture-to-function path changes between oceanic, continental-island and mainland contexts. Incompatible estimands should remain separate rather than being forced into one common effect size.
 
 ## Primary-source anchors
 
@@ -80,3 +117,5 @@ The decisive test is the interaction `geographic origin × architecture -> repro
 - Traveset A et al. 2016. *Global patterns of mainland and insular pollination networks*. Global Ecology and Biogeography 25:880–890. DOI: 10.1111/geb.12362.
 - Magrach A et al. 2017. *Honeybee spillover reshuffles pollinator diets and affects plant reproductive success*. Nature Ecology & Evolution 1:1299–1307. DOI: 10.1038/s41559-017-0249-9.
 - Wang L-L et al. 2024. *Mixed effects of honey bees on pollination function in the Tibetan alpine grasslands*. Nature Communications 15:8164. DOI: 10.1038/s41467-024-52465-5.
+- Hiraiwa MK & Ushimaru A. 2024. *Loss of functional diversity rather than species diversity of pollinators decreases community-wide trait matching and pollination function*. Functional Ecology 38:1296–1308. DOI: 10.1111/1365-2435.14527.
+- Wang X-P et al. 2025. *Differences in Plant–Pollinator Network Structure and Pollinator Importance Between a Continental and an Oceanic Island Community*. Biotropica 57:e70027. DOI: 10.1111/btp.70027; data DOI: 10.5061/dryad.t76hdr8bj.
