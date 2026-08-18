@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-18",
+  "question": "Does the comparative island hypothesis repeat across geographically distant island systems: pollination function remains consequential, while interaction architecture diverges rather than converging on one universal island syndrome?",
+  "claim_boundary": "This is a source-locked replication screen, not a meta-analysis of a common effect size. Systems are heterogeneous in taxa, design and estimand. The screen records whether pollination function is tied to reproduction and which interaction architecture is observed; it does not infer global prevalence from the selected systems.",
+  "hypotheses": {
+    "H_functional_recurrence": "Across distant island systems, animal-mediated pollination or pollinator-community state repeatedly matters for reproductive performance or reproductive stability.",
+    "H_architecture_divergence": "The same broad pollination function is implemented through multiple recurrent architectures rather than one universal pollinator guild or interaction structure.",
+    "H_universal_single_syndrome": "A single directional island pollination architecture should dominate across distant archipelagos."
+  },
+  "architecture_macroclasses": {
+    "concentrated_dependency": "Reproduction depends strongly on a narrow or dominant pollinator class.",
+    "complementary_or_redundant_generalism": "Multiple visitor classes jointly or redundantly maintain function.",
+    "species_specific_mosaic": "Effective pollinator identity changes among plant species or local contexts within the same island system.",
+    "novel_partner_replacement": "Introduced or novel partners replace native partners, fully or imperfectly."
+  },
+  "systems": [
+    {
+      "system_id": "canary_tenerife_lotus",
+      "region": "Canary Islands",
+      "ocean_basin": "North Atlantic",
+      "source": "Gonzalez-Castro & Siverio 2024",
+      "doi": "10.26786/1920-7603(2024)777",
+      "existing_repo_source": "data/results/canary_lotus_effectiveness_summary.json",
+      "functional_evidence": "direct_reproductive_dependency",
+      "evidence_detail": "Pollinator exclusion reduced fruit set from 0.7667 to 0.0167; Gallotia galloti visitation was positively aligned with plant fruit set and was identified by the source as the key pollination agent.",
+      "architecture_macroclass": "concentrated_dependency",
+      "architecture_detail": "Key-lizard dominated functional pathway."
+    },
+    {
+      "system_id": "galapagos_santa_cruz",
+      "region": "Galapagos",
+      "ocean_basin": "Eastern Pacific",
+      "source": "Hervias-Parejo & Traveset 2018",
+      "doi": "10.1002/ajb2.1122",
+      "existing_repo_source": "data/results/galapagos_bird_insect_effectiveness_summary.json",
+      "functional_evidence": "direct_fitness_treatment_evidence",
+      "evidence_detail": "Birds were quantitatively less important than insects, but source-level fitness components improved when both birds and insects could visit.",
+      "architecture_macroclass": "complementary_or_redundant_generalism",
+      "architecture_detail": "Bird and insect service is complementary rather than a single-guild pathway."
+    },
+    {
+      "system_id": "seychelles_multi_plant",
+      "region": "Seychelles",
+      "ocean_basin": "Western Indian Ocean",
+      "source": "Fuster et al. 2020",
+      "doi": "10.1002/ajb2.1499",
+      "existing_repo_source": "data/results/seychelles_pollination_effectiveness_summary.json",
+      "functional_evidence": "direct_single_visit_reproductive_outcome",
+      "evidence_detail": "Single-visit reproductive outcomes and breeding treatments show strong plant-specific differences in effective visitor identity.",
+      "architecture_macroclass": "species_specific_mosaic",
+      "architecture_detail": "Phelsuma geckos, sunbirds and flying insects dominate different plant species."
+    },
+    {
+      "system_id": "azores_corvo_endemics",
+      "region": "Azores",
+      "ocean_basin": "North Atlantic",
+      "source": "Weissmann & Schaefer 2018",
+      "stable_source_url": "http://hdl.handle.net/10400.3/4861",
+      "functional_evidence": "stable_reproduction_without_detected_pollinator_limitation",
+      "evidence_detail": "Four endangered endemic plants had 5-21 mostly generalist insect pollinators; seed counts and juvenile numbers indicated stable reproduction and no detected pollinator limitation.",
+      "architecture_macroclass": "complementary_or_redundant_generalism",
+      "architecture_detail": "Generalist Diptera and Hymenoptera complexes provide redundancy; this is an explicit counterexample to universal strong pollinator limitation."
+    },
+    {
+      "system_id": "mauritius_syzygium_mamillatum",
+      "region": "Mauritius",
+      "ocean_basin": "Western Indian Ocean",
+      "source": "Kaiser, Hansen & Muller 2008",
+      "doi": "10.1111/j.1744-7429.2007.00345.x",
+      "functional_evidence": "reproductive_success_linked_to_visitation",
+      "evidence_detail": "Fruit set and seeds per fruit differed between restored and unrestored forest and tracked differences in generalist bird visitation, alongside herbivory effects.",
+      "architecture_macroclass": "species_specific_mosaic",
+      "architecture_detail": "Generalist birds carry the focal pollination function, but reproductive performance is context dependent rather than a universal guild effect."
+    },
+    {
+      "system_id": "new_zealand_rhabdothamnus",
+      "region": "New Zealand",
+      "ocean_basin": "Southwest Pacific",
+      "source": "Anderson et al. 2011",
+      "doi": "10.1126/science.1199092",
+      "functional_evidence": "natural_experiment_strong_pollination_limitation",
+      "evidence_detail": "Bird functional extinction reduced pollination, seed production and plant density on the North Island mainland; pollen limitation was strong on mainland sites but small and nonsignificant on three nearby island bird sanctuaries, and seed production per flower was reduced 84% on the mainland.",
+      "architecture_macroclass": "concentrated_dependency",
+      "architecture_detail": "Native bird pollinators form a narrow high-consequence pathway."
+    },
+    {
+      "system_id": "ogasawara_native_flora_and_psychotria",
+      "region": "Ogasawara (Bonin) Islands",
+      "ocean_basin": "Northwest Pacific",
+      "source": "Abe 2006; Watanabe et al. 2018",
+      "dois": ["10.1093/aob/mcl117", "10.1111/1442-1984.12183"],
+      "functional_evidence": "network_replacement_with_reproductive_mismatch_case",
+      "evidence_detail": "Native satellite-island networks were dominated by endemic small bees whereas introduced honeybees dominated main islands. In Psychotria homalosperma, honeybees transferred pollen asymmetrically and long-styled flowers set fruit 1.7-38 times more than short-styled flowers.",
+      "architecture_macroclass": "novel_partner_replacement",
+      "architecture_detail": "Introduced honeybees replace native pollinator structure but can mismatch floral architecture and reproductive function."
+    },
+    {
+      "system_id": "hawaii_high_elevation_dryland",
+      "region": "Hawaiian Islands",
+      "ocean_basin": "North-central Pacific",
+      "source": "Aslan et al. 2019",
+      "doi": "10.1002/ajb2.1233",
+      "dataset_doi": "10.5061/dryad.tm575v4",
+      "functional_evidence": "direct_bagging_dependency_with_nonnative_service",
+      "evidence_detail": "Across eight native plants, 85% of recorded flower visits were by non-native insects; six species had significantly lower seed set after pollinator exclusion.",
+      "architecture_macroclass": "novel_partner_replacement",
+      "architecture_detail": "Non-native honeybees and syrphid flies sustain pollination for multiple native plants, with fewer partner taxa for endangered species."
+    }
+  ]
+}
