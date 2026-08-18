@@ -1,0 +1,48 @@
+{
+  "model": "constraint_mechanism_abm_v1",
+  "status": "mechanistic_hypothesis_test_not_empirical_evidence",
+  "replicates_per_scenario": 200,
+  "steps": 120,
+  "seed": 20260818,
+  "summary": {
+    "mainland_like": {
+      "mean_reproduction": 0.8505471939619254,
+      "mean_assurance": 0.113102,
+      "mean_final_pollinator_types": 17.11,
+      "architecture_counts": {
+        "species_specific_mosaic": 174,
+        "complementary_or_redundant_generalism": 26
+      }
+    },
+    "continental_island": {
+      "mean_reproduction": 0.6545944780290318,
+      "mean_assurance": 0.29422650000000006,
+      "mean_final_pollinator_types": 7.88,
+      "architecture_counts": {
+        "species_specific_mosaic": 96,
+        "complementary_or_redundant_generalism": 87,
+        "concentrated_dependency": 17
+      }
+    },
+    "oceanic_island": {
+      "mean_reproduction": 0.4903366629911467,
+      "mean_assurance": 0.9343512500000002,
+      "mean_final_pollinator_types": 2.115,
+      "architecture_counts": {
+        "complementary_or_redundant_generalism": 84,
+        "concentrated_dependency": 44,
+        "assurance_dominated": 20,
+        "novel_partner_replacement": 49,
+        "species_specific_mosaic": 3
+      }
+    }
+  },
+  "mechanistic_reading": "Increasing partner-opportunity constraint reduced the final partner pool and average reproduction while increasing reproductive assurance. The oceanic-island probe did not converge on one architecture: all five descriptive architecture states occurred across 200 runs.",
+  "falsification_result": {
+    "P1_opportunity_constraint": "passed_qualitatively",
+    "P2_no_universal_architecture": "passed_qualitatively",
+    "P3_functional_conservation_with_divergence": "partially_supported",
+    "P4_model_inadequacy_if_single_architecture_or_total_collapse": "not_triggered"
+  },
+  "claim_boundary": "Synthetic mechanism screen only. Numerical values are not fitted estimates, architecture frequencies are not empirical prevalence, and this output cannot upgrade any empirical pathway gate."
+}
