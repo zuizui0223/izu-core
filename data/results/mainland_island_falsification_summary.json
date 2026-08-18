@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "n_controls": 4,
+  "tests": {
+    "is_functional_recurrence_island_specific": [
+      "contradicted"
+    ],
+    "does_oceanic_insularity_shift_architectural_opportunity_space": [
+      "supported"
+    ],
+    "is_architectural_contingency_island_specific": [
+      "contradicted"
+    ],
+    "is_species_specific_architectural_response_island_specific": [
+      "contradicted"
+    ]
+  },
+  "hypothesis_assessment": {
+    "H0_functional_recurrence_is_island_specific": "rejected",
+    "H0_architectural_contingency_is_island_specific": "rejected",
+    "H1_oceanic_insularity_changes_architectural_opportunity_space": "supported_by_global_network_comparison",
+    "H2_island_specificity_of_function_architecture_coupling": "not_yet_established"
+  },
+  "overbroad_claims_falsified": [
+    "functional_recurrence_is_island_specific",
+    "architectural_contingency_is_island_specific"
+  ],
+  "surviving_island_specific_candidate": "oceanic_insularity_changes_architectural_opportunity_space",
+  "refined_repository_claim": "Pollination dependence is not island-specific, and architectural contingency also occurs on mainlands. The defensible island-specific candidate is narrower: oceanic insularity changes the available interaction architecture by reducing and reorganizing partner/link diversity, so the same generic reproductive function is maintained under a more constrained and taxonomically disharmonic opportunity space.",
+  "next_test": "Quantitatively compare architecture-to-function coupling across oceanic islands, continental islands and mainlands using source-native network metrics plus reproductive-performance evidence; do not treat the current selected island screen as a prevalence sample.",
+  "claim_boundary": "This ledger falsifies over-broad novelty claims. It does not yet show that oceanic islands have stronger architecture-function coupling, faster floral evolution, or higher dependence on replacement/generalization than matched mainland systems."
+}
