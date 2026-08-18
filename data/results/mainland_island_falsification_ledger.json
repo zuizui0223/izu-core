@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.1",
+  "purpose": "Test whether functional recurrence and architectural contingency are island-specific rather than general properties of plant-pollinator mutualisms, and identify the narrower geography-specific signal that survives falsification.",
+  "controls": [
+    {
+      "id": "bennett_2020_global_pollen_limitation",
+      "geographic_scope": "global wild plants across island and mainland landscapes",
+      "source": "Bennett et al. 2020 Nature Communications, doi:10.1038/s41467-020-17751-y",
+      "design": "phylogenetically controlled meta-analysis of 2247 study populations and 1247 wild plant species",
+      "result": "Pollen limitation is globally common and is strongly conditioned by pollinator dependence, ecological specialization and functional specialization; autofertile plants are not pollen limited across land-use categories.",
+      "test": "is_functional_recurrence_island_specific",
+      "verdict": "contradicted",
+      "reason": "Reproductive dependence on pollination function is a global plant property, not an island-exclusive pattern."
+    },
+    {
+      "id": "traveset_2016_network_geography",
+      "geographic_scope": "52 quantitative networks: 18 oceanic islands, 23 continental islands, 11 mainlands",
+      "source": "Traveset et al. 2016 Global Ecology and Biogeography, doi:10.1111/geb.12362",
+      "design": "generalized mixed-model comparison controlling for region, sampling intensity, latitude and network size",
+      "result": "Continental-island networks are broadly similar to mainland networks, whereas oceanic-island networks are smaller, topologically simplified, lower in interaction diversity and higher in plant niche overlap.",
+      "test": "does_oceanic_insularity_shift_architectural_opportunity_space",
+      "verdict": "supported",
+      "reason": "The strongest geography-specific signal lies in oceanic-island network structure rather than in pollination function itself."
+    },
+    {
+      "id": "magrach_2017_honeybee_spillover_mainland",
+      "geographic_scope": "mainland Mediterranean woodland",
+      "source": "Magrach et al. 2017 Nature Ecology & Evolution, doi:10.1038/s41559-017-0249-9",
+      "design": "field study linking honeybee spillover, pollinator-network reorganization and wild-plant reproductive success",
+      "result": "Honeybee spillover reshuffles pollinator diets/network structure and translates into a negative reproductive effect on a dominant wild plant.",
+      "test": "is_architectural_contingency_island_specific",
+      "verdict": "contradicted",
+      "reason": "Interaction reorganization with reproductive consequences also occurs on mainlands."
+    },
+    {
+      "id": "wang_2024_tibetan_grassland_honeybee",
+      "geographic_scope": "48 mainland Tibetan alpine grasslands",
+      "source": "Wang et al. 2024 Nature Communications, doi:10.1038/s41467-024-52465-5",
+      "design": "field experiments on pollinator communities, interactions and wild-plant reproductive performance",
+      "result": "A dominant-pollinator shift from flies to honeybees reconfigures interactions and can increase, decrease or leave unchanged reproductive success depending on plant species.",
+      "test": "is_species_specific_architectural_response_island_specific",
+      "verdict": "contradicted",
+      "reason": "Species-specific functional consequences of partner replacement are not unique to islands."
+    },
+    {
+      "id": "hiraiwa_ushimaru_2024_continental_oceanic_gradient",
+      "geographic_scope": "40 coastal networks across Japanese continental and oceanic islands; 8 sites x 5 seasons",
+      "source": "Hiraiwa & Ushimaru 2024 Functional Ecology, doi:10.1111/1365-2435.14527",
+      "design": "natural gradient analysis of pollinator functional diversity, trait matching and pollination success in 10 plant species",
+      "result": "Pollinator species richness, functional evenness, functional diversity and community-level trait matching decreased with distance from the continental main island; lower community-level trait matching reduced plant pollination success regardless of flower morphology.",
+      "test": "does_geography_link_architecture_to_function",
+      "verdict": "supported_in_one_natural_gradient",
+      "reason": "This supplies a direct geography-to-functional-architecture-to-pollination-function pathway, but it is one regional natural experiment and requires independent replication."
+    },
+    {
+      "id": "wang_2025_wanshan_yongxing_network_comparison",
+      "geographic_scope": "Wanshan continental island versus Yongxing oceanic island, China",
+      "source": "Wang et al. 2025 Biotropica, doi:10.1111/btp.70027; Dryad doi:10.5061/dryad.t76hdr8bj",
+      "design": "community and co-occurring-plant comparison of species composition, network structure and pollinator importance",
+      "result": "Highly dissimilar species composition produced strongly different network structures; the oceanic network had higher connectance, nestedness, specialization and plant niche overlap, while co-occurring plants had lower pollinator richness and visitation than on the continental island.",
+      "test": "does_oceanic_insularity_shift_architectural_opportunity_space",
+      "verdict": "supported_independently",
+      "reason": "A recent independent continental-oceanic comparison replicates strong architecture change even among co-occurring plant species."
+    }
+  ],
+  "hypothesis_assessment": {
+    "H0_functional_recurrence_is_island_specific": "rejected",
+    "H0_architectural_contingency_is_island_specific": "rejected",
+    "H1_oceanic_insularity_changes_architectural_opportunity_space": "supported_by_multiple_independent_comparisons",
+    "H2_geography_to_functional_architecture_to_function_pathway": "supported_in_hiraiwa_2024_requires_independent_replication",
+    "H3_island_specificity_of_macro_architecture_to_reproductive_function_coupling": "not_yet_established"
+  },
+  "refined_repository_claim": "Pollination dependence and architectural contingency are general mutualism biology rather than island-specific discoveries. The surviving island-biogeographic signal is a constraint shift: oceanic insularity changes the partner and link opportunity space, and at least one natural continental-oceanic gradient shows that this loss/reorganization of functional interaction space propagates through trait matching to pollination success.",
+  "candidate_new_synthesis": "constraint-mediated functional conservation: reproductive function is generic, while oceanic isolation alters the feasible interaction architecture through which that function can be maintained; floral and reproductive responses are then conditional solutions to that constrained architecture rather than a universal island syndrome.",
+  "next_test": "Seek independent oceanic-versus-continental/mainland systems with both source-native architecture metrics and reproductive-performance measures, then test whether geography modifies architecture-to-function coupling without pooling incompatible estimands.",
+  "claim_boundary": "The current evidence does not yet establish a globally stronger architecture-function coupling on oceanic islands, nor that architecture causes floral divergence. Hiraiwa 2024 is direct but regional; Traveset 2016 and Wang 2025 independently establish geography-architecture differences without the same reproductive endpoint."
+}
