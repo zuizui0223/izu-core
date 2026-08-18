@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-18",
+  "question": "Does floral phenotype converge on one universal island syndrome, or remain contingent on pollinator architecture, colonization filtering, climate and island context?",
+  "prediction_from_current_hypothesis": "If pollination function recurs but interaction architecture diverges, floral traits should show structured but non-universal responses: local matching, transitional phenotypes, filtering and context dependence rather than one globally directional island syndrome.",
+  "studies": [
+    {
+      "system": "Galapagos",
+      "source": "Hervias-Parejo et al. 2019",
+      "doi": "10.1002/ajb2.1270",
+      "design": "16 floral morphology/nectar traits in 26 native species plus bird and insect visitation frequency",
+      "result": "Bird-associated plants tended toward bell-shaped white flowers, wider corollas at nectary level and more nectar, while insect-associated plants tended toward bowl/tubular flowers, narrower corollas and less nectar. Bird-visited flowers nevertheless showed mixed traits and did not fit a classical ornithophilous syndrome.",
+      "assessment": "supports_local_trait_matching_and_transitional_not_universal_syndrome"
+    },
+    {
+      "system": "Ogasawara_Bonin",
+      "source": "Abe 2006",
+      "doi": "10.1093/aob/mcl117",
+      "design": "Community-wide floral traits and visitors across 12 islands; 269 native flowering plants",
+      "result": "Small, subdued and accessible flowers were common with generalist visitors, but specialized niches with vivid, large or deep flowers persisted for birds, long-proboscis moths and carpenter bees.",
+      "assessment": "supports_generalist_filter_with_specialist_exceptions"
+    },
+    {
+      "system": "California_Channel_Islands_Nicotiana",
+      "source": "Schueller 2004; Schueller 2007",
+      "dois": ["10.3732/ajb.91.5.672", "10.1007/s10682-006-9125-9"],
+      "design": "Island-mainland comparison of selfing capacity, floral morphology, hummingbird visitation and selection",
+      "result": "Island plants had higher capacity for self-pollination, but current island pollinator service was not lower or more variable and current selection for selfing was not detected; island-mainland corolla divergence also lacked consistent evidence of present pollinator-mediated selection.",
+      "assessment": "supports_colonization_filter_and_history_not_simple_current_service_rule"
+    },
+    {
+      "system": "Pacific_island_sister_taxa",
+      "source": "Hetherington-Rauth & Johnson 2020",
+      "doi": "10.1086/709018",
+      "design": "556 plant species; 136 phylogenetically independent island-mainland sister-taxon contrasts",
+      "result": "Flowers were not smaller on islands on average. Galapagos and Revillagigedo showed smaller island flowers, but direction varied among archipelagos and plant families, including larger, smaller and no-change responses.",
+      "assessment": "directly_contradicts_universal_flower_size_syndrome"
+    },
+    {
+      "system": "Malesia_14_islands",
+      "source": "Fontaine et al. 2023",
+      "doi": "10.1111/jbi.14751",
+      "design": ">2500 angiosperm species across 14 islands and 400-m elevation bands using Bayesian phylogenetic occurrence models",
+      "result": "All six flower traits varied with combinations of temperature, precipitation seasonality, island area and isolation; climate best predicted some traits whereas island characteristics better predicted others.",
+      "assessment": "supports_multi_driver_context_dependence"
+    },
+    {
+      "system": "Yongxing_Xisha",
+      "source": "Wang et al. 2020",
+      "doi": "10.1038/s41598-020-70954-7",
+      "design": "Oceanic-island community comparison of floral traits, visitor functional groups and ecological specialization",
+      "result": "Plants received more pollinator species than classical syndromes predicted; five floral traits explained only 22.5% of visitation preference, although restrictive flowers were more specialized than unrestrictive flowers.",
+      "assessment": "supports_partial_trait_signal_but_rejects_strong_syndrome_prediction"
+    }
+  ],
+  "synthesis": {
+    "universal_directional_floral_syndrome": "not_supported",
+    "local_trait_matching": "supported",
+    "context_dependence": "strongly_supported",
+    "colonization_filter_or_history_can_mimic_adaptation": "supported",
+    "current_hypothesis_status": "strengthened"
+  },
+  "strongest_current_reading": "Distant island floras repeatedly preserve pollination function, but floral phenotypes do not converge on one universal island form. Trait responses track a mixture of local interaction architecture, colonization filtering, climate, island area/isolation and historical partner turnover. This is the morphology-level counterpart of functional recurrence plus architectural divergence.",
+  "claim_boundary": "The studies use different trait sets and designs, so this screen tests directional consistency and explanatory structure, not a common standardized morphology effect size."
+}
