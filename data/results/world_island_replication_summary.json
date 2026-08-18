@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "n_systems": 8,
+  "n_ocean_basin_labels": 7,
+  "ocean_basin_counts": {
+    "Eastern Pacific": 1,
+    "North Atlantic": 2,
+    "North-central Pacific": 1,
+    "Northwest Pacific": 1,
+    "Southwest Pacific": 1,
+    "Western Indian Ocean": 2
+  },
+  "n_direct_or_reproductively_linked_systems": 7,
+  "direct_or_linked_fraction": 0.875,
+  "n_explicit_no_limitation_counterexamples": 1,
+  "architecture_macroclass_counts": {
+    "complementary_or_redundant_generalism": 2,
+    "concentrated_dependency": 2,
+    "novel_partner_replacement": 2,
+    "species_specific_mosaic": 2
+  },
+  "n_architecture_macroclasses": 4,
+  "architecture_shannon_evenness": 1.0,
+  "functional_recurrence_reading": "Pollination function is directly or reproductively linked in 7 of 8 geographically distant systems; the Azores case is an explicit no-current-limitation contrast in which generalist redundancy coincides with stable reproduction.",
+  "architecture_reading": "The eight systems occupy four predeclared architecture macroclasses, with two systems in each class: concentrated dependency, complementary/redundant generalism, species-specific mosaic, and novel-partner replacement.",
+  "hypothesis_assessment": {
+    "H_functional_recurrence": "supported_as_replication_pattern_not_global_prevalence_estimate",
+    "H_architecture_divergence": "supported",
+    "H_universal_single_syndrome": "contradicted_by_screen"
+  },
+  "strongest_current_inference": "Across distant island systems, the recurrent feature is not one pollinator guild or one floral syndrome. What repeats is the reproductive importance of maintaining a viable pollination function; the interaction architecture that supplies that function repeatedly diverges.",
+  "claim_boundary": "This is a source-locked replication screen, not a meta-analysis of a common effect size. Systems are heterogeneous in taxa, design and estimand. The screen records whether pollination function is tied to reproduction and which interaction architecture is observed; it does not infer global prevalence from the selected systems."
+}
