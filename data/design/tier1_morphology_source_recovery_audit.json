@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-18",
+  "target": "Tier-1 morphology for Canary, Galapagos, and Seychelles functional/reproductive backbone systems",
+  "systems": [
+    {
+      "system_id": "galapagos",
+      "state": "source_native_candidate_recovered_requires_numeric_supplement_lock",
+      "source": "Hervias-Parejo et al. 2019, American Journal of Botany 106:540-546, DOI 10.1002/ajb2.1270",
+      "recovered_support": "The primary article reports 16 floral morphology and nectar traits measured for 26 native Santa Cruz plant species; Appendix S2 contains mean, SD, min and max, n=5 flowers/species. This is directly relevant to the same Santa Cruz pollination programme used by the 2018 effectiveness evidence.",
+      "remaining_gate": "Recover and checksum Appendix S2, verify which of Cordia lutea, Cryptocarpus pyriformis, Opuntia echios and Waltheria ovata are present, then lock numeric traits before changing the matrix cell to source_locked_present.",
+      "admission_now": false
+    },
+    {
+      "system_id": "canary",
+      "state": "species_level_morphology_context_found_not_matched_response",
+      "source": "Published Lotus maculatus botanical and bird-flower trait literature, including Hind 2008 and Macaronesian bird-flower comparisons",
+      "recovered_support": "Lotus maculatus has source-level floral descriptions and comparative bird-flower trait context, but the inspected 2024 effectiveness study does not provide a matched quantitative floral-response transition for the experimental population.",
+      "remaining_gate": "Require population/transition-level quantitative morphology tied to the relevant Tenerife comparison before promoting the matrix cell.",
+      "admission_now": false
+    },
+    {
+      "system_id": "seychelles",
+      "state": "no_matched_morphology_recovered_in_targeted_route",
+      "source": "Fuster et al. 2020 pollination-effectiveness source and registered Figshare data",
+      "recovered_support": "The registered source-native files provide visitation, contact, single-visit reproductive outcome and breeding data for Polyscias crassa, Syzygium wrightii and Thespesia populnea, but no matched quantitative floral-response transition was recovered in the targeted route.",
+      "remaining_gate": "Reopen only for source-native morphology from the same taxa/populations or a defensible matched island transition.",
+      "admission_now": false
+    }
+  ],
+  "next_executable_target": "Galapagos Hervias-Parejo 2019 Appendix S2 numeric supplement",
+  "claim_boundary": "Finding a morphology source is not equivalent to demonstrating evolutionary floral change. Numeric traits must be source-locked and linked to an explicit comparator before direction is inferred."
+}
