@@ -1,0 +1,52 @@
+name: Web of Life Tier-B island architecture
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/acquire_weboflife_mauritius_seychelles_matrices.py'
+      - 'scripts/summarize_weboflife_island_architecture.py'
+      - 'tests/test_weboflife_island_architecture_metrics.py'
+      - '.github/workflows/weboflife_tier_b_architecture.yml'
+
+concurrency:
+  group: weboflife-tier-b-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Acquire source-native weighted matrices
+        run: python scripts/acquire_weboflife_mauritius_seychelles_matrices.py
+      - name: Summarize matrix-level architecture
+        run: python scripts/summarize_weboflife_island_architecture.py
+      - name: Run metric semantics tests
+        run: python -m pytest -q tests/test_weboflife_island_architecture_metrics.py
+      - name: Show source and architecture state
+        run: |
+          python - <<'PY'
+          import json
+          g=json.load(open('data/results/weboflife_mauritius_seychelles_matrix_gate.json'))
+          print('matrix admission',g['admission'])
+          for system,x in g['systems'].items():
+              print(system,x['retrieved_networks'],'/',x['requested_networks'])
+          a=json.load(open('data/results/weboflife_mauritius_seychelles_architecture_summary.json'))
+          for system,x in a['systems'].items():
+              print(system,'replicates',x['within_system_network_replicates'])
+              for k in ('interaction_shannon','plant_partner_jaccard_overlap','plant_weighted_profile_overlap'):
+                  print(k,x['aggregate'][k])
+          PY
+      - name: Upload source bytes and summaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: weboflife-tier-b-island-architecture
+          path: |
+            data/results/weboflife_mauritius_seychelles_matrix_gate.json
+            data/results/weboflife_mauritius_seychelles_architecture_summary.json
+            data/external/weboflife_mauritius_seychelles/*.json
+          if-no-files-found: error
