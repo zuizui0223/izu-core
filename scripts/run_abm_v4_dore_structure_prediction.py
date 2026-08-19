@@ -44,6 +44,7 @@ def load_structure_rows(named):
                 source[key] = r
     rows = []
     missing_source = []
+    incomplete_controls = []
     for region, base in by_region.items():
         s = source.get(region)
         if s is None:
@@ -56,11 +57,25 @@ def load_structure_rows(named):
             "Lp": finite_float(s.get("Lp")),
             "source_full_insects": finite_float(s.get("full_insects")),
             "source_full_plants": finite_float(s.get("full_plants")),
+            "source_sptot": finite_float(s.get("sptot")),
             "source_interactions": finite_float(s.get("interactions")),
+            # Source-native transformed covariates from Doré's structure table.
+            "source_ln_sptot": finite_float(s.get("ln_sptot")),
+            "source_ln_pl": finite_float(s.get("ln_pl")),
+            "source_ln_ins": finite_float(s.get("ln_ins")),
+            "source_ln_SE": finite_float(s.get("ln_SE")),
+            "source_ln_ATS": finite_float(s.get("ln_ATS")),
+            "source_sampling_type_TO": 1.0 if s.get("Sampling_type") == "TO" else 0.0,
         })
-        if row["Connectance"] is not None and row["Li"] is not None and row["Lp"] is not None:
-            rows.append(row)
-    return rows, missing_source, pcmeta
+        required = (
+            "Connectance", "Li", "Lp", "source_ln_sptot", "source_ln_pl",
+            "source_ln_ins", "source_ln_SE", "source_ln_ATS",
+        )
+        if any(row[k] is None for k in required):
+            incomplete_controls.append(region)
+            continue
+        rows.append(row)
+    return rows, sorted(set(missing_source)), sorted(set(incomplete_controls)), pcmeta
 
 
 def architecture_from_abm(row, prefix):
@@ -79,13 +94,27 @@ def transformed(v):
     return math.log(max(v, 1e-12))
 
 
-def predictors(named, kind, z_key=None, abm_key=None):
-    if kind == "sampling_only":
-        return lambda r: named.sampling_design(r)
+def source_native_controls(target, row):
+    # Mirror the compulsory network-size/sampling terms in Doré's published
+    # structure formulas. Climate/human-footprint/taxonomy terms are not
+    # measurement controls and are deliberately not inserted here.
+    common = [row["source_ln_SE"], row["source_ln_ATS"], row["source_sampling_type_TO"]]
+    if target == "Connectance":
+        return [1.0, row["source_ln_sptot"], *common]
+    if target == "Li":
+        return [1.0, row["source_ln_pl"], *common]
+    if target == "Lp":
+        return [1.0, row["source_ln_ins"], *common]
+    raise ValueError(target)
+
+
+def predictors(target, kind, z_key=None, abm_key=None):
+    if kind == "source_controls_only":
+        return lambda r: source_native_controls(target, r)
     if kind == "geography_quadratic":
-        return lambda r: named.sampling_design(r) + [r[z_key], r[z_key] ** 2]
+        return lambda r: source_native_controls(target, r) + [r[z_key], r[z_key] ** 2]
     if kind == "abm":
-        return lambda r: named.sampling_design(r) + [transformed(r[abm_key])]
+        return lambda r: source_native_controls(target, r) + [transformed(r[abm_key])]
     raise ValueError(kind)
 
 
@@ -93,7 +122,7 @@ def grouped_cv(named, rows, target, group_key, model_kind, z_key=None, abm_key=N
     groups = sorted({r[group_key] for r in rows})
     errors = []
     per_group = {}
-    pred_fn = predictors(named, model_kind, z_key=z_key, abm_key=abm_key)
+    pred_fn = predictors(target, model_kind, z_key=z_key, abm_key=abm_key)
     for hold in groups:
         train = [r for r in rows if r[group_key] != hold]
         test = [r for r in rows if r[group_key] == hold]
@@ -135,18 +164,18 @@ def evaluate_mapping(named, base_rows, z_key, prefix):
         for target, abm_key in target_map.items():
             system = {}
             stratum = {}
-            for label, group_key, bucket in (
+            for _, group_key, bucket in (
                 ("leave_one_system_out", "system", system),
                 ("leave_one_stratum_out", "stratum", stratum),
             ):
-                sampling = grouped_cv(named, rows, target, group_key, "sampling_only")
+                controls = grouped_cv(named, rows, target, group_key, "source_controls_only")
                 geography = grouped_cv(named, rows, target, group_key, "geography_quadratic", z_key=z_key)
                 abm = grouped_cv(named, rows, target, group_key, "abm", abm_key=abm_key)
                 bucket.update({
-                    "sampling_only": sampling,
+                    "source_controls_only": controls,
                     "geography_quadratic": geography,
-                    "abm_plus_sampling_design": abm,
-                    "abm_beats_sampling_mae": abm["mae_log"] < sampling["mae_log"],
+                    "abm_plus_source_controls": abm,
+                    "abm_beats_source_controls_mae": abm["mae_log"] < controls["mae_log"],
                     "abm_beats_geography_mae": abm["mae_log"] < geography["mae_log"],
                 })
             sat_out[target] = {
@@ -159,12 +188,12 @@ def evaluate_mapping(named, base_rows, z_key, prefix):
     for target in target_map:
         loso_geo = sum(out[str(s)][target]["leave_one_system_out"]["abm_beats_geography_mae"] for s in SATURATIONS)
         lostr_geo = sum(out[str(s)][target]["leave_one_stratum_out"]["abm_beats_geography_mae"] for s in SATURATIONS)
-        loso_sampling = sum(out[str(s)][target]["leave_one_system_out"]["abm_beats_sampling_mae"] for s in SATURATIONS)
-        lostr_sampling = sum(out[str(s)][target]["leave_one_stratum_out"]["abm_beats_sampling_mae"] for s in SATURATIONS)
+        loso_controls = sum(out[str(s)][target]["leave_one_system_out"]["abm_beats_source_controls_mae"] for s in SATURATIONS)
+        lostr_controls = sum(out[str(s)][target]["leave_one_stratum_out"]["abm_beats_source_controls_mae"] for s in SATURATIONS)
         summary[target] = {
-            "system_saturations_beating_sampling": loso_sampling,
+            "system_saturations_beating_source_controls": loso_controls,
             "system_saturations_beating_geography": loso_geo,
-            "stratum_saturations_beating_sampling": lostr_sampling,
+            "stratum_saturations_beating_source_controls": lostr_controls,
             "stratum_saturations_beating_geography": lostr_geo,
             "robust_system_transfer_over_geography": loso_geo >= 4,
             "robust_stratum_transfer_over_geography": lostr_geo >= 4,
@@ -186,16 +215,22 @@ def evaluate_mapping(named, base_rows, z_key, prefix):
 
 def build():
     named = load_named()
-    rows, missing, pcmeta = load_structure_rows(named)
+    rows, missing, incomplete, pcmeta = load_structure_rows(named)
     primary = evaluate_mapping(named, rows, "z_distance", "distance_ecdf")
     secondary = evaluate_mapping(named, rows, "z_geo_pc1", "geography_pc1")
     primary_pass = primary["all_three_metrics_robust_at_system_and_stratum_level"]
     return {
-        "analysis": "abm_v4_dore_network_architecture_tierb1",
+        "analysis": "abm_v4_dore_network_architecture_tierb1_corrected_source_design",
+        "supersedes_analysis": "abm_v4_dore_network_architecture_tierb1 (PR #186 measurement-layer result)",
         "source": {
             "repository": "MaelDore/Pollination_networks",
-            "file": "Data/Filtered_Datasets/aggreg.webs_full.RData",
+            "file": "Data/Filtered_Datasets/aggreg.webs_full_str_no_polar.RData",
             "source_native_metrics": ["Connectance", "Li", "Lp"],
+            "source_native_mandatory_controls": {
+                "Connectance": ["ln_sptot", "ln_SE", "ln_ATS", "Sampling_type"],
+                "Li": ["ln_pl", "ln_SE", "ln_ATS", "Sampling_type"],
+                "Lp": ["ln_ins", "ln_SE", "ln_ATS", "Sampling_type"],
+            },
             "raw_weighted_matrices_republished_in_source_repo": False,
         },
         "tier": "B1_source_native_aggregate_network_structure_not_raw_matrix_diversity",
@@ -204,12 +239,14 @@ def build():
             "Li": "ABM effective_links / final partner types",
             "Lp": "ABM effective_links / 24 plant lineages",
         },
-        "missing_frozen_source_rows": missing,
+        "missing_frozen_source_rows_after_source_structure_filter": missing,
+        "incomplete_source_control_rows": incomplete,
         "primary_distance_ecdf": primary,
         "secondary_geography_only_pc1": secondary,
         "geography_pc1_metadata": pcmeta,
         "decision": "primary_mapping_has_robust_architecture_transfer_across_systems_and_strata" if primary_pass else "primary_mapping_does_not_have_robust_architecture_transfer_across_all_metrics_and_strata",
-        "claim_boundary": "Connectance/Li/Lp are source-native aggregate topology metrics and are more architecture-proximal than richness/link count, but they are not interaction diversity, niche overlap, weighted rewiring, or reproductive function. Raw quantitative matrices remain required for Tier-B2 diversity/overlap validation. No system, geography mapping, or saturation is selected based on this result.",
+        "method_correction": "PR #186 used the richness sampling-time layer for topology. This corrected analysis instead uses Doré's source-native structure-filtered dataset and the mandatory network-size/sampling covariates from each published topology formula.",
+        "claim_boundary": "This correction is required before interpreting the PR #186 topology failure. Connectance/Li/Lp remain aggregate topology metrics, not interaction diversity, niche overlap, weighted rewiring, or reproductive function. No system, geography mapping, or saturation is selected based on the corrected result.",
     }
 
 

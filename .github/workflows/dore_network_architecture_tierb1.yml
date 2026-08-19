@@ -42,7 +42,8 @@ jobs:
           import json
           x=json.load(open('data/results/abm_v4_dore_structure_prediction.json'))
           print('decision', x['decision'])
-          print('missing rows', x['missing_frozen_source_rows'])
+          print('missing rows', x['missing_frozen_source_rows_after_source_structure_filter'])
+          print('incomplete controls', x['incomplete_source_control_rows'])
           print('primary coverage', x['primary_distance_ecdf']['coverage'])
           print('primary summary', x['primary_distance_ecdf']['summary'])
           print('secondary summary', x['secondary_geography_only_pc1']['summary'])
