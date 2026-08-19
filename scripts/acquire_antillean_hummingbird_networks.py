@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -24,6 +25,25 @@ def abs_api(href: str) -> str:
     if href.startswith("http"):
         return href
     return "https://datadryad.org" + href
+
+
+def file_download_url(file_obj: dict) -> tuple[str | None, str | int | None]:
+    links = file_obj.get("_links") or {}
+    for key in ("stash:download", "download"):
+        href = (links.get(key) or {}).get("href") if isinstance(links.get(key), dict) else links.get(key)
+        if href:
+            m = re.search(r"/files/(\d+)(?:/download)?", str(href))
+            return abs_api(str(href)), (int(m.group(1)) if m else None)
+    self_href = (links.get("self") or {}).get("href") if isinstance(links.get("self"), dict) else links.get("self")
+    if self_href:
+        m = re.search(r"/files/(\d+)", str(self_href))
+        if m:
+            fid = int(m.group(1))
+            return f"{API}/files/{fid}/download", fid
+    fid = file_obj.get("id")
+    if fid is not None:
+        return f"{API}/files/{fid}/download", fid
+    return None, None
 
 
 def try_download(url: str, out: Path, timeout: int = 90) -> dict:
@@ -77,48 +97,58 @@ def main() -> None:
         version = get_json(version_url)
         version_id = version.get("id")
         if version_id is None:
-            # Some API responses expose only the href; recover numeric id from it.
             version_id = int(version_url.rstrip("/").split("/")[-1])
         files_url = f"{API}/versions/{version_id}/files"
         files_resp = get_json(files_url)
         files = files_resp.get("_embedded", {}).get("stash:files", files_resp.get("files", []))
         payload["version_id"] = version_id
-        payload["files"] = [
-            {k: f.get(k) for k in ("id", "path", "size", "mimeType", "digest")}
-            for f in files
-        ]
+        file_rows = []
+        for f in files:
+            dl_url, fid = file_download_url(f)
+            file_rows.append({
+                "id": fid,
+                "path": f.get("path"),
+                "size": f.get("size"),
+                "mimeType": f.get("mimeType"),
+                "digest": f.get("digest"),
+                "download_url_resolved": dl_url,
+            })
+        payload["files"] = file_rows
         target = next((f for f in files if str(f.get("path", "")).lower() == "data_and_code.zip"), None)
         if target is None:
             payload["admission"] = {"status": "target_file_not_found", "raw_matrices_recovered": False}
         else:
-            file_id = target.get("id")
-            download_url = f"{API}/files/{file_id}/download"
-            dl = try_download(download_url, raw_zip)
-            payload["download"] = dl
-            if dl["status"] == "retrieved":
-                with zipfile.ZipFile(raw_zip) as zf:
-                    names = zf.namelist()
-                    web_files = [n for n in names if "/webs/" in n.lower() and not n.endswith("/")]
-                    manifest = []
-                    for name in web_files:
-                        data = zf.read(name)
-                        manifest.append({
-                            "path": name,
-                            "bytes": len(data),
-                            "sha256": hashlib.sha256(data).hexdigest(),
-                        })
-                payload["zip_manifest"] = names
-                payload["web_matrix_files"] = manifest
-                payload["admission"] = {
-                    "status": "raw_webs_recovered_pending_island_mapping",
-                    "raw_matrices_recovered": len(manifest) > 0,
-                    "n_web_matrix_files": len(manifest),
-                }
+            download_url, file_id = file_download_url(target)
+            payload["resolved_target_file_id"] = file_id
+            if not download_url:
+                payload["admission"] = {"status": "download_link_not_resolved", "raw_matrices_recovered": False}
             else:
-                payload["admission"] = {
-                    "status": "download_blocked_pending_alternate_public_route",
-                    "raw_matrices_recovered": False,
-                }
+                dl = try_download(download_url, raw_zip)
+                payload["download"] = dl
+                if dl["status"] == "retrieved":
+                    with zipfile.ZipFile(raw_zip) as zf:
+                        names = zf.namelist()
+                        web_files = [n for n in names if "/webs/" in n.lower() and not n.endswith("/")]
+                        manifest = []
+                        for name in web_files:
+                            data = zf.read(name)
+                            manifest.append({
+                                "path": name,
+                                "bytes": len(data),
+                                "sha256": hashlib.sha256(data).hexdigest(),
+                            })
+                    payload["zip_manifest"] = names
+                    payload["web_matrix_files"] = manifest
+                    payload["admission"] = {
+                        "status": "raw_webs_recovered_pending_island_mapping",
+                        "raw_matrices_recovered": len(manifest) > 0,
+                        "n_web_matrix_files": len(manifest),
+                    }
+                else:
+                    payload["admission"] = {
+                        "status": "download_blocked_pending_alternate_public_route",
+                        "raw_matrices_recovered": False,
+                    }
     except Exception as exc:
         payload["admission"] = {"status": "source_gate_failed", "raw_matrices_recovered": False}
         payload["error"] = repr(exc)
