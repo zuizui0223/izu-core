@@ -3,42 +3,61 @@ from __future__ import annotations
 import csv
 import json
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 RAW = Path("data/external/dore2021_zenodo_v1/network interaction data.txt")
 SOURCE_GATE = Path("data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json")
 FROZEN = Path("data/design/frozen_dore_candidate_network_locations.json")
+TARGETS = Path("data/results/frozen_dore_network_targets.csv")
 OUT = Path("data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json")
 
+EXPECTED_COLUMNS = [
+    "id_network",
+    "id_network_aggreg",
+    "pollinatororder",
+    "pollinatorgenus",
+    "pollinatorspecies",
+    "plantgenus",
+    "plantspecies",
+    "Complete_ref",
+    "Source",
+]
 
-def norm(x: object) -> str:
-    return re.sub(r"[^a-z0-9]+", "", str(x or "").lower())
+
+def region_number(region_pub: str) -> str:
+    match = re.fullmatch(r"RP(\d+)", str(region_pub).strip())
+    if not match:
+        raise ValueError(f"unexpected Region_pub: {region_pub!r}")
+    return str(int(match.group(1)))
 
 
-def match_column(fieldnames: list[str], candidates: tuple[str, ...]) -> str | None:
-    by_norm = {norm(x): x for x in fieldnames}
-    for candidate in candidates:
-        if norm(candidate) in by_norm:
-            return by_norm[norm(candidate)]
-    return None
+def taxon(parts: tuple[str | None, ...]) -> str:
+    cleaned = [" ".join(str(x).split()) for x in parts if x not in (None, "")]
+    return " ".join(cleaned).strip()
 
 
-def detect_dialect(path: Path) -> csv.Dialect:
-    sample = path.read_text(encoding="utf-8-sig", errors="replace")[:100000]
-    try:
-        return csv.Sniffer().sniff(sample, delimiters="\t;,|")
-    except csv.Error:
-        return csv.excel_tab
+def load_targets() -> dict[str, dict[str, object]]:
+    out: dict[str, dict[str, object]] = {}
+    with TARGETS.open("r", encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            out[row["region_pub"]] = {
+                "pollinator_richness": int(float(row["pollinator_richness"])),
+                "link_richness": int(float(row["link_richness"])),
+                "data_type": row.get("data_type") or None,
+                "system": row.get("system"),
+            }
+    return out
 
 
 def main() -> None:
     gate = json.loads(SOURCE_GATE.read_text()) if SOURCE_GATE.exists() else {}
     payload: dict[str, object] = {
-        "schema_version": "1.0",
+        "schema_version": "2.0",
         "analysis": "dore2021_zenodo_v1_raw_interaction_schema_audit",
         "source_status": gate.get("status"),
         "source_sha256": gate.get("sha256"),
+        "source_encoding": "latin-1",
         "status": "blocked",
     }
     if gate.get("status") != "raw_interaction_bytes_recovered" or not RAW.exists():
@@ -48,56 +67,134 @@ def main() -> None:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
         return
 
-    dialect = detect_dialect(RAW)
-    with RAW.open("r", encoding="utf-8-sig", errors="replace", newline="") as handle:
-        reader = csv.DictReader(handle, dialect=dialect)
+    with RAW.open("r", encoding="latin-1", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t")
         fields = list(reader.fieldnames or [])
         rows = list(reader)
 
-    roles = {
-        "region_pub": match_column(fields, ("Region_pub", "region_pub", "regionpub", "region")),
-        "plant": match_column(fields, ("Plant_sp", "plant_sp", "plant", "plant_species", "plantname")),
-        "pollinator": match_column(fields, ("Pollinator_sp", "pollinator_sp", "pollinator", "insect_sp", "visitor_sp", "animal")),
-        "interaction_weight": match_column(fields, ("Interaction", "interaction", "interaction_frequency", "frequency", "weight", "visits", "n_interactions")),
-        "reference": match_column(fields, ("Ref_paper", "reference", "ref", "paper")),
-        "location": match_column(fields, ("Location", "location", "site")),
-    }
+    if fields != EXPECTED_COLUMNS:
+        raise ValueError(f"unexpected Zenodo v1 schema: {fields}")
 
     frozen = json.loads(FROZEN.read_text())
-    frozen_ids = sorted({str(r["region_pub"]) for r in frozen["rows"]})
-    region_col = roles["region_pub"]
-    raw_region_counts = Counter()
-    if region_col:
-        raw_region_counts.update(str(r.get(region_col, "")) for r in rows if r.get(region_col) not in (None, ""))
-    matched = {rid: int(raw_region_counts.get(rid, 0)) for rid in frozen_ids}
-    matched_nonzero = {k: v for k, v in matched.items() if v > 0}
+    frozen_rows = {str(row["region_pub"]): row for row in frozen["rows"]}
+    targets = load_targets()
+    raw_by_aggreg: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in rows:
+        raw_by_aggreg[str(int(row["id_network_aggreg"]))].append(row)
 
-    preview = []
-    for row in rows[:5]:
-        preview.append({k: row.get(k) for k in fields[:20]})
+    reconciliation = []
+    direct_raw = []
+    absent = []
+    exact_link = 0
+    exact_pollinator = 0
+    for region_pub, frozen_row in sorted(frozen_rows.items(), key=lambda item: int(region_number(item[0]))):
+        aggregate_id = region_number(region_pub)
+        raw = raw_by_aggreg.get(aggregate_id, [])
+        if not raw:
+            absent.append(region_pub)
+            reconciliation.append(
+                {
+                    "region_pub": region_pub,
+                    "id_network_aggreg": int(aggregate_id),
+                    "system": frozen_row.get("system"),
+                    "source_trace": frozen_row.get("source"),
+                    "list_inter_dispo": frozen_row.get("list_inter_dispo"),
+                    "list_inter_dbase": frozen_row.get("list_inter_dbase"),
+                    "raw_state": "absent_from_zenodo_v1_interaction_table",
+                }
+            )
+            continue
 
-    required = [roles["region_pub"], roles["plant"], roles["pollinator"], roles["interaction_weight"]]
+        direct_raw.append(region_pub)
+        plants = {
+            taxon((r.get("plantgenus"), r.get("plantspecies")))
+            for r in raw
+        }
+        pollinators = {
+            taxon((r.get("pollinatororder"), r.get("pollinatorgenus"), r.get("pollinatorspecies")))
+            for r in raw
+        }
+        pairs = {
+            (
+                taxon((r.get("plantgenus"), r.get("plantspecies"))),
+                taxon((r.get("pollinatororder"), r.get("pollinatorgenus"), r.get("pollinatorspecies"))),
+            )
+            for r in raw
+        }
+        source_network_ids = sorted({int(r["id_network"]) for r in raw})
+        target = targets[region_pub]
+        link_delta = len(pairs) - int(target["link_richness"])
+        poll_delta = len(pollinators) - int(target["pollinator_richness"])
+        if link_delta == 0:
+            exact_link += 1
+        if poll_delta == 0:
+            exact_pollinator += 1
+        reconciliation.append(
+            {
+                "region_pub": region_pub,
+                "id_network_aggreg": int(aggregate_id),
+                "system": target["system"],
+                "data_type": target["data_type"],
+                "raw_state": "topology_rows_recovered",
+                "raw_row_count": len(raw),
+                "source_subnetwork_count": len(source_network_ids),
+                "source_subnetwork_ids": source_network_ids,
+                "raw_unique_plants": len(plants),
+                "raw_unique_pollinators": len(pollinators),
+                "raw_unique_pairs": len(pairs),
+                "dore_aggregate_pollinator_richness": target["pollinator_richness"],
+                "dore_aggregate_link_richness": target["link_richness"],
+                "pollinator_richness_delta_raw_minus_dore": poll_delta,
+                "link_richness_delta_raw_minus_dore": link_delta,
+                "topology_exact_link_reconciliation": link_delta == 0,
+                "topology_exact_pollinator_reconciliation": poll_delta == 0,
+            }
+        )
+
+    frequency_with_topology = [
+        row["region_pub"]
+        for row in reconciliation
+        if row.get("raw_state") == "topology_rows_recovered" and row.get("data_type") == "frequency"
+    ]
+    repeated_raw_rows_exceed_unique_pairs = [
+        row["region_pub"]
+        for row in reconciliation
+        if row.get("raw_state") == "topology_rows_recovered"
+        and int(row["raw_row_count"]) > int(row["raw_unique_pairs"])
+    ]
+
     payload.update(
         {
-            "status": "schema_audited",
-            "delimiter": getattr(dialect, "delimiter", None),
+            "status": "schema_and_aggregate_id_link_audited",
+            "delimiter": "tab",
             "n_rows": len(rows),
             "n_columns": len(fields),
             "columns": fields,
-            "resolved_roles": roles,
-            "all_tier_b_roles_resolved": all(required),
-            "frozen_region_pub_count": len(frozen_ids),
-            "frozen_region_pub_with_raw_rows": len(matched_nonzero),
-            "raw_rows_by_frozen_region_pub": matched,
-            "frozen_region_pub_with_raw_rows_nonzero": matched_nonzero,
-            "preview_first_rows_first_20_columns": preview,
-            "decision": (
-                "raw_schema_supports_frozen_tier_b_matrix_reconstruction"
-                if all(required) and matched_nonzero
-                else "schema_or_frozen_region_link_requires_resolution"
-            ),
-            "next_gate": "Only if Region_pub, plant, pollinator and interaction-weight roles are source-resolved, reconstruct weighted matrices for frozen rows and calculate source-compatible interaction diversity and plant niche overlap. Do not infer missing weights or treat absent raw rows as biological zero.",
-            "claim_boundary": "Schema and row-link audit only. No Tier-B network metric is claimed until weighted matrices are reconstructed from the source interaction rows.",
+            "resolved_roles": {
+                "frozen_network_join": "numeric suffix of Region_pub == id_network_aggreg",
+                "source_subnetwork_id": "id_network",
+                "plant_taxon": "plantgenus + plantspecies",
+                "pollinator_taxon": "pollinatororder + pollinatorgenus + pollinatorspecies",
+                "reference": "Complete_ref",
+                "source_repository": "Source",
+                "interaction_weight": None,
+            },
+            "interaction_weight_state": "absent_from_zenodo_v1_interaction_table",
+            "frozen_region_pub_count": len(frozen_rows),
+            "frozen_region_pub_with_raw_topology": len(direct_raw),
+            "frozen_region_pub_without_raw_topology": len(absent),
+            "frozen_region_pub_with_raw_topology_ids": direct_raw,
+            "frozen_region_pub_without_raw_topology_ids": absent,
+            "frequency_networks_with_raw_topology_only": frequency_with_topology,
+            "aggregate_topology_reconciliation": {
+                "exact_link_richness_rows": exact_link,
+                "exact_pollinator_richness_rows": exact_pollinator,
+                "rows_with_subnetwork_repetition": repeated_raw_rows_exceed_unique_pairs,
+                "rows": reconciliation,
+            },
+            "decision": "raw_topology_links_22_of_26_but_weighted_tier_b_requires_original_frequency_matrices",
+            "next_gate": "Recover source-native frequency/visitation-rate matrices for frozen frequency networks from their original repositories. The Zenodo topology table may validate identities and links but must not be converted into interaction weights. Binary/source-absent rows remain outside weighted Tier-B unless an original quantitative source is recovered.",
+            "claim_boundary": "The Zenodo v1 interaction table recovers topology for 22/26 frozen networks and links by id_network_aggreg, but contains no explicit interaction weight. Repeated rows or source subnetworks are not interpreted as visit counts. No weighted interaction diversity or weighted plant niche-overlap estimate is admitted from this table alone.",
         }
     )
     OUT.parent.mkdir(parents=True, exist_ok=True)
