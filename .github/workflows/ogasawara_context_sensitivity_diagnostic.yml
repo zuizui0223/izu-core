@@ -1,0 +1,43 @@
+name: Ogasawara within-island context sensitivity
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/results/ogasawara/context_analysis/context_metrics.csv'
+      - 'data/results/ogasawara/context_analysis/island_metrics.csv'
+      - 'data/results/ogasawara_raw_weighted_capacity_falsification_runlock.json'
+      - 'scripts/diagnose_ogasawara_within_island_context_sensitivity.py'
+      - 'tests/test_ogasawara_within_island_context_sensitivity.py'
+      - '.github/workflows/ogasawara_context_sensitivity_diagnostic.yml'
+
+concurrency:
+  group: ogasawara-context-sensitivity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository test dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Run within-island context sensitivity diagnostic
+        run: python scripts/diagnose_ogasawara_within_island_context_sensitivity.py
+      - name: Run focused regression tests
+        run: python -m pytest -q tests/test_ogasawara_within_island_context_sensitivity.py
+      - name: Show diagnostic
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/ogasawara_within_island_context_sensitivity.json'))
+          print('decision', x['decision'])
+          print('metric summary', x['metric_summary'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ogasawara-within-island-context-sensitivity
+          path: data/results/ogasawara_within_island_context_sensitivity.json
