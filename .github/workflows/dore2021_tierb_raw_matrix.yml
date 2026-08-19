@@ -14,6 +14,10 @@ on:
       - 'data/design/canary_trojelsgaard2015_weighted_source_map.json'
       - 'scripts/acquire_canary_trojelsgaard2015_weighted.py'
       - 'scripts/analyze_canary_trojelsgaard2015_weighted.py'
+      - 'data/results/canary_trojelsgaard2015_weighted_source_lock.json'
+      - 'data/design/preregistered_source_native_weighted_tierb_v1.json'
+      - 'data/design/mauritius_kaiser_bunbury2009_weighted_source.json'
+      - 'scripts/acquire_audit_mauritius_kaiser_bunbury2009.py'
       - '.github/workflows/dore2021_tierb_raw_matrix.yml'
 
 concurrency:
@@ -28,8 +32,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install repository package
-        run: python -m pip install -e .
+      - name: Install repository package and source-audit dependencies
+        run: python -m pip install -e . xlrd
       - name: Acquire Zenodo v1 raw interaction table
         run: python scripts/acquire_dore2021_zenodo_raw_interactions.py
       - name: Audit raw schema and frozen Region_pub coverage
@@ -40,6 +44,8 @@ jobs:
         run: python scripts/acquire_canary_trojelsgaard2015_weighted.py
       - name: Analyze preregistered Canary island aggregations
         run: python scripts/analyze_canary_trojelsgaard2015_weighted.py
+      - name: Audit Mauritius Kaiser-Bunbury 2009 weighted workbook
+        run: python scripts/acquire_audit_mauritius_kaiser_bunbury2009.py
       - name: Show source and weighted-anchor gates
         run: |
           cat data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
@@ -47,6 +53,7 @@ jobs:
           cat data/results/olesen2002_tierb_weighted_anchor.json
           cat data/results/canary_trojelsgaard2015_weighted_source_gate.json
           cat data/results/canary_trojelsgaard2015_weighted_tierb.json
+          cat data/results/mauritius_kaiser_bunbury2009_weighted_source_audit.json
       - name: Upload Tier-B source artifact
         uses: actions/upload-artifact@v4
         with:
@@ -57,7 +64,9 @@ jobs:
             data/results/olesen2002_tierb_weighted_anchor.json
             data/results/canary_trojelsgaard2015_weighted_source_gate.json
             data/results/canary_trojelsgaard2015_weighted_tierb.json
+            data/results/mauritius_kaiser_bunbury2009_weighted_source_audit.json
             data/external/dore2021_zenodo_v1/network interaction data.txt
             data/external/olesen2002_iwdb/
             data/external/canary_trojelsgaard2015/
+            data/external/mauritius_kaiser_bunbury2009/
           if-no-files-found: warn
