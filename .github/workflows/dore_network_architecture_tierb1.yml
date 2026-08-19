@@ -1,0 +1,57 @@
+name: Dore network architecture Tier-B1
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/extract_dore2021_frozen_structure_targets.R'
+      - 'scripts/run_abm_v4_dore_structure_prediction.py'
+      - 'scripts/match_frozen_candidates_to_gift_geography.py'
+      - 'scripts/run_abm_v4_dore_named_system_prediction.py'
+      - 'scripts/run_abm_v4_global_continuous_isolation_gradient.py'
+      - 'data/results/frozen_dore_network_targets.csv'
+      - 'data/design/frozen_dore_candidate_network_locations.json'
+      - 'data/design/frozen_gift_entity_overrides_v1.json'
+      - '.github/workflows/dore_network_architecture_tierb1.yml'
+
+concurrency:
+  group: dore-architecture-tierb1-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install R source reader
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq r-base-core
+      - name: Extract frozen source-native structure metrics
+        run: Rscript scripts/extract_dore2021_frozen_structure_targets.R
+      - name: Rebuild source-locked island geography
+        run: python scripts/match_frozen_candidates_to_gift_geography.py
+      - name: Run Tier-B1 architecture transfer test
+        run: python scripts/run_abm_v4_dore_structure_prediction.py
+      - name: Show result
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v4_dore_structure_prediction.json'))
+          print('decision', x['decision'])
+          print('missing rows', x['missing_frozen_source_rows'])
+          print('primary coverage', x['primary_distance_ecdf']['coverage'])
+          print('primary summary', x['primary_distance_ecdf']['summary'])
+          print('secondary summary', x['secondary_geography_only_pc1']['summary'])
+          PY
+      - name: Upload architecture result
+        uses: actions/upload-artifact@v4
+        with:
+          name: dore-network-architecture-tierb1
+          path: |
+            data/results/dore2021_frozen_structure_source.csv
+            data/results/frozen_candidate_gift_geography_match.json
+            data/results/abm_v4_dore_structure_prediction.json
