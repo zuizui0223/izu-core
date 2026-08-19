@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.1",
+  "purpose": "Outcome-independent Ogasawara island-area lock for the held-out raw weighted-network capacity test, with GIFT retained only as a cross-source geography audit.",
+  "primary_area_source": {
+    "publisher": "Geospatial Information Authority of Japan (GSI)",
+    "title": "2026 Area Survey by Prefecture, Municipality, Lake and Island (2026-04-01)",
+    "url": "https://www.gsi.go.jp/KOKUJYOHO/MENCHO/backnumber/GSI-menseki20260401.pdf",
+    "table": "Island area, Tokyo, PDF page 86 / printed page 83",
+    "measurement_date": "2026-04-01",
+    "reason": "One authoritative national area table contains all four held-out Ogasawara islands. It replaces the invalid GIFT substring match of Ototojima to an unrelated To-jima before any biological result is admitted."
+  },
+  "gift_audit_source": "GIFT 3.2 extended API",
+  "targets": [
+    {
+      "source_island": "A_Chichijima",
+      "canonical_name": "Chichijima",
+      "japanese_name": "父島",
+      "aliases": ["Chichijima", "Chichi-jima"],
+      "gsi_area_km2": 23.45,
+      "gift_area_relative_tolerance": 0.25
+    },
+    {
+      "source_island": "B_Hahajima",
+      "canonical_name": "Hahajima",
+      "japanese_name": "母島",
+      "aliases": ["Hahajima", "Haha-jima"],
+      "gsi_area_km2": 19.89,
+      "gift_area_relative_tolerance": 0.25
+    },
+    {
+      "source_island": "C_Anijima",
+      "canonical_name": "Anijima",
+      "japanese_name": "兄島",
+      "aliases": ["Anijima", "Ani-jima"],
+      "gsi_area_km2": 7.88,
+      "gift_area_relative_tolerance": 0.25
+    },
+    {
+      "source_island": "D_Ototojima",
+      "canonical_name": "Ototojima",
+      "japanese_name": "弟島",
+      "aliases": ["Ototojima", "Ototo-jima"],
+      "gsi_area_km2": 5.20,
+      "gift_area_relative_tolerance": 0.25,
+      "gsi_map_sheet_gate": {
+        "source": "GSI 1:25,000 Ogasawara sheet 13-1 (Anijima)",
+        "latitude_min": 27.1208,
+        "latitude_max": 27.2042,
+        "longitude_min": 142.1219,
+        "longitude_max": 142.2469,
+        "purpose": "Reject homonymous/substring island entities outside the Chichijima island group; this is a geography-only QA gate."
+      }
+    }
+  ],
+  "primary_lock_rule": "Use the four GSI 2026 island areas exactly as frozen above. These values are independent of network outcomes and are verified against the official PDF before analysis.",
+  "gift_audit_rule": "GIFT is not the primary Ogasawara area source. A candidate must satisfy the frozen alias rule and be within 25% of the authoritative GSI area; Ototojima candidates must also lie inside the frozen GSI Anijima-sheet bounding box. A failed GIFT audit cannot be substituted into the primary area values.",
+  "claim_boundary": "This file repairs geography only. It does not alter the four source-native Ogasawara weighted networks, the PR #187 reference mapping, the predeclared ABM directions, permutation test, or decision thresholds."
+}
