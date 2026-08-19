@@ -8,18 +8,14 @@ if (!file.exists(raw_path)) {
   download.file(url, raw_path, mode = "wb", quiet = TRUE)
 }
 
-env <- new.env(parent = emptyenv())
-loaded <- load(raw_path, envir = env)
-objs <- mget(loaded, envir = env)
-is_df <- vapply(objs, is.data.frame, logical(1))
-if (!any(is_df)) stop("No data.frame object found in Dore RData")
-dfs <- objs[is_df]
-sizes <- vapply(dfs, nrow, integer(1))
-chosen_name <- names(which.max(sizes))
-df <- dfs[[chosen_name]]
+# Despite the .RData suffix, this source file is a single serialized R object
+# (gzip-compressed XDR; readRDS-compatible), not a multi-object save() workspace.
+obj <- readRDS(raw_path)
+if (!is.data.frame(obj)) stop("Dore serialized object is not a data.frame")
+df <- obj
 
 dir.create(dirname(out_path), recursive = TRUE, showWarnings = FALSE)
 write.csv(df, out_path, row.names = FALSE, fileEncoding = "UTF-8")
-cat("loaded_objects:", paste(loaded, collapse=","), "\n")
-cat("chosen_object:", chosen_name, "rows:", nrow(df), "cols:", ncol(df), "\n")
+cat("serialization: readRDS\n")
+cat("rows:", nrow(df), "cols:", ncol(df), "\n")
 cat("columns:", paste(names(df), collapse="|"), "\n")
