@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "analysis": "ogasawara_raw_weighted_capacity_falsification_runlock",
+  "pr": 189,
+  "merge_commit": "2fa2661cd75115da6dac7676c20c24db41ebeb97",
+  "final_head": "cb01f5e890cbd8faff6efde191ac06d478f8f990",
+  "workflow_run_id": 32261133268,
+  "workflow_name": "Ogasawara raw weighted capacity falsification",
+  "artifact_id": 9368307344,
+  "artifact_sha256": "d7b6dd795728f580e6ed91aaa5050cf8931b7dba0bba2fe08320519f527fc8b0",
+  "source_workbook_sha256": "4e0c4a293e2a522e67bc1f87f567249d45b42000b78eaef9d355e8658b1987a6",
+  "gsi_area_pdf_sha256": "802a6c092afe4952ab1ca12f8249bc96a3a14a5cd13bd06a6a2784acc3e0faa6",
+  "geography_repair": "The invalid preliminary GIFT substring match of Ototojima to To-jima was rejected before merge. The admitted run used the verified GSI 2026 island areas and retained GIFT only as a cross-source audit.",
+  "areas_km2": {
+    "A_Chichijima": 23.45,
+    "B_Hahajima": 19.89,
+    "C_Anijima": 7.88,
+    "D_Ototojima": 5.20
+  },
+  "decision": "ogasawara_raw_weighted_falsifies_both_capacity_directions",
+  "tests": {
+    "interaction_shannon": {
+      "predicted_direction": "decrease_with_stronger_capacity_constraint",
+      "spearman_rho": 0.2,
+      "exact_one_sided_p": 0.625,
+      "pairwise_concordant": 3,
+      "pairwise_discordant": 3
+    },
+    "plant_niche_overlap": {
+      "predicted_direction": "increase_with_stronger_capacity_constraint",
+      "spearman_rho": -0.8,
+      "exact_one_sided_p": 0.9583333333333334,
+      "pairwise_concordant": 1,
+      "pairwise_discordant": 5
+    }
+  },
+  "sampling_diagnostics": {
+    "capacity_vs_network_row_count": {
+      "spearman_rho": -1.0,
+      "exact_two_sided_p": 0.08333333333333333
+    },
+    "capacity_vs_total_visitation_rate": {
+      "spearman_rho": -0.8,
+      "exact_two_sided_p": 0.3333333333333333
+    }
+  },
+  "interpretation": "The simple scalar area/capacity refinement from PR #187 did not transfer to the held-out Ogasawara raw weighted Shannon-diversity and plant-niche-overlap directions.",
+  "claim_boundary": "This runlock records a one-archipelago directional falsification. It does not prove that area never matters, identify area causally, or falsify every ABM mechanism or every aggregate topology result."
+}
