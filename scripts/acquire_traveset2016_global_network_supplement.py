@@ -14,6 +14,7 @@ SUPPLEMENT_URL = (
     "https://onlinelibrary.wiley.com/action/downloadSupplement?"
     "doi=10.1111%2Fgeb.12362&file=geb12362-sup-0001-si.docx"
 )
+WEB_OF_LIFE_METADATA_URL = "https://www.web-of-life.es/get_network_info.php"
 
 NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 
@@ -108,6 +109,11 @@ def main() -> None:
         "doi": DOI,
         "supplement_url": args.url,
         "purpose": "recover Tables S1-S3 for island-level held-out ABM reconstruction",
+        "fallback_registry": {
+            "web_of_life_metadata_api": WEB_OF_LIFE_METADATA_URL,
+            "status": "candidate_source_for_original_network_matrices_and_metadata_only",
+            "non_substitution_rule": "Do not choose a new set of 18 oceanic islands from Web of Life. Traveset Table S1 membership must be source-locked before exact 2016 reconstruction; otherwise build a separately preregistered new global sample."
+        }
     }
     retrieval = retrieve(args.url, args.raw)
     gate["retrieval"] = retrieval
@@ -127,11 +133,15 @@ def main() -> None:
                 "required_tables_found": required.issubset(classified),
                 "status": "ready_for_schema_mapping" if required.issubset(classified) else "manual_table_mapping_required",
             }
-        except Exception as exc:  # preserve source-gate failure without inventing rows
+        except Exception as exc:
             gate["parse"] = {"status": "parse_failed", "error": repr(exc)}
             gate["admission"] = {"required_tables_found": False, "status": "blocked_parse"}
     else:
-        gate["admission"] = {"required_tables_found": False, "status": "blocked_source_retrieval"}
+        gate["admission"] = {
+            "required_tables_found": False,
+            "status": "blocked_source_retrieval",
+            "next_route": "search source-locked mirrors / author repositories for Table S1-S3 membership; use Web of Life only after network IDs are linked, or preregister a new global sample rather than back-selecting 18 networks"
+        }
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(gate, indent=2, ensure_ascii=False) + "\n")
