@@ -10,6 +10,7 @@ from pathlib import Path
 API = "https://gift.uni-goettingen.de/api/extended/index3.2.php"
 DORE = Path("data/design/frozen_dore_candidate_network_locations.json")
 IZU_POINTS = Path("configs/izu_island_proxy_points.json")
+OVERRIDES = Path("data/design/frozen_gift_entity_overrides_v1.json")
 OUT = Path("data/results/frozen_candidate_gift_geography_match.json")
 
 # Frozen before named-system ABM fit; aliases are geography/name disambiguators only.
@@ -92,8 +93,7 @@ def alias_score(aliases: list[str], entity: str) -> int:
         else:
             atoks = {t for t in a.split() if len(t) >= 4}
             etoks = set(e.split())
-            overlap = len(atoks & etoks)
-            score = max(score, overlap * 5)
+            score = max(score, len(atoks & etoks) * 5)
     return score
 
 
@@ -104,10 +104,29 @@ def numeric_or_none(value):
         return None
 
 
+def candidate_record(x, t, aliases):
+    entity = str(x.get("geo_entity") or x.get("geo_entity_ref") or "")
+    distance = haversine_km(t["latitude"], t["longitude"], x["latitude"], x["longitude"])
+    return {
+        "entity_ID": x.get("entity_ID"),
+        "geo_entity": entity,
+        "entity_class": x.get("entity_class"),
+        "alias_score": alias_score(aliases, entity),
+        "coordinate_distance_km": distance,
+        "longitude": x.get("longitude"),
+        "latitude": x.get("latitude"),
+        "area_km2": numeric_or_none(x.get("area")),
+        "distance_to_mainland_km": numeric_or_none(x.get("dist")),
+        "max_elevation_m": numeric_or_none(x.get("max_mx30_grd") if "max_mx30_grd" in x else x.get("max")),
+    }
+
+
 def main() -> None:
     regions = get_json(API + "?query=regions")
     misc = get_json(API + "?query=geoentities_env_misc&envvar=longitude,latitude,area,dist")
     elev = get_json(API + "?query=geoentities_env_raster&layername=mx30_grd&sumstat=max")
+    override_data = json.loads(OVERRIDES.read_text())
+    dore_overrides = override_data["dore_region_pub_entity_ID"]
 
     reg = {str(r.get("entity_ID")): r for r in regions}
     env = {}
@@ -117,9 +136,9 @@ def main() -> None:
         env.setdefault(str(r.get("entity_ID")), {}).update(r)
 
     islands = []
+    island_by_id = {}
     for eid, r in reg.items():
-        klass = str(r.get("entity_class", ""))
-        if "Island" not in klass:
+        if "Island" not in str(r.get("entity_class", "")):
             continue
         x = {**r, **env.get(eid, {})}
         lat, lon = numeric_or_none(x.get("latitude")), numeric_or_none(x.get("longitude"))
@@ -127,20 +146,21 @@ def main() -> None:
             continue
         x["latitude"], x["longitude"] = lat, lon
         islands.append(x)
+        island_by_id[str(x.get("entity_ID"))] = x
 
     targets = []
     dore = json.loads(DORE.read_text())
     for r in dore["rows"]:
-        aliases = REGION_ALIASES.get(r["region_pub"], [])
         targets.append({
             "kind": "dore_network_location",
             "system": r["system"],
             "target": r.get("location") or r.get("country_location") or r.get("region_pub"),
-            "aliases": aliases,
+            "aliases": REGION_ALIASES.get(r["region_pub"], []),
             "latitude": float(r["latitude"]),
             "longitude": float(r["longitude"]),
             "source_reference": r.get("reference_id"),
             "region_pub": r.get("region_pub"),
+            "frozen_entity_override": dore_overrides.get(r["region_pub"]),
         })
 
     izu = json.loads(IZU_POINTS.read_text())
@@ -155,38 +175,29 @@ def main() -> None:
             "latitude": float(p["latitude"]),
             "longitude": float(p["longitude"]),
             "coordinate_source": "configs/izu_island_proxy_points.json",
+            "frozen_entity_override": None,
         })
-    targets.append(YONGXING_TARGET)
+    targets.append({**YONGXING_TARGET, "frozen_entity_override": None})
 
     matches = []
     for t in targets:
-        ranked = []
-        for x in islands:
-            entity = str(x.get("geo_entity") or x.get("geo_entity_ref") or "")
-            ns = alias_score(t.get("aliases", []), entity)
-            distance = haversine_km(t["latitude"], t["longitude"], x["latitude"], x["longitude"])
-            # Primary ordering is coordinate distance; aliases decide whether a close island can be locked.
-            ranked.append((distance, -ns, x, ns))
-        ranked.sort(key=lambda z: (z[0], z[1]))
-        candidates = []
-        for distance, _, x, ns in ranked[:12]:
-            candidates.append({
-                "entity_ID": x.get("entity_ID"),
-                "geo_entity": x.get("geo_entity") or x.get("geo_entity_ref"),
-                "entity_class": x.get("entity_class"),
-                "alias_score": ns,
-                "coordinate_distance_km": distance,
-                "longitude": x.get("longitude"),
-                "latitude": x.get("latitude"),
-                "area_km2": numeric_or_none(x.get("area")),
-                "distance_to_mainland_km": numeric_or_none(x.get("dist")),
-                "max_elevation_m": numeric_or_none(x.get("max_mx30_grd") if "max_mx30_grd" in x else x.get("max")),
-            })
-        top = candidates[0] if candidates else None
-        # Exact/substring alias + geographically plausible centroid is required.
-        # Extremely close coordinate matches (<=10 km) may lock despite naming differences, useful for translated/local aliases.
-        auto_lock = bool(top and ((top["alias_score"] >= 40 and top["coordinate_distance_km"] <= 80) or top["coordinate_distance_km"] <= 10))
-        matches.append({**t, "auto_lock": auto_lock, "top_candidates": candidates})
+        aliases = t.get("aliases", [])
+        ranked = sorted((candidate_record(x, t, aliases) for x in islands), key=lambda c: (c["coordinate_distance_km"], -c["alias_score"]))
+        frozen_id = t.get("frozen_entity_override")
+        lock_source = None
+        top = None
+        if frozen_id is not None and str(frozen_id) in island_by_id:
+            top = candidate_record(island_by_id[str(frozen_id)], t, aliases)
+            # Geography-only overrides remain invalid if they drift wildly from the source coordinate.
+            auto_lock = top["coordinate_distance_km"] <= 80
+            lock_source = "frozen_geography_only_override" if auto_lock else "override_rejected_coordinate_discrepancy"
+            candidates = [top] + [c for c in ranked if str(c["entity_ID"]) != str(frozen_id)][:11]
+        else:
+            candidates = ranked[:12]
+            top = candidates[0] if candidates else None
+            auto_lock = bool(top and ((top["alias_score"] >= 40 and top["coordinate_distance_km"] <= 80) or top["coordinate_distance_km"] <= 10))
+            lock_source = "strict_coordinate_alias_rule" if auto_lock else "unresolved"
+        matches.append({**t, "auto_lock": auto_lock, "lock_source": lock_source, "top_candidates": candidates})
 
     payload = {
         "analysis": "frozen_candidate_gift_geography_match",
@@ -196,9 +207,9 @@ def main() -> None:
         "n_targets": len(targets),
         "n_auto_locked": sum(x["auto_lock"] for x in matches),
         "matches": matches,
-        "admission_rule": "Rank by geographic proximity. Auto-lock only when the nearest GIFT island is <=80 km and has exact/substring agreement with a preregistered explicit island alias (alias_score>=40), or is <=10 km from the source coordinate. Generic archipelago substring matches are not sufficient. No network outcome is used.",
-        "next_gate": "Review non-locked cases only from names/coordinates; freeze one GIFT entity_ID per actual sampled island. Yongxing may remain source-native-only if GIFT has no corresponding island entity. Then run the preregistered distance-ECDF ABM prediction without replacing systems or selecting saturation post hoc.",
-        "claim_boundary": "This is geography matching only. Ambiguous island-group/part matches are deliberately left unlocked. Source-native geography may be retained as a declared exception only when definitions are not silently treated as GIFT-equivalent.",
+        "admission_rule": "Use geography-only frozen entity overrides for Dore rows when coordinate discrepancy is <=80 km. Otherwise rank by proximity and auto-lock only exact/substring alias agreement within 80 km or an exceptionally close <=10 km coordinate match. No network outcome or ABM fit is used.",
+        "next_gate": "Run named-system prediction only on locked Dore rows with GIFT dist. Review unresolved Izu/Yongxing/Hawaii from geography sources only; do not replace systems or select saturation post hoc.",
+        "claim_boundary": "This is geography matching only. Null overrides remain excluded. Ambiguous island-group/part matches are deliberately left unlocked, and source-native geography is not silently treated as GIFT-equivalent.",
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
