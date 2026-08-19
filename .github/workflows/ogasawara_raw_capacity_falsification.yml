@@ -1,0 +1,54 @@
+name: Ogasawara raw weighted capacity falsification
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/ogasawara_gift_capacity_targets_v1.json'
+      - 'data/results/ogasawara/context_analysis/island_metrics.csv'
+      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
+      - 'scripts/match_ogasawara_to_gift_capacity.py'
+      - 'scripts/run_ogasawara_raw_weighted_capacity_falsification.py'
+      - 'scripts/match_frozen_candidates_to_gift_geography.py'
+      - 'tests/test_ogasawara_raw_weighted_capacity_falsification.py'
+      - '.github/workflows/ogasawara_raw_capacity_falsification.yml'
+
+concurrency:
+  group: ogasawara-raw-capacity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository test dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Rebuild frozen PR187 GIFT reference geography
+        run: python scripts/match_frozen_candidates_to_gift_geography.py
+      - name: Match held-out Ogasawara islands to GIFT area
+        run: python scripts/match_ogasawara_to_gift_capacity.py
+      - name: Run held-out raw weighted capacity falsification
+        run: python scripts/run_ogasawara_raw_weighted_capacity_falsification.py
+      - name: Run focused regression tests
+        run: python -m pytest -q tests/test_ogasawara_raw_weighted_capacity_falsification.py
+      - name: Show decision
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/ogasawara_raw_weighted_capacity_falsification.json'))
+          print('decision', x['decision'])
+          print('rows', x.get('rows'))
+          print('tests', x.get('tests'))
+          print('sampling diagnostics', x.get('sampling_diagnostics'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ogasawara-raw-weighted-capacity-falsification
+          path: |
+            data/results/frozen_candidate_gift_geography_match.json
+            data/results/ogasawara_gift_capacity_match.json
+            data/results/ogasawara_raw_weighted_capacity_falsification.json
