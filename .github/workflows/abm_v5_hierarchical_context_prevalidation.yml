@@ -1,0 +1,50 @@
+name: ABM v5 hierarchical context prevalidation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'scripts/prevalidate_abm_v5_hierarchical_context.py'
+      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
+      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
+      - 'tests/test_abm_v5_hierarchical_context.py'
+      - '.github/workflows/abm_v5_hierarchical_context_prevalidation.yml'
+
+concurrency:
+  group: abm-v5-hierarchical-context-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prevalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository test dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Freeze v5 mechanism contract
+        run: python scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py
+      - name: Run synthetic prevalidation
+        run: python scripts/prevalidate_abm_v5_hierarchical_context.py
+      - name: Run focused invariant tests
+        run: python -m pytest -q tests/test_abm_v5_hierarchical_context.py
+      - name: Enforce prevalidation gate
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v5_hierarchical_context_prevalidation.json'))
+          print('decision', x['decision'])
+          print('tests', x['tests'])
+          print('strength summary', x['strength_summary'])
+          if x['decision'] != 'v5_preserves_v4_opportunity_and_opens_local_architecture_branching':
+              raise SystemExit('v5 prevalidation failed; do not advance to empirical validation')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v5-hierarchical-context-prevalidation
+          path: |
+            data/results/constraint_mechanism_abm_v5_hierarchical_context.json
+            data/results/abm_v5_hierarchical_context_prevalidation.json
