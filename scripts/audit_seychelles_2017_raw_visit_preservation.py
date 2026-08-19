@@ -62,7 +62,7 @@ def main() -> None:
         "n_pollinators": len({row["higher"] for row in rows}),
         "preservation_tests": preservation,
         "secondary_raw_count_admission": raw_count_ready,
-        "primary_standardized_visitfreq_admission": false,
+        "primary_standardized_visitfreq_admission": False,
         "decision": "raw_no_visits_secondary_layer_preserved_primary_visitfreq_still_unrecovered" if raw_count_ready else "raw_count_preservation_incomplete",
         "date_warning": "Compilation cdate values are not used as the original study calendar. Original IWDB states months 1-8 correspond to September 2012-April 2013; only source grain IDs/site identities and visit events are used here.",
         "next_gate": "Use the preserved raw no.visits layer only as the prespecified secondary Seychelles sensitivity. Continue source recovery for the original standardized 64 networks_visitfreq workbook before opening the preregistered primary four-system Tier-B LOSO.",
