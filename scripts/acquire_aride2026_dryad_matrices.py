@@ -12,13 +12,17 @@ ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/abm_v5_aride_seasonal_validation_v1.json"
 RAW_DIR = ROOT / "data/external/aride_2026"
 OUT = ROOT / "data/results/aride2026_dryad_source_lock.json"
-BASE = "https://datadryad.org/downloads/file_stream/{}"
+BASE = "https://datadryad.org/api/v2/files/{}/download"
 
 
 def get_bytes(url: str, timeout: int = 120) -> bytes:
     req = urllib.request.Request(
         url,
-        headers={"User-Agent": "izu-core-source-audit/1.0", "Accept": "text/csv,*/*"},
+        headers={
+            "User-Agent": "izu-core-source-audit/1.0",
+            "Accept": "application/octet-stream,text/csv,*/*",
+            "X-API-Version": "2.1.0",
+        },
     )
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return response.read()
@@ -74,8 +78,8 @@ def main() -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     files = []
     for name in required:
-        stream_id = int(streams[name])
-        url = BASE.format(stream_id)
+        file_id = int(streams[name])
+        url = BASE.format(file_id)
         data = get_bytes(url)
         if len(data) < 100:
             raise RuntimeError(f"Dryad payload too small for {name}: {len(data)} bytes")
@@ -84,16 +88,18 @@ def main() -> None:
         path.write_bytes(data)
         files.append({
             "filename": name,
-            "file_stream_id": stream_id,
-            "url": url,
+            "dryad_file_id": file_id,
+            "download_endpoint": url,
+            "transport_note": "Current Dryad REST /api/v2/files/:id/download endpoint; the legacy /downloads/file_stream/:id route returned HTTP 403 to automated access.",
             "bytes": len(data),
             "sha256": sha256(data),
             "schema_audit": shape,
         })
     payload = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "aride2026_dryad_source_lock",
         "dryad_doi": design["held_out_system"]["dryad_doi"],
+        "dryad_api_version": "2.1.0",
         "required_weight_type": design["source_gate"]["required_weight_type"],
         "required_file_count": len(required),
         "recovered_file_count": len(files),
