@@ -9,7 +9,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TIER = ROOT / "scripts/run_abm_v4_dore_structure_prediction.py"
-RUNLOCK = ROOT / "data/results/abm_v4_dore_structure_prediction_runlock.json"
 OUT = ROOT / "data/results/abm_v4_topology_geography_diagnostic.json"
 SATURATIONS = (1.0, 1.5, 2.0, 2.5, 3.0)
 REPLICATES = 80
@@ -86,14 +85,14 @@ def evaluate_axis(tier, named, base_rows, z_key, curve):
         for target, abm_key in metric_to_abm.items():
             target_out = {}
             for group_label, group_key in (("leave_one_system_out", "system"), ("leave_one_stratum_out", "stratum")):
-                sampling = tier.grouped_cv(named, rows, target, group_key, "sampling_only")
+                controls = tier.grouped_cv(named, rows, target, group_key, "source_controls_only")
                 geography = tier.grouped_cv(named, rows, target, group_key, "geography_quadratic", z_key=z_key)
                 abm = tier.grouped_cv(named, rows, target, group_key, "abm", abm_key=abm_key)
                 target_out[group_label] = {
-                    "sampling_only": sampling,
+                    "source_controls_only": controls,
                     "geography_quadratic": geography,
-                    "abm_plus_sampling_design": abm,
-                    "abm_beats_sampling_mae": abm["mae_log"] < sampling["mae_log"],
+                    "abm_plus_source_controls": abm,
+                    "abm_beats_source_controls_mae": abm["mae_log"] < controls["mae_log"],
                     "abm_beats_geography_mae": abm["mae_log"] < geography["mae_log"],
                 }
             sat_out[target] = target_out
@@ -103,9 +102,9 @@ def evaluate_axis(tier, named, base_rows, z_key, curve):
         summary[target] = {}
         for group_label in ("leave_one_system_out", "leave_one_stratum_out"):
             geo_wins = sum(output[str(s)][target][group_label]["abm_beats_geography_mae"] for s in SATURATIONS)
-            sampling_wins = sum(output[str(s)][target][group_label]["abm_beats_sampling_mae"] for s in SATURATIONS)
+            controls_wins = sum(output[str(s)][target][group_label]["abm_beats_source_controls_mae"] for s in SATURATIONS)
             summary[target][group_label] = {
-                "saturations_beating_sampling": sampling_wins,
+                "saturations_beating_source_controls": controls_wins,
                 "saturations_beating_geography": geo_wins,
                 "robust_over_geography": geo_wins >= 4,
             }
@@ -123,19 +122,43 @@ def evaluate_axis(tier, named, base_rows, z_key, curve):
 def build():
     tier = load_tier()
     named = tier.load_named()
-    rows, missing, _ = tier.load_structure_rows(named)
+    rows, missing, incomplete, _ = tier.load_structure_rows(named)
+
+    # Recompute the corrected PR #188 primary reference from the same rows and
+    # response-specific source controls. Do not import the superseded PR #186 runlock.
+    primary = tier.evaluate_mapping(named, rows, "z_distance", "distance_ecdf")
+    primary_pass = primary["all_three_metrics_robust_at_system_and_stratum_level"]
+    primary_decision = (
+        "primary_mapping_has_robust_architecture_transfer_across_systems_and_strata"
+        if primary_pass
+        else "primary_mapping_does_not_have_robust_architecture_transfer_across_all_metrics_and_strata"
+    )
+
     rows = add_diagnostic_axes(rows)
     z_values = {r[k] for r in rows for k in ("z_small_area", "z_low_relief") if r.get(k) is not None}
     curve = precompute_abm_curve(named, z_values)
     area = evaluate_axis(tier, named, rows, "z_small_area", curve)
     relief = evaluate_axis(tier, named, rows, "z_low_relief", curve)
-    fixed = json.loads(RUNLOCK.read_text())
+
     return {
-        "analysis": "abm_v4_topology_geography_postresult_diagnostic",
+        "analysis": "abm_v4_topology_geography_postresult_diagnostic_corrected_source_design",
         "status": "post_result_mechanism_diagnosis_not_preregistered_confirmatory_test",
-        "fixed_reference": {
-            "distance_primary": fixed["primary_distance_ecdf"],
-            "geography_pc1_sensitivity": fixed["secondary_geography_pc1"],
+        "corrected_reference": {
+            "supersedes": "PR #186 measurement-layer result and its 26-row runlock",
+            "source_file": "Data/Filtered_Datasets/aggreg.webs_full_str_no_polar.RData",
+            "n_rows": len(rows),
+            "missing_frozen_source_rows_after_source_structure_filter": missing,
+            "incomplete_source_control_rows": incomplete,
+            "source_native_mandatory_controls": {
+                "Connectance": ["ln_sptot", "ln_SE", "ln_ATS", "Sampling_type"],
+                "Li": ["ln_pl", "ln_SE", "ln_ATS", "Sampling_type"],
+                "Lp": ["ln_ins", "ln_SE", "ln_ATS", "Sampling_type"],
+            },
+            "primary_distance_ecdf": {
+                "decision": primary_decision,
+                "coverage": primary["coverage"],
+                "summary": primary["summary"],
+            },
         },
         "diagnostic_axes": {
             "small_area_constraint": {
@@ -149,9 +172,8 @@ def build():
                 "result": relief,
             },
         },
-        "missing_source_rows": missing,
-        "interpretation_rule": "Use this diagnostic only to identify which pre-defined geography axis changes topology transfer class after the primary distance-only failure. Do not rename a successful diagnostic axis as the preregistered primary model and do not choose saturation post hoc.",
-        "next_gate": "If a consistent topology-specific geography layer emerges, encode it as a new hypothesis and validate it on raw quantitative matrices / independent strata rather than refitting the current six systems.",
+        "interpretation_rule": "Use this diagnostic only to identify whether a pre-defined area/capacity or relief axis changes topology transfer class after the corrected primary distance-only failure. Do not rename a successful diagnostic axis as the preregistered primary model and do not choose saturation post hoc.",
+        "next_gate": "Any topology-specific constraint suggested here requires validation on independent/raw-matrix data; this six-system post-result diagnostic cannot itself establish a new confirmatory geography mechanism.",
     }
 
 
