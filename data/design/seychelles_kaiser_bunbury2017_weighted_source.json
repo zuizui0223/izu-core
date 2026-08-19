@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "system": "Seychelles",
+  "source": "Kaiser-Bunbury et al. 2017",
+  "article_title": "Ecosystem restoration strengthens pollination network resilience and function",
+  "article_doi": "10.1038/nature21071",
+  "iwdb_page": "https://www.ecologia.ib.usp.br/iwdb/html/kaiser-bunbury_et_al_2017.html",
+  "source_design": {
+    "island": "Mahe, Seychelles",
+    "sites": ["Bernica", "Casse Dent", "Copolia", "La Reserve", "Rosebelle", "Salazie", "Tea Plantation", "Trois Freres"],
+    "treatments": "four restored and four unrestored sites",
+    "months": 8,
+    "network_count": 64,
+    "sampling_window": "September 2012 to April 2013",
+    "reported_observation_hours": 1525,
+    "reported_unique_links": 581,
+    "reported_pollinator_visits": 12235
+  },
+  "weight_families": {
+    "no_visits": "observed visit counts, not corrected for observation time, observed flowers or floral abundance",
+    "visitfreq": "standardized visitation frequency = visits/flower/hour multiplied by floral abundance"
+  },
+  "primary_tierb_weight_family": "visitfreq",
+  "secondary_sensitivity_weight_family": "no_visits",
+  "network_unit": "source-defined site x month network; all 64 networks remain nested within one Seychelles independent system",
+  "aggregation_rule": "Do not collapse the 64 networks into independent systems. Primary cross-system use retains source-defined site-month rows and withholds all Seychelles rows together. Treatment/month may be retained as measurement/design covariates, not used to select networks by fit.",
+  "claim_boundary": "Only flower visitors touching reproductive parts were retained by the source. Interaction weights measure visitation frequency/counts, not single-visit effectiveness or plant reproductive success. Primary/secondary weight families are fixed before metric inspection."
+}
