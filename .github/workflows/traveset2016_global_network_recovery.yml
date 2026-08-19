@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - 'scripts/acquire_traveset2016_global_network_supplement.py'
+      - 'scripts/audit_weboflife_global_pollination_coverage.py'
       - 'tests/test_traveset2016_global_network_supplement_gate.py'
       - '.github/workflows/traveset2016_global_network_recovery.yml'
 
@@ -16,15 +17,20 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run source gate
+      - name: Run Traveset supplement source gate
         run: python scripts/acquire_traveset2016_global_network_supplement.py
-      - name: Show gate state
-        run: cat data/results/traveset2016_global_network_supplement_gate.json
-      - name: Upload source-gate result
+      - name: Audit Web of Life global metadata pool
+        run: python scripts/audit_weboflife_global_pollination_coverage.py
+      - name: Show source states
+        run: |
+          cat data/results/traveset2016_global_network_supplement_gate.json
+          cat data/results/weboflife_global_pollination_coverage.json
+      - name: Upload source-gate results
         uses: actions/upload-artifact@v4
         with:
           name: traveset2016-global-network-recovery
           path: |
             data/results/traveset2016_global_network_supplement_gate.json
+            data/results/weboflife_global_pollination_coverage.json
             data/external/traveset2016/geb12362-sup-0001-si.docx
           if-no-files-found: warn
