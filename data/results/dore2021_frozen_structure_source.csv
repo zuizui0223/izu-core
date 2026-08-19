@@ -1,0 +1,27 @@
+"Region_pub","Location","Country_location","Land_type","Connectance","Li","Lp","full_insects","full_plants","sptot","Sampling_time","Annual_time_span","Sampling_type","Latitude_dec","Longitude_dec"
+"RP4","Cementerio de los Tajinastes, Tenerife, Canary Island","Canary Islands (Spain)","OI",0.262626262626263,2.88888888888889,9.45454545454546,36,11,47,145,30,"T",28.22,-16.63
+"RP17","Ile aux Aigrettes, Mauritian","Mauritius","OI",0.25,3.5,3,12,14,26,170,60,"TO",-20.42,57.73
+"RP18","Flores Island, Azores","Azores (Portugal)","OI",0.25,2.5,3,12,10,22,113,30,"TO",39.47,-31.14
+"RP36","Black River Gorges\nNational Park, Mauritius Island"," Mauritius","OI",0.0765023283317318,6.34969325153374,12.4698795180723,163,83,246,4002,183,"TO",-20.42,57.44
+"RP42","Mahe Island, Seychelles"," Seychelles","OI",0.11120246659815,3.89208633093525,15.4571428571429,139,35,174,2976,244,"TO",-4.66,55.45
+"RP47","Ka‘ena Point, O'ahu, Hawaii"," Hawaii","OI",0.298765432098765,4.48148148148148,8.06666666666667,27,15,42,128.5,30,"T",21.57,-158.27
+"RP100","El Hierro, Canary Islands","Canary Islands (Spain)","OI",0.156603773584906,1.56603773584906,8.3,53,10,63,42.1,71,"TO",27.8,-17.9
+"RP101","La Gomera, Canary Islands","Canary Islands (Spain)","OI",0.159574468085106,2.23404255319149,7.5,47,14,61,42.1,71,"TO",28.04,-17.23
+"RP102","Gran Canaria, Canary Islands","Canary Islands (Spain)","OI",0.183673469387755,2.02040816326531,9,49,11,60,42.1,71,"TO",27.9,-15.43
+"RP103","Fuerteventura, Canary Islands","Canary Islands (Spain)","OI",0.193181818181818,1.54545454545455,10.625,55,8,63,42.1,71,"TO",28.56,-13.89
+"RP154","Fernandina Island, Galapagos"," Galapagos Archipelago (Ecuador)","OI",0.115740740740741,2.08333333333333,6.94444444444444,60,18,78,103.6,30,"T",-0.31,-91.66
+"RP155","Pinta Island, Galapagos"," Galapagos Archipelago (Ecuador)","OI",0.0907142857142857,1.81428571428571,6.35,70,20,90,103.6,30,"T",0.54,-90.73
+"RP156","Santiago Island, Galapagos"," Galapagos Archipelago (Ecuador)","OI",0.101990049751244,2.44776119402985,6.83333333333333,67,24,91,103.6,30,"T",-0.21,-90.82
+"RP157","Santa Cruz Island, Galapagos"," Galapagos Archipelago (Ecuador)","OI",0.124559341950646,2.86486486486486,9.21739130434783,74,23,97,103.6,30,"T",-0.75,-90.32
+"RP158","San Cristobal Island, Galapagos"," Galapagos Archipelago (Ecuador)","OI",0.119815668202765,2.51612903225806,11.1428571428571,93,21,114,103.6,30,"T",-0.89,-89.61
+"RP160","Caletón Blanco, Lanzarote island, Spain"," Spain","OI",0.126851851851852,2.28333333333333,7.61111111111111,60,18,78,56.6,122,"TO",29.2,-13.42
+"RP163","Hawaii Volcanoes National Park, Hawaii"," Hawaii (USA)","OI",0.085,3.4,8.075,95,40,135,265,213,"TO",19.34,-155.27
+"RP164","Tenerife, Canary Islands","Canary Islands (Spain)","OI",0.100340136054422,2.40816326530612,9.83333333333333,98,24,122,84.2,71,"TO",28.29,-16.66
+"RP197","Las Conchas, Lanzarote island, Spain"," Spain","OI",0.133770491803279,3.34426229508197,8.16,61,25,86,80.9,122,"TO",29.28,-13.51
+"RP207","Terceira Island, Azores archipelago","Azores archipelago (Portugal)","OI",0.175,2.8,7,40,16,56,60,122,"T",38.74,-27.3
+"RP208","Terceira Island, Azores archipelago","Azores archipelago (Portugal)","OI",0.114345114345114,2.97297297297297,4.23076923076923,37,26,63,60,122,"T",38.77,-27.35
+"RP209","Terceira Island, Azores archipelago","Azores archipelago (Portugal)","OI",0.153125,3.675,6.125,40,24,64,60,122,"T",38.76,-27.19
+"RP210","Terceira Island, Azores archipelago","Azores archipelago (Portugal)","OI",0.214285714285714,3,6.42857142857143,30,14,44,60,122,"T",38.7,-27.2
+"RP211","Terceira Island, Azores archipelago","Azores archipelago (Portugal)","OI",0.21218487394958,2.97058823529412,7.21428571428571,34,14,48,60,122,"T",38.67,-27.11
+"RP222","","Canary Islands (Spain)","OI",0.323826500297089,5.50505050505051,32.0588235294118,99,17,116,670.6,30,"TO",28.21,-16.63
+"RP225","","Canary Islands (Spain)","OI",0.257575757575758,2.83333333333333,32.4545454545455,126,11,137,216.9,93,"TO",28.27,-16.62
