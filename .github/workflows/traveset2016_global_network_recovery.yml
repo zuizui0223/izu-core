@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - 'scripts/acquire_traveset2016_global_network_supplement.py'
+      - 'scripts/acquire_antillean_hummingbird_networks.py'
       - 'scripts/audit_weboflife_global_pollination_coverage.py'
       - 'scripts/build_preregistered_global_network_candidate_pool.py'
       - 'scripts/extract_dore2021_global_network_pool.R'
@@ -38,6 +39,8 @@ jobs:
         run: python scripts/audit_dore2021_global_network_pool.py
       - name: Build outcome-blind Dore oceanic candidate audit
         run: python scripts/build_dore2021_oceanic_island_candidate_audit.py
+      - name: Recover Antillean raw network source
+        run: python scripts/acquire_antillean_hummingbird_networks.py
       - name: Show source states
         run: |
           cat data/results/traveset2016_global_network_supplement_gate.json
@@ -48,10 +51,11 @@ jobs:
               'data/results/preregistered_global_network_candidate_pool.json',
               'data/results/dore2021_global_network_pool_audit.json',
               'data/results/dore2021_oceanic_island_candidate_audit.json',
+              'data/results/antillean_hummingbird_network_source_gate.json',
           ]:
               x=json.load(open(path))
               print('\n',path)
-              for k in ('status','rows','weighted_pollination_network_rows','raw_weighted_rows','deduplicated_location_reference_programs','source_labeled_OI_rows','candidate_system_count_by_stratum','release_condition_met_from_dore_alone'):
+              for k in ('status','rows','weighted_pollination_network_rows','raw_weighted_rows','deduplicated_location_reference_programs','source_labeled_OI_rows','candidate_system_count_by_stratum','release_condition_met_from_dore_alone','admission'):
                   if k in x: print(k, x[k])
               for k in ('geography_candidate_columns','sampling_candidate_columns','id_candidate_columns'):
                   if k in x: print(k, x[k])
@@ -67,7 +71,9 @@ jobs:
             data/results/preregistered_global_network_candidate_pool.json
             data/results/dore2021_global_network_pool_audit.json
             data/results/dore2021_oceanic_island_candidate_audit.json
+            data/results/antillean_hummingbird_network_source_gate.json
             data/external/traveset2016/geb12362-sup-0001-si.docx
             data/external/dore2021/aggreg.webs_full.RData
             data/external/dore2021/aggreg.webs_full.csv
+            data/external/antillean_hummingbird/Data_and_code.zip
           if-no-files-found: warn
