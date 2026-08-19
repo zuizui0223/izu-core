@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/acquire_traveset2016_global_network_supplement.py'
       - 'scripts/audit_weboflife_global_pollination_coverage.py'
+      - 'scripts/build_preregistered_global_network_candidate_pool.py'
       - 'tests/test_traveset2016_global_network_supplement_gate.py'
       - '.github/workflows/traveset2016_global_network_recovery.yml'
 
@@ -21,10 +22,22 @@ jobs:
         run: python scripts/acquire_traveset2016_global_network_supplement.py
       - name: Audit Web of Life global metadata pool
         run: python scripts/audit_weboflife_global_pollination_coverage.py
+      - name: Build outcome-blind deduplicated candidate pool
+        run: python scripts/build_preregistered_global_network_candidate_pool.py
       - name: Show source states
         run: |
           cat data/results/traveset2016_global_network_supplement_gate.json
-          cat data/results/weboflife_global_pollination_coverage.json
+          python - <<'PY'
+          import json
+          for path in [
+              'data/results/weboflife_global_pollination_coverage.json',
+              'data/results/preregistered_global_network_candidate_pool.json',
+          ]:
+              x=json.load(open(path))
+              print(path)
+              for k in ('weighted_pollination_network_rows','raw_weighted_rows','deduplicated_location_reference_programs'):
+                  if k in x: print(k, x[k])
+          PY
       - name: Upload source-gate results
         uses: actions/upload-artifact@v4
         with:
@@ -32,5 +45,6 @@ jobs:
           path: |
             data/results/traveset2016_global_network_supplement_gate.json
             data/results/weboflife_global_pollination_coverage.json
+            data/results/preregistered_global_network_candidate_pool.json
             data/external/traveset2016/geb12362-sup-0001-si.docx
           if-no-files-found: warn
