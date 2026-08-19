@@ -1,0 +1,49 @@
+name: ABM topology geography diagnostic
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_abm_v4_topology_geography_diagnostic.py'
+      - 'scripts/run_abm_v4_dore_structure_prediction.py'
+      - 'scripts/extract_dore2021_frozen_structure_targets.R'
+      - '.github/workflows/abm_topology_geography_diagnostic.yml'
+
+concurrency:
+  group: abm-topology-geography-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install R source reader
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq r-base-core
+      - name: Extract frozen Dore structure source
+        run: Rscript scripts/extract_dore2021_frozen_structure_targets.R
+      - name: Rebuild source-locked geography
+        run: python scripts/match_frozen_candidates_to_gift_geography.py
+      - name: Run post-result geography decomposition
+        run: python scripts/run_abm_v4_topology_geography_diagnostic.py
+      - name: Show diagnostic
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v4_topology_geography_diagnostic.json'))
+          for axis, payload in x['diagnostic_axes'].items():
+              print('\n', axis)
+              print(payload['result']['summary'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-topology-geography-diagnostic
+          path: |
+            data/results/dore2021_frozen_structure_source.csv
+            data/results/frozen_candidate_gift_geography_match.json
+            data/results/abm_v4_topology_geography_diagnostic.json
