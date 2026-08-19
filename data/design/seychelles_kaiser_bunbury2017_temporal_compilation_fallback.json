@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "role": "verified_secondary_compilation_fallback_for_original_source_delivery_failure",
+  "target_study": "Kaiser-Bunbury et al. 2017 Ecosystem restoration strengthens pollination network resilience and function",
+  "target_doi": "10.1038/nature21071",
+  "compilation_title": "Data from: Temporal scale-dependence of plant-pollinator networks",
+  "compilation_record": "https://zenodo.org/records/4744654",
+  "compilation_doi": "10.5061/dryad.qz612jmbp",
+  "files": [
+    {"filename":"OIK-07303_database.csv","url":"https://zenodo.org/records/4744654/files/OIK-07303_database.csv?download=1","published_md5":"7a70c3e2356611b0871c163a2f9aed4a"},
+    {"filename":"OIK-07303_original_studies.xlsx","url":"https://zenodo.org/records/4744654/files/OIK-07303_original_studies.xlsx?download=1","published_md5":"5db9f1b31fc27820e08aeff2b737ef13"}
+  ],
+  "source_notes": "The compilation explicitly recommends citing/using the original published data wherever possible and lists the original Kaiser-Bunbury 2017 IWDB source. This fallback is used only because the migrated original IWDB host currently fails TLS hostname verification in GitHub Actions.",
+  "admission_rule": "First recover bytes and verify published MD5s. Then identify the target study from OIK-07303_original_studies.xlsx by exact DOI/source reference before looking at interaction values. Only rows explicitly assigned to that study can be audited for preservation of the 64 source-defined networks and quantitative interaction weights.",
+  "claim_boundary": "A successful compilation recovery is not automatically equivalent to the original IWDB visitfreq workbook. Primary source-native Tier-B status requires either original bytes or demonstrated preservation of the original study's network identities and quantitative weights; otherwise this remains a secondary validation/fallback layer."
+}
