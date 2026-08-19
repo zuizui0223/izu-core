@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "frozen_before_metric_calculation": true,
+  "source_workbook": "kaiser-bunbury_2009.xls",
+  "source_sha256": "c22c9026139886e6b1296878eb75e00ac0233be334e65fe3ebed1ebf35f1fc57",
+  "sheet_roles": [
+    {"sheet":"Restored_visitation rate","treatment":"restored","weight_family":"visitation_rate","analysis_role":"primary"},
+    {"sheet":"Control_visitation rate","treatment":"control","weight_family":"visitation_rate","analysis_role":"primary"},
+    {"sheet":"Restored_interact strength","treatment":"restored","weight_family":"interaction_strength","analysis_role":"secondary_sensitivity"},
+    {"sheet":"Control_interact strength","treatment":"control","weight_family":"interaction_strength","analysis_role":"secondary_sensitivity"}
+  ],
+  "matrix_layout": {
+    "plant_names_row_1_based": 1,
+    "plant_first_column_1_based": 6,
+    "animal_header_row_1_based": 7,
+    "animal_first_data_row_1_based": 8,
+    "animal_name_column_1_based": 1,
+    "matrix_semantics": "animal rows x plant columns; transpose to plant rows x pollinator columns"
+  },
+  "selection_rule": "Roles are determined only from exact workbook sheet labels and the source description in the first cell. No Doré reconciliation or Tier-B metric value is used to select a sheet.",
+  "cross_system_unit_rule": "Restored and control networks are two nested observations within one Mauritius system and must be withheld together in any cross-system LOSO.",
+  "claim_boundary": "Primary visitation-rate weights are visits/flower/hour. Secondary interaction-strength weights multiply visitation rate by floral abundance. Neither is single-visit effectiveness or reproductive success."
+}

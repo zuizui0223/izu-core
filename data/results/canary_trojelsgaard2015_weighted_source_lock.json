@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "workflow_run": 32249865189,
+  "artifact_id": 9364013059,
+  "artifact_sha256": "f1755df97b1dae9c212d5150aaf2fb466d00dc37fc46716eb9a30a6a8f1e87ca",
+  "analysis": "canary_trojelsgaard2015_preregistered_weighted_tierb",
+  "source_doi": "10.5061/dryad.76173",
+  "source_recovery": {
+    "expected_site_files": 12,
+    "recovered_site_files": 12,
+    "missing_site_files": 0,
+    "matrix_semantics": "pollinator rows x plant columns; cell values are total observed visits"
+  },
+  "preregistered_aggregation": {
+    "RP100": {"island":"El Hierro","sites":[13,14],"source":{"plants":10,"pollinators":54,"links":94,"visits":2129.0,"interaction_shannon":3.3340373141735593,"mean_plant_niche_overlap_morisita_horn":0.3288743392094844},"dore_frozen":{"pollinators":53,"links":83},"topology_exact":false},
+    "RP101": {"island":"La Gomera","sites":[11,12],"source":{"plants":17,"pollinators":48,"links":119,"visits":1624.0,"interaction_shannon":3.327157927548523,"mean_plant_niche_overlap_morisita_horn":0.3878983660040979},"dore_frozen":{"pollinators":47,"links":105},"topology_exact":false},
+    "RP102": {"island":"Gran Canaria","sites":[5,6],"source":{"plants":21,"pollinators":62,"links":121,"visits":1005.0,"interaction_shannon":3.5173593294443983,"mean_plant_niche_overlap_morisita_horn":0.35687072257894814},"dore_frozen":{"pollinators":49,"links":99},"topology_exact":false},
+    "RP103": {"island":"Fuerteventura","sites":[3,4],"source":{"plants":18,"pollinators":59,"links":96,"visits":1086.0,"interaction_shannon":3.084530881386787,"mean_plant_niche_overlap_morisita_horn":0.39757142753715047},"dore_frozen":{"pollinators":55,"links":85},"topology_exact":false},
+    "RP164": {"island":"Tenerife","sites":[7,8,9,10],"source":{"plants":27,"pollinators":113,"links":332,"visits":7121.0,"interaction_shannon":4.425326640029568,"mean_plant_niche_overlap_morisita_horn":0.4706155698038922},"dore_frozen":{"pollinators":98,"links":236},"topology_exact":false}
+  },
+  "exact_dore_frozen_anchor_count": 0,
+  "source_native_weighted_system_available": true,
+  "decision": "all_canary_weighted_sources_recovered_but_dore_filter_reconciliation_not_recovered",
+  "interpretation": "The original quantitative Canary matrices are usable as a source-native weighted-network system, but the preregistered island aggregation is not numerically identical to the frozen Doré aggregate rows. The site groups are not altered after seeing the mismatch.",
+  "next_gate": "Keep Canary in a separately preregistered source-native weighted Tier-B layer. Recover additional independent quantitative systems before any cross-system Tier-B LOSO. Do not call these five island aggregations Doré-identical estimands unless the source-to-Doré filtering transformation is independently reconstructed.",
+  "claim_boundary": "Visit-frequency matrices support weighted interaction diversity and plant niche-overlap analogues. They do not measure pollinator effectiveness or reproductive success. Zero exact Doré reconciliation is retained as a result and does not trigger post-hoc site selection."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "system": "Mauritius",
+  "source": "Kaiser-Bunbury, Memmott & Müller 2009",
+  "article_title": "Community structure of pollination webs of Mauritian heathland habitats",
+  "article_doi": "10.1016/j.ppees.2009.04.001",
+  "iwdb_page": "https://iwdb.nceas.ucsb.edu/html/kaiser-bunbury_2009.html",
+  "iwdb_excel": "https://iwdb.nceas.ucsb.edu/data/plant_pollinator/excel/kaiser-bunbury_2009.xls",
+  "source_design": {
+    "networks": ["heavily invaded control site", "restored site with introduced plants removed"],
+    "weight_families": [
+      "visitation rate based on visits per flower per hour, averaged by total observation time",
+      "fully quantitative interaction data accounting for total floral abundance at a site"
+    ]
+  },
+  "primary_tierb_weight_family": "visitation_rate",
+  "primary_choice_reason": "fixed from the source's explicit visitation-rate definition before metric inspection; the fully quantitative matrices are retained as a prespecified sensitivity if source sheet identity is unambiguous",
+  "aggregation_rule": "Do not combine control and restored networks for primary source-native Tier-B. They are nested network observations within the single Mauritius system and must be held out together in cross-system validation.",
+  "claim_boundary": "Visitation rate/interaction strength is a quantitative flower-visitation measure, not single-visit pollinator effectiveness or reproductive success. Workbook sheets must be identified from source labels/layout, not by which metric values best match Doré."
+}

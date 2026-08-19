@@ -1,0 +1,91 @@
+name: Dore 2021 Tier-B raw matrix
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/acquire_dore2021_zenodo_raw_interactions.py'
+      - 'scripts/audit_dore2021_zenodo_raw_interactions.py'
+      - 'data/results/dore2021_zenodo_v1_raw_interaction_source_lock.json'
+      - 'data/design/frozen_dore_candidate_network_locations.json'
+      - 'data/design/olesen2002_tierb_weighted_source_map.json'
+      - 'scripts/acquire_analyze_olesen2002_tierb_weighted.py'
+      - 'data/results/olesen2002_tierb_weighted_anchor_source_lock.json'
+      - 'data/design/canary_trojelsgaard2015_weighted_source_map.json'
+      - 'scripts/acquire_canary_trojelsgaard2015_weighted.py'
+      - 'scripts/analyze_canary_trojelsgaard2015_weighted.py'
+      - 'data/results/canary_trojelsgaard2015_weighted_source_lock.json'
+      - 'data/design/preregistered_source_native_weighted_tierb_v1.json'
+      - 'data/design/mauritius_kaiser_bunbury2009_weighted_source.json'
+      - 'data/design/mauritius_kaiser_bunbury2009_sheet_roles.json'
+      - 'scripts/acquire_audit_mauritius_kaiser_bunbury2009.py'
+      - 'scripts/analyze_mauritius_kaiser_bunbury2009_weighted.py'
+      - 'data/results/mauritius_kaiser_bunbury2009_weighted_source_lock.json'
+      - 'data/design/seychelles_kaiser_bunbury2017_weighted_source.json'
+      - 'scripts/acquire_audit_seychelles_kaiser_bunbury2017.py'
+      - 'data/design/seychelles_kaiser_bunbury2017_temporal_compilation_fallback.json'
+      - 'scripts/audit_seychelles_2017_temporal_compilation_fallback.py'
+      - 'scripts/audit_seychelles_2017_raw_visit_preservation.py'
+      - '.github/workflows/dore2021_tierb_raw_matrix.yml'
+
+concurrency:
+  group: dore-tierb-raw-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository package and source-audit dependencies
+        run: python -m pip install -e . xlrd openpyxl
+      - name: Acquire Zenodo v1 raw interaction table
+        run: python scripts/acquire_dore2021_zenodo_raw_interactions.py
+      - name: Audit raw schema and frozen Region_pub coverage
+        run: python scripts/audit_dore2021_zenodo_raw_interactions.py
+      - name: Recover and analyze Olesen 2002 frequency matrices
+        run: python scripts/acquire_analyze_olesen2002_tierb_weighted.py
+      - name: Recover Canary Trøjelsgaard 2015 weighted matrices
+        run: python scripts/acquire_canary_trojelsgaard2015_weighted.py
+      - name: Analyze preregistered Canary island aggregations
+        run: python scripts/analyze_canary_trojelsgaard2015_weighted.py
+      - name: Audit Mauritius Kaiser-Bunbury 2009 weighted workbook
+        run: python scripts/acquire_audit_mauritius_kaiser_bunbury2009.py
+      - name: Analyze frozen Mauritius weighted sheets
+        run: python scripts/analyze_mauritius_kaiser_bunbury2009_weighted.py
+      - name: Audit original Seychelles Kaiser-Bunbury 2017 source route
+        run: python scripts/acquire_audit_seychelles_kaiser_bunbury2017.py
+      - name: Audit verified Seychelles temporal-compilation fallback
+        run: python scripts/audit_seychelles_2017_temporal_compilation_fallback.py
+      - name: Verify Seychelles raw no-visits preservation
+        run: python scripts/audit_seychelles_2017_raw_visit_preservation.py
+      - name: Show current Tier-B gates
+        run: |
+          cat data/results/mauritius_kaiser_bunbury2009_weighted_tierb.json
+          cat data/results/seychelles_2017_temporal_compilation_fallback_audit.json
+          cat data/results/seychelles_2017_raw_visit_preservation.json
+      - name: Upload Tier-B source artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dore2021-tierb-raw-matrix
+          path: |
+            data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
+            data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
+            data/results/olesen2002_tierb_weighted_anchor.json
+            data/results/canary_trojelsgaard2015_weighted_source_gate.json
+            data/results/canary_trojelsgaard2015_weighted_tierb.json
+            data/results/mauritius_kaiser_bunbury2009_weighted_source_audit.json
+            data/results/mauritius_kaiser_bunbury2009_weighted_tierb.json
+            data/results/seychelles_kaiser_bunbury2017_weighted_source_audit.json
+            data/results/seychelles_2017_temporal_compilation_fallback_audit.json
+            data/results/seychelles_2017_raw_visit_preservation.json
+            data/external/dore2021_zenodo_v1/network interaction data.txt
+            data/external/olesen2002_iwdb/
+            data/external/canary_trojelsgaard2015/
+            data/external/mauritius_kaiser_bunbury2009/
+            data/external/seychelles_kaiser_bunbury2017/
+            data/external/seychelles_temporal_compilation/
+          if-no-files-found: warn

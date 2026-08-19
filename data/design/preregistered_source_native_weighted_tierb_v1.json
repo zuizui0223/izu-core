@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "registered_on": "2026-08-19",
+  "purpose": "Test whether the frozen ABM v4 isolation/opportunity mechanism transfers from coarse network size (Tier-A) to weighted interaction architecture (Tier-B) using original quantitative network sources without forcing them into a single Doré filtering pipeline.",
+  "prospective_status": "Azores and Canary weighted values were already recovered before this registry; Mauritius and Seychelles source recovery, ABM Tier-B observation mapping, cross-system fit and all model-comparison decisions below are fixed before inspecting Mauritius/Seychelles weighted Tier-B values.",
+  "independent_system_unit": "named oceanic-island archipelago/study system; nested sites/seasons do not increase independent system n",
+  "systems": [
+    {
+      "system": "Azores",
+      "source": "Olesen et al. 2002 / IWDB Flores frequency matrix",
+      "role": "exact_Dore_reconciliation_anchor_and_source_native_weighted_system",
+      "network_unit": "Flores island network"
+    },
+    {
+      "system": "Canary Islands",
+      "source": "Trøjelsgaard et al. 2015 / Dryad 10.5061/dryad.76173",
+      "role": "source_native_weighted_system_not_Dore_identical",
+      "network_unit": "five preregistered island aggregations: El Hierro, La Gomera, Gran Canaria, Fuerteventura, Tenerife"
+    },
+    {
+      "system": "Mauritius",
+      "source": "Kaiser-Bunbury et al. 2009 / Interaction Web Database",
+      "role": "prospective_source_native_weighted_system",
+      "network_unit": "source-defined invaded/control and restored heathland networks; source design determines whether they are analyzed separately or as a transparently declared aggregate"
+    },
+    {
+      "system": "Seychelles",
+      "source": "Kaiser-Bunbury et al. 2017 restoration networks / original public interaction source",
+      "role": "prospective_source_native_weighted_system",
+      "network_unit": "source-defined restoration/control site-time networks; nested observations are clustered within Seychelles"
+    }
+  ],
+  "source_admission_rules": [
+    "Interaction weights must be explicitly provided by the original/public quantitative source (visit counts, visitation frequency/rate, or another source-defined nonnegative interaction intensity).",
+    "A topology-only database is insufficient for weighted Tier-B and must not be converted into pseudo-counts from repeated rows.",
+    "Source-defined aggregation/grouping is fixed from methods/site identity before inspecting Tier-B metric fit.",
+    "Mismatch to Doré filtered aggregates does not trigger post-hoc deletion or regrouping; such systems remain source-native rather than Doré-identical.",
+    "Missing source delivery is not biological zero and excludes only that network from the quantitative layer."
+  ],
+  "empirical_targets": {
+    "interaction_diversity": {
+      "metric": "Shannon entropy of all positive source interaction weights normalized by total weight",
+      "implementation": "channel_id.external_archipelago_network.network_metrics: interaction_shannon"
+    },
+    "plant_niche_overlap": {
+      "metric": "mean pairwise Morisita-Horn overlap among plant pollinator-weight vectors",
+      "implementation": "channel_id.external_archipelago_network.network_metrics: mean_plant_niche_overlap_morisita_horn"
+    }
+  },
+  "abm_observation_mapping_to_freeze_before_cross_system_fit": {
+    "interaction_weights": "derive a nonnegative plant-by-pollinator opportunity matrix from the frozen v4 encounter/service process under the fixed total visit-budget interpretation; normalization may remove arbitrary total scale but may not use empirical Tier-B outcomes",
+    "interaction_diversity": "apply the same Shannon formula as empirical networks to ABM pair weights",
+    "plant_niche_overlap": "apply the same Morisita-Horn formula as empirical networks to ABM plant-by-pollinator weight vectors",
+    "saturation_values": [1.0, 1.5, 2.0, 2.5, 3.0],
+    "posthoc_rule": "all saturation values are reported; no preferred saturation may be selected from Tier-B fit"
+  },
+  "geography": {
+    "primary": "same GIFT nearest-mainland distance ECDF mapping fixed in Tier-A",
+    "secondary": "same geography-only PC1 sensitivity where all required fields are available",
+    "no_reselection": true
+  },
+  "validation_design": {
+    "primary_holdout": "leave one whole named system out",
+    "minimum_systems_for_formal_loso": 4,
+    "nested_rows": "sites/islands/seasons within a system may contribute observations but the full system is withheld together",
+    "baseline_1": "source-size/sampling-design baseline using only prespecified observation-design/topology-size covariates available without Tier-B metric values",
+    "baseline_2": "nonmechanistic geography plus the same source-size/sampling layer",
+    "mechanistic_model": "ABM Tier-B feature plus the same source-size/sampling layer",
+    "reporting": "absolute prediction error and system-level fold results for every saturation; do not select systems by fit"
+  },
+  "success_rule": "A mechanistic predictive-gain claim requires the ABM model to outperform the nonmechanistic geography baseline for the same target in at least 4 of 5 saturation settings, with no system replacement. Target-specific success/failure is reported separately; one target cannot rescue the other.",
+  "anti_overclaim": [
+    "Source-native weighted systems are not called the same Doré estimand unless exact filtering reconciliation is independently demonstrated.",
+    "Visitation weights are not pollinator effectiveness or reproductive success.",
+    "Four systems support a first cross-system transfer test, not a universal global prevalence estimate.",
+    "Failure of Tier-B does not erase Tier-A predictive gain; it limits transfer from network size to weighted architecture."
+  ]
+}

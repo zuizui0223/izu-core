@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "workflow_run": 32252820196,
+  "artifact_id": 9365116806,
+  "artifact_sha256": "a913a6fa43f056eadb4b0fed5f46cefe4f46d8e4c442856d5c495278901fa871",
+  "analysis": "mauritius_kaiser_bunbury2009_source_native_weighted_tierb",
+  "source_sha256": "c22c9026139886e6b1296878eb75e00ac0233be334e65fe3ebed1ebf35f1fc57",
+  "independent_system": "Mauritius",
+  "nested_network_count": 2,
+  "primary_weight_family": "visitation_rate",
+  "primary": {
+    "restored": {"interaction_shannon": 5.0420534767994125, "mean_plant_niche_overlap_morisita_horn": 0.20545981430288943, "n_plants": 73, "n_pollinators": 135, "n_positive_links": 744},
+    "control": {"interaction_shannon": 4.952920784324567, "mean_plant_niche_overlap_morisita_horn": 0.23398407579212413, "n_plants": 58, "n_pollinators": 100, "n_positive_links": 534}
+  },
+  "secondary_weight_family": "interaction_strength",
+  "secondary": {
+    "restored": {"interaction_shannon": 4.43197803539187, "mean_plant_niche_overlap_morisita_horn": 0.20552505918395197},
+    "control": {"interaction_shannon": 4.700205734014403, "mean_plant_niche_overlap_morisita_horn": 0.23456090530284818}
+  },
+  "decision": "mauritius_source_native_weighted_tierb_ready",
+  "claim_boundary": "Restored and control are nested observations within one Mauritius system and must be held out together. Visitation rate and interaction strength are quantitative flower-visitation measures, not pollinator effectiveness or reproductive success."
+}

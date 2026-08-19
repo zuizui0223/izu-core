@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "source_title": "Geographical variation in mutualistic networks: similarity, turnover and partner fidelity",
+  "source_doi": "10.5061/dryad.76173",
+  "dryad_landing_page": "https://datadryad.org/dataset/doi:10.5061/dryad.76173",
+  "institutional_record_mirror": "https://zenodo.org/record/4998598",
+  "institutional_mirror_evidence": "Aalborg University research portal lists Zenodo record 4998598 as an access link for the Dryad dataset.",
+  "source_semantics": "CSV matrices have pollinator rows and plant columns; cell values are total observed visits.",
+  "site_files": [
+    {"site":3,"filename":"Site3_Fuerteventura1.csv","dryad_file_id":54137,"island":"Fuerteventura"},
+    {"site":4,"filename":"Site4_Fuerteventura2.csv","dryad_file_id":54138,"island":"Fuerteventura"},
+    {"site":5,"filename":"Site5_GranCanaria1.csv","dryad_file_id":54139,"island":"Gran Canaria"},
+    {"site":6,"filename":"Site6_GranCanaria2.csv","dryad_file_id":54140,"island":"Gran Canaria"},
+    {"site":7,"filename":"Site7_TenerifeSouth1.csv","dryad_file_id":54141,"island":"Tenerife"},
+    {"site":8,"filename":"Site8_TenerifeSouth2.csv","dryad_file_id":54142,"island":"Tenerife"},
+    {"site":9,"filename":"Site9_TenerifeTeno1.csv","dryad_file_id":54143,"island":"Tenerife"},
+    {"site":10,"filename":"Site10_TenerifeTeno2.csv","dryad_file_id":54144,"island":"Tenerife"},
+    {"site":11,"filename":"Site11_Gomera1.csv","dryad_file_id":54145,"island":"La Gomera"},
+    {"site":12,"filename":"Site12_Gomera2.csv","dryad_file_id":54146,"island":"La Gomera"},
+    {"site":13,"filename":"Site13_Hierro1.csv","dryad_file_id":54147,"island":"El Hierro"},
+    {"site":14,"filename":"Site14_Hierro2.csv","dryad_file_id":54148,"island":"El Hierro"}
+  ],
+  "frozen_island_aggregation": [
+    {"region_pub":"RP100","island":"El Hierro","site_files":["Site13_Hierro1.csv","Site14_Hierro2.csv"],"dore_pollinator_richness":53,"dore_link_richness":83},
+    {"region_pub":"RP101","island":"La Gomera","site_files":["Site11_Gomera1.csv","Site12_Gomera2.csv"],"dore_pollinator_richness":47,"dore_link_richness":105},
+    {"region_pub":"RP102","island":"Gran Canaria","site_files":["Site5_GranCanaria1.csv","Site6_GranCanaria2.csv"],"dore_pollinator_richness":49,"dore_link_richness":99},
+    {"region_pub":"RP103","island":"Fuerteventura","site_files":["Site3_Fuerteventura1.csv","Site4_Fuerteventura2.csv"],"dore_pollinator_richness":55,"dore_link_richness":85},
+    {"region_pub":"RP164","island":"Tenerife","site_files":["Site7_TenerifeSouth1.csv","Site8_TenerifeSouth2.csv","Site9_TenerifeTeno1.csv","Site10_TenerifeTeno2.csv"],"dore_pollinator_richness":98,"dore_link_richness":236}
+  ],
+  "aggregation_rule": "Before inspecting Tier-B metrics, sum visit counts for identical plant-pollinator taxon pairs across all preregistered site files belonging to the frozen island row; union taxon identities across sites. Reconciliation to Doré richness/link counts is a validation gate, not a rule for choosing sites.",
+  "claim_boundary": "These are quantitative flower-visitation networks. They do not measure pollinator effectiveness or reproductive outcome. A frozen row is admitted to Tier-B only if the preregistered site aggregation can be source-recovered and topology reconciliation is explicit."
+}
