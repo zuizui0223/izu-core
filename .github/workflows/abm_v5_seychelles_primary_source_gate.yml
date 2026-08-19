@@ -1,0 +1,47 @@
+name: ABM v5 Seychelles primary source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v5_seychelles_primary_validation_v1.json'
+      - 'data/design/seychelles_kaiser_bunbury2017_weighted_source.json'
+      - 'scripts/acquire_audit_seychelles_kaiser_bunbury2017.py'
+      - '.github/workflows/abm_v5_seychelles_primary_source_gate.yml'
+
+concurrency:
+  group: abm-v5-seychelles-source-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source readers
+        run: python -m pip install openpyxl xlrd
+      - name: Re-audit original IWDB source page and Excel candidates
+        run: python scripts/acquire_audit_seychelles_kaiser_bunbury2017.py
+      - name: Show source gate only
+        run: |
+          python - <<'PY'
+          import json
+          p='data/results/seychelles_kaiser_bunbury2017_weighted_source_audit.json'
+          x=json.load(open(p))
+          print('status', x.get('status'))
+          print('recovered Excel files', x.get('recovered_excel_file_count'))
+          for f in x.get('recovered_excel_files', []):
+              print(f.get('filename'), f.get('bytes'), f.get('sha256'))
+              print('sheets', [(s.get('name'), s.get('nrows'), s.get('ncols')) for s in f.get('sheets', [])])
+          print('next gate', x.get('next_gate'))
+          print('No network metric is calculated in this workflow.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v5-seychelles-primary-source-gate
+          path: |
+            data/results/seychelles_kaiser_bunbury2017_weighted_source_audit.json
+            data/external/seychelles_kaiser_bunbury2017/**
