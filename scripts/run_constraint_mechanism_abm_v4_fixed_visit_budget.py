@@ -34,6 +34,7 @@ class LineageState:
     trait: float
     assurance: float = 0.08
     reproduction: float = 0.0
+    best_match: float = 0.0
 
 
 @dataclass
@@ -125,6 +126,11 @@ def run_scenario(
                     lin.template.assurance_ceiling,
                     lin.assurance + lin.template.assurance_responsiveness,
                 )
+
+    # Observation-only extension for held-out validation; does not change dynamics.
+    for lin in lineages:
+        scores = [encounter_score(lin, p) for p in pollinators]
+        lin.best_match = max(scores) if scores else 0.0
     return lineages
 
 
@@ -134,6 +140,7 @@ def paired_run(seed: int, saturation: float, n_lineages: int = 16, steps: int = 
     m = run_scenario(templates, mainland, seed + 100_000, steps, saturation)
     o = run_scenario(templates, oceanic, seed + 200_000, steps, saturation)
     deltas = [oo.reproduction - mm.reproduction for mm, oo in zip(m, o)]
+    match_deltas = [oo.best_match - mm.best_match for mm, oo in zip(m, o)]
     eps = 1e-9
     return {
         "positive": sum(d > eps for d in deltas),
@@ -142,6 +149,10 @@ def paired_run(seed: int, saturation: float, n_lineages: int = 16, steps: int = 
         "mean_delta": sum(deltas) / len(deltas),
         "mean_mainland_reproduction": sum(x.reproduction for x in m) / len(m),
         "mean_oceanic_reproduction": sum(x.reproduction for x in o) / len(o),
+        "best_match_lower": sum(d < -eps for d in match_deltas),
+        "best_match_higher": sum(d > eps for d in match_deltas),
+        "best_match_equal": sum(abs(d) <= eps for d in match_deltas),
+        "mean_best_match_delta": sum(match_deltas) / len(match_deltas),
     }
 
 
@@ -162,6 +173,10 @@ def summarize(rows: list[dict]) -> dict:
         "mean_delta": sum(r["mean_delta"] for r in rows) / len(rows),
         "mean_mainland_reproduction": sum(r["mean_mainland_reproduction"] for r in rows) / len(rows),
         "mean_oceanic_reproduction": sum(r["mean_oceanic_reproduction"] for r in rows) / len(rows),
+        "best_match_lower": sum(r["best_match_lower"] for r in rows),
+        "best_match_higher": sum(r["best_match_higher"] for r in rows),
+        "best_match_equal": sum(r["best_match_equal"] for r in rows),
+        "mean_best_match_delta": sum(r["mean_best_match_delta"] for r in rows) / len(rows),
     }
 
 
