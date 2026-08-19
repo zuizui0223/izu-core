@@ -9,244 +9,163 @@ from pathlib import Path
 
 CONTEXT = Path("data/results/ogasawara/context_analysis/context_metrics.csv")
 ISLAND = Path("data/results/ogasawara/context_analysis/island_metrics.csv")
-AREA_RESULT = Path("data/results/ogasawara_raw_weighted_capacity_falsification.json")
+AREA_RUNLOCK = Path("data/results/ogasawara_raw_weighted_capacity_falsification_runlock.json")
 OUT = Path("data/results/ogasawara_within_island_context_sensitivity.json")
-
 SEASONS = ("A_MAY", "B_JULY", "C_SEP")
 METRICS = {
     "interaction_shannon": "interaction_shannon",
     "plant_niche_overlap": "mean_plant_niche_overlap_morisita_horn",
 }
-SAMPLE_DIAGNOSTICS = {
-    "source_network_rows": "n_long_rows",
-    "total_visitation_rate": "total_visitation_rate",
-}
+SAMPLE = {"source_network_rows": "n_long_rows", "total_visitation_rate": "total_visitation_rate"}
 
 
-def finite_float(value):
+def num(value):
     try:
-        number = float(value)
+        value = float(value)
     except (TypeError, ValueError):
         return None
-    return number if math.isfinite(number) else None
+    return value if math.isfinite(value) else None
 
 
-def sign_test_two_sided(values: list[float]) -> float | None:
-    nonzero = [value for value in values if value != 0]
-    n = len(nonzero)
-    if n == 0:
-        return None
-    positives = sum(value > 0 for value in nonzero)
-    k = min(positives, n - positives)
-    probability = 2.0 * sum(comb(n, i) for i in range(k + 1)) / (2**n)
-    return min(1.0, probability)
-
-
-def load_csv(path: Path) -> list[dict]:
+def read_csv(path):
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
 
 
-def select_one(rows: list[dict], **filters) -> dict:
-    hits = []
-    for row in rows:
-        if all(str(row.get(key, "")) == str(value) for key, value in filters.items()):
-            hits.append(row)
+def one(rows, **filters):
+    hits = [row for row in rows if all(str(row.get(k, "")) == str(v) for k, v in filters.items())]
     if len(hits) != 1:
-        raise RuntimeError(f"expected exactly one row for {filters}, found {len(hits)}")
+        raise RuntimeError(f"expected one row for {filters}, found {len(hits)}")
     return hits[0]
 
 
-def context_pairs(rows: list[dict]) -> list[dict]:
-    pairs = []
+def sign_summary(values):
+    nonzero = [v for v in values if v != 0]
+    if nonzero:
+        positives = sum(v > 0 for v in nonzero)
+        k = min(positives, len(nonzero) - positives)
+        p = min(1.0, 2 * sum(comb(len(nonzero), i) for i in range(k + 1)) / (2 ** len(nonzero)))
+    else:
+        p = None
+    return {
+        "positive": sum(v > 0 for v in values),
+        "negative": sum(v < 0 for v in values),
+        "zero": sum(v == 0 for v in values),
+        "exact_two_sided_sign_test": p,
+    }
 
-    # Forest context is paired within island and season; anole state is held at Presence.
+
+def make_pairs(rows):
+    pairs = []
     for island in ("A_Chichijima", "B_Hahajima"):
         for season in SEASONS:
-            natural = select_one(
-                rows,
-                island=island,
-                season=season,
-                habitat="Natural",
-                anole_context="Presence",
-            )
-            disturbed = select_one(
-                rows,
-                island=island,
-                season=season,
-                habitat="Disturbed",
-                anole_context="Presence",
-            )
-            pairs.append(
-                {
-                    "contrast_type": "forest_disturbed_minus_natural",
-                    "island": island,
-                    "season": season,
-                    "reference_label": "Natural",
-                    "contrast_label": "Disturbed",
-                    "reference": natural,
-                    "contrast": disturbed,
-                }
-            )
-
-    # Anole context is paired within Anijima natural forest and season.
-    for season in SEASONS:
-        absence = select_one(
-            rows,
-            island="C_Anijima",
-            season=season,
-            habitat="Natural",
-            anole_context="Absence",
-        )
-        presence = select_one(
-            rows,
-            island="C_Anijima",
-            season=season,
-            habitat="Natural",
-            anole_context="Presence",
-        )
-        pairs.append(
-            {
-                "contrast_type": "anole_presence_minus_absence",
-                "island": "C_Anijima",
+            pairs.append({
+                "contrast_type": "forest_disturbed_minus_natural",
+                "island": island,
                 "season": season,
-                "reference_label": "Absence",
-                "contrast_label": "Presence",
-                "reference": absence,
-                "contrast": presence,
-            }
-        )
-
+                "reference_label": "Natural",
+                "contrast_label": "Disturbed",
+                "reference": one(rows, island=island, season=season, habitat="Natural", anole_context="Presence"),
+                "contrast": one(rows, island=island, season=season, habitat="Disturbed", anole_context="Presence"),
+            })
+    for season in SEASONS:
+        pairs.append({
+            "contrast_type": "anole_presence_minus_absence",
+            "island": "C_Anijima",
+            "season": season,
+            "reference_label": "Absence",
+            "contrast_label": "Presence",
+            "reference": one(rows, island="C_Anijima", season=season, habitat="Natural", anole_context="Absence"),
+            "contrast": one(rows, island="C_Anijima", season=season, habitat="Natural", anole_context="Presence"),
+        })
     if len(pairs) != 9:
-        raise RuntimeError(f"expected 9 paired within-island contexts, found {len(pairs)}")
+        raise RuntimeError("paired-context design drift")
     return pairs
 
 
-def island_ranges(rows: list[dict]) -> dict:
-    selected = [row for row in rows if row.get("island") in {
-        "A_Chichijima", "B_Hahajima", "C_Anijima", "D_Ototojima"
-    }]
+def four_island_ranges(rows):
+    names = {"A_Chichijima", "B_Hahajima", "C_Anijima", "D_Ototojima"}
+    selected = [row for row in rows if row.get("island") in names]
     if len(selected) != 4:
-        raise RuntimeError(f"expected four island aggregate rows, found {len(selected)}")
-    ranges = {}
+        raise RuntimeError("expected four island aggregates")
+    result = {}
     for label, column in METRICS.items():
-        values = [finite_float(row[column]) for row in selected]
-        if any(value is None for value in values):
-            raise RuntimeError(f"missing island aggregate metric {column}")
+        values = [num(row[column]) for row in selected]
+        if any(v is None for v in values):
+            raise RuntimeError(f"missing {column}")
         span = max(values) - min(values)
         if span <= 0:
-            raise RuntimeError(f"non-positive island span for {column}")
-        ranges[label] = {
+            raise RuntimeError(f"non-positive range for {column}")
+        result[label] = {
             "column": column,
             "minimum": min(values),
             "maximum": max(values),
             "range": span,
-            "island_values": {
-                row["island"]: finite_float(row[column]) for row in selected
-            },
+            "island_values": {row["island"]: num(row[column]) for row in selected},
         }
-    return ranges
+    return result
 
 
-def summarize_signs(values: list[float]) -> dict:
-    return {
-        "positive": sum(value > 0 for value in values),
-        "negative": sum(value < 0 for value in values),
-        "zero": sum(value == 0 for value in values),
-        "exact_two_sided_sign_test": sign_test_two_sided(values),
-    }
+def build():
+    runlock = json.loads(AREA_RUNLOCK.read_text())
+    if runlock.get("decision") != "ogasawara_raw_weighted_falsifies_both_capacity_directions":
+        raise RuntimeError("PR189 runlock does not contain the fixed capacity falsification")
 
-
-def build() -> dict:
-    area = json.loads(AREA_RESULT.read_text())
-    if area.get("decision") != "ogasawara_raw_weighted_falsifies_both_capacity_directions":
-        raise RuntimeError("diagnostic requires the fixed PR #189 area-capacity falsification result")
-
-    context_rows = load_csv(CONTEXT)
-    island_rows = load_csv(ISLAND)
-    pairs = context_pairs(context_rows)
-    ranges = island_ranges(island_rows)
-
-    paired_rows = []
+    pairs = make_pairs(read_csv(CONTEXT))
+    ranges = four_island_ranges(read_csv(ISLAND))
+    paired = []
     for pair in pairs:
-        out = {
-            "contrast_type": pair["contrast_type"],
-            "island": pair["island"],
-            "season": pair["season"],
-            "reference_label": pair["reference_label"],
-            "contrast_label": pair["contrast_label"],
-            "metrics": {},
-            "sampling": {},
-        }
+        row = {k: pair[k] for k in ("contrast_type", "island", "season", "reference_label", "contrast_label")}
+        row["metrics"] = {}
+        row["sampling"] = {}
         for label, column in METRICS.items():
-            ref = finite_float(pair["reference"].get(column))
-            alt = finite_float(pair["contrast"].get(column))
+            ref, alt = num(pair["reference"].get(column)), num(pair["contrast"].get(column))
             if ref is None or alt is None:
-                raise RuntimeError(f"missing {column} for {pair['island']} {pair['season']}")
+                raise RuntimeError(f"missing {column} in paired context")
             delta = alt - ref
-            span = ranges[label]["range"]
-            out["metrics"][label] = {
+            row["metrics"][label] = {
                 "reference": ref,
                 "contrast": alt,
                 "signed_delta": delta,
                 "absolute_delta": abs(delta),
-                "absolute_delta_over_four_island_range": abs(delta) / span,
+                "absolute_delta_over_four_island_range": abs(delta) / ranges[label]["range"],
             }
-        for label, column in SAMPLE_DIAGNOSTICS.items():
-            ref = finite_float(pair["reference"].get(column))
-            alt = finite_float(pair["contrast"].get(column))
+        for label, column in SAMPLE.items():
+            ref, alt = num(pair["reference"].get(column)), num(pair["contrast"].get(column))
             if ref is None or alt is None:
-                raise RuntimeError(f"missing sampling diagnostic {column}")
-            out["sampling"][label] = {
-                "reference": ref,
-                "contrast": alt,
-                "signed_delta": alt - ref,
-                "absolute_delta": abs(alt - ref),
-            }
-        paired_rows.append(out)
+                raise RuntimeError(f"missing {column} sampling diagnostic")
+            row["sampling"][label] = {"reference": ref, "contrast": alt, "signed_delta": alt - ref}
+        paired.append(row)
 
-    metric_summary = {}
+    summary = {}
     for metric in METRICS:
-        deltas = [row["metrics"][metric]["signed_delta"] for row in paired_rows]
-        abs_values = [abs(value) for value in deltas]
-        ratios = [row["metrics"][metric]["absolute_delta_over_four_island_range"] for row in paired_rows]
+        deltas = [row["metrics"][metric]["signed_delta"] for row in paired]
+        ratios = [row["metrics"][metric]["absolute_delta_over_four_island_range"] for row in paired]
         by_context = {}
-        for contrast_type in sorted({row["contrast_type"] for row in paired_rows}):
-            subset = [
-                row["metrics"][metric]["signed_delta"]
-                for row in paired_rows
-                if row["contrast_type"] == contrast_type
-            ]
-            by_context[contrast_type] = {
+        for kind in sorted({row["contrast_type"] for row in paired}):
+            subset = [row["metrics"][metric]["signed_delta"] for row in paired if row["contrast_type"] == kind]
+            by_context[kind] = {
                 "n_pairs": len(subset),
                 "signed_delta_median": statistics.median(subset),
-                "absolute_delta_median": statistics.median(abs(value) for value in subset),
-                "signs": summarize_signs(subset),
+                "absolute_delta_median": statistics.median(abs(v) for v in subset),
+                "signs": sign_summary(subset),
             }
-        metric_summary[metric] = {
+        summary[metric] = {
             "four_island_range": ranges[metric]["range"],
             "n_within_island_pairs": len(deltas),
-            "absolute_delta_median": statistics.median(abs_values),
-            "absolute_delta_maximum": max(abs_values),
+            "absolute_delta_median": statistics.median(abs(v) for v in deltas),
+            "absolute_delta_maximum": max(abs(v) for v in deltas),
             "median_fraction_of_four_island_range": statistics.median(ratios),
             "maximum_fraction_of_four_island_range": max(ratios),
-            "pairs_reaching_half_four_island_range": sum(ratio >= 0.5 for ratio in ratios),
-            "pairs_reaching_or_exceeding_four_island_range": sum(ratio >= 1.0 for ratio in ratios),
-            "signed_direction_overall": summarize_signs(deltas),
+            "pairs_reaching_half_four_island_range": sum(r >= 0.5 for r in ratios),
+            "pairs_reaching_or_exceeding_four_island_range": sum(r >= 1.0 for r in ratios),
+            "signed_direction_overall": sign_summary(deltas),
             "by_context_type": by_context,
         }
 
-    any_exceeds = any(
-        summary["pairs_reaching_or_exceeding_four_island_range"] > 0
-        for summary in metric_summary.values()
-    )
-    any_half = any(
-        summary["pairs_reaching_half_four_island_range"] > 0
-        for summary in metric_summary.values()
-    )
-    if any_exceeds:
+    if any(v["pairs_reaching_or_exceeding_four_island_range"] for v in summary.values()):
         decision = "within_island_context_variation_can_equal_or_exceed_four_island_raw_architecture_span"
-    elif any_half:
+    elif any(v["pairs_reaching_half_four_island_range"] for v in summary.values()):
         decision = "within_island_context_variation_is_material_relative_to_four_island_raw_architecture_span"
     else:
         decision = "within_island_context_variation_is_small_relative_to_four_island_raw_architecture_span"
@@ -256,8 +175,11 @@ def build() -> dict:
         "analysis": "ogasawara_within_island_context_sensitivity_postresult_diagnostic",
         "status": "post_result_diagnosis_after_pr189_not_confirmatory_model_selection",
         "fixed_starting_result": {
-            "source": str(AREA_RESULT),
-            "decision": area["decision"],
+            "source": str(AREA_RUNLOCK),
+            "pr": runlock["pr"],
+            "merge_commit": runlock["merge_commit"],
+            "decision": runlock["decision"],
+            "artifact_sha256": runlock["artifact_sha256"],
         },
         "design": {
             "paired_contexts": [
@@ -266,28 +188,25 @@ def build() -> dict:
                 "Anijima anole presence vs absence within season, natural forest held constant",
             ],
             "seasons": list(SEASONS),
-            "n_pairs": len(paired_rows),
-            "comparison_scale": "absolute within-island context shift divided by the observed four-island aggregate range of the same raw network metric",
+            "n_pairs": len(paired),
+            "comparison_scale": "absolute within-island context shift / observed four-island aggregate range of the same raw network metric",
             "outcome_fit_used_to_define_contexts": False,
         },
         "four_island_metric_ranges": ranges,
-        "paired_context_results": paired_rows,
-        "metric_summary": metric_summary,
+        "paired_context_results": paired,
+        "metric_summary": summary,
         "decision": decision,
-        "interpretation": "This diagnostic asks whether raw weighted architecture can move materially while island area is held exactly constant. Large within-island shifts imply that one scalar island-capacity value is insufficient for these raw metrics; they do not identify forest disturbance or anole presence causally.",
-        "next_gate": "Formulate a metric-aware local-opportunity/context mechanism before any new confirmatory test, then freeze its predictions and validate them in an independent multi-context or multi-island quantitative network system. Do not refit area weights or select a context effect based on Ogasawara outcome fit.",
-        "claim_boundary": "Forest/anole contexts are spatially structured and not randomized; season/context row counts and visitation effort differ. The diagnostic measures observed context sensitivity, not causal forest/anole effects, and does not turn within-archipelago context pairs into independent archipelagos.",
+        "interpretation": "Observed raw weighted architecture can vary while island area is held exactly constant. Material within-island shifts imply that one scalar island-capacity value is insufficient for these raw metrics; they do not identify forest disturbance or anole presence causally.",
+        "next_gate": "Formulate a metric-aware local-opportunity/context mechanism, freeze its predictions before a new confirmatory test, and validate it in an independent quantitative network system. Do not refit area weights or select context effects by Ogasawara outcome fit.",
+        "claim_boundary": "Forest/anole contexts are spatially structured and not randomized; season/context row counts and visitation effort differ. This is context-sensitivity diagnosis, not causal forest/anole inference or independent-archipelago replication.",
     }
 
 
-def main() -> None:
+def main():
     payload = build()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
-    print(json.dumps({
-        "decision": payload["decision"],
-        "metric_summary": payload["metric_summary"],
-    }, indent=2, ensure_ascii=False))
+    print(json.dumps({"decision": payload["decision"], "metric_summary": payload["metric_summary"]}, indent=2))
 
 
 if __name__ == "__main__":
