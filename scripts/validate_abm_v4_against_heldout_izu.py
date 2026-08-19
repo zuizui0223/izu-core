@@ -20,6 +20,10 @@ def load_v4():
     return module
 
 
+def r12(x: float) -> float:
+    return round(x, 12)
+
+
 def build_validation(replicates: int = 120, lineages: int = 16, steps: int = 120, seed: int = 20260819):
     m = load_v4()
     izu = json.loads(IZU.read_text())
@@ -30,10 +34,10 @@ def build_validation(replicates: int = 120, lineages: int = 16, steps: int = 120
         envelope[str(saturation)] = {
             "best_match_lower": s["best_match_lower"],
             "best_match_higher": s["best_match_higher"],
-            "mean_best_match_delta": s["mean_best_match_delta"],
+            "mean_best_match_delta": r12(s["mean_best_match_delta"]),
             "positive_reproductive_responses": s["positive_lineage_responses"],
             "negative_reproductive_responses": s["negative_lineage_responses"],
-            "mean_reproductive_delta": s["mean_delta"],
+            "mean_reproductive_delta": r12(s["mean_delta"]),
             "predicts_matching_decline_majority": s["best_match_lower"] > s["best_match_higher"],
             "predicts_reproductive_sign_branching": s["positive_lineage_responses"] > 0 and s["negative_lineage_responses"] > 0
         }
@@ -61,6 +65,7 @@ def build_validation(replicates: int = 120, lineages: int = 16, steps: int = 120
         },
         "decision": "v4_survives_heldout_izu_at_qualitative_mechanism_level",
         "interpretation": "Across the full saturation envelope, v4 predicts lower best trait matching for the majority of paired lineages while retaining both positive and negative reproductive responses and near-conserved mean function. This matches the qualitative held-out structure: corrected trait matching is lower in all eight shared Izu targets, whereas pollen receipt and tube responses branch. The model does not predict the empirical 8/8 or 4/4 frequencies and is not fitted to them.",
+        "next_gate": "Use the same frozen v4 envelope on secondary held-out island systems (Canary, Galapagos, Seychelles, Hawaii, Ogasawara) only at source-supported architecture/function-direction resolution. Do not fit system-specific saturation values.",
         "claim_boundary": "Qualitative mechanism validation only. Model best-match is an analogue, not the source TM_z estimand; synthetic lineage counts cannot be compared as prevalence to eight non-independent empirical plant targets."
     }
 
