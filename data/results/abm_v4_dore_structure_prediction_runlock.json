@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v4_dore_network_architecture_tierb1_runlock",
+  "workflow_run_id": 32248589888,
+  "workflow_name": "Dore network architecture Tier-B1",
+  "artifact_id": 9363759248,
+  "artifact_name": "dore-network-architecture-tierb1",
+  "artifact_sha256": "935e93612778488489b1150a17add8ca31a0afe054df3542d3e9b830472df5b4",
+  "source_rows": 157,
+  "frozen_rows": 26,
+  "systems": ["Azores", "Canary Islands", "Galapagos", "Hawaii", "Mauritius", "Seychelles"],
+  "strata": ["North Atlantic / Macaronesia", "eastern / central Pacific", "western Indian Ocean"],
+  "primary_distance_ecdf": {
+    "decision": "does_not_have_robust_architecture_transfer_across_all_metrics_and_strata",
+    "Connectance": {
+      "system_saturations_beating_sampling": 0,
+      "system_saturations_beating_geography": 5,
+      "stratum_saturations_beating_sampling": 0,
+      "stratum_saturations_beating_geography": 0
+    },
+    "Li": {
+      "system_saturations_beating_sampling": 0,
+      "system_saturations_beating_geography": 0,
+      "stratum_saturations_beating_sampling": 0,
+      "stratum_saturations_beating_geography": 5
+    },
+    "Lp": {
+      "system_saturations_beating_sampling": 5,
+      "system_saturations_beating_geography": 0,
+      "stratum_saturations_beating_sampling": 5,
+      "stratum_saturations_beating_geography": 0
+    }
+  },
+  "secondary_geography_pc1": {
+    "Connectance": {"system_saturations_beating_geography": 5, "stratum_saturations_beating_geography": 5},
+    "Li": {"system_saturations_beating_geography": 5, "stratum_saturations_beating_geography": 5},
+    "Lp": {"system_saturations_beating_geography": 5, "stratum_saturations_beating_geography": 5}
+  },
+  "scientific_decision": "isolation_only_opportunity_axis_predicts_coarse_network_size_but_is_not_sufficient_for_globally_transferable_topology",
+  "next_diagnostic": "Decompose geography-only constraints into distance, area/capacity, and elevation/relief mappings without fitting weights to network outcomes; test which topology metric changes transfer class.",
+  "claim_boundary": "The preregistered secondary PC1 sensitivity cannot replace the failed primary result. Its success is used only to motivate post-result mechanism diagnosis. Connectance/Li/Lp are source-native aggregate topology metrics, not raw weighted interaction diversity or niche overlap."
+}
