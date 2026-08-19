@@ -1,0 +1,41 @@
+{
+  "analysis": "abm_v4_global_continuous_isolation_gradient",
+  "empirical_target": {
+    "source": "Traveset et al. 2016, Global Ecology and Biogeography, 18 oceanic-island quantitative pollination networks",
+    "target_level": "directional continuous-gradient pattern, not coefficient fitting",
+    "reported_patterns": [
+      "greater mainland isolation -> fewer total species and interactions",
+      "oceanic islands have lower interaction diversity and higher plant niche overlap than mainland/continental systems",
+      "island area had no significant effect on the studied network metrics"
+    ]
+  },
+  "gradient": [
+    {"isolation_index":0.0,"final_partner_types":17.09,"effective_links":280.13,"interaction_diversity_proxy":5.532483812981325,"plant_niche_overlap_proxy":0.6719299387817782,"mean_reproduction":0.4626914128413404},
+    {"isolation_index":0.1,"final_partner_types":13.08,"effective_links":219.53,"interaction_diversity_proxy":5.285540704120397,"plant_niche_overlap_proxy":0.7017103525084705,"mean_reproduction":0.4712804285423474},
+    {"isolation_index":0.2,"final_partner_types":10.95,"effective_links":190.26,"interaction_diversity_proxy":5.1414059973952835,"plant_niche_overlap_proxy":0.7162454167981578,"mean_reproduction":0.47644514157090295},
+    {"isolation_index":0.3,"final_partner_types":8.79,"effective_links":154.19,"interaction_diversity_proxy":4.908953028020141,"plant_niche_overlap_proxy":0.7230528640542228,"mean_reproduction":0.4757844420607306},
+    {"isolation_index":0.4,"final_partner_types":6.83,"effective_links":121.56,"interaction_diversity_proxy":4.642182467592563,"plant_niche_overlap_proxy":0.7399718065750674,"mean_reproduction":0.4781458541284284},
+    {"isolation_index":0.5,"final_partner_types":5.7,"effective_links":103.88,"interaction_diversity_proxy":4.475707635429954,"plant_niche_overlap_proxy":0.7636815829098438,"mean_reproduction":0.4832395931563793},
+    {"isolation_index":0.6,"final_partner_types":4.96,"effective_links":96.58,"interaction_diversity_proxy":4.371617749869941,"plant_niche_overlap_proxy":0.8289070192086496,"mean_reproduction":0.4974716435027484},
+    {"isolation_index":0.7,"final_partner_types":4.13,"effective_links":83.34,"interaction_diversity_proxy":4.198355888978138,"plant_niche_overlap_proxy":0.8382944128134345,"mean_reproduction":0.5028404704240436},
+    {"isolation_index":0.8,"final_partner_types":3.0,"effective_links":61.25,"interaction_diversity_proxy":3.80323789320196,"plant_niche_overlap_proxy":0.8568482861743731,"mean_reproduction":0.49078118930124803},
+    {"isolation_index":0.9,"final_partner_types":2.5,"effective_links":51.58,"interaction_diversity_proxy":3.4946013056163796,"plant_niche_overlap_proxy":0.8917778640441684,"mean_reproduction":0.4769682553291345},
+    {"isolation_index":1.0,"final_partner_types":2.17,"effective_links":46.48,"interaction_diversity_proxy":3.32322739390752,"plant_niche_overlap_proxy":0.9023834541062802,"mean_reproduction":0.46648844247155447}
+  ],
+  "spearman_over_gradient_means": {
+    "final_partner_types": -1.0,
+    "effective_links": -1.0,
+    "interaction_diversity_proxy": -1.0,
+    "plant_niche_overlap_proxy": 1.0,
+    "mean_reproduction": 0.4181818181818182
+  },
+  "tests": {
+    "partner_types_decline": true,
+    "effective_links_decline": true,
+    "interaction_diversity_declines": true,
+    "plant_niche_overlap_increases": true,
+    "reproduction_not_forced_to_monotonic_decline": true
+  },
+  "decision": "continuous_isolation_gradient_reproduced_at_directional_network_structure_level",
+  "claim_boundary": "The isolation index is a normalized process gradient interpolating v4 opportunity parameters; it is not kilometres. Proxy metrics are not numerically identical to Traveset et al. estimands. This test evaluates whether the empirical directions emerge continuously without fitting the 18 observed islands."
+}
