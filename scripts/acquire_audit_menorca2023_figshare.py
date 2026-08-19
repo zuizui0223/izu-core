@@ -48,16 +48,19 @@ def header_roles(headers: list[str]) -> dict:
     families = {
         "plant": ("plant", "flower", "flora"),
         "pollinator": ("pollinator", "visitor", "insect", "bee"),
-        "site": ("site", "locality", "location", "zone"),
+        "site": ("site", "locality", "location", "local_name", "zone"),
         "habitat": ("habitat", "vegetation"),
         "time": ("month", "date", "season", "subseason", "time", "sampling"),
-        "weight": ("visit", "interaction", "frequency", "freq", "count", "abundance", "number", "n_visits"),
+        # FVR is the source's quantitative interaction field. Do not treat an
+        # identity column such as Visitor_sp as an interaction weight merely
+        # because its label contains "visitor".
+        "weight": ("fvr", "visitation_rate", "visit_rate", "interaction_frequency", "interaction_freq", "frequency", "freq", "count", "n_visits", "no_visits"),
     }
     hits = {}
     for family, tokens in families.items():
         hits[family] = [
             original for original, normed in zip(headers, normalized)
-            if any(token in normed for token in tokens)
+            if any(token == normed or token in normed for token in tokens)
         ]
     return hits
 
@@ -117,6 +120,7 @@ def inspect_excel(name: str, data: bytes) -> dict:
                 "n_columns": sheet.max_column,
                 "headers": headers,
                 "header_role_hits": header_roles(headers),
+                "source_defined_local_network": sheet.title != "Metaweb",
             })
         book.close()
         return {"format": "xlsx", "sheets": sheets}
@@ -132,6 +136,7 @@ def inspect_excel(name: str, data: bytes) -> dict:
             "n_columns": sheet.ncols,
             "headers": headers,
             "header_role_hits": header_roles(headers),
+            "source_defined_local_network": sheet.name != "Metaweb",
         })
     return {"format": "xls", "sheets": sheets}
 
@@ -205,13 +210,22 @@ def main() -> None:
             "schema_audit": inspect_file(name, data),
         })
 
+    local_network_sheets = []
+    for file_row in files:
+        for sheet in file_row.get("schema_audit", {}).get("sheets", []):
+            if not sheet.get("source_defined_local_network"):
+                continue
+            roles = sheet.get("header_role_hits", {})
+            if roles.get("plant") and roles.get("pollinator") and roles.get("weight"):
+                local_network_sheets.append(sheet["name"])
+
+    admitted = len(local_network_sheets) >= int(design["admission_requirements"]["minimum_local_network_units"])
     payload = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "menorca2023_figshare_source_schema_audit",
-        "status": "public_figshare_files_recovered_schema_only",
+        "status": "source_admitted_nine_quantitative_local_network_sheets" if admitted else "source_blocked_insufficient_quantitative_local_network_schema",
         "figshare_article": {
             "id": article_id,
-            "url": metadata.get("url_private_api") or metadata.get("url"),
             "title": metadata.get("title"),
             "doi": metadata.get("doi"),
             "version": metadata.get("version"),
@@ -221,6 +235,11 @@ def main() -> None:
         },
         "public_file_count": len(files),
         "files": files,
+        "source_defined_quantitative_local_network_count": len(local_network_sheets),
+        "source_defined_quantitative_local_network_sheets": local_network_sheets,
+        "source_admission_succeeds": admitted,
+        "admitted_weight_column": "FVR" if admitted else None,
+        "local_context_unit": "source-defined workbook sheet; no 3x3 site/habitat regrouping is inferred at this gate",
         "target_metrics_calculated": False,
         "source_gate_only": True,
         "next_gate": design["next_gate"],
@@ -232,14 +251,12 @@ def main() -> None:
         "status": payload["status"],
         "article": payload["figshare_article"],
         "files": [
-            {
-                "name": row["name"],
-                "bytes": row["bytes"],
-                "sha256": row["sha256"],
-                "schema_audit": row["schema_audit"],
-            }
+            {"name": row["name"], "bytes": row["bytes"], "sha256": row["sha256"], "schema_audit": row["schema_audit"]}
             for row in files
         ],
+        "local_network_sheets": local_network_sheets,
+        "source_admission_succeeds": admitted,
+        "admitted_weight_column": payload["admitted_weight_column"],
         "target_metrics_calculated": False,
     }, indent=2, ensure_ascii=False))
 
