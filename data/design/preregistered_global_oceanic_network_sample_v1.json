@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "registered_on": "2026-08-19",
+  "purpose": "Construct an independent, geographically stratified oceanic-island pollination-network validation sample before inspecting ABM fit to any selected network.",
+  "source_pool": {
+    "primary": "Web of Life weighted pollination networks",
+    "metadata_endpoint": "https://www.web-of-life.es/get_network_info.php",
+    "matrix_endpoint_pattern": "https://www.web-of-life.es/get_networks.php?network_name={NETWORK_ID}",
+    "current_metadata_audit": {
+      "weighted_pollination_rows": 122,
+      "latitude_range": [-41.077069, 75.0],
+      "longitude_range": [-114.966667, 148.266667],
+      "warning": "rows are not independent sampling units; repeated temporal/subnetwork records are common"
+    }
+  },
+  "independence_unit": "unique location x reference x sampling-program unit, not raw Web of Life network row",
+  "deduplication_rules": [
+    "Collapse repeated rows sharing the same normalized location and reference into one candidate sampling program unless the source explicitly defines independent island sites.",
+    "Seasonal or temporal replicates from one locality are not independent global island systems; retain them only to estimate within-system uncertainty.",
+    "Multiple habitats on the same island may remain separate observations only after island-level clustering is declared; they do not increase the count of independent islands."
+  ],
+  "island_admission_rules": [
+    "The study location must be on a named island or archipelago with verifiable coordinates.",
+    "Oceanic-island origin must be verified from an external geological/island source before admission; continental islands are retained as controls, not pooled with oceanic islands.",
+    "The pollination network must be quantitative/weighted and source-native interaction counts must be retrievable.",
+    "Sampling location and reference must be recoverable from metadata.",
+    "A sampling-effort proxy must be available from the source, network metadata, or a clearly declared alternative; otherwise the network is descriptive-only and excluded from quantitative gradient fitting."
+  ],
+  "geographic_strata": [
+    {"stratum":"North Atlantic / Macaronesia","target_independent_oceanic_systems":2},
+    {"stratum":"Caribbean / tropical western Atlantic","target_independent_oceanic_systems":2},
+    {"stratum":"western Indian Ocean","target_independent_oceanic_systems":2},
+    {"stratum":"eastern / central Pacific","target_independent_oceanic_systems":2},
+    {"stratum":"NW / western Pacific","target_independent_oceanic_systems":2},
+    {"stratum":"SW Pacific / Southern Ocean","target_independent_oceanic_systems":2}
+  ],
+  "selection_priority_within_stratum": [
+    "source completeness",
+    "independent island identity",
+    "quantitative interaction matrix availability",
+    "sampling-effort information",
+    "geographic spread within the stratum"
+  ],
+  "forbidden_selection_criteria": [
+    "ABM goodness of fit",
+    "whether a network supports the proposed hypothesis",
+    "desired architecture macroclass",
+    "desired sign of isolation effect",
+    "availability of an attractive narrative"
+  ],
+  "geographic_predictors_required_for_gradient_fit": [
+    "distance to mainland or explicitly defined source landmass",
+    "island area",
+    "maximum elevation or elevational range",
+    "island latitude",
+    "island geological origin"
+  ],
+  "optional_predictors": [
+    "island age",
+    "nearest-island distance",
+    "human disturbance / alien species fraction",
+    "climate"
+  ],
+  "network_targets": [
+    "plant richness",
+    "pollinator richness",
+    "total interaction links",
+    "interaction diversity",
+    "plant niche overlap",
+    "weighted connectance or source-compatible analogue"
+  ],
+  "validation_design": {
+    "primary": "leave-one-island-system-out prediction across the fixed sample",
+    "secondary": "leave-one-geographic-stratum-out transfer",
+    "parameter_rule": "No held-out island outcome or architecture label may be used to choose saturation, opportunity mapping, or other ABM parameters.",
+    "reporting": "Report absolute and rank/shape error; never select a preferred saturation value post hoc."
+  },
+  "minimum_release_condition": "At least four geographic strata with at least two independent oceanic-island systems each, or explicitly downgrade the analysis to partial global coverage.",
+  "relationship_to_traveset2016": "This is a new preregistered validation sample and must not be presented as a reconstruction of the Traveset et al. 2016 18-oceanic-island subset. Exact Traveset reconstruction remains a separate source-gated analysis."
+}
