@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "analysis": "abm_v5_aride_seasonal_validation_freeze",
   "freeze_date": "2026-08-19",
   "model_source": {
@@ -19,6 +19,12 @@
     "dryad_publication_date": "2026-07-03",
     "network_files": ["Early_Oct.csv", "Mid_Nov.csv", "Late_Dec.csv"],
     "network_order": ["Early_Oct", "Mid_Nov", "Late_Dec"],
+    "dryad_file_streams": {
+      "Early_Oct.csv": 4845709,
+      "Mid_Nov.csv": 4845711,
+      "Late_Dec.csv": 4845710
+    },
+    "dryad_file_stream_provenance": "File stream IDs were resolved from the Dryad DOI page links after the validation estimands and decision rule were frozen, before any CSV numeric matrix content was downloaded or inspected.",
     "weight_definition": "visitation frequency in visits flower^-1 h^-1",
     "network_count": 3,
     "independence": "three seasonal networks are repeated local realizations within one independent island system, not three independent archipelagos"
@@ -28,6 +34,7 @@
     "required_files": ["Early_Oct.csv", "Mid_Nov.csv", "Late_Dec.csv"],
     "all_three_required": true,
     "required_weight_type": "source-native visitation frequency",
+    "exact_download_rule": "Download only the exact Dryad file_stream IDs frozen above. Require successful CSV parsing, finite non-negative weights, unique non-empty plant/pollinator labels, and checksum-lock all three source payloads before metric calculation.",
     "blocked_rule": "If any required matrix cannot be checksum-locked from the Dryad DOI version, do not substitute reconstructed, binary, pooled-season, or paper-table networks."
   },
   "outcomes_frozen_before_matrix_download": [
@@ -39,6 +46,7 @@
     "source": "GIFT 3.2 outcome-blind island geography",
     "matching_rule": "Resolve Aride Island by exact/normalized name with the Dryad coordinates as a geography-only plausibility check. Do not use network metrics in matching.",
     "mapping": "Apply the existing v4 primary mainland-distance ECDF mapping against the already-frozen v4 reference island geography; the held-out Aride observation must not be inserted into the reference ECDF.",
+    "held_out_ecdf_extension": "Use piecewise-linear interpolation on the sorted unique frozen reference distances and their original index/(n-1) ECDF values; clamp below/above the frozen reference range to 0/1. This exactly preserves the original v4 mapping at every frozen reference distance.",
     "fit_to_aride_outcomes": false
   },
   "v5_predictive_distribution": {
@@ -49,6 +57,8 @@
     "preferred_setting_selection": "prohibited",
     "synthetic_unit": "For each opportunity x saturation x strength evolution replicate, hold the feasible v4 network fixed and draw exactly three independent unlabeled v5 local contexts, matching the three held-out seasonal networks.",
     "replicates_per_setting": 100,
+    "empty_feasible_state_rule": "If v4 produces an empty feasible state, record both target three-context ranges as exactly zero for predictive-variability purposes and separately count the empty state. This preserves equal setting weights and treats an empty opportunity set as predicting no local architecture variation, rather than silently dropping model collapse.",
+    "single_pollinator_state_rule": "A positive one-pollinator feasible state is structurally non-branchable under v5 and therefore contributes target range zero, consistent with the #191 synthetic gate.",
     "empirical_context_labels_used_to_set_affinity": false
   },
   "primary_statistics": {
@@ -58,8 +68,8 @@
     "v4_zero_context_comparator": "At context_strength=0 the local range is exactly zero by construction and is reported only as the inherited v4 comparator, not mixed into the primary v5 predictive distribution."
   },
   "decision_rule": {
-    "variation_necessary_condition": "Both empirical target ranges must be strictly greater than zero unless the parsed network is structurally non-branchable with one feasible pollinator across all three seasons.",
-    "predictive_adequacy": "For each target separately, the empirical three-season range must fall within the prespecified 2.5th-97.5th percentile envelope of the equal-weight pooled v5 range distribution across all frozen nonzero strengths and saturations.",
+    "variation_necessary_condition": "Both empirical target ranges must be strictly greater than zero unless every parsed seasonal network is structurally non-branchable with one pollinator; this exception must be determined from source dimensions, not metric values.",
+    "predictive_adequacy": "For each target separately, the empirical three-season range must fall within the prespecified 2.5th-97.5th percentile envelope of the equal-weight pooled v5 range distribution across all frozen nonzero strengths and saturations, including zero-range predictions from empty/single-pollinator synthetic states.",
     "headline": "v5 survives this held-out raw seasonal test only if both target metrics satisfy the variation necessary condition and predictive-adequacy envelope. Failure of either target is retained as empirical v5 failure; no strength/saturation may be selected post hoc."
   },
   "prohibited_after_matrix_download": [
@@ -69,6 +79,7 @@
     "choose a context strength or saturation by Aride fit",
     "map October/November/December labels to special synthetic affinity values",
     "change the 2.5-97.5% predictive envelope after seeing the empirical ranges",
+    "change the empty/single-partner predictive handling after seeing Aride",
     "pool Aride with the blocked 2017 Mahé dataset as if they were one experiment"
   ],
   "claim_boundary": "Aride is one held-out island with three seasonal local networks. Passing would support the v5 local-realization variability class at the frozen raw-matrix estimands, not identify a seasonal mechanism, context-strength value, universal affinity distribution, restoration effect, or global island coefficient."
