@@ -1,0 +1,22 @@
+{
+  "source": "Dalsgaard et al. 2018 Antillean hummingbird networks",
+  "dataset_doi": "10.5061/dryad.5770gm7",
+  "dryad_version_id": 7938,
+  "target_file": {
+    "file_id": 36744,
+    "path": "Data_and_code.zip",
+    "size_bytes": 181151,
+    "declared_digest_md5": "4d7fecdca08fefaee6c67db2affe4909"
+  },
+  "documented_contents": "Dryad landing metadata states that data/webs contains eight interaction matrices.",
+  "retrieval_attempts": [
+    {"route": "Dryad API /api/v2/files/36744/download", "result": "HTTP 401 Unauthorized"},
+    {"route": "Dryad public UI /downloads/file_stream/36744", "result": "HTTP 403 Forbidden from GitHub Actions"}
+  ],
+  "raw_archive_recovered": false,
+  "caribbean_stratum_admitted": false,
+  "global_balanced_release_ready": false,
+  "decision": "source_identified_but_binary_delivery_blocked",
+  "next_route": "Use an independent lawful public mirror/author artifact if recovered, or retain the Caribbean fourth-stratum gate closed. Do not reconstruct matrices from article summaries and do not relax the preregistered raw-network requirement.",
+  "claim_boundary": "The source dataset and exact file are verified. Delivery failure does not mean the matrices are absent. Dominica/Grenada do not enter the quantitative global ABM validation until matrix identity and sampling-effort mapping are source-locked."
+}
