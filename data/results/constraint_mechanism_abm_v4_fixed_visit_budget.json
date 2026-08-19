@@ -2,6 +2,7 @@
   "model": "constraint_mechanism_abm_v4_fixed_visit_budget",
   "status": "structural_correction_mechanistic_test_not_empirical_evidence",
   "structural_change": "Pollinator richness no longer acts as visitation frequency. A fixed total visit budget is distributed across partner types via mean effective service and a saturating response.",
+  "observability_extension": "Final best-match is recorded for held-out validation only; model dynamics are unchanged.",
   "run_design": {
     "paired_runs_per_saturation": 120,
     "lineages_per_run": 16,
@@ -21,7 +22,11 @@
       "mixed_sign_runs": 35,
       "mean_delta": 0.026160932003786476,
       "mean_mainland_reproduction": 0.3355677206232493,
-      "mean_oceanic_reproduction": 0.3617286526270358
+      "mean_oceanic_reproduction": 0.3617286526270358,
+      "best_match_lower": 1711,
+      "best_match_higher": 209,
+      "best_match_equal": 0,
+      "mean_best_match_delta": -0.2305956295647582
     },
     "1.5": {
       "n_lineage_contrasts": 1920,
@@ -33,7 +38,11 @@
       "mixed_sign_runs": 44,
       "mean_delta": 0.011477614234351261,
       "mean_mainland_reproduction": 0.4104478601389905,
-      "mean_oceanic_reproduction": 0.42192547437334177
+      "mean_oceanic_reproduction": 0.42192547437334177,
+      "best_match_lower": 1625,
+      "best_match_higher": 295,
+      "best_match_equal": 0,
+      "mean_best_match_delta": -0.244128767251517
     },
     "2.0": {
       "n_lineage_contrasts": 1920,
@@ -45,7 +54,11 @@
       "mixed_sign_runs": 50,
       "mean_delta": -0.0013141422571986653,
       "mean_mainland_reproduction": 0.4639966884025827,
-      "mean_oceanic_reproduction": 0.462682546145384
+      "mean_oceanic_reproduction": 0.462682546145384,
+      "best_match_lower": 1571,
+      "best_match_higher": 349,
+      "best_match_equal": 0,
+      "mean_best_match_delta": -0.25237997506365367
     },
     "2.5": {
       "n_lineage_contrasts": 1920,
@@ -57,7 +70,11 @@
       "mixed_sign_runs": 50,
       "mean_delta": -0.012040835069665296,
       "mean_mainland_reproduction": 0.5041198558150858,
-      "mean_oceanic_reproduction": 0.4920790207454204
+      "mean_oceanic_reproduction": 0.4920790207454204,
+      "best_match_lower": 1587,
+      "best_match_higher": 333,
+      "best_match_equal": 0,
+      "mean_best_match_delta": -0.25807638397964
     },
     "3.0": {
       "n_lineage_contrasts": 1920,
@@ -69,11 +86,15 @@
       "mixed_sign_runs": 58,
       "mean_delta": -0.022608331569337104,
       "mean_mainland_reproduction": 0.5355548457645837,
-      "mean_oceanic_reproduction": 0.5129465141952466
+      "mean_oceanic_reproduction": 0.5129465141952466,
+      "best_match_lower": 1592,
+      "best_match_higher": 328,
+      "best_match_equal": 0,
+      "mean_best_match_delta": -0.26149799824606745
     }
   },
   "decision": "fixed_visit_budget_removes_partner_count_decline_bias_and_recovers_functional_conservation_with_branching",
-  "interpretation": "Across the entire saturation envelope, both positive and negative lineage responses persist while the mean oceanic-minus-mainland reproductive difference remains close to zero (+0.026 to -0.023). The strong decline of v2/v3 was therefore largely a structural artifact of treating partner richness as additive visitation opportunity. Once richness is separated from visitation quantity, constrained systems can maintain similar mean function through divergent lineage responses without tuning to Izu.",
-  "next_gate": "Repeat held-out Izu validation using v4 without selecting a preferred saturation value, then test secondary held-out island systems at the architecture/function-direction level.",
+  "interpretation": "Across the entire saturation envelope, both positive and negative lineage responses persist while the mean oceanic-minus-mainland reproductive difference remains close to zero (+0.026 to -0.023). Final best-match also declines for the majority of lineages at every saturation setting. The strong decline of v2/v3 was therefore largely a structural artifact of treating partner richness as additive visitation opportunity. Once richness is separated from visitation quantity, constrained systems can maintain similar mean function through divergent lineage responses while still losing best matching.",
+  "next_gate": "Run held-out Izu validation using the whole sensitivity envelope, then test secondary held-out island systems at the architecture/function-direction level.",
   "claim_boundary": "The saturation values form a mechanism sensitivity envelope, not fitted empirical parameters. Izu outcomes are not used to select a preferred value, and synthetic sign frequencies are not empirical prevalence estimates."
 }

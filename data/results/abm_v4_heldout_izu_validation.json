@@ -1,0 +1,74 @@
+{
+  "analysis": "abm_v4_heldout_izu_validation",
+  "training_boundary": "Izu/Hiraiwa outcomes were not used to choose the fixed-visit-budget correction or any saturation value; all five values are retained.",
+  "model_envelope": {
+    "1.0": {
+      "best_match_lower": 1711,
+      "best_match_higher": 209,
+      "mean_best_match_delta": -0.230595629565,
+      "positive_reproductive_responses": 1462,
+      "negative_reproductive_responses": 458,
+      "mean_reproductive_delta": 0.026160932004,
+      "predicts_matching_decline_majority": true,
+      "predicts_reproductive_sign_branching": true
+    },
+    "1.5": {
+      "best_match_lower": 1625,
+      "best_match_higher": 295,
+      "mean_best_match_delta": -0.244128767252,
+      "positive_reproductive_responses": 1384,
+      "negative_reproductive_responses": 536,
+      "mean_reproductive_delta": 0.011477614234,
+      "predicts_matching_decline_majority": true,
+      "predicts_reproductive_sign_branching": true
+    },
+    "2.0": {
+      "best_match_lower": 1571,
+      "best_match_higher": 349,
+      "mean_best_match_delta": -0.252379975064,
+      "positive_reproductive_responses": 1356,
+      "negative_reproductive_responses": 564,
+      "mean_reproductive_delta": -0.001314142257,
+      "predicts_matching_decline_majority": true,
+      "predicts_reproductive_sign_branching": true
+    },
+    "2.5": {
+      "best_match_lower": 1587,
+      "best_match_higher": 333,
+      "mean_best_match_delta": -0.25807638398,
+      "positive_reproductive_responses": 1353,
+      "negative_reproductive_responses": 567,
+      "mean_reproductive_delta": -0.01204083507,
+      "predicts_matching_decline_majority": true,
+      "predicts_reproductive_sign_branching": true
+    },
+    "3.0": {
+      "best_match_lower": 1592,
+      "best_match_higher": 328,
+      "mean_best_match_delta": -0.261497998246,
+      "positive_reproductive_responses": 1341,
+      "negative_reproductive_responses": 579,
+      "mean_reproductive_delta": -0.022608331569,
+      "predicts_matching_decline_majority": true,
+      "predicts_reproductive_sign_branching": true
+    }
+  },
+  "heldout_izu": {
+    "matching_lower": 8,
+    "matching_total": 8,
+    "pollen_lower": 4,
+    "pollen_higher": 4,
+    "tube_shorter": 3,
+    "tube_longer": 4,
+    "tube_equal": 1
+  },
+  "tests": {
+    "matching_decline_direction_robust_across_envelope": "pass",
+    "reproductive_response_branching_robust_across_envelope": "pass",
+    "single_effect_size_prediction": "not_attempted"
+  },
+  "decision": "v4_survives_heldout_izu_at_qualitative_mechanism_level",
+  "interpretation": "Across the full saturation envelope, v4 predicts lower best trait matching for the majority of paired lineages while retaining both positive and negative reproductive responses and near-conserved mean function. This matches the qualitative held-out structure: corrected trait matching is lower in all eight shared Izu targets, whereas pollen receipt and tube responses branch. The model does not predict the empirical 8/8 or 4/4 frequencies and is not fitted to them.",
+  "next_gate": "Use the same frozen v4 envelope on secondary held-out island systems (Canary, Galapagos, Seychelles, Hawaii, Ogasawara) only at source-supported architecture/function-direction resolution. Do not fit system-specific saturation values.",
+  "claim_boundary": "Qualitative mechanism validation only. Model best-match is an analogue, not the source TM_z estimand; synthetic lineage counts cannot be compared as prevalence to eight non-independent empirical plant targets."
+}
