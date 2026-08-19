@@ -6,7 +6,6 @@ import json
 import math
 import statistics
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,7 +31,6 @@ def solve(a, b):
     for c in range(n):
         p = max(range(c, n), key=lambda r: abs(x[r][c]))
         if abs(x[p][c]) < 1e-10:
-            # deterministic tiny ridge rather than fold-specific variable dropping
             x[p][c] += 1e-8
         x[c], x[p] = x[p], x[c]
         d = x[c][c]
@@ -92,8 +90,9 @@ def load_rows():
                 "region_pub": r["region_pub"],
                 "system": r["system"],
                 "stratum": r["stratum"],
-                "frequency": 1.0 if r["data_type"] == "frequency" else 0.0,
                 "sampling_time": float(r["sampling_time"]),
+                "annual_time_span": float(r["annual_time_span"]),
+                "sampling_type_TO": 1.0 if r["sampling_type"] == "TO" else 0.0,
                 "pollinator_richness": float(r["pollinator_richness"]),
                 "link_richness": float(r["link_richness"]),
                 "entity_ID": str(g["entity_ID"]),
@@ -108,13 +107,18 @@ def load_rows():
     return geo, rows
 
 
+def sampling_design(r):
+    # Mirrors the source richness-model measurement layer: ln_time + ln_ATS + Sampling_type.
+    return [1.0, math.log1p(r["sampling_time"]), math.log1p(r["annual_time_span"]), r["sampling_type_TO"]]
+
+
 def model_predictors(kind, abm_key=None):
     if kind == "effort_only":
-        return lambda r: [1.0, math.log1p(r["sampling_time"]), r["frequency"]]
+        return lambda r: sampling_design(r)
     if kind == "distance_quadratic":
-        return lambda r: [1.0, math.log1p(r["sampling_time"]), r["frequency"], r["z_distance"], r["z_distance"]**2]
+        return lambda r: sampling_design(r) + [r["z_distance"], r["z_distance"]**2]
     if kind == "abm":
-        return lambda r: [1.0, math.log1p(r["sampling_time"]), r["frequency"], math.log1p(r[abm_key])]
+        return lambda r: sampling_design(r) + [math.log1p(r[abm_key])]
     raise ValueError(kind)
 
 
@@ -209,12 +213,13 @@ def build():
         "analysis": "abm_v4_dore_named_system_leave_one_system_out_prediction",
         "mapping_preregistered_before_target_extraction": "data/design/global_abm_geography_to_constraint_mapping_v1.json",
         "primary_mapping": "distance_ecdf",
+        "measurement_covariates": "Doré source-richness design: log1p(Sampling_time) + log1p(Annual_time_span) + Sampling_type(T vs TO)",
         "coverage": coverage,
         "saturation_results": results,
         "summary": robust,
         "decision": "robust_mechanistic_predictive_gain_over_quadratic_distance_baseline" if full_robust else "no_robust_mechanistic_predictive_advantage_over_quadratic_distance_baseline",
         "interpretation_rule": "Failure to beat the quadratic distance baseline does not invalidate directional compatibility; it means the current v4 mechanism has not earned predictive advantage over a non-mechanistic geography curve on this held-out-system test.",
-        "claim_boundary": "This first named-system test is limited to Doré candidate systems whose GIFT island geography auto-locks. It uses source-native pollinator richness/link richness and attached sampling time/data type. Matrix-derived diversity/niche-overlap targets and the fourth western-Pacific stratum are outside this first test. No system may be replaced based on fit, and no saturation value is selected post hoc.",
+        "claim_boundary": "This first named-system test is limited to Doré candidate systems whose GIFT island geography is source-locked. Pollinator/link richness retain the source sampling-design layer; Data_type is not substituted for Sampling_type. Matrix-derived diversity/niche-overlap and the western-Pacific stratum remain later gates. No system may be replaced based on fit, and no saturation value is selected post hoc.",
     }
 
 
