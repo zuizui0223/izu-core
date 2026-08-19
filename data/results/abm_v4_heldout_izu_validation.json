@@ -5,50 +5,50 @@
     "1.0": {
       "best_match_lower": 1711,
       "best_match_higher": 209,
-      "mean_best_match_delta": -0.2305956295647582,
+      "mean_best_match_delta": -0.230595629565,
       "positive_reproductive_responses": 1462,
       "negative_reproductive_responses": 458,
-      "mean_reproductive_delta": 0.026160932003786476,
+      "mean_reproductive_delta": 0.026160932004,
       "predicts_matching_decline_majority": true,
       "predicts_reproductive_sign_branching": true
     },
     "1.5": {
       "best_match_lower": 1625,
       "best_match_higher": 295,
-      "mean_best_match_delta": -0.244128767251517,
+      "mean_best_match_delta": -0.244128767252,
       "positive_reproductive_responses": 1384,
       "negative_reproductive_responses": 536,
-      "mean_reproductive_delta": 0.011477614234351261,
+      "mean_reproductive_delta": 0.011477614234,
       "predicts_matching_decline_majority": true,
       "predicts_reproductive_sign_branching": true
     },
     "2.0": {
       "best_match_lower": 1571,
       "best_match_higher": 349,
-      "mean_best_match_delta": -0.25237997506365367,
+      "mean_best_match_delta": -0.252379975064,
       "positive_reproductive_responses": 1356,
       "negative_reproductive_responses": 564,
-      "mean_reproductive_delta": -0.0013141422571986653,
+      "mean_reproductive_delta": -0.001314142257,
       "predicts_matching_decline_majority": true,
       "predicts_reproductive_sign_branching": true
     },
     "2.5": {
       "best_match_lower": 1587,
       "best_match_higher": 333,
-      "mean_best_match_delta": -0.25807638397964,
+      "mean_best_match_delta": -0.25807638398,
       "positive_reproductive_responses": 1353,
       "negative_reproductive_responses": 567,
-      "mean_reproductive_delta": -0.012040835069665296,
+      "mean_reproductive_delta": -0.01204083507,
       "predicts_matching_decline_majority": true,
       "predicts_reproductive_sign_branching": true
     },
     "3.0": {
       "best_match_lower": 1592,
       "best_match_higher": 328,
-      "mean_best_match_delta": -0.26149799824606745,
+      "mean_best_match_delta": -0.261497998246,
       "positive_reproductive_responses": 1341,
       "negative_reproductive_responses": 579,
-      "mean_reproductive_delta": -0.022608331569337104,
+      "mean_reproductive_delta": -0.022608331569,
       "predicts_matching_decline_majority": true,
       "predicts_reproductive_sign_branching": true
     }
