@@ -39,7 +39,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install repository package and source-audit dependencies
-        run: python -m pip install -e . xlrd
+        run: python -m pip install -e . xlrd openpyxl
       - name: Acquire Zenodo v1 raw interaction table
         run: python scripts/acquire_dore2021_zenodo_raw_interactions.py
       - name: Audit raw schema and frozen Region_pub coverage
