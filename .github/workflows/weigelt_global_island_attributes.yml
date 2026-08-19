@@ -48,9 +48,12 @@ jobs:
               top=m['top_candidates'][0] if m['top_candidates'] else None
               print(m['kind'],m['system'],m['target'],'LOCK' if m['auto_lock'] else 'REVIEW',m.get('lock_source'),top)
           p=json.load(open('data/results/abm_v4_dore_named_system_prediction.json'))
-          print('prediction coverage',p['coverage'])
-          print('prediction decision',p['decision'])
-          print('prediction summary',p['summary'])
+          print('overall coverage',p['overall_coverage'])
+          print('primary decision',p['decision'])
+          print('primary coverage',p['primary_distance_ecdf']['coverage'])
+          print('primary summary',p['primary_distance_ecdf']['summary'])
+          print('secondary coverage',p['secondary_geography_only_pc1']['coverage'])
+          print('secondary summary',p['secondary_geography_only_pc1']['summary'])
           PY
       - name: Upload source gates, matches and prediction
         uses: actions/upload-artifact@v4
