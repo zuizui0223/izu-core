@@ -1,0 +1,35 @@
+{
+  "model": "constraint_mechanism_abm_v2_lineage_branching",
+  "status": "mechanistic_hypothesis_test_not_empirical_evidence",
+  "predeclared_question": "Can shared opportunity constraint produce both positive and negative lineage-level reproductive responses without Izu-specific or architecture-specific tuning?",
+  "mechanism_added_relative_to_v1": "lineage-level heterogeneity in pollinator dependency, assurance ceiling/responsiveness and trait-adjustment rate; all drawn independently of geography and final architecture",
+  "run_design": {
+    "paired_runs": 120,
+    "lineages_per_run": 16,
+    "lineage_contrasts": 1920,
+    "steps": 120,
+    "seed": 20260819
+  },
+  "summary": {
+    "n_paired_runs": 120,
+    "n_lineage_contrasts": 1920,
+    "positive_lineage_responses": 47,
+    "negative_lineage_responses": 1873,
+    "near_zero_lineage_responses": 0,
+    "positive_fraction": 0.024479166666666666,
+    "negative_fraction": 0.9755208333333333,
+    "mixed_sign_runs": 10,
+    "mixed_sign_run_fraction": 0.08333333333333333,
+    "mean_delta": -0.30726516683759253,
+    "mean_mainland_reproduction": 0.5871569461565426,
+    "mean_oceanic_reproduction": 0.27989177931895004
+  },
+  "falsification": {
+    "requires_both_response_signs": true,
+    "requires_mixed_sign_runs": true
+  },
+  "decision": "lineage_heterogeneity_can_generate_sign_branching_but_v2_remains_strongly_decline_biased",
+  "interpretation": "Adding lineage-level dependency and assurance heterogeneity is sufficient to generate both positive and negative reproductive responses under the same opportunity constraint, without Izu-specific tuning. However, positive responses are rare and the mean response remains strongly negative. The model therefore demonstrates a branching mechanism but does not yet explain the breadth of downstream response heterogeneity seen in the held-out Izu comparison.",
+  "next_gate": "Test additional independently motivated mechanisms that can redistribute outcomes without architecture labels or Izu tuning, especially effective-service variation among replacement partners and lineage-specific costs/benefits of assurance. Compare only predeclared qualitative predictions to held-out systems.",
+  "claim_boundary": "The sign distribution is synthetic and must not be compared as an empirical prevalence estimate. The eight Izu species are not eight independent island experiments, so 4/4 pollen directions cannot be used as a target frequency for fitting."
+}
