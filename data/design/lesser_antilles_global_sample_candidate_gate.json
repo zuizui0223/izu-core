@@ -1,0 +1,25 @@
+{
+  "analysis": "lesser_antilles_fourth_stratum_candidate_gate",
+  "purpose": "Evaluate the leading fourth geographic stratum for the preregistered balanced global oceanic-island ABM validation sample without inspecting ABM fit.",
+  "source": {
+    "citation": "Dalsgaard et al. 2008, Oikos 117:789-793",
+    "doi": "10.1111/j.0030-1299.2008.16537.x",
+    "study_area": ["Dominica", "Grenada"],
+    "n_plant_pollinator_assemblages": 5,
+    "reported_total_interactions": 207,
+    "reported_plant_species": 36,
+    "reported_hummingbird_species": 5,
+    "reported_insect_morphospecies": 84,
+    "reported_hummingbird_observation_hours": 815,
+    "reported_insect_observation_hours": 87
+  },
+  "geographic_stratum": "Caribbean / tropical western Atlantic",
+  "candidate_island_systems": [
+    {"system": "Dominica", "geology_state": "volcanic_lesser_antilles_arc_supported", "matrix_state": "site_level_source_matrix_recovery_required"},
+    {"system": "Grenada", "geology_state": "volcanic_lesser_antilles_arc_supported", "matrix_state": "site_level_source_matrix_recovery_required"}
+  ],
+  "admission_state": "promising_fourth_stratum_not_yet_quantitative_global_fit_ready",
+  "why_not_admitted_yet": "The article establishes quantitative interaction sampling and two oceanic-arc islands, but the site-level interaction matrices must be source-locked and mapped to the current network target schema before either island enters leave-one-island ABM validation.",
+  "selection_boundary": "This source was selected because it fills the preregistered Caribbean geographic gap with two independently located island systems under one standardized field design; no ABM outcome was inspected.",
+  "next_gate": "Recover the five source matrices or an author/institutional data artifact, preserve Dominica and Grenada as separate island systems while clustering them by study, then test whether the preregistered minimum of four strata x two systems is met."
+}
