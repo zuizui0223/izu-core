@@ -27,12 +27,17 @@ def norm(value: str | None) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
 
-def finite_positive(value):
+def finite_number(value):
     try:
         number = float(value)
     except (TypeError, ValueError):
         return None
-    return number if math.isfinite(number) and number > 0 else None
+    return number if math.isfinite(number) else None
+
+
+def finite_positive(value):
+    number = finite_number(value)
+    return number if number is not None and number > 0 else None
 
 
 def alias_score(entity: str, aliases: list[str]) -> int:
@@ -47,6 +52,39 @@ def alias_score(entity: str, aliases: list[str]) -> int:
         elif alias_norm in entity_norm or entity_norm in alias_norm:
             best = max(best, 40)
     return best
+
+
+def inside_frozen_bbox(candidate: dict, target: dict) -> bool:
+    gate = target.get("gsi_map_sheet_gate")
+    if not gate:
+        return True
+    lat = finite_number(candidate.get("latitude"))
+    lon = finite_number(candidate.get("longitude"))
+    if lat is None or lon is None:
+        return False
+    return (
+        float(gate["latitude_min"]) <= lat <= float(gate["latitude_max"])
+        and float(gate["longitude_min"]) <= lon <= float(gate["longitude_max"])
+    )
+
+
+def audit_candidate(island: dict, target: dict) -> dict | None:
+    score = alias_score(island["geo_entity"], target["aliases"])
+    if score <= 0:
+        return None
+    gsi_area = float(target["gsi_area_km2"])
+    relative_error = abs(float(island["area_km2"]) - gsi_area) / gsi_area
+    area_ok = relative_error <= float(target["gift_area_relative_tolerance"])
+    bbox_ok = inside_frozen_bbox(island, target)
+    return {
+        **island,
+        "alias_score": score,
+        "gsi_area_km2": gsi_area,
+        "area_relative_error_vs_gsi": relative_error,
+        "area_plausible": area_ok,
+        "frozen_bbox_plausible": bbox_ok,
+        "audit_valid": bool(area_ok and bbox_ok),
+    }
 
 
 def main() -> None:
@@ -70,60 +108,69 @@ def main() -> None:
                 "geo_entity": str(row.get("geo_entity") or row.get("geo_entity_ref") or ""),
                 "entity_class": row.get("entity_class"),
                 "area_km2": area,
-                "distance_to_mainland_km": joined.get("dist"),
-                "latitude": joined.get("latitude"),
-                "longitude": joined.get("longitude"),
+                "distance_to_mainland_km": finite_number(joined.get("dist")),
+                "latitude": finite_number(joined.get("latitude")),
+                "longitude": finite_number(joined.get("longitude")),
             }
         )
 
     matches = []
     for target in design["targets"]:
-        aliases = target["aliases"]
         candidates = []
         for island in islands:
-            score = alias_score(island["geo_entity"], aliases)
-            if score > 0:
-                candidates.append({**island, "alias_score": score})
-        candidates.sort(key=lambda row: (-row["alias_score"], str(row["geo_entity"])))
-        best_score = candidates[0]["alias_score"] if candidates else 0
-        best = [row for row in candidates if row["alias_score"] == best_score]
+            audited = audit_candidate(island, target)
+            if audited is not None:
+                candidates.append(audited)
+        candidates.sort(
+            key=lambda row: (
+                not row["audit_valid"],
+                -row["alias_score"],
+                row["area_relative_error_vs_gsi"],
+                str(row["geo_entity"]),
+            )
+        )
+        valid = [row for row in candidates if row["audit_valid"]]
+        best_score = max((row["alias_score"] for row in valid), default=0)
+        best = [row for row in valid if row["alias_score"] == best_score]
         locked = len(best) == 1 and best_score in (100, 40)
         selected = best[0] if locked else None
         matches.append(
             {
                 **target,
-                "locked": locked,
-                "lock_reason": (
-                    "unique_exact_normalized_alias" if locked and best_score == 100
-                    else "unique_alias_substring" if locked
-                    else "unresolved_or_ambiguous"
+                "gift_audit_locked": locked,
+                "gift_audit_reason": (
+                    "unique_geographically_plausible_exact_alias" if locked and best_score == 100
+                    else "unique_geographically_plausible_alias_substring" if locked
+                    else "no_unique_geographically_plausible_gift_entity"
                 ),
-                "selected": selected,
-                "candidates": candidates[:12],
+                "gift_selected": selected,
+                "gift_candidates": candidates[:12],
             }
         )
 
     payload = {
-        "schema_version": "1.0",
-        "analysis": "ogasawara_gift_capacity_geography_match",
+        "schema_version": "1.1",
+        "analysis": "ogasawara_gift_capacity_cross_source_audit",
         "gift_version": "3.2",
+        "primary_area_source": design["primary_area_source"],
         "target_count": len(matches),
-        "locked_count": sum(row["locked"] for row in matches),
-        "all_locked": all(row["locked"] for row in matches),
+        "gift_locked_count": sum(row["gift_audit_locked"] for row in matches),
+        "all_gift_audits_locked": all(row["gift_audit_locked"] for row in matches),
         "matches": matches,
-        "lock_rule": design["lock_rule"],
+        "audit_rule": design["gift_audit_rule"],
         "claim_boundary": design["claim_boundary"],
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     print(json.dumps({
-        "all_locked": payload["all_locked"],
-        "locked_count": payload["locked_count"],
+        "all_gift_audits_locked": payload["all_gift_audits_locked"],
+        "gift_locked_count": payload["gift_locked_count"],
         "matches": [
             {
                 "source_island": row["source_island"],
-                "locked": row["locked"],
-                "selected": row["selected"],
+                "gift_audit_locked": row["gift_audit_locked"],
+                "gift_selected": row["gift_selected"],
+                "top_candidate": row["gift_candidates"][0] if row["gift_candidates"] else None,
             }
             for row in matches
         ],
