@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "analysis": "preregistered_global_oceanic_validation_release_gate",
+  "selection_phase": "outcome_blind_candidate_freeze_before_named_system_ABM_fit",
+  "preregistered_minimum_strata_required": 4,
+  "candidate_strata_with_two_independent_systems": 4,
+  "fully_admitted_strata_with_two_independent_systems": 0,
+  "candidate_geographic_minimum_met": true,
+  "balanced_global_quantitative_fit_released": false,
+  "candidate_sample_frozen": true,
+  "frozen_candidate_strata": [
+    {
+      "stratum": "North Atlantic / Macaronesia",
+      "systems": [
+        {
+          "system": "Canary Islands",
+          "source_family": "Dore_global_compilation",
+          "independence_state": "independent_source_system_candidate",
+          "sampling_effort_state": "source_numeric_sampling_effort_complete",
+          "matrix_state": "source_database_traceability_present_but_byte_level_matrix_gate_pending",
+          "geography_state": "source_labeled_oceanic_candidate_pending_common_global_island_attribute_lock",
+          "final_admission": false
+        },
+        {
+          "system": "Azores",
+          "source_family": "Dore_global_compilation",
+          "independence_state": "independent_source_system_candidate",
+          "sampling_effort_state": "source_numeric_sampling_effort_complete",
+          "matrix_state": "source_database_traceability_present_but_byte_level_matrix_gate_pending",
+          "geography_state": "source_labeled_oceanic_candidate_pending_common_global_island_attribute_lock",
+          "final_admission": false
+        }
+      ],
+      "candidate_two_system_requirement_met": true,
+      "fully_admitted_two_system_requirement_met": false
+    },
+    {
+      "stratum": "western Indian Ocean",
+      "systems": [
+        {
+          "system": "Mauritius",
+          "source_family": "Dore_global_compilation",
+          "independence_state": "independent_source_system_candidate",
+          "sampling_effort_state": "source_numeric_sampling_effort_complete",
+          "matrix_state": "source_database_traceability_present_but_byte_level_matrix_gate_pending",
+          "geography_state": "source_labeled_oceanic_candidate_pending_common_global_island_attribute_lock",
+          "final_admission": false
+        },
+        {
+          "system": "Seychelles",
+          "source_family": "Dore_global_compilation",
+          "independence_state": "independent_source_system_candidate",
+          "sampling_effort_state": "source_numeric_sampling_effort_complete",
+          "matrix_state": "source_database_traceability_present_but_byte_level_matrix_gate_pending",
+          "geography_state": "source_labeled_oceanic_candidate_pending_common_global_island_attribute_lock",
+          "final_admission": false
+        }
+      ],
+      "candidate_two_system_requirement_met": true,
+      "fully_admitted_two_system_requirement_met": false
+    },
+    {
+      "stratum": "eastern / central Pacific",
+      "systems": [
+        {
+          "system": "Galapagos",
+          "source_family": "Dore_global_compilation",
+          "independence_state": "independent_source_system_candidate",
+          "sampling_effort_state": "source_numeric_sampling_effort_complete",
+          "matrix_state": "source_database_traceability_present_but_byte_level_matrix_gate_pending",
+          "geography_state": "source_labeled_oceanic_candidate_pending_common_global_island_attribute_lock",
+          "final_admission": false
+        },
+        {
+          "system": "Hawaii",
+          "source_family": "Dore_global_compilation",
+          "independence_state": "independent_source_system_candidate",
+          "sampling_effort_state": "source_numeric_sampling_effort_complete",
+          "matrix_state": "source_database_traceability_present_but_byte_level_matrix_gate_pending",
+          "geography_state": "source_labeled_oceanic_candidate_pending_common_global_island_attribute_lock",
+          "final_admission": false
+        }
+      ],
+      "candidate_two_system_requirement_met": true,
+      "fully_admitted_two_system_requirement_met": false
+    },
+    {
+      "stratum": "NW / western Pacific",
+      "systems": [
+        {
+          "system": "Izu archipelago",
+          "source_family": "hiraiwa_ushimaru_2024_function",
+          "independence_state": "independent_multi_island_sampling_program",
+          "matrix_state": "source_native_figshare_interaction_tables_retrievable_by_existing_acquisition_workflow",
+          "sampling_effort_state": "standardized_site_x_season_sampling_block_proxy; numeric observation hours not exposed in current archived table",
+          "geography_state": "source_native island distance_and_area columns available for five Izu islands; common global-island attribute lock still required for cross-source fit",
+          "final_admission": false
+        },
+        {
+          "system": "Yongxing / Xisha",
+          "source_family": "wang_etal_2025_wanshan_yongxing",
+          "independence_state": "independent_oceanic_coral_island_sampling_program",
+          "matrix_state": "source_native_weighted_visitation_matrix_acquired_and_reanalysed",
+          "sampling_effort_state": "visitation_rate_standardized_by_flowers_observed_and_censuses",
+          "geography_state": {
+            "origin": "oceanic_coral_island",
+            "distance_to_source_km": 350,
+            "area_km2": 2.6,
+            "source_reference": "southeast Hainan Island",
+            "common_global_island_attribute_lock_required": true
+          },
+          "final_admission": false
+        }
+      ],
+      "candidate_two_system_requirement_met": true,
+      "fully_admitted_two_system_requirement_met": false
+    }
+  ],
+  "common_geography_source_gate": {
+    "dataset": "Weigelt, Jetz & Kreft 2013 global island physical/bioclimatic data",
+    "doi": "10.5061/dryad.fv94v",
+    "required_fields": [
+      "distance_to_mainland",
+      "area",
+      "elevation"
+    ],
+    "rule": "Use one common island-attribute definition across frozen systems; do not substitute study sampling area for island area."
+  },
+  "fit_release_blockers": [
+    "Byte/source-native matrix trace must be completed for the three Dore candidate strata rather than relying on database-availability flags alone.",
+    "Oceanic-island geology/name matching must be locked to the common island-attribute source for every frozen system.",
+    "Izu cross-source effort treatment must remain a declared standardized sampling-block proxy; raw visit totals must not be pooled as if observation hours were known."
+  ],
+  "next_gate": "Acquire and name-match the common Weigelt global island attribute table, complete byte-level matrix traceability for frozen systems, then run leave-one-system-out ABM predictions without changing the frozen system list or selecting a saturation value post hoc.",
+  "forbidden_post_freeze_actions": [
+    "ABM goodness of fit",
+    "whether a network supports the proposed hypothesis",
+    "desired architecture macroclass",
+    "desired sign of isolation effect",
+    "availability of an attractive narrative",
+    "replace a frozen system because its ABM fit is poor",
+    "use held-out network outcomes to choose the distance-to-constraint mapping"
+  ],
+  "claim_boundary": "Four geographic strata are now available at the outcome-blind candidate level, so the candidate list can be frozen. This does not release the quantitative global ABM fit: final matrix/geology/effort gates remain explicit and no named-system ABM fit has been inspected for candidate selection."
+}
