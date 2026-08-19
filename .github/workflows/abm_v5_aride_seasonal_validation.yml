@@ -1,0 +1,67 @@
+name: ABM v5 Aride seasonal validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v5_aride_seasonal_validation_v1.json'
+      - 'scripts/acquire_aride2026_dryad_matrices.py'
+      - 'scripts/match_aride2026_to_gift_opportunity.py'
+      - 'scripts/run_abm_v5_aride_seasonal_validation.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
+      - 'data/results/frozen_candidate_gift_geography_match.json'
+      - 'data/results/frozen_dore_network_targets.csv'
+      - 'tests/test_abm_v5_aride_seasonal_validation.py'
+      - '.github/workflows/abm_v5_aride_seasonal_validation.yml'
+
+concurrency:
+  group: abm-v5-aride-seasonal-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository test dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Acquire and checksum-lock exact Dryad matrices
+        run: python scripts/acquire_aride2026_dryad_matrices.py
+      - name: Lock held-out Aride GIFT opportunity input
+        run: python scripts/match_aride2026_to_gift_opportunity.py
+      - name: Run frozen held-out v5 validation
+        run: python scripts/run_abm_v5_aride_seasonal_validation.py
+      - name: Run focused freeze and parser tests
+        run: python -m pytest -q tests/test_abm_v5_aride_seasonal_validation.py
+      - name: Show validation decision
+        run: |
+          python - <<'PY'
+          import json
+          source=json.load(open('data/results/aride2026_dryad_source_lock.json'))
+          geo=json.load(open('data/results/aride2026_gift_opportunity_lock.json'))
+          result=json.load(open('data/results/abm_v5_aride_seasonal_validation.json'))
+          print('source lock', source['all_required_files_recovered'])
+          print('source files', [(f['filename'], f['bytes'], f['sha256'], f['schema_audit']) for f in source['files']])
+          print('geography status', geo['status'])
+          print('geography selected', geo.get('selected'))
+          print('isolation index', geo.get('isolation_index'))
+          print('decision', result['decision'])
+          print('empirical', result.get('empirical'))
+          print('predictive envelopes', {
+              'interaction_shannon': result.get('predictive', {}).get('interaction_shannon_range_envelope'),
+              'plant_niche_overlap': result.get('predictive', {}).get('plant_niche_overlap_range_envelope'),
+          })
+          print('tests', result.get('tests'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v5-aride-seasonal-validation
+          path: |
+            data/results/aride2026_dryad_source_lock.json
+            data/results/aride2026_gift_opportunity_lock.json
+            data/results/abm_v5_aride_seasonal_validation.json
+            data/external/aride_2026/**
