@@ -4,6 +4,7 @@ import hashlib
 import io
 import json
 import re
+import ssl
 import urllib.request
 from pathlib import Path
 
@@ -24,6 +25,14 @@ def compact(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def gsi_ssl_context() -> ssl.SSLContext:
+    """Permit the official GSI endpoint's legacy server renegotiation for this fetch only."""
+    context = ssl.create_default_context()
+    legacy_option = getattr(ssl, "OP_LEGACY_SERVER_CONNECT", 0x4)
+    context.options |= legacy_option
+    return context
+
+
 def main() -> None:
     design = json.loads(DESIGN.read_text())
     source = design["primary_area_source"]
@@ -31,7 +40,7 @@ def main() -> None:
         source["url"],
         headers={"User-Agent": "izu-core-source-audit/1.0", "Accept": "application/pdf"},
     )
-    with urllib.request.urlopen(req, timeout=120) as response:
+    with urllib.request.urlopen(req, timeout=120, context=gsi_ssl_context()) as response:
         payload = response.read()
     if not payload.startswith(b"%PDF"):
         raise RuntimeError("GSI area source did not return a PDF")
@@ -55,7 +64,6 @@ def main() -> None:
         japanese = target["japanese_name"]
         reading = READINGS[island]
         area_text = f"{float(target['gsi_area_km2']):.2f}"
-        # The GSI PDF extractor preserves each row as island name, reading, area.
         pattern = re.compile(
             rf"{re.escape(japanese)}\s+{re.escape(reading)}\s+{re.escape(area_text)}(?:\s|$)"
         )
@@ -75,6 +83,7 @@ def main() -> None:
         "schema_version": "1.0",
         "status": "verified_authoritative_gsi_area_source",
         "source": source,
+        "transport_note": "The official GSI host required TLS legacy-server-connect on the GitHub runner. The relaxed option is scoped only to this official source fetch; certificate verification remains enabled.",
         "bytes": len(payload),
         "sha256": hashlib.sha256(payload).hexdigest(),
         "pdf_page_index_zero_based": target_page_index,
