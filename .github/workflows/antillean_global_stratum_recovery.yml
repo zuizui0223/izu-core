@@ -2,12 +2,10 @@ name: Antillean fourth-stratum recovery
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/acquire_antillean_hummingbird_networks.py'
-      - 'scripts/audit_antillean_hummingbird_matrices.py'
-      - 'data/design/lesser_antilles_global_sample_candidate_gate.json'
-      - '.github/workflows/antillean_global_stratum_recovery.yml'
+
+concurrency:
+  group: antillean-source-recovery-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   recover:
