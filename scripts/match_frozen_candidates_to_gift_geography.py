@@ -4,12 +4,11 @@ import json
 import math
 import re
 import unicodedata
-import urllib.parse
 import urllib.request
 from pathlib import Path
 
 API = "https://gift.uni-goettingen.de/api/extended/index3.2.php"
-DORE = Path("data/results/dore2021_oceanic_island_candidate_audit.json")
+DORE = Path("data/design/frozen_dore_candidate_network_locations.json")
 OUT = Path("data/results/frozen_candidate_gift_geography_match.json")
 
 IZU_TARGETS = [
@@ -84,15 +83,14 @@ def main() -> None:
     dore = json.loads(DORE.read_text())
     targets = []
     for r in dore["rows"]:
-        if not r.get("candidate_system") or r.get("latitude") is None or r.get("longitude") is None:
-            continue
         targets.append({
             "kind": "dore_network_location",
-            "system": r["candidate_system"],
+            "system": r["system"],
             "target": r.get("location") or r.get("country_location") or r.get("region_pub"),
             "latitude": float(r["latitude"]),
             "longitude": float(r["longitude"]),
             "source_reference": r.get("reference_id"),
+            "region_pub": r.get("region_pub"),
         })
     targets.extend({"kind": "name_only_izu", **x} for x in IZU_TARGETS)
     targets.append({"kind": "name_only_yongxing", **YONGXING_TARGET})
@@ -106,7 +104,6 @@ def main() -> None:
             distance = None
             if "latitude" in t:
                 distance = haversine_km(t["latitude"], t["longitude"], x["latitude"], x["longitude"])
-            # Names dominate; coordinate-only candidates are still retained for manual lock.
             combined = ns * 1000 - (distance if distance is not None else 500)
             ranked.append((combined, ns, distance, x))
         ranked.sort(key=lambda z: z[0], reverse=True)
