@@ -6,7 +6,10 @@ on:
     paths:
       - 'scripts/acquire_dore2021_zenodo_raw_interactions.py'
       - 'scripts/audit_dore2021_zenodo_raw_interactions.py'
+      - 'data/results/dore2021_zenodo_v1_raw_interaction_source_lock.json'
       - 'data/design/frozen_dore_candidate_network_locations.json'
+      - 'data/design/olesen2002_tierb_weighted_source_map.json'
+      - 'scripts/acquire_analyze_olesen2002_tierb_weighted.py'
       - '.github/workflows/dore2021_tierb_raw_matrix.yml'
 
 concurrency:
@@ -25,10 +28,13 @@ jobs:
         run: python scripts/acquire_dore2021_zenodo_raw_interactions.py
       - name: Audit raw schema and frozen Region_pub coverage
         run: python scripts/audit_dore2021_zenodo_raw_interactions.py
-      - name: Show source and schema gates
+      - name: Recover and analyze Olesen 2002 frequency matrices
+        run: python scripts/acquire_analyze_olesen2002_tierb_weighted.py
+      - name: Show source and weighted-anchor gates
         run: |
           cat data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
           cat data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
+          cat data/results/olesen2002_tierb_weighted_anchor.json
       - name: Upload Tier-B source artifact
         uses: actions/upload-artifact@v4
         with:
@@ -36,5 +42,7 @@ jobs:
           path: |
             data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
             data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
+            data/results/olesen2002_tierb_weighted_anchor.json
             data/external/dore2021_zenodo_v1/network interaction data.txt
+            data/external/olesen2002_iwdb/
           if-no-files-found: warn
