@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "source": "Interaction Web Database Olesen et al. 2002",
+  "source_page": "https://iwdb.nceas.ucsb.edu/html/olesen_et_al_2002.html",
+  "source_data_statement": "Positive integers are observed visit frequencies; zeros are no observed interaction.",
+  "matrix_orientation": "IWDB text matrices: pollinator rows x plant columns; analysis transposes to plant rows x pollinator columns.",
+  "networks": [
+    {
+      "region_pub": "RP17",
+      "system": "Mauritius",
+      "location": "Ile aux Aigrettes",
+      "url": "https://iwdb.nceas.ucsb.edu/data/plant_pollinator/text/ole_aigr_matr_f.txt",
+      "source_pollinator_rows": 13,
+      "source_plant_columns": 14,
+      "source_topology_positive_links": 52,
+      "dore_frozen_pollinator_richness": 12,
+      "dore_frozen_link_richness": 42,
+      "dore_frozen_full_visits": 1226,
+      "admission_rule": "method_validation_only_unless_Dore_taxonomic_filter_is_reproduced"
+    },
+    {
+      "region_pub": "RP18",
+      "system": "Azores",
+      "location": "Flores",
+      "url": "https://iwdb.nceas.ucsb.edu/data/plant_pollinator/text/ole_flores_matr_f.txt",
+      "source_pollinator_rows": 12,
+      "source_plant_columns": 10,
+      "source_topology_positive_links": 30,
+      "dore_frozen_pollinator_richness": 12,
+      "dore_frozen_link_richness": 30,
+      "dore_frozen_full_visits": 1139,
+      "admission_rule": "exact_weighted_anchor_if_source_matrix_reconciles_all_frozen_counts"
+    }
+  ],
+  "claim_boundary": "The original IWDB frequency matrices are weighted visitation networks, not pollinator effectiveness or reproductive success. Source-native Shannon interaction diversity and Morisita-Horn plant niche overlap are transparent analogues; they are not asserted to be numerically identical to a published package-specific global estimator unless that estimator is separately verified."
+}
