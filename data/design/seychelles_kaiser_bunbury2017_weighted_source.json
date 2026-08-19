@@ -1,10 +1,23 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "system": "Seychelles",
   "source": "Kaiser-Bunbury et al. 2017",
   "article_title": "Ecosystem restoration strengthens pollination network resilience and function",
   "article_doi": "10.1038/nature21071",
+  "source_pages": [
+    {
+      "url": "https://www.ecologia.ib.usp.br/iwdb/html/kaiser-bunbury_et_al_2017.html",
+      "role": "original configured IWDB host",
+      "verification": "The page is indexed with the Kaiser-Bunbury 2017 64-network description and the no.visits/visitfreq workbook definitions, but current GitHub runners reject its hostname-mismatched TLS certificate. Certificate verification must not be disabled."
+    },
+    {
+      "url": "https://iwdb.nceas.ucsb.edu/html/kaiser-bunbury_et_al_2017.html",
+      "role": "independently verified NCEAS/UCSB IWDB mirror",
+      "verification": "The NCEAS/UCSB Interaction Web Database lists Kaiser-Bunbury et al. 2017 as Seychelles restoration networks with both no. visits and visitation frequency. Hoeppke & Simmons 2021 (Methods in Ecology and Evolution, doi:10.1111/2041-210X.13545) independently identifies this NCEAS IWDB URL as the source for the networks. The Temporal scale-dependence public data deposit also records the NCEAS interactionweb Kaiser-Bunbury URL as a source."
+    }
+  ],
   "iwdb_page": "https://www.ecologia.ib.usp.br/iwdb/html/kaiser-bunbury_et_al_2017.html",
+  "source_page_policy": "Try only source pages predeclared above. Keep TLS certificate verification enabled. Parse only hrefs exposed by a successfully fetched verified source page; do not guess workbook filenames or file paths.",
   "source_design": {
     "island": "Mahe, Seychelles",
     "sites": ["Bernica", "Casse Dent", "Copolia", "La Reserve", "Rosebelle", "Salazie", "Tea Plantation", "Trois Freres"],
