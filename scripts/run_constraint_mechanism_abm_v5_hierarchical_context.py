@@ -38,9 +38,6 @@ def redistribute_row(row: tuple[float, ...], rng: random.Random, context_strengt
     total = sum(row)
     if context_strength == 0.0 or total <= 0.0:
         return tuple(row)
-
-    # Context changes pairwise realization only. Positive affinities guarantee that
-    # the feasible partner set is not created or destroyed by the local layer.
     factors = [
         (1.0 - context_strength) + context_strength * local_affinity(rng)
         for _ in row
@@ -49,9 +46,6 @@ def redistribute_row(row: tuple[float, ...], rng: random.Random, context_strengt
     raw_total = sum(raw)
     if raw_total <= 0.0:
         raise RuntimeError("positive context affinities produced a non-positive row total")
-
-    # Exact fixed-budget conservation: local context redistributes a plant's
-    # opportunity among feasible partners but cannot change its total pair weight.
     scale = total / raw_total
     realized = tuple(value * scale for value in raw)
     if not math.isclose(sum(realized), total, rel_tol=1e-12, abs_tol=1e-14):
@@ -122,15 +116,18 @@ def build_contract() -> dict:
             "plant and pollinator identities/dimensions are unchanged by local context",
             "all local affinity factors stay positive, so context does not create or delete feasible partners",
             "each plant's total realized pair weight is identical before and after context redistribution",
+            "a positive state with only one feasible pollinator is structurally non-branchable and must remain unchanged rather than inventing a partner",
             "no Ogasawara, forest, anole, or other empirical outcome is loaded to define the context field",
         ],
         "predeclared_falsification": [
             "reject v5 if zero-strength identity with v4 fails",
             "reject v5 if row-budget conservation fails",
             "reject v5 if local context changes feasible partner dimensions or positive-link support",
-            "reject v5 if nonzero context strengths cannot generate measurable Shannon and plant-overlap variation at fixed island opportunity",
+            "reject v5 if any structurally branchable state with at least two feasible pollinators cannot generate measurable Shannon and plant-overlap variation at nonzero context strength",
+            "reject v5 if zero-variation positive states are not exactly the structurally non-branchable single-pollinator states",
             "reject v5 as a branching realization layer if independent context pairs cannot produce both signs of Shannon and overlap differences across the frozen synthetic envelope",
         ],
+        "prevalidation_correction_note": "The first synthetic gate incorrectly required context variation even when v4 ended with exactly one pollinator. Under fixed support and fixed row totals, a one-column network has no redistribution degree of freedom. The model was not changed to force variation; the gate was corrected to test only structurally branchable states and to require degenerate states to remain non-branchable.",
         "claim_boundary": "v5 does not assert that forest disturbance or anole presence causes a particular network change. Context strength is not fitted to Ogasawara. The local layer represents unresolved realization heterogeneity within an island-scale opportunity set and conserves total plant opportunity by construction.",
     }
 
