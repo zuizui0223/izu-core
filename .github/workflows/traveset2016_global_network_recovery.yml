@@ -2,17 +2,10 @@ name: Traveset 2016 global network recovery
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/acquire_traveset2016_global_network_supplement.py'
-      - 'scripts/acquire_antillean_hummingbird_networks.py'
-      - 'scripts/audit_weboflife_global_pollination_coverage.py'
-      - 'scripts/build_preregistered_global_network_candidate_pool.py'
-      - 'scripts/extract_dore2021_global_network_pool.R'
-      - 'scripts/audit_dore2021_global_network_pool.py'
-      - 'scripts/build_dore2021_oceanic_island_candidate_audit.py'
-      - 'tests/test_traveset2016_global_network_supplement_gate.py'
-      - '.github/workflows/traveset2016_global_network_recovery.yml'
+
+concurrency:
+  group: traveset-global-source-recovery-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   recover:
@@ -57,9 +50,6 @@ jobs:
               print('\n',path)
               for k in ('status','rows','weighted_pollination_network_rows','raw_weighted_rows','deduplicated_location_reference_programs','source_labeled_OI_rows','candidate_system_count_by_stratum','release_condition_met_from_dore_alone','admission'):
                   if k in x: print(k, x[k])
-              for k in ('geography_candidate_columns','sampling_candidate_columns','id_candidate_columns'):
-                  if k in x: print(k, x[k])
-              if 'preview' in x: print('preview',x['preview'][:10])
           PY
       - name: Upload source-gate results
         uses: actions/upload-artifact@v4
