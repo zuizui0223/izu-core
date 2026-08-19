@@ -1,16 +1,19 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import math
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/run_ogasawara_raw_weighted_capacity_falsification.py"
+MATCHER = ROOT / "scripts/match_ogasawara_to_gift_capacity.py"
+DESIGN = ROOT / "data/design/ogasawara_gift_capacity_targets_v1.json"
 
 
-def load_module():
-    spec = importlib.util.spec_from_file_location("ogasawara_capacity_test_module", SCRIPT)
+def load_module(path=SCRIPT, name="ogasawara_capacity_test_module"):
+    spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
     assert spec.loader is not None
@@ -56,3 +59,35 @@ def test_pairwise_concordance_is_direction_explicit():
     assert shannon["discordant_pairs"] == 0
     assert overlap["concordant_pairs"] == 3
     assert overlap["discordant_pairs"] == 0
+
+
+def test_authoritative_gsi_area_lock_contains_all_four_islands():
+    design = json.loads(DESIGN.read_text())
+    areas = {row["source_island"]: row["gsi_area_km2"] for row in design["targets"]}
+    assert areas == {
+        "A_Chichijima": 23.45,
+        "B_Hahajima": 19.89,
+        "C_Anijima": 7.88,
+        "D_Ototojima": 5.20,
+    }
+
+
+def test_false_tojima_substring_is_rejected_for_ototojima():
+    matcher = load_module(MATCHER, "ogasawara_gift_matcher_test_module")
+    design = json.loads(DESIGN.read_text())
+    target = next(row for row in design["targets"] if row["source_island"] == "D_Ototojima")
+    wrong = {
+        "entity_ID": 12313,
+        "geo_entity": "To-jima",
+        "entity_class": "Island",
+        "area_km2": 2.941708,
+        "distance_to_mainland_km": 361.867,
+        "latitude": 33.205575,
+        "longitude": 132.366754,
+    }
+    audited = matcher.audit_candidate(wrong, target)
+    assert audited is not None
+    assert audited["alias_score"] == 40
+    assert audited["area_plausible"] is False
+    assert audited["frozen_bbox_plausible"] is False
+    assert audited["audit_valid"] is False
