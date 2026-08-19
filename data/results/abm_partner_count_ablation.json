@@ -1,0 +1,31 @@
+{
+  "analysis": "abm_partner_count_structural_ablation",
+  "run_design": {
+    "paired_runs": 120,
+    "lineages_per_run": 16,
+    "lineage_contrasts_per_ablation": 1920,
+    "steps": 120,
+    "seed": 20260819
+  },
+  "summary": {
+    "oceanic_full": {
+      "mean_delta": -0.30726516683759253,
+      "positive_lineage_responses": 47,
+      "negative_lineage_responses": 1873
+    },
+    "count_only": {
+      "mean_delta": -0.34399741377985893,
+      "positive_lineage_responses": 15,
+      "negative_lineage_responses": 1905
+    },
+    "composition_only": {
+      "mean_delta": 0.030916434033275094,
+      "positive_lineage_responses": 1276,
+      "negative_lineage_responses": 644
+    }
+  },
+  "decision": "decline_bias_is_dominated_by_partner_opportunity_accumulation",
+  "interpretation": "Oceanic partner-count/arrival/loss constraints alone reproduce and slightly exceed the full negative mean shift, whereas oceanic composition alone produces a small positive mean shift. The current multiplicative accumulation rule therefore makes partner quantity a dominant structural driver of decline.",
+  "next_gate": "Replace or cap the many-partner accumulation rule using an independently justified saturation/competition formulation before adding further biological mechanisms.",
+  "claim_boundary": "This diagnoses model structure only; it is not empirical evidence that partner richness is unimportant in nature."
+}
