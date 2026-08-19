@@ -17,9 +17,13 @@ on:
       - 'data/results/canary_trojelsgaard2015_weighted_source_lock.json'
       - 'data/design/preregistered_source_native_weighted_tierb_v1.json'
       - 'data/design/mauritius_kaiser_bunbury2009_weighted_source.json'
+      - 'data/design/mauritius_kaiser_bunbury2009_sheet_roles.json'
       - 'scripts/acquire_audit_mauritius_kaiser_bunbury2009.py'
+      - 'scripts/analyze_mauritius_kaiser_bunbury2009_weighted.py'
       - 'data/design/seychelles_kaiser_bunbury2017_weighted_source.json'
       - 'scripts/acquire_audit_seychelles_kaiser_bunbury2017.py'
+      - 'data/design/seychelles_kaiser_bunbury2017_temporal_compilation_fallback.json'
+      - 'scripts/audit_seychelles_2017_temporal_compilation_fallback.py'
       - '.github/workflows/dore2021_tierb_raw_matrix.yml'
 
 concurrency:
@@ -48,17 +52,17 @@ jobs:
         run: python scripts/analyze_canary_trojelsgaard2015_weighted.py
       - name: Audit Mauritius Kaiser-Bunbury 2009 weighted workbook
         run: python scripts/acquire_audit_mauritius_kaiser_bunbury2009.py
-      - name: Audit Seychelles Kaiser-Bunbury 2017 weighted source files
+      - name: Analyze frozen Mauritius weighted sheets
+        run: python scripts/analyze_mauritius_kaiser_bunbury2009_weighted.py
+      - name: Audit original Seychelles Kaiser-Bunbury 2017 source route
         run: python scripts/acquire_audit_seychelles_kaiser_bunbury2017.py
-      - name: Show source and weighted-anchor gates
+      - name: Audit verified Seychelles temporal-compilation fallback
+        run: python scripts/audit_seychelles_2017_temporal_compilation_fallback.py
+      - name: Show current Tier-B gates
         run: |
-          cat data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
-          cat data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
-          cat data/results/olesen2002_tierb_weighted_anchor.json
-          cat data/results/canary_trojelsgaard2015_weighted_source_gate.json
-          cat data/results/canary_trojelsgaard2015_weighted_tierb.json
-          cat data/results/mauritius_kaiser_bunbury2009_weighted_source_audit.json
+          cat data/results/mauritius_kaiser_bunbury2009_weighted_tierb.json
           cat data/results/seychelles_kaiser_bunbury2017_weighted_source_audit.json
+          cat data/results/seychelles_2017_temporal_compilation_fallback_audit.json
       - name: Upload Tier-B source artifact
         uses: actions/upload-artifact@v4
         with:
@@ -70,10 +74,13 @@ jobs:
             data/results/canary_trojelsgaard2015_weighted_source_gate.json
             data/results/canary_trojelsgaard2015_weighted_tierb.json
             data/results/mauritius_kaiser_bunbury2009_weighted_source_audit.json
+            data/results/mauritius_kaiser_bunbury2009_weighted_tierb.json
             data/results/seychelles_kaiser_bunbury2017_weighted_source_audit.json
+            data/results/seychelles_2017_temporal_compilation_fallback_audit.json
             data/external/dore2021_zenodo_v1/network interaction data.txt
             data/external/olesen2002_iwdb/
             data/external/canary_trojelsgaard2015/
             data/external/mauritius_kaiser_bunbury2009/
             data/external/seychelles_kaiser_bunbury2017/
+            data/external/seychelles_temporal_compilation/
           if-no-files-found: warn
