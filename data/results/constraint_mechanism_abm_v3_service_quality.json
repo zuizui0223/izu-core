@@ -1,0 +1,42 @@
+{
+  "model": "constraint_mechanism_abm_v3_service_quality",
+  "status": "mechanistic_hypothesis_test_not_empirical_evidence",
+  "mechanism_added_relative_to_v2": "partner-level service quality heterogeneity independent of geography and introduced/native status; fixed introduced-partner penalty removed",
+  "run_design": {
+    "paired_runs": 120,
+    "lineages_per_run": 16,
+    "lineage_contrasts": 1920,
+    "steps": 120,
+    "seed": 20260819
+  },
+  "summary": {
+    "n_paired_runs": 120,
+    "n_lineage_contrasts": 1920,
+    "positive_lineage_responses": 16,
+    "negative_lineage_responses": 1904,
+    "near_zero_lineage_responses": 0,
+    "positive_fraction": 0.008333333333333333,
+    "negative_fraction": 0.9916666666666667,
+    "mixed_sign_runs": 9,
+    "mixed_sign_run_fraction": 0.075,
+    "mean_delta": -0.30902283019148935,
+    "mean_mainland_reproduction": 0.5551617062365147,
+    "mean_oceanic_reproduction": 0.24613887604502532
+  },
+  "comparison_to_v2": {
+    "v2_positive_lineage_responses": 47,
+    "v3_positive_lineage_responses": 16,
+    "v2_mean_delta": -0.30726516683759253,
+    "v3_mean_delta": -0.30902283019148935,
+    "positive_tail_expanded": false
+  },
+  "falsification": {
+    "both_response_signs_present": true,
+    "mixed_sign_runs_present": true,
+    "service_quality_heterogeneity_broadens_branching_relative_to_v2": false
+  },
+  "decision": "partner_service_quality_heterogeneity_alone_is_insufficient",
+  "interpretation": "Allowing every partner, including novel partners, to vary broadly in per-partner service quality does not broaden positive lineage responses relative to v2 and leaves the mean oceanic response strongly negative. This falsifies service-quality heterogeneity as a sufficient missing mechanism under the current opportunity process. It may still matter jointly with other processes, but should not be tuned further in isolation.",
+  "next_gate": "Diagnose which structural assumption forces decline bias before adding more biology. In particular, test whether the mainland many-partner accumulation rule creates an automatic numerical advantage that overwhelms partner quality and assurance. Use an ablation/null comparison before adding any new empirical mechanism.",
+  "claim_boundary": "Synthetic mechanism test only. The result does not show that partner effectiveness is unimportant in nature; it shows that adding heterogeneous effectiveness to this specific model structure is insufficient to reproduce broad response branching."
+}
