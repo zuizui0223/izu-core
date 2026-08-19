@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "workflow_run": 32249287200,
+  "artifact_id": 9363796810,
+  "artifact_sha256": "b91d3669666d1e4a9f291b6b23ee41e8a9035916c7d81ad951e8e59e0ef7f45a",
+  "analysis": "olesen2002_iwdb_weighted_tier_b_source_validation",
+  "metric_implementation": "channel_id.external_archipelago_network.network_metrics",
+  "exact_frozen_weighted_anchor": {
+    "region_pub": "RP18",
+    "system": "Azores",
+    "location": "Flores",
+    "source_sha256": "903666b3c73ed9ad103a673c4d46428e23413a5ee16f804532e896fe9d5581e3",
+    "n_plants": 10,
+    "n_pollinators": 12,
+    "n_positive_links": 30,
+    "total_visitation_rate": 1139.0,
+    "interaction_shannon": 2.992708263963369,
+    "mean_plant_niche_overlap_morisita_horn": 0.22052648558704802,
+    "dore_frozen_counts_and_visits_reconcile_exactly": true
+  },
+  "method_validation_only": {
+    "region_pub": "RP17",
+    "system": "Mauritius",
+    "location": "Ile aux Aigrettes",
+    "source_sha256": "a2be546fd21c7684f5d6999c450aeee5827ac29f0e0ef522b36ab64f6d3d874e",
+    "source_counts": {
+      "n_plants": 14,
+      "n_pollinators": 13,
+      "n_positive_links": 52,
+      "total_visitation_rate": 1512.0
+    },
+    "dore_frozen_counts": {
+      "n_pollinators": 12,
+      "n_positive_links": 42,
+      "total_visitation_rate": 1226.0
+    },
+    "interaction_shannon": 3.2601584474109773,
+    "mean_plant_niche_overlap_morisita_horn": 0.595731730039772,
+    "dore_frozen_counts_and_visits_reconcile_exactly": false
+  },
+  "decision": "rp18_is_exact_weighted_tier_b_anchor_rp17_is_method_validation_only",
+  "claim_boundary": "These are weighted visitation-network metrics, not pollinator effectiveness or reproductive success. RP18 is admitted because source topology and total visits exactly reconcile to the frozen Doré row. RP17 is not admitted as the frozen Doré estimand until the Doré taxonomic/filtering transformation is reproduced."
+}
