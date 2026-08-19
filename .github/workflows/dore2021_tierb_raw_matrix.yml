@@ -20,10 +20,12 @@ on:
       - 'data/design/mauritius_kaiser_bunbury2009_sheet_roles.json'
       - 'scripts/acquire_audit_mauritius_kaiser_bunbury2009.py'
       - 'scripts/analyze_mauritius_kaiser_bunbury2009_weighted.py'
+      - 'data/results/mauritius_kaiser_bunbury2009_weighted_source_lock.json'
       - 'data/design/seychelles_kaiser_bunbury2017_weighted_source.json'
       - 'scripts/acquire_audit_seychelles_kaiser_bunbury2017.py'
       - 'data/design/seychelles_kaiser_bunbury2017_temporal_compilation_fallback.json'
       - 'scripts/audit_seychelles_2017_temporal_compilation_fallback.py'
+      - 'scripts/audit_seychelles_2017_raw_visit_preservation.py'
       - '.github/workflows/dore2021_tierb_raw_matrix.yml'
 
 concurrency:
@@ -58,11 +60,13 @@ jobs:
         run: python scripts/acquire_audit_seychelles_kaiser_bunbury2017.py
       - name: Audit verified Seychelles temporal-compilation fallback
         run: python scripts/audit_seychelles_2017_temporal_compilation_fallback.py
+      - name: Verify Seychelles raw no-visits preservation
+        run: python scripts/audit_seychelles_2017_raw_visit_preservation.py
       - name: Show current Tier-B gates
         run: |
           cat data/results/mauritius_kaiser_bunbury2009_weighted_tierb.json
-          cat data/results/seychelles_kaiser_bunbury2017_weighted_source_audit.json
           cat data/results/seychelles_2017_temporal_compilation_fallback_audit.json
+          cat data/results/seychelles_2017_raw_visit_preservation.json
       - name: Upload Tier-B source artifact
         uses: actions/upload-artifact@v4
         with:
@@ -77,6 +81,7 @@ jobs:
             data/results/mauritius_kaiser_bunbury2009_weighted_tierb.json
             data/results/seychelles_kaiser_bunbury2017_weighted_source_audit.json
             data/results/seychelles_2017_temporal_compilation_fallback_audit.json
+            data/results/seychelles_2017_raw_visit_preservation.json
             data/external/dore2021_zenodo_v1/network interaction data.txt
             data/external/olesen2002_iwdb/
             data/external/canary_trojelsgaard2015/
