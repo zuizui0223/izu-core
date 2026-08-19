@@ -1,0 +1,36 @@
+{
+  "analysis": "abm_heldout_izu_validation",
+  "training_boundary": "ABM v1 scenarios were defined from non-Izu comparative constraints; Izu/Hiraiwa outcomes are treated here as held-out empirical validation and are not used to retune parameters.",
+  "tests": {
+    "opportunity_constraint_direction": "pass",
+    "heldout_matching_decline": "pass",
+    "response_branching_class": "pass",
+    "uniform_reproductive_decline": "not_supported_as_species_level_prediction"
+  },
+  "abm_prediction": {
+    "mainland_mean_final_pollinator_types": 17.11,
+    "oceanic_mean_final_pollinator_types": 2.115,
+    "oceanic_architecture_states": [
+      "assurance_dominated",
+      "complementary_or_redundant_generalism",
+      "concentrated_dependency",
+      "novel_partner_replacement",
+      "species_specific_mosaic"
+    ],
+    "oceanic_mean_reproduction": 0.4903366629911467,
+    "mainland_mean_reproduction": 0.8505471939619254
+  },
+  "heldout_izu": {
+    "matching_lower_post": 8,
+    "matching_total": 8,
+    "pollen_lower_post": 4,
+    "pollen_higher_post": 4,
+    "tube_shorter_post": 3,
+    "tube_longer_post": 4,
+    "tube_equal": 1
+  },
+  "decision": "mechanism_class_survives_heldout_but_v1_is_not_a_quantitative_predictor",
+  "interpretation": "Without Izu-specific tuning, v1 correctly anticipates a tighter partner opportunity space and allows multiple ecological solutions, which is qualitatively compatible with the universal matching decline plus divergent downstream responses in the held-out Izu data. However, its aggregate mean-reproduction decline cannot be promoted to a species-level prediction because held-out pollen receipt splits 4 lower / 4 higher. The next model must predict response branching, not merely an island-wide mean decline.",
+  "next_gate": "Add predeclared lineage-level heterogeneity in dependency/assurance as a mechanism candidate, then test whether it predicts the held-out sign branching without architecture-specific tuning.",
+  "claim_boundary": "This is qualitative held-out validation of a mechanism class, not parameter estimation and not evidence that the ABM predicts empirical effect sizes."
+}
