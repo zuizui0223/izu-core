@@ -1,0 +1,222 @@
+from __future__ import annotations
+
+import csv
+import importlib.util
+import json
+import math
+import statistics
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+NAMED = ROOT / "scripts/run_abm_v4_dore_named_system_prediction.py"
+SOURCE = ROOT / "data/results/dore2021_frozen_structure_source.csv"
+OUT = ROOT / "data/results/abm_v4_dore_structure_prediction.json"
+SATURATIONS = (1.0, 1.5, 2.0, 2.5, 3.0)
+N_LINEAGES = 24
+
+
+def load_named():
+    spec = importlib.util.spec_from_file_location("abm_v4_structure_named", NAMED)
+    m = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = m
+    assert spec.loader is not None
+    spec.loader.exec_module(m)
+    return m
+
+
+def finite_float(x):
+    try:
+        v = float(x)
+        return v if math.isfinite(v) else None
+    except (TypeError, ValueError):
+        return None
+
+
+def load_structure_rows(named):
+    _, base_rows, pcmeta = named.load_rows()
+    by_region = {r["region_pub"]: r for r in base_rows}
+    source = {}
+    with SOURCE.open(newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            key = r.get("Region_pub")
+            if key:
+                source[key] = r
+    rows = []
+    missing_source = []
+    for region, base in by_region.items():
+        s = source.get(region)
+        if s is None:
+            missing_source.append(region)
+            continue
+        row = dict(base)
+        row.update({
+            "Connectance": finite_float(s.get("Connectance")),
+            "Li": finite_float(s.get("Li")),
+            "Lp": finite_float(s.get("Lp")),
+            "source_full_insects": finite_float(s.get("full_insects")),
+            "source_full_plants": finite_float(s.get("full_plants")),
+            "source_interactions": finite_float(s.get("interactions")),
+        })
+        if row["Connectance"] is not None and row["Li"] is not None and row["Lp"] is not None:
+            rows.append(row)
+    return rows, missing_source, pcmeta
+
+
+def architecture_from_abm(row, prefix):
+    p = row[f"{prefix}_partner_types"]
+    links = row[f"{prefix}_effective_links"]
+    if p <= 0:
+        return None
+    return {
+        "abm_Connectance": links / (N_LINEAGES * p),
+        "abm_Li": links / p,
+        "abm_Lp": links / N_LINEAGES,
+    }
+
+
+def transformed(v):
+    return math.log(max(v, 1e-12))
+
+
+def predictors(named, kind, z_key=None, abm_key=None):
+    if kind == "sampling_only":
+        return lambda r: named.sampling_design(r)
+    if kind == "geography_quadratic":
+        return lambda r: named.sampling_design(r) + [r[z_key], r[z_key] ** 2]
+    if kind == "abm":
+        return lambda r: named.sampling_design(r) + [transformed(r[abm_key])]
+    raise ValueError(kind)
+
+
+def grouped_cv(named, rows, target, group_key, model_kind, z_key=None, abm_key=None):
+    groups = sorted({r[group_key] for r in rows})
+    errors = []
+    per_group = {}
+    pred_fn = predictors(named, model_kind, z_key=z_key, abm_key=abm_key)
+    for hold in groups:
+        train = [r for r in rows if r[group_key] != hold]
+        test = [r for r in rows if r[group_key] == hold]
+        if not train or not test:
+            continue
+        beta = named.ols_beta(train, [transformed(r[target]) for r in train], pred_fn)
+        fold = []
+        for r in test:
+            e = named.predict(beta, r, pred_fn) - transformed(r[target])
+            fold.append(e)
+            errors.append(e)
+        per_group[hold] = {
+            "n_rows": len(fold),
+            "mae_log": statistics.mean(abs(e) for e in fold),
+            "rmse_log": math.sqrt(statistics.mean(e * e for e in fold)),
+        }
+    return {
+        "n_rows": len(errors),
+        "n_groups": len(per_group),
+        "mae_log": statistics.mean(abs(e) for e in errors) if errors else None,
+        "rmse_log": math.sqrt(statistics.mean(e * e for e in errors)) if errors else None,
+        "per_group": per_group,
+    }
+
+
+def evaluate_mapping(named, base_rows, z_key, prefix):
+    usable = [dict(r) for r in base_rows if r.get(z_key) is not None]
+    out = {}
+    target_map = {
+        "Connectance": "abm_Connectance",
+        "Li": "abm_Li",
+        "Lp": "abm_Lp",
+    }
+    for sat in SATURATIONS:
+        rows = named.run_abm_predictions([dict(r) for r in usable], sat, z_key, prefix)
+        for r in rows:
+            r.update(architecture_from_abm(r, prefix))
+        sat_out = {}
+        for target, abm_key in target_map.items():
+            system = {}
+            stratum = {}
+            for label, group_key, bucket in (
+                ("leave_one_system_out", "system", system),
+                ("leave_one_stratum_out", "stratum", stratum),
+            ):
+                sampling = grouped_cv(named, rows, target, group_key, "sampling_only")
+                geography = grouped_cv(named, rows, target, group_key, "geography_quadratic", z_key=z_key)
+                abm = grouped_cv(named, rows, target, group_key, "abm", abm_key=abm_key)
+                bucket.update({
+                    "sampling_only": sampling,
+                    "geography_quadratic": geography,
+                    "abm_plus_sampling_design": abm,
+                    "abm_beats_sampling_mae": abm["mae_log"] < sampling["mae_log"],
+                    "abm_beats_geography_mae": abm["mae_log"] < geography["mae_log"],
+                })
+            sat_out[target] = {
+                "leave_one_system_out": system,
+                "leave_one_stratum_out": stratum,
+            }
+        out[str(sat)] = sat_out
+
+    summary = {}
+    for target in target_map:
+        loso_geo = sum(out[str(s)][target]["leave_one_system_out"]["abm_beats_geography_mae"] for s in SATURATIONS)
+        lostr_geo = sum(out[str(s)][target]["leave_one_stratum_out"]["abm_beats_geography_mae"] for s in SATURATIONS)
+        loso_sampling = sum(out[str(s)][target]["leave_one_system_out"]["abm_beats_sampling_mae"] for s in SATURATIONS)
+        lostr_sampling = sum(out[str(s)][target]["leave_one_stratum_out"]["abm_beats_sampling_mae"] for s in SATURATIONS)
+        summary[target] = {
+            "system_saturations_beating_sampling": loso_sampling,
+            "system_saturations_beating_geography": loso_geo,
+            "stratum_saturations_beating_sampling": lostr_sampling,
+            "stratum_saturations_beating_geography": lostr_geo,
+            "robust_system_transfer_over_geography": loso_geo >= 4,
+            "robust_stratum_transfer_over_geography": lostr_geo >= 4,
+        }
+    return {
+        "coverage": {
+            "n_rows": len(usable),
+            "systems": sorted({r["system"] for r in usable}),
+            "strata": sorted({r["stratum"] for r in usable}),
+        },
+        "saturation_results": out,
+        "summary": summary,
+        "all_three_metrics_robust_at_system_and_stratum_level": all(
+            x["robust_system_transfer_over_geography"] and x["robust_stratum_transfer_over_geography"]
+            for x in summary.values()
+        ),
+    }
+
+
+def build():
+    named = load_named()
+    rows, missing, pcmeta = load_structure_rows(named)
+    primary = evaluate_mapping(named, rows, "z_distance", "distance_ecdf")
+    secondary = evaluate_mapping(named, rows, "z_geo_pc1", "geography_pc1")
+    primary_pass = primary["all_three_metrics_robust_at_system_and_stratum_level"]
+    return {
+        "analysis": "abm_v4_dore_network_architecture_tierb1",
+        "source": {
+            "repository": "MaelDore/Pollination_networks",
+            "file": "Data/Filtered_Datasets/aggreg.webs_full.RData",
+            "source_native_metrics": ["Connectance", "Li", "Lp"],
+            "raw_weighted_matrices_republished_in_source_repo": False,
+        },
+        "tier": "B1_source_native_aggregate_network_structure_not_raw_matrix_diversity",
+        "metric_correspondence": {
+            "Connectance": "ABM effective_links / (24 plant lineages × final partner types)",
+            "Li": "ABM effective_links / final partner types",
+            "Lp": "ABM effective_links / 24 plant lineages",
+        },
+        "missing_frozen_source_rows": missing,
+        "primary_distance_ecdf": primary,
+        "secondary_geography_only_pc1": secondary,
+        "geography_pc1_metadata": pcmeta,
+        "decision": "primary_mapping_has_robust_architecture_transfer_across_systems_and_strata" if primary_pass else "primary_mapping_does_not_have_robust_architecture_transfer_across_all_metrics_and_strata",
+        "claim_boundary": "Connectance/Li/Lp are source-native aggregate topology metrics and are more architecture-proximal than richness/link count, but they are not interaction diversity, niche overlap, weighted rewiring, or reproductive function. Raw quantitative matrices remain required for Tier-B2 diversity/overlap validation. No system, geography mapping, or saturation is selected based on this result.",
+    }
+
+
+def main():
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(json.dumps(build(), indent=2, ensure_ascii=False) + "\n")
+
+
+if __name__ == "__main__":
+    main()
