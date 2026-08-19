@@ -59,15 +59,65 @@ def ols_beta(rows, y, predictors):
 
 
 def predict(beta, row, predictors):
-    x = predictors(row)
-    return sum(a*b for a,b in zip(beta,x))
+    return sum(a*b for a,b in zip(beta, predictors(row)))
 
 
 def midrank_ecdf(values):
     unique = sorted(set(values))
     if len(unique) == 1:
         return {unique[0]: 0.5}
-    return {v: i / (len(unique)-1) for i,v in enumerate(unique)}
+    return {v: i / (len(unique)-1) for i, v in enumerate(unique)}
+
+
+def standardize_matrix(x):
+    means = [statistics.mean(row[j] for row in x) for j in range(len(x[0]))]
+    sds = []
+    for j, mean in enumerate(means):
+        sd = math.sqrt(statistics.mean((row[j]-mean)**2 for row in x))
+        sds.append(sd if sd > 1e-12 else 1.0)
+    return [[(row[j]-means[j])/sds[j] for j in range(len(row))] for row in x], means, sds
+
+
+def pc1_scores(rows):
+    unique = {}
+    for r in rows:
+        if r["area"] is None or r["elev"] is None or r["elev"] < 0:
+            continue
+        unique.setdefault(r["entity_ID"], [
+            math.log1p(r["dist"]),
+            -math.log1p(r["area"]),
+            -math.log1p(r["elev"]),
+        ])
+    ids = sorted(unique)
+    if len(ids) < 3:
+        return {}, {"status": "insufficient_geography_rows"}
+    z, means, sds = standardize_matrix([unique[i] for i in ids])
+    p = 3
+    cov = [[statistics.mean(row[i]*row[j] for row in z) for j in range(p)] for i in range(p)]
+    v = [1/math.sqrt(p)] * p
+    for _ in range(200):
+        w = [sum(cov[i][j]*v[j] for j in range(p)) for i in range(p)]
+        norm = math.sqrt(sum(q*q for q in w)) or 1.0
+        w = [q/norm for q in w]
+        if max(abs(a-b) for a,b in zip(w,v)) < 1e-12:
+            v = w
+            break
+        v = w
+    raw = [sum(row[j]*v[j] for j in range(p)) for row in z]
+    dist_z = [row[0] for row in z]
+    if sum(a*b for a,b in zip(raw, dist_z)) < 0:
+        v = [-q for q in v]
+        raw = [-q for q in raw]
+    lo, hi = min(raw), max(raw)
+    scaled = [0.5] * len(raw) if hi-lo < 1e-12 else [(q-lo)/(hi-lo) for q in raw]
+    return dict(zip(ids, scaled)), {
+        "status": "complete",
+        "unique_entities": len(ids),
+        "input_order": ["log1p(dist)", "-log1p(area)", "-log1p(max_elevation)"],
+        "means": means,
+        "sds": sds,
+        "pc1_vector_oriented_to_positive_distance": v,
+    }
 
 
 def load_rows():
@@ -104,43 +154,39 @@ def load_rows():
     ecdf = midrank_ecdf([r["dist"] for r in rows]) if rows else {}
     for r in rows:
         r["z_distance"] = ecdf[r["dist"]]
-    return geo, rows
+    pcmap, pcmeta = pc1_scores(rows)
+    for r in rows:
+        r["z_geo_pc1"] = pcmap.get(r["entity_ID"])
+    return geo, rows, pcmeta
 
 
 def sampling_design(r):
-    # Mirrors the source richness-model measurement layer: ln_time + ln_ATS + Sampling_type.
     return [1.0, math.log1p(r["sampling_time"]), math.log1p(r["annual_time_span"]), r["sampling_type_TO"]]
 
 
-def model_predictors(kind, abm_key=None):
+def model_predictors(kind, z_key=None, abm_key=None):
     if kind == "effort_only":
         return lambda r: sampling_design(r)
-    if kind == "distance_quadratic":
-        return lambda r: sampling_design(r) + [r["z_distance"], r["z_distance"]**2]
+    if kind == "geography_quadratic":
+        return lambda r: sampling_design(r) + [r[z_key], r[z_key]**2]
     if kind == "abm":
         return lambda r: sampling_design(r) + [math.log1p(r[abm_key])]
     raise ValueError(kind)
 
 
-def loo_scores(rows, target, model_kind, abm_key=None):
+def loo_scores(rows, target, model_kind, z_key=None, abm_key=None):
     systems = sorted({r["system"] for r in rows})
     errors = []
     per_system = {}
-    pred_fn = model_predictors(model_kind, abm_key)
+    pred_fn = model_predictors(model_kind, z_key, abm_key)
     for hold in systems:
         train = [r for r in rows if r["system"] != hold]
         test = [r for r in rows if r["system"] == hold]
         if not train or not test:
             continue
-        y = [math.log1p(r[target]) for r in train]
-        beta = ols_beta(train, y, pred_fn)
-        fold = []
-        for r in test:
-            pred_log = predict(beta, r, pred_fn)
-            obs_log = math.log1p(r[target])
-            e = pred_log - obs_log
-            errors.append(e)
-            fold.append(e)
+        beta = ols_beta(train, [math.log1p(r[target]) for r in train], pred_fn)
+        fold = [predict(beta, r, pred_fn) - math.log1p(r[target]) for r in test]
+        errors.extend(fold)
         per_system[hold] = {
             "n_rows": len(fold),
             "mae_log": statistics.mean(abs(e) for e in fold),
@@ -155,71 +201,79 @@ def loo_scores(rows, target, model_kind, abm_key=None):
     }
 
 
-def run_abm_predictions(rows, saturation, replicates=80, seed=20260819):
+def run_abm_predictions(rows, saturation, z_key, prefix, replicates=80, seed=20260819):
     grad = load_gradient()
     m = grad.load_v4()
     cache = {}
     for r in rows:
-        key = (r["entity_ID"], r["z_distance"])
-        if key in cache:
-            continue
-        sims = [grad.run_one(m, r["z_distance"], seed+i, saturation=saturation) for i in range(replicates)]
-        cache[key] = {
-            "abm_partner_types": statistics.mean(x["final_partner_types"] for x in sims),
-            "abm_effective_links": statistics.mean(x["effective_links"] for x in sims),
-        }
-    for r in rows:
-        r.update(cache[(r["entity_ID"], r["z_distance"])])
+        key = (r["entity_ID"], r[z_key])
+        if key not in cache:
+            sims = [grad.run_one(m, r[z_key], seed+i, saturation=saturation) for i in range(replicates)]
+            cache[key] = {
+                f"{prefix}_partner_types": statistics.mean(x["final_partner_types"] for x in sims),
+                f"{prefix}_effective_links": statistics.mean(x["effective_links"] for x in sims),
+            }
+        r.update(cache[key])
     return rows
 
 
-def build():
-    geo, base_rows = load_rows()
-    systems = sorted({r["system"] for r in base_rows})
-    coverage = {
-        "frozen_dore_targets": sum(1 for m in geo["matches"] if m.get("kind") == "dore_network_location"),
-        "auto_locked_dore_targets_with_dist": len(base_rows),
-        "systems_with_usable_rows": systems,
-        "n_systems": len(systems),
-    }
+def evaluate_mapping(base_rows, z_key, prefix):
+    usable = [dict(r) for r in base_rows if r.get(z_key) is not None]
     results = {}
     for sat in SATURATIONS:
-        rows = run_abm_predictions([dict(r) for r in base_rows], sat)
+        rows = run_abm_predictions([dict(r) for r in usable], sat, z_key, prefix)
         targets = {}
-        for target, abm_key in (("pollinator_richness", "abm_partner_types"), ("link_richness", "abm_effective_links")):
+        for target, abm_key in (("pollinator_richness", f"{prefix}_partner_types"), ("link_richness", f"{prefix}_effective_links")):
             effort = loo_scores(rows, target, "effort_only")
-            dist = loo_scores(rows, target, "distance_quadratic")
-            abm = loo_scores(rows, target, "abm", abm_key)
+            geography = loo_scores(rows, target, "geography_quadratic", z_key=z_key)
+            abm = loo_scores(rows, target, "abm", abm_key=abm_key)
             targets[target] = {
                 "effort_only": effort,
-                "distance_quadratic": dist,
-                "abm_plus_effort": abm,
-                "abm_improves_over_effort_mae": abm["mae_log"] < effort["mae_log"] if abm["mae_log"] is not None else False,
-                "abm_improves_over_distance_quadratic_mae": abm["mae_log"] < dist["mae_log"] if abm["mae_log"] is not None else False,
+                "geography_quadratic": geography,
+                "abm_plus_sampling_design": abm,
+                "abm_improves_over_effort_mae": abm["mae_log"] < effort["mae_log"],
+                "abm_improves_over_geography_quadratic_mae": abm["mae_log"] < geography["mae_log"],
             }
         results[str(sat)] = targets
-
-    robust = {}
+    summary = {}
     for target in ("pollinator_richness", "link_richness"):
         over_effort = sum(results[str(s)][target]["abm_improves_over_effort_mae"] for s in SATURATIONS)
-        over_distance = sum(results[str(s)][target]["abm_improves_over_distance_quadratic_mae"] for s in SATURATIONS)
-        robust[target] = {
+        over_geography = sum(results[str(s)][target]["abm_improves_over_geography_quadratic_mae"] for s in SATURATIONS)
+        summary[target] = {
             "saturations_beating_effort_only": over_effort,
-            "saturations_beating_distance_quadratic": over_distance,
-            "robust_predictive_gain_over_distance": over_distance >= 4,
+            "saturations_beating_geography_quadratic": over_geography,
+            "robust_predictive_gain_over_geography": over_geography >= 4,
         }
-    full_robust = all(v["robust_predictive_gain_over_distance"] for v in robust.values())
+    return {
+        "coverage": {"n_rows": len(usable), "systems": sorted({r["system"] for r in usable})},
+        "saturation_results": results,
+        "summary": summary,
+        "both_targets_robust_over_geography": all(v["robust_predictive_gain_over_geography"] for v in summary.values()),
+    }
+
+
+def build():
+    geo, base_rows, pcmeta = load_rows()
+    overall_coverage = {
+        "frozen_dore_targets": sum(1 for m in geo["matches"] if m.get("kind") == "dore_network_location"),
+        "source_locked_dore_targets_with_dist": len(base_rows),
+        "systems_with_usable_rows": sorted({r["system"] for r in base_rows}),
+        "n_systems": len({r["system"] for r in base_rows}),
+    }
+    primary = evaluate_mapping(base_rows, "z_distance", "distance_ecdf")
+    secondary = evaluate_mapping(base_rows, "z_geo_pc1", "geography_pc1")
+    primary_pass = primary["both_targets_robust_over_geography"]
     return {
         "analysis": "abm_v4_dore_named_system_leave_one_system_out_prediction",
         "mapping_preregistered_before_target_extraction": "data/design/global_abm_geography_to_constraint_mapping_v1.json",
-        "primary_mapping": "distance_ecdf",
         "measurement_covariates": "Doré source-richness design: log1p(Sampling_time) + log1p(Annual_time_span) + Sampling_type(T vs TO)",
-        "coverage": coverage,
-        "saturation_results": results,
-        "summary": robust,
-        "decision": "robust_mechanistic_predictive_gain_over_quadratic_distance_baseline" if full_robust else "no_robust_mechanistic_predictive_advantage_over_quadratic_distance_baseline",
-        "interpretation_rule": "Failure to beat the quadratic distance baseline does not invalidate directional compatibility; it means the current v4 mechanism has not earned predictive advantage over a non-mechanistic geography curve on this held-out-system test.",
-        "claim_boundary": "This first named-system test is limited to Doré candidate systems whose GIFT island geography is source-locked. Pollinator/link richness retain the source sampling-design layer; Data_type is not substituted for Sampling_type. Matrix-derived diversity/niche-overlap and the western-Pacific stratum remain later gates. No system may be replaced based on fit, and no saturation value is selected post hoc.",
+        "overall_coverage": overall_coverage,
+        "primary_distance_ecdf": primary,
+        "secondary_geography_only_pc1": secondary,
+        "geography_pc1_metadata": pcmeta,
+        "decision": "primary_distance_mapping_has_robust_mechanistic_predictive_gain" if primary_pass else "primary_distance_mapping_has_no_robust_mechanistic_predictive_advantage",
+        "interpretation_rule": "The primary distance-ECDF result controls the headline. The preregistered geography-PC1 sensitivity is reported regardless of whether it performs better or worse; it cannot replace the primary mapping post hoc. Failure to beat the primary geography baseline preserves directional compatibility but withholds mechanistic predictive superiority.",
+        "claim_boundary": "This named-system test is restricted to Doré candidate systems whose GIFT island geography is source-locked. It does not yet include matrix-derived diversity/niche overlap or the western-Pacific fourth stratum. Systems, mappings and saturation values are frozen independently of fit; no poor-fitting system is replaced and no preferred saturation is selected.",
     }
 
 
