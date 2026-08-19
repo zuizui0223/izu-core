@@ -7,7 +7,10 @@ on:
       - 'scripts/acquire_weigelt_global_island_attributes.py'
       - 'scripts/audit_gift_common_geography_fallback.py'
       - 'scripts/match_frozen_candidates_to_gift_geography.py'
+      - 'scripts/run_abm_v4_dore_named_system_prediction.py'
       - 'data/design/frozen_dore_candidate_network_locations.json'
+      - 'data/results/frozen_dore_network_targets.csv'
+      - 'data/design/global_abm_geography_to_constraint_mapping_v1.json'
       - 'scripts/audit_global_oceanic_validation_release.py'
       - 'data/results/global_oceanic_validation_release_gate_v1.json'
       - '.github/workflows/weigelt_global_island_attributes.yml'
@@ -26,19 +29,25 @@ jobs:
         run: python scripts/audit_gift_common_geography_fallback.py
       - name: Match frozen candidates to GIFT geography
         run: python scripts/match_frozen_candidates_to_gift_geography.py
-      - name: Show geography source gates
+      - name: Run first named-system leave-one-system-out prediction
+        run: python scripts/run_abm_v4_dore_named_system_prediction.py
+      - name: Show geography and prediction gates
         run: |
           cat data/results/weigelt2013_global_island_attribute_source_gate.json
           cat data/results/gift_common_geography_fallback_audit.json
           python - <<'PY'
           import json
-          x=json.load(open('data/results/frozen_candidate_gift_geography_match.json'))
-          print('targets',x['n_targets'],'auto_locked',x['n_auto_locked'],'island_entities',x['n_island_entities_with_coordinates'])
-          for m in x['matches']:
+          g=json.load(open('data/results/frozen_candidate_gift_geography_match.json'))
+          print('targets',g['n_targets'],'auto_locked',g['n_auto_locked'],'island_entities',g['n_island_entities_with_coordinates'])
+          for m in g['matches']:
               top=m['top_candidates'][0] if m['top_candidates'] else None
               print(m['kind'],m['system'],m['target'],'LOCK' if m['auto_lock'] else 'REVIEW',top)
+          p=json.load(open('data/results/abm_v4_dore_named_system_prediction.json'))
+          print('prediction coverage',p['coverage'])
+          print('prediction decision',p['decision'])
+          print('prediction summary',p['summary'])
           PY
-      - name: Upload source gates and matches
+      - name: Upload source gates, matches and prediction
         uses: actions/upload-artifact@v4
         with:
           name: weigelt-global-island-attributes
@@ -46,5 +55,6 @@ jobs:
             data/results/weigelt2013_global_island_attribute_source_gate.json
             data/results/gift_common_geography_fallback_audit.json
             data/results/frozen_candidate_gift_geography_match.json
+            data/results/abm_v4_dore_named_system_prediction.json
             data/external/weigelt2013/Weigelt_etal_2013_PNAS_islanddata.csv
           if-no-files-found: warn
