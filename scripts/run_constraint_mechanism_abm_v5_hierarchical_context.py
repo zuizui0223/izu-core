@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import functools
 import importlib.util
 import json
 import math
@@ -16,6 +17,7 @@ OUT = ROOT / "data/results/constraint_mechanism_abm_v5_hierarchical_context.json
 CONTEXT_STRENGTHS = (0.0, 0.25, 0.5, 0.75, 1.0)
 
 
+@functools.lru_cache(maxsize=None)
 def load_module(path: Path, name: str):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
