@@ -1,0 +1,31 @@
+name: Weigelt global island attributes
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/acquire_weigelt_global_island_attributes.py'
+      - 'scripts/audit_global_oceanic_validation_release.py'
+      - 'data/results/global_oceanic_validation_release_gate_v1.json'
+      - '.github/workflows/weigelt_global_island_attributes.yml'
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover common global island attributes
+        run: python scripts/acquire_weigelt_global_island_attributes.py
+      - name: Show geography source gate
+        run: cat data/results/weigelt2013_global_island_attribute_source_gate.json
+      - name: Upload source gate and CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: weigelt-global-island-attributes
+          path: |
+            data/results/weigelt2013_global_island_attribute_source_gate.json
+            data/external/weigelt2013/Weigelt_etal_2013_PNAS_islanddata.csv
+          if-no-files-found: warn
