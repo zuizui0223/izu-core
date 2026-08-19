@@ -1,0 +1,79 @@
+{
+  "model": "constraint_mechanism_abm_v4_fixed_visit_budget",
+  "status": "structural_correction_mechanistic_test_not_empirical_evidence",
+  "structural_change": "Pollinator richness no longer acts as visitation frequency. A fixed total visit budget is distributed across partner types via mean effective service and a saturating response.",
+  "run_design": {
+    "paired_runs_per_saturation": 120,
+    "lineages_per_run": 16,
+    "lineage_contrasts_per_saturation": 1920,
+    "steps": 120,
+    "seed": 20260819,
+    "saturation_values": [1.0, 1.5, 2.0, 2.5, 3.0]
+  },
+  "saturation_envelope": {
+    "1.0": {
+      "n_lineage_contrasts": 1920,
+      "positive_lineage_responses": 1462,
+      "negative_lineage_responses": 458,
+      "near_zero_lineage_responses": 0,
+      "positive_fraction": 0.7614583333333333,
+      "negative_fraction": 0.23854166666666668,
+      "mixed_sign_runs": 35,
+      "mean_delta": 0.026160932003786476,
+      "mean_mainland_reproduction": 0.3355677206232493,
+      "mean_oceanic_reproduction": 0.3617286526270358
+    },
+    "1.5": {
+      "n_lineage_contrasts": 1920,
+      "positive_lineage_responses": 1384,
+      "negative_lineage_responses": 536,
+      "near_zero_lineage_responses": 0,
+      "positive_fraction": 0.7208333333333333,
+      "negative_fraction": 0.2791666666666667,
+      "mixed_sign_runs": 44,
+      "mean_delta": 0.011477614234351261,
+      "mean_mainland_reproduction": 0.4104478601389905,
+      "mean_oceanic_reproduction": 0.42192547437334177
+    },
+    "2.0": {
+      "n_lineage_contrasts": 1920,
+      "positive_lineage_responses": 1356,
+      "negative_lineage_responses": 564,
+      "near_zero_lineage_responses": 0,
+      "positive_fraction": 0.70625,
+      "negative_fraction": 0.29375,
+      "mixed_sign_runs": 50,
+      "mean_delta": -0.0013141422571986653,
+      "mean_mainland_reproduction": 0.4639966884025827,
+      "mean_oceanic_reproduction": 0.462682546145384
+    },
+    "2.5": {
+      "n_lineage_contrasts": 1920,
+      "positive_lineage_responses": 1353,
+      "negative_lineage_responses": 567,
+      "near_zero_lineage_responses": 0,
+      "positive_fraction": 0.7046875,
+      "negative_fraction": 0.2953125,
+      "mixed_sign_runs": 50,
+      "mean_delta": -0.012040835069665296,
+      "mean_mainland_reproduction": 0.5041198558150858,
+      "mean_oceanic_reproduction": 0.4920790207454204
+    },
+    "3.0": {
+      "n_lineage_contrasts": 1920,
+      "positive_lineage_responses": 1341,
+      "negative_lineage_responses": 579,
+      "near_zero_lineage_responses": 0,
+      "positive_fraction": 0.6984375,
+      "negative_fraction": 0.3015625,
+      "mixed_sign_runs": 58,
+      "mean_delta": -0.022608331569337104,
+      "mean_mainland_reproduction": 0.5355548457645837,
+      "mean_oceanic_reproduction": 0.5129465141952466
+    }
+  },
+  "decision": "fixed_visit_budget_removes_partner_count_decline_bias_and_recovers_functional_conservation_with_branching",
+  "interpretation": "Across the entire saturation envelope, both positive and negative lineage responses persist while the mean oceanic-minus-mainland reproductive difference remains close to zero (+0.026 to -0.023). The strong decline of v2/v3 was therefore largely a structural artifact of treating partner richness as additive visitation opportunity. Once richness is separated from visitation quantity, constrained systems can maintain similar mean function through divergent lineage responses without tuning to Izu.",
+  "next_gate": "Repeat held-out Izu validation using v4 without selecting a preferred saturation value, then test secondary held-out island systems at the architecture/function-direction level.",
+  "claim_boundary": "The saturation values form a mechanism sensitivity envelope, not fitted empirical parameters. Izu outcomes are not used to select a preferred value, and synthetic sign frequencies are not empirical prevalence estimates."
+}
