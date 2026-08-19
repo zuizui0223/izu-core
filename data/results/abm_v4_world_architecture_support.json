@@ -1,0 +1,103 @@
+{
+  "analysis": "abm_v4_world_architecture_support_coverage",
+  "observed_world_macroclasses": [
+    "complementary_or_redundant_generalism",
+    "concentrated_dependency",
+    "novel_partner_replacement",
+    "species_specific_mosaic"
+  ],
+  "run_design": {
+    "oceanic_runs_per_saturation": 200,
+    "lineages_per_run": 16,
+    "steps": 120,
+    "seed": 20260819,
+    "saturation_values": [1.0, 1.5, 2.0, 2.5, 3.0]
+  },
+  "saturation_envelope": {
+    "1.0": {
+      "architecture_counts": {
+        "assurance_dominated": 18,
+        "complementary_or_redundant_generalism": 108,
+        "concentrated_dependency": 28,
+        "novel_partner_replacement": 37,
+        "species_specific_mosaic": 9
+      },
+      "observed_macroclasses_covered": [
+        "complementary_or_redundant_generalism",
+        "concentrated_dependency",
+        "novel_partner_replacement",
+        "species_specific_mosaic"
+      ],
+      "all_observed_macroclasses_covered": true
+    },
+    "1.5": {
+      "architecture_counts": {
+        "assurance_dominated": 18,
+        "complementary_or_redundant_generalism": 108,
+        "concentrated_dependency": 27,
+        "novel_partner_replacement": 37,
+        "species_specific_mosaic": 10
+      },
+      "observed_macroclasses_covered": [
+        "complementary_or_redundant_generalism",
+        "concentrated_dependency",
+        "novel_partner_replacement",
+        "species_specific_mosaic"
+      ],
+      "all_observed_macroclasses_covered": true
+    },
+    "2.0": {
+      "architecture_counts": {
+        "assurance_dominated": 18,
+        "complementary_or_redundant_generalism": 108,
+        "concentrated_dependency": 27,
+        "novel_partner_replacement": 37,
+        "species_specific_mosaic": 10
+      },
+      "observed_macroclasses_covered": [
+        "complementary_or_redundant_generalism",
+        "concentrated_dependency",
+        "novel_partner_replacement",
+        "species_specific_mosaic"
+      ],
+      "all_observed_macroclasses_covered": true
+    },
+    "2.5": {
+      "architecture_counts": {
+        "assurance_dominated": 18,
+        "complementary_or_redundant_generalism": 108,
+        "concentrated_dependency": 27,
+        "novel_partner_replacement": 37,
+        "species_specific_mosaic": 10
+      },
+      "observed_macroclasses_covered": [
+        "complementary_or_redundant_generalism",
+        "concentrated_dependency",
+        "novel_partner_replacement",
+        "species_specific_mosaic"
+      ],
+      "all_observed_macroclasses_covered": true
+    },
+    "3.0": {
+      "architecture_counts": {
+        "assurance_dominated": 18,
+        "complementary_or_redundant_generalism": 108,
+        "concentrated_dependency": 26,
+        "novel_partner_replacement": 37,
+        "species_specific_mosaic": 11
+      },
+      "observed_macroclasses_covered": [
+        "complementary_or_redundant_generalism",
+        "concentrated_dependency",
+        "novel_partner_replacement",
+        "species_specific_mosaic"
+      ],
+      "all_observed_macroclasses_covered": true
+    }
+  },
+  "test": "pass",
+  "decision": "v4_has_robust_generative_support_for_all_observed_world_architecture_macroclasses",
+  "interpretation": "This is a necessary generative-adequacy check only: the same frozen oceanic mechanism can produce every architecture macroclass already observed in the world island screen across the whole saturation envelope. It does not predict which named archipelago should occupy which class.",
+  "next_gate": "For prediction rather than support coverage, use source-native architecture inputs from training systems and leave one island system out at a time; never use the held-out system's reproductive outcome to choose its parameters.",
+  "claim_boundary": "Architecture-class coverage is not a prevalence estimate and not system-specific prediction. Descriptive classifier thresholds are inherited from ABM v1 and are not refit to the world screen."
+}
