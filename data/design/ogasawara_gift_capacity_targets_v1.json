@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Outcome-independent GIFT 3.2 island-area matching for the held-out Ogasawara raw weighted-network capacity test.",
+  "source": "GIFT 3.2 extended API",
+  "targets": [
+    {
+      "source_island": "A_Chichijima",
+      "canonical_name": "Chichijima",
+      "aliases": ["Chichijima", "Chichi-jima"]
+    },
+    {
+      "source_island": "B_Hahajima",
+      "canonical_name": "Hahajima",
+      "aliases": ["Hahajima", "Haha-jima"]
+    },
+    {
+      "source_island": "C_Anijima",
+      "canonical_name": "Anijima",
+      "aliases": ["Anijima", "Ani-jima"]
+    },
+    {
+      "source_island": "D_Ototojima",
+      "canonical_name": "Ototojima",
+      "aliases": ["Ototojima", "Ototo-jima"]
+    }
+  ],
+  "lock_rule": "Lock only one uniquely best GIFT island entity with an exact normalized alias match, or a unique alias substring match when no exact normalized match exists. Area must be finite and positive. No network metric, ABM output, invasion context, or desired direction may affect the match.",
+  "claim_boundary": "This file freezes geography aliases only. It does not assert a capacity effect and does not alter the four source-native Ogasawara weighted networks."
+}
