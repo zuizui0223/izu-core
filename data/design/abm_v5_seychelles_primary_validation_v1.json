@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v5_seychelles_primary_validation_freeze",
+  "hypothesis_source": {
+    "model": "ABM v5 hierarchical opportunity + local realization",
+    "merge_commit": "f945195a475b63c2e26bd8d1d0e67948accd5718",
+    "empirical_systems_consumed_before_freeze": ["Ogasawara"]
+  },
+  "held_out_system": {
+    "name": "Seychelles",
+    "source": "Kaiser-Bunbury et al. 2017",
+    "doi": "10.1038/nature21071",
+    "island": "Mahe",
+    "sites": 8,
+    "months": 8,
+    "expected_networks": 64,
+    "treatments": "four restored and four unrestored sites",
+    "independence": "64 site-month networks are repeated local networks nested within one independent archipelago system, not 64 independent systems"
+  },
+  "source_gate": {
+    "primary_weight_family": "visitfreq",
+    "definition": "standardized visitation frequency = visits per flower per hour multiplied by floral abundance",
+    "required_network_count": 64,
+    "required_site_count": 8,
+    "required_month_count": 8,
+    "all_networks_required": true,
+    "secondary_weight_family": "no_visits",
+    "secondary_substitution_allowed_for_primary_validation": false,
+    "blocked_rule": "If the source-native standardized visitfreq matrices cannot be recovered and verified, the primary v5 empirical validation remains blocked. Do not promote no_visits or a reconstructed proxy after seeing results."
+  },
+  "outcomes_frozen_before_primary_source_recovery": [
+    "interaction_shannon",
+    "mean_plant_niche_overlap_morisita_horn"
+  ],
+  "network_inclusion_rule": "Retain all source-defined visitfreq site x month networks that pass schema validation. Do not remove sites, months, treatments, taxa, or networks based on v5 fit or outcome direction.",
+  "island_opportunity_input": {
+    "source": "GIFT 3.2 geography using the existing outcome-blind distance-ECDF mapping family",
+    "fit_to_seychelles_outcomes": false,
+    "rule": "Resolve and lock Mahe geography before calculating validation outcomes. Do not use restoration status, month, or network metrics in geography matching."
+  },
+  "v5_prediction_distribution": {
+    "context_strengths": [0.25, 0.5, 0.75, 1.0],
+    "strength_weighting": "equal weight; no preferred strength may be selected after observing Seychelles",
+    "v4_saturation_envelope": [1.0, 1.5, 2.0, 2.5, 3.0],
+    "saturation_weighting": "equal weight; no preferred saturation may be selected after observing Seychelles",
+    "local_context_mapping": "site/month labels are not mapped to synthetic affinity values; each local realization is an unlabeled draw from the frozen v5 context field",
+    "v4_comparator": "context_strength=0"
+  },
+  "primary_statistics": {
+    "within_site_variability": "For each target metric, calculate each site's range across the 8 months and divide by the pooled range across all 64 source networks. The primary empirical statistic is the median of the 8 site-level normalized ranges.",
+    "branching": "Across the 56 within-site consecutive-month transitions, record positive, negative, and zero differences separately for each target metric. Both directions are required for the generic local-branching necessary condition.",
+    "predictive_check": "Generate the same normalized-range statistic from the equal-weight frozen v5 strength x saturation mixture at the locked Mahe opportunity input. Do not fit a context strength, saturation, scale coefficient, or outcome-specific parameter to Seychelles.",
+    "decision_rule": "Primary v5 support requires both target metrics to show both transition signs and their empirical median normalized site-range statistic to fall inside the prespecified 2.5-97.5% v5 predictive envelope. Failure of either target is retained as v5 empirical failure."
+  },
+  "sampling_boundary": "Site-month observation effort, floral abundance and phenology can affect raw network metrics. The primary visitfreq family is required specifically because it is the source-standardized family. Passing the predictive check is necessary-condition evidence for local realization variability, not causal proof of restoration or month effects.",
+  "prohibited_after_outcome_inspection": [
+    "switch primary validation from visitfreq to no_visits",
+    "drop poorly fitting sites or months",
+    "choose one context strength or saturation by fit",
+    "encode restored/unrestored as a fitted v5 context direction",
+    "reuse Ogasawara to calibrate a Seychelles context parameter",
+    "change Shannon/overlap targets after inspecting their Seychelles values"
+  ],
+  "claim_boundary": "This is one held-out archipelago with repeated local networks. Even a successful result would validate only the predicted local-realization variability class, not identify a universal context distribution, a causal restoration effect, or a global coefficient."
+}
