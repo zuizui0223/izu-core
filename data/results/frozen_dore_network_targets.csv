@@ -1,0 +1,27 @@
+region_pub,system,stratum,data_type,sampling_time,sampling_effort,pollinator_richness,link_richness
+RP4,Canary Islands,North Atlantic / Macaronesia,binary,145.0,0.366,36,104
+RP17,Mauritius,western Indian Ocean,frequency,170.0,1.012,12,42
+RP18,Azores,North Atlantic / Macaronesia,frequency,113.0,0.942,12,30
+RP36,Mauritius,western Indian Ocean,frequency,4002.0,0.296,163,1035
+RP42,Seychelles,western Indian Ocean,frequency,2976.0,0.612,139,541
+RP47,Hawaii,eastern / central Pacific,binary,128.5,0.317,27,121
+RP100,Canary Islands,North Atlantic / Macaronesia,frequency,42.1,0.079,53,83
+RP101,Canary Islands,North Atlantic / Macaronesia,frequency,42.1,0.064,47,105
+RP102,Canary Islands,North Atlantic / Macaronesia,frequency,42.1,0.078,49,99
+RP103,Canary Islands,North Atlantic / Macaronesia,frequency,42.1,0.096,55,85
+RP154,Galapagos,eastern / central Pacific,,103.6,0.096,60,125
+RP155,Galapagos,eastern / central Pacific,,103.6,0.074,70,127
+RP156,Galapagos,eastern / central Pacific,,103.6,0.064,67,164
+RP157,Galapagos,eastern / central Pacific,,103.6,0.061,74,212
+RP158,Galapagos,eastern / central Pacific,,103.6,0.053,93,234
+RP160,Canary Islands,North Atlantic / Macaronesia,,56.6,0.052,60,137
+RP163,Hawaii,eastern / central Pacific,,265.0,0.07,95,323
+RP164,Canary Islands,North Atlantic / Macaronesia,frequency,84.2,0.036,98,236
+RP197,Canary Islands,North Atlantic / Macaronesia,,80.9,0.053,61,204
+RP207,Azores,North Atlantic / Macaronesia,frequency,60.0,0.094,40,112
+RP208,Azores,North Atlantic / Macaronesia,frequency,60.0,0.062,37,110
+RP209,Azores,North Atlantic / Macaronesia,frequency,60.0,0.063,40,147
+RP210,Azores,North Atlantic / Macaronesia,frequency,60.0,0.143,30,90
+RP211,Azores,North Atlantic / Macaronesia,frequency,60.0,0.126,34,101
+RP222,Canary Islands,North Atlantic / Macaronesia,binary,670.6,0.398,99,545
+RP225,Canary Islands,North Atlantic / Macaronesia,frequency,216.9,0.156,126,357
