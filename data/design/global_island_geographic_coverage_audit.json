@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-19",
+  "decision": "global_macroecology_source_is_broad_but_repo_mechanistic_deep_dive_is_geographically_uneven",
+  "global_macroecology_anchor": {
+    "source": "Traveset et al. 2016",
+    "doi": "10.1111/geb.12362",
+    "quantitative_networks": 52,
+    "oceanic_island_networks": 18,
+    "continental_island_networks": 23,
+    "mainland_networks": 11,
+    "latitude_extent": "41S to 82N",
+    "longitude_extent": "91W to 149E"
+  },
+  "deep_dive_regions": [
+    {"sector":"North Atlantic / Macaronesia","systems":["Canary","Azores"],"status":"strong"},
+    {"sector":"western Indian Ocean","systems":["Mauritius","Seychelles"],"status":"strong"},
+    {"sector":"eastern tropical Pacific","systems":["Galapagos"],"status":"strong"},
+    {"sector":"central North Pacific","systems":["Hawaii"],"status":"moderate_strong"},
+    {"sector":"NW Pacific","systems":["Izu","Ogasawara"],"status":"strong"},
+    {"sector":"western tropical Pacific / South China Sea","systems":["Wanshan-Yongxing"],"status":"moderate"},
+    {"sector":"SW Pacific temperate","systems":["New Zealand"],"status":"moderate"},
+    {"sector":"Caribbean","systems":["insular-mainland Gesneriaceae"],"status":"moderate"}
+  ],
+  "gaps": [
+    {"sector":"SE Pacific","candidate":"Juan Fernandez","evidence_found":"breeding systems and floral visitors for endemic flora","network_gradient_ready":false},
+    {"sector":"Southern Ocean / subantarctic","candidate":"11 Southern Ocean island groups","evidence_found":"321-species floral-trait/breeding-system synthesis","network_gradient_ready":false},
+    {"sector":"South Atlantic","candidate":"St Helena / Ascension / Tristan da Cunha","evidence_found":"insufficient quantitative pollination-network recovery in current audit","network_gradient_ready":false},
+    {"sector":"SW tropical Pacific","candidate":"Fiji / Samoa / New Caledonia","evidence_found":"insufficient quantitative pollination-network recovery in current audit","network_gradient_ready":false},
+    {"sector":"SW Indian Ocean additional","candidate":"Reunion / Madagascar","evidence_found":"visitation-web literature exists; oceanic-island comparability incomplete","network_gradient_ready":false}
+  ],
+  "allowed_claim":"global-source-supported directional pattern",
+  "blocked_claim":"geographically balanced global mechanistic replication",
+  "next_gate":"recover Traveset 2016 supplementary Tables S1-S3 and run island-level prediction for all 18 oceanic-island networks without island-specific tuning"
+}
