@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "workflow_run": 32248536737,
+  "artifact_id": 9363521551,
+  "artifact_sha256": "235755b19249d0be1eb13abc0c9c2305159b89a075f8852eab484a1c170ee465",
+  "raw_source": {
+    "doi": "10.5281/zenodo.4300427",
+    "file": "network interaction data.txt",
+    "bytes": 18507516,
+    "published_md5": "077f7a7f8648c54a25e637c7f8eaa09c",
+    "verified_md5": "077f7a7f8648c54a25e637c7f8eaa09c",
+    "sha256": "2ecc62e8e0faf65ac889f77be7ad4c3f3c21dfd84aa2ef5b13cbc3f71bb734f7"
+  },
+  "schema": {
+    "rows": 55276,
+    "columns": 9,
+    "frozen_network_join": "numeric suffix of Region_pub == id_network_aggreg",
+    "plant_taxon": "plantgenus + plantspecies",
+    "pollinator_taxon": "pollinatororder + pollinatorgenus + pollinatorspecies",
+    "interaction_weight": null
+  },
+  "frozen_coverage": {
+    "total": 26,
+    "topology_recovered": 22,
+    "topology_absent": ["RP160", "RP163", "RP197", "RP222"],
+    "exact_link_richness_reconciliation_rows": 11,
+    "exact_pollinator_richness_reconciliation_rows": 11
+  },
+  "frequency_networks_with_topology_but_no_weight": [
+    "RP17", "RP18", "RP36", "RP42", "RP100", "RP101", "RP102", "RP103",
+    "RP164", "RP207", "RP208", "RP209", "RP210", "RP211", "RP225"
+  ],
+  "decision": "topology_source_locked_weighted_tier_b_not_admitted_from_zenodo_table",
+  "claim_boundary": "The Zenodo v1 table supports source identity and interaction topology for 22/26 frozen networks. It has no interaction-weight column. Repeated rows and subnetwork repetition must not be treated as visit counts. Weighted interaction diversity or weighted plant niche overlap requires recovery of the original quantitative matrix for each network."
+}
