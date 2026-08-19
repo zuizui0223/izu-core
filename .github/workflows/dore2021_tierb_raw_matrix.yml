@@ -10,6 +10,10 @@ on:
       - 'data/design/frozen_dore_candidate_network_locations.json'
       - 'data/design/olesen2002_tierb_weighted_source_map.json'
       - 'scripts/acquire_analyze_olesen2002_tierb_weighted.py'
+      - 'data/results/olesen2002_tierb_weighted_anchor_source_lock.json'
+      - 'data/design/canary_trojelsgaard2015_weighted_source_map.json'
+      - 'scripts/acquire_canary_trojelsgaard2015_weighted.py'
+      - 'scripts/analyze_canary_trojelsgaard2015_weighted.py'
       - '.github/workflows/dore2021_tierb_raw_matrix.yml'
 
 concurrency:
@@ -32,11 +36,17 @@ jobs:
         run: python scripts/audit_dore2021_zenodo_raw_interactions.py
       - name: Recover and analyze Olesen 2002 frequency matrices
         run: python scripts/acquire_analyze_olesen2002_tierb_weighted.py
+      - name: Recover Canary Trøjelsgaard 2015 weighted matrices
+        run: python scripts/acquire_canary_trojelsgaard2015_weighted.py
+      - name: Analyze preregistered Canary island aggregations
+        run: python scripts/analyze_canary_trojelsgaard2015_weighted.py
       - name: Show source and weighted-anchor gates
         run: |
           cat data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
           cat data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
           cat data/results/olesen2002_tierb_weighted_anchor.json
+          cat data/results/canary_trojelsgaard2015_weighted_source_gate.json
+          cat data/results/canary_trojelsgaard2015_weighted_tierb.json
       - name: Upload Tier-B source artifact
         uses: actions/upload-artifact@v4
         with:
@@ -45,6 +55,9 @@ jobs:
             data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
             data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
             data/results/olesen2002_tierb_weighted_anchor.json
+            data/results/canary_trojelsgaard2015_weighted_source_gate.json
+            data/results/canary_trojelsgaard2015_weighted_tierb.json
             data/external/dore2021_zenodo_v1/network interaction data.txt
             data/external/olesen2002_iwdb/
+            data/external/canary_trojelsgaard2015/
           if-no-files-found: warn
