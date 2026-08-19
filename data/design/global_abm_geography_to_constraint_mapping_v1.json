@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "registered_on": "2026-08-19",
+  "purpose": "Freeze the transformation from source-locked island geography to the v4 continuous constraint axis before inspecting named-system ABM fit.",
+  "primary_mapping": {
+    "name": "distance_ecdf",
+    "input": "GIFT dist: coast-to-coast distance to nearest mainland in km",
+    "transform": "log1p(distance_km), then empirical CDF/rank across the frozen actual-island network locations; smallest maps near 0 and largest near 1",
+    "reason": "The current continuous v4 axis was defined as an isolation/opportunity axis. Rank scaling preserves the observed isolation ordering without estimating any coefficient from network outcomes.",
+    "outcome_fit_used": false
+  },
+  "secondary_mapping": {
+    "name": "geography_only_pc1",
+    "inputs": [
+      "log1p(distance_to_mainland_km)",
+      "-log1p(island_area_km2)",
+      "-log1p(max_elevation_m)"
+    ],
+    "transform": "z-standardize predictors using only frozen geography rows, estimate PCA using geography only, orient PC1 so its correlation with distance is positive, then min-max scale PC1 to [0,1]",
+    "reason": "Tests whether opportunity-space constraint is better represented by remoteness plus island capacity/relief without fitting biological outcomes.",
+    "outcome_fit_used": false
+  },
+  "sensitivity_rules": [
+    "Report both distance_ecdf and geography_only_pc1; do not choose between them based on fit.",
+    "Use the full pre-existing v4 saturation envelope 1.0, 1.5, 2.0, 2.5, 3.0; do not select a preferred saturation post hoc.",
+    "If a geography field is unavailable for a frozen island, retain that row for distance-only analysis if dist is available and mark it missing for geography-PC1; never impute a value from network outcomes.",
+    "Archipelago/system identity is a clustering variable, not an extra constraint score.",
+    "Sampling effort may adjust the observed network target but never the ABM geography input."
+  ],
+  "first_prediction_targets": {
+    "tier_A_source_native_aggregates": [
+      "pollinator richness / final partner-type ordering",
+      "interaction/link richness / effective-link ordering"
+    ],
+    "tier_B_matrix_derived_after_byte_gate": [
+      "interaction diversity",
+      "plant niche overlap or source-compatible analogue"
+    ],
+    "functional_endpoint": "reproduction remains external/mechanistic validation and is not required to decline monotonically with geography"
+  },
+  "validation": {
+    "stage_1": "out-of-sample rank/direction recovery at actual island/network locations",
+    "stage_2": "leave-one-system-out scale calibration only after stage_1 is reported, with held-out system outcomes excluded from calibration",
+    "stage_3": "leave-one-geographic-stratum-out transfer",
+    "sampling_effort_boundary": "Observed richness/link targets must retain sampling-time/effort information. Effort correction is a measurement model and may not alter the frozen geography-to-constraint mapping."
+  },
+  "forbidden": [
+    "fit weights on distance, area or elevation using network outcomes before the primary test",
+    "replace frozen systems because their predictions are poor",
+    "select a saturation value based on named-system fit",
+    "treat study sampling area as island area",
+    "treat missing geography or matrix bytes as zero"
+  ]
+}

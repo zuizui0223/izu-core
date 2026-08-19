@@ -1,0 +1,34 @@
+name: Antillean fourth-stratum recovery
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: antillean-source-recovery-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover Dryad Antillean matrices
+        run: python scripts/acquire_antillean_hummingbird_networks.py
+      - name: Audit recovered matrices
+        run: python scripts/audit_antillean_hummingbird_matrices.py
+      - name: Show gates
+        run: |
+          cat data/results/antillean_hummingbird_network_source_gate.json
+          cat data/results/antillean_hummingbird_matrix_audit.json
+      - name: Upload gate and raw archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: antillean-fourth-stratum-recovery
+          path: |
+            data/results/antillean_hummingbird_network_source_gate.json
+            data/results/antillean_hummingbird_matrix_audit.json
+            data/external/antillean_hummingbird/Data_and_code.zip
+          if-no-files-found: warn

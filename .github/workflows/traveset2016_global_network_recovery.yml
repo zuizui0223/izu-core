@@ -1,0 +1,69 @@
+name: Traveset 2016 global network recovery
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: traveset-global-source-recovery-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit dependencies
+        run: |
+          python -m pip install pandas
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq r-base-core
+      - name: Run Traveset supplement source gate
+        run: python scripts/acquire_traveset2016_global_network_supplement.py
+      - name: Audit Web of Life global metadata pool
+        run: python scripts/audit_weboflife_global_pollination_coverage.py
+      - name: Build outcome-blind deduplicated candidate pool
+        run: python scripts/build_preregistered_global_network_candidate_pool.py
+      - name: Extract Dore source-native RData
+        run: Rscript scripts/extract_dore2021_global_network_pool.R
+      - name: Audit Dore 123-location global source pool
+        run: python scripts/audit_dore2021_global_network_pool.py
+      - name: Build outcome-blind Dore oceanic candidate audit
+        run: python scripts/build_dore2021_oceanic_island_candidate_audit.py
+      - name: Recover Antillean raw network source
+        run: python scripts/acquire_antillean_hummingbird_networks.py
+      - name: Show source states
+        run: |
+          cat data/results/traveset2016_global_network_supplement_gate.json
+          python - <<'PY'
+          import json
+          for path in [
+              'data/results/weboflife_global_pollination_coverage.json',
+              'data/results/preregistered_global_network_candidate_pool.json',
+              'data/results/dore2021_global_network_pool_audit.json',
+              'data/results/dore2021_oceanic_island_candidate_audit.json',
+              'data/results/antillean_hummingbird_network_source_gate.json',
+          ]:
+              x=json.load(open(path))
+              print('\n',path)
+              for k in ('status','rows','weighted_pollination_network_rows','raw_weighted_rows','deduplicated_location_reference_programs','source_labeled_OI_rows','candidate_system_count_by_stratum','release_condition_met_from_dore_alone','admission'):
+                  if k in x: print(k, x[k])
+          PY
+      - name: Upload source-gate results
+        uses: actions/upload-artifact@v4
+        with:
+          name: traveset2016-global-network-recovery
+          path: |
+            data/results/traveset2016_global_network_supplement_gate.json
+            data/results/weboflife_global_pollination_coverage.json
+            data/results/preregistered_global_network_candidate_pool.json
+            data/results/dore2021_global_network_pool_audit.json
+            data/results/dore2021_oceanic_island_candidate_audit.json
+            data/results/antillean_hummingbird_network_source_gate.json
+            data/external/traveset2016/geb12362-sup-0001-si.docx
+            data/external/dore2021/aggreg.webs_full.RData
+            data/external/dore2021/aggreg.webs_full.csv
+            data/external/antillean_hummingbird/Data_and_code.zip
+          if-no-files-found: warn

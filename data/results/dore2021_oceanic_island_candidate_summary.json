@@ -1,0 +1,24 @@
+{
+  "analysis": "dore2021_outcome_blind_oceanic_island_candidate_summary",
+  "source_aggregated_rows": 157,
+  "source_labeled_OI_rows": 33,
+  "admitted_candidate_systems_pending_final_geology_and_matrix_gate": [
+    {"stratum": "North Atlantic / Macaronesia", "systems": ["Canary Islands", "Azores"]},
+    {"stratum": "western Indian Ocean", "systems": ["Mauritius", "Seychelles"]},
+    {"stratum": "eastern / central Pacific", "systems": ["Galapagos", "Hawaii"]}
+  ],
+  "candidate_system_details": {
+    "Canary Islands": {"source_rows": 10, "references": ["S22", "S140", "S185"], "sampling_effort_complete": true},
+    "Azores": {"source_rows": 6, "references": ["S35", "S182"], "sampling_effort_complete": true},
+    "Mauritius": {"source_rows": 2, "references": ["S35", "S78"], "sampling_effort_complete": true},
+    "Seychelles": {"source_rows": 1, "references": ["S86"], "sampling_effort_complete": true},
+    "Galapagos": {"source_rows": 5, "references": ["S184"], "sampling_effort_complete": true},
+    "Hawaii": {"source_rows": 2, "references": ["S91", "S188"], "sampling_effort_complete": true}
+  },
+  "strata_with_two_candidate_systems": 3,
+  "preregistered_minimum_strata_required": 4,
+  "balanced_global_release_ready": false,
+  "decision": "three_strata_complete_fourth_stratum_required",
+  "next_gate": "Recover a fourth geographically distinct two-system quantitative oceanic-island stratum without using ABM outcomes for selection; Lesser Antilles is the leading source-driven candidate.",
+  "claim_boundary": "Candidate selection used only source Land_type, geography, identifiers and sampling metadata. Source Land_type=OI is not by itself final geological verification. Network outcomes and ABM fit were not used for selection."
+}
