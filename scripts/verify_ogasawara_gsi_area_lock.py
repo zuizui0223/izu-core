@@ -64,16 +64,32 @@ def main() -> None:
         japanese = target["japanese_name"]
         reading = READINGS[island]
         area_text = f"{float(target['gsi_area_km2']):.2f}"
-        pattern = re.compile(
+        contiguous = re.compile(
             rf"{re.escape(japanese)}\s+{re.escape(reading)}\s+{re.escape(area_text)}(?:\s|$)"
         )
-        matched = bool(pattern.search(normalized))
+        reading_area = re.compile(
+            rf"{re.escape(reading)}\s+{re.escape(area_text)}(?:\s|$)"
+        )
+        if contiguous.search(normalized):
+            matched = True
+            match_mode = "contiguous_row_extraction"
+        elif japanese in normalized and reading_area.search(normalized):
+            # Some rows in the GSI table are extracted column-wise by pypdf:
+            # the island name appears later in the text stream while its unique
+            # reading + numeric area remain adjacent. Require both on the same
+            # already-identified Tokyo island-area page.
+            matched = True
+            match_mode = "split_columns_same_page_with_unique_reading_area"
+        else:
+            matched = False
+            match_mode = "not_matched"
         checks.append({
             "source_island": island,
             "japanese_name": japanese,
             "reading": reading,
             "expected_area_km2": float(target["gsi_area_km2"]),
             "matched_in_source_pdf": matched,
+            "match_mode": match_mode,
         })
     verified = all(row["matched_in_source_pdf"] for row in checks)
     if not verified:
