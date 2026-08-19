@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "source_workflow_run": 32246531384,
+  "source_artifact_id": 9362979083,
+  "source_artifact_sha256": "0de50c6cb3704a012a0653dffd3a8f7fea8ceac233b33a66d728a3732dd6b919",
+  "analysis": "abm_v4_dore_named_system_leave_one_system_out_prediction",
+  "overall_coverage": {
+    "frozen_dore_targets": 26,
+    "source_locked_dore_targets_with_dist": 26,
+    "systems_with_usable_rows": [
+      "Azores",
+      "Canary Islands",
+      "Galapagos",
+      "Hawaii",
+      "Mauritius",
+      "Seychelles"
+    ],
+    "n_systems": 6
+  },
+  "measurement_covariates": "Doré source-richness design: log1p(Sampling_time) + log1p(Annual_time_span) + Sampling_type(T vs TO)",
+  "primary_distance_ecdf": {
+    "coverage": {
+      "n_rows": 26,
+      "systems": [
+        "Azores",
+        "Canary Islands",
+        "Galapagos",
+        "Hawaii",
+        "Mauritius",
+        "Seychelles"
+      ]
+    },
+    "summary": {
+      "pollinator_richness": {
+        "saturations_beating_effort_only": 5,
+        "saturations_beating_geography_quadratic": 5,
+        "robust_predictive_gain_over_geography": true
+      },
+      "link_richness": {
+        "saturations_beating_effort_only": 5,
+        "saturations_beating_geography_quadratic": 5,
+        "robust_predictive_gain_over_geography": true
+      }
+    },
+    "mae_by_saturation": {
+      "1.0": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 1.1866520575086204,
+          "abm_plus_sampling_design": 0.5582755977956322
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 1.0514851071113738,
+          "abm_plus_sampling_design": 0.5521760269495468
+        }
+      },
+      "1.5": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 1.1866520575086204,
+          "abm_plus_sampling_design": 0.5582755977956322
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 1.0514851071113738,
+          "abm_plus_sampling_design": 0.5650337142219536
+        }
+      },
+      "2.0": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 1.1866520575086204,
+          "abm_plus_sampling_design": 0.5582755977956322
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 1.0514851071113738,
+          "abm_plus_sampling_design": 0.5561209954871174
+        }
+      },
+      "2.5": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 1.1866520575086204,
+          "abm_plus_sampling_design": 0.5582755977956322
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 1.0514851071113738,
+          "abm_plus_sampling_design": 0.5525787720594718
+        }
+      },
+      "3.0": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 1.1866520575086204,
+          "abm_plus_sampling_design": 0.5582755977956322
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 1.0514851071113738,
+          "abm_plus_sampling_design": 0.5504226001818884
+        }
+      }
+    }
+  },
+  "secondary_geography_only_pc1": {
+    "coverage": {
+      "n_rows": 26,
+      "systems": [
+        "Azores",
+        "Canary Islands",
+        "Galapagos",
+        "Hawaii",
+        "Mauritius",
+        "Seychelles"
+      ]
+    },
+    "summary": {
+      "pollinator_richness": {
+        "saturations_beating_effort_only": 5,
+        "saturations_beating_geography_quadratic": 0,
+        "robust_predictive_gain_over_geography": false
+      },
+      "link_richness": {
+        "saturations_beating_effort_only": 5,
+        "saturations_beating_geography_quadratic": 5,
+        "robust_predictive_gain_over_geography": true
+      }
+    },
+    "mae_by_saturation": {
+      "1.0": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 0.8490348895722527,
+          "abm_plus_sampling_design": 0.870397384124937
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 0.8296965557667321,
+          "abm_plus_sampling_design": 0.6289998115783522
+        }
+      },
+      "1.5": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 0.8490348895722527,
+          "abm_plus_sampling_design": 0.870397384124937
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 0.8296965557667321,
+          "abm_plus_sampling_design": 0.631744499137769
+        }
+      },
+      "2.0": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 0.8490348895722527,
+          "abm_plus_sampling_design": 0.870397384124937
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 0.8296965557667321,
+          "abm_plus_sampling_design": 0.6311841213805753
+        }
+      },
+      "2.5": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 0.8490348895722527,
+          "abm_plus_sampling_design": 0.870397384124937
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 0.8296965557667321,
+          "abm_plus_sampling_design": 0.6311104748768449
+        }
+      },
+      "3.0": {
+        "pollinator_richness": {
+          "effort_only": 1.0576291474368928,
+          "geography_quadratic": 0.8490348895722527,
+          "abm_plus_sampling_design": 0.870397384124937
+        },
+        "link_richness": {
+          "effort_only": 0.8520250680090024,
+          "geography_quadratic": 0.8296965557667321,
+          "abm_plus_sampling_design": 0.631026554044603
+        }
+      }
+    }
+  },
+  "decision": "primary_distance_mapping_has_robust_mechanistic_predictive_gain",
+  "interpretation_rule": "The primary distance-ECDF result controls the headline. The preregistered geography-PC1 sensitivity is reported regardless of whether it performs better or worse; it cannot replace the primary mapping post hoc. Failure to beat the primary geography baseline preserves directional compatibility but withholds mechanistic predictive superiority.",
+  "claim_boundary": "This named-system test is restricted to Doré candidate systems whose GIFT island geography is source-locked. It does not yet include matrix-derived diversity/niche overlap or the western-Pacific fourth stratum. Systems, mappings and saturation values are frozen independently of fit; no poor-fitting system is replaced and no preferred saturation is selected."
+}
