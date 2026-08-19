@@ -1,0 +1,40 @@
+name: Dore 2021 Tier-B raw matrix
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/acquire_dore2021_zenodo_raw_interactions.py'
+      - 'scripts/audit_dore2021_zenodo_raw_interactions.py'
+      - 'data/design/frozen_dore_candidate_network_locations.json'
+      - '.github/workflows/dore2021_tierb_raw_matrix.yml'
+
+concurrency:
+  group: dore-tierb-raw-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Acquire Zenodo v1 raw interaction table
+        run: python scripts/acquire_dore2021_zenodo_raw_interactions.py
+      - name: Audit raw schema and frozen Region_pub coverage
+        run: python scripts/audit_dore2021_zenodo_raw_interactions.py
+      - name: Show source and schema gates
+        run: |
+          cat data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
+          cat data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
+      - name: Upload Tier-B source artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dore2021-tierb-raw-matrix
+          path: |
+            data/results/dore2021_zenodo_v1_raw_interaction_source_gate.json
+            data/results/dore2021_zenodo_v1_raw_interaction_schema_audit.json
+            data/external/dore2021_zenodo_v1/network interaction data.txt
+          if-no-files-found: warn
