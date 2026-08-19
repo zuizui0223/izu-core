@@ -1,0 +1,30 @@
+name: Traveset 2016 global network recovery
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/acquire_traveset2016_global_network_supplement.py'
+      - 'tests/test_traveset2016_global_network_supplement_gate.py'
+      - '.github/workflows/traveset2016_global_network_recovery.yml'
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run source gate
+        run: python scripts/acquire_traveset2016_global_network_supplement.py
+      - name: Show gate state
+        run: cat data/results/traveset2016_global_network_supplement_gate.json
+      - name: Upload source-gate result
+        uses: actions/upload-artifact@v4
+        with:
+          name: traveset2016-global-network-recovery
+          path: |
+            data/results/traveset2016_global_network_supplement_gate.json
+            data/external/traveset2016/geb12362-sup-0001-si.docx
+          if-no-files-found: warn
