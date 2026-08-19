@@ -9,11 +9,16 @@ on:
       - 'scripts/match_frozen_candidates_to_gift_geography.py'
       - 'scripts/run_abm_v4_dore_named_system_prediction.py'
       - 'data/design/frozen_dore_candidate_network_locations.json'
+      - 'data/design/frozen_gift_entity_overrides_v1.json'
       - 'data/results/frozen_dore_network_targets.csv'
       - 'data/design/global_abm_geography_to_constraint_mapping_v1.json'
       - 'scripts/audit_global_oceanic_validation_release.py'
       - 'data/results/global_oceanic_validation_release_gate_v1.json'
       - '.github/workflows/weigelt_global_island_attributes.yml'
+
+concurrency:
+  group: global-named-system-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   recover:
@@ -41,7 +46,7 @@ jobs:
           print('targets',g['n_targets'],'auto_locked',g['n_auto_locked'],'island_entities',g['n_island_entities_with_coordinates'])
           for m in g['matches']:
               top=m['top_candidates'][0] if m['top_candidates'] else None
-              print(m['kind'],m['system'],m['target'],'LOCK' if m['auto_lock'] else 'REVIEW',top)
+              print(m['kind'],m['system'],m['target'],'LOCK' if m['auto_lock'] else 'REVIEW',m.get('lock_source'),top)
           p=json.load(open('data/results/abm_v4_dore_named_system_prediction.json'))
           print('prediction coverage',p['coverage'])
           print('prediction decision',p['decision'])
