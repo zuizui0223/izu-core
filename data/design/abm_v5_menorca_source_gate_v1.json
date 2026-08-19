@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v5_menorca_spatiotemporal_source_gate",
+  "freeze_date": "2026-08-19",
+  "candidate_system": {
+    "name": "Menorca spatio-temporal plant-pollinator interactions",
+    "island": "Menorca",
+    "archipelago": "Balearic Islands",
+    "source": "Hervias-Parejo et al. 2023",
+    "article_doi": "10.1111/oik.09818",
+    "figshare_article_id": 21213587,
+    "figshare_version": 2,
+    "study_design_from_paper": {
+      "study_sites": 3,
+      "site_labels": ["NE", "N", "S"],
+      "habitats_per_site": 3,
+      "habitat_types": ["dune system", "coastal scrubland", "agro-forestry system"],
+      "temporal_layers_per_site": 5,
+      "sampling_period": "March-July 2021"
+    }
+  },
+  "prior_use_audit": {
+    "izu_core_search_terms": ["Menorca", "Hervias-Parejo", "oik.09818"],
+    "existing_repository_hits": 0,
+    "target_metrics_precomputed_in_izu_core": false
+  },
+  "selection_caveat": "The published article was known at source-gate freeze and reports strong spatial/temporal interaction turnover and partner switching. Therefore candidate-system selection is not outcome-blind with respect to generic network dynamics. No izu-core Shannon-diversity or plant-niche-overlap target has been computed for this system, and this gate does not calculate either metric.",
+  "source_gate_only": true,
+  "source_policy": {
+    "metadata_endpoint": "https://api.figshare.com/v2/articles/21213587",
+    "public_access_rule": "Enumerate only files returned by the public Figshare article metadata. Download only each returned public download_url; do not guess filenames or alternate storage paths.",
+    "checksum_rule": "Record Figshare supplied/computed MD5 when present and locally compute SHA256 for every recovered file. A supplied/computed MD5 mismatch or local payload mismatch is a hard failure.",
+    "download_all_public_files": true,
+    "metric_calculation_allowed": false
+  },
+  "schema_audit": {
+    "text_tables": "For CSV/TSV/TXT files record delimiter, row/column count, header names and up to five non-numeric identifier examples; do not aggregate numeric interaction values.",
+    "excel": "For XLS/XLSX record workbook sheets, dimensions and header rows only; do not calculate network metrics.",
+    "archives": "List member names, sizes and extensions; inspect tabular member schemas without computing target metrics.",
+    "r_objects": "Record file type/bytes/checksum only in the initial gate unless a separate schema-only reader is required. Do not inspect derived network metric objects for candidate selection."
+  },
+  "admission_requirements": {
+    "minimum_local_network_units": 3,
+    "required_fields_or_reconstructable_equivalents": [
+      "plant identity",
+      "pollinator identity",
+      "study site or spatial local-context identifier",
+      "habitat or temporal local-context identifier",
+      "quantitative interaction weight or reconstructable visit count"
+    ],
+    "required_nested_structure": "At least three quantitative local networks within Menorca under a common source protocol, with local units nested within one island system.",
+    "primary_weight_preference": "Use the source-native quantitative interaction frequency/count family used to construct the published multilayer interactions. Do not derive weights from abundance-only files.",
+    "blocked_rule": "If the public Figshare files do not expose enough source-native interaction information to reconstruct at least three quantitative local networks, record the source gate as blocked and do not calculate Shannon/overlap."
+  },
+  "prohibited_before_source_admission": [
+    "calculate interaction Shannon diversity",
+    "calculate plant niche overlap",
+    "rank Menorca layers by v5 fit",
+    "select only habitats/months with large published turnover",
+    "drop taxa or sampling units by expected model agreement",
+    "treat published connectance/nestedness/selectivity values as the frozen v5 targets"
+  ],
+  "next_gate": "If source admission succeeds, freeze the exact reconstructed local-network unit, target estimands, weighting family and held-out v5 decision rule from source schema before calculating Shannon or plant niche overlap.",
+  "claim_boundary": "This is source/schema admission only. It cannot support or falsify v5 and it does not turn Menorca sites, habitats or months into independent archipelagos."
+}
