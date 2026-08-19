@@ -24,6 +24,11 @@ def classify(row: pd.Series) -> tuple[str | None, str | None]:
     return None, None
 
 
+def scalar(r: pd.Series, name: str):
+    value = r.get(name)
+    return None if pd.isna(value) else str(value)
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--csv", type=Path, default=Path("data/external/dore2021/aggreg.webs_full.csv"))
@@ -36,12 +41,16 @@ def main() -> None:
     for _, r in oi.iterrows():
         stratum, system = classify(r)
         rows.append({
-            "region_pub": None if pd.isna(r.get("Region_pub")) else str(r.get("Region_pub")),
-            "location": None if pd.isna(r.get("Location")) else str(r.get("Location")),
-            "country_location": None if pd.isna(r.get("Country_location")) else str(r.get("Country_location")),
+            "region_pub": scalar(r, "Region_pub"),
+            "location": scalar(r, "Location"),
+            "country_location": scalar(r, "Country_location"),
             "latitude": None if pd.isna(r.get("Latitude_dec")) else float(r.get("Latitude_dec")),
             "longitude": None if pd.isna(r.get("Longitude_dec")) else float(r.get("Longitude_dec")),
-            "reference_id": None if pd.isna(r.get("Ref_paper")) else str(r.get("Ref_paper")),
+            "reference_id": scalar(r, "Ref_paper"),
+            "source": scalar(r, "Source"),
+            "list_inter_dispo": scalar(r, "List_inter_dispo"),
+            "list_inter_dbase": scalar(r, "List_inter_dbase"),
+            "data_type": scalar(r, "Data_type"),
             "sampling_time": None if pd.isna(r.get("Sampling_time")) else float(r.get("Sampling_time")),
             "sampling_effort": None if pd.isna(r.get("Sampling_effort")) else float(r.get("Sampling_effort")),
             "source_land_type": "OI",
@@ -60,12 +69,20 @@ def main() -> None:
             "source_rows": 0,
             "references": set(),
             "locations": set(),
+            "sources": set(),
+            "interaction_database_flags": set(),
+            "interaction_availability_flags": set(),
+            "data_types": set(),
             "all_rows_have_sampling_effort": True,
         })
         s = systems[key]
         s["source_rows"] += 1
         if x["reference_id"]: s["references"].add(x["reference_id"])
         if x["location"]: s["locations"].add(x["location"])
+        if x["source"]: s["sources"].add(x["source"])
+        if x["list_inter_dbase"]: s["interaction_database_flags"].add(x["list_inter_dbase"])
+        if x["list_inter_dispo"]: s["interaction_availability_flags"].add(x["list_inter_dispo"])
+        if x["data_type"]: s["data_types"].add(x["data_type"])
         if x["sampling_effort"] is None: s["all_rows_have_sampling_effort"] = False
 
     system_rows = []
@@ -76,6 +93,10 @@ def main() -> None:
             "source_rows": s["source_rows"],
             "references": sorted(s["references"]),
             "locations": sorted(s["locations"]),
+            "sources": sorted(s["sources"]),
+            "interaction_database_flags": sorted(s["interaction_database_flags"]),
+            "interaction_availability_flags": sorted(s["interaction_availability_flags"]),
+            "data_types": sorted(s["data_types"]),
             "all_rows_have_sampling_effort": s["all_rows_have_sampling_effort"],
             "selection_used_abm_outcome": False,
         })
@@ -93,8 +114,8 @@ def main() -> None:
         "strata_with_at_least_two_candidate_systems": sorted(k for k, v in counts.items() if v >= 2),
         "release_condition_met_from_dore_alone": sum(v >= 2 for v in counts.values()) >= 4,
         "decision": "dore_pool_supplies_three_two-system_strata_but_not_balanced_global_release" if sum(v >= 2 for v in counts.values()) == 3 else "see_counts",
-        "next_gap": "A fourth geographically distinct stratum with two source-locked quantitative oceanic-island systems is required before geographically balanced release.",
-        "claim_boundary": "Candidate extraction uses only source Land_type, geography, identifiers and sampling metadata. No network outcome or ABM fit is used. Source Land_type=OI is not by itself geological verification; final admission still requires the preregistered geology and matrix gates.",
+        "next_gap": "For the frozen candidates, resolve source/database trace fields to actual matrix bytes before quantitative named-system ABM fitting; fourth geographic stratum is supplied separately by Izu plus Yongxing/Xisha at candidate-freeze level.",
+        "claim_boundary": "Candidate extraction uses only source Land_type, geography, identifiers, source trace fields and sampling metadata. Network response values and ABM fit are not used. Database/availability flags establish traceability only, not byte-level matrix recovery; final admission still requires geology, matrix and effort gates.",
         "rows": rows,
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
