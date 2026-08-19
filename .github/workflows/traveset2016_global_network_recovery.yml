@@ -9,6 +9,7 @@ on:
       - 'scripts/build_preregistered_global_network_candidate_pool.py'
       - 'scripts/extract_dore2021_global_network_pool.R'
       - 'scripts/audit_dore2021_global_network_pool.py'
+      - 'scripts/build_dore2021_oceanic_island_candidate_audit.py'
       - 'tests/test_traveset2016_global_network_supplement_gate.py'
       - '.github/workflows/traveset2016_global_network_recovery.yml'
 
@@ -35,6 +36,8 @@ jobs:
         run: Rscript scripts/extract_dore2021_global_network_pool.R
       - name: Audit Dore 123-location global source pool
         run: python scripts/audit_dore2021_global_network_pool.py
+      - name: Build outcome-blind Dore oceanic candidate audit
+        run: python scripts/build_dore2021_oceanic_island_candidate_audit.py
       - name: Show source states
         run: |
           cat data/results/traveset2016_global_network_supplement_gate.json
@@ -44,10 +47,11 @@ jobs:
               'data/results/weboflife_global_pollination_coverage.json',
               'data/results/preregistered_global_network_candidate_pool.json',
               'data/results/dore2021_global_network_pool_audit.json',
+              'data/results/dore2021_oceanic_island_candidate_audit.json',
           ]:
               x=json.load(open(path))
               print('\n',path)
-              for k in ('status','rows','weighted_pollination_network_rows','raw_weighted_rows','deduplicated_location_reference_programs'):
+              for k in ('status','rows','weighted_pollination_network_rows','raw_weighted_rows','deduplicated_location_reference_programs','source_labeled_OI_rows','candidate_system_count_by_stratum','release_condition_met_from_dore_alone'):
                   if k in x: print(k, x[k])
               for k in ('geography_candidate_columns','sampling_candidate_columns','id_candidate_columns'):
                   if k in x: print(k, x[k])
@@ -62,6 +66,7 @@ jobs:
             data/results/weboflife_global_pollination_coverage.json
             data/results/preregistered_global_network_candidate_pool.json
             data/results/dore2021_global_network_pool_audit.json
+            data/results/dore2021_oceanic_island_candidate_audit.json
             data/external/traveset2016/geb12362-sup-0001-si.docx
             data/external/dore2021/aggreg.webs_full.RData
             data/external/dore2021/aggreg.webs_full.csv
