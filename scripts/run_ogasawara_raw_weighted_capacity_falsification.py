@@ -8,7 +8,9 @@ from bisect import bisect_right
 from pathlib import Path
 
 REFERENCE_GEO = Path("data/results/frozen_candidate_gift_geography_match.json")
-OGASAWARA_GEO = Path("data/results/ogasawara_gift_capacity_match.json")
+OGASAWARA_DESIGN = Path("data/design/ogasawara_gift_capacity_targets_v1.json")
+OGASAWARA_GSI_LOCK = Path("data/results/ogasawara_gsi_area_source_lock.json")
+OGASAWARA_GIFT_AUDIT = Path("data/results/ogasawara_gift_capacity_match.json")
 OGASAWARA_METRICS = Path("data/results/ogasawara/context_analysis/island_metrics.csv")
 ABM_DIRECTION = Path("data/results/abm_v4_global_continuous_isolation_gradient.json")
 OUT = Path("data/results/ogasawara_raw_weighted_capacity_falsification.json")
@@ -147,22 +149,34 @@ def pairwise_concordance(rows: list[dict], outcome: str, expected: str) -> dict:
     }
 
 
-def load_rows() -> tuple[list[dict], dict]:
-    reference = json.loads(REFERENCE_GEO.read_text())
-    og_geo = json.loads(OGASAWARA_GEO.read_text())
-    ref_areas = reference_unique_log_areas(reference)
-
-    if not og_geo.get("all_locked"):
-        return [], {
-            "status": "blocked_ogasawara_gift_geography_not_fully_locked",
-            "geography": og_geo,
-        }
+def verified_gsi_areas() -> tuple[dict[str, float], dict, dict]:
+    design = json.loads(OGASAWARA_DESIGN.read_text())
+    source_lock = json.loads(OGASAWARA_GSI_LOCK.read_text())
+    gift_audit = json.loads(OGASAWARA_GIFT_AUDIT.read_text())
+    if source_lock.get("status") != "verified_authoritative_gsi_area_source":
+        raise RuntimeError("authoritative Ogasawara GSI area source is not verified")
+    if not source_lock.get("all_four_areas_verified"):
+        raise RuntimeError("not all four Ogasawara GSI areas are verified")
     area_by_island = {
-        row["source_island"]: float(row["selected"]["area_km2"])
-        for row in og_geo["matches"]
+        target["source_island"]: float(target["gsi_area_km2"])
+        for target in design["targets"]
     }
     if set(area_by_island) != EXPECTED_ISLANDS:
-        raise RuntimeError("Ogasawara geography target set drifted")
+        raise RuntimeError("Ogasawara GSI area target set drifted")
+    verified = {
+        row["source_island"]: float(row["expected_area_km2"])
+        for row in source_lock["checks"]
+        if row.get("matched_in_source_pdf")
+    }
+    if verified != area_by_island:
+        raise RuntimeError(f"GSI source-lock values differ from frozen design: {verified} vs {area_by_island}")
+    return area_by_island, source_lock, gift_audit
+
+
+def load_rows() -> tuple[list[dict], dict]:
+    reference = json.loads(REFERENCE_GEO.read_text())
+    ref_areas = reference_unique_log_areas(reference)
+    area_by_island, source_lock, gift_audit = verified_gsi_areas()
 
     rows = []
     with OGASAWARA_METRICS.open(newline="", encoding="utf-8") as handle:
@@ -185,9 +199,11 @@ def load_rows() -> tuple[list[dict], dict]:
         raise RuntimeError("Ogasawara weighted outcome island set drifted")
     rows.sort(key=lambda row: row["capacity_index"], reverse=True)
     return rows, {
-        "status": "ready",
+        "status": "ready_authoritative_gsi_area_lock",
         "reference_unique_log_area_count": len(ref_areas),
-        "geography": og_geo,
+        "ogasawara_primary_area_source_lock": source_lock,
+        "gift_cross_source_audit": gift_audit,
+        "gift_audit_is_biological_gate": False,
     }
 
 
@@ -199,15 +215,6 @@ def build() -> dict:
         raise RuntimeError("pre-existing ABM plant-niche-overlap direction is not positive")
 
     rows, gate = load_rows()
-    if not rows:
-        return {
-            "schema_version": "1.0",
-            "analysis": "ogasawara_raw_weighted_capacity_falsification",
-            "decision": gate["status"],
-            "gate": gate,
-            "claim_boundary": "No biological result is emitted until all four Ogasawara islands have outcome-blind GIFT area locks.",
-        }
-
     capacity = [row["capacity_index"] for row in rows]
     shannon = [row["interaction_shannon"] for row in rows]
     overlap = [row["plant_niche_overlap"] for row in rows]
@@ -230,11 +237,12 @@ def build() -> dict:
         decision = "ogasawara_raw_weighted_falsifies_both_capacity_directions"
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "ogasawara_raw_weighted_capacity_falsification",
         "status": "held_out_archipelago_weighted_outcome_test_of_postresult_capacity_hypothesis",
         "hypothesis_origin": "PR #187 post-result topology diagnostic; Ogasawara weighted outcomes were not used to define the small-area axis or its predicted directions.",
-        "capacity_mapping": "PR #187 reverse rank on the corrected 22-row unique log(area) grid, extended to new areas by piecewise-linear interpolation and clamped at the frozen endpoints.",
+        "geography_repair": "The first PR run incorrectly accepted a GIFT substring match from Ototojima to an unrelated To-jima at 33.2N,132.4E. Before admission, geography was repaired only: all four Ogasawara areas are now locked to the single authoritative GSI 2026 island-area table. Biological outcomes, expected directions, mapping rule, tests and thresholds were unchanged.",
+        "capacity_mapping": "PR #187 reverse rank on the corrected 22-row unique log(area) grid, extended to authoritative GSI Ogasawara areas by piecewise-linear interpolation and clamped at the frozen endpoints.",
         "pre_existing_abm_direction_source": str(ABM_DIRECTION),
         "predeclared_directions": {
             "interaction_shannon": "decrease as capacity constraint strengthens",
@@ -256,7 +264,7 @@ def build() -> dict:
         "geography_gate": gate,
         "decision": decision,
         "next_gate": "If both raw weighted directions survive, validate the capacity hypothesis in another independent multi-island quantitative network system before any global coefficient or universal capacity claim. If either direction fails, retain the failure and revise the capacity hypothesis rather than selecting islands or outcomes post hoc.",
-        "claim_boundary": "Four Ogasawara islands are independent island units within one archipelago, not four independent archipelagos. The test is directional and rank-based; it does not estimate a global area coefficient, identify island area causally, erase invasion/forest/sampling differences, or convert legitimate interaction counts into pollinator effectiveness or reproductive success.",
+        "claim_boundary": "Four Ogasawara islands are island units within one archipelago, not four independent archipelagos. The test is directional and rank-based; it does not estimate a global area coefficient, identify island area causally, erase invasion/forest/sampling differences, or convert legitimate interaction counts into pollinator effectiveness or reproductive success.",
     }
 
 
@@ -267,8 +275,10 @@ def main() -> None:
     print(json.dumps({
         "decision": payload["decision"],
         "n_islands": payload.get("n_islands"),
+        "rows": payload.get("rows"),
         "tests": payload.get("tests"),
         "sampling_diagnostics": payload.get("sampling_diagnostics"),
+        "gift_cross_source_audit": payload.get("geography_gate", {}).get("gift_cross_source_audit"),
     }, indent=2, ensure_ascii=False))
 
 
