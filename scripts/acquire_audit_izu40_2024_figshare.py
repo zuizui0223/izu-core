@@ -18,6 +18,16 @@ OUT = ROOT / "data/results/izu40_2024_figshare_source_audit.json"
 RAW_DIR = ROOT / "data/external/izu40_2024"
 API = "https://api.figshare.com/v2/articles/25025000"
 USER_AGENT = "izu-core-source-audit/1.0"
+DERIVED_NETWORK_METRIC_HEADERS = {
+    "connectance",
+    "weighted_nodf",
+    "shannon_diversity",
+    "h2",
+    "niche_overlap_hl",
+    "niche_overlap_ll",
+    "modularity",
+    "interaction_evenness",
+}
 
 
 def fetch_bytes(url: str) -> tuple[int | None, bytes | None, str | None]:
@@ -68,6 +78,11 @@ def _is_number(value: str) -> bool:
     return math.isfinite(number)
 
 
+def header_has_derived_network_metrics(headers: list[str]) -> bool:
+    normalized = {normalize(header) for header in headers if str(header).strip()}
+    return len(normalized.intersection(DERIVED_NETWORK_METRIC_HEADERS)) >= 2
+
+
 def inventory_xlsx(payload: bytes) -> dict:
     book = load_workbook(io.BytesIO(payload), read_only=True, data_only=False)
     sheets = []
@@ -83,6 +98,7 @@ def inventory_xlsx(payload: bytes) -> dict:
             "candidate_header_row": header_row,
             "candidate_headers": headers,
             "field_role_candidates": role_candidates(headers),
+            "derived_network_metric_headers_visible": header_has_derived_network_metrics(headers),
         })
     book.close()
     return {"format": "xlsx", "sheet_count": len(sheets), "sheets": sheets, "target_metrics_calculated": False}
@@ -117,6 +133,7 @@ def inventory_delimited(payload: bytes) -> dict:
         "candidate_header_row": header_row,
         "candidate_headers": headers,
         "field_role_candidates": role_candidates(headers),
+        "derived_network_metric_headers_visible": header_has_derived_network_metrics(headers),
         "target_metrics_calculated": False,
     }
 
@@ -138,15 +155,24 @@ def inventory_code(payload: bytes) -> dict:
     }
 
 
-def structured_roles_visible(inventory: dict) -> bool:
+def raw_pair_interaction_roles_visible(inventory: dict) -> bool:
     candidates = []
     if inventory.get("format") == "xlsx":
         candidates = [sheet.get("field_role_candidates", {}) for sheet in inventory.get("sheets", [])]
     elif inventory.get("format") == "delimited_text":
         candidates = [inventory.get("field_role_candidates", {})]
     for roles in candidates:
-        if roles.get("plant") and roles.get("pollinator") and (roles.get("network_or_site") or roles.get("time")):
+        has_context = bool(roles.get("network_or_site") or roles.get("time"))
+        if roles.get("plant") and roles.get("pollinator") and roles.get("weight") and has_context:
             return True
+    return False
+
+
+def derived_network_summary_visible(inventory: dict) -> bool:
+    if inventory.get("format") == "xlsx":
+        return any(sheet.get("derived_network_metric_headers_visible") for sheet in inventory.get("sheets", []))
+    if inventory.get("format") == "delimited_text":
+        return bool(inventory.get("derived_network_metric_headers_visible"))
     return False
 
 
@@ -161,7 +187,7 @@ def main() -> None:
     status, metadata_bytes, metadata_error = fetch_bytes(API)
     if status != 200 or metadata_bytes is None:
         write({
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "analysis": "izu40_2024_figshare_source_audit",
             "status": "blocked_figshare_metadata_not_recovered",
             "metadata_http_status": status,
@@ -176,7 +202,8 @@ def main() -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     records = []
     blocked = []
-    structured_visible = False
+    raw_pair_visible = False
+    derived_summary_visible = False
     code_structure_visible = False
 
     for row in files:
@@ -225,11 +252,13 @@ def main() -> None:
             if suffix == ".xlsx":
                 inventory = inventory_xlsx(payload)
                 record["schema_inventory"] = inventory
-                structured_visible = structured_visible or structured_roles_visible(inventory)
+                raw_pair_visible = raw_pair_visible or raw_pair_interaction_roles_visible(inventory)
+                derived_summary_visible = derived_summary_visible or derived_network_summary_visible(inventory)
             elif suffix in {".csv", ".tsv", ".txt"}:
                 inventory = inventory_delimited(payload)
                 record["schema_inventory"] = inventory
-                structured_visible = structured_visible or structured_roles_visible(inventory)
+                raw_pair_visible = raw_pair_visible or raw_pair_interaction_roles_visible(inventory)
+                derived_summary_visible = derived_summary_visible or derived_network_summary_visible(inventory)
             elif suffix in {".r", ".rmd", ".py"}:
                 inventory = inventory_code(payload)
                 record["code_inventory"] = inventory
@@ -245,15 +274,18 @@ def main() -> None:
         records.append(record)
 
     source_bytes_ok = bool(files) and not blocked and len(records) == len(files)
-    reconstruction_structure_visible = structured_visible or code_structure_visible
-    admission = source_bytes_ok and reconstruction_structure_visible
+    admission = source_bytes_ok and raw_pair_visible
+    if admission:
+        status_name = "source_admitted_raw_pair_interactions_before_v8_targets"
+    elif source_bytes_ok and derived_summary_visible and not raw_pair_visible:
+        status_name = "blocked_izu40_figshare_contains_derived_metrics_not_raw_pair_interactions"
+    else:
+        status_name = "blocked_izu40_figshare_source_or_raw_pair_structure_incomplete"
+
     write({
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "izu40_2024_figshare_source_audit",
-        "status": (
-            "source_admitted_figshare_data_code_structure_before_v8_targets"
-            if admission else "blocked_izu40_figshare_source_or_reconstruction_structure_incomplete"
-        ),
+        "status": status_name,
         "figshare_article_id": design["candidate_system"]["figshare_article_id"],
         "figshare_doi": design["candidate_system"]["figshare_doi"],
         "metadata_title": metadata.get("title"),
@@ -265,14 +297,15 @@ def main() -> None:
         "blocked_files": sorted(set(blocked)),
         "files": records,
         "source_bytes_ok": source_bytes_ok,
-        "structured_interaction_roles_visible": structured_visible,
+        "raw_pair_interaction_roles_visible": raw_pair_visible,
+        "derived_network_summary_visible": derived_summary_visible,
         "source_code_structure_visible": code_structure_visible,
-        "reconstruction_structure_visible": reconstruction_structure_visible,
         "source_admission_succeeds": admission,
         "target_metrics_calculated": False,
         "published_scope": design["candidate_system"]["published_scope"],
         "independence_boundary": design["independence_boundary"],
-        "claim_boundary": "Source bytes/schema/code inventory only. No network metric, support estimand, empirical range, or ABM v8 predictive fit was calculated.",
+        "source_content_interpretation": "The public 2024 deposit contains a 40-row site-by-season table of derived network metrics plus plant-only and pollinator-only species summaries and analysis code. No structured file combines plant identity, pollinator identity, quantitative interaction weight, and site/time context. Therefore it is insufficient for primary ABM v8 pair-support validation even though all public bytes and checksums are available.",
+        "claim_boundary": "Source bytes/schema/code inventory only. Derived metric values are not used as substitute v8 targets. No network metric, support estimand, empirical range, or ABM v8 predictive fit was calculated.",
     })
 
 
