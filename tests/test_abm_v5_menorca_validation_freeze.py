@@ -49,7 +49,7 @@ def test_menorca_freeze_keeps_two_targets_fvr_and_canonical_identity():
     assert reconstruction["pair_weight"].startswith("sum FVR")
     assert reconstruction["canonical_identity_function"] == "channel_id.external_archipelago_network.canonical_label"
     assert "casefold" in reconstruction["plant_identity"]
-    assert "casefold" in reconstruction["pollinator_identity"]
+    assert "canonical_label" in reconstruction["pollinator_identity"]
     assert "failed before any target metric was calculated" in reconstruction["parser_correction_note"]
 
 
