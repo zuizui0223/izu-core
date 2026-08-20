@@ -1,0 +1,52 @@
+name: ABM v8 pair support prevalidation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v8_pair_support.py'
+      - 'scripts/prevalidate_abm_v8_pair_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'tests/test_abm_v8_pair_support.py'
+      - '.github/workflows/abm_v8_pair_support_prevalidation.yml'
+
+jobs:
+  prevalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Freeze v8 mechanism contract
+        run: python scripts/run_constraint_mechanism_abm_v8_pair_support.py
+      - name: Run synthetic prevalidation
+        run: python scripts/prevalidate_abm_v8_pair_support.py
+      - name: Enforce synthetic decision and no consumed empirical fit
+        run: |
+          python - <<'PY'
+          import json,sys
+          x=json.load(open('data/results/abm_v8_pair_support_prevalidation.json'))
+          print('decision', x['decision'])
+          print('states', x['state_counts'])
+          print('context diagnostics', x['context_diagnostics'])
+          print('tests', x['tests'])
+          ok=(
+            x['decision']=='v8_separates_pair_support_from_opportunity_and_opens_joint_local_branching'
+            and x['empirical_inputs_loaded']==[]
+            and x['menorca_values_loaded'] is False
+            and x['giannutri_values_loaded'] is False
+          )
+          sys.exit(0 if ok else 1)
+          PY
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_abm_v8_pair_support.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v8-pair-support-prevalidation
+          path: |
+            data/results/constraint_mechanism_abm_v8_pair_support.json
+            data/results/abm_v8_pair_support_prevalidation.json
