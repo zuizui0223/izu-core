@@ -13,9 +13,11 @@ from channel_id.external_archipelago_network import WeightedNetwork
 ROOT = Path(__file__).resolve().parents[1]
 V4_WEIGHTED = ROOT / "scripts/run_abm_v4_weighted_architecture_emulator.py"
 V5_SCRIPT = ROOT / "scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py"
+V6_SCRIPT = ROOT / "scripts/run_constraint_mechanism_abm_v6_local_support.py"
 OUT = ROOT / "data/results/constraint_mechanism_abm_v8_pair_support.json"
 SUPPORT_STRENGTHS = (0.0, 0.25, 0.5, 0.75)
 WEIGHT_STRENGTHS = (0.0, 0.25, 0.5, 0.75, 1.0)
+PAIR_SEED_OFFSET = 30_000_000
 
 
 def load_module(path: Path, name: str):
@@ -27,25 +29,43 @@ def load_module(path: Path, name: str):
     return module
 
 
-def draw_pair_support_mask(
+def draw_hierarchical_pair_support_mask(
     opportunity_network: WeightedNetwork,
     *,
     support_seed: int,
     support_strength: float,
-) -> tuple[tuple[bool, ...], ...]:
+) -> tuple[tuple[tuple[bool, ...], ...], tuple[int, ...]]:
+    """Draw v6 pollinator availability, then pair availability inside it.
+
+    The same frozen support-strength envelope is reused at both hierarchy levels;
+    no independent pair-support parameter is introduced. Zero strength retains
+    every positive opportunity pair exactly.
+    """
     if not 0.0 <= support_strength < 1.0:
         raise ValueError("support_strength must be in [0, 1)")
-    rng = random.Random(support_seed)
+    if not opportunity_network.pollinator_names:
+        raise ValueError("opportunity network requires at least one pollinator column")
+
+    v6 = load_module(V6_SCRIPT, "abm_v8_v6_support_source")
+    active_pollinators = v6.active_pollinator_indices(
+        len(opportunity_network.pollinator_names),
+        rng=random.Random(support_seed),
+        support_strength=support_strength,
+    )
+    active_set = set(active_pollinators)
+    pair_rng = random.Random(support_seed + PAIR_SEED_OFFSET)
     keep_probability = 1.0 - support_strength
     mask = []
     for row in opportunity_network.matrix:
         mask.append(tuple(
-            (value > 0.0) and (
-                True if support_strength == 0.0 else rng.random() < keep_probability
+            (column in active_set)
+            and (value > 0.0)
+            and (
+                True if support_strength == 0.0 else pair_rng.random() < keep_probability
             )
-            for value in row
+            for column, value in enumerate(row)
         ))
-    return tuple(mask)
+    return tuple(mask), tuple(active_pollinators)
 
 
 def apply_pair_support_mask(
@@ -75,7 +95,6 @@ def apply_pair_support_mask(
         ]
         selected_total = sum(selected)
         if baseline_total <= 0.0:
-            # Zero-opportunity plant rows do not become positive through support.
             retained_plant_names.append(plant_name)
             retained_rows_full_columns.append([0.0 for _ in selected])
             continue
@@ -96,6 +115,7 @@ def apply_pair_support_mask(
         return None, {
             "retained_plant_count": 0,
             "retained_pollinator_count": 0,
+            "dropped_partnerless_positive_plant_count": len(dropped_partnerless_positive_plants),
             "dropped_partnerless_positive_plants": dropped_partnerless_positive_plants,
             "active_pair_count": 0,
             "max_retained_row_budget_error": max_budget_error,
@@ -113,6 +133,7 @@ def apply_pair_support_mask(
         return None, {
             "retained_plant_count": len(retained_plant_names),
             "retained_pollinator_count": 0,
+            "dropped_partnerless_positive_plant_count": len(dropped_partnerless_positive_plants),
             "dropped_partnerless_positive_plants": dropped_partnerless_positive_plants,
             "active_pair_count": 0,
             "max_retained_row_budget_error": max_budget_error,
@@ -138,7 +159,7 @@ def apply_pair_support_mask(
         "retained_pollinator_count": len(active_pollinator_names),
         "dropped_partnerless_positive_plants": dropped_partnerless_positive_plants,
         "dropped_partnerless_positive_plant_count": len(dropped_partnerless_positive_plants),
-        "active_pollinators": list(active_pollinator_names),
+        "active_pollinators_after_pair_projection": list(active_pollinator_names),
         "active_pair_count": active_pair_count,
         "max_retained_row_budget_error": max_budget_error,
         "empty_local_network": False,
@@ -155,7 +176,7 @@ def realize_local_context(
     weight_seed: int,
     weight_strength: float,
 ) -> tuple[WeightedNetwork | None, dict]:
-    mask = draw_pair_support_mask(
+    mask, globally_active = draw_hierarchical_pair_support_mask(
         opportunity_network,
         support_seed=support_seed,
         support_strength=support_strength,
@@ -163,6 +184,9 @@ def realize_local_context(
     supported, audit = apply_pair_support_mask(opportunity_network, mask)
     audit["support_strength"] = support_strength
     audit["weight_strength"] = weight_strength
+    audit["globally_active_pollinators_before_pair_projection"] = [
+        opportunity_network.pollinator_names[index] for index in globally_active
+    ]
     if supported is None:
         return None, audit
     v5 = load_module(V5_SCRIPT, "abm_v8_v5_source")
@@ -206,7 +230,7 @@ def run_weighted_network(
 
 def build_contract() -> dict:
     return {
-        "model": "constraint_mechanism_abm_v8_pair_level_local_support",
+        "model": "constraint_mechanism_abm_v8_hierarchical_pair_support",
         "status": "failure_driven_mechanism_freeze_before_new_empirical_validation",
         "failure_sources": [
             {
@@ -221,20 +245,20 @@ def build_contract() -> dict:
         "use_of_failures": "Only the missing support granularity is used. No Menorca or Giannutri target amplitude, taxon identity, fitted threshold, or habitat effect is loaded.",
         "new_parameter_count": 0,
         "support_strengths": list(SUPPORT_STRENGTHS),
-        "support_rule": {
-            "unit": "plant x pollinator pair",
-            "probability": "for every positive v4 opportunity pair, local support is independently active with probability 1-support_strength",
-            "zero_strength_identity": "support_strength=0 retains every positive v4 opportunity pair exactly",
-            "no_nonempty_conditioning": "empty pair support, partnerless plants and interactionless pollinators are retained as structural local outcomes rather than redrawn",
-            "parameter_reuse": "the existing generic support-strength envelope is reused; no independent pair-support parameter is added",
+        "support_hierarchy": {
+            "pollinator_level": "reuse the unchanged v6 draw: each extant pollinator is locally active with probability 1-support_strength, conditioned only on at least one globally active pollinator",
+            "pair_level": "within globally active pollinators, every positive v4 opportunity pair is independently supported with probability 1-support_strength",
+            "shared_strength": "the same pre-existing generic support strength controls both unresolved availability layers; there is no independently fitted pair-support strength",
+            "zero_strength_identity": "support_strength=0 retains all pollinators and every positive v4 opportunity pair exactly",
+            "no_pair_nonempty_conditioning": "pair masks are not redrawn when they create partnerless plants, interactionless pollinators, or an empty local network",
         },
         "support_projection": {
-            "plant_support": "a positive plant remains locally active iff at least one of its positive opportunity pairs is supported",
-            "pollinator_support": "a pollinator remains locally active iff at least one retained plant has a positive supported interaction with it",
-            "pair_support": "supported positive pairs are a subset of v4 positive opportunity pairs",
+            "plant_support": "a positive plant remains locally active iff at least one positive pair survives both support levels",
+            "pollinator_support": "a globally active pollinator remains in the realized network iff at least one retained plant has a positive supported pair to it",
+            "pair_support": "realized support is a subset of the positive v4 opportunity field rather than being equated with every positive weight",
         },
         "row_budget_rule": "For every retained positive plant row, supported opportunity weights are rescaled to preserve that plant's exact pre-context total opportunity. Partnerless positive plants are locally inactive instead of receiving manufactured service.",
-        "weight_realization": "unchanged v5 positive affinity reweighting is applied only after pair-support projection",
+        "weight_realization": "unchanged v5 positive affinity reweighting is applied only after hierarchical support projection",
         "hard_invariants": [
             "support_strength=0 and any weight_strength reproduce v5 exactly",
             "no new plant, pollinator or positive pair absent from the v4 opportunity network can be created",
@@ -248,13 +272,13 @@ def build_contract() -> dict:
             "reject v8 if zero-support identity with v5 fails",
             "reject v8 if retained positive plant row budgets drift",
             "reject v8 if any new taxon or link is created",
-            "reject v8 if nonzero pair support cannot generate sparse pair topology from native dense v4 opportunity states",
+            "reject v8 if nonzero support cannot generate sparse pair topology from native dense v4 opportunity states",
             "reject v8 if repeated contexts cannot branch pair, plant and pollinator support in structurally reducible states",
             "reject v8 if support variation cannot change Shannon and plant niche overlap",
             "reject v8 if the frozen v4 opportunity-direction contract no longer holds",
         ],
         "next_empirical_gate": "Only after synthetic prevalidation passes, freeze another independent repeated-local quantitative island system before target inspection. Menorca and Giannutri are consumed failures and cannot confirm v8.",
-        "claim_boundary": "v8 separates local interaction support from positive opportunity magnitude using a generic pair-level Bernoulli mask. Its support strength is a mechanism sensitivity envelope, not an empirical estimate, and it does not yet identify habitat, phenology or species-specific support processes.",
+        "claim_boundary": "v8 separates local interaction support from positive opportunity magnitude using nested generic pollinator- and pair-level Bernoulli support. Its shared support strength is a mechanism sensitivity envelope, not an empirical estimate, and it does not identify habitat, phenology or species-specific support processes.",
     }
 
 
