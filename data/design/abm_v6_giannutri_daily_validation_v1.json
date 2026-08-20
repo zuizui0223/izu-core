@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v6_giannutri_daily_network_validation_freeze",
+  "freeze_date": "2026-08-20",
+  "chronology": {
+    "source_gate_pr": 199,
+    "source_gate_merge_commit": "8a18a9b6bdfb53dda75219d3bde91e06853ef5cb",
+    "source_reconstruction_inspection_precedes_this_freeze": true,
+    "giannutri_target_metrics_calculated_before_freeze": false
+  },
+  "held_out_system": {
+    "island": "Giannutri",
+    "source": "Pasquali et al. 2025 Current Biology",
+    "article_doi": "10.1016/j.cub.2025.02.048",
+    "zenodo_doi": "10.5281/zenodo.14855496",
+    "network_scope": [
+      "Apis_mellifera",
+      "Anthophora_dispar",
+      "Bombus_terrestris"
+    ],
+    "expected_source_selected_daily_network_count": 29,
+    "independence": "Giannutri and these daily flower-visit networks were not used to build ABM v4, v5 or v6, the Ogasawara diagnosis, or the Menorca falsification. This is a new empirical system for a layer-specific v6 local-support/realization test."
+  },
+  "selection_caveat": "The published study and its source code were known before this freeze to analyze daily network structure and resource overlap under hive-open versus hive-closed conditions. Therefore system selection and the general relevance of network reorganization are not outcome-blind. Exact izu-core interaction-Shannon, Morisita-Horn plant-overlap, positive-pollinator-support fraction, and their v6 predictive positions have not been calculated or inspected before this freeze.",
+  "source_locks": {
+    "r_code_sha256": "a8b6a0acaa7a5082264d93f5ab01067d6fc79ab1a202d8ff06fd3b76eed79a39",
+    "flower_visit_source_sha256": "d28233d4a95e7dfe0f8048f917b424eabaffa97c9d37bb270b17d947a07f33ca",
+    "flower_visit_source_rows": 1969,
+    "source_code_lines_inspected": "150-350"
+  },
+  "source_native_reconstruction": {
+    "input": "transect_data_for_overlap_analysis.txt",
+    "month_filter": ["February", "March", "April"],
+    "hive_condition_filter": ["open", "closed"],
+    "pollinator_filter": ["Anthophora_dispar", "Bombus_terrestris", "Apis_mellifera"],
+    "initial_daily_sampling_filter": "Count unique transetto values by Date; dates with <=2 transects are removed unless explicitly restored by the source pooling rule.",
+    "source_pooling_rule": "Pool Date 20240225 and 20240228; assign all pooled rows Date=20240225 and day=56; remove the original low-transect dates and then append the pooled rows.",
+    "minimum_observation_filter": "For every candidate Date, aggregate total by species+plant. For Anthophora_dispar and Bombus_terrestris separately, exclude plant='volo' and sum total; remove the Date if either species has fewer than 10 observations.",
+    "daily_pair_weight": "For each remaining Date, sum source column total over duplicate species x plant rows; set higher=species, lower=plant, freq=sum(total), remove plant='volo', and reconstruct the quantitative bipartite network. izu-core stores the equivalent matrix as plant rows x pollinator columns.",
+    "day_order": "ascending numeric Date after all source-native pooling and filters",
+    "expected_final_count_rule": "The exact reconstruction must yield 29 daily networks. If it does not, block before target calculation rather than changing filters or selecting a subset.",
+    "source_published_null_models": "not used in the izu-core v6 validation",
+    "source_published_H2_weightedNODF_niche_overlap_values": "not imported as izu-core targets"
+  },
+  "conditional_layer_test": {
+    "v4_island_opportunity_prediction_used": false,
+    "reason": "The published daily network is deliberately restricted to three focal bee species, so this test conditions on the empirically admitted three-bee pool rather than treating it as a whole-community realization of v4 island opportunity.",
+    "empirical_feasible_baseline": "Pool all 29 source-selected daily matrices after the exact source-native filters, summing pair weights over Date. Preserve the union of plant identities and exactly the three frozen pollinator identities. This pooled quantitative network is a conditioning baseline, not a fitted v6 parameter.",
+    "hive_condition_used_for_primary_prediction": false,
+    "hive_condition_role": "Retained as source metadata only. Primary predictive adequacy treats the 29 days as unlabeled local contexts and may not select v6 settings by open/closed condition."
+  },
+  "primary_support_estimand": {
+    "name": "three_pollinator_positive_support_fraction",
+    "empirical_definition": "Among the 29 source-selected daily networks, the fraction with positive total interaction weight for all three focal bee species. The source minimum-observation rule guarantees Anthophora_dispar and Bombus_terrestris meet the source threshold; Apis_mellifera may or may not have positive daily support.",
+    "secondary_support_diagnostic": "number of distinct positive focal-pollinator support sets observed across the 29 daily networks",
+    "no_positive_weight_threshold_tuning": "positive support means summed source total > 0 exactly; no abundance threshold is selected after inspection"
+  },
+  "weighted_architecture_estimands": {
+    "targets": [
+      "interaction_shannon",
+      "mean_plant_niche_overlap_morisita_horn"
+    ],
+    "empirical_statistics": {
+      "interaction_shannon_relative_daily_range": "(max daily interaction_shannon - min daily interaction_shannon) / pooled-29-day baseline interaction_shannon",
+      "plant_niche_overlap_relative_daily_range": "(max daily mean_plant_niche_overlap_morisita_horn - min daily value) / pooled-29-day baseline mean_plant_niche_overlap_morisita_horn"
+    },
+    "comparability_rule": "If any of the 29 admitted daily networks has no positive interactions or undefined plant niche overlap, block structural comparability; do not drop the day. If a pooled denominator is non-positive or undefined, block rather than renormalize."
+  },
+  "v6_predictive_distribution": {
+    "support_strengths": [0.25, 0.5, 0.75],
+    "support_strength_weighting": "equal",
+    "weight_strengths": [0.25, 0.5, 0.75, 1.0],
+    "weight_strength_weighting": "equal",
+    "replicates_per_support_x_weight_setting": 100,
+    "contexts_per_replicate": 29,
+    "baseline": "the checksum-locked pooled empirical three-bee quantitative network defined above",
+    "source_ascertainment_conditioning": "For each synthetic context, condition the generic v6 independent pollinator-support draw on Anthophora_dispar and Bombus_terrestris being active, matching the source rule that retains only days with >=10 observations for each of those two species. Apis_mellifera remains free to be active or inactive according to the frozen support strength. Conditioning is on source ascertainment only, not on any target metric.",
+    "weight_realization": "Apply the unchanged v5 positive affinity reweighting at the frozen weight strength after the conditional v6 support mask.",
+    "row_budget_rule": "Each positive pooled plant row must retain its exact pooled row total after support filtering and weight realization. If a permitted support mask removes every positive partner for any positive pooled plant row, that predictive replicate is a structural v6 failure and must not be skipped, repaired, or replaced by another mask.",
+    "preferred_setting_selection": "prohibited",
+    "predictive_draw_count": 1200
+  },
+  "decision_rule": {
+    "structural_gate": "No predictive replicate may violate the frozen v6 row-budget/admissibility rule. Any such violation is retained as v6 structural failure on the Giannutri conditioning baseline.",
+    "support_adequacy": "The empirical three-pollinator-positive-support fraction must fall within the prespecified central 2.5-97.5% envelope of the equal-weight 29-context v6 predictive distribution.",
+    "shannon_adequacy": "The empirical interaction-Shannon relative daily range must fall within the central 2.5-97.5% v6 envelope.",
+    "overlap_adequacy": "The empirical plant-niche-overlap relative daily range must fall within the central 2.5-97.5% v6 envelope.",
+    "headline": "v6 survives the Giannutri conditional local-support test only if the structural gate passes and all three frozen empirical estimands (support fraction, Shannon range, plant-overlap range) fall inside their frozen predictive envelopes. Failure of any component is retained; metrics are not averaged into a pass."
+  },
+  "prohibited_after_target_calculation": [
+    "change the February-March-April source filter",
+    "change the source open/closed inclusion rule",
+    "change the three focal bee species",
+    "change the 20240225 plus 20240228 pooling rule",
+    "change the <=2 transect exclusion rule",
+    "change the <10 observation rule for Anthophora_dispar or Bombus_terrestris",
+    "drop, merge, or reweight any of the final 29 daily networks",
+    "change pair weight away from sum(total) by species x plant x Date",
+    "choose support or weight strength using Giannutri fit",
+    "use hive condition to choose a preferred setting for the primary test",
+    "drop Apis-only plant rows to rescue support-mask admissibility",
+    "skip or redraw structurally invalid v6 contexts",
+    "change the three primary estimands or 2.5-97.5% envelopes after seeing Giannutri values",
+    "replace a failed izu-core result with the source paper's H2, weighted NODF, niche-overlap, or null-model result"
+  ],
+  "claim_boundary": "This is a conditional test of the v6 local partner-support plus within-support realization mechanism on a new island system. It conditions on the source-defined three-bee pooled network and therefore does not validate v4 whole-community island opportunity for Giannutri. Passing would support the local mechanism class under source ascertainment; failing would identify a remaining structural or amplitude mismatch without permitting Giannutri-specific retuning."
+}
