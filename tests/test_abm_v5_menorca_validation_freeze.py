@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/abm_v5_menorca_nine_local_validation_v1.json"
+REFERENCE = ROOT / "data/results/abm_v4_distance_ecdf_reference_runlock.json"
 GEO = ROOT / "scripts/match_menorca2023_to_gift_opportunity.py"
 
 
@@ -37,14 +38,19 @@ def test_menorca_freeze_has_exact_nine_source_defined_local_sheets():
     assert design["network_reconstruction"]["three_by_three_regrouping"].startswith("prohibited")
 
 
-def test_menorca_freeze_keeps_two_targets_and_fvr_weight():
+def test_menorca_freeze_keeps_two_targets_fvr_and_canonical_identity():
     design = json.loads(DESIGN.read_text())
+    reconstruction = design["network_reconstruction"]
     assert design["outcomes_frozen_before_target_calculation"] == [
         "interaction_shannon",
         "mean_plant_niche_overlap_morisita_horn",
     ]
     assert design["source_recovery_gate"]["weight_column"] == "FVR"
-    assert design["network_reconstruction"]["pair_weight"].startswith("sum FVR")
+    assert reconstruction["pair_weight"].startswith("sum FVR")
+    assert reconstruction["canonical_identity_function"] == "channel_id.external_archipelago_network.canonical_label"
+    assert "casefold" in reconstruction["plant_identity"]
+    assert "casefold" in reconstruction["pollinator_identity"]
+    assert "failed before any target metric was calculated" in reconstruction["parser_correction_note"]
 
 
 def test_menorca_predictive_mixture_is_equal_weight_and_not_selectable():
@@ -58,7 +64,7 @@ def test_menorca_predictive_mixture_is_equal_weight_and_not_selectable():
     assert predictive["preferred_setting_selection"] == "prohibited"
 
 
-def test_menorca_primary_statistic_and_decision_cannot_change_posthoc():
+def test_menorca_primary_statistic_parser_and_decision_cannot_change_posthoc():
     design = json.loads(DESIGN.read_text())
     stats = design["empirical_primary_statistics"]
     assert "max interaction_shannon" in stats["interaction_shannon_relative_local_range"]
@@ -68,6 +74,17 @@ def test_menorca_primary_statistic_and_decision_cannot_change_posthoc():
     assert "relative local range" in prohibited
     assert "context strength or saturation" in prohibited
     assert "drop or merge" in prohibited
+    assert "canonical taxon identity" in prohibited
+
+
+def test_pr183_distance_reference_runlock_is_exact_and_menorca_free():
+    runlock = json.loads(REFERENCE.read_text())
+    assert runlock["source_pr"] == 183
+    assert runlock["source_workflow_run"] == 32246531384
+    assert runlock["source_artifact_id"] == 9362979083
+    assert runlock["source_artifact_sha256"] == "0de50c6cb3704a012a0653dffd3a8f7fea8ceac233b33a66d728a3732dd6b919"
+    assert len(runlock["unique_distance_to_mainland_km"]) == 18
+    assert all("Menorca" not in str(row) for row in runlock["row_locks"])
 
 
 def test_frozen_ecdf_interpolation_preserves_reference_knots():
