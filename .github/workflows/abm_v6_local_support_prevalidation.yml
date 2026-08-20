@@ -1,0 +1,33 @@
+name: ABM v6 local support prevalidation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
+      - 'scripts/prevalidate_abm_v6_local_support.py'
+      - 'tests/test_abm_v6_local_support.py'
+      - '.github/workflows/abm_v6_local_support_prevalidation.yml'
+
+jobs:
+  prevalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Freeze v6 mechanism contract
+        run: python scripts/run_constraint_mechanism_abm_v6_local_support.py
+      - name: Run synthetic prevalidation
+        run: python scripts/prevalidate_abm_v6_local_support.py
+      - name: Run focused invariant tests
+        run: python -m pytest -q tests/test_abm_v6_local_support.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v6-local-support-prevalidation
+          path: |
+            data/results/constraint_mechanism_abm_v6_local_support.json
+            data/results/abm_v6_local_support_prevalidation.json
