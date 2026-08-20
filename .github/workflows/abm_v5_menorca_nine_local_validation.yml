@@ -1,0 +1,99 @@
+name: ABM v5 Menorca nine-local validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v5_menorca_nine_local_validation_v1.json'
+      - 'scripts/acquire_audit_menorca2023_figshare.py'
+      - 'scripts/match_menorca2023_to_gift_opportunity.py'
+      - 'scripts/run_abm_v5_menorca_nine_local_validation.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
+      - 'data/results/frozen_candidate_gift_geography_match.json'
+      - 'data/results/frozen_dore_network_targets.csv'
+      - 'tests/test_abm_v5_menorca_validation_freeze.py'
+      - '.github/workflows/abm_v5_menorca_nine_local_validation.yml'
+
+concurrency:
+  group: abm-v5-menorca-nine-local-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository and XLS reader
+        run: python -m pip install -e '.[dev]' xlrd
+      - name: Reacquire checksum-locked Menorca workbook without target calculation
+        run: python scripts/acquire_audit_menorca2023_figshare.py
+      - name: Enforce frozen source admission before target calculation
+        run: |
+          python - <<'PY'
+          import json
+          design=json.load(open('data/design/abm_v5_menorca_nine_local_validation_v1.json'))
+          audit=json.load(open('data/results/menorca2023_figshare_source_audit.json'))
+          assert audit['source_admission_succeeds'] is True
+          assert audit['target_metrics_calculated'] is False
+          assert audit['source_defined_quantitative_local_network_sheets'] == design['held_out_system']['source_defined_local_sheets']
+          assert audit['admitted_weight_column'] == 'FVR'
+          matches=[f for f in audit['files'] if f['sha256']==design['held_out_system']['source_file_sha256']]
+          assert len(matches)==1
+          assert matches[0]['bytes']==design['held_out_system']['source_file_bytes']
+          print('source admission locked', audit['status'])
+          print('workbook sha256', matches[0]['sha256'])
+          print('target metrics calculated before validation', audit['target_metrics_calculated'])
+          PY
+      - name: Lock Menorca GIFT opportunity without network outcomes
+        run: python scripts/match_menorca2023_to_gift_opportunity.py
+      - name: Enforce geography admission before target calculation
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/menorca2023_gift_opportunity_lock.json'))
+          print('geography status', x['status'])
+          print('selected', x.get('selected'))
+          print('isolation index', x.get('isolation_index'))
+          if x['status'] != 'locked':
+              raise SystemExit('Menorca geography not uniquely locked; do not calculate target metrics')
+          if x.get('network_outcomes_used') is not False:
+              raise SystemExit('geography lock must remain outcome-blind')
+          PY
+      - name: Run frozen Menorca target validation
+        run: python scripts/run_abm_v5_menorca_nine_local_validation.py
+      - name: Run freeze regression tests
+        run: python -m pytest -q tests/test_abm_v5_menorca_validation_freeze.py
+      - name: Show final held-out decision
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v5_menorca_nine_local_validation.json'))
+          print('decision', x['decision'])
+          print('target metrics inspected', x.get('target_metrics_inspected'))
+          print('Menorca isolation', x.get('geography',{}).get('isolation_index'))
+          print('empirical relative ranges', {
+            'interaction_shannon': x.get('empirical',{}).get('interaction_shannon_relative_local_range'),
+            'plant_niche_overlap': x.get('empirical',{}).get('plant_niche_overlap_relative_local_range'),
+          })
+          print('predictive envelopes', {
+            'interaction_shannon': x.get('predictive',{}).get('interaction_shannon_relative_local_range_envelope'),
+            'plant_niche_overlap': x.get('predictive',{}).get('plant_niche_overlap_relative_local_range_envelope'),
+          })
+          print('tests', x.get('tests'))
+          print('local metrics', [
+            (r['sheet'], r['interaction_shannon'], r['plant_niche_overlap'], r['positive_dimensions'])
+            for r in x.get('empirical',{}).get('local_networks',[])
+          ])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v5-menorca-nine-local-validation
+          path: |
+            data/results/menorca2023_figshare_source_audit.json
+            data/results/menorca2023_gift_opportunity_lock.json
+            data/results/abm_v5_menorca_nine_local_validation.json
+            data/external/menorca2023/**
