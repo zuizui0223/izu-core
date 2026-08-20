@@ -1,0 +1,56 @@
+name: Giannutri reconstruction and validation freeze
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/extract_giannutri2025_daily_network_reconstruction_spec.py'
+      - 'scripts/audit_giannutri2025_daily_reconstruction_structure.py'
+      - 'data/design/abm_v6_giannutri_daily_validation_v1.json'
+      - 'tests/test_giannutri2025_reconstruction_source_inspection.py'
+      - 'tests/test_giannutri2025_validation_freeze.py'
+      - '.github/workflows/giannutri2025_reconstruction_source_inspection.yml'
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Extract checksum-locked source reconstruction lines
+        run: python scripts/extract_giannutri2025_daily_network_reconstruction_spec.py
+      - name: Audit source day-selection ambiguity without targets
+        run: python scripts/audit_giannutri2025_daily_reconstruction_structure.py
+      - name: Enforce pre-target boundary and show structural counts
+        run: |
+          python - <<'PY'
+          import json
+          source=json.load(open('data/results/giannutri2025_daily_network_reconstruction_source.json'))
+          audit=json.load(open('data/results/giannutri2025_daily_reconstruction_structure.json'))
+          design=json.load(open('data/design/abm_v6_giannutri_daily_validation_v1.json'))
+          assert source['target_metrics_calculated'] is False
+          assert source['network_metrics_imported'] is False
+          assert audit['target_metrics_calculated'] is False
+          assert audit['network_matrices_built'] is False
+          assert design['chronology']['giannutri_target_metrics_calculated_before_freeze'] is False
+          print('source sha256', source['source_sha256'])
+          print('literal final day count', audit['literal_source_semantics']['final_daily_network_count'])
+          print('comment-intended final day count', audit['comment_intended_number_semantics']['final_daily_network_count'])
+          print('published expected', audit['published_expected_daily_network_count'])
+          print('literal matches', audit['literal_matches_published_count'])
+          print('intended matches', audit['intended_matches_published_count'])
+          print('literal nonunique condition dates', audit['literal_source_semantics']['dates_with_nonunique_hive_condition'])
+          print('intended nonunique condition dates', audit['comment_intended_number_semantics']['dates_with_nonunique_hive_condition'])
+          PY
+      - name: Run pre-target regression tests
+        run: python -m pytest -q tests/test_giannutri2025_reconstruction_source_inspection.py tests/test_giannutri2025_validation_freeze.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: giannutri2025-validation-freeze
+          path: |
+            data/results/giannutri2025_daily_network_reconstruction_source.json
+            data/results/giannutri2025_daily_reconstruction_structure.json

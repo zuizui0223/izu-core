@@ -1,0 +1,66 @@
+name: ABM v6 Giannutri daily validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v6_giannutri_daily_validation_v1.json'
+      - 'scripts/audit_giannutri2025_daily_reconstruction_structure.py'
+      - 'scripts/run_abm_v6_giannutri_daily_validation.py'
+      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'tests/test_giannutri2025_validation_freeze.py'
+      - 'tests/test_abm_v6_giannutri_daily_validation.py'
+      - '.github/workflows/abm_v6_giannutri_daily_validation.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Re-audit checksum-locked source day selection before targets
+        run: python scripts/audit_giannutri2025_daily_reconstruction_structure.py
+      - name: Enforce frozen pre-target reconstruction
+        run: |
+          python - <<'PY'
+          import json
+          audit=json.load(open('data/results/giannutri2025_daily_reconstruction_structure.json'))
+          design=json.load(open('data/design/abm_v6_giannutri_daily_validation_v1.json'))
+          assert audit['target_metrics_calculated'] is False
+          assert audit['network_matrices_built'] is False
+          locked=design['source_native_reconstruction']['locked_final_dates']
+          assert audit['literal_source_semantics']['final_dates'] == locked
+          assert audit['comment_intended_number_semantics']['final_dates'] == locked
+          assert len(locked) == 29
+          print('locked daily networks', len(locked))
+          print('literal and comment-intended source semantics converge', True)
+          PY
+      - name: Run frozen Giannutri held-out target validation
+        run: python scripts/run_abm_v6_giannutri_daily_validation.py
+      - name: Show held-out decision
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v6_giannutri_daily_validation.json'))
+          assert x['target_metrics_inspected'] is True
+          print('decision', x['decision'])
+          print('tests', x.get('tests'))
+          print('support fraction', x.get('empirical',{}).get('three_pollinator_positive_support_fraction'))
+          print('Shannon relative range', x.get('empirical',{}).get('interaction_shannon_relative_daily_range'))
+          print('overlap relative range', x.get('empirical',{}).get('plant_niche_overlap_relative_daily_range'))
+          print('predictive', x.get('predictive'))
+          PY
+      - name: Run frozen-design and mechanism regression tests
+        run: python -m pytest -q tests/test_giannutri2025_validation_freeze.py tests/test_abm_v6_giannutri_daily_validation.py tests/test_abm_v6_local_support.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v6-giannutri-daily-validation
+          path: |
+            data/design/abm_v6_giannutri_daily_validation_v1.json
+            data/results/giannutri2025_daily_reconstruction_structure.json
+            data/results/abm_v6_giannutri_daily_validation.json
