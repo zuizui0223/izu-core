@@ -64,14 +64,15 @@ def test_same_v6_mask_application_rejects_apis_only_plant_when_apis_is_inactive(
         raise AssertionError("v6 must retain the structural row-budget failure")
 
 
-def test_target_script_contains_no_menorca_fit_or_strength_selection():
+def test_target_script_contains_no_menorca_fit_or_strength_selection_and_retains_failure():
     text = SCRIPT.read_text().lower()
     assert "menorca" not in text
     assert "preferred_setting" not in text
     assert "argmin" not in text
     assert "best_setting" not in text
-    assert "skip" not in text
-    assert "redraw" not in text
+    assert "predictive_draws_completed_before_failure" in text
+    assert "the context was not skipped, redrawn, repaired, or replaced" in text
+    assert "apply_active_pollinator_indices" in text
 
 
 def test_target_script_asserts_locked_dates_before_empirical_metrics():
