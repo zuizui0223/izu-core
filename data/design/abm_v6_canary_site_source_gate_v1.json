@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v6_canary_site_level_source_gate",
+  "freeze_date": "2026-08-20",
+  "candidate_system": {
+    "source": "Trøjelsgaard et al. 2015",
+    "article_doi": "10.1098/rspb.2014.2925",
+    "dryad_doi": "10.5061/dryad.76173",
+    "geographic_system": "Canary Islands plus Western Sahara reference",
+    "expected_site_network_count": 14,
+    "expected_island_site_structure": {
+      "Fuerteventura": 2,
+      "Gran Canaria": 2,
+      "Tenerife South": 2,
+      "Tenerife Teno": 2,
+      "La Gomera": 2,
+      "El Hierro": 2,
+      "Western Sahara": 2
+    }
+  },
+  "independence_boundary": "Canary Islands were previously present in the ABM v4 coarse richness/link global validation. Therefore this is not a fully independent test of the entire v4-v6 hierarchy. The source gate is intended as a layer-specific held-out test of site-level local support and raw weighted architecture. The 14 source-native site matrices, their Shannon values, plant niche-overlap values, and within-island site contrasts were not used to formulate ABM v6.",
+  "source_only_gate": {
+    "required_before_any_target": [
+      "recover the Dryad dataset landing page or API metadata",
+      "recover exactly 14 source-native site matrix CSV files",
+      "preserve the source-defined site identities and island grouping",
+      "verify every matrix is quantitative and non-negative",
+      "record byte counts and SHA256 for every admitted file",
+      "do not calculate Shannon, plant niche overlap, or any v6 predictive fit"
+    ],
+    "matrix_semantics": "Dryad usage notes define pollinators in rows, plants in columns, and matrix values as total observed visits between plants and pollinators.",
+    "distance_file_role": "Distance_between_sites_Dryad.csv may be recovered for source-structure audit but may not be used to select, drop, merge, or regroup local networks after target inspection.",
+    "blocked_rule": "If fewer than 14 exact site matrices are lawfully recovered, if the matrix schema is not quantitative, or if source-defined site identities cannot be preserved, block the validation and do not substitute aggregated Canary matrices from another publication."
+  },
+  "target_metrics_calculated": false,
+  "prohibited_before_source_admission": [
+    "calculate interaction Shannon diversity",
+    "calculate plant niche overlap",
+    "inspect a v6 fit",
+    "merge the two replicate sites on any island",
+    "select only Tenerife or another island based on network values",
+    "replace source visit counts with a derived or standardized interaction measure"
+  ]
+}
