@@ -10,7 +10,7 @@ from pathlib import Path
 
 import xlrd
 
-from channel_id.external_archipelago_network import WeightedNetwork, network_metrics
+from channel_id.external_archipelago_network import WeightedNetwork, canonical_label, network_metrics
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/abm_v5_menorca_nine_local_validation_v1.json"
@@ -55,7 +55,9 @@ def locate_frozen_workbook(design: dict, source_audit: dict) -> Path:
         if row.get("sha256") == expected_sha and int(row.get("bytes", -1)) == expected_bytes
     ]
     if len(matches) != 1:
-        raise RuntimeError(f"expected one checksum-locked Menorca workbook in source audit, found {len(matches)}")
+        raise RuntimeError(
+            f"expected one checksum-locked Menorca workbook in source audit, found {len(matches)}"
+        )
     candidates = []
     for path in RAW_DIR.glob("*.xls"):
         import hashlib
@@ -64,11 +66,17 @@ def locate_frozen_workbook(design: dict, source_audit: dict) -> Path:
         if len(payload) == expected_bytes and hashlib.sha256(payload).hexdigest() == expected_sha:
             candidates.append(path)
     if len(candidates) != 1:
-        raise RuntimeError(f"expected one checksum-locked Menorca workbook on disk, found {len(candidates)}")
+        raise RuntimeError(
+            f"expected one checksum-locked Menorca workbook on disk, found {len(candidates)}"
+        )
     return candidates[0]
 
 
-def sheet_rows(book: xlrd.book.Book, sheet_name: str, required_columns: list[str]) -> list[tuple[str, str, float]]:
+def sheet_rows(
+    book: xlrd.book.Book,
+    sheet_name: str,
+    required_columns: list[str],
+) -> list[tuple[str, str, float]]:
     if sheet_name not in book.sheet_names():
         raise RuntimeError(f"required sheet missing: {sheet_name}")
     sheet = book.sheet_by_name(sheet_name)
@@ -85,34 +93,87 @@ def sheet_rows(book: xlrd.book.Book, sheet_name: str, required_columns: list[str
         visitor = compact_label(sheet.cell_value(row_index, index["Visitor_sp"]))
         raw_weight = sheet.cell_value(row_index, index["FVR"])
         if not plant or not visitor:
-            raise RuntimeError(f"missing Plant_sp/Visitor_sp in {sheet_name} row {row_index + 1}")
-        weight = finite_nonnegative(raw_weight, label=f"{sheet_name} row {row_index + 1} FVR")
+            raise RuntimeError(
+                f"missing Plant_sp/Visitor_sp in {sheet_name} row {row_index + 1}"
+            )
+        weight = finite_nonnegative(
+            raw_weight, label=f"{sheet_name} row {row_index + 1} FVR"
+        )
         rows.append((plant, visitor, weight))
     return rows
 
 
-def network_from_rows(rows: list[tuple[str, str, float]]) -> WeightedNetwork:
-    pair_weight = defaultdict(float)
-    plant_order = []
-    visitor_order = []
-    seen_plants = set()
-    seen_visitors = set()
-    for plant, visitor, weight in rows:
-        if plant not in seen_plants:
-            seen_plants.add(plant)
-            plant_order.append(plant)
-        if visitor not in seen_visitors:
-            seen_visitors.add(visitor)
-            visitor_order.append(visitor)
-        pair_weight[(plant, visitor)] += weight
-    matrix = [
-        [pair_weight.get((plant, visitor), 0.0) for visitor in visitor_order]
-        for plant in plant_order
+def _variant_rows(variants: dict[str, list[str]]) -> list[dict[str, object]]:
+    return [
+        {"canonical_identity": key, "source_spellings": values}
+        for key, values in sorted(variants.items())
+        if len(values) > 1
     ]
-    return WeightedNetwork.from_rows(plant_order, visitor_order, matrix)
 
 
-def metric_pair(network: WeightedNetwork, *, label: str) -> tuple[float, float, dict]:
+def network_from_rows(
+    rows: list[tuple[str, str, float]],
+) -> tuple[WeightedNetwork, dict[str, object]]:
+    pair_weight: defaultdict[tuple[str, str], float] = defaultdict(float)
+    plant_order: list[str] = []
+    visitor_order: list[str] = []
+    plant_display: dict[str, str] = {}
+    visitor_display: dict[str, str] = {}
+    plant_variants: dict[str, list[str]] = {}
+    visitor_variants: dict[str, list[str]] = {}
+
+    for plant_raw, visitor_raw, weight in rows:
+        plant = compact_label(plant_raw)
+        visitor = compact_label(visitor_raw)
+        plant_key = canonical_label(plant)
+        visitor_key = canonical_label(visitor)
+        if not plant_key or not visitor_key:
+            raise RuntimeError("canonical source identity became empty")
+
+        if plant_key not in plant_display:
+            plant_display[plant_key] = plant
+            plant_order.append(plant_key)
+            plant_variants[plant_key] = [plant]
+        elif plant not in plant_variants[plant_key]:
+            plant_variants[plant_key].append(plant)
+
+        if visitor_key not in visitor_display:
+            visitor_display[visitor_key] = visitor
+            visitor_order.append(visitor_key)
+            visitor_variants[visitor_key] = [visitor]
+        elif visitor not in visitor_variants[visitor_key]:
+            visitor_variants[visitor_key].append(visitor)
+
+        pair_weight[(plant_key, visitor_key)] += weight
+
+    matrix = [
+        [pair_weight.get((plant_key, visitor_key), 0.0) for visitor_key in visitor_order]
+        for plant_key in plant_order
+    ]
+    network = WeightedNetwork.from_rows(
+        [plant_display[key] for key in plant_order],
+        [visitor_display[key] for key in visitor_order],
+        matrix,
+    )
+    audit = {
+        "canonical_identity_function": "channel_id.external_archipelago_network.canonical_label",
+        "plant_source_identity_count": len(plant_display),
+        "visitor_source_identity_count": len(visitor_display),
+        "plant_variant_collisions": _variant_rows(plant_variants),
+        "visitor_variant_collisions": _variant_rows(visitor_variants),
+        "plant_variant_collision_count": sum(
+            len(values) > 1 for values in plant_variants.values()
+        ),
+        "visitor_variant_collision_count": sum(
+            len(values) > 1 for values in visitor_variants.values()
+        ),
+    }
+    return network, audit
+
+
+def metric_pair(
+    network: WeightedNetwork, *, label: str
+) -> tuple[float, float, dict]:
     try:
         metrics = network_metrics(network)
     except ValueError as exc:
@@ -139,12 +200,13 @@ def empirical_summary(design: dict, workbook: Path) -> dict:
     for sheet_name in local_sheets:
         rows = sheet_rows(book, sheet_name, required)
         pooled_rows.extend(rows)
-        network = network_from_rows(rows)
+        network, identity_audit = network_from_rows(rows)
         shannon, overlap, metrics = metric_pair(network, label=sheet_name)
         local_results.append({
             "sheet": sheet_name,
             "source_rows": len(rows),
             "source_fvr_total": sum(weight for _, _, weight in rows),
+            "source_identity_audit": identity_audit,
             "interaction_shannon": shannon,
             "plant_niche_overlap": overlap,
             "positive_dimensions": {
@@ -154,7 +216,7 @@ def empirical_summary(design: dict, workbook: Path) -> dict:
             },
         })
 
-    pooled_network = network_from_rows(pooled_rows)
+    pooled_network, pooled_identity_audit = network_from_rows(pooled_rows)
     pooled_shannon, pooled_overlap, pooled_metrics = metric_pair(
         pooled_network, label="pooled_nine_sheet_metaweb"
     )
@@ -170,6 +232,7 @@ def empirical_summary(design: dict, workbook: Path) -> dict:
         "local_networks": local_results,
         "pooled_metaweb": {
             "source_rows": len(pooled_rows),
+            "source_identity_audit": pooled_identity_audit,
             "interaction_shannon": pooled_shannon,
             "plant_niche_overlap": pooled_overlap,
             "positive_dimensions": {
@@ -209,8 +272,14 @@ def positive_total(network: WeightedNetwork) -> float:
 def synthetic_summary(design: dict, isolation_index: float) -> dict:
     v5 = load_module(V5_SCRIPT, "abm_v5_menorca_core")
     v4 = v5.load_module(v5.V4_WEIGHTED, "abm_v5_menorca_v4_weighted")
-    strengths = [float(value) for value in design["v5_predictive_distribution"]["context_strengths"]]
-    saturations = [float(value) for value in design["v5_predictive_distribution"]["v4_saturations"]]
+    strengths = [
+        float(value)
+        for value in design["v5_predictive_distribution"]["context_strengths"]
+    ]
+    saturations = [
+        float(value)
+        for value in design["v5_predictive_distribution"]["v4_saturations"]
+    ]
     replicates = int(design["v5_predictive_distribution"]["replicates_per_setting"])
 
     shannon_distribution = []
@@ -222,7 +291,9 @@ def synthetic_summary(design: dict, isolation_index: float) -> dict:
         feasible_cache = []
         for replicate in range(replicates):
             evolution_seed = SEED + saturation_index * 100_000 + replicate
-            feasible = v4.run_weighted_network(isolation_index, evolution_seed, saturation)
+            feasible = v4.run_weighted_network(
+                isolation_index, evolution_seed, saturation
+            )
             if positive_total(feasible) <= 0:
                 feasible_cache.append((replicate, feasible, "empty", None, None))
                 continue
@@ -234,7 +305,9 @@ def synthetic_summary(design: dict, isolation_index: float) -> dict:
             else:
                 category = "branchable"
                 if baseline_shannon <= EPS or baseline_overlap <= EPS:
-                    raise RuntimeError("positive branchable synthetic baseline has non-positive denominator")
+                    raise RuntimeError(
+                        "positive branchable synthetic baseline has non-positive denominator"
+                    )
             feasible_cache.append(
                 (replicate, feasible, category, baseline_shannon, baseline_overlap)
             )
@@ -242,8 +315,18 @@ def synthetic_summary(design: dict, isolation_index: float) -> dict:
         for strength_index, strength in enumerate(strengths):
             local_shannon = []
             local_overlap = []
-            state_counts = {"empty": 0, "single_pollinator": 0, "branchable": 0}
-            for replicate, feasible, category, baseline_shannon, baseline_overlap in feasible_cache:
+            state_counts = {
+                "empty": 0,
+                "single_pollinator": 0,
+                "branchable": 0,
+            }
+            for (
+                replicate,
+                feasible,
+                category,
+                baseline_shannon,
+                baseline_overlap,
+            ) in feasible_cache:
                 state_counts[category] += 1
                 total_state_counts[category] += 1
                 if category in ("empty", "single_pollinator"):
@@ -290,8 +373,12 @@ def synthetic_summary(design: dict, isolation_index: float) -> dict:
             setting_summary[f"saturation={saturation}|strength={strength}"] = {
                 "replicates": replicates,
                 "state_counts": state_counts,
-                "median_interaction_shannon_relative_local_range": statistics.median(local_shannon),
-                "median_plant_niche_overlap_relative_local_range": statistics.median(local_overlap),
+                "median_interaction_shannon_relative_local_range": statistics.median(
+                    local_shannon
+                ),
+                "median_plant_niche_overlap_relative_local_range": statistics.median(
+                    local_overlap
+                ),
             }
 
     expected = len(strengths) * len(saturations) * replicates
@@ -358,8 +445,12 @@ def main() -> None:
     predictive = synthetic_summary(design, float(geography["isolation_index"]))
     shannon_empirical = empirical["interaction_shannon_relative_local_range"]
     overlap_empirical = empirical["plant_niche_overlap_relative_local_range"]
-    shannon_interval = predictive["interaction_shannon_relative_local_range_envelope"]
-    overlap_interval = predictive["plant_niche_overlap_relative_local_range_envelope"]
+    shannon_interval = predictive[
+        "interaction_shannon_relative_local_range_envelope"
+    ]
+    overlap_interval = predictive[
+        "plant_niche_overlap_relative_local_range_envelope"
+    ]
 
     tests = {
         "interaction_shannon_local_variation_positive": shannon_empirical > EPS,
@@ -379,7 +470,7 @@ def main() -> None:
     )
 
     write({
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "abm_v5_menorca_nine_local_validation",
         "status": "held_out_nine_local_network_target_validation",
         "design_source": str(DESIGN),
@@ -391,6 +482,7 @@ def main() -> None:
         "tests": tests,
         "decision": decision,
         "target_metrics_inspected": True,
+        "parser_correction_note": design["network_reconstruction"]["parser_correction_note"],
         "headline_rule": design["decision_rule"]["headline"],
         "failure_interpretation": design["failure_interpretation"],
         "selection_caveat": design["selection_caveat"],
