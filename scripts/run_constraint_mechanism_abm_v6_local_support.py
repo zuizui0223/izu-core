@@ -56,23 +56,27 @@ def active_pollinator_indices(
     return tuple(active)
 
 
-def apply_local_support(
+def apply_active_pollinator_indices(
     feasible_network: WeightedNetwork,
-    *,
-    support_seed: int,
-    support_strength: float,
+    active_indices: tuple[int, ...] | list[int],
 ) -> WeightedNetwork:
+    """Apply one already-drawn shared local-support mask with v6 hard invariants.
+
+    This is the deterministic support-mask step used by ``apply_local_support``.
+    Exposing it separately allows independently frozen ascertainment rules to
+    condition the support draw without bypassing v6's row-budget/admissibility
+    checks or changing the stochastic v6 support model.
+    """
     if not feasible_network.pollinator_names:
         raise ValueError("feasible network requires at least one pollinator column")
-    if support_strength == 0.0:
-        return feasible_network
+    active = tuple(sorted(int(index) for index in active_indices))
+    if not active:
+        raise ValueError("local support requires at least one active feasible pollinator")
+    if len(set(active)) != len(active):
+        raise ValueError("active pollinator indices must be unique")
+    if active[0] < 0 or active[-1] >= len(feasible_network.pollinator_names):
+        raise ValueError("active pollinator index lies outside feasible network")
 
-    rng = random.Random(support_seed)
-    active = active_pollinator_indices(
-        len(feasible_network.pollinator_names),
-        rng=rng,
-        support_strength=support_strength,
-    )
     active_names = [feasible_network.pollinator_names[index] for index in active]
     rows = []
     for row_index, row in enumerate(feasible_network.matrix):
@@ -99,6 +103,26 @@ def apply_local_support(
         active_names,
         rows,
     )
+
+
+def apply_local_support(
+    feasible_network: WeightedNetwork,
+    *,
+    support_seed: int,
+    support_strength: float,
+) -> WeightedNetwork:
+    if not feasible_network.pollinator_names:
+        raise ValueError("feasible network requires at least one pollinator column")
+    if support_strength == 0.0:
+        return feasible_network
+
+    rng = random.Random(support_seed)
+    active = active_pollinator_indices(
+        len(feasible_network.pollinator_names),
+        rng=rng,
+        support_strength=support_strength,
+    )
+    return apply_active_pollinator_indices(feasible_network, active)
 
 
 def realize_local_context(
@@ -175,6 +199,7 @@ def build_contract() -> dict:
             "empirical_context_categories_loaded": [],
             "support_strengths": list(SUPPORT_STRENGTHS),
             "rule": "each feasible pollinator is locally active with probability 1-support_strength, conditioned on at least one active feasible pollinator",
+            "mask_application": "the stochastic draw and deterministic support-mask application are separate functions; both generic and externally conditioned masks use the same row-budget/admissibility checks",
             "reason_for_excluding_strength_1": "support_strength=1 would deterministically collapse every positive context to one forced partner after conditioning and is excluded from the generic stress envelope rather than treated as an empirical estimate",
         },
         "weight_field": {
