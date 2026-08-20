@@ -22,6 +22,23 @@ def test_validation_freeze_preserves_exact_source_reconstruction():
     assert "20240228" in rule["source_pooling_rule"]
     assert "fewer than 10" in rule["minimum_observation_filter"]
     assert design["held_out_system"]["expected_source_selected_daily_network_count"] == 29
+    assert len(rule["locked_final_dates"]) == 29
+    assert len(set(rule["locked_final_dates"])) == 29
+
+
+def test_number_numero_typo_is_resolved_before_targets_without_changing_final_days():
+    design = json.loads(DESIGN.read_text())
+    rule = design["source_native_reconstruction"]
+    typo = rule["source_typo_resolution"]
+    assert typo["source_column_declared_line_181"] == "number"
+    assert typo["source_lookup_line_198"] == "numero"
+    assert "literal executable source semantics" in typo["primary_executable_semantics"]
+    assert "same locked final 29 dates" in typo["comment_intended_sensitivity"]
+    assert "invariant to this source typo" in typo["headline_invariance"]
+    assert "Do not silently correct" in rule["initial_daily_sampling_filter"]
+    prohibited = " ".join(design["prohibited_after_target_calculation"]).lower()
+    assert "number-versus-numero" in prohibited
+    assert "locked final 29-date set" in prohibited
 
 
 def test_v6_predictive_settings_are_frozen_equal_weight_and_unfitted():
