@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.1",
+  "analysis": "abm_v5_menorca_nine_local_network_validation_freeze",
+  "freeze_date": "2026-08-20",
+  "model_source": {
+    "model": "ABM v5 hierarchical opportunity + local realization",
+    "v5_merge_commit": "f945195a475b63c2e26bd8d1d0e67948accd5718",
+    "menorca_source_gate_merge_commit": "8f943efeeed89cd564fc006bb33aa9fe81a5e7f4",
+    "empirical_systems_consumed_before_freeze": ["Ogasawara"],
+    "prospective_source_blocked_targets": [
+      "Kaiser-Bunbury et al. 2017 Seychelles visitfreq",
+      "Costa et al. 2026 Aride seasonal networks"
+    ]
+  },
+  "held_out_system": {
+    "name": "Menorca nine source-defined quantitative local networks",
+    "island": "Menorca",
+    "archipelago": "Balearic Islands",
+    "source": "Hervias-Parejo et al. 2023",
+    "article_doi": "10.1111/oik.09818",
+    "figshare_article_id": 21213587,
+    "figshare_version": 2,
+    "figshare_doi": "10.6084/m9.figshare.21213587.v2",
+    "source_file": "Hervias-Parejo et al - Spatio-temporal variation in plant-pollinator networks.xls",
+    "source_file_bytes": 3219456,
+    "source_file_sha256": "005b2f7d5415ee7e22cdbef17733c31ff1d6478e1c0c2a569ad789abecfe31cc",
+    "source_gate_workflow_run": 32268859067,
+    "source_gate_artifact_id": 9371325616,
+    "source_gate_artifact_sha256": "901c884f21690abbb9ef41a9c6a0164ed1fe3f896f95889b01122f431bed39b2",
+    "source_defined_local_sheets": [
+      "Favaritx",
+      "Platja Es Grau",
+      "Sa Bassa",
+      "costa Son Bou",
+      "Llucalari",
+      "Sant Jaume de Dalt",
+      "Cala Tirant",
+      "Salinas",
+      "Torre Fornells"
+    ],
+    "local_network_count": 9,
+    "independence": "The nine workbook sheets are repeated local networks nested within one Menorca island system, not nine independent islands or archipelagos."
+  },
+  "selection_caveat": "The published study was known before validation freeze to report strong spatio-temporal interaction turnover and partner switching. Therefore system selection is not literature-blind. The exact izu-core Shannon-diversity and plant-niche-overlap values for the nine local sheets had not been calculated or inspected before the validation design freeze.",
+  "source_recovery_gate": {
+    "metadata_endpoint": "https://api.figshare.com/v2/articles/21213587",
+    "download_rule": "Reacquire only the public file returned by the frozen Figshare article metadata and require the exact frozen byte size and SHA256 before any target calculation.",
+    "required_source_file_sha256": "005b2f7d5415ee7e22cdbef17733c31ff1d6478e1c0c2a569ad789abecfe31cc",
+    "required_sheets": [
+      "Metaweb",
+      "Favaritx",
+      "Platja Es Grau",
+      "Sa Bassa",
+      "costa Son Bou",
+      "Llucalari",
+      "Sant Jaume de Dalt",
+      "Cala Tirant",
+      "Salinas",
+      "Torre Fornells"
+    ],
+    "required_columns_local": ["Plant_sp", "Visitor_sp", "Family", "Order", "FVR"],
+    "weight_column": "FVR",
+    "blocked_rule": "If the exact workbook checksum or required local-sheet schema changes, block validation. Do not substitute another version, derive weights from abundance, or change the local-network unit."
+  },
+  "network_reconstruction": {
+    "local_unit": "each of the nine source-defined workbook sheets exactly once",
+    "canonical_identity_function": "channel_id.external_archipelago_network.canonical_label",
+    "plant_identity": "Plant_sp identity uses the existing network implementation's canonical_label: collapse whitespace then Unicode casefold. The first encountered whitespace-normalized source spelling is retained only as the display label; all raw source spellings mapping to the same canonical identity are preserved in an audit.",
+    "pollinator_identity": "Visitor_sp identity uses the same existing canonical_label rule. The first encountered whitespace-normalized source spelling is retained only as the display label; all raw source spellings mapping to the same canonical identity are preserved in an audit.",
+    "pair_weight": "sum FVR over duplicate canonical Plant_sp x canonical Visitor_sp identities within the same sheet",
+    "variant_audit": "For every local sheet and the pooled metaweb, record canonical plant or visitor identities that have more than one whitespace-normalized source spelling, together with all encountered spellings. No variant is silently discarded.",
+    "zero_rule": "Retain source rows with FVR=0 during parsing; the network metric implementation removes all-zero taxa only through its existing positive_only rule.",
+    "negative_or_nonfinite_rule": "hard failure",
+    "missing_identity_or_weight_rule": "hard failure",
+    "taxon_filtering": "none",
+    "sheet_filtering": "none",
+    "metaweb_reconstruction": "Pool all nine local-sheet rows and sum FVR over duplicate canonical Plant_sp x canonical Visitor_sp identities. The workbook Metaweb sheet is used as a source-structure audit only, not to select or tune the pooled metaweb by metric agreement.",
+    "three_by_three_regrouping": "prohibited for the primary test; no site/habitat grouping is inferred from sheet names",
+    "parser_correction_note": "The first post-freeze validation attempt passed source checksum and outcome-blind GIFT locking, then failed before any target metric was calculated because source Plant_sp spellings differing only by case collided with the already-existing WeightedNetwork canonical_label uniqueness rule. The biological design, nine local sheets, FVR weighting, two target metrics, normalization and predictive decision rule are unchanged. This parser correction aligns source identity handling with the pre-existing network metric implementation and records every merged source-spelling variant."
+  },
+  "outcomes_frozen_before_target_calculation": [
+    "interaction_shannon",
+    "mean_plant_niche_overlap_morisita_horn"
+  ],
+  "empirical_primary_statistics": {
+    "interaction_shannon_relative_local_range": "(max interaction_shannon across the nine local networks - min interaction_shannon across the nine local networks) / pooled-nine-sheet metaweb interaction_shannon",
+    "plant_niche_overlap_relative_local_range": "(max mean_plant_niche_overlap_morisita_horn across the nine local networks - min mean_plant_niche_overlap_morisita_horn across the nine local networks) / pooled-nine-sheet metaweb mean_plant_niche_overlap_morisita_horn",
+    "denominator_rule": "If either pooled-metaweb target denominator is non-positive or undefined, validation is structurally blocked rather than changing normalization.",
+    "local_metric_rule": "If any admitted local network has no positive interactions or undefined plant niche overlap because fewer than two positive plant rows remain, validation fails structural comparability; do not drop that sheet."
+  },
+  "island_opportunity_input": {
+    "source": "GIFT 3.2 outcome-blind island geography",
+    "matching_rule": "Require exactly one GIFT Island entity whose normalized geographic entity name is exactly Menorca and has a non-missing mainland distance. No network outcome or published turnover result may enter the match.",
+    "mapping": "Project Menorca mainland distance onto the existing v4 primary distance-ECDF axis using the exact PR #183 reference runlock recovered from its source-locked artifact. Menorca is not inserted into the reference ECDF.",
+    "held_out_ecdf_extension": "Use piecewise-linear interpolation on sorted unique frozen reference distances and their original index/(n-1) ECDF values; clamp below/above the frozen reference range to 0/1.",
+    "fit_to_menorca_outcomes": false
+  },
+  "v5_predictive_distribution": {
+    "context_strengths": [0.25, 0.5, 0.75, 1.0],
+    "context_strength_weighting": "equal",
+    "v4_saturations": [1.0, 1.5, 2.0, 2.5, 3.0],
+    "saturation_weighting": "equal",
+    "replicates_per_setting": 100,
+    "synthetic_unit": "For each Menorca opportunity x saturation x evolution replicate, hold one v4 feasible weighted network fixed and draw exactly nine independent unlabeled v5 local contexts at the frozen context strength.",
+    "synthetic_primary_statistics": {
+      "interaction_shannon_relative_local_range": "range of interaction_shannon across nine v5 contexts / context-strength-zero feasible-network interaction_shannon",
+      "plant_niche_overlap_relative_local_range": "range of mean plant niche overlap across nine v5 contexts / context-strength-zero feasible-network mean plant niche overlap"
+    },
+    "empty_feasible_state_rule": "An empty v4 feasible state contributes both normalized local ranges as zero and is counted explicitly; do not drop model collapse from the equal-weight mixture.",
+    "single_pollinator_state_rule": "A positive one-pollinator feasible state is structurally non-branchable under v5 and contributes both normalized local ranges as zero.",
+    "baseline_denominator_rule": "A positive branchable feasible state with an undefined or non-positive baseline denominator is a synthetic hard failure rather than being dropped.",
+    "preferred_setting_selection": "prohibited"
+  },
+  "decision_rule": {
+    "variation_necessary_condition": "Both empirical normalized local ranges must be strictly greater than zero.",
+    "predictive_adequacy": "For each target separately, the empirical normalized nine-local-network range must fall within the prespecified 2.5th-97.5th percentile envelope of the equal-weight pooled v5 normalized-range distribution across all frozen nonzero strengths and saturations.",
+    "headline": "v5 survives Menorca only if both target metrics show nonzero local variation and both normalized ranges fall inside their frozen v5 predictive envelopes. Failure of either target is retained as empirical v5 failure."
+  },
+  "failure_interpretation": {
+    "empirical_range_above_v5_envelope": "The current local-realization layer is too weak or structurally incomplete for Menorca raw architecture. Because empirical sheets may differ in local support/species pools while v5 preserves feasible support, a high-side failure specifically motivates an independently formulated local-support/opportunity filtering layer rather than retuning context strength to Menorca.",
+    "empirical_range_below_v5_envelope": "The frozen generic context distribution is too variable for Menorca at that metric; do not shrink context strength post hoc.",
+    "one_target_only_failure": "Retain metric-specific failure; do not average the two targets into a pass."
+  },
+  "prohibited_after_target_calculation": [
+    "change the two target metrics",
+    "drop or merge any of the nine source-defined sheets",
+    "infer a 3x3 grouping to improve fit",
+    "choose one context strength or saturation by Menorca fit",
+    "change FVR aggregation after seeing target values",
+    "change canonical taxon identity or source-variant merging after target values are calculated",
+    "replace relative local range with another statistic for the headline test",
+    "change the 2.5-97.5% predictive envelope after seeing Menorca",
+    "use published turnover/connectance/nestedness values to rescue a failed Shannon or overlap target"
+  ],
+  "claim_boundary": "Menorca contributes one held-out island system with nine local networks. Passing would support the v5 local-realization variability class at two frozen normalized raw-network estimands. It would not identify causal habitat/time effects, a preferred context strength, a universal local-context distribution, or nine independent archipelago replications."
+}
