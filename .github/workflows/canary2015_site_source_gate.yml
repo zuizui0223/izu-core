@@ -1,0 +1,42 @@
+name: Canary 2015 site source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v6_canary_site_source_gate_v1.json'
+      - 'scripts/acquire_audit_canary2015_dryad.py'
+      - 'tests/test_canary2015_source_gate.py'
+      - '.github/workflows/canary2015_site_source_gate.yml'
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-only Dryad audit
+        run: python scripts/acquire_audit_canary2015_dryad.py
+      - name: Enforce no target inspection
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/canary2015_dryad_site_source_audit.json'))
+          assert x['target_metrics_calculated'] is False
+          print('status', x['status'])
+          print('source admission', x['source_admission_succeeds'])
+          print('admitted site networks', x.get('admitted_site_network_count'))
+          print('blocked files', x.get('blocked_files'))
+          PY
+      - name: Run source-gate regression tests
+        run: python -m pytest -q tests/test_canary2015_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: canary2015-site-source-gate
+          path: |
+            data/results/canary2015_dryad_site_source_audit.json
+            data/external/canary2015/**
