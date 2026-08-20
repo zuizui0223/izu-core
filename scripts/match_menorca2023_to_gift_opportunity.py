@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import csv
 import json
 import math
 import re
@@ -12,8 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 API = "https://gift.uni-goettingen.de/api/extended/index3.2.php"
 DESIGN = ROOT / "data/design/abm_v5_menorca_nine_local_validation_v1.json"
-REFERENCE = ROOT / "data/results/frozen_candidate_gift_geography_match.json"
-TARGETS = ROOT / "data/results/frozen_dore_network_targets.csv"
+REFERENCE = ROOT / "data/results/abm_v4_distance_ecdf_reference_runlock.json"
 OUT = ROOT / "data/results/menorca2023_gift_opportunity_lock.json"
 
 
@@ -40,32 +38,20 @@ def number(value):
     return result if math.isfinite(result) else None
 
 
-def frozen_reference_distances() -> list[float]:
-    geography = json.loads(REFERENCE.read_text())
-    with TARGETS.open(newline="", encoding="utf-8") as handle:
-        target_ids = {row["region_pub"] for row in csv.DictReader(handle)}
-    values = []
-    used = set()
-    for match in geography["matches"]:
-        region = match.get("region_pub")
-        if match.get("kind") != "dore_network_location" or region not in target_ids:
-            continue
-        if not match.get("auto_lock"):
-            continue
-        candidates = match.get("top_candidates") or []
-        if not candidates:
-            continue
-        distance = number(candidates[0].get("distance_to_mainland_km"))
-        if distance is None:
-            continue
-        values.append(distance)
-        used.add(region)
-    if len(used) < 20:
-        raise RuntimeError(f"unexpectedly small frozen v4 reference geography: {len(used)} rows")
-    unique = sorted(set(values))
-    if len(unique) < 2:
+def frozen_reference_distances() -> tuple[list[float], dict]:
+    runlock = json.loads(REFERENCE.read_text())
+    if runlock.get("source_pr") != 183:
+        raise RuntimeError("distance-ECDF runlock is not the PR #183 frozen reference")
+    if runlock.get("source_artifact_sha256") != "0de50c6cb3704a012a0653dffd3a8f7fea8ceac233b33a66d728a3732dd6b919":
+        raise RuntimeError("distance-ECDF runlock artifact digest drifted")
+    values = [float(value) for value in runlock["unique_distance_to_mainland_km"]]
+    if values != sorted(set(values)):
+        raise RuntimeError("frozen reference distances must be unique and sorted")
+    if len(values) != int(runlock["frozen_unique_distance_count"]):
+        raise RuntimeError("frozen reference distance count drifted")
+    if len(values) < 2:
         raise RuntimeError("frozen v4 distance reference has fewer than two unique distances")
-    return unique
+    return values, runlock
 
 
 def frozen_ecdf_interpolate(distance: float, reference: list[float]) -> float:
@@ -109,26 +95,32 @@ def main() -> None:
     valid = [row for row in exact if row["distance_to_mainland_km"] is not None]
     if len(valid) != 1:
         payload = {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "analysis": "menorca2023_gift_opportunity_lock",
             "status": "blocked_no_unique_exact_menorca_gift_match",
             "exact_name_candidates": exact,
             "network_outcomes_used": False,
+            "reference_source": str(REFERENCE),
             "claim_boundary": "No Menorca network metric or published turnover result was used. Validation is blocked until exactly one GIFT Island entity named Menorca with mainland distance is available.",
         }
     else:
         selected = valid[0]
-        reference = frozen_reference_distances()
+        reference, runlock = frozen_reference_distances()
         isolation_index = frozen_ecdf_interpolate(
             float(selected["distance_to_mainland_km"]), reference
         )
         payload = {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "analysis": "menorca2023_gift_opportunity_lock",
             "status": "locked",
-            "gift_version": "3.2",
+            "gift_version_for_heldout_menorca": "3.2",
             "selected": selected,
             "exact_name_candidate_count": len(exact),
+            "reference_source": str(REFERENCE),
+            "reference_source_pr": runlock["source_pr"],
+            "reference_source_workflow_run": runlock["source_workflow_run"],
+            "reference_source_artifact_id": runlock["source_artifact_id"],
+            "reference_source_artifact_sha256": runlock["source_artifact_sha256"],
             "reference_unique_distance_count": len(reference),
             "reference_distance_min_km": reference[0],
             "reference_distance_max_km": reference[-1],
@@ -136,7 +128,7 @@ def main() -> None:
             "distance_ecdf_interpolation_rule": design["island_opportunity_input"]["held_out_ecdf_extension"],
             "isolation_index": isolation_index,
             "network_outcomes_used": False,
-            "claim_boundary": "Outcome-blind geography lock. Menorca is projected onto the previously frozen v4 mainland-distance opportunity axis without modifying the reference ECDF.",
+            "claim_boundary": "Outcome-blind geography lock. The current GIFT Menorca distance is projected onto the exact PR #183 frozen v4 mainland-distance reference recovered from its source-locked artifact; the reference distribution is not recomputed or modified.",
         }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
