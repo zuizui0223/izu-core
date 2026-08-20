@@ -1,0 +1,45 @@
+name: Island evolutionary river
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'docs/island_evolutionary_river_v1.md'
+      - 'scripts/build_island_evolutionary_river.py'
+      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
+      - 'tests/test_island_evolutionary_river.py'
+      - '.github/workflows/island_evolutionary_river.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Build evolutionary state-space visualization
+        run: python scripts/build_island_evolutionary_river.py
+      - name: Run visualization regression tests
+        run: python -m pytest -q tests/test_island_evolutionary_river.py
+      - name: Show semantic sidecar
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/island_evolutionary_river_v1.json'))
+          print('concept', x['concept'])
+          print('support strengths', x['v6_support_strengths'])
+          print('agent animation', x['agent_animation'])
+          print('chronological reconstruction', x['chronological_reconstruction'])
+          print('Menorca amplitudes used in geometry', x['menorca_amplitudes_used_in_geometry'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: island-evolutionary-river-v1
+          path: |
+            data/results/island_evolutionary_river_v1.svg
+            data/results/island_evolutionary_river_v1.json
