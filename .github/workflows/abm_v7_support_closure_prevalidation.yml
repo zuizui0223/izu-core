@@ -1,0 +1,76 @@
+name: ABM v7 support closure prevalidation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v7_support_closure.py'
+      - 'scripts/prevalidate_abm_v7_support_closure.py'
+      - 'scripts/diagnose_abm_v4_dense_pair_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'tests/test_abm_v7_support_closure.py'
+      - 'tests/test_abm_v4_dense_pair_support_diagnosis.py'
+      - '.github/workflows/abm_v7_support_closure_prevalidation.yml'
+
+jobs:
+  prevalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Freeze v7 mechanism contract
+        run: python scripts/run_constraint_mechanism_abm_v7_support_closure.py
+      - name: Diagnose frozen v4 pair-support topology
+        run: python scripts/diagnose_abm_v4_dense_pair_support.py
+      - name: Run synthetic prevalidation
+        run: python scripts/prevalidate_abm_v7_support_closure.py
+      - name: Enforce retained negative scientific decision
+        run: |
+          python - <<'PY'
+          import json,sys
+          x=json.load(open('data/results/abm_v7_support_closure_prevalidation.json'))
+          d=json.load(open('data/results/abm_v4_dense_pair_support_diagnosis.json'))
+          print('decision', x['decision'])
+          print('v6 structural failures on native v4 grid', x['v6_structural_failure_masks_in_synthetic_grid'])
+          print('v7 partnerless dropout masks on native v4 grid', x['synthetic_masks_with_partnerless_plant_dropout'])
+          print('tests', x['tests'])
+          print('dense pair-support diagnosis', d['consequence'])
+          invariants=[
+            'full_pollinator_support_exact_v5_identity',
+            'v6_admissible_masks_unchanged_by_joint_closure',
+            'retained_positive_plant_row_budgets_conserved',
+            'all_realized_taxa_are_feasible_subsets',
+            'v7_support_closure_has_no_unexpected_exceptions',
+            'canonical_v6_partnerless_plant_failure_is_resolved',
+            'every_observed_v6_failure_mask_is_resolved_by_partnerless_plant_dropout',
+            'nonzero_support_branches_pollinator_support',
+            'support_closure_can_change_shannon',
+            'support_closure_can_change_plant_overlap',
+            'frozen_v4_opportunity_contract_remains_true',
+          ]
+          ok=(
+            x['decision']=='v7_joint_support_closure_fails_synthetic_prevalidation'
+            and all(x['tests'][key] is True for key in invariants)
+            and x['tests']['nonzero_support_can_branch_joint_plant_support'] is False
+            and x['v6_structural_failure_masks_in_synthetic_grid']==0
+            and x['synthetic_masks_with_partnerless_plant_dropout']==0
+            and d['strictly_positive_for_every_finite_plant_pollinator_pair'] is True
+            and x['empirical_inputs_loaded']==[]
+            and x['giannutri_values_loaded'] is False
+          )
+          sys.exit(0 if ok else 1)
+          PY
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_abm_v7_support_closure.py tests/test_abm_v4_dense_pair_support_diagnosis.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v7-support-closure-prevalidation
+          path: |
+            data/results/constraint_mechanism_abm_v7_support_closure.json
+            data/results/abm_v7_support_closure_prevalidation.json
+            data/results/abm_v4_dense_pair_support_diagnosis.json
