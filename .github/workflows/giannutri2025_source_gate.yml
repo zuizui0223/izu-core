@@ -1,0 +1,46 @@
+name: Giannutri 2025 source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v6_giannutri_source_gate_v1.json'
+      - 'scripts/acquire_audit_giannutri2025_zenodo.py'
+      - 'tests/test_giannutri2025_source_gate.py'
+      - '.github/workflows/giannutri2025_source_gate.yml'
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-only Zenodo audit
+        run: python scripts/acquire_audit_giannutri2025_zenodo.py
+      - name: Enforce source-only boundary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/giannutri2025_zenodo_source_audit.json'))
+          assert x['target_metrics_calculated'] is False
+          print('status', x['status'])
+          print('source admission', x['source_admission_succeeds'])
+          print('source bytes ok', x.get('source_bytes_ok'))
+          print('daily structure visible', x.get('daily_structure_visible'))
+          print('condition structure visible', x.get('condition_structure_visible'))
+          print('published scope', x.get('published_scope'))
+          for row in x.get('files', []):
+              print(row['name'], row.get('bytes'), row.get('sha256'), row.get('schema_inventory',{}).get('headers'))
+          PY
+      - name: Run source-gate regression tests
+        run: python -m pytest -q tests/test_giannutri2025_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: giannutri2025-source-gate
+          path: |
+            data/results/giannutri2025_zenodo_source_audit.json
+            data/external/giannutri2025/**
