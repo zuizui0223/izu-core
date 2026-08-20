@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "analysis": "abm_v5_menorca_nine_local_network_validation_freeze",
   "freeze_date": "2026-08-20",
   "model_source": {
@@ -41,7 +41,7 @@
     "local_network_count": 9,
     "independence": "The nine workbook sheets are repeated local networks nested within one Menorca island system, not nine independent islands or archipelagos."
   },
-  "selection_caveat": "The published study was known before validation freeze to report strong spatio-temporal interaction turnover and partner switching. Therefore system selection is not literature-blind. The exact izu-core Shannon-diversity and plant-niche-overlap values for the nine local sheets have not been calculated or inspected before this freeze.",
+  "selection_caveat": "The published study was known before validation freeze to report strong spatio-temporal interaction turnover and partner switching. Therefore system selection is not literature-blind. The exact izu-core Shannon-diversity and plant-niche-overlap values for the nine local sheets had not been calculated or inspected before the validation design freeze.",
   "source_recovery_gate": {
     "metadata_endpoint": "https://api.figshare.com/v2/articles/21213587",
     "download_rule": "Reacquire only the public file returned by the frozen Figshare article metadata and require the exact frozen byte size and SHA256 before any target calculation.",
@@ -64,16 +64,19 @@
   },
   "network_reconstruction": {
     "local_unit": "each of the nine source-defined workbook sheets exactly once",
-    "plant_identity": "Plant_sp after whitespace normalization only",
-    "pollinator_identity": "Visitor_sp after whitespace normalization only",
-    "pair_weight": "sum FVR over duplicate Plant_sp x Visitor_sp rows within the same sheet",
+    "canonical_identity_function": "channel_id.external_archipelago_network.canonical_label",
+    "plant_identity": "Plant_sp identity uses the existing network implementation's canonical_label: collapse whitespace then Unicode casefold. The first encountered whitespace-normalized source spelling is retained only as the display label; all raw source spellings mapping to the same canonical identity are preserved in an audit.",
+    "pollinator_identity": "Visitor_sp identity uses the same existing canonical_label rule. The first encountered whitespace-normalized source spelling is retained only as the display label; all raw source spellings mapping to the same canonical identity are preserved in an audit.",
+    "pair_weight": "sum FVR over duplicate canonical Plant_sp x canonical Visitor_sp identities within the same sheet",
+    "variant_audit": "For every local sheet and the pooled metaweb, record canonical plant or visitor identities that have more than one whitespace-normalized source spelling, together with all encountered spellings. No variant is silently discarded.",
     "zero_rule": "Retain source rows with FVR=0 during parsing; the network metric implementation removes all-zero taxa only through its existing positive_only rule.",
     "negative_or_nonfinite_rule": "hard failure",
     "missing_identity_or_weight_rule": "hard failure",
     "taxon_filtering": "none",
     "sheet_filtering": "none",
-    "metaweb_reconstruction": "Pool all nine local-sheet rows and sum FVR over duplicate Plant_sp x Visitor_sp pairs. The workbook Metaweb sheet is used as a source-structure audit only, not to select or tune the pooled metaweb by metric agreement.",
-    "three_by_three_regrouping": "prohibited for the primary test; no site/habitat grouping is inferred from sheet names"
+    "metaweb_reconstruction": "Pool all nine local-sheet rows and sum FVR over duplicate canonical Plant_sp x canonical Visitor_sp identities. The workbook Metaweb sheet is used as a source-structure audit only, not to select or tune the pooled metaweb by metric agreement.",
+    "three_by_three_regrouping": "prohibited for the primary test; no site/habitat grouping is inferred from sheet names",
+    "parser_correction_note": "The first post-freeze validation attempt passed source checksum and outcome-blind GIFT locking, then failed before any target metric was calculated because source Plant_sp spellings differing only by case collided with the already-existing WeightedNetwork canonical_label uniqueness rule. The biological design, nine local sheets, FVR weighting, two target metrics, normalization and predictive decision rule are unchanged. This parser correction aligns source identity handling with the pre-existing network metric implementation and records every merged source-spelling variant."
   },
   "outcomes_frozen_before_target_calculation": [
     "interaction_shannon",
@@ -88,7 +91,7 @@
   "island_opportunity_input": {
     "source": "GIFT 3.2 outcome-blind island geography",
     "matching_rule": "Require exactly one GIFT Island entity whose normalized geographic entity name is exactly Menorca and has a non-missing mainland distance. No network outcome or published turnover result may enter the match.",
-    "mapping": "Project Menorca mainland distance onto the existing v4 primary distance-ECDF axis using only the already-frozen v4 reference island distances. Menorca is not inserted into the reference ECDF.",
+    "mapping": "Project Menorca mainland distance onto the existing v4 primary distance-ECDF axis using the exact PR #183 reference runlock recovered from its source-locked artifact. Menorca is not inserted into the reference ECDF.",
     "held_out_ecdf_extension": "Use piecewise-linear interpolation on sorted unique frozen reference distances and their original index/(n-1) ECDF values; clamp below/above the frozen reference range to 0/1.",
     "fit_to_menorca_outcomes": false
   },
@@ -124,6 +127,7 @@
     "infer a 3x3 grouping to improve fit",
     "choose one context strength or saturation by Menorca fit",
     "change FVR aggregation after seeing target values",
+    "change canonical taxon identity or source-variant merging after target values are calculated",
     "replace relative local range with another statistic for the headline test",
     "change the 2.5-97.5% predictive envelope after seeing Menorca",
     "use published turnover/connectance/nestedness values to rescue a failed Shannon or overlap target"
