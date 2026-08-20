@@ -35,12 +35,7 @@ def draw_hierarchical_pair_support_mask(
     support_seed: int,
     support_strength: float,
 ) -> tuple[tuple[tuple[bool, ...], ...], tuple[int, ...]]:
-    """Draw v6 pollinator availability, then pair availability inside it.
-
-    The same frozen support-strength envelope is reused at both hierarchy levels;
-    no independent pair-support parameter is introduced. Zero strength retains
-    every positive opportunity pair exactly.
-    """
+    """Draw v6 pollinator availability, then pair availability inside it."""
     if not 0.0 <= support_strength < 1.0:
         raise ValueError("support_strength must be in [0, 1)")
     if not opportunity_network.pollinator_names:
@@ -176,6 +171,36 @@ def realize_local_context(
     weight_seed: int,
     weight_strength: float,
 ) -> tuple[WeightedNetwork | None, dict]:
+    if not 0.0 <= support_strength < 1.0:
+        raise ValueError("support_strength must be in [0, 1)")
+    v5 = load_module(V5_SCRIPT, "abm_v8_v5_source")
+
+    # Exact nesting contract: zero support means the support layer is absent.
+    # Bypass projection entirely so zero-only placeholder rows/columns are also
+    # preserved exactly, not merely the positive part of the network.
+    if support_strength == 0.0:
+        realized = v5.realize_local_context(
+            opportunity_network,
+            context_seed=weight_seed,
+            context_strength=weight_strength,
+        )
+        return realized, {
+            "support_strength": 0.0,
+            "weight_strength": weight_strength,
+            "globally_active_pollinators_before_pair_projection": list(opportunity_network.pollinator_names),
+            "active_pollinators_after_pair_projection": list(opportunity_network.pollinator_names),
+            "retained_plant_count": len(opportunity_network.plant_names),
+            "retained_pollinator_count": len(opportunity_network.pollinator_names),
+            "dropped_partnerless_positive_plant_count": 0,
+            "dropped_partnerless_positive_plants": [],
+            "active_pair_count": sum(value > 0.0 for row in opportunity_network.matrix for value in row),
+            "max_retained_row_budget_error": 0.0,
+            "empty_local_network": sum(sum(row) for row in opportunity_network.matrix) <= 0.0,
+            "new_taxa_created": False,
+            "new_links_created": False,
+            "zero_support_exact_v5_bypass": True,
+        }
+
     mask, globally_active = draw_hierarchical_pair_support_mask(
         opportunity_network,
         support_seed=support_seed,
@@ -189,7 +214,6 @@ def realize_local_context(
     ]
     if supported is None:
         return None, audit
-    v5 = load_module(V5_SCRIPT, "abm_v8_v5_source")
     realized = v5.realize_local_context(
         supported,
         context_seed=weight_seed,
@@ -249,7 +273,7 @@ def build_contract() -> dict:
             "pollinator_level": "reuse the unchanged v6 draw: each extant pollinator is locally active with probability 1-support_strength, conditioned only on at least one globally active pollinator",
             "pair_level": "within globally active pollinators, every positive v4 opportunity pair is independently supported with probability 1-support_strength",
             "shared_strength": "the same pre-existing generic support strength controls both unresolved availability layers; there is no independently fitted pair-support strength",
-            "zero_strength_identity": "support_strength=0 retains all pollinators and every positive v4 opportunity pair exactly",
+            "zero_strength_identity": "support_strength=0 bypasses support projection and reproduces the full v5 network object exactly, including zero-only placeholders",
             "no_pair_nonempty_conditioning": "pair masks are not redrawn when they create partnerless plants, interactionless pollinators, or an empty local network",
         },
         "support_projection": {
@@ -260,7 +284,7 @@ def build_contract() -> dict:
         "row_budget_rule": "For every retained positive plant row, supported opportunity weights are rescaled to preserve that plant's exact pre-context total opportunity. Partnerless positive plants are locally inactive instead of receiving manufactured service.",
         "weight_realization": "unchanged v5 positive affinity reweighting is applied only after hierarchical support projection",
         "hard_invariants": [
-            "support_strength=0 and any weight_strength reproduce v5 exactly",
+            "support_strength=0 and any weight_strength reproduce v5 exactly, including zero-only placeholder states",
             "no new plant, pollinator or positive pair absent from the v4 opportunity network can be created",
             "every retained positive plant row preserves its exact opportunity total",
             "partnerless positive plants and interactionless pollinators may become locally inactive",
@@ -277,6 +301,7 @@ def build_contract() -> dict:
             "reject v8 if support variation cannot change Shannon and plant niche overlap",
             "reject v8 if the frozen v4 opportunity-direction contract no longer holds",
         ],
+        "initial_prevalidation_correction_note": "The first v8 run passed every nonzero-support capability and conservation gate but failed exact zero-support identity only for zero-only placeholder v4 states because pair projection compacted the placeholder column. The nonzero-support mechanism was unchanged; support_strength=0 now bypasses support projection entirely, matching the predeclared nesting contract for the complete network object.",
         "next_empirical_gate": "Only after synthetic prevalidation passes, freeze another independent repeated-local quantitative island system before target inspection. Menorca and Giannutri are consumed failures and cannot confirm v8.",
         "claim_boundary": "v8 separates local interaction support from positive opportunity magnitude using nested generic pollinator- and pair-level Bernoulli support. Its shared support strength is a mechanism sensitivity envelope, not an empirical estimate, and it does not identify habitat, phenology or species-specific support processes.",
     }
