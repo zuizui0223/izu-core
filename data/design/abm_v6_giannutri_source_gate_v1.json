@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v6_giannutri_daily_network_source_gate",
+  "freeze_date": "2026-08-20",
+  "candidate_system": {
+    "source": "Pasquali et al. 2025 Current Biology",
+    "article_doi": "10.1016/j.cub.2025.02.048",
+    "island": "Giannutri",
+    "zenodo_record_id": 14855496,
+    "zenodo_doi": "10.5281/zenodo.14855496",
+    "published_network_scope": "daily flower-visit networks from 2022-2024 using the three numerically dominant bee species Apis mellifera, Anthophora dispar and Bombus terrestris",
+    "published_daily_network_count": 29
+  },
+  "independence_boundary": "Giannutri and its daily flower-visitor networks were not used in ABM v4, v5 or v6 construction, Ogasawara diagnosis, or Menorca falsification. This candidate can therefore provide a new empirical system, but the published network analysis is explicitly a three-focal-bee network rather than a complete pollinator community. Any later v6 test must preserve that scope instead of silently treating it as a whole-community network.",
+  "required_zenodo_files": {
+    "README.txt": "4e0085f3337078bc7f60bffc2dbfe80e",
+    "Code for Resource use and overlap analysis.R": "b1eae37f3cada984dcbe439c75806c39",
+    "transect_data_for_overlap_analysis.txt": "1c68690ac94ba90367b9cfb79ce55b38",
+    "walking_transects_dataset.txt": "55a95d49383c65c6dd33d079e0478e55"
+  },
+  "source_only_gate": {
+    "required_before_any_target": [
+      "recover Zenodo record metadata from the frozen record id",
+      "recover the four exact checksum-locked source/code files",
+      "inventory raw column names and row counts without calculating network metrics",
+      "identify source fields capable of preserving day/year and hive-condition grouping",
+      "preserve the published three-focal-bee scope",
+      "do not calculate Shannon, plant niche overlap, empirical network ranges, or a v6 predictive fit"
+    ],
+    "blocked_rule": "If exact source bytes or checksum locks fail, or if day/condition/species/plant interaction structure cannot be recovered from source-native files, block before target inspection. Do not use published summary network indices or reconstruct quantitative matrices from figures."
+  },
+  "target_metrics_calculated": false,
+  "prohibited_before_source_admission": [
+    "calculate interaction Shannon diversity",
+    "calculate plant niche overlap",
+    "calculate empirical daily-network metric ranges",
+    "inspect any v6 predictive envelope",
+    "expand the three-focal-bee published network to all pollinators without a separately frozen source rule",
+    "select only HB+ or HB- days based on network values",
+    "pool days differently after inspecting target values"
+  ]
+}
