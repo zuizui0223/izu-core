@@ -5,13 +5,12 @@ on:
   pull_request:
     paths:
       - 'data/design/abm_v5_menorca_nine_local_validation_v1.json'
+      - 'data/results/abm_v4_distance_ecdf_reference_runlock.json'
       - 'scripts/acquire_audit_menorca2023_figshare.py'
       - 'scripts/match_menorca2023_to_gift_opportunity.py'
       - 'scripts/run_abm_v5_menorca_nine_local_validation.py'
       - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
       - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
-      - 'data/results/frozen_candidate_gift_geography_match.json'
-      - 'data/results/frozen_dore_network_targets.csv'
       - 'tests/test_abm_v5_menorca_validation_freeze.py'
       - '.github/workflows/abm_v5_menorca_nine_local_validation.yml'
 
@@ -58,6 +57,7 @@ jobs:
           print('geography status', x['status'])
           print('selected', x.get('selected'))
           print('isolation index', x.get('isolation_index'))
+          print('reference artifact', x.get('reference_source_artifact_id'), x.get('reference_source_artifact_sha256'))
           if x['status'] != 'locked':
               raise SystemExit('Menorca geography not uniquely locked; do not calculate target metrics')
           if x.get('network_outcomes_used') is not False:
@@ -84,9 +84,19 @@ jobs:
             'plant_niche_overlap': x.get('predictive',{}).get('plant_niche_overlap_relative_local_range_envelope'),
           })
           print('tests', x.get('tests'))
+          print('source-identity variant collisions', [
+            (
+              row['sheet'],
+              row['source_identity_audit']['plant_variant_collision_count'],
+              row['source_identity_audit']['visitor_variant_collision_count'],
+              row['source_identity_audit']['plant_variant_collisions'],
+              row['source_identity_audit']['visitor_variant_collisions'],
+            )
+            for row in x.get('empirical',{}).get('local_networks',[])
+          ])
           print('local metrics', [
-            (r['sheet'], r['interaction_shannon'], r['plant_niche_overlap'], r['positive_dimensions'])
-            for r in x.get('empirical',{}).get('local_networks',[])
+            (row['sheet'], row['interaction_shannon'], row['plant_niche_overlap'], row['positive_dimensions'])
+            for row in x.get('empirical',{}).get('local_networks',[])
           ])
           PY
       - uses: actions/upload-artifact@v4
