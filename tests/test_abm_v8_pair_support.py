@@ -44,6 +44,24 @@ def test_zero_support_reproduces_v5_exactly():
         )
         assert actual == expected
         assert audit["dropped_partnerless_positive_plant_count"] == 0
+        assert audit["zero_support_exact_v5_bypass"] is True
+
+
+def test_zero_support_preserves_zero_only_placeholder_network_exactly():
+    v8 = load(V8, "v8_test_zero_placeholder")
+    v5 = load(V5, "v8_test_v5_placeholder")
+    source = WeightedNetwork.from_rows(["plant"], ["<no_pollinator>"], [[0.0]])
+    expected = v5.realize_local_context(source, context_seed=5, context_strength=1.0)
+    actual, audit = v8.realize_local_context(
+        source,
+        support_seed=99,
+        support_strength=0.0,
+        weight_seed=5,
+        weight_strength=1.0,
+    )
+    assert actual == expected == source
+    assert audit["empty_local_network"] is True
+    assert audit["zero_support_exact_v5_bypass"] is True
 
 
 def test_pair_mask_can_drop_plant_and_pollinator_without_creating_links():
@@ -93,3 +111,4 @@ def test_contract_reuses_support_strength_and_loads_no_empirical_fit():
     assert "same pre-existing generic support strength" in contract["support_hierarchy"]["shared_strength"]
     assert "No Menorca or Giannutri target amplitude" in contract["use_of_failures"]
     assert "cannot confirm v8" in contract["next_empirical_gate"]
+    assert "placeholder" in contract["support_hierarchy"]["zero_strength_identity"]
