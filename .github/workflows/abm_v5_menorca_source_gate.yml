@@ -1,0 +1,45 @@
+name: ABM v5 Menorca source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v5_menorca_source_gate_v1.json'
+      - 'scripts/acquire_audit_menorca2023_figshare.py'
+      - '.github/workflows/abm_v5_menorca_source_gate.yml'
+
+concurrency:
+  group: abm-v5-menorca-source-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install schema readers only
+        run: python -m pip install openpyxl xlrd
+      - name: Recover public Figshare files and audit schemas
+        run: python scripts/acquire_audit_menorca2023_figshare.py
+      - name: Enforce source-gate boundary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/menorca2023_figshare_source_audit.json'))
+          print('status', x['status'])
+          print('file count', x['public_file_count'])
+          for f in x['files']:
+              print(f['name'], f['bytes'], f['sha256'])
+              print('schema', f['schema_audit'])
+          if x.get('target_metrics_calculated') is not False:
+              raise SystemExit('source gate must not calculate v5 target metrics')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v5-menorca-source-gate
+          path: |
+            data/results/menorca2023_figshare_source_audit.json
+            data/external/menorca2023/**
