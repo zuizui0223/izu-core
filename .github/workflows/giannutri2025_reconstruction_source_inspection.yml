@@ -1,0 +1,41 @@
+name: Giannutri reconstruction source inspection
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/extract_giannutri2025_daily_network_reconstruction_spec.py'
+      - 'tests/test_giannutri2025_reconstruction_source_inspection.py'
+      - '.github/workflows/giannutri2025_reconstruction_source_inspection.yml'
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Extract checksum-locked source reconstruction lines
+        run: python scripts/extract_giannutri2025_daily_network_reconstruction_spec.py
+      - name: Enforce no target calculation
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/giannutri2025_daily_network_reconstruction_source.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['network_metrics_imported'] is False
+          print('source sha256', x['source_sha256'])
+          print('source lines', x['source_line_count'])
+          for block in x['inspection_ranges']:
+              for row in block['lines']:
+                  print(f"{row['line']:04d}: {row['text']}")
+          PY
+      - name: Run inspection regression test
+        run: python -m pytest -q tests/test_giannutri2025_reconstruction_source_inspection.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: giannutri2025-reconstruction-source-inspection
+          path: data/results/giannutri2025_daily_network_reconstruction_source.json
