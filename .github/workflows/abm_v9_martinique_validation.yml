@@ -1,0 +1,76 @@
+name: ABM v9 Martinique validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v9_martinique_validation_v1.json'
+      - 'scripts/run_abm_v9_martinique_validation.py'
+      - 'tests/test_abm_v9_martinique_validation.py'
+      - 'tests/test_abm_v9_martinique_validation_freeze.py'
+      - '.github/workflows/abm_v9_martinique_validation.yml'
+      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
+      - 'scripts/run_constraint_mechanism_abm_v8_pair_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Re-enforce frozen validation design before targets
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/design/abm_v9_martinique_validation_v1.json'))
+          assert d['target_metrics_calculated'] is False
+          assert d['chronology']['martinique_target_metrics_calculated_before_freeze'] is False
+          assert list(d['primary_estimands']) == [
+              'median_active_interacting_plant_fraction',
+              'median_pair_support_fraction_given_active_plants',
+              'interaction_shannon_relative_context_range',
+          ]
+          assert d['v9_predictive_distribution']['predictive_draw_count'] == 1200
+          assert d['v9_predictive_distribution']['contexts_per_predictive_draw'] == 120
+          print('frozen design verified')
+          PY
+      - name: Run held-out Martinique v9 validation
+        run: python scripts/run_abm_v9_martinique_validation.py
+      - name: Show scientific decision without converting falsification or source block to CI failure
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v9_martinique_validation.json'))
+          allowed={
+              'blocked_martinique_independent_plant_opportunity_does_not_cover_observed_interaction_plants',
+              'v9_survives_martinique_full_local_hierarchy_test',
+              'v9_fails_martinique_full_local_hierarchy_predictive_adequacy',
+          }
+          assert x['decision'] in allowed
+          print('decision', x['decision'])
+          print('status', x['status'])
+          if x['target_metrics_inspected']:
+              print('empirical primary', x['empirical']['primary_estimands'])
+              print('predictive primary', x['predictive']['primary_envelopes'])
+              print('tests', x['tests'])
+              print('secondary empirical', x['empirical']['secondary'])
+              print('secondary predictive', x['predictive']['secondary_envelopes'])
+          else:
+              print('structural gate', x['empirical_structure']['structural_gate'])
+          PY
+      - name: Run frozen-design and implementation regression tests
+        run: >-
+          python -m pytest -q
+          tests/test_abm_v9_martinique_validation_freeze.py
+          tests/test_abm_v9_martinique_validation.py
+          tests/test_abm_v9_local_plant_opportunity.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v9-martinique-validation
+          path: data/results/abm_v9_martinique_validation.json
