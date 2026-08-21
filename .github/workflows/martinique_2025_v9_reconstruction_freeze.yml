@@ -1,0 +1,51 @@
+name: Martinique 2025 v9 reconstruction freeze
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/audit_martinique_2025_reconstruction_structure.py'
+      - 'tests/test_martinique_2025_reconstruction_structure.py'
+      - 'data/design/abm_v9_martinique_2025_reconstruction_v1.json'
+      - '.github/workflows/martinique_2025_v9_reconstruction_freeze.yml'
+      - 'data/design/abm_v9_martinique_2025_source_gate_v1.json'
+      - 'scripts/acquire_audit_martinique_2025_v9_source.py'
+
+jobs:
+  reconstruction-freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-structure audit before any target
+        run: python scripts/audit_martinique_2025_reconstruction_structure.py
+      - name: Enforce pre-target boundary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/martinique_2025_reconstruction_structure.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['network_matrices_built'] is False
+          assert x['interaction_events_aggregated'] is False
+          assert x['v9_predictive_fit_calculated'] is False
+          print('interaction context', x['interaction']['context_structure'])
+          print('floral context', x['floral_abundance']['context_structure'])
+          print('period mapping interaction', x['interaction']['period_to_months'])
+          print('period mapping floral', x['floral_abundance']['period_to_months'])
+          print('interaction plant identity', x['interaction']['plant_identity'])
+          print('insect identity', x['interaction']['insect_identity'])
+          print('floral plant identity', x['floral_abundance']['plant_identity'])
+          print('exposure', x['interaction']['exposure_structure'])
+          print('floral measure', x['floral_abundance']['floral_measure_structure'])
+          print('cross source', x['cross_source_structure'])
+          PY
+      - name: Run reconstruction audit tests
+        run: python -m pytest -q tests/test_martinique_2025_reconstruction_structure.py tests/test_martinique_2025_v9_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: martinique-2025-v9-reconstruction-freeze
+          path: data/results/martinique_2025_reconstruction_structure.json
