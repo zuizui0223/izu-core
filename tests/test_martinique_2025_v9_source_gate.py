@@ -26,6 +26,18 @@ def test_design_is_insect_only_and_target_free():
     boundary = " ".join(design["hard_boundaries"]).lower()
     assert "independently recorded floral-offer" in boundary
     assert "pair-support fraction" in boundary
+    assert "do not aggregate event rows" in boundary
+
+
+def test_core_files_required_optional_metadata_not_required():
+    design = json.loads(DESIGN.read_text())
+    required = {row["name"] for row in design["author_deposited_files"] if row.get("required")}
+    optional = {row["name"] for row in design["author_deposited_files"] if not row.get("required")}
+    assert required == {
+        "Plant_insect_interactions_former_names.xlsx",
+        "Sampling_data.xlsx",
+    }
+    assert {"README.docx", "Plant_species.xlsx"}.issubset(optional)
 
 
 def test_source_script_has_no_network_metric_or_v9_import():
@@ -37,7 +49,7 @@ def test_source_script_has_no_network_metric_or_v9_import():
     assert "run_constraint_mechanism_abm_v9" not in text
 
 
-def test_role_detection_finds_repeated_interaction_schema():
+def test_role_detection_finds_explicit_amount_interaction_schema():
     module = load_script()
     roles = module.role_candidates(["Site", "Month", "Plant species", "Insect species", "N visits"])
     assert roles["site"] == ["Site"]
@@ -55,6 +67,42 @@ def test_role_detection_separates_independent_floral_offer():
     assert roles["plant"] == ["Plant"]
     assert roles["floral_offer"] == ["Open floral units"]
     assert roles["pollinator"] == []
+
+
+def test_event_row_interaction_representation_needs_no_amount_column(tmp_path):
+    module = load_script()
+    from openpyxl import Workbook
+
+    workbook = Workbook()
+    sheet = workbook.active
+    sheet.title = "Insects_Plants"
+    sheet.append(["Period", "Date", "Site", "Plant_Best_ID", "Insect_Best_ID", "H_start", "H_end"])
+    sheet.append(["P1", "2022-10-01", "S1", "PL1", "IN1", "09:00", "09:05"])
+    path = tmp_path / "events.xlsx"
+    workbook.save(path)
+    inspection = module.inspect_workbook(path.read_bytes(), "events.xlsx")
+    candidate = inspection["sheets"][0]
+    assert candidate["repeated_interaction_candidate"] is True
+    assert candidate["interaction_representation"] == "event_rows"
+
+
+def test_optional_transport_failure_does_not_block_required_bytes():
+    module = load_script()
+    design_sources = [
+        {"name": "core1.xlsx", "required": True},
+        {"name": "core2.xlsx", "required": True},
+        {"name": "readme.docx", "required": False},
+    ]
+    records = [
+        {"name": "core1.xlsx", "http_status": 200, "bytes": 10},
+        {"name": "core2.xlsx", "http_status": 200, "bytes": 11},
+        {"name": "readme.docx", "http_status": 404},
+    ]
+    result = module.transport_summary(design_sources, records)
+    assert result["required_source_bytes_ok"] is True
+    assert result["all_source_bytes_ok"] is False
+    assert result["blocked_required_files"] == []
+    assert result["blocked_optional_files"] == ["readme.docx"]
 
 
 def test_primary_download_endpoints_are_frozen():
