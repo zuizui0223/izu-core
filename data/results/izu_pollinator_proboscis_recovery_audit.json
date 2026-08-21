@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "analysis": "izu_pollinator_proboscis_trait_recovery_audit",
+  "state": {
+    "current_named_pollinator_taxa": 209,
+    "recovered_numeric_proboscis_taxa": 0,
+    "coverage_fraction": 0.0,
+    "paper_vs_current_count_discrepancy": 2,
+    "table_s2_values_recovered": false,
+    "fdq_trait_lookup_ready": false,
+    "decision": "blocked_until_source_native_proboscis_values_recovered"
+  },
+  "source_reference": {
+    "paper_doi": "10.1098/rspb.2016.2218",
+    "paper_title": "Low functional diversity promotes niche changes in natural island pollinator communities",
+    "dryad_dataset_doi": "10.5061/dryad.pm29d",
+    "dryad_file": "primary_data.xlsx",
+    "supplementary_collection_doi": "10.6084/m9.figshare.c.3647738",
+    "supplementary_tables_item_doi": "10.6084/m9.figshare.4479803.v2",
+    "target_source_locator": "electronic supplementary material Table S2",
+    "paper_measurement_protocol": "At each site, five pollinator individuals per species, or all individuals when fewer than five were available, were measured with digital calipers; mean proboscis length was calculated per species x site.",
+    "paper_reported_pollinator_species": 211,
+    "functional_bins_mm": {
+      "short_tongued": "<4.5",
+      "medium_tongued": "4.5-9",
+      "long_tongued": ">9"
+    }
+  },
+  "retrieval_state": {
+    "dryad_landing_page_accessible": true,
+    "dryad_lists_primary_data_xlsx": true,
+    "direct_xlsx_download_in_current_environment": "blocked_http_403",
+    "supplementary_table_s2_known_to_exist": true,
+    "supplementary_table_s2_numeric_values_recovered": false,
+    "current_state": "source_known_numeric_trait_values_not_yet_recovered"
+  },
+  "next_recovery_order": [
+    "recover supplementary Table S2 source-native numeric values",
+    "audit taxon-name and site-name mapping against the 2024 209-taxon visitor table",
+    "resolve the 211-versus-209 species-count discrepancy without fuzzy matching",
+    "freeze exact source rows and checksums",
+    "calculate FDQ only for exposure units whose admitted visitor abundance has complete trait coverage or a prespecified missing-trait rule"
+  ],
+  "claim_boundary": "No numeric proboscis lengths are reconstructed from functional bins or taxonomic expectations while Table S2 remains unrecovered. The 209 current taxa and 211 paper-reported species are not assumed to be identical sets."
+}
