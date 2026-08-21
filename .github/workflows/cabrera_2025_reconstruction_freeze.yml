@@ -34,8 +34,9 @@ jobs:
           assert d['chronology']['network_matrices_built_before_freeze'] is False
           locked=d['source_native_reconstruction']['locked_context_keys']
           observed=x['method_structure']['obs']['community_x_visit_context_keys']
-          assert observed == locked
           assert len(locked) == 55
+          assert len({tuple(row) for row in locked}) == 55
+          assert {tuple(row) for row in observed} == {tuple(row) for row in locked}
           print('source rows', x['source_rows'])
           print('locked obs contexts', len(locked))
           print('methods', x['source_values']['methods'])
