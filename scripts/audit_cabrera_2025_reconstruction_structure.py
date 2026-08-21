@@ -62,11 +62,7 @@ def label_collision_audit(values: list[str]) -> dict:
         text = " ".join(str(raw or "").split())
         if text:
             variants[normalize_label(text)].add(text)
-    collisions = {
-        key: sorted(raws)
-        for key, raws in variants.items()
-        if len(raws) > 1
-    }
+    collisions = {key: sorted(raws) for key, raws in variants.items() if len(raws) > 1}
     return {
         "nonblank_raw_label_count": len({" ".join(str(v).split()) for v in values if str(v).strip()}),
         "canonical_label_count": len(variants),
@@ -100,6 +96,16 @@ def context_count(rows: list[dict[str, str]], fields: tuple[str, ...]) -> int:
     return len({key for row in rows if (key := context_key(row, fields)) is not None})
 
 
+def sorted_context_keys(rows: list[dict[str, str]], fields: tuple[str, ...]) -> list[list[str]]:
+    keys = {key for row in rows if (key := context_key(row, fields)) is not None}
+    def sort_key(key: tuple[str, ...]):
+        converted = []
+        for value in key:
+            converted.append((0, int(value)) if value.isdigit() else (1, value))
+        return tuple(converted)
+    return [list(key) for key in sorted(keys, key=sort_key)]
+
+
 def main() -> None:
     payload = fetch()
     reader = csv.DictReader(io.StringIO(decode(payload)), delimiter=";")
@@ -112,7 +118,8 @@ def main() -> None:
 
     methods = sorted({row["Method"].strip() for row in rows if row["Method"].strip()})
     comunidades = sorted({row["COMMUNITY"].strip() for row in rows if row["COMMUNITY"].strip()})
-    visitas = sorted({row["visita"].strip() for row in rows if row["visita"].strip()})
+    visitas = sorted({row["visita"].strip() for row in rows if row["visita"].strip()}, key=lambda x: int(x) if x.isdigit() else x)
+    habitats = sorted({row["habitat"].strip() for row in rows if row["habitat"].strip()})
     islands = sorted({row["Island"].strip() for row in rows if row["Island"].strip()})
 
     method_rows: dict[str, dict] = {}
@@ -138,6 +145,7 @@ def main() -> None:
             "visit_count": cardinality(subset, "visita"),
             "census_count": cardinality(subset, "censo"),
             "community_x_visit_context_count": len(community_visit),
+            "community_x_visit_context_keys": sorted_context_keys(subset, ("COMMUNITY", "visita")),
             "community_x_visit_x_census_count": context_count(subset, ("COMMUNITY", "visita", "censo")),
             "community_coverage_by_visit": coverage_by_visit,
             "visits_with_all_six_communities": sum(len(sites) == 6 for sites in coverage_by_visit.values()),
@@ -158,12 +166,18 @@ def main() -> None:
     method_pattern_counts = Counter(tuple(sorted(values)) for values in methods_by_community_visit.values())
 
     habitat_by_community: dict[str, list[str]] = {}
+    community_habitat_pair_counts: dict[str, int] = {}
     for community in comunidades:
         habitat_by_community[community] = sorted({
             row["habitat"].strip()
             for row in rows
             if row["COMMUNITY"].strip() == community and row["habitat"].strip()
         })
+        for habitat in habitat_by_community[community]:
+            community_habitat_pair_counts[f"{community}|{habitat}"] = sum(
+                row["COMMUNITY"].strip() == community and row["habitat"].strip() == habitat
+                for row in rows
+            )
 
     pollinator_raw = [row["Pollinator"] for row in rows]
     plant_raw = [row["Plant sp"] for row in rows]
@@ -175,7 +189,7 @@ def main() -> None:
     )
 
     payload_out = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "cabrera_2025_reconstruction_structure_audit",
         "source_sha256": CSV_SHA256,
         "source_rows": len(rows),
@@ -196,8 +210,10 @@ def main() -> None:
             "methods": methods,
             "communities": comunidades,
             "visitas": visitas,
+            "habitats": habitats,
             "islands": islands,
             "habitat_by_community": habitat_by_community,
+            "community_habitat_pair_row_counts": community_habitat_pair_counts,
             "method_pattern_counts_across_community_x_visita": {
                 "|".join(pattern): count for pattern, count in sorted(method_pattern_counts.items())
             },
@@ -218,7 +234,7 @@ def main() -> None:
         "target_metrics_calculated": False,
         "network_matrices_built": False,
         "claim_boundary": (
-            "This is a source-structure audit only. Counts of rows, contexts, methods, missing/zero source fields, "
+            "This is a source-structure audit only. Counts of rows, exact source-observed context keys, methods, missing/zero source fields, "
             "and identity spellings are inspected to freeze reconstruction rules before any v8 support or architecture target is calculated."
         ),
     }
