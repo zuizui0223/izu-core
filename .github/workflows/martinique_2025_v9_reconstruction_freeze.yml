@@ -1,0 +1,81 @@
+name: Martinique 2025 v9 reconstruction freeze
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/audit_martinique_2025_reconstruction_structure.py'
+      - 'scripts/audit_martinique_2025_author_r_reconstruction_semantics.py'
+      - 'tests/test_martinique_2025_reconstruction_structure.py'
+      - 'tests/test_martinique_2025_author_r_reconstruction_semantics.py'
+      - 'tests/test_martinique_2025_reconstruction_contract.py'
+      - 'data/design/abm_v9_martinique_2025_reconstruction_v1.json'
+      - '.github/workflows/martinique_2025_v9_reconstruction_freeze.yml'
+      - 'data/design/abm_v9_martinique_2025_source_gate_v1.json'
+      - 'scripts/acquire_audit_martinique_2025_v9_source.py'
+
+jobs:
+  reconstruction-freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-structure audit before any target
+        run: python scripts/audit_martinique_2025_reconstruction_structure.py
+      - name: Inspect author R reconstruction semantics without outcomes
+        run: python scripts/audit_martinique_2025_author_r_reconstruction_semantics.py
+      - name: Enforce reconstruction contract before any target
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/martinique_2025_reconstruction_structure.json'))
+          r=json.load(open('data/results/martinique_2025_author_r_reconstruction_semantics.json'))
+          d=json.load(open('data/design/abm_v9_martinique_2025_reconstruction_v1.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['network_matrices_built'] is False
+          assert x['interaction_events_aggregated'] is False
+          assert x['v9_predictive_fit_calculated'] is False
+          assert r['target_metrics_calculated'] is False
+          assert r['network_outcomes_inspected'] is False
+          assert d['target_metrics_calculated'] is False
+          assert d['chronology']['target_metrics_calculated_before_freeze'] is False
+          assert x['cross_source_structure']['complete_10x12_site_period_grid_in_both_sources'] is True
+          assert x['cross_source_structure']['period_is_one_to_one_with_month_in_both_sources'] is True
+          assert x['interaction']['joint_identity_structure']['both_best_ids_nonblank_rows'] == 3732
+          assert x['interaction']['joint_identity_structure']['both_best_ids_blank_rows'] == 821
+          assert x['interaction']['joint_identity_structure']['plant_only_best_id_rows'] == 0
+          assert x['interaction']['joint_identity_structure']['insect_only_best_id_rows'] == 0
+          assert x['floral_abundance']['plant_identity']['nonblank_best_id_count'] == 330
+          assert x['floral_abundance']['floral_measure_structure']['nb_floral_unit_positive_rows'] == 8532
+          assert x['floral_abundance']['floral_measure_structure']['missing_floral_unit_rows_with_identified_plant'] == 0
+          assert x['interaction']['timing_field_structure']['published_protocol_minutes_per_site_period'] == 60
+          assert 'total_unique_window_minutes' not in x['interaction']['timing_field_structure']
+          assert all(row.get('num_sp_use',{}).get('num_sp_reference_count') == 0 for row in r['files'])
+          assert d['network_unit']['context_count'] == 120
+          assert d['interaction_weight']['author_r_evidence']['num_sp_references_in_both_audited_scripts'] == 0
+          assert d['observation_exposure']['primary_rule'].startswith('Fixed 60 minutes')
+          print('RECONSTRUCTION_CONTRACT_FROZEN', d['analysis'])
+          print('interaction context', x['interaction']['context_structure'])
+          print('joint identity structure', x['interaction']['joint_identity_structure'])
+          print('interaction amount structure', x['interaction']['interaction_amount_structure'])
+          print('floral measure', x['floral_abundance']['floral_measure_structure'])
+          print('author R Num_sp references', {row['name']: row.get('num_sp_use',{}).get('num_sp_reference_count') for row in r['files']})
+          PY
+      - name: Run reconstruction audit and contract tests
+        run: >-
+          python -m pytest -q
+          tests/test_martinique_2025_reconstruction_structure.py
+          tests/test_martinique_2025_author_r_reconstruction_semantics.py
+          tests/test_martinique_2025_reconstruction_contract.py
+          tests/test_martinique_2025_v9_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: martinique-2025-v9-reconstruction-freeze
+          path: |
+            data/results/martinique_2025_reconstruction_structure.json
+            data/results/martinique_2025_author_r_reconstruction_semantics.json
+            data/design/abm_v9_martinique_2025_reconstruction_v1.json

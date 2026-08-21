@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v9_martinique_2025_reconstruction_contract",
+  "freeze_date": "2026-08-21",
+  "source_gate_pr": 211,
+  "reconstruction_pr": 212,
+  "chronology": {
+    "source_admission_completed_before_reconstruction_freeze": true,
+    "target_metrics_calculated_before_freeze": false,
+    "network_matrices_built_before_freeze": false,
+    "v9_predictive_fit_calculated_before_freeze": false,
+    "author_r_semantics_inspected_before_weight_rule": true
+  },
+  "biological_scope": {
+    "included": "plant-insect interactions only",
+    "excluded": "bird interactions and published bird bi-period representation",
+    "reason": "The insect protocol is source-defined at 60 min per site per monthly Period and has matching independent floral opportunity at the same scale."
+  },
+  "network_unit": {
+    "unit": "Site x Period",
+    "site_ids": ["C1", "C2", "C3", "C4", "C5", "PG1", "PG2", "PG3", "PG4", "PG5"],
+    "period_ids": ["P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10", "P11", "P12"],
+    "context_count": 120,
+    "complete_cartesian_grid": true,
+    "period_to_month": {
+      "P1": "2022-10",
+      "P2": "2022-11",
+      "P3": "2022-12",
+      "P4": "2023-01",
+      "P5": "2023-02",
+      "P6": "2023-03",
+      "P7": "2023-04",
+      "P8": "2023-05",
+      "P9": "2023-06",
+      "P10": "2023-07",
+      "P11": "2023-08",
+      "P12": "2023-09"
+    },
+    "why_not_published_bimonthly": "Bi-monthly groups are an author-derived analysis grouping. The raw source-native insect and floral protocols are monthly, Period maps one-to-one to month, all 120 Site x Period contexts are represented in both sources, and v9 permits empty or sparse local contexts without pooling them away."
+  },
+  "identity_rules": {
+    "missing_sentinels": ["", "na", "n/a", "nan", "none", "null"],
+    "plant_identity": "Use source Plant_Best_ID exactly after trimming whitespace; missing sentinels are not taxa and no post-outcome taxonomic harmonization is allowed.",
+    "insect_identity": "Use source Insect_Best_ID exactly after trimming whitespace; missing sentinels are not taxa and no post-outcome taxonomic harmonization is allowed.",
+    "interaction_row_validity": "An interaction event exists only when both Plant_Best_ID and Insect_Best_ID are nonmissing.",
+    "blank_both_rows": "The 821 rows with both Best_ID fields missing are source sampling subsections with no interaction, as explicitly described in the author R code. They create no taxon, pair, or weight but preserve evidence that the Site x Period context was sampled.",
+    "one_sided_identity_rows": "The structural audit found zero plant-only and zero insect-only Best_ID rows. If this changes under source drift, fail closed before targets."
+  },
+  "interaction_weight": {
+    "rule": "Each valid identified interaction row contributes weight 1. Sum rows for duplicate Plant_Best_ID x Insect_Best_ID pairs within each Site x Period.",
+    "num_sp_rule": "Do not use Num_sp as interaction weight. It is a positive integer field on identified rows but the audited author R scripts never reference Num_sp when reconstructing networks; they retain Period, Site, Insect_Best_ID and Plant_Best_ID and use table(Plant_Best_ID, Insect_Best_ID), which counts rows.",
+    "author_r_evidence": {
+      "Motifs.R_sha256": "f821f1d7ba5f5f5da835d766d9aecee27def953f4d52ff49ee5c87981cb132e6",
+      "Interaction_turnover.R_sha256": "316d682a4c1b191ba808fd8d7529c7625a53539f1ca168fcea7bab71941a5973",
+      "num_sp_references_in_both_audited_scripts": 0,
+      "network_construction": "table(Plant_Best_ID, Insect_Best_ID) after removing rows where both IDs are missing"
+    }
+  },
+  "local_plant_resource_opportunity": {
+    "source": "Sampling_data.xlsx / Floral_abundance",
+    "rule": "A plant is locally available in a Site x Period iff an identified Plant_Best_ID row is present in Floral_abundance for that context with a positive numeric Nb_Floral_unit.",
+    "source_structure": "All 8532 identified floral rows have positive numeric Nb_Floral_unit. The remaining 14 rows use literal NA for Plant_Best_ID, Name_Floral_unit and Nb_Floral_unit and are empty-quadrat placeholders, not plant identities.",
+    "primary_form": "binary plant availability",
+    "secondary_resource_measure": "Summed Nb_Floral_unit by Plant_Best_ID x Site x Period may be retained as a descriptive secondary resource-abundance field, but it is not used to tune v9 or change the primary availability definition."
+  },
+  "observation_exposure": {
+    "primary_rule": "Fixed 60 minutes per Site x Period according to the published/source protocol.",
+    "h_start_h_end_rule": "H_start and H_end are event/provenance timing fields only and must not be summed into sampling effort because event-row intervals overlap and do not represent additive observation windows.",
+    "standardization_consequence": "No fitted detection/effort layer is required for the primary Martinique comparison because the insect observation protocol is fixed across all 120 contexts."
+  },
+  "source_hashes": {
+    "Plant_insect_interactions_former_names.xlsx": "9a001287bf64d51cbdefee1164579398e0cf5053efbfc04d1f8bcf9338626753",
+    "Sampling_data.xlsx": "e3f82dc81749d7c759dbb62fc2e40ceeff9382758a3114c63c57553d15c2327d"
+  },
+  "hard_boundaries": [
+    "Do not merge P1-P12 into six bi-monthly networks for the primary v9 validation.",
+    "Do not drop Site x Period contexts because they are sparse or contain zero valid interaction events.",
+    "Do not treat literal NA placeholders as taxa or floral opportunity.",
+    "Do not use Num_sp as interaction multiplicity.",
+    "Do not sum H_start/H_end intervals as effort.",
+    "Do not infer plant opportunity from visited plants; use the independent Floral_abundance sheet.",
+    "Do not calculate pair-support fraction, turnover, Shannon diversity, empirical ranges, or v9 predictive envelopes until this reconstruction contract passes CI.",
+    "Do not retune v9 support or weight strengths using Martinique."
+  ],
+  "target_metrics_calculated": false
+}
