@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v9_martinique_2025_source_gate",
+  "freeze_date": "2026-08-21",
+  "candidate_system": {
+    "system": "Martinique, Lesser Antilles, tropical garden plant-pollinator networks",
+    "dataset_title": "Floral offer and seasonality shape plant-pollinator networks in tropical gardens",
+    "doi": "10.25666/DATAUBFC-2025-03-28",
+    "record": "FR-13002091000019-2025-03-28",
+    "published_sampling_scope": "10 garden sites sampled monthly over 12 months; floral offer and plant-insect interactions surveyed along the same 150 m site transects; insect interactions monitored for 60 min per site per month"
+  },
+  "author_deposited_files": [
+    {"name": "Data_gardens.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=582"},
+    {"name": "Plant_insect_interactions_former_names.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=597"},
+    {"name": "Plant_species.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=598"},
+    {"name": "README.docx", "url": "https://search-data.ubfc.fr/dl_data.php?file=599"},
+    {"name": "Sampling_data.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=601"}
+  ],
+  "source_only_admission_rule": "Admit for a later full-v9 reconstruction gate only if author-deposited bytes expose repeated site/time plant-insect interaction records and an independently measured plant/floral-offer table at compatible site/time scale. Sampling exposure must be documented in source metadata or source fields. Do not inspect any v9 target or predictive output.",
+  "primary_biological_scope": "Use insect interactions only for the prospective v9 gate because source metadata states a fixed 60 min per site per month insect protocol. Bird interactions are binary per bi-period and are outside this gate.",
+  "hard_boundaries": [
+    "Source admission is not target calculation.",
+    "Do not choose monthly versus source-defined bi-period networks based on interaction outcomes; freeze this later from source field structure.",
+    "Do not infer floral opportunity from plants that received visits; require an independently recorded floral-offer source.",
+    "Do not calculate pair-support fraction, turnover, Shannon diversity, plant/pollinator support statistics, empirical ranges, or v9 predictive fit.",
+    "Menorca, Giannutri and Cabrera are consumed failures; Thousand Island Lake is pair-support-only and cannot confirm full v9."
+  ],
+  "target_metrics_calculated": false
+}
