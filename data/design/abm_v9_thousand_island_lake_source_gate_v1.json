@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v9_thousand_island_lake_source_gate",
+  "freeze_date": "2026-08-21",
+  "candidate_system": {
+    "system": "Thousand Island Lake fragmented land-bridge island landscape, China",
+    "source": "Ren, Si & Ding 2022, Ecography",
+    "article_title": "Stable species and interactions in plant-pollinator networks deviate from core position in fragmented habitats",
+    "dryad_doi": "10.5061/dryad.rv15dv484",
+    "zenodo_record": 6519751,
+    "zenodo_url": "https://zenodo.org/records/6519751",
+    "published_scope": "42 plant-pollinator networks from 41 studied islands and the mainland, observed over three years in the Thousand Island Lake fragmented landscape"
+  },
+  "source_provenance_boundary": "Use only the author-deposited dataset mirrored by Zenodo record 6519751 / Dryad DOI 10.5061/dryad.rv15dv484. The Zenodo record identifies the Dryad DOI and contains the same three deposited RAR archives. Do not use later reanalyses or secondary reconstructed matrices.",
+  "independence_boundary": "This system was not used to fit ABM v9. Menorca, Giannutri and Cabrera are consumed failure systems and cannot confirm v9. Thousand Island Lake is geographically and empirically independent of those systems, but it is a land-bridge fragmented island landscape rather than an oceanic archipelago; later claims must preserve that distinction.",
+  "source_only_gate": {
+    "required_before_any_target": [
+      "recover Zenodo record 6519751 metadata and all deposited file bytes",
+      "verify file sizes and supplied MD5 hashes and record SHA256",
+      "inventory every RAR member path without calculating ecological outcomes",
+      "extract only source files required to determine whether raw plant-pollinator matrices or pair records and site/year identifiers are present",
+      "inventory text/CSV/R-code headers and dimensions, and list opaque binary/R workspace member names without loading derived ecological result objects",
+      "verify that source-native structure is sufficient to recover raw plant x pollinator interactions and identify repeated temporal or spatial network units",
+      "do not calculate network metrics, support fractions, turnover, Shannon diversity, empirical ranges, or ABM v9 predictions"
+    ],
+    "admission_rule": "Admit only if the deposited archives expose raw or background plant-pollinator interaction data sufficient to reconstruct quantitative or event-count pair support with source-native network/site identifiers. If only derived position-stability coefficients, null summaries, or opaque objects lacking auditable pair/network structure are available, block before targets.",
+    "temporal_boundary": "The publication states observations over three years, but the source gate does not assume that year-specific networks are available. Repeated-local/temporal validation is permitted only if the deposited source itself exposes year/time identifiers at the interaction or network level before target calculation.",
+    "observation_boundary": "No effort standardization or plant-availability treatment is chosen at source admission. Any sampling-exposure or flowering/resource rule must be frozen in a later reconstruction/design gate based on source fields before targets."
+  },
+  "target_metrics_calculated": false,
+  "prohibited_before_source_admission": [
+    "calculate pair-support fraction or turnover",
+    "calculate interaction Shannon diversity",
+    "calculate plant or pollinator support estimands",
+    "inspect ABM v9 predictive envelopes",
+    "choose a year/site subset based on network outcomes",
+    "treat 42 published networks as 42 repeated local contexts without source-native identifiers",
+    "load derived coefficients as substitutes for raw pair interactions",
+    "use later secondary reanalyses or figures as replacement raw data",
+    "reuse Menorca, Giannutri, or Cabrera as v9 confirmation"
+  ]
+}
