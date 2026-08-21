@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "analysis": "cabrera_v8_failure_diagnosis_freeze",
+  "freeze_date": "2026-08-21",
+  "failure_source": {
+    "pr": 205,
+    "decision": "v8_fails_cabrera_conditional_pair_support_predictive_adequacy",
+    "known_failure_pattern": [
+      "median pair-support fraction below the frozen v8 predictive envelope",
+      "mean pair-support Jaccard turnover inside the frozen v8 predictive envelope",
+      "interaction-Shannon relative context range above the frozen v8 predictive envelope"
+    ]
+  },
+  "purpose": "Post-falsification mechanism diagnosis only. Determine whether the remaining Cabrera mismatch is primarily associated with source-observed local plant/resource opportunity, observation exposure, or residual pair realization. This diagnosis cannot convert the failed v8 test into a pass and cannot tune v8 support strengths.",
+  "source_lock": {
+    "csv_sha256": "399ec11ae6ce18c8e9ebb050857ca7c1da4cb4a7858e24382750a92ae5e16a07",
+    "primary_method": "obs",
+    "network_unit": ["COMMUNITY", "visita"],
+    "context_count": 55,
+    "interaction_weight": "N ind",
+    "v8_validation_design": "data/design/abm_v8_cabrera_validation_v1.json"
+  },
+  "diagnostic_decomposition": {
+    "global_pair_support_fraction": "positive pairs in the context / 295 pooled positive opportunity pairs",
+    "sampled_positive_plant_fraction": "pooled-positive plant identities represented by any obs census row in the context / 22 pooled-positive plant identities",
+    "plant_conditioned_pair_opportunity_fraction": "pooled opportunity pairs whose plant is represented by any obs census row in the context / 295 pooled opportunity pairs",
+    "pair_realization_given_sampled_plants": "positive context pairs / pooled opportunity pairs whose plant is represented by an obs census row in that context",
+    "unique_census_count": "number of unique censo values in the context",
+    "total_unique_census_minutes": "sum Delta_T_minutes once per unique COMMUNITY x visita x censo, only if duration is internally consistent within each census",
+    "observed_flower_exposure": "sum N observed flowers once per unique COMMUNITY x visita x censo x Plant sp, only if the value is internally consistent within each census-plant record",
+    "interaction_shannon": "Shannon entropy of positive context N ind pair weights",
+    "positive_pair_count": "number of positive canonical plant x pollinator pairs",
+    "interaction_evenness": "Shannon / log(positive_pair_count) when positive_pair_count>1; 0 otherwise"
+  },
+  "descriptive_relationships": [
+    "global_pair_support_fraction versus sampled_positive_plant_fraction",
+    "global_pair_support_fraction versus plant_conditioned_pair_opportunity_fraction",
+    "pair_realization_given_sampled_plants versus unique_census_count",
+    "pair_realization_given_sampled_plants versus total_unique_census_minutes",
+    "pair_realization_given_sampled_plants versus observed_flower_exposure",
+    "interaction_shannon versus positive_pair_count",
+    "interaction_shannon versus total N ind",
+    "interaction_shannon versus sampled_positive_plant_fraction",
+    "interaction_evenness versus positive_pair_count"
+  ],
+  "robustness": "Report Spearman rho descriptively and the leave-one-COMMUNITY-out rho range for every relationship. Do not use naive context-level p-values as confirmatory evidence because contexts are nested/repeated within communities and visits.",
+  "interpretation_rules": {
+    "plant_opportunity_signal": "Treat local plant/resource opportunity as a strong missing layer if global pair sparsity tracks sampled-positive-plant fraction or plant-conditioned pair opportunity strongly and conditioning on sampled plants materially raises the median pair-realization fraction.",
+    "observation_exposure_signal": "Treat observation exposure as an important measurement layer if pair realization given sampled plants rises materially with census count, census minutes, or observed-flower exposure.",
+    "shannon_support_signal": "Treat the Shannon-amplitude mismatch as mainly support-richness driven if Shannon tracks positive-pair count strongly while interaction-evenness is substantially less variable than Shannon.",
+    "residual_pair_signal": "If pair realization remains very sparse after conditioning on sampled plants and has weak association with exposure, retain a residual ecological pair-support mechanism gap."
+  },
+  "prohibited": [
+    "change v8 support or weight strength values",
+    "rerun the Cabrera primary test with a selected better-fitting strength",
+    "use rpi to replace the failed obs primary test",
+    "change the 55 primary contexts",
+    "change N ind to N visit flowers",
+    "call this post-failure diagnostic independent confirmation",
+    "use diagnostic associations to erase or relabel the v8 falsification"
+  ],
+  "claim_boundary": "This is a post-hoc decomposition of a preserved falsification. It can identify the next mechanism/observation layer to test prospectively, but it cannot validate a replacement model on Cabrera."
+}
