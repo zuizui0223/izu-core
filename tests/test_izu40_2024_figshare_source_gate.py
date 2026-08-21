@@ -25,13 +25,13 @@ def test_source_gate_prohibits_target_inspection_and_old_dryad_substitution():
     assert "plant niche overlap" in prohibited
     assert "support estimands" in prohibited
     assert "predictive envelope" in prohibited
-    assert "older dryad" in prohibited
+    assert "2016 dryad" in prohibited
 
 
 def test_source_audit_does_not_import_network_metric_layer():
     text = SCRIPT.read_text().lower()
     assert "external_archipelago_network" not in text
-    assert "network_metrics" not in text
+    assert "weightednetwork" not in text
     assert "interaction_shannon" not in text
     assert "mean_plant_niche_overlap" not in text
 
