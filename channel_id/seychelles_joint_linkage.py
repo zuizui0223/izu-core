@@ -1,11 +1,10 @@
 """Audit individual-level exposure/dependency overlap in the Seychelles Thespesia source.
 
-The raw source tables are not redistributed here.  This module consumes a small
+The raw source tables are not redistributed here. This module consumes a small
 source-derived plant ledger whose rows retain the exact census/breeding IDs,
 visitor-group counts and Auto/Xenogamy fruit outcomes needed for the audit.
 
 The purpose is to distinguish three statements that must not be collapsed:
-
 1. raw individual-level exposure + dependency measurements can coexist;
 2. an analyst-derived visitor-group diversity metric is not automatically Izu FDQ;
 3. raw overlap therefore does not by itself identify a cross-lineage
@@ -64,17 +63,23 @@ def spearman(x: list[float], y: list[float]) -> float:
 
 
 def exact_permutation_test(x: list[float], y: list[float]) -> dict[str, float | int]:
+    """Two-sided exact permutation p while collapsing duplicate y assignments.
+
+    Duplicate y values make many of the n! permutations identical. Each unique
+    assignment has the same multiplicity, so evaluating the unique assignments
+    gives the same exact p while avoiding repeated work. ``permutations`` still
+    reports the conceptual n! randomization count used by the original audit.
+    """
     observed = spearman(x, y)
-    extreme = 0
-    total = 0
-    for permutation in itertools.permutations(y):
-        total += 1
-        if abs(spearman(x, list(permutation))) >= abs(observed) - 1e-12:
-            extreme += 1
+    unique_permutations = set(itertools.permutations(y))
+    extreme = sum(
+        abs(spearman(x, list(permutation))) >= abs(observed) - 1e-12
+        for permutation in unique_permutations
+    )
     return {
         "spearman_rho": observed,
-        "two_sided_exact_permutation_p": extreme / total,
-        "permutations": total,
+        "two_sided_exact_permutation_p": extreme / len(unique_permutations),
+        "permutations": math.factorial(len(y)),
     }
 
 
