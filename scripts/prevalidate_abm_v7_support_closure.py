@@ -79,11 +79,33 @@ def toy_resolution(v7, v6) -> dict:
                 rel_tol=1e-12,
                 abs_tol=1e-14,
             )
+
+    # Non-vacuous branching probe for the predeclared conditional criterion.
+    # Both masks remove one feasible pollinator; one retains the Apis-only plant
+    # and the other removes it. This tests joint-support branching in a state that
+    # is explicitly structurally reducible, without loading empirical outcomes.
+    partial_keep, partial_keep_audit = v7.apply_joint_support_closure(toy, (0, 1))
+    partial_drop, partial_drop_audit = v7.apply_joint_support_closure(toy, (1, 2))
+    partial_keep_plants = tuple(partial_keep.plant_names) if partial_keep is not None else tuple()
+    partial_drop_plants = tuple(partial_drop.plant_names) if partial_drop is not None else tuple()
+    partial_support_branching = (
+        partial_keep_plants != partial_drop_plants
+        and partial_keep_audit["dropped_partnerless_positive_plant_count"] == 0
+        and partial_drop_audit["dropped_partnerless_positive_plants"] == ["apis_only"]
+    )
+
     return {
         "v6_canonical_partnerless_row_failure_reproduced": v6_failed,
         "v7_drops_only_partnerless_positive_plant": audit["dropped_partnerless_positive_plants"] == ["apis_only"],
         "v7_retains_shared_plant_budget": retained_budget_ok,
         "v7_toy_network_nonempty": closed is not None and positive_total(closed) > 0,
+        "v7_partial_support_masks_branch_joint_plant_support": partial_support_branching,
+        "partial_support_branching_probe": {
+            "mask_retaining_apis_only": ["Apis_mellifera", "Anthophora_dispar"],
+            "retained_plants": list(partial_keep_plants),
+            "mask_dropping_apis_only": ["Anthophora_dispar", "Bombus_terrestris"],
+            "dropped_mask_retained_plants": list(partial_drop_plants),
+        },
         "audit": audit,
     }
 
@@ -236,6 +258,10 @@ def build(evolution_replicates: int, context_replicates: int, seed: int) -> dict
         for state in state_rows if state["positive"]
         for summary in state["support_summaries"]
     ]
+    generic_joint_branching_observed = any(
+        row["distinct_joint_plant_support_sets"] >= 2 for row in positive_support_summaries
+    )
+    generic_grid_reducible = synthetic_partnerless_drop_masks > 0
     tests = {
         "full_pollinator_support_exact_v5_identity": not failures["full_support_v5_identity"],
         "v6_admissible_masks_unchanged_by_joint_closure": not failures["v6_admissible_mask_identity"],
@@ -251,14 +277,17 @@ def build(evolution_replicates: int, context_replicates: int, seed: int) -> dict
                 "v7_toy_network_nonempty",
             )
         ),
+        "canonical_reducible_partial_support_branches_joint_plant_support": toy[
+            "v7_partial_support_masks_branch_joint_plant_support"
+        ],
         "every_observed_v6_failure_mask_is_resolved_by_partnerless_plant_dropout": (
             v6_structural_failure_masks == v7_resolved_v6_failure_masks
         ),
         "nonzero_support_branches_pollinator_support": any(
             row["distinct_pollinator_support_sets"] >= 2 for row in positive_support_summaries
         ),
-        "nonzero_support_can_branch_joint_plant_support": any(
-            row["distinct_joint_plant_support_sets"] >= 2 for row in positive_support_summaries
+        "generic_grid_joint_plant_branching_if_structurally_reducible": (
+            generic_joint_branching_observed if generic_grid_reducible else True
         ),
         "support_closure_can_change_shannon": any(row["shannon_range"] > EPS for row in metric_ranges),
         "support_closure_can_change_plant_overlap": any(row["overlap_range"] > EPS for row in metric_ranges),
@@ -266,7 +295,7 @@ def build(evolution_replicates: int, context_replicates: int, seed: int) -> dict
     }
     passed = all(tests.values())
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "abm_v7_joint_support_closure_synthetic_prevalidation",
         "status": "synthetic_mechanism_prevalidation_no_empirical_v7_fit",
         "empirical_inputs_loaded": [],
@@ -287,6 +316,15 @@ def build(evolution_replicates: int, context_replicates: int, seed: int) -> dict
         "v6_structural_failure_masks_in_synthetic_grid": v6_structural_failure_masks,
         "v7_resolved_v6_failure_masks": v7_resolved_v6_failure_masks,
         "synthetic_masks_with_partnerless_plant_dropout": synthetic_partnerless_drop_masks,
+        "generic_grid_joint_support_branching_diagnostic": {
+            "structurally_reducible_masks_observed": synthetic_partnerless_drop_masks,
+            "joint_plant_support_branching_observed": generic_joint_branching_observed,
+            "interpretation": (
+                "The generic v4-derived grid contains no partnerless-plant dropout opportunity, so joint-plant branching is not testable in that grid; the canonical structurally reducible partial-support probe supplies the required non-vacuous mechanism test."
+                if not generic_grid_reducible
+                else "The generic v4-derived grid contains structurally reducible masks, so joint-plant support branching is required in the grid."
+            ),
+        },
         "tests": tests,
         "failure_details": failures,
         "metric_range_rows": metric_ranges,
@@ -316,6 +354,7 @@ def main() -> None:
         "v6_structural_failure_masks": payload["v6_structural_failure_masks_in_synthetic_grid"],
         "v7_resolved_v6_failure_masks": payload["v7_resolved_v6_failure_masks"],
         "synthetic_partnerless_dropout_masks": payload["synthetic_masks_with_partnerless_plant_dropout"],
+        "generic_grid_joint_support_branching_diagnostic": payload["generic_grid_joint_support_branching_diagnostic"],
         "tests": payload["tests"],
     }, indent=2))
 
