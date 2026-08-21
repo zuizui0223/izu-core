@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v8_izu40_figshare_source_gate",
+  "freeze_date": "2026-08-20",
+  "candidate_system": {
+    "source": "Hiraiwa & Ushimaru 2024 Functional Ecology",
+    "article_doi": "10.1111/1365-2435.14527",
+    "figshare_article_id": 25025000,
+    "figshare_version": 1,
+    "figshare_doi": "10.6084/m9.figshare.25025000.v1",
+    "published_scope": "40 spatiotemporally variable coastal plant-pollinator networks spanning continental and oceanic-island sites in Japan"
+  },
+  "independence_boundary": "No Hiraiwa/Ushimaru 2017 or 2024 interaction dataset implementation was found in izu-core before this source gate. Menorca and Giannutri are consumed failures and are not reused. This source gate does not itself establish full statistical independence from every historical dataset used by the broader literature; it establishes that the source-native 40-network deposit was not used to formulate ABM v8 in this repository.",
+  "source_only_gate": {
+    "metadata_endpoint": "https://api.figshare.com/v2/articles/25025000",
+    "required_before_any_target": [
+      "recover Figshare v1 article metadata and exact file list",
+      "recover every public file byte-for-byte from metadata download URLs",
+      "record byte count, MD5 when supplied, and SHA256 for every file",
+      "inventory structured file sheet names, dimensions, headers, and source-code grouping clues without calculating any network metric",
+      "determine whether source-native data/code can reconstruct the published 40 network units while preserving site/time identities",
+      "do not calculate Shannon, plant niche overlap, pair-support fractions, empirical ranges, or any ABM v8 predictive fit"
+    ],
+    "blocked_rule": "If public bytes cannot be recovered, checksums drift, or the deposit contains only derived metrics/figures without source-native interaction structure sufficient to preserve the 40 network units, block before target inspection. Do not substitute the older Dryad file or reconstruct matrices from figures."
+  },
+  "target_metrics_calculated": false,
+  "prohibited_before_source_admission": [
+    "calculate interaction Shannon diversity",
+    "calculate plant niche overlap",
+    "calculate pair, plant, or pollinator support estimands",
+    "inspect any ABM v8 predictive envelope",
+    "select only oceanic islands, only one island, or only a season based on network values",
+    "merge or drop source network units after inspecting target values",
+    "substitute the 2016 Dryad primary_data.xlsx if the 2024 Figshare source is incomplete"
+  ]
+}

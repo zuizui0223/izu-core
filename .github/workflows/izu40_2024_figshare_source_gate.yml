@@ -1,0 +1,51 @@
+name: Izu 40-network Figshare source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v8_izu40_figshare_source_gate_v1.json'
+      - 'scripts/acquire_audit_izu40_2024_figshare.py'
+      - 'tests/test_izu40_2024_figshare_source_gate.py'
+      - '.github/workflows/izu40_2024_figshare_source_gate.yml'
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-only Figshare audit
+        run: python scripts/acquire_audit_izu40_2024_figshare.py
+      - name: Enforce source-only boundary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/izu40_2024_figshare_source_audit.json'))
+          assert x['target_metrics_calculated'] is False
+          print('status', x['status'])
+          print('source admission', x['source_admission_succeeds'])
+          print('files', x['file_count'])
+          print('source bytes ok', x['source_bytes_ok'])
+          print('raw pair interaction roles', x['raw_pair_interaction_roles_visible'])
+          print('derived network summary', x['derived_network_summary_visible'])
+          print('code structure', x['source_code_structure_visible'])
+          for row in x['files']:
+              print('FILE', row.get('figshare_file_id'), row.get('name'), row.get('bytes'), row.get('sha256'), row.get('metadata_md5_match'))
+              if row.get('schema_inventory'):
+                  print('SCHEMA', row['schema_inventory'])
+              if row.get('code_inventory'):
+                  print('CODE', row['code_inventory'])
+          PY
+      - name: Run source-gate regression tests
+        run: python -m pytest -q tests/test_izu40_2024_figshare_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: izu40-2024-figshare-source-gate
+          path: |
+            data/results/izu40_2024_figshare_source_audit.json
+            data/external/izu40_2024/**
