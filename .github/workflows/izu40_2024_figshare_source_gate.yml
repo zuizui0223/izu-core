@@ -31,7 +31,8 @@ jobs:
           print('source admission', x['source_admission_succeeds'])
           print('files', x['file_count'])
           print('source bytes ok', x['source_bytes_ok'])
-          print('structured roles', x['structured_interaction_roles_visible'])
+          print('raw pair interaction roles', x['raw_pair_interaction_roles_visible'])
+          print('derived network summary', x['derived_network_summary_visible'])
           print('code structure', x['source_code_structure_visible'])
           for row in x['files']:
               print('FILE', row.get('figshare_file_id'), row.get('name'), row.get('bytes'), row.get('sha256'), row.get('metadata_md5_match'))
