@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/audit_cabrera_2025_reconstruction_structure.py'
       - 'tests/test_cabrera_2025_reconstruction_structure.py'
+      - 'tests/test_cabrera_2025_validation_freeze.py'
       - 'data/design/abm_v8_cabrera_validation_v1.json'
       - '.github/workflows/cabrera_2025_reconstruction_freeze.yml'
 
@@ -21,24 +22,32 @@ jobs:
         run: python -m pip install -e '.[dev]'
       - name: Audit checksum-locked Cabrera source structure
         run: python scripts/audit_cabrera_2025_reconstruction_structure.py
-      - name: Enforce pre-target boundary
+      - name: Enforce pre-target boundary and exact context freeze
         run: |
           python - <<'PY'
           import json
           x=json.load(open('data/results/cabrera_2025_reconstruction_structure.json'))
+          d=json.load(open('data/design/abm_v8_cabrera_validation_v1.json'))
           assert x['target_metrics_calculated'] is False
           assert x['network_matrices_built'] is False
+          assert d['chronology']['cabrera_target_metrics_calculated_before_freeze'] is False
+          assert d['chronology']['network_matrices_built_before_freeze'] is False
+          locked=d['source_native_reconstruction']['locked_context_keys']
+          observed=x['method_structure']['obs']['community_x_visit_context_keys']
+          assert observed == locked
+          assert len(locked) == 55
           print('source rows', x['source_rows'])
-          print('cardinalities', x['structural_cardinalities'])
+          print('locked obs contexts', len(locked))
           print('methods', x['source_values']['methods'])
           print('method patterns', x['source_values']['method_pattern_counts_across_community_x_visita'])
-          print('habitat by community', x['source_values']['habitat_by_community'])
-          print('method structure', x['method_structure'])
           print('zero/blank structure', x['zero_and_blank_structure'])
           print('identity audit', x['identity_audit'])
+          print('primary method', d['source_native_reconstruction']['primary_method_label'])
+          print('primary weight', d['source_native_reconstruction']['primary_interaction_weight'])
+          print('primary estimands', list(d['primary_estimands']))
           PY
       - name: Run pre-target regression tests
-        run: python -m pytest -q tests/test_cabrera_2025_reconstruction_structure.py
+        run: python -m pytest -q tests/test_cabrera_2025_reconstruction_structure.py tests/test_cabrera_2025_validation_freeze.py
       - uses: actions/upload-artifact@v4
         with:
           name: cabrera-2025-reconstruction-freeze
