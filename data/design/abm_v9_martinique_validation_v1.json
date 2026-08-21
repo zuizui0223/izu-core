@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v9_martinique_prospective_validation",
+  "freeze_date": "2026-08-21",
+  "source_gate_pr": 211,
+  "reconstruction_freeze_pr": 212,
+  "chronology": {
+    "source_and_reconstruction_frozen_before_target_code": true,
+    "martinique_target_metrics_calculated_before_freeze": false,
+    "martinique_network_matrices_built_before_freeze": false,
+    "martinique_v9_predictive_distribution_calculated_before_freeze": false
+  },
+  "empirical_reconstruction": {
+    "context_unit": "Site x Period",
+    "context_count": 120,
+    "interaction_scope": "insects only",
+    "interaction_weight": "one per valid identified interaction event row, summed by Plant_Best_ID x Insect_Best_ID within context",
+    "plant_opportunity": "binary independent floral presence: identified Plant_Best_ID with positive numeric Nb_Floral_unit in Floral_abundance within context",
+    "observation_effort": "fixed 60 min per Site x Period",
+    "missing_rows": "interaction rows with both Best_ID fields missing and floral rows with literal NA placeholders create no taxon or pair"
+  },
+  "conditional_baseline": {
+    "opportunity_network": "Pool all valid interaction event rows across the 120 contexts. Plants and insects are the union of identified interaction taxa; positive baseline pairs are pairs observed at least once; baseline pair weights are pooled event counts.",
+    "plant_denominator": "The pooled interacting plant set only. Floral-only plants that never occur in the pooled interaction network are retained as descriptive resource context but are outside the v9 opportunity-network denominator.",
+    "no_complete_cross_product": "Never add plant x insect cross-pairs that were never observed in the pooled event data.",
+    "local_pair_denominator": "For each context, restrict the pooled positive pair union to pairs whose plant endpoint is independently locally available in Floral_abundance. Pair support is evaluated only inside that locally available opportunity subset."
+  },
+  "pre_target_structural_gate": {
+    "rule": "Every valid observed interaction pair must have its plant endpoint independently locally available in the same Site x Period floral-opportunity set. If not, stop before predictive adequacy because the independent plant-opportunity measurement does not cover the observed interaction support at the frozen scale.",
+    "failure_decision": "blocked_martinique_independent_plant_opportunity_does_not_cover_observed_interaction_plants",
+    "no_rescue": "Do not add interaction-observed plants to the floral-opportunity set, merge periods, drop offending contexts, or change plant identity rules after inspection."
+  },
+  "primary_estimands": {
+    "median_active_interacting_plant_fraction": {
+      "definition": "For each of 120 contexts, number of pooled interacting plants independently locally available from floral data divided by pooled interacting plant count; take the median across all contexts.",
+      "v9_analogue": "For each synthetic context, number of positive baseline plants retained by the upstream v9 plant-availability draw divided by positive baseline plant count; take the median across 120 contexts."
+    },
+    "median_pair_support_fraction_given_active_plants": {
+      "definition": "For each empirical context with at least one pooled positive pair whose plant endpoint is locally available, observed positive pairs divided by that locally plant-conditioned pooled pair denominator; take the median across defined contexts. Contexts with zero plant-conditioned pair denominator are undefined for this conditional estimand but remain in the plant and Shannon estimands.",
+      "v9_analogue": "For each synthetic context with at least one baseline positive pair attached to a plant retained by the upstream plant draw, realized positive pairs divided by that plant-conditioned baseline pair denominator; take the median across defined contexts."
+    },
+    "interaction_shannon_relative_context_range": {
+      "definition": "Across all 120 empirical contexts, including zero-interaction contexts as Shannon=0, calculate max Shannon minus min Shannon and divide by pooled-baseline interaction Shannon.",
+      "v9_analogue": "Across all 120 synthetic contexts, including empty realized networks as Shannon=0, calculate max-minus-min Shannon divided by baseline Shannon."
+    }
+  },
+  "secondary_diagnostics": [
+    "mean pairwise Jaccard turnover of realized positive pair sets across the 120 contexts, with empty-set conventions reported explicitly",
+    "median and range of active pollinator fraction relative to pooled interacting insects",
+    "median and range of realized positive pair count",
+    "empirical summed floral-unit abundance per context as descriptive resource intensity only",
+    "number of zero-interaction empirical and synthetic contexts"
+  ],
+  "v9_predictive_distribution": {
+    "model": "frozen ABM v9 from main after PR #207",
+    "conditioning": "Run v9 local-context realization on the empirical pooled weighted opportunity network; this is a local-layer test and does not validate v4 whole-island opportunity on Martinique.",
+    "support_strengths": [0.25, 0.5, 0.75],
+    "weight_strengths": [0.25, 0.5, 0.75, 1.0],
+    "equal_setting_weights": true,
+    "replicates_per_support_x_weight_setting": 100,
+    "contexts_per_predictive_draw": 120,
+    "predictive_draw_count": 1200,
+    "empty_context_rule": "Retain empty or sparse v9 contexts exactly; never redraw support masks.",
+    "conditional_pair_rule": "Contexts with zero plant-conditioned pair denominator are undefined only for the conditional pair-support estimand; they are not removed from the other primary estimands.",
+    "envelope": "central 2.5-97.5% predictive interval calculated separately for each primary estimand",
+    "adequacy_rule": "The v9 mechanism survives Martinique only if the pre-target structural gate passes and all three empirical primary estimands lie inside their frozen predictive envelopes. No averaging or favorable setting selection is allowed.",
+    "seed": 20260821
+  },
+  "claim_boundary": "This is a prospective conditional test of the v9 local hierarchy on a new oceanic-island dataset with independent floral opportunity and fixed observation effort. Conditioning on the empirical pooled interaction network means a pass would support the local plant-availability/pair-support/weight mechanism class, not independently validate v4 island-scale colonization opportunity.",
+  "prohibited_after_target_inspection": [
+    "change Site x Period to bi-monthly contexts",
+    "add interaction-observed plants to local floral opportunity",
+    "use Num_sp as interaction weight",
+    "drop zero or sparse contexts",
+    "drop plant-opportunity mismatches",
+    "change primary estimands or their denominators",
+    "select a favorable support or weight strength instead of the equal-weight frozen mixture",
+    "retune support strengths using Martinique",
+    "reuse Martinique as independent confirmation of a replacement model if v9 fails"
+  ],
+  "target_metrics_calculated": false
+}

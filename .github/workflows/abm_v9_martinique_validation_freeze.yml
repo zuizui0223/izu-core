@@ -1,0 +1,50 @@
+name: ABM v9 Martinique validation freeze
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v9_martinique_validation_v1.json'
+      - 'tests/test_abm_v9_martinique_validation_freeze.py'
+      - '.github/workflows/abm_v9_martinique_validation_freeze.yml'
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Enforce pre-target validation design
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/design/abm_v9_martinique_validation_v1.json'))
+          assert d['target_metrics_calculated'] is False
+          assert d['chronology']['martinique_target_metrics_calculated_before_freeze'] is False
+          assert d['empirical_reconstruction']['context_count'] == 120
+          assert list(d['primary_estimands']) == [
+              'median_active_interacting_plant_fraction',
+              'median_pair_support_fraction_given_active_plants',
+              'interaction_shannon_relative_context_range',
+          ]
+          p=d['v9_predictive_distribution']
+          assert p['support_strengths'] == [0.25,0.5,0.75]
+          assert p['weight_strengths'] == [0.25,0.5,0.75,1.0]
+          assert p['predictive_draw_count'] == 1200
+          assert p['contexts_per_predictive_draw'] == 120
+          assert p['equal_setting_weights'] is True
+          print('FROZEN_VALIDATION', d['analysis'])
+          print('primary estimands', list(d['primary_estimands']))
+          print('structural failure', d['pre_target_structural_gate']['failure_decision'])
+          print('predictive design', p)
+          PY
+      - name: Run freeze regression tests
+        run: python -m pytest -q tests/test_abm_v9_martinique_validation_freeze.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v9-martinique-validation-freeze
+          path: data/design/abm_v9_martinique_validation_v1.json
