@@ -5,6 +5,8 @@ import pytest
 
 from channel_id.field_fdq_exposure import audit_field_fdq_from_files
 
+ROOT = Path(__file__).resolve().parents[1]
+
 
 def write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
@@ -78,6 +80,14 @@ def trait(taxon: str, mm: str) -> dict[str, str]:
     }
 
 
+def test_repo_visitor_template_carries_optional_taxon_id_for_fdq() -> None:
+    header = (ROOT / "templates/field_visitor_contact_manifest_template.csv").read_text(encoding="utf-8").splitlines()[0]
+    columns = header.split(",")
+    assert "visitor_group" in columns
+    assert "visitor_taxon_id" in columns
+    assert columns.index("visitor_taxon_id") == columns.index("visitor_group") + 1
+
+
 def test_complete_taxon_and_trait_coverage_produces_source_formula_fdq(tmp_path: Path) -> None:
     visits = [
         visit("v1", "bombus_ardens_confirmed", "Bombus ardens ardens", "confirmed", "10"),
@@ -128,7 +138,6 @@ def test_confirmed_taxon_with_missing_trait_is_not_dropped_or_renormalized(tmp_p
 def test_fdq_visit_requires_taxon_column_but_existing_service_manifest_logic_remains_separate(tmp_path: Path) -> None:
     visits = [visit("v1", "bombus_ardens_confirmed", "Bombus ardens ardens", "confirmed")]
     paths = base_files(tmp_path, visits, [trait("Bombus ardens ardens", "10")])
-    # Rewrite visits without the new optional-for-service / required-for-FDQ column.
     old_fields = [field for field in VISIT_FIELDS if field != "visitor_taxon_id"]
     write_csv(paths[2], old_fields, [{key: value for key, value in visits[0].items() if key != "visitor_taxon_id"}])
     with pytest.raises(ValueError, match="FDQ visit manifest missing columns: visitor_taxon_id"):
