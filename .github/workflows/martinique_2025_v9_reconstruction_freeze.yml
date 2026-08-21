@@ -32,14 +32,15 @@ jobs:
           assert x['network_matrices_built'] is False
           assert x['interaction_events_aggregated'] is False
           assert x['v9_predictive_fit_calculated'] is False
+          assert x['cross_source_structure']['complete_10x12_site_period_grid_in_both_sources'] is True
+          assert x['cross_source_structure']['period_is_one_to_one_with_month_in_both_sources'] is True
+          assert x['interaction']['timing_field_structure']['published_protocol_minutes_per_site_period'] == 60
+          assert 'total_unique_window_minutes' not in x['interaction']['timing_field_structure']
           print('interaction context', x['interaction']['context_structure'])
           print('floral context', x['floral_abundance']['context_structure'])
-          print('period mapping interaction', x['interaction']['period_to_months'])
-          print('period mapping floral', x['floral_abundance']['period_to_months'])
-          print('interaction plant identity', x['interaction']['plant_identity'])
-          print('insect identity', x['interaction']['insect_identity'])
-          print('floral plant identity', x['floral_abundance']['plant_identity'])
-          print('exposure', x['interaction']['exposure_structure'])
+          print('period mapping', x['interaction']['period_to_months'])
+          print('joint identity structure', x['interaction']['joint_identity_structure'])
+          print('timing fields', x['interaction']['timing_field_structure'])
           print('floral measure', x['floral_abundance']['floral_measure_structure'])
           print('cross source', x['cross_source_structure'])
           PY
