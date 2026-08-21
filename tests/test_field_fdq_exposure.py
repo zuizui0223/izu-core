@@ -6,6 +6,7 @@ import pytest
 from channel_id.field_fdq_exposure import audit_field_fdq_from_files
 
 ROOT = Path(__file__).resolve().parents[1]
+ISLAND = "Oshima"
 
 
 def write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
@@ -43,12 +44,12 @@ def base_files(tmp_path: Path, visits: list[dict[str, str]], traits: list[dict[s
     visit_path = tmp_path / "visits.csv"
     trait_path = tmp_path / "traits.csv"
     write_csv(plants, PLANT_FIELDS, [{
-        "population_id": "pop1", "field_event_id": "event1", "island_id": "oshima",
+        "population_id": "pop1", "field_event_id": "event1", "island_id": ISLAND,
         "site_id": "site1", "taxon": "Campanula microdonta", "plant_id": "plant1",
         "analysis_role": "focal_anchor", "tagged_at": "2026-06-01T08:00:00+09:00", "notes": "",
     }])
     write_csv(effort, EFFORT_FIELDS, [{
-        "field_event_id": "event1", "island_id": "oshima", "site_id": "site1",
+        "field_event_id": "event1", "island_id": ISLAND, "site_id": "site1",
         "effort_id": "effort1", "plant_id": "plant1", "flower_id": "flower1",
         "start_time": "2026-06-01T09:00:00+09:00", "end_time": "2026-06-01T10:00:00+09:00",
         "monitored_open_flower_count": "1", "method": "live", "video_id": "",
@@ -61,7 +62,7 @@ def base_files(tmp_path: Path, visits: list[dict[str, str]], traits: list[dict[s
 
 def visit(visit_id: str, group: str, taxon: str, confidence: str, start: str = "10") -> dict[str, str]:
     return {
-        "visit_id": visit_id, "field_event_id": "event1", "island_id": "oshima", "site_id": "site1",
+        "visit_id": visit_id, "field_event_id": "event1", "island_id": ISLAND, "site_id": "site1",
         "effort_id": "effort1", "plant_id": "plant1", "flower_id": "flower1", "source_video_id": "",
         "visit_start_offset_s": start, "visit_end_offset_s": str(float(start) + 2),
         "individual_track_id": visit_id, "detection_source": "live", "visitor_group": group,
