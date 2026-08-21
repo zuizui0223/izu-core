@@ -5,7 +5,9 @@ on:
   pull_request:
     paths:
       - 'data/design/abm_v9_mahe_iwdb_source_gate_v1.json'
+      - 'data/design/abm_v9_mahe_iwdb_transport_amendment_v1.json'
       - 'scripts/acquire_audit_mahe_2017_iwdb.py'
+      - 'scripts/acquire_audit_mahe_2017_iwdb_retry.py'
       - 'tests/test_mahe_2017_iwdb_source_gate.py'
       - '.github/workflows/mahe_2017_iwdb_source_gate.yml'
 
@@ -21,14 +23,15 @@ jobs:
         run: |
           python -m pip install -e '.[dev]'
           python -m pip install xlrd==2.0.2
-      - name: Run source-only IWDB audit
-        run: python scripts/acquire_audit_mahe_2017_iwdb.py
+      - name: Run source-only IWDB audit with frozen exact-path host retry
+        run: python scripts/acquire_audit_mahe_2017_iwdb_retry.py
       - name: Enforce source-only boundary
         run: |
           python - <<'PY'
           import json
           x=json.load(open('data/results/mahe_2017_iwdb_source_audit.json'))
           assert x['target_metrics_calculated'] is False
+          assert x.get('transport_amendment_used') is True
           print('status', x['status'])
           print('entry attempts', x.get('page_attempts'))
           print('entry sha', x.get('database_entry_sha256'))
@@ -38,7 +41,7 @@ jobs:
           print('representation labels', x.get('representation_labels'))
           print('source admission', x['source_admission_succeeds'])
           for row in x.get('files', []):
-              print('FILE', row.get('name'), row.get('http_status'), row.get('bytes'), row.get('sha256'), row.get('inventory_error'))
+              print('FILE', row.get('name'), row.get('transport_attempts'), row.get('bytes'), row.get('sha256'), row.get('inventory_error'))
               print('WORKBOOK', row.get('workbook_inventory'))
           PY
       - name: Run source-gate regression tests
