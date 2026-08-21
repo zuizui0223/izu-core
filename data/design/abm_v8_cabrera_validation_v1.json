@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v8_cabrera_repeated_local_validation_freeze",
+  "freeze_date": "2026-08-21",
+  "chronology": {
+    "source_gate_pr": 204,
+    "source_gate_merge_commit": "cc67f839037d034548dadd8c2e5f703337c50a14",
+    "source_structure_audit_precedes_this_freeze": true,
+    "cabrera_target_metrics_calculated_before_freeze": false,
+    "network_matrices_built_before_freeze": false
+  },
+  "held_out_system": {
+    "island": "Cabrera",
+    "source": "Serra-Marin et al. 2025 Methods in Ecology and Evolution",
+    "article_doi": "10.1111/2041-210X.70165",
+    "dataset_doi": "10.5281/zenodo.17130777",
+    "source_csv_sha256": "399ec11ae6ce18c8e9ebb050857ca7c1da4cb4a7858e24382750a92ae5e16a07",
+    "independence": "Cabrera was not used to build ABM v4-v8, the Ogasawara diagnosis, the Menorca v5 falsification, or the Giannutri v6 falsification. It is a new island, time period and source dataset, although it is in the same broader Balearic region as Menorca; a Cabrera pass alone therefore cannot establish broad geographic generality."
+  },
+  "source_native_reconstruction": {
+    "primary_method_label": "obs",
+    "method_reason": "The pre-target source audit shows method=obs contains explicit no-pollinator sampling rows: 307 rows have blank Pollinator and N ind=0. Method=rpi has no zero N ind rows and therefore does not provide equivalent explicit support-absence ascertainment. The primary pair-support test uses obs for this source-structural reason, not because of any network outcome.",
+    "network_unit": ["COMMUNITY", "visita"],
+    "network_unit_reason": "README defines COMMUNITY as community/site identifier and visita as sampling visit identifier. Use only source-observed obs COMMUNITY x visita combinations; absent combinations are not imputed as zero-interaction networks because the source has no rows proving that they were sampled.",
+    "expected_context_count": 55,
+    "locked_context_keys": [
+      ["Dune system 1", "1"], ["Dune system 2", "1"], ["Pine forest 1", "1"], ["Pine forest 2", "1"], ["Rocky coastal 2", "1"],
+      ["Rocky coastal 1", "2"], ["Rocky coastal 2", "2"],
+      ["Dune system 1", "3"], ["Dune system 2", "3"], ["Pine forest 1", "3"], ["Pine forest 2", "3"], ["Rocky coastal 1", "3"], ["Rocky coastal 2", "3"],
+      ["Dune system 1", "4"], ["Dune system 2", "4"], ["Pine forest 2", "4"], ["Rocky coastal 1", "4"], ["Rocky coastal 2", "4"],
+      ["Dune system 1", "5"], ["Dune system 2", "5"], ["Rocky coastal 1", "5"], ["Rocky coastal 2", "5"],
+      ["Dune system 2", "6"], ["Rocky coastal 1", "6"], ["Rocky coastal 2", "6"],
+      ["Dune system 1", "7"], ["Dune system 2", "7"], ["Pine forest 2", "7"], ["Rocky coastal 1", "7"], ["Rocky coastal 2", "7"],
+      ["Dune system 2", "8"], ["Pine forest 1", "8"], ["Pine forest 2", "8"], ["Rocky coastal 1", "8"], ["Rocky coastal 2", "8"],
+      ["Dune system 1", "9"], ["Pine forest 1", "9"], ["Pine forest 2", "9"], ["Rocky coastal 1", "9"], ["Rocky coastal 2", "9"],
+      ["Dune system 2", "10"], ["Pine forest 1", "10"], ["Pine forest 2", "10"], ["Rocky coastal 1", "10"], ["Rocky coastal 2", "10"],
+      ["Dune system 1", "11"], ["Rocky coastal 2", "11"],
+      ["Dune system 1", "12"], ["Dune system 2", "12"], ["Rocky coastal 1", "12"], ["Rocky coastal 2", "12"],
+      ["Dune system 1", "13"], ["Dune system 2", "13"], ["Rocky coastal 1", "13"], ["Rocky coastal 2", "13"]
+    ],
+    "plant_identity": "Plant sp canonicalized by the pre-existing channel_id.external_archipelago_network.canonical_label rule. The pre-target audit found zero whitespace/case variant collisions.",
+    "pollinator_identity": "Pollinator canonicalized by the same pre-existing canonical_label rule. The pre-target audit found zero whitespace/case variant collisions.",
+    "primary_interaction_weight": "N ind",
+    "weight_reason": "README defines N ind as number of pollinator individuals recorded. It is the direct source interaction-count quantity. N visit flowers measures how many flowers were visited within an event and is not substituted or selected by v8 fit.",
+    "pair_aggregation": "Within each locked obs COMMUNITY x visita context, sum positive numeric N ind over duplicate canonical Plant sp x Pollinator rows.",
+    "zero_and_blank_rule": "Rows with blank Pollinator and N ind=0 are retained as evidence that a flowering-plant census occurred with no recorded pollinator, but they create no pair and contribute zero interaction weight. The pre-target audit found no nonblank Pollinator row with N ind=0. Rows from missing COMMUNITY x visita combinations are not created or treated as zeros.",
+    "habitat_role": "Retained as source metadata only. It is not a primary grouping field because the pre-target audit shows habitat is not one-to-one with COMMUNITY.",
+    "rpi_role": "Not used in the primary validation because its source rows contain no explicit zero N ind records. It may only be considered in a separately frozen observation-layer robustness analysis and cannot rescue the primary obs result."
+  },
+  "conditional_local_layer_test": {
+    "v4_island_opportunity_prediction_used": false,
+    "reason": "This validation tests the v8 local support/realization layer conditional on Cabrera's empirically observed pooled pair opportunity; it does not attempt to infer a whole-community v4 opportunity field for Cabrera.",
+    "pooled_opportunity_baseline": "Pool all 55 locked obs contexts, summing positive N ind by canonical plant x pollinator pair. The opportunity pair set is exactly the set of pairs with pooled positive N ind. Pooled pair weights are the summed N ind values.",
+    "no_unobserved_pair_completion": "Do not create plant x pollinator opportunities that were never positive anywhere in the 55-context pooled source. This conditional test asks whether v8 can generate observed local support branching within the empirically admitted opportunity union."
+  },
+  "primary_estimands": {
+    "median_pair_support_fraction": "For each of 55 empirical contexts, active pair set = canonical pairs with aggregated N ind>0. Pair-support fraction = active-pair count divided by pooled-opportunity positive-pair count. Primary statistic is the median across the 55 contexts.",
+    "mean_pair_support_jaccard_turnover": "For every unordered pair of the 55 empirical contexts, turnover = 1 - |intersection of active pair sets| / |union|. If both sets are empty, turnover=0. Primary statistic is the arithmetic mean over all context pairs.",
+    "interaction_shannon_relative_context_range": "For each context, compute Shannon diversity over positive aggregated N ind pair weights; define Shannon=0 for an empty interaction context. Statistic = (maximum context Shannon - minimum context Shannon) / pooled-opportunity baseline Shannon. If pooled baseline Shannon is non-positive or undefined, block rather than redefine the statistic."
+  },
+  "secondary_diagnostics_not_headline_decision": [
+    "median and range of active plant fraction relative to pooled positive plants",
+    "median and range of active pollinator fraction relative to pooled positive pollinators",
+    "count of empty local interaction contexts",
+    "context positive pair counts",
+    "Morisita-Horn plant niche overlap only where mathematically defined; it cannot replace a failed primary estimand"
+  ],
+  "v8_predictive_distribution": {
+    "baseline": "checksum-locked pooled empirical obs opportunity network defined above",
+    "support_strengths": [0.25, 0.5, 0.75],
+    "support_strength_weighting": "equal",
+    "weight_strengths": [0.25, 0.5, 0.75, 1.0],
+    "weight_strength_weighting": "equal",
+    "replicates_per_support_x_weight_setting": 100,
+    "contexts_per_replicate": 55,
+    "predictive_draw_count": 1200,
+    "support_process": "Use the unchanged v8 hierarchy: v6-style pollinator availability followed by pair-level support inside globally active pollinators using the same frozen support strength. Do not condition pair masks on nonempty networks and do not redraw empty or sparse contexts.",
+    "weight_process": "Apply the unchanged v5 positive affinity reweighting after v8 support projection at the frozen weight strength.",
+    "preferred_setting_selection": "prohibited",
+    "empty_context_rule": "Empty synthetic local networks are retained. Their active pair set is empty and Shannon is 0 for the frozen empirical/predictive statistic."
+  },
+  "decision_rule": {
+    "model_structural_gate": "Any violation of v8's existing no-new-taxon/link or retained-positive-row budget invariants is a structural failure and may not be skipped or redrawn.",
+    "predictive_envelopes": "For each of the three primary estimands, use the equal-weight 1200-draw central 2.5-97.5% predictive envelope.",
+    "headline": "v8 survives the Cabrera conditional repeated-local test only if the model structural gate passes and all three frozen primary empirical estimands lie inside their respective frozen predictive envelopes. Failure of any primary component is retained; primary metrics are not averaged into a pass.",
+    "secondary_diagnostics": "Secondary plant/pollinator support and overlap diagnostics describe the failure/survival mode but cannot change the headline decision."
+  },
+  "prohibited_after_target_calculation": [
+    "change the primary method away from obs",
+    "add or drop any of the 55 locked COMMUNITY x visita contexts",
+    "impute any of the 23 absent COMMUNITY x visita combinations as zero-interaction networks",
+    "use habitat as a replacement network grouping after seeing outcomes",
+    "switch primary interaction weight from N ind to N visit flowers",
+    "drop blank-Pollinator zero rows in a way that changes interpretation of sampling absence",
+    "change plant or pollinator canonicalization after seeing target values",
+    "complete the pooled opportunity matrix with never-observed plant x pollinator pairs",
+    "change the three primary estimands",
+    "change the 2.5-97.5% predictive envelopes",
+    "select a preferred support or weight strength using Cabrera fit",
+    "skip, redraw, repair, or replace empty/sparse v8 contexts",
+    "use rpi or combined methods to rescue a failed obs primary test",
+    "reuse Menorca or Giannutri as confirmation of v8"
+  ],
+  "claim_boundary": "This is a prospective conditional test of v8 local pair-support branching and weighted realization on a new island dataset. It conditions on Cabrera's empirically observed pooled pair union, so it does not validate v4 whole-island opportunity. A pass would support the v8 local mechanism class under direct-observation ascertainment; a fail would identify a support sparsity, turnover, or weighted-architecture mismatch without permitting Cabrera-specific retuning."
+}
