@@ -17,6 +17,7 @@ OUT = ROOT / "data/results/martinique_2025_reconstruction_structure.json"
 INTERACTION_NAME = "Plant_insect_interactions_former_names.xlsx"
 SAMPLING_NAME = "Sampling_data.xlsx"
 PROTOCOL_MINUTES_PER_SITE_PERIOD = 60
+MISSING_SENTINELS = {"", "na", "n/a", "nan", "none", "null"}
 
 
 def fetch_required_bytes() -> dict[str, bytes]:
@@ -55,6 +56,11 @@ def clean(value: object) -> str:
     if value is None:
         return ""
     return " ".join(str(value).strip().split())
+
+
+def identity_value(value: object) -> str:
+    text = clean(value)
+    return "" if text.casefold() in MISSING_SENTINELS else text
 
 
 def canonical_month(value: object) -> str | None:
@@ -108,6 +114,8 @@ def minutes_since_midnight(value: object) -> float | None:
 def numeric(value: object) -> float | None:
     if value is None or value == "":
         return None
+    if clean(value).casefold() in MISSING_SENTINELS:
+        return None
     try:
         number = float(value)
     except (TypeError, ValueError):
@@ -116,27 +124,27 @@ def numeric(value: object) -> float | None:
 
 
 def identity_structure(rows: list[dict[str, object]], best: str, genus: str, species: str, family: str) -> dict:
-    blank_best = sum(not clean(row.get(best)) for row in rows)
+    blank_best = sum(not identity_value(row.get(best)) for row in rows)
     fallback_genus_species = sum(
-        not clean(row.get(best)) and bool(clean(row.get(genus))) and bool(clean(row.get(species)))
+        not identity_value(row.get(best)) and bool(identity_value(row.get(genus))) and bool(identity_value(row.get(species)))
         for row in rows
     )
     fallback_genus = sum(
-        not clean(row.get(best)) and bool(clean(row.get(genus))) and not clean(row.get(species))
+        not identity_value(row.get(best)) and bool(identity_value(row.get(genus))) and not identity_value(row.get(species))
         for row in rows
     )
     fallback_family = sum(
-        not clean(row.get(best)) and not clean(row.get(genus)) and bool(clean(row.get(family)))
+        not identity_value(row.get(best)) and not identity_value(row.get(genus)) and bool(identity_value(row.get(family)))
         for row in rows
     )
     unresolved = sum(
-        not clean(row.get(best)) and not clean(row.get(genus))
-        and not clean(row.get(species)) and not clean(row.get(family))
+        not identity_value(row.get(best)) and not identity_value(row.get(genus))
+        and not identity_value(row.get(species)) and not identity_value(row.get(family))
         for row in rows
     )
     return {
         "row_count": len(rows),
-        "nonblank_best_id_count": len({clean(row.get(best)) for row in rows if clean(row.get(best))}),
+        "nonblank_best_id_count": len({identity_value(row.get(best)) for row in rows if identity_value(row.get(best))}),
         "blank_best_id_rows": blank_best,
         "blank_best_with_genus_species_rows": fallback_genus_species,
         "blank_best_with_genus_only_rows": fallback_genus,
@@ -151,8 +159,8 @@ def joint_interaction_identity_structure(rows: list[dict[str, object]]) -> dict:
     plant_only = []
     insect_only = []
     for row in rows:
-        plant = clean(row.get("Plant_Best_ID"))
-        insect = clean(row.get("Insect_Best_ID"))
+        plant = identity_value(row.get("Plant_Best_ID"))
+        insect = identity_value(row.get("Insect_Best_ID"))
         if plant and insect:
             both_nonblank.append(row)
         elif not plant and not insect:
@@ -164,23 +172,48 @@ def joint_interaction_identity_structure(rows: list[dict[str, object]]) -> dict:
 
     structural_fields = ("Period", "Date", "Site", "Transect", "H_start", "H_end", "Num_sp")
     blank_field_presence = {
-        field: sum(bool(clean(row.get(field))) for row in both_blank)
+        field: sum(bool(identity_value(row.get(field))) for row in both_blank)
         for field in structural_fields
     }
-    num_sp_values = Counter(clean(row.get("Num_sp")) for row in both_blank if clean(row.get("Num_sp")))
+    raw_num_sp = Counter(clean(row.get("Num_sp")) for row in both_blank if clean(row.get("Num_sp")))
     return {
         "both_best_ids_nonblank_rows": len(both_nonblank),
         "both_best_ids_blank_rows": len(both_blank),
         "plant_only_best_id_rows": len(plant_only),
         "insect_only_best_id_rows": len(insect_only),
-        "both_blank_structural_field_nonblank_counts": blank_field_presence,
-        "both_blank_num_sp_distinct_values": dict(sorted(num_sp_values.items())),
+        "both_blank_structural_field_nonmissing_counts": blank_field_presence,
+        "both_blank_num_sp_raw_values": dict(sorted(raw_num_sp.items())),
         "both_blank_source_context_count": len({
             (clean(row.get("Site")), clean(row.get("Period")))
             for row in both_blank if clean(row.get("Site")) and clean(row.get("Period"))
         }),
         "interpretation_boundary": (
-            "This is a structural blank-pattern audit only. Blank-both rows are not yet assigned interaction weight or taxa."
+            "This is a structural blank-pattern audit only. Blank-both rows are not assigned interaction weight or taxa in this audit."
+        ),
+    }
+
+
+def interaction_amount_structure(rows: list[dict[str, object]]) -> dict:
+    valid = [
+        row for row in rows
+        if identity_value(row.get("Plant_Best_ID")) and identity_value(row.get("Insect_Best_ID"))
+    ]
+    parsed = [numeric(row.get("Num_sp")) for row in valid]
+    numeric_values = [value for value in parsed if value is not None]
+    raw_values = Counter(clean(row.get("Num_sp")) for row in valid if clean(row.get("Num_sp")))
+    return {
+        "identified_interaction_rows": len(valid),
+        "num_sp_numeric_rows": len(numeric_values),
+        "num_sp_missing_or_nonnumeric_rows": len(valid) - len(numeric_values),
+        "num_sp_zero_rows": sum(value == 0 for value in numeric_values),
+        "num_sp_positive_rows": sum(value > 0 for value in numeric_values),
+        "num_sp_negative_rows": sum(value < 0 for value in numeric_values),
+        "num_sp_all_integer_when_numeric": bool(numeric_values) and all(float(value).is_integer() for value in numeric_values),
+        "num_sp_min": min(numeric_values) if numeric_values else None,
+        "num_sp_max": max(numeric_values) if numeric_values else None,
+        "num_sp_raw_value_counts": dict(sorted(raw_values.items(), key=lambda item: item[0])[:100]),
+        "weight_rule_boundary": (
+            "No event-weight rule is selected in this audit. Num_sp structure is inspected before deciding whether a row contributes one event or a source multiplicity."
         ),
     }
 
@@ -235,16 +268,12 @@ def site_month_coverage(rows: list[dict[str, object]]) -> dict[str, list[str]]:
 
 
 def timing_field_structure(rows: list[dict[str, object]]) -> dict:
-    start_present = 0
-    end_present = 0
-    both_present = 0
-    parseable_both = 0
-    positive_order = 0
-    nonpositive_or_wrap = 0
+    start_present = end_present = both_present = parseable_both = 0
+    positive_order = nonpositive_or_wrap = 0
     site_period_with_timing = set()
     for row in rows:
-        start_raw = clean(row.get("H_start"))
-        end_raw = clean(row.get("H_end"))
+        start_raw = identity_value(row.get("H_start"))
+        end_raw = identity_value(row.get("H_end"))
         start_present += bool(start_raw)
         end_present += bool(end_raw)
         if not start_raw or not end_raw:
@@ -265,17 +294,17 @@ def timing_field_structure(rows: list[dict[str, object]]) -> dict:
             site_period_with_timing.add((site, period))
     return {
         "row_count": len(rows),
-        "h_start_nonblank_rows": start_present,
-        "h_end_nonblank_rows": end_present,
-        "both_time_fields_nonblank_rows": both_present,
+        "h_start_nonmissing_rows": start_present,
+        "h_end_nonmissing_rows": end_present,
+        "both_time_fields_nonmissing_rows": both_present,
         "both_time_fields_parseable_rows": parseable_both,
         "event_rows_with_end_after_start": positive_order,
         "event_rows_nonpositive_or_wrap_order": nonpositive_or_wrap,
         "site_periods_with_parseable_event_timing": len(site_period_with_timing),
         "published_protocol_minutes_per_site_period": PROTOCOL_MINUTES_PER_SITE_PERIOD,
         "effort_rule_boundary": (
-            "H_start/H_end are audited as event/provenance timing only and are never summed to estimate sampling effort. "
-            "Prospective effort is the source-protocol fixed 60 min per Site×Period."
+            "H_start/H_end are event/provenance timing only and are never summed to estimate sampling effort. "
+            "Prospective effort is the frozen source-protocol 60 min per Site×Period."
         ),
     }
 
@@ -293,18 +322,17 @@ def floral_structure(rows: list[dict[str, object]]) -> dict:
         if site and period and quadrat:
             quadrat_by_context[(site, period)].add(f"{transect}|{quadrat}")
     preview_fields = ("Period", "Date", "Site", "Transect", "Quadrat", "Plant_Best_ID", "Name_Floral_unit", "Nb_Floral_unit")
-    missing_preview = [
-        {field: clean(row.get(field)) for field in preview_fields}
-        for row in missing_rows
-    ]
+    missing_preview = [{field: clean(row.get(field)) for field in preview_fields} for row in missing_rows]
     return {
         "nb_floral_unit_numeric_rows": len(finite),
         "nb_floral_unit_missing_or_nonnumeric_rows": len(missing_rows),
         "nb_floral_unit_negative_rows": sum(value < 0 for value in finite),
         "nb_floral_unit_zero_rows": sum(value == 0 for value in finite),
         "nb_floral_unit_positive_rows": sum(value > 0 for value in finite),
-        "missing_floral_unit_rows_with_nonblank_plant_best_id": sum(bool(clean(row.get("Plant_Best_ID"))) for row in missing_rows),
-        "missing_floral_unit_rows_with_nonblank_name_floral_unit": sum(bool(clean(row.get("Name_Floral_unit"))) for row in missing_rows),
+        "missing_floral_unit_rows_with_identified_plant": sum(bool(identity_value(row.get("Plant_Best_ID"))) for row in missing_rows),
+        "missing_floral_unit_rows_with_named_floral_unit": sum(bool(identity_value(row.get("Name_Floral_unit"))) for row in missing_rows),
+        "missing_floral_unit_rows_with_raw_na_plant_id": sum(clean(row.get("Plant_Best_ID")).casefold() == "na" for row in missing_rows),
+        "missing_floral_unit_rows_with_raw_na_floral_name": sum(clean(row.get("Name_Floral_unit")).casefold() == "na" for row in missing_rows),
         "missing_floral_unit_rows_context_count": len({
             (clean(row.get("Site")), clean(row.get("Period")))
             for row in missing_rows if clean(row.get("Site")) and clean(row.get("Period"))
@@ -313,8 +341,7 @@ def floral_structure(rows: list[dict[str, object]]) -> dict:
         "site_periods_with_quadrat_ids": len(quadrat_by_context),
         "quadrat_count_per_site_period_distinct": sorted({len(values) for values in quadrat_by_context.values()}),
         "binary_opportunity_boundary": (
-            "This audit does not yet decide whether a floral row with missing Nb_Floral_unit is an active plant. "
-            "That rule is frozen only after the missing-row structure is inspected."
+            "Missing sentinels such as literal NA do not define plant identity. The final binary opportunity rule is frozen only after this sentinel pattern is verified."
         ),
     }
 
@@ -322,7 +349,7 @@ def floral_structure(rows: list[dict[str, object]]) -> dict:
 def main() -> None:
     payloads = fetch_required_bytes()
     interaction_headers, interaction_rows = rows_from_sheet(payloads[INTERACTION_NAME], "Insects-Plants")
-    _sampling_interaction_headers, sampling_interaction_rows = rows_from_sheet(payloads[SAMPLING_NAME], "Insects_Plants")
+    _sampling_headers, sampling_interaction_rows = rows_from_sheet(payloads[SAMPLING_NAME], "Insects_Plants")
     floral_headers, floral_rows = rows_from_sheet(payloads[SAMPLING_NAME], "Floral_abundance")
 
     interaction_context = context_keys(interaction_rows)
@@ -333,13 +360,14 @@ def main() -> None:
     exact_period_month_mapping = interaction_period_month == floral_period_month and all(len(v) == 1 for v in interaction_period_month.values())
 
     output = {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "analysis": "martinique_2025_reconstruction_structure_audit",
         "target_metrics_calculated": False,
         "network_matrices_built": False,
         "interaction_events_aggregated": False,
         "v9_predictive_fit_calculated": False,
         "source_hashes": {name: source_gate.sha256(payload) for name, payload in payloads.items()},
+        "missing_sentinels": sorted(MISSING_SENTINELS),
         "interaction": {
             "headers": interaction_headers,
             "row_count": len(interaction_rows),
@@ -349,6 +377,7 @@ def main() -> None:
             "plant_identity": identity_structure(interaction_rows, "Plant_Best_ID", "Plant_genus", "Plant_species", "Plant_family"),
             "insect_identity": identity_structure(interaction_rows, "Insect_Best_ID", "Insect_genus", "Insect_species", "Insect_family"),
             "joint_identity_structure": joint_interaction_identity_structure(interaction_rows),
+            "interaction_amount_structure": interaction_amount_structure(interaction_rows),
             "timing_field_structure": timing_field_structure(interaction_rows),
         },
         "sampling_workbook_interaction_sheet": {
@@ -375,12 +404,11 @@ def main() -> None:
             } == {tuple(row) for row in floral_context["site_period_keys"]},
             "complete_10x12_site_period_grid_in_both_sources": (
                 interaction_context["site_count"] == 10 and interaction_context["period_count"] == 12
-                and interaction_context["site_period_count"] == 120
-                and floral_context["site_period_count"] == 120
+                and interaction_context["site_period_count"] == 120 and floral_context["site_period_count"] == 120
             ),
         },
         "claim_boundary": (
-            "Source-structure audit only. Context identity, joint blank patterns, event timing fields, and missing floral-unit records are inspected before selecting network units or calculating any ecological network target."
+            "Source-structure audit only. Context identity, missing sentinels, joint interaction identity, Num_sp multiplicity, timing fields, and floral placeholders are inspected before selecting reconstruction rules or ecological targets."
         ),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -392,7 +420,9 @@ def main() -> None:
         "floral_context": floral_context,
         "period_month_mapping": interaction_period_month,
         "joint_identity_structure": output["interaction"]["joint_identity_structure"],
+        "interaction_amount_structure": output["interaction"]["interaction_amount_structure"],
         "timing_field_structure": output["interaction"]["timing_field_structure"],
+        "floral_plant_identity": output["floral_abundance"]["plant_identity"],
         "floral_measure_structure": output["floral_abundance"]["floral_measure_structure"],
         "cross_source_structure": output["cross_source_structure"],
     }, indent=2, ensure_ascii=False))
