@@ -8,20 +8,19 @@ from channel_id.seychelles_joint_linkage import build_report, load_joint_rows
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "data/predictive_meta/seychelles_thespesia_joint_plant.csv"
 RESULT = ROOT / "data/results/seychelles_individual_joint_audit.json"
+ROWS = load_joint_rows(LEDGER)
+REPORT = build_report(ROWS)
 
 
 def test_exact_id_prefix_linkage_and_joint_coverage() -> None:
-    rows = load_joint_rows(LEDGER)
-    report = build_report(rows)
-    assert len(rows) == 8
-    assert report["raw_linkage"]["normalized_census_breeding_overlap"] == 12
-    assert report["raw_linkage"]["plants_with_census_and_both_auto_xenogamy"] == 8
-    assert report["raw_linkage"]["raw_joint_measurement_exact"] is True
+    assert len(ROWS) == 8
+    assert REPORT["raw_linkage"]["normalized_census_breeding_overlap"] == 12
+    assert REPORT["raw_linkage"]["plants_with_census_and_both_auto_xenogamy"] == 8
+    assert REPORT["raw_linkage"]["raw_joint_measurement_exact"] is True
 
 
 def test_species_dependency_is_direct_but_source_scale_only() -> None:
-    report = build_report(load_joint_rows(LEDGER))
-    dependency = report["species_level_direct_dependency"]
+    dependency = REPORT["species_level_direct_dependency"]
     assert dependency["full_species_auto_fruit"] == {
         "successes": 3,
         "n": 39,
@@ -36,12 +35,11 @@ def test_species_dependency_is_direct_but_source_scale_only() -> None:
 
 
 def test_exploratory_joint_diagnostics_do_not_promote_fdq_or_moderation() -> None:
-    report = build_report(load_joint_rows(LEDGER))
-    diagnostics = report["linked_eight_plant_scope"]["association_diagnostics"]
+    diagnostics = REPORT["linked_eight_plant_scope"]["association_diagnostics"]
     assert diagnostics["functional_group_shannon"]["spearman_rho"] == pytest.approx(0.05231552474475615)
     assert diagnostics["functional_group_shannon"]["two_sided_exact_permutation_p"] == pytest.approx(0.8964285714285715)
     assert all(value["permutations"] == 40320 for value in diagnostics.values())
-    assert report["decision"] == {
+    assert REPORT["decision"] == {
         "raw_individual_exposure_dependency_overlap": "identified",
         "harmonized_fdq_like_functional_exposure": "not_identified",
         "within_lineage_dependency_moderation_signal": "not_detected_in_small_exploratory_diagnostic",
@@ -50,6 +48,5 @@ def test_exploratory_joint_diagnostics_do_not_promote_fdq_or_moderation() -> Non
 
 
 def test_committed_result_is_reproducible_from_derived_ledger() -> None:
-    generated = build_report(load_joint_rows(LEDGER))
     committed = json.loads(RESULT.read_text(encoding="utf-8"))
-    assert generated == committed
+    assert REPORT == committed
