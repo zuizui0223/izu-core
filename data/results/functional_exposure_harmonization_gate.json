@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "analysis": "functional_exposure_harmonization_gate",
+  "source_locked_reference": {
+    "paper_doi": "10.1111/1365-2435.14527",
+    "dataset_doi": "10.6084/m9.figshare.25025000.v1",
+    "metric": "abundance-weighted Rao's quadratic entropy of pollinator proboscis length",
+    "formula": "FDQ = sum_i sum_j p_i p_j abs(L_i - L_j)",
+    "interpretation": "higher values indicate a wider abundance-weighted distribution of proboscis-length function"
+  },
+  "required_for_izu_compatible_fdq": [
+    "visitor relative abundance within a declared exposure unit",
+    "quantitative pollination-relevant trait for every admitted visitor taxon/group",
+    "source-native or prospectively prespecified trait mapping independent of reproductive outcome",
+    "Rao-Q calculation under the same formula/direction",
+    "repeated exposure units rather than one pooled population total"
+  ],
+  "prohibited_substitutions": [
+    "species richness",
+    "Shannon diversity",
+    "Gini-Simpson diversity",
+    "visitor identity alone",
+    "binary Bombus/Apis presence",
+    "coarse guild count without a quantitative trait distance",
+    "a trait chosen after inspecting dependency or reproductive outcomes"
+  ],
+  "panels": [
+    {
+      "panel": "izu_hiraiwa_2024",
+      "relative_abundance_available": true,
+      "quantitative_pollination_trait_available": true,
+      "source_or_prespecified_trait_map": true,
+      "rao_q_estimable": true,
+      "repeated_exposure_units": true,
+      "direct_dependency_same_source_unit": false,
+      "izu_compatible_fdq_ready": true,
+      "exact_joint_ready": false,
+      "note": "Reference FDQ: sum_i sum_j p_i p_j |proboscis_i-proboscis_j| across 40 site x season networks; direct reproductive dependency is missing."
+    },
+    {
+      "panel": "seychelles_thespesia_2020",
+      "relative_abundance_available": true,
+      "quantitative_pollination_trait_available": false,
+      "source_or_prespecified_trait_map": false,
+      "rao_q_estimable": false,
+      "repeated_exposure_units": true,
+      "direct_dependency_same_source_unit": true,
+      "izu_compatible_fdq_ready": false,
+      "exact_joint_ready": false,
+      "note": "Eight plants link census and Auto/Xenogamy outcomes, but census exposure is resolved only to broad Insects/Sunbird/Fody/Skink groups and no quantitative pollination trait is source-locked for Rao Q."
+    },
+    {
+      "panel": "puerto_rico_mona_guaiacum_2022",
+      "relative_abundance_available": true,
+      "quantitative_pollination_trait_available": false,
+      "source_or_prespecified_trait_map": false,
+      "rao_q_estimable": false,
+      "repeated_exposure_units": true,
+      "direct_dependency_same_source_unit": false,
+      "izu_compatible_fdq_ready": false,
+      "exact_joint_ready": false,
+      "note": "Species-level visitor counts and population-level breeding experiments coexist, but quantitative visitor functional traits are absent and exact observation-tree to breeding-tree linkage is not reported."
+    },
+    {
+      "panel": "balearic_malva_2024",
+      "relative_abundance_available": true,
+      "quantitative_pollination_trait_available": false,
+      "source_or_prespecified_trait_map": false,
+      "rao_q_estimable": false,
+      "repeated_exposure_units": false,
+      "direct_dependency_same_source_unit": true,
+      "izu_compatible_fdq_ready": false,
+      "exact_joint_ready": false,
+      "note": "Visitor classes and direct autogamy/open treatments are available in one population, but there is no repeated functional-exposure gradient or quantitative trait map."
+    },
+    {
+      "panel": "canary_lotus_2024",
+      "relative_abundance_available": true,
+      "quantitative_pollination_trait_available": false,
+      "source_or_prespecified_trait_map": false,
+      "rao_q_estimable": false,
+      "repeated_exposure_units": true,
+      "direct_dependency_same_source_unit": true,
+      "izu_compatible_fdq_ready": false,
+      "exact_joint_ready": false,
+      "note": "Visitor classes, legitimacy/pollen transport and strong bagging response are available, but no abundance-weighted quantitative visitor trait distribution comparable to Izu FDQ is locked."
+    }
+  ],
+  "state": {
+    "reference_estimand": "abundance_weighted_Rao_Q_of_pollinator_proboscis_length",
+    "formula": "FDQ = sum_i sum_j p_i p_j abs(L_i - L_j)",
+    "fdq_ready_panels": ["izu_hiraiwa_2024"],
+    "exact_joint_fdq_dependency_panels": [],
+    "panels_blocked_by_missing_quantitative_functional_trait": [
+      "seychelles_thespesia_2020",
+      "puerto_rico_mona_guaiacum_2022",
+      "balearic_malva_2024",
+      "canary_lotus_2024"
+    ],
+    "cross_system_moderation_ready": false,
+    "decision": "blocked_no_two_independent_harmonized_joint_panels"
+  },
+  "scientific_reading": "The apparent joint-data gap has narrowed: Seychelles Thespesia and Guaiacum contain useful source-linked exposure plus breeding information. The remaining cross-system blocker is construct harmonization, not mere row count. Izu FDQ is a quantitative trait-distance metric, so richness or generic visitor diversity cannot be used as an FDQ substitute.",
+  "next_gate": "For Issue #91, preserve visitor taxon identity and attach a prospectively frozen proboscis-length/functional-trait lookup so the Campanula pilot can calculate the same Rao-Q exposure metric. For external systems, reopen harmonization only when visitor abundances and quantitative pollination traits are both recoverable.",
+  "claim_boundary": "This gate defines comparability requirements; it does not assert that proboscis length is a universal functional trait for vertebrate-pollinated systems. Systems lacking a biologically homologous quantitative trait remain outside the Izu-compatible FDQ analysis rather than being forced onto the scale."
+}
