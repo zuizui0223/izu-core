@@ -49,7 +49,7 @@ def test_source_audit_does_not_import_network_target_layer():
     assert "effective_number(" not in text
 
 
-def test_role_detection_requires_pair_entities_and_repeated_context():
+def test_generic_role_detection_requires_pair_entities_and_repeated_context():
     module = load_source_gate()
     roles = module.role_candidates([
         "site",
@@ -65,6 +65,30 @@ def test_role_detection_requires_pair_entities_and_repeated_context():
     assert roles["plant"] == ["plant_species"]
     assert roles["pollinator"] == ["pollinator_group"]
     assert roles["interaction_amount"] == ["n_visits"]
+
+
+def test_source_native_cabrera_roles_follow_readme_definitions():
+    module = load_source_gate()
+    roles = module.role_candidates([
+        "visita",
+        "censo",
+        "COMMUNITY",
+        "habitat",
+        "Plant sp",
+        "Pollinator",
+        "N ind",
+        "N visit flowers",
+        "Method",
+    ])
+    assert "COMMUNITY" in roles["site_context"]
+    assert "habitat" in roles["site_context"]
+    assert "visita" in roles["time_context"]
+    assert "censo" in roles["time_context"]
+    assert roles["plant"] == ["Plant sp"]
+    assert roles["pollinator"] == ["Pollinator"]
+    assert roles["interaction_amount"] == ["N ind", "N visit flowers"]
+    assert "visita" not in roles["interaction_amount"]
+    assert roles["method_context"] == ["Method"]
 
 
 def test_readme_event_semantics_is_structural_not_target_calculation():
