@@ -42,18 +42,37 @@ def normalize(value: object) -> str:
 
 def role_candidates(headers: list[str]) -> dict[str, list[str]]:
     normalized = [normalize(header) for header in headers]
-    rules = {
-        "site_context": ("site", "locality", "location", "habitat", "plot", "transect"),
-        "time_context": ("campaign", "date", "day", "month", "year", "season", "round", "sampling"),
-        "method_context": ("method", "camera", "direct", "observation", "observer", "recording", "acs"),
-        "plant": ("plant", "flower_species", "plant_species"),
-        "pollinator": ("pollinator", "visitor", "insect", "animal_visitor", "pollinator_group", "visitor_group"),
-        "interaction_amount": ("visit", "visits", "interaction", "count", "number", "frequency", "freq", "n_int"),
+    site_tokens = ("site", "community", "locality", "location", "habitat", "plot", "transect")
+    time_tokens = ("campaign", "date", "day", "month", "year", "season", "round", "sampling", "visita", "censo", "census")
+    method_tokens = ("method", "camera", "direct", "observation", "observer", "recording", "acs")
+    plant_tokens = ("plant", "flower_species", "plant_species")
+    pollinator_tokens = ("pollinator", "visitor", "insect", "animal_visitor", "pollinator_group", "visitor_group")
+
+    result = {
+        "site_context": [header for header, key in zip(headers, normalized) if any(token in key for token in site_tokens)],
+        "time_context": [header for header, key in zip(headers, normalized) if any(token in key for token in time_tokens)],
+        "method_context": [header for header, key in zip(headers, normalized) if any(token in key for token in method_tokens)],
+        "plant": [header for header, key in zip(headers, normalized) if any(token in key for token in plant_tokens)],
+        "pollinator": [header for header, key in zip(headers, normalized) if any(token in key for token in pollinator_tokens)],
+        "interaction_amount": [],
     }
-    return {
-        role: [header for header, key in zip(headers, normalized) if any(token in key for token in tokens)]
-        for role, tokens in rules.items()
+    # Source README defines `visita` as an identifier of the sampling visit, not
+    # an interaction weight. Quantitative/event-amount candidates are therefore
+    # deliberately narrower than generic substring matching on "visit".
+    amount_keys = {
+        "n_ind",
+        "n_visit_flowers",
+        "n_visits",
+        "interaction_count",
+        "interaction_frequency",
+        "visit_count",
+        "visit_frequency",
     }
+    result["interaction_amount"] = [
+        header for header, key in zip(headers, normalized)
+        if key in amount_keys or key.startswith("n_visit_")
+    ]
+    return result
 
 
 def sniff_rows(payload: bytes) -> tuple[list[list[str]], str, str]:
@@ -86,6 +105,25 @@ def structural_cardinalities(headers: list[str], rows: list[list[str]], roles: d
             }
             result[role][header] = len(values)
     return result
+
+
+def composite_context_count(headers: list[str], rows: list[list[str]], fields: list[str]) -> int | None:
+    index = {header: position for position, header in enumerate(headers)}
+    if not fields or any(field not in index for field in fields):
+        return None
+    values = set()
+    for row in rows:
+        parts = []
+        complete = True
+        for field in fields:
+            position = index[field]
+            if position >= len(row) or not row[position].strip():
+                complete = False
+                break
+            parts.append(row[position].strip())
+        if complete:
+            values.add(tuple(parts))
+    return len(values)
 
 
 def readme_event_semantics(text: str) -> bool:
@@ -135,7 +173,7 @@ def main() -> None:
             readme_text, encoding = decode_text(payload)
             record["encoding"] = encoding
             record["line_count"] = len(readme_text.splitlines())
-            keywords = ("site", "habitat", "campaign", "plant", "pollinator", "visit", "camera", "direct", "census")
+            keywords = ("site", "community", "habitat", "campaign", "plant", "pollinator", "visit", "camera", "direct", "census", "method", "n ind")
             record["structural_keyword_lines"] = [
                 {"line": i, "text": line[:500]}
                 for i, line in enumerate(readme_text.splitlines(), start=1)
@@ -148,7 +186,7 @@ def main() -> None:
     source_bytes_ok = len(file_records) == len(design["source_files"]) and not blocked_files
     if not source_bytes_ok or csv_payload is None:
         write({
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "analysis": "cabrera_2025_source_audit",
             "status": "blocked_cabrera_source_bytes_not_recovered",
             "files": file_records,
@@ -175,6 +213,12 @@ def main() -> None:
         has_plant and has_pollinator and has_repeated_context and has_interaction_amount_or_event_rows
     )
 
+    source_context_counts = {
+        "COMMUNITY_x_visita": composite_context_count(headers, data_rows, ["COMMUNITY", "visita"]),
+        "COMMUNITY_x_visita_x_censo": composite_context_count(headers, data_rows, ["COMMUNITY", "visita", "censo"]),
+        "COMMUNITY_x_visita_x_Method": composite_context_count(headers, data_rows, ["COMMUNITY", "visita", "Method"]),
+    }
+
     status_name = (
         "source_admitted_cabrera_raw_repeated_pair_interaction_records"
         if raw_repeated_pair_records_visible
@@ -182,7 +226,7 @@ def main() -> None:
     )
 
     write({
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "cabrera_2025_source_audit",
         "status": status_name,
         "source": design["candidate_system"],
@@ -198,7 +242,15 @@ def main() -> None:
             "headers": headers,
             "role_candidates": roles,
             "structural_cardinalities": cardinalities,
+            "source_context_counts": source_context_counts,
             "readme_describes_rows_as_interaction_sampling_events": event_semantics,
+            "source_native_role_correction_before_targets": {
+                "COMMUNITY": "site/community identifier",
+                "visita": "sampling visit identifier, not interaction weight",
+                "censo": "census identifier within sampling visit",
+                "N ind": "pollinator-individual amount candidate",
+                "N visit flowers": "visited-flower amount candidate"
+            },
         },
         "raw_repeated_pair_interaction_records_visible": raw_repeated_pair_records_visible,
         "source_admission_succeeds": raw_repeated_pair_records_visible,
