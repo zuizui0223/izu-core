@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v9_thousand_island_lake_reconstruction_gate",
+  "freeze_date": "2026-08-21",
+  "source_gate_pr": 209,
+  "source_gate_decision": "source_admitted_til_raw_network_structure_before_v9_targets",
+  "purpose": "Determine the strongest prospectively admissible v9 validation design from source-native structure before calculating any network outcome.",
+  "primary_source_files": {
+    "spatial_pair_matrix": "3_span_1CV/all_ints_spatial.csv",
+    "temporal_pair_matrix": "3_span_1CV/all_ints_temporal.csv",
+    "rare_interaction_filtered_files_are_primary": false,
+    "reason": "Use the all-interactions source representation for reconstruction. Files prefixed ints_S_1CV are source-side filtered derivatives and cannot replace the all-interactions source before targets."
+  },
+  "pre_target_questions": [
+    "Do the spatial and temporal matrices use the same stable PO..._PL... pair identity universe?",
+    "Are the 42 B/S columns and three tYYYY columns non-negative integer count matrices?",
+    "Does any deposited source expose pair records jointly indexed by both spatial network and year, rather than separate spatial and temporal marginals?",
+    "Does any deposited source expose plant/resource availability independently of realized pollinator interactions at a network/site scale?",
+    "Does any deposited source expose observation/sampling effort or exposure at a network/site scale?",
+    "Can the 42 spatial network identifiers be treated as the only source-native repeated spatial validation units without inventing missing site-year structure?"
+  ],
+  "claim_ladder": {
+    "full_v9": "Allowed only if independent local plant/resource opportunity and auditable repeated network units are source-visible, with heterogeneous sampling exposure either absent, standardized, or separately observable before targets.",
+    "pair_support_only": "Use only the 42 spatial pair-count networks if raw pair counts and repeated spatial IDs are source-visible but independent plant/resource opportunity is not. This can test the inherited v8 pair-support layer or a reduced v9 prediction, not the v9 plant-opportunity mechanism.",
+    "blocked": "Stop before targets if pair identity/count semantics, repeated spatial units, or observation provenance cannot be audited from the author deposit."
+  },
+  "hard_boundaries": [
+    "42 spatial columns and three annual columns are separate marginals unless a source-native site-year key is demonstrated.",
+    "Never construct a 42 x 3 site-year grid from the separate marginals.",
+    "Never infer plant availability from visited plants if the source does not independently record available/flowering plants.",
+    "Never use rare-interaction-filtered source derivatives to improve agreement with v9.",
+    "No pair-support fraction, turnover, Shannon diversity, support richness, empirical range, or v9 predictive envelope may be calculated in this gate.",
+    "Menorca, Giannutri and Cabrera remain consumed failures and are not validation inputs."
+  ],
+  "target_metrics_calculated": false
+}
