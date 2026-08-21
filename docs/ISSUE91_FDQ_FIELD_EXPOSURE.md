@@ -38,6 +38,8 @@ population_id × field_event_id × island_id × site_id
 
 `population_id` is recovered by exact `plant_id` linkage to the dependency plant registry. A visit whose plant is outside that registry, or whose event/island/site disagrees with the plant registry, is rejected from the FDQ audit rather than reassigned.
 
+Usable effort creates an exposure row even when **zero visits** are scored. Such a row is retained as `withheld_no_visit_bouts`; it is not deleted and it is not relabelled as `FDQ = 0`. This preserves the zero-visit information required by Issue #91 without pretending that an empty visitor sample has a measured functional-diversity value.
+
 ## Trait join
 
 Traits are read from:
@@ -60,7 +62,7 @@ Admitted numeric statuses are:
 
 ## Strict missing-data rule
 
-Official FDQ is reported only if **both** conditions hold for the whole exposure unit:
+Official FDQ is reported only if **both** conditions hold for the whole positive-abundance exposure unit:
 
 1. every scored visit bout has confirmed taxon identity;
 2. every positive-abundance taxon has an admitted numeric proboscis trait for that site.
@@ -75,7 +77,8 @@ The audit still reports:
 - taxon-resolution fraction;
 - trait-coverage fraction;
 - unresolved visit IDs/groups;
-- confirmed taxa missing numeric traits.
+- confirmed taxa missing numeric traits;
+- zero-visit exposure units.
 
 It does **not** drop unresolved/missing-trait visits and then renormalize the remaining abundance distribution. That would change the FDQ exposure construct in a way that could depend on which visitors happen to be easier to identify or measure.
 
@@ -94,7 +97,8 @@ Synthetic regression tests verify, among other cases:
 - equal counts at 1 and 3 mm -> `FDQ = 1`;
 - 3:1 counts at 2 and 10 mm -> `FDQ = 3`;
 - a positive-abundance visitor lacking a trait blocks FDQ;
-- non-strict diagnostics return coverage but **no renormalized FDQ**.
+- non-strict diagnostics return coverage but **no renormalized FDQ**;
+- usable zero-visit effort remains present without inventing `FDQ = 0`.
 
 ## CLI
 
