@@ -1,0 +1,52 @@
+name: Martinique 2025 v9 source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v9_martinique_2025_source_gate_v1.json'
+      - 'scripts/acquire_audit_martinique_2025_v9_source.py'
+      - 'tests/test_martinique_2025_v9_source_gate.py'
+      - '.github/workflows/martinique_2025_v9_source_gate.yml'
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-only audit
+        run: python scripts/acquire_audit_martinique_2025_v9_source.py
+      - name: Enforce source-only boundary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/martinique_2025_v9_source_audit.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['network_matrices_built'] is False
+          assert x['v9_predictive_fit_calculated'] is False
+          assert x['status'] in {
+              'source_admitted_martinique_repeated_interactions_floral_offer_and_exposure_before_v9_targets',
+              'blocked_martinique_primary_bytes_not_recovered',
+              'blocked_martinique_repeated_interaction_schema_not_visible',
+              'blocked_martinique_independent_floral_offer_not_visible',
+              'blocked_martinique_sampling_exposure_not_visible',
+          }
+          print('status', x['status'])
+          print('source admission', x['source_admission_succeeds'])
+          print('bytes ok', x['source_bytes_ok'])
+          print('interaction candidates', x['repeated_interaction_candidates'])
+          print('floral candidates', x['independent_floral_offer_candidates'])
+          print('exposure candidates', x['sampling_exposure_candidates'])
+          print('README protocol', x['readme_protocol'])
+          PY
+      - name: Run source-gate regression tests
+        run: python -m pytest -q tests/test_martinique_2025_v9_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: martinique-2025-v9-source-gate
+          path: data/results/martinique_2025_v9_source_audit.json
