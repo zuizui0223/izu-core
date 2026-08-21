@@ -28,17 +28,21 @@ jobs:
           x=json.load(open('data/results/martinique_2025_v9_source_audit.json'))
           assert x['target_metrics_calculated'] is False
           assert x['network_matrices_built'] is False
+          assert x['interaction_events_aggregated'] is False
           assert x['v9_predictive_fit_calculated'] is False
           assert x['status'] in {
               'source_admitted_martinique_repeated_interactions_floral_offer_and_exposure_before_v9_targets',
-              'blocked_martinique_primary_bytes_not_recovered',
+              'blocked_martinique_required_primary_bytes_not_recovered',
               'blocked_martinique_repeated_interaction_schema_not_visible',
               'blocked_martinique_independent_floral_offer_not_visible',
               'blocked_martinique_sampling_exposure_not_visible',
           }
           print('status', x['status'])
           print('source admission', x['source_admission_succeeds'])
-          print('bytes ok', x['source_bytes_ok'])
+          print('required bytes ok', x['required_source_bytes_ok'])
+          print('all bytes ok', x['all_source_bytes_ok'])
+          print('blocked required', x['blocked_required_files'])
+          print('blocked optional', x['blocked_optional_files'])
           print('interaction candidates', x['repeated_interaction_candidates'])
           print('floral candidates', x['independent_floral_offer_candidates'])
           print('exposure candidates', x['sampling_exposure_candidates'])
