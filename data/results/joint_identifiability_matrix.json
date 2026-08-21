@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "analysis": "joint_identifiability_matrix",
   "real_data_only": true,
   "rows": [
@@ -31,7 +31,17 @@
       "pollen_receipt": "absent",
       "direct_total_reproductive_dependency": "partial",
       "same_population_joint_exposure_dependency": "partial",
-      "note": "Visitation/contact, single-visit outcomes and breeding treatments are source-native, but the source summaries do not provide one transportable total-dependency estimand for all three plants."
+      "note": "Thespesia raw data now contain exact individual census/breeding linkage for eight plants with Auto and Xenogamy, but broad visitor-group diversity is analyst-derived and not a harmonized FDQ-like exposure estimand."
+    },
+    {
+      "panel": "puerto_rico_mona_guaiacum_2022",
+      "cluster": "puerto_rico_archipelago",
+      "functional_exposure": "partial",
+      "trait_matching": "absent",
+      "pollen_receipt": "absent",
+      "direct_total_reproductive_dependency": "partial",
+      "same_population_joint_exposure_dependency": "partial",
+      "note": "The same species was observed in Guanica and Mona with exact source-native visitor richness/visitation contrasts and blocked breeding experiments in each population. Autogamy is negligible and ISI is reported, but no harmonized FDQ-like exposure or numeric autonomous/outcross total-dependency ratio is recovered."
     },
     {
       "panel": "balearic_malva_2024",
@@ -75,7 +85,7 @@
     }
   ],
   "summary": {
-    "n_panels": 7,
+    "n_panels": 8,
     "exact_functional_exposure_panels": [
       "izu_hiraiwa_2024",
       "izu_hiraiwa_2017_reproductive"
@@ -84,15 +94,20 @@
       "balearic_malva_2024",
       "canary_lotus_2024"
     ],
+    "partial_or_exact_same_population_joint_context_panels": [
+      "seychelles_fuster_2020",
+      "puerto_rico_mona_guaiacum_2022",
+      "galapagos_effectiveness_2018"
+    ],
     "exact_joint_exposure_dependency_panels": [],
     "dependency_x_functional_exposure_test": {
       "exact_joint_panels": [],
       "n_exact_joint_panels": 0,
       "empirical_dependency_x_functional_exposure_test_identified": false,
-      "decision": "not_identified_due_to_missing_same_population_overlap"
+      "decision": "not_identified_due_to_missing_harmonized_exact_joint_panels"
     }
   },
-  "scientific_reading": "The current repository contains strong source-native evidence for both functional-exposure variation and direct reproductive-dependency variation, but these channels occur in different panels. Therefore the hypothesis that plant reproductive dependency moderates downstream response to pollinator functional change is biologically plausible and motivated by real data, but is not yet empirically identified as a cross-system coefficient.",
-  "next_empirical_gate": "Obtain same-population linked functional exposure and direct reproductive dependency for Campanula under Issue #91, then seek at least one additional independent lineage/system with the same joint design before estimating a cross-lineage moderation slope.",
-  "claim_boundary": "Do not regress source-native dependency ratios against FDQ-like exposure values across panels unless both quantities are jointly observed under a declared harmonized estimand. Partial evidence is not promoted to exact overlap, and repeated plants within one archipelago are not independent archipelago replicates."
+  "scientific_reading": "The repository now contains several real systems where pollinator exposure and reproductive information coexist at a source-linked population or individual unit, including individual-level Thespesia linkage in Seychelles and a two-population Guaiacum assemblage/breeding design. Those systems remain partial for the cross-lineage target because their exposure metrics are not harmonized to the Izu functional exposure estimand and/or their total dependency estimands are incomplete. Real-data motivation has therefore strengthened without making the moderation coefficient identified.",
+  "next_empirical_gate": "Obtain same-population linked functional exposure and direct reproductive dependency for Campanula under Issue #91. In parallel, preserve Seychelles and Guaiacum as external joint architectures while defining a prespecified cross-system functional-exposure estimand before any harmonized slope is fit.",
+  "claim_boundary": "Do not regress source-native dependency ratios against richness, broad visitor-group diversity or other FDQ-like quantities across panels unless both quantities are jointly observed under a declared harmonized estimand. Partial joint context is not promoted to exact moderation evidence, and repeated plants within one archipelago are not independent archipelago replicates."
 }
