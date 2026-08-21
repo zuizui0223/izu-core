@@ -65,6 +65,19 @@ def test_v6_admissible_mask_is_unchanged():
     assert audit["dropped_partnerless_positive_plant_count"] == 0
 
 
+def test_two_partial_support_masks_branch_joint_plant_support_when_reducible():
+    v7 = load(V7, "v7_test_joint_branch")
+    source = toy()
+    retains_apis_only, audit_keep = v7.apply_joint_support_closure(source, (0, 1))
+    drops_apis_only, audit_drop = v7.apply_joint_support_closure(source, (1, 2))
+    assert retains_apis_only is not None
+    assert drops_apis_only is not None
+    assert retains_apis_only.plant_names == ("shared", "apis_only")
+    assert drops_apis_only.plant_names == ("shared",)
+    assert audit_keep["dropped_partnerless_positive_plant_count"] == 0
+    assert audit_drop["dropped_partnerless_positive_plants"] == ["apis_only"]
+
+
 def test_contract_adds_no_plant_dropout_parameter_or_giannutri_fit():
     v7 = load(V7, "v7_test_contract")
     contract = v7.build_contract()
