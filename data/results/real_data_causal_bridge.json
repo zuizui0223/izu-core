@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "analysis": "real_data_causal_bridge",
+  "real_data_only": true,
+  "izu_contemporary_chain": {
+    "fdq_to_matching": {
+      "post_oshima_fdq_coefficient": 2.0589617769543915,
+      "direction": "positive",
+      "stable_to_leave_one_island": true
+    },
+    "matching_to_pollen": {
+      "post_oshima_tm_coefficient": 0.03415875775284886,
+      "cluster_95_interval": [-0.05104708587436269, 0.11936460138006041],
+      "interval_excludes_zero": false,
+      "decision_state": "directional_positive_but_cluster_uncertain_and_network_state_sensitive"
+    },
+    "direct_reproductive_dependency_in_exact_izu_populations": false
+  },
+  "izu_2017_reproductive_heterogeneity": {
+    "n_taxa": 3,
+    "response_modes": [
+      "counterdirectional_reproductive_response",
+      "long_tongued_pollinator_sensitive",
+      "reproductive_function_resilient_to_RBLP"
+    ],
+    "universal_one_direction_response_falsified": true,
+    "oshima_reproductive_data_available": false
+  },
+  "external_direct_function": {
+    "seychelles": {
+      "raw_rows": 2292,
+      "single_visit_rows": 489,
+      "breeding_rows": 557,
+      "plant_species": 3,
+      "published_effectiveness_winners": ["Phelsuma geckos", "flying insects", "sunbirds"],
+      "universal_visitor_winner": false
+    },
+    "source_native_dependency_endpoints": [
+      {
+        "system": "Balearic Islands",
+        "taxon": "Malva arborea",
+        "source_ratio": 0.8866849960722702,
+        "dependency_shortfall": 0.11331500392772975,
+        "interpretation": "autogamy/open fruit-set shortfall within the source population",
+        "transportable_to_izu": false
+      },
+      {
+        "system": "Canary Islands",
+        "taxon": "Lotus maculatus",
+        "source_ratio": 0.021739130434782608,
+        "dependency_shortfall": 0.9782608695652174,
+        "interpretation": "bagged/control fruit-set shortfall within the source population",
+        "transportable_to_izu": false
+      }
+    ],
+    "observed_shortfall_span": 0.8649458656374877
+  },
+  "identified_now": [
+    "continuous functional pollinator structure is associated with trait matching within post-Oshima Izu networks",
+    "the downstream trait-matching to pollen-receipt link is positive in point estimate but cluster-uncertain and network-state-sensitive",
+    "real island systems include both low-shortfall and high-shortfall source-native reproductive-dependence examples",
+    "pollinator effectiveness and reproductive response are strongly taxon/system specific rather than one universal guild cascade"
+  ],
+  "still_not_identified": [
+    "direct reproductive dependency for Campanula microdonta in the exact Izu pilot populations",
+    "an empirical cross-lineage dependency x FDQ coefficient",
+    "transport of Balearic or Canary dependency magnitudes onto Izu",
+    "historical Bombus-loss causation or historical selection",
+    "lifetime local-reproduction F versus establishment E decomposition"
+  ],
+  "next_empirical_gate": "Issue #91 linked Campanula pilot remains required; external real endpoints can anchor design plausibility but cannot replace same-population SVD and reproductive treatments."
+}
