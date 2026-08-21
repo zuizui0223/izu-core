@@ -11,6 +11,7 @@ from channel_id.external_archipelago_network import WeightedNetwork
 
 ROOT = Path(__file__).resolve().parents[1]
 V4_SCRIPT = ROOT / "scripts/run_abm_v4_weighted_architecture_emulator.py"
+V5_SCRIPT = ROOT / "scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py"
 V8_SCRIPT = ROOT / "scripts/run_constraint_mechanism_abm_v8_pair_support.py"
 OUT = ROOT / "data/results/constraint_mechanism_abm_v9_local_plant_opportunity.json"
 SUPPORT_STRENGTHS = (0.0, 0.25, 0.5, 0.75)
@@ -33,7 +34,7 @@ def draw_local_plant_indices(
     plant_seed: int,
     support_strength: float,
 ) -> tuple[int, ...]:
-    """Draw locally available positive plant/resource rows before v8 support."""
+    """Draw locally available positive plant/resource rows before pair support."""
     if not 0.0 <= support_strength < 1.0:
         raise ValueError("support_strength must be in [0, 1)")
     if support_strength == 0.0:
@@ -43,80 +44,62 @@ def draw_local_plant_indices(
     keep_probability = 1.0 - support_strength
     active: list[int] = []
     for row_index, row in enumerate(opportunity_network.matrix):
-        # Zero-only placeholders carry no local biological opportunity. They are
-        # retained only by the exact zero-support bypass contract below.
+        # Zero-only placeholders carry no positive local resource opportunity.
+        # The exact zero-support contract preserves them through the bypass below.
         if sum(row) <= 0.0:
             continue
         if rng.random() < keep_probability:
             active.append(row_index)
-    # Do not condition on at least one active plant. An empty flowering/resource
-    # context is a legal local ecological state and must not be redrawn.
+    # Do not condition on at least one locally active plant. Empty plant-resource
+    # contexts are legal ecological states and must not be repaired or redrawn.
     return tuple(active)
 
 
-def apply_local_plant_availability(
+def plant_availability_audit(
     opportunity_network: WeightedNetwork,
+    active_indices: tuple[int, ...],
     *,
-    plant_seed: int,
     support_strength: float,
-) -> tuple[WeightedNetwork | None, dict]:
-    if not 0.0 <= support_strength < 1.0:
-        raise ValueError("support_strength must be in [0, 1)")
-
-    if support_strength == 0.0:
-        return opportunity_network, {
-            "support_strength": 0.0,
-            "active_plant_indices": list(range(len(opportunity_network.plant_names))),
-            "active_plant_names_before_v8": list(opportunity_network.plant_names),
-            "dropped_local_plant_names_before_v8": [],
-            "active_positive_plant_count_before_v8": sum(sum(row) > 0.0 for row in opportunity_network.matrix),
-            "empty_plant_opportunity": False,
-            "zero_support_exact_opportunity_bypass": True,
-            "new_taxa_created": False,
-            "new_links_created": False,
-        }
-
-    active = draw_local_plant_indices(
-        opportunity_network,
-        plant_seed=plant_seed,
-        support_strength=support_strength,
-    )
-    active_set = set(active)
-    positive_indices = [index for index, row in enumerate(opportunity_network.matrix) if sum(row) > 0.0]
-    dropped = [
-        opportunity_network.plant_names[index]
-        for index in positive_indices
-        if index not in active_set
+) -> dict:
+    active_set = set(active_indices)
+    positive_indices = [
+        index for index, row in enumerate(opportunity_network.matrix) if sum(row) > 0.0
     ]
-    if not active:
-        return None, {
-            "support_strength": support_strength,
-            "active_plant_indices": [],
-            "active_plant_names_before_v8": [],
-            "dropped_local_plant_names_before_v8": dropped,
-            "active_positive_plant_count_before_v8": 0,
-            "empty_plant_opportunity": True,
-            "zero_support_exact_opportunity_bypass": False,
-            "new_taxa_created": False,
-            "new_links_created": False,
-        }
-
-    network = WeightedNetwork.from_rows(
-        [opportunity_network.plant_names[index] for index in active],
-        opportunity_network.pollinator_names,
-        [opportunity_network.matrix[index] for index in active],
-    )
-    return network, {
+    return {
         "support_strength": support_strength,
-        "active_plant_indices": list(active),
-        "active_plant_names_before_v8": list(network.plant_names),
-        "dropped_local_plant_names_before_v8": dropped,
-        "active_positive_plant_count_before_v8": len(active),
-        "empty_plant_opportunity": False,
-        "zero_support_exact_opportunity_bypass": False,
+        "active_plant_indices": list(active_indices),
+        "active_plant_names_before_pair_projection": [
+            opportunity_network.plant_names[index] for index in active_indices
+        ],
+        "dropped_local_plant_names_before_pair_projection": [
+            opportunity_network.plant_names[index]
+            for index in positive_indices
+            if index not in active_set
+        ],
+        "baseline_positive_plant_count": len(positive_indices),
+        "active_positive_plant_count_before_pair_projection": sum(
+            index in active_set for index in positive_indices
+        ),
+        "empty_plant_opportunity": not any(index in active_set for index in positive_indices),
         "new_taxa_created": False,
         "new_links_created": False,
     }
+
+
+def combine_plant_and_v8_pair_masks(
+    opportunity_network: WeightedNetwork,
+    *,
+    active_plant_indices: tuple[int, ...],
+    v8_pair_mask: tuple[tuple[bool, ...], ...],
+) -> tuple[tuple[bool, ...], ...]:
+    """Intersect an independent local-plant mask with the unchanged full v8 pair draw."""
+    if len(v8_pair_mask) != len(opportunity_network.matrix):
+        raise ValueError("v8 pair mask row dimension mismatch")
+    active_set = set(active_plant_indices)
+    return tuple(
+        tuple(bool(pair_active) and row_index in active_set for pair_active in mask_row)
+        for row_index, mask_row in enumerate(v8_pair_mask)
+    )
 
 
 def realize_local_context(
@@ -131,8 +114,8 @@ def realize_local_context(
         raise ValueError("support_strength must be in [0, 1)")
     v8 = load_module(V8_SCRIPT, "abm_v9_v8_source")
 
-    # Exact nesting: no local-support stress means v9 is exactly v8, including
-    # zero-only placeholder states and the complete audit-independent object.
+    # Exact nesting: no support stress means v9 is exactly v8, including any
+    # zero-only placeholders and all inherited v5 behavior.
     if support_strength == 0.0:
         realized, v8_audit = v8.realize_local_context(
             opportunity_network,
@@ -145,52 +128,80 @@ def realize_local_context(
             "support_strength": 0.0,
             "weight_strength": weight_strength,
             "plant_layer": {
-                "active_plant_names_before_v8": list(opportunity_network.plant_names),
-                "dropped_local_plant_names_before_v8": [],
+                "active_plant_names_before_pair_projection": list(opportunity_network.plant_names),
+                "dropped_local_plant_names_before_pair_projection": [],
                 "empty_plant_opportunity": False,
-                "zero_support_exact_opportunity_bypass": True,
             },
             "v8_layer": v8_audit,
             "zero_support_exact_v8_bypass": True,
             "new_taxa_created": False,
             "new_links_created": False,
+            "max_retained_row_budget_error": 0.0,
         }
 
-    plant_network, plant_audit = apply_local_plant_availability(
+    active_plants = draw_local_plant_indices(
         opportunity_network,
         plant_seed=support_seed + PLANT_SEED_OFFSET,
         support_strength=support_strength,
     )
-    if plant_network is None:
+    plant_audit = plant_availability_audit(
+        opportunity_network,
+        active_plants,
+        support_strength=support_strength,
+    )
+
+    # Draw v8 support on the complete opportunity object with the exact inherited
+    # seed and RNG ordering, then intersect with the independent plant mask. This
+    # makes same-seed v8/v9 differences attributable to plant availability rather
+    # than to shifted pair-RNG positions after physically deleting rows.
+    v8_pair_mask, globally_active_pollinators = v8.draw_hierarchical_pair_support_mask(
+        opportunity_network,
+        support_seed=support_seed,
+        support_strength=support_strength,
+    )
+    combined_mask = combine_plant_and_v8_pair_masks(
+        opportunity_network,
+        active_plant_indices=active_plants,
+        v8_pair_mask=v8_pair_mask,
+    )
+    supported, projection_audit = v8.apply_pair_support_mask(
+        opportunity_network,
+        combined_mask,
+    )
+    projection_audit["globally_active_pollinators_before_pair_projection"] = [
+        opportunity_network.pollinator_names[index]
+        for index in globally_active_pollinators
+    ]
+
+    if supported is None:
         return None, {
             "support_strength": support_strength,
             "weight_strength": weight_strength,
             "plant_layer": plant_audit,
-            "v8_layer": None,
+            "v8_layer": projection_audit,
             "zero_support_exact_v8_bypass": False,
             "empty_local_network": True,
-            "new_taxa_created": False,
-            "new_links_created": False,
-            "max_retained_row_budget_error": 0.0,
+            "new_taxa_created": bool(projection_audit.get("new_taxa_created", False)),
+            "new_links_created": bool(projection_audit.get("new_links_created", False)),
+            "max_retained_row_budget_error": float(projection_audit.get("max_retained_row_budget_error", 0.0)),
         }
 
-    realized, v8_audit = v8.realize_local_context(
-        plant_network,
-        support_seed=support_seed,
-        support_strength=support_strength,
-        weight_seed=weight_seed,
-        weight_strength=weight_strength,
+    v5 = load_module(V5_SCRIPT, "abm_v9_v5_source")
+    realized = v5.realize_local_context(
+        supported,
+        context_seed=weight_seed,
+        context_strength=weight_strength,
     )
     return realized, {
         "support_strength": support_strength,
         "weight_strength": weight_strength,
         "plant_layer": plant_audit,
-        "v8_layer": v8_audit,
+        "v8_layer": projection_audit,
         "zero_support_exact_v8_bypass": False,
-        "empty_local_network": realized is None,
-        "new_taxa_created": bool(v8_audit.get("new_taxa_created", False)),
-        "new_links_created": bool(v8_audit.get("new_links_created", False)),
-        "max_retained_row_budget_error": float(v8_audit.get("max_retained_row_budget_error", 0.0)),
+        "empty_local_network": False,
+        "new_taxa_created": bool(projection_audit.get("new_taxa_created", False)),
+        "new_links_created": bool(projection_audit.get("new_links_created", False)),
+        "max_retained_row_budget_error": float(projection_audit.get("max_retained_row_budget_error", 0.0)),
     }
 
 
@@ -243,7 +254,7 @@ def build_contract() -> dict:
         "hierarchy": {
             "island_scale": "unchanged v4 continuous opportunity field",
             "local_plant_resource_availability": "each positive feasible plant/resource row is independently locally active with probability 1-support_strength; zero active plants is allowed and never redrawn",
-            "local_pollinator_and_pair_support": "unchanged v8 pollinator availability and pair-level support operate only on locally active plant rows",
+            "local_pollinator_and_pair_support": "unchanged v8 pollinator availability and full-opportunity pair Bernoulli draw are intersected with the independent local plant mask",
             "local_weight_realization": "unchanged v5 weight realization follows support projection",
             "observation_layer": "not part of v9 biology; future empirical validation must freeze standardized exposure or an observation/detection layer before target inspection",
         },
@@ -251,7 +262,10 @@ def build_contract() -> dict:
             "The same existing generic support-strength envelope controls plant, pollinator and pair availability. "
             "This is a mechanism sensitivity axis, not an estimate that the three ecological processes have equal real-world probabilities."
         ),
-        "plant_draw_independence": "The plant draw uses an independent fixed RNG stream offset from v8 pollinator/pair draws while sharing only the generic support-strength value.",
+        "plant_draw_independence": (
+            "The plant draw uses a fixed RNG stream offset independent of the unchanged v8 full-opportunity pollinator/pair draw. "
+            "For a matched support seed, v8 pair Bernoulli outcomes are therefore unchanged and v9 only removes pairs whose plant endpoint is locally unavailable."
+        ),
         "hard_invariants": [
             "support_strength=0 reproduces v8 exactly for every weight_strength, including zero-only placeholders",
             "local plants are always a subset of v4 feasible plants",
@@ -259,6 +273,7 @@ def build_contract() -> dict:
             "no new taxon or pair can be created",
             "every retained positive plant row preserves its exact original v4 opportunity total after support projection and v5 realization",
             "all-local-plant-absent and later empty local networks are legal states and are not repaired or redrawn",
+            "the matched full-opportunity v8 pollinator/pair draw is unchanged by adding the plant mask",
             "v4 opportunity, v8 pollinator/pair rules and v5 weight rules are otherwise unchanged",
             "Cabrera, Menorca and Giannutri target values are not loaded by v9 synthetic prevalidation",
         ],
