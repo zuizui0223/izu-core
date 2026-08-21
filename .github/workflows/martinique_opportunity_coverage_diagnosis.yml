@@ -1,0 +1,41 @@
+name: Martinique opportunity coverage diagnosis
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/diagnose_martinique_opportunity_coverage_block.py'
+      - 'tests/test_martinique_opportunity_coverage_block.py'
+      - '.github/workflows/martinique_opportunity_coverage_diagnosis.yml'
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Diagnose source coverage without network targets
+        run: python scripts/diagnose_martinique_opportunity_coverage_block.py
+      - name: Enforce preserved block and non-rescue boundary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/martinique_opportunity_coverage_diagnosis.json'))
+          assert x['preserved_block_decision'] == 'blocked_martinique_independent_plant_opportunity_does_not_cover_observed_interaction_plants'
+          assert x['v9_parameters_reestimated'] is False
+          assert x['primary_validation_relabelled'] is False
+          assert x['target_metrics_calculated'] is False
+          assert x['network_outcomes_inspected'] is False
+          print('row alignment', x['row_alignment'])
+          print('coverage summary', x['coverage_summary'])
+          PY
+      - name: Run diagnosis tests
+        run: python -m pytest -q tests/test_martinique_opportunity_coverage_block.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: martinique-opportunity-coverage-diagnosis
+          path: data/results/martinique_opportunity_coverage_diagnosis.json
