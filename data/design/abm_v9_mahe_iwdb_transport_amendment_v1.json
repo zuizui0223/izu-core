@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v9_mahe_iwdb_transport_amendment",
+  "date": "2026-08-21",
+  "target_metrics_calculated_before_amendment": false,
+  "workbook_bytes_recovered_before_amendment": false,
+  "observed_transport_state": {
+    "reachable_entry": "https://iwdb.nceas.ucsb.edu/html/kaiser-bunbury_et_al_2017.html",
+    "entry_sha256": "842fd2f3e0f6b2cf104e220d38a85fc5202a5efada0d22052340f243b0a07e3f",
+    "direct_excel_href": "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/excel/Kaiser_Bunbury_et_al_2017.xlsx",
+    "direct_excel_http_status": 404
+  },
+  "allowed_retry": "Retry only the exact href path and query on the same iwdb.nceas.ucsb.edu host that served the database entry. Filename, path and query are unchanged; only the stale host component is replaced.",
+  "blocked_after_retry": "If the exact-path IWDB-host retry does not return the workbook bytes, retain the Mahé source block. Do not use a secondary reanalysis or reconstructed network values.",
+  "claim_boundary": "Transport-only amendment made before any workbook or v9 target is recovered."
+}
