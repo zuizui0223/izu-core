@@ -37,40 +37,52 @@ def test_month_is_derived_from_source_date_not_period():
     assert module.canonical_month("2023-04-21") == "2023-04"
 
 
-def test_identity_audit_keeps_best_id_and_fallback_completeness_separate():
+def test_joint_identity_audit_distinguishes_placeholder_patterns():
     module = load_script()
     rows = [
-        {"Best": "A", "Genus": "G", "Species": "s", "Family": "F"},
-        {"Best": "", "Genus": "H", "Species": "t", "Family": "F2"},
-        {"Best": "", "Genus": "J", "Species": "", "Family": "F3"},
-        {"Best": "", "Genus": "", "Species": "", "Family": ""},
+        {"Plant_Best_ID": "P1", "Insect_Best_ID": "I1", "Site": "S", "Period": "P1"},
+        {"Plant_Best_ID": "", "Insect_Best_ID": "", "Site": "S", "Period": "P1", "Num_sp": 0},
+        {"Plant_Best_ID": "P2", "Insect_Best_ID": "", "Site": "S", "Period": "P1"},
+        {"Plant_Best_ID": "", "Insect_Best_ID": "I2", "Site": "S", "Period": "P1"},
     ]
-    result = module.identity_structure(rows, "Best", "Genus", "Species", "Family")
-    assert result["blank_best_id_rows"] == 3
-    assert result["blank_best_with_genus_species_rows"] == 1
-    assert result["blank_best_with_genus_only_rows"] == 1
-    assert result["fully_unresolved_rows"] == 1
+    result = module.joint_interaction_identity_structure(rows)
+    assert result["both_best_ids_nonblank_rows"] == 1
+    assert result["both_best_ids_blank_rows"] == 1
+    assert result["plant_only_best_id_rows"] == 1
+    assert result["insect_only_best_id_rows"] == 1
 
 
-def test_exposure_windows_are_deduplicated_across_event_rows():
+def test_timing_fields_are_not_summed_as_sampling_effort():
     module = load_script()
     rows = [
-        {"Site": "S1", "Date": datetime(2022, 10, 1), "Transect": "T1", "H_start": "09:00", "H_end": "09:30"},
-        {"Site": "S1", "Date": datetime(2022, 10, 1), "Transect": "T1", "H_start": "09:00", "H_end": "09:30"},
-        {"Site": "S1", "Date": datetime(2022, 10, 1), "Transect": "T1", "H_start": "09:30", "H_end": "10:00"},
+        {"Site": "S1", "Period": "P1", "H_start": "09:00", "H_end": "09:30"},
+        {"Site": "S1", "Period": "P1", "H_start": "09:30", "H_end": "10:00"},
     ]
-    result = module.exposure_structure(rows)
-    assert result["unique_observation_window_count"] == 2
-    assert result["total_unique_window_minutes_distinct"] == [60.0]
+    result = module.timing_field_structure(rows)
+    assert result["published_protocol_minutes_per_site_period"] == 60
+    assert result["event_rows_with_end_after_start"] == 2
+    assert "never summed" in result["effort_rule_boundary"]
+    assert "total_unique_window_minutes" not in result
 
 
-def test_floral_measure_audit_checks_numeric_nonnegative_field_without_network_metrics():
+def test_floral_measure_audit_preserves_missing_rows_for_later_binary_rule():
     module = load_script()
     rows = [
-        {"Site": "S1", "Date": datetime(2022, 10, 1), "Transect": "T", "Quadrat": "Q1", "Nb_Floral_unit": 0},
-        {"Site": "S1", "Date": datetime(2022, 10, 1), "Transect": "T", "Quadrat": "Q2", "Nb_Floral_unit": 12},
+        {"Site": "S1", "Period": "P1", "Transect": "T", "Quadrat": "Q1", "Plant_Best_ID": "P1", "Name_Floral_unit": "flower", "Nb_Floral_unit": None},
+        {"Site": "S1", "Period": "P1", "Transect": "T", "Quadrat": "Q2", "Plant_Best_ID": "P2", "Name_Floral_unit": "flower", "Nb_Floral_unit": 12},
     ]
     result = module.floral_structure(rows)
-    assert result["nb_floral_unit_zero_rows"] == 1
+    assert result["nb_floral_unit_missing_or_nonnumeric_rows"] == 1
+    assert result["missing_floral_unit_rows_with_nonblank_plant_best_id"] == 1
     assert result["nb_floral_unit_positive_rows"] == 1
-    assert result["nb_floral_unit_negative_rows"] == 0
+    assert "does not yet decide" in result["binary_opportunity_boundary"]
+
+
+def test_period_month_mapping_requires_source_one_to_one_mapping():
+    module = load_script()
+    rows = [
+        {"Period": "P1", "Date": datetime(2022, 10, 1)},
+        {"Period": "P1", "Date": datetime(2022, 10, 15)},
+        {"Period": "P2", "Date": datetime(2022, 11, 1)},
+    ]
+    assert module.period_month_map(rows) == {"P1": ["2022-10"], "P2": ["2022-11"]}
