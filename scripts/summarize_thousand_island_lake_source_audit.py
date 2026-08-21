@@ -35,6 +35,16 @@ def main() -> None:
                     "headers", json.dumps(inv.get("candidate_headers"), ensure_ascii=False),
                     "roles", json.dumps(inv.get("field_role_candidates"), ensure_ascii=False, sort_keys=True),
                 )
+            elif inv.get("raw_pair_wide_table_visible"):
+                print(
+                    "RAW_WIDE_PAIR_NETWORK_TABLE",
+                    member.get("relative_path"),
+                    "rows", inv.get("row_count"),
+                    "pair_column", inv.get("pair_identity_column"),
+                    "spatial_networks", len(inv.get("spatial_network_columns", [])),
+                    "temporal_networks", len(inv.get("temporal_network_columns", [])),
+                    "quantitative_columns", len(inv.get("quantitative_network_columns", [])),
+                )
             elif inv.get("format") == "r_workspace" and (
                 inv.get("list_element_matrix_like_count", 0) > 0
                 or inv.get("matrix_or_dataframe_structure_line_count", 0) > 0

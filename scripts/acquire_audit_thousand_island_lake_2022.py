@@ -73,6 +73,80 @@ def role_candidates(headers: list[str]) -> dict[str, list[str]]:
     }
 
 
+PAIR_CODE = re.compile(r"^(?:po[^_]*_pl[^_]*|pl[^_]*_po[^_]*)$", re.IGNORECASE)
+SPATIAL_NETWORK_CODE = re.compile(r"^(?:b\d+|s\d+)$", re.IGNORECASE)
+TEMPORAL_NETWORK_CODE = re.compile(r"^t(?:19|20)\d{2}$", re.IGNORECASE)
+
+
+def wide_pair_matrix_structure(headers: list[str], data_rows: list[list[str]]) -> dict:
+    """Recognize pair-by-network count matrices without calculating outcomes."""
+    if not headers or not data_rows:
+        return {
+            "raw_pair_wide_table_visible": False,
+            "pair_identity_column": None,
+            "spatial_network_columns": [],
+            "temporal_network_columns": [],
+            "quantitative_network_columns": [],
+        }
+
+    width = len(headers)
+    nonempty_rows = [row for row in data_rows if any(str(value).strip() for value in row)]
+    rectangular = bool(nonempty_rows) and all(len(row) == width for row in nonempty_rows)
+    if not rectangular:
+        return {
+            "raw_pair_wide_table_visible": False,
+            "pair_identity_column": None,
+            "spatial_network_columns": [],
+            "temporal_network_columns": [],
+            "quantitative_network_columns": [],
+        }
+    inspected_rows = nonempty_rows
+
+    pair_column = None
+    pair_column_index = None
+    for index, header in enumerate(headers):
+        values = [str(row[index]).strip() for row in inspected_rows if str(row[index]).strip()]
+        if not values:
+            continue
+        normalized_header = normalize(header)
+        header_is_pair = normalized_header in {"int", "interaction", "pair", "link"}
+        encoded_fraction = sum(bool(PAIR_CODE.fullmatch(value)) for value in values) / len(values)
+        if encoded_fraction >= 0.8 and (header_is_pair or index == 0):
+            pair_column = header or "<row_names>"
+            pair_column_index = index
+            break
+
+    spatial_columns = [header for header in headers if SPATIAL_NETWORK_CODE.fullmatch(str(header).strip())]
+    temporal_columns = [header for header in headers if TEMPORAL_NETWORK_CODE.fullmatch(str(header).strip())]
+    candidate_network_columns = spatial_columns + temporal_columns
+    quantitative_columns = []
+    for header in candidate_network_columns:
+        index = headers.index(header)
+        values = [str(row[index]).strip() for row in inspected_rows]
+        try:
+            numeric = [float(value) for value in values]
+        except ValueError:
+            continue
+        if numeric and all(value >= 0.0 for value in numeric):
+            quantitative_columns.append(header)
+
+    visible = (
+        pair_column_index is not None
+        and len(candidate_network_columns) >= 2
+        and set(quantitative_columns) == set(candidate_network_columns)
+    )
+    return {
+        "raw_pair_wide_table_visible": visible,
+        "pair_identity_column": pair_column,
+        "pair_identity_encoding": "pollinator_plant_code" if pair_column_index is not None else None,
+        "rectangular_data_rows": rectangular,
+        "inspected_data_rows": len(inspected_rows),
+        "spatial_network_columns": spatial_columns,
+        "temporal_network_columns": temporal_columns,
+        "quantitative_network_columns": quantitative_columns,
+    }
+
+
 def sniff_delimited(path: Path) -> dict:
     payload = path.read_bytes()
     text, encoding = decode_text(payload)
@@ -102,6 +176,10 @@ def sniff_delimited(path: Path) -> dict:
             best_row = index
             best_headers = headers
     roles = role_candidates(best_headers)
+    wide_structure = wide_pair_matrix_structure(
+        best_headers,
+        rows[best_row:] if best_row is not None else [],
+    )
     return {
         "format": "delimited_text",
         "encoding": encoding,
@@ -117,6 +195,7 @@ def sniff_delimited(path: Path) -> dict:
             and bool(roles["interaction_amount"])
             and bool(roles["network_or_site"] or roles["time"])
         ),
+        **wide_structure,
     }
 
 
@@ -191,18 +270,28 @@ def list_rar_members(path: Path) -> dict:
     return {"member_count": len(members), "members": members}
 
 
-def extract_rar(path: Path, destination: Path) -> None:
+def extract_rar(path: Path, destination: Path) -> dict:
     if shutil.which("unar") is None:
         raise RuntimeError("unar is required for RAR extraction")
     destination.mkdir(parents=True, exist_ok=True)
-    subprocess.run(
+    proc = subprocess.run(
         ["unar", "-q", "-f", "-o", str(destination), str(path)],
-        check=True,
+        check=False,
         capture_output=True,
         text=True,
         encoding="utf-8",
         errors="replace",
     )
+    extracted_files = [item for item in destination.rglob("*") if item.is_file()]
+    if not extracted_files:
+        detail = (proc.stderr or proc.stdout or "unar produced no files").strip()[-1000:]
+        raise RuntimeError(f"unar extraction failed with exit {proc.returncode}: {detail}")
+    return {
+        "returncode": proc.returncode,
+        "files_extracted": len(extracted_files),
+        "nonzero_return_with_recovered_files": proc.returncode != 0,
+        "stderr_tail": (proc.stderr or "").strip()[-1000:],
+    }
 
 
 def r_workspace_structure(path: Path) -> dict:
@@ -314,6 +403,7 @@ def inspect_extracted_file(path: Path) -> dict:
 
 def inventory_signals(extracted: list[dict]) -> dict:
     long_tables = []
+    wide_tables = []
     r_matrix_structures = []
     temporal_tokens = []
     spatial_tokens = []
@@ -321,6 +411,14 @@ def inventory_signals(extracted: list[dict]) -> dict:
         inv = row.get("inventory") or {}
         if inv.get("raw_pair_long_table_visible"):
             long_tables.append(row["relative_path"])
+        if inv.get("raw_pair_wide_table_visible"):
+            wide_tables.append({
+                "path": row["relative_path"],
+                "pair_identity_column": inv.get("pair_identity_column"),
+                "spatial_network_columns": inv.get("spatial_network_columns", []),
+                "temporal_network_columns": inv.get("temporal_network_columns", []),
+                "quantitative_network_columns": inv.get("quantitative_network_columns", []),
+            })
         if inv.get("format") == "r_workspace" and (
             inv.get("list_element_matrix_like_count", 0) > 0
             or inv.get("matrix_or_dataframe_structure_line_count", 0) >= 2
@@ -331,16 +429,29 @@ def inventory_signals(extracted: list[dict]) -> dict:
                 "matrix_elements": inv.get("list_element_matrix_like_count"),
                 "site_time_tokens": inv.get("site_time_name_token_line_count"),
             })
-        text_blob = json.dumps(inv, ensure_ascii=False).lower()
+        signal_content = {
+            "relative_path": row.get("relative_path"),
+            "candidate_headers": inv.get("candidate_headers", []),
+            "structural_indicator_lines": inv.get("structural_indicator_lines", []),
+            "structure_lines": inv.get("structure_lines", []),
+        }
+        text_blob = json.dumps(signal_content, ensure_ascii=False).lower()
         if any(token in text_blob for token in ("year", "2017", "2018", "2019", "temporal")):
             temporal_tokens.append(row["relative_path"])
         if any(token in text_blob for token in ("island", "site", "spatial", "network")):
             spatial_tokens.append(row["relative_path"])
-    raw_pair_structure_visible = bool(long_tables or r_matrix_structures)
-    repeated_network_identifier_signal = bool(spatial_tokens)
-    temporal_identifier_signal = bool(temporal_tokens)
+    raw_pair_structure_visible = bool(long_tables or wide_tables or r_matrix_structures)
+    repeated_network_identifier_signal = bool(
+        spatial_tokens
+        or any(row["spatial_network_columns"] for row in wide_tables)
+        or any(row["temporal_network_columns"] for row in wide_tables)
+    )
+    temporal_identifier_signal = bool(
+        temporal_tokens or any(row["temporal_network_columns"] for row in wide_tables)
+    )
     return {
         "raw_pair_long_table_files": sorted(set(long_tables)),
+        "raw_pair_wide_table_files": wide_tables,
         "r_workspace_matrix_structure_files": r_matrix_structures,
         "spatial_or_network_identifier_signal_files": sorted(set(spatial_tokens)),
         "temporal_identifier_signal_files": sorted(set(temporal_tokens)),
@@ -416,7 +527,7 @@ def main() -> None:
                 try:
                     record["archive_inventory"] = list_rar_members(archive_path)
                     extract_dir = temp_root / archive_path.stem
-                    extract_rar(archive_path, extract_dir)
+                    record["archive_extraction"] = extract_rar(archive_path, extract_dir)
                     member_records = []
                     for extracted_path in sorted(path for path in extract_dir.rglob("*") if path.is_file()):
                         member = inspect_extracted_file(extracted_path)
