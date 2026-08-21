@@ -4,6 +4,8 @@ This is intentionally separate from visitor-group SVD/effective-service analysis
 Group-level visitor identities remain usable for service summaries, but Izu-compatible
 FDQ is withheld unless every scored visit in an exposure unit has a confirmed taxon
 identity and every positive-abundance taxon has an admitted numeric proboscis trait.
+Usable zero-visit effort is retained explicitly rather than disappearing from the
+exposure table.
 """
 from __future__ import annotations
 
@@ -86,6 +88,24 @@ def _plant_population_map(plants: Sequence[dict[str, str]]) -> dict[str, tuple[s
     return mapping
 
 
+def _population_key_for_linked_row(
+    row: Mapping[str, object],
+    *,
+    row_label: str,
+    plant_map: Mapping[str, tuple[str, str, str, str]],
+) -> tuple[str, str, str, str]:
+    plant_id = _text(row, "plant_id")
+    if not plant_id:
+        raise ValueError(f"FDQ {row_label} requires plant_id linkage")
+    population_key = plant_map.get(plant_id)
+    if population_key is None:
+        raise ValueError(f"FDQ {row_label} references plant_id={plant_id!r} outside dependency plant registry")
+    row_key = (_text(row, "field_event_id"), _text(row, "island_id"), _text(row, "site_id"))
+    if row_key != population_key[1:]:
+        raise ValueError(f"FDQ {row_label} field_event/island/site does not match plant registry")
+    return population_key
+
+
 def audit_field_fdq(
     plant_rows: Sequence[dict[str, str]],
     effort_rows: Sequence[dict[str, str]],
@@ -94,39 +114,38 @@ def audit_field_fdq(
 ) -> FieldFDQAudit:
     """Aggregate confirmed taxon identities and calculate strict Rao-Q by population-event-site.
 
+    Every usable effort unit is represented, including units with zero scored visits.
     All visit bouts linked to usable effort contribute to the exposure denominator. A
     group-level/uncertain visit is not silently discarded: it increases the unresolved
     count and blocks official FDQ for that exposure unit. Similarly, a confirmed taxon
     lacking an admitted site-specific numeric trait blocks FDQ.
     """
-    # Reuse the established validators and effort-linkage checks.
     audit_field_contacts(effort_rows, visit_rows)
     plant_map = _plant_population_map(plant_rows)
 
     grouped: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
-    for visit in visit_rows:
-        plant_id = _text(visit, "plant_id")
-        if not plant_id:
-            raise ValueError(f"FDQ visit_id={_text(visit, 'visit_id')!r} requires plant_id linkage")
-        population_key = plant_map.get(plant_id)
-        if population_key is None:
-            raise ValueError(
-                f"FDQ visit_id={_text(visit, 'visit_id')!r} references plant_id={plant_id!r} "
-                "outside dependency plant registry"
-            )
-        visit_key = (
-            _text(visit, "field_event_id"),
-            _text(visit, "island_id"),
-            _text(visit, "site_id"),
+    # Seed the table from usable effort so zero-visit windows remain visible.
+    for effort in effort_rows:
+        if _text(effort, "usable_observation") != "yes":
+            continue
+        key = _population_key_for_linked_row(
+            effort,
+            row_label=f"effort_id={_text(effort, 'effort_id')!r}",
+            plant_map=plant_map,
         )
-        if visit_key != population_key[1:]:
-            raise ValueError(
-                f"FDQ visit_id={_text(visit, 'visit_id')!r} field_event/island/site does not match plant registry"
-            )
-        grouped[population_key].append(visit)
+        grouped[key]  # create empty exposure unit if no visit is scored
+
+    for visit in visit_rows:
+        key = _population_key_for_linked_row(
+            visit,
+            row_label=f"visit_id={_text(visit, 'visit_id')!r}",
+            plant_map=plant_map,
+        )
+        grouped[key].append(visit)
 
     exposure_rows: list[dict[str, str]] = []
     ready_units = 0
+    zero_visit_units = 0
     for (population_id, field_event_id, island_id, site_id), rows in sorted(grouped.items()):
         total_visits = len(rows)
         resolved_counts: Counter[str] = Counter()
@@ -155,14 +174,22 @@ def audit_field_fdq(
             else:
                 missing_trait_taxa.append(taxon)
 
-        taxon_resolution_fraction = resolved_visits / total_visits if total_visits else 0.0
-        trait_coverage_fraction = trait_covered_visits / total_visits if total_visits else 0.0
-        strict_ready = not unresolved_visit_ids and not missing_trait_taxa and total_visits > 0
-        fdq_value = ""
-        if strict_ready:
-            result = abundance_weighted_rao_q(resolved_counts, trait_values)
-            fdq_value = f"{result.fdq:.12g}"
-            ready_units += 1
+        if total_visits == 0:
+            taxon_resolution_fraction = ""
+            trait_coverage_fraction = ""
+            fdq_status = "withheld_no_visit_bouts"
+            fdq_value = ""
+            zero_visit_units += 1
+        else:
+            taxon_resolution_fraction = f"{resolved_visits / total_visits:.12g}"
+            trait_coverage_fraction = f"{trait_covered_visits / total_visits:.12g}"
+            strict_ready = not unresolved_visit_ids and not missing_trait_taxa
+            fdq_value = ""
+            if strict_ready:
+                result = abundance_weighted_rao_q(resolved_counts, trait_values)
+                fdq_value = f"{result.fdq:.12g}"
+                ready_units += 1
+            fdq_status = "ready" if strict_ready else "withheld_incomplete_taxon_or_trait_coverage"
 
         exposure_rows.append(
             {
@@ -173,35 +200,36 @@ def audit_field_fdq(
                 "total_visit_bouts": str(total_visits),
                 "taxon_resolved_visit_bouts": str(resolved_visits),
                 "trait_covered_visit_bouts": str(trait_covered_visits),
-                "taxon_resolution_fraction": f"{taxon_resolution_fraction:.12g}",
-                "trait_coverage_fraction": f"{trait_coverage_fraction:.12g}",
+                "taxon_resolution_fraction": taxon_resolution_fraction,
+                "trait_coverage_fraction": trait_coverage_fraction,
                 "resolved_taxa": "|".join(sorted(resolved_counts)),
                 "missing_trait_taxa": "|".join(missing_trait_taxa),
                 "unresolved_visitor_groups": "|".join(sorted(unresolved_groups)),
                 "unresolved_visit_ids": "|".join(sorted(unresolved_visit_ids)),
                 "fdq": fdq_value,
-                "fdq_status": "ready" if strict_ready else "withheld_incomplete_taxon_or_trait_coverage",
+                "fdq_status": fdq_status,
                 "boundary": (
-                    "FDQ uses all positive-abundance visit bouts only when taxon identity and site-specific "
-                    "numeric proboscis trait coverage are complete; missing visits/taxa are not dropped and "
-                    "remaining abundances are not renormalized."
+                    "Usable zero-visit effort remains explicit. For positive-abundance units, FDQ is reported only "
+                    "when taxon identity and site-specific numeric proboscis trait coverage are complete; missing "
+                    "visits/taxa are not dropped and remaining abundances are not renormalized."
                 ),
             }
         )
 
     summary = {
         "exposure_units": len(exposure_rows),
+        "zero_visit_units": zero_visit_units,
         "fdq_ready_units": ready_units,
         "fdq_withheld_units": len(exposure_rows) - ready_units,
         "primary_exposure_unit": "population_id x field_event_id x island_id x site_id",
         "official_fdq_requires": (
-            "all scored visit bouts taxon-resolved at confirmed confidence and every positive-abundance taxon "
-            "linked to an admitted site-specific numeric proboscis trait"
+            "positive visitor abundance plus all scored visit bouts taxon-resolved at confirmed confidence and every "
+            "positive-abundance taxon linked to an admitted site-specific numeric proboscis trait"
         ),
         "group_level_service_still_allowed": True,
         "claim_boundary": (
-            "Failure of FDQ readiness does not invalidate group-level SVD/effective-service records. It only "
-            "withholds the harmonized functional-exposure metric."
+            "Zero visits are retained as zero-visit exposure, not converted to FDQ=0. Failure of FDQ readiness does "
+            "not invalidate group-level SVD/effective-service records; it only withholds the harmonized exposure metric."
         ),
     }
     return FieldFDQAudit(tuple(exposure_rows), summary)
