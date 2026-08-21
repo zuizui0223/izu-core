@@ -11,6 +11,11 @@ def joint_identifiability_matrix() -> list[dict]:
     - partial: related source-native evidence exists but does not identify the requested channel
     - absent: the requested channel is not available in the ingested panel
 
+    ``functional_exposure`` is reserved for an exposure estimand that is already
+    defensibly comparable to the programme's functional-exposure target. A source
+    may have exact visitor-assemblage observations and still remain ``partial`` here
+    if no harmonized functional exposure (such as Izu FDQ) has been declared.
+
     The matrix is a design/claim audit, not a meta-analytic effect table.
     """
     return [
@@ -42,7 +47,17 @@ def joint_identifiability_matrix() -> list[dict]:
             "pollen_receipt": "absent",
             "direct_total_reproductive_dependency": "partial",
             "same_population_joint_exposure_dependency": "partial",
-            "note": "Visitation/contact, single-visit outcomes and breeding treatments are source-native, but the source summaries do not provide one transportable total-dependency estimand for all three plants.",
+            "note": "Thespesia raw data now contain exact individual census/breeding linkage for eight plants with Auto and Xenogamy, but broad visitor-group diversity is analyst-derived and not a harmonized FDQ-like exposure estimand.",
+        },
+        {
+            "panel": "puerto_rico_mona_guaiacum_2022",
+            "cluster": "puerto_rico_archipelago",
+            "functional_exposure": "partial",
+            "trait_matching": "absent",
+            "pollen_receipt": "absent",
+            "direct_total_reproductive_dependency": "partial",
+            "same_population_joint_exposure_dependency": "partial",
+            "note": "The same species was observed in Guanica and Mona with exact source-native visitor richness/visitation contrasts and blocked breeding experiments in each population. Autogamy is negligible and ISI is reported, but no harmonized FDQ-like exposure or numeric autonomous/outcross total-dependency ratio is recovered.",
         },
         {
             "panel": "balearic_malva_2024",
@@ -98,6 +113,21 @@ def panels_with_exact_joint_exposure_dependency(rows: Iterable[dict] | None = No
     ]
 
 
+def panels_with_partial_or_exact_joint_context(rows: Iterable[dict] | None = None) -> list[str]:
+    """Panels where exposure and reproductive information coexist at a source-linked unit.
+
+    This is deliberately broader than an admissible moderation panel. ``partial``
+    rows are useful architecture/candidate systems but cannot enter the harmonized
+    cross-lineage coefficient.
+    """
+    rows = list(joint_identifiability_matrix() if rows is None else rows)
+    return [
+        row["panel"]
+        for row in rows
+        if row["same_population_joint_exposure_dependency"] in {"partial", "exact"}
+    ]
+
+
 def moderation_test_state(rows: Iterable[dict] | None = None) -> dict:
     rows = list(joint_identifiability_matrix() if rows is None else rows)
     exact_joint = panels_with_exact_joint_exposure_dependency(rows)
@@ -108,6 +138,6 @@ def moderation_test_state(rows: Iterable[dict] | None = None) -> dict:
         "decision": (
             "identified_for_cross-system_test"
             if len(exact_joint) >= 2
-            else "not_identified_due_to_missing_same_population_overlap"
+            else "not_identified_due_to_missing_harmonized_exact_joint_panels"
         ),
     }

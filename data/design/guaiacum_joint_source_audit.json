@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "system_id": "puerto_rico_mona_guaiacum_2022",
+  "source": {
+    "citation": "Fumero-Caban JJ, Melendez-Ackerman EJ, Rojas-Sandoval J. 2022. Journal of Pollination Ecology 32:139-153",
+    "doi": "10.26786/1920-7603(2022)669",
+    "article_url": "https://pollinationecology.org/index.php/jpe/article/view/669",
+    "pdf_url": "https://www.pollinationecology.org/index.php/jpe/article/download/669/359",
+    "license": "CC BY 4.0",
+    "source_type": "open_access_primary_article",
+    "raw_dataset_recovered": false,
+    "figure_digitization_used": false
+  },
+  "study_design": {
+    "taxon": "Guaiacum sanctum",
+    "populations": ["Guanica, Puerto Rico", "Mona Island, Puerto Rico"],
+    "flower_visitor_years": [2008, 2009, 2010],
+    "pollination_experiment_years": [2009, 2010],
+    "visitor_observation_hours_total": 180,
+    "visitor_observation_segments_15min": 732,
+    "visitor_focal_trees_per_site_year_range": [4, 8],
+    "pollination_experiment_trees_per_island": 10,
+    "pollination_treatments": ["selfing", "outcrossing", "autogamy", "agamospermy", "open_pollination"],
+    "flowers_per_treatment_per_tree": 5,
+    "pollination_block_unit": "tree",
+    "same_population_exposure_and_breeding": true,
+    "same_individual_tree_linkage_between_observation_and_breeding": "not_reported"
+  },
+  "source_native_pollinator_contrast": {
+    "guanica": {
+      "reported_species_richness": 8,
+      "table1_total_visits_2008_2010": 9443,
+      "apis_mellifera_visits": 9282,
+      "apis_share_of_table1_visits": 0.9829503335804299,
+      "table1_count_derived_shannon": 0.11323570590333525,
+      "table1_count_derived_gini_simpson": 0.033733403615369584
+    },
+    "mona": {
+      "reported_species_richness": 17,
+      "table1_total_visits_2008_2010": 3358,
+      "apis_mellifera_visits": 0,
+      "table1_count_derived_shannon": 1.9980037109821132,
+      "table1_count_derived_gini_simpson": 0.8132964366250792
+    },
+    "reported_visitation_result": "Mean visitation rate in Guanica was approximately twice that on Mona; island effect P < 0.001, year effect P = 0.06.",
+    "source_reading": "Guanica has lower visitor richness and extreme Apis dominance but higher visitation rate; Mona has higher visitor richness and a much more even visitor assemblage.",
+    "harmonized_with_izu_fdq": false,
+    "boundary": "Richness, species-count diversity and visitation are source-native or transparently derived assemblage diagnostics; none is relabelled as Izu FDQ."
+  },
+  "source_native_reproductive_contrast": {
+    "agamospermy": "no mature fruits on either island",
+    "autogamy": {
+      "guanica_mature_fruits": 3,
+      "mona_mature_fruits": 2,
+      "reading": "negligible spontaneous self-pollination; the authors conclude a pollen vector is required"
+    },
+    "selfing_vs_outcrossing": "selfing had significantly lower fruit-set and seed-set than outcrossing; outcrossing yielded nearly twice the fruits and seeds",
+    "isi_seedset_self_over_outcross": {
+      "guanica": 0.60,
+      "mona": 0.63,
+      "between_island_test": "t=-0.29, df=18, P=0.77"
+    },
+    "multiplicative_fitness": {
+      "guanica": {"outcross": 1.5, "open": 1.6, "self": 0.43},
+      "mona": {"outcross": 0.9, "open": 0.97, "self": 0.40}
+    },
+    "direct_vector_dependency": "supported",
+    "direct_total_dependency_ratio": "not_reconstructed_without_numeric_outcross_or_open_fruitset_values",
+    "boundary": "ISI is a selfing/outcrossing seed-set ratio, not autonomous reproductive dependency. Autogamy counts demonstrate vector dependence but are not divided by digitized Figure 4 values."
+  },
+  "joint_identifiability": {
+    "same_species_two_population_exposure_contrast": "exact_source_native",
+    "same_population_breeding_experiment": "exact_source_native",
+    "same_tree_exposure_dependency_linkage": "not_reported",
+    "effective_service_single_visit_or_pollen_function": "absent",
+    "floral_response_transition_numeric": "absent",
+    "harmonized_functional_exposure": "not_identified",
+    "cross_lineage_dependency_x_functional_exposure_ready": false,
+    "admission_state": "joint_population_context_strong_but_not_harmonized_bridge"
+  },
+  "scientific_implication": "The two populations show a strong pollinator-assemblage contrast while their ISI values are nearly identical. This is a useful real-data counterexample to any assumption that pollinator exposure and plant reproductive dependency are interchangeable axes. The source strengthens the need to measure both independently in Issue #91.",
+  "next_gate": "Recover lawful source-native raw or tabulated tree-level visitor and breeding data if available. Without them, retain Guaiacum as a population-level joint source and do not estimate a harmonized cross-lineage moderation slope.",
+  "claim_boundary": "Do not interpret the Guanica-Mona contrast as an experimental Apis effect, do not use richness as FDQ, do not infer historical floral evolution, and do not reconstruct Figure 4 treatment means by digitization in the primary analysis."
+}
