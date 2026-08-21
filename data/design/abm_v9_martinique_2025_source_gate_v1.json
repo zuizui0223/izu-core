@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.1",
+  "analysis": "abm_v9_martinique_2025_source_gate",
+  "freeze_date": "2026-08-21",
+  "candidate_system": {
+    "system": "Martinique, Lesser Antilles, tropical garden plant-pollinator networks",
+    "dataset_title": "Floral offer and seasonality shape plant-pollinator networks in tropical gardens",
+    "doi": "10.25666/DATAUBFC-2025-03-28",
+    "record": "FR-13002091000019-2025-03-28",
+    "published_sampling_scope": "10 garden sites sampled monthly over 12 months; floral offer and plant-insect interactions surveyed along the same 150 m site transects; insect interactions monitored for 60 min per site per month"
+  },
+  "author_deposited_files": [
+    {"name": "Data_gardens.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=582", "required": false, "role": "site metadata"},
+    {"name": "Plant_insect_interactions_former_names.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=597", "required": true, "role": "core plant-insect event records"},
+    {"name": "Plant_species.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=598", "required": false, "role": "optional taxonomic metadata"},
+    {"name": "README.docx", "url": "https://search-data.ubfc.fr/dl_data.php?file=599", "required": false, "role": "optional protocol metadata"},
+    {"name": "Sampling_data.xlsx", "url": "https://search-data.ubfc.fr/dl_data.php?file=601", "required": true, "role": "core sampling workbook including interactions and independent floral abundance"}
+  ],
+  "source_only_admission_rule": "Admit for a later full-v9 reconstruction gate only if all required core files are recovered and author-deposited bytes expose repeated site/time plant-insect event records plus an independently measured plant/floral-offer table at compatible site/time scale. Interaction-event rows may be the quantitative unit even when no separate count column is stored; aggregation semantics are frozen only in the later reconstruction gate. Sampling exposure must be documented in source metadata or source fields. Optional taxonomy/README files may fail transport without blocking the core source gate.",
+  "primary_biological_scope": "Use insect interactions only for the prospective v9 gate because source metadata states a fixed 60 min per site per month insect protocol. Bird interactions are outside this gate.",
+  "hard_boundaries": [
+    "Source admission is not target calculation.",
+    "Do not aggregate event rows into network weights in this source gate; only record that an event-row interaction representation exists.",
+    "Do not choose monthly versus source-defined bi-period networks based on interaction outcomes; freeze this later from source field structure.",
+    "Do not infer floral opportunity from plants that received visits; require an independently recorded floral-offer source.",
+    "Do not calculate pair-support fraction, turnover, Shannon diversity, plant/pollinator support statistics, empirical ranges, or v9 predictive fit.",
+    "Menorca, Giannutri and Cabrera are consumed failures; Thousand Island Lake is pair-support-only and cannot confirm full v9."
+  ],
+  "target_metrics_calculated": false
+}
