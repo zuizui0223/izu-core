@@ -1,0 +1,63 @@
+name: Thousand Island Lake 2022 v9 reconstruction gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v9_thousand_island_lake_reconstruction_gate_v1.json'
+      - 'scripts/audit_thousand_island_lake_2022_reconstruction_structure.py'
+      - 'tests/test_thousand_island_lake_2022_reconstruction_gate.py'
+      - '.github/workflows/thousand_island_lake_2022_reconstruction_gate.yml'
+      - 'scripts/acquire_audit_thousand_island_lake_2022.py'
+
+jobs:
+  reconstruction-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository and archive readers
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unar r-base-core
+          python -m pip install -e '.[dev]'
+      - name: Re-run admitted source gate to recover checksum-locked archives
+        run: python scripts/acquire_audit_thousand_island_lake_2022.py > /tmp/til-source-audit-full.json
+      - name: Run target-free reconstruction audit
+        run: python scripts/audit_thousand_island_lake_2022_reconstruction_structure.py
+      - name: Enforce pre-target boundary and claim ladder
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/thousand_island_lake_2022_reconstruction_structure.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['network_outcome_metrics_calculated'] is False
+          assert x['v9_predictive_fit_calculated'] is False
+          assert x['admissible_claim'] in {'full_v9','pair_support_only','blocked'}
+          assert x['status'] in {
+              'til_reconstruction_supports_full_v9_design_freeze',
+              'til_reconstruction_supports_pair_support_only_not_full_v9',
+              'blocked_til_reconstruction_spatial_pair_counts_not_auditable',
+          }
+          print('status', x['status'])
+          print('admissible_claim', x['admissible_claim'])
+          print('spatial networks', x['spatial_matrix']['network_column_count'])
+          print('temporal networks', x['temporal_matrix']['network_column_count'])
+          print('pair identity matches', x['pair_identity_set_matches_between_spatial_and_temporal_marginals'])
+          print('joint site-year visible', x['joint_site_year_pair_structure_visible'])
+          print('independent plant opportunity visible', x['independent_local_plant_resource_opportunity_visible'])
+          print('sampling exposure visible', x['sampling_exposure_visible_at_network_scale'])
+          print('plant opportunity candidates', x['plant_opportunity_candidates'])
+          print('sampling exposure candidates', x['sampling_exposure_candidates'])
+          print('R code structural matches', x['r_code_structural_matches'])
+          PY
+      - name: Run reconstruction-gate regression tests
+        run: python -m pytest -q tests/test_thousand_island_lake_2022_reconstruction_gate.py tests/test_thousand_island_lake_2022_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thousand-island-lake-2022-v9-reconstruction-gate
+          path: |
+            data/results/thousand_island_lake_2022_source_audit.json
+            data/results/thousand_island_lake_2022_reconstruction_structure.json
