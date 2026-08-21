@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v8_cabrera_source_gate",
+  "freeze_date": "2026-08-21",
+  "candidate_system": {
+    "source": "Serra-Marin et al. 2025 Methods in Ecology and Evolution",
+    "article_doi": "10.1111/2041-210X.70165",
+    "dataset_title": "Plant_pollinator interactions Cabrera Island 2022-2023",
+    "zenodo_doi": "10.5281/zenodo.17130777",
+    "digital_csic_handle": "http://hdl.handle.net/10261/420466",
+    "published_scope": "Cabrera Island, 2022-2023, six study sites across habitats and 13 field campaigns; direct observations and automatic camera recordings provide repeated plant-pollinator sampling contexts"
+  },
+  "independence_boundary": "No Cabrera / Serra-Marin / zenodo.17130777 interaction implementation was found in izu-core before this source gate. Menorca and Giannutri are consumed failures and are not reused to fit or confirm v8. Cabrera is geographically in the Balearics but is a different island, sampling period, and dataset from the Menorca system that falsified v5.",
+  "source_files": [
+    {
+      "name": "README.txt",
+      "url": "https://digital.csic.es/bitstream/10261/420466/2/README.txt"
+    },
+    {
+      "name": "cabrera_22_23_habitat.csv",
+      "url": "https://digital.csic.es/bitstream/10261/420466/1/cabrera_22_23_habitat.csv"
+    }
+  ],
+  "source_only_gate": {
+    "required_before_any_target": [
+      "recover both public Digital.CSIC source files byte-for-byte",
+      "record byte count and SHA256 for every recovered file",
+      "inventory CSV row count, column count, exact headers, and source-native context identifiers only",
+      "verify that source-native records expose plant identity, pollinator or visitor identity, and repeated local context fields sufficient to reconstruct quantitative or event-count plant-pollinator pair support",
+      "retain site, campaign/time, habitat, year, and observation-method fields when present rather than selecting a favorable subset",
+      "do not calculate any network architecture, pair-support, plant-support, pollinator-support, empirical range, or ABM v8 predictive statistic"
+    ],
+    "blocked_rule": "If source bytes cannot be recovered or the source-native schema does not expose raw plant-pollinator interaction records with repeated local context, block before target inspection. Do not substitute published summary metrics, figures, or a different Balearic dataset.",
+    "method_boundary": "Direct-observation and automatic-camera records may both be admitted at the source stage. Any later decision to validate them separately, jointly, or with one prespecified method must be frozen before target calculation and cannot be selected by v8 fit."
+  },
+  "target_metrics_calculated": false,
+  "prohibited_before_source_admission": [
+    "calculate interaction Shannon diversity",
+    "calculate plant niche overlap",
+    "calculate pair, plant, or pollinator support estimands",
+    "inspect any ABM v8 predictive envelope",
+    "select observation method based on network outcomes",
+    "drop sites, habitats, campaigns, years, or source rows based on target values",
+    "pool repeated contexts after inspecting target values",
+    "reuse Menorca or Giannutri as confirmation of v8"
+  ]
+}
