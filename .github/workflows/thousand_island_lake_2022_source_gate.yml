@@ -1,0 +1,48 @@
+name: Thousand Island Lake 2022 v9 source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v9_thousand_island_lake_source_gate_v1.json'
+      - 'scripts/acquire_audit_thousand_island_lake_2022.py'
+      - 'scripts/summarize_thousand_island_lake_source_audit.py'
+      - 'tests/test_thousand_island_lake_2022_source_gate.py'
+      - '.github/workflows/thousand_island_lake_2022_source_gate.yml'
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository and archive/R structure readers
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unar r-base-core
+          python -m pip install -e '.[dev]'
+      - name: Run source-only archive audit
+        run: python scripts/acquire_audit_thousand_island_lake_2022.py > /tmp/til-source-audit-full.json
+      - name: Enforce source-only boundary and emit concise source result
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/thousand_island_lake_2022_source_audit.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['status'] in {
+              'source_admitted_til_raw_network_structure_before_v9_targets',
+              'blocked_til_raw_pair_or_network_structure_incomplete',
+              'blocked_til_zenodo_metadata_not_recovered',
+          }
+          PY
+          python scripts/summarize_thousand_island_lake_source_audit.py
+      - name: Run source-gate regression tests
+        run: python -m pytest -q tests/test_thousand_island_lake_2022_source_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thousand-island-lake-2022-v9-source-gate
+          path: |
+            data/results/thousand_island_lake_2022_source_audit.json
+            data/external/thousand_island_lake_2022/**
