@@ -5,7 +5,9 @@ on:
   pull_request:
     paths:
       - 'scripts/audit_martinique_2025_reconstruction_structure.py'
+      - 'scripts/audit_martinique_2025_author_r_reconstruction_semantics.py'
       - 'tests/test_martinique_2025_reconstruction_structure.py'
+      - 'tests/test_martinique_2025_author_r_reconstruction_semantics.py'
       - 'data/design/abm_v9_martinique_2025_reconstruction_v1.json'
       - '.github/workflows/martinique_2025_v9_reconstruction_freeze.yml'
       - 'data/design/abm_v9_martinique_2025_source_gate_v1.json'
@@ -23,15 +25,20 @@ jobs:
         run: python -m pip install -e '.[dev]'
       - name: Run source-structure audit before any target
         run: python scripts/audit_martinique_2025_reconstruction_structure.py
+      - name: Inspect author R reconstruction semantics without outcomes
+        run: python scripts/audit_martinique_2025_author_r_reconstruction_semantics.py
       - name: Enforce pre-target boundary
         run: |
           python - <<'PY'
           import json
           x=json.load(open('data/results/martinique_2025_reconstruction_structure.json'))
+          r=json.load(open('data/results/martinique_2025_author_r_reconstruction_semantics.json'))
           assert x['target_metrics_calculated'] is False
           assert x['network_matrices_built'] is False
           assert x['interaction_events_aggregated'] is False
           assert x['v9_predictive_fit_calculated'] is False
+          assert r['target_metrics_calculated'] is False
+          assert r['network_outcomes_inspected'] is False
           assert x['cross_source_structure']['complete_10x12_site_period_grid_in_both_sources'] is True
           assert x['cross_source_structure']['period_is_one_to_one_with_month_in_both_sources'] is True
           assert x['interaction']['timing_field_structure']['published_protocol_minutes_per_site_period'] == 60
@@ -40,13 +47,24 @@ jobs:
           print('floral context', x['floral_abundance']['context_structure'])
           print('period mapping', x['interaction']['period_to_months'])
           print('joint identity structure', x['interaction']['joint_identity_structure'])
+          print('interaction amount structure', x['interaction']['interaction_amount_structure'])
           print('timing fields', x['interaction']['timing_field_structure'])
+          print('floral identity', x['floral_abundance']['plant_identity'])
           print('floral measure', x['floral_abundance']['floral_measure_structure'])
           print('cross source', x['cross_source_structure'])
+          for row in r['files']:
+              print('AUTHOR_R', row['name'], 'status', row.get('http_status'), 'num_sp_use', row.get('num_sp_use'))
+              print('AUTHOR_R_MATCHES', row.get('structural_matches'))
           PY
       - name: Run reconstruction audit tests
-        run: python -m pytest -q tests/test_martinique_2025_reconstruction_structure.py tests/test_martinique_2025_v9_source_gate.py
+        run: >-
+          python -m pytest -q
+          tests/test_martinique_2025_reconstruction_structure.py
+          tests/test_martinique_2025_author_r_reconstruction_semantics.py
+          tests/test_martinique_2025_v9_source_gate.py
       - uses: actions/upload-artifact@v4
         with:
           name: martinique-2025-v9-reconstruction-freeze
-          path: data/results/martinique_2025_reconstruction_structure.json
+          path: |
+            data/results/martinique_2025_reconstruction_structure.json
+            data/results/martinique_2025_author_r_reconstruction_semantics.json
