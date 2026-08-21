@@ -31,6 +31,14 @@ def test_structure_audit_is_target_free():
     assert "predictive_envelope" not in text
 
 
+def test_missing_sentinels_are_not_taxon_identity():
+    module = load_script()
+    assert module.identity_value(None) == ""
+    assert module.identity_value("NA") == ""
+    assert module.identity_value("nan") == ""
+    assert module.identity_value("PL1") == "PL1"
+
+
 def test_month_is_derived_from_source_date_not_period():
     module = load_script()
     assert module.canonical_month(datetime(2022, 10, 15, 9, 0)) == "2022-10"
@@ -41,15 +49,31 @@ def test_joint_identity_audit_distinguishes_placeholder_patterns():
     module = load_script()
     rows = [
         {"Plant_Best_ID": "P1", "Insect_Best_ID": "I1", "Site": "S", "Period": "P1"},
-        {"Plant_Best_ID": "", "Insect_Best_ID": "", "Site": "S", "Period": "P1", "Num_sp": 0},
-        {"Plant_Best_ID": "P2", "Insect_Best_ID": "", "Site": "S", "Period": "P1"},
-        {"Plant_Best_ID": "", "Insect_Best_ID": "I2", "Site": "S", "Period": "P1"},
+        {"Plant_Best_ID": "NA", "Insect_Best_ID": "NA", "Site": "S", "Period": "P1", "Num_sp": "NA"},
+        {"Plant_Best_ID": "P2", "Insect_Best_ID": "NA", "Site": "S", "Period": "P1"},
+        {"Plant_Best_ID": "NA", "Insect_Best_ID": "I2", "Site": "S", "Period": "P1"},
     ]
     result = module.joint_interaction_identity_structure(rows)
     assert result["both_best_ids_nonblank_rows"] == 1
     assert result["both_best_ids_blank_rows"] == 1
     assert result["plant_only_best_id_rows"] == 1
     assert result["insect_only_best_id_rows"] == 1
+    assert result["both_blank_num_sp_raw_values"] == {"NA": 1}
+
+
+def test_num_sp_is_audited_before_selecting_event_weight():
+    module = load_script()
+    rows = [
+        {"Plant_Best_ID": "P1", "Insect_Best_ID": "I1", "Num_sp": 1},
+        {"Plant_Best_ID": "P1", "Insect_Best_ID": "I2", "Num_sp": 3},
+        {"Plant_Best_ID": "NA", "Insect_Best_ID": "NA", "Num_sp": "NA"},
+    ]
+    result = module.interaction_amount_structure(rows)
+    assert result["identified_interaction_rows"] == 2
+    assert result["num_sp_numeric_rows"] == 2
+    assert result["num_sp_min"] == 1
+    assert result["num_sp_max"] == 3
+    assert "no event-weight rule" in result["weight_rule_boundary"].lower()
 
 
 def test_timing_fields_are_not_summed_as_sampling_effort():
@@ -65,17 +89,17 @@ def test_timing_fields_are_not_summed_as_sampling_effort():
     assert "total_unique_window_minutes" not in result
 
 
-def test_floral_measure_audit_preserves_missing_rows_for_later_binary_rule():
+def test_floral_na_placeholder_does_not_define_plant_identity():
     module = load_script()
     rows = [
-        {"Site": "S1", "Period": "P1", "Transect": "T", "Quadrat": "Q1", "Plant_Best_ID": "P1", "Name_Floral_unit": "flower", "Nb_Floral_unit": None},
+        {"Site": "S1", "Period": "P1", "Transect": "T", "Quadrat": "Q1", "Plant_Best_ID": "NA", "Name_Floral_unit": "NA", "Nb_Floral_unit": "NA"},
         {"Site": "S1", "Period": "P1", "Transect": "T", "Quadrat": "Q2", "Plant_Best_ID": "P2", "Name_Floral_unit": "flower", "Nb_Floral_unit": 12},
     ]
     result = module.floral_structure(rows)
     assert result["nb_floral_unit_missing_or_nonnumeric_rows"] == 1
-    assert result["missing_floral_unit_rows_with_nonblank_plant_best_id"] == 1
+    assert result["missing_floral_unit_rows_with_identified_plant"] == 0
+    assert result["missing_floral_unit_rows_with_raw_na_plant_id"] == 1
     assert result["nb_floral_unit_positive_rows"] == 1
-    assert "does not yet decide" in result["binary_opportunity_boundary"]
 
 
 def test_period_month_mapping_requires_source_one_to_one_mapping():
