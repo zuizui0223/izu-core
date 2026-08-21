@@ -1,0 +1,53 @@
+name: ABM v9 local plant opportunity prevalidation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
+      - 'scripts/prevalidate_abm_v9_local_plant_opportunity.py'
+      - 'tests/test_abm_v9_local_plant_opportunity.py'
+      - 'scripts/run_constraint_mechanism_abm_v8_pair_support.py'
+      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
+      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
+      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
+      - '.github/workflows/abm_v9_local_plant_opportunity_prevalidation.yml'
+
+jobs:
+  prevalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Freeze v9 mechanism contract
+        run: python scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py
+      - name: Run synthetic prevalidation
+        run: python scripts/prevalidate_abm_v9_local_plant_opportunity.py
+      - name: Enforce synthetic decision and no empirical fit
+        run: |
+          python - <<'PY'
+          import json,sys
+          x=json.load(open('data/results/abm_v9_local_plant_opportunity_prevalidation.json'))
+          print('decision', x['decision'])
+          print('state counts', x['state_counts'])
+          print('context diagnostics', x['context_diagnostics'])
+          print('tests', x['tests'])
+          assert x['empirical_inputs_loaded'] == []
+          assert x['menorca_values_loaded'] is False
+          assert x['giannutri_values_loaded'] is False
+          assert x['cabrera_values_loaded'] is False
+          ok=x['decision']=='v9_opens_local_plant_opportunity_before_pair_support'
+          sys.exit(0 if ok else 1)
+          PY
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_abm_v9_local_plant_opportunity.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v9-local-plant-opportunity-prevalidation
+          path: |
+            data/results/constraint_mechanism_abm_v9_local_plant_opportunity.json
+            data/results/abm_v9_local_plant_opportunity_prevalidation.json
