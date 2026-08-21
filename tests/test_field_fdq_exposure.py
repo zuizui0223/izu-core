@@ -104,6 +104,19 @@ def test_complete_taxon_and_trait_coverage_produces_source_formula_fdq(tmp_path:
     assert audit.summary["fdq_ready_units"] == 1
 
 
+def test_zero_visit_usable_effort_remains_explicit_without_inventing_fdq_zero(tmp_path: Path) -> None:
+    paths = base_files(tmp_path, [], [])
+    audit = audit_field_fdq_from_files(plants_path=paths[0], effort_path=paths[1], visits_path=paths[2], traits_path=paths[3])
+    assert len(audit.exposure_rows) == 1
+    row = audit.exposure_rows[0]
+    assert row["total_visit_bouts"] == "0"
+    assert row["fdq"] == ""
+    assert row["fdq_status"] == "withheld_no_visit_bouts"
+    assert row["taxon_resolution_fraction"] == ""
+    assert row["trait_coverage_fraction"] == ""
+    assert audit.summary["zero_visit_units"] == 1
+
+
 def test_group_level_visit_is_retained_and_withholds_fdq(tmp_path: Path) -> None:
     visits = [
         visit("v1", "bombus_ardens_confirmed", "Bombus ardens ardens", "confirmed", "10"),
