@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "analysis": "abm_v9_mahe_iwdb_source_gate",
+  "freeze_date": "2026-08-21",
+  "candidate_system": {
+    "island": "Mahé, Seychelles",
+    "source_publication": "Kaiser-Bunbury et al. 2017 Nature",
+    "publication_doi": "10.1038/nature21071",
+    "primary_data_database": "Interaction Web DataBase (IWDB)",
+    "database_entry_paths": [
+      "https://www.ecologia.ib.usp.br/iwdb/html/kaiser-bunbury_et_al_2017.html",
+      "https://iwdb.nceas.ucsb.edu/html/kaiser-bunbury_et_al_2017.html"
+    ],
+    "published_database_scope": "64 monthly plant-pollinator networks from eight Mahé inselbergs sampled September 2012-April 2013; data entry describes both raw visit-count and standardized visit-frequency matrices, plant rows including flowering plants with zero visitors, and floral abundance metadata."
+  },
+  "prior_block_boundary": "A previous izu-core Seychelles attempt was blocked before target inspection because its chosen primary-source transport was unavailable. This gate is allowed only because the public IWDB entry for the same Kaiser-Bunbury primary dataset is now independently discoverable. It may admit only raw matrix bytes linked by the IWDB entry; it may not substitute derived results from later papers, reconstructed figures, or third-party reanalyses.",
+  "independence_boundary": "Mahé has not been used to fit ABM v9. Menorca, Giannutri and Cabrera are consumed failure systems and cannot confirm v9. Mahé is geographically and empirically independent of those systems.",
+  "source_only_gate": {
+    "required_before_any_target": [
+      "recover one of the frozen IWDB entry URLs and record its exact bytes and SHA256",
+      "resolve only data-file links directly exposed by that IWDB entry",
+      "recover linked Excel matrix bytes and record size, MD5 and SHA256",
+      "inventory workbook sheet names, dimensions, candidate metadata headers, and source-native network-ID/site/month/floral-abundance structure only",
+      "verify that raw pair-interaction matrices and repeated network identifiers are present",
+      "verify the advertised 64-network structure from source-native identifiers before target calculation",
+      "do not calculate any v9 network target, support statistic, empirical range, or predictive fit"
+    ],
+    "blocked_rule": "If the IWDB entry or its linked raw matrix bytes are inaccessible, or if the workbook cannot establish the source-native 64-network structure, block before targets. Do not fall back to the earlier blocked transport, later secondary analyses, or reconstructed network values.",
+    "observation_boundary": "The source page advertises a raw no.visits representation and a standardized visitfreq representation that accounts for observation time, observed flowers and floral abundance. This source gate does not select the primary v9 weight. That choice must be frozen later from source meaning before any target is inspected."
+  },
+  "target_metrics_calculated": false,
+  "prohibited_before_source_admission": [
+    "calculate pair-support fraction or turnover",
+    "calculate interaction Shannon diversity",
+    "calculate plant or pollinator support estimands",
+    "inspect ABM v9 predictive envelopes",
+    "choose no.visits versus visitfreq based on fit",
+    "drop restored or unrestored sites based on network outcomes",
+    "drop months or sites based on network outcomes",
+    "use later secondary paper outputs as replacement primary data",
+    "reuse Menorca, Giannutri, or Cabrera as v9 confirmation"
+  ]
+}
