@@ -1,0 +1,43 @@
+name: Cabrera v8 failure diagnosis
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/cabrera_v8_failure_diagnosis_v1.json'
+      - 'scripts/diagnose_cabrera_v8_failure_layers.py'
+      - 'tests/test_cabrera_v8_failure_layer_diagnosis.py'
+      - '.github/workflows/cabrera_v8_failure_diagnosis.yml'
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run preserved-failure layer diagnosis
+        run: python scripts/diagnose_cabrera_v8_failure_layers.py
+      - name: Enforce non-rescue boundary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/cabrera_v8_failure_layer_diagnosis.json'))
+          assert x['preserved_failure_decision'] == 'v8_fails_cabrera_conditional_pair_support_predictive_adequacy'
+          assert x['v8_parameters_reestimated'] is False
+          assert x['primary_v8_result_relabelled'] is False
+          assert x['context_count'] == 55
+          print('decomposition', x['decomposition_summary'])
+          print('exposure consistency', x['exposure_consistency'])
+          for name,row in x['descriptive_relationships'].items():
+              print('REL', name, row)
+          PY
+      - name: Run diagnosis regression tests
+        run: python -m pytest -q tests/test_cabrera_v8_failure_layer_diagnosis.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cabrera-v8-failure-diagnosis
+          path: data/results/cabrera_v8_failure_layer_diagnosis.json
