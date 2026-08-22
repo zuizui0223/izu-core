@@ -6,6 +6,7 @@ on:
     paths:
       - 'data/design/abm_v13_hawaii_lobelioid_source_gate.json'
       - 'data/results/abm_v13_hawaii_lobelioid_dryad_recovery_frozen.json'
+      - 'data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery_frozen.json'
       - 'scripts/recover_abm_v13_hawaii_lobelioid_dryad.py'
       - 'scripts/recover_abm_v13_hawaii_lobelioid_dryad_package.py'
       - 'tests/test_abm_v13_hawaii_lobelioid_source_gate.py'
@@ -21,44 +22,29 @@ jobs:
           python-version: '3.12'
       - name: Install repository
         run: python -m pip install -e '.[dev]'
-      - name: Run source-gate tests before target reanalysis
+      - name: Run source-gate tests
         run: python -m pytest -q tests/test_abm_v13_hawaii_lobelioid_source_gate.py
-      - name: Verify direct file-stream block is frozen rather than retried
+      - name: Verify both anonymous Dryad routes are frozen and not retried
         run: |
           python - <<'PY'
           import json
-          x=json.load(open('data/results/abm_v13_hawaii_lobelioid_dryad_recovery_frozen.json'))
-          assert x['decision'] == 'blocked_hawaii_lobelioid_dryad_transport'
-          assert x['file_count_recovered'] == 0
-          assert x['route_state']['same_route_retry_allowed'] is False
-          assert all(row['http_status'] == 403 for row in x['files'])
-          print('direct file_stream route remains frozen/exhausted')
+          direct=json.load(open('data/results/abm_v13_hawaii_lobelioid_dryad_recovery_frozen.json'))
+          package=json.load(open('data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery_frozen.json'))
+          gate=json.load(open('data/design/abm_v13_hawaii_lobelioid_source_gate.json'))
+
+          assert direct['decision'] == 'blocked_hawaii_lobelioid_dryad_transport'
+          assert direct['file_count_recovered'] == 0
+          assert direct['route_state']['same_route_retry_allowed'] is False
+          assert all(row['http_status'] == 403 for row in direct['files'])
+
+          assert package['transport']['decision'] == 'blocked_dryad_package_api_requires_authentication'
+          assert package['transport']['http_status'] == 401
+          assert package['package_recovered'] is False
+          assert package['route_state']['anonymous_retry_allowed'] is False
+
+          assert gate['target_metrics_calculated'] is False
+          assert gate['source_recovery_state']['mainline_blocking'] is False
+          assert gate['source_recovery_state']['direct_file_stream']['anonymous_retry_allowed'] is False
+          assert gate['source_recovery_state']['rest_dataset_package']['anonymous_retry_allowed'] is False
+          print('Hawaii source state frozen: file_stream=403, package_api=401, no anonymous retry')
           PY
-      - name: Try distinct Dryad REST API dataset-package route once
-        run: python scripts/recover_abm_v13_hawaii_lobelioid_dryad_package.py
-      - name: Preserve package-route scientific decision
-        run: |
-          python - <<'PY'
-          import json
-          x=json.load(open('data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery.json'))
-          assert x['target_metrics_calculated'] is False
-          assert x['decision'] in {
-              'hawaii_lobelioid_package_recovered_ready_for_row_schema_freeze',
-              'hawaii_lobelioid_package_recovered_but_source_gate_failed',
-              'blocked_dryad_package_api_requires_authentication',
-              'blocked_dryad_package_api_forbidden',
-              'blocked_dryad_package_transport',
-          }
-          print('decision', x['decision'])
-          print('http status', x['transport'].get('http_status'))
-          if x['package_audit'] is not None:
-              print('package sha256', x['package_audit']['package_sha256'])
-              print('expected members valid', x['package_audit']['all_expected_files_unique_and_valid'])
-          PY
-      - uses: actions/upload-artifact@v4
-        with:
-          name: abm-v13-hawaii-lobelioid-source-gate
-          if-no-files-found: warn
-          path: |
-            data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery.json
-            .artifacts/abm_v13_hawaii_lobelioid_package/*
