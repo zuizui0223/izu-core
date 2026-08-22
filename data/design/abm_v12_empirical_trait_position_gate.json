@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "status": "model_mechanism_identified_empirical_signed_position_test_not_yet_open",
+  "model_result": {
+    "source": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
+    "decision": "v12_residual_lineage_factors_exhaust_within_run_branching_in_declared_model",
+    "minimal_synthetic_mechanism": "common pollinator-environment shift x heterogeneous initial lineage position in a functional matching trait space",
+    "not_empirical_causation": true
+  },
+  "empirical_mapping_principle": {
+    "target_construct": "signed initial plant position relative to the pollinator functional environment",
+    "preferred_direct_form": "plant_matching_trait_mm - source_native_pollinator_functional_center_mm",
+    "why_signed": "A symmetric matching score can show how well a plant matches but cannot distinguish which side of a shifting functional optimum the plant occupies. v12 branch direction depends on position, not merely absolute mismatch magnitude.",
+    "outcome_blind_requirement": "mapping, source units, weighting and baseline regime must be fixed before any new downstream reproductive target is inspected",
+    "forbidden_substitutions": [
+      "FDQ as if it were signed plant position",
+      "TM_sp_z as if it encoded the direction of trait mismatch",
+      "pollination syndrome as plant functional position",
+      "proboscis guild midpoint imputation",
+      "family or body-size proxy used as source-native proboscis length"
+    ]
+  },
+  "evidence_routes": [
+    {
+      "id": "southwest_pacific_starting_state",
+      "role": "independent_preexisting_external_consistency",
+      "chronology": "analysis existed in main before v12 residual mechanism test",
+      "source": "10.1093/aob/mcaf005 supplementary data S2",
+      "construct": "mainland flower size as pre-island starting state; island/mainland flower-size response",
+      "current_result": {
+        "animal_pollinated_valid_pairs": 88,
+        "lr_on_log10_mainland_size_slope": -0.1509947118927123,
+        "island_cluster_ci_95": [-0.3040562773559898, -0.07251784059209347],
+        "family_cluster_ci_95": [-0.24833678997365197, -0.020758981447738082],
+        "leave_one_island_all_negative": true
+      },
+      "support_level": "supports_initial_state_dependent_response_shape_not_pollinator_matching_mechanism",
+      "major_caveat": "LR=log10(FI/FM) shares observed FM with the predictor; classical mainland measurement error can induce negative coupling",
+      "measurement_error_gate": {
+        "mainland_log_size_reliability_estimated_from_source": false,
+        "point_negative_requires_reliability_gt": 0.8490052881072875,
+        "cluster_interval_entirely_negative_requires_reliability_gt": 0.9258005353502381
+      },
+      "causal_confirmation": false
+    },
+    {
+      "id": "izu_signed_functional_position",
+      "role": "preferred_focal_mechanism_test",
+      "baseline_regime_candidate": "Oshima bridge-state or a separately frozen mainland baseline; choice must be source-justified before downstream test",
+      "plant_trait_available": {
+        "field": "tube",
+        "unit": "mm",
+        "source": "Hiraiwa & Ushimaru 2024 data_sp_plant.csv",
+        "measurement": "species x site mean from five flowers"
+      },
+      "pollinator_trait_available": false,
+      "pollinator_trait_target": "2017 Table S2 species x site mean proboscis_length_mm",
+      "current_numeric_proboscis_coverage": "0/209 current named pollinator taxa",
+      "pair_weight_or_functional_center_state": "2024 public archive contains derived network metrics/species summaries but no source-native plant x pollinator quantitative pair table suitable for reconstructing a signed plant-specific partner center",
+      "source_native_unsigned_alignment_available": "TM_sp_z",
+      "unsigned_alignment_limitation": "TM_sp_z can support retrospective alignment-magnitude checks but cannot identify the sign of plant position around a functional optimum",
+      "decision": "blocked_for_direct_signed_position_test",
+      "reopen_conditions": [
+        "recover source-native numeric proboscis values with exact site identity",
+        "recover or identify a source-native quantitative plant x pollinator weighting sufficient to define the functional center, or predeclare a valid community-level center for the intended estimand",
+        "freeze baseline regime and signed-position formula before downstream reproductive outcomes are used for a new test"
+      ]
+    },
+    {
+      "id": "izu_unsigned_retrospective_alignment",
+      "role": "retrospective_triangulation_only",
+      "available": true,
+      "baseline_metric": "Oshima plant-specific TM_sp_z / source-native corrected trait matching",
+      "downstream_outcomes_already_known": true,
+      "prospective_confirmation_allowed": false,
+      "use": "check qualitative compatibility only; do not call held-out validation or causal confirmation"
+    },
+    {
+      "id": "issue91_campanula_direct_field",
+      "role": "direct_effective_service_and_dependency_calibration",
+      "status": "implementation_ready_field_data_missing",
+      "limitation_for_v12": "a single Campanula lineage cannot by itself identify cross-lineage initial-position branching",
+      "value": "can establish direct service/dependency layers and provide source-native prospective trait measurements for the focal anchor"
+    }
+  ],
+  "current_inference": {
+    "supported": [
+      "response heterogeneity is empirical across island systems",
+      "v12 identifies initial trait-position heterogeneity as the minimal source of within-run lineage sign branching in the declared ABM",
+      "an external pre-v12 Southwest Pacific analysis independently shows starting-state dependence of island floral response shape, subject to measurement-error sensitivity"
+    ],
+    "not_yet_supported": [
+      "real island reproductive branch sign is caused by signed plant position relative to pollinator functional optimum",
+      "the v12 standardized trait is numerically equivalent to corolla tube length",
+      "reproductive dependency is empirically irrelevant",
+      "a universal functional optimum applies across island systems"
+    ]
+  },
+  "next_decisive_task": "Find or recover an independent system with source-native plant matching trait, pollinator functional trait/environment, and downstream reproductive response measured on compatible units; freeze the signed-position mapping before inspecting its downstream outcome. Izu can reopen for a direct signed test only when the missing source-native proboscis/weight information is available.",
+  "claim_boundary": "This gate distinguishes model sufficiency, pre-existing empirical consistency and direct empirical identification. It intentionally leaves the focal signed-position mechanism unconfirmed rather than filling missing pollinator traits or pair weights with proxies."
+}
