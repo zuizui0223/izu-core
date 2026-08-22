@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-22",
   "purpose": "Cross-system evidence matrix for the comparative island programme. Broad system rows record source-locked evidence availability and propagation state; the linked layer-level matrix separates multiple biological systems inside one geography. Missing cells are not biological zeroes.",
   "response_axes": [
@@ -172,16 +172,33 @@
       },
       "propagation_state": "adjacent_links_only_near_complete",
       "propagation_reading": "Dong morph loss, low visitation and low natural fruit set align descriptively, but effectiveness and controlled dependency are measured only at Yongxing, so end-to-end propagation is not identified."
+    },
+    {
+      "system_id": "ogasawara_psychotria_homalosperma",
+      "role": "independent_partial_mechanism_bridge",
+      "sources": ["data/design/external_bridge_ogasawara_psychotria_source_audit.json", "data/results/world_island_replication_screen.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial_categorical_functional_access_pollinator_replacement_context",
+        "floral_morphology": "source_locked_distyly_and_stigma_position_present",
+        "mating_and_reproductive_assurance": "source_locked_hand_compatibility_present_total_dependency_missing",
+        "visual_signal": "not_registered",
+        "pollinator_effectiveness": "source_locked_directional_pollen_transfer_present_standardized_single_visit_missing",
+        "interaction_network": "partial_current_visitor_context_historical_replacement_inferred",
+        "reproductive_outcome": "source_locked_open_fruit_set_present"
+      },
+      "propagation_state": "propagates_same_direction_contemporary_access_chain",
+      "propagation_reading": "The dominant current honeybee cannot reach the hidden S-morph stigma, pollen transfer is S-to-L, and field fruit set is much higher in L morphs despite high bidirectional intermorph hand-pollination fruit set. Historical replacement causation and numeric signed mismatch remain unproven."
     }
   ],
   "current_pattern": {
     "uniform_response_syndrome_supported": false,
     "response_heterogeneity_recurs": true,
     "incomplete_propagation_recurs": true,
-    "strongest_current_comparative_reading": "Independent island systems repeatedly show common-ish upstream functional or interaction changes followed by different downstream combinations: branching, buffering/resilience, counterdirectional response, or unresolved adjacent links. The current evidence is stronger for state-dependent branching and propagation boundaries than for one universal directional island syndrome.",
-    "abm_reading": "The declared ABM identifies pre-existing functional trait position as a minimal synthetic generator of within-environment branch sign, while local support and partner effectiveness reallocate branches. Dominica failed the first exact signed-position projection; Hawaii independently supports the signed-position-to-interaction-quality layer plus a downstream reproductive-resilience boundary.",
-    "visual_signal_reading": "Visual signal, including nectar guides, remains an active comparative axis. It is missing in the current Izu measurement contract but is not excluded programme-wide."
+    "same_direction_propagation_case_present": true,
+    "strongest_current_comparative_reading": "Independent island systems repeatedly show common-ish upstream functional or interaction changes followed by multiple downstream states: same-direction propagation in a contemporary access-limited case, branching, buffering/resilience, counterdirectional response, or unresolved adjacent links. The evidence is stronger for state-dependent propagation than for one universal directional island syndrome.",
+    "abm_reading": "The declared ABM identifies pre-existing functional trait position as a minimal synthetic generator of within-environment branch sign, while local support and partner effectiveness reallocate branches. Dominica failed the first exact signed-position projection; Hawaii supports signed-position-to-interaction-quality plus reproductive buffering; Ogasawara adds a categorical access-to-reproductive-asymmetry propagation contrast without a numeric signed position.",
+    "visual_signal_reading": "Visual signal, including nectar guides, remains an active comparative axis. It is missing in the current Izu and Ogasawara access contracts and is not inferred from floral scent."
   },
-  "counting_boundary": "The ten broad matrix rows are routing units. The linked layer-level propagation matrix contains additional biological-system layers within some geographies; those layers must not be promoted to new independent geographic replicates.",
+  "counting_boundary": "The eleven broad matrix rows are routing units. The linked layer-level propagation matrix contains additional biological-system layers within some geographies; those layers must not be promoted to new independent geographic replicates.",
   "claim_boundary": "This matrix compares evidence structure, response combinations and propagation states. It does not convert noncommensurate axes into one effect size, treat missing cells as no response, identify a universal island causal coefficient, or call the synthetic v12 signed-position mechanism empirically confirmed."
 }
