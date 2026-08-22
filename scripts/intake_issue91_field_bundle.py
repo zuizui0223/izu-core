@@ -171,7 +171,7 @@ def main() -> None:
     ]
     for key in ("plants", "effort", "visits", "svd", "treatments", "fruits"):
         freeze_cmd.extend(["--" + key.replace("_", "-"), str(paths[key])])
-    for key in ("seeds_parentage", "geometry", "calibration"):
+    for key in ("seeds_parentage", "traits", "geometry", "calibration"):
         path = paths.get(key)
         if path is not None:
             freeze_cmd.extend(["--" + key.replace("_", "-"), str(path)])
@@ -306,6 +306,7 @@ def main() -> None:
             "requested": True,
             "success": step["success"],
             "path": str(fdq_dir / "summary.json") if step["success"] else None,
+            "trait_lookup_sha256": sha256_file(traits),
             "blocking_for_core_dependency": False,
         }
     else:
@@ -313,6 +314,7 @@ def main() -> None:
             "requested": False,
             "success": None,
             "path": None,
+            "trait_lookup_sha256": None,
             "blocking_for_core_dependency": False,
         }
 
@@ -333,6 +335,7 @@ def main() -> None:
         "raw_freeze": {
             "path": str(freeze_path),
             "bundle_fingerprint_sha256": freeze["bundle_fingerprint_sha256"],
+            "frozen_channels": [row["channel"] for row in freeze["channels"]],
         },
         "structural_summary": structural,
         "admission_summary": admission,
