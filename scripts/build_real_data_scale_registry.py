@@ -22,6 +22,7 @@ def main() -> None:
     c=load("data/results/balearic_cneorum_effectiveness_summary.json")
     hi=load("data/results/hawaii_native_pollination_summary.json")
     d=load("data/results/dominica_heliconia_selection_summary.json")
+    h13=load("data/results/abm_v12_heliconia_signed_position_test_frozen.json")
 
     panels=[
       {"panel_id":"izu_hiraiwa_2024","cluster":"izu","plant_taxa_slots":h["fixed_effect_subsets"]["all_eight_sites"]["n_plants"],"scale":{"plant_site_season_cells":h["fixed_effect_subsets"]["all_eight_sites"]["n_cells"],"sites":8,"seasons":5},"depth":["network_structure","trait_matching","pollen_receipt"],"note":"Repeated plant×site×season cells inside one Izu system."},
@@ -33,6 +34,7 @@ def main() -> None:
       {"panel_id":"balearic_cneorum_2020","cluster":"balearic","plant_taxa_slots":1,"scale":{"pollination_census_rows":c["scale"]["pollination_census_rows"],"pollination_exclusion_rows":c["scale"]["exclusion_pollination_rows"],"breeding_rows":c["scale"]["breeding_rows_kept_separate"]},"depth":["pollination_census","flower_selection","pollinator_exclusion","fruit_seed_outcomes","breeding"],"note":"Distinct Balearic plant experiment; same cluster as Malva."},
       {"panel_id":"hawaii_native_pollination_2019","cluster":"hawaii","plant_taxa_slots":hi["raw_visitation_scale"]["focal_plant_sheets"],"scale":{"raw_rows":hi["raw_visitation_scale"]["raw_rows"],"observation_sessions":hi["raw_visitation_scale"]["observation_sessions"],"focal_visitor_event_rows":hi["raw_visitation_scale"]["focal_visitor_event_rows"],"flowers_probed":hi["raw_visitation_scale"]["flowers_probed_in_focal_rows"],"reported_observation_hours":hi["source_reported_context"]["flower_observation_hours"]},"depth":["visitation","handling","article_level_bagging_context"],"note":"Eight native plants in one Hawaii ecosystem; raw Dryad lacks treatment table."},
       {"panel_id":"dominica_heliconia_2019","cluster":"lesser_antilles","plant_taxa_slots":1,"scale":{"plant_rows":d["scale"]["plant_rows"],"bird_measurement_rows":d["scale"]["bird_measurement_rows"],"nectar_visit_rows":d["scale"]["nectar_visit_rows"],"post_hurricane_visitor_plant_rows":d["scale"]["post_hurricane_visitor_plant_rows"]},"depth":["floral_morphology","seed_output","visitation","pollinator_morphology","natural_selection_context"],"note":"One Dominica before/after hurricane natural-disturbance system."},
+      {"panel_id":"dominica_heliconia_2013","cluster":"lesser_antilles","plant_taxa_slots":3,"scale":{"plant_rows":h13["plant_row_count"],"population_year_morph_units":h13["unit_count"],"source_selection_models_reconstructed":12},"depth":["floral_morphology","seed_output","visitation","pollinator_morphology","direct_selection_gradients"],"note":"Three lineage/morph classes in one Dominica programme; units repeat populations and years."},
     ]
     clusters=sorted({p["cluster"] for p in panels})
     all_depths=[depth for p in panels for depth in p["depth"]]
@@ -64,7 +66,7 @@ def main() -> None:
       "claim_boundary":"The registry documents real-data scale and evidence depth. More rows inside one experiment improve within-system estimation but do not substitute for additional independent systems."
     }
     args.out.parent.mkdir(parents=True,exist_ok=True)
-    args.out.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    args.out.write_text(json.dumps(report,separators=(",",":"),ensure_ascii=False)+"\n",encoding="utf-8")
     print(json.dumps(counts,indent=2,ensure_ascii=False))
 
 if __name__=="__main__": main()

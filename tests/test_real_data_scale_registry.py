@@ -12,9 +12,9 @@ def load():
 def test_current_scale_counts_keep_panels_and_archipelagos_separate():
     data = load()
     counts = data["counts"]
-    assert counts["study_panels"] == 9
+    assert counts["study_panels"] == 10
     assert counts["independent_archipelago_clusters"] == 7
-    assert counts["plant_taxa_slots_across_panels"] == 29
+    assert counts["plant_taxa_slots_across_panels"] == 32
     assert set(counts["archipelago_clusters"]) == {"izu", "seychelles", "galapagos", "balearic", "canary", "hawaii", "lesser_antilles"}
 
 
@@ -27,6 +27,13 @@ def test_new_hawaii_and_dominica_panels_are_present_with_source_native_scale():
     assert hawaii["scale"]["focal_visitor_event_rows"] == 1799
     dominica = panels["dominica_heliconia_2019"]
     assert dominica["scale"] == {"plant_rows": 99, "bird_measurement_rows": 115, "nectar_visit_rows": 23, "post_hurricane_visitor_plant_rows": 56}
+    dominica_2013 = panels["dominica_heliconia_2013"]
+    assert dominica_2013["plant_taxa_slots"] == 3
+    assert dominica_2013["scale"] == {
+        "plant_rows": 281,
+        "population_year_morph_units": 12,
+        "source_selection_models_reconstructed": 12,
+    }
 
 
 def test_evidence_depth_does_not_promote_article_only_hawaii_bagging_to_raw_exclusion():

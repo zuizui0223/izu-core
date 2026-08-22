@@ -1,11 +1,14 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "system_id": "eastern_caribbean_heliconia_eulampis",
-  "status": "source_metadata_and_outcome_blind_mapping_admitted_target_bytes_unrecovered",
-  "purpose": "Prospectively define a source-native signed plant-position mapping for the v12 mechanism before calculating any new plant-level corolla-position to seed-fitness target from the Dryad files.",
+  "status": "source_bytes_schema_and_visit_weights_locked_exact_target_open",
+  "purpose": "Test the frozen v12 signed plant-position projection with source-native Dominica Heliconia traits, visitation mixtures and female fitness without refitting the independent bill-to-corolla mapping.",
   "selection_source": {
     "article_doi": "10.1111/jeb.12053",
+    "article_url": "https://onlinelibrary.wiley.com/doi/10.1111/jeb.12053",
     "dataset_doi": "10.5061/dryad.64835",
+    "dataset_url": "https://datadryad.org/dataset/doi%3A10.5061/dryad.64835",
+    "api_version_id": 8181,
     "island": "Dominica",
     "taxa": [
       "Heliconia bihai",
@@ -19,59 +22,127 @@
       "fitness": "seed set per plant derived from seeds/flower x flowers/bract x bracts/plant",
       "pollinator_observation": "12 h per site, species and sex of each hummingbird visitor recorded"
     },
+    "current_byte_recovery": {
+      "individual_file_stream_route": {
+        "recovered": false,
+        "attempted_public_file_stream_ids": [37457, 37459, 37461],
+        "decision": "blocked_dryad_xls_transport",
+        "frozen_result": "data/results/abm_v12_heliconia_dryad_recovery_frozen.json"
+      },
+      "full_dataset_package_route": {
+        "recovered": true,
+        "recovery_date": "2026-08-22",
+        "route": "official Dryad landing-page Download full dataset control in the in-app browser",
+        "package_name": "doi_10_5061_dryad_64835__v20121024.zip",
+        "package_bytes": 174400,
+        "package_sha256": "9813060432d788cc46c49268b09b70a6eb2df8b9483814be3272c769c2143218",
+        "package_uncompressed_bytes": 173056,
+        "file_count": 6,
+        "target_metrics_calculated": true
+      }
+    },
     "dryad_files": [
       {
-        "name": "Temeles et al Heliconia Bihai Population Data.XLS",
-        "reported_size_kb": 34.82,
+        "lineage": "bihai",
+        "api_file_id": 37457,
+        "api_name": "Temeles et al Heliconia Bihai Population Data.XLS",
+        "package_member": "Temeles+et+al+Heliconia+Bihai+Population+Data.XLS",
+        "bytes": 34816,
+        "md5": "9cfe5123a26edfedafa404152ac9e65e",
+        "sha256": "d02f55ceb32036c2c90960b134c478dc3daf35709e3e7611469ac24ce539638f",
         "role": "plant-level floral trait and seed-set data"
       },
       {
-        "name": "Temeles et al Heliconia caribaea red morph population data.XLS",
-        "reported_size_kb": 32.77,
+        "lineage": "caribaea_red",
+        "api_file_id": 37459,
+        "api_name": "Temeles et al Heliconia caribaea red morph population data.XLS",
+        "package_member": "Temeles+et+al+Heliconia+caribaea+red+morph+population+data.XLS",
+        "bytes": 32768,
+        "md5": "5bbb10331cdb517aac71afe2570f6c96",
+        "sha256": "89956ae1da6f0de72468aa8c1431c80961c196c30b98bb77ed2e6daf4c005517",
         "role": "plant-level red-morph floral trait and seed-set data"
       },
       {
-        "name": "Temeles et al Heliconia caribaea yellow morph population data.XLS",
-        "reported_size_kb": 28.67,
+        "lineage": "caribaea_yellow",
+        "api_file_id": 37461,
+        "api_name": "Temeles et al Heliconia caribaea yellow morph population data.XLS",
+        "package_member": "Temeles+et+al+Heliconia+caribaea+yellow+morph+population+data.XLS",
+        "bytes": 28672,
+        "md5": "d2df742235ed0f26e89f7e24b8934fc1",
+        "sha256": "efcba67a15614de8fddb1a7dda46bc5406ce9a912ec28422c7dde89c195a43fe",
         "role": "plant-level yellow-morph floral trait and seed-set data"
       }
+    ]
+  },
+  "workbook_schema_lock": {
+    "sheet_count_per_workbook": 1,
+    "sheet_name": "Sheet1",
+    "layout": "population-year units are horizontal column blocks; rows below the first header row are plants",
+    "bihai_block_columns": [
+      "population_year",
+      "plant_id",
+      "corolla_length_mm",
+      "mean_bracts_per_inflorescence",
+      "seeds_per_plant"
     ],
-    "current_byte_recovery": {
-      "recovered": false,
-      "attempted_public_file_stream_ids": [37457, 37459, 37461],
-      "environment_result": "Dryad landing metadata available; individual XLS retrieval returned cache-miss/direct-download failure in the current execution environment",
-      "target_metrics_calculated": false
-    }
+    "caribaea_block_columns": [
+      "population_year",
+      "morph",
+      "plant_id",
+      "corolla_length_mm",
+      "mean_bracts_per_inflorescence",
+      "seeds_per_plant"
+    ],
+    "units": [
+      {"unit_id": "bihai_boeri_2008", "lineage": "bihai", "population": "Boeri Lake", "year": 2008, "block_index": 0, "n_plants": 30},
+      {"unit_id": "bihai_freshwater_2008", "lineage": "bihai", "population": "Freshwater Lake", "year": 2008, "block_index": 1, "n_plants": 37},
+      {"unit_id": "bihai_boeri_2009", "lineage": "bihai", "population": "Boeri Lake", "year": 2009, "block_index": 2, "n_plants": 33},
+      {"unit_id": "bihai_freshwater_2009", "lineage": "bihai", "population": "Freshwater Lake", "year": 2009, "block_index": 3, "n_plants": 37},
+      {"unit_id": "caribaea_red_syndicate_2008", "lineage": "caribaea_red", "population": "Syndicate", "year": 2008, "block_index": 0, "n_plants": 18},
+      {"unit_id": "caribaea_red_carholme_2008", "lineage": "caribaea_red", "population": "Carholme", "year": 2008, "block_index": 1, "n_plants": 27},
+      {"unit_id": "caribaea_red_carholme_2009", "lineage": "caribaea_red", "population": "Carholme", "year": 2009, "block_index": 2, "n_plants": 23},
+      {"unit_id": "caribaea_red_la_savanne_2009", "lineage": "caribaea_red", "population": "La Savanne", "year": 2009, "block_index": 3, "n_plants": 16},
+      {"unit_id": "caribaea_yellow_syndicate_2008", "lineage": "caribaea_yellow", "population": "Syndicate", "year": 2008, "block_index": 0, "n_plants": 22},
+      {"unit_id": "caribaea_yellow_carholme_2008", "lineage": "caribaea_yellow", "population": "Carholme", "year": 2008, "block_index": 1, "n_plants": 8},
+      {"unit_id": "caribaea_yellow_carholme_2009", "lineage": "caribaea_yellow", "population": "Carholme", "year": 2009, "block_index": 2, "n_plants": 10},
+      {"unit_id": "caribaea_yellow_la_savanne_2009", "lineage": "caribaea_yellow", "population": "La Savanne", "year": 2009, "block_index": 3, "n_plants": 20}
+    ]
+  },
+  "source_native_visit_weights": {
+    "source": "Temeles et al. 2013 article Methods and Results; weights were locked after the independent 2011 mapping and before the new exact raw-data target was calculated",
+    "bihai_rule": "Female E. jugularis were the sole visitor to H. bihai in every studied population; N=14 visits pooled across H. bihai. Unit-specific counts are not promoted from the pooled N, but the female fraction is exactly 1.0 for each admitted H. bihai unit.",
+    "units": {
+      "bihai_boeri_2008": {"female_fraction": 1.0, "female_visits": null, "male_visits": null, "count_scope": "pooled_bihai_N14_exclusive_female"},
+      "bihai_freshwater_2008": {"female_fraction": 1.0, "female_visits": null, "male_visits": null, "count_scope": "pooled_bihai_N14_exclusive_female"},
+      "bihai_boeri_2009": {"female_fraction": 1.0, "female_visits": null, "male_visits": null, "count_scope": "pooled_bihai_N14_exclusive_female"},
+      "bihai_freshwater_2009": {"female_fraction": 1.0, "female_visits": null, "male_visits": null, "count_scope": "pooled_bihai_N14_exclusive_female"},
+      "caribaea_red_syndicate_2008": {"female_fraction": 0.36363636363636365, "female_visits": 8, "male_visits": 14, "count_scope": "unit_exact"},
+      "caribaea_yellow_syndicate_2008": {"female_fraction": 0.0, "female_visits": 0, "male_visits": 22, "count_scope": "unit_exact"},
+      "caribaea_red_carholme_2008": {"female_fraction": 0.2727272727272727, "female_visits": 3, "male_visits": 8, "count_scope": "unit_exact"},
+      "caribaea_yellow_carholme_2008": {"female_fraction": 0.0, "female_visits": 0, "male_visits": 4, "count_scope": "unit_exact"},
+      "caribaea_red_carholme_2009": {"female_fraction": 0.02564102564102564, "female_visits": 1, "male_visits": 38, "count_scope": "unit_exact"},
+      "caribaea_yellow_carholme_2009": {"female_fraction": 0.15, "female_visits": 3, "male_visits": 17, "count_scope": "unit_exact"},
+      "caribaea_red_la_savanne_2009": {"female_fraction": 0.027777777777777776, "female_visits": 1, "male_visits": 35, "count_scope": "unit_exact"},
+      "caribaea_yellow_la_savanne_2009": {"female_fraction": 0.5, "female_visits": 5, "male_visits": 5, "count_scope": "unit_exact"}
+    },
+    "forbidden_inference": "Do not replace these weights with a species-typical sex, infer sex from corolla phenotype, or duplicate the pooled H. bihai N=14 into four unit-specific counts."
   },
   "independent_mapping_source": {
     "article_doi": "10.1007/s00442-011-2043-8",
     "title": "Plant-pollinator interactions and floral convergence in two species of Heliconia from the Caribbean Islands",
     "role": "functional-trait calibration only; no 2013 seed-fitness outcome enters the mapping",
     "dominica_bill_anchors_mm": {
-      "Eulampis_jugularis_female": {
-        "mean": 26.6,
-        "sem": 0.12
-      },
-      "Eulampis_jugularis_male": {
-        "mean": 19.8,
-        "sem": 0.36
-      }
+      "Eulampis_jugularis_female": {"mean": 26.6, "sem": 0.12},
+      "Eulampis_jugularis_male": {"mean": 19.8, "sem": 0.36}
     },
     "dominica_corolla_anchors_mm": {
-      "Heliconia_bihai_female_associated": {
-        "mean": 47.8,
-        "sem": 0.43,
-        "n_plants": 31
-      },
-      "Heliconia_caribaea_male_associated": {
-        "mean": 35.8,
-        "sem": 0.22,
-        "n_plants": 31
-      }
+      "Heliconia_bihai_female_associated": {"mean": 47.8, "sem": 0.43, "n_plants": 31},
+      "Heliconia_caribaea_male_associated": {"mean": 35.8, "sem": 0.22, "n_plants": 31}
     },
     "source_interpretation": "On Dominica, female E. jugularis with long bills are the primary visitors of long-corolla H. bihai, whereas male E. jugularis with shorter bills primarily visit shorter-corolla H. caribaea."
   },
   "frozen_signed_position_mapping": {
+    "mapping_frozen_before_target_commit": "62fb08e",
     "mapping_type": "two-anchor linear mechanical calibration from the independent 2011 Dominica source",
     "formula": "expected_corolla_mm = intercept_mm + slope_corolla_per_bill * pollinator_bill_center_mm",
     "intercept_mm": 0.8588235294117652,
@@ -80,20 +151,31 @@
       "male_bill_19_8_maps_to_corolla_35_8": true,
       "female_bill_26_6_maps_to_corolla_47_8": true
     },
-    "population_year_pollinator_center": "Use source-native 2013 sex-specific E. jugularis visitation weights for the matching population/year/morph when those weights are recoverable from a stable source; center = weighted mean of 19.8 and 26.6 mm. Do not substitute a canonical sex when the population/year weights are unavailable.",
-    "signed_position": "plant_mean_corolla_mm - expected_corolla_mm",
+    "population_year_pollinator_center": "Use the locked source-native 2013 sex-specific E. jugularis visitation fraction for the matching population/year/morph; center = female_fraction * 26.6 + (1 - female_fraction) * 19.8 mm.",
+    "signed_position": "population mean plant corolla length in mm - expected corolla length in mm",
+    "predicted_selection_direction": "negative cross-unit slope: units shorter than the calibrated position should show more positive direct selection on corolla length, and units longer than it should show more negative selection",
     "interpretation": {
-      "negative": "plant lies shorter than the 2011 pollinator-calibrated corolla position",
-      "positive": "plant lies longer than the 2011 pollinator-calibrated corolla position",
-      "zero": "plant lies at the two-anchor calibrated position"
+      "negative": "plant lineage mean lies shorter than the 2011 pollinator-calibrated corolla position",
+      "positive": "plant lineage mean lies longer than the 2011 pollinator-calibrated corolla position",
+      "zero": "plant lineage mean lies at the two-anchor calibrated position"
     },
     "not_a_universal_geometry_law": true
   },
-  "future_target_contract": {
-    "status": "closed_until_selection_bytes_recovered_and_schema_locked",
-    "primary_question": "Does signed initial corolla position predict the direction or magnitude of plant-level female-fitness selection on corolla length across Dominica population-year-morph units?",
-    "primary_fitness": "source-native seeds per plant",
-    "trait": "source-native plant mean corolla length in mm",
+  "target_contract": {
+    "status": "opened_after_selection_bytes_schema_and_visit_weights_locked",
+    "primary_question": "Does signed initial corolla position predict the direction or magnitude of direct female-fitness selection on corolla length across Dominica population-year-morph units?",
+    "primary_fitness": "source-native seeds per plant divided by the unit mean",
+    "trait_standardization": "corolla length and mean bracts per inflorescence are standardized separately within each unit to mean zero and sample variance one",
+    "primary_selection_response": "source-method multivariate direct linear selection gradient beta_multi for standardized corolla, controlling standardized mean bracts per inflorescence",
+    "source_model_reproduction_check": "each reconstructed beta_multi and standard error must match the corresponding published Table 3 or 4 value within 0.015",
+    "primary_between_unit_model": "unweighted OLS: beta_multi_corolla ~ signed_position_mm; each population x year x morph unit receives equal weight",
+    "predeclared_supported_direction": "negative",
+    "secondary_sensitivities": [
+      "inverse-variance weighted regression using 1 / beta_multi_standard_error^2",
+      "univariate corolla selection beta_uni",
+      "leave-one-unit and leave-one-lineage slopes",
+      "sign concordance between -sign(signed_position) and sign(beta_multi)"
+    ],
     "unit_of_independence": "population x year x morph for selection-gradient comparison; plants are nested observations",
     "no_target_before_gate": true,
     "forbidden_rescues": [
@@ -101,6 +183,7 @@
       "do not choose male versus female pollinator identity after inspecting plant seed-set results",
       "do not infer missing sex-specific visitation weights from the floral phenotype",
       "do not refit the 2011 bill-to-corolla slope against the 2013 fitness outcome",
+      "do not drop an admitted population-year-morph because it disagrees with the predicted direction",
       "do not call literature-known selection patterns a fully held-out validation"
     ]
   },
@@ -108,8 +191,8 @@
     "outcomes_are_literature_known": true,
     "validation_class": "new_exact_derived_statistic_test_not_literature_blind",
     "article_summary": "H. bihai generally shows directional selection for longer corollas; H. caribaea more often shows selection on bract number, with corolla selection less consistent.",
-    "rule": "The exact signed-position statistic and its relation to raw plant-level seed fitness have not been calculated in this gate."
+    "rule": "The mapping was frozen before recovery and calculation of the exact raw-data signed-position target. Source-method beta_multi is used regardless of its result."
   },
-  "decision": "admit_heliconia_as_next_v12_source_candidate_but_keep_target_closed_until_raw_bytes_and_visit_weights_are_locked",
-  "claim_boundary": "This gate freezes source roles and a bill-to-corolla mapping from an independent ecological source. It does not yet test v12, does not estimate a universal floral optimum, and does not convert known narrative selection results into new evidence."
+  "decision": "open_heliconia_v12_exact_target_after_package_and_visit_weight_recovery",
+  "claim_boundary": "This gate opens one cross-sectional natural-selection projection of v12 using a frozen Dominica two-anchor mapping. It is not a universal floral optimum, a fully literature-blind validation, an experimental pollinator shift, or a direct test of historical island transition causation."
 }
