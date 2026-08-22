@@ -106,7 +106,7 @@
   },
   "known_literature_context_not_used_for_mapping": {
     "outcomes_are_literature_known": true,
-    "therefore_validation_class": "new_exact_derived_statistic_test_not_literature_blind",
+    "validation_class": "new_exact_derived_statistic_test_not_literature_blind",
     "article_summary": "H. bihai generally shows directional selection for longer corollas; H. caribaea more often shows selection on bract number, with corolla selection less consistent.",
     "rule": "The exact signed-position statistic and its relation to raw plant-level seed fitness have not been calculated in this gate."
   },
