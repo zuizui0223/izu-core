@@ -1,0 +1,284 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-22",
+  "analysis": "island_system_response_and_propagation_matrix",
+  "unit": "source-defined biological system layer; rows are not automatically independent geographic replicates",
+  "axis_registry": "data/design/island_comparative_response_axis_registry.json",
+  "status_scale": ["exact", "partial", "article_level", "absent", "blocked"],
+  "rows": [
+    {
+      "system_layer_id": "izu_hiraiwa_cross_channel",
+      "geographic_cluster": "izu",
+      "independent_geographic_cluster": true,
+      "source_refs": [
+        "data/results/joint_identifiability_matrix.json",
+        "data/results/abm_v4_heldout_izu_validation.json"
+      ],
+      "axes": {
+        "pollinator_functional_environment": "exact",
+        "interaction_network": "exact",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "partial",
+        "floral_morphology": "exact",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Corrected trait matching is lower across all eight shared targets, whereas pollen receipt is lower in four and higher in four; tube morphology is shorter in three, longer in four and equal in one. Historical Campanula calibration additionally shows continuous floral-size/outcrossing erosion and a later autonomous-assurance transition.",
+      "propagation_state": "branches_downstream",
+      "mechanism_tags": ["commonish_upstream_constraint", "state_dependent_branching", "network_state_sensitivity", "direct_dependency_missing"],
+      "boundary": "Pollen receipt is not a direct total-dependency estimate, and the historical Bombus-loss causal chain is not identified."
+    },
+    {
+      "system_layer_id": "seychelles_fuster_2020",
+      "geographic_cluster": "seychelles",
+      "independent_geographic_cluster": true,
+      "source_refs": [
+        "data/design/external_bridge_seychelles_fuster_source_audit.json",
+        "data/results/joint_identifiability_matrix.json"
+      ],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "exact",
+        "mating_and_reproductive_assurance": "partial",
+        "floral_morphology": "absent",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "The same source-locked island study contains visitor-class single-visit reproductive outcomes and autonomous breeding treatments; effectiveness ranking is plant-specific rather than a universal visitor-guild property.",
+      "propagation_state": "adjacent_links_only",
+      "mechanism_tags": ["partner_effectiveness", "plant_specific_function", "autonomous_assurance"],
+      "boundary": "No matched island-transition floral response is measured and broad visitor diversity is not a harmonized Izu FDQ estimand."
+    },
+    {
+      "system_layer_id": "puerto_rico_mona_guaiacum_2022",
+      "geographic_cluster": "puerto_rico_archipelago",
+      "independent_geographic_cluster": true,
+      "source_refs": [
+        "docs/GUAIACUM_JOINT_SOURCE_AUDIT.md",
+        "data/results/joint_identifiability_matrix.json"
+      ],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "absent",
+        "mating_and_reproductive_assurance": "partial",
+        "floral_morphology": "absent",
+        "reproductive_outcome": "partial",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "The two populations differ strongly in visitor richness/composition and visitation, whereas the reported self/outcross breeding-system index is similar and autogamy is negligible.",
+      "propagation_state": "buffered_or_resilient",
+      "mechanism_tags": ["exposure_change_without_parallel_dependency_change", "buffering_or_trait_insensitivity"],
+      "boundary": "The breeding index is not a recovered numeric total-dependency ratio and there is no matched single-visit effectiveness channel."
+    },
+    {
+      "system_layer_id": "balearic_malva_2024",
+      "geographic_cluster": "balearic",
+      "independent_geographic_cluster": true,
+      "source_refs": ["data/results/joint_identifiability_matrix.json", "data/results/real_data_scale_registry.json"],
+      "axes": {
+        "pollinator_functional_environment": "absent",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "exact",
+        "floral_morphology": "absent",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Open versus all-pollinator-excluded autogamy provides a direct reproductive-assurance/dependency contrast in one Cabrera population.",
+      "propagation_state": "undetermined_missing_link",
+      "mechanism_tags": ["direct_dependency", "functional_exposure_missing"],
+      "boundary": "No co-measured community functional-exposure gradient exists, so this panel cannot classify upstream-to-dependency propagation."
+    },
+    {
+      "system_layer_id": "canary_lotus_2024",
+      "geographic_cluster": "canary",
+      "independent_geographic_cluster": true,
+      "source_refs": ["data/results/joint_identifiability_matrix.json", "data/results/real_data_scale_registry.json"],
+      "axes": {
+        "pollinator_functional_environment": "absent",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "exact",
+        "floral_morphology": "absent",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Visit legitimacy, lizard pollen carriage, exclusion response and plant-level reproduction establish strong contemporary animal-pollination function and dependency in one endemic plant.",
+      "propagation_state": "adjacent_links_only",
+      "mechanism_tags": ["pollen_transport", "high_dependency_endpoint", "non_insect_pollination"],
+      "boundary": "There is no island-transition functional-exposure gradient comparable to Izu and no historical response transition is identified."
+    },
+    {
+      "system_layer_id": "balearic_cneorum_2020",
+      "geographic_cluster": "balearic",
+      "independent_geographic_cluster": false,
+      "source_refs": ["data/results/joint_identifiability_matrix.json", "data/results/real_data_scale_registry.json"],
+      "axes": {
+        "pollinator_functional_environment": "absent",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "partial",
+        "floral_morphology": "partial",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "The experiment identifies an added lizard contribution relative to insect-only pollination and contains flower-selection and breeding channels.",
+      "propagation_state": "adjacent_links_only",
+      "mechanism_tags": ["functional_replacement", "multi_guild_service"],
+      "boundary": "The contrast is added lizard contribution, not total all-pollinator dependency, and the Balearic geography is already represented by Malva."
+    },
+    {
+      "system_layer_id": "galapagos_effectiveness_2018",
+      "geographic_cluster": "galapagos",
+      "independent_geographic_cluster": true,
+      "source_refs": ["data/results/joint_identifiability_matrix.json", "data/results/real_data_scale_registry.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "partial",
+        "floral_morphology": "absent",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Visitation and raw fruit/seed fitness-treatment data coexist in four focal plants.",
+      "propagation_state": "undetermined_missing_link",
+      "mechanism_tags": ["visitation_fitness_joint_context", "treatment_semantics_pending"],
+      "boundary": "Raw treatment-code interpretation is intentionally not promoted until source-locked, so propagation direction remains closed."
+    },
+    {
+      "system_layer_id": "hawaii_native_dryland_pollination_2019",
+      "geographic_cluster": "hawaii",
+      "independent_geographic_cluster": true,
+      "source_refs": ["config/hawaii_native_pollination_dryad_source.json", "data/results/hawaii_native_pollination_summary.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "article_level",
+        "floral_morphology": "absent",
+        "reproductive_outcome": "article_level",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Eight native dryland plants show large among-plant differences in visitor depth; non-native insects account for most visits, while the article reports significant seed-set reduction under bagging for six species.",
+      "propagation_state": "undetermined_missing_link",
+      "mechanism_tags": ["non_native_visitor_dominance", "plant_specific_dependency", "raw_treatment_table_missing"],
+      "boundary": "Raw visitation/handling data do not establish equivalent effectiveness, and the published bagging outcomes are not reconstructed as source-native treatment rows."
+    },
+    {
+      "system_layer_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "geographic_cluster": "hawaii",
+      "independent_geographic_cluster": false,
+      "source_refs": ["data/design/external_bridge_hawaii_lobelioid_2026_source_audit.json", "data/design/abm_v13_hawaii_lobelioid_source_gate.json"],
+      "axes": {
+        "pollinator_functional_environment": "exact",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "exact",
+        "mating_and_reproductive_assurance": "absent",
+        "floral_morphology": "exact",
+        "reproductive_outcome": "article_level",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "A source-native bill-minus-flower axis shifts toward shorter-billed contemporary assemblages and predicts pollen contact/nectar robbing. In a closely overlapping lobelioid-bird field/experiment study, 43% of visits contact fertile structures and 39% rob nectar; experimental damage alters nectar replenishment while fruit and seed performance remain high.",
+      "propagation_state": "buffered_or_resilient",
+      "mechanism_tags": ["signed_trait_position", "interaction_quality", "antagonism_mutualism_continuum", "reproductive_buffering"],
+      "boundary": "The two studies are not one tagged-individual chain, exact interaction-row overlap is not demonstrated, controlled reproductive dependency is absent, and the raw Functional Ecology CSV is source-access blocked in izu-core."
+    },
+    {
+      "system_layer_id": "dominica_heliconia_signed_position_projection",
+      "geographic_cluster": "lesser_antilles",
+      "independent_geographic_cluster": true,
+      "source_refs": ["docs/ABM_MECHANISM_STATE_20260822.md", "data/results/real_data_scale_registry.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "absent",
+        "mating_and_reproductive_assurance": "absent",
+        "floral_morphology": "exact",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "A frozen two-anchor signed plant-position prediction to corolla selection ran opposite to the declared negative direction: the primary cross-unit slope was positive and leave-one-unit estimates were predominantly positive.",
+      "propagation_state": "counterdirectional",
+      "mechanism_tags": ["failed_prediction", "lineage_structure", "signed_position_mapping_limit"],
+      "boundary": "This rejects the exact frozen Dominica projection, not the existence of state dependence in general; retuning the mapping is forbidden."
+    },
+    {
+      "system_layer_id": "california_channel_islands_nicotiana_glauca",
+      "geographic_cluster": "california_channel_islands",
+      "independent_geographic_cluster": true,
+      "source_refs": ["data/design/external_bridge_nicotiana_source_audit.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "exact",
+        "floral_morphology": "exact",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Island populations have greater autonomous self-pollination capacity and about 1 mm longer corollas, but current visitation and pollen transfer are not lower on islands and island fruit set is not generally pollen limited.",
+      "propagation_state": "buffered_or_resilient",
+      "mechanism_tags": ["colonization_or_establishment_filtering", "selfing_capacity", "current_service_not_explanatory"],
+      "boundary": "The cross-paper evidence is linked by sites/years rather than the same tagged individuals; current contrasts do not identify historical selection."
+    },
+    {
+      "system_layer_id": "caribbean_gesneriaceae_island_mainland",
+      "geographic_cluster": "caribbean_gesneriaceae",
+      "independent_geographic_cluster": true,
+      "source_refs": ["data/design/external_bridge_caribbean_gesneriaceae_source_audit.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "absent",
+        "mating_and_reproductive_assurance": "exact",
+        "floral_morphology": "exact",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Island hummingbird visitation is lower at the broad clade comparison, yet autofertility is not generally higher on islands; within Antillean lineages, autonomous assurance, pollen limitation and floral/pollination-system transitions occur in different combinations.",
+      "propagation_state": "branches_downstream",
+      "mechanism_tags": ["clade_level_branching", "reproductive_assurance", "pollination_system_transition"],
+      "boundary": "The links are assembled across studies/clades rather than one matched population, and per-visit pollen effectiveness is missing."
+    },
+    {
+      "system_layer_id": "xisha_cordia_subcordata_two_island_system",
+      "geographic_cluster": "xisha",
+      "independent_geographic_cluster": true,
+      "source_refs": ["data/design/external_bridge_cordia_subcordata_source_audit.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "exact",
+        "pollinator_effectiveness": "exact",
+        "mating_and_reproductive_assurance": "exact",
+        "floral_morphology": "exact",
+        "reproductive_outcome": "exact",
+        "visual_signal": "absent"
+      },
+      "observed_pattern": "Dong Island has only the short morph, very low visitation and lower natural fruit set, while the same paper directly measures single-visit pollen deposition and controlled dependency at Yongxing.",
+      "propagation_state": "adjacent_links_only",
+      "mechanism_tags": ["near_complete_bridge", "morph_state_loss", "strong_vector_dependency", "asymmetric_measurement"],
+      "boundary": "Direct effectiveness and controlled dependency are not measured on Dong, so the apparent response transition cannot be linked end-to-end."
+    }
+  ],
+  "summary": {
+    "biological_system_layers": 13,
+    "geographic_clusters_represented": ["izu", "seychelles", "puerto_rico_archipelago", "balearic", "canary", "galapagos", "hawaii", "lesser_antilles", "california_channel_islands", "caribbean_gesneriaceae", "xisha"],
+    "geographic_cluster_count": 11,
+    "propagation_state_counts_are_descriptive_not_inferential": true,
+    "propagation_state_counts": {
+      "branches_downstream": 2,
+      "buffered_or_resilient": 3,
+      "counterdirectional": 1,
+      "adjacent_links_only": 4,
+      "undetermined_missing_link": 3
+    },
+    "recurring_pattern": "The strongest repeat is not a single downstream direction. Functional/interaction change can branch, be buffered, or remain only partially linked to reproduction depending on system and measurement layer.",
+    "mechanism_hypothesis_after_matrix": "Pre-existing functional position can set branch potential, while local support and partner effectiveness alter realized interaction quality; a separate reproductive propagation/buffering gate determines whether these changes become fruit/seed or evolutionary responses.",
+    "highest_value_missing_link": "A matched independent system with source-native signed functional position, direct effectiveness, and controlled reproductive dependency/reproductive outcome at the same transition unit.",
+    "formal_cross_system_same_estimand_fit_ready": false
+  },
+  "claim_boundary": "Rows summarize source-locked evidence depth and qualitative propagation state, not a meta-analytic effect size. Biological system layers nested within one archipelago are not independent geographic replicates. A propagation classification does not itself prove causation, and missing links are never coded as zero effects."
+}

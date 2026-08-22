@@ -1,15 +1,20 @@
 {
-  "schema_version": "1.0",
-  "updated_on": "2026-08-18",
+  "schema_version": "1.1",
+  "updated_on": "2026-08-22",
   "programme_unit": "independent_island_system",
-  "central_question": "Across independent island systems, which plant response axes change under altered pollinator functional environments, which combinations recur, and which responses remain system-specific?",
+  "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether those changes propagate into reproductive or floral evolutionary response?",
   "systems_are_parallel": true,
   "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
   "response_axes": [
     {
+      "id": "pollinator_functional_environment",
+      "examples": ["FDQ", "trait_matching", "partner_functional_shift", "signed_trait_position"],
+      "admission_rule": "source-native functional trait, matching or interaction-opportunity evidence with its sign/direction retained; richness or guild labels cannot silently substitute for a quantitative functional estimand"
+    },
+    {
       "id": "floral_morphology",
-      "examples": ["flower_size", "tube_length", "morphological_compression"],
-      "admission_rule": "source_native quantitative or explicitly scored morphology within a defined island transition"
+      "examples": ["flower_size", "tube_length", "morphological_compression", "morph_state"],
+      "admission_rule": "source-native quantitative or explicitly scored morphology within a defined island transition"
     },
     {
       "id": "mating_and_reproductive_assurance",
@@ -23,31 +28,63 @@
     },
     {
       "id": "pollinator_effectiveness",
-      "examples": ["single_visit_pollen_deposition", "per_visit_reproductive_effectiveness", "rate_weighted_effective_service"],
-      "admission_rule": "direct effectiveness or reproductive-function evidence; visitor occurrence alone is insufficient"
+      "examples": ["single_visit_pollen_deposition", "pollen_contact", "per_visit_reproductive_effectiveness", "rate_weighted_effective_service", "nectar_robbing_as_antagonistic_interaction_quality"],
+      "admission_rule": "direct effectiveness, contact or reproductive-function evidence; visitor occurrence alone is insufficient and antagonistic quality must remain distinct from mutualistic service"
     },
     {
       "id": "interaction_network",
-      "examples": ["partner_turnover", "rewiring", "functional_environment_change", "network_structure"],
+      "examples": ["partner_turnover", "rewiring", "functional_environment_change", "network_structure", "local_support"],
       "admission_rule": "source-native interaction or network evidence with explicit sampling unit and transition"
     },
     {
       "id": "reproductive_outcome",
-      "examples": ["fruit_set", "seed_set", "pollen_receipt", "selection_response"],
+      "examples": ["fruit_set", "seed_set", "seed_viability", "germination", "pollen_receipt", "selection_response"],
       "admission_rule": "direct outcome data with estimand kept distinct across studies"
     }
   ],
+  "propagation_states": [
+    {
+      "id": "propagates_same_direction",
+      "meaning": "a source-supported upstream change and downstream response have the declared linked direction at compatible units; this does not by itself prove causation"
+    },
+    {
+      "id": "branches_downstream",
+      "meaning": "a broadly common upstream change coexists with different downstream response signs or modes within the same system/programme"
+    },
+    {
+      "id": "buffered_or_resilient",
+      "meaning": "an upstream functional or interaction-quality change is observed while a downstream reproductive endpoint remains comparatively maintained or does not show the expected collapse"
+    },
+    {
+      "id": "counterdirectional",
+      "meaning": "the downstream response runs opposite to a preregistered or source-declared propagation direction"
+    },
+    {
+      "id": "adjacent_links_only",
+      "meaning": "relevant upstream and downstream channels coexist but are not matched strongly enough to classify propagation"
+    },
+    {
+      "id": "undetermined_missing_link",
+      "meaning": "the source does not measure the intervening or downstream channel required to classify propagation; missing is not no effect"
+    },
+    {
+      "id": "source_blocked",
+      "meaning": "a prespecified source/construct exists but required raw bytes or compatible measurement structure are unavailable, so the target remains closed"
+    }
+  ],
   "comparison_logic": {
-    "primary_target": "recurring_response_combinations_and_branching_across_independent_island_systems",
+    "primary_target": "recurring_response_combinations_branching_and_propagation_boundaries_across_independent_island_systems",
     "not_required": "every_system_measures_every_axis",
     "forbidden_shortcut": "pool_noncommensurate_axes_into_one_effect_size",
     "heterogeneity_is_a_result": true,
-    "complete_mechanism_bridge_is_high_value_but_not_required_for_an_axis_to_enter_comparative_evidence": true
+    "propagation_failure_is_a_result": true,
+    "complete_mechanism_bridge_is_high_value_but_not_required_for_an_axis_or_boundary_to_enter_comparative_evidence": true
   },
   "current_programme_boundaries": {
     "universal_island_response": false,
     "formal_cross_system_same_estimand_fit_ready": false,
     "system_specific_response_axes_may_be_compared_qualitatively_with_locked_boundaries": true,
-    "nectar_guide_axis_programme_status": "active_comparative_axis_system_specific_evidence_required"
+    "nectar_guide_axis_programme_status": "active_comparative_axis_system_specific_evidence_required",
+    "synthetic_v12_signed_position_mechanism_empirically_confirmed": false
   }
 }

@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "parent_issue": 100,
-  "purpose": "Summarize independently screened external island mechanism bridges without converting partial links, source availability, or within-system replication into a formal cross-system causal fit.",
+  "purpose": "Summarize independently screened external island mechanism bridges without converting partial links, source availability, within-system replication, or repeated systems from one archipelago into a formal cross-system causal fit.",
   "systems": [
     {
       "system_id": "california_channel_islands_nicotiana_glauca",
@@ -38,24 +38,36 @@
       "independent_system_cluster": true,
       "strength": "source-locked visitor-class single-visit reproductive outcomes and source-labeled autonomous breeding treatments in the same island study, but no matched floral-response transition",
       "complete": false
+    },
+    {
+      "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "audit": "data/design/external_bridge_hawaii_lobelioid_2026_source_audit.json",
+      "admission_state": "bridge_system_partial",
+      "bridge_level": "same_archipelago_cross_study_partial_propagation_boundary",
+      "independent_system_cluster": true,
+      "independent_geographic_stratum_beyond_hawaii": false,
+      "strength": "source-native signed bill-flower position predicts pollen-contact and nectar-robbing interaction quality; a closely overlapping contemporary lobelioid-bird study shows frequent robbing and altered nectar replenishment can coexist with high fruit and seed performance, but no same-tagged full chain or controlled reproductive-dependency estimate is available",
+      "complete": false
     }
   ],
   "counts": {
-    "independent_system_clusters_screened_as_partial_or_stronger": 4,
-    "bridge_system_partial": 4,
+    "independent_system_clusters_screened_as_partial_or_stronger": 5,
+    "bridge_system_partial": 5,
     "bridge_system_complete": 0,
-    "near_complete_within_archipelago": 1
+    "near_complete_within_archipelago": 1,
+    "new_independent_geographic_strata_added_by_hawaii_lobelioid_2026": 0
   },
   "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
   "formal_cross_system_mechanism_fit_ready": false,
   "why_formal_fit_remains_closed": [
     "No external system yet supplies all mechanism links at a matched two-sided population/transition unit.",
-    "The four systems do not yet supply one compatible mechanism estimand family with source-locked uncertainty across at least two independent clusters.",
-    "Nicotiana has cross-year/cross-paper linkage, Caribbean Gesneriaceae lacks matched per-visit pollen function, Cordia lacks Dong-side direct effectiveness and controlled dependency measurements, and Seychelles lacks a matched floral-response transition.",
+    "The five systems do not yet supply one compatible mechanism estimand family with source-locked uncertainty across at least two independent clusters.",
+    "Nicotiana has cross-year/cross-paper linkage, Caribbean Gesneriaceae lacks matched per-visit pollen function, Cordia lacks Dong-side direct effectiveness and controlled dependency measurements, Seychelles lacks a matched floral-response transition, and Hawaii lobelioids lack a same-tagged full chain plus controlled reproductive dependency.",
+    "The Hawaii lobelioid bridge adds a propagation boundary rather than an additional independent geographic replicate beyond Hawaii.",
     "Partial mechanistic recurrence cannot substitute for Issue #91 direct Izu field measurements."
   ],
   "stage_c_search_state": "route_A_complete_unconstrained_search_closed",
   "reopen_rule": "Reopen external bridge acquisition only when new lawful source-native material can close a named missing link in an existing partial system or provides a candidate matched floral-response, direct effectiveness, and reproductive-dependency transition with compatible uncertainty and hierarchy.",
-  "next_decision_gate": "Issue #91 first real six-channel field bundle remains the active executable gate; external bridge work is source-triggered rather than an unconstrained search loop.",
-  "claim_boundary": "Four independent partial bridge systems strengthen the plausibility and generality of the mechanism architecture and reveal alternative mechanisms, but they do not establish a universal island response, a universal dependency coefficient, historical pollinator-loss causation, or a formal cross-system causal model."
+  "next_decision_gate": "Issue #91 first real six-channel field bundle remains the active direct-Izu gate; external bridge work remains source-triggered, while the ABM mechanism line should use admitted partial systems to test propagation boundaries rather than start another unconstrained acquisition loop.",
+  "claim_boundary": "Five independent biological partial bridge systems strengthen the plausibility and generality of a branching/propagation architecture and reveal alternative mechanisms. They are not five independent geographic strata: the Hawaii lobelioid addition does not create a new geography beyond Hawaii. The registry does not establish a universal island response, universal dependency coefficient, historical pollinator-loss causation, or a formal cross-system causal model."
 }

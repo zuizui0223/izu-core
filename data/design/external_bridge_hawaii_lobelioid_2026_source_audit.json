@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+  "parent_issue": 100,
+  "admission_state": "bridge_system_partial",
+  "bridge_level": "same_archipelago_cross_study_partial_propagation_boundary",
+  "independent_system_cluster": true,
+  "independent_geographic_stratum_beyond_hawaii": false,
+  "formal_cross_system_model_eligible": false,
+  "bridge_complete": false,
+  "system_scope": {
+    "archipelago": "Hawaiian Islands",
+    "focal_ecological_system": "native nectar-feeding birds x Hawaiian lobelioids",
+    "distinct_from_existing_aslan_2019_dryland_system": true,
+    "existing_aslan_source_id": "aslan_etal_2019_hawaii_native_pollination",
+    "reason_distinct": "The 2019 source is a high-elevation dryland insect-pollination panel of eight different native plants; the 2026 bridge concerns bird-pollinated Hawaiian lobelioids and post-extinction honeycreeper functional replacement."
+  },
+  "sources": [
+    {
+      "source_id": "case_etal_2026_functional_ecology_trait_matching",
+      "doi": "10.1111/1365-2435.70415",
+      "dataset_doi": "10.5061/dryad.sj3tx96kr",
+      "title": "Bird extinctions shift bill-flower trait matching in Hawaiian lobelioids",
+      "published": "2026-07-24",
+      "measured_links": [
+        "historical versus contemporary nectar-feeding bird assemblage",
+        "bird exposed culmen length in mm",
+        "lobelioid flower length in mm",
+        "source-native signed bill_minus_flower position",
+        "pollen-contact probability",
+        "nectar-robbing probability"
+      ],
+      "source_native_signed_position": "bill_minus_flower = bird culmen length mm - plant flower length mm",
+      "source_native_result": "Contemporary assemblages shifted toward more negative bill-minus-flower values across most islands; pollen contact increased and nectar robbing decreased as bill length approached flower length.",
+      "repo_raw_reanalysis_state": "blocked_source_access_not_biological_failure",
+      "repo_source_gate": "data/design/abm_v13_hawaii_lobelioid_source_gate.json",
+      "raw_access_blocks": [
+        "three direct Dryad file streams returned HTTP 403 in clean GitHub Actions",
+        "official Dryad REST dataset-package endpoint returned HTTP 401 without bearer authentication"
+      ],
+      "target_metrics_reanalysed_in_repo": false,
+      "role": "source-native signed trait-position to interaction-quality link"
+    },
+    {
+      "source_id": "case_etal_2026_ecology_evolution_mutualism_antagonism",
+      "doi": "10.1002/ece3.74123",
+      "title": "Mutualism and Antagonism in a Post-Extinction Hawaiian Bird-Lobelioid Pollination System",
+      "published": "2026-08-06",
+      "focal_plants": [
+        "Cyanea shipmanii",
+        "Clermontia pyrularia",
+        "Clermontia lindseyana"
+      ],
+      "focal_birds": [
+        "Drepanis coccinea",
+        "Chlorodrepanis virens"
+      ],
+      "measured_links": [
+        "motion-triggered bird visitation",
+        "contact with fertile floral structures",
+        "nectar-robbing frequency and form",
+        "experimental corolla piercing and splitting using a 3D-printed Amakihi bill model",
+        "nectar replenishment after experimental damage",
+        "fruit development",
+        "seed fill/viability and germination"
+      ],
+      "source_native_numeric_anchors": {
+        "fertile_structure_contact_fraction_of_visits": 0.43,
+        "nectar_robbing_fraction_of_visits": 0.39
+      },
+      "source_native_result": "Experimental damage altered nectar replenishment, while fruit production and seed viability remained high across treatments despite frequent antagonistic nectar robbing.",
+      "raw_row_level_linkage_recovered": false,
+      "role": "interaction-quality to reproductive-outcome propagation boundary"
+    }
+  ],
+  "cross_source_overlap": {
+    "publication_level_species_overlap": [
+      "Cyanea shipmanii",
+      "Clermontia pyrularia",
+      "Clermontia lindseyana"
+    ],
+    "publication_level_bird_overlap": [
+      "Drepanis coccinea",
+      "Chlorodrepanis virens"
+    ],
+    "functional_ecology_dryad_species_codes_present": [
+      "CYASHI",
+      "CLEPYR",
+      "CLELIN"
+    ],
+    "functional_ecology_dryad_bird_codes_present": [
+      "IIWI",
+      "HIAM"
+    ],
+    "exact_interaction_row_overlap_demonstrated": false,
+    "why_not": "The Functional Ecology interaction CSV remains unrecovered in izu-core, so the source field cannot be used to identify which compiled interaction rows came from the Ecology and Evolution study. Species-level overlap does not establish row-level or individual-level linkage."
+  },
+  "measured_links": {
+    "historical_pollinator_functional_shift": true,
+    "source_native_signed_trait_position": true,
+    "interaction_quality_contact_numeric": true,
+    "interaction_quality_robbing_numeric": true,
+    "experimental_resource_consequence": true,
+    "reproductive_outcome_article_level": true,
+    "reproductive_dependency_controlled_numeric": false,
+    "same_tagged_individual_full_chain": false,
+    "floral_evolutionary_response_after_shift": false
+  },
+  "mechanistic_value": {
+    "supported_boundary": "A post-extinction shift in signed functional matching can alter interaction quality without forcing reproductive collapse. Frequent nectar robbing and altered nectar replenishment coexist with high fruit and seed performance in the focal contemporary system.",
+    "relation_to_v12": "This is consistent with v12's state-dependent branch-potential idea at the trait-position to interaction-quality layer, while also showing that downstream reproductive propagation needs an additional filter. It does not validate the failed Dominica signed-position to selection projection.",
+    "relation_to_v10_v11": "Partner effectiveness and local interaction role can change branch allocation or resource dynamics, but their presence is not sufficient to predict the final reproductive sign.",
+    "novelty_boundary": "The existence of signed trait matching and its association with pollen contact/robbing is already demonstrated by Case et al. 2026; izu-core novelty must lie in cross-system response branching, propagation gates, and falsification-driven mechanism decomposition rather than rediscovering trait matching."
+  },
+  "allowed_claim": "Hawaiian lobelioids provide a partial same-system propagation bridge in which source-native signed bill-flower matching predicts interaction quality, while a closely overlapping contemporary field/experiment study shows that frequent antagonistic robbing and altered floral resource dynamics can coexist with high reproductive performance.",
+  "blocked_claims": [
+    "do not call the two papers one tagged-individual causal chain",
+    "do not infer historical bird extinction caused the measured contemporary fruit or seed outcomes",
+    "do not treat pollen contact as reproductive success or direct reproductive dependency",
+    "do not infer exact row-level overlap between the two studies without the Functional Ecology raw interaction CSV",
+    "do not count the two 2026 papers as two independent island systems",
+    "do not count this biological system as a new independent geographic stratum beyond Hawaii",
+    "do not call the v12 signed-position-to-reproductive mechanism empirically confirmed"
+  ],
+  "next_actions": [
+    "Reopen Functional Ecology raw reanalysis only if exact lawful mirror bytes or authorized Dryad access become available.",
+    "Search for source-native controlled reproductive-dependency measurements in the same lobelioid system only when a named lawful source is identified; do not run an unconstrained acquisition loop.",
+    "Use this bridge now as a propagation-boundary case in the cross-system mechanism ledger."
+  ]
+}
