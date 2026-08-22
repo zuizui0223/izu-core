@@ -115,8 +115,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install test dependency
-        run: python -m pip install pytest
+      - name: Install package and test dependencies
+        run: python -m pip install -e '.[dev]'
       - name: Run effective-dependency field tests
         run: >-
           python -m pytest -q
