@@ -1,0 +1,69 @@
+{
+  "analysis": "constraint_mechanism_abm_v11_factorial_summary_frozen",
+  "run_date": "2026-08-22",
+  "workflow_run": 32553578517,
+  "artifact_id": 9470758171,
+  "artifact_zip_sha256": "1a7c54c963e0ee115db98be6d86cda032211a91baef3da5b0faf945a64db561e",
+  "design": {
+    "factorial_cells": 16,
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates_per_saturation": 4,
+    "contexts_per_endpoint": 4,
+    "lineages_per_run": 24,
+    "lineage_contrasts_per_cell": 288,
+    "empirical_inputs_loaded": [],
+    "izu_target_frequencies_loaded": false
+  },
+  "all_on": {
+    "positive": 64,
+    "negative": 201,
+    "equal": 23,
+    "branching_balance": 0.4830188679245283,
+    "mixed_sign_run_fraction": 0.6666666666666666,
+    "mean_oceanic_minus_mainland_reproduction": -0.0835702124784435
+  },
+  "all_four_tested_downstream_factors_off": {
+    "positive": 157,
+    "negative": 131,
+    "equal": 0,
+    "branching_balance": 0.9097222222222222,
+    "mixed_sign_run_fraction": 0.4166666666666667,
+    "mean_oceanic_minus_mainland_reproduction": -0.057413655960965745,
+    "decision": "two_sided_branching_persists_with_all_four_tested_downstream_factors_off"
+  },
+  "primary_drop_one": {
+    "local_support": {
+      "branching_balance_full": 0.4830188679245283,
+      "branching_balance_ablated": 0.9166666666666666,
+      "paired_branch_sign_changes": 105,
+      "interpretation": "local support strongly reallocates branch identity and shifts the distribution toward negative island responses, but it is not required to create two-sided branching"
+    },
+    "dependency_heterogeneity": {
+      "branching_balance_full": 0.4830188679245283,
+      "branching_balance_ablated": 0.4830188679245283,
+      "paired_branch_sign_changes": 0,
+      "interpretation": "downstream dependency heterogeneity is non-discriminating in this conditional model"
+    },
+    "assurance_responsiveness": {
+      "branching_balance_full": 0.4830188679245283,
+      "branching_balance_ablated": 0.47547169811320755,
+      "paired_branch_sign_changes": 1,
+      "interpretation": "adaptive assurance responsiveness has only a very small conditional influence on aggregate branching"
+    },
+    "partner_effectiveness": {
+      "branching_balance_full": 0.4830188679245283,
+      "branching_balance_ablated": 0.49056603773584906,
+      "paired_branch_sign_changes": 13,
+      "interpretation": "effectiveness changes some branch identities but does not sustain aggregate two-sided branching"
+    }
+  },
+  "marginal_descriptives": {
+    "local_support_branching_balance_on_minus_off": -0.4282887840670859,
+    "dependency_heterogeneity_branching_balance_on_minus_off": 0.0,
+    "assurance_responsiveness_branching_balance_on_minus_off": 0.0018867924528300772,
+    "partner_effectiveness_branching_balance_on_minus_off": -0.002188155136268355
+  },
+  "scientific_update": "The residual two-sided response branching is already present before the four tested downstream modifiers are required. The causal search therefore moves upstream: frozen v4 lineage/trait opportunity structure, retained assurance-ceiling heterogeneity, and support-preserving within-network weight realization are the next discriminating candidates.",
+  "next_gate": "Prospectively ablate residual upstream sources rather than tuning dependency, assurance responsiveness, effectiveness, or local-support strength to the known Izu response frequencies.",
+  "claim_boundary": "The four-factor all-off result is a synthetic model diagnostic. Because v4 opportunity was generated before downstream ablation, it does not prove that dependency or assurance are biologically irrelevant; it shows only that their downstream heterogeneity is not necessary for branching conditional on the already-generated upstream state."
+}
