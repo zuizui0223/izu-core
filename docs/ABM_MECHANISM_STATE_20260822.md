@@ -6,7 +6,7 @@ The empirical programme and the ABM now support a more specific question than a 
 
 > A pollinator-functional environment can shift in a broadly common direction, while plant lineages diverge in downstream response because they begin at different positions in functional trait space. Local ecological support and partner effectiveness can then reallocate or bias those response branches.
 
-This is **not yet an empirically identified causal law**. The ABM identifies a minimal synthetic mechanism; the empirical programme shows recurrent heterogeneity and one independent starting-state pattern, but a direct signed plant-position × pollinator-environment × reproductive-response test is still missing.
+This is **not an empirically identified causal law**. The ABM identifies a minimal synthetic mechanism; the empirical programme shows recurrent heterogeneity and one independent starting-state pattern. The first frozen signed plant-position × pollinator-environment × fitness projection is now complete and failed its declared direction.
 
 ## Falsification ladder
 
@@ -145,6 +145,22 @@ The Southwest Pacific flower-size analysis predates v12. Among 88 source-coded a
 
 This is independently consistent with **starting state influencing island response shape**. It is not a direct validation of the pollinator-matching mechanism. The response algebraically shares the mainland measurement with the predictor, and the source does not identify mainland-size reliability; under the declared classical-error sensitivity, the cluster interval remains wholly negative only if reliability exceeds about `0.926`.
 
+## Frozen Heliconia projection: informative failure
+
+The next candidate used 281 plant rows from 12 Dominica population × year × morph units. A 2011 source independently fixed a two-anchor mapping from sex-specific *Eulampis jugularis* bill length to *Heliconia* corolla length. Source-native 2013 sex-specific visit mixtures then defined each unit's pollinator center. The mapping and the predicted negative direction were frozen before calculating the new exact raw-data target.
+
+The plant-level reconstruction matched all 12 published direct corolla-selection gradients and standard errors within the declared `0.015` tolerance. The primary cross-unit result nevertheless ran opposite to the prediction:
+
+- unweighted slope: `+0.052308` rather than negative;
+- descriptive 95% CI: `[-0.035251, +0.139868]`;
+- inverse-variance-weighted slope: `+0.066397`;
+- univariate-selection slope: `+0.050670`;
+- predicted/observed sign concordance: `6/12`.
+
+Eleven of 12 leave-one-unit slopes remained positive, while leave-one-lineage slopes included both signs. This is not independent evidence for the v12 real-world mechanism. It rejects the declared direction for this exact visit-weighted Dominica mapping and warns that a two-anchor mean position does not absorb lineage structure, other fitness axes or temporal context.
+
+It does not by itself falsify the v12 synthetic result. The data are cross-sectional natural-selection estimates, repeat populations and years, and span three lineage/morph classes rather than observing a common island transition. Retuning the mapping to rescue the prediction is forbidden.
+
 ## Why Izu cannot yet directly confirm v12
 
 The ideal focal empirical variable is a **signed** plant position relative to the pollinator functional environment, for example:
@@ -171,13 +187,14 @@ Therefore the preferred signed-position test remains blocked rather than being f
 | Local support changes branch allocation / directional bias | strong synthetic ablation result |
 | Partner effectiveness can change individual branch identity | synthetic matched-ablation support |
 | Reproductive dependency is the primary generator of sign branching | **not supported by current ABM** |
-| Signed plant position relative to pollinator functional optimum causes real island response branching | **not yet empirically identified** |
+| Frozen Dominica two-anchor signed position predicts real corolla selection in the declared negative direction | **not supported; exact projection failed** |
+| Signed plant position relative to pollinator functional optimum causes real island response branching | **not empirically identified** |
 
 ## Next decisive evidence
 
-Do not add another generic ABM layer now.
+Do not add another generic ABM layer or retune the Heliconia mapping now.
 
-The next high-value step is an empirical test with compatible units:
+The next high-value step is a genuinely independent empirical transition test with compatible units:
 
 1. plant matching trait measured before or at the baseline regime;
 2. pollinator functional trait/environment on the same scale;
@@ -185,4 +202,4 @@ The next high-value step is an empirical test with compatible units:
 4. downstream effective-service or reproductive response;
 5. at least one independent island system not used to choose the mapping.
 
-The mapping must be frozen before its downstream outcome is inspected. Izu can serve as the focal direct test only after the missing pollinator-trait/weight information is recovered; otherwise the search should move to a new independent system rather than weakening the construct.
+The mapping must be frozen before its downstream outcome is inspected, and the design should separate within-lineage position from between-lineage identity. Izu can serve as the focal direct test only after the missing pollinator-trait/weight information is recovered; otherwise the search should move to a new independent system rather than weakening the construct. The failed Heliconia projection remains in the evidence ledger rather than becoming a parameter-tuning dataset.
