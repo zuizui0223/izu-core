@@ -1,0 +1,80 @@
+{
+  "analysis": "constraint_mechanism_abm_v12_residual_trait_causes_frozen",
+  "run_date": "2026-08-22",
+  "workflow_run": 32553824548,
+  "artifact_id": 9470835192,
+  "artifact_zip_sha256": "06f4569f21fbb84fb962bb852b62860a4f9f4cd6105745c31a3cba9a613e932c",
+  "design": {
+    "factorial_cells": 8,
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates_per_saturation": 4,
+    "lineages_per_run": 24,
+    "lineage_contrasts_per_cell": 288,
+    "empirical_inputs_loaded": [],
+    "izu_target_frequencies_loaded": false
+  },
+  "v11_nesting": {
+    "expected_positive": 157,
+    "observed_positive": 157,
+    "expected_negative": 131,
+    "observed_negative": 131,
+    "expected_equal": 0,
+    "observed_equal": 0,
+    "expected_mixed_sign_run_fraction": 0.4166666666666667,
+    "observed_mixed_sign_run_fraction": 0.4166666666666667,
+    "exact_count_nesting_passes": true
+  },
+  "full_residual_model": {
+    "positive": 157,
+    "negative": 131,
+    "equal": 0,
+    "aggregate_branching_balance": 0.9097222222222222,
+    "mixed_sign_run_fraction": 0.4166666666666667,
+    "mean_within_run_branching_balance": 0.2569444444444444,
+    "mean_oceanic_minus_mainland_reproduction": -0.057413655960965745
+  },
+  "drop_one": {
+    "initial_trait_heterogeneity": {
+      "mixed_sign_run_fraction_full": 0.4166666666666667,
+      "mixed_sign_run_fraction_ablated": 0.0,
+      "mean_within_run_branching_balance_full": 0.2569444444444444,
+      "mean_within_run_branching_balance_ablated": 0.0,
+      "paired_branch_sign_changes": 37,
+      "paired_branch_sign_change_fraction": 0.1284722222222222,
+      "interpretation": "Removing initial lineage position on the standardized matching trait collapses all within-run two-sided branching."
+    },
+    "trait_adjustment_heterogeneity": {
+      "mixed_sign_run_fraction_full": 0.4166666666666667,
+      "mixed_sign_run_fraction_ablated": 0.4166666666666667,
+      "mean_within_run_branching_balance_full": 0.2569444444444444,
+      "mean_within_run_branching_balance_ablated": 0.2569444444444444,
+      "paired_branch_sign_changes": 2,
+      "paired_branch_sign_change_fraction": 0.006944444444444444,
+      "interpretation": "Heterogeneity in trait-adjustment rate is not required for within-run branching in the declared model."
+    },
+    "assurance_ceiling_heterogeneity": {
+      "mixed_sign_run_fraction_full": 0.4166666666666667,
+      "mixed_sign_run_fraction_ablated": 0.4166666666666667,
+      "mean_within_run_branching_balance_full": 0.2569444444444444,
+      "mean_within_run_branching_balance_ablated": 0.2569444444444444,
+      "paired_branch_sign_changes": 0,
+      "paired_branch_sign_change_fraction": 0.0,
+      "interpretation": "Assurance-ceiling heterogeneity does not determine branch identity in this residual gate."
+    }
+  },
+  "all_three_residual_factors_off": {
+    "positive": 168,
+    "negative": 120,
+    "equal": 0,
+    "aggregate_branching_balance": 0.8333333333333334,
+    "mixed_sign_run_fraction": 0.0,
+    "mean_within_run_branching_balance": 0.0,
+    "within_run_branching_collapsed": true,
+    "note": "Aggregate positive/negative counts mix stochastic runs. Within each same run, identical lineages respond identically, so lineage branching is absent."
+  },
+  "decision": "v12_residual_lineage_factors_exhaust_within_run_branching_in_declared_model",
+  "minimal_model_mechanism": "A common pollinator-environment shift acting on lineages that occupy different initial positions in a functional matching trait space is sufficient, and within the declared residual ABM necessary, for same-environment lineage response-sign branching. Local support and partner effectiveness can subsequently reallocate branch identity or bias direction but are not the source of the two-sided branching itself.",
+  "scientific_update": "The working explanation should move away from reproductive dependency as the primary generator of response sign heterogeneity. Dependency may still moderate magnitude empirically, but the declared ABM identifies pre-existing plant functional-trait position relative to the changing pollinator environment as the minimal branching source.",
+  "next_empirical_gate": "Define a source-native empirical analogue of initial trait position relative to pollinator functional environment before inspecting downstream reproductive outcomes, then test whether that position predicts response direction or magnitude in held-out Izu or another independent island system.",
+  "claim_boundary": "This is synthetic mechanism identification inside the declared ABM, not empirical causal proof. The standardized trait is not automatically tube length, FDQ, nectar guide or any one measured floral trait. Empirical mapping must be frozen from source meaning before outcome inspection."
+}
