@@ -1,17 +1,18 @@
 {
-  "schema_version": "2.0",
-  "updated_on": "2026-08-18",
+  "schema_version": "2.1",
+  "updated_on": "2026-08-22",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
-  "program_hypothesis": "Changes in pollinator functional environments can alter effective pollen service, reproductive dependency or assurance, interaction structure and selection on floral traits, but island plant responses need not collapse onto one syndrome. The programme tests which response axes and combinations recur across independent island systems, which branch, and which remain system-specific.",
-  "central_question": "Across independent island systems, which plant response axes change under altered pollinator functional environments, which combinations recur, and what explains recurrent heterogeneity?",
-  "claim_state": "comparative_response_heterogeneity_supported_complete_common_mechanism_not_yet_identified",
+  "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and reproductive buffering determine whether upstream change propagates to reproduction or floral evolution. The programme tests recurring branch structures and propagation boundaries rather than a universal island syndrome.",
+  "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether functional change propagates into reproductive or floral evolutionary response?",
+  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_synthetic_propagation_gate_empirically_bounded_complete_common_mechanism_not_identified",
   "comparison_contract": {
     "systems_are_parallel": true,
     "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
     "response_axis_registry": "data/design/island_comparative_response_axis_registry.json",
     "every_system_need_not_measure_every_axis": true,
     "heterogeneity_is_a_result": true,
+    "propagation_failure_is_a_result": true,
     "do_not_pool_noncommensurate_estimands": true,
     "complete_mechanism_bridge_is_high_value_but_not_required_for_axis_level_comparison": true
   },
@@ -28,11 +29,21 @@
     "cross_study_hiraiwa_result": "qualitative_response_heterogeneity_recurs_zero_of_three_uniform_matching_tube_pollen_decline_cascade",
     "external_morphology_directional_replication": "two_independent_systems_below_isometry_under_ols_island_cluster_resampling",
     "external_morphology_pooled_coefficient_allowed": false,
+    "abm_mechanism_state": {
+      "v4_heldout_izu": "commonish_matching_decline_plus_reproductive_sign_branching_survives_qualitatively",
+      "v10_partner_effectiveness": "changes_branch_identity_without_broadening_positive_tail",
+      "v11_downstream_factorial": "two_sided_branching_persists_with_all_four_tested_downstream_factors_off",
+      "v12_minimal_synthetic_generator": "preexisting_lineage_position_in_functional_trait_space",
+      "v12_dominica_projection": "failed_declared_negative_signed_position_to_selection_direction",
+      "hawaii_2026_boundary": "source_native_signed_matching_predicts_interaction_quality_but_frequent_robbing_and_resource_change_can_coexist_with_high_reproductive_performance"
+    },
     "external_mechanism_bridge_state": {
-      "independent_partial_systems": 4,
+      "independent_partial_systems": 5,
       "near_complete_within_archipelago": 1,
       "complete_systems": 0,
       "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
+      "newest_source_triggered_bridge": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "hawaii_lobelioid_adds_new_geographic_stratum": false,
       "stage_c_search_state": "route_A_complete_unconstrained_search_closed"
     },
     "formal_cross_system_fit_ready": false
@@ -43,18 +54,19 @@
       "name": "scientific_state_protection_and_cleanup_guard",
       "priority": 0,
       "status": "active",
-      "completion_rule": "source locks, system identities, response-axis estimands, canonical result registries, negative admission states and claim-boundary tests remain protected"
+      "completion_rule": "source locks, system identities, response-axis estimands, canonical result registries, negative admission states, failed predictions and claim-boundary tests remain protected"
     },
     {
       "id": "P1",
       "name": "island_system_response_matrix",
       "priority": 1,
       "status": "active",
-      "objective": "Represent each independent island system against the same response-axis vocabulary without requiring every system to measure every axis.",
+      "objective": "Represent each independent island system against the same response-axis and propagation vocabulary without requiring every system to measure every axis.",
       "response_axes": [
         "floral_morphology",
         "mating_and_reproductive_assurance",
         "visual_signal",
+        "pollinator_functional_environment",
         "pollinator_effectiveness",
         "interaction_network",
         "reproductive_outcome"
@@ -64,7 +76,8 @@
         "source_and_estimand_lock_per_cell",
         "missing_not_zero_state_distinction",
         "recurring_response_combination_summary",
-        "heterogeneous_branching_summary"
+        "heterogeneous_branching_summary",
+        "propagation_boundary_summary"
       ]
     },
     {
@@ -73,7 +86,7 @@
       "priority": 1,
       "issue": 93,
       "bridge_issue": 100,
-      "status": "partial_recurrence_complete_bridge_missing",
+      "status": "state_dependent_branching_supported_complete_bridge_missing",
       "stages": [
         {
           "stage": "A",
@@ -83,29 +96,29 @@
         {
           "stage": "B",
           "name": "recurrent_pollinator_environment_change",
-          "current_state": "source_native visitation partner-turnover rewiring and effectiveness changes exist across systems"
+          "current_state": "source_native visitation partner-turnover rewiring functional-matching and effectiveness changes exist across systems"
         },
         {
           "stage": "C",
           "name": "effective_service_reproductive_dependency_bridge",
-          "current_state": "four_independent_partial_bridges_one_near_complete_zero_complete_route_A_complete",
+          "current_state": "five_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed",
           "priority_rule": "source-triggered only; do not displace comparative synthesis with unconstrained acquisition"
         },
         {
           "stage": "D",
-          "name": "within_system_mechanistic_triangulation",
-          "current_state": "partial_mechanistic_recurrence_across_independent_systems_no_complete_common_transition"
+          "name": "within_system_mechanistic_triangulation_and_propagation",
+          "current_state": "Dominica signed-position projection failed; Hawaii lobelioids independently support signed-position to interaction-quality coupling and a separate reproductive-resilience propagation boundary; no complete common transition is identified"
         },
         {
           "stage": "E",
           "name": "cross_system_same_estimand_replication",
           "current_state": "closed",
           "formal_fit_open_conditions": [
-            "same_estimand_family_in_at_least_two_independent_system_clusters",
-            "compatible_uncertainty",
-            "source_provenance_and_sampling_hierarchy_locked",
-            "required_measurement_error_gates_satisfied",
-            "no_favourable_sensitivity_assumption_selected_for_admission"
+            "same_estimand_family_in_at_least_two independent system clusters",
+            "compatible uncertainty",
+            "source provenance and sampling hierarchy locked",
+            "required measurement-error gates satisfied",
+            "no favourable sensitivity assumption selected for admission"
           ]
         }
       ]
@@ -129,7 +142,8 @@
       "blocked_claims": [
         "historical_pollinator_loss_causation",
         "oshima_toshima_causal_boundary_effect",
-        "universal_island_response_from_izu"
+        "universal_island_response_from_izu",
+        "direct_izu_signed_position_without_source_native_pollinator_trait_and_weight_data"
       ]
     },
     {
@@ -137,12 +151,13 @@
       "name": "system_specific_axis_completion",
       "priority": 2,
       "status": "active_where_admissible_sources_exist",
-      "rule": "Fill high-value missing response axes within existing systems only when source-native evidence exists; missing is not evidence of no response.",
+      "rule": "Fill high-value missing response or propagation axes within existing systems only when source-native evidence exists; missing is not evidence of no response.",
       "examples": [
         "visual_signal_or_nectar_guide_where_measured",
         "direct_effectiveness_for_systems_with_network_only_data",
         "controlled_dependency_for_systems_with_effectiveness_only_data",
-        "reproductive_outcome_for_systems_with_morphology_only_data"
+        "reproductive_outcome_for_systems_with_morphology_only_data",
+        "same-system propagation boundaries linking functional mismatch or interaction quality to reproductive outcome"
       ]
     },
     {
@@ -172,7 +187,11 @@
         {
           "issue": 100,
           "target": "external_complete_mechanism_bridge",
-          "state": "route_A_completed_reopen_only_on_named_source_trigger"
+          "state": "route_A_completed_hawaii_named_source_trigger_added_partial_bridge_reopen_only_on_new_named_source_trigger"
+        },
+        {
+          "target": "hawaii_lobelioid_functional_ecology_raw_csv",
+          "state": "anonymous_dryad_file_stream_403_and_package_api_401_frozen_reopen_only_on_exact_mirror_or_authorized_access"
         }
       ]
     },
@@ -184,16 +203,18 @@
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "build_system_by_response_axis_evidence_matrix_from_committed_source_locked_systems_then_identify_recurrent_response_combinations_and_high_value_missing_cells",
+  "next_executable_task": "integrate_hawaii_lobelioid_propagation_boundary_into_system_by_response_axis_matrix_then_rank_the_next_source_locked_test_that_can_discriminate_propagation_from_buffering_while_issue_91_field_collection_remains_parallel",
   "not_mainline": [
     "universal_island_dwarfism_or_response_coefficient",
     "raw_island_count_accumulation_without_independent_system_identity",
     "visitor_occurrence_as_effectiveness",
     "syndrome_as_reproductive_dependency",
     "repeated_search_of_exhausted_source_routes",
+    "anonymous_retry_of_hawaii_dryad_file_stream_or_package_api",
     "unconstrained_external_bridge_search_after_issue_100_route_A_completion",
     "pooling_noncommensurate_response_axes_into_one_effect",
     "formal_meta_analysis_before_same_family_replication",
-    "legacy_simulation_complexity_without_comparative_admission_value"
+    "another_generic_abm_layer_before_a_new_empirical_discriminator",
+    "retuning_the_failed_dominica_signed_position_mapping"
   ]
 }
