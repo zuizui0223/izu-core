@@ -15,11 +15,11 @@ def load(path: Path):
 def test_layer_matrix_counts_and_propagation_counts_are_self_consistent():
     data = load(MATRIX)
     rows = data["rows"]
-    assert len(rows) == data["summary"]["biological_system_layers"] == 13
+    assert len(rows) == data["summary"]["biological_system_layers"] == 14
     counts = Counter(row["propagation_state"] for row in rows)
     assert dict(counts) == data["summary"]["propagation_state_counts"]
     assert data["summary"]["propagation_state_counts_are_descriptive_not_inferential"] is True
-    assert len(set(data["summary"]["geographic_clusters_represented"])) == data["summary"]["geographic_cluster_count"]
+    assert len(set(data["summary"]["geographic_clusters_represented"])) == data["summary"]["geographic_cluster_count"] == 12
 
 
 def test_hawaii_system_layers_are_separate_but_not_two_geographic_replicates():
@@ -33,6 +33,21 @@ def test_hawaii_system_layers_are_separate_but_not_two_geographic_replicates():
     lobelioid = next(row for row in hawaii if row["system_layer_id"].endswith("2026"))
     assert lobelioid["propagation_state"] == "buffered_or_resilient"
     assert "reproductive_buffering" in lobelioid["mechanism_tags"]
+
+
+def test_ogasawara_psychotria_is_same_direction_only_for_contemporary_access_chain():
+    data = load(MATRIX)
+    row = next(
+        row for row in data["rows"]
+        if row["system_layer_id"] == "ogasawara_psychotria_homalosperma_pollinator_replacement"
+    )
+    assert row["geographic_cluster"] == "ogasawara"
+    assert row["independent_geographic_cluster"] is True
+    assert row["propagation_state"] == "propagates_same_direction"
+    assert "categorical_physical_access" in row["mechanism_tags"]
+    assert row["axes"]["visual_signal"] == "absent"
+    assert "Historical replacement causation is inferred" in row["boundary"]
+    assert "numeric signed mismatch" in row["boundary"]
 
 
 def test_izu_branching_and_dominica_failed_projection_are_both_preserved():
