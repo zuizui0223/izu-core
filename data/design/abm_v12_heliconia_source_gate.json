@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "system_id": "eastern_caribbean_heliconia_eulampis",
+  "status": "source_metadata_and_outcome_blind_mapping_admitted_target_bytes_unrecovered",
+  "purpose": "Prospectively define a source-native signed plant-position mapping for the v12 mechanism before calculating any new plant-level corolla-position to seed-fitness target from the Dryad files.",
+  "selection_source": {
+    "article_doi": "10.1111/jeb.12053",
+    "dataset_doi": "10.5061/dryad.64835",
+    "island": "Dominica",
+    "taxa": [
+      "Heliconia bihai",
+      "Heliconia caribaea red morph",
+      "Heliconia caribaea yellow morph"
+    ],
+    "years": [2008, 2009],
+    "source_native_sampling": {
+      "plants_per_site": "approximately 30-40 focal plants depending on availability",
+      "corolla_length": "5-10 flowers per plant measured in mm; plant mean used in analyses",
+      "fitness": "seed set per plant derived from seeds/flower x flowers/bract x bracts/plant",
+      "pollinator_observation": "12 h per site, species and sex of each hummingbird visitor recorded"
+    },
+    "dryad_files": [
+      {
+        "name": "Temeles et al Heliconia Bihai Population Data.XLS",
+        "reported_size_kb": 34.82,
+        "role": "plant-level floral trait and seed-set data"
+      },
+      {
+        "name": "Temeles et al Heliconia caribaea red morph population data.XLS",
+        "reported_size_kb": 32.77,
+        "role": "plant-level red-morph floral trait and seed-set data"
+      },
+      {
+        "name": "Temeles et al Heliconia caribaea yellow morph population data.XLS",
+        "reported_size_kb": 28.67,
+        "role": "plant-level yellow-morph floral trait and seed-set data"
+      }
+    ],
+    "current_byte_recovery": {
+      "recovered": false,
+      "attempted_public_file_stream_ids": [37457, 37459, 37461],
+      "environment_result": "Dryad landing metadata available; individual XLS retrieval returned cache-miss/direct-download failure in the current execution environment",
+      "target_metrics_calculated": false
+    }
+  },
+  "independent_mapping_source": {
+    "article_doi": "10.1007/s00442-011-2043-8",
+    "title": "Plant-pollinator interactions and floral convergence in two species of Heliconia from the Caribbean Islands",
+    "role": "functional-trait calibration only; no 2013 seed-fitness outcome enters the mapping",
+    "dominica_bill_anchors_mm": {
+      "Eulampis_jugularis_female": {
+        "mean": 26.6,
+        "sem": 0.12
+      },
+      "Eulampis_jugularis_male": {
+        "mean": 19.8,
+        "sem": 0.36
+      }
+    },
+    "dominica_corolla_anchors_mm": {
+      "Heliconia_bihai_female_associated": {
+        "mean": 47.8,
+        "sem": 0.43,
+        "n_plants": 31
+      },
+      "Heliconia_caribaea_male_associated": {
+        "mean": 35.8,
+        "sem": 0.22,
+        "n_plants": 31
+      }
+    },
+    "source_interpretation": "On Dominica, female E. jugularis with long bills are the primary visitors of long-corolla H. bihai, whereas male E. jugularis with shorter bills primarily visit shorter-corolla H. caribaea."
+  },
+  "frozen_signed_position_mapping": {
+    "mapping_type": "two-anchor linear mechanical calibration from the independent 2011 Dominica source",
+    "formula": "expected_corolla_mm = intercept_mm + slope_corolla_per_bill * pollinator_bill_center_mm",
+    "intercept_mm": 0.8588235294117652,
+    "slope_corolla_per_bill": 1.764705882352941,
+    "anchor_identity_check": {
+      "male_bill_19_8_maps_to_corolla_35_8": true,
+      "female_bill_26_6_maps_to_corolla_47_8": true
+    },
+    "population_year_pollinator_center": "Use source-native 2013 sex-specific E. jugularis visitation weights for the matching population/year/morph when those weights are recoverable from a stable source; center = weighted mean of 19.8 and 26.6 mm. Do not substitute a canonical sex when the population/year weights are unavailable.",
+    "signed_position": "plant_mean_corolla_mm - expected_corolla_mm",
+    "interpretation": {
+      "negative": "plant lies shorter than the 2011 pollinator-calibrated corolla position",
+      "positive": "plant lies longer than the 2011 pollinator-calibrated corolla position",
+      "zero": "plant lies at the two-anchor calibrated position"
+    },
+    "not_a_universal_geometry_law": true
+  },
+  "future_target_contract": {
+    "status": "closed_until_selection_bytes_recovered_and_schema_locked",
+    "primary_question": "Does signed initial corolla position predict the direction or magnitude of plant-level female-fitness selection on corolla length across Dominica population-year-morph units?",
+    "primary_fitness": "source-native seeds per plant",
+    "trait": "source-native plant mean corolla length in mm",
+    "unit_of_independence": "population x year x morph for selection-gradient comparison; plants are nested observations",
+    "no_target_before_gate": true,
+    "forbidden_rescues": [
+      "do not use the published 2013 selection-gradient sign to choose or alter the mapping",
+      "do not choose male versus female pollinator identity after inspecting plant seed-set results",
+      "do not infer missing sex-specific visitation weights from the floral phenotype",
+      "do not refit the 2011 bill-to-corolla slope against the 2013 fitness outcome",
+      "do not call literature-known selection patterns a fully held-out validation"
+    ]
+  },
+  "known_literature_context_not_used_for_mapping": {
+    "outcomes_are_literature_known": true,
+    "therefore_validation_class": "new_exact_derived_statistic_test_not_literature_blind",
+    "article_summary": "H. bihai generally shows directional selection for longer corollas; H. caribaea more often shows selection on bract number, with corolla selection less consistent.",
+    "rule": "The exact signed-position statistic and its relation to raw plant-level seed fitness have not been calculated in this gate."
+  },
+  "decision": "admit_heliconia_as_next_v12_source_candidate_but_keep_target_closed_until_raw_bytes_and_visit_weights_are_locked",
+  "claim_boundary": "This gate freezes source roles and a bill-to-corolla mapping from an independent ecological source. It does not yet test v12, does not estimate a universal floral optimum, and does not convert known narrative selection results into new evidence."
+}
