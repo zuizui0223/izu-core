@@ -50,6 +50,19 @@ def test_two_preexisting_morphology_systems_are_consistency_not_causal_confirmat
     assert hendriks["causal_confirmation"] is False
 
 
+def test_nicotiana_keeps_trait_position_as_branch_potential_not_sufficient_fitness_rule():
+    gate = load_gate()
+    route = next(
+        item for item in gate["evidence_routes"]
+        if item["id"] == "california_channel_islands_nicotiana_propagation_boundary"
+    )
+    assert route["role"] == "preexisting_same_system_functional_matching_propagation_boundary"
+    assert "not sufficient" in route["interpretation"]
+    assert route["causal_confirmation"] is False
+    assert "cross-paper" in route["why_not_direct_v12_falsification"]
+    assert "trait position alone is sufficient" in " ".join(gate["current_inference"]["not_yet_supported"])
+
+
 def test_issue91_is_not_promoted_to_cross_lineage_validation():
     gate = load_gate()
     route = next(item for item in gate["evidence_routes"] if item["id"] == "issue91_campanula_direct_field")
