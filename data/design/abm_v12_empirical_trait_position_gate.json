@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "status": "model_mechanism_identified_empirical_signed_position_test_not_yet_open",
   "model_result": {
     "source": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
@@ -20,6 +20,13 @@
       "family or body-size proxy used as source-native proboscis length"
     ]
   },
+  "preexisting_morphology_recurrence": {
+    "role": "independent_consistency_for_starting_state_dependence_not_direct_pollinator_matching_confirmation",
+    "systems": 2,
+    "both_ols_island_on_mainland_slopes_below_isometry": true,
+    "formal_pooled_coefficient_allowed": false,
+    "errors_in_variables_jointly_resolved": false
+  },
   "evidence_routes": [
     {
       "id": "southwest_pacific_starting_state",
@@ -29,18 +36,36 @@
       "construct": "mainland flower size as pre-island starting state; island/mainland flower-size response",
       "current_result": {
         "animal_pollinated_valid_pairs": 88,
-        "lr_on_log10_mainland_size_slope": -0.1509947118927123,
-        "island_cluster_ci_95": [-0.3040562773559898, -0.07251784059209347],
-        "family_cluster_ci_95": [-0.24833678997365197, -0.020758981447738082],
-        "leave_one_island_all_negative": true
+        "island_groups": 10,
+        "log_island_on_log_mainland_slope": 0.8490052881072875,
+        "island_cluster_ci_95": [0.6916442921593313, 0.9258005353502381],
+        "equivalent_lr_on_log10_mainland_size_slope": -0.1509947118927123,
+        "leave_one_island_all_negative_in_lr_form": true
       },
       "support_level": "supports_initial_state_dependent_response_shape_not_pollinator_matching_mechanism",
-      "major_caveat": "LR=log10(FI/FM) shares observed FM with the predictor; classical mainland measurement error can induce negative coupling",
+      "major_caveat": "mainland trait is measured with unknown reliability; in LR form the response also algebraically shares observed FM with the predictor",
       "measurement_error_gate": {
         "mainland_log_size_reliability_estimated_from_source": false,
-        "point_negative_requires_reliability_gt": 0.8490052881072875,
-        "cluster_interval_entirely_negative_requires_reliability_gt": 0.9258005353502381
+        "point_below_isometry_requires_reliability_gt": 0.8490052881072875,
+        "cluster_interval_below_isometry_requires_reliability_gt": 0.9258005353502381
       },
+      "causal_confirmation": false
+    },
+    {
+      "id": "hendriks2019_starting_state",
+      "role": "second_independent_preexisting_external_consistency",
+      "chronology": "source provenance and response-shape analysis were completed before v12 residual mechanism test",
+      "source": "Hendriks 2019 VUW thesis 10.26686/wgtn.17136800.v1",
+      "construct": "mainland flower area as pre-island starting state; island flower area response",
+      "current_result": {
+        "valid_pairs": 35,
+        "island_groups": 9,
+        "ols_log_island_on_log_mainland_slope": 0.58334,
+        "island_cluster_ci_95": [0.21279, 0.77849],
+        "sma_island_cluster_ci_95": [0.72967, 1.07310]
+      },
+      "support_level": "second_independent_ols_directional_recurrence_of_starting_state_dependent_compression_shape",
+      "major_caveat": "mainland-trait reliability is unidentified and the symmetric-axis sensitivity includes isometry",
       "causal_confirmation": false
     },
     {
@@ -87,13 +112,14 @@
     "supported": [
       "response heterogeneity is empirical across island systems",
       "v12 identifies initial trait-position heterogeneity as the minimal source of within-run lineage sign branching in the declared ABM",
-      "an external pre-v12 Southwest Pacific analysis independently shows starting-state dependence of island floral response shape, subject to measurement-error sensitivity"
+      "two independent morphology systems analysed before v12 show OLS response shapes below isometry, consistent with pre-island starting state influencing island floral response"
     ],
     "not_yet_supported": [
       "real island reproductive branch sign is caused by signed plant position relative to pollinator functional optimum",
-      "the v12 standardized trait is numerically equivalent to corolla tube length",
+      "the v12 standardized trait is numerically equivalent to corolla tube length or flower area",
       "reproductive dependency is empirically irrelevant",
-      "a universal functional optimum applies across island systems"
+      "a universal functional optimum applies across island systems",
+      "a pooled universal starting-state coefficient across the two morphology systems"
     ]
   },
   "next_decisive_task": "Find or recover an independent system with source-native plant matching trait, pollinator functional trait/environment, and downstream reproductive response measured on compatible units; freeze the signed-position mapping before inspecting its downstream outcome. Izu can reopen for a direct signed test only when the missing source-native proboscis/weight information is available.",
