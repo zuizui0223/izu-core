@@ -1,0 +1,45 @@
+name: ABM v12 Heliconia Dryad recovery
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/recover_abm_v12_heliconia_dryad.py'
+      - 'tests/test_abm_v12_heliconia_dryad_recovery.py'
+      - '.github/workflows/abm_v12_heliconia_dryad_recovery.yml'
+      - 'data/design/abm_v12_heliconia_source_gate.json'
+
+jobs:
+  source-recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run public Dryad byte-recovery gate
+        run: python scripts/recover_abm_v12_heliconia_dryad.py
+      - name: Check scientific source decision without converting transport block to CI failure
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v12_heliconia_dryad_recovery.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['decision'] in {
+              'dryad_xls_bytes_recovered_ready_for_schema_freeze',
+              'dryad_xls_bytes_recovered_but_source_byte_gate_failed',
+              'blocked_dryad_xls_transport',
+          }
+          print(json.dumps(x, indent=2))
+          PY
+      - name: Run focused source-gate tests
+        run: python -m pytest -q tests/test_abm_v12_heliconia_dryad_recovery.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v12-heliconia-dryad-recovery
+          path: |
+            data/results/abm_v12_heliconia_dryad_recovery.json
+            .artifacts/abm_v12_heliconia_dryad/*.xls
+          if-no-files-found: warn
