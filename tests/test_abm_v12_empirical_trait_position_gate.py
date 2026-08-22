@@ -29,13 +29,25 @@ def test_izu_direct_signed_test_remains_blocked_without_source_native_traits_and
     assert len(route["reopen_conditions"]) == 3
 
 
-def test_southwest_pacific_is_consistency_not_causal_confirmation():
+def test_two_preexisting_morphology_systems_are_consistency_not_causal_confirmation():
     gate = load_gate()
-    route = next(item for item in gate["evidence_routes"] if item["id"] == "southwest_pacific_starting_state")
-    assert route["role"] == "independent_preexisting_external_consistency"
-    assert route["causal_confirmation"] is False
-    assert route["measurement_error_gate"]["mainland_log_size_reliability_estimated_from_source"] is False
-    assert route["measurement_error_gate"]["cluster_interval_entirely_negative_requires_reliability_gt"] > 0.9
+    recurrence = gate["preexisting_morphology_recurrence"]
+    assert recurrence["systems"] == 2
+    assert recurrence["both_ols_island_on_mainland_slopes_below_isometry"] is True
+    assert recurrence["formal_pooled_coefficient_allowed"] is False
+    assert recurrence["errors_in_variables_jointly_resolved"] is False
+
+    southwest = next(item for item in gate["evidence_routes"] if item["id"] == "southwest_pacific_starting_state")
+    assert southwest["role"] == "independent_preexisting_external_consistency"
+    assert southwest["causal_confirmation"] is False
+    assert southwest["measurement_error_gate"]["mainland_log_size_reliability_estimated_from_source"] is False
+    assert southwest["measurement_error_gate"]["cluster_interval_below_isometry_requires_reliability_gt"] > 0.9
+
+    hendriks = next(item for item in gate["evidence_routes"] if item["id"] == "hendriks2019_starting_state")
+    assert hendriks["role"] == "second_independent_preexisting_external_consistency"
+    assert hendriks["current_result"]["ols_log_island_on_log_mainland_slope"] < 1.0
+    assert hendriks["current_result"]["sma_island_cluster_ci_95"][1] > 1.0
+    assert hendriks["causal_confirmation"] is False
 
 
 def test_issue91_is_not_promoted_to_cross_lineage_validation():
@@ -50,3 +62,4 @@ def test_current_inference_keeps_empirical_causation_open():
     unsupported = " ".join(gate["current_inference"]["not_yet_supported"]).lower()
     assert "caused" in unsupported
     assert "reproductive dependency is empirically irrelevant" in unsupported
+    assert "pooled universal" in unsupported
