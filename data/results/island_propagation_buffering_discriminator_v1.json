@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-22",
+  "analysis": "island_propagation_buffering_discriminator",
+  "purpose": "Use already-admitted propagation, buffering and branching cases to reject single-factor explanations and rank measurements that distinguish the remaining plant-side propagation filters.",
+  "source_refs": [
+    "data/results/island_system_propagation_matrix_v1.json",
+    "data/results/island_propagation_hypothesis_ledger.json",
+    "data/design/external_bridge_ogasawara_psychotria_source_audit.json",
+    "data/design/external_bridge_hawaii_lobelioid_2026_source_audit.json",
+    "data/design/external_bridge_nicotiana_source_audit.json",
+    "docs/GUAIACUM_JOINT_SOURCE_AUDIT.md",
+    "data/design/effective_pollinator_dependency_field_readiness.json"
+  ],
+  "candidate_filter_vocabulary": [
+    "autonomous_reproductive_assurance",
+    "physical_access_or_functional_matching",
+    "partner_effectiveness_or_service_redundancy",
+    "resource_compensation",
+    "colonization_or_establishment_filtering",
+    "network_rewiring_or_context",
+    "direct_reproductive_dependency"
+  ],
+  "cases": [
+    {
+      "case_id": "ogasawara_psychotria_homalosperma",
+      "propagation_state": "propagates_same_direction",
+      "observed_chain": "hidden S-morph stigma access failure -> S-to-L pollen transfer -> much lower open fruit set in S than L",
+      "candidate_filters": {
+        "autonomous_reproductive_assurance": {
+          "evidence_state": "limited_assurance_consistent_with_propagation_but_not_total_dependency",
+          "evidence": "Published hand-pollination context reports self fruit set 0% in both morphs, intramorph S-to-S 5.9% and L-to-L 0%, while intermorph hand fruit set is 82.4% and 82.6%.",
+          "interpretation": "Low autonomous/intramorph reproductive escape is consistent with an access bottleneck reaching reproduction, but controlled all-pollinator dependency is not measured."
+        },
+        "physical_access_or_functional_matching": {
+          "evidence_state": "direct_support_for_propagation",
+          "evidence": "The source reports that dominant Apis cannot reach the hidden S-morph stigma and pollen transfer is unidirectional S-to-L.",
+          "interpretation": "This is the clearest current physical-access propagation case, but it is categorical rather than a numeric signed-position measurement."
+        },
+        "partner_effectiveness_or_service_redundancy": {
+          "evidence_state": "partial_access_specific_effectiveness_support",
+          "evidence": "Directional pollen transfer shows morph-specific service failure; standardized single-visit pollen deposition is unavailable.",
+          "interpretation": "Service is asymmetric enough to support the propagation chain, but no common effectiveness scale exists."
+        },
+        "resource_compensation": {"evidence_state": "unmeasured", "interpretation": "No source-locked resource-compensation mechanism is available."},
+        "colonization_or_establishment_filtering": {"evidence_state": "not_primary_explanation", "interpretation": "The focal plant is endemic; the relevant contemporary contrast concerns pollinator replacement/access, not introduction of the plant lineage."},
+        "network_rewiring_or_context": {"evidence_state": "partial", "interpretation": "Current visitor composition is documented, while historical replacement is inferred rather than experimentally reconstructed."},
+        "direct_reproductive_dependency": {"evidence_state": "missing_controlled_total_dependency", "interpretation": "Open fruit asymmetry is not an all-pollinator exclusion dependency estimate."}
+      }
+    },
+    {
+      "case_id": "hawaii_lobelioids_2026",
+      "propagation_state": "buffered_or_resilient",
+      "observed_chain": "source-native signed bill-flower mismatch -> pollen-contact/nectar-robbing differences -> damage alters nectar replenishment, but fruit and seed performance remain high",
+      "candidate_filters": {
+        "autonomous_reproductive_assurance": {"evidence_state": "unmeasured", "interpretation": "Controlled reproductive dependency/autonomous assurance is not available for the matched 2026 lobelioid bridge."},
+        "physical_access_or_functional_matching": {
+          "evidence_state": "direct_upstream_effect_not_sufficient_for_reproductive_collapse",
+          "evidence": "The source-native bill-minus-flower axis predicts interaction quality, yet the closely overlapping experimental study retains high reproductive performance.",
+          "interpretation": "Functional mismatch can affect interaction quality without fixing the final reproductive sign."
+        },
+        "partner_effectiveness_or_service_redundancy": {
+          "evidence_state": "direct_interaction_quality_change_buffered_downstream",
+          "evidence": "Fertile-structure contact occurs in 43% of visits and nectar robbing in 39%; fruit/seed performance remains high.",
+          "interpretation": "Interaction quality alone is insufficient to identify reproductive collapse."
+        },
+        "resource_compensation": {
+          "evidence_state": "source_supported_candidate_not_identified",
+          "evidence": "Experimental floral damage changes nectar replenishment while reproductive performance remains high.",
+          "interpretation": "Resource replenishment/compensation is a live buffering candidate, but the experiment does not identify it as the unique cause of reproductive resilience."
+        },
+        "colonization_or_establishment_filtering": {"evidence_state": "not_primary_explanation", "interpretation": "The focal lobelioids are native; the current bridge concerns persistence after bird losses rather than introduced-plant establishment."},
+        "network_rewiring_or_context": {"evidence_state": "source_supported", "interpretation": "Historical versus contemporary nectar-feeding bird assemblages differ, so partner turnover is part of the upstream change."},
+        "direct_reproductive_dependency": {"evidence_state": "missing", "interpretation": "This is the highest-value missing discriminator for distinguishing low dependency from post-interaction compensation."}
+      }
+    },
+    {
+      "case_id": "california_channel_islands_nicotiana_glauca",
+      "propagation_state": "buffered_or_alternative_mechanism",
+      "observed_chain": "greater island autonomous selfing capacity and longer corollas coexist with no detected current island reduction in visitation/pollen transfer or general island pollen limitation",
+      "candidate_filters": {
+        "autonomous_reproductive_assurance": {
+          "evidence_state": "direct_support_for_buffering_or_establishment_filter",
+          "evidence": "Island populations have higher autonomous self-pollination capacity, strongest on recently colonized Santa Cruz Island.",
+          "interpretation": "Reproductive assurance is a strong system-specific candidate, but it cannot be treated as a response to a current service deficit that was not detected."
+        },
+        "physical_access_or_functional_matching": {
+          "evidence_state": "not_supported_as_current_driver",
+          "evidence": "Per-visit effectiveness differed among hummingbird species but was not associated with corolla length.",
+          "interpretation": "Current floral matching does not explain the observed island corolla difference in the locked source summary."
+        },
+        "partner_effectiveness_or_service_redundancy": {
+          "evidence_state": "current_service_adequate",
+          "evidence": "Visitation and pollen transfer were not lower on islands and island fruit set was not generally pollen limited.",
+          "interpretation": "This is an alternative-mechanism case rather than a clean test of buffering after measured service loss."
+        },
+        "resource_compensation": {"evidence_state": "unmeasured", "interpretation": "No source-locked resource-compensation mechanism is required by the current evidence."},
+        "colonization_or_establishment_filtering": {
+          "evidence_state": "live_source_supported_alternative",
+          "evidence": "The plant is introduced and the strongest autonomous-selfing capacity occurs on a recently colonized island population.",
+          "interpretation": "Colonization/establishment filtering remains a live explanation for the island trait/reproductive pattern."
+        },
+        "network_rewiring_or_context": {"evidence_state": "partial", "interpretation": "Pollinator composition differs, but current aggregate service is not lower on islands."},
+        "direct_reproductive_dependency": {"evidence_state": "partial_direct", "interpretation": "Autogamy, emasculation and pollen-limitation experiments provide substantial reproductive-assurance/dependency information, but cross-paper/site-year linkage is incomplete."}
+      }
+    },
+    {
+      "case_id": "puerto_rico_mona_guaiacum",
+      "propagation_state": "buffered_or_resilient",
+      "observed_chain": "very large visitor-assemblage and visitation contrast -> similar self/outcross breeding-system index and negligible autogamy",
+      "candidate_filters": {
+        "autonomous_reproductive_assurance": {
+          "evidence_state": "argues_against_universal_assurance_buffer",
+          "evidence": "Autogamy produced only three mature fruits in Guánica and two on Mona; the source concludes a pollen vector is required for effective reproduction.",
+          "interpretation": "Stable breeding-system index across populations cannot be explained by high autonomous reproduction, so assurance is not a universal buffering mechanism."
+        },
+        "physical_access_or_functional_matching": {"evidence_state": "unmeasured", "interpretation": "No compatible quantitative trait-matching/access axis is recovered."},
+        "partner_effectiveness_or_service_redundancy": {
+          "evidence_state": "unresolved_candidate",
+          "evidence": "Guánica is overwhelmingly Apis-dominated with about twice the source-reported visitation rate, whereas Mona has a richer/more even assemblage.",
+          "interpretation": "Compensatory abundance or functional redundancy is plausible but cannot be identified without direct effectiveness."
+        },
+        "resource_compensation": {"evidence_state": "unmeasured", "interpretation": "No source-locked plant resource-compensation mechanism is measured."},
+        "colonization_or_establishment_filtering": {"evidence_state": "unresolved_not_primary", "interpretation": "The current source comparison is between populations of the same species and does not identify an establishment filter."},
+        "network_rewiring_or_context": {
+          "evidence_state": "direct_source_supported",
+          "interpretation": "The visitor assemblages differ sharply in richness, dominance and visitation rate."
+        },
+        "direct_reproductive_dependency": {
+          "evidence_state": "partial_breeding_index_not_total_dependency",
+          "evidence": "Self/outcross seed-set ISI is 0.60 versus 0.63 with P=0.77, but numeric open/outcross total-dependency ratios are not recovered.",
+          "interpretation": "The plant-side breeding state appears similar across the strong exposure contrast, but the exact dependency estimand remains missing."
+        }
+      }
+    },
+    {
+      "case_id": "izu_hiraiwa_and_campanula_anchor",
+      "propagation_state": "branches_downstream",
+      "observed_chain": "broadly lower matching -> divergent pollen and floral responses; Campanula historical calibration shows later autonomous-assurance transition",
+      "candidate_filters": {
+        "autonomous_reproductive_assurance": {
+          "evidence_state": "historical_candidate_not_current_joint_test",
+          "evidence": "Campanula autonomous assurance is retained as a second-transition step in the historical calibration.",
+          "interpretation": "Assurance is a plausible late propagation filter, but the current direct dependency field bundle is still missing."
+        },
+        "physical_access_or_functional_matching": {
+          "evidence_state": "direct_upstream_matching_change",
+          "evidence": "Corrected trait matching is lower across all eight shared targets.",
+          "interpretation": "A common-ish upstream mismatch signal is present but does not determine one downstream sign."
+        },
+        "partner_effectiveness_or_service_redundancy": {
+          "evidence_state": "partial_network_state_sensitive",
+          "interpretation": "Matching-to-pollen propagation is positive but cluster-uncertain and network-state-sensitive; direct current effective-service calibration is incomplete."
+        },
+        "resource_compensation": {"evidence_state": "unmeasured", "interpretation": "No common source-locked resource-compensation axis explains the cross-taxon branching."},
+        "colonization_or_establishment_filtering": {"evidence_state": "possible_response_mode_not_identified_for_current_branching", "interpretation": "Survivorship/non-establishment remains a programme response mode but is not the identified cause of the current eight-target sign branching."},
+        "network_rewiring_or_context": {
+          "evidence_state": "direct_candidate",
+          "interpretation": "Network-state sensitivity is observed downstream of matching and is a strong candidate branch allocator."
+        },
+        "direct_reproductive_dependency": {
+          "evidence_state": "active_missing_measurement",
+          "interpretation": "Issue #91 is implementation-ready but real linked Campanula field rows are missing; this is the highest-value direct anchor measurement."
+        }
+      }
+    }
+  ],
+  "cross_case_discriminations": [
+    {
+      "hypothesis": "autonomous_reproductive_assurance_is_the_universal_buffer",
+      "decision": "rejected_as_universal",
+      "reason": "Nicotiana supports high autonomous assurance as a buffer/establishment candidate, but Guaiacum shows a buffered exposure-to-breeding-index contrast despite negligible autogamy and vector-required reproduction. Hawaii remains unmeasured."
+    },
+    {
+      "hypothesis": "physical_or_functional_mismatch_always_propagates_to_reproductive_decline",
+      "decision": "rejected_as_universal",
+      "reason": "Ogasawara supplies a bounded access-to-fruit propagation case, whereas Hawaii shows signed mismatch and interaction-quality change with high reproductive performance and Izu shows downstream sign branching."
+    },
+    {
+      "hypothesis": "partner_effectiveness_or_interaction_quality_alone_determines_final_reproductive_sign",
+      "decision": "rejected_as_sufficient",
+      "reason": "Hawaii buffers interaction-quality/resource changes before final reproduction and ABM v10 changes branch identity without broadening total branching."
+    },
+    {
+      "hypothesis": "current_pollinator_service_deficit_is_required_for_island_trait_or_assurance_difference",
+      "decision": "rejected_as_universal",
+      "reason": "Nicotiana island trait/selfing differences occur without a detected current island decrease in visitation or pollen transfer, leaving colonization/establishment filtering live."
+    },
+    {
+      "hypothesis": "one_common_buffering_mechanism_is_already_identified",
+      "decision": "not_supported",
+      "reason": "The cases implicate different candidate filters: reproductive assurance in Nicotiana, possible resource compensation in Hawaii, unresolved partner/service compensation in Guaiacum, network-state allocation in Izu, and limited reproductive escape in propagating Ogasawara."
+    }
+  ],
+  "current_causal_reading": {
+    "branch_generator": "pre-existing functional/access position remains a viable branch-potential variable but is not a universal directional predictor",
+    "branch_allocators": ["local interaction support", "network rewiring/context", "partner effectiveness"],
+    "propagation_filters": ["reproductive dependency/assurance", "resource compensation", "service redundancy/compensatory abundance", "colonization/establishment filtering", "unmeasured plant-side buffering"],
+    "central_result": "No single tested downstream filter explains all propagation states. The empirical programme now supports a multi-gate architecture in which the identity of the propagation filter is system-specific or unresolved."
+  },
+  "ranked_next_measurements": [
+    {
+      "rank": 1,
+      "target": "Izu Issue #91 direct dependency/effective-service anchor",
+      "measurement": "same tagged population: effort + visitor/contact + SVD/no-visit controls + open/bagged-autonomous/supplemental-outcross + fruit/seed, with taxon-level FDQ traits where admissible",
+      "discriminates": ["network-state allocation versus plant dependency", "assurance buffering versus service limitation", "direct propagation versus branching"],
+      "status": "implementation_ready_field_data_missing"
+    },
+    {
+      "rank": 2,
+      "target": "Ogasawara Psychotria propagation endpoint",
+      "measurement": "standardized per-visit pollen deposition/effectiveness by visitor and floral morph plus controlled exclusion/dependency; numeric access position only if source-native or newly measured prospectively",
+      "discriminates": ["physical access versus visitor abundance", "low reproductive escape versus service asymmetry"],
+      "status": "named_system_followup_not_required_for_current_admission"
+    },
+    {
+      "rank": 3,
+      "target": "Hawaii lobelioid buffering endpoint",
+      "measurement": "controlled reproductive dependency/assurance in the same focal lobelioid populations and seasons as interaction-quality measurements",
+      "discriminates": ["low dependency versus resource compensation", "interaction-quality buffering versus reproductive assurance"],
+      "status": "source_triggered_only"
+    },
+    {
+      "rank": 4,
+      "target": "Guaiacum service compensation",
+      "measurement": "single-visit effectiveness and source-native numeric open/outcross dependency in the same observation/breeding trees if lawful source data exist",
+      "discriminates": ["Apis abundance compensation versus visitor diversity", "stable breeding system versus stable total dependency"],
+      "status": "source_triggered_only"
+    }
+  ],
+  "programme_decision": "reject_single_buffer_explanation_prioritize_matched_dependency_effectiveness_measurements",
+  "claim_boundary": "This discriminator compares source-supported candidate mechanisms; it does not estimate causal effect sizes or assign a hidden cause where a source did not measure it. Candidate labels such as resource compensation or establishment filtering remain hypotheses unless the source directly discriminates them."
+}
