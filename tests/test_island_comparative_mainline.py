@@ -34,14 +34,18 @@ def test_nectar_guide_is_active_comparative_axis_not_programme_wide_blocked():
     assert not any("nectar_guide" in item for item in routing["not_mainline"])
 
 
-def test_system_matrix_treats_missing_as_missing_not_zero():
+def test_system_matrix_treats_missing_as_missing_not_zero_and_has_ogasawara():
     matrix = load("island_system_response_axis_matrix.json")
     assert matrix["current_pattern"]["uniform_response_syndrome_supported"] is False
     assert matrix["current_pattern"]["response_heterogeneity_recurs"] is True
     izu = next(system for system in matrix["systems"] if system["system_id"] == "izu")
     assert izu["role"] == "calibration_and_mechanistic_anchor"
     assert izu["axes"]["visual_signal"] == "missing_current_measurement_not_zero"
-    assert len(matrix["systems"]) >= 10
+    assert len(matrix["systems"]) == 11
+    ogasawara = next(system for system in matrix["systems"] if system["system_id"] == "ogasawara_psychotria_homalosperma")
+    assert ogasawara["propagation_state"] == "propagates_same_direction_contemporary_access_chain"
+    assert ogasawara["axes"]["visual_signal"] == "not_registered"
+    assert "numeric signed mismatch" in ogasawara["propagation_reading"]
     for system in matrix["systems"]:
         assert set(system["axes"]) == set(matrix["response_axes"])
 
