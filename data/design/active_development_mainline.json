@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "updated_on": "2026-08-22",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
@@ -35,15 +35,17 @@
       "v11_downstream_factorial": "two_sided_branching_persists_with_all_four_tested_downstream_factors_off",
       "v12_minimal_synthetic_generator": "preexisting_lineage_position_in_functional_trait_space",
       "v12_dominica_projection": "failed_declared_negative_signed_position_to_selection_direction",
-      "hawaii_2026_boundary": "source_native_signed_matching_predicts_interaction_quality_but_frequent_robbing_and_resource_change_can_coexist_with_high_reproductive_performance"
+      "hawaii_2026_boundary": "source_native_signed_matching_predicts_interaction_quality_but_frequent_robbing_and_resource_change_can_coexist_with_high_reproductive_performance",
+      "ogasawara_psychotria_bridge": "categorical_stigma_access_mismatch_and_directional_pollen_transfer_coexist_with_strong_morph_specific_open_fruit_asymmetry_despite_high_bidirectional_intermorph_hand_fruit_set"
     },
     "external_mechanism_bridge_state": {
-      "independent_partial_systems": 5,
+      "independent_partial_systems": 6,
       "near_complete_within_archipelago": 1,
       "complete_systems": 0,
       "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
-      "newest_source_triggered_bridge": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "newest_source_triggered_bridge": "ogasawara_psychotria_homalosperma_pollinator_replacement",
       "hawaii_lobelioid_adds_new_geographic_stratum": false,
+      "ogasawara_psychotria_adds_new_geographic_stratum": true,
       "stage_c_search_state": "route_A_complete_unconstrained_search_closed"
     },
     "formal_cross_system_fit_ready": false
@@ -101,13 +103,13 @@
         {
           "stage": "C",
           "name": "effective_service_reproductive_dependency_bridge",
-          "current_state": "five_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed",
+          "current_state": "six_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed",
           "priority_rule": "source-triggered only; do not displace comparative synthesis with unconstrained acquisition"
         },
         {
           "stage": "D",
           "name": "within_system_mechanistic_triangulation_and_propagation",
-          "current_state": "Dominica signed-position projection failed; Hawaii lobelioids independently support signed-position to interaction-quality coupling and a separate reproductive-resilience propagation boundary; no complete common transition is identified"
+          "current_state": "Dominica signed-position projection failed; Hawaii lobelioids support signed-position to interaction-quality coupling plus a reproductive-resilience boundary; Ogasawara Psychotria adds a categorical physical-access to directional-pollen-transfer and morph-specific fruit-asymmetry bridge; no complete common transition is identified"
         },
         {
           "stage": "E",
@@ -187,11 +189,15 @@
         {
           "issue": 100,
           "target": "external_complete_mechanism_bridge",
-          "state": "route_A_completed_hawaii_named_source_trigger_added_partial_bridge_reopen_only_on_new_named_source_trigger"
+          "state": "route_A_completed_hawaii_and_ogasawara_named_source_triggers_added_partial_bridges_reopen_only_on_new_named_source_trigger"
         },
         {
           "target": "hawaii_lobelioid_functional_ecology_raw_csv",
           "state": "anonymous_dryad_file_stream_403_and_package_api_401_frozen_reopen_only_on_exact_mirror_or_authorized_access"
+        },
+        {
+          "target": "ogasawara_psychotria_numeric_signed_access_position",
+          "state": "published_categorical_access_and_reproductive_asymmetry_admitted_numeric_signed_mismatch_not_recovered_reopen_only_on_named_source_native_measurement"
         }
       ]
     },
@@ -203,7 +209,7 @@
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "integrate_hawaii_lobelioid_propagation_boundary_into_system_by_response_axis_matrix_then_rank_the_next_source_locked_test_that_can_discriminate_propagation_from_buffering_while_issue_91_field_collection_remains_parallel",
+  "next_executable_task": "classify_ogasawara_psychotria_in_the_propagation_matrix_using_only_the_admitted_categorical_access_directional_pollen_and_published_hand_open_fruit_evidence_then_compare_it_against_buffered_hawaii",
   "not_mainline": [
     "universal_island_dwarfism_or_response_coefficient",
     "raw_island_count_accumulation_without_independent_system_identity",
@@ -215,6 +221,7 @@
     "pooling_noncommensurate_response_axes_into_one_effect",
     "formal_meta_analysis_before_same_family_replication",
     "another_generic_abm_layer_before_a_new_empirical_discriminator",
-    "retuning_the_failed_dominica_signed_position_mapping"
+    "retuning_the_failed_dominica_signed_position_mapping",
+    "invent_numeric_signed_position_for_ogasawara_psychotria_from_secondary_proboscis_or_corolla_values"
   ]
 }

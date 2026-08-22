@@ -34,44 +34,50 @@ def test_izu_field_bundle_is_preserved_as_mechanistic_anchor_not_programme_cente
     assert "direct_izu_signed_position_without_source_native_pollinator_trait_and_weight_data" in p3["blocked_claims"]
 
 
-def test_stage_c_reflects_five_partial_bridges_and_route_a_closure():
+def test_stage_c_reflects_six_partial_bridges_and_route_a_closure():
     mainline = load_mainline()
     p2 = workstream(mainline, "P2")
     stage_c = next(row for row in p2["stages"] if row["stage"] == "C")
-    assert stage_c["current_state"] == "five_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed"
+    assert stage_c["current_state"] == "six_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed"
     assert "source-triggered only" in stage_c["priority_rule"]
 
 
-def test_mainline_preserves_abm_failures_and_hawaii_propagation_boundary():
+def test_mainline_preserves_abm_failures_hawaii_buffering_and_ogasawara_access_bridge():
     mainline = load_mainline()
     state = mainline["protected_scientific_state"]["abm_mechanism_state"]
     assert state["v12_minimal_synthetic_generator"] == "preexisting_lineage_position_in_functional_trait_space"
     assert state["v12_dominica_projection"].startswith("failed_")
     assert "high_reproductive_performance" in state["hawaii_2026_boundary"]
+    assert "directional_pollen_transfer" in state["ogasawara_psychotria_bridge"]
 
 
 def test_formal_fit_and_source_reopen_boundaries_stay_closed():
     mainline = load_mainline()
     protected = mainline["protected_scientific_state"]
     bridge = protected["external_mechanism_bridge_state"]
-    assert bridge["independent_partial_systems"] == 5
+    assert bridge["independent_partial_systems"] == 6
     assert bridge["complete_systems"] == 0
     assert bridge["hawaii_lobelioid_adds_new_geographic_stratum"] is False
+    assert bridge["ogasawara_psychotria_adds_new_geographic_stratum"] is True
+    assert bridge["newest_source_triggered_bridge"] == "ogasawara_psychotria_homalosperma_pollinator_replacement"
     assert bridge["stage_c_search_state"] == "route_A_complete_unconstrained_search_closed"
     assert protected["formal_cross_system_fit_ready"] is False
 
     p5 = workstream(mainline, "P5")
     assert p5["status"] == "wait_for_new_admissible_source_material"
     issue_100_gate = next(row for row in p5["gates"] if row.get("issue") == 100)
-    assert "hawaii_named_source_trigger_added_partial_bridge" in issue_100_gate["state"]
+    assert "hawaii_and_ogasawara_named_source_triggers" in issue_100_gate["state"]
     hawaii_gate = next(row for row in p5["gates"] if row.get("target") == "hawaii_lobelioid_functional_ecology_raw_csv")
     assert "file_stream_403" in hawaii_gate["state"]
     assert "package_api_401" in hawaii_gate["state"]
+    ogasawara_gate = next(row for row in p5["gates"] if row.get("target") == "ogasawara_psychotria_numeric_signed_access_position")
+    assert "numeric_signed_mismatch_not_recovered" in ogasawara_gate["state"]
 
 
-def test_next_executable_task_is_propagation_matrix_not_another_generic_abm_layer():
+def test_next_executable_task_is_ogasawara_propagation_classification_not_another_abm_layer():
     mainline = load_mainline()
-    assert mainline["next_executable_task"].startswith("integrate_hawaii_lobelioid_propagation_boundary")
+    assert mainline["next_executable_task"].startswith("classify_ogasawara_psychotria_in_the_propagation_matrix")
     assert mainline["comparison_contract"]["izu_role"] == "calibration_and_mechanistic_anchor_system_not_programme_center"
     assert "another_generic_abm_layer_before_a_new_empirical_discriminator" in mainline["not_mainline"]
     assert "retuning_the_failed_dominica_signed_position_mapping" in mainline["not_mainline"]
+    assert "invent_numeric_signed_position_for_ogasawara_psychotria_from_secondary_proboscis_or_corolla_values" in mainline["not_mainline"]

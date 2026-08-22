@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "system_id": "ogasawara_psychotria_homalosperma_pollinator_replacement",
+  "parent_issue": 100,
+  "admission_state": "bridge_system_partial",
+  "bridge_level": "same_species_cross_study_functional_access_to_reproductive_asymmetry",
+  "independent_system_cluster": true,
+  "independent_geographic_stratum": true,
+  "formal_cross_system_model_eligible": false,
+  "bridge_complete": false,
+  "focal_taxon": "Psychotria homalosperma",
+  "region": "Bonin (Ogasawara) Islands, Japan",
+  "sources": [
+    {
+      "source_id": "watanabe_etal_2018_pollination_reproduction",
+      "doi": "10.1111/1442-1984.12183",
+      "journal": "Plant Species Biology",
+      "volume_pages": "33:16-27",
+      "first_published": "2017-09-19",
+      "public_access_state": "abstract_and_indexed_article_text_available_full_article_or_raw_rows_not_recovered",
+      "source_supported_links": [
+        "current flower visitors observed",
+        "introduced Apis mellifera is the most common visitor",
+        "original pollinators inferred as long-proboscis moths from floral traits and scent",
+        "Apis pollen transfer is unidirectional from short-styled to long-styled morph",
+        "the stated mechanism is inability of Apis to reach hidden stigmas of short-styled flowers",
+        "long-styled flowers have 1.7-38 times the field fruit set of short-styled flowers",
+        "hand and open pollination plus pollen-tube growth were examined"
+      ],
+      "raw_dataset_recovered": false,
+      "supplement_recovered": false,
+      "exact_numeric_pollinator_trait_recovered": false,
+      "exact_numeric_floral_access_threshold_recovered": false
+    },
+    {
+      "source_id": "watanabe_sugawara_2015_aobplants_table3",
+      "doi": "10.1093/aobpla/plv087",
+      "journal": "AoB PLANTS",
+      "source_access_state": "open_full_text_and_published_table",
+      "role": "published same-species breeding/open-fruit quantitative context",
+      "published_table_values": {
+        "populations_examined": 3,
+        "morph_ratio_S_over_L_range": [1.5, 2.3],
+        "intermorph_hand_fruit_set_percent_L_to_S": 82.4,
+        "intermorph_hand_fruit_set_percent_S_to_L": 82.6,
+        "self_hand_fruit_set_percent_S": 0.0,
+        "self_hand_fruit_set_percent_L": 0.0,
+        "intramorph_hand_fruit_set_percent_S_to_S": 5.9,
+        "intramorph_hand_fruit_set_percent_L_to_L": 0.0,
+        "open_fruit_set_percent_L_range": [2.8, 8.9],
+        "open_fruit_set_percent_S_range": [0.2, 1.4],
+        "pollinator_label": "Bee (moth)"
+      },
+      "source_table_note": "The review table explicitly cites both prior published work and K. Watanabe/T. Sugawara unpublished data for P. homalosperma. Values are admissible as published table-level evidence, not as recovered individual raw rows."
+    },
+    {
+      "source_id": "watanabe_etal_2014_distyly_incompatibility",
+      "doi": "10.1016/j.flora.2014.09.006",
+      "journal": "Flora",
+      "public_access_state": "indexed_article_text_available_full_numeric_table_not_recovered",
+      "source_supported_links": [
+        "P. homalosperma is morphologically and functionally distylous",
+        "stigma and anther heights are not exactly reciprocal",
+        "long-styled flowers are completely self- and intramorph-incompatible",
+        "short-styled flowers are partially intramorph-compatible",
+        "short-styled morph is more abundant in three examined island populations"
+      ]
+    }
+  ],
+  "source_native_construct": {
+    "type": "categorical_physical_access_mismatch_not_numeric_signed_trait_position",
+    "upstream_change": "anthropogenically disrupted pollinator fauna with inferred replacement of long-proboscis moth function by introduced short-tongued honeybees",
+    "plant_state_axis": "distylous stigma position: exposed long-styled stigma versus hidden short-styled stigma",
+    "effectiveness_link": "Apis cannot reach the hidden short-styled stigma and pollen transfer is reported only from S morph to L morph",
+    "reproductive_link": "field fruit set is strongly higher in L morph despite nearly symmetric high intermorph hand-pollination fruit set in the published table",
+    "numeric_signed_position_available": false,
+    "why_not_signed_numeric": "No source-native honeybee proboscis-length minus stigma-depth or analogous numeric mismatch value has been recovered. Corolla tube length or honeybee tongue length from secondary literature must not be substituted as the primary signed position."
+  },
+  "measured_links": {
+    "pollinator_replacement_context": "article_level_inferred_historical_shift_current_visitor_direct",
+    "categorical_physical_access": true,
+    "directional_pollen_transfer": true,
+    "single_visit_effectiveness_numeric": false,
+    "intermorph_hand_compatibility_numeric": true,
+    "open_fruit_set_numeric": true,
+    "controlled_all_pollinator_dependency_numeric": false,
+    "same_tagged_individual_full_chain": false,
+    "floral_evolutionary_response_after_shift": false
+  },
+  "propagation_classification": {
+    "state": "propagates_within_morph_access_asymmetry",
+    "reason": "The current dominant visitor is physically unable to service one stigma position, pollen flow becomes directional, and the recipient-accessible L morph has much higher field fruit set. High and nearly symmetric intermorph hand-pollination fruit set argues that the field asymmetry is not simply a directional intrinsic compatibility failure.",
+    "counterfactual_strength": "strong_mechanistic_contrast_but_not_randomized_pollinator_replacement",
+    "relation_to_hawaii_buffering": "Ogasawara provides a contrasting case where access/effectiveness mismatch is associated with a strong reproductive asymmetry, whereas Hawaii 2026 shows interaction-quality change buffered before reproductive collapse.",
+    "relation_to_v12": "Supports functional state/access as a branch-relevant variable but does not provide the source-native numeric signed position needed to validate the v12 signed-position law."
+  },
+  "allowed_claim": "In P. homalosperma, an introduced honeybee-dominated contemporary pollination system produces a source-described physical access asymmetry and unidirectional pollen transfer, while field fruit set differs strongly between floral morphs even though published intermorph hand-pollination fruit set is high in both directions.",
+  "blocked_claims": [
+    "do not claim direct experimental causation by historical pollinator replacement",
+    "do not call the categorical access state a source-native numeric signed-position measurement",
+    "do not infer a honeybee proboscis length from family/guild or secondary values",
+    "do not call open fruit-set asymmetry a controlled all-pollinator dependency estimate",
+    "do not call the cross-study evidence a same-tagged-individual causal chain",
+    "do not infer that the observed process has already caused dioecy or another floral evolutionary transition"
+  ],
+  "source_gate_decision": "admit_article_and_published_table_level_partial_propagation_bridge_numeric_signed_position_still_missing",
+  "next_actions": [
+    "Search only named lawful article/supplement/institutional sources for exact floral-position and honeybee access measurements if they become available.",
+    "Do not block comparative propagation synthesis on unavailable raw rows: the published quantitative hand/open fruit contrast is already admissible at table level.",
+    "Use this system as a propagation contrast against buffered Hawaii, not as proof of a universal access-to-reproduction coefficient."
+  ],
+  "claim_boundary": "This audit strengthens a propagation example but remains a partial bridge. The replacement history is inferred, direct effectiveness is categorical rather than standardized per visit, and no numeric signed mismatch or controlled total dependency estimand is recovered."
+}
