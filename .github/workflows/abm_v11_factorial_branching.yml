@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - 'scripts/run_constraint_mechanism_abm_v11_factorial_branching.py'
+      - 'scripts/summarize_abm_v11_factorial_effects.py'
       - 'tests/test_constraint_mechanism_abm_v11_factorial_branching.py'
       - '.github/workflows/abm_v11_factorial_branching.yml'
       - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
@@ -25,7 +26,7 @@ jobs:
         run: >-
           python scripts/run_constraint_mechanism_abm_v11_factorial_branching.py
           --replicates 4 --contexts 4 --lineages 24 --steps 120
-      - name: Show cause-ranking result
+      - name: Show frozen drop-one cause result
         run: |
           python - <<'PY'
           import json
@@ -43,9 +44,13 @@ jobs:
           print('drop one', json.dumps(x['drop_one_ablation'], indent=2))
           print('ranking', x['factor_ranking_by_branching_balance_loss'])
           PY
+      - name: Summarize all predeclared factorial cells descriptively
+        run: python scripts/summarize_abm_v11_factorial_effects.py
       - name: Run focused tests
         run: python -m pytest -q tests/test_constraint_mechanism_abm_v11_factorial_branching.py
       - uses: actions/upload-artifact@v4
         with:
           name: abm-v11-factorial-branching
-          path: data/results/constraint_mechanism_abm_v11_factorial_branching.json
+          path: |
+            data/results/constraint_mechanism_abm_v11_factorial_branching.json
+            data/results/constraint_mechanism_abm_v11_factorial_summary.json
