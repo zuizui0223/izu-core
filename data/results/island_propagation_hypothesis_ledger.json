@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-22",
+  "analysis": "island_propagation_hypothesis_ledger",
+  "source_matrix": "data/results/island_system_propagation_matrix_v1.json",
+  "purpose": "Separate universal claims already contradicted by real or synthetic evidence from narrower state-dependent hypotheses that remain live.",
+  "hypotheses": [
+    {
+      "id": "U1_universal_same_direction_cascade",
+      "statement": "A deterioration or restructuring of the pollinator functional environment propagates in the same negative direction through interaction quality, reproduction and floral response across island plants.",
+      "claim_type": "universal_ecological_law",
+      "status": "rejected_as_universal",
+      "decisive_evidence": [
+        {
+          "system": "izu",
+          "evidence": "Corrected matching is lower across all eight shared targets while pollen receipt is split four lower/four higher and tube responses are three shorter/four longer/one equal.",
+          "role": "within-system downstream sign branching"
+        },
+        {
+          "system": "puerto_rico_mona_guaiacum",
+          "evidence": "Large pollinator-assemblage and visitation differences coexist with similar reported self/outcross breeding-system index and negligible autogamy.",
+          "role": "exposure change without parallel dependency-like change"
+        },
+        {
+          "system": "hawaii_lobelioids_2026",
+          "evidence": "Signed bill-flower position predicts pollen contact/nectar robbing and experimental damage changes nectar replenishment, while fruit production and seed performance remain high.",
+          "role": "interaction-quality/resource change without reproductive collapse"
+        },
+        {
+          "system": "california_channel_islands_nicotiana",
+          "evidence": "Greater island selfing capacity and longer corollas coexist with no detected current island decrease in visitation or pollen transfer and no general island pollen limitation.",
+          "role": "trait/reproductive difference without the assumed current service decline"
+        },
+        {
+          "system": "dominica_heliconia",
+          "evidence": "The first frozen negative signed-position-to-selection projection produced a positive primary slope and predominantly positive leave-one-unit slopes.",
+          "role": "counterdirectional preregistered projection"
+        }
+      ],
+      "interpretation": "One counterexample is sufficient to reject a universal same-direction law; the multiple independent counterexamples make a one-way island syndrome an inappropriate programme-level null. This does not estimate how frequent each alternative branch is."
+    },
+    {
+      "id": "U2_partner_effectiveness_is_sufficient_branch_generator",
+      "statement": "Partner-specific pollinator effectiveness is by itself sufficient to generate the observed breadth of downstream island response branching.",
+      "claim_type": "mechanistic_sufficiency",
+      "status": "rejected_as_sufficient",
+      "decisive_evidence": [
+        {
+          "source": "ABM v10",
+          "evidence": "Matched effectiveness ablation changed 501/648 reproductive contrasts and flipped 17 response signs, but positive responses changed 151 to 150 and mixed-sign configurations remained 18 to 18.",
+          "role": "branch reallocation without aggregate branching expansion"
+        },
+        {
+          "system": "hawaii_lobelioids_2026",
+          "evidence": "Interaction-quality and resource consequences vary while final reproductive performance remains high.",
+          "role": "effectiveness/interaction quality not sufficient for final reproductive sign"
+        },
+        {
+          "system": "seychelles_fuster_2020",
+          "evidence": "The most effective visitor class is plant-specific rather than a universal guild property.",
+          "role": "effectiveness is lineage/context dependent"
+        }
+      ],
+      "interpretation": "Partner effectiveness remains biologically important for realized branch allocation, but it is not the sole missing generator of downstream heterogeneity."
+    },
+    {
+      "id": "U3_dependency_heterogeneity_is_necessary_branch_generator",
+      "statement": "Lineage differences in reproductive dependency are necessary for two-sided downstream response branching.",
+      "claim_type": "mechanistic_necessity",
+      "status": "rejected_as_necessary_in_declared_abm_not_empirically_resolved",
+      "decisive_evidence": [
+        {
+          "source": "ABM v11",
+          "evidence": "Two-sided branching persists under the factorial state with local support variation, dependency heterogeneity, adaptive assurance and partner effectiveness all switched off.",
+          "role": "synthetic necessity test"
+        }
+      ],
+      "interpretation": "Dependency can filter propagation and remains an important empirical candidate, but the declared model does not require dependency heterogeneity to generate branch signs. Direct cross-system empirical necessity is not identified."
+    },
+    {
+      "id": "U4_initial_signed_position_universally_predicts_downstream_direction",
+      "statement": "Pre-existing signed functional trait position universally predicts the direction of downstream selection or reproductive response under island pollinator change.",
+      "claim_type": "universal_predictive_mechanism",
+      "status": "rejected_as_universal",
+      "decisive_evidence": [
+        {
+          "source": "ABM v12",
+          "evidence": "Initial functional trait position is the minimal synthetic generator of same-environment within-run branch signs in the declared model.",
+          "role": "mechanism capability"
+        },
+        {
+          "system": "dominica_heliconia",
+          "evidence": "The first frozen real-data signed-position projection ran opposite to its declared negative direction.",
+          "role": "failed empirical direction prediction"
+        }
+      ],
+      "interpretation": "Initial position remains a viable branch-potential variable, but it cannot be promoted to a universal directional law. The failed Dominica prediction is preserved and not retuned."
+    },
+    {
+      "id": "S1_state_dependent_propagation_architecture",
+      "statement": "Pollinator-functional change creates branch potential whose realized direction depends on initial functional position and local interaction structure, while a separate propagation/buffering gate determines whether interaction-quality change reaches reproduction or floral evolution.",
+      "claim_type": "current_synthesis_hypothesis",
+      "status": "best_current_synthesis_supported_but_not_causally_identified",
+      "supporting_evidence": [
+        "Izu combines broadly common matching decline with divergent downstream pollen and tube responses.",
+        "ABM v4 reproduces the qualitative common-upstream/divergent-downstream structure without fitting Izu sign frequencies.",
+        "ABM v10 shows effectiveness can reassign individual branch identity without creating total branching breadth.",
+        "ABM v11 shows tested downstream heterogeneity factors are not individually required for branch generation.",
+        "ABM v12 identifies initial functional position as a minimal synthetic branch generator, but Dominica rejects a universal direction mapping.",
+        "Hawaii 2026 independently links source-native signed position to interaction quality while showing downstream reproductive resilience.",
+        "Guaiacum and Nicotiana provide additional empirical cases in which upstream/current interaction differences do not map one-to-one onto dependency or final reproductive/trait response."
+      ],
+      "missing_proof": "No independent system yet measures source-native signed functional position, direct effectiveness, controlled reproductive dependency and final reproductive/evolutionary response at one matched transition unit with compatible uncertainty.",
+      "interpretation": "This architecture is a falsifiable organizing hypothesis, not a demonstrated universal causal graph."
+    },
+    {
+      "id": "S2_reproductive_buffering_gate",
+      "statement": "A distinct plant-side buffering or reproductive-assurance gate can interrupt propagation from altered interaction quality to final reproductive performance.",
+      "claim_type": "candidate_propagation_filter",
+      "status": "empirically_supported_as_boundary_mechanism_identity_unresolved",
+      "supporting_evidence": [
+        "Hawaii lobelioids: frequent robbing and altered nectar replenishment coexist with high fruit and seed performance.",
+        "Nicotiana: island trait/selfing differences coexist with no detected current decline in visitation/pollen transfer and no general island pollen limitation.",
+        "Guaiacum: strong pollinator-environment contrast coexists with similar reported breeding-system index."
+      ],
+      "blocked_interpretation": "These systems do not identify one common buffering variable; autonomous assurance, resource compensation, lineage position, establishment filtering and other processes remain distinct candidates."
+    }
+  ],
+  "programme_decision": "reject_universal_same_direction_cascade_keep_state_dependent_propagation_and_buffering_as_testable_synthesis",
+  "next_discriminating_measurement": "Prioritize a matched independent transition with source-native signed functional position, direct pollinator effectiveness, controlled reproductive dependency and terminal reproductive outcome. The goal is to distinguish propagation from buffering, not to fit another generic ABM layer.",
+  "claim_boundary": "Universal hypotheses are rejected only at the level stated. The ledger does not estimate prevalence of response classes, identify historical pollinator-loss causation, or turn qualitative cross-system counterexamples into a pooled causal coefficient."
+}
