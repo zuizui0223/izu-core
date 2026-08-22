@@ -9,10 +9,10 @@ def load_summary():
     )
 
 
-def test_four_independent_partial_bridges_do_not_create_a_complete_bridge():
+def test_five_independent_biological_partial_bridges_do_not_create_a_complete_bridge():
     summary = load_summary()
-    assert summary["counts"]["independent_system_clusters_screened_as_partial_or_stronger"] == 4
-    assert summary["counts"]["bridge_system_partial"] == 4
+    assert summary["counts"]["independent_system_clusters_screened_as_partial_or_stronger"] == 5
+    assert summary["counts"]["bridge_system_partial"] == 5
     assert summary["counts"]["bridge_system_complete"] == 0
     assert summary["formal_cross_system_mechanism_fit_ready"] is False
 
@@ -38,6 +38,40 @@ def test_seychelles_is_partial_and_does_not_supply_floral_transition():
     assert audit["measured_links"]["reproductive_dependency_numeric"] is True
     assert audit["measured_links"]["floral_response_numeric"] is False
     assert audit["formal_cross_system_model_eligible"] is False
+
+
+def test_hawaii_lobelioid_bridge_is_one_partial_system_not_two_papers_or_new_geography():
+    summary = load_summary()
+    hawaii = next(
+        row for row in summary["systems"]
+        if row["system_id"] == "hawaii_lobelioid_post_extinction_pollination_2026"
+    )
+    assert hawaii["admission_state"] == "bridge_system_partial"
+    assert hawaii["complete"] is False
+    assert hawaii["independent_system_cluster"] is True
+    assert hawaii["independent_geographic_stratum_beyond_hawaii"] is False
+    assert summary["counts"]["new_independent_geographic_strata_added_by_hawaii_lobelioid_2026"] == 0
+
+    audit = json.loads(Path(hawaii["audit"]).read_text(encoding="utf-8"))
+    assert audit["bridge_complete"] is False
+    assert audit["cross_source_overlap"]["exact_interaction_row_overlap_demonstrated"] is False
+    assert audit["measured_links"]["source_native_signed_trait_position"] is True
+    assert audit["measured_links"]["interaction_quality_contact_numeric"] is True
+    assert audit["measured_links"]["interaction_quality_robbing_numeric"] is True
+    assert audit["measured_links"]["reproductive_outcome_article_level"] is True
+    assert audit["measured_links"]["reproductive_dependency_controlled_numeric"] is False
+
+
+def test_existing_aslan_hawaii_dryland_source_is_not_silently_merged_with_lobelioids():
+    summary = load_summary()
+    hawaii = next(
+        row for row in summary["systems"]
+        if row["system_id"] == "hawaii_lobelioid_post_extinction_pollination_2026"
+    )
+    audit = json.loads(Path(hawaii["audit"]).read_text(encoding="utf-8"))
+    scope = audit["system_scope"]
+    assert scope["distinct_from_existing_aslan_2019_dryland_system"] is True
+    assert scope["existing_aslan_source_id"] == "aslan_etal_2019_hawaii_native_pollination"
 
 
 def test_every_registry_row_points_to_an_existing_audit():
