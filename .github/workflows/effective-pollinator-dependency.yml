@@ -16,8 +16,10 @@ on:
       - "scripts/audit_effective_dependency_pilot_assumptions.py"
       - "scripts/audit_effective_dependency_svd_recount_calibration.py"
       - "scripts/audit_effective_dependency_reliability.py"
+      - "scripts/audit_field_fdq_exposure.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "scripts/freeze_effective_dependency_field_bundle.py"
+      - "scripts/intake_issue91_field_bundle.py"
       - "templates/field_dependency_plant_registry_template.csv"
       - "templates/field_observation_effort_template.csv"
       - "templates/field_visitor_contact_manifest_template.csv"
@@ -26,14 +28,18 @@ on:
       - "templates/field_svd_recount_calibration_template.csv"
       - "templates/field_mature_fruit_template.csv"
       - "templates/field_seed_parentage_template.csv"
+      - "templates/field_pollinator_trait_lookup_template.csv"
       - "templates/effective_dependency_precision_goals_template.csv"
       - "templates/effective_dependency_reliability_repeat_template.csv"
       - "data/design/effective_pollinator_dependency_field_readiness.json"
       - "data/design/effective_dependency_pilot_field_priority.json"
       - "data/design/effective_dependency_reliability_calibration.json"
+      - "data/design/issue91_propagation_buffering_prediction_freeze.json"
       - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
       - "docs/DIRECT_DEPENDENCY_PILOT_STATUS.md"
       - "docs/EFFECTIVE_DEPENDENCY_FIELD_FREEZE.md"
+      - "docs/ISSUE91_FIELD_BUNDLE_INTAKE.md"
+      - "docs/ISSUE91_PROPAGATION_BUFFERING_PREDICTION_FREEZE.md"
       - "docs/field_geometry_and_interaction_linkage.md"
       - "tests/test_effective_pollinator_dependency.py"
       - "tests/test_effective_pollinator_dependency_readiness.py"
@@ -45,6 +51,8 @@ on:
       - "tests/test_effective_dependency_parentage.py"
       - "tests/test_effective_dependency_admission.py"
       - "tests/test_freeze_effective_dependency_field_bundle.py"
+      - "tests/test_issue91_propagation_buffering_prediction_freeze.py"
+      - "tests/test_issue91_field_bundle_intake.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
   pull_request:
     paths:
@@ -60,8 +68,10 @@ on:
       - "scripts/audit_effective_dependency_pilot_assumptions.py"
       - "scripts/audit_effective_dependency_svd_recount_calibration.py"
       - "scripts/audit_effective_dependency_reliability.py"
+      - "scripts/audit_field_fdq_exposure.py"
       - "scripts/plan_effective_dependency_pilot_precision.py"
       - "scripts/freeze_effective_dependency_field_bundle.py"
+      - "scripts/intake_issue91_field_bundle.py"
       - "templates/field_dependency_plant_registry_template.csv"
       - "templates/field_observation_effort_template.csv"
       - "templates/field_visitor_contact_manifest_template.csv"
@@ -70,14 +80,18 @@ on:
       - "templates/field_svd_recount_calibration_template.csv"
       - "templates/field_mature_fruit_template.csv"
       - "templates/field_seed_parentage_template.csv"
+      - "templates/field_pollinator_trait_lookup_template.csv"
       - "templates/effective_dependency_precision_goals_template.csv"
       - "templates/effective_dependency_reliability_repeat_template.csv"
       - "data/design/effective_pollinator_dependency_field_readiness.json"
       - "data/design/effective_dependency_pilot_field_priority.json"
       - "data/design/effective_dependency_reliability_calibration.json"
+      - "data/design/issue91_propagation_buffering_prediction_freeze.json"
       - "docs/EFFECTIVE_POLLINATOR_DEPENDENCY_FIELD_PROTOCOL.md"
       - "docs/DIRECT_DEPENDENCY_PILOT_STATUS.md"
       - "docs/EFFECTIVE_DEPENDENCY_FIELD_FREEZE.md"
+      - "docs/ISSUE91_FIELD_BUNDLE_INTAKE.md"
+      - "docs/ISSUE91_PROPAGATION_BUFFERING_PREDICTION_FREEZE.md"
       - "docs/field_geometry_and_interaction_linkage.md"
       - "tests/test_effective_pollinator_dependency.py"
       - "tests/test_effective_pollinator_dependency_readiness.py"
@@ -89,6 +103,8 @@ on:
       - "tests/test_effective_dependency_parentage.py"
       - "tests/test_effective_dependency_admission.py"
       - "tests/test_freeze_effective_dependency_field_bundle.py"
+      - "tests/test_issue91_propagation_buffering_prediction_freeze.py"
+      - "tests/test_issue91_field_bundle_intake.py"
       - ".github/workflows/effective-pollinator-dependency.yml"
 
 jobs:
@@ -114,3 +130,5 @@ jobs:
           tests/test_effective_dependency_parentage.py
           tests/test_effective_dependency_admission.py
           tests/test_freeze_effective_dependency_field_bundle.py
+          tests/test_issue91_propagation_buffering_prediction_freeze.py
+          tests/test_issue91_field_bundle_intake.py
