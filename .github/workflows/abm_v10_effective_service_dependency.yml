@@ -1,0 +1,50 @@
+name: ABM v10 effective service dependency
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
+      - 'tests/test_constraint_mechanism_abm_v10_effective_service_dependency.py'
+      - 'docs/CONSTRAINT_MECHANISM_ABM_V10_EFFECTIVE_SERVICE_DEPENDENCY.md'
+      - '.github/workflows/abm_v10_effective_service_dependency.yml'
+      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
+      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
+
+jobs:
+  mechanistic-retest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run v10 matched quality ablation
+        run: >-
+          python scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py
+          --replicates 3 --contexts 4 --lineages 24 --steps 120
+      - name: Check implementation invariants without converting a scientific failure to CI failure
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/constraint_mechanism_abm_v10_effective_service_dependency.json'))
+          assert x['design']['empirical_inputs_loaded'] == []
+          assert x['design']['izu_target_frequencies_loaded'] is False
+          assert x['summary']['upstream_identical_between_quality_ablations'] is True
+          assert x['summary']['decision'] in {
+              'v10_quality_layer_changes_magnitude_but_not_response_branch_identity',
+              'v10_partner_effectiveness_interacts_with_v9_to_broaden_downstream_branching',
+              'v10_partner_effectiveness_changes_branch_identity_without_broadening_positive_tail',
+          }
+          print(json.dumps(x['summary'], indent=2))
+          PY
+      - name: Run focused regression tests
+        run: >-
+          python -m pytest -q
+          tests/test_constraint_mechanism_abm_v10_effective_service_dependency.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v10-effective-service-dependency
+          path: data/results/constraint_mechanism_abm_v10_effective_service_dependency.json

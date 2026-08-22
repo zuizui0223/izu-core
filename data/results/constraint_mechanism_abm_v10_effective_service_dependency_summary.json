@@ -1,0 +1,42 @@
+{
+  "analysis": "constraint_mechanism_abm_v10_effective_service_dependency_summary",
+  "run_date": "2026-08-22",
+  "workflow_run": 32553276331,
+  "artifact_id": 9470668865,
+  "artifact_zip_sha256": "6dfd430cb4a7bf19b2b3c6355c369e2a8cf52943142080066386f9c5cb91cd57",
+  "run_design": {
+    "saturations": [1.0, 2.0, 3.0],
+    "support_strengths": [0.25, 0.5, 0.75],
+    "replicates_per_setting": 3,
+    "local_contexts_per_endpoint": 4,
+    "lineages_per_run": 24,
+    "evolution_steps": 120,
+    "configuration_count": 27,
+    "lineage_contrast_count": 648,
+    "empirical_inputs_loaded": [],
+    "izu_target_frequencies_loaded": false
+  },
+  "result": {
+    "local_realized_opportunity_oceanic_lower_fraction": 0.49382716049382713,
+    "quality_off_positive_responses": 151,
+    "quality_off_negative_responses": 350,
+    "quality_on_positive_responses": 150,
+    "quality_on_negative_responses": 351,
+    "mixed_sign_configurations_quality_off": 18,
+    "mixed_sign_configurations_quality_on": 18,
+    "quality_induced_response_sign_flips": 17,
+    "quality_changed_reproductive_contrasts": 501,
+    "upstream_identical_between_quality_ablations": true,
+    "decision": "v10_partner_effectiveness_changes_branch_identity_without_broadening_positive_tail"
+  },
+  "scale_separation": {
+    "island_scale_matching_reference": "data/results/abm_v4_heldout_izu_validation.json",
+    "island_scale_result": "Across every retained v4 saturation setting, best-match is lower for the majority of oceanic paired lineages (1571-1711 lower out of 1920), while both reproductive response signs remain present.",
+    "v10_local_result": "After v9 local plant/pollinator/pair support is realized, local opportunity no longer has a universal direction; the observed 0.4938 lower fraction is a local-support quantity and must not be relabelled as trait matching.",
+    "interpretation": "The model now separates a coarse island-scale matching constraint from local ecological opportunity branching. This is compatible with a common upstream pressure coexisting with heterogeneous local and downstream outcomes, but it is synthetic mechanism structure rather than empirical mediation proof."
+  },
+  "effectiveness_interpretation": "Partner quality is not the missing global branching mechanism. It materially changes many reproductive contrasts and flips some lineage branch identities while leaving the upstream network fixed, but it does not increase the positive tail or the number of mixed-sign configurations in this frozen retest.",
+  "current_mechanism_statement": "Island-scale partner/matching constraint can be directionally common; local plant/pollinator/pair opportunity can branch; lineage dependency and assurance translate those local states into mixed reproductive responses; partner effectiveness modifies which lineages occupy which branch but is not sufficient to explain overall heterogeneity.",
+  "next_discriminating_test": "Use matched factorial ablations to identify which components are necessary for downstream branching: local support variation, dependency heterogeneity, assurance responsiveness, and partner effectiveness. Do not tune any component to the known Izu sign frequencies.",
+  "claim_boundary": "This summary records a synthetic retest. The v4 best-match analogue is not TM_z, local opportunity is not FDQ or SVD, and v10 does not identify historical Bombus loss or empirical causal moderation."
+}
