@@ -69,6 +69,15 @@ def test_pilot_is_not_allowed_to_decide_causation_or_final_reliability():
     assert "cross-lineage dependency x fdq" in forbidden
 
 
+def test_no_numeric_decision_threshold_is_locked_before_pilot_dispersion():
+    data = load(FREEZE)
+    boundary = data["pilot_vs_confirmatory_boundary"]
+    assert boundary["decision_thresholds_locked_now"] is False
+    assert data["inputs_inspected_before_freeze"]["pilot_dispersion"] is False
+    assert data["next_gate"].startswith("collect the first real linked Issue #91 Campanula bundle")
+    assert "only then lock precision thresholds" in data["next_gate"]
+
+
 def test_historical_izu_pattern_cannot_be_used_for_tuning():
     rules = " ".join(load(FREEZE)["anti_leakage_rules"]).lower()
     assert "8/8" in rules
