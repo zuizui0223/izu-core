@@ -1,0 +1,45 @@
+{
+  "analysis": "abm_v12_heliconia_dryad_recovery_frozen",
+  "run_date": "2026-08-22",
+  "workflow_run": 32554876514,
+  "artifact_id": 9471126641,
+  "artifact_zip_sha256": "0810d8873402c399ed21662dc42df9949f751cdfde8b9045088c2be7a7cf62e4",
+  "dataset_doi": "10.5061/dryad.64835",
+  "selection_article_doi": "10.1111/jeb.12053",
+  "target_metrics_calculated": false,
+  "decision": "blocked_dryad_xls_transport",
+  "file_count_expected": 3,
+  "file_count_recovered": 0,
+  "file_count_structurally_valid": 0,
+  "files": [
+    {
+      "file_stream_id": 37457,
+      "role": "bihai_plant_trait_seed_set",
+      "http_status": 403,
+      "content_type": "text/html",
+      "transport_error": "HTTPError: 403 Forbidden"
+    },
+    {
+      "file_stream_id": 37459,
+      "role": "caribaea_red_plant_trait_seed_set",
+      "http_status": 403,
+      "content_type": "text/html",
+      "transport_error": "HTTPError: 403 Forbidden"
+    },
+    {
+      "file_stream_id": 37461,
+      "role": "caribaea_yellow_plant_trait_seed_set",
+      "http_status": 403,
+      "content_type": "text/html",
+      "transport_error": "HTTPError: 403 Forbidden"
+    }
+  ],
+  "independent_transport_attempts": [
+    "interactive/browser retrieval route",
+    "current execution/container download route",
+    "clean GitHub Actions ubuntu runner"
+  ],
+  "same_route_retry_state": "exhausted_switch_to_source_diagnosis",
+  "next_gate": "Do not retry the same Dryad file_stream endpoints. Diagnose a distinct supported Dryad package/API storage route or an exact lawful author/repository mirror. If none exists, retain the Heliconia raw-target route blocked and move to another empirical discriminator.",
+  "claim_boundary": "This is a source-transport limitation, not evidence for or against the v12 biological mechanism. Published summary statistics must not be reverse-engineered into the missing plant-level rows."
+}
