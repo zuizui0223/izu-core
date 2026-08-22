@@ -13,7 +13,8 @@ import json
 from collections import Counter
 from pathlib import Path
 
-AXES = (
+DEFAULT_AXES = (
+    "pollinator_functional_environment",
     "floral_morphology",
     "mating_and_reproductive_assurance",
     "visual_signal",
@@ -39,14 +40,19 @@ PARTIAL_MARKERS = (
 
 def classify_cell(status: str) -> str:
     value = status.strip().lower()
-    if value in EXACT_MISSING or value.startswith("missing_") or value.startswith(
-        "matched_per_visit_pollen_function_missing"
+    if (
+        value in EXACT_MISSING
+        or value.startswith("missing_")
+        or value.startswith("matched_per_visit_pollen_function_missing")
+        or value.startswith("not_harmonized")
     ):
         return "missing"
+    if value.startswith("partial_"):
+        return "partial"
     if "missing" in value:
         return "partial"
     if value.startswith("source_locked"):
-        return "partial" if any(marker in value for marker in ("cross_year",)) else "direct"
+        return "partial" if "cross_year" in value else "direct"
     if any(marker in value for marker in PARTIAL_MARKERS):
         return "partial"
     return "direct"
@@ -54,13 +60,17 @@ def classify_cell(status: str) -> str:
 
 def analyze(matrix: dict) -> dict:
     systems = matrix["systems"]
-    by_axis = {axis: Counter() for axis in AXES}
+    axes = tuple(matrix.get("response_axes", DEFAULT_AXES))
+    if set(axes) != set(DEFAULT_AXES):
+        raise ValueError("response-axis matrix does not match the current seven-axis registry")
+
+    by_axis = {axis: Counter() for axis in axes}
     profiles = []
     direct_sets: dict[str, set[str]] = {}
 
     for system in systems:
         sid = system["system_id"]
-        classes = {axis: classify_cell(system["axes"][axis]) for axis in AXES}
+        classes = {axis: classify_cell(system["axes"][axis]) for axis in axes}
         for axis, cls in classes.items():
             by_axis[axis][cls] += 1
         direct = {axis for axis, cls in classes.items() if cls == "direct"}
@@ -78,14 +88,14 @@ def analyze(matrix: dict) -> dict:
         )
 
     pair_counts = []
-    for a, b in itertools.combinations(AXES, 2):
-        members = sorted(sid for sid, axes in direct_sets.items() if {a, b}.issubset(axes))
+    for a, b in itertools.combinations(axes, 2):
+        members = sorted(sid for sid, direct in direct_sets.items() if {a, b}.issubset(direct))
         pair_counts.append({"axes": [a, b], "n_systems": len(members), "systems": members})
     pair_counts.sort(key=lambda row: (-row["n_systems"], row["axes"]))
 
     triple_counts = []
-    for combo in itertools.combinations(AXES, 3):
-        members = sorted(sid for sid, axes in direct_sets.items() if set(combo).issubset(axes))
+    for combo in itertools.combinations(axes, 3):
+        members = sorted(sid for sid, direct in direct_sets.items() if set(combo).issubset(direct))
         if members:
             triple_counts.append({"axes": list(combo), "n_systems": len(members), "systems": members})
     triple_counts.sort(key=lambda row: (-row["n_systems"], row["axes"]))
@@ -96,12 +106,12 @@ def analyze(matrix: dict) -> dict:
             "partial_systems": by_axis[axis]["partial"],
             "missing_systems": by_axis[axis]["missing"],
         }
-        for axis in AXES
+        for axis in axes
     }
-    direct_backbone = [axis for axis in AXES if axis_summary[axis]["direct_systems"] >= 4]
+    direct_backbone = [axis for axis in axes if axis_summary[axis]["direct_systems"] >= 4]
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis_type": "evidence_architecture_not_effect_direction",
         "n_systems": len(systems),
         "axis_summary": axis_summary,
@@ -112,8 +122,9 @@ def analyze(matrix: dict) -> dict:
         "key_findings": {
             "visual_signal_direct_systems": axis_summary["visual_signal"]["direct_systems"],
             "visual_signal_is_active_but_empirically_empty_in_current_matrix": axis_summary["visual_signal"]["direct_systems"] == 0,
+            "pollinator_functional_environment_direct_systems": axis_summary["pollinator_functional_environment"]["direct_systems"],
             "strongest_three_axis_direct_backbone": triple_counts[0] if triple_counts else None,
-            "interpretation": "The current matrix already supports several repeated evidence modules, but it does not yet encode comparable biological directions for all cells. Directional response-pattern inference must therefore be performed as a second source-locked layer rather than inferred from evidence presence.",
+            "interpretation": "The current matrix supports repeated evidence modules including a pollinator-functional-environment / floral-morphology / interaction-network backbone, but comparable biological directions and propagation states remain a second source-locked layer. Evidence presence alone must not be read as common effect direction.",
         },
         "claim_boundary": "Counts describe source-locked/direct evidence coverage only. They are not independent effect counts, do not imply common response direction, and do not license pooling noncommensurate estimands.",
     }
