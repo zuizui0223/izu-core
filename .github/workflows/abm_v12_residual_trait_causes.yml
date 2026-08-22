@@ -1,0 +1,53 @@
+name: ABM v12 residual trait causes
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v12_residual_trait_causes.py'
+      - 'tests/test_constraint_mechanism_abm_v12_residual_trait_causes.py'
+      - '.github/workflows/abm_v12_residual_trait_causes.yml'
+      - 'data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json'
+      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
+      - 'scripts/run_abm_v4_global_continuous_isolation_gradient.py'
+
+jobs:
+  residual-source-ablation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run prospective v12 residual-source factorial
+        run: >-
+          python scripts/run_constraint_mechanism_abm_v12_residual_trait_causes.py
+          --replicates 4 --lineages 24 --steps 120
+      - name: Check nesting and scientific decision
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/constraint_mechanism_abm_v12_residual_trait_causes.json'))
+          assert x['design']['empirical_inputs_loaded'] == []
+          assert x['design']['izu_target_frequencies_loaded'] is False
+          assert x['v11_all_off_nesting']['exact_count_nesting_passes'] is True
+          assert x['decision'] in {
+              'v12_residual_lineage_factors_exhaust_within_run_branching_in_declared_model',
+              'v12_residual_branching_not_exhausted_or_nesting_failed',
+          }
+          print(json.dumps({
+              'nesting': x['v11_all_off_nesting'],
+              'full': x['full_residual_summary'],
+              'drop_one': x['drop_one_ablation'],
+              'all_off': x['all_residual_factors_off'],
+              'decision': x['decision'],
+          }, indent=2))
+          PY
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_constraint_mechanism_abm_v12_residual_trait_causes.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v12-residual-trait-causes
+          path: data/results/constraint_mechanism_abm_v12_residual_trait_causes.json
