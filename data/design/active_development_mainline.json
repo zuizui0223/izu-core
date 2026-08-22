@@ -1,11 +1,11 @@
 {
-  "schema_version": "2.2",
+  "schema_version": "2.3",
   "updated_on": "2026-08-22",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
-  "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and reproductive buffering determine whether upstream change propagates to reproduction or floral evolution. The programme tests recurring branch structures and propagation boundaries rather than a universal island syndrome.",
+  "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and multiple plant-side propagation filters determine whether upstream change reaches reproduction or floral evolution. The programme tests recurring branch structures and discriminates propagation from buffering rather than assuming a universal island syndrome or a single buffering mechanism.",
   "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether functional change propagates into reproductive or floral evolutionary response?",
-  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_synthetic_propagation_gate_empirically_bounded_complete_common_mechanism_not_identified",
+  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_single_buffer_explanations_rejected_complete_common_mechanism_not_identified",
   "comparison_contract": {
     "systems_are_parallel": true,
     "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
@@ -38,6 +38,16 @@
       "hawaii_2026_boundary": "source_native_signed_matching_predicts_interaction_quality_but_frequent_robbing_and_resource_change_can_coexist_with_high_reproductive_performance",
       "ogasawara_psychotria_bridge": "categorical_stigma_access_mismatch_and_directional_pollen_transfer_coexist_with_strong_morph_specific_open_fruit_asymmetry_despite_high_bidirectional_intermorph_hand_fruit_set"
     },
+    "propagation_buffering_discriminator": {
+      "result": "data/results/island_propagation_buffering_discriminator_v1.json",
+      "programme_decision": "reject_single_buffer_explanation_prioritize_matched_dependency_effectiveness_measurements",
+      "autonomous_assurance_universal_buffer": false,
+      "physical_or_functional_mismatch_universal_propagator": false,
+      "partner_effectiveness_sufficient_final_sign_predictor": false,
+      "current_service_deficit_required_for_island_trait_difference": false,
+      "one_common_buffering_mechanism_identified": false,
+      "rank1_measurement": "Izu Issue #91 direct dependency/effective-service anchor"
+    },
     "external_mechanism_bridge_state": {
       "independent_partial_systems": 6,
       "near_complete_within_archipelago": 1,
@@ -63,7 +73,7 @@
       "name": "island_system_response_matrix",
       "priority": 1,
       "status": "active",
-      "objective": "Represent each independent island system against the same response-axis and propagation vocabulary without requiring every system to measure every axis.",
+      "objective": "Represent each independent island system against the same response-axis and propagation vocabulary and use the contrasts to discriminate propagation filters without requiring every system to measure every axis.",
       "response_axes": [
         "floral_morphology",
         "mating_and_reproductive_assurance",
@@ -79,7 +89,8 @@
         "missing_not_zero_state_distinction",
         "recurring_response_combination_summary",
         "heterogeneous_branching_summary",
-        "propagation_boundary_summary"
+        "propagation_boundary_summary",
+        "propagation_buffering_discriminator"
       ]
     },
     {
@@ -88,7 +99,7 @@
       "priority": 1,
       "issue": 93,
       "bridge_issue": 100,
-      "status": "state_dependent_branching_supported_complete_bridge_missing",
+      "status": "state_dependent_propagation_supported_single_filter_explanations_rejected_complete_bridge_missing",
       "stages": [
         {
           "stage": "A",
@@ -109,7 +120,7 @@
         {
           "stage": "D",
           "name": "within_system_mechanistic_triangulation_and_propagation",
-          "current_state": "Dominica signed-position projection failed; Hawaii lobelioids support signed-position to interaction-quality coupling plus a reproductive-resilience boundary; Ogasawara Psychotria adds a categorical physical-access to directional-pollen-transfer and morph-specific fruit-asymmetry bridge; no complete common transition is identified"
+          "current_state": "Ogasawara supplies a bounded contemporary access-to-fruit propagation case; Hawaii, Nicotiana and Guaiacum supply distinct buffering/alternative-mechanism cases; Izu branches downstream; Dominica fails the frozen signed-position direction. Autonomous assurance, mismatch, partner effectiveness and current service deficit are each rejected as universal single-factor explanations."
         },
         {
           "stage": "E",
@@ -119,7 +130,7 @@
             "same_estimand_family_in_at_least_two independent system clusters",
             "compatible uncertainty",
             "source provenance and sampling hierarchy locked",
-            "required measurement-error gates satisfied",
+            "required measurement_error gates satisfied",
             "no favourable sensitivity assumption selected for admission"
           ]
         }
@@ -133,6 +144,7 @@
       "status": "implementation_ready_field_data_missing",
       "role": "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center",
       "required_outputs": [
+        "predeclared_propagation_vs_buffering_predictions_frozen_before_first_real_bundle",
         "first_real_six_channel_bundle_passes_preflight",
         "raw_bundle_freeze",
         "linked_plant_effort_visit_svd_treatment_fruit_seed_records",
@@ -168,37 +180,13 @@
       "priority": 3,
       "status": "wait_for_new_admissible_source_material",
       "gates": [
-        {
-          "issue": 92,
-          "target": "Weigela_Ligustrum_Hosta_population_level_primary_data",
-          "state": "reopen_on_lawful_external_source_delivery"
-        },
-        {
-          "target": "Hetherington_Rauth_Johnson_136_pair_numeric_floral_table",
-          "state": "reopen_only_on_new_source_native_values"
-        },
-        {
-          "issue": 96,
-          "target": "morphology_predictor_reliability",
-          "state": "target_reliability_unidentifiable_EIV_gate_remains_closed"
-        },
-        {
-          "target": "Galapagos_raw_plant_network_archive",
-          "state": "blocked_until_source_archive_recovered"
-        },
-        {
-          "issue": 100,
-          "target": "external_complete_mechanism_bridge",
-          "state": "route_A_completed_hawaii_and_ogasawara_named_source_triggers_added_partial_bridges_reopen_only_on_new_named_source_trigger"
-        },
-        {
-          "target": "hawaii_lobelioid_functional_ecology_raw_csv",
-          "state": "anonymous_dryad_file_stream_403_and_package_api_401_frozen_reopen_only_on_exact_mirror_or_authorized_access"
-        },
-        {
-          "target": "ogasawara_psychotria_numeric_signed_access_position",
-          "state": "published_categorical_access_and_reproductive_asymmetry_admitted_numeric_signed_mismatch_not_recovered_reopen_only_on_named_source_native_measurement"
-        }
+        {"issue": 92, "target": "Weigela_Ligustrum_Hosta_population_level_primary_data", "state": "reopen_on_lawful_external_source_delivery"},
+        {"target": "Hetherington_Rauth_Johnson_136_pair_numeric_floral_table", "state": "reopen_only_on_new_source_native_values"},
+        {"issue": 96, "target": "morphology_predictor_reliability", "state": "target_reliability_unidentifiable_EIV_gate_remains_closed"},
+        {"target": "Galapagos_raw_plant_network_archive", "state": "blocked_until_source_archive_recovered"},
+        {"issue": 100, "target": "external_complete_mechanism_bridge", "state": "route_A_completed_hawaii_and_ogasawara_named_source_triggers_added_partial_bridges_reopen_only_on_new_named_source_trigger"},
+        {"target": "hawaii_lobelioid_functional_ecology_raw_csv", "state": "anonymous_dryad_file_stream_403_and_package_api_401_frozen_reopen_only_on_exact_mirror_or_authorized_access"},
+        {"target": "ogasawara_psychotria_numeric_signed_access_position", "state": "published_categorical_access_and_reproductive_asymmetry_admitted_numeric_signed_mismatch_not_recovered_reopen_only_on_named_source_native_measurement"}
       ]
     },
     {
@@ -209,12 +197,13 @@
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "classify_ogasawara_psychotria_in_the_propagation_matrix_using_only_the_admitted_categorical_access_directional_pollen_and_published_hand_open_fruit_evidence_then_compare_it_against_buffered_hawaii",
+  "next_executable_task": "freeze_issue91_propagation_vs_buffering_predictions_before_first_real_field_bundle_using_the_completed_cross_system_discriminator_without_fitting_any_empirical_outcome",
   "not_mainline": [
     "universal_island_dwarfism_or_response_coefficient",
     "raw_island_count_accumulation_without_independent_system_identity",
     "visitor_occurrence_as_effectiveness",
     "syndrome_as_reproductive_dependency",
+    "single_universal_buffering_parameter",
     "repeated_search_of_exhausted_source_routes",
     "anonymous_retry_of_hawaii_dryad_file_stream_or_package_api",
     "unconstrained_external_bridge_search_after_issue_100_route_A_completion",
