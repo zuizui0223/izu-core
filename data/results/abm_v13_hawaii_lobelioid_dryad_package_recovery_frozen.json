@@ -1,0 +1,31 @@
+{
+  "analysis": "abm_v13_hawaii_lobelioid_dryad_package_recovery",
+  "frozen_on": "2026-08-22",
+  "dataset_doi": "10.5061/dryad.sj3tx96kr",
+  "package_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.sj3tx96kr/download",
+  "route": "Dryad REST API latest-visible-version ZIP package; distinct from downloads/file_stream",
+  "bearer_token_supplied": false,
+  "target_metrics_calculated": false,
+  "workflow": {
+    "run_id": 32564573357,
+    "job_id": 97011217558,
+    "conclusion": "success",
+    "source_gate_tests": "4/4 passed",
+    "artifact_id": 9473733309,
+    "artifact_zip_sha256": "8035dce431e4c268f1d1e53b3bdabc9f5dfd8411ba01f5a0b2e6669f8be71c68"
+  },
+  "transport": {
+    "http_status": 401,
+    "decision": "blocked_dryad_package_api_requires_authentication"
+  },
+  "package_recovered": false,
+  "package_audit": null,
+  "route_state": {
+    "anonymous_package_api_route": "exhausted_requires_authentication",
+    "anonymous_retry_allowed": false,
+    "remaining_noncredential_route": "exact lawful author or institutional mirror of the source files",
+    "credentialed_route": "possible only with a valid Dryad API bearer credential; not required for the main research line"
+  },
+  "scientific_interpretation": "The source-native signed-position construct remains high value but exact raw data are not available to the current automated environment. No quantitative target is opened. This is an access/authentication block, not a confirmation or falsification of v12.",
+  "claim_boundary": "Do not reconstruct raw rows from the article or search snippets. Do not repeatedly retry anonymous Dryad download endpoints."
+}

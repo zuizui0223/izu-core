@@ -1,0 +1,50 @@
+name: ABM v13 Hawaii lobelioid source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v13_hawaii_lobelioid_source_gate.json'
+      - 'data/results/abm_v13_hawaii_lobelioid_dryad_recovery_frozen.json'
+      - 'data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery_frozen.json'
+      - 'scripts/recover_abm_v13_hawaii_lobelioid_dryad.py'
+      - 'scripts/recover_abm_v13_hawaii_lobelioid_dryad_package.py'
+      - 'tests/test_abm_v13_hawaii_lobelioid_source_gate.py'
+      - '.github/workflows/abm_v13_hawaii_lobelioid_source_gate.yml'
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-gate tests
+        run: python -m pytest -q tests/test_abm_v13_hawaii_lobelioid_source_gate.py
+      - name: Verify both anonymous Dryad routes are frozen and not retried
+        run: |
+          python - <<'PY'
+          import json
+          direct=json.load(open('data/results/abm_v13_hawaii_lobelioid_dryad_recovery_frozen.json'))
+          package=json.load(open('data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery_frozen.json'))
+          gate=json.load(open('data/design/abm_v13_hawaii_lobelioid_source_gate.json'))
+
+          assert direct['decision'] == 'blocked_hawaii_lobelioid_dryad_transport'
+          assert direct['file_count_recovered'] == 0
+          assert direct['route_state']['same_route_retry_allowed'] is False
+          assert all(row['http_status'] == 403 for row in direct['files'])
+
+          assert package['transport']['decision'] == 'blocked_dryad_package_api_requires_authentication'
+          assert package['transport']['http_status'] == 401
+          assert package['package_recovered'] is False
+          assert package['route_state']['anonymous_retry_allowed'] is False
+
+          assert gate['target_metrics_calculated'] is False
+          assert gate['source_recovery_state']['mainline_blocking'] is False
+          assert gate['source_recovery_state']['direct_file_stream']['anonymous_retry_allowed'] is False
+          assert gate['source_recovery_state']['rest_dataset_package']['anonymous_retry_allowed'] is False
+          print('Hawaii source state frozen: file_stream=403, package_api=401, no anonymous retry')
+          PY

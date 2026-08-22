@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.2",
+  "status": "signed_position_construct_frozen_automated_source_routes_blocked",
+  "system_id": "hawaiian_lobelioids_bird_extinction_trait_matching",
+  "article": {
+    "title": "Bird extinctions shift bill-flower trait matching in Hawaiian lobelioids",
+    "journal": "Functional Ecology",
+    "first_published": "2026-07-24",
+    "doi": "10.1111/1365-2435.70415"
+  },
+  "dataset": {
+    "doi": "10.5061/dryad.sj3tx96kr",
+    "published": "2026-07-13",
+    "files": [
+      {
+        "name": "Case_FE_2026_Analysis_1.csv",
+        "file_stream_id": 4858933,
+        "reported_size_kb": 89.10,
+        "role": "island_x_assemblage bird-plant trait combinations",
+        "required_columns": ["bird_species", "culmen", "island", "assemblage", "plant_species", "flower_length", "bill_minus_flower"]
+      },
+      {
+        "name": "Case_FE_2026_Analysis_2.csv",
+        "file_stream_id": 4858934,
+        "reported_size_kb": 1.46,
+        "role": "observed bird-plant interaction outcomes",
+        "required_columns": ["plant_species", "bird_species", "N", "pollen_contact", "nectar_robbing", "source", "culmen", "flower_length", "bill_minus_flower"]
+      },
+      {
+        "name": "README.md",
+        "file_stream_id": 4858939,
+        "reported_size_kb": 7.51,
+        "role": "source-native variable definitions"
+      }
+    ]
+  },
+  "v12_mapping": {
+    "signed_position": "bill_minus_flower = bird culmen length mm - plant flower length mm",
+    "sign_orientation": "negative means bird bill is shorter than flower length",
+    "baseline_and_shift": "historic versus contemporary nectar-feeding bird assemblages within Hawaiian islands",
+    "downstream_service_axes": ["pollen_contact", "nectar_robbing"],
+    "why_high_value": "the signed functional position is source-native rather than reconstructed from proxies, and the same study provides observed interaction-quality outcomes",
+    "reproductive_endpoint_present": false,
+    "effective_service_intermediate_present": true
+  },
+  "chronology": {
+    "v12_minimal_synthetic_mechanism_already_frozen": true,
+    "dominica_heliconia_projection_already_failed": true,
+    "hawaii_article_qualitative_result_known_before_this_gate": true,
+    "repo_raw_target_reanalysis_performed_before_this_gate": false,
+    "direct_file_stream_actions_run": 32564381882,
+    "rest_package_actions_run": 32564573357
+  },
+  "predeclared_repo_checks_after_raw_recovery": [
+    "verify source-native bill_minus_flower equals culmen minus flower_length within numeric tolerance",
+    "summarize historic-to-contemporary signed-position shift by island without refitting the construct",
+    "fit only source-supported interaction-quality checks using the observed pair table and preserve source/study grouping",
+    "separate pollen-contact and nectar-robbing outcomes rather than combining them into one quality score",
+    "do not treat pollen contact as seed set or reproductive dependency"
+  ],
+  "admission_boundary": {
+    "literature_blind_validation": false,
+    "independent_of_dominica_heliconia": true,
+    "direct_v12_reproductive_confirmation": false,
+    "direct_signed_position_to_service_propagation_test": true,
+    "can_update_novelty": true
+  },
+  "source_recovery_state": {
+    "direct_file_stream": {
+      "frozen_result": "data/results/abm_v13_hawaii_lobelioid_dryad_recovery_frozen.json",
+      "decision": "blocked_hawaii_lobelioid_dryad_transport",
+      "recovered_files": 0,
+      "expected_files": 3,
+      "all_three_http_status": 403,
+      "anonymous_retry_allowed": false
+    },
+    "rest_dataset_package": {
+      "frozen_result": "data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery_frozen.json",
+      "decision": "blocked_dryad_package_api_requires_authentication",
+      "http_status": 401,
+      "bearer_token_supplied": false,
+      "anonymous_retry_allowed": false
+    },
+    "remaining_routes": [
+      "exact lawful author or institutional mirror of the source files",
+      "credentialed Dryad API only if a valid bearer credential is independently available"
+    ],
+    "mainline_blocking": false
+  },
+  "target_metrics_calculated": false,
+  "next_gate": "Keep the raw target closed. Reopen only on exact mirror bytes or independently available authorized Dryad access; meanwhile continue the empirical mechanism programme with another admissible system rather than weakening the signed-position construct.",
+  "claim_boundary": "This source is unusually close to the v12 construct but it cannot be presented as a literature-blind prediction because the publication already reports the qualitative direction. Both anonymous automated Dryad routes are now source-access blocks, not biological confirmation or falsification. Its eventual value is independent source-native confirmation or contradiction at the signed-position-to-interaction-quality layer, not a reproductive endpoint and not proof of the full island response mechanism."
+}

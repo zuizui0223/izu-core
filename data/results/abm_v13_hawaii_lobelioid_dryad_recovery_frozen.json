@@ -1,0 +1,57 @@
+{
+  "analysis": "abm_v13_hawaii_lobelioid_dryad_recovery",
+  "frozen_on": "2026-08-22",
+  "dataset_doi": "10.5061/dryad.sj3tx96kr",
+  "article_doi": "10.1111/1365-2435.70415",
+  "signed_position_construct": "bill_minus_flower = culmen_mm - flower_length_mm",
+  "target_metrics_calculated": false,
+  "workflow": {
+    "run_id": 32564381882,
+    "job_id": 97010749516,
+    "conclusion": "success",
+    "artifact_id": 9473673755,
+    "artifact_zip_sha256": "c9f0309ad240c3417a2a95d129655e70e7a508fc7fb5d43583422f79125453c7",
+    "source_gate_tests": "4/4 passed"
+  },
+  "file_count_expected": 3,
+  "file_count_recovered": 0,
+  "file_count_structurally_valid": 0,
+  "decision": "blocked_hawaii_lobelioid_dryad_transport",
+  "files": [
+    {
+      "file_stream_id": 4858933,
+      "name": "Case_FE_2026_Analysis_1.csv",
+      "role": "trait_assemblage_pairs",
+      "http_status": 403,
+      "recovered": false,
+      "source_byte_gate_passes": false
+    },
+    {
+      "file_stream_id": 4858934,
+      "name": "Case_FE_2026_Analysis_2.csv",
+      "role": "interaction_quality_pairs",
+      "http_status": 403,
+      "recovered": false,
+      "source_byte_gate_passes": false
+    },
+    {
+      "file_stream_id": 4858939,
+      "name": "README.md",
+      "role": "source_native_variable_definitions",
+      "http_status": 403,
+      "recovered": false,
+      "source_byte_gate_passes": false
+    }
+  ],
+  "route_state": {
+    "direct_file_stream_route": "exhausted_after_local_and_clean_github_actions_failure",
+    "same_route_retry_allowed": false,
+    "distinct_routes_still_admissible": [
+      "supported Dryad dataset-package or API storage route",
+      "exact lawful author or institutional mirror of the same source files"
+    ]
+  },
+  "scientific_interpretation": "The Hawaiian lobelioid system remains a high-value independent signed-position-to-interaction-quality candidate, but no repo-side quantitative target can be opened without the source bytes. This is a transport block, not a biological confirmation or falsification.",
+  "next_gate": "Use only a genuinely distinct lawful source route. If exact source bytes are recovered, checksum them and freeze row/schema identity before calculating any repo-side target.",
+  "claim_boundary": "Do not infer source rows from the publication, do not use reported qualitative outcomes as replacement raw data, and do not call this source block evidence for or against the v12 mechanism."
+}
