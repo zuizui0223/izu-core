@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-22",
   "analysis": "island_system_response_and_propagation_matrix",
   "unit": "source-defined biological system layer; rows are not automatically independent geographic replicates",
@@ -261,24 +261,44 @@
       "propagation_state": "adjacent_links_only",
       "mechanism_tags": ["near_complete_bridge", "morph_state_loss", "strong_vector_dependency", "asymmetric_measurement"],
       "boundary": "Direct effectiveness and controlled dependency are not measured on Dong, so the apparent response transition cannot be linked end-to-end."
+    },
+    {
+      "system_layer_id": "ogasawara_psychotria_homalosperma_pollinator_replacement",
+      "geographic_cluster": "ogasawara",
+      "independent_geographic_cluster": true,
+      "source_refs": ["data/design/external_bridge_ogasawara_psychotria_source_audit.json"],
+      "axes": {
+        "pollinator_functional_environment": "partial",
+        "interaction_network": "partial",
+        "pollinator_effectiveness": "partial",
+        "mating_and_reproductive_assurance": "partial",
+        "floral_morphology": "exact",
+        "reproductive_outcome": "exact",
+        "visual_signal": "partial"
+      },
+      "observed_pattern": "The introduced honeybee is the dominant current visitor and is reported unable to reach the hidden stigma of S-morph flowers, producing S-to-L directional pollen transfer. Published same-species intermorph hand crosses set fruit at 82.4% and 82.6% in the two directions, while open fruit set is 2.8-8.9% in L morphs and 0.2-1.4% in S morphs; the 2018 field study reports L fruit set 1.7-38 times S.",
+      "propagation_state": "propagates_same_direction",
+      "mechanism_tags": ["categorical_physical_access", "directional_pollen_transfer", "morph_specific_reproductive_asymmetry", "historical_replacement_inferred"],
+      "boundary": "The classification applies only to the contemporary morph-access -> pollen-flow -> fruit-asymmetry chain. Historical replacement causation is inferred rather than experimentally identified; numeric signed mismatch, standardized single-visit effectiveness and controlled total dependency are missing."
     }
   ],
   "summary": {
-    "biological_system_layers": 13,
-    "geographic_clusters_represented": ["izu", "seychelles", "puerto_rico_archipelago", "balearic", "canary", "galapagos", "hawaii", "lesser_antilles", "california_channel_islands", "caribbean_gesneriaceae", "xisha"],
-    "geographic_cluster_count": 11,
+    "biological_system_layers": 14,
+    "geographic_clusters_represented": ["izu", "seychelles", "puerto_rico_archipelago", "balearic", "canary", "galapagos", "hawaii", "lesser_antilles", "california_channel_islands", "caribbean_gesneriaceae", "xisha", "ogasawara"],
+    "geographic_cluster_count": 12,
     "propagation_state_counts_are_descriptive_not_inferential": true,
     "propagation_state_counts": {
+      "propagates_same_direction": 1,
       "branches_downstream": 2,
       "buffered_or_resilient": 3,
       "counterdirectional": 1,
       "adjacent_links_only": 4,
       "undetermined_missing_link": 3
     },
-    "recurring_pattern": "The strongest repeat is not a single downstream direction. Functional/interaction change can branch, be buffered, or remain only partially linked to reproduction depending on system and measurement layer.",
-    "mechanism_hypothesis_after_matrix": "Pre-existing functional position can set branch potential, while local support and partner effectiveness alter realized interaction quality; a separate reproductive propagation/buffering gate determines whether these changes become fruit/seed or evolutionary responses.",
-    "highest_value_missing_link": "A matched independent system with source-native signed functional position, direct effectiveness, and controlled reproductive dependency/reproductive outcome at the same transition unit.",
+    "recurring_pattern": "The strongest repeat is not a single downstream direction. Functional or interaction change can propagate in an access-limited case, branch, be buffered, run counterdirectionally, or remain only partially linked to reproduction depending on system and measurement layer.",
+    "mechanism_hypothesis_after_matrix": "Pre-existing functional position or physical access can set branch potential; local support and partner effectiveness alter realized interaction quality; a separate reproductive propagation/buffering gate determines whether these changes become fruit/seed or evolutionary responses.",
+    "highest_value_missing_link": "A matched independent system with source-native numeric signed functional position, standardized direct effectiveness, and controlled reproductive dependency plus terminal reproductive outcome at the same transition unit.",
     "formal_cross_system_same_estimand_fit_ready": false
   },
-  "claim_boundary": "Rows summarize source-locked evidence depth and qualitative propagation state, not a meta-analytic effect size. Biological system layers nested within one archipelago are not independent geographic replicates. A propagation classification does not itself prove causation, and missing links are never coded as zero effects."
+  "claim_boundary": "Rows summarize source-locked evidence depth and qualitative propagation state, not a meta-analytic effect size. Biological system layers nested within one archipelago are not independent geographic replicates. A propagation classification does not itself prove historical causation, and missing links are never coded as zero effects."
 }
