@@ -1,0 +1,48 @@
+name: ABM v13 Hawaii lobelioid source gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/abm_v13_hawaii_lobelioid_source_gate.json'
+      - 'scripts/recover_abm_v13_hawaii_lobelioid_dryad.py'
+      - 'tests/test_abm_v13_hawaii_lobelioid_source_gate.py'
+      - '.github/workflows/abm_v13_hawaii_lobelioid_source_gate.yml'
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run source-gate tests before target reanalysis
+        run: python -m pytest -q tests/test_abm_v13_hawaii_lobelioid_source_gate.py
+      - name: Recover public Dryad source bytes
+        run: python scripts/recover_abm_v13_hawaii_lobelioid_dryad.py
+      - name: Preserve scientific source decision
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_v13_hawaii_lobelioid_dryad_recovery.json'))
+          assert x['target_metrics_calculated'] is False
+          assert x['decision'] in {
+              'hawaii_lobelioid_dryad_bytes_recovered_ready_for_schema_freeze',
+              'hawaii_lobelioid_bytes_recovered_but_source_gate_failed',
+              'blocked_hawaii_lobelioid_dryad_transport',
+          }
+          print('decision', x['decision'])
+          print('recovered', x['file_count_recovered'], '/', x['file_count_expected'])
+          for row in x['files']:
+              print(row['name'], row['http_status'], row['source_byte_gate_passes'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v13-hawaii-lobelioid-source-gate
+          if-no-files-found: warn
+          path: |
+            data/results/abm_v13_hawaii_lobelioid_dryad_recovery.json
+            .artifacts/abm_v13_hawaii_lobelioid_dryad/*
