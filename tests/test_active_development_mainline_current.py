@@ -74,9 +74,11 @@ def test_formal_fit_and_source_reopen_boundaries_stay_closed():
     assert "numeric_signed_mismatch_not_recovered" in ogasawara_gate["state"]
 
 
-def test_next_executable_task_is_ogasawara_propagation_classification_not_another_abm_layer():
+def test_next_executable_task_is_issue91_prediction_freeze_not_another_abm_layer():
     mainline = load_mainline()
-    assert mainline["next_executable_task"].startswith("classify_ogasawara_psychotria_in_the_propagation_matrix")
+    assert mainline["next_executable_task"].startswith(
+        "freeze_issue91_propagation_vs_buffering_predictions_before_first_real_field_bundle"
+    )
     assert mainline["comparison_contract"]["izu_role"] == "calibration_and_mechanistic_anchor_system_not_programme_center"
     assert "another_generic_abm_layer_before_a_new_empirical_discriminator" in mainline["not_mainline"]
     assert "retuning_the_failed_dominica_signed_position_mapping" in mainline["not_mainline"]
