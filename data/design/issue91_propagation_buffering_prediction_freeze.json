@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-22",
+  "issue": 91,
+  "focal_anchor": "Campanula microdonta",
+  "status": "prediction_structure_frozen_before_real_field_bundle_no_decision_thresholds_locked",
+  "purpose": "Predeclare what the existing linked field channels would look like under competing propagation, assurance-buffering and network/service-allocation explanations before any real Issue #91 field outcome is inspected.",
+  "inputs_inspected_before_freeze": {
+    "real_issue91_field_rows": false,
+    "pilot_dispersion": false,
+    "future_open_bagged_supplemental_outcomes": false,
+    "future_svd_values": false,
+    "future_fdq_values": false,
+    "external_cross_system_discriminator": "data/results/island_propagation_buffering_discriminator_v1.json"
+  },
+  "existing_estimands_only": {
+    "effective_service": "observed visit bouts per monitored flower-hour multiplied by background-adjusted mean single-visit conspecific pollen deposition for the same visitor group and population",
+    "autonomous_ratio": "bagged_autonomous capsule set / supplemental_outcross capsule set",
+    "open_ratio": "open_pollinated capsule set / supplemental_outcross capsule set",
+    "direct_dependency_target": "direct_reproductive_dependency_0_1 from the existing field/reliability contract",
+    "functional_exposure": "strict abundance-weighted Rao-Q FDQ of pollinator proboscis length at population x field_event x island x site when taxon and trait coverage gates pass",
+    "independent_unit": "plant",
+    "within_plant_subsamples": ["flowers", "single-visit SVD events"]
+  },
+  "predeclared_candidate_models": [
+    {
+      "id": "M1_service_propagation_dependency_filter",
+      "question": "Does lower effective pollen service propagate to lower open reproductive performance more strongly where plant reproductive dependency is high?",
+      "expected_signature": [
+        "effective service and open_ratio change in the same direction across admissible comparison units",
+        "the service-to-open_ratio association is stronger in higher-dependency units than in lower-dependency units",
+        "visit rate alone may disagree with effective service when visitor groups differ in SVD"
+      ],
+      "distinguishing_measurements": ["background-adjusted SVD", "visit rate", "open_ratio", "direct dependency"],
+      "not_required": "a universal FDQ-to-reproduction sign",
+      "would_be_weakened_by": "repeated low-service units with maintained open_ratio across high direct dependency after structural and precision gates pass"
+    },
+    {
+      "id": "M2_autonomous_assurance_buffer",
+      "question": "When effective service is low, is maintained open reproduction associated with high autonomous reproductive assurance?",
+      "expected_signature": [
+        "low effective service can coexist with maintained open_ratio",
+        "buffered units have higher autonomous_ratio and lower direct dependency than service-limited units",
+        "supplemental_outcross remains necessary as the denominator control so low open fruit set is not confused with resource or ovule limitation"
+      ],
+      "distinguishing_measurements": ["effective service", "autonomous_ratio", "open_ratio", "supplemental_outcross outcome"],
+      "would_be_weakened_by": "maintained open_ratio under low service when autonomous_ratio is also low, which would require a non-assurance buffer or an unmeasured mechanism"
+    },
+    {
+      "id": "M3_network_service_allocation",
+      "question": "Do visitor identity and per-visit pollen effectiveness reallocate realized service beyond what visitation frequency or functional exposure alone implies?",
+      "expected_signature": [
+        "visitor groups differ in background-adjusted SVD",
+        "rate-weighted effective service can differ between units with similar visit rates",
+        "FDQ or visitor richness can remain similar while effective service differs because realized visitor composition and per-visit effectiveness differ"
+      ],
+      "distinguishing_measurements": ["visitor group", "visitor_taxon_id when available", "visit rate", "background-adjusted SVD", "rate-weighted effective service", "FDQ when strict trait gate passes"],
+      "would_be_weakened_by": "little reproducible SVD differentiation among visitor groups together with near-equivalence of visit-rate and effective-service rankings"
+    },
+    {
+      "id": "M4_non_assurance_buffer",
+      "question": "Can reproductive performance remain high under low effective service without high autonomous assurance?",
+      "expected_signature": [
+        "low effective service",
+        "maintained open_ratio",
+        "low autonomous_ratio or high direct dependency"
+      ],
+      "interpretation_if_seen": "classify only as non-assurance buffering candidate; do not assign resource compensation, service redundancy or another hidden mechanism without a direct measurement",
+      "distinguishing_measurements": ["effective service", "autonomous_ratio", "open_ratio", "direct dependency"],
+      "would_be_weakened_by": "all buffered units being adequately explained by high autonomous_ratio"
+    },
+    {
+      "id": "M5_functional_exposure_is_upstream_not_effectiveness",
+      "question": "Does strict FDQ provide upstream functional-environment information without being substituted for direct pollinator service?",
+      "expected_signature": [
+        "FDQ is reported only for complete taxon-plus-trait exposure units",
+        "FDQ may differ without a predetermined universal sign for open_ratio",
+        "a reproduction claim requires the service/dependency channels rather than FDQ alone"
+      ],
+      "distinguishing_measurements": ["FDQ", "effective service", "direct dependency", "open_ratio"],
+      "would_be_invalidated_by_analysis_error": "dropping unresolved or missing-trait visitors and renormalizing FDQ, or relabelling zero visits as FDQ=0"
+    }
+  ],
+  "predeclared_interpretation_table": [
+    {
+      "observed_pattern_after_future_admission": "low effective service + low open_ratio + high direct dependency",
+      "primary_interpretation": "service_limited_dependency_sensitive_candidate",
+      "compatible_models": ["M1_service_propagation_dependency_filter"],
+      "forbidden_overclaim": "does not identify historical Bombus loss or selection"
+    },
+    {
+      "observed_pattern_after_future_admission": "low effective service + maintained open_ratio + high autonomous_ratio / low direct dependency",
+      "primary_interpretation": "autonomous_assurance_buffer_candidate",
+      "compatible_models": ["M2_autonomous_assurance_buffer"],
+      "forbidden_overclaim": "does not establish that assurance is the universal island buffer"
+    },
+    {
+      "observed_pattern_after_future_admission": "low effective service + maintained open_ratio + low autonomous_ratio / high direct dependency",
+      "primary_interpretation": "non_assurance_buffer_or_unmeasured_filter_candidate",
+      "compatible_models": ["M4_non_assurance_buffer"],
+      "forbidden_overclaim": "do not label the missing mechanism resource compensation, redundancy or establishment filtering without direct evidence"
+    },
+    {
+      "observed_pattern_after_future_admission": "similar visit rate but divergent rate-weighted effective service due SVD differences",
+      "primary_interpretation": "network_service_allocation_candidate",
+      "compatible_models": ["M3_network_service_allocation"],
+      "forbidden_overclaim": "visitor identity alone is not effectiveness"
+    },
+    {
+      "observed_pattern_after_future_admission": "FDQ differs but effective service and reproductive ratios do not",
+      "primary_interpretation": "functional_exposure_change_buffered_before_service_or_reproduction",
+      "compatible_models": ["M5_functional_exposure_is_upstream_not_effectiveness"],
+      "forbidden_overclaim": "do not call FDQ irrelevant; the observed propagation step is simply not established"
+    }
+  ],
+  "pilot_vs_confirmatory_boundary": {
+    "ordinary_pilot_may_do": [
+      "check structural linkage and coverage",
+      "estimate between-plant SVD and treatment dispersion",
+      "estimate loss/damage/pending fractions",
+      "report descriptive directional signatures above",
+      "identify which candidate models are empirically distinguishable with the collected channels"
+    ],
+    "ordinary_pilot_may_not_do": [
+      "lock a universal sample size before dispersion",
+      "declare a causal mechanism from two plants",
+      "estimate final dependency reliability from biological repeats",
+      "select thresholds or models because they reproduce the historical Izu pattern",
+      "fit a cross-lineage dependency x FDQ effect from Campanula alone"
+    ],
+    "decision_thresholds_locked_now": false,
+    "why": "The existing readiness contract requires pilot between-plant dispersion before biologically meaningful precision thresholds and confirmatory replication are locked."
+  },
+  "anti_leakage_rules": [
+    "Do not tune any model or threshold to the historical 8/8 matching decline or 4/4 pollen split.",
+    "Do not choose a preferred FDQ direction after seeing field reproduction.",
+    "Do not collapse visitor occurrence, visit rate, SVD, FDQ and reproductive dependency into one latent score.",
+    "Do not replace missing direct dependency with floral syndrome or corolla morphology.",
+    "Do not relabel pilot biological dispersion as final predictor reliability.",
+    "A scientific null/adverse result remains an admissible outcome and does not trigger mechanism rescue."
+  ],
+  "next_gate": "collect the first real linked Issue #91 Campanula bundle, run the existing preflight/structural audits, estimate plant-level dispersion, and only then lock precision thresholds for a confirmatory discrimination among the frozen candidate models",
+  "claim_boundary": "These are prospective qualitative mechanism signatures using existing estimands, not fitted predictions or evidence that one candidate model is true. The freeze prevents post-hoc mechanism assignment after field outcomes are observed."
+}
