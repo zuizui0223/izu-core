@@ -39,6 +39,23 @@ def test_freeze_hashes_required_channels_without_opening_scientific_gates(tmp_pa
     assert manifest["confirmatory_adequacy_opened"] is False
 
 
+def test_optional_fdq_trait_lookup_is_part_of_raw_bundle_identity(tmp_path):
+    paths = make_bundle(tmp_path)
+    traits = tmp_path / "traits.csv"
+    make_csv(traits, "visitor_taxon_id,site_id,proboscis_length_mm", ["taxon_1,site_1,8.5"])
+    paths["traits"] = traits
+    manifest = build_manifest(paths)
+    by_channel = {row["channel"]: row for row in manifest["channels"]}
+    assert "traits" in OPTIONAL_CHANNELS
+    assert by_channel["traits"]["required"] is False
+    assert len(by_channel["traits"]["sha256"]) == 64
+
+    original_fingerprint = manifest["bundle_fingerprint_sha256"]
+    traits.write_text(traits.read_text(encoding="utf-8") + "taxon_2,site_1,12.0\n", encoding="utf-8")
+    changed = build_manifest(paths)
+    assert changed["bundle_fingerprint_sha256"] != original_fingerprint
+
+
 def test_same_raw_bundle_can_revalidate_existing_freeze(tmp_path):
     paths = make_bundle(tmp_path)
     output = tmp_path / "freeze.json"
