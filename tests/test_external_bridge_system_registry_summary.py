@@ -9,10 +9,10 @@ def load_summary():
     )
 
 
-def test_five_independent_biological_partial_bridges_do_not_create_a_complete_bridge():
+def test_six_independent_biological_partial_bridges_do_not_create_a_complete_bridge():
     summary = load_summary()
-    assert summary["counts"]["independent_system_clusters_screened_as_partial_or_stronger"] == 5
-    assert summary["counts"]["bridge_system_partial"] == 5
+    assert summary["counts"]["independent_system_clusters_screened_as_partial_or_stronger"] == 6
+    assert summary["counts"]["bridge_system_partial"] == 6
     assert summary["counts"]["bridge_system_complete"] == 0
     assert summary["formal_cross_system_mechanism_fit_ready"] is False
 
@@ -60,6 +60,27 @@ def test_hawaii_lobelioid_bridge_is_one_partial_system_not_two_papers_or_new_geo
     assert audit["measured_links"]["interaction_quality_robbing_numeric"] is True
     assert audit["measured_links"]["reproductive_outcome_article_level"] is True
     assert audit["measured_links"]["reproductive_dependency_controlled_numeric"] is False
+
+
+def test_ogasawara_psychotria_adds_one_partial_bridge_and_new_geographic_stratum():
+    summary = load_summary()
+    psychotria = next(
+        row for row in summary["systems"]
+        if row["system_id"] == "ogasawara_psychotria_homalosperma_pollinator_replacement"
+    )
+    assert psychotria["admission_state"] == "bridge_system_partial"
+    assert psychotria["complete"] is False
+    assert psychotria["independent_system_cluster"] is True
+    assert psychotria["independent_geographic_stratum"] is True
+    assert summary["counts"]["new_independent_geographic_strata_added_by_ogasawara_psychotria"] == 1
+
+    audit = json.loads(Path(psychotria["audit"]).read_text(encoding="utf-8"))
+    assert audit["measured_links"]["categorical_physical_access"] is True
+    assert audit["measured_links"]["directional_pollen_transfer"] is True
+    assert audit["measured_links"]["intermorph_hand_compatibility_numeric"] is True
+    assert audit["measured_links"]["open_fruit_set_numeric"] is True
+    assert audit["measured_links"]["single_visit_effectiveness_numeric"] is False
+    assert audit["source_native_construct"]["numeric_signed_position_available"] is False
 
 
 def test_existing_aslan_hawaii_dryland_source_is_not_silently_merged_with_lobelioids():
