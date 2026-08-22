@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "status": "model_mechanism_identified_empirical_signed_position_test_not_yet_open",
   "model_result": {
     "source": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
@@ -69,6 +69,23 @@
       "causal_confirmation": false
     },
     {
+      "id": "california_channel_islands_nicotiana_propagation_boundary",
+      "role": "preexisting_same_system_functional_matching_propagation_boundary",
+      "source_audit": "data/design/external_bridge_nicotiana_source_audit.json",
+      "sources": ["10.3732/ajb.91.5.672", "10.1007/s10682-006-9125-9"],
+      "trait_environment_pattern": "island Nicotiana glauca corollas are approximately 1 mm longer on average and common island hummingbird visitors have bills approximately 1-2 mm longer than common mainland visitors",
+      "downstream_current_function": [
+        "longer corollas were not consistently associated with higher pollen transfer or seed count on islands",
+        "Allen's and Anna's hummingbirds differed in per-visit pollen removal/deposition but effectiveness was not associated with corolla length",
+        "island fruit set was not pollen limited in the 1998-1999 reproductive study"
+      ],
+      "assurance_context": "island populations had higher autonomous self-pollination capacity, but the source did not support lower current island pollinator service as its explanation",
+      "interpretation": "apparent floral-pollinator trait correspondence is not sufficient for current downstream selection or reproductive limitation; propagation from trait position to fitness requires additional ecological/history gates",
+      "support_level": "strong_boundary_against_trait_position_as_a_sufficient_standalone_fitness_explanation",
+      "why_not_direct_v12_falsification": "cross-paper and cross-year measurements are not one matched tagged transition unit; exact signed bill-corolla position has not been source-byte locked in the current repository audit",
+      "causal_confirmation": false
+    },
+    {
       "id": "izu_signed_functional_position",
       "role": "preferred_focal_mechanism_test",
       "baseline_regime_candidate": "Oshima bridge-state or a separately frozen mainland baseline; choice must be source-justified before downstream test",
@@ -112,16 +129,19 @@
     "supported": [
       "response heterogeneity is empirical across island systems",
       "v12 identifies initial trait-position heterogeneity as the minimal source of within-run lineage sign branching in the declared ABM",
-      "two independent morphology systems analysed before v12 show OLS response shapes below isometry, consistent with pre-island starting state influencing island floral response"
+      "two independent morphology systems analysed before v12 show OLS response shapes below isometry, consistent with pre-island starting state influencing island floral response",
+      "the preexisting Nicotiana bridge shows that apparent floral-pollinator trait correspondence alone is not sufficient for current pollen-transfer or seed-selection propagation"
     ],
     "not_yet_supported": [
       "real island reproductive branch sign is caused by signed plant position relative to pollinator functional optimum",
       "the v12 standardized trait is numerically equivalent to corolla tube length or flower area",
       "reproductive dependency is empirically irrelevant",
       "a universal functional optimum applies across island systems",
-      "a pooled universal starting-state coefficient across the two morphology systems"
+      "a pooled universal starting-state coefficient across the two morphology systems",
+      "trait position alone is sufficient to determine downstream fitness response"
     ]
   },
+  "working_mechanism_after_boundary_evidence": "common pollinator-functional shift x pre-existing plant trait position generates branch potential; local opportunity, partner effectiveness, reproductive limitation/assurance and historical state determine whether and how that branch propagates into realized reproductive or evolutionary response",
   "next_decisive_task": "Find or recover an independent system with source-native plant matching trait, pollinator functional trait/environment, and downstream reproductive response measured on compatible units; freeze the signed-position mapping before inspecting its downstream outcome. Izu can reopen for a direct signed test only when the missing source-native proboscis/weight information is available.",
-  "claim_boundary": "This gate distinguishes model sufficiency, pre-existing empirical consistency and direct empirical identification. It intentionally leaves the focal signed-position mechanism unconfirmed rather than filling missing pollinator traits or pair weights with proxies."
+  "claim_boundary": "This gate distinguishes model sufficiency, pre-existing empirical consistency, propagation boundaries and direct empirical identification. It intentionally leaves the focal signed-position mechanism unconfirmed rather than filling missing pollinator traits or pair weights with proxies."
 }
