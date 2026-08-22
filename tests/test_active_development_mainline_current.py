@@ -29,6 +29,8 @@ def test_izu_field_bundle_is_preserved_as_mechanistic_anchor_not_programme_cente
     assert p3["issue"] == 91
     assert p3["status"] == "implementation_ready_field_data_missing"
     assert p3["role"] == "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center"
+    assert "predeclared_propagation_vs_buffering_predictions_frozen_before_first_real_bundle" in p3["required_outputs"]
+    assert "one_command_field_bundle_intake_ready" in p3["required_outputs"]
     assert "first_real_six_channel_bundle_passes_preflight" in p3["required_outputs"]
     assert "pilot_variance_coverage_loss_estimates" in p3["required_outputs"]
     assert "direct_izu_signed_position_without_source_native_pollinator_trait_and_weight_data" in p3["blocked_claims"]
@@ -49,6 +51,16 @@ def test_mainline_preserves_abm_failures_hawaii_buffering_and_ogasawara_access_b
     assert state["v12_dominica_projection"].startswith("failed_")
     assert "high_reproductive_performance" in state["hawaii_2026_boundary"]
     assert "directional_pollen_transfer" in state["ogasawara_psychotria_bridge"]
+
+
+def test_issue91_prediction_freeze_and_intake_are_protected_before_real_rows():
+    mainline = load_mainline()
+    freeze = mainline["protected_scientific_state"]["issue91_prediction_freeze"]
+    assert freeze["path"] == "data/design/issue91_propagation_buffering_prediction_freeze.json"
+    assert freeze["status"] == "prediction_structure_frozen_before_real_field_bundle_no_decision_thresholds_locked"
+    assert freeze["real_field_rows_inspected_before_freeze"] is False
+    assert freeze["decision_thresholds_locked_before_pilot_dispersion"] is False
+    assert freeze["one_command_intake"] == "scripts/intake_issue91_field_bundle.py"
 
 
 def test_formal_fit_and_source_reopen_boundaries_stay_closed():
@@ -74,12 +86,12 @@ def test_formal_fit_and_source_reopen_boundaries_stay_closed():
     assert "numeric_signed_mismatch_not_recovered" in ogasawara_gate["state"]
 
 
-def test_next_executable_task_is_issue91_prediction_freeze_not_another_abm_layer():
+def test_next_executable_task_is_first_real_issue91_bundle_intake_not_more_modeling():
     mainline = load_mainline()
     assert mainline["next_executable_task"].startswith(
-        "freeze_issue91_propagation_vs_buffering_predictions_before_first_real_field_bundle"
+        "receive_first_real_issue91_campanula_bundle_and_run_scripts_intake_issue91_field_bundle_py"
     )
     assert mainline["comparison_contract"]["izu_role"] == "calibration_and_mechanistic_anchor_system_not_programme_center"
     assert "another_generic_abm_layer_before_a_new_empirical_discriminator" in mainline["not_mainline"]
-    assert "retuning_the_failed_dominica_signed_position_mapping" in mainline["not_mainline"]
-    assert "invent_numeric_signed_position_for_ogasawara_psychotria_from_secondary_proboscis_or_corolla_values" in mainline["not_mainline"]
+    assert "outcome_dependent_reordering_of_issue91_intake_gates" in mainline["not_mainline"]
+    assert "silent_mutation_of_frozen_issue91_raw_bundle" in mainline["not_mainline"]
