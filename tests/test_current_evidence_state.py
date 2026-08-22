@@ -25,7 +25,7 @@ def test_current_evidence_state_keeps_focal_contract_and_reads_current_gates() -
     assert state.roi_proposals_eligible_for_specialist_holdout == 0
 
     assert state.direct_dependency_field_status == "implementation_ready_field_data_missing"
-    assert state.external_partial_bridge_systems == 4
+    assert state.external_partial_bridge_systems == 5
     assert state.external_near_complete_systems == 1
     assert state.external_complete_bridge_systems == 0
     assert state.formal_cross_system_mechanism_fit_ready is False
