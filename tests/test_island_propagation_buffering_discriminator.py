@@ -71,6 +71,15 @@ def test_issue91_is_ranked_first_and_still_empirical_data_missing():
     assert "open/bagged-autonomous/supplemental-outcross" in first["measurement"]
 
 
+def test_ranked_discriminators_do_not_silently_promote_a_complete_or_universal_mechanism():
+    data = load()
+    assert data["current_causal_reading"]["central_result"].endswith(
+        "the identity of the propagation filter is system-specific or unresolved."
+    )
+    assert all(row["status"] != "complete_causal_bridge" for row in data["ranked_next_measurements"])
+    assert discrimination("one_common_buffering_mechanism_is_already_identified")["decision"] == "not_supported"
+
+
 def test_candidate_labels_are_not_converted_to_hidden_causes():
     data = load()
     assert "does not estimate causal effect sizes" in data["claim_boundary"]
