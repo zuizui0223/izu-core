@@ -24,7 +24,7 @@ Optional files are auto-detected when present:
 - `field_seed_parentage.csv`
 - `field_pollinator_trait_lookup.csv`
 
-Flower geometry and calibration files can be supplied explicitly with `--geometry` and `--calibration`; they are frozen as provenance channels but do not replace the core six-channel contract.
+Flower geometry and calibration files can be supplied explicitly with `--geometry` and `--calibration`; they are frozen as provenance channels but do not replace the core six-channel contract. If a pollinator trait lookup is present, it is also frozen into the bundle fingerprint **before** the optional FDQ audit runs.
 
 ## One command
 
@@ -37,21 +37,22 @@ python scripts/intake_issue91_field_bundle.py \
 The command executes, in order:
 
 1. validate that the committed Issue #91 prediction freeze still predates real field outcomes and has no locked decision threshold;
-2. freeze exact raw bytes and headers with SHA256 hashes;
+2. freeze exact raw bytes and headers with SHA256 hashes, including any supplied parentage/trait/geometry/calibration channels;
 3. run the existing direct effective-dependency structural audit;
 4. run the existing independent-plant admission/dispersion audit;
 5. if present, run optional seed-parentage linkage audit;
-6. if present, run strict proboscis-length Rao-Q FDQ audit.
+6. if present, run strict proboscis-length Rao-Q FDQ audit using the already frozen trait lookup.
 
 ## Output
 
 `field_bundle_v1_intake/intake_summary.json` is the top-level receipt. It records:
 
 - prediction-freeze SHA256 and status;
-- raw bundle fingerprint;
+- raw bundle fingerprint and frozen channel names;
 - structural audit summary;
 - plant-level dispersion/admission summary;
 - optional parentage/FDQ status;
+- FDQ trait-lookup SHA256 when FDQ is requested;
 - every executed command and return code;
 - the next admissible gate.
 
@@ -70,10 +71,11 @@ Parentage and FDQ remain separate channels.
 - Missing or unresolved parentage is not selfing and does not invalidate the open/bagged/supplemental core dependency panel.
 - Missing FDQ trait coverage withholds FDQ; it does not invalidate SVD/effective-service or reproductive-treatment estimates.
 - A failed optional audit is reported separately and cannot be used to relabel missing core data as present.
+- Changing an optional trait lookup after freeze requires a new versioned bundle; it cannot silently alter an already frozen FDQ analysis input.
 
 ## Freeze-before-analysis rule
 
-The raw-byte freeze runs before structural or dispersion auditing. If a genuine raw correction is required later, preserve the previous bundle and manifest and create a new version. Do not overwrite frozen raw bytes.
+The raw-byte freeze runs before structural, dispersion, parentage or FDQ auditing. If a genuine raw correction is required later, preserve the previous bundle and manifest and create a new version. Do not overwrite frozen raw bytes or the frozen trait lookup.
 
 The intake summary also records the SHA256 of the prospective prediction freeze. This makes it possible to verify that the interpretation rules were committed before the corresponding field outcome bundle entered analysis.
 
