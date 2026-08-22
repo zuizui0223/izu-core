@@ -1,0 +1,51 @@
+name: ABM v11 factorial branching causes
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_constraint_mechanism_abm_v11_factorial_branching.py'
+      - 'tests/test_constraint_mechanism_abm_v11_factorial_branching.py'
+      - '.github/workflows/abm_v11_factorial_branching.yml'
+      - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
+      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
+      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
+
+jobs:
+  factorial-ablation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run matched v11 factorial ablation
+        run: >-
+          python scripts/run_constraint_mechanism_abm_v11_factorial_branching.py
+          --replicates 4 --contexts 4 --lineages 24 --steps 120
+      - name: Show cause-ranking result
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/constraint_mechanism_abm_v11_factorial_branching.json'))
+          assert x['design']['factorial_configurations'] == 16
+          assert x['design']['empirical_inputs_loaded'] == []
+          assert x['design']['izu_target_frequencies_loaded'] is False
+          assert set(x['drop_one_ablation']) == {
+              'local_support',
+              'dependency_heterogeneity',
+              'assurance_responsiveness',
+              'partner_effectiveness',
+          }
+          print('full model', json.dumps(x['full_model_summary'], indent=2))
+          print('drop one', json.dumps(x['drop_one_ablation'], indent=2))
+          print('ranking', x['factor_ranking_by_branching_balance_loss'])
+          PY
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_constraint_mechanism_abm_v11_factorial_branching.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v11-factorial-branching
+          path: data/results/constraint_mechanism_abm_v11_factorial_branching.json
