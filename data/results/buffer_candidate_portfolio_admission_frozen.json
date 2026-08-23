@@ -38,41 +38,28 @@
       "new_component_required_if_admitted": false,
       "claim_boundary": "Admission applies only to the declared mechanism and evidence scope. Candidate-only evidence is not a fitted buffer; mapping-ready status is permission to test, not evidence of success; a failed predeclared test remains failed.",
       "candidate_path": "data/design/buffer_candidate_nicotiana_autonomous_assurance.json"
-    },
-    {
-      "schema_version": "1.0",
-      "system_id": "puerto_rico_mona_guaiacum",
-      "candidate_mechanism": "service_redundancy_or_compensatory_abundance",
-      "state": "candidate_only_no_abm_admission",
-      "mapping_ready": false,
-      "empirically_admitted": false,
-      "predeclared_test_result": null,
-      "reasons": [
-        "missing prerequisite: propagation_step_directly_measured",
-        "missing prerequisite: candidate_filter_directly_measured",
-        "missing prerequisite: mapping_to_abm_component_predeclared",
-        "missing prerequisite: mapping_frozen_before_target_outcome_test"
-      ],
-      "existing_abm_component": "local_support_and_partner_effectiveness",
-      "new_component_required_if_admitted": false,
-      "claim_boundary": "Admission applies only to the declared mechanism and evidence scope. Candidate-only evidence is not a fitted buffer; mapping-ready status is permission to test, not evidence of success; a failed predeclared test remains failed.",
-      "candidate_path": "data/design/buffer_candidate_guaiacum_service_redundancy.json"
     }
   ],
   "summary": {
-    "candidate_count": 3,
-    "state_counts": {"candidate_only_no_abm_admission": 3},
+    "candidate_count": 2,
+    "state_counts": {"candidate_only_no_abm_admission": 2},
     "mapping_ready_count": 0,
     "empirically_admitted_count": 0,
     "missing_prerequisite_counts": {
-      "candidate_filter_directly_measured": 1,
-      "mapping_frozen_before_target_outcome_test": 3,
-      "mapping_to_abm_component_predeclared": 3,
-      "matched_transition_or_prospectively_matched_units": 2,
-      "propagation_step_directly_measured": 1
+      "mapping_frozen_before_target_outcome_test": 2,
+      "mapping_to_abm_component_predeclared": 2,
+      "matched_transition_or_prospectively_matched_units": 2
     }
   },
+  "network_context_mapping_references": [
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "role": "service_mapping_and_reproductive_axis_decoupling_reference",
+      "correction": "data/results/guaiacum_propagation_state_correction.json",
+      "not_counted_as_buffer_candidate": true
+    }
+  ],
   "decision": "no_current_registered_buffer_candidate_is_mapping_ready_or_empirically_admitted",
-  "next_gate": "Close source-identified missing prerequisites in existing candidates or register a genuinely new candidate. Do not add a generic buffer parameter and do not use known target outcomes to choose mappings.",
-  "claim_boundary": "This portfolio compares admission readiness, not biological effect sizes. Different candidates may lack different links and are not quantitatively pooled."
+  "next_gate": "Close source-identified missing prerequisites in Hawaiʻi or Nicotiana, or register a genuinely new demonstrated buffer candidate. Use Guaiacum to test visitor-composition-to-effective-service mapping and reproductive-axis decoupling, not as proof of whole-reproduction buffering.",
+  "claim_boundary": "This portfolio compares admission readiness, not biological effect sizes. Guaiacum is intentionally excluded because similar breeding-system index does not imply buffered realized reproductive performance."
 }
