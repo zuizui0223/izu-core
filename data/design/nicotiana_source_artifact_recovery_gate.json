@@ -1,8 +1,9 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "frozen_on": "2026-08-23",
   "system_id": "california_channel_islands_nicotiana_glauca",
   "purpose": "Recover stable source bytes for the two Schueller papers that jointly supply reproductive-assurance/service evidence and visitor-specific per-visit effectiveness before promoting any indexed numeric values into the formal network-context mapping.",
+  "transport_state": "all_declared_automated_routes_frozen_no_pdf_bytes_recovered",
   "sources": [
     {
       "source_id": "schueller_2004_self_pollination",
@@ -22,8 +23,21 @@
         "state": "recovered_non_pdf",
         "bytes": 1959,
         "sha256": "c6f92fc22d44f87f8989cc7ac0ee5268e79d3c2e6b08ccf4346cbf65b95311a3",
+        "pdf_magic": false
+      },
+      "frozen_transport_result": {
+        "source_id": "schueller_2004_self_pollination",
+        "requested_url": "https://deepblue.lib.umich.edu/bitstream/2027.42/142032/1/ajb20672.pdf",
+        "final_url": "https://deepblue.lib.umich.edu/bitstream/2027.42/142032/1/ajb20672.pdf",
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "state": "recovered_non_pdf",
+        "bytes": 1959,
+        "sha256": "c6f92fc22d44f87f8989cc7ac0ee5268e79d3c2e6b08ccf4346cbf65b95311a3",
         "pdf_magic": false,
-        "retry_rule": "Do not retry this handle/sequence route. The alternate official bitstream path is the one remaining declared transport attempt."
+        "workflow_run": 32629804487,
+        "reused_frozen_result": true,
+        "retry_rule": "Both declared official Deep Blue bitstream forms resolved to the same non-PDF HTML payload. Do not retry them. Reopen only on a different lawful stable artifact or authorized access."
       }
     },
     {
@@ -84,11 +98,10 @@
   "decision_rule": {
     "both_pdf_sources_recovered": "lock checksums, verify identity and then materialize the 2007 visitor-specific effectiveness values with their source hierarchy",
     "only_2004_recovered": "repair assurance/service provenance but keep visitor-specific effectiveness and network-context mapping blocked",
-    "2007_not_recovered": "retain the indexed values as non-admitted discovery and reopen only on a lawful stable publisher/author/institutional artifact or authorized access"
+    "neither_recovered": "freeze the transport blocks, retain indexed values as non-admitted discovery, and reopen only on a new lawful stable artifact or authorized access"
   },
   "forbidden": [
-    "retry the already-frozen Springer PDF route without a new access path",
-    "retry the already-failed Deep Blue handle/sequence route",
+    "retry either frozen transport route without a new access path",
     "treat an indexed text mirror as a byte-locked primary artifact",
     "infer a per-visit effectiveness value from hummingbird bill length",
     "tune the ABM local-support parameter to the known Nicotiana reproductive result",
