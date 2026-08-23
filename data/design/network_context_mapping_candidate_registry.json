@@ -12,6 +12,7 @@
     "reproductive_outcome"
   ],
   "derived_estimand_when_ready": "rate_weighted_effective_service = sum_k(V_k * E_k)",
+  "admission_rule": "Only the exact gate state 'admitted' passes. Partial, one-sided, cross-year, article-level-only, protocol-only or provenance-blocked states remain non-admitted.",
   "systems": [
     {
       "system_id": "puerto_rico_mona_guaiacum",
@@ -49,7 +50,7 @@
         "repeated_local_context_support": "admitted",
         "visitor_specific_rate": "partial_without_exact_cross_source_row_linkage",
         "visitor_specific_direct_effectiveness": "partial_contact_robbing_not_rate_weighted_direct_service_by_partner",
-        "reproductive_outcome": "admitted_article_level_not_same_tagged_chain"
+        "reproductive_outcome": "partial_article_level_not_same_tagged_chain"
       },
       "plant_side_filter": "historical_exact_taxon_assurance_candidate_but_same_context_numeric_dependency_missing",
       "source_state": "raw_interaction_linkage_and_same_context_dependency_remain_source_or_prospective_triggers",
@@ -61,11 +62,11 @@
       "gates": {
         "matched_transition_unit": "partial_two_island_channels_asymmetric",
         "repeated_local_context_support": "missing_dong_matched_support",
-        "visitor_specific_rate": "admitted_both_islands_descriptively",
-        "visitor_specific_direct_effectiveness": "admitted_yongxing_only_missing_dong",
-        "reproductive_outcome": "admitted_both_islands"
+        "visitor_specific_rate": "admitted",
+        "visitor_specific_direct_effectiveness": "partial_yongxing_only_missing_dong",
+        "reproductive_outcome": "admitted"
       },
-      "plant_side_filter": "controlled_dependency_admitted_yongxing_only_missing_dong",
+      "plant_side_filter": "controlled_dependency_partial_yongxing_only_missing_dong",
       "source_state": "dong_effectiveness_dependency_followup_exhausted_reopen_only_on_new_named_source_or_prospective_measurement",
       "do_not_infer": "Yongxing effectiveness or dependency cannot be transported to Dong"
     },
