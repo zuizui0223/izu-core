@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "analysis": "constraint_mechanism_abm_v14_assurance_buffering_independent_robustness",
+  "status": "design_frozen_before_independent_block_run",
+  "parent_design": "data/design/abm_v14_assurance_buffering_ablation_freeze.json",
+  "parent_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json",
+  "scientific_question": "Does the single sign-level assurance rescue observed in the initial frozen v14 block recur when every model setting is held fixed and only a deliberately non-overlapping stochastic seed block is changed?",
+  "configuration": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "local_support_strength": 0.5,
+    "partner_effectiveness_strength": 1.0,
+    "initial_seed_block": 20260822,
+    "independent_seed_block": 90260823
+  },
+  "locked_rules": {
+    "reuse_exact_v14_code": "scripts/run_constraint_mechanism_abm_v14_assurance_buffering.py",
+    "no_parameter_change_other_than_seed_block": true,
+    "no_empirical_target_loaded": true,
+    "primary_robustness_signal": "assurance_sign_rescues > 0 in the independent block",
+    "magnitude_attenuation_is_reported_separately": true,
+    "initial_one_of_202_sign_rescue_must_not_be_pooled_with_the_new_block_before_reporting_each_block_separately": true
+  },
+  "decision_rule": [
+    "If sign rescue recurs (>0), call sign-level synthetic buffering replicated across two stochastic blocks but still sparse unless frequency is materially larger.",
+    "If sign rescue does not recur (=0) while magnitude rescues remain common, revise the claim to robust magnitude attenuation with non-robust sign-level rescue.",
+    "If magnitude rescues also disappear, revise the assurance capability claim more strongly downward."
+  ],
+  "forbidden": [
+    "do not change assurance ranges after seeing this block",
+    "do not search seed blocks until a sign rescue appears",
+    "do not pool blocks and call the aggregate a replication",
+    "do not use Hawaiʻi or other empirical outcomes to choose the seed or threshold"
+  ],
+  "claim_boundary": "This is a stochastic robustness check of synthetic capability only. It does not change empirical mechanism admission."
+}
