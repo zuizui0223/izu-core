@@ -4,6 +4,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "data/results/island_propagation_hypothesis_ledger.json"
 MATRIX = ROOT / "data/results/island_system_propagation_matrix_v1.json"
+GUAIACUM_CORRECTION = ROOT / "data/results/guaiacum_propagation_state_correction.json"
 
 
 def load(path):
@@ -60,10 +61,14 @@ def test_surviving_synthesis_requires_a_matched_end_to_end_bridge():
     assert "another generic ABM layer" in data["next_discriminating_measurement"]
 
 
-def test_ledger_is_consistent_with_propagation_matrix_counterexamples():
+def test_ledger_is_consistent_with_current_propagation_states_after_guaiacum_overlay():
     matrix = load(MATRIX)
+    correction = load(GUAIACUM_CORRECTION)
     states = {row["system_layer_id"]: row["propagation_state"] for row in matrix["rows"]}
     assert states["izu_hiraiwa_cross_channel"] == "branches_downstream"
+    # The v1 matrix keeps the historical Guaiacum label, but it is superseded explicitly.
     assert states["puerto_rico_mona_guaiacum_2022"] == "buffered_or_resilient"
+    assert correction["supersedes"]["old_propagation_state"] == "buffered_or_resilient"
+    assert correction["corrected_propagation_state"] == "reproductive_axes_decouple"
     assert states["hawaii_lobelioid_post_extinction_pollination_2026"] == "buffered_or_resilient"
     assert states["dominica_heliconia_signed_position_projection"] == "counterdirectional"

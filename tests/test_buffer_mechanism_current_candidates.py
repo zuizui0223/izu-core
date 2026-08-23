@@ -9,6 +9,7 @@ INTERFACE = ROOT / "data/design/buffer_mechanism_abm_admission_interface.json"
 HAWAII = ROOT / "data/design/buffer_candidate_hawaii_autonomous_assurance.json"
 FROZEN = ROOT / "data/results/hawaii_autonomous_assurance_abm_admission_frozen.json"
 LEDGER = ROOT / "data/design/cross_system_buffer_prediction_ledger.json"
+CORRECTION = ROOT / "data/results/guaiacum_propagation_state_correction.json"
 
 
 def test_hawaii_exact_taxon_assurance_is_candidate_only_under_common_interface():
@@ -22,20 +23,31 @@ def test_hawaii_exact_taxon_assurance_is_candidate_only_under_common_interface()
     assert generated["empirically_admitted"] is False
 
 
-def test_prediction_ledger_keeps_mechanisms_nonuniversal_and_distinguishable():
+def test_prediction_ledger_keeps_mechanisms_nonuniversal_and_network_buffering_empirically_unmapped():
     ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
     rows = {row["mechanism"]: row for row in ledger["candidate_predictions"]}
     assert set(rows) == {
         "autonomous_reproductive_assurance",
-        "service_redundancy_or_compensatory_abundance",
+        "service_redundancy_or_network_context",
         "resource_or_demographic_compensation",
         "colonization_or_establishment_filtering",
-        "network_context_or_rewiring",
     }
     assert all(row["universal_mechanism_prediction"] is False for row in rows.values())
     assurance = rows["autonomous_reproductive_assurance"]
-    assert "argues_against_universal_assurance_buffer" in assurance["current_case_reading"]["guaiacum"]
+    network = rows["service_redundancy_or_network_context"]
     assert "candidate_supported" in assurance["current_case_reading"]["hawaii_lobelioids"]
+    assert assurance["synthetic_status"] == "weak_attenuation_capability_robust_sign_buffering_nonreplicated"
+    assert network["synthetic_status"] == "replicated_sign_buffering_capability_but_bidirectional_and_empirically_unmapped"
+    assert "service_mapping_reference_not_buffer_case" in network["current_case_reading"]["guaiacum"]
+
+
+def test_guaiacum_is_an_axis_decoupling_constraint_not_a_buffer_candidate():
+    ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
+    correction = json.loads(CORRECTION.read_text(encoding="utf-8"))
+    constraint = ledger["empirical_constraint_cases"]["guaiacum_reproductive_axis_decoupling"]
+    assert constraint["not_a_whole_reproduction_buffer_example"] is True
+    assert constraint["network_mapping_preflight"] == "data/design/guaiacum_network_context_mapping_preflight.json"
+    assert correction["corrected_propagation_state"] == "reproductive_axes_decouple"
 
 
 def test_dominica_failure_is_a_falsification_control_not_rescue_target():

@@ -1,6 +1,9 @@
 {
   "system_id": "puerto_rico_mona_guaiacum",
   "candidate_mechanism": "service_redundancy_or_compensatory_abundance",
+  "retired_from_buffer_portfolio": true,
+  "current_role": "network_context_service_mapping_reference",
+  "correction": "data/results/guaiacum_propagation_state_correction.json",
   "upstream_functional_change_source_locked": true,
   "propagation_step_directly_measured": false,
   "downstream_reproductive_response_directly_measured": true,
@@ -13,6 +16,6 @@
   "mapping_frozen_before_target_outcome_test": false,
   "target_outcome_used_to_choose_parameter_values": false,
   "predeclared_test_result": null,
-  "evidence_scope": "Guaiacum has a strong population-level visitor-environment contrast and similar breeding-system index with negligible autogamy, but visitor-specific direct pollen effectiveness and rate-weighted effective service are not recovered. Compensatory service is therefore a candidate, not a measured buffer.",
-  "boundary": "Visitor abundance or assemblage composition cannot be relabelled service redundancy without direct per-visit effectiveness."
+  "evidence_scope": "Guaiacum has a strong population-level visitor-environment contrast and similar self/outcross seed-set index with negligible autogamy. However Mona open reproduction is pollen limited relative to supplemental outcross and realized multiplicative fitness is lower than Guánica. The system therefore constrains how visitor composition maps into effective service and distinct reproductive axes; it is not evidence that whole reproductive performance was buffered.",
+  "boundary": "Visitor abundance or assemblage composition cannot be relabelled service redundancy without direct per-visit effectiveness. Similar ISI cannot be relabelled whole-reproduction buffering when realized open reproductive performance differs. This retired package must not be counted in the buffer-candidate admission portfolio."
 }

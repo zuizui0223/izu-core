@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "status": "predictions_frozen_before_any_network_context_empirical_mapping_or_parameter_selection",
+  "synthetic_basis": {
+    "initial_result": "data/results/network_context_buffering_capability_ablation_frozen.json",
+    "robustness_result": "data/results/network_context_buffering_capability_robustness_frozen.json",
+    "synthetic_property": "local support/network context produces sign-level effective-service and reproductive rescue in two independently frozen blocks while also worsening some matched declines",
+    "interpretation": "context-dependent branch allocator with buffering capacity, not a universal protective mechanism"
+  },
+  "empirical_question": "When pollinator composition or global functional opportunity changes, is reproductive resilience explained by compensatory realized partner support and rate-weighted effective service, or does resilience persist after effective service itself declines and therefore require a downstream plant-side filter?",
+  "primary_empirical_estimand": "rate_weighted_effective_service = sum over visitor classes of visit_rate_per_effort x source-native per-visit effectiveness",
+  "required_measurements": [
+    "matched plant/population identity",
+    "observation effort denominator",
+    "visitor-specific visit rate or abundance on the same effort scale",
+    "visitor-specific direct effectiveness such as single-visit pollen deposition or another source-native service outcome",
+    "rate-weighted total effective service",
+    "reproductive output with an explicit denominator",
+    "candidate plant-side assurance/dependency measurement when network buffering and plant buffering must be distinguished"
+  ],
+  "decision_signatures": {
+    "supports_network_context_or_service_redundancy": [
+      "pollinator composition or upstream functional opportunity differs",
+      "different visitor classes compensate through abundance and/or per-visit effectiveness",
+      "rate-weighted total effective service is maintained or sign-rescued in the buffered unit",
+      "reproductive output is correspondingly maintained",
+      "the result does not require high autonomous assurance to remain positive"
+    ],
+    "weakens_network_context_as_sufficient_buffer": [
+      "rate-weighted total effective service is clearly lower in the buffered unit",
+      "reproductive output nevertheless remains maintained",
+      "no compensating visitor-specific service channel closes the service deficit"
+    ],
+    "supports_downstream_filter_after_network_context": [
+      "effective service remains lower after full visitor-specific accounting",
+      "reproduction is maintained",
+      "a measured assurance/resource/demographic filter covaries with that maintenance in the same units"
+    ],
+    "unresolved": [
+      "visitor composition differs but per-visit effectiveness is absent",
+      "contact or occurrence is available but cannot be converted to direct effective service",
+      "breeding-system index is available but autonomous dependency/assurance is not",
+      "different studies cannot be linked at the matched population/season hierarchy"
+    ]
+  },
+  "system_specific_frozen_predictions": [
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "current_observation": "Guanica and Mona have strongly different visitor assemblages and visitation levels but similar selfing/outcrossing ISI; autonomous fruiting is negligible on both islands.",
+      "network_context_prediction": "If network context/service redundancy explains reproductive resilience, visitor-specific rate x effectiveness should yield similar or otherwise compensated total effective service across the population contrast despite the composition difference.",
+      "falsifying_or_weakening_pattern": "Mona or Guanica has materially lower rate-weighted effective service while controlled reproductive performance remains similar and no compensating visitor channel is present.",
+      "current_missing_link": "visitor-specific single-visit effectiveness/direct pollen function and matched rate-weighted effective service",
+      "assurance_prediction": "Autonomous assurance alone should not explain the contrast because spontaneous autogamy is negligible.",
+      "current_status": "prediction_frozen_mapping_not_ready"
+    },
+    {
+      "system_id": "hawaii_lobelioids_2026",
+      "current_observation": "signed bill-flower mismatch predicts pollen contact/robbing and high reproductive performance coexists with frequent robbing/resource change; two focal Clermontia species have historical exact-taxon assurance support but no same-context numeric dependency estimate.",
+      "network_context_prediction": "A network-context explanation requires contemporary partner-specific visitation x direct effectiveness to show compensated total effective service despite the altered interaction-quality mixture.",
+      "falsifying_or_weakening_pattern": "direct rate-weighted effective service remains reduced after partner-specific accounting while fruit/seed performance remains high.",
+      "downstream_filter_prediction": "If service remains reduced, same-context autonomous assurance or resource/demographic compensation must explain the remaining reproductive resilience.",
+      "current_missing_link": "same-context rate-weighted effective service plus controlled dependency/assurance",
+      "current_status": "prediction_frozen_mapping_not_ready"
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "current_observation": "strong autonomous-assurance and floral differences exist but a current island service deficit was not detected in the existing cross-study bridge.",
+      "network_context_prediction": "If contemporary network context maintains service, same-season partner-specific rate-weighted service should remain adequate across the island/mainland comparison; this would explain current resilience but not by itself the origin of the established trait difference.",
+      "falsifying_or_weakening_pattern": "same-season direct service is equivalent and establishment history predicts the trait/assurance difference better than network structure.",
+      "current_missing_link": "same-season same-population direct service, assurance and reproductive linkage",
+      "current_status": "prediction_frozen_mapping_not_ready"
+    },
+    {
+      "system_id": "ogasawara_psychotria_homalosperma",
+      "role": "propagation_reference",
+      "prediction": "physical access failure should produce lower direct effective service for the inaccessible morph and the reproductive asymmetry should follow rather than be sign-rescued by local partner context",
+      "current_status": "reference_not_buffer_candidate"
+    }
+  ],
+  "mapping_rule": "No system can be mapped to the synthetic local-support parameter merely because its visitor assemblage differs. A source-native mapping must define the empirical support/redundancy variable before the reproductive target is tested.",
+  "parameter_rule": "The frozen synthetic support strength must not be tuned to match an observed system. Empirical data can test the direction/signature of the mechanism or motivate a new separately frozen mapping, but cannot retroactively choose the support strength that makes a known outcome fit.",
+  "claim_boundary": "These predictions distinguish network-context buffering from downstream plant buffering. They do not assert that Guaiacum, Hawaiʻi, Nicotiana, or Ogasawara is generated by the ABM local-support parameter."
+}
