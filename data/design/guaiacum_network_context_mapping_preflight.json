@@ -1,10 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "frozen_on": "2026-08-23",
   "system_id": "puerto_rico_mona_guaiacum",
   "role": "network_context_service_mapping_reference_not_whole_reproduction_buffer_case",
   "source_audit": "data/design/guaiacum_joint_source_audit.json",
   "propagation_correction": "data/results/guaiacum_propagation_state_correction.json",
+  "direct_effectiveness_source_check": "data/results/guaiacum_direct_effectiveness_named_source_check.json",
   "scientific_question": "How much of the Guánica–Mona difference in realized reproduction can be accounted for by visitor abundance/composition after weighting each visitor by direct per-visit effectiveness, without confusing a stable self/outcross breeding-system index with stable total reproduction?",
   "known_source_native_structure": {
     "guanica": "higher visitation and extreme Apis mellifera dominance",
@@ -22,8 +23,22 @@
       "visitor occurrence as E_k",
       "visitor richness as E_k",
       "guild label as E_k",
-      "transported effectiveness from another species or unmatched population"
+      "transported effectiveness from another species or unmatched population",
+      "Pitcairnia angustifolia visitor-effectiveness values from Fumero-Cabán & Meléndez-Ackerman 2007"
     ]
+  },
+  "source_effectiveness_gate": {
+    "status": "targeted_named_routes_exhausted_no_source_native_same_taxon_Ek_recovered",
+    "named_routes_checked": [
+      "Fumero-Cabán et al. 2022 Journal of Pollination Ecology primary article",
+      "Fumero-Cabán 2019 University of Puerto Rico dissertation catalog/abstract",
+      "Fumero-Cabán et al. 2009 pollinator-communities conference record",
+      "Ackerman 2021 Frontiers review/discussion"
+    ],
+    "same_taxon_direct_effectiveness_recovered": false,
+    "dissertation_access": "restricted_print_catalog_record_and_abstract_only",
+    "nonrecovery_not_absence_claim": true,
+    "reopen_only_on_new_named_source_authorized_access_or_prospective_measurement": true
   },
   "service_equivalence_identity": {
     "general_form": "If one visitor aggregate dominates each population, equal total effective service requires E_Mona / E_Guanica = V_Guanica / V_Mona.",
@@ -38,16 +53,16 @@
     "unresolved": "Visitor-specific E_k or matched effort denominators remain missing."
   },
   "required_new_data": [
-    "matched visitor-specific visit rate by population",
-    "visitor-specific direct per-visit effectiveness on the same focal plant",
-    "common effort/open-flower denominator",
+    "visitor-specific direct per-visit effectiveness on Guaiacum sanctum in Guánica and Mona",
+    "visitor-specific visit rate on a common effort/open-flower denominator if not reconstructed prospectively from source-native counts and effort",
     "matched reproductive outcome and supplemental-outcross capacity denominator when available"
   ],
   "mapping_to_abm": {
     "component": "local_support_and_network_context",
     "status": "not_mapping_ready",
-    "reason": "The empirical support/service variable is defined prospectively, but visitor-specific E_k values are not yet recovered/measured and no ABM state-value derivation rule has been frozen from source-native units.",
+    "reason": "The empirical support/service variable is defined prospectively, but no admissible visitor-specific E_k value was recovered from the named same-taxon routes. The restricted dissertation is not interpreted as evidence of absence, and no ABM state-value derivation can proceed without direct effectiveness.",
     "support_strength_tuning_allowed": false
   },
-  "claim_boundary": "This preflight turns Guaiacum into a falsifiable service-mapping reference. It does not restore Guaiacum to the buffer portfolio, infer an Apis effect, or estimate missing effectiveness values."
+  "next_gate": "Keep Guaiacum source-triggered. Reopen only on a new named same-taxon direct-effectiveness source, authorized access that exposes E_k, or a prospective Guaiacum single-visit effectiveness/direct-service measurement. Do not repeat the exhausted named search or substitute another plant's effectiveness values.",
+  "claim_boundary": "This preflight turns Guaiacum into a falsifiable service-mapping reference. It does not restore Guaiacum to the buffer portfolio, infer an Apis effect, estimate missing effectiveness values, or assert that inaccessible dissertation pages lack direct-effectiveness measurements."
 }
