@@ -1,0 +1,47 @@
+name: ABM v14 assurance buffering ablation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "data/design/abm_v14_assurance_buffering_ablation_freeze.json"
+      - "scripts/run_constraint_mechanism_abm_v14_assurance_buffering.py"
+      - "tests/test_abm_v14_assurance_buffering.py"
+      - ".github/workflows/abm_v14_assurance_buffering.yml"
+
+jobs:
+  frozen-v14-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install -e '.[dev]'
+      - name: Run focused contract tests
+        run: python -m pytest -q tests/test_abm_v14_assurance_buffering.py
+      - name: Run full frozen v14 ablation
+        run: >-
+          python scripts/run_constraint_mechanism_abm_v14_assurance_buffering.py
+          --output v14-assurance-buffering.json
+      - name: Check invariant-only run properties
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('v14-assurance-buffering.json').read_text())
+          assert data['configuration']['replicates'] == 4
+          assert data['configuration']['contexts'] == 4
+          assert data['configuration']['lineages'] == 24
+          assert data['overall']['lineage_contrasts'] == 288
+          assert data['upstream_service_identical_between_assurance_ablations'] is True
+          assert data['upstream_service_mismatch_count'] == 0
+          assert data['empirical_mechanism_admission_changed'] is False
+          assert data['hawaii_assurance_candidate_state'] == 'candidate_only_no_abm_admission'
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v14-assurance-buffering
+          path: v14-assurance-buffering.json
+          if-no-files-found: error
