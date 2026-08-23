@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "analysis": "network_context_rescue_vs_worsening_discriminator",
+  "parent_design": "data/design/network_context_buffering_robustness_freeze.json",
+  "parent_result": "data/results/network_context_buffering_capability_robustness_frozen.json",
+  "scientific_question": "Within the already-frozen independent network-context robustness block, which predeclared lineage and realized local-network descriptors distinguish sign rescue from attenuation-only or worsening when global opportunity declines?",
+  "reuse_exact_parent_configuration": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "support_off": 0.0,
+    "support_on": 0.5,
+    "assurance_ceiling": 0.0,
+    "assurance_responsiveness": 0.0,
+    "partner_effectiveness_strength": 1.0,
+    "seed_block": 90260824,
+    "new_parameter_count": 0
+  },
+  "analysis_subset": "Lineages with global island-minus-mainland opportunity < 0 and support-OFF reproduction < 0. No empirical system or outcome is used to select lineages.",
+  "predeclared_outcome_classes": {
+    "sign_rescue": "support-ON reproductive island-minus-mainland delta >= 0",
+    "attenuation_only": "support-ON delta is greater than support-OFF delta but remains < 0",
+    "worsening": "support-ON delta is less than support-OFF delta",
+    "other_no_material_change": "all remaining cases under floating-point sign epsilon only"
+  },
+  "predeclared_descriptors": [
+    "initial_lineage_trait",
+    "pollinator_dependency",
+    "global_opportunity_delta",
+    "support_off_effective_service_delta",
+    "support_on_island_minus_mainland_active_context_fraction",
+    "support_on_island_minus_mainland_mean_positive_partner_count",
+    "support_on_island_minus_mainland_mean_row_shannon",
+    "support_on_island_minus_mainland_mean_dominant_partner_share"
+  ],
+  "descriptor_definitions": {
+    "active_context_fraction": "fraction of the four realized local contexts in which the lineage retains a positive interaction row",
+    "positive_partner_count": "number of positive visitor links in the realized local row",
+    "row_shannon": "Shannon entropy of positive realized interaction weights after normalizing a lineage row to sum one; zero for empty/single-link rows",
+    "dominant_partner_share": "largest normalized interaction weight in a positive lineage row; zero when no positive row exists"
+  },
+  "summary_rule": "Report class counts and class-specific means for every predeclared descriptor. Also report sign-rescue minus worsening and sign-rescue minus attenuation-only mean contrasts. Do not search additional descriptors after seeing class separation.",
+  "decision_rule": [
+    "If sign-rescue cases differ consistently from worsening on one or more predeclared realized-network descriptors, use only those declared descriptors as empirical measurement priorities; do not call them causal.",
+    "If initial trait or dependency separates classes, retain that as a synthetic interaction with network context but do not infer an empirical moderator.",
+    "If no clear descriptor separates classes, keep network context as a replicated but underidentified branch allocator rather than inventing a hidden state variable."
+  ],
+  "forbidden": [
+    "change the parent seed block or support strength after seeing the result",
+    "add descriptor variables after outcome-class inspection",
+    "fit a classifier and report in-sample accuracy as mechanism proof",
+    "map a synthetic descriptor to Guaiacum, Nicotiana, Hawaiʻi or Izu without source-native matched measurements",
+    "drop worsening cases from the analysis"
+  ],
+  "claim_boundary": "This is a synthetic discriminator analysis nested in an already-frozen robustness block. It can prioritize empirical network measurements but cannot establish why any real island system buffers or worsens."
+}
