@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-23",
   "purpose": "Identify whether any already-admitted external island bridge directly identifies a propagation/buffering filter strongly enough to justify adding that filter to the frozen ABM without a generic hidden parameter.",
   "admission_contract": {
@@ -48,10 +48,11 @@
     },
     {
       "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
-      "candidate_filter": "resource_compensation_or_other_non_assurance_buffer",
-      "state": "strong_buffer_boundary_missing_controlled_dependency",
-      "support": "source-native signed bill-flower mismatch predicts contact/robbing interaction quality and a closely overlapping study shows high fruit/seed performance despite frequent robbing and altered nectar replenishment",
-      "missing_for_abm_admission": "same-tagged controlled reproductive dependency/assurance or another direct measurement that uniquely separates resource compensation from low dependency and other buffers"
+      "candidate_filter": "autonomous_reproductive_assurance_plus_unresolved_non_assurance_buffering",
+      "state": "exact_taxon_historical_assurance_candidate_found_same_context_numeric_dependency_still_missing",
+      "support": "2026 sources provide signed bill-flower mismatch, contact/robbing and a reproductive-resilience boundary. A named 2012 conference study plus Pender 2013 dissertation overlap exactly with Clermontia lindseyana and C. pyrularia at Hakalau and report mixed mating, predominantly autogamous reproduction under extant field conditions, limited/ineffective contemporary bird pollination and significant pollen limitation. These historical sources are not the same tagged 2026 plants or season, do not cover Cyanea shipmanii, and a source-native numeric controlled dependency ratio for the 2026 context has not been recovered.",
+      "named_source_check": "data/results/hawaii_lobelioid_controlled_dependency_named_source_check.json",
+      "missing_for_abm_admission": "same-context numeric controlled dependency/assurance or another direct measurement that distinguishes autonomous assurance from resource compensation and other non-assurance buffers in the 2026 focal context"
     },
     {
       "system_id": "ogasawara_psychotria_homalosperma_pollinator_replacement",
@@ -66,9 +67,10 @@
     "buffer_mechanism_ready_for_abm_admission": 0,
     "nearest_existing_bridge": "xisha_cordia_subcordata_two_island_system",
     "strongest_observed_buffer_boundary": "hawaii_lobelioid_post_extinction_pollination_2026",
+    "exact_taxon_historical_assurance_candidate": "hawaii_lobelioid_post_extinction_pollination_2026",
     "direct_assurance_candidate_without_current_service_loss": "california_channel_islands_nicotiana_glauca"
   },
   "decision": "no_existing_partial_bridge_yet_identifies_a_buffer_filter_strongly_enough_for_abm_admission",
-  "next_gate": "Keep buffer mechanisms source-triggered. Reopen model extension only when a named existing or new system closes its specified missing link. Issue #91 is one possible direct dependency/effective-service closure route but is not privileged or programme-blocking.",
-  "claim_boundary": "This negative admission result does not imply that buffering is absent. It means the current evidence cannot distinguish a specific buffer strongly enough to encode it as an empirically motivated ABM mechanism without post-hoc flexibility."
+  "next_gate": "Hawaii assurance is now a source-supported candidate, not a generic guess. Keep ABM admission closed until same-context numeric dependency/assurance or another direct discriminator appears. Continue source-triggered closure across any island system; Issue #91 remains one optional parallel route.",
+  "claim_boundary": "This negative admission result does not imply that buffering is absent. Historical exact-taxon evidence can narrow the candidate set without becoming a matched contemporary causal bridge. The current evidence still cannot distinguish one buffer strongly enough to encode it as an empirically identified ABM mechanism."
 }
