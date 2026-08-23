@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-23",
+  "purpose": "Identify whether any already-admitted external island bridge directly identifies a propagation/buffering filter strongly enough to justify adding that filter to the frozen ABM without a generic hidden parameter.",
+  "admission_contract": {
+    "required_links": [
+      "source-native upstream pollinator-functional or access change",
+      "direct service/effectiveness or an equivalent measured propagation step",
+      "downstream reproductive response",
+      "candidate buffer/filter measured in the same biological transition or a prospectively matched unit"
+    ],
+    "forbidden_shortcuts": [
+      "transport effectiveness from the comparison population when it was not measured there",
+      "transport reproductive dependency from the comparison population when it was not measured there",
+      "treat self-compatibility as autonomous reproductive assurance",
+      "treat low or equal reproductive response as proof of an unnamed buffer",
+      "fit a generic buffer parameter merely because the current ABM lacks a buffering state"
+    ]
+  },
+  "systems": [
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "candidate_filter": "autonomous_reproductive_assurance_or_establishment_filtering",
+      "state": "mechanistically_informative_but_not_buffer_after_measured_service_loss",
+      "support": "autonomous selfing/dependency and per-visit/service evidence exist, but current island service deficit was not detected and the strongest linkage spans papers/years",
+      "missing_for_abm_admission": "a matched transition in which measured service loss is followed by reproductive maintenance and the candidate filter is measured in the same unit"
+    },
+    {
+      "system_id": "caribbean_gesneriaceae_island_mainland",
+      "candidate_filter": "reproductive_assurance",
+      "state": "partial_missing_direct_service_propagation",
+      "support": "island-mainland visitation, direct autofertility/reproductive assurance and floral-transition recurrence are available",
+      "missing_for_abm_admission": "matched per-visit pollen function or equivalent direct effective-service step"
+    },
+    {
+      "system_id": "xisha_cordia_subcordata_two_island_system",
+      "candidate_filter": "vector_dependency_plus_partner_effectiveness",
+      "state": "nearest_existing_bridge_but_two_sided_match_missing",
+      "support": "same source contains morph-state divergence, pollinator-environment contrast, Yongxing single-visit pollen deposition and Yongxing controlled reproductive dependence",
+      "missing_for_abm_admission": "Dong single-visit effectiveness and Dong controlled reproductive dependency; Yongxing values cannot be transported to Dong"
+    },
+    {
+      "system_id": "seychelles_fuster_2020_pollination_effectiveness",
+      "candidate_filter": "autonomous_breeding_or_visitor_effectiveness",
+      "state": "partial_missing_upstream_transition_and_floral_response",
+      "support": "visitor-class single-visit reproductive outcomes and autonomous breeding treatments occur in the same island study",
+      "missing_for_abm_admission": "matched island-transition upstream functional change plus downstream floral/reproductive propagation contrast"
+    },
+    {
+      "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "candidate_filter": "resource_compensation_or_other_non_assurance_buffer",
+      "state": "strong_buffer_boundary_missing_controlled_dependency",
+      "support": "source-native signed bill-flower mismatch predicts contact/robbing interaction quality and a closely overlapping study shows high fruit/seed performance despite frequent robbing and altered nectar replenishment",
+      "missing_for_abm_admission": "same-tagged controlled reproductive dependency/assurance or another direct measurement that uniquely separates resource compensation from low dependency and other buffers"
+    },
+    {
+      "system_id": "ogasawara_psychotria_homalosperma_pollinator_replacement",
+      "candidate_filter": "limited_reproductive_escape_under_physical_access_failure",
+      "state": "propagation_case_not_buffer_discriminator",
+      "support": "physical stigma-access mismatch, directional pollen flow and morph-specific open fruit asymmetry are present",
+      "missing_for_abm_admission": "standardized per-visit effectiveness and controlled total dependency; this system currently informs propagation more than buffering"
+    }
+  ],
+  "summary": {
+    "systems_screened": 6,
+    "buffer_mechanism_ready_for_abm_admission": 0,
+    "nearest_existing_bridge": "xisha_cordia_subcordata_two_island_system",
+    "strongest_observed_buffer_boundary": "hawaii_lobelioid_post_extinction_pollination_2026",
+    "direct_assurance_candidate_without_current_service_loss": "california_channel_islands_nicotiana_glauca"
+  },
+  "decision": "no_existing_partial_bridge_yet_identifies_a_buffer_filter_strongly_enough_for_abm_admission",
+  "next_gate": "Keep buffer mechanisms source-triggered. Reopen model extension only when a named existing or new system closes its specified missing link. Issue #91 is one possible direct dependency/effective-service closure route but is not privileged or programme-blocking.",
+  "claim_boundary": "This negative admission result does not imply that buffering is absent. It means the current evidence cannot distinguish a specific buffer strongly enough to encode it as an empirically motivated ABM mechanism without post-hoc flexibility."
+}
