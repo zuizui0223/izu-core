@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-23",
   "programme_unit": "independent_island_system_or_biological_system_layer",
   "purpose": "Validate the existing island-pollination mechanism stack against multiple admitted propagation states without making Campanula microdonta, Issue #91, or any single focal taxon a programme-wide blocker.",
@@ -9,7 +9,8 @@
     "programme_can_progress_without_issue91_field_rows": true,
     "no_single_focal_taxon_can_block_programme": true,
     "no_retuning_to_any_one_system": true,
-    "failed_system_prediction_is_retained_as_a_result": true
+    "failed_system_prediction_is_retained_as_a_result": true,
+    "axis_specific_reproductive_responses_must_not_be_collapsed_into_one_buffer_label": true
   },
   "existing_abm_state": {
     "branch_generator": "pre_existing_lineage_position_in_functional_trait_space",
@@ -18,6 +19,11 @@
       "network_context",
       "partner_effectiveness"
     ],
+    "synthetic_buffering_state": {
+      "network_context_sign_rescue_replicated": true,
+      "result": "data/results/network_context_buffering_capability_robustness_frozen.json",
+      "interpretation": "local support/network context can rescue effective-service and reproductive sign in two frozen stochastic blocks but can also worsen matched declines"
+    },
     "downstream_filters": [
       "reproductive_dependency_or_assurance",
       "resource_or_demographic_compensation",
@@ -28,7 +34,8 @@
     "protected_failures": [
       "v12_dominica_signed_position_prediction_failed_declared_direction",
       "partner_effectiveness_not_sufficient_to_generate_total_branching",
-      "dependency_heterogeneity_not_required_for_branch_generation"
+      "dependency_heterogeneity_not_required_for_branch_generation",
+      "assurance_sign_buffering_not_replicated_in_independent_v14_block"
     ]
   },
   "qualitative_validation_targets": [
@@ -43,7 +50,7 @@
       "system_id": "hawaii_lobelioids_2026",
       "target_state": "buffered_or_resilient",
       "observed_chain": "signed functional mismatch -> contact/robbing/resource change -> high reproductive performance",
-      "role": "buffering boundary case",
+      "role": "buffering boundary case whose qualitative state is now synthetically available but whose empirical buffer mechanism remains unmapped",
       "do_not_require": "Campanula calibration"
     },
     {
@@ -64,25 +71,27 @@
       "system_id": "california_channel_islands_nicotiana_glauca",
       "target_state": "buffered_or_alternative_mechanism",
       "observed_chain": "island selfing/corolla difference without detected current island service deficit",
-      "role": "establishment_or_assurance alternative case",
+      "role": "establishment_or_assurance alternative case; a synthetic buffering class exists but the historical/establishment mapping is unresolved",
       "do_not_require": "current pollinator decline"
     },
     {
       "system_id": "puerto_rico_mona_guaiacum",
-      "target_state": "buffered_or_resilient",
-      "observed_chain": "large visitor-assemblage contrast -> similar breeding-system index despite negligible autogamy",
-      "role": "non-assurance buffering case",
-      "do_not_require": "autonomous selfing explanation"
+      "target_state": "reproductive_axes_decouple",
+      "observed_chain": "large visitor-assemblage/visitation contrast -> similar self/outcross seed-set index and negligible autogamy, but Mona open reproduction is pollen limited relative to outcross and realized multiplicative fitness is lower",
+      "role": "axis-decoupling constraint, not a whole-reproduction buffering case",
+      "do_not_require": "autonomous selfing explanation",
+      "correction": "data/results/guaiacum_propagation_state_correction.json"
     }
   ],
-  "validation_question": "Can one frozen mechanism architecture generate or accommodate the observed diversity of propagation states across independent island systems without parameter tuning to any one focal taxon?",
+  "validation_question": "Can one frozen mechanism architecture generate or accommodate the observed diversity of propagation states across independent island systems without parameter tuning to any one focal taxon, while keeping distinct reproductive axes separate?",
   "success_is_not": "matching every system numerically",
   "success_is": [
-    "the mechanism can generate propagation, buffering and branching under predeclared state differences",
+    "the mechanism can generate branching and a buffering state under predeclared structural differences",
+    "empirical systems are not assigned a synthetic buffer mechanism without source-native mapping",
+    "axis-decoupling constraints are retained rather than forced into propagate/buffer bins",
     "known protected failures remain failures",
-    "no single system-specific parameter rescue is required",
-    "new systems can be added when source-native discriminator data exist"
+    "no single system-specific parameter rescue is required"
   ],
-  "next_gate": "build a multi-system qualitative validation harness around the existing ABM outputs and admitted propagation matrix, then test whether the frozen mechanism architecture covers the observed state classes without Campanula-specific tuning",
-  "claim_boundary": "This registry defines qualitative validation targets only. It is not a pooled effect-size model, does not convert heterogeneous estimands into one coefficient, and does not claim that the ABM mechanism is empirically identified merely because it can reproduce a state class."
+  "next_gate": "Freeze empirical network-context predictions and require source-native visitor-specific rate x effectiveness or another matched support/service mapping before assigning the replicated synthetic network-buffering route to a real island system.",
+  "claim_boundary": "This registry defines qualitative validation targets only. It is not a pooled effect-size model, does not convert heterogeneous estimands into one coefficient, and does not claim that a synthetic buffering class empirically identifies the mechanism behind Hawaiʻi, Nicotiana, Guaiacum, or any other system."
 }
