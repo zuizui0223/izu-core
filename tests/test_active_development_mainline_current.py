@@ -32,7 +32,6 @@ def test_strict_validation_and_buffer_admission_remain_partial():
 
     admission = mainline["protected_scientific_state"]["buffer_mechanism_admission"]
     assert admission["interface"] == "data/design/buffer_mechanism_abm_admission_interface.json"
-    assert admission["prediction_ledger"] == "data/design/cross_system_buffer_prediction_ledger.json"
     assert admission["candidate_count"] == 3
     assert admission["candidate_only_count"] == 3
     assert admission["mapping_ready_count"] == 0
@@ -41,36 +40,38 @@ def test_strict_validation_and_buffer_admission_remain_partial():
     assert admission["posthoc_target_fitting_allowed"] is False
 
 
-def test_hawaii_candidate_is_narrowed_without_empirical_admission():
+def test_v14_assurance_has_synthetic_sufficiency_but_does_not_change_empirical_admission():
     mainline = load_mainline()
     state = mainline["protected_scientific_state"]["abm_mechanism_state"]
-    assert "Clermontia_lindseyana_and_C_pyrularia" in state["hawaii_historical_exact_taxon_assurance"]
-    discriminator = mainline["protected_scientific_state"]["propagation_buffering_discriminator"]
-    assert discriminator["hawaii_autonomous_assurance_candidate_source_supported"] is True
-    assert discriminator["autonomous_assurance_universal_buffer"] is False
-    assert discriminator["one_common_buffering_mechanism_identified"] is False
+    assert state["v14_assurance_buffering"] == (
+        "synthetic_sign_buffering_sufficient_but_sparse_one_of_202_service_declines_"
+        "197_magnitude_rescues_empirical_admission_unchanged"
+    )
+    assert state["v14_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
     admission = mainline["protected_scientific_state"]["buffer_mechanism_admission"]
+    assert admission["mapping_ready_count"] == 0
+    assert admission["empirically_admitted_count"] == 0
     assert admission["hawaii_assurance_result"] == "data/results/hawaii_autonomous_assurance_abm_admission_frozen.json"
 
 
-def test_stage_h_freezes_common_admission_before_synthetic_assurance_diagnostic():
+def test_stage_h_records_sparse_v14_sign_rescue_and_requires_independent_robustness():
     mainline = load_mainline()
     p2 = workstream(mainline, "P2")
     stage_h = next(row for row in p2["stages"] if row["stage"] == "H")
     assert stage_h["name"] == "buffer_mechanism_admission_and_synthetic_capability"
-    assert "common_admission_interface_and_prediction_ledger_frozen" in stage_h["current_state"]
-    assert stage_h["interface"] == "data/design/buffer_mechanism_abm_admission_interface.json"
-    assert stage_h["portfolio_result"] == "data/results/buffer_candidate_portfolio_admission_frozen.json"
-    assert "cannot be called empirical validation" in stage_h["rule"]
+    assert "assurance_sign_rescue_1_of_202" in stage_h["current_state"]
+    assert "magnitude_rescue_197_of_202" in stage_h["current_state"]
+    assert stage_h["v14_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
+    assert "non-overlapping stochastic block" in stage_h["rule"]
 
 
-def test_next_task_is_assurance_route_ablation_without_new_parameter():
+def test_next_task_is_independent_v14_robustness_without_retuning():
     mainline = load_mainline()
     assert mainline["next_executable_task"].startswith(
-        "freeze_and_run_a_matched_assurance_route_ablation_in_the_existing_abm"
+        "freeze_and_run_an_independent_nonoverlapping_seed_block_robustness_test_of_the_exact_v14_assurance_ablation"
     )
-    assert "generic_buffer_parameter_before_source_identification" in mainline["not_mainline"]
+    assert "calling_one_v14_sign_rescue_a_robust_buffering_frequency" in mainline["not_mainline"]
+    assert "tuning_assurance_after_v14_to_increase_sign_rescue" in mainline["not_mainline"]
     assert "calling_synthetic_buffering_capability_empirical_validation" in mainline["not_mainline"]
     assert "using_hawaii_2026_outcomes_to_choose_assurance_parameter_values" in mainline["not_mainline"]
     assert "making_issue91_campanula_field_data_a_programme_wide_blocker" in mainline["not_mainline"]
-    assert "another_generic_abm_layer_before_a_new_empirical_discriminator" in mainline["not_mainline"]
