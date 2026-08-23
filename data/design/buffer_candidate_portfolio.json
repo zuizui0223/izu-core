@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-23",
+  "interface": "data/design/buffer_mechanism_abm_admission_interface.json",
+  "candidates": [
+    "data/design/buffer_candidate_hawaii_autonomous_assurance.json",
+    "data/design/buffer_candidate_nicotiana_autonomous_assurance.json",
+    "data/design/buffer_candidate_guaiacum_service_redundancy.json"
+  ],
+  "excluded_as_nonbuffer_controls": [
+    "ogasawara_psychotria_homalosperma_pollinator_replacement",
+    "dominica_heliconia"
+  ],
+  "parallel_uncollected_candidate": "issue91_campanula_microdonta",
+  "claim_boundary": "Portfolio membership means a candidate is scientifically worth tracking under the common interface. It does not imply mapping-ready or empirically admitted status."
+}
