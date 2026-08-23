@@ -4,8 +4,9 @@
 This is a strict validation harness, not a new ABM layer. It does not fit or
 retune any parameter to an island system. It asks which qualitative state
 classes are already demonstrated by frozen synthetic outputs, which empirical
-predictions have failed, and which observed classes still lack an implemented
-and source-identified mechanism.
+predictions have failed, which observed cases constrain the mechanism without
+being direct capability targets, and which empirical mechanism mappings remain
+unresolved.
 """
 from __future__ import annotations
 
@@ -20,6 +21,8 @@ V11 = ROOT / "data/results/constraint_mechanism_abm_v11_factorial_summary_frozen
 V12 = ROOT / "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json"
 HELICONIA = ROOT / "data/results/abm_v12_heliconia_signed_position_test_frozen.json"
 DISCRIMINATOR = ROOT / "data/results/island_propagation_buffering_discriminator_v1.json"
+NETWORK_BUFFER = ROOT / "data/results/network_context_buffering_capability_robustness_frozen.json"
+ASSURANCE_BUFFER = ROOT / "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json"
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -35,6 +38,8 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
     v12 = load(V12)
     heliconia = load(HELICONIA)
     discriminator = load(DISCRIMINATOR)
+    network_buffer = load(NETWORK_BUFFER)
+    assurance_buffer = load(ASSURANCE_BUFFER)
 
     full = v12["full_residual_model"]
     mixed_fraction = float(full["mixed_sign_run_fraction"])
@@ -44,6 +49,11 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
     initial_trait = v12["drop_one"]["initial_trait_heterogeneity"]
     local_support = v11["primary_drop_one"]["local_support"]
     effectiveness = v11["primary_drop_one"]["partner_effectiveness"]
+    network_summary = network_buffer["independent_summary"]
+    if int(network_summary["reproduction_sign_rescue_count"]) <= 0:
+        raise ValueError("network-context robustness result must preserve replicated sign rescue")
+    if network_buffer["initial_block_comparison"]["independent_sign_rescue_replicated"] is not True:
+        raise ValueError("network-context sign rescue must be replicated before exposing a buffering class")
 
     capabilities = {
         "branches_downstream": {
@@ -63,7 +73,7 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
                 "v12_pooled_negative": full["negative"],
                 "v12_pooled_equal": full["equal"],
             },
-            "interpretation": "Because v12 has no equal lineage contrasts in the full residual model and some runs are non-mixed, the frozen architecture can produce run-level same-sign response classes. This does not map a particular physical access mechanism such as Ogasawara into model parameters.",
+            "interpretation": "The frozen architecture can produce run-level same-sign response classes. This does not map a particular physical access mechanism such as Ogasawara into model parameters.",
         },
         "branch_reallocation": {
             "status": "synthetically_demonstrated",
@@ -74,8 +84,19 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
             "interpretation": "Local support and partner effectiveness can change branch identity without being required to generate aggregate branching.",
         },
         "buffered_or_resilient": {
-            "status": "not_yet_strictly_validated",
-            "reason": "The frozen ABM results do not contain a predeclared system-level buffering estimand or threshold tied to a source-identified downstream buffer. Individual equal/near-zero contrasts cannot be relabelled as Hawaiʻi- or Guaiacum-like buffering after inspection.",
+            "status": "synthetically_demonstrated_via_network_context_empirical_mapping_unresolved",
+            "evidence": {
+                "network_context_initial_sign_rescues": network_buffer["initial_block_comparison"]["initial_reproduction_sign_rescue_count"],
+                "network_context_independent_sign_rescues": network_summary["reproduction_sign_rescue_count"],
+                "network_context_independent_worsening": network_summary["reproduction_worsening_count"],
+                "network_context_sign_rescue_replicated": network_buffer["initial_block_comparison"]["independent_sign_rescue_replicated"],
+                "assurance_independent_sign_rescues": assurance_buffer["overall"]["assurance_sign_rescues"],
+            },
+            "interpretation": "A threshold-free sign-level buffering state is now a replicated synthetic capability of local support/network context, while the route remains bidirectional and no real island system is yet mapped to it. The autonomous-assurance route has robust magnitude attenuation but its sign rescue did not replicate.",
+        },
+        "reproductive_axes_decouple": {
+            "status": "empirical_constraint_not_a_single_synthetic_capability_target",
+            "interpretation": "An island system may show stability on one reproductive axis while realized reproductive performance changes on another. Such cases constrain the model architecture but must not be relabelled as whole-reproduction buffering.",
         },
         "counterdirectional_prediction": {
             "status": "empirical_falsification_retained_not_a_capability_target",
@@ -99,8 +120,11 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
             decision = "sign_class_compatible_mechanism_mapping_not_validated"
             limitation = "The ABM can generate same-sign runs, but the Ogasawara physical-access mechanism has not been mapped prospectively into the frozen model."
         elif target_state in {"buffered_or_resilient", "buffered_or_alternative_mechanism"}:
-            decision = "coverage_gap_buffer_mechanism_not_source_identified_in_abm"
-            limitation = "Do not rescue this gap with an unmeasured generic buffer parameter."
+            decision = "synthetic_buffering_class_available_empirical_mechanism_unmapped"
+            limitation = "Network-context sign buffering is a replicated synthetic capability, but assigning it or any other buffer to this empirical system requires the common source-native admission interface."
+        elif target_state == "reproductive_axes_decouple":
+            decision = "empirical_axis_decoupling_constraint"
+            limitation = "Do not collapse stability of a breeding-system index and decline of realized reproductive performance into one propagate/buffer label."
         elif target_state == "counterdirectional_to_frozen_signed_position_prediction":
             decision = "retained_falsification"
             limitation = "Retuning the signed-position mapping is forbidden."
@@ -124,13 +148,14 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
 
     n_covered = sum(row["decision"] == "qualitatively_covered_by_frozen_synthetic_branching" for row in system_results)
     n_sign_compatible = sum(row["decision"] == "sign_class_compatible_mechanism_mapping_not_validated" for row in system_results)
-    n_buffer_gaps = sum(row["decision"] == "coverage_gap_buffer_mechanism_not_source_identified_in_abm" for row in system_results)
+    n_buffer_available = sum(row["decision"] == "synthetic_buffering_class_available_empirical_mechanism_unmapped" for row in system_results)
+    n_axis_decoupling = sum(row["decision"] == "empirical_axis_decoupling_constraint" for row in system_results)
     n_falsifications = sum(row["decision"] == "retained_falsification" for row in system_results)
 
     return {
         "analysis": "system_agnostic_abm_multi_system_validation",
-        "schema_version": "1.0",
-        "status": "strict_harness_complete",
+        "schema_version": "1.1",
+        "status": "strict_harness_complete_after_network_context_buffering_replication_and_guaiacum_axis_correction",
         "input_gate": str(gate_path.relative_to(ROOT)),
         "empirical_inputs_loaded_into_abm": False,
         "parameters_retuned_to_systems": False,
@@ -139,14 +164,15 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
         "system_results": system_results,
         "summary": {
             "systems": len(system_results),
-            "qualitatively_covered": n_covered,
+            "qualitatively_covered_branching": n_covered,
             "sign_class_compatible_but_unmapped": n_sign_compatible,
-            "buffer_mechanism_coverage_gaps": n_buffer_gaps,
+            "synthetic_buffering_class_available_empirical_mechanism_unmapped": n_buffer_available,
+            "empirical_axis_decoupling_constraints": n_axis_decoupling,
             "retained_falsifications": n_falsifications,
         },
-        "decision": "partial_multi_system_coverage_branching_supported_directional_capability_present_buffer_mechanisms_underidentified_dominica_mapping_failed",
-        "next_gate": "Do not add a generic buffer parameter. Use an existing or newly admitted island system only when source-native measurements directly identify a candidate propagation/buffering filter alongside upstream functional change and downstream service or reproductive response; Issue #91 remains one parallel option, not a programme prerequisite.",
-        "claim_boundary": "Qualitative state-class coverage is weaker than empirical mechanism validation. Same-sign synthetic runs do not prove the Ogasawara access mechanism; unresolved buffering is a model coverage gap, not evidence for a hidden universal buffer; Dominica remains a failed frozen prediction.",
+        "decision": "multi_state_synthetic_class_coverage_improved_network_context_buffering_replicated_two_buffer_cases_unmapped_one_axis_decoupling_constraint_dominica_failure_retained",
+        "next_gate": "Use the frozen empirical network-context prediction contract and the common buffer-mechanism admission interface. Seek source-native visitor-specific rate x effectiveness or another matched support/service mapping before assigning local-support buffering to Hawaiʻi, Nicotiana, Guaiacum, or any real system.",
+        "claim_boundary": "Qualitative state-class capability is weaker than empirical mechanism validation. Replicated synthetic network buffering does not identify the mechanism in any real island; Guaiacum constrains reproductive-axis separation rather than whole-reproduction buffering; Dominica remains a failed frozen prediction."
     }
 
 
