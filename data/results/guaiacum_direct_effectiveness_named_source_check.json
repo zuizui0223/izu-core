@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "checked_on": "2026-08-23",
+  "system_id": "puerto_rico_mona_guaiacum",
+  "target": "visitor-specific direct per-visit effectiveness E_k for Guaiacum sanctum in Guánica and/or Mona",
+  "purpose": "Determine whether the frozen network-context mapping S_total = sum_k(V_k * E_k) can be evaluated from already-named same-taxon sources without transporting effectiveness from another plant or fitting a hidden service parameter.",
+  "named_sources_checked": [
+    {
+      "source_id": "fumero_caban_et_al_2022_jpe",
+      "citation": "Fumero-Cabán JJ, Meléndez-Ackerman EJ, Rojas-Sandoval J. 2022. Journal of Pollination Ecology 32:139-153.",
+      "doi": "10.26786/1920-7603(2022)669",
+      "access": "open_access_primary_article",
+      "same_taxon": true,
+      "same_populations": true,
+      "recovered": [
+        "visitor identity and visit counts by island/year",
+        "observation hours and flower counts",
+        "tree-level visitation-rate analysis",
+        "open/self/outcross/autogamy/agamospermy pollination treatments"
+      ],
+      "direct_per_visit_effectiveness_recovered": false,
+      "reason": "The reported visitor protocol records visitor identity and visit frequency on timed floral observations. The pollination experiment manipulates mating treatment. No single-visit pollen deposition, visitor-specific pollen transfer, or another source-native per-visit service outcome is reported for G. sanctum."
+    },
+    {
+      "source_id": "fumero_caban_2019_dissertation",
+      "title": "Reproductive ecology and population structure of Guaiacum sanctum (Zygophyllaceae) in two Caribbean islands: implications of conservation",
+      "institution": "University of Puerto Rico, Río Piedras",
+      "year": 2019,
+      "catalog_call_number": "CN 578.42 F977r 2019",
+      "access": "restricted_print_catalog_record_and_abstract_only",
+      "same_taxon": true,
+      "same_populations": true,
+      "public_summary_recovered": "field pollinator observations plus artificial pollination experiments to determine breeding system and animal-pollination dependency",
+      "direct_per_visit_effectiveness_recovered": false,
+      "boundary": "The restricted/print dissertation may contain additional detail that is not publicly exposed. This gate records non-recovery, not proof that such measurements are absent from inaccessible pages."
+    },
+    {
+      "source_id": "fumero_caban_melendez_ackerman_2009_conference",
+      "title": "Pollinator communities of Guaiacum sanctum (Zygophyllaceae)",
+      "venue": "Ecological Society of America Annual Meeting",
+      "year": 2009,
+      "same_taxon": true,
+      "public_access": "citation_or_abstract_level",
+      "direct_per_visit_effectiveness_recovered": false
+    },
+    {
+      "source_id": "ackerman_2021_frontiers_honey_bees_review",
+      "title": "Island Invasions by Introduced Honey Bees: What Can Be Expected for Puerto Rico and the Caribbean?",
+      "journal": "Frontiers in Ecology and Evolution",
+      "role": "secondary discussion of the Guaiacum visitor contrast",
+      "same_taxon_primary_effectiveness_data": false,
+      "direct_per_visit_effectiveness_recovered": false
+    }
+  ],
+  "forbidden_transport": {
+    "source": "Fumero-Cabán & Meléndez-Ackerman 2007 relative pollination effectiveness study",
+    "focal_taxon": "Pitcairnia angustifolia",
+    "reason": "Different focal plant and interaction system; its visitor effectiveness values cannot serve as E_k for Guaiacum sanctum."
+  },
+  "source_native_rate_status": {
+    "visit_rate_information_available": true,
+    "visitor_specific_counts_available": true,
+    "reported_observation_hours_by_island_and_year_available": true,
+    "note": "The 2022 article reports 15-minute observation segments, open-flower denominators and visit counts/rates. Whether a final visitor-specific V_k table is reconstructed is secondary because the decisive missing multiplier E_k remains unrecovered."
+  },
+  "result": {
+    "visitor_specific_direct_effectiveness_recovered": false,
+    "mapping_ready": false,
+    "targeted_named_search_state": "exhausted_no_source_native_same_taxon_Ek_recovered",
+    "blocking_term": "E_k",
+    "next_allowed_reopen": [
+      "new named same-taxon source exposing visitor-specific direct effectiveness",
+      "authorized access to a source that exposes the missing measurement",
+      "prospective Guaiacum single-visit effectiveness or equivalent direct-service measurement"
+    ]
+  },
+  "decision": "guaiacum_network_context_mapping_remains_blocked_by_missing_visitor_specific_direct_effectiveness",
+  "claim_boundary": "The named-source check does not show that visitor classes have equal effectiveness, does not infer Apis effectiveness from abundance, and does not establish that the restricted dissertation lacks unpublished effectiveness data. It establishes only that no admissible source-native E_k was recovered from the named accessible routes."
+}
