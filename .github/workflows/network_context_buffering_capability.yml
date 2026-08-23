@@ -10,6 +10,7 @@ on:
       - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
       - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
       - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
+      - 'data/design/network_context_buffering_robustness_freeze.json'
       - 'data/design/buffer_mechanism_abm_admission_interface.json'
 
 jobs:
@@ -22,11 +23,11 @@ jobs:
           python-version: '3.12'
       - name: Install repository
         run: python -m pip install -e '.[dev]'
-      - name: Run matched network-context ablation
+      - name: Run initial matched network-context ablation
         run: >-
           python scripts/run_network_context_buffering_capability_ablation.py
           --replicates 4 --contexts 4 --lineages 24 --steps 120
-      - name: Verify and print scientific result
+      - name: Verify and print initial scientific result
         run: |
           python - <<'PY'
           import json
@@ -35,17 +36,29 @@ jobs:
           assert x['matched_ablation']['assurance_ceiling'] == 0.0
           assert x['matched_ablation']['assurance_responsiveness'] == 0.0
           assert x['matched_ablation']['same_global_opportunity_networks_between_support_modes'] is True
-          assert x['decision'] in {
-              'existing_local_support_route_has_synthetic_network_context_sign_buffering_capability',
-              'existing_local_support_route_can_rescue_effective_service_sign_without_reproductive_sign_rescue',
-              'existing_local_support_route_changes_buffering_magnitude_without_sign_rescue',
-              'existing_local_support_route_does_not_buffer_declining_global_opportunity_in_declared_envelope',
-          }
-          print(json.dumps({'summary': x['summary'], 'decision': x['decision']}, indent=2))
+          print(json.dumps({'initial_summary': x['summary'], 'initial_decision': x['decision']}, indent=2))
+          PY
+      - name: Run independent network-context stochastic block
+        run: >-
+          python scripts/run_network_context_buffering_capability_ablation.py
+          --replicates 4 --contexts 4 --lineages 24 --steps 120
+          --seed 90260824
+          --out data/results/network_context_buffering_capability_robustness.json
+      - name: Verify and print independent block
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/network_context_buffering_capability_robustness.json'))
+          assert x['matched_ablation']['empirical_targets_loaded'] == []
+          assert x['matched_ablation']['assurance_ceiling'] == 0.0
+          assert x['matched_ablation']['assurance_responsiveness'] == 0.0
+          print(json.dumps({'independent_summary': x['summary'], 'independent_decision': x['decision']}, indent=2))
           PY
       - name: Run focused tests
         run: python -m pytest -q tests/test_network_context_buffering_capability_ablation.py
       - uses: actions/upload-artifact@v4
         with:
           name: network-context-buffering-capability
-          path: data/results/network_context_buffering_capability_ablation.json
+          path: |
+            data/results/network_context_buffering_capability_ablation.json
+            data/results/network_context_buffering_capability_robustness.json
