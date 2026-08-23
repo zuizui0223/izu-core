@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "frozen_on": "2026-08-23",
   "system_id": "california_channel_islands_nicotiana_glauca",
   "purpose": "Recover stable source bytes for the two Schueller papers that jointly supply reproductive-assurance/service evidence and visitor-specific per-visit effectiveness before promoting any indexed numeric values into the formal network-context mapping.",
@@ -9,11 +9,22 @@
       "doi": "10.3732/ajb.91.5.672",
       "title": "Self-pollination in island and mainland populations of the introduced hummingbird-pollinated plant, Nicotiana glauca (Solanaceae)",
       "role": "pollinator service plus reproductive assurance/dependency context",
-      "retrieval_url": "https://deepblue.lib.umich.edu/bitstream/handle/2027.42/142032/ajb20672.pdf?sequence=1",
+      "retrieval_url": "https://deepblue.lib.umich.edu/bitstream/2027.42/142032/1/ajb20672.pdf",
       "repository_item": "https://hdl.handle.net/2027.42/142032",
       "public_listing": true,
       "required_identity_fragments": ["Nicotiana glauca", "SELF-POLLINATION", "Schueller"],
-      "expected_access": "public_pdf"
+      "expected_access": "public_pdf",
+      "previous_transport_attempt": {
+        "retrieval_url": "https://deepblue.lib.umich.edu/bitstream/handle/2027.42/142032/ajb20672.pdf?sequence=1",
+        "workflow_run": 32629642261,
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "state": "recovered_non_pdf",
+        "bytes": 1959,
+        "sha256": "c6f92fc22d44f87f8989cc7ac0ee5268e79d3c2e6b08ccf4346cbf65b95311a3",
+        "pdf_magic": false,
+        "retry_rule": "Do not retry this handle/sequence route. The alternate official bitstream path is the one remaining declared transport attempt."
+      }
     },
     {
       "source_id": "schueller_2007_corolla_selection",
@@ -23,7 +34,21 @@
       "retrieval_url": "https://link.springer.com/content/pdf/10.1007/s10682-006-9125-9.pdf",
       "publisher_record": "https://link.springer.com/article/10.1007/s10682-006-9125-9",
       "required_identity_fragments": ["Nicotiana glauca", "per visit effectiveness", "Schueller"],
-      "expected_access": "publisher_subscription_or_public_if_entitled"
+      "expected_access": "publisher_subscription_or_public_if_entitled",
+      "frozen_transport_result": {
+        "source_id": "schueller_2007_corolla_selection",
+        "requested_url": "https://link.springer.com/content/pdf/10.1007/s10682-006-9125-9.pdf",
+        "final_url": "https://link.springer.com/content/pdf/10.1007/s10682-006-9125-9.pdf",
+        "http_status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "state": "recovered_non_pdf",
+        "bytes": 3038,
+        "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+        "pdf_magic": false,
+        "workflow_run": 32629642261,
+        "reused_frozen_result": true,
+        "retry_rule": "Do not retry the same Springer PDF route. Reopen only on a different lawful stable artifact or authorized access."
+      }
     }
   ],
   "backup_context": {
@@ -62,6 +87,8 @@
     "2007_not_recovered": "retain the indexed values as non-admitted discovery and reopen only on a lawful stable publisher/author/institutional artifact or authorized access"
   },
   "forbidden": [
+    "retry the already-frozen Springer PDF route without a new access path",
+    "retry the already-failed Deep Blue handle/sequence route",
     "treat an indexed text mirror as a byte-locked primary artifact",
     "infer a per-visit effectiveness value from hummingbird bill length",
     "tune the ABM local-support parameter to the known Nicotiana reproductive result",
