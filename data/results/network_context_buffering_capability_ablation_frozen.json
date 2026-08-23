@@ -1,0 +1,40 @@
+{
+  "analysis": "network_context_buffering_capability_ablation_frozen",
+  "run_date": "2026-08-23",
+  "workflow_run": 32623916386,
+  "artifact_id": 9489159517,
+  "artifact_zip_sha256": "0ff2c7458e3308d472605ca035bbe29fc7cd7554baee9b9d71eb6f0a26fc23ff",
+  "configuration": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "seed": 20260823,
+    "support_off": 0.0,
+    "support_on": 0.5,
+    "assurance_ceiling": 0.0,
+    "assurance_responsiveness": 0.0,
+    "partner_effectiveness_strength": 1.0
+  },
+  "summary": {
+    "lineage_contrasts": 288,
+    "global_opportunity_decline_contrasts": 104,
+    "global_decline_and_support_off_service_decline": 89,
+    "global_decline_and_support_off_reproduction_decline": 89,
+    "service_magnitude_rescue_count": 52,
+    "service_sign_rescue_count": 2,
+    "reproduction_magnitude_rescue_count": 52,
+    "reproduction_sign_rescue_count": 2,
+    "service_worsening_count": 37,
+    "reproduction_worsening_count": 37,
+    "mean_service_gain_among_support_off_declines": 0.03331575773472615,
+    "mean_reproduction_gain_among_support_off_declines": 0.0275439159101085
+  },
+  "decision": "existing_local_support_route_has_sparse_synthetic_network_context_sign_buffering_capability_but_is_bidirectional",
+  "scientific_interpretation": "With autonomous assurance disabled, the existing local-support route can synthetically rescue the sign of effective service and reproduction in 2 of 89 matched decline contrasts, but it worsens 37 of those same contrasts. The route therefore acts primarily as a branch allocator/context modifier rather than a dedicated buffering process. The two sign rescues are too sparse to call robust without an independently frozen stochastic block.",
+  "empirical_mechanism_admission_changed": false,
+  "guaiacum_service_redundancy_candidate_state": "candidate_only_no_abm_admission",
+  "next_gate": "Run one predeclared non-overlapping seed block with the identical support OFF/ON design. Do not search seeds or change support strength after observing the two sign rescues.",
+  "claim_boundary": "This is synthetic capability only. It does not identify service redundancy or network buffering in Guaiacum or any other empirical island system."
+}
