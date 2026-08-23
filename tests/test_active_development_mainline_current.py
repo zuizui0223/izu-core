@@ -71,21 +71,44 @@ def test_updated_validation_has_two_unmapped_buffer_cases_one_axis_decoupling_an
     assert gate["retained_falsifications"] == 1
 
 
-def test_empirical_network_context_prediction_contract_is_frozen_before_mapping():
+def test_empirical_network_context_mapping_readiness_is_zero_of_five():
     mainline = load_mainline()
     assert mainline["comparison_contract"]["network_context_empirical_prediction_freeze"] == "data/design/network_context_empirical_prediction_freeze.json"
+    assert mainline["comparison_contract"]["network_context_mapping_candidate_registry"] == "data/design/network_context_mapping_candidate_registry.json"
+    assert mainline["comparison_contract"]["network_context_mapping_readiness"] == "data/results/network_context_mapping_readiness_frozen.json"
     assert mainline["comparison_contract"]["guaiacum_network_mapping_preflight"] == "data/design/guaiacum_network_context_mapping_preflight.json"
+
+    readiness = mainline["protected_scientific_state"]["network_context_mapping_readiness"]
+    assert readiness["systems_screened"] == 5
+    assert readiness["mapping_ready_count"] == 0
+    assert readiness["closest_structural_candidate"] == "puerto_rico_mona_guaiacum"
+    assert readiness["closest_missing_gate"] == "visitor_specific_direct_effectiveness"
+    assert readiness["guaiacum_named_source_route_exhausted"] is True
+    assert readiness["campanula_programme_blocker"] is False
+    assert readiness["derived_estimand"] == "rate_weighted_effective_service = sum_k(V_k * E_k)"
+    assert readiness["required_gate_sequence"] == [
+        "matched_transition_unit",
+        "repeated_local_context_support",
+        "visitor_specific_rate",
+        "visitor_specific_direct_effectiveness",
+        "reproductive_outcome",
+    ]
+
     p2 = workstream(mainline, "P2")
     stage_i = next(row for row in p2["stages"] if row["stage"] == "I")
     assert stage_i["name"] == "empirical_network_context_mapping"
-    assert stage_i["current_state"] == "prediction_contract_frozen_no_real_system_mapping_ready"
-    assert "visit rate x direct per-visit effectiveness" in stage_i["rule"]
+    assert "zero_of_five_mapping_ready" in stage_i["current_state"]
+    assert stage_i["candidate_registry"] == "data/design/network_context_mapping_candidate_registry.json"
+    assert stage_i["readiness_result"] == "data/results/network_context_mapping_readiness_frozen.json"
+    assert "V_k" in stage_i["rule"]
+    assert "E_k" in stage_i["rule"]
+    assert "Partial or one-sided links do not pass" in stage_i["rule"]
 
 
-def test_next_task_is_validation_and_source_triggered_mapping_not_parameter_tuning():
+def test_next_task_waits_for_first_five_gate_system_not_specific_taxon_or_exhausted_search():
     mainline = load_mainline()
     assert mainline["next_executable_task"].startswith(
-        "validate_and_freeze_the_updated_multi_system_harness_and_guaiacum_axis_correction"
+        "accept_the_first_named_source_or_prospective_island_system_that_closes_all_five_network_context_mapping_gates"
     )
     assert "whole_reproduction_buffer_label_from_stable_breeding_system_index_alone" in mainline["not_mainline"]
     assert "restoring_guaiacum_to_buffer_portfolio_without_new_reproductive_buffer_evidence" in mainline["not_mainline"]
@@ -93,3 +116,6 @@ def test_next_task_is_validation_and_source_triggered_mapping_not_parameter_tuni
     assert "calling_synthetic_network_buffering_empirical_validation" in mainline["not_mainline"]
     assert "tuning_local_support_strength_to_match_observed_outcomes" in mainline["not_mainline"]
     assert "making_issue91_campanula_field_data_a_programme_wide_blocker" in mainline["not_mainline"]
+    assert "repeating_guaiacum_Ek_search_without_new_named_trigger" in mainline["not_mainline"]
+    assert "repeating_nicotiana_primary_artifact_transport_without_new_route" in mainline["not_mainline"]
+    assert "declaring_mapping_ready_from_partial_or_one_sided_links" in mainline["not_mainline"]
