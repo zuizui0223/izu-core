@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-23",
   "purpose": "Rank named missing measurements that would most directly close the current buffering-mechanism coverage gap without privileging Campanula or adding a generic ABM parameter.",
   "ranking_rule": [
@@ -13,13 +13,16 @@
     {
       "rank": 1,
       "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
-      "missing_measurement": "controlled reproductive dependency/autonomous assurance in the same focal populations/seasons as the interaction-quality boundary",
+      "missing_measurement": "same-context numeric controlled reproductive dependency/autonomous assurance in the focal 2026 populations/seasons, or another direct discriminator separating assurance from non-assurance buffering",
       "discriminates": [
         "low dependency versus post-interaction resource compensation",
         "assurance buffering versus non-assurance buffering"
       ],
-      "why_high_value": "The upstream signed mismatch and interaction-quality change plus high reproductive performance are already observed; one plant-side dependency/assurance layer would directly test why the chain stops before reproduction.",
-      "current_block": "raw interaction CSV access is blocked, but a future source-native or prospective controlled dependency measurement can reopen the gate"
+      "why_high_value": "The upstream signed mismatch and interaction-quality change plus high reproductive performance are already observed. Named historical sources now support autonomous assurance as an exact-taxon candidate for Clermontia lindseyana and C. pyrularia, so a contemporary matched dependency layer would directly test whether assurance explains why the chain stops before reproduction.",
+      "named_source_progress": "Pender and Morden 2012 plus Pender 2013 report mixed mating, predominantly autogamous reproduction under extant conditions, limited or ineffective contemporary bird pollination and significant pollen limitation for exact focal Clermontia lindseyana and C. pyrularia at Hakalau.",
+      "named_source_check": "data/results/hawaii_lobelioid_controlled_dependency_named_source_check.json",
+      "current_block": "historical exact-taxon assurance support is available, but it is not the same tagged 2026 plants/season; a numeric contemporary controlled dependency estimand is unrecovered and Cyanea shipmanii lacks an exact matched dependency source",
+      "repeat_search_rule": "do not repeat broad historical assurance searches; reopen only on a named same-context numeric source, authorized raw access, or prospective matched measurement"
     },
     {
       "rank": 2,
@@ -31,7 +34,8 @@
         "whether the morph-state/fruit-set contrast is mechanistically bridged on both islands"
       ],
       "why_high_value": "Cordia is the current near-complete bridge and already contains all channel types in one source-defined two-island system, but the decisive channels are asymmetric between islands.",
-      "current_block": "no qualifying Dong-side source-native values are currently admitted; Yongxing values cannot be transported"
+      "current_block": "no qualifying Dong-side source-native values are currently admitted; Yongxing values cannot be transported",
+      "repeat_search_rule": "do not repeat the exhausted targeted Dong search without a new named source trigger"
     },
     {
       "rank": 3,
@@ -69,5 +73,5 @@
     }
   ],
   "decision": "prioritize_closure_of_existing_buffer_boundaries_over_new_generic_abm_complexity_or_more_partial_system_count",
-  "claim_boundary": "This is a scientific information-value ranking, not a costed fieldwork schedule. Unknown logistical cost, permit feasibility and source accessibility are not imputed."
+  "claim_boundary": "This is a scientific information-value ranking, not a costed fieldwork schedule. Historical exact-taxon evidence can narrow a candidate mechanism without becoming a matched contemporary causal bridge. Unknown logistical cost, permit feasibility and source accessibility are not imputed."
 }

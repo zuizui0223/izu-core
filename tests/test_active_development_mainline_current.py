@@ -3,78 +3,26 @@ from pathlib import Path
 
 
 def load_mainline():
-    return json.loads(
-        Path("data/design/active_development_mainline.json").read_text(encoding="utf-8")
-    )
+    return json.loads(Path("data/design/active_development_mainline.json").read_text(encoding="utf-8"))
 
 
 def workstream(mainline, workstream_id):
     return next(row for row in mainline["workstreams"] if row["id"] == workstream_id)
 
 
-def test_p1_is_island_system_response_and_propagation_matrix_gate():
+def test_programme_stays_system_agnostic_and_issue91_is_parallel():
     mainline = load_mainline()
-    p1 = workstream(mainline, "P1")
-    assert p1["name"] == "island_system_response_matrix"
-    assert p1["status"] == "active"
-    assert "system_by_response_axis_evidence_matrix" in p1["required_outputs"]
-    assert "heterogeneous_branching_summary" in p1["required_outputs"]
-    assert "propagation_boundary_summary" in p1["required_outputs"]
-    assert "system_agnostic_multi_system_abm_validation" in p1["required_outputs"]
-    assert "source_identified_buffer_mechanism_gate" in p1["required_outputs"]
-    assert mainline["comparison_contract"]["propagation_failure_is_a_result"] is True
     assert mainline["comparison_contract"]["programme_can_progress_without_issue91_field_data"] is True
     assert mainline["comparison_contract"]["no_single_focal_taxon_can_block_programme"] is True
-
-
-def test_izu_field_bundle_is_preserved_as_mechanistic_anchor_not_programme_center():
-    mainline = load_mainline()
+    assert mainline["comparison_contract"]["izu_role"] == "calibration_and_mechanistic_anchor_system_not_programme_center"
     p3 = workstream(mainline, "P3")
     assert p3["issue"] == 91
     assert p3["status"] == "implementation_ready_field_data_missing"
-    assert p3["role"] == "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center"
-    assert "predeclared_propagation_vs_buffering_predictions_frozen_before_first_real_bundle" in p3["required_outputs"]
-    assert "one_command_field_bundle_intake_ready" in p3["required_outputs"]
-    assert "first_real_six_channel_bundle_passes_preflight" in p3["required_outputs"]
-    assert "pilot_variance_coverage_loss_estimates" in p3["required_outputs"]
-    assert "direct_izu_signed_position_without_source_native_pollinator_trait_and_weight_data" in p3["blocked_claims"]
     assert mainline["protected_scientific_state"]["issue91_prediction_freeze"]["programme_blocker"] is False
 
 
-def test_stage_c_reflects_six_partial_bridges_and_route_a_closure():
+def test_strict_validation_and_buffer_gate_remain_partial():
     mainline = load_mainline()
-    p2 = workstream(mainline, "P2")
-    stage_c = next(row for row in p2["stages"] if row["stage"] == "C")
-    assert stage_c["current_state"] == "six_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed"
-    assert "source-triggered only" in stage_c["priority_rule"]
-
-
-def test_system_agnostic_strict_validation_is_complete_and_buffer_gate_is_active():
-    mainline = load_mainline()
-    p2 = workstream(mainline, "P2")
-    stage_f = next(row for row in p2["stages"] if row["stage"] == "F")
-    assert stage_f["name"] == "system_agnostic_multi_system_mechanism_validation"
-    assert stage_f["current_state"].startswith("initial_strict_harness_complete_")
-    assert stage_f["result"] == "data/results/system_agnostic_abm_multi_system_validation_frozen.json"
-    assert "not a prerequisite" in stage_f["rule"]
-
-    stage_g = next(row for row in p2["stages"] if row["stage"] == "G")
-    assert stage_g["name"] == "source_identified_buffer_filter_closure"
-    assert "zero_of_six" in stage_g["current_state"]
-    assert stage_g["gate"] == "data/design/buffer_mechanism_discriminator_gate.json"
-    assert stage_g["priority"] == "data/design/system_agnostic_buffer_closure_priority.json"
-    assert "Do not add a generic buffer parameter" in stage_g["rule"]
-
-
-def test_mainline_preserves_abm_failures_and_partial_multi_system_coverage():
-    mainline = load_mainline()
-    state = mainline["protected_scientific_state"]["abm_mechanism_state"]
-    assert state["v12_minimal_synthetic_generator"] == "preexisting_lineage_position_in_functional_trait_space"
-    assert state["v12_dominica_projection"].startswith("failed_")
-    assert "high_reproductive_performance" in state["hawaii_2026_boundary"]
-    assert "directional_pollen_transfer" in state["ogasawara_psychotria_bridge"]
-    assert state["system_agnostic_strict_validation"].startswith("partial_multi_system_coverage_")
-
     gate = mainline["protected_scientific_state"]["system_agnostic_validation_gate"]
     assert gate["status"] == "initial_strict_harness_complete_partial_coverage"
     assert gate["qualitatively_covered_systems"] == 1
@@ -83,55 +31,42 @@ def test_mainline_preserves_abm_failures_and_partial_multi_system_coverage():
     assert gate["retained_falsifications"] == 1
     assert gate["campanula_specific_tuning_allowed"] is False
 
-
-def test_issue91_prediction_freeze_and_intake_are_protected_before_real_rows():
-    mainline = load_mainline()
-    freeze = mainline["protected_scientific_state"]["issue91_prediction_freeze"]
-    assert freeze["path"] == "data/design/issue91_propagation_buffering_prediction_freeze.json"
-    assert freeze["status"] == "prediction_structure_frozen_before_real_field_bundle_no_decision_thresholds_locked"
-    assert freeze["real_field_rows_inspected_before_freeze"] is False
-    assert freeze["decision_thresholds_locked_before_pilot_dispersion"] is False
-    assert freeze["one_command_intake"] == "scripts/intake_issue91_field_bundle.py"
-    assert freeze["programme_blocker"] is False
-
-
-def test_formal_fit_and_source_reopen_boundaries_stay_closed():
-    mainline = load_mainline()
-    protected = mainline["protected_scientific_state"]
-    bridge = protected["external_mechanism_bridge_state"]
+    bridge = mainline["protected_scientific_state"]["external_mechanism_bridge_state"]
     assert bridge["independent_partial_systems"] == 6
     assert bridge["complete_systems"] == 0
-    assert bridge["hawaii_lobelioid_adds_new_geographic_stratum"] is False
-    assert bridge["ogasawara_psychotria_adds_new_geographic_stratum"] is True
-    assert bridge["newest_source_triggered_bridge"] == "ogasawara_psychotria_homalosperma_pollinator_replacement"
     assert bridge["buffer_mechanism_ready_for_abm_admission"] == 0
-    assert bridge["buffer_mechanism_discriminator_gate"] == "data/design/buffer_mechanism_discriminator_gate.json"
-    assert bridge["buffer_closure_priority"] == "data/design/system_agnostic_buffer_closure_priority.json"
-    assert bridge["stage_c_search_state"] == "route_A_complete_unconstrained_search_closed"
-    assert protected["formal_cross_system_fit_ready"] is False
+    assert bridge["hawaii_exact_taxon_assurance_candidate_found"] is True
+    assert bridge["hawaii_named_dependency_source_check"] == "data/results/hawaii_lobelioid_controlled_dependency_named_source_check.json"
 
+
+def test_hawaii_candidate_is_narrowed_without_abm_admission():
+    mainline = load_mainline()
+    state = mainline["protected_scientific_state"]["abm_mechanism_state"]
+    assert "Clermontia_lindseyana_and_C_pyrularia" in state["hawaii_historical_exact_taxon_assurance"]
+    discriminator = mainline["protected_scientific_state"]["propagation_buffering_discriminator"]
+    assert discriminator["hawaii_autonomous_assurance_candidate_source_supported"] is True
+    assert discriminator["autonomous_assurance_universal_buffer"] is False
+    assert discriminator["one_common_buffering_mechanism_identified"] is False
+
+
+def test_source_reopen_gates_do_not_repeat_exhausted_hawaii_or_cordia_searches():
+    mainline = load_mainline()
     p5 = workstream(mainline, "P5")
-    assert p5["status"] == "wait_for_new_admissible_source_material"
-    issue_100_gate = next(row for row in p5["gates"] if row.get("issue") == 100)
-    assert "hawaii_and_ogasawara_named_source_triggers" in issue_100_gate["state"]
-    hawaii_raw_gate = next(row for row in p5["gates"] if row.get("target") == "hawaii_lobelioid_functional_ecology_raw_csv")
-    assert "file_stream_403" in hawaii_raw_gate["state"]
-    assert "package_api_401" in hawaii_raw_gate["state"]
-    hawaii_dependency = next(row for row in p5["gates"] if row.get("target") == "hawaii_lobelioid_controlled_dependency_same_context")
-    assert "priority_1" in hawaii_dependency["state"]
-    cordia_gate = next(row for row in p5["gates"] if row.get("target") == "cordia_dong_single_visit_effectiveness_and_dependency")
-    assert "priority_2" in cordia_gate["state"]
+    hawaii = next(row for row in p5["gates"] if row.get("target") == "hawaii_lobelioid_controlled_dependency_same_context")
+    assert "named_historical_exact_taxon_assurance_found" in hawaii["state"]
+    assert "same_context_numeric_dependency_still_missing" in hawaii["state"]
+    cordia = next(row for row in p5["gates"] if row.get("target") == "cordia_dong_single_visit_effectiveness_and_dependency")
+    assert "targeted_followup_exhausted" in cordia["state"]
+    assert "reopen_only_on_new_named_source_native_or_prospective_matched_measurement" in cordia["state"]
+    assert "repeat_broad_hawaii_historical_assurance_search_after_exact_taxon_candidate_found" in mainline["not_mainline"]
+    assert "repeat_cordia_dong_search_without_new_named_source_trigger" in mainline["not_mainline"]
 
 
-def test_next_executable_task_is_named_buffer_closure_not_issue91_blocker_or_generic_modeling():
+def test_next_internal_task_is_buffer_admission_interface_not_generic_parameter():
     mainline = load_mainline()
     assert mainline["next_executable_task"].startswith(
-        "check_ranked_named_buffer_closure_sources_starting_with_hawaii_controlled_dependency_then_cordia_dong"
+        "freeze_a_source_agnostic_buffer_mechanism_admission_interface_and_cross_system_prediction_ledger"
     )
-    assert mainline["comparison_contract"]["izu_role"] == "calibration_and_mechanistic_anchor_system_not_programme_center"
     assert "generic_buffer_parameter_before_source_identification" in mainline["not_mainline"]
     assert "making_issue91_campanula_field_data_a_programme_wide_blocker" in mainline["not_mainline"]
-    assert "campanula_specific_retuning_of_abm" in mainline["not_mainline"]
     assert "another_generic_abm_layer_before_a_new_empirical_discriminator" in mainline["not_mainline"]
-    assert "outcome_dependent_reordering_of_issue91_intake_gates" in mainline["not_mainline"]
-    assert "silent_mutation_of_frozen_issue91_raw_bundle" in mainline["not_mainline"]

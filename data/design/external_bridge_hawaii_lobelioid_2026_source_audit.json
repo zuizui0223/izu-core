@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
   "parent_issue": 100,
   "admission_state": "bridge_system_partial",
@@ -73,6 +73,21 @@
       "role": "interaction-quality to reproductive-outcome propagation boundary"
     }
   ],
+  "historical_assurance_context": {
+    "named_source_check": "data/results/hawaii_lobelioid_controlled_dependency_named_source_check.json",
+    "exact_2026_focal_taxon_overlap": [
+      "Clermontia pyrularia",
+      "Clermontia lindseyana"
+    ],
+    "taxon_without_exact_historical_dependency_match": "Cyanea shipmanii",
+    "site_context": "Hakalau National Wildlife Refuge restoration plantings on Hawaii Island",
+    "historical_reading": "Named 2012 conference and Pender 2013 dissertation sources report mixed mating, predominantly autogamous reproduction under extant conditions, infrequent or ineffective contemporary honeycreeper pollination and significant pollen limitation for the overlapping Clermontia species.",
+    "candidate_filter_update": "autonomous reproductive assurance is source-supported for two exact focal Clermontia taxa rather than a purely generic candidate",
+    "same_tagged_2026_context": false,
+    "numeric_controlled_dependency_for_2026_context_recovered": false,
+    "abm_buffer_mechanism_admission": false,
+    "boundary": "Historical exact-taxon evidence narrows the candidate buffer set but cannot be joined to the 2026 interaction and reproductive observations as one tagged or same-season causal chain."
+  },
   "cross_source_overlap": {
     "publication_level_species_overlap": [
       "Cyanea shipmanii",
@@ -102,29 +117,35 @@
     "interaction_quality_robbing_numeric": true,
     "experimental_resource_consequence": true,
     "reproductive_outcome_article_level": true,
+    "historical_exact_taxon_autonomous_assurance_candidate": true,
     "reproductive_dependency_controlled_numeric": false,
     "same_tagged_individual_full_chain": false,
     "floral_evolutionary_response_after_shift": false
   },
   "mechanistic_value": {
     "supported_boundary": "A post-extinction shift in signed functional matching can alter interaction quality without forcing reproductive collapse. Frequent nectar robbing and altered nectar replenishment coexist with high fruit and seed performance in the focal contemporary system.",
+    "buffer_candidate_update": "Historical exact-taxon work makes autonomous assurance a source-supported candidate for Clermontia lindseyana and C. pyrularia, while same-context numeric dependency remains missing and non-assurance buffering remains unresolved.",
     "relation_to_v12": "This is consistent with v12's state-dependent branch-potential idea at the trait-position to interaction-quality layer, while also showing that downstream reproductive propagation needs an additional filter. It does not validate the failed Dominica signed-position to selection projection.",
     "relation_to_v10_v11": "Partner effectiveness and local interaction role can change branch allocation or resource dynamics, but their presence is not sufficient to predict the final reproductive sign.",
     "novelty_boundary": "The existence of signed trait matching and its association with pollen contact/robbing is already demonstrated by Case et al. 2026; izu-core novelty must lie in cross-system response branching, propagation gates, and falsification-driven mechanism decomposition rather than rediscovering trait matching."
   },
-  "allowed_claim": "Hawaiian lobelioids provide a partial same-system propagation bridge in which source-native signed bill-flower matching predicts interaction quality, while a closely overlapping contemporary field/experiment study shows that frequent antagonistic robbing and altered floral resource dynamics can coexist with high reproductive performance.",
+  "allowed_claim": "Hawaiian lobelioids provide a partial same-system propagation bridge in which source-native signed bill-flower matching predicts interaction quality, while a closely overlapping contemporary field/experiment study shows that frequent antagonistic robbing and altered floral resource dynamics can coexist with high reproductive performance. Historical exact-taxon evidence additionally supports autonomous assurance as a candidate buffer for two focal Clermontia species.",
   "blocked_claims": [
-    "do not call the two papers one tagged-individual causal chain",
+    "do not call the 2026 papers and historical assurance studies one tagged-individual causal chain",
     "do not infer historical bird extinction caused the measured contemporary fruit or seed outcomes",
     "do not treat pollen contact as reproductive success or direct reproductive dependency",
-    "do not infer exact row-level overlap between the two studies without the Functional Ecology raw interaction CSV",
+    "do not infer exact row-level overlap between the two 2026 studies without the Functional Ecology raw interaction CSV",
+    "do not transport historical or other-species autonomous reproduction numerically into the 2026 focal context",
+    "do not infer exact-taxon assurance for Cyanea shipmanii from the two overlapping Clermontia species",
     "do not count the two 2026 papers as two independent island systems",
     "do not count this biological system as a new independent geographic stratum beyond Hawaii",
+    "do not call autonomous assurance the identified cause of 2026 reproductive resilience",
     "do not call the v12 signed-position-to-reproductive mechanism empirically confirmed"
   ],
   "next_actions": [
     "Reopen Functional Ecology raw reanalysis only if exact lawful mirror bytes or authorized Dryad access become available.",
-    "Search for source-native controlled reproductive-dependency measurements in the same lobelioid system only when a named lawful source is identified; do not run an unconstrained acquisition loop.",
+    "Reopen controlled-dependency ABM admission only if a same-context numeric source or prospective matched measurement appears; do not repeat broad historical assurance searches.",
+    "Use historical exact-taxon assurance only to narrow the candidate buffer set, not as a fitted 2026 dependency parameter.",
     "Use this bridge now as a propagation-boundary case in the cross-system mechanism ledger."
   ]
 }
