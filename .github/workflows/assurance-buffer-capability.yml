@@ -1,0 +1,38 @@
+name: Assurance buffer capability ablation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/run_assurance_buffer_capability_ablation.py"
+      - "tests/test_assurance_buffer_capability_ablation.py"
+      - ".github/workflows/assurance-buffer-capability.yml"
+  push:
+    paths:
+      - "scripts/run_assurance_buffer_capability_ablation.py"
+      - "tests/test_assurance_buffer_capability_ablation.py"
+      - ".github/workflows/assurance-buffer-capability.yml"
+
+jobs:
+  assurance-buffer-capability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Run focused regression tests
+        run: python -m pytest -q tests/test_assurance_buffer_capability_ablation.py
+      - name: Run full matched assurance ablation
+        run: >-
+          python scripts/run_assurance_buffer_capability_ablation.py
+          --output artifacts/assurance_buffer_capability_ablation.json
+      - name: Print frozen decision summary
+        run: >-
+          python -c "import json; p=json.load(open('artifacts/assurance_buffer_capability_ablation.json')); print(json.dumps({'decision':p['decision'],'summary':p['summary'],'upstream_identical':p['ablation']['upstream_effective_service_identical_between_assurance_arms']}, indent=2))"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-buffer-capability-ablation
+          path: artifacts/assurance_buffer_capability_ablation.json
