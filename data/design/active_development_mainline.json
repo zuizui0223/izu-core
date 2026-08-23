@@ -112,7 +112,7 @@
         {"stage": "F", "name": "system_agnostic_abm_validation", "current_state": "branching and network-context buffering state classes synthetically available; empirical mappings remain partial; Dominica failure retained", "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json"},
         {"stage": "G", "name": "assurance_capability", "current_state": "magnitude_attenuation_replicated_sign_rescue_nonreplicated"},
         {"stage": "H", "name": "network_context_capability", "current_state": "sign_rescue_replicated_across_two_frozen_blocks_but_route_bidirectional"},
-        {"stage": "I", "name": "empirical_network_context_mapping", "current_state": "prediction_contract_frozen_no_real_system_mapping_ready", "prediction_freeze": "data/design/network_context_empirical_prediction_freeze.json", "guaiacum_preflight": "data/design/guaiacum_network_context_mapping_preflight.json", "rule": "Require matched visitor-specific visit rate x direct per-visit effectiveness before assigning the synthetic local-support route to a real system."
+        {"stage": "I", "name": "empirical_network_context_mapping", "current_state": "prediction_contract_frozen_no_real_system_mapping_ready", "prediction_freeze": "data/design/network_context_empirical_prediction_freeze.json", "guaiacum_preflight": "data/design/guaiacum_network_context_mapping_preflight.json", "rule": "Require matched visitor-specific visit rate x direct per-visit effectiveness before assigning the synthetic local-support route to a real system."}
       ]
     },
     {"id": "P3", "name": "izu_calibration_and_direct_dependency_anchor", "priority": 2, "issue": 91, "status": "implementation_ready_field_data_missing", "role": "parallel_mechanistic_anchor_not_programme_center"},
