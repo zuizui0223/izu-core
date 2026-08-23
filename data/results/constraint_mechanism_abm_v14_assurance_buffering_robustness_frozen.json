@@ -1,0 +1,60 @@
+{
+  "analysis": "constraint_mechanism_abm_v14_assurance_buffering_independent_robustness_frozen",
+  "run_date": "2026-08-23",
+  "workflow_run": 32623590871,
+  "artifact_id": 9489078038,
+  "artifact_zip_sha256": "58bf8fcdad1b98ae87a4ec3f6131c2a4264280f10fdde454f0bb8ce2c4ec4fc9",
+  "design": "data/design/abm_v14_assurance_buffering_robustness_freeze.json",
+  "parent_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json",
+  "configuration": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "seed": 90260823,
+    "local_support_strength": 0.5,
+    "partner_effectiveness_strength": 1.0
+  },
+  "upstream_service_identical_between_assurance_ablations": true,
+  "overall": {
+    "lineage_contrasts": 288,
+    "service_decline_lineages": 216,
+    "synthetic_buffering_assurance_on": 0,
+    "synthetic_buffering_assurance_off": 0,
+    "assurance_sign_rescues": 0,
+    "assurance_magnitude_rescues": 207,
+    "mean_service_delta": -0.14436208112638085,
+    "mean_reproduction_delta_assurance_on": -0.09362683891248551,
+    "mean_reproduction_delta_assurance_off": -0.09530734393110186,
+    "mean_assurance_reproductive_rescue": 0.0016805050186163547,
+    "service_decline_buffer_fraction_assurance_on": 0.0,
+    "service_decline_buffer_fraction_assurance_off": 0.0
+  },
+  "by_saturation": {
+    "1.0": {"service_decline_lineages": 75, "assurance_sign_rescues": 0, "assurance_magnitude_rescues": 71},
+    "2.0": {"service_decline_lineages": 76, "assurance_sign_rescues": 0, "assurance_magnitude_rescues": 73},
+    "3.0": {"service_decline_lineages": 65, "assurance_sign_rescues": 0, "assurance_magnitude_rescues": 63}
+  },
+  "initial_block_comparison": {
+    "initial_seed": 20260822,
+    "initial_service_decline_lineages": 202,
+    "initial_assurance_sign_rescues": 1,
+    "initial_assurance_magnitude_rescues": 197,
+    "independent_sign_rescue_replicated": false,
+    "magnitude_attenuation_replicated": true
+  },
+  "broadened_support_envelope": {
+    "result": "data/results/assurance_buffering_capability_ablation_frozen.json",
+    "service_decline_and_assurance_off_reproduction_decline": 525,
+    "full_attenuation_count": 510,
+    "full_sign_rescue_count": 0,
+    "supports_tested": [0.25, 0.5, 0.75]
+  },
+  "decision": "assurance_magnitude_attenuation_is_robust_but_sign_level_buffering_is_not_replicated",
+  "scientific_update": "The initial one-of-202 sign rescue is retained as a real result of its frozen stochastic block but does not replicate in an independently frozen v14 block and is absent in a broader support-strength envelope. The stable synthetic property of the current assurance route is small attenuation of reproductive decline, not reliable conversion of a service decline into maintained or increased reproduction.",
+  "empirical_mechanism_admission_changed": false,
+  "hawaii_assurance_candidate_state": "candidate_only_no_abm_admission",
+  "next_gate": "Do not tune assurance to recover sign rescue. Treat autonomous assurance as a plausible empirical candidate with robust attenuation capability but insufficient current synthetic support for strong sign-level buffering; prioritize source-identified filters or matched empirical mapping before any model extension.",
+  "claim_boundary": "This is a synthetic robustness result only. It lowers the strength of the v14 sign-buffering claim and does not validate or falsify autonomous assurance as the biological buffer in any observed island system."
+}
