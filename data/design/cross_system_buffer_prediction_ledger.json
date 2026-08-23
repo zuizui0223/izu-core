@@ -1,8 +1,13 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "frozen_on": "2026-08-23",
   "status": "qualitative_predictions_frozen_before_future_buffer_admission_tests",
-  "purpose": "Predeclare what each candidate propagation/buffering mechanism would have to look like across the currently admitted island cases before new measurements are used to promote any mechanism into the ABM.",
+  "purpose": "Predeclare what each candidate propagation/buffering mechanism would have to look like across island cases before new measurements can promote any mechanism into the ABM, while keeping breeding-system indices and realized reproductive performance as distinct response axes.",
+  "synthetic_capability_updates": {
+    "network_context": "sign-level service/reproductive rescue replicated in two frozen stochastic blocks, with worsening also present; context-dependent buffering-capable branch allocator",
+    "autonomous_assurance": "magnitude attenuation replicated, but sign-level rescue from the initial v14 block did not replicate in an independent block or broader support envelope",
+    "empirical_mechanism_admitted": false
+  },
   "candidate_predictions": [
     {
       "mechanism": "autonomous_reproductive_assurance",
@@ -12,29 +17,33 @@
         "autonomous reproduction is high in the same matched units",
         "buffering weakens where autonomous reproduction is low after direct service is accounted for"
       ],
-      "would_be_weakened_by": "repeated buffering under low service in units with low autonomous reproduction or high direct pollinator dependency",
+      "would_be_weakened_by": "repeated whole-reproduction buffering under low service in units with low autonomous reproduction or high direct pollinator dependency",
       "current_case_reading": {
         "hawaii_lobelioids": "candidate_supported_for_Clermontia_lindseyana_and_C_pyrularia_by_historical_exact_taxon_sources_but_not_same_context_tested",
         "nicotiana_glauca": "strong_system_specific_candidate_but_current_service_deficit_not_detected",
-        "guaiacum": "argues_against_universal_assurance_buffer_because_autogamy_is_negligible",
+        "guaiacum": "negligible_autogamy_shows_assurance_cannot_explain_similar_ISI_but_Guaiacum_is_not_a_whole_reproduction_buffer_case",
         "issue91_campanula": "prospective_direct_test_ready_when_real_rows_exist"
       },
+      "synthetic_status": "weak_attenuation_capability_robust_sign_buffering_nonreplicated",
       "universal_mechanism_prediction": false
     },
     {
-      "mechanism": "service_redundancy_or_compensatory_abundance",
+      "mechanism": "service_redundancy_or_network_context",
       "required_signature": [
-        "pollinator composition or functional exposure changes",
-        "direct rate-weighted effective service remains stable or is compensated",
-        "reproductive output remains stable",
-        "the compensating visitor groups have measured visit rate and per-visit effectiveness rather than occurrence alone"
+        "pollinator composition or global functional opportunity changes",
+        "visitor-specific direct effectiveness is measured",
+        "rate-weighted total effective service is maintained or rescued because alternative partners compensate in rate and/or effectiveness",
+        "reproductive output follows the maintained effective-service state"
       ],
-      "would_be_weakened_by": "buffering when direct effective service is clearly reduced and no compensating service channel is measured",
+      "would_be_weakened_by": "whole-reproduction buffering when rate-weighted effective service is clearly reduced and no compensating visitor-specific service channel is measured",
       "current_case_reading": {
-        "guaiacum": "live_candidate_because_visitor_abundance_and_composition_differ_but_direct_effectiveness_is_missing",
-        "hawaii_lobelioids": "not_resolved_because_contact_or_robbing_is_not_a_complete_effective_service_measure",
-        "cordia": "Yongxing_effectiveness_is_measured_but_Dong_effectiveness_is_missing"
+        "hawaii_lobelioids": "buffer_case_but_partner_specific_rate_weighted_effective_service_not_recovered",
+        "nicotiana_glauca": "current_aggregate_service_not_lower_but_same_season_partner_specific_mapping_missing",
+        "guaiacum": "service_mapping_reference_not_buffer_case; visitor assemblage differs strongly but direct per-visit effectiveness is missing",
+        "cordia": "Yongxing_effectiveness_measured_but_Dong_effectiveness_missing"
       },
+      "synthetic_status": "replicated_sign_buffering_capability_but_bidirectional_and_empirically_unmapped",
+      "empirical_prediction_freeze": "data/design/network_context_empirical_prediction_freeze.json",
       "universal_mechanism_prediction": false
     },
     {
@@ -67,24 +76,17 @@
         "ogasawara_psychotria": "not_primary_candidate_for_endemic_focal_plant"
       },
       "universal_mechanism_prediction": false
-    },
-    {
-      "mechanism": "network_context_or_rewiring",
-      "required_signature": [
-        "upstream functional exposure is similar or changes in a known way",
-        "realized interaction support or partner identity differs",
-        "visitor-specific direct effectiveness converts the network difference into different effective service",
-        "the effective-service difference predicts downstream propagation state"
-      ],
-      "would_be_weakened_by": "branching that persists when matched network support and direct effective service are equivalent",
-      "current_case_reading": {
-        "izu_multi_taxon": "network_state_sensitive_matching_to_pollen_link_supports_branch_allocator_role",
-        "abm_v11": "local_support_changes_branch_identity_but_is_not_required_to_generate_branching",
-        "guaiacum": "network_change_is_directly_observed_but_effectiveness_link_is_missing"
-      },
-      "universal_mechanism_prediction": false
     }
   ],
+  "empirical_constraint_cases": {
+    "guaiacum_reproductive_axis_decoupling": {
+      "system": "puerto_rico_mona_guaiacum",
+      "correction": "data/results/guaiacum_propagation_state_correction.json",
+      "role": "Visitor environment differs strongly; self/outcross seed-set ISI is similar and autogamy negligible, while realized open reproduction is pollen limited on Mona and multiplicative fitness is lower. This constrains service mapping and forces reproductive axes to remain distinct.",
+      "not_a_whole_reproduction_buffer_example": true,
+      "network_mapping_preflight": "data/design/guaiacum_network_context_mapping_preflight.json"
+    }
+  },
   "positive_and_negative_control_cases": {
     "propagation_reference": {
       "system": "ogasawara_psychotria_homalosperma",
@@ -103,12 +105,13 @@
     }
   },
   "decision_rules_for_future_data": [
-    "A candidate can be described as source-supported before ABM admission, as with Hawaiʻi autonomous assurance.",
-    "A source-supported candidate cannot be encoded as empirically identified merely because it explains a known buffered outcome retrospectively.",
+    "A source-supported candidate can remain candidate-only before ABM admission.",
+    "Synthetic capability cannot be assigned to a real island without a source-native mapping and frozen held-out/prospective test.",
     "If more than one candidate signature remains compatible, classify the buffer as unresolved rather than fitting all candidates.",
-    "If a candidate reaches mapping-ready status, freeze the mapping and pass/fail target before testing downstream outcome.",
+    "If one reproductive axis is stable and another declines, classify axis decoupling rather than whole-reproduction buffering.",
+    "If a candidate reaches mapping-ready status, freeze the mapping, parameter derivation and pass/fail target before testing downstream outcome.",
     "If the predeclared test fails, retain the failure and reopen only with genuinely new independent evidence, not retuning on the same target."
   ],
-  "current_result": "no_single_buffer_mechanism_is_empirically_admitted; autonomous assurance is narrowed as a Hawaiʻi exact-taxon candidate for two Clermontia species but remains untested in the 2026 matched context",
+  "current_result": "network-context sign-buffering is a replicated synthetic capability but no empirical buffer mechanism is admitted; Hawaiʻi and Nicotiana remain candidate buffer systems, while Guaiacum is reclassified as reproductive-axis decoupling and network-context service-mapping reference",
   "claim_boundary": "These are qualitative mechanism-discrimination predictions. They do not assume effect-size commensurability across islands and do not make any candidate universal."
 }
