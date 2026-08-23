@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "analysis": "network_context_buffering_capability_independent_robustness",
+  "status": "design_frozen_before_independent_block_run",
+  "parent_result": "data/results/network_context_buffering_capability_ablation_frozen.json",
+  "scientific_question": "Do the two sparse sign rescues from the initial local-support ablation recur when the exact design is rerun on a non-overlapping stochastic block?",
+  "configuration": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "support_off": 0.0,
+    "support_on": 0.5,
+    "assurance_ceiling": 0.0,
+    "assurance_responsiveness": 0.0,
+    "partner_effectiveness_strength": 1.0,
+    "initial_seed_block": 20260823,
+    "independent_seed_block": 90260824
+  },
+  "decision_rule": [
+    "If reproduction sign rescue recurs (>0), call network-context sign buffering replicated but quantify bidirectionality/worsening separately.",
+    "If sign rescue is 0 but magnitude rescue persists, call local support a robust magnitude/branch allocator without replicated sign buffering.",
+    "If rescue disappears and worsening dominates, downgrade the network-context buffer interpretation further."
+  ],
+  "forbidden": [
+    "do not change support strength after seeing the initial two sign rescues",
+    "do not search seed blocks until sign rescue appears",
+    "do not pool blocks before reporting each separately",
+    "do not use Guaiacum or other empirical outcomes to set thresholds or seeds"
+  ],
+  "claim_boundary": "This robustness block tests synthetic network-context capability only and cannot empirically admit service redundancy."
+}
