@@ -1,0 +1,40 @@
+name: Network-context rescue discriminator
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "data/design/network_context_rescue_discriminator_freeze.json"
+      - "scripts/run_network_context_rescue_discriminator.py"
+      - "tests/test_network_context_rescue_discriminator.py"
+      - ".github/workflows/network-context-rescue-discriminator.yml"
+  push:
+    paths:
+      - "data/design/network_context_rescue_discriminator_freeze.json"
+      - "scripts/run_network_context_rescue_discriminator.py"
+      - "tests/test_network_context_rescue_discriminator.py"
+      - ".github/workflows/network-context-rescue-discriminator.yml"
+
+jobs:
+  discriminator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Run frozen-design regression tests
+        run: python -m pytest -q tests/test_network_context_rescue_discriminator.py
+      - name: Run discriminator on frozen independent robustness block
+        run: >-
+          python scripts/run_network_context_rescue_discriminator.py
+          --out artifacts/network_context_rescue_discriminator.json
+      - name: Print discriminator result
+        run: >-
+          python -c "import json; p=json.load(open('artifacts/network_context_rescue_discriminator.json')); print(json.dumps({'class_counts':p['class_counts'],'parent_nesting':p['parent_nesting'],'mean_contrasts':p['predeclared_mean_contrasts'],'decision':p['decision']}, indent=2))"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: network-context-rescue-discriminator
+          path: artifacts/network_context_rescue_discriminator.json
