@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-23",
+  "parent_prediction_freeze": "data/design/network_context_empirical_prediction_freeze.json",
+  "synthetic_discriminator": "data/results/network_context_rescue_discriminator_frozen.json",
+  "purpose": "Translate only the predeclared synthetic rescue-vs-worsening discriminator into empirical measurement priorities without changing the already-frozen network-context prediction rules.",
+  "scientific_update": "Strong synthetic sign rescue is associated most clearly with maintaining repeated local interaction opportunity through time/context: rescue cases preserve active-context fraction and lose fewer positive partners than attenuation-only or worsening cases. Initial trait position is not a strong rescue-vs-attenuation discriminator in this block.",
+  "priorities": [
+    {
+      "rank": 1,
+      "measurement": "repeated_local_active_context_fraction",
+      "definition": "For each focal plant/population and prespecified observation context, record whether at least one admissible plant-pollinator interaction opportunity remains locally present; summarize the fraction of contexts with positive support.",
+      "why": "Synthetic sign-rescue mean island-mainland active-context delta is 0.0, versus approximately -0.409 for both attenuation-only and worsening classes.",
+      "do_not_substitute": ["one-time visitor richness", "pooled annual species list", "presence from an unmatched season"]
+    },
+    {
+      "rank": 2,
+      "measurement": "repeated_positive_partner_count",
+      "definition": "Count positive visitor partners per matched local context using the same effort and plant-state denominator across comparison populations.",
+      "why": "Sign-rescue cases lose about 0.80 partners island-minus-mainland on average, versus about 2.24 for attenuation-only and 1.95 for worsening cases.",
+      "do_not_substitute": ["regional pollinator richness", "unweighted literature species count"]
+    },
+    {
+      "rank": 3,
+      "measurement": "visitor_specific_direct_effectiveness",
+      "definition": "Measure or recover direct per-visit pollen/service outcome E_k for each materially contributing visitor so partner retention can be converted into effective service sum_k(V_k * E_k).",
+      "why": "Support retention is only a mechanistic service explanation if retained partners actually deliver direct service. This remains the decisive blocker for Guaiacum and is provenance-blocked for Nicotiana."
+    },
+    {
+      "rank": 4,
+      "measurement": "within_context_interaction_weight_shannon",
+      "definition": "On matched active contexts, retain visitor-specific interaction weights and calculate Shannon using a prespecified denominator.",
+      "why": "The predeclared unconditional Shannon contrast is less negative in synthetic sign-rescue cases, but it partly inherits zero coding from locally inactive contexts and is therefore secondary to ranks 1-2."
+    },
+    {
+      "rank": 5,
+      "measurement": "plant_functional_position_and_dependency_as_modifiers",
+      "definition": "Retain source-native plant functional position and direct reproductive dependency when available, but do not require them to explain network rescue before local support is measured.",
+      "why": "Initial trait means are nearly identical between sign rescue and attenuation-only in the frozen discriminator, while dependency differs modestly and is not the branch generator in prior ablations."
+    }
+  ],
+  "system_readiness": [
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "current_strength": "visitor counts, repeated observation segments and breeding treatments are source-supported",
+      "blocking_priority": "visitor_specific_direct_effectiveness",
+      "state": "not_mapping_ready"
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "current_strength": "service/assurance and visitor-specific per-visit effectiveness are reported across linked studies",
+      "blocking_priority": "stable source provenance plus prespecified site-year linkage before formal E_k use",
+      "state": "not_mapping_ready"
+    },
+    {
+      "system_id": "hawaii_lobelioids_2026",
+      "current_strength": "repeated visitation/contact/robbing and reproductive performance plus historical trait matching",
+      "blocking_priority": "same-context controlled dependency and exact row-level repeated-context linkage",
+      "state": "not_mapping_ready"
+    },
+    {
+      "system_id": "issue91_campanula_microdonta",
+      "current_strength": "prospective linked effort, visitor identity, SVD effectiveness and reproductive-treatment protocol is implementation-ready",
+      "blocking_priority": "real field rows",
+      "state": "prepared_parallel_route_not_programme_blocker"
+    },
+    {
+      "system_id": "xisha_cordia_subcordata",
+      "current_strength": "direct single-visit pollen deposition and dependency at Yongxing plus visitation/outcome contrast across islands",
+      "blocking_priority": "matched Dong-side effectiveness/dependency and repeated local support",
+      "state": "near_complete_partial_not_mapping_ready"
+    }
+  ],
+  "forbidden": [
+    "change the frozen network-context empirical prediction rule to fit the discriminator",
+    "treat repeated active-context fraction as a causal buffer coefficient",
+    "use static regional richness as a replacement for repeated local support",
+    "infer E_k from visitor identity, body size or abundance",
+    "privilege Campanula or any other single focal taxon as the only route"
+  ],
+  "next_gate": "Apply these measurement priorities only when a named system exposes new source-native matched data or prospective measurements. Until then, keep network context as a replicated synthetic branch allocator with empirical mechanism admission open but unfilled."
+}
