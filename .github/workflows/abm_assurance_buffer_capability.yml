@@ -1,0 +1,43 @@
+name: ABM assurance buffering capability
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_abm_assurance_buffer_capability.py'
+      - 'tests/test_abm_assurance_buffer_capability.py'
+      - '.github/workflows/abm_assurance_buffer_capability.yml'
+      - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
+      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
+      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
+
+jobs:
+  assurance-buffer-capability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run matched assurance ON/OFF ablation
+        run: >-
+          python scripts/run_abm_assurance_buffer_capability.py
+          --replicates 6 --contexts 6 --lineages 24 --steps 120
+      - name: Show threshold-free buffering summary
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/abm_assurance_buffer_capability.json'))
+          assert x['design']['empirical_inputs_loaded'] == []
+          assert x['design']['empirical_target_values_loaded'] is False
+          assert x['summary']['upstream_service_identical_between_assurance_ablations'] is True
+          print(json.dumps(x['summary'], indent=2))
+          PY
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_abm_assurance_buffer_capability.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-assurance-buffer-capability
+          path: data/results/abm_assurance_buffer_capability.json
