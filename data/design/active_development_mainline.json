@@ -1,11 +1,11 @@
 {
-  "schema_version": "2.5",
+  "schema_version": "2.6",
   "updated_on": "2026-08-23",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
   "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and multiple plant-side propagation filters determine whether upstream change reaches reproduction or floral evolution. The programme tests recurring branch structures and discriminates propagation from buffering rather than assuming a universal island syndrome or a single buffering mechanism.",
   "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether functional change propagates into reproductive or floral evolutionary response?",
-  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_single_buffer_explanations_rejected_issue91_predictions_frozen_system_agnostic_multi_system_validation_active_complete_common_mechanism_not_identified",
+  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_single_buffer_explanations_rejected_system_agnostic_strict_validation_partial_buffer_mechanisms_underidentified_complete_common_mechanism_not_identified",
   "comparison_contract": {
     "systems_are_parallel": true,
     "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
@@ -13,6 +13,7 @@
     "no_single_focal_taxon_can_block_programme": true,
     "response_axis_registry": "data/design/island_comparative_response_axis_registry.json",
     "system_agnostic_validation_registry": "data/design/system_agnostic_multi_system_validation_gate.json",
+    "system_agnostic_validation_result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
     "every_system_need_not_measure_every_axis": true,
     "heterogeneity_is_a_result": true,
     "propagation_failure_is_a_result": true,
@@ -40,7 +41,7 @@
       "v12_dominica_projection": "failed_declared_negative_signed_position_to_selection_direction",
       "hawaii_2026_boundary": "source_native_signed_matching_predicts_interaction_quality_but_frequent_robbing_and_resource_change_can_coexist_with_high_reproductive_performance",
       "ogasawara_psychotria_bridge": "categorical_stigma_access_mismatch_and_directional_pollen_transfer_coexist_with_strong_morph_specific_open_fruit_asymmetry_despite_high_bidirectional_intermorph_hand_fruit_set",
-      "system_agnostic_next_validation": "test_the_frozen_mechanism_architecture_against_propagation_buffering_branching_and_counterdirectional_state_classes_without_campanula_specific_tuning"
+      "system_agnostic_strict_validation": "partial_multi_system_coverage_branching_supported_directional_capability_present_buffer_mechanisms_underidentified_dominica_mapping_failed"
     },
     "propagation_buffering_discriminator": {
       "result": "data/results/island_propagation_buffering_discriminator_v1.json",
@@ -50,7 +51,7 @@
       "partner_effectiveness_sufficient_final_sign_predictor": false,
       "current_service_deficit_required_for_island_trait_difference": false,
       "one_common_buffering_mechanism_identified": false,
-      "rank1_measurement": "next_admissible_matched_dependency_effectiveness_discriminator_from_any_island_system_issue91_is_one_prepared_anchor"
+      "rank1_measurement": "next_source_identified_buffer_filter_discriminator_from_any_island_system"
     },
     "issue91_prediction_freeze": {
       "path": "data/design/issue91_propagation_buffering_prediction_freeze.json",
@@ -62,14 +63,12 @@
     },
     "system_agnostic_validation_gate": {
       "path": "data/design/system_agnostic_multi_system_validation_gate.json",
-      "status": "active",
-      "target_classes": [
-        "propagates_same_direction",
-        "buffered_or_resilient",
-        "branches_downstream",
-        "counterdirectional_to_frozen_prediction",
-        "buffered_or_alternative_mechanism"
-      ],
+      "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
+      "status": "initial_strict_harness_complete_partial_coverage",
+      "qualitatively_covered_systems": 1,
+      "sign_class_compatible_but_unmapped_systems": 1,
+      "buffer_mechanism_coverage_gaps": 3,
+      "retained_falsifications": 1,
       "campanula_specific_tuning_allowed": false
     },
     "external_mechanism_bridge_state": {
@@ -80,6 +79,9 @@
       "newest_source_triggered_bridge": "ogasawara_psychotria_homalosperma_pollinator_replacement",
       "hawaii_lobelioid_adds_new_geographic_stratum": false,
       "ogasawara_psychotria_adds_new_geographic_stratum": true,
+      "buffer_mechanism_discriminator_gate": "data/design/buffer_mechanism_discriminator_gate.json",
+      "buffer_mechanism_ready_for_abm_admission": 0,
+      "buffer_closure_priority": "data/design/system_agnostic_buffer_closure_priority.json",
       "stage_c_search_state": "route_A_complete_unconstrained_search_closed"
     },
     "formal_cross_system_fit_ready": false
@@ -115,7 +117,8 @@
         "heterogeneous_branching_summary",
         "propagation_boundary_summary",
         "propagation_buffering_discriminator",
-        "system_agnostic_multi_system_abm_validation"
+        "system_agnostic_multi_system_abm_validation",
+        "source_identified_buffer_mechanism_gate"
       ]
     },
     {
@@ -124,7 +127,7 @@
       "priority": 1,
       "issue": 93,
       "bridge_issue": 100,
-      "status": "state_dependent_propagation_supported_single_filter_explanations_rejected_multi_system_validation_active_complete_bridge_missing",
+      "status": "system_agnostic_strict_validation_partial_buffer_filter_identification_active_complete_bridge_missing",
       "stages": [
         {
           "stage": "A",
@@ -162,9 +165,18 @@
         {
           "stage": "F",
           "name": "system_agnostic_multi_system_mechanism_validation",
-          "current_state": "active_use_existing_abm_mechanism_stack_to_test_multiple_observed_propagation_state_classes_without_campanula_specific_tuning",
+          "current_state": "initial_strict_harness_complete_branching_covered_directional_sign_capability_present_three_buffer_coverage_gaps_one_retained_falsification",
           "target_registry": "data/design/system_agnostic_multi_system_validation_gate.json",
-          "rule": "Campanula Issue #91 proceeds in parallel as one direct calibration anchor; it is not a prerequisite for testing the programme-level mechanism against other island systems."
+          "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
+          "rule": "Campanula Issue #91 proceeds in parallel as one direct calibration anchor; it is not a prerequisite for programme-level validation."
+        },
+        {
+          "stage": "G",
+          "name": "source_identified_buffer_filter_closure",
+          "current_state": "active_zero_of_six_current_partial_bridges_ready_for_buffer_mechanism_abm_admission",
+          "gate": "data/design/buffer_mechanism_discriminator_gate.json",
+          "priority": "data/design/system_agnostic_buffer_closure_priority.json",
+          "rule": "Do not add a generic buffer parameter. Admit a new downstream filter only when a named island system measures upstream functional change, propagation/service, downstream reproduction and the candidate filter in a matched transition."
         }
       ]
     },
@@ -200,11 +212,11 @@
       "status": "active_where_admissible_sources_exist",
       "rule": "Fill high-value missing response or propagation axes within any existing system when source-native evidence exists; no system is privileged solely because it is Izu or Campanula, and missing is not evidence of no response.",
       "examples": [
-        "visual_signal_or_nectar_guide_where_measured",
-        "direct_effectiveness_for_systems_with_network_only_data",
-        "controlled_dependency_for_systems_with_effectiveness_only_data",
-        "reproductive_outcome_for_systems_with_morphology_only_data",
-        "same-system propagation boundaries linking functional mismatch or interaction quality to reproductive outcome"
+        "Hawaii controlled dependency/assurance in the same focal buffering context",
+        "Cordia Dong direct effectiveness plus controlled dependency",
+        "Nicotiana same-season service/dependency linkage",
+        "Issue #91 linked effective-service/dependency field bundle",
+        "Ogasawara standardized per-visit effectiveness plus controlled dependency"
       ]
     },
     {
@@ -219,6 +231,8 @@
         {"target": "Galapagos_raw_plant_network_archive", "state": "blocked_until_source_archive_recovered"},
         {"issue": 100, "target": "external_complete_mechanism_bridge", "state": "route_A_completed_hawaii_and_ogasawara_named_source_triggers_added_partial_bridges_reopen_only_on_new_named_source_trigger"},
         {"target": "hawaii_lobelioid_functional_ecology_raw_csv", "state": "anonymous_dryad_file_stream_403_and_package_api_401_frozen_reopen_only_on_exact_mirror_or_authorized_access"},
+        {"target": "hawaii_lobelioid_controlled_dependency_same_context", "state": "source_triggered_priority_1_reopen_on_named_source_native_or_prospective_matched_measurement"},
+        {"target": "cordia_dong_single_visit_effectiveness_and_dependency", "state": "source_triggered_priority_2_reopen_on_named_source_native_or_prospective_matched_measurement"},
         {"target": "ogasawara_psychotria_numeric_signed_access_position", "state": "published_categorical_access_and_reproductive_asymmetry_admitted_numeric_signed_mismatch_not_recovered_reopen_only_on_named_source_native_measurement"}
       ]
     },
@@ -230,13 +244,14 @@
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "build_and_run_a_system_agnostic_multi_system_qualitative_validation_harness_for_the_existing_abm_against_ogasawara_hawaii_izu_dominica_nicotiana_and_guaiacum_state_classes_without_campanula_specific_tuning_while_issue91_field_intake_proceeds_in_parallel",
+  "next_executable_task": "check_ranked_named_buffer_closure_sources_starting_with_hawaii_controlled_dependency_then_cordia_dong_without_reopening_unconstrained_bridge_search_and_keep_issue91_as_parallel_optional_anchor",
   "not_mainline": [
     "universal_island_dwarfism_or_response_coefficient",
     "raw_island_count_accumulation_without_independent_system_identity",
     "visitor_occurrence_as_effectiveness",
     "syndrome_as_reproductive_dependency",
     "single_universal_buffering_parameter",
+    "generic_buffer_parameter_before_source_identification",
     "making_issue91_campanula_field_data_a_programme_wide_blocker",
     "campanula_specific_retuning_of_abm",
     "repeated_search_of_exhausted_source_routes",
