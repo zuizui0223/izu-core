@@ -1,0 +1,61 @@
+{
+  "analysis": "nicotiana_source_artifact_recovery_frozen",
+  "run_date": "2026-08-23",
+  "workflow_run": 32629804487,
+  "artifact_id": 9490703155,
+  "artifact_zip_sha256": "8618ada4411472507958d1e4ab875305b8e21c5eb8c4808d2e98dc716894b597",
+  "gate": "data/design/nicotiana_source_artifact_recovery_gate.json",
+  "decision": "source_artifact_recovery_incomplete_keep_nicotiana_mapping_unadmitted",
+  "newly_attempted_sources": [
+    "schueller_2004_self_pollination"
+  ],
+  "reused_frozen_sources": [
+    "schueller_2007_corolla_selection"
+  ],
+  "results": [
+    {
+      "source_id": "schueller_2004_self_pollination",
+      "requested_url": "https://deepblue.lib.umich.edu/bitstream/2027.42/142032/1/ajb20672.pdf",
+      "final_url": "https://deepblue.lib.umich.edu/bitstream/2027.42/142032/1/ajb20672.pdf",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "state": "recovered_non_pdf",
+      "bytes": 1959,
+      "sha256": "c6f92fc22d44f87f8989cc7ac0ee5268e79d3c2e6b08ccf4346cbf65b95311a3",
+      "pdf_magic": false,
+      "reused_frozen_result": false
+    },
+    {
+      "source_id": "schueller_2007_corolla_selection",
+      "requested_url": "https://link.springer.com/content/pdf/10.1007/s10682-006-9125-9.pdf",
+      "final_url": "https://link.springer.com/content/pdf/10.1007/s10682-006-9125-9.pdf",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "state": "recovered_non_pdf",
+      "bytes": 3038,
+      "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+      "pdf_magic": false,
+      "workflow_run": 32629642261,
+      "reused_frozen_result": true
+    }
+  ],
+  "previous_2004_handle_route": {
+    "workflow_run": 32629642261,
+    "requested_url": "https://deepblue.lib.umich.edu/bitstream/handle/2027.42/142032/ajb20672.pdf?sequence=1",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "state": "recovered_non_pdf",
+    "bytes": 1959,
+    "sha256": "c6f92fc22d44f87f8989cc7ac0ee5268e79d3c2e6b08ccf4346cbf65b95311a3",
+    "same_payload_as_alternate_route": true
+  },
+  "source_recovery_summary": {
+    "stable_pdf_sources_recovered": 0,
+    "declared_primary_sources": 2,
+    "formal_2007_effectiveness_values_admitted": false,
+    "network_context_mapping_ready": false,
+    "all_declared_automated_routes_frozen": true
+  },
+  "next_gate": "Reopen only on a different lawful stable publisher/author/institutional artifact, authorized access, or source-native material that independently verifies the pending 2007 visitor-specific effectiveness values. Do not retry the frozen Deep Blue or Springer routes.",
+  "claim_boundary": "Both automated routes returned HTML despite HTTP 200. This is a transport/provenance block, not a biological result. It does not invalidate the published Nicotiana findings and does not permit indexed numeric values to be treated as byte-locked primary-source estimates."
+}

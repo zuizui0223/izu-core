@@ -1,10 +1,18 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "system_id": "california_channel_islands_nicotiana_glauca",
   "parent_issue": 100,
   "admission_state": "bridge_system_partial",
   "formal_cross_system_model_eligible": false,
   "bridge_complete": false,
+  "source_artifact_recovery": {
+    "gate": "data/design/nicotiana_source_artifact_recovery_gate.json",
+    "result": "data/results/nicotiana_source_artifact_recovery_frozen.json",
+    "stable_pdf_sources_recovered": 0,
+    "declared_primary_sources": 2,
+    "transport_state": "all_declared_automated_routes_frozen_no_pdf_bytes_recovered",
+    "network_context_mapping_ready": false
+  },
   "sources": [
     {
       "source_id": "schueller_2004_self_pollination",
@@ -39,7 +47,13 @@
         "institutional_file_name": "ajb20672.pdf",
         "institutional_file_publicly_listed": true,
         "checksum_locked": false,
-        "checksum_blocker": "Exact Deep Blue PDF bytes were not recovered in the current automated route; keep byte-level source lock pending."
+        "automated_routes_checked": [
+          "https://deepblue.lib.umich.edu/bitstream/handle/2027.42/142032/ajb20672.pdf?sequence=1",
+          "https://deepblue.lib.umich.edu/bitstream/2027.42/142032/1/ajb20672.pdf"
+        ],
+        "automated_result": "Both routes returned the same 1959-byte HTML payload with HTTP 200, not PDF bytes.",
+        "transport_payload_sha256": "c6f92fc22d44f87f8989cc7ac0ee5268e79d3c2e6b08ccf4346cbf65b95311a3",
+        "checksum_blocker": "No stable PDF bytes were recovered from the two declared Deep Blue bitstream forms. Do not retry those routes; reopen only on a different lawful stable artifact or authorized access."
       },
       "role": "same-system effective-service plus reproductive-dependency/assurance bridge"
     },
@@ -89,7 +103,10 @@
         "publisher_record": "Springer Evolutionary Ecology article DOI record",
         "publisher_full_pdf_public": false,
         "lawful_institutional_or_author_pdf_recovered": false,
-        "checksum_locked": false
+        "checksum_locked": false,
+        "automated_publisher_pdf_result": "HTTP 200 returned a 3038-byte HTML payload, not PDF bytes.",
+        "transport_payload_sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+        "retry_rule": "Do not retry the same Springer PDF route. Reopen only on a different lawful stable publisher/author/institutional artifact or authorized access."
       },
       "role": "same-system floral-response plus per-visit-effectiveness bridge"
     }
@@ -98,7 +115,7 @@
     "shared_named_sites": ["Santa Catalina Island", "Santa Cruz Island", "Sedgwick Reserve", "Starr Ranch"],
     "strongest_overlap": ["Santa Catalina Island", "Starr Ranch"],
     "same_site_year_effectiveness_anchor": "The 2007 single-visit experiment is CAT and STA in June 2000; the 2004 source also contains June 2000 pollen-transfer sampling including CAT and STA, strengthening same-system/site-year linkage for the service component.",
-    "why_partial_not_complete": "The studies share named populations and overlapping study years, and together cover floral response, pollinator effectiveness/service, and reproductive dependency/assurance. However, the current source record does not establish that the floral, per-visit, pollen-limitation, autogamy and emasculation experiments used the same tagged plants, and reproductive-dependency experiments were primarily in 1998-1999 rather than the June 2000 per-visit window. Byte-level source locking is also incomplete.",
+    "why_partial_not_complete": "The studies share named populations and overlapping study years, and together cover floral response, pollinator effectiveness/service, and reproductive dependency/assurance. However, the current source record does not establish that the floral, per-visit, pollen-limitation, autogamy and emasculation experiments used the same tagged plants, reproductive-dependency experiments were primarily in 1998-1999 rather than the June 2000 per-visit window, and stable source bytes for the two declared articles remain unrecovered.",
     "allowed_claim": "This system supplies a genuine partial mechanistic bridge and a strong alternative-mechanism test: current island pollinator service did not explain the stronger selfing capacity, making colonization/establishment filtering a live mechanism rather than assuming post-establishment pollinator scarcity.",
     "blocked_claims": [
       "do not call this a complete causal chain",
@@ -110,10 +127,9 @@
     ]
   },
   "next_actions": [
-    "Recover exact 2004 Table 1/Table 5/Figure 2/Figure 7 numeric values and uncertainty from a stable source artifact without digitizing when machine-readable or tabular values are available.",
-    "Recover a lawful stable 2007 full-text artifact or author/institutional copy and checksum it.",
-    "Reverify the discovered 2007 Table 3/Table 4 numeric values against the locked source before formal materialization.",
-    "Map experiment-by-site-by-year overlap across the 2004 and 2007 studies and declare any cross-year site-level transfer rule before effect extraction.",
-    "Only then decide whether any matched estimand can enter the formal cross-archipelago effect registry."
+    "Do not repeat the two frozen Deep Blue routes or the frozen Springer PDF route.",
+    "Reopen 2004/2007 artifact recovery only on a different lawful stable author/institutional/publisher artifact or authorized access.",
+    "If stable 2007 bytes are recovered, reverify Table 3 visitor-specific effectiveness before formal materialization.",
+    "Keep Nicotiana empirical network-context mapping unadmitted until source provenance and a predeclared site/year linkage rule are both satisfied."
   ]
 }

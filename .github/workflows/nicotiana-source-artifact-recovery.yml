@@ -1,0 +1,40 @@
+name: Nicotiana source artifact recovery
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "data/design/nicotiana_source_artifact_recovery_gate.json"
+      - "scripts/check_nicotiana_source_artifacts.py"
+      - "tests/test_nicotiana_source_artifact_recovery.py"
+      - ".github/workflows/nicotiana-source-artifact-recovery.yml"
+  push:
+    paths:
+      - "data/design/nicotiana_source_artifact_recovery_gate.json"
+      - "scripts/check_nicotiana_source_artifacts.py"
+      - "tests/test_nicotiana_source_artifact_recovery.py"
+      - ".github/workflows/nicotiana-source-artifact-recovery.yml"
+
+jobs:
+  source-recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependency
+        run: python -m pip install pytest
+      - name: Run focused gate tests
+        run: python -m pytest -q tests/test_nicotiana_source_artifact_recovery.py
+      - name: Check declared primary-source routes once
+        run: >-
+          python scripts/check_nicotiana_source_artifacts.py
+          --output artifacts/nicotiana_source_artifact_recovery.json
+      - name: Print transport decision
+        run: >-
+          python -c "import json; p=json.load(open('artifacts/nicotiana_source_artifact_recovery.json')); print(json.dumps({'decision':p['decision'],'results':p['results']}, indent=2))"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nicotiana-source-artifact-recovery
+          path: artifacts/nicotiana_source_artifact_recovery.json
