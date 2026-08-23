@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "system_id": "california_channel_islands_nicotiana_glauca",
+  "purpose": "Recover stable source bytes for the two Schueller papers that jointly supply reproductive-assurance/service evidence and visitor-specific per-visit effectiveness before promoting any indexed numeric values into the formal network-context mapping.",
+  "sources": [
+    {
+      "source_id": "schueller_2004_self_pollination",
+      "doi": "10.3732/ajb.91.5.672",
+      "title": "Self-pollination in island and mainland populations of the introduced hummingbird-pollinated plant, Nicotiana glauca (Solanaceae)",
+      "role": "pollinator service plus reproductive assurance/dependency context",
+      "retrieval_url": "https://deepblue.lib.umich.edu/bitstream/handle/2027.42/142032/ajb20672.pdf?sequence=1",
+      "repository_item": "https://hdl.handle.net/2027.42/142032",
+      "public_listing": true,
+      "required_identity_fragments": ["Nicotiana glauca", "SELF-POLLINATION", "Schueller"],
+      "expected_access": "public_pdf"
+    },
+    {
+      "source_id": "schueller_2007_corolla_selection",
+      "doi": "10.1007/s10682-006-9125-9",
+      "title": "Island-mainland difference in Nicotiana glauca (Solanaceae) corolla length: a product of pollinator-mediated selection?",
+      "role": "visitor-specific single-visit pollen deposition/removal plus floral response",
+      "retrieval_url": "https://link.springer.com/content/pdf/10.1007/s10682-006-9125-9.pdf",
+      "publisher_record": "https://link.springer.com/article/10.1007/s10682-006-9125-9",
+      "required_identity_fragments": ["Nicotiana glauca", "per visit effectiveness", "Schueller"],
+      "expected_access": "publisher_subscription_or_public_if_entitled"
+    }
+  ],
+  "backup_context": {
+    "source_id": "schueller_2002_dissertation",
+    "title": "Hummingbird pollination and floral evolution of introduced Nicotiana glauca and native Epilobium canum: California island-mainland comparisons",
+    "repository_item": "https://hdl.handle.net/2027.42/132866",
+    "access": "restricted_to_current_um_users",
+    "rule": "Do not treat the restricted dissertation as recovered source bytes."
+  },
+  "numeric_values_pending_source_lock": {
+    "source": "schueller_2007_corolla_selection",
+    "status": "indexed_full_text_values_known_but_not_formally_admitted",
+    "allens_visits_n": 65,
+    "annas_visits_n": 31,
+    "pollen_removed_empty_anthers": {
+      "allens_mean": 0.9,
+      "allens_95ci_half_width": 0.2,
+      "annas_mean": 1.5,
+      "annas_95ci_half_width": 0.4,
+      "reported_U": 602,
+      "reported_p": 0.005
+    },
+    "pollen_deposited_percent_stigma_covered": {
+      "allens_mean": 8.2,
+      "allens_95ci_half_width": 1.9,
+      "annas_mean": 24.0,
+      "annas_95ci_half_width": 8.3,
+      "reported_U": 692,
+      "reported_p": 0.01
+    },
+    "admission_rule": "These values may be used for source-recovery consistency checks but must not enter the formal effect registry or empirical ABM mapping until stable lawful source bytes are recovered and identity-verified."
+  },
+  "decision_rule": {
+    "both_pdf_sources_recovered": "lock checksums, verify identity and then materialize the 2007 visitor-specific effectiveness values with their source hierarchy",
+    "only_2004_recovered": "repair assurance/service provenance but keep visitor-specific effectiveness and network-context mapping blocked",
+    "2007_not_recovered": "retain the indexed values as non-admitted discovery and reopen only on a lawful stable publisher/author/institutional artifact or authorized access"
+  },
+  "forbidden": [
+    "treat an indexed text mirror as a byte-locked primary artifact",
+    "infer a per-visit effectiveness value from hummingbird bill length",
+    "tune the ABM local-support parameter to the known Nicotiana reproductive result",
+    "pool 2004 and 2007 experiments as if they used the same tagged plants"
+  ]
+}
