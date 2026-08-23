@@ -51,7 +51,7 @@ def test_guaiacum_correction_is_explicit_and_not_whole_reproduction_buffering():
     assert correction["corrected_propagation_state"] == "reproductive_axes_decouple"
     assert correction["buffer_candidate_status"].startswith("remove_from_reproductive_buffer_portfolio")
     assert "Mona" in correction["corrected_observed_pattern"]
-    assert "not equivalently maintained" in correction["boundary"]
+    assert "open reproductive performance differs" in correction["boundary"]
 
 
 def test_existing_abm_failures_are_preserved_not_retuned():
