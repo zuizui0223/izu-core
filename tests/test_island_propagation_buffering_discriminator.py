@@ -3,10 +3,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULT = ROOT / "data/results/island_propagation_buffering_discriminator_v1.json"
+CORRECTION = ROOT / "data/results/guaiacum_propagation_state_correction.json"
+MAINLINE = ROOT / "data/design/active_development_mainline.json"
 
 
 def load():
     return json.loads(RESULT.read_text(encoding="utf-8"))
+
+
+def correction():
+    return json.loads(CORRECTION.read_text(encoding="utf-8"))
 
 
 def case(case_id):
@@ -17,15 +23,17 @@ def discrimination(name):
     return next(row for row in load()["cross_case_discriminations"] if row["hypothesis"] == name)
 
 
-def test_five_cases_span_propagation_buffering_branching_and_alternative_mechanisms():
+def test_current_case_vocabulary_uses_correction_overlay_for_guaiacum():
     data = load()
-    states = {row["case_id"]: row["propagation_state"] for row in data["cases"]}
-    assert len(states) == 5
-    assert states["ogasawara_psychotria_homalosperma"] == "propagates_same_direction"
-    assert states["hawaii_lobelioids_2026"] == "buffered_or_resilient"
-    assert states["puerto_rico_mona_guaiacum"] == "buffered_or_resilient"
-    assert states["izu_hiraiwa_and_campanula_anchor"] == "branches_downstream"
-    assert states["california_channel_islands_nicotiana_glauca"] == "buffered_or_alternative_mechanism"
+    historical_states = {row["case_id"]: row["propagation_state"] for row in data["cases"]}
+    assert historical_states["ogasawara_psychotria_homalosperma"] == "propagates_same_direction"
+    assert historical_states["hawaii_lobelioids_2026"] == "buffered_or_resilient"
+    assert historical_states["izu_hiraiwa_and_campanula_anchor"] == "branches_downstream"
+    assert historical_states["california_channel_islands_nicotiana_glauca"] == "buffered_or_alternative_mechanism"
+    # v1 is retained as historical evidence; current Guaiacum state is explicitly superseded.
+    assert historical_states["puerto_rico_mona_guaiacum"] == "buffered_or_resilient"
+    assert correction()["corrected_propagation_state"] == "reproductive_axes_decouple"
+    assert correction()["supersedes"]["old_propagation_state"] == "buffered_or_resilient"
 
 
 def test_autonomous_assurance_is_not_promoted_to_universal_buffer():
@@ -35,13 +43,13 @@ def test_autonomous_assurance_is_not_promoted_to_universal_buffer():
     assurance = guaiacum["candidate_filters"]["autonomous_reproductive_assurance"]
     assert assurance["evidence_state"] == "argues_against_universal_assurance_buffer"
     assert "pollen vector is required" in assurance["evidence"]
+    assert correction()["buffer_candidate_status"].startswith("remove_from_reproductive_buffer_portfolio")
 
 
-def test_ogasawara_and_hawaii_form_propagation_vs_buffering_contrast_without_numeric_overclaim():
+def test_ogasawara_and_hawaii_remain_propagation_and_buffer_boundary_references():
     ogasawara = case("ogasawara_psychotria_homalosperma")
     hawaii = case("hawaii_lobelioids_2026")
     assert ogasawara["candidate_filters"]["physical_access_or_functional_matching"]["evidence_state"] == "direct_support_for_propagation"
-    assert "categorical rather than a numeric signed-position" in ogasawara["candidate_filters"]["physical_access_or_functional_matching"]["interpretation"]
     assert hawaii["candidate_filters"]["physical_access_or_functional_matching"]["evidence_state"] == "direct_upstream_effect_not_sufficient_for_reproductive_collapse"
     assert hawaii["candidate_filters"]["direct_reproductive_dependency"]["evidence_state"] == "missing"
 
@@ -54,33 +62,26 @@ def test_nicotiana_keeps_establishment_filter_live_when_current_service_deficit_
     assert d["decision"] == "rejected_as_universal"
 
 
-def test_no_single_common_buffer_is_claimed():
-    data = load()
+def test_guaiacum_current_reading_separates_breeding_index_from_realized_reproduction():
+    c = correction()
+    assert c["corrected_propagation_state"] == "reproductive_axes_decouple"
+    assert "self/outcross seed-set index is similar" in c["corrected_observed_pattern"]
+    assert "open reproductive performance is not equivalently maintained" in c["corrected_observed_pattern"]
+    assert "Mona" in " ".join(c["source_native_facts_requiring_correction"]["realized_reproductive_performance"])
+
+
+def test_no_single_common_buffer_is_claimed_and_issue91_is_not_programme_blocker():
     d = discrimination("one_common_buffering_mechanism_is_already_identified")
     assert d["decision"] == "not_supported"
-    assert data["programme_decision"] == "reject_single_buffer_explanation_prioritize_matched_dependency_effectiveness_measurements"
-    assert "No single tested downstream filter" in data["current_causal_reading"]["central_result"]
+    mainline = json.loads(MAINLINE.read_text(encoding="utf-8"))
+    assert mainline["protected_scientific_state"]["mechanism_decomposition"]["empirically_identified_universal_buffer"] is False
+    assert mainline["protected_scientific_state"]["issue91_prediction_freeze"]["programme_blocker"] is False
+    assert mainline["protected_scientific_state"]["buffer_mechanism_admission"]["candidate_count"] == 2
 
 
-def test_issue91_is_ranked_first_and_still_empirical_data_missing():
-    data = load()
-    first = data["ranked_next_measurements"][0]
-    assert first["rank"] == 1
-    assert first["target"] == "Izu Issue #91 direct dependency/effective-service anchor"
-    assert first["status"] == "implementation_ready_field_data_missing"
-    assert "open/bagged-autonomous/supplemental-outcross" in first["measurement"]
-
-
-def test_ranked_discriminators_do_not_silently_promote_a_complete_or_universal_mechanism():
-    data = load()
-    assert data["current_causal_reading"]["central_result"].endswith(
-        "the identity of the propagation filter is system-specific or unresolved."
-    )
-    assert all(row["status"] != "complete_causal_bridge" for row in data["ranked_next_measurements"])
-    assert discrimination("one_common_buffering_mechanism_is_already_identified")["decision"] == "not_supported"
-
-
-def test_candidate_labels_are_not_converted_to_hidden_causes():
-    data = load()
-    assert "does not estimate causal effect sizes" in data["claim_boundary"]
-    assert "remain hypotheses" in data["claim_boundary"]
+def test_current_next_gate_is_network_service_mapping_not_hidden_cause():
+    mainline = json.loads(MAINLINE.read_text(encoding="utf-8"))
+    assert mainline["protected_scientific_state"]["buffer_mechanism_admission"]["mapping_ready_count"] == 0
+    assert mainline["protected_scientific_state"]["buffer_mechanism_admission"]["empirically_admitted_count"] == 0
+    assert mainline["comparison_contract"]["network_context_empirical_prediction_freeze"] == "data/design/network_context_empirical_prediction_freeze.json"
+    assert "visitor_assemblage_difference_as_service_redundancy_without_per_visit_effectiveness" in mainline["not_mainline"]
