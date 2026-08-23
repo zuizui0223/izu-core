@@ -14,7 +14,7 @@ def load(path: Path) -> dict:
 
 
 def gate_is_admitted(state: str) -> bool:
-    return state == "admitted" or state.startswith("admitted_")
+    return state == "admitted"
 
 
 def audit(registry: dict) -> dict:
@@ -68,7 +68,7 @@ def audit(registry: dict) -> dict:
             else "no_current_system_mapping_ready_keep_empirical_network_context_mapping_source_or_prospective_triggered"
         ),
         "claim_boundary": (
-            "Readiness counts source-locked measurement links only. Structural closeness is not a causal ranking and does not override source accessibility, prospective feasibility, or the frozen prediction rules. Missing E_k cannot be replaced by visitor abundance, identity, richness or body-size proxies."
+            "Only an exact 'admitted' gate passes. Partial, one-sided, cross-year, article-level-only, protocol-only or provenance-blocked links remain non-admitted. Readiness is structural, not a causal ranking, and missing E_k cannot be replaced by visitor abundance, identity, richness or body-size proxies."
         ),
     }
 
