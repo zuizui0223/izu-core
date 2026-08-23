@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "analysis": "constraint_mechanism_abm_v14b_assurance_buffering_robustness",
+  "status": "independent_seed_block_frozen_before_run",
+  "parent_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json",
+  "scientific_question": "Does the sign-level buffering capability discovered once in the initial v14 block reappear under an independent non-overlapping stochastic seed block, and does the broad assurance magnitude-rescue effect persist, without any parameter or threshold changes?",
+  "model_and_parameter_lock": {
+    "model_script": "scripts/run_constraint_mechanism_abm_v14_assurance_buffering.py",
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 40,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "seed": 120260822,
+    "seed_relation_to_v14": "v14 base seed 20260822 plus 100000000; no replicate seed overlaps the original four-replicate block",
+    "local_support_strength": 0.5,
+    "partner_effectiveness_strength": 1.0,
+    "assurance_on_off_definition_unchanged": true,
+    "directional_epsilon": 1e-12,
+    "parameter_changes_from_v14": false,
+    "threshold_changes_from_v14": false
+  },
+  "expected_total_lineage_contrasts": 2880,
+  "primary_robustness_rule": {
+    "metric": "assurance_sign_rescues",
+    "replicates_initial_v14_discovery": "one sign rescue in 202 service-decline lineage contrasts",
+    "independent_confirmation_condition": "assurance_sign_rescues > 0 in the non-overlapping seed block",
+    "decision_if_met": "synthetic_sign_buffering_replicates_in_independent_seed_block",
+    "decision_if_not_met_but_magnitude_rescue_present": "initial_sign_rescue_not_replicated_but_assurance_magnitude_effect_persists",
+    "decision_if_neither": "assurance_buffering_capability_not_robust_in_independent_seed_block"
+  },
+  "secondary_robustness_rule": {
+    "metric": "assurance_magnitude_rescues / service_decline_lineages",
+    "broad_effect_condition": "> 0.5",
+    "interpretation": "A majority threshold tests whether assurance remains a broad propagation-magnitude modifier; it is not an empirical frequency target."
+  },
+  "empirical_target_use": {
+    "hawaii_outcomes_used": false,
+    "guaiacum_outcomes_used": false,
+    "nicotiana_outcomes_used": false,
+    "issue91_outcomes_used": false,
+    "observed_natural_buffering_frequency_targeted": false
+  },
+  "forbidden_after_run": [
+    "do not change seed block after seeing the result",
+    "do not tune assurance ceilings or responsiveness",
+    "do not alter local support or partner effectiveness",
+    "do not change the zero directional boundary",
+    "do not call a replicated synthetic capability empirical Hawaiʻi validation",
+    "do not use the synthetic buffering frequency as an estimate of natural prevalence"
+  ],
+  "claim_boundary": "v14b is an independent stochastic robustness check of an already-existing ABM route. It can strengthen or weaken a synthetic sufficiency claim only; empirical mechanism admission remains governed by the separate source-matched held-out admission interface."
+}
