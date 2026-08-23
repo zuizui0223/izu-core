@@ -1,0 +1,79 @@
+{
+  "analysis": "system_agnostic_abm_multi_system_validation",
+  "schema_version": "1.0",
+  "run_date": "2026-08-23",
+  "status": "strict_harness_complete",
+  "empirical_inputs_loaded_into_abm": false,
+  "parameters_retuned_to_systems": false,
+  "campanula_specific_tuning": false,
+  "synthetic_state_capabilities": {
+    "branches_downstream": {
+      "status": "synthetically_demonstrated",
+      "v12_mixed_sign_run_fraction": 0.4166666666666667,
+      "v12_mean_within_run_branching_balance": 0.2569444444444444,
+      "initial_trait_off_mixed_sign_run_fraction": 0.0
+    },
+    "same_direction_response": {
+      "status": "synthetically_demonstrated_at_sign_class_only",
+      "v12_nonmixed_run_fraction": 0.5833333333333333,
+      "v12_pooled_positive": 157,
+      "v12_pooled_negative": 131,
+      "v12_pooled_equal": 0
+    },
+    "branch_reallocation": {
+      "status": "synthetically_demonstrated",
+      "local_support_paired_sign_changes": 105,
+      "partner_effectiveness_paired_sign_changes": 13
+    },
+    "buffered_or_resilient": {
+      "status": "not_yet_strictly_validated",
+      "reason": "No frozen system-level buffering estimand or source-identified buffer mapping exists in the current ABM outputs."
+    },
+    "counterdirectional_prediction": {
+      "status": "empirical_falsification_retained_not_a_capability_target",
+      "reason": "The Dominica frozen signed-position direction failed and is retained as a failure."
+    }
+  },
+  "system_results": [
+    {
+      "system_id": "izu_multi_taxon_hiraiwa",
+      "target_state": "branches_downstream",
+      "decision": "qualitatively_covered_by_frozen_synthetic_branching"
+    },
+    {
+      "system_id": "ogasawara_psychotria_homalosperma",
+      "target_state": "propagates_same_direction",
+      "decision": "sign_class_compatible_mechanism_mapping_not_validated"
+    },
+    {
+      "system_id": "hawaii_lobelioids_2026",
+      "target_state": "buffered_or_resilient",
+      "decision": "coverage_gap_buffer_mechanism_not_source_identified_in_abm"
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "target_state": "buffered_or_alternative_mechanism",
+      "decision": "coverage_gap_buffer_mechanism_not_source_identified_in_abm"
+    },
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "target_state": "buffered_or_resilient",
+      "decision": "coverage_gap_buffer_mechanism_not_source_identified_in_abm"
+    },
+    {
+      "system_id": "dominica_heliconia",
+      "target_state": "counterdirectional_to_frozen_signed_position_prediction",
+      "decision": "retained_falsification"
+    }
+  ],
+  "summary": {
+    "systems": 6,
+    "qualitatively_covered": 1,
+    "sign_class_compatible_but_unmapped": 1,
+    "buffer_mechanism_coverage_gaps": 3,
+    "retained_falsifications": 1
+  },
+  "decision": "partial_multi_system_coverage_branching_supported_directional_capability_present_buffer_mechanisms_underidentified_dominica_mapping_failed",
+  "next_gate": "Do not add a generic buffer parameter. Admit a buffering mechanism only from source-native measurements linking upstream functional change, direct service/effectiveness or equivalent propagation, downstream reproductive response, and the candidate buffer/filter. Issue #91 is one parallel option, not a programme prerequisite.",
+  "claim_boundary": "This is qualitative mechanism-coverage validation, not numerical model fit or empirical causal identification."
+}
