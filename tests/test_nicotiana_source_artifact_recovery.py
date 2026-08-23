@@ -41,3 +41,28 @@ def test_gate_does_not_treat_restricted_dissertation_as_recovered_source():
     assert backup["access"] == "restricted_to_current_um_users"
     assert "Do not treat" in backup["rule"]
     assert "restricted dissertation" in backup["rule"]
+
+
+def test_only_alternate_deepblue_route_is_live_and_springer_is_frozen():
+    gate = json.loads(GATE.read_text(encoding="utf-8"))
+    sources = {row["source_id"]: row for row in gate["sources"]}
+    source_2004 = sources["schueller_2004_self_pollination"]
+    source_2007 = sources["schueller_2007_corolla_selection"]
+    assert source_2004["retrieval_url"].endswith("/bitstream/2027.42/142032/1/ajb20672.pdf")
+    assert source_2004["previous_transport_attempt"]["state"] == "recovered_non_pdf"
+    assert source_2007["frozen_transport_result"]["state"] == "recovered_non_pdf"
+    assert source_2007["frozen_transport_result"]["reused_frozen_result"] is True
+
+
+def test_fetch_source_reuses_frozen_result_without_network(monkeypatch):
+    module = load_module()
+    gate = json.loads(GATE.read_text(encoding="utf-8"))
+    source = next(row for row in gate["sources"] if row["source_id"] == "schueller_2007_corolla_selection")
+
+    def forbidden_urlopen(*args, **kwargs):
+        raise AssertionError("frozen route must not be fetched again")
+
+    monkeypatch.setattr(module.urllib.request, "urlopen", forbidden_urlopen)
+    result = module.fetch_source(source)
+    assert result["state"] == "recovered_non_pdf"
+    assert result["reused_frozen_result"] is True
