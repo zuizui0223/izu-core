@@ -40,38 +40,43 @@ def test_strict_validation_and_buffer_admission_remain_partial():
     assert admission["posthoc_target_fitting_allowed"] is False
 
 
-def test_v14_assurance_has_synthetic_sufficiency_but_does_not_change_empirical_admission():
+def test_v14_initial_sign_rescue_is_retained_but_independent_robustness_downgrades_claim():
     mainline = load_mainline()
     state = mainline["protected_scientific_state"]["abm_mechanism_state"]
-    assert state["v14_assurance_buffering"] == (
-        "synthetic_sign_buffering_sufficient_but_sparse_one_of_202_service_declines_"
-        "197_magnitude_rescues_empirical_admission_unchanged"
-    )
-    assert state["v14_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
+    assert "one_of_202_service_declines_sign_rescued" in state["v14_assurance_initial"]
+    assert state["v14_initial_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
+    assert "zero_of_216_sign_rescued_207_magnitude_rescued" in state["v14_assurance_robustness"]
+    assert "zero_of_525_sign_rescued_510_attenuated" in state["v14_assurance_robustness"]
+    assert state["v14_robustness_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json"
+    assert state["v14_broadened_result"] == "data/results/assurance_buffering_capability_ablation_frozen.json"
+
     admission = mainline["protected_scientific_state"]["buffer_mechanism_admission"]
     assert admission["mapping_ready_count"] == 0
     assert admission["empirically_admitted_count"] == 0
-    assert admission["hawaii_assurance_result"] == "data/results/hawaii_autonomous_assurance_abm_admission_frozen.json"
 
 
-def test_stage_h_records_sparse_v14_sign_rescue_and_requires_independent_robustness():
+def test_stage_h_records_robust_attenuation_and_nonreplicated_sign_buffering():
     mainline = load_mainline()
     p2 = workstream(mainline, "P2")
     stage_h = next(row for row in p2["stages"] if row["stage"] == "H")
     assert stage_h["name"] == "buffer_mechanism_admission_and_synthetic_capability"
-    assert "assurance_sign_rescue_1_of_202" in stage_h["current_state"]
-    assert "magnitude_rescue_197_of_202" in stage_h["current_state"]
-    assert stage_h["v14_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
-    assert "non-overlapping stochastic block" in stage_h["rule"]
+    assert "one_of_202_not_replicated" in stage_h["current_state"]
+    assert "zero_of_216" in stage_h["current_state"]
+    assert "zero_of_525" in stage_h["current_state"]
+    assert stage_h["v14_initial_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
+    assert stage_h["v14_robustness_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json"
+    assert "magnitude attenuation" in stage_h["rule"]
+    assert "Do not tune assurance" in stage_h["rule"]
 
 
-def test_next_task_is_independent_v14_robustness_without_retuning():
+def test_next_task_moves_to_next_existing_buffer_route_without_assurance_seed_search():
     mainline = load_mainline()
     assert mainline["next_executable_task"].startswith(
-        "freeze_and_run_an_independent_nonoverlapping_seed_block_robustness_test_of_the_exact_v14_assurance_ablation"
+        "test_the_next_already_implemented_source_plausible_buffer_route_service_redundancy_or_network_context"
     )
     assert "calling_one_v14_sign_rescue_a_robust_buffering_frequency" in mainline["not_mainline"]
     assert "tuning_assurance_after_v14_to_increase_sign_rescue" in mainline["not_mainline"]
+    assert "seed_searching_until_assurance_sign_rescue_reappears" in mainline["not_mainline"]
     assert "calling_synthetic_buffering_capability_empirical_validation" in mainline["not_mainline"]
     assert "using_hawaii_2026_outcomes_to_choose_assurance_parameter_values" in mainline["not_mainline"]
     assert "making_issue91_campanula_field_data_a_programme_wide_blocker" in mainline["not_mainline"]
