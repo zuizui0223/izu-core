@@ -1,0 +1,18 @@
+{
+  "system_id": "puerto_rico_mona_guaiacum",
+  "candidate_mechanism": "service_redundancy_or_compensatory_abundance",
+  "upstream_functional_change_source_locked": true,
+  "propagation_step_directly_measured": false,
+  "downstream_reproductive_response_directly_measured": true,
+  "candidate_filter_directly_measured": false,
+  "matched_transition_or_prospectively_matched_units": true,
+  "sampling_hierarchy_locked": true,
+  "source_native_units_locked": true,
+  "alternative_filters_recorded": true,
+  "mapping_to_abm_component_predeclared": false,
+  "mapping_frozen_before_target_outcome_test": false,
+  "target_outcome_used_to_choose_parameter_values": false,
+  "predeclared_test_result": null,
+  "evidence_scope": "Guaiacum has a strong population-level visitor-environment contrast and similar breeding-system index with negligible autogamy, but visitor-specific direct pollen effectiveness and rate-weighted effective service are not recovered. Compensatory service is therefore a candidate, not a measured buffer.",
+  "boundary": "Visitor abundance or assemblage composition cannot be relabelled service redundancy without direct per-visit effectiveness."
+}

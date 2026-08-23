@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+  "candidate_mechanism": "autonomous_reproductive_assurance",
+  "state": "candidate_only_no_abm_admission",
+  "mapping_ready": false,
+  "empirically_admitted": false,
+  "predeclared_test_result": null,
+  "reasons": [
+    "missing prerequisite: matched_transition_or_prospectively_matched_units",
+    "missing prerequisite: mapping_to_abm_component_predeclared",
+    "missing prerequisite: mapping_frozen_before_target_outcome_test"
+  ],
+  "existing_abm_component": "assurance_capacity_or_responsiveness",
+  "new_component_required_if_admitted": false,
+  "claim_boundary": "Admission applies only to the declared mechanism and evidence scope. Candidate-only evidence is not a fitted buffer; mapping-ready status is permission to test, not evidence of success; a failed predeclared test remains failed."
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "analysis": "buffer_candidate_portfolio_admission",
+  "interface": "data/design/buffer_mechanism_abm_admission_interface.json",
+  "candidates": [
+    {
+      "schema_version": "1.0",
+      "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "candidate_mechanism": "autonomous_reproductive_assurance",
+      "state": "candidate_only_no_abm_admission",
+      "mapping_ready": false,
+      "empirically_admitted": false,
+      "predeclared_test_result": null,
+      "reasons": [
+        "missing prerequisite: matched_transition_or_prospectively_matched_units",
+        "missing prerequisite: mapping_to_abm_component_predeclared",
+        "missing prerequisite: mapping_frozen_before_target_outcome_test"
+      ],
+      "existing_abm_component": "assurance_capacity_or_responsiveness",
+      "new_component_required_if_admitted": false,
+      "claim_boundary": "Admission applies only to the declared mechanism and evidence scope. Candidate-only evidence is not a fitted buffer; mapping-ready status is permission to test, not evidence of success; a failed predeclared test remains failed.",
+      "candidate_path": "data/design/buffer_candidate_hawaii_autonomous_assurance.json"
+    },
+    {
+      "schema_version": "1.0",
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "candidate_mechanism": "autonomous_reproductive_assurance",
+      "state": "candidate_only_no_abm_admission",
+      "mapping_ready": false,
+      "empirically_admitted": false,
+      "predeclared_test_result": null,
+      "reasons": [
+        "missing prerequisite: matched_transition_or_prospectively_matched_units",
+        "missing prerequisite: mapping_to_abm_component_predeclared",
+        "missing prerequisite: mapping_frozen_before_target_outcome_test"
+      ],
+      "existing_abm_component": "assurance_capacity_or_responsiveness",
+      "new_component_required_if_admitted": false,
+      "claim_boundary": "Admission applies only to the declared mechanism and evidence scope. Candidate-only evidence is not a fitted buffer; mapping-ready status is permission to test, not evidence of success; a failed predeclared test remains failed.",
+      "candidate_path": "data/design/buffer_candidate_nicotiana_autonomous_assurance.json"
+    },
+    {
+      "schema_version": "1.0",
+      "system_id": "puerto_rico_mona_guaiacum",
+      "candidate_mechanism": "service_redundancy_or_compensatory_abundance",
+      "state": "candidate_only_no_abm_admission",
+      "mapping_ready": false,
+      "empirically_admitted": false,
+      "predeclared_test_result": null,
+      "reasons": [
+        "missing prerequisite: propagation_step_directly_measured",
+        "missing prerequisite: candidate_filter_directly_measured",
+        "missing prerequisite: mapping_to_abm_component_predeclared",
+        "missing prerequisite: mapping_frozen_before_target_outcome_test"
+      ],
+      "existing_abm_component": "local_support_and_partner_effectiveness",
+      "new_component_required_if_admitted": false,
+      "claim_boundary": "Admission applies only to the declared mechanism and evidence scope. Candidate-only evidence is not a fitted buffer; mapping-ready status is permission to test, not evidence of success; a failed predeclared test remains failed.",
+      "candidate_path": "data/design/buffer_candidate_guaiacum_service_redundancy.json"
+    }
+  ],
+  "summary": {
+    "candidate_count": 3,
+    "state_counts": {"candidate_only_no_abm_admission": 3},
+    "mapping_ready_count": 0,
+    "empirically_admitted_count": 0,
+    "missing_prerequisite_counts": {
+      "candidate_filter_directly_measured": 1,
+      "mapping_frozen_before_target_outcome_test": 3,
+      "mapping_to_abm_component_predeclared": 3,
+      "matched_transition_or_prospectively_matched_units": 2,
+      "propagation_step_directly_measured": 1
+    }
+  },
+  "decision": "no_current_registered_buffer_candidate_is_mapping_ready_or_empirically_admitted",
+  "next_gate": "Close source-identified missing prerequisites in existing candidates or register a genuinely new candidate. Do not add a generic buffer parameter and do not use known target outcomes to choose mappings.",
+  "claim_boundary": "This portfolio compares admission readiness, not biological effect sizes. Different candidates may lack different links and are not quantitatively pooled."
+}

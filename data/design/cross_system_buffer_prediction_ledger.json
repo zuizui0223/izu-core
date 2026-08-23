@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "status": "qualitative_predictions_frozen_before_future_buffer_admission_tests",
+  "purpose": "Predeclare what each candidate propagation/buffering mechanism would have to look like across the currently admitted island cases before new measurements are used to promote any mechanism into the ABM.",
+  "candidate_predictions": [
+    {
+      "mechanism": "autonomous_reproductive_assurance",
+      "required_signature": [
+        "direct effective service is low or reduced",
+        "reproductive output is maintained relative to an explicit capacity denominator",
+        "autonomous reproduction is high in the same matched units",
+        "buffering weakens where autonomous reproduction is low after direct service is accounted for"
+      ],
+      "would_be_weakened_by": "repeated buffering under low service in units with low autonomous reproduction or high direct pollinator dependency",
+      "current_case_reading": {
+        "hawaii_lobelioids": "candidate_supported_for_Clermontia_lindseyana_and_C_pyrularia_by_historical_exact_taxon_sources_but_not_same_context_tested",
+        "nicotiana_glauca": "strong_system_specific_candidate_but_current_service_deficit_not_detected",
+        "guaiacum": "argues_against_universal_assurance_buffer_because_autogamy_is_negligible",
+        "issue91_campanula": "prospective_direct_test_ready_when_real_rows_exist"
+      },
+      "universal_mechanism_prediction": false
+    },
+    {
+      "mechanism": "service_redundancy_or_compensatory_abundance",
+      "required_signature": [
+        "pollinator composition or functional exposure changes",
+        "direct rate-weighted effective service remains stable or is compensated",
+        "reproductive output remains stable",
+        "the compensating visitor groups have measured visit rate and per-visit effectiveness rather than occurrence alone"
+      ],
+      "would_be_weakened_by": "buffering when direct effective service is clearly reduced and no compensating service channel is measured",
+      "current_case_reading": {
+        "guaiacum": "live_candidate_because_visitor_abundance_and_composition_differ_but_direct_effectiveness_is_missing",
+        "hawaii_lobelioids": "not_resolved_because_contact_or_robbing_is_not_a_complete_effective_service_measure",
+        "cordia": "Yongxing_effectiveness_is_measured_but_Dong_effectiveness_is_missing"
+      },
+      "universal_mechanism_prediction": false
+    },
+    {
+      "mechanism": "resource_or_demographic_compensation",
+      "required_signature": [
+        "an upstream service or interaction-quality deficit is directly measured",
+        "autonomous assurance and direct service are measured sufficiently to exclude them as the sole buffer",
+        "a resource or demographic process responds to the perturbation in the same units",
+        "the measured compensatory process predicts or experimentally restores reproductive performance"
+      ],
+      "would_be_weakened_by": "resource change that is not linked to reproductive maintenance after assurance and direct service are separated",
+      "current_case_reading": {
+        "hawaii_lobelioids": "resource_replenishment_change_is_observed_but_not_uniquely_identified_as_the_reproductive_buffer",
+        "other_current_cases": "no_source_locked_direct_compensation_chain"
+      },
+      "universal_mechanism_prediction": false
+    },
+    {
+      "mechanism": "colonization_or_establishment_filtering",
+      "required_signature": [
+        "island trait or assurance differences exist without a measured current service deficit",
+        "independent colonization, establishment, or survivorship history varies across units",
+        "the trait or assurance difference tracks the establishment history better than current pollinator shortage",
+        "current service and reproductive state are measured rather than inferred from syndrome"
+      ],
+      "would_be_weakened_by": "the same trait shift repeatedly emerges within established native populations in direct response to current service loss",
+      "current_case_reading": {
+        "nicotiana_glauca": "live_source_supported_alternative_due_introduction_history_and_high_assurance_without_current_service_deficit",
+        "hawaii_lobelioids": "not_primary_candidate_for_native_persistence_case",
+        "ogasawara_psychotria": "not_primary_candidate_for_endemic_focal_plant"
+      },
+      "universal_mechanism_prediction": false
+    },
+    {
+      "mechanism": "network_context_or_rewiring",
+      "required_signature": [
+        "upstream functional exposure is similar or changes in a known way",
+        "realized interaction support or partner identity differs",
+        "visitor-specific direct effectiveness converts the network difference into different effective service",
+        "the effective-service difference predicts downstream propagation state"
+      ],
+      "would_be_weakened_by": "branching that persists when matched network support and direct effective service are equivalent",
+      "current_case_reading": {
+        "izu_multi_taxon": "network_state_sensitive_matching_to_pollen_link_supports_branch_allocator_role",
+        "abm_v11": "local_support_changes_branch_identity_but_is_not_required_to_generate_branching",
+        "guaiacum": "network_change_is_directly_observed_but_effectiveness_link_is_missing"
+      },
+      "universal_mechanism_prediction": false
+    }
+  ],
+  "positive_and_negative_control_cases": {
+    "propagation_reference": {
+      "system": "ogasawara_psychotria_homalosperma",
+      "role": "physical_access_to_pollen_flow_to_fruit_asymmetry_shows_that_upstream_failure_can_propagate_when_reproductive_escape_is_limited",
+      "not_a_buffer_example": true
+    },
+    "branching_reference": {
+      "system": "izu_multi_taxon_hiraiwa",
+      "role": "commonish_matching_decline_with_divergent_downstream_signs_prevents_one_universal_propagation_direction",
+      "not_a_single_buffer_example": true
+    },
+    "falsification_reference": {
+      "system": "dominica_heliconia",
+      "role": "frozen_signed_position_direction_failed_and_must_remain_failed",
+      "model_rescue_allowed": false
+    }
+  },
+  "decision_rules_for_future_data": [
+    "A candidate can be described as source-supported before ABM admission, as with Hawaiʻi autonomous assurance.",
+    "A source-supported candidate cannot be encoded as empirically identified merely because it explains a known buffered outcome retrospectively.",
+    "If more than one candidate signature remains compatible, classify the buffer as unresolved rather than fitting all candidates.",
+    "If a candidate reaches mapping-ready status, freeze the mapping and pass/fail target before testing downstream outcome.",
+    "If the predeclared test fails, retain the failure and reopen only with genuinely new independent evidence, not retuning on the same target."
+  ],
+  "current_result": "no_single_buffer_mechanism_is_empirically_admitted; autonomous assurance is narrowed as a Hawaiʻi exact-taxon candidate for two Clermontia species but remains untested in the 2026 matched context",
+  "claim_boundary": "These are qualitative mechanism-discrimination predictions. They do not assume effect-size commensurability across islands and do not make any candidate universal."
+}
