@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "analysis": "constraint_mechanism_abm_v14_assurance_buffering_ablation",
+  "status": "design_frozen_before_full_run",
+  "scientific_question": "Can the existing autonomous-assurance route, without any new parameter or empirical retuning, synthetically convert a decline in effective pollinator service into maintained or increased reproduction for some lineages?",
+  "model_base": {
+    "opportunity_generator": "v9 local plant opportunity stack",
+    "service_and_reproduction": "v10 effective-service/dependency implementation",
+    "factor_context": "full retained v11-style configuration except the matched assurance-route ablation",
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "seed": 20260822,
+    "local_support_strength": 0.5,
+    "partner_effectiveness_strength": 1.0,
+    "dependency_heterogeneity": true,
+    "initial_trait_position_heterogeneity": true
+  },
+  "matched_ablation": {
+    "assurance_on": "use frozen lineage assurance_ceiling and assurance_responsiveness values",
+    "assurance_off": "set assurance_ceiling=0 and assurance_responsiveness=0 for every lineage; leave opportunity, local support, partner effectiveness, dependency, trait position and all random streams unchanged",
+    "service_must_be_identical_between_assurance_ablations": true
+  },
+  "directional_state_definitions": {
+    "epsilon": 1e-12,
+    "service_decline": "island mean_effective_service - mainland mean_effective_service < -epsilon",
+    "reproduction_decline": "island mean_reproduction - mainland mean_reproduction < -epsilon",
+    "synthetic_buffering": "service_decline AND reproduction_delta >= -epsilon",
+    "assurance_sign_rescue": "service_decline AND assurance_on reproduction_delta >= -epsilon AND assurance_off reproduction_delta < -epsilon",
+    "assurance_magnitude_rescue": "service_decline AND assurance_on reproduction_delta > assurance_off reproduction_delta + epsilon"
+  },
+  "primary_decision_rule": [
+    "If assurance_sign_rescue > 0, conclude that the already-existing assurance route is synthetically sufficient to create at least one buffering state under the frozen model.",
+    "If assurance_sign_rescue = 0 but assurance_magnitude_rescue > 0, conclude that assurance changes the magnitude of propagation but has not demonstrated sign-level buffering under this design.",
+    "If both are zero, conclude that the existing assurance route does not generate buffering under the frozen design."
+  ],
+  "secondary_outputs": [
+    "number of service-decline lineage contrasts",
+    "buffered lineage contrasts with assurance ON",
+    "buffered lineage contrasts with assurance OFF",
+    "assurance sign rescues",
+    "assurance magnitude rescues",
+    "counts by saturation",
+    "mean service and reproductive deltas under matched ON/OFF runs"
+  ],
+  "empirical_target_use": {
+    "hawaii_2026_outcome_used_to_set_thresholds": false,
+    "guaiacum_outcome_used_to_set_thresholds": false,
+    "nicotiana_outcome_used_to_set_thresholds": false,
+    "issue91_outcome_used_to_set_thresholds": false,
+    "observed_buffer_frequency_targeted": false,
+    "only_zero_directional_boundary_used": true
+  },
+  "forbidden_interpretations": [
+    "do not call synthetic buffering empirical validation of Hawaiʻi or any other island system",
+    "do not infer autonomous assurance is the universal island buffer",
+    "do not use the result to admit the Hawaiʻi assurance candidate under the empirical admission interface",
+    "do not tune assurance ceilings or responsiveness after this run to increase buffering counts",
+    "do not add a generic buffer parameter if assurance fails"
+  ],
+  "next_gate_after_run": "Freeze the exact result. If synthetic sign rescue exists, assurance gains synthetic sufficiency only; empirical admission remains governed separately by the frozen buffer-mechanism admission interface. If it does not, retain the failure and move to other source-identified candidates without retuning assurance.",
+  "claim_boundary": "This is a synthetic mechanism-capability ablation. It tests whether an existing route can generate a qualitative buffering state, not whether that route caused any observed island pattern."
+}
