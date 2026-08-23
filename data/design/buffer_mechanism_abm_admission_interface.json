@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "status": "frozen_before_any_buffer_mechanism_abm_admission",
+  "purpose": "Define the minimum evidence and mapping rules required before a plant-side propagation/buffering filter can be encoded or empirically promoted in the island-pollination ABM. The interface applies to any island system and prevents post-hoc mechanism rescue.",
+  "programme_rules": {
+    "system_agnostic": true,
+    "issue91_or_campanula_privileged": false,
+    "generic_hidden_buffer_parameter_allowed": false,
+    "target_outcome_fit_allowed_before_mapping_freeze": false,
+    "transport_filter_values_between_unmatched_populations_allowed": false,
+    "failed_predictions_are_retained": true,
+    "null_or_adverse_tests_are_admissible": true
+  },
+  "candidate_mechanism_vocabulary": {
+    "autonomous_reproductive_assurance": {
+      "existing_abm_component": "assurance_capacity_or_responsiveness",
+      "primary_signature": "low effective service can coexist with maintained reproductive performance when autonomous reproduction is high; the same buffer should weaken where autonomous assurance is low",
+      "minimum_direct_measurement": "pollinator exclusion or otherwise controlled autonomous reproduction relative to an explicit reproductive-capacity denominator such as supplemental outcross",
+      "not_equivalent_to": ["self_compatibility", "manual_self_pollination", "mating_system_label_without_autonomous_treatment"]
+    },
+    "service_redundancy_or_compensatory_abundance": {
+      "existing_abm_component": "local_support_and_partner_effectiveness",
+      "primary_signature": "pollinator composition or functional exposure can change while directly measured effective service remains maintained because alternative visitors compensate in rate and/or per-visit effectiveness",
+      "minimum_direct_measurement": "visitor-specific or group-specific visit rate plus direct per-visit effectiveness, combined on the same service scale",
+      "not_equivalent_to": ["visitor_richness", "visitation_rate_alone", "pollinator_occurrence"]
+    },
+    "resource_or_demographic_compensation": {
+      "existing_abm_component": null,
+      "new_component_required_if_admitted": true,
+      "primary_signature": "a directly measured post-interaction resource or demographic process compensates for an upstream service or damage deficit and predicts maintained reproductive output after assurance and direct service are measured",
+      "minimum_direct_measurement": "manipulated or naturally contrasted resource/demographic response linked to reproductive output in the same units, with direct service and autonomous assurance measured or otherwise separated",
+      "not_equivalent_to": ["high_fruit_set_alone", "nectar_replenishment_change_without_link_to_reproduction", "unmeasured_resource_buffer"]
+    },
+    "colonization_or_establishment_filtering": {
+      "existing_abm_component": "initial_state_distribution_or_survivorship_filter",
+      "primary_signature": "island trait or assurance differences occur without a current service deficit and covary with independently measured colonization, establishment, or survivorship history rather than being inferred from present pollinator shortage",
+      "minimum_direct_measurement": "independent colonization/establishment contrast or temporal history plus current service and reproductive-assurance measurements",
+      "not_equivalent_to": ["introduced_status_alone", "island_mainland_difference_alone"]
+    },
+    "network_context_or_rewiring": {
+      "existing_abm_component": "local_support_and_network_context",
+      "primary_signature": "the same or similar upstream functional environment yields different realized service because interaction support/partner identity differs, and this difference predicts downstream propagation state",
+      "minimum_direct_measurement": "network or interaction support plus direct effectiveness/service in matched units",
+      "not_equivalent_to": ["network_turnover_without_service", "partner_identity_without_effectiveness"]
+    }
+  },
+  "required_evidence_fields": [
+    "system_id",
+    "candidate_mechanism",
+    "upstream_functional_change_source_locked",
+    "propagation_step_directly_measured",
+    "downstream_reproductive_response_directly_measured",
+    "candidate_filter_directly_measured",
+    "matched_transition_or_prospectively_matched_units",
+    "sampling_hierarchy_locked",
+    "source_native_units_locked",
+    "alternative_filters_recorded",
+    "mapping_to_abm_component_predeclared",
+    "mapping_frozen_before_target_outcome_test",
+    "target_outcome_used_to_choose_parameter_values"
+  ],
+  "admission_states": {
+    "candidate_only_no_abm_admission": "A biologically plausible or source-supported candidate exists, but one or more matched evidence links or pre-outcome mapping requirements are missing.",
+    "mapping_ready_for_heldout_test": "All direct evidence and mapping prerequisites are satisfied and the target outcome was not used to choose the mechanism or parameter mapping; a held-out or prospectively declared test may now be run.",
+    "failed_predeclared_test_no_admission": "A mapping-ready candidate failed its predeclared held-out test. Preserve the failure and do not retune it on the same target.",
+    "empirically_supported_mechanism_admission": "A predeclared mapping passed a held-out/prospective test after all structural prerequisites were satisfied. This admits the mechanism for the declared scope only, not as a universal island law."
+  },
+  "hard_fail_rules": [
+    "target_outcome_used_to_choose_parameter_values=true",
+    "mapping_frozen_before_target_outcome_test=false",
+    "candidate_filter_directly_measured=false",
+    "matched_transition_or_prospectively_matched_units=false",
+    "transported_values_used_as_if_measured_in_target_unit",
+    "generic_unknown_buffer_used_as_parameter"
+  ],
+  "heldout_test_contract": {
+    "required_before_test": [
+      "expected direction or qualitative signature frozen",
+      "mapping from source measurement to ABM component frozen",
+      "parameter or state value derivation rule frozen",
+      "target outcome excluded from mapping choice",
+      "pass/fail criterion frozen",
+      "null/adverse result accepted without rescue"
+    ],
+    "successful_test_does_not_imply": [
+      "universal_buffering_mechanism",
+      "historical_pollinator_loss_causation",
+      "cross-system effect-size commensurability",
+      "validity outside the tested mechanism and system scope"
+    ]
+  },
+  "current_programme_state": {
+    "buffer_mechanisms_empirically_admitted": 0,
+    "hawaii_exact_taxon_autonomous_assurance_candidate_source_supported": true,
+    "hawaii_same_context_numeric_dependency_missing": true,
+    "cordia_dong_two_sided_effectiveness_dependency_missing": true,
+    "issue91_programme_blocker": false
+  },
+  "next_gate": "Use this interface for every future source-triggered or prospective buffer candidate. Do not add a new ABM buffer component until a candidate reaches mapping_ready_for_heldout_test, and do not call it empirically supported until the frozen held-out test passes.",
+  "claim_boundary": "This interface governs mechanism admission and falsification. It does not itself identify a buffer, estimate a parameter, or make heterogeneous island systems quantitatively commensurate."
+}
