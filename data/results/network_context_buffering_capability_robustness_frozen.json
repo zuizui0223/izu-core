@@ -1,0 +1,53 @@
+{
+  "analysis": "network_context_buffering_capability_independent_robustness_frozen",
+  "run_date": "2026-08-23",
+  "workflow_run": 32623997391,
+  "artifact_id": 9489180613,
+  "artifact_zip_sha256": "5175e174bcc23097e56c7312feb0cac182e26638a066d98376c679be1f5ea404",
+  "design": "data/design/network_context_buffering_robustness_freeze.json",
+  "parent_result": "data/results/network_context_buffering_capability_ablation_frozen.json",
+  "configuration": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "seed": 90260824,
+    "support_off": 0.0,
+    "support_on": 0.5,
+    "assurance_ceiling": 0.0,
+    "assurance_responsiveness": 0.0,
+    "partner_effectiveness_strength": 1.0
+  },
+  "independent_summary": {
+    "lineage_contrasts": 288,
+    "global_opportunity_decline_contrasts": 103,
+    "global_decline_and_support_off_service_decline": 96,
+    "global_decline_and_support_off_reproduction_decline": 96,
+    "service_magnitude_rescue_count": 85,
+    "service_sign_rescue_count": 16,
+    "reproduction_magnitude_rescue_count": 85,
+    "reproduction_sign_rescue_count": 16,
+    "service_worsening_count": 11,
+    "reproduction_worsening_count": 11,
+    "mean_service_gain_among_support_off_declines": 0.23025415566500168,
+    "mean_reproduction_gain_among_support_off_declines": 0.13388337869363576
+  },
+  "initial_block_comparison": {
+    "initial_seed": 20260823,
+    "initial_global_decline_and_support_off_reproduction_decline": 89,
+    "initial_reproduction_sign_rescue_count": 2,
+    "initial_reproduction_magnitude_rescue_count": 52,
+    "initial_reproduction_worsening_count": 37,
+    "independent_sign_rescue_replicated": true,
+    "magnitude_rescue_replicated": true,
+    "worsening_also_present_in_both_blocks": true
+  },
+  "decision": "network_context_sign_buffering_capability_replicates_but_route_is_bidirectional_and_context_dependent",
+  "scientific_update": "The already-implemented local-support/network-context route produces sign-level rescue in two independently frozen stochastic blocks while autonomous assurance is disabled. It also worsens some matched declines in both blocks. The stable interpretation is therefore not a universal buffer but a context-dependent branch allocator with genuine synthetic capacity to preserve effective service and reproduction despite declining global opportunity in some lineages.",
+  "contrast_with_assurance": "Unlike the current autonomous-assurance route, whose initial single sign rescue did not replicate, local support/network context produces sign rescues in both frozen blocks. This makes network context a stronger synthetic source of strong buffering within the declared ABM, while neither route is empirically admitted for a real island system.",
+  "empirical_mechanism_admission_changed": false,
+  "guaiacum_service_redundancy_candidate_state": "candidate_only_no_abm_admission",
+  "next_gate": "Keep network context as a replicated synthetic buffering capability, but require a source-native mapping that measures compensatory partner support or service redundancy in a matched empirical transition before promotion. Do not equate this result with Guaiacum causation.",
+  "claim_boundary": "Synthetic replication establishes model capability, not empirical mechanism identification. Network context remains an unadmitted candidate until the common buffer-mechanism interface is satisfied and a predeclared held-out/prospective empirical test passes."
+}
