@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-23",
+  "purpose": "Rank named missing measurements that would most directly close the current buffering-mechanism coverage gap without privileging Campanula or adding a generic ABM parameter.",
+  "ranking_rule": [
+    "prefer a measurement that discriminates among already-observed buffering explanations",
+    "prefer closure of a same-system propagation chain over adding another partial system",
+    "prefer source-native or prospective matched measurements over transported values",
+    "do not rank by assumed convenience when field/source cost is unknown",
+    "Issue #91 is eligible but not privileged"
+  ],
+  "priorities": [
+    {
+      "rank": 1,
+      "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "missing_measurement": "controlled reproductive dependency/autonomous assurance in the same focal populations/seasons as the interaction-quality boundary",
+      "discriminates": [
+        "low dependency versus post-interaction resource compensation",
+        "assurance buffering versus non-assurance buffering"
+      ],
+      "why_high_value": "The upstream signed mismatch and interaction-quality change plus high reproductive performance are already observed; one plant-side dependency/assurance layer would directly test why the chain stops before reproduction.",
+      "current_block": "raw interaction CSV access is blocked, but a future source-native or prospective controlled dependency measurement can reopen the gate"
+    },
+    {
+      "rank": 2,
+      "system_id": "xisha_cordia_subcordata_two_island_system",
+      "missing_measurement": "Dong Island standardized single-visit effectiveness plus controlled reproductive dependency",
+      "discriminates": [
+        "low visitation versus low per-visit effectiveness",
+        "service limitation versus population-specific dependency",
+        "whether the morph-state/fruit-set contrast is mechanistically bridged on both islands"
+      ],
+      "why_high_value": "Cordia is the current near-complete bridge and already contains all channel types in one source-defined two-island system, but the decisive channels are asymmetric between islands.",
+      "current_block": "no qualifying Dong-side source-native values are currently admitted; Yongxing values cannot be transported"
+    },
+    {
+      "rank": 3,
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "missing_measurement": "same-season same-population service/effectiveness, autonomous assurance and reproductive outcome linkage",
+      "discriminates": [
+        "reproductive assurance as current buffer versus establishment filter",
+        "current service limitation versus colonization-associated trait filtering"
+      ],
+      "why_high_value": "Nicotiana already shows strong autonomous-assurance differences, but current island service deficit was not detected and the existing bridge spans papers/years.",
+      "current_block": "same-unit transition linkage is missing"
+    },
+    {
+      "rank": 4,
+      "system_id": "issue91_campanula_microdonta",
+      "missing_measurement": "first real linked effective-service plus open/bagged-autonomous/supplemental-outcross field bundle",
+      "discriminates": [
+        "service limitation versus autonomous-assurance buffering",
+        "network allocation versus plant dependency"
+      ],
+      "why_high_value": "The protocol and one-command intake are implementation-ready and the prediction structure is frozen, making this a clean direct calibration route when field rows arrive.",
+      "current_block": "real linked field rows are not yet collected/admitted",
+      "programme_blocker": false
+    },
+    {
+      "rank": 5,
+      "system_id": "ogasawara_psychotria_homalosperma_pollinator_replacement",
+      "missing_measurement": "standardized per-visit pollen deposition/effectiveness plus controlled total dependency",
+      "discriminates": [
+        "physical access versus visitor abundance",
+        "limited reproductive escape versus service asymmetry"
+      ],
+      "why_high_value": "This would strengthen a propagation case, but the current programme gap is buffering rather than the existence of propagation itself.",
+      "current_block": "prospective or new source-native measurements required"
+    }
+  ],
+  "decision": "prioritize_closure_of_existing_buffer_boundaries_over_new_generic_abm_complexity_or_more_partial_system_count",
+  "claim_boundary": "This is a scientific information-value ranking, not a costed fieldwork schedule. Unknown logistical cost, permit feasibility and source accessibility are not imputed."
+}

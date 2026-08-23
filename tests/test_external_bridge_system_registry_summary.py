@@ -101,10 +101,22 @@ def test_every_registry_row_points_to_an_existing_audit():
         assert Path(row["audit"]).is_file()
 
 
-def test_external_partial_recurrence_cannot_substitute_for_issue_91():
+def test_partial_bridges_are_parallel_and_issue91_is_not_programme_blocking():
     summary = load_summary()
     text = " ".join(summary["why_formal_fit_remains_closed"])
-    assert "Issue #91" in text
+    assert "cannot substitute for Issue #91" not in text
+    assert "Issue #91 remains one prepared parallel direct-calibration route" in summary["next_decision_gate"]
+    assert "not programme-blocking" in summary["next_decision_gate"]
+
+
+def test_buffer_mechanism_gate_is_closed_for_all_current_partial_bridges():
+    summary = load_summary()
+    assert summary["buffer_mechanism_discriminator_gate"] == "data/design/buffer_mechanism_discriminator_gate.json"
+    assert summary["buffer_mechanism_ready_for_abm_admission"] == 0
+    gate = json.loads(Path(summary["buffer_mechanism_discriminator_gate"]).read_text(encoding="utf-8"))
+    assert gate["summary"]["systems_screened"] == 6
+    assert gate["summary"]["buffer_mechanism_ready_for_abm_admission"] == 0
+    assert gate["summary"]["nearest_existing_bridge"] == "xisha_cordia_subcordata_two_island_system"
 
 
 def test_stage_c_unconstrained_search_is_closed_after_route_a():
