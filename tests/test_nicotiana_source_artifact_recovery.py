@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/check_nicotiana_source_artifacts.py"
 GATE = ROOT / "data/design/nicotiana_source_artifact_recovery_gate.json"
+FROZEN = ROOT / "data/results/nicotiana_source_artifact_recovery_frozen.json"
 
 
 def load_module():
@@ -43,26 +44,40 @@ def test_gate_does_not_treat_restricted_dissertation_as_recovered_source():
     assert "restricted dissertation" in backup["rule"]
 
 
-def test_only_alternate_deepblue_route_is_live_and_springer_is_frozen():
+def test_both_declared_routes_are_frozen_after_non_pdf_results():
     gate = json.loads(GATE.read_text(encoding="utf-8"))
+    assert gate["transport_state"] == "all_declared_automated_routes_frozen_no_pdf_bytes_recovered"
     sources = {row["source_id"]: row for row in gate["sources"]}
     source_2004 = sources["schueller_2004_self_pollination"]
     source_2007 = sources["schueller_2007_corolla_selection"]
-    assert source_2004["retrieval_url"].endswith("/bitstream/2027.42/142032/1/ajb20672.pdf")
-    assert source_2004["previous_transport_attempt"]["state"] == "recovered_non_pdf"
+    assert source_2004["frozen_transport_result"]["state"] == "recovered_non_pdf"
+    assert source_2004["frozen_transport_result"]["workflow_run"] == 32629804487
     assert source_2007["frozen_transport_result"]["state"] == "recovered_non_pdf"
-    assert source_2007["frozen_transport_result"]["reused_frozen_result"] is True
+    assert source_2007["frozen_transport_result"]["workflow_run"] == 32629642261
+    assert source_2004["frozen_transport_result"]["sha256"] == source_2004["previous_transport_attempt"]["sha256"]
 
 
-def test_fetch_source_reuses_frozen_result_without_network(monkeypatch):
+def test_fetch_source_reuses_both_frozen_results_without_network(monkeypatch):
     module = load_module()
     gate = json.loads(GATE.read_text(encoding="utf-8"))
-    source = next(row for row in gate["sources"] if row["source_id"] == "schueller_2007_corolla_selection")
 
     def forbidden_urlopen(*args, **kwargs):
         raise AssertionError("frozen route must not be fetched again")
 
     monkeypatch.setattr(module.urllib.request, "urlopen", forbidden_urlopen)
-    result = module.fetch_source(source)
-    assert result["state"] == "recovered_non_pdf"
-    assert result["reused_frozen_result"] is True
+    for source in gate["sources"]:
+        result = module.fetch_source(source)
+        assert result["state"] == "recovered_non_pdf"
+        assert result["reused_frozen_result"] is True
+
+
+def test_frozen_result_records_zero_pdf_recovery_and_no_mapping_admission():
+    frozen = json.loads(FROZEN.read_text(encoding="utf-8"))
+    summary = frozen["source_recovery_summary"]
+    assert frozen["workflow_run"] == 32629804487
+    assert frozen["artifact_id"] == 9490703155
+    assert summary["stable_pdf_sources_recovered"] == 0
+    assert summary["declared_primary_sources"] == 2
+    assert summary["formal_2007_effectiveness_values_admitted"] is False
+    assert summary["network_context_mapping_ready"] is False
+    assert summary["all_declared_automated_routes_frozen"] is True
