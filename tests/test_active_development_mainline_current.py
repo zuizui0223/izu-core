@@ -21,17 +21,9 @@ def test_programme_stays_system_agnostic_and_issue91_is_parallel():
     assert mainline["protected_scientific_state"]["issue91_prediction_freeze"]["programme_blocker"] is False
 
 
-def test_strict_validation_and_buffer_admission_remain_partial():
+def test_empirical_buffer_admission_remains_closed_despite_synthetic_capability():
     mainline = load_mainline()
-    gate = mainline["protected_scientific_state"]["system_agnostic_validation_gate"]
-    assert gate["status"] == "initial_strict_harness_complete_partial_coverage"
-    assert gate["qualitatively_covered_systems"] == 1
-    assert gate["sign_class_compatible_but_unmapped_systems"] == 1
-    assert gate["buffer_mechanism_coverage_gaps"] == 3
-    assert gate["retained_falsifications"] == 1
-
     admission = mainline["protected_scientific_state"]["buffer_mechanism_admission"]
-    assert admission["interface"] == "data/design/buffer_mechanism_abm_admission_interface.json"
     assert admission["candidate_count"] == 3
     assert admission["candidate_only_count"] == 3
     assert admission["mapping_ready_count"] == 0
@@ -40,43 +32,52 @@ def test_strict_validation_and_buffer_admission_remain_partial():
     assert admission["posthoc_target_fitting_allowed"] is False
 
 
-def test_v14_initial_sign_rescue_is_retained_but_independent_robustness_downgrades_claim():
+def test_mechanism_decomposition_separates_branch_generation_buffering_and_attenuation():
+    mainline = load_mainline()
+    decomp = mainline["protected_scientific_state"]["mechanism_decomposition"]
+    assert decomp["branch_generator"] == "preexisting_lineage_position_in_functional_trait_space"
+    assert decomp["replicated_strong_buffer_or_branch_allocator"] == "local_support_and_network_context"
+    assert decomp["replicated_weak_attenuator"] == "autonomous_assurance_route"
+    assert decomp["branch_identity_modifier"] == "partner_effectiveness"
+    assert decomp["empirically_identified_universal_buffer"] is False
+    assert "both rescue and worsen" in decomp["interpretation"]
+
+
+def test_assurance_sign_rescue_remains_nonreplicated():
     mainline = load_mainline()
     state = mainline["protected_scientific_state"]["abm_mechanism_state"]
     assert "one_of_202_service_declines_sign_rescued" in state["v14_assurance_initial"]
-    assert state["v14_initial_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
-    assert "zero_of_216_sign_rescued_207_magnitude_rescued" in state["v14_assurance_robustness"]
-    assert "zero_of_525_sign_rescued_510_attenuated" in state["v14_assurance_robustness"]
+    assert "zero_of_216" in state["v14_assurance_robustness"]
+    assert "zero_of_525" in state["v14_assurance_robustness"]
     assert state["v14_robustness_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json"
-    assert state["v14_broadened_result"] == "data/results/assurance_buffering_capability_ablation_frozen.json"
-
-    admission = mainline["protected_scientific_state"]["buffer_mechanism_admission"]
-    assert admission["mapping_ready_count"] == 0
-    assert admission["empirically_admitted_count"] == 0
 
 
-def test_stage_h_records_robust_attenuation_and_nonreplicated_sign_buffering():
+def test_network_context_sign_buffering_replicates_but_is_bidirectional():
     mainline = load_mainline()
+    state = mainline["protected_scientific_state"]["abm_mechanism_state"]
+    assert "2_of_89" in state["network_context_initial"]
+    assert "worsened_37" in state["network_context_initial"]
+    assert state["network_context_initial_result"] == "data/results/network_context_buffering_capability_ablation_frozen.json"
+    assert "16_of_96" in state["network_context_robustness"]
+    assert "worsened_11" in state["network_context_robustness"]
+    assert state["network_context_robustness_result"] == "data/results/network_context_buffering_capability_robustness_frozen.json"
+
     p2 = workstream(mainline, "P2")
-    stage_h = next(row for row in p2["stages"] if row["stage"] == "H")
-    assert stage_h["name"] == "buffer_mechanism_admission_and_synthetic_capability"
-    assert "one_of_202_not_replicated" in stage_h["current_state"]
-    assert "zero_of_216" in stage_h["current_state"]
-    assert "zero_of_525" in stage_h["current_state"]
-    assert stage_h["v14_initial_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json"
-    assert stage_h["v14_robustness_result"] == "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json"
-    assert "magnitude attenuation" in stage_h["rule"]
-    assert "Do not tune assurance" in stage_h["rule"]
+    stage_i = next(row for row in p2["stages"] if row["stage"] == "I")
+    assert stage_i["name"] == "network_context_buffering_capability"
+    assert "sign_rescue_replicated" in stage_i["current_state"]
+    assert "worsening_also_occurs" in stage_i["current_state"]
+    assert "Do not call it Guaiacum" in stage_i["rule"]
 
 
-def test_next_task_moves_to_next_existing_buffer_route_without_assurance_seed_search():
+def test_next_task_is_empirical_network_context_mapping_not_parameter_tuning():
     mainline = load_mainline()
     assert mainline["next_executable_task"].startswith(
-        "test_the_next_already_implemented_source_plausible_buffer_route_service_redundancy_or_network_context"
+        "freeze_empirical_network_context_buffer_predictions_and_apply_the_common_admission_interface"
     )
-    assert "calling_one_v14_sign_rescue_a_robust_buffering_frequency" in mainline["not_mainline"]
-    assert "tuning_assurance_after_v14_to_increase_sign_rescue" in mainline["not_mainline"]
-    assert "seed_searching_until_assurance_sign_rescue_reappears" in mainline["not_mainline"]
+    assert "calling_network_context_a_universal_buffer" in mainline["not_mainline"]
+    assert "calling_network_context_guaiacum_service_redundancy_without_source_native_mapping" in mainline["not_mainline"]
+    assert "tuning_local_support_strength_to_match_observed_buffering" in mainline["not_mainline"]
+    assert "seed_searching_until_more_network_context_sign_rescues_appear" in mainline["not_mainline"]
     assert "calling_synthetic_buffering_capability_empirical_validation" in mainline["not_mainline"]
-    assert "using_hawaii_2026_outcomes_to_choose_assurance_parameter_values" in mainline["not_mainline"]
     assert "making_issue91_campanula_field_data_a_programme_wide_blocker" in mainline["not_mainline"]
