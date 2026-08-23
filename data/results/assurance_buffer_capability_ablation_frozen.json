@@ -1,0 +1,51 @@
+{
+  "analysis": "assurance_buffer_capability_ablation",
+  "status": "synthetic_model_capability_test_not_empirical_mechanism_admission",
+  "scientific_question": "With the existing frozen network, partner-effectiveness, dependency and trait-position structure held fixed, can the already-implemented reproductive-assurance route attenuate or fully rescue reproductive decline when effective service declines?",
+  "design": {
+    "saturations": [
+      1.0,
+      2.0,
+      3.0
+    ],
+    "support_strengths": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "replicates_per_cell": 4,
+    "contexts_per_endpoint": 4,
+    "lineages_per_run": 24,
+    "evolution_steps": 120,
+    "paired_lineage_contrasts": 864,
+    "empirical_targets_loaded": [],
+    "hawaii_outcomes_loaded": false,
+    "campanula_outcomes_loaded": false,
+    "new_buffer_parameter_added": false
+  },
+  "ablation": {
+    "assurance_on": "retain frozen v4 assurance_ceiling and assurance_responsiveness with v10 baseline assurance state",
+    "assurance_off": "set assurance_ceiling=0 and assurance_responsiveness=0 for the same lineage templates",
+    "all_other_components": "identical paired opportunity networks, local-support realization, partner quality streams, dependency, trait position and trait adjustment",
+    "upstream_effective_service_identical_between_assurance_arms": true
+  },
+  "threshold_free_state_definitions": {
+    "service_loss": "effective_service_island - effective_service_mainland < 0",
+    "partial_buffer": "service loss and reproductive loss without assurance; assurance makes the reproductive contrast less negative but it remains below 0",
+    "full_sign_buffer": "service loss and reproductive loss without assurance; with assurance the reproductive contrast reaches or exceeds 0",
+    "epsilon_only_for_floating_point_sign": 1e-12
+  },
+  "summary": {
+    "paired_lineage_contrasts": 864,
+    "service_loss_cases": 525,
+    "service_loss_cases_with_off_reproductive_loss": 525,
+    "service_loss_cases_where_assurance_improves_reproductive_delta": 510,
+    "partial_buffer_cases": 510,
+    "full_sign_buffer_cases": 0,
+    "assurance_induced_reproductive_sign_changes_all_cases": 0,
+    "mean_assurance_effect_on_reproductive_delta_among_service_loss_cases": 0.002046256709180272,
+    "mean_assurance_effect_on_reproductive_delta_among_off_loss_cases": 0.002046256709180272
+  },
+  "decision": "existing_assurance_route_has_synthetic_partial_buffering_capability_without_full_sign_rescue",
+  "claim_boundary": "A positive result establishes only that the existing synthetic assurance route has the mathematical capacity to attenuate or rescue reproductive decline under matched service loss. It does not identify assurance as the empirical buffer in Hawaiʻi, Nicotiana, Guaiacum, Izu or any other island system. Empirical mechanism admission remains governed by data/design/buffer_mechanism_abm_admission_interface.json."
+}
