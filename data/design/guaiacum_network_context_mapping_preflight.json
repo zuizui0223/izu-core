@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-23",
+  "system_id": "puerto_rico_mona_guaiacum",
+  "role": "network_context_service_mapping_reference_not_whole_reproduction_buffer_case",
+  "source_audit": "data/design/guaiacum_joint_source_audit.json",
+  "propagation_correction": "data/results/guaiacum_propagation_state_correction.json",
+  "scientific_question": "How much of the Guánica–Mona difference in realized reproduction can be accounted for by visitor abundance/composition after weighting each visitor by direct per-visit effectiveness, without confusing a stable self/outcross breeding-system index with stable total reproduction?",
+  "known_source_native_structure": {
+    "guanica": "higher visitation and extreme Apis mellifera dominance",
+    "mona": "lower visitation, higher visitor richness and much more even assemblage",
+    "autogamy": "negligible on both populations; a pollen vector is required",
+    "breeding_system_index": "self/outcross seed-set ISI is similar (0.60 versus 0.63; P=0.77)",
+    "realized_reproduction": "Mona open fruit set is pollen limited relative to supplemental outcross and source-native multiplicative fitness for open/outcross progeny is lower than Guánica"
+  },
+  "primary_mapping": {
+    "visitor_specific_service": "S_k = V_k * E_k",
+    "total_effective_service": "S_total = sum_k(V_k * E_k)",
+    "V_k": "visit rate for visitor k on a common observation-effort / open-flower denominator",
+    "E_k": "source-native or newly measured per-visit effectiveness for visitor k, such as single-visit conspecific pollen deposition or another predeclared direct service outcome",
+    "forbidden_substitutes": [
+      "visitor occurrence as E_k",
+      "visitor richness as E_k",
+      "guild label as E_k",
+      "transported effectiveness from another species or unmatched population"
+    ]
+  },
+  "service_equivalence_identity": {
+    "general_form": "If one visitor aggregate dominates each population, equal total effective service requires E_Mona / E_Guanica = V_Guanica / V_Mona.",
+    "source_report_context": "The primary source reports mean visitation in Guánica at approximately twice Mona; therefore exact service equivalence would require approximately twice the mean per-visit effectiveness on Mona only under the simplifying single-aggregate comparison.",
+    "boundary": "The approximate factor of two is a descriptive consequence of the reported visitation contrast, not a recovered per-visit-effectiveness estimate and not an assumption allowed in primary inference. The full visitor-specific sum is preferred."
+  },
+  "predeclared_interpretations": {
+    "network_context_explains_most_realized_difference": "The measured difference in total effective service tracks the Guánica–Mona realized reproductive-performance contrast and leaves little unexplained sign discrepancy.",
+    "service_redundancy_detected": "Despite lower or redistributed visitation, Mona total effective service is maintained because visitor-specific E_k compensates; this would be a network-context service-rescue observation but would conflict with calling whole reproductive performance buffered if realized output remains lower.",
+    "downstream_limit_after_service": "Total effective service is similar but realized reproduction remains lower on Mona, implying a post-service reproductive/demographic limitation rather than service shortage alone.",
+    "service_limitation": "Total effective service is lower on Mona and realized reproduction is lower in the same direction, supporting propagation through service limitation.",
+    "unresolved": "Visitor-specific E_k or matched effort denominators remain missing."
+  },
+  "required_new_data": [
+    "matched visitor-specific visit rate by population",
+    "visitor-specific direct per-visit effectiveness on the same focal plant",
+    "common effort/open-flower denominator",
+    "matched reproductive outcome and supplemental-outcross capacity denominator when available"
+  ],
+  "mapping_to_abm": {
+    "component": "local_support_and_network_context",
+    "status": "not_mapping_ready",
+    "reason": "The empirical support/service variable is defined prospectively, but visitor-specific E_k values are not yet recovered/measured and no ABM state-value derivation rule has been frozen from source-native units.",
+    "support_strength_tuning_allowed": false
+  },
+  "claim_boundary": "This preflight turns Guaiacum into a falsifiable service-mapping reference. It does not restore Guaiacum to the buffer portfolio, infer an Apis effect, or estimate missing effectiveness values."
+}
