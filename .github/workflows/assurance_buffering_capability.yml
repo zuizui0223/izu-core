@@ -1,0 +1,70 @@
+name: Assurance buffering capability
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/run_assurance_buffering_capability_ablation.py'
+      - 'tests/test_assurance_buffering_capability_ablation.py'
+      - '.github/workflows/assurance_buffering_capability.yml'
+      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
+      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
+      - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
+      - 'scripts/run_constraint_mechanism_abm_v14_assurance_buffering.py'
+      - 'data/design/abm_v14_assurance_buffering_robustness_freeze.json'
+      - 'data/design/buffer_mechanism_abm_admission_interface.json'
+
+jobs:
+  assurance-buffering-capability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Run broadened matched assurance ablation
+        run: >-
+          python scripts/run_assurance_buffering_capability_ablation.py
+          --replicates 4 --contexts 4 --lineages 24 --steps 120
+      - name: Verify broadened matched upstream and print scientific result
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/assurance_buffering_capability_ablation.json'))
+          assert x['fixed_components']['empirical_targets_loaded'] == []
+          assert x['fixed_components']['hawaii_outcomes_loaded'] is False
+          assert x['summary']['service_and_opportunity_invariant_all_contrasts'] is True
+          assert x['decision'] in {
+              'existing_assurance_route_has_synthetic_sign_rescue_buffering_capability',
+              'existing_assurance_route_attenuates_service_driven_reproductive_declines_without_sign_rescue',
+              'existing_assurance_route_does_not_buffer_service_driven_reproductive_declines_in_declared_envelope',
+          }
+          print(json.dumps({'broadened_summary': x['summary'], 'broadened_decision': x['decision']}, indent=2))
+          PY
+      - name: Run exact-v14 independent stochastic robustness block
+        run: >-
+          python scripts/run_constraint_mechanism_abm_v14_assurance_buffering.py
+          --replicates 4 --contexts 4 --lineages 24 --steps 120
+          --seed 90260823
+          --output data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness.json
+      - name: Verify and print independent v14 robustness block
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness.json'))
+          assert x['upstream_service_identical_between_assurance_ablations'] is True
+          print(json.dumps({
+              'independent_block_overall': x['overall'],
+              'independent_block_decision': x['decision'],
+          }, indent=2))
+          PY
+      - name: Run focused tests
+        run: python -m pytest -q tests/test_assurance_buffering_capability_ablation.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-buffering-capability
+          path: |
+            data/results/assurance_buffering_capability_ablation.json
+            data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness.json

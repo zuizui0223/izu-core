@@ -1,11 +1,11 @@
 {
-  "schema_version": "2.9",
+  "schema_version": "3.0",
   "updated_on": "2026-08-23",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
   "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and multiple plant-side propagation filters determine whether upstream change reaches reproduction or floral evolution. The programme tests recurring branch structures and discriminates propagation from buffering rather than assuming a universal island syndrome or a single buffering mechanism.",
   "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether functional change propagates into reproductive or floral evolutionary response?",
-  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_system_agnostic_strict_validation_partial_buffer_admission_interface_frozen_v14_assurance_synthetic_sign_buffering_sufficient_but_sparse_empirical_admission_unchanged",
+  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_system_agnostic_strict_validation_partial_buffer_admission_interface_frozen_v14_assurance_magnitude_attenuation_robust_sign_buffering_nonreplicated_empirical_admission_unchanged",
   "comparison_contract": {
     "systems_are_parallel": true,
     "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
@@ -38,8 +38,11 @@
       "v11_downstream_factorial": "two_sided_branching_persists_with_all_four_tested_downstream_factors_off",
       "v12_minimal_synthetic_generator": "preexisting_lineage_position_in_functional_trait_space",
       "v12_dominica_projection": "failed_declared_negative_signed_position_to_selection_direction",
-      "v14_assurance_buffering": "synthetic_sign_buffering_sufficient_but_sparse_one_of_202_service_declines_197_magnitude_rescues_empirical_admission_unchanged",
-      "v14_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json",
+      "v14_assurance_initial": "one_of_202_service_declines_sign_rescued_and_197_magnitude_rescued_in_initial_frozen_block",
+      "v14_initial_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json",
+      "v14_assurance_robustness": "independent_exact_design_block_zero_of_216_sign_rescued_207_magnitude_rescued_and_broadened_support_envelope_zero_of_525_sign_rescued_510_attenuated",
+      "v14_robustness_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json",
+      "v14_broadened_result": "data/results/assurance_buffering_capability_ablation_frozen.json",
       "hawaii_2026_boundary": "source_native_signed_matching_predicts_interaction_quality_but_frequent_robbing_and_resource_change_can_coexist_with_high_reproductive_performance",
       "hawaii_historical_exact_taxon_assurance": "Clermontia_lindseyana_and_C_pyrularia_have_named_Hakalau_sources_supporting_mixed_mating_predominantly_autogamous_reproduction_and_pollen_limitation_but_not_same_context_numeric_2026_dependency",
       "ogasawara_psychotria_bridge": "categorical_stigma_access_mismatch_and_directional_pollen_transfer_coexist_with_strong_morph_specific_open_fruit_asymmetry_despite_high_bidirectional_intermorph_hand_fruit_set",
@@ -101,7 +104,7 @@
     {"id": "P1", "name": "island_system_response_matrix", "priority": 1, "status": "active", "objective": "Compare independent island systems using common response and propagation vocabulary without any single focal taxon blocking the programme.", "required_outputs": ["system_by_response_axis_evidence_matrix", "heterogeneous_branching_summary", "propagation_boundary_summary", "system_agnostic_multi_system_abm_validation", "source_identified_buffer_mechanism_gate", "cross_system_buffer_prediction_ledger"]},
     {
       "id": "P2", "name": "comparative_mechanism_ladder", "priority": 1, "issue": 93, "bridge_issue": 100,
-      "status": "v14_assurance_synthetic_buffering_sufficient_but_sparse_independent_robustness_next",
+      "status": "v14_assurance_magnitude_attenuation_robust_sign_buffering_nonreplicated_source_identified_filter_next",
       "stages": [
         {"stage": "A", "name": "recurrent_response_axes", "current_state": "multiple independent systems support heterogeneous response combinations; no universal direction"},
         {"stage": "B", "name": "recurrent_pollinator_environment_change", "current_state": "functional matching, partner turnover, network and effectiveness changes recur across systems"},
@@ -110,7 +113,7 @@
         {"stage": "E", "name": "cross_system_same_estimand_replication", "current_state": "closed_pending_same_estimand_replication"},
         {"stage": "F", "name": "system_agnostic_multi_system_mechanism_validation", "current_state": "strict_harness_complete_branching_covered_directional_sign_capability_present_three_buffer_coverage_gaps_one_retained_falsification", "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json"},
         {"stage": "G", "name": "source_identified_buffer_filter_closure", "current_state": "historical_exact_taxon_hawaii_assurance_candidate_found_but_zero_empirical_buffer_mechanisms_admitted", "gate": "data/design/buffer_mechanism_discriminator_gate.json"},
-        {"stage": "H", "name": "buffer_mechanism_admission_and_synthetic_capability", "current_state": "v14_initial_frozen_run_complete_assurance_sign_rescue_1_of_202_service_declines_magnitude_rescue_197_of_202_empirical_admission_unchanged", "interface": "data/design/buffer_mechanism_abm_admission_interface.json", "portfolio_result": "data/results/buffer_candidate_portfolio_admission_frozen.json", "v14_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json", "rule": "Assurance has synthetic sign-level buffering sufficiency in the declared model but the initial sign rescue is one event; empirical mechanism admission remains unchanged and robustness must be tested with a non-overlapping stochastic block before calling sign buffering stable."}
+        {"stage": "H", "name": "buffer_mechanism_admission_and_synthetic_capability", "current_state": "v14_initial_sign_rescue_one_of_202_not_replicated_in_independent_zero_of_216_block_or_broadened_zero_of_525_envelope_while_magnitude_attenuation_remains_common", "interface": "data/design/buffer_mechanism_abm_admission_interface.json", "portfolio_result": "data/results/buffer_candidate_portfolio_admission_frozen.json", "v14_initial_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_frozen.json", "v14_robustness_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json", "rule": "The stable synthetic property of the current assurance route is magnitude attenuation, not reliable sign-level buffering. Do not tune assurance to recover a sign rescue; empirical mechanism admission remains unchanged."}
       ]
     },
     {"id": "P3", "name": "izu_calibration_and_direct_dependency_anchor", "priority": 2, "issue": 91, "status": "implementation_ready_field_data_missing", "role": "parallel_mechanistic_anchor_not_programme_center"},
@@ -118,7 +121,7 @@
     {"id": "P5", "name": "source_controlled_reopen_gates", "priority": 3, "status": "wait_for_named_or_prospective_triggers", "rule": "Do not repeat exhausted Hawaiʻi, Cordia, Dryad or unconstrained bridge searches without a new named trigger."},
     {"id": "P6", "name": "implementation_consolidation", "priority": 3, "status": "parallel_conservative_cleanup", "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"}
   ],
-  "next_executable_task": "freeze_and_run_an_independent_nonoverlapping_seed_block_robustness_test_of_the_exact_v14_assurance_ablation_without_parameter_or_threshold_changes_to_determine_whether_sign_level_buffering_reappears_and_magnitude_rescue_persists",
+  "next_executable_task": "test_the_next_already_implemented_source_plausible_buffer_route_service_redundancy_or_network_context_with_a_matched_capability_ablation_without_empirical_tuning_while_empirical_buffer_candidates_remain_candidate_only",
   "not_mainline": [
     "universal_island_response_coefficient",
     "single_universal_buffering_parameter",
@@ -126,6 +129,7 @@
     "calling_synthetic_buffering_capability_empirical_validation",
     "calling_one_v14_sign_rescue_a_robust_buffering_frequency",
     "tuning_assurance_after_v14_to_increase_sign_rescue",
+    "seed_searching_until_assurance_sign_rescue_reappears",
     "using_hawaii_2026_outcomes_to_choose_assurance_parameter_values",
     "making_issue91_campanula_field_data_a_programme_wide_blocker",
     "campanula_specific_retuning_of_abm",
