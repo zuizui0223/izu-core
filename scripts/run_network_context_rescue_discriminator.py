@@ -133,10 +133,7 @@ def classify(reproduction_off: float, reproduction_on: float) -> str:
 def descriptor_means(rows: list[dict[str, object]]) -> dict[str, float | None]:
     if not rows:
         return {name: None for name in DESCRIPTORS}
-    return {
-        name: mean(float(row[name]) for row in rows)
-        for name in DESCRIPTORS
-    }
+    return {name: mean(float(row[name]) for row in rows) for name in DESCRIPTORS}
 
 
 def mean_contrast(left: dict[str, float | None], right: dict[str, float | None]) -> dict[str, float | None]:
@@ -239,18 +236,9 @@ def build(
                 global_delta = island_global[name] - mainland_global[name]
                 mainland_off, island_off = outputs["off"]
                 mainland_on, island_on = outputs["on"]
-                service_off = (
-                    island_off[name]["mean_effective_service"]
-                    - mainland_off[name]["mean_effective_service"]
-                )
-                reproduction_off = (
-                    island_off[name]["mean_reproduction"]
-                    - mainland_off[name]["mean_reproduction"]
-                )
-                reproduction_on = (
-                    island_on[name]["mean_reproduction"]
-                    - mainland_on[name]["mean_reproduction"]
-                )
+                service_off = island_off[name]["mean_effective_service"] - mainland_off[name]["mean_effective_service"]
+                reproduction_off = island_off[name]["mean_reproduction"] - mainland_off[name]["mean_reproduction"]
+                reproduction_on = island_on[name]["mean_reproduction"] - mainland_on[name]["mean_reproduction"]
                 if not (global_delta < -EPS and reproduction_off < -EPS):
                     continue
 
@@ -267,18 +255,10 @@ def build(
                     "support_off_effective_service_delta": service_off,
                     "support_off_reproduction_delta": reproduction_off,
                     "support_on_reproduction_delta": reproduction_on,
-                    "support_on_island_minus_mainland_active_context_fraction": (
-                        i["active_context_fraction"] - m["active_context_fraction"]
-                    ),
-                    "support_on_island_minus_mainland_mean_positive_partner_count": (
-                        i["mean_positive_partner_count"] - m["mean_positive_partner_count"]
-                    ),
-                    "support_on_island_minus_mainland_mean_row_shannon": (
-                        i["mean_row_shannon"] - m["mean_row_shannon"]
-                    ),
-                    "support_on_island_minus_mainland_mean_dominant_partner_share": (
-                        i["mean_dominant_partner_share"] - m["mean_dominant_partner_share"]
-                    ),
+                    "support_on_island_minus_mainland_active_context_fraction": i["active_context_fraction"] - m["active_context_fraction"],
+                    "support_on_island_minus_mainland_mean_positive_partner_count": i["mean_positive_partner_count"] - m["mean_positive_partner_count"],
+                    "support_on_island_minus_mainland_mean_row_shannon": i["mean_row_shannon"] - m["mean_row_shannon"],
+                    "support_on_island_minus_mainland_mean_dominant_partner_share": i["mean_dominant_partner_share"] - m["mean_dominant_partner_share"],
                 })
 
     grouped: dict[str, list[dict[str, object]]] = defaultdict(list)
@@ -289,7 +269,7 @@ def build(
     class_means = {name: descriptor_means(grouped.get(name, [])) for name in class_order}
 
     parent = json.loads(PARENT_RESULT.read_text(encoding="utf-8"))
-    parent_summary = parent["overall"] if "overall" in parent else parent["summary"]
+    parent_summary = parent["independent_summary"]
     expected_subset = int(parent_summary["global_decline_and_support_off_reproduction_decline"])
     expected_sign_rescues = int(parent_summary["reproduction_sign_rescue_count"])
     expected_worsening = int(parent_summary["reproduction_worsening_count"])
@@ -322,12 +302,8 @@ def build(
         "class_counts": class_counts,
         "class_descriptor_means": class_means,
         "predeclared_mean_contrasts": {
-            "sign_rescue_minus_worsening": mean_contrast(
-                class_means["sign_rescue"], class_means["worsening"]
-            ),
-            "sign_rescue_minus_attenuation_only": mean_contrast(
-                class_means["sign_rescue"], class_means["attenuation_only"]
-            ),
+            "sign_rescue_minus_worsening": mean_contrast(class_means["sign_rescue"], class_means["worsening"]),
+            "sign_rescue_minus_attenuation_only": mean_contrast(class_means["sign_rescue"], class_means["attenuation_only"]),
         },
         "parent_nesting": {
             "expected_analysis_subset": expected_subset,
