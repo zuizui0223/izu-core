@@ -1,0 +1,18 @@
+{
+  "system_id": "hawaii_lobelioid_post_extinction_pollination_2026",
+  "candidate_mechanism": "autonomous_reproductive_assurance",
+  "upstream_functional_change_source_locked": true,
+  "propagation_step_directly_measured": true,
+  "downstream_reproductive_response_directly_measured": true,
+  "candidate_filter_directly_measured": true,
+  "matched_transition_or_prospectively_matched_units": false,
+  "sampling_hierarchy_locked": true,
+  "source_native_units_locked": true,
+  "alternative_filters_recorded": true,
+  "mapping_to_abm_component_predeclared": false,
+  "mapping_frozen_before_target_outcome_test": false,
+  "target_outcome_used_to_choose_parameter_values": false,
+  "predeclared_test_result": null,
+  "evidence_scope": "Upstream signed matching/contact/robbing and contemporary reproduction come from the 2026 lobelioid system. Autonomous assurance is directly supported historically for exact focal Clermontia lindseyana and C. pyrularia at Hakalau, but not in the same tagged 2026 units/season and not for Cyanea shipmanii.",
+  "boundary": "This package records a source-supported candidate only. It intentionally fails the matched-transition and pre-outcome ABM-mapping requirements."
+}
