@@ -6,7 +6,6 @@ import importlib.util
 import json
 import random
 import sys
-from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 
@@ -14,7 +13,6 @@ ROOT = Path(__file__).resolve().parents[1]
 V4_SCRIPT = ROOT / "scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py"
 V9_SCRIPT = ROOT / "scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py"
 V10_SCRIPT = ROOT / "scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py"
-DESIGN = ROOT / "data/design/abm_v14_assurance_buffering_ablation_freeze.json"
 DEFAULT_OUT = ROOT / "data/results/constraint_mechanism_abm_v14_assurance_buffering.json"
 
 EPS = 1e-12
@@ -168,9 +166,7 @@ def build(
                     "synthetic_buffering_assurance_on": buffering_on,
                     "synthetic_buffering_assurance_off": buffering_off,
                     "assurance_sign_rescue": bool(buffering_on and reproduction_off < -EPS),
-                    "assurance_magnitude_rescue": bool(
-                        service_decline and reproduction_on > reproduction_off + EPS
-                    ),
+                    "assurance_magnitude_rescue": bool(service_decline and reproduction_on > reproduction_off + EPS),
                     "mainland_final_assurance_on": float(mainland_on[name]["final_assurance"]),
                     "island_final_assurance_on": float(island_on[name]["final_assurance"]),
                     "dependency": float(island_on[name]["dependency"]),
@@ -208,7 +204,7 @@ def build(
         "overall": overall,
         "by_saturation": by_saturation,
         "decision": decision,
-        "empirical_mechanism_admission_changed": false,
+        "empirical_mechanism_admission_changed": False,
         "hawaii_assurance_candidate_state": "candidate_only_no_abm_admission",
         "next_gate": (
             "Synthetic sufficiency, if present, does not admit assurance empirically. Keep the common buffer-mechanism admission interface unchanged and require a matched held-out/prospective empirical test before promotion."
