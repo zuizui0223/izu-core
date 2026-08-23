@@ -23,9 +23,12 @@
     "every_system_need_not_measure_every_axis": true,
     "heterogeneity_is_a_result": true,
     "propagation_failure_is_a_result": true,
-    "do_not_pool_noncommensurate_estimands": true
+    "do_not_pool_noncommensurate_estimands": true,
+    "complete_mechanism_bridge_is_high_value_but_not_required_for_axis_level_comparison": true
   },
   "protected_scientific_state": {
+    "izu_visible_signal": "currently_unmeasured_not_programme_wide_exclusion",
+    "nectar_guide_programme_status": "active_comparative_response_axis_system_specific_evidence_required",
     "historical_bombus_causation": false,
     "universal_island_response": false,
     "external_morphology_pooled_coefficient_allowed": false,
