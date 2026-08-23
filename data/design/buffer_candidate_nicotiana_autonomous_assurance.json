@@ -1,0 +1,18 @@
+{
+  "system_id": "california_channel_islands_nicotiana_glauca",
+  "candidate_mechanism": "autonomous_reproductive_assurance",
+  "upstream_functional_change_source_locked": true,
+  "propagation_step_directly_measured": true,
+  "downstream_reproductive_response_directly_measured": true,
+  "candidate_filter_directly_measured": true,
+  "matched_transition_or_prospectively_matched_units": false,
+  "sampling_hierarchy_locked": true,
+  "source_native_units_locked": true,
+  "alternative_filters_recorded": true,
+  "mapping_to_abm_component_predeclared": false,
+  "mapping_frozen_before_target_outcome_test": false,
+  "target_outcome_used_to_choose_parameter_values": false,
+  "predeclared_test_result": null,
+  "evidence_scope": "Nicotiana has direct autonomous-assurance and pollinator-service evidence across linked studies, but the strongest island assurance, service and trait observations are not one same-season matched transition and current island service deficit was not detected.",
+  "boundary": "This is a source-supported assurance/establishment candidate, not a matched buffer-after-service-loss test."
+}
