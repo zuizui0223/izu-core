@@ -2,9 +2,9 @@
 """Freeze linked effective-dependency field inputs before inferential analysis.
 
 The freeze records exact SHA256 hashes, byte counts, row counts and CSV headers
-for every supplied raw channel.  It does not decide whether a dataset is
+for every supplied raw channel. It does not decide whether a dataset is
 scientifically adequate; structural/dispersion/confirmatory admission remains in
-separate audits.  Re-freezing to an existing manifest is allowed only when the
+separate audits. Re-freezing to an existing manifest is allowed only when the
 raw bundle is byte-identical, unless the caller writes to a new versioned output.
 """
 from __future__ import annotations
@@ -28,6 +28,7 @@ REQUIRED_CHANNELS = (
 )
 OPTIONAL_CHANNELS = (
     "seeds_parentage",
+    "traits",
     "geometry",
     "calibration",
 )
@@ -97,7 +98,7 @@ def build_manifest(paths: dict[str, Path | None]) -> dict[str, object]:
             channels.append(describe_channel(name, path, required=False))
     fingerprint = bundle_fingerprint(channels)
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "effective_dependency_raw_field_bundle_frozen",
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "required_channels": list(REQUIRED_CHANNELS),
@@ -109,7 +110,7 @@ def build_manifest(paths: dict[str, Path | None]) -> dict[str, object]:
         "pilot_dispersion_opened": False,
         "confirmatory_adequacy_opened": False,
         "claim_boundary": (
-            "This manifest establishes immutable raw-input identity only. It does not turn missing, pending, lost, damaged, unresolved-parentage or failed-QC records into analyzable outcomes and does not open any scientific admission gate."
+            "This manifest establishes immutable raw-input identity only. It does not turn missing, pending, lost, damaged, unresolved-parentage, missing-trait, or failed-QC records into analyzable outcomes and does not open any scientific admission gate."
         ),
     }
 

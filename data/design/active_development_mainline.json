@@ -1,11 +1,11 @@
 {
-  "schema_version": "2.3",
+  "schema_version": "2.4",
   "updated_on": "2026-08-22",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
   "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and multiple plant-side propagation filters determine whether upstream change reaches reproduction or floral evolution. The programme tests recurring branch structures and discriminates propagation from buffering rather than assuming a universal island syndrome or a single buffering mechanism.",
   "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether functional change propagates into reproductive or floral evolutionary response?",
-  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_single_buffer_explanations_rejected_complete_common_mechanism_not_identified",
+  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_single_buffer_explanations_rejected_issue91_predictions_frozen_complete_common_mechanism_not_identified",
   "comparison_contract": {
     "systems_are_parallel": true,
     "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
@@ -47,6 +47,13 @@
       "current_service_deficit_required_for_island_trait_difference": false,
       "one_common_buffering_mechanism_identified": false,
       "rank1_measurement": "Izu Issue #91 direct dependency/effective-service anchor"
+    },
+    "issue91_prediction_freeze": {
+      "path": "data/design/issue91_propagation_buffering_prediction_freeze.json",
+      "status": "prediction_structure_frozen_before_real_field_bundle_no_decision_thresholds_locked",
+      "real_field_rows_inspected_before_freeze": false,
+      "decision_thresholds_locked_before_pilot_dispersion": false,
+      "one_command_intake": "scripts/intake_issue91_field_bundle.py"
     },
     "external_mechanism_bridge_state": {
       "independent_partial_systems": 6,
@@ -145,6 +152,7 @@
       "role": "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center",
       "required_outputs": [
         "predeclared_propagation_vs_buffering_predictions_frozen_before_first_real_bundle",
+        "one_command_field_bundle_intake_ready",
         "first_real_six_channel_bundle_passes_preflight",
         "raw_bundle_freeze",
         "linked_plant_effort_visit_svd_treatment_fruit_seed_records",
@@ -197,7 +205,7 @@
       "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
     }
   ],
-  "next_executable_task": "freeze_issue91_propagation_vs_buffering_predictions_before_first_real_field_bundle_using_the_completed_cross_system_discriminator_without_fitting_any_empirical_outcome",
+  "next_executable_task": "receive_first_real_issue91_campanula_bundle_and_run_scripts_intake_issue91_field_bundle_py_then_use_pilot_dispersion_coverage_and_loss_to_lock_precision_thresholds_before_confirmatory_planning",
   "not_mainline": [
     "universal_island_dwarfism_or_response_coefficient",
     "raw_island_count_accumulation_without_independent_system_identity",
@@ -211,6 +219,8 @@
     "formal_meta_analysis_before_same_family_replication",
     "another_generic_abm_layer_before_a_new_empirical_discriminator",
     "retuning_the_failed_dominica_signed_position_mapping",
-    "invent_numeric_signed_position_for_ogasawara_psychotria_from_secondary_proboscis_or_corolla_values"
+    "invent_numeric_signed_position_for_ogasawara_psychotria_from_secondary_proboscis_or_corolla_values",
+    "outcome_dependent_reordering_of_issue91_intake_gates",
+    "silent_mutation_of_frozen_issue91_raw_bundle"
   ]
 }
