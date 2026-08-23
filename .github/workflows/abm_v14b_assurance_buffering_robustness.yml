@@ -1,0 +1,48 @@
+name: ABM v14b assurance buffering robustness
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "data/design/abm_v14b_assurance_buffering_robustness_freeze.json"
+      - "scripts/run_constraint_mechanism_abm_v14b_assurance_buffering_robustness.py"
+      - "tests/test_abm_v14b_assurance_buffering_robustness.py"
+      - ".github/workflows/abm_v14b_assurance_buffering_robustness.yml"
+
+jobs:
+  independent-v14b-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install -e '.[dev]'
+      - name: Run focused freeze tests
+        run: python -m pytest -q tests/test_abm_v14b_assurance_buffering_robustness.py
+      - name: Run independent robustness block
+        run: >-
+          python scripts/run_constraint_mechanism_abm_v14b_assurance_buffering_robustness.py
+          --output v14b-assurance-buffering-robustness.json
+      - name: Check predeclared invariants only
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('v14b-assurance-buffering-robustness.json').read_text())
+          assert data['configuration']['replicates'] == 40
+          assert data['configuration']['seed'] == 120260822
+          assert data['overall']['lineage_contrasts'] == 2880
+          assert data['upstream_service_identical_between_assurance_ablations'] is True
+          assert data['upstream_service_mismatch_count'] == 0
+          assert data['configuration']['parameter_changes_from_v14'] is False
+          assert data['configuration']['threshold_changes_from_v14'] is False
+          assert data['empirical_mechanism_admission_changed'] is False
+          assert data['hawaii_assurance_candidate_state'] == 'candidate_only_no_abm_admission'
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v14b-assurance-buffering-robustness
+          path: v14b-assurance-buffering-robustness.json
+          if-no-files-found: error
