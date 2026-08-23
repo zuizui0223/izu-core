@@ -1,11 +1,11 @@
 {
-  "schema_version": "2.6",
+  "schema_version": "2.7",
   "updated_on": "2026-08-23",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
   "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and multiple plant-side propagation filters determine whether upstream change reaches reproduction or floral evolution. The programme tests recurring branch structures and discriminates propagation from buffering rather than assuming a universal island syndrome or a single buffering mechanism.",
   "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether functional change propagates into reproductive or floral evolutionary response?",
-  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_single_buffer_explanations_rejected_system_agnostic_strict_validation_partial_buffer_mechanisms_underidentified_complete_common_mechanism_not_identified",
+  "claim_state": "comparative_response_heterogeneity_supported_state_dependent_branching_single_buffer_explanations_rejected_system_agnostic_strict_validation_partial_hawaii_exact_taxon_assurance_candidate_supported_buffer_mechanisms_not_yet_admitted",
   "comparison_contract": {
     "systems_are_parallel": true,
     "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
@@ -21,11 +21,7 @@
     "complete_mechanism_bridge_is_high_value_but_not_required_for_axis_level_comparison": true
   },
   "protected_scientific_state": {
-    "izu_calibration_channels": {
-      "floral_size": "continuous_erosion",
-      "outcrossing": "continuous_erosion",
-      "autonomous_assurance": "second_transition_step"
-    },
+    "izu_calibration_channels": {"floral_size": "continuous_erosion", "outcrossing": "continuous_erosion", "autonomous_assurance": "second_transition_step"},
     "izu_visible_signal": "currently_unmeasured_not_programme_wide_exclusion",
     "nectar_guide_programme_status": "active_comparative_response_axis_system_specific_evidence_required",
     "historical_bombus_causation": false,
@@ -40,18 +36,19 @@
       "v12_minimal_synthetic_generator": "preexisting_lineage_position_in_functional_trait_space",
       "v12_dominica_projection": "failed_declared_negative_signed_position_to_selection_direction",
       "hawaii_2026_boundary": "source_native_signed_matching_predicts_interaction_quality_but_frequent_robbing_and_resource_change_can_coexist_with_high_reproductive_performance",
+      "hawaii_historical_exact_taxon_assurance": "Clermontia_lindseyana_and_C_pyrularia_have_named_Hakalau_sources_supporting_mixed_mating_predominantly_autogamous_reproduction_and_pollen_limitation_but_not_same_context_numeric_2026_dependency",
       "ogasawara_psychotria_bridge": "categorical_stigma_access_mismatch_and_directional_pollen_transfer_coexist_with_strong_morph_specific_open_fruit_asymmetry_despite_high_bidirectional_intermorph_hand_fruit_set",
       "system_agnostic_strict_validation": "partial_multi_system_coverage_branching_supported_directional_capability_present_buffer_mechanisms_underidentified_dominica_mapping_failed"
     },
     "propagation_buffering_discriminator": {
       "result": "data/results/island_propagation_buffering_discriminator_v1.json",
-      "programme_decision": "reject_single_buffer_explanation_prioritize_matched_dependency_effectiveness_measurements_across_any_admissible_island_system",
+      "programme_decision": "reject_single_buffer_explanation_prioritize_source_identified_buffer_filter_closure_across_any_admissible_island_system",
       "autonomous_assurance_universal_buffer": false,
       "physical_or_functional_mismatch_universal_propagator": false,
       "partner_effectiveness_sufficient_final_sign_predictor": false,
       "current_service_deficit_required_for_island_trait_difference": false,
       "one_common_buffering_mechanism_identified": false,
-      "rank1_measurement": "next_source_identified_buffer_filter_discriminator_from_any_island_system"
+      "hawaii_autonomous_assurance_candidate_source_supported": true
     },
     "issue91_prediction_freeze": {
       "path": "data/design/issue91_propagation_buffering_prediction_freeze.json",
@@ -81,149 +78,42 @@
       "ogasawara_psychotria_adds_new_geographic_stratum": true,
       "buffer_mechanism_discriminator_gate": "data/design/buffer_mechanism_discriminator_gate.json",
       "buffer_mechanism_ready_for_abm_admission": 0,
+      "hawaii_named_dependency_source_check": "data/results/hawaii_lobelioid_controlled_dependency_named_source_check.json",
+      "hawaii_exact_taxon_assurance_candidate_found": true,
       "buffer_closure_priority": "data/design/system_agnostic_buffer_closure_priority.json",
       "stage_c_search_state": "route_A_complete_unconstrained_search_closed"
     },
     "formal_cross_system_fit_ready": false
   },
   "workstreams": [
+    {"id": "P0", "name": "scientific_state_protection_and_cleanup_guard", "priority": 0, "status": "active", "completion_rule": "source locks, system identities, response-axis estimands, canonical result registries, negative admission states, failed predictions and claim-boundary tests remain protected"},
     {
-      "id": "P0",
-      "name": "scientific_state_protection_and_cleanup_guard",
-      "priority": 0,
-      "status": "active",
-      "completion_rule": "source locks, system identities, response-axis estimands, canonical result registries, negative admission states, failed predictions and claim-boundary tests remain protected"
-    },
-    {
-      "id": "P1",
-      "name": "island_system_response_matrix",
-      "priority": 1,
-      "status": "active",
+      "id": "P1", "name": "island_system_response_matrix", "priority": 1, "status": "active",
       "objective": "Represent each independent island system against the same response-axis and propagation vocabulary and use the contrasts to discriminate propagation filters without requiring every system to measure every axis or any one focal taxon to block the programme.",
-      "response_axes": [
-        "floral_morphology",
-        "mating_and_reproductive_assurance",
-        "visual_signal",
-        "pollinator_functional_environment",
-        "pollinator_effectiveness",
-        "interaction_network",
-        "reproductive_outcome"
-      ],
-      "required_outputs": [
-        "system_by_response_axis_evidence_matrix",
-        "source_and_estimand_lock_per_cell",
-        "missing_not_zero_state_distinction",
-        "recurring_response_combination_summary",
-        "heterogeneous_branching_summary",
-        "propagation_boundary_summary",
-        "propagation_buffering_discriminator",
-        "system_agnostic_multi_system_abm_validation",
-        "source_identified_buffer_mechanism_gate"
-      ]
+      "response_axes": ["floral_morphology", "mating_and_reproductive_assurance", "visual_signal", "pollinator_functional_environment", "pollinator_effectiveness", "interaction_network", "reproductive_outcome"],
+      "required_outputs": ["system_by_response_axis_evidence_matrix", "source_and_estimand_lock_per_cell", "missing_not_zero_state_distinction", "recurring_response_combination_summary", "heterogeneous_branching_summary", "propagation_boundary_summary", "propagation_buffering_discriminator", "system_agnostic_multi_system_abm_validation", "source_identified_buffer_mechanism_gate"]
     },
     {
-      "id": "P2",
-      "name": "comparative_mechanism_ladder",
-      "priority": 1,
-      "issue": 93,
-      "bridge_issue": 100,
-      "status": "system_agnostic_strict_validation_partial_buffer_filter_identification_active_complete_bridge_missing",
+      "id": "P2", "name": "comparative_mechanism_ladder", "priority": 1, "issue": 93, "bridge_issue": 100,
+      "status": "system_agnostic_strict_validation_partial_hawaii_assurance_candidate_narrowed_buffer_filter_identification_active",
       "stages": [
-        {
-          "stage": "A",
-          "name": "recurrent_response_axes",
-          "current_state": "multiple independent systems support morphology reproductive interaction or effectiveness responses; no universal direction is claimed"
-        },
-        {
-          "stage": "B",
-          "name": "recurrent_pollinator_environment_change",
-          "current_state": "source_native visitation partner-turnover rewiring functional-matching and effectiveness changes exist across systems"
-        },
-        {
-          "stage": "C",
-          "name": "effective_service_reproductive_dependency_bridge",
-          "current_state": "six_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed",
-          "priority_rule": "source-triggered only; do not displace comparative synthesis with unconstrained acquisition"
-        },
-        {
-          "stage": "D",
-          "name": "within_system_mechanistic_triangulation_and_propagation",
-          "current_state": "Ogasawara supplies a bounded contemporary access-to-fruit propagation case; Hawaii, Nicotiana and Guaiacum supply distinct buffering/alternative-mechanism cases; Izu branches downstream; Dominica fails the frozen signed-position direction. Autonomous assurance, mismatch, partner effectiveness and current service deficit are each rejected as universal single-factor explanations."
-        },
-        {
-          "stage": "E",
-          "name": "cross_system_same_estimand_replication",
-          "current_state": "closed",
-          "formal_fit_open_conditions": [
-            "same_estimand_family_in_at_least_two independent system clusters",
-            "compatible uncertainty",
-            "source provenance and sampling hierarchy locked",
-            "required measurement_error gates satisfied",
-            "no favourable sensitivity assumption selected for admission"
-          ]
-        },
-        {
-          "stage": "F",
-          "name": "system_agnostic_multi_system_mechanism_validation",
-          "current_state": "initial_strict_harness_complete_branching_covered_directional_sign_capability_present_three_buffer_coverage_gaps_one_retained_falsification",
-          "target_registry": "data/design/system_agnostic_multi_system_validation_gate.json",
-          "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
-          "rule": "Campanula Issue #91 proceeds in parallel as one direct calibration anchor; it is not a prerequisite for programme-level validation."
-        },
-        {
-          "stage": "G",
-          "name": "source_identified_buffer_filter_closure",
-          "current_state": "active_zero_of_six_current_partial_bridges_ready_for_buffer_mechanism_abm_admission",
-          "gate": "data/design/buffer_mechanism_discriminator_gate.json",
-          "priority": "data/design/system_agnostic_buffer_closure_priority.json",
-          "rule": "Do not add a generic buffer parameter. Admit a new downstream filter only when a named island system measures upstream functional change, propagation/service, downstream reproduction and the candidate filter in a matched transition."
-        }
+        {"stage": "A", "name": "recurrent_response_axes", "current_state": "multiple independent systems support morphology reproductive interaction or effectiveness responses; no universal direction is claimed"},
+        {"stage": "B", "name": "recurrent_pollinator_environment_change", "current_state": "source_native visitation partner-turnover rewiring functional-matching and effectiveness changes exist across systems"},
+        {"stage": "C", "name": "effective_service_reproductive_dependency_bridge", "current_state": "six_independent_biological_partial_bridges_one_near_complete_zero_complete_route_A_closed", "priority_rule": "source-triggered only; do not displace comparative synthesis with unconstrained acquisition"},
+        {"stage": "D", "name": "within_system_mechanistic_triangulation_and_propagation", "current_state": "Ogasawara supplies a bounded contemporary access-to-fruit propagation case; Hawaii, Nicotiana and Guaiacum supply distinct buffering/alternative-mechanism cases; Izu branches downstream; Dominica fails the frozen signed-position direction. Autonomous assurance, mismatch, partner effectiveness and current service deficit are each rejected as universal single-factor explanations."},
+        {"stage": "E", "name": "cross_system_same_estimand_replication", "current_state": "closed", "formal_fit_open_conditions": ["same_estimand_family_in_at_least_two independent system clusters", "compatible uncertainty", "source provenance and sampling hierarchy locked", "required measurement_error gates satisfied", "no favourable sensitivity assumption selected for admission"]},
+        {"stage": "F", "name": "system_agnostic_multi_system_mechanism_validation", "current_state": "initial_strict_harness_complete_branching_covered_directional_sign_capability_present_three_buffer_coverage_gaps_one_retained_falsification", "target_registry": "data/design/system_agnostic_multi_system_validation_gate.json", "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json", "rule": "Campanula Issue #91 proceeds in parallel as one direct calibration anchor; it is not a prerequisite for programme-level validation."},
+        {"stage": "G", "name": "source_identified_buffer_filter_closure", "current_state": "hawaii_exact_taxon_historical_assurance_candidate_found_but_zero_of_six_current_partial_bridges_ready_for_abm_buffer_admission", "gate": "data/design/buffer_mechanism_discriminator_gate.json", "priority": "data/design/system_agnostic_buffer_closure_priority.json", "rule": "Do not add a generic buffer parameter. Historical exact-taxon evidence may narrow the candidate set, but ABM admission requires same-context numeric dependency/assurance or another matched discriminator."}
       ]
     },
     {
-      "id": "P3",
-      "name": "izu_calibration_and_direct_dependency_anchor",
-      "priority": 2,
-      "issue": 91,
-      "status": "implementation_ready_field_data_missing",
-      "role": "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center",
-      "required_outputs": [
-        "predeclared_propagation_vs_buffering_predictions_frozen_before_first_real_bundle",
-        "one_command_field_bundle_intake_ready",
-        "first_real_six_channel_bundle_passes_preflight",
-        "raw_bundle_freeze",
-        "linked_plant_effort_visit_svd_treatment_fruit_seed_records",
-        "structural_dependency_panel_pass",
-        "between_plant_dispersion_estimable",
-        "pilot_variance_coverage_loss_estimates",
-        "absolute_precision_target_before_confirmatory_planning"
-      ],
-      "blocked_claims": [
-        "historical_pollinator_loss_causation",
-        "oshima_toshima_causal_boundary_effect",
-        "universal_island_response_from_izu",
-        "direct_izu_signed_position_without_source_native_pollinator_trait_and_weight_data"
-      ]
+      "id": "P3", "name": "izu_calibration_and_direct_dependency_anchor", "priority": 2, "issue": 91, "status": "implementation_ready_field_data_missing", "role": "mechanistic_anchor_and_future_direct_dependency_calibration_not_programme_center",
+      "required_outputs": ["predeclared_propagation_vs_buffering_predictions_frozen_before_first_real_bundle", "one_command_field_bundle_intake_ready", "first_real_six_channel_bundle_passes_preflight", "raw_bundle_freeze", "linked_plant_effort_visit_svd_treatment_fruit_seed_records", "structural_dependency_panel_pass", "between_plant_dispersion_estimable", "pilot_variance_coverage_loss_estimates", "absolute_precision_target_before_confirmatory_planning"],
+      "blocked_claims": ["historical_pollinator_loss_causation", "oshima_toshima_causal_boundary_effect", "universal_island_response_from_izu", "direct_izu_signed_position_without_source_native_pollinator_trait_and_weight_data"]
     },
+    {"id": "P4", "name": "system_specific_axis_completion", "priority": 2, "status": "active_where_admissible_sources_exist", "rule": "Fill high-value missing response or propagation axes within any existing system when source-native evidence exists; no system is privileged solely because it is Izu or Campanula, and missing is not evidence of no response.", "examples": ["Hawaii same-context numeric dependency/assurance after historical exact-taxon assurance support", "Cordia Dong direct effectiveness plus controlled dependency", "Nicotiana same-season service/dependency linkage", "Issue #91 linked effective-service/dependency field bundle", "Ogasawara standardized per-visit effectiveness plus controlled dependency"]},
     {
-      "id": "P4",
-      "name": "system_specific_axis_completion",
-      "priority": 2,
-      "status": "active_where_admissible_sources_exist",
-      "rule": "Fill high-value missing response or propagation axes within any existing system when source-native evidence exists; no system is privileged solely because it is Izu or Campanula, and missing is not evidence of no response.",
-      "examples": [
-        "Hawaii controlled dependency/assurance in the same focal buffering context",
-        "Cordia Dong direct effectiveness plus controlled dependency",
-        "Nicotiana same-season service/dependency linkage",
-        "Issue #91 linked effective-service/dependency field bundle",
-        "Ogasawara standardized per-visit effectiveness plus controlled dependency"
-      ]
-    },
-    {
-      "id": "P5",
-      "name": "source_controlled_reopen_gates",
-      "priority": 3,
-      "status": "wait_for_new_admissible_source_material",
+      "id": "P5", "name": "source_controlled_reopen_gates", "priority": 3, "status": "wait_for_new_admissible_source_material",
       "gates": [
         {"issue": 92, "target": "Weigela_Ligustrum_Hosta_population_level_primary_data", "state": "reopen_on_lawful_external_source_delivery"},
         {"target": "Hetherington_Rauth_Johnson_136_pair_numeric_floral_table", "state": "reopen_only_on_new_source_native_values"},
@@ -231,20 +121,14 @@
         {"target": "Galapagos_raw_plant_network_archive", "state": "blocked_until_source_archive_recovered"},
         {"issue": 100, "target": "external_complete_mechanism_bridge", "state": "route_A_completed_hawaii_and_ogasawara_named_source_triggers_added_partial_bridges_reopen_only_on_new_named_source_trigger"},
         {"target": "hawaii_lobelioid_functional_ecology_raw_csv", "state": "anonymous_dryad_file_stream_403_and_package_api_401_frozen_reopen_only_on_exact_mirror_or_authorized_access"},
-        {"target": "hawaii_lobelioid_controlled_dependency_same_context", "state": "source_triggered_priority_1_reopen_on_named_source_native_or_prospective_matched_measurement"},
-        {"target": "cordia_dong_single_visit_effectiveness_and_dependency", "state": "source_triggered_priority_2_reopen_on_named_source_native_or_prospective_matched_measurement"},
+        {"target": "hawaii_lobelioid_controlled_dependency_same_context", "state": "priority_1_named_historical_exact_taxon_assurance_found_same_context_numeric_dependency_still_missing_reopen_only_on_named_contemporary_source_authorized_raw_access_or_prospective_matched_measurement"},
+        {"target": "cordia_dong_single_visit_effectiveness_and_dependency", "state": "priority_2_targeted_followup_exhausted_reopen_only_on_new_named_source_native_or_prospective_matched_measurement"},
         {"target": "ogasawara_psychotria_numeric_signed_access_position", "state": "published_categorical_access_and_reproductive_asymmetry_admitted_numeric_signed_mismatch_not_recovered_reopen_only_on_named_source_native_measurement"}
       ]
     },
-    {
-      "id": "P6",
-      "name": "implementation_consolidation",
-      "priority": 3,
-      "status": "parallel_conservative_cleanup",
-      "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"
-    }
+    {"id": "P6", "name": "implementation_consolidation", "priority": 3, "status": "parallel_conservative_cleanup", "forbidden": "scientific_result_changes_mixed_with_risky_workflow_consolidation"}
   ],
-  "next_executable_task": "check_ranked_named_buffer_closure_sources_starting_with_hawaii_controlled_dependency_then_cordia_dong_without_reopening_unconstrained_bridge_search_and_keep_issue91_as_parallel_optional_anchor",
+  "next_executable_task": "freeze_a_source_agnostic_buffer_mechanism_admission_interface_and_cross_system_prediction_ledger_before_any_new_buffer_parameter_then_wait_for_ranked_named_source_or_prospective_measurement_triggers",
   "not_mainline": [
     "universal_island_dwarfism_or_response_coefficient",
     "raw_island_count_accumulation_without_independent_system_identity",
@@ -255,6 +139,8 @@
     "making_issue91_campanula_field_data_a_programme_wide_blocker",
     "campanula_specific_retuning_of_abm",
     "repeated_search_of_exhausted_source_routes",
+    "repeat_broad_hawaii_historical_assurance_search_after_exact_taxon_candidate_found",
+    "repeat_cordia_dong_search_without_new_named_source_trigger",
     "anonymous_retry_of_hawaii_dryad_file_stream_or_package_api",
     "unconstrained_external_bridge_search_after_issue_100_route_A_completion",
     "pooling_noncommensurate_response_axes_into_one_effect",
