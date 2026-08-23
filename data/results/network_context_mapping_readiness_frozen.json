@@ -1,0 +1,124 @@
+{
+  "analysis": "network_context_mapping_readiness",
+  "schema_version": "1.0",
+  "required_gates": [
+    "matched_transition_unit",
+    "repeated_local_context_support",
+    "visitor_specific_rate",
+    "visitor_specific_direct_effectiveness",
+    "reproductive_outcome"
+  ],
+  "derived_estimand": "rate_weighted_effective_service = sum_k(V_k * E_k)",
+  "systems_screened": 5,
+  "mapping_ready_count": 0,
+  "mapping_ready_systems": [],
+  "closest_structural_candidate": "puerto_rico_mona_guaiacum",
+  "closest_missing_gate_count": 1,
+  "rows": [
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "role": "network_context_mapping_candidate_and_reproductive_axis_decoupling_reference",
+      "admitted_required_gates": [
+        "matched_transition_unit",
+        "repeated_local_context_support",
+        "visitor_specific_rate",
+        "reproductive_outcome"
+      ],
+      "missing_required_gates": ["visitor_specific_direct_effectiveness"],
+      "n_required_gates": 5,
+      "n_admitted_required_gates": 4,
+      "n_missing_required_gates": 1,
+      "rate_weighted_effective_service_computable": false,
+      "network_context_mapping_ready": false,
+      "plant_side_filter": "breeding_treatments_available_but_whole_reproduction_buffer_not_established",
+      "source_state": "named_effectiveness_search_exhausted_reopen_only_on_new_same_taxon_source_authorized_access_or_prospective_direct_effectiveness",
+      "programme_blocker": false
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "role": "network_context_and_assurance_candidate",
+      "admitted_required_gates": [],
+      "missing_required_gates": [
+        "matched_transition_unit",
+        "repeated_local_context_support",
+        "visitor_specific_rate",
+        "visitor_specific_direct_effectiveness",
+        "reproductive_outcome"
+      ],
+      "n_required_gates": 5,
+      "n_admitted_required_gates": 0,
+      "n_missing_required_gates": 5,
+      "rate_weighted_effective_service_computable": false,
+      "network_context_mapping_ready": false,
+      "plant_side_filter": "autonomous_assurance_source_supported",
+      "source_state": "primary_effectiveness_values_nonadmitted_until_stable_artifact_recovered_or_prospective_same_season_linkage_exists",
+      "programme_blocker": false
+    },
+    {
+      "system_id": "hawaii_lobelioids_2026",
+      "role": "buffer_boundary_and_network_context_candidate",
+      "admitted_required_gates": ["repeated_local_context_support"],
+      "missing_required_gates": [
+        "matched_transition_unit",
+        "visitor_specific_rate",
+        "visitor_specific_direct_effectiveness",
+        "reproductive_outcome"
+      ],
+      "n_required_gates": 5,
+      "n_admitted_required_gates": 1,
+      "n_missing_required_gates": 4,
+      "rate_weighted_effective_service_computable": false,
+      "network_context_mapping_ready": false,
+      "plant_side_filter": "historical_exact_taxon_assurance_candidate_but_same_context_numeric_dependency_missing",
+      "source_state": "raw_interaction_linkage_and_same_context_dependency_remain_source_or_prospective_triggers",
+      "programme_blocker": false
+    },
+    {
+      "system_id": "xisha_cordia_subcordata",
+      "role": "near_complete_partial_bridge",
+      "admitted_required_gates": ["visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": [
+        "matched_transition_unit",
+        "repeated_local_context_support",
+        "visitor_specific_direct_effectiveness"
+      ],
+      "n_required_gates": 5,
+      "n_admitted_required_gates": 2,
+      "n_missing_required_gates": 3,
+      "rate_weighted_effective_service_computable": false,
+      "network_context_mapping_ready": false,
+      "plant_side_filter": "controlled_dependency_partial_yongxing_only_missing_dong",
+      "source_state": "dong_effectiveness_dependency_followup_exhausted_reopen_only_on_new_named_source_or_prospective_measurement",
+      "programme_blocker": false
+    },
+    {
+      "system_id": "issue91_campanula_microdonta",
+      "role": "prepared_parallel_prospective_route",
+      "admitted_required_gates": [],
+      "missing_required_gates": [
+        "matched_transition_unit",
+        "repeated_local_context_support",
+        "visitor_specific_rate",
+        "visitor_specific_direct_effectiveness",
+        "reproductive_outcome"
+      ],
+      "n_required_gates": 5,
+      "n_admitted_required_gates": 0,
+      "n_missing_required_gates": 5,
+      "rate_weighted_effective_service_computable": false,
+      "network_context_mapping_ready": false,
+      "plant_side_filter": "controlled_dependency_protocol_ready_no_real_rows",
+      "source_state": "prospective_field_rows_missing",
+      "programme_blocker": false
+    }
+  ],
+  "structural_closeness_order": [
+    "puerto_rico_mona_guaiacum",
+    "xisha_cordia_subcordata",
+    "hawaii_lobelioids_2026",
+    "california_channel_islands_nicotiana_glauca",
+    "issue91_campanula_microdonta"
+  ],
+  "decision": "no_current_system_mapping_ready_keep_empirical_network_context_mapping_source_or_prospective_triggered",
+  "claim_boundary": "Only an exact 'admitted' gate passes. Partial, one-sided, cross-year, article-level-only, protocol-only or provenance-blocked links remain non-admitted. Readiness is structural, not a causal ranking, and missing E_k cannot be replaced by visitor abundance, identity, richness or body-size proxies."
+}
