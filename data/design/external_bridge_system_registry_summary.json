@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "parent_issue": 100,
   "purpose": "Summarize independently screened external island mechanism bridges without converting partial links, source availability, within-system replication, or repeated systems from one archipelago into a formal cross-system causal fit.",
   "systems": [
@@ -70,15 +70,17 @@
   },
   "current_best_bridge": "xisha_cordia_subcordata_two_island_system",
   "formal_cross_system_mechanism_fit_ready": false,
+  "buffer_mechanism_discriminator_gate": "data/design/buffer_mechanism_discriminator_gate.json",
+  "buffer_mechanism_ready_for_abm_admission": 0,
   "why_formal_fit_remains_closed": [
     "No external system yet supplies all mechanism links at a matched two-sided population/transition unit.",
     "The six systems do not yet supply one compatible mechanism estimand family with source-locked uncertainty across at least two independent clusters.",
     "Nicotiana has cross-year/cross-paper linkage, Caribbean Gesneriaceae lacks matched per-visit pollen function, Cordia lacks Dong-side direct effectiveness and controlled dependency measurements, Seychelles lacks a matched floral-response transition, Hawaii lobelioids lack a same-tagged full chain plus controlled reproductive dependency, and Ogasawara Psychotria lacks standardized single-visit effectiveness, numeric signed mismatch and controlled total dependency.",
     "The Hawaii lobelioid bridge adds a propagation boundary rather than an additional independent geographic replicate beyond Hawaii; Ogasawara Psychotria does add a distinct Northwest Pacific geographic cluster.",
-    "Partial mechanistic recurrence cannot substitute for Issue #91 direct Izu field measurements."
+    "No admitted bridge yet identifies a specific buffering filter strongly enough to justify a new ABM mechanism without post-hoc flexibility."
   ],
   "stage_c_search_state": "route_A_complete_unconstrained_search_closed",
-  "reopen_rule": "Reopen external bridge acquisition only when new lawful source-native material can close a named missing link in an existing partial system or provides a candidate matched floral-response, direct effectiveness, and reproductive-dependency transition with compatible uncertainty and hierarchy.",
-  "next_decision_gate": "Issue #91 first real six-channel field bundle remains the active direct-Izu gate; external bridge work remains source-triggered. Ogasawara Psychotria is admitted from a named source trigger and should be used to test propagation versus buffering, not to reopen unconstrained acquisition.",
-  "claim_boundary": "Six independent biological partial bridge systems strengthen the plausibility and generality of a branching/propagation architecture and reveal alternative mechanisms. Biological systems and geographic strata remain distinct counting units. The registry does not establish a universal island response, universal dependency coefficient, historical pollinator-loss causation, or a formal cross-system causal model."
+  "reopen_rule": "Reopen external bridge acquisition only when new lawful source-native material can close a named missing link in an existing partial system or provides a candidate matched upstream functional change, direct service/effectiveness, downstream reproductive response, and candidate buffer/filter with compatible uncertainty and hierarchy.",
+  "next_decision_gate": "Programme-level validation proceeds system-agnostically with source-triggered bridge closure. Any island system may advance the mechanism if it closes a named missing link; Issue #91 remains one prepared parallel direct-calibration route and is not programme-blocking.",
+  "claim_boundary": "Six independent biological partial bridge systems strengthen the plausibility and generality of a branching/propagation architecture and reveal alternative mechanisms. Biological systems and geographic strata remain distinct counting units. The registry does not establish a universal island response, universal dependency coefficient, historical pollinator-loss causation, a named universal buffering mechanism, or a formal cross-system causal model."
 }
