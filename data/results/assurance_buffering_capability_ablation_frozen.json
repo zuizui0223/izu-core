@@ -1,0 +1,40 @@
+{
+  "analysis": "assurance_buffering_capability_ablation_frozen",
+  "run_date": "2026-08-23",
+  "workflow_run": 32623474227,
+  "artifact_id": 9489047321,
+  "artifact_zip_sha256": "69f384700eb17f0525fe4917311c7474525b7a6e5662e00721f5778deef14a4a",
+  "design": {
+    "saturations": [1.0, 2.0, 3.0],
+    "support_strengths": [0.25, 0.5, 0.75],
+    "replicates_per_cell": 4,
+    "contexts_per_endpoint": 4,
+    "lineages_per_run": 24,
+    "evolution_steps": 120,
+    "total_lineage_contrasts": 864,
+    "empirical_targets_loaded": [],
+    "hawaii_outcomes_loaded": false,
+    "campanula_outcomes_loaded": false,
+    "matched_ablation": "The same frozen v9/v10 opportunity networks, local support, partner effectiveness, dependency heterogeneity, lineage traits and random streams are reused across assurance OFF, baseline-only and full-adaptive modes.",
+    "buffer_definition": "Among matched contrasts with effective-service decline and reproductive decline when assurance is OFF, attenuation means a larger island-minus-mainland reproduction contrast with assurance ON; sign rescue means OFF < 0 and ON >= 0. No empirical tolerance or fitted biological threshold is used."
+  },
+  "summary": {
+    "lineage_contrasts": 864,
+    "service_decline_contrasts": 525,
+    "service_decline_and_assurance_off_reproduction_decline": 525,
+    "service_and_opportunity_invariant_all_contrasts": true,
+    "baseline_attenuation_count": 525,
+    "full_attenuation_count": 510,
+    "baseline_sign_rescue_count": 0,
+    "full_sign_rescue_count": 0,
+    "adaptive_additional_rescue_count": 0,
+    "full_worsening_count": 15,
+    "mean_baseline_gain_among_off_declines": 0.0014283138237266035,
+    "mean_adaptive_increment_among_off_declines": 0.0006179428854536685,
+    "mean_full_gain_among_off_declines": 0.002046256709180272
+  },
+  "decision": "existing_assurance_route_attenuates_service_driven_reproductive_declines_without_sign_rescue",
+  "scientific_interpretation": "The existing autonomous-assurance route has weak synthetic attenuation capacity but does not generate a threshold-free sign-rescue buffering state anywhere in the declared 864-contrast envelope. Baseline assurance attenuates every service-decline/off-decline contrast, while adaptive responsiveness is not uniformly beneficial and worsens 15 contrasts. Therefore the current frozen assurance implementation is insufficient by itself to explain a strong buffered/resilient state such as the observed Hawaii boundary. This does not falsify autonomous assurance biologically; it falsifies the stronger claim that the already-declared assurance route is sufficient for sign-rescue buffering in this model envelope.",
+  "programme_update": "Keep Hawaii autonomous assurance as a source-supported empirical candidate, but do not admit it as the programme buffer mechanism or retune the assurance range to recover known Hawaii outcomes. A future matched empirical mapping may test assurance directly; otherwise a distinct source-identified filter such as resource/demographic compensation or service redundancy remains necessary to explain strong buffering.",
+  "claim_boundary": "This is a synthetic capability result, not empirical Hawaii validation and not a reason to add or tune a new parameter. Empirical mechanism admission remains governed by data/design/buffer_mechanism_abm_admission_interface.json."
+}
