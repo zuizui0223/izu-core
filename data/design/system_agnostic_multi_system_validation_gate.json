@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-23",
+  "programme_unit": "independent_island_system_or_biological_system_layer",
+  "purpose": "Validate the existing island-pollination mechanism stack against multiple admitted propagation states without making Campanula microdonta, Issue #91, or any single focal taxon a programme-wide blocker.",
+  "programme_rule": {
+    "campanula_is_one_anchor_not_centre": true,
+    "issue91_can_progress_in_parallel": true,
+    "programme_can_progress_without_issue91_field_rows": true,
+    "no_single_focal_taxon_can_block_programme": true,
+    "no_retuning_to_any_one_system": true,
+    "failed_system_prediction_is_retained_as_a_result": true
+  },
+  "existing_abm_state": {
+    "branch_generator": "pre_existing_lineage_position_in_functional_trait_space",
+    "branch_allocators": [
+      "local_plant_pollinator_pair_support",
+      "network_context",
+      "partner_effectiveness"
+    ],
+    "downstream_filters": [
+      "reproductive_dependency_or_assurance",
+      "resource_or_demographic_compensation",
+      "service_redundancy_or_compensatory_abundance",
+      "colonization_or_establishment_filtering",
+      "other_unmeasured_plant_side_buffering"
+    ],
+    "protected_failures": [
+      "v12_dominica_signed_position_prediction_failed_declared_direction",
+      "partner_effectiveness_not_sufficient_to_generate_total_branching",
+      "dependency_heterogeneity_not_required_for_branch_generation"
+    ]
+  },
+  "qualitative_validation_targets": [
+    {
+      "system_id": "ogasawara_psychotria_homalosperma",
+      "target_state": "propagates_same_direction",
+      "observed_chain": "physical access failure -> directional pollen transfer -> morph-specific fruit asymmetry",
+      "role": "propagation case",
+      "do_not_require": "Campanula calibration"
+    },
+    {
+      "system_id": "hawaii_lobelioids_2026",
+      "target_state": "buffered_or_resilient",
+      "observed_chain": "signed functional mismatch -> contact/robbing/resource change -> high reproductive performance",
+      "role": "buffering boundary case",
+      "do_not_require": "Campanula calibration"
+    },
+    {
+      "system_id": "izu_multi_taxon_hiraiwa",
+      "target_state": "branches_downstream",
+      "observed_chain": "common-ish matching decline -> divergent pollen and floral responses",
+      "role": "branching case; Campanula is not the only lineage",
+      "do_not_require": "direct Issue #91 field dependency to retain the observed multi-taxon branching pattern"
+    },
+    {
+      "system_id": "dominica_heliconia",
+      "target_state": "counterdirectional_to_frozen_signed_position_prediction",
+      "observed_chain": "frozen signed-position prediction -> observed selection direction opposite or nonconcordant",
+      "role": "falsification case",
+      "do_not_require": "model rescue"
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "target_state": "buffered_or_alternative_mechanism",
+      "observed_chain": "island selfing/corolla difference without detected current island service deficit",
+      "role": "establishment_or_assurance alternative case",
+      "do_not_require": "current pollinator decline"
+    },
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "target_state": "buffered_or_resilient",
+      "observed_chain": "large visitor-assemblage contrast -> similar breeding-system index despite negligible autogamy",
+      "role": "non-assurance buffering case",
+      "do_not_require": "autonomous selfing explanation"
+    }
+  ],
+  "validation_question": "Can one frozen mechanism architecture generate or accommodate the observed diversity of propagation states across independent island systems without parameter tuning to any one focal taxon?",
+  "success_is_not": "matching every system numerically",
+  "success_is": [
+    "the mechanism can generate propagation, buffering and branching under predeclared state differences",
+    "known protected failures remain failures",
+    "no single system-specific parameter rescue is required",
+    "new systems can be added when source-native discriminator data exist"
+  ],
+  "next_gate": "build a multi-system qualitative validation harness around the existing ABM outputs and admitted propagation matrix, then test whether the frozen mechanism architecture covers the observed state classes without Campanula-specific tuning",
+  "claim_boundary": "This registry defines qualitative validation targets only. It is not a pooled effect-size model, does not convert heterogeneous estimands into one coefficient, and does not claim that the ABM mechanism is empirically identified merely because it can reproduce a state class."
+}
