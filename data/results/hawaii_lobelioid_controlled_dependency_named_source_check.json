@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "checked_on": "2026-08-23",
+  "target_gate": "hawaii_lobelioid_controlled_dependency_same_context",
+  "target_2026_focal_taxa": [
+    "Cyanea shipmanii",
+    "Clermontia pyrularia",
+    "Clermontia lindseyana"
+  ],
+  "question": "Is there already a named source-native controlled dependency/autonomous-assurance measurement close enough to the 2026 Hawaiian lobelioid buffering system to identify why interaction-quality change does not propagate to reproductive collapse?",
+  "sources_checked": [
+    {
+      "source_id": "pender_morden_2012_hawaii_conservation_conference",
+      "title": "Do Hawaiian Lobeliads Need Bird Pollinators to Reproduce? A Test Using Restoration Plantings Where Nectarivorous Honeycreepers are Present and Absent",
+      "authors": ["Richard Pender", "Clifford Morden"],
+      "source_type": "conference_abstract",
+      "exact_2026_focal_taxon_overlap": ["Clermontia lindseyana", "Clermontia pyrularia"],
+      "site_context": "Hakalau National Wildlife Refuge restoration plantings on Hawaii Island",
+      "reported_links": [
+        "infrequent visits by Iiwi and Hawaii Amakihi to Clermontia lindseyana and C. pyrularia",
+        "Amakihi primarily nectar robbed while Iiwi appeared to provide limited pollinator service",
+        "mixed mating with autogamy and xenogamy",
+        "under extant field conditions reproduction primarily by autogamy",
+        "significant pollen limitation"
+      ],
+      "numeric_controlled_dependency_ratio_recovered": false,
+      "same_tagged_2026_individuals_or_season": false,
+      "admission_value": "strong_exact_taxon_assurance_and_pollen_limitation_lead_but_not_same_context_numeric_dependency"
+    },
+    {
+      "source_id": "pender_2013_dissertation",
+      "title": "Floral trait evolution and pollination ecology in the Hawaiian lobeliad genus, Clermontia (Campanulaceae)",
+      "author": "Richard James Pender",
+      "source_type": "doctoral_dissertation",
+      "repository_handle": "http://hdl.handle.net/10125/100636",
+      "exact_2026_focal_taxon_overlap": ["Clermontia lindseyana", "Clermontia pyrularia"],
+      "reported_links": [
+        "pollination ecology at Hakalau restoration plantings",
+        "Iiwi and Hawaii Amakihi infrequent floral visitation",
+        "both honeycreepers ineffective pollinators of the two focal Clermontia species",
+        "all four dissertation focal lobeliads significantly pollen limited"
+      ],
+      "full_treatment_table_recovered_in_repo": false,
+      "numeric_autonomous_to_supplemental_or_exclusion_dependency_recovered": false,
+      "same_tagged_2026_individuals_or_season": false,
+      "admission_value": "exact_taxon_historical_controlled_pollination_context_but_not_a_matched_2026_dependency_estimand"
+    },
+    {
+      "source_id": "cory_pender_jones_2015_pacific_science",
+      "title": "Can Ornithophilous Hawaiian Lobeliads Produce Seeds in the Absence of Pollinators? A Test Using Clermontia kakeana and Cyanea angustifolia (Campanulaceae)",
+      "doi": "10.2984/69.2.7",
+      "source_type": "journal_article",
+      "exact_2026_focal_taxon_overlap": [],
+      "treatments": ["open_control", "pollinator_exclusion"],
+      "source_native_result": "mean seed counts were not significantly different between open-pollinated and pollinator-excluded flowers in the two studied species, supporting autonomous seed production",
+      "admission_value": "lineage_level_background_only_not_transportable_to_2026_focal_taxa"
+    },
+    {
+      "source_id": "aslan_hart_wu_aslan_2014_biotropica",
+      "title": "Evaluating the Qualitative Effectiveness of a Novel Pollinator: a Case Study of Two Endemic Hawaiian Plants",
+      "source_type": "journal_article",
+      "focal_taxa": ["Clermontia parviflora", "Clermontia montis-loa"],
+      "treatment_interpretation": "manual self and distance-cross experiment rather than autonomous pollinator-exclusion dependency",
+      "admission_value": "different_species_and_wrong_dependency_construct_for_primary_gate"
+    }
+  ],
+  "new_scientific_reading": {
+    "supported": "Autonomous reproduction is not merely a generic Hawaiian-lobelioid possibility: historical work on two exact 2026 focal Clermontia species at Hakalau reports mixed mating, predominantly autogamous reproduction under extant conditions, limited contemporary bird pollination and significant pollen limitation.",
+    "not_supported": "The historical work cannot be joined to the 2026 contact/robbing/fruit-seed observations as one tagged causal chain, and no source-native numeric controlled dependency estimand for the same 2026 plants/season has been recovered.",
+    "buffer_implication": "Autonomous assurance becomes a source-supported candidate buffer for Clermontia lindseyana and C. pyrularia, but it is not established as the cause of the 2026 reproductive resilience and does not cover Cyanea shipmanii."
+  },
+  "decision": "named_sources_strengthen_exact_taxon_autonomous_assurance_candidate_but_same_context_numeric_dependency_gate_remains_open",
+  "abm_buffer_mechanism_admission": false,
+  "why_not_admitted": [
+    "historical and 2026 observations are separated in time and are not the same tagged plants or season",
+    "numeric controlled dependency or autonomous-to-supplemental ratio for the 2026 context is not recovered",
+    "Cyanea shipmanii lacks an exact-taxon matched historical controlled-dependency source in this named check",
+    "pollen limitation plus autogamy does not uniquely separate autonomous assurance from other downstream buffering in the 2026 experiment"
+  ],
+  "next_gate": "Treat autonomous assurance as a now source-supported candidate in the Hawaiian lobelioid system, but reopen ABM admission only on same-context numeric controlled dependency/assurance or another direct measurement that distinguishes assurance from non-assurance buffering. Do not transport exclusion results from other lobelioid species.",
+  "claim_boundary": "This named-source check narrows the candidate buffer set. It does not establish a causal bridge from historical bird extinction to 2026 reproduction, does not identify a universal Hawaiian lobelioid mating system, and does not justify fitting an assurance parameter to the 2026 ABM target."
+}
