@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-23",
+  "parent_prediction_freeze": "data/design/network_context_empirical_prediction_freeze.json",
+  "parent_measurement_priority": "data/design/network_context_empirical_measurement_priority.json",
+  "purpose": "Represent the current empirical network-context mapping candidates against one common readiness contract without transporting measurements across populations, seasons or taxa.",
+  "required_gates": [
+    "matched_transition_unit",
+    "repeated_local_context_support",
+    "visitor_specific_rate",
+    "visitor_specific_direct_effectiveness",
+    "reproductive_outcome"
+  ],
+  "derived_estimand_when_ready": "rate_weighted_effective_service = sum_k(V_k * E_k)",
+  "systems": [
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "role": "network_context_mapping_candidate_and_reproductive_axis_decoupling_reference",
+      "gates": {
+        "matched_transition_unit": "admitted",
+        "repeated_local_context_support": "admitted",
+        "visitor_specific_rate": "admitted",
+        "visitor_specific_direct_effectiveness": "missing_named_search_exhausted",
+        "reproductive_outcome": "admitted"
+      },
+      "plant_side_filter": "breeding_treatments_available_but_whole_reproduction_buffer_not_established",
+      "source_state": "named_effectiveness_search_exhausted_reopen_only_on_new_same_taxon_source_authorized_access_or_prospective_direct_effectiveness",
+      "do_not_infer": "visitor abundance or identity is not E_k"
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "role": "network_context_and_assurance_candidate",
+      "gates": {
+        "matched_transition_unit": "partial_cross_year_cross_paper",
+        "repeated_local_context_support": "missing",
+        "visitor_specific_rate": "partial_cross_study",
+        "visitor_specific_direct_effectiveness": "reported_but_primary_artifact_not_recovered",
+        "reproductive_outcome": "partial_cross_study"
+      },
+      "plant_side_filter": "autonomous_assurance_source_supported",
+      "source_state": "primary_effectiveness_values_nonadmitted_until_stable_artifact_recovered_or_prospective_same_season_linkage_exists",
+      "do_not_infer": "indexed table values are not formal E_k until primary artifact provenance is locked"
+    },
+    {
+      "system_id": "hawaii_lobelioids_2026",
+      "role": "buffer_boundary_and_network_context_candidate",
+      "gates": {
+        "matched_transition_unit": "partial_species_overlap_not_row_level",
+        "repeated_local_context_support": "admitted",
+        "visitor_specific_rate": "partial_without_exact_cross_source_row_linkage",
+        "visitor_specific_direct_effectiveness": "partial_contact_robbing_not_rate_weighted_direct_service_by_partner",
+        "reproductive_outcome": "admitted_article_level_not_same_tagged_chain"
+      },
+      "plant_side_filter": "historical_exact_taxon_assurance_candidate_but_same_context_numeric_dependency_missing",
+      "source_state": "raw_interaction_linkage_and_same_context_dependency_remain_source_or_prospective_triggers",
+      "do_not_infer": "contact or robbing alone is not rate-weighted reproductive service"
+    },
+    {
+      "system_id": "xisha_cordia_subcordata",
+      "role": "near_complete_partial_bridge",
+      "gates": {
+        "matched_transition_unit": "partial_two_island_channels_asymmetric",
+        "repeated_local_context_support": "missing_dong_matched_support",
+        "visitor_specific_rate": "admitted_both_islands_descriptively",
+        "visitor_specific_direct_effectiveness": "admitted_yongxing_only_missing_dong",
+        "reproductive_outcome": "admitted_both_islands"
+      },
+      "plant_side_filter": "controlled_dependency_admitted_yongxing_only_missing_dong",
+      "source_state": "dong_effectiveness_dependency_followup_exhausted_reopen_only_on_new_named_source_or_prospective_measurement",
+      "do_not_infer": "Yongxing effectiveness or dependency cannot be transported to Dong"
+    },
+    {
+      "system_id": "issue91_campanula_microdonta",
+      "role": "prepared_parallel_prospective_route",
+      "gates": {
+        "matched_transition_unit": "protocol_ready_no_real_rows",
+        "repeated_local_context_support": "protocol_ready_no_real_rows",
+        "visitor_specific_rate": "protocol_ready_no_real_rows",
+        "visitor_specific_direct_effectiveness": "protocol_ready_no_real_rows",
+        "reproductive_outcome": "protocol_ready_no_real_rows"
+      },
+      "plant_side_filter": "controlled_dependency_protocol_ready_no_real_rows",
+      "source_state": "prospective_field_rows_missing",
+      "programme_blocker": false
+    }
+  ],
+  "reference_only": [
+    {
+      "system_id": "ogasawara_psychotria_homalosperma",
+      "role": "propagation_reference_not_current_network_buffer_mapping_candidate",
+      "reason": "physical access, directional pollen flow and fruit asymmetry inform propagation; standardized repeated local support plus per-visit effectiveness/dependency remain missing"
+    }
+  ],
+  "claim_boundary": "This registry measures structural mapping readiness, not biological support for network buffering. A system with fewer missing gates is not automatically a better causal test if source access or prospective feasibility is poor."
+}
