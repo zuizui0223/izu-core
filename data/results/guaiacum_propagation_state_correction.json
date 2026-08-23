@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "corrected_on": "2026-08-23",
+  "system_id": "puerto_rico_mona_guaiacum_2022",
+  "source_audit": "data/design/guaiacum_joint_source_audit.json",
+  "supersedes": {
+    "file": "data/results/island_system_propagation_matrix_v1.json",
+    "old_propagation_state": "buffered_or_resilient",
+    "old_reading": "large visitor-assemblage contrast with similar self/outcross breeding-system index and negligible autogamy"
+  },
+  "source_native_facts_requiring_correction": {
+    "visitor_environment": "Guánica has much higher visitation and extreme Apis dominance; Mona has higher visitor richness and a more even assemblage.",
+    "breeding_system_index": {
+      "guanica_isi_seedset_self_over_outcross": 0.60,
+      "mona_isi_seedset_self_over_outcross": 0.63,
+      "between_island_test": "P=0.77"
+    },
+    "autogamy": "negligible spontaneous self-pollination on both islands; a pollen vector is required",
+    "realized_reproductive_performance": [
+      "On Mona, outcross pollination significantly increased fruit set relative to open pollination (P < 0.001), consistent with pollen limitation under natural conditions.",
+      "Multiplicative fitness for open and outcross progenies is lower on Mona than Guánica in the source-native table-level audit."
+    ]
+  },
+  "corrected_propagation_state": "reproductive_axes_decouple",
+  "corrected_observed_pattern": "The pollinator assemblage and visitation environment differ strongly. The self/outcross seed-set index is similar between populations and autogamy is negligible, but realized open reproductive performance is not equivalently maintained: Mona shows open-versus-outcross pollen limitation and lower multiplicative fitness. Therefore stability of the breeding-system index must not be relabelled whole-reproduction buffering.",
+  "mechanism_tags": [
+    "pollinator_environment_change",
+    "breeding_system_index_stability",
+    "realized_reproductive_performance_decline",
+    "reproductive_axis_decoupling",
+    "direct_effectiveness_missing"
+  ],
+  "buffer_candidate_status": "remove_from_reproductive_buffer_portfolio_retain_as_network_context_service_mapping_reference",
+  "network_context_value": "Guaiacum remains highly informative for testing how very different visitor assemblages map into direct effective service, but this mapping explains realized performance rather than a demonstrated buffered reproductive outcome.",
+  "boundary": "ISI is a selfing/outcrossing seed-set ratio, not total reproductive dependency or realized reproductive performance. Similar ISI across islands cannot support a buffered/resilient classification when open reproductive performance differs.",
+  "claim_boundary": "This correction does not identify why Mona has lower realized performance and does not infer an Apis causal effect. Direct visitor-specific effectiveness remains missing."
+}
