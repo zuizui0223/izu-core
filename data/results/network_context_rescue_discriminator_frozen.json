@@ -1,0 +1,106 @@
+{
+  "analysis": "network_context_rescue_vs_worsening_discriminator_frozen",
+  "run_date": "2026-08-23",
+  "workflow_run": 32630221846,
+  "artifact_id": 9490815316,
+  "artifact_zip_sha256": "0ef06a80c338f62cc382f04246d430e2c0655838ef2a4c46d0185d637b02b333",
+  "design": "data/design/network_context_rescue_discriminator_freeze.json",
+  "parent_result": "data/results/network_context_buffering_capability_robustness_frozen.json",
+  "status": "synthetic_descriptor_diagnostic_nested_in_frozen_network_context_robustness_block",
+  "configuration": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates": 4,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "support_off": 0.0,
+    "support_on": 0.5,
+    "seed_block": 90260824,
+    "total_lineage_contrasts": 288,
+    "analysis_subset_contrasts": 96,
+    "new_parameter_count": 0,
+    "empirical_targets_loaded": []
+  },
+  "class_counts": {
+    "sign_rescue": 16,
+    "attenuation_only": 69,
+    "worsening": 11,
+    "other_no_material_change": 0
+  },
+  "class_descriptor_means": {
+    "sign_rescue": {
+      "initial_lineage_trait": 0.5402575940579283,
+      "pollinator_dependency": 0.6677013196619213,
+      "global_opportunity_delta": -0.3648837388639842,
+      "support_off_effective_service_delta": -0.38318543170579666,
+      "support_on_island_minus_mainland_active_context_fraction": 0.0,
+      "support_on_island_minus_mainland_mean_positive_partner_count": -0.796875,
+      "support_on_island_minus_mainland_mean_row_shannon": -0.20931404824465963,
+      "support_on_island_minus_mainland_mean_dominant_partner_share": 0.08946414709294276
+    },
+    "attenuation_only": {
+      "initial_lineage_trait": 0.5444751364013756,
+      "pollinator_dependency": 0.5899250151362165,
+      "global_opportunity_delta": -0.4702527979731471,
+      "support_off_effective_service_delta": -0.5138626526543439,
+      "support_on_island_minus_mainland_active_context_fraction": -0.40942028985507245,
+      "support_on_island_minus_mainland_mean_positive_partner_count": -2.239130434782609,
+      "support_on_island_minus_mainland_mean_row_shannon": -0.5505739645640167,
+      "support_on_island_minus_mainland_mean_dominant_partner_share": -0.15923710443416803
+    },
+    "worsening": {
+      "initial_lineage_trait": 0.6191463512549799,
+      "pollinator_dependency": 0.7096096216839511,
+      "global_opportunity_delta": -0.12633755323215837,
+      "support_off_effective_service_delta": -0.16352890487848148,
+      "support_on_island_minus_mainland_active_context_fraction": -0.4090909090909091,
+      "support_on_island_minus_mainland_mean_positive_partner_count": -1.9545454545454546,
+      "support_on_island_minus_mainland_mean_row_shannon": -0.4375163828957685,
+      "support_on_island_minus_mainland_mean_dominant_partner_share": -0.2017469003346383
+    }
+  },
+  "predeclared_mean_contrasts": {
+    "sign_rescue_minus_worsening": {
+      "initial_lineage_trait": -0.07888875719705157,
+      "pollinator_dependency": -0.041908302022029886,
+      "global_opportunity_delta": -0.2385461856318258,
+      "support_off_effective_service_delta": -0.21965652682731518,
+      "support_on_island_minus_mainland_active_context_fraction": 0.4090909090909091,
+      "support_on_island_minus_mainland_mean_positive_partner_count": 1.1576704545454546,
+      "support_on_island_minus_mainland_mean_row_shannon": 0.22820233465110887,
+      "support_on_island_minus_mainland_mean_dominant_partner_share": 0.2912110474275811
+    },
+    "sign_rescue_minus_attenuation_only": {
+      "initial_lineage_trait": -0.004217542343447289,
+      "pollinator_dependency": 0.07777630452570472,
+      "global_opportunity_delta": 0.10536905910916294,
+      "support_off_effective_service_delta": 0.13067722094854728,
+      "support_on_island_minus_mainland_active_context_fraction": 0.40942028985507245,
+      "support_on_island_minus_mainland_mean_positive_partner_count": 1.4422554347826089,
+      "support_on_island_minus_mainland_mean_row_shannon": 0.34125991631935715,
+      "support_on_island_minus_mainland_mean_dominant_partner_share": 0.24870125152711078
+    }
+  },
+  "parent_nesting": {
+    "expected_analysis_subset": 96,
+    "observed_analysis_subset": 96,
+    "expected_sign_rescues": 16,
+    "observed_sign_rescues": 16,
+    "expected_worsening": 11,
+    "observed_worsening": 11,
+    "expected_magnitude_rescues": 85,
+    "observed_magnitude_rescues": 85,
+    "exact_nesting_passes": true
+  },
+  "scientific_update": "Within the frozen independent block, sign-rescue lineages do not simply experience weaker initial island stress. Relative to worsening lineages, they begin with more negative global-opportunity and support-OFF service contrasts, yet support ON preserves island-versus-mainland active-context availability (mean delta 0.0 versus about -0.409) and loses substantially fewer positive partners. Relative to attenuation-only lineages, initial trait position is nearly identical while active-context fraction, partner count and row Shannon remain markedly better preserved. The strongest synthetic discriminator is therefore repeated local support retention rather than a static initial-trait difference alone.",
+  "empirical_measurement_priority": [
+    "repeated-context presence/absence of each focal plant-pollinator interaction opportunity",
+    "fraction of observation contexts with any positive effective partner support",
+    "visitor-specific positive partner count on a common repeated-context design",
+    "within-context interaction-weight Shannon as a secondary descriptor",
+    "direct per-visit effectiveness so retained partners can be converted from support into effective service"
+  ],
+  "caution": "The predeclared dominant-partner-share descriptor also differs, but its zero coding when a lineage is locally absent makes it partly coupled to active-context loss. No post-hoc conditional-dominance descriptor is introduced here.",
+  "decision": "predeclared_network_descriptors_ready_for_empirical_priority_interpretation",
+  "claim_boundary": "The descriptor contrasts are synthetic associations inside the frozen ABM, not causal effects and not empirical moderator estimates. They prioritize repeated local support and partner-retention measurements; they do not establish network context as the real buffer in any named island system."
+}
