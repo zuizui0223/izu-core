@@ -1,8 +1,8 @@
 {
   "analysis": "system_agnostic_abm_multi_system_validation",
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "run_date": "2026-08-23",
-  "status": "strict_harness_complete",
+  "status": "strict_harness_complete_after_network_context_buffering_replication_and_guaiacum_axis_correction",
   "empirical_inputs_loaded_into_abm": false,
   "parameters_retuned_to_systems": false,
   "campanula_specific_tuning": false,
@@ -26,8 +26,16 @@
       "partner_effectiveness_paired_sign_changes": 13
     },
     "buffered_or_resilient": {
-      "status": "not_yet_strictly_validated",
-      "reason": "No frozen system-level buffering estimand or source-identified buffer mapping exists in the current ABM outputs."
+      "status": "synthetically_demonstrated_via_network_context_empirical_mapping_unresolved",
+      "network_context_initial_sign_rescues": 2,
+      "network_context_independent_sign_rescues": 16,
+      "network_context_independent_worsening": 11,
+      "network_context_sign_rescue_replicated": true,
+      "assurance_independent_sign_rescues": 0
+    },
+    "reproductive_axes_decouple": {
+      "status": "empirical_constraint_not_a_single_synthetic_capability_target",
+      "reason": "Stability of a breeding-system index can coexist with reduced realized reproductive performance and must not be relabelled whole-reproduction buffering."
     },
     "counterdirectional_prediction": {
       "status": "empirical_falsification_retained_not_a_capability_target",
@@ -48,17 +56,18 @@
     {
       "system_id": "hawaii_lobelioids_2026",
       "target_state": "buffered_or_resilient",
-      "decision": "coverage_gap_buffer_mechanism_not_source_identified_in_abm"
+      "decision": "synthetic_buffering_class_available_empirical_mechanism_unmapped"
     },
     {
       "system_id": "california_channel_islands_nicotiana_glauca",
       "target_state": "buffered_or_alternative_mechanism",
-      "decision": "coverage_gap_buffer_mechanism_not_source_identified_in_abm"
+      "decision": "synthetic_buffering_class_available_empirical_mechanism_unmapped"
     },
     {
       "system_id": "puerto_rico_mona_guaiacum",
-      "target_state": "buffered_or_resilient",
-      "decision": "coverage_gap_buffer_mechanism_not_source_identified_in_abm"
+      "target_state": "reproductive_axes_decouple",
+      "decision": "empirical_axis_decoupling_constraint",
+      "correction": "data/results/guaiacum_propagation_state_correction.json"
     },
     {
       "system_id": "dominica_heliconia",
@@ -68,12 +77,13 @@
   ],
   "summary": {
     "systems": 6,
-    "qualitatively_covered": 1,
+    "qualitatively_covered_branching": 1,
     "sign_class_compatible_but_unmapped": 1,
-    "buffer_mechanism_coverage_gaps": 3,
+    "synthetic_buffering_class_available_empirical_mechanism_unmapped": 2,
+    "empirical_axis_decoupling_constraints": 1,
     "retained_falsifications": 1
   },
-  "decision": "partial_multi_system_coverage_branching_supported_directional_capability_present_buffer_mechanisms_underidentified_dominica_mapping_failed",
-  "next_gate": "Do not add a generic buffer parameter. Admit a buffering mechanism only from source-native measurements linking upstream functional change, direct service/effectiveness or equivalent propagation, downstream reproductive response, and the candidate buffer/filter. Issue #91 is one parallel option, not a programme prerequisite.",
-  "claim_boundary": "This is qualitative mechanism-coverage validation, not numerical model fit or empirical causal identification."
+  "decision": "multi_state_synthetic_class_coverage_improved_network_context_buffering_replicated_two_buffer_cases_unmapped_one_axis_decoupling_constraint_dominica_failure_retained",
+  "next_gate": "Use the frozen empirical network-context prediction contract and common buffer-mechanism admission interface. Require source-native visitor-specific rate x effectiveness or another matched support/service mapping before assigning local-support buffering to any real island system.",
+  "claim_boundary": "This is qualitative mechanism-class coverage, not empirical causal identification. Replicated synthetic network buffering does not identify the mechanism in Hawaiʻi or Nicotiana; Guaiacum is an axis-decoupling constraint rather than whole-reproduction buffering; Dominica remains a failed frozen prediction."
 }
