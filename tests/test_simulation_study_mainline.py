@@ -11,13 +11,15 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert state["field_data_required_for_primary_claim"] is False
     assert state["empirical_mechanism_mapping_required_for_primary_claim"] is False
     assert state["external_system_role"] == "comparative_held_out_island_response_state_challenge_not_parameter_calibration"
-    assert state["active_gate"]["name"] == "island_ecology_submission_package_validation"
+    assert state["active_gate"]["name"] == "island_ecology_complete_package_validation"
     assert state["primary_ecological_contribution"].startswith("a_state_dependent_island_response_model")
     assert state["core_story"] == "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md"
     assert state["hypothesis_recovery"] == "data/design/island_ecology_hypothesis_recovery_20260824.json"
     assert state["manuscript_reassembly_spec"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md"
-    assert state["primary_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md"
+    assert state["primary_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
     assert state["frozen_scientific_manuscript"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
+    assert state["supporting_information"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
+    assert state["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
     assert state["legacy_ecology_first_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
     assert state["reference_map"] == "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md"
     assert state["figure_captions"] == "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md"
@@ -68,6 +70,10 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert submission["intext_citations_integrated"] is True
     assert submission["reference_list_assembled"] is True
     assert submission["jecology_numbered_abstract_assembled"] is True
+    assert submission["expanded_methods_assembled"] is True
+    assert submission["main_figure_table_crossreferences_assembled"] is True
+    assert submission["supporting_information_assembled"] is True
+    assert submission["cover_letter_assembled"] is True
     assert submission["review_data_code_statement_assembled"] is True
     assert submission["submission_manifest_assembled"] is True
     assert submission["submission_format_validation"] == "implemented_pending_ci"
@@ -82,7 +88,9 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert completed["island_ecology_H1_H5_primary_manuscript_assembled"] == "complete"
     assert completed["island_ecology_main_figure_routing"].startswith("ecology_first_main_Fig1_to_Fig4")
     assert completed["island_ecology_reference_map_and_figure_captions"] == "complete"
-    assert completed["island_ecology_jecology_submission_draft"] == "assembled_pending_ci_validation"
+    assert completed["island_ecology_jecology_submission_draft"].startswith("expanded_methods")
+    assert completed["island_ecology_supporting_information"] == "assembled"
+    assert completed["island_ecology_cover_letter"] == "assembled_pending_author_metadata"
     assert completed["island_ecology_submission_manifest_and_data_code_statement"] == "assembled"
 
     assert "method_first_MEE_framing_as_primary_story" in state["not_mainline"]
@@ -96,4 +104,4 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert "unresolved_empirical_translation_sidelines_as_submission_blockers" in state["not_mainline"]
     assert "retuning_dominica_signed_position_mapping" in state["not_mainline"]
     assert "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands" in state["not_mainline"]
-    assert state["next_executable_task"].startswith("run_submission_package_validation")
+    assert state["next_executable_task"].startswith("validate_completed_manuscript")
