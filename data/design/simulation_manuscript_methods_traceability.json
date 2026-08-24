@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "purpose": "Map each manuscript-level method and result claim to the exact frozen design, implementation, result and robustness evidence used by the primary simulation paper.",
+  "primary_study_boundary": {
+    "field_data_required": false,
+    "empirical_mechanism_mapping_required": false,
+    "external_systems_used_for_parameter_selection": false,
+    "external_systems_used_for_seed_selection": false,
+    "system_specific_retuning_allowed": false
+  },
+  "sections": [
+    {
+      "section_id": "M1_model_and_common_perturbation",
+      "manuscript_role": "define the frozen ABM architecture and common island functional perturbation",
+      "implementation": [
+        "scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py",
+        "scripts/run_abm_v4_global_continuous_isolation_gradient.py"
+      ],
+      "result_anchor": "data/results/frozen_abm_state_atlas_frozen.json",
+      "claim_boundary": "abstract standardized functional traits are model coordinates, not direct estimates of any one floral trait"
+    },
+    {
+      "section_id": "M2_downstream_factorial_branch_allocation",
+      "manuscript_role": "separate persistence of branching from downstream branch reallocation",
+      "implementation": "scripts/run_constraint_mechanism_abm_v11_factorial_branching.py",
+      "frozen_result": "data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json",
+      "workflow_run": 32553578517,
+      "key_readouts": {
+        "all_on_mixed_sign_run_fraction": 0.6666666666666666,
+        "all_four_downstream_off_mixed_sign_run_fraction": 0.4166666666666667,
+        "local_support_paired_sign_changes": 105,
+        "partner_effectiveness_paired_sign_changes": 13
+      }
+    },
+    {
+      "section_id": "M3_minimal_branch_generator_original",
+      "manuscript_role": "identify the minimal tested residual source of within-run sign branching",
+      "implementation": "scripts/run_constraint_mechanism_abm_v12_residual_trait_causes.py",
+      "frozen_result": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
+      "workflow_run": 32553824548,
+      "key_readouts": {
+        "full_mixed_sign_run_fraction": 0.4166666666666667,
+        "full_mean_within_run_branching_balance": 0.2569444444444444,
+        "initial_trait_off_mixed_sign_run_fraction": 0.0,
+        "initial_trait_off_mean_within_run_branching_balance": 0.0,
+        "initial_trait_off_paired_sign_changes": 37
+      }
+    },
+    {
+      "section_id": "M4_minimal_branch_generator_independent_replication",
+      "manuscript_role": "prespecified independent stochastic replication of the v12 branch-generator boundary",
+      "freeze": "data/design/abm_v12_branch_generator_independent_robustness_freeze.json",
+      "implementation": "scripts/run_abm_v12_branch_generator_independent_robustness.py",
+      "frozen_result": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
+      "provenance": "data/provenance/abm_v12_branch_generator_independent_robustness_run.json",
+      "workflow_run": 32692355039,
+      "seed": 90260825,
+      "key_readouts": {
+        "full_mixed_sign_run_fraction": 0.4166666666666667,
+        "full_mean_within_run_branching_balance": 0.29166666666666663,
+        "initial_trait_off_mixed_sign_run_fraction": 0.0,
+        "initial_trait_off_mean_within_run_branching_balance": 0.0,
+        "initial_trait_off_paired_sign_changes": 44
+      },
+      "stop_rule": "first scientific result from the prespecified seed accepted without seed replacement"
+    },
+    {
+      "section_id": "M5_network_context_buffering",
+      "manuscript_role": "test whether local support can produce sign rescue when assurance is disabled and whether the route is monotonic",
+      "implementation": "scripts/run_network_context_buffering_capability_ablation.py",
+      "initial_result": "data/results/network_context_buffering_capability_ablation_frozen.json",
+      "independent_result": "data/results/network_context_buffering_capability_robustness_frozen.json",
+      "independent_workflow_run": 32623997391,
+      "key_readouts": {
+        "eligible_independent_reproduction_declines": 96,
+        "independent_sign_rescue_count": 16,
+        "independent_magnitude_rescue_count": 85,
+        "independent_worsening_count": 11
+      },
+      "claim_boundary": "buffering capacity is synthetic and bidirectional; it is not empirical identification of a real island network mechanism"
+    },
+    {
+      "section_id": "M6_assurance_attenuation",
+      "manuscript_role": "test strong sign buffering versus magnitude attenuation through autonomous assurance",
+      "independent_result": "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json",
+      "broadened_result": "data/results/assurance_buffering_capability_ablation_frozen.json",
+      "independent_workflow_run": 32623590871,
+      "key_readouts": {
+        "independent_service_decline_lineages": 216,
+        "independent_sign_rescue_count": 0,
+        "independent_magnitude_attenuation_count": 207,
+        "broadened_eligible_declines": 525,
+        "broadened_sign_rescue_count": 0
+      }
+    },
+    {
+      "section_id": "M7_state_separability",
+      "manuscript_role": "quantify asymmetric observation-to-mechanism identifiability from frozen intervention frequencies",
+      "implementation": "scripts/audit_frozen_abm_state_separability.py",
+      "frozen_result": "data/results/frozen_abm_state_separability_frozen.json",
+      "key_readouts": {
+        "mixed_sign_trait_heterogeneity_specificity": 1.0,
+        "mixed_sign_trait_heterogeneity_sensitivity": 0.4166666666666667,
+        "same_direction_trait_uniformity_false_positive_rate": 0.5833333333333333,
+        "network_context_sign_rescue_specificity_against_assurance": 1.0,
+        "network_context_sign_rescue_sensitivity": 0.16666666666666666,
+        "magnitude_attenuation_specificity_against_network_context": 0.11458333333333337
+      }
+    },
+    {
+      "section_id": "M8_external_state_challenge",
+      "manuscript_role": "challenge the already-frozen state vocabulary against independent island-system observations without numerical fitting",
+      "global_screen": "data/design/global_archipelago_pollination_screen_v1.json",
+      "strict_gate": "data/design/system_agnostic_multi_system_validation_gate_v2.json",
+      "frozen_result": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json",
+      "key_readouts": {
+        "global_screening_units": 54,
+        "strict_systems": 13,
+        "generative_challenges": 11,
+        "branching_systems": 3,
+        "same_direction_systems": 6,
+        "buffering_or_alternative_systems": 2,
+        "axis_decoupling_constraints": 1,
+        "retained_falsifications": 1
+      },
+      "claim_boundary": "qualitative state compatibility is not numerical fit and does not identify empirical mechanism"
+    },
+    {
+      "section_id": "M9_figures_and_tables",
+      "manuscript_role": "derive manuscript displays from frozen outputs only",
+      "figure_data_exporter": "scripts/export_simulation_manuscript_figure_data.py",
+      "figure_data": "data/results/simulation_manuscript_figure_data_frozen.json",
+      "figure_renderer_2_to_4": "scripts/render_simulation_manuscript_figures_svg.py",
+      "falsification_table": "data/results/simulation_manuscript_falsification_table_frozen.json"
+    }
+  ],
+  "reproducibility_rule": "Any manuscript number must trace to a frozen result listed here or to a deterministic transformation of those results. No external island outcome may be used to choose a model seed, parameter or mechanism for the primary analysis."
+}
