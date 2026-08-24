@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "parent_global_state": "data/design/global_archipelago_programme_state_20260824.json",
+  "parent_mapping_registry": "data/design/network_context_mapping_candidate_registry.json",
+  "purpose": "Apply the existing five-gate empirical network-context mapping contract to the seven newly added strict external state-class challenges without changing the contract, retuning the ABM, or inferring per-visit effectiveness from visitation, pollen receipt, or reproductive outcome alone.",
+  "required_gates": [
+    "matched_transition_unit",
+    "repeated_local_context_support",
+    "visitor_specific_rate",
+    "visitor_specific_direct_effectiveness",
+    "reproductive_outcome"
+  ],
+  "admission_rule": "Only exact 'admitted' passes. Functional endpoints that are not visitor-specific per-visit effectiveness remain partial. Cross-study or clade-level linkage remains partial even when each component is source supported.",
+  "systems": [
+    {
+      "system_id": "caribbean_gesneriaceae_island_mainland",
+      "state_role": "branches_downstream",
+      "gates": {
+        "matched_transition_unit": "partial_cross_study_clade_level",
+        "repeated_local_context_support": "partial_multiple_species_and_studies_not_one_transition_unit",
+        "visitor_specific_rate": "partial_hummingbird_visitation_at_clade_comparison_level",
+        "visitor_specific_direct_effectiveness": "missing_no_per_visit_pollen_or_reproductive_effectiveness",
+        "reproductive_outcome": "admitted_island_mainland_autofertility_and_within_clade_reproductive_experiments"
+      },
+      "source_state": "existing_source_audit_complete_for_declared_partial_bridge",
+      "do_not_infer": "pollination-system identity or visitation rate is not E_k"
+    },
+    {
+      "system_id": "new_zealand_rhabdothamnus",
+      "state_role": "propagates_same_direction",
+      "gates": {
+        "matched_transition_unit": "admitted_mainland_vs_offshore_bird_refugia",
+        "repeated_local_context_support": "admitted_multiple_mainland_and_island_sites",
+        "visitor_specific_rate": "partial_bird_function_or_visitation_not_harmonized_as_partner_specific_Vk",
+        "visitor_specific_direct_effectiveness": "missing_no_partner_specific_per_visit_effectiveness",
+        "reproductive_outcome": "admitted_pollen_limitation_seed_production_and_demographic_response"
+      },
+      "source_state": "strict_state_source_audited",
+      "do_not_infer": "bird functional presence or pollen limitation is not visitor-specific E_k"
+    },
+    {
+      "system_id": "mariana_guam_saipan_bird_loss",
+      "state_role": "propagates_same_direction",
+      "gates": {
+        "matched_transition_unit": "admitted_guam_vs_saipan_natural_experiment",
+        "repeated_local_context_support": "partial_two_island_contrast_without_replicated_context_blocks",
+        "visitor_specific_rate": "admitted_bird_visitation_contrast",
+        "visitor_specific_direct_effectiveness": "missing_no_per_visit_effectiveness_by_bird_taxon",
+        "reproductive_outcome": "admitted_seed_set_two_species_and_bruguiera_recruitment"
+      },
+      "source_state": "strict_state_source_audited",
+      "do_not_infer": "zero visitation plus lower seed set does not identify per-visit E_k"
+    },
+    {
+      "system_id": "seychelles_ant_disruption",
+      "state_role": "propagates_same_direction",
+      "gates": {
+        "matched_transition_unit": "admitted_ant_exclusion_within_large_scale_restoration_design",
+        "repeated_local_context_support": "admitted_four_native_plants_across_eight_inselbergs",
+        "visitor_specific_rate": "admitted_pollinator_visitation_and_legitimate_probing_observations",
+        "visitor_specific_direct_effectiveness": "missing_legitimate_probing_not_per_visit_reproductive_effectiveness",
+        "reproductive_outcome": "admitted_native_plant_reproductive_response"
+      },
+      "source_state": "open_access_source_available",
+      "do_not_infer": "legitimate probing is interaction quality but not source-native E_k unless linked to per-visit pollen or reproduction"
+    },
+    {
+      "system_id": "mauritius_roussea_ant_disruption",
+      "state_role": "propagates_same_direction",
+      "gates": {
+        "matched_transition_unit": "admitted_ant_removal_and_exclusion_experiment",
+        "repeated_local_context_support": "partial_single_focal_system_with_repeated_treatments",
+        "visitor_specific_rate": "admitted_gecko_visitation_rate",
+        "visitor_specific_direct_effectiveness": "missing_no_single_visit_pollen_or_seed_effectiveness",
+        "reproductive_outcome": "admitted_seed_set_response"
+      },
+      "source_state": "primary_article_source_identified",
+      "do_not_infer": "sole-pollinator status plus seed-set contrast does not equal measured per-visit E_k"
+    },
+    {
+      "system_id": "canary_teide_honeybee_network",
+      "state_role": "branches_downstream",
+      "gates": {
+        "matched_transition_unit": "admitted_pre_vs_post_beehive_establishment",
+        "repeated_local_context_support": "admitted_three_year_replicated_network_experiment",
+        "visitor_specific_rate": "admitted_weighted_visit_rates_by_pollinator_and_plant",
+        "visitor_specific_direct_effectiveness": "missing_no_source_native_per_visit_pollen_or_reproductive_effectiveness",
+        "reproductive_outcome": "admitted_paired_reproductive_outcomes_five_plants_plus_distance_experiment"
+      },
+      "source_state": "open_access_primary_article_with_methods_and_reproductive_experiments",
+      "do_not_infer": "network visit rate, bagging response, and seed output do not identify partner-specific E_k"
+    },
+    {
+      "system_id": "bahamas_pavonia_hurricane_pollination",
+      "state_role": "propagates_same_direction",
+      "gates": {
+        "matched_transition_unit": "admitted_multi_year_hurricane_natural_experiment",
+        "repeated_local_context_support": "admitted_repeated_years_same_local_system",
+        "visitor_specific_rate": "partial_pollinator_decline_not_source_harmonized_as_partner_specific_Vk",
+        "visitor_specific_direct_effectiveness": "partial_stigma_pollen_receipt_is_functional_endpoint_not_partner_specific_per_visit_Ek",
+        "reproductive_outcome": "admitted_natural_vs_pollen_augmented_fruit_set_separating_pollination_and_resource_limitation"
+      },
+      "source_state": "primary_article_recovered",
+      "do_not_infer": "stigma pollen receipt at regime level cannot be decomposed into visitor-specific E_k without matched visitor-level attribution"
+    }
+  ],
+  "claim_boundary": "These systems may be excellent external state-class tests while remaining unsuitable for the narrower rate-weighted effective-service mapping. Failure of a five-gate mapping audit is not failure of the ecological state result."
+}

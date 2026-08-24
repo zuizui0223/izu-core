@@ -1,0 +1,88 @@
+{
+  "analysis": "global_strict_network_context_mapping_readiness",
+  "schema_version": "1.1",
+  "run_date": "2026-08-24",
+  "input_registry": "data/design/global_strict_network_context_mapping_registry.json",
+  "parent_readiness": "data/results/network_context_mapping_readiness_frozen.json",
+  "required_gate_count": 5,
+  "new_strict_systems_screened": 7,
+  "mapping_ready_count": 0,
+  "rows": [
+    {
+      "system_id": "caribbean_gesneriaceae_island_mainland",
+      "admitted_required_gates": ["reproductive_outcome"],
+      "missing_required_gates": ["matched_transition_unit", "repeated_local_context_support", "visitor_specific_rate", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 1,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "new_zealand_rhabdothamnus",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_rate", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "mariana_guam_saipan_bird_loss",
+      "admitted_required_gates": ["matched_transition_unit", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["repeated_local_context_support", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "seychelles_ant_disruption",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 4,
+      "network_context_mapping_ready": false,
+      "effectiveness_linkage_diagnostic": "data/design/seychelles_network_context_effectiveness_linkage_diagnostic.json",
+      "named_source_search_state": "closed_without_same_context_Ek"
+    },
+    {
+      "system_id": "mauritius_roussea_ant_disruption",
+      "admitted_required_gates": ["matched_transition_unit", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["repeated_local_context_support", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "canary_teide_honeybee_network",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 4,
+      "network_context_mapping_ready": false,
+      "effectiveness_linkage_diagnostic": "data/design/canary_teide_network_context_effectiveness_linkage_diagnostic.json",
+      "named_source_search_state": "closed_without_same_context_Ek"
+    },
+    {
+      "system_id": "bahamas_pavonia_hurricane_pollination",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_rate", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    }
+  ],
+  "closest_new_structural_candidates": [
+    "seychelles_ant_disruption",
+    "canary_teide_honeybee_network"
+  ],
+  "closest_new_missing_gate": "visitor_specific_direct_effectiveness",
+  "closest_targeted_source_search": {
+    "seychelles_ant_disruption": "closed_without_same_context_Ek",
+    "canary_teide_honeybee_network": "closed_without_same_context_Ek",
+    "result": "Neither closest new candidate provides visitor-specific direct effectiveness on the same context hierarchy required for rate-weighted effective service."
+  },
+  "combined_with_parent": {
+    "parent_systems_screened": 5,
+    "new_systems_screened": 7,
+    "combined_systems_screened": 12,
+    "combined_mapping_ready_count": 0,
+    "parent_closest_candidate": "puerto_rico_mona_guaiacum",
+    "parent_closest_missing_gate": "visitor_specific_direct_effectiveness",
+    "parent_named_source_search_state": "closed_without_Ek",
+    "new_closest_candidates": ["seychelles_ant_disruption", "canary_teide_honeybee_network"]
+  },
+  "decision": "zero_of_twelve_mapping_ready_effectiveness_is_recurrent_missing_link_and_named_searches_for_three_four_of_five_candidates_are_closed",
+  "next_gate": "Stop unrestricted retrospective searching. Reopen Guaiacum, Seychelles or Canary only on a new named same-context effectiveness source. Otherwise the next executable route is prospective measurement of visitor-specific V_k and E_k in repeated transition contexts, with Issue #91 remaining one prepared non-blocking route.",
+  "claim_boundary": "The global strict systems strengthen external state-class challenge but do not empirically identify the frozen network-context mechanism. Regime-level pollen receipt, legitimate probing, sole-pollinator status, seed-set response, or pooled effectiveness from another context must not be relabelled visitor-specific same-context per-visit effectiveness."
+}

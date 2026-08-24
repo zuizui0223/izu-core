@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "system_id": "seychelles_ant_disruption",
+  "source": {
+    "doi": "10.1002/ajb2.1499",
+    "dataset_doi": "10.6084/m9.figshare.12029580.v2",
+    "repo_summary": "data/results/seychelles_pollination_effectiveness_summary.json",
+    "repo_source_audit": "data/design/external_bridge_seychelles_fuster_source_audit.json"
+  },
+  "question": "Can the source-native single-visit effectiveness E_k be matched to the same invasive-ant disturbed/undisturbed context used for visitor-specific visit rates V_k?",
+  "source_method_readout": {
+    "quantity_component_QNC": "Pollinator observations; visits were explicitly classified as ant-disturbed (>6 ants/30 min) versus undisturbed for the invasive-ant analysis.",
+    "quality_component_QLC": "Fruit and seed set resulting from single visits by each pollinator visitor class.",
+    "ant_context_assignment_to_QLC": "not_source_demonstrated",
+    "article_level_result": "Ant presence was associated with lower pollinator visitation in Polyscias crassa and Syzygium wrightii; the source does not state that single-visit QLC was estimated separately within disturbed versus undisturbed ant contexts."
+  },
+  "repo_evidence": {
+    "visitor_specific_single_visit_outcomes_available": true,
+    "ant_disturbed_vs_undisturbed_visit_rate_available": true,
+    "auto_treatments_available": true,
+    "same_context_Ek_link_demonstrated": false
+  },
+  "decision": "do_not_admit_visitor_specific_direct_effectiveness_for_ant_context_mapping",
+  "reason": "A pooled/source-wide visitor-specific QLC cannot be transported into disturbed and undisturbed context units merely because QNC and QLC coexist in the same study. The frozen mapping contract requires matched population/context hierarchy for rate-weighted effective service.",
+  "reopen_rule": "Reopen only if raw/source-native metadata explicitly link each single-visit effectiveness observation to the ant disturbed/undisturbed context used for QNC, or a prospective study measures V_k and E_k in the same repeated context units.",
+  "claim_boundary": "This does not weaken the Seychelles ecological propagation result or its direct pollinator-effectiveness evidence. It only blocks the narrower empirical mapping of ant-driven network context to rate-weighted effective service."
+}

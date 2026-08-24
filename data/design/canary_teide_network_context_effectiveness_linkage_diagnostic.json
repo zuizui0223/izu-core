@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "system_id": "canary_teide_honeybee_network",
+  "source": {
+    "primary_doi": "10.1038/s41598-019-41271-5",
+    "older_echium_reference": "Impact of introduced honey bees on native pollination interactions of the endemic Echium wildpretii on Tenerife"
+  },
+  "question": "Does the 2007-2009 Teide beehive perturbation provide visitor-specific direct per-visit effectiveness E_k on the same plant/context hierarchy as visit rates and reproductive outcomes?",
+  "primary_study_readout": {
+    "matched_pre_post_beehive_transition": true,
+    "three_year_repeated_network_observation": true,
+    "visitor_specific_visit_frequency": true,
+    "five_plant_reproductive_response": true,
+    "single_visit_pollen_deposition_or_reproductive_effectiveness": false
+  },
+  "older_teide_evidence": {
+    "same_archipelago_and_ecological_problem": true,
+    "same_year_and_transition_hierarchy_as_2007_2009_experiment": false,
+    "transport_as_Ek_allowed": false
+  },
+  "decision": "do_not_admit_visitor_specific_direct_effectiveness_for_teide_2007_2009_mapping",
+  "reason": "The primary perturbation study measures network visit frequencies and reproductive consequences but not visitor-specific single-visit effectiveness. Older Teide pollination studies cannot be transported across years/designs to manufacture E_k under the frozen mapping contract.",
+  "reopen_rule": "Reopen only on a source-native artifact from the same 2007-2009 plant/context hierarchy that contains visitor-specific direct effectiveness, or on a prospective repeated Teide design measuring V_k and E_k together.",
+  "claim_boundary": "This blocks only the narrow rate-weighted effective-service mapping. It does not weaken the Canary branching state-class result."
+}
