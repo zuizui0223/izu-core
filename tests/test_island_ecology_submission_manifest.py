@@ -17,8 +17,12 @@ def test_submission_manifest_routes_ecology_files_only():
     assert manifest["supplement"]["state_separability_figure"]["figure"] == "FigS1"
     assert manifest["supplement"]["state_separability_figure"]["role"] == "supporting_inference_guard_not_primary_biological_result"
     assert manifest["review_archive"]["anonymous"] is True
+    assert manifest["review_archive"]["builder"] == "scripts/build_island_ecology_review_archive.py"
+    assert manifest["review_archive"]["identity_scan_required"] is True
     assert manifest["review_archive"]["new_unpublished_field_data_required"] is False
-    assert manifest["separate_submission_files"]["title_page"] == "pending_author_and_affiliation_metadata"
+    assert manifest["separate_submission_files"]["title_page_template"] == "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md"
+    assert manifest["separate_submission_files"]["title_page_status"] == "pending_author_and_affiliation_metadata"
+    assert manifest["separate_submission_files"]["anonymous_review_manuscript"] == "assembled_pending_ci_validation"
     assert len(manifest["future_empirical_tracks_excluded_from_submission_gate"]) == 3
 
 
