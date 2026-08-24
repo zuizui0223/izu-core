@@ -2,11 +2,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from scripts.run_constraint_mechanism_abm_v12_residual_trait_causes import build as build_v12
 
-ROOT = Path(__file__).resolve().parents[1]
 FREEZE = ROOT / "data/design/abm_v12_branch_generator_independent_robustness_freeze.json"
 DEFAULT_OUT = ROOT / "data/results/abm_v12_branch_generator_independent_robustness.json"
 
