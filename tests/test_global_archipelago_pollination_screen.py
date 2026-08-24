@@ -37,6 +37,25 @@ def test_global_screen_is_tiered_and_does_not_force_partial_systems():
     assert all("state" not in row for row in rows if row["tier"] != "A")
 
 
+def test_final_geographic_extension_closes_three_explicit_omissions_without_inflating_strict_targets():
+    ext = load("data/design/global_archipelago_pollination_screen_extension_v1.json")
+    assert ext["parent_screen"] == "data/design/global_archipelago_pollination_screen_v1.json"
+    assert {row["id"] for row in ext["additional_screening_units"]} == {
+        "gulf_of_guinea_oceanic",
+        "christmas_cocos_keeling",
+        "andaman_nicobar",
+    }
+    assert all(row["tier"] == "D" for row in ext["additional_screening_units"])
+    assert ext["combined_summary"] == {
+        "screening_units": 54,
+        "tier_A_strict_targets": 13,
+        "tier_A_newly_promoted": 7,
+        "tier_B_partial_mechanism_or_propagation": 12,
+        "tier_C_filtering_architecture": 7,
+        "tier_D_screened_gaps": 22,
+    }
+
+
 def test_v2_preserves_parent_freeze_and_adds_seven_external_challenges():
     parent = load("data/results/system_agnostic_abm_multi_system_validation_frozen.json")
     v2 = load("data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json")
