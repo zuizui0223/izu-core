@@ -1,0 +1,35 @@
+{
+  "schema_version": "2.0",
+  "updated_on": "2026-08-24",
+  "parent_frozen_gate": "data/design/system_agnostic_multi_system_validation_gate.json",
+  "global_screen": "data/design/global_archipelago_pollination_screen_v1.json",
+  "purpose": "Prospectively expand the protected six-system qualitative validation harness to nine system targets using the same frozen ABM state vocabulary and no parameter retuning.",
+  "rules": {
+    "parent_six_system_result_is_not_rewritten": true,
+    "no_abm_parameter_retuning": true,
+    "no_new_mechanism_layer": true,
+    "no_posthoc_state_vocabulary_expansion": true,
+    "state_class_compatibility_is_not_empirical_mechanism_identification": true,
+    "tier_B_C_D_global_screen_rows_are_not_forced_into_strict_states": true
+  },
+  "targets": [
+    {"system_id":"izu_multi_taxon_hiraiwa","target_state":"branches_downstream","status":"parent_frozen_target","observed_chain":"common-ish matching decline -> divergent pollen and floral responses"},
+    {"system_id":"ogasawara_psychotria_homalosperma","target_state":"propagates_same_direction","status":"parent_frozen_target","observed_chain":"physical access failure -> directional pollen transfer -> morph-specific fruit asymmetry"},
+    {"system_id":"hawaii_lobelioids_2026","target_state":"buffered_or_resilient","status":"parent_frozen_target","observed_chain":"signed functional mismatch -> contact/robbing/resource change -> high reproductive performance"},
+    {"system_id":"dominica_heliconia","target_state":"counterdirectional_to_frozen_signed_position_prediction","status":"parent_frozen_target","observed_chain":"frozen signed-position prediction -> observed direction opposite/nonconcordant"},
+    {"system_id":"california_channel_islands_nicotiana_glauca","target_state":"buffered_or_alternative_mechanism","status":"parent_frozen_target","observed_chain":"island selfing/corolla difference without detected current island service deficit"},
+    {"system_id":"puerto_rico_mona_guaiacum","target_state":"reproductive_axes_decouple","status":"parent_frozen_target","observed_chain":"visitor/visitation contrast -> similar breeding index but reduced realized reproductive performance on another axis"},
+    {"system_id":"caribbean_gesneriaceae_island_mainland","target_state":"branches_downstream","status":"new_predeclared_external_target","observed_chain":"lower island hummingbird visitation -> lineage-specific generalization, pollination-system transition or autonomous assurance rather than universal autofertility","source_audit":"data/design/external_bridge_caribbean_gesneriaceae_source_audit.json"},
+    {"system_id":"new_zealand_rhabdothamnus","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"native bird functional loss -> stronger pollen limitation -> lower seed production -> lower recruitment/density","source_audit":"data/design/external_validation_new_zealand_rhabdothamnus_source_audit.json"},
+    {"system_id":"mariana_guam_saipan_bird_loss","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"bird extirpation -> zero bird visitation on Guam -> lower seed set in two plants -> lower Bruguiera recruitment","source_audit":"data/design/external_validation_mariana_guam_saipan_source_audit.json"}
+  ],
+  "expected_frozen_class_readout_without_rerunning_or_retuning_abm": {
+    "branches_downstream": "frozen synthetic capability already demonstrated",
+    "propagates_same_direction": "frozen same-sign capability available only at qualitative sign-class level",
+    "buffered_or_resilient": "frozen network-context buffering class available; empirical mapping unresolved",
+    "buffered_or_alternative_mechanism": "synthetic buffering class available; historical/establishment mapping unresolved",
+    "reproductive_axes_decouple": "empirical constraint, not one synthetic state target",
+    "counterdirectional_to_frozen_signed_position_prediction": "retained falsification, not model flexibility"
+  },
+  "claim_boundary": "The three additions increase independent challenge of already-existing state classes; they do not strengthen a causal claim by model fitting. New Zealand and the Marianas test qualitative propagation, Caribbean Gesneriaceae tests qualitative branching, and the original Dominica failure remains protected."
+}
