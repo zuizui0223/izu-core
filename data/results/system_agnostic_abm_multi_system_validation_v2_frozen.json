@@ -1,0 +1,62 @@
+{
+  "analysis": "system_agnostic_abm_multi_system_validation_v2",
+  "schema_version": "2.0",
+  "run_date": "2026-08-24",
+  "parent_frozen_result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
+  "input_gate": "data/design/system_agnostic_multi_system_validation_gate_v2.json",
+  "global_screen": "data/design/global_archipelago_pollination_screen_v1.json",
+  "abm_rerun_for_new_systems": false,
+  "parameters_retuned_to_new_systems": false,
+  "new_mechanism_added": false,
+  "state_vocabulary_changed_after_seeing_new_targets": false,
+  "synthetic_capabilities_inherited_from_parent": {
+    "branches_downstream": {
+      "status": "synthetically_demonstrated",
+      "v12_mixed_sign_run_fraction": 0.4166666666666667,
+      "v12_mean_within_run_branching_balance": 0.2569444444444444,
+      "initial_trait_off_mixed_sign_run_fraction": 0.0
+    },
+    "same_direction_response": {
+      "status": "synthetically_demonstrated_at_sign_class_only",
+      "v12_nonmixed_run_fraction": 0.5833333333333333,
+      "v12_pooled_positive": 157,
+      "v12_pooled_negative": 131,
+      "v12_pooled_equal": 0
+    },
+    "branch_reallocation": {
+      "status": "synthetically_demonstrated",
+      "local_support_paired_sign_changes": 105,
+      "partner_effectiveness_paired_sign_changes": 13
+    },
+    "buffered_or_resilient": {
+      "status": "synthetically_demonstrated_via_network_context_empirical_mapping_unresolved",
+      "network_context_independent_sign_rescues": 16,
+      "network_context_independent_worsening": 11,
+      "network_context_sign_rescue_replicated": true,
+      "assurance_independent_sign_rescues": 0
+    }
+  },
+  "system_results": [
+    {"system_id":"izu_multi_taxon_hiraiwa","target_state":"branches_downstream","decision":"qualitatively_covered_by_frozen_synthetic_branching","generation":"parent"},
+    {"system_id":"ogasawara_psychotria_homalosperma","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"parent"},
+    {"system_id":"hawaii_lobelioids_2026","target_state":"buffered_or_resilient","decision":"synthetic_buffering_class_available_empirical_mechanism_unmapped","generation":"parent"},
+    {"system_id":"dominica_heliconia","target_state":"counterdirectional_to_frozen_signed_position_prediction","decision":"retained_falsification","generation":"parent"},
+    {"system_id":"california_channel_islands_nicotiana_glauca","target_state":"buffered_or_alternative_mechanism","decision":"synthetic_buffering_class_available_empirical_mechanism_unmapped","generation":"parent"},
+    {"system_id":"puerto_rico_mona_guaiacum","target_state":"reproductive_axes_decouple","decision":"empirical_axis_decoupling_constraint","generation":"parent"},
+    {"system_id":"caribbean_gesneriaceae_island_mainland","target_state":"branches_downstream","decision":"qualitatively_covered_by_frozen_synthetic_branching","generation":"new_external_challenge","mechanism_identified":false},
+    {"system_id":"new_zealand_rhabdothamnus","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"new_external_challenge","mechanism_identified":false},
+    {"system_id":"mariana_guam_saipan_bird_loss","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"new_external_challenge","mechanism_identified":false}
+  ],
+  "summary": {
+    "systems": 9,
+    "parent_systems": 6,
+    "new_external_challenges": 3,
+    "qualitatively_covered_branching": 2,
+    "sign_class_compatible_but_unmapped": 3,
+    "synthetic_buffering_class_available_empirical_mechanism_unmapped": 2,
+    "empirical_axis_decoupling_constraints": 1,
+    "retained_falsifications": 1
+  },
+  "decision": "nine_system_state_class_challenge_strengthened_branching_replicated_in_two_system_layers_same_direction_challenged_by_three_systems_buffer_mapping_still_unresolved_axis_decoupling_and_dominica_failure_retained",
+  "claim_boundary": "This v2 result inherits frozen ABM capabilities and applies them to predeclared qualitative state classes. It is not a numerical posterior-predictive fit and does not identify the ABM mechanism in Caribbean Gesneriaceae, New Zealand or the Marianas. The protected six-system v1 result remains unchanged."
+}
