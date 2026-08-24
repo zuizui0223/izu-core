@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "system_id": "mauritius_roussea_ant_disruption",
+  "geographic_cluster": "mauritius",
+  "role": "independent_same_direction_propagation_validation",
+  "source": {
+    "citation": "Hansen & Muller 2009, Biotropica 41:202-208",
+    "doi": "10.1111/j.1744-7429.2008.00473.x",
+    "title": "Invasive Ants Disrupt Gecko Pollination and Seed Dispersal of the Endangered Plant Roussea simplex in Mauritius"
+  },
+  "design": "Within-island field experiment comparing naturally ant-infested flowers/fruits with ant-free controls and ant-removal/exclusion treatments in the critically endangered endemic Roussea simplex.",
+  "source_native_results": {
+    "native_partner": "Phelsuma cepediana is the documented sole pollinator and seed disperser in the focal system",
+    "interaction_effect": "gecko visitation to ant-free and ant-removal/exclusion flowers and fruits was higher than to ant-infested flowers and fruits",
+    "reproductive_effect": "seed set from ant-infested flowers was greatly reduced relative to ant-free control flowers",
+    "mechanistic_interpretation": "aggressive Technomyrmex albipes interference prevents gecko access to flowers and fruits"
+  },
+  "observed_chain": "invasive-ant interference -> reduced gecko access/visitation -> reduced seed set",
+  "target_state": "propagates_same_direction",
+  "admission": "strict_state_class_validation_target",
+  "claim_boundary": "This is a within-island experimental perturbation rather than an archipelago transition. It validates qualitative propagation from interaction disruption to reproduction, not the ABM trait-position mechanism and not a universal invasive-ant effect."
+}
