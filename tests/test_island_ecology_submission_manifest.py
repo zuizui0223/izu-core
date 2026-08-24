@@ -11,18 +11,24 @@ def test_submission_manifest_routes_ecology_files_only():
     assert manifest["journal_target"] == "Journal of Ecology"
     assert manifest["primary_scientific_state"] == "H1_H5_closed_for_submission"
     assert manifest["scientific_reopening_required"] is False
-    assert manifest["main_files"]["anonymous_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md"
+    assert manifest["main_files"]["anonymous_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
     assert manifest["main_files"]["frozen_scientific_manuscript"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
+    assert manifest["main_files"]["supporting_information"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
     assert [row["figure"] for row in manifest["main_figures"]] == ["Fig1", "Fig2", "Fig3", "Fig4"]
+    assert manifest["supplement"]["manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
     assert manifest["supplement"]["state_separability_figure"]["figure"] == "FigS1"
     assert manifest["supplement"]["state_separability_figure"]["role"] == "supporting_inference_guard_not_primary_biological_result"
+    assert manifest["supplement"]["tables"] == ["TableS1_frozen_simulation_blocks", "TableS2_state_separability", "TableS3_external_systems"]
     assert manifest["review_archive"]["anonymous"] is True
     assert manifest["review_archive"]["builder"] == "scripts/build_island_ecology_review_archive.py"
     assert manifest["review_archive"]["identity_scan_required"] is True
     assert manifest["review_archive"]["new_unpublished_field_data_required"] is False
     assert manifest["separate_submission_files"]["title_page_template"] == "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md"
     assert manifest["separate_submission_files"]["title_page_status"] == "pending_author_and_affiliation_metadata"
-    assert manifest["separate_submission_files"]["anonymous_review_manuscript"] == "assembled_pending_ci_validation"
+    assert manifest["separate_submission_files"]["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
+    assert manifest["separate_submission_files"]["cover_letter_status"] == "assembled_pending_author_metadata"
+    assert manifest["separate_submission_files"]["anonymous_review_manuscript"].startswith("assembled_with_expanded_methods")
+    assert manifest["separate_submission_files"]["supplement"] == "assembled"
     assert len(manifest["future_empirical_tracks_excluded_from_submission_gate"]) == 3
 
 

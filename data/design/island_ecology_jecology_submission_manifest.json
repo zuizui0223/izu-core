@@ -1,13 +1,14 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-24",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
   "primary_scientific_state": "H1_H5_closed_for_submission",
   "scientific_reopening_required": false,
   "main_files": {
-    "anonymous_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md",
+    "anonymous_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
     "frozen_scientific_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
+    "supporting_information": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
     "figure_captions": "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
     "reference_map": "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md",
     "data_code_statement": "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
@@ -25,12 +26,14 @@
     {"table": "Table3", "source": "data/results/simulation_manuscript_falsification_table_frozen.json", "role": "protected_falsifications_and_claim_boundaries"}
   ],
   "supplement": {
+    "manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
     "state_separability_figure": {
       "figure": "FigS1",
       "output": "figures/generated/FigS1_state_separability.svg",
       "renderer": "scripts/render_island_ecology_external_figures_svg.py",
       "role": "supporting_inference_guard_not_primary_biological_result"
     },
+    "tables": ["TableS1_frozen_simulation_blocks", "TableS2_state_separability", "TableS3_external_systems"],
     "external_reference_matrix": "docs/SIMULATION_MANUSCRIPT_EXTERNAL_SYSTEM_REFERENCES_20260824.md",
     "full_external_source_matrix": "data/design/simulation_manuscript_external_system_reference_matrix.json",
     "full_factorial_and_robustness_details": true
@@ -48,9 +51,10 @@
   "separate_submission_files": {
     "title_page_template": "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md",
     "title_page_status": "pending_author_and_affiliation_metadata",
-    "cover_letter": "pending_after_final_manuscript_validation",
-    "anonymous_review_manuscript": "assembled_pending_ci_validation",
-    "supplement": "manifested"
+    "cover_letter": "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
+    "cover_letter_status": "assembled_pending_author_metadata",
+    "anonymous_review_manuscript": "assembled_with_expanded_methods_and_figure_table_crossreferences",
+    "supplement": "assembled"
   },
   "future_empirical_tracks_excluded_from_submission_gate": [
     "real_signed_functional_starting_position",
@@ -65,5 +69,5 @@
     "state_separability_is_supporting_inference_guard_only",
     "no_new_simulation_for_journal_fit"
   ],
-  "next_executable_task": "run_submission_package_validation_then_fill_title_page_metadata_and_build_the_anonymous_review_archive"
+  "next_executable_task": "validate_completed_manuscript_supplement_cover_letter_and_review_archive_then_fill_title_page_metadata"
 }

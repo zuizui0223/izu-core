@@ -10,13 +10,15 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_anonymous_review_archive.zip"
 
 REVIEW_FILES = (
-    "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md",
+    "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
+    "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
     "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
     "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
     "docs/SIMULATION_MANUSCRIPT_EXTERNAL_SYSTEM_REFERENCES_20260824.md",
     "data/design/island_ecology_jecology_submission_manifest.json",
     "data/design/simulation_manuscript_external_system_reference_matrix.json",
     "data/design/abm_v12_branch_generator_independent_robustness_freeze.json",
+    "data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json",
     "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
     "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
     "data/results/network_context_buffering_capability_robustness_frozen.json",
@@ -32,6 +34,7 @@ REVIEW_FILES = (
     "tests/test_island_ecology_primary_manuscript.py",
     "tests/test_island_ecology_figure_routing.py",
     "tests/test_island_ecology_submission_manifest.py",
+    "tests/test_island_ecology_paper_completion.py",
 )
 
 # The anonymous-manuscript identity regression test intentionally contains the
@@ -92,7 +95,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "new field dataset or identify one shared empirical mechanism across islands."
         ),
     }
-    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and regression guards. It intentionally excludes the title page, author affiliations, acknowledgements and author-identifying public repository links.\n\nThe three future empirical translation tracks (real signed functional position, matched network-context/effective-service mapping, and a complete external causal bridge) are not required to reproduce the current primary claims.\n"""
+    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and regression guards. It intentionally excludes the title page, author affiliations, acknowledgements, cover letter and author-identifying public repository links.\n\nThe three future empirical translation tracks (real signed functional position, matched network-context/effective-service mapping, and a complete external causal bridge) are not required to reproduce the current primary claims.\n"""
 
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for record in records:

@@ -2,7 +2,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MANUSCRIPT = ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md"
+MANUSCRIPT = ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
 
 
 def _abstract(text: str) -> str:
@@ -50,7 +50,7 @@ def test_jecology_submission_preserves_frozen_headline_results():
     text = MANUSCRIPT.read_text(encoding="utf-8")
     for token in [
         "0.4167",
-        "105/288",
+        "105 of 288",
         "16/96",
         "85/96",
         "11/96",
@@ -71,7 +71,7 @@ def test_jecology_submission_preserves_external_claim_boundaries():
     text = MANUSCRIPT.read_text(encoding="utf-8")
     lower = text.lower()
     assert "not a random sample" in lower or "not a prevalence" in lower
-    assert "does not establish one shared empirical mechanism" in lower or "does not establish one shared empirical mechanism" in lower
+    assert "does not establish one shared empirical mechanism" in lower
     assert "Puerto Rico–Mona *Guaiacum*" in text
     assert "reproductive-axis-decoupling" in text
     assert "Dominica *Heliconia*" in text
@@ -106,8 +106,27 @@ def test_jecology_submission_contains_source_controlled_citations_and_references
         assert doi in text
 
 
+def test_jecology_submission_crossreferences_main_and_supplementary_display_items():
+    text = MANUSCRIPT.read_text(encoding="utf-8")
+    for token in ["Fig. 1", "Fig. 2", "Fig. 3", "Fig. 4", "Table 1", "Table 2", "Table 3", "Fig. S1", "Table S1", "Table S2", "Table S3"]:
+        assert token in text
+
+
+def test_jecology_submission_expands_reproducible_methods_without_new_science():
+    text = MANUSCRIPT.read_text(encoding="utf-8")
+    for token in [
+        "16 factorial cells",
+        "eight cells",
+        "288 lineage contrasts per cell",
+        "seed 90260825",
+        "No further seed search was performed",
+        "No empirical inputs or Izu target frequencies were loaded",
+    ]:
+        assert token in text
+
+
 def test_jecology_submission_stays_within_research_article_scale():
     text = MANUSCRIPT.read_text(encoding="utf-8")
     words = re.findall(r"\b[\w’'-]+\b", text)
     assert len(words) < 8000
-    assert len(words) > 2500
+    assert len(words) > 3000
