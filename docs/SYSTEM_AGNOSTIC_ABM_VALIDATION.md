@@ -1,68 +1,94 @@
 # System-agnostic multi-system ABM validation
 
-## Question
+## Current question
 
-Can the **existing frozen ABM mechanism stack** cover the observed diversity of island propagation states without tuning to Campanula or any other single focal taxon?
+Can the **already-frozen ABM mechanism stack** span the recurrent qualitative response states observed across independent island systems, and how much can an observed state tell us about the generating mechanism?
 
-This is deliberately stricter than asking whether the ABM can produce many outcomes. A state class is counted only when the frozen outputs already demonstrate the relevant qualitative behavior. Missing empirical-to-model mappings remain missing.
+This is now treated as a **simulation study with qualitative external challenges**. External systems are not numerical calibration rows, and a complete empirical `V_k × E_k` mechanism mapping is not required for the primary simulation claim.
 
-## Frozen synthetic evidence used
+Canonical current state:
 
-- v11 downstream factorial: local support, dependency heterogeneity, assurance responsiveness and partner effectiveness;
-- v12 residual trait-cause ablation: initial trait position, trait-adjustment heterogeneity and assurance-ceiling heterogeneity;
-- frozen Dominica Heliconia signed-position projection;
-- the admitted cross-island propagation/buffering discriminator.
+- `data/design/simulation_study_mainline_20260824.json`
+- `data/design/frozen_abm_state_atlas_contract.json`
+- `data/results/frozen_abm_state_atlas_frozen.json`
+- `data/results/frozen_abm_state_separability_frozen.json`
+- `data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json`
 
-No empirical system is loaded into the ABM and no parameter is retuned.
+No external system is loaded into the ABM and no parameter is retuned.
 
-## Strict interpretation
+## Frozen synthetic state classes
 
 ### Branching
 
-Directly demonstrated. In the frozen v12 full residual model, positive and negative lineage responses occur within the same environmental run. Removing initial trait-position heterogeneity collapses within-run mixed-sign branching.
+Directly demonstrated. In the v12 residual gate, the mixed-sign run fraction is **0.4167** and mean within-run branching balance is **0.2569**. Removing initial trait-position heterogeneity collapses both quantities to **0**.
+
+Within the declared residual ABM, pre-existing lineage position in functional trait space is therefore the minimal identified generator of within-environment response-sign branching.
 
 ### Same-direction response
 
-Demonstrated only at the **sign-class capability** level. Because the full residual v12 model contains no equal lineage contrasts and not every run is mixed-sign, some matched runs have one response sign across lineages. This shows directional capability, but it does not identify the Ogasawara physical-access mechanism inside the model.
+Also generated, but it is not mechanistically identifying. Even with initial trait heterogeneity ON, **0.5833** of full residual runs are non-mixed. With initial trait heterogeneity OFF, all runs are non-mixed.
+
+Thus a same-direction response is compatible with the model but cannot be inverted into a claim of homogeneous starting state.
 
 ### Branch reallocation
 
-Directly demonstrated synthetically. v11 shows paired branch-sign changes when local support or partner effectiveness is ablated. These variables can move lineages between branches without being the generator of branching itself.
+Local support and partner effectiveness modify branch identity without being the origin of branching:
+
+- local support paired sign changes: **105/288 = 0.3646**;
+- partner effectiveness paired sign changes: **13/288 = 0.0451**;
+- dependency heterogeneity paired sign changes: **0** in the v11 drop-one comparison.
 
 ### Buffering / resilience
 
-**Not yet strictly validated.** The current frozen ABM results do not define a source-linked system-level buffering estimand or threshold. Individual equal or small contrasts cannot be relabelled after inspection as Hawaiʻi- or Guaiacum-like buffering.
+This state class is now **synthetically demonstrated**, replacing the older “buffer mechanism coverage gap” wording.
 
-This is a model-coverage gap, not evidence for a generic hidden buffer parameter.
+In the independently frozen network-context block, among 96 eligible support-OFF reproductive declines:
+
+- sign rescues: **16/96 = 0.1667**;
+- magnitude rescues: **85/96 = 0.8854**;
+- worsenings: **11/96 = 0.1146**.
+
+The correct interpretation is a **context-dependent branch allocator with buffering capacity**, not a universal protective buffer.
+
+Autonomous assurance has a different frozen role. In the independent v14 block it produces **0/216 sign rescues** but **207/216 = 0.9583** magnitude attenuations; the broadened support envelope also has **0/525** sign rescues. Assurance is therefore a robust attenuator, not a robust strong sign buffer.
 
 ### Counterdirectional prediction
 
-The Dominica Heliconia signed-position projection remains a retained empirical failure. It is not counted as flexible model coverage and must not be rescued by remapping the signed position.
+The Dominica *Heliconia* signed-position projection remains a retained empirical failure. It is not counted as flexible model coverage and must not be repaired by remapping the signed position.
 
-## Current system-level reading
+## Current 13-system challenge
 
-| System | Observed state | Strict ABM status |
-|---|---|---|
-| Izu multi-taxon | branches downstream | qualitatively covered by frozen branching capability |
-| Ogasawara *Psychotria* | same-direction propagation | sign-class compatible; physical-access mapping not validated |
-| Hawaiʻi lobelioids | buffered / resilient | buffer mechanism coverage gap |
-| Puerto Rico–Mona *Guaiacum* | buffered / resilient with negligible autogamy | buffer mechanism coverage gap |
-| Channel Islands *Nicotiana glauca* | buffered / alternative mechanism | buffer/establishment mapping not validated |
-| Dominica *Heliconia* | counterdirectional to frozen prediction | retained falsification |
+| State role | Number of systems | Frozen ABM reading |
+|---|---:|---|
+| branching | 3 | qualitatively covered |
+| same-direction propagation | 6 | sign-class compatible; mechanism not identified from state alone |
+| buffering / alternative | 2 | synthetic buffering class available; empirical mechanism unmapped |
+| reproductive-axis decoupling | 1 | empirical constraint, not a single synthetic generator target |
+| retained falsification | 1 | Dominica failure protected |
 
-## Scientific consequence
+The 11 generative state challenges are all covered or sign-compatible with a pre-existing frozen synthetic state class. This is **state-space coverage**, not a numerical fit and not a claim that one biological mechanism explains all 13 systems.
 
-The current ABM is therefore **partially** system-agnostic, not fully validated. It already contains a credible generator of lineage branching and modifiers of branch allocation, but the observed buffering classes are not yet mechanistically identified inside the frozen model.
+## State identifiability
 
-The next step is **not** to add an unconstrained generic buffer parameter. A buffering mechanism should enter the model only when an existing or newly admitted island system provides source-native measurements that connect:
+The inverse problem is asymmetric:
 
-1. upstream pollinator-functional change;
-2. direct service/effectiveness or an equivalent propagation step;
-3. downstream reproductive response; and
-4. the candidate buffer/filter itself.
+- mixed-sign branching → initial trait heterogeneity: specificity **1.0**, sensitivity **0.4167**;
+- same-direction → trait uniformity: false-positive rate **0.5833**, specificity **0.4167**;
+- sign rescue → network context versus the tested assurance route: specificity **1.0**, sensitivity **0.1667**;
+- magnitude attenuation → assurance versus network context: specificity only **0.1146** because both routes frequently attenuate declines.
 
-Issue #91 is one prepared route to such a discriminator, but it is not a programme prerequisite.
+So some observed states are specific but insensitive diagnostics, whereas others are essentially non-identifying.
+
+## Empirical mapping is an optional translation layer
+
+The separate five-gate empirical network-context audit remains useful for asking whether a real island system can be assigned to the synthetic local-support route. It currently has zero mapping-ready systems.
+
+That does **not** block the simulation result. It limits only a stronger empirical statement of the form “this named island system is generated by this ABM mechanism.” Issue #91 and source-triggered `E_k` searches remain optional future empirical extensions.
 
 ## Claim boundary
 
-Qualitative capability is weaker than empirical mechanism validation. Reproducing a state class does not identify its cause, a sign-class match is not a numerical fit, and retained prediction failures remain part of the evidence rather than being tuned away.
+The supported claim is:
+
+> A frozen minimal model architecture spans multiple recurrent island-response state classes, while the mapping from observed state back to mechanism is only partially identifiable.
+
+Do not claim universal island responses, universal network protection, robust assurance sign rescue, or empirical causal identification from qualitative state matches. Retained failures remain part of the evidence.

@@ -1,0 +1,109 @@
+{
+  "analysis": "frozen_abm_state_separability",
+  "schema_version": "1.0",
+  "run_date": "2026-08-24",
+  "parent_atlas": "data/results/frozen_abm_state_atlas_frozen.json",
+  "external_targets_used_for_classifier_training": false,
+  "new_simulation_parameters_selected_from_external_outcomes": false,
+  "diagnostics": {
+    "mixed_sign_branching_as_trait_heterogeneity_diagnostic": {
+      "sensitivity": 0.4166666666666667,
+      "false_negative_rate": 0.5833333333333333,
+      "false_positive_rate": 0.0,
+      "specificity": 1.0,
+      "interpretation": "high_specificity_low_sensitivity_within_v12_residual_gate"
+    },
+    "same_direction_as_trait_uniformity_diagnostic": {
+      "sensitivity": 1.0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.5833333333333333,
+      "specificity": 0.41666666666666674,
+      "interpretation": "nonmixed_state_is_not_mechanistically_identifying"
+    },
+    "sign_rescue_as_network_context_vs_assurance_diagnostic": {
+      "network_context_sensitivity": 0.16666666666666666,
+      "false_negative_rate_with_network_context": 0.8333333333333334,
+      "assurance_false_positive_rate": 0.0,
+      "specificity_against_assurance": 1.0,
+      "interpretation": "high_specificity_low_sensitivity_for_network_context_against_tested_assurance_route"
+    },
+    "magnitude_attenuation_as_assurance_vs_network_context_diagnostic": {
+      "assurance_sensitivity": 0.9583333333333334,
+      "network_context_false_positive_rate": 0.8854166666666666,
+      "specificity_against_network_context": 0.11458333333333337,
+      "interpretation": "poorly_separable_because_both_routes_commonly_attenuate_declines"
+    },
+    "paired_sign_reallocation_as_local_support_vs_partner_effectiveness_diagnostic": {
+      "local_support_sign_change_fraction": 0.3645833333333333,
+      "partner_effectiveness_sign_change_fraction": 0.04513888888888889,
+      "difference": 0.3194444444444444,
+      "interpretation": "local_support_is_stronger_branch_allocator_under_direct_synthetic_intervention_but_passive_real_world_state_does_not_identify_it"
+    }
+  },
+  "transition_boundaries": {
+    "initial_trait_heterogeneity_on_to_off": {
+      "from_mixed_sign_run_fraction": 0.4166666666666667,
+      "to_mixed_sign_run_fraction": 0.0,
+      "boundary_readout": "within_run_branching_collapses_at_tested_trait_uniformity_intervention"
+    },
+    "assurance_across_saturations_1_2_3": {
+      "by_saturation": {
+        "1.0": {
+          "service_decline_lineages": 75,
+          "sign_rescue_fraction": 0.0,
+          "magnitude_attenuation_fraction": 0.9466666666666667,
+          "state": "attenuation_without_sign_rescue"
+        },
+        "2.0": {
+          "service_decline_lineages": 76,
+          "sign_rescue_fraction": 0.0,
+          "magnitude_attenuation_fraction": 0.9605263157894737,
+          "state": "attenuation_without_sign_rescue"
+        },
+        "3.0": {
+          "service_decline_lineages": 65,
+          "sign_rescue_fraction": 0.0,
+          "magnitude_attenuation_fraction": 0.9692307692307692,
+          "state": "attenuation_without_sign_rescue"
+        }
+      },
+      "boundary_readout": "no_transition_to_strong_sign_buffering_detected_across_tested_saturations"
+    },
+    "network_context_support_off_to_on": {
+      "sign_rescue_fraction": 0.16666666666666666,
+      "worsening_fraction": 0.11458333333333333,
+      "boundary_readout": "support_transition_is_lineage_specific_and_bidirectional_not_monotonic"
+    }
+  },
+  "observation_to_inference_rules": [
+    {
+      "observation": "mixed positive and negative lineage responses within one matched upstream run",
+      "allowed_inference": "supports preexisting trait-position heterogeneity as the necessary tested v12 branch generator",
+      "forbidden_inference": "does not identify the real-world trait axis or local-support mechanism"
+    },
+    {
+      "observation": "all lineages respond in the same direction",
+      "allowed_inference": "compatible with the frozen model",
+      "forbidden_inference": "cannot infer trait uniformity because 58.3% of full heterogeneity-on runs are also nonmixed"
+    },
+    {
+      "observation": "service decline becomes nonnegative reproduction under a context change",
+      "allowed_inference": "network context has this synthetic capability whereas the tested assurance route lacks robust sign rescue",
+      "forbidden_inference": "cannot infer that a real island is buffered by network context without a source-native mapping"
+    },
+    {
+      "observation": "decline magnitude is reduced but sign remains negative",
+      "allowed_inference": "compatible with multiple frozen routes",
+      "forbidden_inference": "cannot distinguish assurance from network context from attenuation alone"
+    },
+    {
+      "observation": "external state not represented by any predeclared frozen class",
+      "allowed_inference": "record a state-space miss",
+      "forbidden_inference": "do not add or retune a mechanism after seeing the miss"
+    }
+  ],
+  "decision": "state_observations_are_asymmetrically_informative_mixed_sign_and_sign_rescue_are_specific_but_insensitive_while_same_direction_and_magnitude_attenuation_are_nonidentifying",
+  "paper_level_consequence": "The simulation study should report state-space coverage and diagnostic asymmetry rather than claiming one-to-one inversion from observed island state to causal mechanism.",
+  "next_gate": "Use these frozen observation-to-inference rules to construct the manuscript result/falsification table and, only if additional simulation is needed, prespecify independent stochastic blocks that target the low-sensitivity diagnostics without using external outcomes to select parameters.",
+  "claim_boundary": "Sensitivity and false-positive rates are conditional frequencies inside different declared synthetic interventions, not population-level diagnostic accuracies for natural islands. They quantify model observability, not empirical causal inference."
+}
