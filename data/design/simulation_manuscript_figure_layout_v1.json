@@ -22,7 +22,7 @@
       "title": "Pre-existing functional position is the replicated minimal generator of within-run branching",
       "role": "causal_ablation_result",
       "source_data": "data/results/simulation_manuscript_figure_data_frozen.json",
-      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+      "renderer": "scripts/render_island_ecology_mechanism_figures_svg.py",
       "output": "Fig2_minimal_branch_generator.svg",
       "headline": "initial trait-position heterogeneity removal collapses branching in the original and independently seeded blocks"
     },
@@ -31,7 +31,7 @@
       "title": "Local interaction context reallocates branches while autonomous assurance mainly attenuates propagation",
       "role": "ecological_mechanism_decomposition",
       "source_data": "data/results/simulation_manuscript_figure_data_frozen.json",
-      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+      "renderer": "scripts/render_island_ecology_mechanism_figures_svg.py",
       "output": "Fig3_branch_allocation_buffering_attenuation.svg",
       "headline": "network context can rescue or worsen response sign while assurance robustly attenuates magnitude without robust sign rescue"
     },
