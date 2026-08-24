@@ -1,0 +1,28 @@
+name: ABM v12 independent branch robustness
+
+on:
+  pull_request:
+    paths:
+      - "data/design/abm_v12_branch_generator_independent_robustness_freeze.json"
+      - "scripts/run_abm_v12_branch_generator_independent_robustness.py"
+      - "scripts/run_constraint_mechanism_abm_v12_residual_trait_causes.py"
+      - ".github/workflows/abm-v12-independent-branch-robustness.yml"
+
+jobs:
+  independent-v12:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run prespecified independent block
+        run: python scripts/run_abm_v12_branch_generator_independent_robustness.py --output abm_v12_independent_result.json
+      - name: Print frozen candidate result
+        run: cat abm_v12_independent_result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abm-v12-independent-result
+          path: abm_v12_independent_result.json
