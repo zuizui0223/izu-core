@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
@@ -20,7 +20,10 @@
   "falsification_table": "data/results/simulation_manuscript_falsification_table_frozen.json",
   "figure_layout": "data/design/simulation_manuscript_figure_layout_v1.json",
   "figure_data": "data/results/simulation_manuscript_figure_data_frozen.json",
+  "figure_captions": "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
   "external_system_reference_matrix": "data/design/simulation_manuscript_external_system_reference_matrix.json",
+  "reference_map": "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md",
+  "journal_positioning": "docs/ISLAND_ECOLOGY_JOURNAL_POSITIONING_20260824.md",
   "primary_study_question": "Why does island-associated simplification or reorganization of pollinator function produce divergent plant responses rather than one universal post-establishment trajectory?",
   "primary_ecological_contribution": "a_state_dependent_island_response_model_in_which_preexisting_lineage_functional_position_generates_branching_local_interaction_context_reallocates_and_can_buffer_or_worsen_propagation_and_autonomous_assurance_mainly_attenuates_response_magnitude",
   "study_type": "island_ecology_simulation_with_qualitative_external_island_challenges",
@@ -82,6 +85,12 @@
     "new_simulation_required": false,
     "new_field_data_required": false,
     "new_external_system_search_required": false,
+    "primary_journal_target": "Journal of Ecology",
+    "fallback_journals": ["Functional Ecology", "Oikos"],
+    "method_first_MEE_is_primary_target": false,
+    "ecology_figure_routing_complete": true,
+    "reference_map_complete": true,
+    "figure_captions_complete": true,
     "highest_value_future_test": "outcome_blind_source_native_signed_functional_position_mapping",
     "future_empirical_tests": [
       "real_signed_functional_starting_position",
@@ -115,22 +124,25 @@
     {"name": "state_separability_method_layer", "status": "validated_but_demoted_to_supporting_role"},
     {"name": "island_ecology_core_story_recentered", "status": "complete"},
     {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen_and_unresolved_sidelines_classified"},
-    {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"}
+    {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"},
+    {"name": "island_ecology_main_figure_routing", "status": "ecology_first_main_Fig1_to_Fig4_with_state_separability_in_FigS1"},
+    {"name": "island_ecology_reference_map_and_figure_captions", "status": "complete"}
   ],
   "active_gate": {
-    "name": "island_ecology_manuscript_validation",
-    "goal": "Validate the new H1-H5 primary manuscript against frozen numerical results, protected negative outcomes, the 13-system source matrix and the ecological Main/Supp architecture before journal-specific formatting.",
+    "name": "island_ecology_reference_and_submission_alignment",
+    "goal": "Integrate source-controlled in-text citations and the final reference list into the H1-H5 primary manuscript, then apply Journal of Ecology submission formatting without reopening scientific analysis.",
     "required_outputs": [
-      "all_headline_numbers_match_frozen_results",
-      "all_13_external_system_names_and_state_classes_match_source_matrix",
-      "Dominica_and_Guaiacum_boundaries_preserved",
-      "no_method_first_main_result_heading",
-      "no_new_empirical_or_simulation_claims",
-      "main_figures_and_tables_match_ecological_architecture"
+      "main_text_intext_citations",
+      "complete_reference_list",
+      "Journal_of_Ecology_format_guard",
+      "final_main_and_supplement_file_manifest",
+      "data_and_code_availability_statement",
+      "title_page_and_submission_metadata"
     ]
   },
   "not_mainline": [
     "method_first_MEE_framing_as_primary_story",
+    "MEE_as_primary_journal_target",
     "inverse_problem_as_primary_discussion_result",
     "state_separability_metrics_as_primary_abstract_conclusion",
     "claim_that_all_islands_follow_one_post_establishment_reproductive_syndrome",
@@ -147,5 +159,5 @@
     "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
     "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands"
   ],
-  "next_executable_task": "validate_H1_H5_primary_manuscript_against_frozen_results_external_reference_matrix_and_protected_boundaries_then_freeze_journal_ready_ecology_draft"
+  "next_executable_task": "integrate_source_controlled_citations_and_final_reference_list_into_island_ecology_primary_manuscript_then_apply_Journal_of_Ecology_submission_format"
 }
