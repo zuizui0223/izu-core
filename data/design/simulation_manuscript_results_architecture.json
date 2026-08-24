@@ -1,8 +1,10 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "frozen_on": "2026-08-24",
-  "study_type": "simulation_with_qualitative_external_island_challenges",
-  "primary_claim": "A frozen minimal island-pollination ABM spans multiple recurrent response-state classes without system-specific retuning, but observed state is only asymmetrically informative about mechanism: pre-existing lineage functional position is the independently replicated minimal identified generator of within-run branching, network context can strongly buffer or worsen responses, and autonomous assurance robustly attenuates magnitude without robust sign rescue.",
+  "study_type": "island_ecology_simulation_with_qualitative_external_island_challenges",
+  "primary_claim": "Island-associated simplification or reorganization of pollinator function does not impose one universal post-establishment plant trajectory. In the frozen ABM, pre-existing lineage functional position generates response branching, local interaction context reallocates branches and can either buffer or worsen propagation, and autonomous assurance mainly attenuates response magnitude. Independent island systems contain the same broad diversity of branching, propagation and buffering states, while axis decoupling and a retained failed prediction prevent a universal-mechanism interpretation.",
+  "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
+  "primary_manuscript": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
   "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
   "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
   "methods_traceability": "data/design/simulation_manuscript_methods_traceability.json",
@@ -11,14 +13,14 @@
   "main_results": [
     {
       "id": "R1",
-      "question": "Can one frozen model architecture generate multiple island response states?",
-      "result": "yes_for_branching_same_direction_and_buffering_classes_without_external_retuning",
+      "question": "Does a common island-like pollinator functional perturbation force one plant response syndrome?",
+      "result": "no_one_frozen_architecture_generates_branching_same_direction_and_buffering_states_without_island_specific_retuning",
       "source": "data/results/frozen_abm_state_atlas_frozen.json"
     },
     {
       "id": "R2",
-      "question": "What minimally generates within-run response-sign branching, and does that boundary replicate?",
-      "result": "initial_trait_position_heterogeneity_is_the_only_tested_residual_factor_whose_removal_collapses_branching_in_two_independently_seeded_frozen_blocks",
+      "question": "Why can lineages exposed to the same perturbation respond in opposite directions?",
+      "result": "preexisting_lineage_functional_position_is_the_only_tested_residual_factor_whose_removal_collapses_branching_in_two_independently_seeded_blocks",
       "sources": [
         "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
         "data/results/abm_v12_branch_generator_independent_robustness_frozen.json"
@@ -26,8 +28,8 @@
     },
     {
       "id": "R3",
-      "question": "Which downstream routes change branch identity or buffer decline?",
-      "result": "local_support_is_strong_branch_allocator_and_network_context_can_sign_rescue_but_is_bidirectional_partner_effectiveness_is_weaker_modifier_assurance_is_robust_attenuator_not_strong_sign_buffer",
+      "question": "What determines whether a lineage propagates, buffers or worsens after the initial perturbation?",
+      "result": "local_support_is_a_strong_bidirectional_branch_allocator_network_context_has_buffering_capacity_but_is_not_universally_protective_and_autonomous_assurance_mainly_attenuates_magnitude",
       "sources": [
         "data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json",
         "data/results/network_context_buffering_capability_robustness_frozen.json",
@@ -36,26 +38,27 @@
     },
     {
       "id": "R4",
-      "question": "How informative is an observed state about the generating mechanism?",
-      "result": "mixed_sign_and_strong_sign_rescue_are_high_specificity_low_sensitivity_diagnostics_same_direction_and_magnitude_attenuation_are_nonidentifying",
-      "source": "data/results/frozen_abm_state_separability_frozen.json"
+      "question": "Does this response-state diversity recur across independent island plant-pollinator systems?",
+      "result": "thirteen_strict_systems_span_three_branching_six_same_direction_two_buffering_or_alternative_one_axis_decoupling_and_one_retained_falsification_all_eleven_generative_challenges_are_covered_or_sign_compatible",
+      "source": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json"
     },
     {
       "id": "R5",
-      "question": "Does the frozen state vocabulary survive external island-system challenges?",
-      "result": "eleven_of_thirteen_are_generative_state_challenges_and_all_eleven_are_covered_or_sign_compatible_one_axis_decoupling_constraint_and_one_retained_falsification_remain",
-      "source": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json"
+      "question": "What ecological inference is not justified by state compatibility alone?",
+      "result": "external_state_compatibility_does_not_identify_the_real_world_mechanism_same_direction_and_attenuation_are_nonunique_and_dominica_and_guaiacum_remain_protected_boundaries",
+      "source": "data/results/frozen_abm_state_separability_frozen.json",
+      "role": "inference_boundary_not_primary_novelty"
     }
   ],
   "main_figures": [
     {
       "figure": "Fig1",
-      "title": "Frozen model logic: common perturbation, state-dependent branching and downstream filters",
+      "title": "Island ecological hypothesis: common pollinator functional simplification, lineage-state-dependent branching and downstream filters",
       "renderer": "scripts/render_simulation_manuscript_fig1_svg.py"
     },
     {
       "figure": "Fig2",
-      "title": "Minimal generator of within-run branching",
+      "title": "Pre-existing functional position is the replicated minimal generator of response branching",
       "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
       "headline_values": {
         "original_full_mixed_sign_run_fraction": 0.4166666666666667,
@@ -66,52 +69,56 @@
     },
     {
       "figure": "Fig3",
-      "title": "Branch allocation, strong buffering and attenuation occupy different synthetic regions",
+      "title": "Local interaction context reallocates branches while assurance attenuates propagation",
       "renderer": "scripts/render_simulation_manuscript_figures_svg.py"
     },
     {
       "figure": "Fig4",
-      "title": "External island-state challenge and diagnostic asymmetry",
+      "title": "Independent island systems span branching, propagation, buffering and protected exceptions",
       "renderer": "scripts/render_simulation_manuscript_figures_svg.py"
     }
   ],
   "main_tables": [
     {
       "table": "Table1",
-      "title": "Frozen synthetic state-generation atlas",
+      "title": "Synthetic island-response state atlas",
       "source": "data/results/frozen_abm_state_atlas_frozen.json"
     },
     {
       "table": "Table2",
-      "title": "Observation-to-mechanism separability",
-      "source": "data/results/frozen_abm_state_separability_frozen.json"
+      "title": "Strict external island-system response classes and source boundaries",
+      "source": "data/design/simulation_manuscript_external_system_reference_matrix.json"
     },
     {
       "table": "Table3",
-      "title": "Protected falsification rules and current outcomes",
+      "title": "Protected ecological falsification and inference boundaries",
       "source": "data/results/simulation_manuscript_falsification_table_frozen.json"
     }
   ],
   "supplement": [
+    "state-separability sensitivity specificity and inverse-identification diagnostics",
     "full v11 factorial cells and downstream ablations",
     "independent v12 branch-generator robustness block and provenance",
     "network-context initial and independent robustness blocks",
     "assurance independent and broadened support envelopes",
     "54-unit global archipelago screen and admission tiers",
     "source-level external-system audits",
-    "zero-of-twelve empirical network-context mapping readiness as an optional empirical-translation boundary",
+    "method-first MEE draft retained only as an alternative spin-off framing",
+    "zero-of-twelve empirical network-context mapping readiness as an optional future empirical-translation boundary",
     "Issue 91 prospective field protocol as optional future empirical mechanism mapping"
   ],
   "explicit_exclusions_from_primary_results": [
-    "new field raw bundle requirement",
-    "formal cross-system effect-size pooling",
-    "system-specific ABM parameter fitting",
+    "claim that all islands follow one reproductive syndrome after establishment",
+    "claim that all thirteen systems share the same empirical causal mechanism",
     "claim that state compatibility identifies real-world mechanism",
     "claim that network context is universally protective",
     "claim that assurance robustly reverses decline sign",
     "retuning of the Dominica failed mapping",
+    "new field raw bundle requirement",
+    "formal cross-system effect-size pooling",
+    "system-specific ABM parameter fitting",
     "additional seed search to increase favorable branch-generator frequencies"
   ],
-  "manuscript_end_state": "primary_results_methods_falsification_and_Fig1_to_Fig4_architecture_frozen_without_new_field_data",
-  "next_executable_task": "assemble_the_full_manuscript_draft_around_the_frozen_results_methods_and_figures_then_limit_new_analysis_to_questions_that_survive_editorial_review"
+  "manuscript_end_state": "island_ecology_primary_story_recentered_on_state_dependent_branching_propagation_and_buffering",
+  "next_executable_task": "rewrite_the_primary_abstract_discussion_and_figure_order_around_island_ecology_while_demoting_state_separability_to_inference_guard_and_supplement"
 }
