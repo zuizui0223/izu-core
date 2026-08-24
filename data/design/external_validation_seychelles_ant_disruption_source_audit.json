@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "system_id": "seychelles_ant_disruption",
+  "geographic_cluster": "seychelles_mahe_inselbergs",
+  "role": "independent_same_direction_propagation_validation",
+  "source": {
+    "citation": "Global Ecology and Conservation 42 (2023) e02413",
+    "doi": "10.1016/j.gecco.2023.e02413",
+    "title": "Impacts of invasive ants on pollination of native plants are similar in invaded and restored plant communities"
+  },
+  "design": "Ant-exclusion experiments and pollinator observations on four native plant species across eight granitic inselbergs on Mahe, including four restoration sites and four invaded controls.",
+  "source_native_results": {
+    "pollination_pathway": "flying flower visitors were the primary pollination pathway and ant contribution to fruit set was generally small",
+    "interaction_effect": "invasive-ant presence reduced the number of flowers probed per visit in restored and unrestored communities",
+    "reproductive_effect": "native plant reproduction was negatively affected by invasive-ant presence",
+    "context_result": "the negative effect was similar in restored and unrestored plant communities"
+  },
+  "observed_chain": "invasive-ant presence -> reduced legitimate flower probing -> reduced native plant reproduction",
+  "target_state": "propagates_same_direction",
+  "admission": "strict_state_class_validation_target",
+  "claim_boundary": "This is an island experimental/context contrast rather than an inter-island evolutionary transition. It tests qualitative propagation from interaction disruption to reproduction, not a unique ABM mechanism and not a universal restoration effect."
+}

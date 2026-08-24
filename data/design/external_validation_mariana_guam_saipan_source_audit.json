@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "system_id": "mariana_guam_saipan_bird_loss",
+  "geographic_cluster": "mariana_islands",
+  "role": "independent_same_direction_propagation_validation",
+  "source": {
+    "citation": "Mortensen, Dupont & Olesen 2008, Biological Conservation 141:2146-2154",
+    "doi": "10.1016/j.biocon.2008.06.014",
+    "title": "A snake in paradise: Disturbance of plant reproduction following extirpation of bird flower-visitors on Guam"
+  },
+  "design": "Two-island natural experiment: Guam, where the introduced brown treesnake caused severe native bird losses, versus Saipan, where flower-visiting birds remained abundant; two native bird-pollinated plants were measured.",
+  "source_native_results": {
+    "bird_visitation": "high on Saipan and zero on Guam",
+    "alternative_visitors": "insects and lizards visited at low levels; only lizards were considered potential effective alternative pollinators",
+    "seed_set": "significantly higher on Saipan for both Bruguiera gymnorrhiza and Erythrina variegata var. orientalis",
+    "bruguiera_seedling_recruitment": "significantly higher on Saipan",
+    "bagging": "bagged Bruguiera flowers did not produce viviparous propagules, supporting pollinator dependence"
+  },
+  "observed_chain": "bird extirpation -> zero bird visitation -> reduced seed set in two plant species -> reduced Bruguiera recruitment",
+  "target_state": "propagates_same_direction",
+  "admission": "strict_state_class_validation_target",
+  "why_admitted": [
+    "the upstream perturbation is a source-defined natural experiment independent of the ABM",
+    "the same-direction signal reaches reproduction in two plant species and recruitment in one",
+    "the geographic system is independent of the existing strict validation clusters",
+    "no state threshold or ABM parameter was selected using these outcomes"
+  ],
+  "claim_boundary": "The system validates a qualitative propagation state, not the ABM's specific trait-position generator. Guam and Saipan differ in more than bird abundance, and the brown-treesnake pathway is a particular ecological perturbation rather than a generic island-isolation mechanism."
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "system_id": "bahamas_pavonia_hurricane_pollination",
+  "geographic_cluster": "bahamas_san_salvador",
+  "role": "independent_same_direction_propagation_validation",
+  "source": {
+    "citation": "Rathcke 2000, Ecology 81:1951-1958",
+    "doi": "10.1890/0012-9658(2000)081[1951:HCRAPL]2.0.CO;2",
+    "title": "Hurricane causes resource and pollination limitation of fruit set in a bird-pollinated shrub"
+  },
+  "design": "Before/after natural experiment on San Salvador Island across a pre-hurricane season, a mild-hurricane season, and the season after severe Hurricane Lili, with pollinator abundance, nectar removal, stigma pollen receipt and fruit-set limitation measured in Pavonia bahamensis.",
+  "source_native_results": {
+    "pre_hurricane_fruit_set": "approximately 100% for most shrubs in 1994-1995",
+    "post_mild_hurricane_fruit_set": "48% in 1995-1996",
+    "post_hurricane_lili_fruit_set": "11% in 1996-1997",
+    "pollination_limitation_after_lili": "fruit set was reduced an additional 74% by pollination limitation after separating resource limitation",
+    "pollinator_change": "Bananaquit and Bahama Woodstar flower visitation collapsed; Bananaquit populations were decimated and bird visits became rare",
+    "pollen_receipt": "98% of stigmas received pollen before the hurricanes versus 51% of flowers receiving no pollen after Hurricane Lili",
+    "replacement": "no compensatory pollination by other bird species or insects was detected"
+  },
+  "observed_chain": "hurricane-driven bird-pollinator decline -> near-loss of nectar removal and pollen receipt -> strong pollination limitation -> fruit-set collapse",
+  "target_state": "propagates_same_direction",
+  "admission": "strict_state_class_validation_target",
+  "claim_boundary": "The hurricane also caused direct resource limitation, which the source explicitly measured; the strict pollination claim is therefore the additional pollination-limitation component, not attribution of the whole fruit-set decline to pollinator loss. This validates qualitative propagation, not the ABM trait-position mechanism."
+}

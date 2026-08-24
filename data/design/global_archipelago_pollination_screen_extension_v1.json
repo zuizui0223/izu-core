@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "parent_screen": "data/design/global_archipelago_pollination_screen_v1.json",
+  "purpose": "Close three explicit geographic omissions identified after the 51-unit screen without changing strict state counts or forcing weak evidence into the frozen validation harness.",
+  "additional_screening_units": [
+    {
+      "id": "gulf_of_guinea_oceanic",
+      "region": "Gulf of Guinea oceanic islands: Sao Tome, Principe and Annobon",
+      "basin": "Gulf of Guinea / eastern tropical Atlantic",
+      "tier": "D",
+      "basis": "The archipelago is a major endemic-rich oceanic-island system, but recent ecological synthesis explicitly identifies species interactions as a remaining knowledge gap; no source-comparable pollinator-functional perturbation-to-reproduction chain was recovered in this pass."
+    },
+    {
+      "id": "christmas_cocos_keeling",
+      "region": "Christmas Island and Cocos (Keeling) Islands",
+      "basin": "Eastern Indian Ocean",
+      "tier": "D",
+      "basis": "Native floras and island ecological values are well documented, but no source-comparable native-plant pollination/reproductive transition suitable for the frozen harness was recovered in this pass."
+    },
+    {
+      "id": "andaman_nicobar",
+      "region": "Andaman and Nicobar Islands",
+      "basin": "Bay of Bengal / eastern Indian Ocean",
+      "tier": "D",
+      "basis": "Species-level floral phenology and breeding/pollination studies exist, including endemic palms, but no matched island pollinator-functional regime contrast with a downstream response was recovered in this pass."
+    }
+  ],
+  "combined_summary": {
+    "screening_units": 54,
+    "tier_A_strict_targets": 13,
+    "tier_A_newly_promoted": 7,
+    "tier_B_partial_mechanism_or_propagation": 12,
+    "tier_C_filtering_architecture": 7,
+    "tier_D_screened_gaps": 22
+  },
+  "decision": "global_geographic_screen_closed_at_54_units_for_this_pass_without_changing_the_13_strict_frozen_state_targets",
+  "reopen_rule": "Reopen any Tier D geography only on a named source that supplies a comparable ecological-regime contrast and downstream response, or on a prospective matched-measurement route; do not repeat unconstrained searching merely to increase the strict target count.",
+  "claim_boundary": "The combined 54-unit screen is broad global coverage of major oceanic/small-island research systems, not a literal census of every island on Earth. Tier D records search coverage and evidence structure, not biological absence."
+}

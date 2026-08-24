@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "programme": "comparative_island_pollination_response_programme",
+  "parent_mainline": "data/design/active_development_mainline.json",
+  "parent_six_system_gate": "data/design/system_agnostic_multi_system_validation_gate.json",
+  "parent_six_system_result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
+  "global_primary_screen": "data/design/global_archipelago_pollination_screen_v1.json",
+  "global_gap_extension": "data/design/global_archipelago_pollination_screen_extension_v1.json",
+  "global_admission_contract": "data/design/global_archipelago_state_admission_contract.json",
+  "expanded_validation_gate": "data/design/system_agnostic_multi_system_validation_gate_v2.json",
+  "expanded_validation_result": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json",
+  "current_counts": {
+    "combined_screening_units": 54,
+    "strict_state_targets": 13,
+    "partial_mechanism_or_propagation": 12,
+    "filtering_or_architecture": 7,
+    "screened_geographic_gaps": 22,
+    "parent_strict_targets": 6,
+    "new_strict_external_challenges": 7
+  },
+  "strict_state_replication": {
+    "branches_downstream": [
+      "izu_multi_taxon_hiraiwa",
+      "caribbean_gesneriaceae_island_mainland",
+      "canary_teide_honeybee_network"
+    ],
+    "propagates_same_direction": [
+      "ogasawara_psychotria_homalosperma",
+      "new_zealand_rhabdothamnus",
+      "mariana_guam_saipan_bird_loss",
+      "seychelles_ant_disruption",
+      "mauritius_roussea_ant_disruption",
+      "bahamas_pavonia_hurricane_pollination"
+    ],
+    "buffered_or_alternative": [
+      "hawaii_lobelioids_2026",
+      "california_channel_islands_nicotiana_glauca"
+    ],
+    "reproductive_axes_decouple": [
+      "puerto_rico_mona_guaiacum"
+    ],
+    "retained_falsification": [
+      "dominica_heliconia"
+    ]
+  },
+  "abm_change_state": {
+    "abm_rerun_for_new_targets": false,
+    "parameters_retuned": false,
+    "new_mechanism_added": false,
+    "state_vocabulary_changed": false,
+    "parent_frozen_result_modified": false
+  },
+  "scientific_readout": "The global expansion increases independent challenges of already-frozen qualitative response states. Branching now has three system layers and same-direction propagation six, while buffering remains synthetically available but empirically unmapped. Guaiacum remains an axis-decoupling constraint and Dominica remains a protected failed prediction.",
+  "next_mainline_gate": "Do not continue unconstrained archipelago searching merely to raise counts. Reopen Tier B/D systems only on named source triggers that can close a declared missing link. The highest-value unresolved mainline remains source-native empirical mechanism mapping, especially the existing five-gate network-context contract, while preserving the global state-class screen as a non-fitting external challenge set.",
+  "claim_boundary": "The 54-unit screen is broad global coverage, not a literal census of every named island or publication. Strict target count is not identical to independent archipelago count, and matching a qualitative state does not identify the real-world ABM mechanism."
+}

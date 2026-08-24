@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "system_id": "canary_teide_honeybee_network",
+  "geographic_cluster": "canary_tenerife",
+  "role": "independent_multi_plant_branching_validation",
+  "source": {
+    "citation": "Valido, Rodríguez-Rodríguez & Jordano 2019, Scientific Reports 9:4711",
+    "doi": "10.1038/s41598-019-41271-5",
+    "title": "Honeybees disrupt the structure and functionality of plant-pollinator networks"
+  },
+  "design": "Replicated three-year human-induced experiment in Teide National Park comparing pre- and post-establishment periods of up to 2700 managed honeybee hives, with quantitative plant-pollinator networks and paired reproductive measurements in five native plant species.",
+  "source_native_results": {
+    "network_change": "beekeeping reduced wild-pollinator diversity and interaction links and disrupted network organization",
+    "high_honeybee_use_plants": "Echium wildpretii and Spartocytisus supranubius had significantly fewer seeds per fruit during the honeybee period",
+    "low_or_moderate_honeybee_use_plants": "the same seeds-per-fruit decline was not detected in the low/moderate honeybee-visitation species",
+    "distance_gradient": "Spartocytisus plants nearer apiaries had fewer seeds per fruit and a much larger fraction of empty fruits",
+    "response_heterogeneity": "fruit set and seed-number responses were not uniform across the five focal plant species"
+  },
+  "observed_chain": "common beekeeping/network perturbation -> plant-specific interaction exposure -> divergent reproductive responses among co-occurring plant species",
+  "target_state": "branches_downstream",
+  "admission": "strict_state_class_validation_target",
+  "claim_boundary": "This validates a multi-plant branching state under an experimental island network perturbation. It does not imply that managed honeybees are the causal mechanism behind Izu or Caribbean branching, and the mixed fruit-set/seed-number responses must not be collapsed to one universal fitness coefficient."
+}
