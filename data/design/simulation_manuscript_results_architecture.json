@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "frozen_on": "2026-08-24",
   "study_type": "island_ecology_simulation_with_qualitative_external_island_challenges",
   "primary_claim": "Island-associated simplification or reorganization of pollinator function does not impose one universal post-establishment plant trajectory. In the frozen ABM, pre-existing lineage functional position generates response branching, local interaction context reallocates branches and can either buffer or worsen propagation, and autonomous assurance mainly attenuates response magnitude. Independent island systems contain the same broad diversity of branching, propagation and buffering states, while axis decoupling and a retained failed prediction prevent a universal-mechanism interpretation.",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
   "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
   "manuscript_reassembly_spec": "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md",
-  "primary_manuscript": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
+  "primary_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
+  "legacy_ecology_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
   "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
   "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
   "methods_traceability": "data/design/simulation_manuscript_methods_traceability.json",
@@ -132,6 +133,6 @@
     "additional seed search to increase favorable branch-generator frequencies",
     "state-separability diagnostics as a primary biological result"
   ],
-  "manuscript_end_state": "island_ecology_primary_story_H1_H5_frozen_with_state_separability_demoted_to_supporting_inference_guard",
-  "next_executable_task": "apply_the_H1_H5_section_order_to_the_primary_manuscript_and_figure_captions_without_new_scientific_analysis"
+  "manuscript_end_state": "H1_H5_island_ecology_primary_manuscript_assembled_and_ready_for_frozen_result_validation",
+  "next_executable_task": "validate_primary_manuscript_headline_numbers_external_system_assignments_and_protected_boundaries_before_journal_specific_formatting"
 }
