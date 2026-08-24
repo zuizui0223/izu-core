@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "parent_mainline": "data/design/active_development_mainline.json",
@@ -9,8 +9,14 @@
   "state_separability_result": "data/results/frozen_abm_state_separability_frozen.json",
   "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
+  "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
+  "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
+  "methods_traceability": "data/design/simulation_manuscript_methods_traceability.json",
+  "falsification_table": "data/results/simulation_manuscript_falsification_table_frozen.json",
+  "figure_layout": "data/design/simulation_manuscript_figure_layout_v1.json",
   "figure_data": "data/results/simulation_manuscript_figure_data_frozen.json",
-  "figure_renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+  "figure_renderer_fig1": "scripts/render_simulation_manuscript_fig1_svg.py",
+  "figure_renderer_fig2_to_4": "scripts/render_simulation_manuscript_figures_svg.py",
   "paper_result_layer": "docs/FROZEN_ABM_STATE_ATLAS_20260824.md",
   "primary_study_question": "Which island-response state classes can the already-frozen ABM generate, which tested mechanism axes separate those states, and which observations would count as state-space misses or protected falsifications?",
   "study_type": "simulation_with_qualitative_external_challenges",
@@ -75,16 +81,21 @@
     {
       "name": "independent_v12_branch_generator_replication",
       "status": "replicated_minimal_generator"
+    },
+    {
+      "name": "final_results_prose_methods_traceability_falsification_and_Fig1_to_Fig4_layout",
+      "status": "frozen"
     }
   ],
   "active_gate": {
-    "name": "manuscript_results_and_figure_polish",
-    "goal": "Write and polish the primary Results/Falsification narrative and main figures from frozen outputs. Add no new simulation merely to increase favorable counts.",
+    "name": "full_manuscript_draft_assembly",
+    "goal": "Assemble Introduction, Discussion and abstract around the frozen Methods/Results package without reopening closed simulation or field-data gates.",
     "required_outputs": [
-      "final_results_prose",
-      "final_falsification_table",
-      "final_Fig1_to_Fig4_layout",
-      "methods_traceability_to_frozen_runs"
+      "full_manuscript_skeleton",
+      "introduction_question_and_novelty",
+      "discussion_interpretation_and_limits",
+      "abstract",
+      "journal_positioning_without_new_analysis"
     ]
   },
   "optional_empirical_extension": {
@@ -99,7 +110,8 @@
     "treating_qualitative_state_compatibility_as_empirical_causal_identification",
     "retuning_dominica_signed_position_mapping",
     "requiring_zero_of_twelve_empirical_network_context_mapping_to_be_closed_before_the_simulation_claim",
-    "rerunning_independent_branch_generator_seeds_until_a_more_favorable_frequency_is_obtained"
+    "rerunning_independent_branch_generator_seeds_until_a_more_favorable_frequency_is_obtained",
+    "adding_new_simulation_only_to_make_the_manuscript_story_cleaner"
   ],
-  "next_executable_task": "freeze_final_results_prose_and_methods_traceability_from_existing_frozen_outputs_without_new_field_data_or_additional_parameter_search"
+  "next_executable_task": "assemble_full_manuscript_skeleton_introduction_discussion_and_abstract_around_the_frozen_methods_results_and_figures_without_reopening_closed_analysis_gates"
 }
