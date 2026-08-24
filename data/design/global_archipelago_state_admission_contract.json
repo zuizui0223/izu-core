@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "purpose": "Prevent global archipelago screening from inflating frozen-ABM validation by converting every island pollination study into a strict state target.",
+  "tier_A_required": [
+    "source-locked island biological system",
+    "an ecological context contrast or externally imposed/natural perturbation that changes pollinator-functional or interaction conditions",
+    "a downstream reproductive, floral, demographic or equivalent declared response measured in the same source-defined system chain",
+    "classification into the pre-existing frozen state vocabulary without fitting or retuning the ABM to the target",
+    "a claim boundary that separates qualitative state compatibility from real-world mechanism identification"
+  ],
+  "tier_A_insufficient_alone": [
+    "routine pollinator bagging or open-versus-excluded flowers without an external ecological-regime contrast",
+    "visitor identity, abundance or richness without a downstream response",
+    "single-visit effectiveness without a matched system transition",
+    "floral morphology difference without a linked functional or reproductive transition",
+    "network architecture without a downstream plant response",
+    "colonization frequency or island occupancy without a within-system propagation response",
+    "multiple publications connected only by a plausible narrative when their populations, years or estimands are not source-native matched"
+  ],
+  "counting_rules": {
+    "biological_system_layers_may_share_a_broad_region": true,
+    "shared_region_layers_are_not_automatically_independent_geographic_replicates": true,
+    "strict_target_count_is_not_equal_to_independent_archipelago_count": true,
+    "state_class_replication_should_report_geographic_clusters_and_mechanism_contexts_separately": true,
+    "tier_B_C_rows_must_not_be_promoted_to_increase_replication_counts": true,
+    "tier_D_is_search_coverage_not_biological_absence": true
+  },
+  "examples": {
+    "strict_context_perturbations": [
+      "Canary managed-honeybee introduction period",
+      "Bahamas hurricane-driven bird-pollinator collapse",
+      "Mariana brown-treesnake-driven bird extirpation",
+      "Seychelles invasive-ant exclusion/context",
+      "Mauritius invasive-ant removal/exclusion"
+    ],
+    "non_strict_component_examples": [
+      "Canary Lotus bagging/exclusion by itself",
+      "Galapagos network summary without a matched reproductive transition",
+      "Columbretes residual pollen limitation without a paired pre-loss/two-sided regime",
+      "Giannutri network response without a plant reproductive endpoint"
+    ]
+  },
+  "claim_boundary": "Tier A remains a qualitative external challenge to an already-frozen state class. It does not constitute numerical model fit, causal parameter identification, or evidence that the same ecological mechanism generated matching state labels in different island systems."
+}
