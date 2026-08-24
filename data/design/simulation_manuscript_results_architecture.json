@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "study_type": "simulation_with_qualitative_external_island_challenges",
+  "primary_claim": "A frozen minimal island-pollination ABM spans multiple recurrent response-state classes without system-specific retuning, but observed state is only asymmetrically informative about mechanism: pre-existing lineage functional position is the minimal identified generator of within-run branching, network context can strongly buffer or worsen responses, and autonomous assurance robustly attenuates magnitude without robust sign rescue.",
+  "main_results": [
+    {
+      "id": "R1",
+      "question": "Can one frozen model architecture generate multiple island response states?",
+      "result": "yes_for_branching_same_direction_and_buffering_classes_without_external_retuning",
+      "source": "data/results/frozen_abm_state_atlas_frozen.json"
+    },
+    {
+      "id": "R2",
+      "question": "What minimally generates within-run response-sign branching?",
+      "result": "initial_trait_position_heterogeneity_is_necessary_within_v12_residual_gate",
+      "source": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json"
+    },
+    {
+      "id": "R3",
+      "question": "Which downstream routes change branch identity or buffer decline?",
+      "result": "local_support_is_strong_branch_allocator_and_network_context_can_sign_rescue_but_is_bidirectional_partner_effectiveness_is_weaker_modifier_assurance_is_robust_attenuator_not_strong_sign_buffer",
+      "sources": [
+        "data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json",
+        "data/results/network_context_buffering_capability_robustness_frozen.json",
+        "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json"
+      ]
+    },
+    {
+      "id": "R4",
+      "question": "How informative is an observed state about the generating mechanism?",
+      "result": "mixed_sign_and_strong_sign_rescue_are_high_specificity_low_sensitivity_diagnostics_same_direction_and_magnitude_attenuation_are_nonidentifying",
+      "source": "data/results/frozen_abm_state_separability_frozen.json"
+    },
+    {
+      "id": "R5",
+      "question": "Does the frozen state vocabulary survive external island-system challenges?",
+      "result": "eleven_of_thirteen_are_generative_state_challenges_and_all_eleven_are_covered_or_sign_compatible_one_axis_decoupling_constraint_and_one_retained_falsification_remain",
+      "source": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json"
+    }
+  ],
+  "main_figures": [
+    {
+      "figure": "Fig1",
+      "title": "Frozen ABM state map and analysis logic",
+      "panels": [
+        "common upstream functional perturbation",
+        "initial lineage position",
+        "branch allocation by local support and partner effectiveness",
+        "downstream attenuation by assurance",
+        "state outputs branching_same_direction_buffering"
+      ]
+    },
+    {
+      "figure": "Fig2",
+      "title": "Minimal generator of within-run branching",
+      "panels": [
+        "v12 mixed_sign_run_fraction full vs initial_trait_off",
+        "within_run_branching_balance full vs ablations",
+        "paired sign changes by residual factor"
+      ],
+      "headline_values": {
+        "full_mixed_sign_run_fraction": 0.4166666666666667,
+        "initial_trait_off_mixed_sign_run_fraction": 0.0,
+        "full_mean_within_run_branching_balance": 0.2569444444444444,
+        "initial_trait_off_balance": 0.0
+      }
+    },
+    {
+      "figure": "Fig3",
+      "title": "Branch allocation, strong buffering and attenuation occupy different synthetic regions",
+      "panels": [
+        "local_support_vs_partner_effectiveness_paired_sign_reallocation",
+        "network_context_sign_rescue_and_worsening",
+        "assurance_magnitude_attenuation_and_zero_robust_sign_rescue_across_saturations"
+      ]
+    },
+    {
+      "figure": "Fig4",
+      "title": "External island-state challenge and diagnostic asymmetry",
+      "panels": [
+        "13_system_state_matrix",
+        "diagnostic sensitivity_specificity matrix",
+        "retained Dominica falsification"
+      ]
+    }
+  ],
+  "main_tables": [
+    {
+      "table": "Table1",
+      "title": "Frozen synthetic state-generation atlas",
+      "source": "data/results/frozen_abm_state_atlas_frozen.json"
+    },
+    {
+      "table": "Table2",
+      "title": "Observation-to-mechanism separability",
+      "source": "data/results/frozen_abm_state_separability_frozen.json"
+    },
+    {
+      "table": "Table3",
+      "title": "Protected falsification rules and current outcomes",
+      "rows": [
+        "v12 minimal branch generator survives",
+        "universal network buffer rejected",
+        "robust assurance sign buffer rejected",
+        "Dominica signed-position mapping failed and retained",
+        "future unrepresented external state must be recorded as state-space miss"
+      ]
+    }
+  ],
+  "supplement": [
+    "full v11 factorial cells and downstream ablations",
+    "network-context independent robustness block",
+    "assurance independent and broadened support envelopes",
+    "54-unit global archipelago screen and admission tiers",
+    "source-level external-system audits",
+    "zero-of-twelve empirical network-context mapping readiness as an empirical-translation boundary",
+    "Issue 91 prospective field protocol as optional future empirical mechanism mapping"
+  ],
+  "explicit_exclusions_from_primary_results": [
+    "new field raw bundle requirement",
+    "formal cross-system effect-size pooling",
+    "system-specific ABM parameter fitting",
+    "claim that state compatibility identifies real-world mechanism",
+    "claim that network context is universally protective",
+    "claim that assurance robustly reverses decline sign",
+    "retuning of the Dominica failed mapping"
+  ],
+  "manuscript_end_state": "primary_simulation_story_is_ready_for_figure_generation_and_results_prose_without_new_field_data",
+  "next_executable_task": "generate_main_figure_data_tables_from_frozen_json_and_remove_or_demote_stale_docs_that_still_treat_empirical_mapping_or_field_collection_as_a_primary_simulation_blocker"
+}
