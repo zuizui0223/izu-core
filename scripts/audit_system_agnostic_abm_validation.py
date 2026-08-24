@@ -156,7 +156,7 @@ def build(gate_path: Path = DEFAULT_GATE) -> dict[str, Any]:
         "analysis": "system_agnostic_abm_multi_system_validation",
         "schema_version": "1.1",
         "status": "strict_harness_complete_after_network_context_buffering_replication_and_guaiacum_axis_correction",
-        "input_gate": str(gate_path.relative_to(ROOT)),
+        "input_gate": gate_path.relative_to(ROOT).as_posix(),
         "empirical_inputs_loaded_into_abm": False,
         "parameters_retuned_to_systems": False,
         "campanula_specific_tuning": False,

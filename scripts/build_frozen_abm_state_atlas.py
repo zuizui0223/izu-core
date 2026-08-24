@@ -48,7 +48,7 @@ def build() -> dict:
         "analysis": "frozen_abm_state_atlas",
         "schema_version": "1.0",
         "run_date": "2026-08-24",
-        "contract": str(CONTRACT.relative_to(ROOT)),
+        "contract": CONTRACT.relative_to(ROOT).as_posix(),
         "field_raw_bundle_required": contract["field_raw_bundle_required_for_this_study"],
         "abm_rerun_for_external_systems": False,
         "parameters_retuned_to_external_systems": False,

@@ -71,7 +71,7 @@ def build() -> dict:
         "analysis": "frozen_abm_state_separability",
         "schema_version": "1.0",
         "run_date": "2026-08-24",
-        "parent_atlas": str(ATLAS.relative_to(ROOT)),
+        "parent_atlas": ATLAS.relative_to(ROOT).as_posix(),
         "external_targets_used_for_classifier_training": False,
         "new_simulation_parameters_selected_from_external_outcomes": False,
         "diagnostics": {
