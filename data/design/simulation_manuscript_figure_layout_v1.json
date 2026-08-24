@@ -8,31 +8,12 @@
       "title": "Ecological response architecture: common pollinator functional change, state-dependent branching and downstream context",
       "role": "island_ecology_conceptual_map",
       "panels": [
-        {
-          "panel": "A",
-          "content": "common_pollinator_functional_perturbation",
-          "message": "one upstream pollinator-functional change is shared rather than fitted separately to each island system"
-        },
-        {
-          "panel": "B",
-          "content": "preexisting_lineage_position_in_functional_trait_space",
-          "message": "different starting positions create the potential for opposite lineage responses"
-        },
-        {
-          "panel": "C",
-          "content": "branch_allocation_and_downstream_filters",
-          "message": "local interaction context reallocates branches and can buffer or worsen propagation; assurance mainly attenuates magnitude"
-        },
-        {
-          "panel": "D",
-          "content": "ecological_response_states",
-          "message": "the resulting island-response states include branching, same-direction propagation and buffering or alternative outcomes"
-        }
+        {"panel": "A", "content": "common_pollinator_functional_perturbation", "message": "one upstream pollinator-functional change is shared rather than fitted separately to each island system"},
+        {"panel": "B", "content": "preexisting_lineage_position_in_functional_trait_space", "message": "different starting positions create the potential for opposite lineage responses"},
+        {"panel": "C", "content": "branch_allocation_and_downstream_filters", "message": "local interaction context reallocates branches and can buffer or worsen propagation; assurance mainly attenuates magnitude"},
+        {"panel": "D", "content": "ecological_response_states", "message": "the resulting island-response states include branching, same-direction propagation and buffering or alternative outcomes"}
       ],
-      "lower_panel": {
-        "content": "cross_island_recurrence",
-        "message": "thirteen strict external systems span three branching, six same-direction, two buffering or alternative, one axis-decoupling constraint and one retained falsification"
-      },
+      "lower_panel": {"content": "cross_island_recurrence", "message": "thirteen strict external systems span three branching, six same-direction, two buffering or alternative, one axis-decoupling constraint and one retained falsification"},
       "renderer": "scripts/render_simulation_manuscript_fig1_svg.py",
       "output": "Fig1_frozen_model_logic.svg"
     },
@@ -59,27 +40,15 @@
       "title": "Cross-island recurrence of branching, propagation, buffering and protected exceptions",
       "role": "external_island_ecological_synthesis",
       "source_data": "data/results/simulation_manuscript_figure_data_frozen.json",
-      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+      "renderer": "scripts/render_island_ecology_external_figures_svg.py",
       "output": "Fig4_cross_island_response_architecture.svg",
       "headline": "all eleven generative external challenges are covered or sign-compatible with frozen response states, while Guaiacum remains an axis-decoupling constraint and Dominica a retained failure"
     }
   ],
   "main_tables": [
-    {
-      "table": "Table1",
-      "title": "Frozen synthetic island-response state atlas",
-      "source": "data/results/frozen_abm_state_atlas_frozen.json"
-    },
-    {
-      "table": "Table2",
-      "title": "Strict external island-system response classes and source boundaries",
-      "source": "data/design/simulation_manuscript_external_system_reference_matrix.json"
-    },
-    {
-      "table": "Table3",
-      "title": "Protected ecological falsifications and claim boundaries",
-      "source": "data/results/simulation_manuscript_falsification_table_frozen.json"
-    }
+    {"table": "Table1", "title": "Frozen synthetic island-response state atlas", "source": "data/results/frozen_abm_state_atlas_frozen.json"},
+    {"table": "Table2", "title": "Strict external island-system response classes and source boundaries", "source": "data/design/simulation_manuscript_external_system_reference_matrix.json"},
+    {"table": "Table3", "title": "Protected ecological falsifications and claim boundaries", "source": "data/results/simulation_manuscript_falsification_table_frozen.json"}
   ],
   "supplement_figures": [
     {
@@ -87,7 +56,7 @@
       "title": "Observation-to-mechanism state-separability diagnostics",
       "role": "supporting_inference_guard",
       "source_data": "data/results/simulation_manuscript_figure_data_frozen.json",
-      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+      "renderer": "scripts/render_island_ecology_external_figures_svg.py",
       "output": "FigS1_state_separability.svg"
     }
   ],
