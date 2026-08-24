@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "parent_mainline": "data/design/active_development_mainline.json",
@@ -7,6 +7,8 @@
   "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
   "state_separability_result": "data/results/frozen_abm_state_separability_frozen.json",
+  "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
+  "figure_data": "data/results/simulation_manuscript_figure_data_frozen.json",
   "paper_result_layer": "docs/FROZEN_ABM_STATE_ATLAS_20260824.md",
   "primary_study_question": "Which island-response state classes can the already-frozen ABM generate, which tested mechanism axes separate those states, and which observations would count as state-space misses or protected falsifications?",
   "study_type": "simulation_with_qualitative_external_challenges",
@@ -43,25 +45,28 @@
     "magnitude_attenuation_specificity_against_network_context": 0.11458333333333337,
     "interpretation": "state_observations_are_asymmetrically_informative_and_inverse_mechanism_identification_is_not_one_to_one"
   },
-  "completed_gate": {
-    "name": "state_separability_and_transition_boundary_robustness",
-    "status": "frozen",
-    "outputs": [
-      "false_positive_and_false_negative_state_classification_rates",
-      "tested_state_transition_boundaries",
-      "nonidentifying_observation_rules",
-      "explicit_state_space_miss_rule"
-    ]
-  },
+  "completed_gates": [
+    {
+      "name": "state_separability_and_transition_boundary_robustness",
+      "status": "frozen"
+    },
+    {
+      "name": "manuscript_result_and_falsification_architecture",
+      "status": "frozen"
+    },
+    {
+      "name": "figure_data_export",
+      "status": "frozen"
+    }
+  ],
   "active_gate": {
-    "name": "manuscript_result_and_falsification_architecture",
-    "goal": "Use the frozen state atlas and diagnostic asymmetry as the primary simulation result, preserving Dominica and universal-buffer failures rather than adding field-data or post-hoc mechanism requirements.",
+    "name": "main_figure_generation_and_stale_blocker_cleanup",
+    "goal": "Generate the main manuscript figures directly from frozen figure data and demote stale documentation that still frames field collection or empirical mapping as a blocker for the primary simulation claim.",
     "required_outputs": [
-      "main_results_table_state_generation",
-      "main_results_table_state_identifiability",
-      "falsification_table",
-      "main_vs_supplement_figure_assignment",
-      "explicit_primary_claim_boundary"
+      "Fig2_minimal_branch_generator",
+      "Fig3_branch_allocation_buffering_attenuation",
+      "Fig4_external_state_and_identifiability",
+      "simulation_first_current_state_documentation"
     ]
   },
   "optional_empirical_extension": {
@@ -77,5 +82,5 @@
     "retuning_dominica_signed_position_mapping",
     "requiring_zero_of_twelve_empirical_network_context_mapping_to_be_closed_before_the_simulation_claim"
   ],
-  "next_executable_task": "freeze_the_manuscript_level_results_falsification_and_figure_architecture_from_the_existing_state_atlas_without_new_model_tuning_or_field_data"
+  "next_executable_task": "generate_Fig2_Fig3_Fig4_from_frozen_figure_data_then_reconcile_stale_docs_to_the_simulation_first_claim_boundary"
 }
