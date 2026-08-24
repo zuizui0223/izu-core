@@ -259,9 +259,9 @@ def build() -> tuple[str, dict]:
         "visualization": "island_evolutionary_river_v1",
         "concept": "constrained evolutionary state space rather than agent animation",
         "sources": {
-            "v4_gradient": str(V4_RESULT.relative_to(ROOT)),
-            "v6_mechanism": str(V6_SCRIPT.relative_to(ROOT)),
-            "v5_mechanism": str(V5_SCRIPT.relative_to(ROOT)),
+            "v4_gradient": V4_RESULT.relative_to(ROOT).as_posix(),
+            "v6_mechanism": V6_SCRIPT.relative_to(ROOT).as_posix(),
+            "v5_mechanism": V5_SCRIPT.relative_to(ROOT).as_posix(),
             "empirical_falsification_marker": "PR #195, qualitative marker only",
         },
         "encodings": {
