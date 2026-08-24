@@ -11,9 +11,11 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert state["field_data_required_for_primary_claim"] is False
     assert state["empirical_mechanism_mapping_required_for_primary_claim"] is False
     assert state["external_system_role"] == "comparative_held_out_island_response_state_challenge_not_parameter_calibration"
-    assert state["active_gate"]["name"] == "island_ecology_manuscript_reassembly"
+    assert state["active_gate"]["name"] == "island_ecology_manuscript_alignment"
     assert state["primary_ecological_contribution"].startswith("a_state_dependent_island_response_model")
     assert state["core_story"] == "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md"
+    assert state["hypothesis_recovery"] == "data/design/island_ecology_hypothesis_recovery_20260824.json"
+    assert state["manuscript_reassembly_spec"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md"
     assert state["primary_manuscript"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
 
     mechanism = state["ecological_mechanism_readout"]
@@ -36,13 +38,33 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert current["empirical_axis_decoupling_constraints"] == 1
     assert current["retained_falsifications"] == 1
 
+    hypotheses = state["hypothesis_status"]
+    assert hypotheses["H1_universal_post_establishment_response"] == "rejected"
+    assert hypotheses["H2_state_dependent_branching"] == "supported_within_declared_abm_and_independently_replicated"
+    assert hypotheses["H3_context_dependent_branch_allocation"] == "supported_bidirectionally_within_declared_abm"
+    assert hypotheses["H4_autonomous_assurance_buffering"] == "partially_supported_magnitude_attenuation_only"
+    assert hypotheses["H5_cross_island_response_architecture_recurrence"] == "supported_at_qualitative_state_level"
+
+    submission = state["submission_logic"]
+    assert submission["primary_scientific_hypotheses_closed"] is True
+    assert submission["unresolved_empirical_sidelines_block_submission"] is False
+    assert submission["new_simulation_required"] is False
+    assert submission["new_field_data_required"] is False
+    assert submission["new_external_system_search_required"] is False
+    assert len(submission["future_empirical_tests"]) == 3
+
     supporting = state["supporting_method_layer"]
     assert supporting["role"] == "inference_guard_and_supplement_not_primary_scientific_novelty"
     assert state["archived_alternative_framings"]["status"] == "not_current_mainline_method_first_spin_off_only"
 
     assert "method_first_MEE_framing_as_primary_story" in state["not_mainline"]
+    assert "inverse_problem_as_primary_discussion_result" in state["not_mainline"]
+    assert "state_separability_metrics_as_primary_abstract_conclusion" in state["not_mainline"]
     assert "claim_that_all_islands_follow_one_post_establishment_reproductive_syndrome" in state["not_mainline"]
     assert "claim_that_all_thirteen_systems_share_one_empirical_mechanism" in state["not_mainline"]
+    assert "treating_thirteen_strict_systems_as_a_prevalence_sample" in state["not_mainline"]
     assert "collecting_field_data_before_the_primary_simulation_manuscript_is_resolved" in state["not_mainline"]
+    assert "unresolved_empirical_translation_sidelines_as_submission_blockers" in state["not_mainline"]
     assert "retuning_dominica_signed_position_mapping" in state["not_mainline"]
-    assert state["next_executable_task"].startswith("freeze_island_ecology_title_abstract_discussion")
+    assert "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands" in state["not_mainline"]
+    assert state["next_executable_task"].startswith("apply_H1_H5_island_ecology_reassembly")
