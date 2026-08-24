@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.9",
+  "schema_version": "2.0",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
@@ -11,7 +11,8 @@
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
   "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
-  "primary_manuscript": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
+  "primary_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
+  "legacy_ecology_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
   "primary_title_abstract": "docs/ISLAND_ECOLOGY_PRIMARY_ABSTRACT_20260824.md",
   "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
   "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
@@ -113,17 +114,19 @@
     {"name": "results_methods_falsification_and_Fig1_to_Fig4_assets", "status": "frozen"},
     {"name": "state_separability_method_layer", "status": "validated_but_demoted_to_supporting_role"},
     {"name": "island_ecology_core_story_recentered", "status": "complete"},
-    {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen_and_unresolved_sidelines_classified"}
+    {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen_and_unresolved_sidelines_classified"},
+    {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"}
   ],
   "active_gate": {
-    "name": "island_ecology_manuscript_alignment",
-    "goal": "Apply the frozen H1-H5 ecological logic to the primary manuscript and main figure order, removing method-first prominence while preserving all frozen scientific results and negative outcomes.",
+    "name": "island_ecology_manuscript_validation",
+    "goal": "Validate the new H1-H5 primary manuscript against frozen numerical results, protected negative outcomes, the 13-system source matrix and the ecological Main/Supp architecture before journal-specific formatting.",
     "required_outputs": [
-      "introduction_ends_with_H1_to_H5",
-      "results_order_H1_H2_H3_H4_H5",
-      "discussion_order_syndrome_starting_state_context_external_boundary_future_tests",
-      "state_separability_detail_moved_to_supporting_role",
-      "main_figure_order_matches_ecological_causal_sequence"
+      "all_headline_numbers_match_frozen_results",
+      "all_13_external_system_names_and_state_classes_match_source_matrix",
+      "Dominica_and_Guaiacum_boundaries_preserved",
+      "no_method_first_main_result_heading",
+      "no_new_empirical_or_simulation_claims",
+      "main_figures_and_tables_match_ecological_architecture"
     ]
   },
   "not_mainline": [
@@ -144,5 +147,5 @@
     "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
     "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands"
   ],
-  "next_executable_task": "apply_H1_H5_island_ecology_reassembly_to_primary_manuscript_and_main_figure_order_without_new_scientific_analysis"
+  "next_executable_task": "validate_H1_H5_primary_manuscript_against_frozen_results_external_reference_matrix_and_protected_boundaries_then_freeze_journal_ready_ecology_draft"
 }
