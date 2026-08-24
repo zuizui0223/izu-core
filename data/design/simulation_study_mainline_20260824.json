@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "parent_mainline": "data/design/active_development_mainline.json",
@@ -7,10 +7,15 @@
   "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
   "state_separability_result": "data/results/frozen_abm_state_separability_frozen.json",
+  "state_separability_api": "channel_id/state_separability.py",
+  "state_separability_method": "docs/STATE_SEPARABILITY_METHOD_20260824.md",
   "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
   "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
   "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
+  "ecology_first_full_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
+  "mee_method_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_MEE_20260824.md",
+  "journal_positioning": "docs/SIMULATION_MANUSCRIPT_JOURNAL_POSITIONING_20260824.md",
   "methods_traceability": "data/design/simulation_manuscript_methods_traceability.json",
   "falsification_table": "data/results/simulation_manuscript_falsification_table_frozen.json",
   "figure_layout": "data/design/simulation_manuscript_figure_layout_v1.json",
@@ -18,11 +23,12 @@
   "figure_renderer_fig1": "scripts/render_simulation_manuscript_fig1_svg.py",
   "figure_renderer_fig2_to_4": "scripts/render_simulation_manuscript_figures_svg.py",
   "paper_result_layer": "docs/FROZEN_ABM_STATE_ATLAS_20260824.md",
-  "primary_study_question": "Which island-response state classes can the already-frozen ABM generate, which tested mechanism axes separate those states, and which observations would count as state-space misses or protected falsifications?",
-  "study_type": "simulation_with_qualitative_external_challenges",
+  "primary_study_question": "How can a frozen ecological ABM distinguish forward state generation from inverse mechanism identification, and what does that reveal in an island plant-pollinator test case?",
+  "primary_method_contribution": "frozen_state_separability_analysis_using_intervention_derived_sensitivity_false_positive_rate_specificity_independent_boundary_replication_and_protected_external_falsification",
+  "study_type": "methodological_simulation_with_qualitative_external_challenges",
   "field_data_required_for_primary_claim": false,
   "empirical_mechanism_mapping_required_for_primary_claim": false,
-  "external_system_role": "qualitative_held_out_state_challenge_not_parameter_calibration",
+  "external_system_role": "worked_held_out_state_challenge_not_parameter_calibration",
   "current_state": {
     "global_screening_units": 54,
     "strict_external_systems": 13,
@@ -66,37 +72,30 @@
     "status": "core_simulation_robustness_closed_for_primary_claim"
   },
   "completed_gates": [
-    {
-      "name": "state_separability_and_transition_boundary_robustness",
-      "status": "frozen"
-    },
-    {
-      "name": "manuscript_result_and_falsification_architecture",
-      "status": "frozen"
-    },
-    {
-      "name": "figure_data_export_and_svg_renderer",
-      "status": "frozen"
-    },
-    {
-      "name": "independent_v12_branch_generator_replication",
-      "status": "replicated_minimal_generator"
-    },
-    {
-      "name": "final_results_prose_methods_traceability_falsification_and_Fig1_to_Fig4_layout",
-      "status": "frozen"
-    }
+    {"name": "state_separability_and_transition_boundary_robustness", "status": "frozen"},
+    {"name": "manuscript_result_and_falsification_architecture", "status": "frozen"},
+    {"name": "figure_data_export_and_svg_renderer", "status": "frozen"},
+    {"name": "independent_v12_branch_generator_replication", "status": "replicated_minimal_generator"},
+    {"name": "final_results_prose_methods_traceability_falsification_and_Fig1_to_Fig4_layout", "status": "frozen"},
+    {"name": "full_ecology_first_manuscript_draft", "status": "assembled"},
+    {"name": "mee_method_first_reframing_and_reusable_state_separability_api", "status": "assembled_pending_ci"}
   ],
   "active_gate": {
-    "name": "full_manuscript_draft_assembly",
-    "goal": "Assemble Introduction, Discussion and abstract around the frozen Methods/Results package without reopening closed simulation or field-data gates.",
+    "name": "mee_submission_package_validation",
+    "goal": "Validate that the reusable state-separability API exactly reproduces the frozen island diagnostics, then complete source-level Supplementary citations and editorial shortening without reopening simulation analysis.",
     "required_outputs": [
-      "full_manuscript_skeleton",
-      "introduction_question_and_novelty",
-      "discussion_interpretation_and_limits",
-      "abstract",
-      "journal_positioning_without_new_analysis"
+      "exact_frozen_state_separability_regeneration_after_api_refactor",
+      "source_level_13_system_supplementary_reference_matrix",
+      "mee_length_and_structure_edit",
+      "data_code_availability_statement",
+      "submission_ready_method_first_manuscript"
     ]
+  },
+  "journal_strategy": {
+    "first_target": "Methods in Ecology and Evolution",
+    "first_target_condition": "foreground_reusable_state_separability_method_island_pollination_as_worked_test_case",
+    "fallback": "Ecological Modelling",
+    "no_new_analysis_for_journal_fit": true
   },
   "optional_empirical_extension": {
     "issue91_field_bundle": "useful_for_future_real_world_mechanism_identification_but_not_needed_for_primary_simulation_study",
@@ -111,7 +110,8 @@
     "retuning_dominica_signed_position_mapping",
     "requiring_zero_of_twelve_empirical_network_context_mapping_to_be_closed_before_the_simulation_claim",
     "rerunning_independent_branch_generator_seeds_until_a_more_favorable_frequency_is_obtained",
-    "adding_new_simulation_only_to_make_the_manuscript_story_cleaner"
+    "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
+    "adding_new_simulation_only_to_fit_a_target_journal"
   ],
-  "next_executable_task": "assemble_full_manuscript_skeleton_introduction_discussion_and_abstract_around_the_frozen_methods_results_and_figures_without_reopening_closed_analysis_gates"
+  "next_executable_task": "run_ci_to_verify_state_separability_api_exactly_regenerates_frozen_diagnostics_then_build_the_13_system_source_reference_supplement_and_shorten_the_method_first_draft_for_MEE"
 }
