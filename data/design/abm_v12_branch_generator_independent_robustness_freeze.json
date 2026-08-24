@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "purpose": "Run one independent stochastic replication of the already-declared v12 residual branch-generator ablation without external-system calibration or post-hoc parameter selection.",
+  "parent_result": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
+  "runner": "scripts/run_constraint_mechanism_abm_v12_residual_trait_causes.py",
+  "independent_seed": 90260825,
+  "replicates": 4,
+  "lineages": 24,
+  "steps": 120,
+  "saturations": [1.0, 2.0, 3.0],
+  "external_targets_loaded": false,
+  "empirical_inputs_loaded": false,
+  "parameters_selected_from_external_outcomes": false,
+  "predeclared_readout": {
+    "replicated_minimal_generator": "full residual block has at least one mixed-sign run, initial-trait-heterogeneity OFF has zero mixed-sign runs and zero mean within-run branching balance, while at least one of the other single residual ablations retains mixed-sign branching",
+    "inconclusive_no_branching_in_independent_block": "full residual block itself has zero mixed-sign runs, so necessity cannot be challenged in that block",
+    "contradicted_minimal_generator": "initial-trait-heterogeneity OFF retains any mixed-sign run or positive mean within-run branching balance"
+  },
+  "stop_rule": "Accept the first result from this seed exactly as generated. Do not change seed, saturation, lineage count or replicate count after inspecting the result.",
+  "claim_boundary": "This is independent stochastic replication inside the declared ABM. It does not identify any real-world trait or island mechanism and is not tuned to the 13 external systems."
+}
