@@ -1,7 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "frozen_on": "2026-08-24",
   "purpose": "Map each manuscript-level method and result claim to the exact frozen design, implementation, result and robustness evidence used by the primary simulation paper.",
+  "manuscript_prose": {
+    "methods": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
+    "results": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md"
+  },
   "primary_study_boundary": {
     "field_data_required": false,
     "empirical_mechanism_mapping_required": false,
@@ -131,7 +135,9 @@
       "manuscript_role": "derive manuscript displays from frozen outputs only",
       "figure_data_exporter": "scripts/export_simulation_manuscript_figure_data.py",
       "figure_data": "data/results/simulation_manuscript_figure_data_frozen.json",
+      "figure_renderer_fig1": "scripts/render_simulation_manuscript_fig1_svg.py",
       "figure_renderer_2_to_4": "scripts/render_simulation_manuscript_figures_svg.py",
+      "figure_layout": "data/design/simulation_manuscript_figure_layout_v1.json",
       "falsification_table": "data/results/simulation_manuscript_falsification_table_frozen.json"
     }
   ],
