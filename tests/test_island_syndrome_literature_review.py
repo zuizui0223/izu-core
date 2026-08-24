@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "data/design/island_syndrome_literature_claim_matrix_20260824.json"
 REVIEW = ROOT / "docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md"
 INSERTIONS = ROOT / "docs/ISLAND_SYNDROME_MANUSCRIPT_INSERTIONS_20260824.md"
+MANUSCRIPT = ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
 
 
 def test_island_syndrome_review_uses_three_layer_framework():
@@ -50,3 +51,24 @@ def test_key_literature_and_manuscript_insertions_are_present():
     assert "assembly" in insertions.lower()
     assert "post-establishment" in insertions.lower()
     assert "starting state" in insertions.lower()
+
+
+def test_primary_manuscript_integrates_deep_island_syndrome_review():
+    text = MANUSCRIPT.read_text(encoding="utf-8")
+    lower = text.lower()
+    for citation in [
+        "Pannell et al., 2015",
+        "Pannell, 2015",
+        "Hetherington-Rauth & Johnson, 2020",
+        "Schrader et al., 2021",
+        "Ciarle & Burns, 2025",
+        "Ciarle et al., 2025",
+        "Traveset et al., 2016",
+        "Wang et al., 2020",
+    ]:
+        assert citation in text
+    assert "colonization/assembly filtering" in lower
+    assert "in-situ evolutionary change" in lower
+    assert "post-establishment ecological response" in lower
+    assert "not the existence of recurrent island syndromes" in lower
+    assert "pollinator **functional diversity**" in text
