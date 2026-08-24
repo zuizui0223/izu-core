@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
@@ -11,7 +11,8 @@
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
   "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
-  "primary_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
+  "primary_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md",
+  "frozen_scientific_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
   "legacy_ecology_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
   "primary_title_abstract": "docs/ISLAND_ECOLOGY_PRIMARY_ABSTRACT_20260824.md",
   "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
@@ -24,6 +25,9 @@
   "external_system_reference_matrix": "data/design/simulation_manuscript_external_system_reference_matrix.json",
   "reference_map": "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md",
   "journal_positioning": "docs/ISLAND_ECOLOGY_JOURNAL_POSITIONING_20260824.md",
+  "journal_format_contract": "docs/ISLAND_ECOLOGY_JOURNAL_OF_ECOLOGY_FORMAT_20260824.md",
+  "data_code_availability": "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
+  "submission_manifest": "data/design/island_ecology_jecology_submission_manifest.json",
   "primary_study_question": "Why does island-associated simplification or reorganization of pollinator function produce divergent plant responses rather than one universal post-establishment trajectory?",
   "primary_ecological_contribution": "a_state_dependent_island_response_model_in_which_preexisting_lineage_functional_position_generates_branching_local_interaction_context_reallocates_and_can_buffer_or_worsen_propagation_and_autonomous_assurance_mainly_attenuates_response_magnitude",
   "study_type": "island_ecology_simulation_with_qualitative_external_island_challenges",
@@ -91,6 +95,13 @@
     "ecology_figure_routing_complete": true,
     "reference_map_complete": true,
     "figure_captions_complete": true,
+    "intext_citations_integrated": true,
+    "reference_list_assembled": true,
+    "jecology_numbered_abstract_assembled": true,
+    "review_data_code_statement_assembled": true,
+    "submission_manifest_assembled": true,
+    "submission_format_validation": "implemented_pending_ci",
+    "title_page_metadata": "pending_author_and_affiliation_metadata",
     "highest_value_future_test": "outcome_blind_source_native_signed_functional_position_mapping",
     "future_empirical_tests": [
       "real_signed_functional_starting_position",
@@ -126,18 +137,23 @@
     {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen_and_unresolved_sidelines_classified"},
     {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"},
     {"name": "island_ecology_main_figure_routing", "status": "ecology_first_main_Fig1_to_Fig4_with_state_separability_in_FigS1"},
-    {"name": "island_ecology_reference_map_and_figure_captions", "status": "complete"}
+    {"name": "island_ecology_reference_map_and_figure_captions", "status": "complete"},
+    {"name": "island_ecology_jecology_submission_draft", "status": "assembled_pending_ci_validation"},
+    {"name": "island_ecology_submission_manifest_and_data_code_statement", "status": "assembled"}
   ],
   "active_gate": {
-    "name": "island_ecology_reference_and_submission_alignment",
-    "goal": "Integrate source-controlled in-text citations and the final reference list into the H1-H5 primary manuscript, then apply Journal of Ecology submission formatting without reopening scientific analysis.",
+    "name": "island_ecology_submission_package_validation",
+    "goal": "Validate the anonymous Journal of Ecology manuscript, reference layer, ecology-first figure routing, submission manifest and review data/code boundary before resolving the final title page and review archive.",
     "required_outputs": [
-      "main_text_intext_citations",
-      "complete_reference_list",
-      "Journal_of_Ecology_format_guard",
-      "final_main_and_supplement_file_manifest",
-      "data_and_code_availability_statement",
-      "title_page_and_submission_metadata"
+      "numbered_abstract_under_350_words_with_final_Synthesis_point",
+      "anonymous_review_manuscript_guard",
+      "frozen_headline_number_guard",
+      "external_13_system_and_protected_boundary_guard",
+      "reference_and_intext_citation_guard",
+      "main_and_supplement_manifest_guard",
+      "review_data_code_statement_guard",
+      "title_page_author_and_affiliation_metadata",
+      "anonymized_review_archive"
     ]
   },
   "not_mainline": [
@@ -159,5 +175,5 @@
     "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
     "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands"
   ],
-  "next_executable_task": "integrate_source_controlled_citations_and_final_reference_list_into_island_ecology_primary_manuscript_then_apply_Journal_of_Ecology_submission_format"
+  "next_executable_task": "run_submission_package_validation_then_resolve_title_page_metadata_and_build_anonymized_review_archive_without_reopening_scientific_analysis"
 }
