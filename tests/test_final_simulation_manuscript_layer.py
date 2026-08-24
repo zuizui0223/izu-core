@@ -73,7 +73,7 @@ def test_final_figure_layout_has_four_distinct_main_figures_and_fig1_renders(tmp
     output = write_fig1(tmp_path / "Fig1_frozen_model_logic.svg")
     content = output.read_text(encoding="utf-8")
     assert content.startswith("<svg")
-    assert "Initial trait heterogeneity OFF" in content
+    assert "initial trait heterogeneity OFF" in content
     assert "sign rescue: 16 / 96" in content
     assert "0 / 216; 0 / 525" in content
     assert "Observed state ≠ uniquely identified mechanism" in content
