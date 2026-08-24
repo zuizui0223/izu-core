@@ -1,7 +1,18 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-24",
   "purpose": "Separate assembly filtering, in-situ evolution and post-establishment interaction response within the plant island-syndrome literature.",
+  "review_level_evidence": {
+    "source": "Ciarle and Burns 2025",
+    "doi": "10.1080/0028825X.2024.2377418",
+    "scope": "New_Zealand_outlying_islands_review",
+    "globally_proposed_components": 21,
+    "components_investigated_regionally": 16,
+    "well_supported_components": 4,
+    "tentative_components": 9,
+    "components_with_limited_evidence_against_syndrome_membership": 3,
+    "interpretation": "The plant island syndrome is empirically heterogeneous across component traits and should not be treated as one universal causal trajectory."
+  },
   "layers": {
     "assembly_filtering": {
       "definition": "Traits alter long-distance arrival, establishment or persistence probability and therefore change the trait composition of island floras before within-lineage response is considered.",
