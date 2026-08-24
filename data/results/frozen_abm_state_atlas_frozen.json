@@ -1,0 +1,127 @@
+{
+  "analysis": "frozen_abm_state_atlas",
+  "schema_version": "1.0",
+  "run_date": "2026-08-24",
+  "contract": "data/design/frozen_abm_state_atlas_contract.json",
+  "field_raw_bundle_required": false,
+  "abm_rerun_for_external_systems": false,
+  "parameters_retuned_to_external_systems": false,
+  "new_mechanism_added": false,
+  "region_scope": "finite_already_frozen_factor_regions_not_full_continuous_parameter_space",
+  "synthetic_state_regions": {
+    "branches_downstream": {
+      "tested_region": "v12 residual gate; saturations 1,2,3; initial trait heterogeneity on; v11 downstream modifiers fixed off",
+      "mixed_sign_run_fraction": 0.4166666666666667,
+      "mean_within_run_branching_balance": 0.2569444444444444,
+      "initial_trait_off_mixed_sign_run_fraction": 0.0,
+      "initial_trait_off_mean_within_run_branching_balance": 0.0,
+      "paired_sign_changes_when_initial_trait_removed": 37,
+      "minimal_generator_status": "initial_trait_position_heterogeneity_necessary_within_declared_v12_residual_gate",
+      "not_sufficient_every_run": true
+    },
+    "same_direction_response": {
+      "guaranteed_tested_region": "v12 initial trait heterogeneity off; every matched run is non-mixed",
+      "trait_off_nonmixed_run_fraction": 1.0,
+      "also_occurs_with_trait_heterogeneity_on_fraction": 0.5833333333333333,
+      "identifiability": "non_identifying_from_state_alone"
+    },
+    "strong_buffering_via_network_context": {
+      "tested_region": "independent frozen support contrast; support 0.0 vs 0.5; assurance disabled; partner effectiveness strength 1.0; saturations 1,2,3",
+      "eligible_support_off_declines": 96,
+      "sign_rescues": 16,
+      "sign_rescue_fraction": 0.16666666666666666,
+      "worsenings": 11,
+      "worsening_fraction": 0.11458333333333333,
+      "magnitude_rescues": 85,
+      "magnitude_rescue_fraction": 0.8854166666666666,
+      "interpretation": "strong_buffering_exists_but_is_bidirectional_and_not_universal"
+    },
+    "assurance_attenuation_without_robust_sign_rescue": {
+      "tested_region": "independent v14 block; local support 0.5; partner effectiveness 1.0; saturations 1,2,3",
+      "service_decline_lineages": 216,
+      "sign_rescues": 0,
+      "sign_rescue_fraction": 0.0,
+      "magnitude_rescues": 207,
+      "magnitude_rescue_fraction": 0.9583333333333334,
+      "by_saturation": {
+        "1.0": {
+          "service_decline_lineages": 75,
+          "assurance_sign_rescues": 0,
+          "assurance_magnitude_rescues": 71
+        },
+        "2.0": {
+          "service_decline_lineages": 76,
+          "assurance_sign_rescues": 0,
+          "assurance_magnitude_rescues": 73
+        },
+        "3.0": {
+          "service_decline_lineages": 65,
+          "assurance_sign_rescues": 0,
+          "assurance_magnitude_rescues": 63
+        }
+      },
+      "broadened_support_envelope_sign_rescues": 0,
+      "broadened_support_envelope_attenuation_fraction": 0.9714285714285714,
+      "interpretation": "robust_magnitude_attenuator_not_strong_sign_buffer"
+    },
+    "branch_reallocation": {
+      "local_support_paired_sign_changes": 105,
+      "local_support_paired_sign_change_fraction": 0.3645833333333333,
+      "partner_effectiveness_paired_sign_changes": 13,
+      "partner_effectiveness_paired_sign_change_fraction": 0.04513888888888889,
+      "dependency_heterogeneity_paired_sign_changes": 0
+    }
+  },
+  "state_identifiability": {
+    "branches_downstream": {
+      "synthetic_mechanism_identified_within_tested_gate": true,
+      "identified_axis": "preexisting_lineage_position_in_functional_trait_space",
+      "reason": "removing initial trait heterogeneity collapses within-run mixed-sign branching to zero while other tested residual heterogeneities do not",
+      "real_world_mechanism_identified_from_qualitative_state": false
+    },
+    "same_direction_response": {
+      "synthetic_mechanism_identified_within_tested_gate": false,
+      "reason": "same-direction runs occur both when initial trait heterogeneity is removed and in a majority of full residual runs",
+      "real_world_mechanism_identified_from_qualitative_state": false
+    },
+    "strong_buffering": {
+      "synthetic_route_discrimination": "network_context_can_sign_rescue_where_assurance_does_not_robustly_sign_rescue",
+      "unique_synthetic_generator_proven": false,
+      "real_world_mechanism_identified_from_qualitative_state": false
+    },
+    "magnitude_attenuation": {
+      "synthetic_mechanism_identified_within_tested_gate": false,
+      "reason": "both network context and assurance can reduce decline magnitude",
+      "real_world_mechanism_identified_from_qualitative_state": false
+    },
+    "reproductive_axes_decouple": {
+      "synthetic_mechanism_identified_within_tested_gate": false,
+      "status": "empirical_constraint_not_single_synthetic_target"
+    },
+    "counterdirectional_prediction": {
+      "synthetic_mechanism_identified_within_tested_gate": false,
+      "status": "protected_falsification_not_generation_target"
+    }
+  },
+  "external_13_system_challenge": {
+    "systems": 13,
+    "generative_state_challenges": 11,
+    "generative_state_covered_or_sign_compatible": 11,
+    "empirical_axis_decoupling_constraints": 1,
+    "retained_falsifications": 1,
+    "unrepresented_generative_state_space_misses": 0,
+    "branching_systems": 3,
+    "same_direction_systems": 6,
+    "buffering_systems": 2
+  },
+  "falsification_readout": {
+    "v12_minimal_branch_generator_survives_current_frozen_ablation": true,
+    "universal_network_buffer_claim_already_rejected": true,
+    "robust_assurance_strong_sign_buffer_claim_already_rejected": true,
+    "dominica_frozen_mapping_failure_retained": true,
+    "posthoc_mechanism_addition_allowed_after_state_space_miss": false
+  },
+  "decision": "frozen_abm_supports_a_state_atlas_with_one_identified_minimal_branch_generator_nonunique_same_direction_states_context_dependent_strong_buffering_and_robust_assurance_attenuation_while_retaining_dominica_falsification",
+  "next_simulation_gate": "Test state separability and robustness on prespecified independent stochastic blocks or broader already-declared parameter envelopes, prioritizing false-positive state classification and transition boundaries rather than collecting field data or fitting individual island systems.",
+  "claim_boundary": "This atlas is a simulation-study result. External island systems are qualitative state challenges, not calibration rows. State-space compatibility does not identify the real-world causal mechanism, and zero current empirical network-context mappings does not block the simulation claim."
+}
