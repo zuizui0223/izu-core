@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "recorded_on": "2026-08-24",
+  "purpose": "Byte/run provenance for the prespecified independent v12 branch-generator robustness execution.",
+  "pull_request": 267,
+  "workflow_name": "ABM v12 independent branch robustness",
+  "workflow_run_id": 32692355039,
+  "workflow_run_number": 2,
+  "job_id": 97328177841,
+  "artifact_name": "abm-v12-independent-result",
+  "artifact_id": 9507673472,
+  "artifact_zip_sha256": "84ba70632d37051bd88834933bd81b052a4a7f6c5719766b3d1569fa41823053",
+  "source_head_sha": "a58146226f0d5727fcf93ee894bcbed584c74096",
+  "seed": 90260825,
+  "first_scientific_execution_after_import_fix": true,
+  "prior_failed_run": {
+    "workflow_run_id": 32692282288,
+    "failure_class": "runner_import_path_before_simulation_started",
+    "scientific_result_generated": false,
+    "seed_or_design_changed_after_failure": false
+  },
+  "result": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
+  "decision": "replicated_minimal_generator"
+}
