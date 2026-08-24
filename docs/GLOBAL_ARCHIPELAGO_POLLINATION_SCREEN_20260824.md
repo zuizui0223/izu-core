@@ -1,95 +1,102 @@
 # Global archipelago pollination-state screen — 2026-08-24
 
-## Decision
+## Current decision
 
-The programme is no longer limited to the original six qualitative island systems. A global screen now covers **39 archipelago/system units** and keeps them in four evidence tiers instead of forcing every island study into one ABM state.
+The programme has been expanded from the protected six-system qualitative harness to a **51-unit global archipelago/system screen** without changing the frozen ABM mechanism or state vocabulary.
 
-- **Tier A — 11 strict qualitative state targets**: six protected parent targets plus five new external challenges.
-- **Tier B — 13 partial mechanism/propagation systems**: direct evidence for support, effectiveness, dependency, replacement, morphology or reproduction, but a matched transition link is missing.
-- **Tier C — 7 filtering/architecture systems**: useful for colonization, persistence, reproductive filtering or network architecture rather than within-system propagation.
-- **Tier D — 8 screened gaps**: no source-comparable chain recovered in this pass; this is not evidence that relevant literature does not exist.
+- **Tier A — 13 strict qualitative state targets**: six protected parent targets plus seven new external challenges.
+- **Tier B — 12 partial mechanism/propagation systems**: direct support/effectiveness/dependency/replacement/morphology/reproduction evidence, but no complete matched downstream transition.
+- **Tier C — 7 filtering/architecture systems**: colonization, persistence, reproductive filtering or network architecture rather than within-system propagation.
+- **Tier D — 19 screened geographic gaps**: no source-comparable chain recovered in this pass. These are not biological negative results.
 
-The machine-readable registry is `data/design/global_archipelago_pollination_screen_v1.json`.
+Machine-readable registry: `data/design/global_archipelago_pollination_screen_v1.json`.
 
-## Five new strict external challenges
+## Seven new strict external challenges
 
-### Caribbean Gesneriaceae — `branches_downstream`
+### 1. Caribbean Gesneriaceae — `branches_downstream`
 
-The existing source audit combines complementary levels within the same radiation. The 54-species island-mainland comparison reports lower hummingbird visitation on islands without a general island increase in autofertility, while generalized and bat-pollination states occur more often on islands. Independent Antillean experiments show pollen limitation in specialized lineages, no pollen limitation in four generalists, and autonomous assurance in some hummingbird specialists. Evolutionary reconstruction documents repeated transitions in pollination systems and floral form.
+The source-locked 54-species island-mainland comparison finds lower hummingbird visitation on islands without a universal island increase in autofertility. Independent Antillean experiments and evolutionary reconstruction show different downstream solutions: generalization, pollination-system transitions and autonomous assurance. This is a branching replication, not one matched population-level causal chain.
 
-This is a strong **branching replication**, not a complete population-level causal bridge. Per-visit pollen effectiveness is still missing and the component studies must not be collapsed into one matched panel.
+### 2. Canary / Teide honeybee experiment — `branches_downstream`
 
-### New Zealand *Rhabdothamnus solandri* — `propagates_same_direction`
+A replicated three-year experiment compared pre- and post-establishment stages of up to 2700 managed honeybee hives. Beekeeping reduced wild-pollinator diversity and network links. The two focal plants with high honeybee use had significantly fewer seeds per fruit in the honeybee period, whereas the low/moderate-use focal species did not show the same seed-output decline. The common network perturbation therefore branches among co-occurring plant species.
 
-A natural experiment compares depleted mainland bird-pollination function with nearby offshore bird refugia. Reported pollen limitation is 0.69 on mainland sites versus 0.15 on island refugia, seed production per flower is reduced by 84% on the mainland, and demographic structure is poorer where bird function is lost.
+### 3. New Zealand *Rhabdothamnus solandri* — `propagates_same_direction`
+
+Nearby offshore bird refugia provide a natural comparison with mainland sites depleted of native bird pollinators. Pollen limitation was reported as 0.69 on mainland sites versus 0.15 on islands, seed production per flower was 84% lower on the mainland, and demographic structure declined where bird function was lost.
 
 `bird functional loss -> pollen limitation -> seed-production decline -> demographic decline`
 
-### Mariana Guam-Saipan — `propagates_same_direction`
+### 4. Mariana Guam-Saipan — `propagates_same_direction`
 
-The brown treesnake natural experiment gives a second strong independent propagation chain. Bird visitation is high on Saipan and zero on Guam; seed set is significantly higher on Saipan in both *Bruguiera gymnorrhiza* and *Erythrina variegata*; *Bruguiera* seedling recruitment is also higher on Saipan.
+The brown treesnake natural experiment links bird extirpation on Guam to zero bird visitation, significantly lower seed set in *Bruguiera gymnorrhiza* and *Erythrina variegata*, and lower *Bruguiera* seedling recruitment than on Saipan.
 
-`bird extirpation -> loss of bird visitation -> seed-set decline -> recruitment decline`
+`bird extirpation -> visitation loss -> seed-set decline -> recruitment decline`
 
-The perturbation is specific to snake-driven bird loss and must not be relabelled as a generic isolation effect.
+### 5. Seychelles invasive-ant experiment — `propagates_same_direction`
 
-### Seychelles invasive-ant experiment — `propagates_same_direction`
+Ant-exclusion experiments on four native plant species across eight Mahé inselbergs show that invasive-ant presence reduces legitimate flower probing and negatively affects native plant reproduction in both restored and unrestored communities.
 
-Ant-exclusion experiments and pollinator observations were conducted on four native plant species across eight granitic inselbergs on Mahé. Flying visitors provided the main pollination pathway. Invasive-ant presence reduced the number of flowers probed per visit and negatively affected plant reproduction in both restored and unrestored communities.
+`invasive-ant presence -> reduced flower probing -> reduced reproduction`
 
-`invasive-ant presence -> reduced legitimate flower probing -> reduced reproduction`
+### 6. Mauritius *Roussea simplex* — `propagates_same_direction`
 
-This adds a multi-plant experimental propagation case, but does not identify the ABM branch generator.
-
-### Mauritius *Roussea simplex* — `propagates_same_direction`
-
-The endemic gecko *Phelsuma cepediana* is the documented focal pollinator. Experimental ant removal/exclusion increased gecko access relative to ant-infested flowers/fruits, while seed set from ant-infested flowers was greatly reduced.
+Experimental ant removal/exclusion restores access by the endemic gecko pollinator *Phelsuma cepediana*. Ant-infested flowers have greatly reduced seed set relative to ant-free flowers.
 
 `invasive-ant interference -> reduced gecko access -> reduced seed set`
 
-This is a within-island perturbation, not an archipelago evolutionary transition, but it is a direct qualitative propagation test under the frozen vocabulary.
+### 7. Bahamas *Pavonia bahamensis* hurricane natural experiment — `propagates_same_direction`
 
-## Important systems that were not forced into Tier A
+Before hurricanes, fruit set was near 100% for most shrubs. After severe Hurricane Lili it fell to 11%. The study independently quantified direct resource limitation and an additional **74% pollination limitation**, associated with collapse of Bananaquit/Bahama Woodstar visitation, near-loss of nectar removal, and a shift from 98% of stigmas receiving pollen before the hurricanes to 51% of flowers receiving no pollen after Lili.
 
-| Archipelago/system | Tier | Why it matters | Why not strict |
+`bird-pollinator decline -> pollen-receipt collapse -> pollination limitation -> fruit-set decline`
+
+The whole fruit-set decline is not attributed to pollinators because the source explicitly detected resource limitation as well.
+
+## Strict replication structure after the global screen
+
+- **branching**: Izu + Caribbean Gesneriaceae + Canary/Teide;
+- **same-direction propagation**: Ogasawara + New Zealand + Mariana + Seychelles + Mauritius + Bahamas;
+- **buffering/alternative states**: Hawaiʻi + Channel Islands;
+- **reproductive-axis decoupling**: Puerto Rico-Mona Guaiacum;
+- **protected falsification**: Dominica Heliconia.
+
+This matters because the repeated state classes no longer correspond to one ecological story. Propagation is challenged by physical floral-access mismatch, vertebrate functional extinction, an invasive predator cascade, invasive-ant interference and hurricane-driven pollinator collapse. Branching is challenged by a comparative radiation, a multi-taxon island calibration and a replicated network perturbation.
+
+## High-value systems intentionally kept outside Tier A
+
+| System | Tier | Current value | Why not strict |
 |---|---|---|---|
-| Columbretes *Medicago citrina* | B | bees effectively absent; fly replacement; direct pollen limitation and visitor-efficiency experiments | no matched pre-loss or two-sided transition |
-| Xisha *Cordia subcordata* | B | near-complete two-island bridge across morphology, visitation, effectiveness and dependency | direct effectiveness/dependency missing on Dong |
-| Canary endemic systems | B | direct exclusion, pollen transport and vertebrate/insect function | no comparable archipelago transition |
-| Galápagos focal systems | B | complementary bird/insect service and network-model evidence | raw/matched propagation chain remains incomplete |
-| Réunion | B | pollinator dependence plus insular floral/pollination shifts | source links are not one matched transition |
-| Giannutri | B | honeybee removal changes local resource/network context | plant reproductive endpoint not measured |
-| Juan Fernández flora | C | >80% of studied cosexual endemics self-compatible; very rare insect visitation; wind/geitonogamy important | archipelago reproductive syndrome/filter, not a transition |
-| Southern Ocean 11 island groups | C | 321-species compatibility/floral-type screen; biotic-pollination reliance constrains distribution | colonization/filtering layer |
-| Pohnpei | C | community breeding-system evidence for reproductive assurance/Baker-law filtering | no paired pollinator-functional transition |
-| New Caledonia | B | community pollination architecture and introduced-honeybee dominance | no matched loss-to-reproduction contrast |
+| Galápagos | B | complementary bird/insect service + network evidence | raw/matched transition chain incomplete |
+| Xisha *Cordia* | B | morphology, visitation, effectiveness, dependency, reproduction | Dong-side effectiveness/dependency missing |
+| Columbretes *Medicago* | B | bee absence, fly replacement, strong residual pollen limitation | no paired pre-loss/two-sided transition |
+| Réunion | B | pollinator dependence + floral/pollination-system shifts | links are not one matched transition |
+| Azores | B | breeding and pollinator components | no matched exposure transition |
+| Madeira | B | delayed selfing + multi-guild pollination | no strict matched transition |
+| Balearics | B | vertebrate/insect service; Carpobrotus effects include competition, facilitation and neutrality | invasion effects do not give one consistent downstream reproductive transition |
+| Giannutri | B | honeybee removal changes resources/network context | reproductive endpoint missing |
+| Samoa | B | narrow vertebrate pathways | no comparable pollinator-loss transition |
+| French Polynesia | B | visitor/exclusion evidence | single-island component |
+| St Helena | B | specialization/breeding evidence | no regime transition |
+| New Caledonia | B | community architecture + introduced honeybee dominance | no matched loss-to-reproduction contrast |
+| Juan Fernández | C | >80% of studied cosexual endemics self-compatible; extremely rare insect visitation | reproductive/filtering syndrome rather than transition |
+| Southern Ocean 11 groups | C | 321 species; high self-compatibility and anemophily; biotic-pollination reliance constrains distribution | colonization/filtering layer |
+| Pohnpei | C | community breeding-system evidence for reproductive assurance | no paired functional transition |
 
-## Geographic gaps retained explicitly
+## Geographic coverage retained even when evidence is weak
 
-The current screen records Aegean archipelagos, Rodrigues, Comoros/Aldabra, Ascension/Tristan da Cunha, Cook/Tonga, Solomon Islands, the Philippine archipelago and Indonesia/Wallacea as Tier D for this pass. These rows mean only that a **source-comparable frozen-state chain was not recovered** under the current screen. They are not negative biological results and should reopen only on a named source or a new prospective measurement route.
-
-## What the eleven-system v2 changes scientifically
-
-The protected six-system v1 is unchanged. The versioned `system_agnostic_multi_system_validation_gate_v2.json` and `system_agnostic_abm_multi_system_validation_v2_frozen.json` apply the already-frozen synthetic capabilities to five external targets without running or retuning the ABM.
-
-The qualitative replication structure becomes:
-
-- branching: **Izu + Caribbean Gesneriaceae**;
-- same-direction propagation: **Ogasawara + New Zealand + Mariana + Seychelles + Mauritius**;
-- buffering/alternative states: **Hawaiʻi + Channel Islands**;
-- reproductive-axis decoupling: **Puerto Rico-Mona Guaiacum**;
-- protected falsification: **Dominica Heliconia**.
-
-This is substantially stronger than the original one-example-per-state layout, but it remains **state-class coverage**, not causal mechanism identification. Same-direction cases now span physical floral access, vertebrate functional extinction, invasive-predator cascades and invasive-ant interference, so the class is no longer tied to one ecological story.
+The screen now explicitly retains Aegean, Rodrigues, Comoros/Aldabra, Ascension/Tristan da Cunha, Cook/Tonga, Solomon, Philippines, Indonesia/Wallacea, Bermuda, Lord Howe, Norfolk, Pitcairn/Henderson/Oeno/Ducie, Rapa Nui, Socotra, Chatham, Kermadec, Malta, Maldives/Chagos and Marshall/Kiribati as Tier D where a comparable chain was not recovered. This prevents literature-rich archipelagos from being silently selected while poorly studied island groups disappear from the denominator.
 
 ## What remains closed
 
-1. No real system is newly admitted to the five-gate empirical network-context mapping contract (`matched transition + repeated local support + V_k + E_k + reproductive outcome`).
-2. No common effect-size meta-analysis is licensed because estimands and hierarchies remain heterogeneous.
-3. Tier B/C systems are not converted into pseudo-replicates simply because their qualitative story sounds compatible.
-4. Dominica remains a failed frozen prediction; it is not retuned away.
-5. The parent six-system frozen result remains immutable; expansion is versioned as v2.
+1. The parent six-system frozen result is immutable; expansion is versioned as v2.
+2. No ABM parameters were re-estimated and no new mechanism was introduced for any of the seven new targets.
+3. State-class compatibility is not empirical identification of the ABM mechanism.
+4. No real system is newly admitted to the five-gate network-context mechanism mapping contract (`matched transition + repeated local support + V_k + E_k + reproductive outcome`).
+5. Tier B/C systems are not converted into pseudo-replicates.
+6. A pooled common-effect meta-analysis is still not licensed because the estimands and biological hierarchies are heterogeneous.
+7. Dominica remains a failed frozen prediction and is not retuned away.
 
 ## Search-frame boundary
 
-The screen uses major oceanic/small-island archipelagos represented in island reproductive-biology reviews plus named searches across Macaronesia, the Mediterranean, Caribbean, eastern/central/western Pacific, southwest Pacific, Indian Ocean and Southern Ocean systems. It is deliberately broader than the prior repository screen, but it is not a literal census of every named island on Earth or every paper. Continental megarchipelagos are retained as explicit screened gaps when no comparable small-island transition was recovered.
+The 51-unit registry combines the repo's existing source audits with global oceanic-island reproductive-biology syntheses, Mediterranean and Galápagos reviews, cross-archipelago comparative studies and named searches across Macaronesia, the Mediterranean, Caribbean, eastern/central/western Pacific, southwest Pacific, Indian Ocean, South Atlantic and Southern Ocean systems. It is a deliberately broad global screening frame, but not a literal claim that every island on Earth or every paper has been exhaustively indexed.
