@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "programme": "comparative_island_pollination_response_simulation_study",
+  "parent_mainline": "data/design/active_development_mainline.json",
+  "global_archipelago_state": "data/design/global_archipelago_programme_state_20260824.json",
+  "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
+  "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
+  "primary_study_question": "Which island-response state classes can the already-frozen ABM generate, which tested mechanism axes separate those states, and which observations would count as state-space misses or protected falsifications?",
+  "study_type": "simulation_with_qualitative_external_challenges",
+  "field_data_required_for_primary_claim": false,
+  "empirical_mechanism_mapping_required_for_primary_claim": false,
+  "external_system_role": "qualitative_held_out_state_challenge_not_parameter_calibration",
+  "current_state": {
+    "global_screening_units": 54,
+    "strict_external_systems": 13,
+    "generative_state_challenges": 11,
+    "generative_state_covered_or_sign_compatible": 11,
+    "empirical_axis_decoupling_constraints": 1,
+    "retained_falsifications": 1,
+    "unrepresented_generative_state_space_misses": 0,
+    "empirical_network_context_mapping_ready": 0,
+    "empirical_network_context_systems_screened": 12
+  },
+  "mechanism_readout": {
+    "minimal_branch_generator": "preexisting_lineage_position_in_functional_trait_space",
+    "branch_generator_identified_within_declared_abm": true,
+    "same_direction_state_mechanistically_unique": false,
+    "network_context_strong_buffering_capability": "replicated_but_bidirectional",
+    "autonomous_assurance_role": "robust_magnitude_attenuator_not_robust_sign_buffer",
+    "local_support_branch_allocator_strength": "stronger_than_partner_effectiveness_in_paired_sign_reallocation",
+    "partner_effectiveness_role": "branch_identity_modifier",
+    "universal_buffer_supported": false
+  },
+  "active_gate": {
+    "name": "state_separability_and_transition_boundary_robustness",
+    "goal": "Test whether the frozen state labels and mechanism distinctions remain stable under prespecified independent stochastic blocks and already-declared parameter envelopes, without using external island outcomes to choose seeds or parameters.",
+    "priority_outputs": [
+      "false_positive_and_false_negative_state_classification_rates",
+      "state_transition_boundaries_across_declared_saturation_and_support_envelopes",
+      "which_observations_are_nonidentifying_despite_state_compatibility",
+      "explicit_state_space_miss_rule_before_any_future_external_system_is_scored"
+    ]
+  },
+  "optional_empirical_extension": {
+    "issue91_field_bundle": "useful_for_future_real_world_mechanism_identification_but_not_needed_for_primary_simulation_study",
+    "network_context_five_gate_mapping": "optional_external_mechanism_translation_not_a_simulation_blocker"
+  },
+  "not_mainline": [
+    "collecting_field_data_before_simulation_state_separability_is_resolved",
+    "retuning_abm_to_any_of_the_13_external_systems",
+    "adding_new_mechanisms_to_rescue_a_known_external_failure",
+    "reopening_unrestricted_archipelago_search_to_raise_case_counts",
+    "treating_qualitative_state_compatibility_as_empirical_causal_identification",
+    "retuning_dominica_signed_position_mapping"
+  ],
+  "next_executable_task": "build_and_freeze_a_state_separability_audit_from_prespecified_independent_stochastic_blocks_and_already_declared_parameter_envelopes_then_use_it_to_define_the_paper_level_results_and_falsification_table"
+}
