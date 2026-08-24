@@ -12,7 +12,7 @@
 
 ## Data/Code for peer review
 
-An anonymised review archive should contain the reusable `state_separability` module, frozen intervention summaries, exact-regeneration tests, figure-generation scripts and the machine-readable external-state registry. The public development repository is `zuizui0223/izu-core`; for double-anonymous review, a private or anonymised archive should be supplied at submission. No new unpublished field dataset is required for the primary analysis.
+An anonymised review archive contains the reusable state-separability module, frozen intervention summaries, exact-regeneration tests, figure-generation scripts and the machine-readable external-state registry. No new unpublished field dataset is required for the primary analysis. A public versioned code and data archive will be provided in the final Data Availability Statement after double-anonymous review.
 
 **Keywords:** agent-based model; ecological networks; equifinality; falsification; model validation; pattern-oriented modelling; sensitivity; specificity
 
