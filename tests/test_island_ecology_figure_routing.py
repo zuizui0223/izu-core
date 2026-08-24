@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from scripts.render_island_ecology_external_figures_svg import render_all as render_external
+from scripts.render_island_ecology_mechanism_figures_svg import render_all as render_mechanisms
 from scripts.render_simulation_manuscript_fig1_svg import render as render_fig1
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +13,8 @@ def test_main_figure_layout_is_ecology_first():
     layout = json.loads(LAYOUT.read_text(encoding="utf-8"))
     assert layout["study_type"] == "island_ecology_simulation_with_qualitative_external_island_challenges"
     assert [row["figure"] for row in layout["main_figures"]] == ["Fig1", "Fig2", "Fig3", "Fig4"]
+    assert layout["main_figures"][1]["renderer"] == "scripts/render_island_ecology_mechanism_figures_svg.py"
+    assert layout["main_figures"][2]["renderer"] == "scripts/render_island_ecology_mechanism_figures_svg.py"
     fig4 = layout["main_figures"][3]
     assert fig4["role"] == "external_island_ecological_synthesis"
     assert fig4["renderer"] == "scripts/render_island_ecology_external_figures_svg.py"
@@ -33,6 +36,15 @@ def test_fig1_ends_in_cross_island_ecology_not_inverse_problem():
     assert "3 branching / 6 propagation / 2 buffering-alternative" in content
     assert "Inverse problem" not in content
     assert "high-specificity" not in content
+
+
+def test_mechanism_wrapper_writes_only_main_fig2_and_fig3(tmp_path: Path):
+    paths = render_mechanisms(tmp_path)
+    assert [path.name for path in paths] == [
+        "Fig2_minimal_branch_generator.svg",
+        "Fig3_branch_allocation_buffering_attenuation.svg",
+    ]
+    assert all("Fig4" not in path.name for path in paths)
 
 
 def test_external_renderer_separates_main_fig4_from_supplement(tmp_path: Path):
