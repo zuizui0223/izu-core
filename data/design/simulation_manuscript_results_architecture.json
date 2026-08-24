@@ -1,8 +1,13 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "frozen_on": "2026-08-24",
   "study_type": "simulation_with_qualitative_external_island_challenges",
-  "primary_claim": "A frozen minimal island-pollination ABM spans multiple recurrent response-state classes without system-specific retuning, but observed state is only asymmetrically informative about mechanism: pre-existing lineage functional position is the minimal identified generator of within-run branching, network context can strongly buffer or worsen responses, and autonomous assurance robustly attenuates magnitude without robust sign rescue.",
+  "primary_claim": "A frozen minimal island-pollination ABM spans multiple recurrent response-state classes without system-specific retuning, but observed state is only asymmetrically informative about mechanism: pre-existing lineage functional position is the independently replicated minimal identified generator of within-run branching, network context can strongly buffer or worsen responses, and autonomous assurance robustly attenuates magnitude without robust sign rescue.",
+  "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
+  "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
+  "methods_traceability": "data/design/simulation_manuscript_methods_traceability.json",
+  "falsification_table": "data/results/simulation_manuscript_falsification_table_frozen.json",
+  "figure_layout": "data/design/simulation_manuscript_figure_layout_v1.json",
   "main_results": [
     {
       "id": "R1",
@@ -12,9 +17,12 @@
     },
     {
       "id": "R2",
-      "question": "What minimally generates within-run response-sign branching?",
-      "result": "initial_trait_position_heterogeneity_is_necessary_within_v12_residual_gate",
-      "source": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json"
+      "question": "What minimally generates within-run response-sign branching, and does that boundary replicate?",
+      "result": "initial_trait_position_heterogeneity_is_the_only_tested_residual_factor_whose_removal_collapses_branching_in_two_independently_seeded_frozen_blocks",
+      "sources": [
+        "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
+        "data/results/abm_v12_branch_generator_independent_robustness_frozen.json"
+      ]
     },
     {
       "id": "R3",
@@ -42,47 +50,29 @@
   "main_figures": [
     {
       "figure": "Fig1",
-      "title": "Frozen ABM state map and analysis logic",
-      "panels": [
-        "common upstream functional perturbation",
-        "initial lineage position",
-        "branch allocation by local support and partner effectiveness",
-        "downstream attenuation by assurance",
-        "state outputs branching_same_direction_buffering"
-      ]
+      "title": "Frozen model logic: common perturbation, state-dependent branching and downstream filters",
+      "renderer": "scripts/render_simulation_manuscript_fig1_svg.py"
     },
     {
       "figure": "Fig2",
       "title": "Minimal generator of within-run branching",
-      "panels": [
-        "v12 mixed_sign_run_fraction full vs initial_trait_off",
-        "within_run_branching_balance full vs ablations",
-        "paired sign changes by residual factor"
-      ],
+      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
       "headline_values": {
-        "full_mixed_sign_run_fraction": 0.4166666666666667,
-        "initial_trait_off_mixed_sign_run_fraction": 0.0,
-        "full_mean_within_run_branching_balance": 0.2569444444444444,
-        "initial_trait_off_balance": 0.0
+        "original_full_mixed_sign_run_fraction": 0.4166666666666667,
+        "original_initial_trait_off_mixed_sign_run_fraction": 0.0,
+        "independent_full_mixed_sign_run_fraction": 0.4166666666666667,
+        "independent_initial_trait_off_mixed_sign_run_fraction": 0.0
       }
     },
     {
       "figure": "Fig3",
       "title": "Branch allocation, strong buffering and attenuation occupy different synthetic regions",
-      "panels": [
-        "local_support_vs_partner_effectiveness_paired_sign_reallocation",
-        "network_context_sign_rescue_and_worsening",
-        "assurance_magnitude_attenuation_and_zero_robust_sign_rescue_across_saturations"
-      ]
+      "renderer": "scripts/render_simulation_manuscript_figures_svg.py"
     },
     {
       "figure": "Fig4",
       "title": "External island-state challenge and diagnostic asymmetry",
-      "panels": [
-        "13_system_state_matrix",
-        "diagnostic sensitivity_specificity matrix",
-        "retained Dominica falsification"
-      ]
+      "renderer": "scripts/render_simulation_manuscript_figures_svg.py"
     }
   ],
   "main_tables": [
@@ -99,22 +89,17 @@
     {
       "table": "Table3",
       "title": "Protected falsification rules and current outcomes",
-      "rows": [
-        "v12 minimal branch generator survives",
-        "universal network buffer rejected",
-        "robust assurance sign buffer rejected",
-        "Dominica signed-position mapping failed and retained",
-        "future unrepresented external state must be recorded as state-space miss"
-      ]
+      "source": "data/results/simulation_manuscript_falsification_table_frozen.json"
     }
   ],
   "supplement": [
     "full v11 factorial cells and downstream ablations",
-    "network-context independent robustness block",
+    "independent v12 branch-generator robustness block and provenance",
+    "network-context initial and independent robustness blocks",
     "assurance independent and broadened support envelopes",
     "54-unit global archipelago screen and admission tiers",
     "source-level external-system audits",
-    "zero-of-twelve empirical network-context mapping readiness as an empirical-translation boundary",
+    "zero-of-twelve empirical network-context mapping readiness as an optional empirical-translation boundary",
     "Issue 91 prospective field protocol as optional future empirical mechanism mapping"
   ],
   "explicit_exclusions_from_primary_results": [
@@ -124,8 +109,9 @@
     "claim that state compatibility identifies real-world mechanism",
     "claim that network context is universally protective",
     "claim that assurance robustly reverses decline sign",
-    "retuning of the Dominica failed mapping"
+    "retuning of the Dominica failed mapping",
+    "additional seed search to increase favorable branch-generator frequencies"
   ],
-  "manuscript_end_state": "primary_simulation_story_is_ready_for_figure_generation_and_results_prose_without_new_field_data",
-  "next_executable_task": "generate_main_figure_data_tables_from_frozen_json_and_remove_or_demote_stale_docs_that_still_treat_empirical_mapping_or_field_collection_as_a_primary_simulation_blocker"
+  "manuscript_end_state": "primary_results_methods_falsification_and_Fig1_to_Fig4_architecture_frozen_without_new_field_data",
+  "next_executable_task": "assemble_the_full_manuscript_draft_around_the_frozen_results_methods_and_figures_then_limit_new_analysis_to_questions_that_survive_editorial_review"
 }
