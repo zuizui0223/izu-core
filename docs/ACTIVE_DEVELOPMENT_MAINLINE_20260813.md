@@ -5,7 +5,7 @@ Current machine-readable routing: `data/design/simulation_study_mainline_2026082
 Canonical ecological story: `docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md`  
 Hypothesis recovery: `data/design/island_ecology_hypothesis_recovery_20260824.json`  
 Manuscript reassembly spec: `docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md`  
-Primary ecology-first draft: `docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md`
+Primary ecology-first draft: `docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md`
 
 The current primary study is an **island ecology simulation study with qualitative external island-system challenges**. The method-first MEE framing is retained only as an alternative spin-off and is not the active manuscript story.
 
@@ -117,7 +117,11 @@ These are future tests. They do not require new simulation, field data or extern
 
 Starting-state morphology recurrence remains supporting only because measurement-error/EIV requirements prevent formal promotion. Colonization-filter partitioning is a new hierarchical research question. Formal cross-system effect-size pooling remains closed because the current estimands are noncommensurate.
 
-## Current manuscript order
+## Current manuscript state
+
+The H1–H5 island-ecology draft is now assembled at `docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md`.
+
+Its order is:
 
 1. H1 — island ecological problem: similar pollinator simplification, different plant outcomes;
 2. H2 — initial functional position explains branch potential;
@@ -147,4 +151,4 @@ Do not spend the next cycle on:
 
 ## Next executable task
 
-Apply the frozen H1–H5 order to the primary manuscript and figure captions: rewrite the Introduction endpoint, remove method-first prominence from Results/Discussion, and keep state-separability detail as an inference-boundary/Supplement layer. No new scientific analysis is required.
+Validate the assembled H1–H5 primary manuscript against the frozen numerical results, external 13-system reference matrix and protected Guaiacum/Dominica boundaries. If those checks pass, freeze the ecology draft for journal-specific formatting without reopening scientific analysis.
