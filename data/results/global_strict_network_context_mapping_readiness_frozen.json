@@ -1,0 +1,78 @@
+{
+  "analysis": "global_strict_network_context_mapping_readiness",
+  "schema_version": "1.0",
+  "run_date": "2026-08-24",
+  "input_registry": "data/design/global_strict_network_context_mapping_registry.json",
+  "parent_readiness": "data/results/network_context_mapping_readiness_frozen.json",
+  "required_gate_count": 5,
+  "new_strict_systems_screened": 7,
+  "mapping_ready_count": 0,
+  "rows": [
+    {
+      "system_id": "caribbean_gesneriaceae_island_mainland",
+      "admitted_required_gates": ["reproductive_outcome"],
+      "missing_required_gates": ["matched_transition_unit", "repeated_local_context_support", "visitor_specific_rate", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 1,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "new_zealand_rhabdothamnus",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_rate", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "mariana_guam_saipan_bird_loss",
+      "admitted_required_gates": ["matched_transition_unit", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["repeated_local_context_support", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "seychelles_ant_disruption",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 4,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "mauritius_roussea_ant_disruption",
+      "admitted_required_gates": ["matched_transition_unit", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["repeated_local_context_support", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "canary_teide_honeybee_network",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "visitor_specific_rate", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 4,
+      "network_context_mapping_ready": false
+    },
+    {
+      "system_id": "bahamas_pavonia_hurricane_pollination",
+      "admitted_required_gates": ["matched_transition_unit", "repeated_local_context_support", "reproductive_outcome"],
+      "missing_required_gates": ["visitor_specific_rate", "visitor_specific_direct_effectiveness"],
+      "n_admitted_required_gates": 3,
+      "network_context_mapping_ready": false
+    }
+  ],
+  "closest_new_structural_candidates": [
+    "seychelles_ant_disruption",
+    "canary_teide_honeybee_network"
+  ],
+  "closest_new_missing_gate": "visitor_specific_direct_effectiveness",
+  "combined_with_parent": {
+    "parent_systems_screened": 5,
+    "new_systems_screened": 7,
+    "combined_systems_screened": 12,
+    "combined_mapping_ready_count": 0,
+    "parent_closest_candidate": "puerto_rico_mona_guaiacum",
+    "parent_closest_missing_gate": "visitor_specific_direct_effectiveness",
+    "new_closest_candidates": ["seychelles_ant_disruption", "canary_teide_honeybee_network"]
+  },
+  "decision": "global_state_expansion_does_not_close_empirical_network_context_mapping_gate_effectiveness_remains_the_recurrent_missing_link",
+  "next_gate": "Do not search globally without a named trigger. Prioritize source-native visitor-specific direct-effectiveness evidence only for structurally close systems, especially Canary/Teide and Seychelles, or collect it prospectively; otherwise preserve zero-of-twelve mapping readiness.",
+  "claim_boundary": "The seven global strict systems strengthen external state-class challenge but do not empirically identify the frozen network-context mechanism. Regime-level pollen receipt, legitimate probing, sole-pollinator status, or seed-set response must not be relabelled visitor-specific per-visit effectiveness."
+}
