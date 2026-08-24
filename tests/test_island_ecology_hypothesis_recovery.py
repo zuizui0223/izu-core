@@ -14,10 +14,10 @@ def test_hypothesis_recovery_closes_primary_science_without_new_data_blocker():
     assert list(hypotheses) == ["H1", "H2", "H3", "H4", "H5"]
 
     assert hypotheses["H1"]["result"] == "rejected"
-    assert hypotheses["H2"]["result"] == "supported_within_declared_abm"
-    assert hypotheses["H3"]["result"] == "supported_bidirectionally_within_declared_abm"
-    assert hypotheses["H4"]["result"] == "partially_supported_and_narrowed"
-    assert hypotheses["H5"]["result"] == "supported_at_qualitative_state_level"
+    assert hypotheses["H2"]["result"] == "supported_within_declared_abm_and_independently_replicated"
+    assert hypotheses["H3"]["result"] == "supported_as_bidirectional_branch_allocator_within_declared_abm"
+    assert hypotheses["H4"]["result"] == "magnitude_attenuation_supported_sign_rescue_rejected"
+    assert hypotheses["H5"]["result"] == "supported_at_qualitative_response_state_level"
 
     h2 = hypotheses["H2"]["evidence"]
     assert h2["original_full_mixed_sign"] == 0.4166666666666667

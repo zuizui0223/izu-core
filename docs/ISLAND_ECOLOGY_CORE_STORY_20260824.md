@@ -55,7 +55,7 @@ The identified coordinate is synthetic and relative. It is not automatically cor
 
 **Prediction:** local interaction context changes which response branch a lineage occupies and can buffer some declines.
 
-**Outcome:** supported, but not monotonically. Removing local support changes 105/288 paired lineage signs. In the independent network-context block, support produces 16/96 sign rescues and 85/96 magnitude rescues, but 11/96 worsenings.
+**Outcome:** supported as a bidirectional branch allocator. Removing local support changes 105/288 paired lineage signs. In the independent network-context block, support produces 16/96 sign rescues and 85/96 magnitude rescues, but 11/96 worsenings.
 
 Network context is therefore a **bidirectional branch allocator with buffering capacity**, not a universal protective buffer.
 
@@ -63,7 +63,7 @@ Network context is therefore a **bidirectional branch allocator with buffering c
 
 **Prediction:** autonomous reproductive assurance reduces the downstream reproductive effect of service decline; a stronger version predicts sign reversal.
 
-**Outcome:** partially supported and narrowed. Assurance attenuates 207/216 independent declines but produces 0/216 sign rescues, with 0/525 sign rescues in the broadened envelope.
+**Outcome:** magnitude attenuation supported; robust sign rescue rejected. Assurance attenuates 207/216 independent declines but produces 0/216 sign rescues, with 0/525 sign rescues in the broadened envelope.
 
 The stable conclusion is **magnitude attenuation**, not robust sign-reversing rescue.
 
@@ -71,7 +71,7 @@ The stable conclusion is **magnitude attenuation**, not robust sign-reversing re
 
 **Prediction:** if the state-dependent architecture is ecologically relevant beyond the focal model, independent island systems should repeatedly occupy branching, same-direction propagation and buffering/alternative states without system-specific retuning.
 
-**Outcome:** supported at the qualitative state level. The strict external set contains 13 systems: three branching, six same-direction propagation, two buffering/alternative, one reproductive-axis-decoupling constraint and one retained falsification. All 11 generative challenges are covered or sign-compatible with state classes already present before external inspection.
+**Outcome:** supported at the qualitative response-state level. The strict external set contains 13 systems: three branching, six same-direction propagation, two buffering/alternative, one reproductive-axis-decoupling constraint and one retained falsification. All 11 generative challenges are covered or sign-compatible with state classes already present before external inspection.
 
 This supports recurrence of the **response architecture**, not one shared empirical mechanism across all systems.
 

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="650" viewBox="0 0 1220 650">
+<title>Frozen model logic: state-dependent island responses</title>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#222" /></marker></defs>
+<text x="40" y="42" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="bold" text-anchor="start">Fig1. Frozen model logic: state-dependent island responses</text>
+<text x="70" y="90" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold" text-anchor="start">A  Common upstream perturbation</text>
+<rect x="55" y="110" width="250" height="110" rx="8" fill="#f5f5f5" stroke="#222" stroke-width="1.5" />
+<text x="180" y="145" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">pollinator-functional</text>
+<text x="180" y="168" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">environment shift</text>
+<text x="180" y="196" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">shared model perturbation</text>
+<text x="365" y="90" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold" text-anchor="start">B  Pre-existing lineage state</text>
+<rect x="345" y="110" width="250" height="110" rx="8" fill="#f5f5f5" stroke="#222" stroke-width="1.5" />
+<text x="470" y="145" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">different starting positions</text>
+<text x="470" y="170" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">in functional trait space</text>
+<text x="470" y="198" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">minimal branching source</text>
+<line x1="305" y1="165" x2="345" y2="165" stroke="#222" stroke-width="1.5" marker-end="url(#arrow)" />
+<text x="655" y="90" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold" text-anchor="start">C  Branch allocation and filters</text>
+<rect x="635" y="110" width="250" height="110" rx="8" fill="#f5f5f5" stroke="#222" stroke-width="1.5" />
+<text x="760" y="140" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" text-anchor="middle">local support / network context</text>
+<text x="760" y="165" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" text-anchor="middle">partner effectiveness</text>
+<text x="760" y="190" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" text-anchor="middle">autonomous assurance</text>
+<line x1="595" y1="165" x2="635" y2="165" stroke="#222" stroke-width="1.5" marker-end="url(#arrow)" />
+<text x="945" y="90" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold" text-anchor="start">D  Observable response states</text>
+<rect x="925" y="110" width="245" height="110" rx="8" fill="#f5f5f5" stroke="#222" stroke-width="1.5" />
+<text x="1047" y="140" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">branching</text>
+<text x="1047" y="165" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">same-direction</text>
+<text x="1047" y="190" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">buffering / attenuation</text>
+<line x1="885" y1="165" x2="925" y2="165" stroke="#222" stroke-width="1.5" marker-end="url(#arrow)" />
+<text x="70" y="285" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold" text-anchor="start">Mechanism distinctions recovered by frozen interventions</text>
+<rect x="55" y="310" width="330" height="120" rx="8" fill="#fafafa" stroke="#222" stroke-width="1.5" />
+<text x="220" y="340" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">Branch generator</text>
+<text x="220" y="367" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="normal" text-anchor="middle">initial trait heterogeneity OFF</text>
+<text x="220" y="391" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">mixed-sign runs: 0.4167 → 0</text>
+<text x="220" y="414" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">replicated in an independent seed block</text>
+<rect x="445" y="310" width="330" height="120" rx="8" fill="#fafafa" stroke="#222" stroke-width="1.5" />
+<text x="610" y="340" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">Network context</text>
+<text x="610" y="367" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">sign rescue: 16 / 96</text>
+<text x="610" y="391" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">worsening: 11 / 96</text>
+<text x="610" y="414" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">buffering capacity, not universal protection</text>
+<rect x="835" y="310" width="330" height="120" rx="8" fill="#fafafa" stroke="#222" stroke-width="1.5" />
+<text x="1000" y="340" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">Autonomous assurance</text>
+<text x="1000" y="367" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">magnitude attenuation: 207 / 216</text>
+<text x="1000" y="391" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">sign rescue: 0 / 216; 0 / 525</text>
+<text x="1000" y="414" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">robust attenuator, not robust sign buffer</text>
+<text x="70" y="495" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold" text-anchor="start">Inverse problem</text>
+<rect x="55" y="515" width="1110" height="85" rx="8" fill="#f7f7f7" stroke="#222" stroke-width="1.5" />
+<text x="610" y="545" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold" text-anchor="middle">Observed state ≠ uniquely identified mechanism</text>
+<text x="610" y="572" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" text-anchor="middle">mixed-sign and strong sign rescue are high-specificity / low-sensitivity; same-direction and magnitude attenuation are non-identifying</text>
+<line x1="1047" y1="220" x2="1047" y2="515" stroke="#222" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#arrow)" />
+</svg>

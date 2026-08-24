@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
   "frozen_on": "2026-08-24",
+  "submission_readiness": "data/design/island_ecology_submission_readiness_20260824.json",
   "primary_question": "Why does island-associated simplification or reorganization of pollinator function produce divergent plant responses rather than one universal post-establishment trajectory?",
   "paper_level_claim": "A common island-like pollinator functional perturbation can generate multiple downstream response trajectories because lineages enter the perturbation from different functional starting states; local interaction context reallocates branches and can buffer or worsen propagation, while autonomous assurance mainly attenuates response magnitude.",
   "hypotheses": [
@@ -21,7 +22,7 @@
       "name": "state_dependent_branching",
       "prediction": "Pre-existing lineage position in functional trait space is a necessary tested source of within-environment response-sign branching.",
       "test": "Freeze downstream modifiers OFF, remove each residual lineage factor one at a time, then independently repeat the strongest boundary with a predeclared seed and stop rule.",
-      "result": "supported_within_declared_abm",
+      "result": "supported_within_declared_abm_and_independently_replicated",
       "evidence": {
         "original_full_mixed_sign": 0.4166666666666667,
         "original_initial_position_off_mixed_sign": 0.0,
@@ -36,7 +37,7 @@
       "name": "context_dependent_branch_allocation",
       "prediction": "Local interaction context changes which response branch a lineage occupies and can buffer some declines without being universally protective.",
       "test": "Compare matched local-support OFF versus ON states while autonomous assurance is disabled; retain both rescue and worsening outcomes.",
-      "result": "supported_bidirectionally_within_declared_abm",
+      "result": "supported_as_bidirectional_branch_allocator_within_declared_abm",
       "evidence": {
         "local_support_paired_sign_changes": 105,
         "local_support_total_lineage_contrasts": 288,
@@ -52,7 +53,7 @@
       "name": "autonomous_assurance_buffering",
       "prediction": "Autonomous reproductive assurance should buffer downstream reproductive effects of pollinator-service decline.",
       "test": "Compare assurance ON versus OFF under identical upstream service change, then repeat in an independent block and a broadened support envelope.",
-      "result": "partially_supported_and_narrowed",
+      "result": "magnitude_attenuation_supported_sign_rescue_rejected",
       "evidence": {
         "independent_magnitude_attenuations": 207,
         "independent_service_declines": 216,
@@ -67,7 +68,7 @@
       "name": "cross_island_response_architecture_recurrence",
       "prediction": "If the state-dependent architecture is ecologically relevant beyond the focal model, independent island systems should exhibit recurrent branching, same-direction propagation, and buffering or alternative response states without model retuning.",
       "test": "Challenge the already-frozen state vocabulary with a source-locked strict set drawn from a 54-unit global screen; forbid parameter retuning, state relabeling, or mechanism addition after external inspection.",
-      "result": "supported_at_qualitative_state_level",
+      "result": "supported_at_qualitative_response_state_level",
       "evidence": {
         "global_screening_units": 54,
         "strict_systems": 13,
@@ -158,6 +159,6 @@
     "new_simulation_required": false,
     "new_field_data_required": false,
     "new_external_system_search_required": false,
-    "next_action": "Align the primary manuscript Introduction, Results and Discussion with H1-H5, move state-separability detail to a supporting inference-boundary role, and keep U1-U3 as prospective tests rather than admission gates."
+    "next_action": "Proceed only to journal-specific references, authorship, declarations, formatting and release archiving; do not reopen H1-H5, add simulation, collect field data or search for additional island systems for the current submission."
   }
 }

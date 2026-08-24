@@ -18,7 +18,7 @@ def test_programme_stays_system_agnostic_and_issue91_is_parallel():
     assert mainline["comparison_contract"]["axis_specific_reproductive_responses_must_not_be_collapsed"] is True
     p3 = workstream(mainline, "P3")
     assert p3["issue"] == 91
-    assert p3["status"] == "implementation_ready_field_data_missing"
+    assert p3["status"] == "future_programme_not_submission_blocker_field_data_missing"
     assert mainline["protected_scientific_state"]["issue91_prediction_freeze"]["programme_blocker"] is False
 
 
@@ -60,15 +60,17 @@ def test_assurance_and_network_context_robustness_are_both_preserved():
     assert state["network_context_robustness_result"] == "data/results/network_context_buffering_capability_robustness_frozen.json"
 
 
-def test_updated_validation_has_two_unmapped_buffer_cases_one_axis_decoupling_and_one_failure():
+def test_submission_validation_has_thirteen_strict_systems_and_protected_exceptions():
     mainline = load_mainline()
     gate = mainline["protected_scientific_state"]["system_agnostic_validation_gate"]
-    assert gate["status"] == "strict_harness_updated_after_network_buffer_replication_and_guaiacum_axis_correction"
-    assert gate["branching_cases_covered"] == 1
-    assert gate["same_direction_sign_compatible"] == 1
+    assert gate["status"] == "global_54_unit_screen_and_13_system_strict_challenge_frozen"
+    assert gate["branching_cases_covered"] == 3
+    assert gate["same_direction_sign_compatible"] == 6
     assert gate["buffering_state_class_available_but_empirical_mechanism_unmapped"] == 2
     assert gate["reproductive_axis_decoupling_constraints"] == 1
     assert gate["retained_falsifications"] == 1
+    assert gate["generative_challenges_covered_or_sign_compatible"] == 11
+    assert gate["generative_challenges_total"] == 11
 
 
 def test_empirical_network_context_mapping_readiness_is_zero_of_five():
@@ -105,11 +107,18 @@ def test_empirical_network_context_mapping_readiness_is_zero_of_five():
     assert "Partial or one-sided links do not pass" in stage_i["rule"]
 
 
-def test_next_task_waits_for_first_five_gate_system_not_specific_taxon_or_exhausted_search():
+def test_current_submission_is_closed_and_next_task_is_editorial_packaging():
     mainline = load_mainline()
-    assert mainline["next_executable_task"].startswith(
-        "accept_the_first_named_source_or_prospective_island_system_that_closes_all_five_network_context_mapping_gates"
-    )
+    submission = mainline["current_submission"]
+    assert submission["state"] == "primary_scientific_hypotheses_closed_for_submission"
+    assert submission["additional_simulation_required"] is False
+    assert submission["new_field_data_required"] is False
+    assert submission["additional_island_system_search_required"] is False
+    assert submission["empirical_translation_questions_block_submission"] is False
+    assert mainline["next_executable_task"].startswith("complete_journal_specific_reference")
+    assert "additional_simulation_for_the_current_submission" in mainline["not_mainline"]
+    assert "new_field_data_as_a_current_submission_gate" in mainline["not_mainline"]
+    assert "additional_island_system_search_for_the_current_submission" in mainline["not_mainline"]
     assert "whole_reproduction_buffer_label_from_stable_breeding_system_index_alone" in mainline["not_mainline"]
     assert "restoring_guaiacum_to_buffer_portfolio_without_new_reproductive_buffer_evidence" in mainline["not_mainline"]
     assert "visitor_assemblage_difference_as_service_redundancy_without_per_visit_effectiveness" in mainline["not_mainline"]

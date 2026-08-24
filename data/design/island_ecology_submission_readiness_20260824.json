@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "primary_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
+  "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
+  "scientific_state": {
+    "primary_hypotheses_closed_for_submission": true,
+    "H1_universal_post_establishment_response": "rejected",
+    "H2_state_dependent_branching": "supported_within_declared_abm_and_independently_replicated",
+    "H3_network_context": "supported_as_bidirectional_branch_allocator_within_declared_abm",
+    "H4_assurance": "magnitude_attenuation_supported_sign_rescue_rejected",
+    "H5_cross_island_recurrence": "supported_at_qualitative_response_state_level"
+  },
+  "scientific_validation_gate": {
+    "status": "passed",
+    "checks": {
+      "headline_numbers_match_frozen_results": true,
+      "thirteen_external_system_names_and_state_classes_match_source_matrix": true,
+      "dominica_failed_projection_retained_without_retuning": true,
+      "guaiacum_reproductive_axis_decoupling_retained": true,
+      "method_first_inverse_problem_demoted_to_supporting_role": true,
+      "main_figures_and_tables_match_H1_H5_ecological_architecture": true,
+      "no_new_empirical_or_simulation_claim_added": true
+    }
+  },
+  "scientific_work_not_required_for_current_submission": [
+    "additional_simulation",
+    "new_field_data",
+    "additional_island_system_search",
+    "empirical_mechanism_mapping",
+    "formal_cross_system_meta_analysis"
+  ],
+  "future_empirical_programme_not_submission_blockers": [
+    "outcome_blind_source_native_signed_functional_starting_position",
+    "matched_real_network_context_effective_service_mapping",
+    "complete_external_effective_service_dependency_response_bridge"
+  ],
+  "remaining_submission_tasks": [
+    {
+      "id": "E1_target_journal",
+      "status": "requires_editorial_choice",
+      "task": "select_target_journal_and_article_type"
+    },
+    {
+      "id": "E2_references",
+      "status": "ready_for_journal_specific_formatting",
+      "task": "format_and_verify_references_against_the_source_locked_external_system_matrix"
+    },
+    {
+      "id": "E3_authorship_and_declarations",
+      "status": "requires_author_metadata",
+      "task": "supply_authors_affiliations_contributions_acknowledgements_funding_conflicts_and_ethics_or_not_applicable_statements"
+    },
+    {
+      "id": "E4_submission_assets",
+      "status": "scientific_content_ready_editorial_packaging_pending",
+      "task": "package_main_text_figures_tables_and_supplement_to_target_journal_rules"
+    },
+    {
+      "id": "E5_immutable_release",
+      "status": "pending_submission_release",
+      "task": "tag_and_archive_the_exact_submission_release_with_an_immutable_identifier"
+    }
+  ],
+  "next_executable_task": "complete_E1_to_E5_without_reopening_H1_H5_or_any_frozen_result"
+}

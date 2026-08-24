@@ -34,7 +34,7 @@ The paper should be read as a sequence of ecological hypotheses rather than as a
 
 **Test.** Compare matched local-support OFF and ON states while autonomous assurance is disabled.
 
-**Result.** Supported, but bidirectionally. Removing local support changed 105/288 paired lineage response signs. In the independent network-context block, support produced 16/96 sign rescues and 85/96 magnitude rescues, but also 11/96 worsenings.
+**Result.** Supported as a bidirectional branch allocator. Removing local support changed 105/288 paired lineage response signs. In the independent network-context block, support produced 16/96 sign rescues and 85/96 magnitude rescues, but also 11/96 worsenings.
 
 **Meaning.** Network context is a context-dependent branch allocator with buffering capacity, not a universal shield.
 
@@ -44,7 +44,7 @@ The paper should be read as a sequence of ecological hypotheses rather than as a
 
 **Test.** Compare assurance ON versus OFF under identical upstream service change, then repeat in an independent block and a broadened support envelope.
 
-**Result.** The hypothesis is narrowed rather than wholly accepted or rejected. Magnitude attenuation is robust: 207/216 independent declines were attenuated. Strong sign rescue is not robust: 0/216 independent and 0/525 broadened eligible declines crossed the sign boundary.
+**Result.** Magnitude attenuation supported; robust sign rescue rejected. Of 216 independent declines, 207 were attenuated. No sign rescue occurred in 216 independent or 525 broadened eligible declines.
 
 **Meaning.** Assurance mainly dampens propagation magnitude in the current model; it is not a robust sign-reversing buffer.
 
@@ -54,7 +54,7 @@ The paper should be read as a sequence of ecological hypotheses rather than as a
 
 **Test.** Challenge a frozen response-state vocabulary with source-locked external systems drawn from a 54-unit global screen. Do not rerun the ABM for new systems, retune parameters, add mechanisms, or relabel states after external inspection.
 
-**Result.** Supported at the qualitative state level. Thirteen strict systems comprise three branching systems, six same-direction systems, two buffering/alternative systems, one reproductive-axis-decoupling constraint, and one retained falsification. All 11 generative challenges are covered or sign-compatible with response classes already present in the frozen model.
+**Result.** Supported at the qualitative response-state level. Thirteen strict systems comprise three branching systems, six same-direction systems, two buffering/alternative systems, one reproductive-axis-decoupling constraint, and one retained falsification. All 11 generative challenges are covered or sign-compatible with response classes already present in the frozen model.
 
 **Meaning.** The diversity of island responses is recurrent across independent ecological systems. This does not identify one shared empirical mechanism across all systems.
 

@@ -1,10 +1,11 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "frozen_on": "2026-08-24",
   "study_type": "island_ecology_simulation_with_qualitative_external_island_challenges",
   "primary_claim": "Island-associated simplification or reorganization of pollinator function does not impose one universal post-establishment plant trajectory. In the frozen ABM, pre-existing lineage functional position generates response branching, local interaction context reallocates branches and can either buffer or worsen propagation, and autonomous assurance mainly attenuates response magnitude. Independent island systems contain the same broad diversity of branching, propagation and buffering states, while axis decoupling and a retained failed prediction prevent a universal-mechanism interpretation.",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
   "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
+  "submission_readiness": "data/design/island_ecology_submission_readiness_20260824.json",
   "manuscript_reassembly_spec": "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md",
   "primary_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
   "legacy_ecology_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
@@ -133,6 +134,6 @@
     "additional seed search to increase favorable branch-generator frequencies",
     "state-separability diagnostics as a primary biological result"
   ],
-  "manuscript_end_state": "H1_H5_island_ecology_primary_manuscript_assembled_and_ready_for_frozen_result_validation",
-  "next_executable_task": "validate_primary_manuscript_headline_numbers_external_system_assignments_and_protected_boundaries_before_journal_specific_formatting"
+  "manuscript_end_state": "H1_H5_island_ecology_primary_manuscript_scientifically_validated_and_frozen_for_submission_packaging",
+  "next_executable_task": "complete_journal_specific_editorial_and_archival_packaging_without_reopening_scientific_analysis"
 }

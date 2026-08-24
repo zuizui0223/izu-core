@@ -1,6 +1,6 @@
 # One perturbation, multiple island responses: state-dependent branching under pollinator functional simplification
 
-## Working primary manuscript — island ecology mainline — 2026-08-24
+## Scientifically validated primary manuscript — island ecology mainline — 2026-08-24
 
 ## Abstract
 
@@ -22,7 +22,7 @@ Islands are natural experiments in ecological simplification, colonization and t
 
 The distinction matters because empirical island systems do not show one uniform downstream trajectory after pollinator communities change. Functional pollinator loss can propagate to pollen limitation, seed production and recruitment, as illustrated by bird-pollination natural experiments. In other cases, partner replacement or network reorganization maintains some reproductive function despite large changes in visitor identity. Still other systems show divergent responses among co-occurring or related plants exposed to a broadly shared perturbation. These contrasts are usually treated as system-specific outcomes. An alternative possibility is that they reflect a common ecological architecture in which the effect of a perturbation depends on the state of the lineage before the perturbation and on the local interaction context through which the perturbation propagates.
 
-This possibility shifts the central island-ecology question. Rather than asking only whether island plants become more selfing, less specialized or morphologically simplified on average, we ask: **why does a common island-associated change in pollinator function produce different downstream responses among established plant lineages?** A simple conditional model suggests three layers. First, lineages occupy different positions in plant–pollinator functional space before the environment changes. Second, local interaction structure and partner support determine how a change in global pollinator opportunity is redistributed among lineages. Third, reproductive filters such as autonomous assurance can change how service loss propagates into reproduction. These layers predict that the same upstream perturbation can produce branching, same-direction propagation or buffering without requiring a separate model for every island.
+This possibility shifts the central island-ecology question. Rather than asking only whether island plants become more selfing, less specialized or morphologically simplified on average, we ask: **why does a common island-associated change in pollinator function produce different downstream responses among established plant lineages?** A simple conditional model suggests three layers. First, lineages occupy different positions in plant–pollinator functional space before the environment changes. Second, local interaction structure and partner support determine how a change in global pollinator opportunity is redistributed among lineages. Third, reproductive filters such as autonomous assurance can change how service loss propagates into reproduction. These layers predict that the same upstream perturbation can produce branching, same-direction propagation or buffering without requiring a separate model for every island (Fig. 1).
 
 Agent-based models provide a useful experimental system for this question because candidate ecological mechanisms can be removed while holding the rest of the architecture fixed. That is stronger than simply fitting different parameter sets to different island examples. At the same time, flexible simulations can generate the same observable state through more than one route. We therefore froze the model architecture, stochastic envelopes, state definitions and falsification rules before the final external challenge. The purpose of this freezing is not to make model validation the primary biological question; it is to prevent external examples from being used post hoc to redefine mechanisms or rescue failed predictions.
 
@@ -84,7 +84,7 @@ After the ecological mechanism tests were frozen, state-separability diagnostics
 
 The frozen model generated more than one downstream response class under one architecture. In the original residual block, mixed-sign branching occurred in 5 of 12 matched runs, giving a mixed-sign run fraction of 0.4167. The remaining 7 of 12 runs were same-direction despite heterogeneous starting states. Thus a common change in pollinator functional opportunity can produce both lineage branching and same-direction outcomes without changing the model from island to island.
 
-The independent robustness block reproduced the same full-model mixed-sign frequency of 0.4167. H1 was therefore rejected: a common island-like perturbation does not imply a universal post-establishment response direction.
+The independent robustness block reproduced the same full-model mixed-sign frequency of 0.4167. H1 was therefore rejected: a common island-like perturbation does not imply a universal post-establishment response direction (Table 1).
 
 ## 3.2 H2: pre-existing functional position was the replicated minimal branch generator
 
@@ -94,7 +94,7 @@ In the residual ablation, the full model had mixed-sign frequency 0.4167 and mea
 
 The independent block reproduced the same causal boundary. Full-model mixed-sign frequency was 0.4167 with mean within-run balance 0.2917. Removing initial functional-position heterogeneity again reduced both quantities to zero and changed 44 paired lineage signs. Removing trait-adjustment heterogeneity or assurance-ceiling heterogeneity retained mixed-sign frequency 0.4167.
 
-Across two independently seeded frozen blocks, pre-existing lineage functional position was therefore the only tested residual factor whose removal eliminated within-run response-sign branching. Within the declared model, H2 was supported.
+Across two independently seeded frozen blocks, pre-existing lineage functional position was therefore the only tested residual factor whose removal eliminated within-run response-sign branching. Within the declared model, H2 was supported and independently reproduced (Fig. 2).
 
 ## 3.3 H3 and H4: local context reallocated branches, whereas assurance mainly attenuated magnitude
 
@@ -104,7 +104,7 @@ The independent network-context experiment demonstrated why local support should
 
 Autonomous assurance occupied a different response regime. In the independent block, 216 lineages experienced upstream service decline. Assurance reduced the magnitude of reproductive decline in 207 of 216 cases but produced no sign rescues. At saturation values 1, 2 and 3, magnitude attenuation occurred in 71/75, 73/76 and 63/65 declines, respectively, while sign rescue remained zero. A broadened support envelope similarly produced zero sign rescues among 525 eligible declines.
 
-H4 was therefore only partially supported. Assurance robustly attenuated reproductive decline magnitude, but the stronger hypothesis that it reliably reverses the qualitative response sign was not supported.
+For H4, magnitude attenuation was supported but robust sign rescue was rejected. Assurance robustly attenuated reproductive decline magnitude, but the stronger hypothesis that it reliably reverses the qualitative response sign was not supported (Fig. 3).
 
 ## 3.4 H5: response-state diversity recurred across independent island systems
 
@@ -114,13 +114,13 @@ The three branching systems provided independent examples in which one broad eco
 
 Two systems were intentionally not counted as generative successes. Puerto Rico–Mona *Guaiacum* retained a reproductive-axis-decoupling state because a large difference in visitor context coexisted with similar self/outcross seed-set indices while other reproductive axes differed. Dominica *Heliconia* retained a failed signed-position projection: the predeclared negative direction was not recovered and the mapping was not retuned.
 
-H5 was therefore supported at the response-state level. The external series shows that branching, propagation and buffering are recurrent island ecological outcomes, but it does not establish that one empirical mechanism generates all of them.
+H5 was therefore supported at the response-state level. The external series shows that branching, propagation and buffering are recurrent island ecological outcomes, but it does not establish that one empirical mechanism generates all of them (Fig. 4; Table 2).
 
 ## 3.5 Supporting inference boundary
 
 The state-separability analysis reinforced the claim boundary rather than supplying the main biological result. Mixed-sign branching was highly specific but insensitive for initial functional-position heterogeneity within the tested intervention family: specificity was 1.0 but sensitivity 0.4167. Same-direction response was therefore weak evidence for uniform starting states because 0.5833 of heterogeneity-ON runs were also non-mixed. Network-context sign rescue was similarly specific but rare, whereas magnitude attenuation occurred commonly under both network context and assurance.
 
-These diagnostics show why external state compatibility cannot be promoted to empirical mechanism identification. They are retained as supporting evidence and Supplementary detail.
+These diagnostics show why external state compatibility cannot be promoted to empirical mechanism identification. They are retained as supporting evidence and Supplementary detail, while the protected failed and narrowed claims remain explicit (Table 3).
 
 ---
 
@@ -190,10 +190,31 @@ The resulting island-ecology synthesis is therefore conditional rather than synd
 
 ---
 
+## Figure legends
+
+**Figure 1. Frozen model logic for state-dependent island responses.** One shared pollinator-functional perturbation acts on different pre-existing lineage states; local interaction context reallocates branches, and downstream reproductive filters modify propagation. The intervention readouts distinguish branch generation, network-context allocation and autonomous-assurance attenuation.
+
+**Figure 2. Pre-existing functional position is the replicated minimal generator of response branching.** Mixed-sign branching remains in the full residual model and after removal of trait-adjustment or assurance-ceiling heterogeneity, but collapses when initial functional-position heterogeneity is removed. The same boundary occurs in the independently seeded frozen block.
+
+**Figure 3. Local interaction context reallocates response branches whereas autonomous assurance attenuates response magnitude.** Network context produces both sign rescue and worsening among eligible declines. Autonomous assurance attenuates most declines but does not produce robust sign rescue in the independent or broadened envelopes.
+
+**Figure 4. External island-state challenge and inference boundary.** Thirteen strict systems occupy branching, same-direction, buffering/alternative, reproductive-axis-decoupling and retained-falsification classes. Eleven generative challenges are covered or sign-compatible with the frozen state vocabulary; state compatibility does not identify a shared real-world mechanism.
+
+## Table titles
+
+**Table 1. Synthetic island-response state atlas.** Frozen response states generated without system-specific retuning.
+
+**Table 2. Strict external island-system response classes and source boundaries.** The 13-system challenge set and the claim boundary attached to each source-locked assignment.
+
+**Table 3. Protected ecological falsification and inference boundaries.** Frozen failure rules, rejected universal claims and their narrowed replacements.
+
+---
+
 ## Source and claim notes for manuscript completion
 
+- The H1–H5 manuscript passed frozen numerical, external-system, protected-boundary and Main/Supp architecture validation; the machine-readable closeout is `data/design/island_ecology_submission_readiness_20260824.json`.
 - Frozen numerical results remain sourced from the existing v11, v12, independent v12, network-context and assurance result files.
 - The 13-system names, state assignments and source citations remain controlled by `data/design/simulation_manuscript_external_system_reference_matrix.json`.
 - Detailed sensitivity/specificity diagnostics remain supporting material.
 - The method-first MEE drafts are alternative archived framings and are not the current primary manuscript.
-- Journal-specific reference formatting, author information and submission formatting remain editorial tasks and must not trigger new scientific analysis.
+- Journal-specific reference formatting, author/affiliation/declaration information, submission formatting and immutable release archiving remain editorial tasks and must not trigger new scientific analysis.

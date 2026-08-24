@@ -16,4 +16,5 @@ def test_active_routing_doc_points_to_island_ecology_mainline():
     assert "must not survive in the primary island-ecology Discussion" in text
     assert "Unresolved sidelines — preserved but non-blocking" in text
     assert "do not require new simulation, field data or external-system search before submission" in text
-    assert "Validate the assembled H1–H5 primary manuscript" in text
+    assert "The scientific manuscript gate is **passed**" in text
+    assert "Complete journal-specific references" in text

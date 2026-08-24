@@ -15,7 +15,7 @@ def test_manuscript_architecture_keeps_island_ecology_primary():
     assert arch["hypothesis_recovery"] == "data/design/island_ecology_hypothesis_recovery_20260824.json"
     assert arch["primary_manuscript"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
     assert arch["legacy_ecology_first_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
-    assert arch["manuscript_end_state"] == "H1_H5_island_ecology_primary_manuscript_assembled_and_ready_for_frozen_result_validation"
+    assert arch["manuscript_end_state"] == "H1_H5_island_ecology_primary_manuscript_scientifically_validated_and_frozen_for_submission_packaging"
     assert "universal post-establishment" in arch["primary_claim"]
     assert arch["main_results"][0]["question"].startswith("Does a common island-like pollinator functional perturbation")
     assert arch["main_results"][3]["question"].startswith("Does this response-state diversity recur across independent island")
@@ -31,4 +31,4 @@ def test_manuscript_architecture_keeps_island_ecology_primary():
     assert "claim that all thirteen systems share the same empirical causal mechanism" in arch["explicit_exclusions_from_primary_results"]
     assert "state-separability diagnostics as a primary biological result" in arch["explicit_exclusions_from_primary_results"]
     assert "retuning of the Dominica failed mapping" in arch["explicit_exclusions_from_primary_results"]
-    assert arch["next_executable_task"].startswith("validate_primary_manuscript_headline_numbers")
+    assert arch["next_executable_task"].startswith("complete_journal_specific_editorial")

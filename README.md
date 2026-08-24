@@ -15,38 +15,23 @@ rather than merely described as a difference in flower size, mating system, visi
 
 ## Current development mainline
 
-The mechanistic chain is **not yet causally identified**. The active development target is Issue #91: collect the first real direct effective-pollinator dependency pilot for *Campanula microdonta* and move from a field-ready contract to measured plant-level dispersion, coverage/loss, and precision. Reliability of the final direct-dependency predictor is a separate repeated-final-estimand calibration problem, not an automatic output of the focal pilot.
+The active deliverable is the **H1–H5 island-ecology submission package**. The primary scientific hypotheses are closed:
 
-The immediate empirical path is:
+- H1 universal post-establishment response: rejected;
+- H2 state-dependent branching: supported within the declared ABM and independently replicated;
+- H3 network context: supported as a bidirectional branch allocator;
+- H4 assurance: magnitude attenuation supported, robust sign rescue rejected; and
+- H5 cross-island recurrence: supported at the qualitative response-state level.
 
-```text
-first real six-channel field bundle
--> preflight and checksum freeze
--> linked plant / effort / visit / SVD / treatment / fruit / seed records
--> structural dependency admission
--> between-plant SVD and treatment dispersion
--> pilot variance / coverage-loss estimates
--> absolute precision target
--> confirmatory design
+The manuscript has passed frozen numerical, 13-system source-matrix, protected-negative-result and Main/Supp architecture validation. Additional simulation, new field data and further island-system search are not required for the current submission. The next work is journal-specific references, authorship and declaration metadata, main-text/figure/table/Supplement packaging, and immutable release archiving.
 
-separate final-estimand calibration, if empirical reliability is required
--> independent non-overlapping plant panels for repeated taxon x site x season targets
--> calibration-scope dependency reliability
--> transportability review
--> only then possible replacement of synthetic dependency_reliability
-```
-
-Technical SVD recounts estimate pollen-count repeatability only; within-plant flowers or visits and biological dispersion from one unrepeated panel do not identify final predictor reliability.
-
-Until that path is populated with real field data, the repository does **not** claim historical pollinator-loss causation, an Oshima--Toshima causal boundary effect, or a cross-lineage dependency-by-functional-environment interaction.
-
-In parallel, cross-archipelago work may close a missing link in an already source-audited mechanism bridge. The current strongest near-complete bridge is the Xisha *Cordia subcordata* two-island system; it still lacks Dong-specific direct single-visit effectiveness and controlled reproductive-dependency measurements. Source-controlled gates such as the Weigela / Ligustrum / Hosta queue stay parked until genuinely new lawful source material arrives.
+Issue #91 field data, empirical signed-position mapping, network-context/effective-service mapping and a complete external causal bridge remain future empirical programmes. They are not submission gates and must not be used to reopen H1–H5.
 
 Machine-readable routing lives in [`data/design/active_development_mainline.json`](data/design/active_development_mainline.json). The narrative companion is [`docs/ACTIVE_DEVELOPMENT_MAINLINE_20260813.md`](docs/ACTIVE_DEVELOPMENT_MAINLINE_20260813.md).
 
-## Current scientific state
+## Current empirical programme boundary
 
-The source-locked focal Campanula calibration currently retains:
+Separate from the closed submission, the source-locked focal Campanula calibration currently retains:
 
 - **floral size:** continuous erosion across the focal island series;
 - **multilocus outcrossing:** continuous erosion;

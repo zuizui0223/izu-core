@@ -1,11 +1,29 @@
 {
-  "schema_version": "3.3",
-  "updated_on": "2026-08-23",
+  "schema_version": "3.4",
+  "updated_on": "2026-08-24",
   "programme_scope": "comparative_island_pollination_response_programme",
   "programme_unit": "independent_island_system",
   "program_hypothesis": "Pollinator-functional environments can shift in broadly common ways across islands, while plant responses branch because lineages occupy different initial positions in functional trait space and because local support, partner effectiveness and multiple plant-side propagation filters determine whether upstream change reaches reproduction or floral evolution. The programme tests recurring branch structures and discriminates propagation from buffering rather than assuming a universal island syndrome or a single buffering mechanism.",
   "central_question": "Across independent island systems, which upstream pollinator-functional changes recur, which downstream response branches follow, and what determines whether functional change propagates into reproductive or floral evolutionary response?",
-  "claim_state": "state_dependent_branching_supported_network_context_sign_buffering_replicated_assurance_only_robustly_attenuates_guaiacum_reclassified_as_reproductive_axis_decoupling_empirical_network_context_mapping_readiness_zero_of_five_no_real_system_mapping_ready",
+  "submission_mainline": "data/design/simulation_study_mainline_20260824.json",
+  "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
+  "submission_readiness": "data/design/island_ecology_submission_readiness_20260824.json",
+  "claim_state": "H1_rejected_H2_supported_within_declared_ABM_and_independently_replicated_H3_supported_as_bidirectional_branch_allocator_H4_magnitude_attenuation_supported_sign_rescue_rejected_H5_supported_at_qualitative_response_state_level_primary_science_closed_for_submission",
+  "current_submission": {
+    "state": "primary_scientific_hypotheses_closed_for_submission",
+    "hypotheses": {
+      "H1_universal_post_establishment_response": "rejected",
+      "H2_state_dependent_branching": "supported_within_declared_abm_and_independently_replicated",
+      "H3_network_context": "supported_as_bidirectional_branch_allocator_within_declared_abm",
+      "H4_assurance": "magnitude_attenuation_supported_sign_rescue_rejected",
+      "H5_cross_island_recurrence": "supported_at_qualitative_response_state_level"
+    },
+    "additional_simulation_required": false,
+    "new_field_data_required": false,
+    "additional_island_system_search_required": false,
+    "empirical_translation_questions_block_submission": false,
+    "active_gate": "journal_submission_packaging"
+  },
   "comparison_contract": {
     "systems_are_parallel": true,
     "izu_role": "calibration_and_mechanistic_anchor_system_not_programme_center",
@@ -13,8 +31,8 @@
     "no_single_focal_taxon_can_block_programme": true,
     "axis_specific_reproductive_responses_must_not_be_collapsed": true,
     "response_axis_registry": "data/design/island_comparative_response_axis_registry.json",
-    "system_agnostic_validation_registry": "data/design/system_agnostic_multi_system_validation_gate.json",
-    "system_agnostic_validation_result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
+    "system_agnostic_validation_registry": "data/design/system_agnostic_multi_system_validation_gate_v2.json",
+    "system_agnostic_validation_result": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json",
     "buffer_mechanism_admission_interface": "data/design/buffer_mechanism_abm_admission_interface.json",
     "buffer_prediction_ledger": "data/design/cross_system_buffer_prediction_ledger.json",
     "network_context_empirical_prediction_freeze": "data/design/network_context_empirical_prediction_freeze.json",
@@ -59,14 +77,16 @@
       "interpretation": "These are synthetic roles in the declared ABM. Network context can both rescue and worsen matched responses, so it is a context-dependent branch allocator with buffering capacity rather than a universal protective mechanism."
     },
     "system_agnostic_validation_gate": {
-      "path": "data/design/system_agnostic_multi_system_validation_gate.json",
-      "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
-      "status": "strict_harness_updated_after_network_buffer_replication_and_guaiacum_axis_correction",
-      "branching_cases_covered": 1,
-      "same_direction_sign_compatible": 1,
+      "path": "data/design/system_agnostic_multi_system_validation_gate_v2.json",
+      "result": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json",
+      "status": "global_54_unit_screen_and_13_system_strict_challenge_frozen",
+      "branching_cases_covered": 3,
+      "same_direction_sign_compatible": 6,
       "buffering_state_class_available_but_empirical_mechanism_unmapped": 2,
       "reproductive_axis_decoupling_constraints": 1,
       "retained_falsifications": 1,
+      "generative_challenges_covered_or_sign_compatible": 11,
+      "generative_challenges_total": 11,
       "campanula_specific_tuning_allowed": false
     },
     "buffer_mechanism_admission": {
@@ -128,13 +148,13 @@
       "id": "P0",
       "name": "scientific_state_protection_and_cleanup_guard",
       "priority": 0,
-      "status": "active"
+      "status": "submission_state_protection_active"
     },
     {
       "id": "P1",
       "name": "island_system_response_matrix",
       "priority": 1,
-      "status": "active",
+      "status": "frozen_for_current_submission_future_programme",
       "objective": "Keep propagation, buffering, branching, falsification and reproductive-axis decoupling distinct across independent island systems."
     },
     {
@@ -143,7 +163,7 @@
       "priority": 1,
       "issue": 93,
       "bridge_issue": 100,
-      "status": "synthetic_roles_decomposed_empirical_network_context_mapping_readiness_zero_of_five",
+      "status": "future_empirical_programme_not_submission_blocker",
       "stages": [
         {
           "stage": "A",
@@ -173,8 +193,8 @@
         {
           "stage": "F",
           "name": "system_agnostic_abm_validation",
-          "current_state": "branching and network-context buffering state classes synthetically available; empirical mappings remain partial; Dominica failure retained",
-          "result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json"
+          "current_state": "thirteen strict systems freeze three branching six same-direction two buffering-or-alternative one axis-decoupling and one retained-falsification states; all eleven generative challenges covered or sign-compatible",
+          "result": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json"
         },
         {
           "stage": "G",
@@ -203,31 +223,35 @@
       "name": "izu_calibration_and_direct_dependency_anchor",
       "priority": 2,
       "issue": 91,
-      "status": "implementation_ready_field_data_missing",
+      "status": "future_programme_not_submission_blocker_field_data_missing",
       "role": "parallel_mechanistic_anchor_not_programme_center"
     },
     {
       "id": "P4",
       "name": "system_specific_axis_completion",
       "priority": 2,
-      "status": "source_triggered_only",
+      "status": "future_programme_source_triggered_only_not_submission_blocker",
       "rule": "Close the five named network-context mapping gates or other source-locked response-axis gaps in any island system; do not transport values or privilege Izu."
     },
     {
       "id": "P5",
       "name": "source_controlled_reopen_gates",
       "priority": 3,
-      "status": "wait_for_named_or_prospective_triggers"
+      "status": "future_programme_wait_for_named_or_prospective_triggers"
     },
     {
       "id": "P6",
       "name": "implementation_consolidation",
       "priority": 3,
-      "status": "parallel_conservative_cleanup"
+      "status": "future_programme_optional_conservative_cleanup"
     }
   ],
-  "next_executable_task": "accept_the_first_named_source_or_prospective_island_system_that_closes_all_five_network_context_mapping_gates_and_test_the_frozen_rate_weighted_effective_service_prediction_without_repeating_exhausted_guaiacum_or_nicotiana_source_routes_or_privileging_campanula",
+  "next_executable_task": "complete_journal_specific_reference_author_declaration_figure_table_supplement_and_archival_packaging_without_reopening_H1_H5_or_starting_new_empirical_search",
   "not_mainline": [
+    "additional_simulation_for_the_current_submission",
+    "new_field_data_as_a_current_submission_gate",
+    "additional_island_system_search_for_the_current_submission",
+    "empirical_translation_questions_as_current_submission_blockers",
     "whole_reproduction_buffer_label_from_stable_breeding_system_index_alone",
     "restoring_guaiacum_to_buffer_portfolio_without_new_reproductive_buffer_evidence",
     "visitor_assemblage_difference_as_service_redundancy_without_per_visit_effectiveness",

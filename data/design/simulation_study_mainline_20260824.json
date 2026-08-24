@@ -5,6 +5,7 @@
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
   "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
   "hypothesis_recovery_prose": "docs/ISLAND_ECOLOGY_HYPOTHESIS_RECOVERY_20260824.md",
+  "submission_readiness": "data/design/island_ecology_submission_readiness_20260824.json",
   "manuscript_reassembly_spec": "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md",
   "global_archipelago_state": "data/design/global_archipelago_programme_state_20260824.json",
   "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
@@ -72,9 +73,9 @@
   "hypothesis_status": {
     "H1_universal_post_establishment_response": "rejected",
     "H2_state_dependent_branching": "supported_within_declared_abm_and_independently_replicated",
-    "H3_context_dependent_branch_allocation": "supported_bidirectionally_within_declared_abm",
-    "H4_autonomous_assurance_buffering": "partially_supported_magnitude_attenuation_only",
-    "H5_cross_island_response_architecture_recurrence": "supported_at_qualitative_state_level"
+    "H3_context_dependent_branch_allocation": "supported_as_bidirectional_branch_allocator_within_declared_abm",
+    "H4_autonomous_assurance_buffering": "magnitude_attenuation_supported_sign_rescue_rejected",
+    "H5_cross_island_response_architecture_recurrence": "supported_at_qualitative_response_state_level"
   },
   "submission_logic": {
     "primary_scientific_hypotheses_closed": true,
@@ -115,18 +116,18 @@
     {"name": "state_separability_method_layer", "status": "validated_but_demoted_to_supporting_role"},
     {"name": "island_ecology_core_story_recentered", "status": "complete"},
     {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen_and_unresolved_sidelines_classified"},
-    {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"}
+    {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"},
+    {"name": "island_ecology_manuscript_validation", "status": "passed_against_frozen_results_external_reference_matrix_and_protected_boundaries"}
   ],
   "active_gate": {
-    "name": "island_ecology_manuscript_validation",
-    "goal": "Validate the new H1-H5 primary manuscript against frozen numerical results, protected negative outcomes, the 13-system source matrix and the ecological Main/Supp architecture before journal-specific formatting.",
+    "name": "journal_submission_packaging",
+    "goal": "Complete journal-specific references, authorship metadata, declarations, formatting and immutable release archiving without changing the frozen H1-H5 science.",
     "required_outputs": [
-      "all_headline_numbers_match_frozen_results",
-      "all_13_external_system_names_and_state_classes_match_source_matrix",
-      "Dominica_and_Guaiacum_boundaries_preserved",
-      "no_method_first_main_result_heading",
-      "no_new_empirical_or_simulation_claims",
-      "main_figures_and_tables_match_ecological_architecture"
+      "target_journal_and_article_type_selected",
+      "reference_list_formatted_and_checked_against_source_matrix",
+      "author_affiliation_contribution_and_declaration_metadata_supplied",
+      "main_text_figures_tables_and_supplement_packaged_to_journal_rules",
+      "submission_release_tagged_and_archived_with_an_immutable_identifier"
     ]
   },
   "not_mainline": [
@@ -147,5 +148,5 @@
     "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
     "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands"
   ],
-  "next_executable_task": "validate_H1_H5_primary_manuscript_against_frozen_results_external_reference_matrix_and_protected_boundaries_then_freeze_journal_ready_ecology_draft"
+  "next_executable_task": "select_target_journal_and_complete_reference_author_declaration_figure_table_supplement_and_archival_packaging_without_reopening_H1_H5"
 }

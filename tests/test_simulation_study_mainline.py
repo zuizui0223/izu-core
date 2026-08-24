@@ -11,7 +11,7 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert state["field_data_required_for_primary_claim"] is False
     assert state["empirical_mechanism_mapping_required_for_primary_claim"] is False
     assert state["external_system_role"] == "comparative_held_out_island_response_state_challenge_not_parameter_calibration"
-    assert state["active_gate"]["name"] == "island_ecology_manuscript_validation"
+    assert state["active_gate"]["name"] == "journal_submission_packaging"
     assert state["primary_ecological_contribution"].startswith("a_state_dependent_island_response_model")
     assert state["core_story"] == "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md"
     assert state["hypothesis_recovery"] == "data/design/island_ecology_hypothesis_recovery_20260824.json"
@@ -42,9 +42,9 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     hypotheses = state["hypothesis_status"]
     assert hypotheses["H1_universal_post_establishment_response"] == "rejected"
     assert hypotheses["H2_state_dependent_branching"] == "supported_within_declared_abm_and_independently_replicated"
-    assert hypotheses["H3_context_dependent_branch_allocation"] == "supported_bidirectionally_within_declared_abm"
-    assert hypotheses["H4_autonomous_assurance_buffering"] == "partially_supported_magnitude_attenuation_only"
-    assert hypotheses["H5_cross_island_response_architecture_recurrence"] == "supported_at_qualitative_state_level"
+    assert hypotheses["H3_context_dependent_branch_allocation"] == "supported_as_bidirectional_branch_allocator_within_declared_abm"
+    assert hypotheses["H4_autonomous_assurance_buffering"] == "magnitude_attenuation_supported_sign_rescue_rejected"
+    assert hypotheses["H5_cross_island_response_architecture_recurrence"] == "supported_at_qualitative_response_state_level"
 
     submission = state["submission_logic"]
     assert submission["primary_scientific_hypotheses_closed"] is True
@@ -60,6 +60,7 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
 
     completed = {row["name"]: row["status"] for row in state["completed_gates"]}
     assert completed["island_ecology_H1_H5_primary_manuscript_assembled"] == "complete"
+    assert completed["island_ecology_manuscript_validation"].startswith("passed_against_frozen_results")
 
     assert "method_first_MEE_framing_as_primary_story" in state["not_mainline"]
     assert "inverse_problem_as_primary_discussion_result" in state["not_mainline"]
@@ -71,4 +72,4 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert "unresolved_empirical_translation_sidelines_as_submission_blockers" in state["not_mainline"]
     assert "retuning_dominica_signed_position_mapping" in state["not_mainline"]
     assert "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands" in state["not_mainline"]
-    assert state["next_executable_task"].startswith("validate_H1_H5_primary_manuscript")
+    assert state["next_executable_task"].startswith("select_target_journal")

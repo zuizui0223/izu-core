@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<title>External island-state challenge and diagnostic asymmetry</title>
+<text x="40" y="40" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="bold" text-anchor="start">Fig4. External island-state challenge and diagnostic asymmetry</text>
+<text x="45" y="78" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold" text-anchor="start">A  Thirteen strict external systems</text>
+<text x="55" y="110" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" text-anchor="start">system</text>
+<text x="500" y="110" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" text-anchor="start">observed state</text>
+<text x="770" y="110" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" text-anchor="start">frozen reading</text>
+<text x="55" y="128" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">izu_multi_taxon_hiraiwa</text>
+<text x="500" y="128" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">branching</text>
+<text x="770" y="128" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">covered</text>
+<text x="55" y="151" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">ogasawara_psychotria_homalosperma</text>
+<text x="500" y="151" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">same-direction</text>
+<text x="770" y="151" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">sign-compatible</text>
+<text x="55" y="174" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">hawaii_lobelioids_2026</text>
+<text x="500" y="174" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">buffering</text>
+<text x="770" y="174" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">class available</text>
+<rect x="42" y="183" width="1000" height="20" fill="#eee" stroke="none" />
+<text x="55" y="197" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">dominica_heliconia</text>
+<text x="500" y="197" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">falsification</text>
+<text x="770" y="197" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">retained failure</text>
+<text x="55" y="220" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">california_channel_islands_nicotiana_glauca</text>
+<text x="500" y="220" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">buffer/alternative</text>
+<text x="770" y="220" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">class available</text>
+<text x="55" y="243" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">puerto_rico_mona_guaiacum</text>
+<text x="500" y="243" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">axis decoupling</text>
+<text x="770" y="243" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">constraint</text>
+<text x="55" y="266" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">caribbean_gesneriaceae_island_mainland</text>
+<text x="500" y="266" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">branching</text>
+<text x="770" y="266" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">covered</text>
+<text x="55" y="289" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">new_zealand_rhabdothamnus</text>
+<text x="500" y="289" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">same-direction</text>
+<text x="770" y="289" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">sign-compatible</text>
+<text x="55" y="312" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">mariana_guam_saipan_bird_loss</text>
+<text x="500" y="312" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">same-direction</text>
+<text x="770" y="312" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">sign-compatible</text>
+<text x="55" y="335" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">seychelles_ant_disruption</text>
+<text x="500" y="335" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">same-direction</text>
+<text x="770" y="335" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">sign-compatible</text>
+<text x="55" y="358" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">mauritius_roussea_ant_disruption</text>
+<text x="500" y="358" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">same-direction</text>
+<text x="770" y="358" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">sign-compatible</text>
+<text x="55" y="381" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">canary_teide_honeybee_network</text>
+<text x="500" y="381" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">branching</text>
+<text x="770" y="381" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">covered</text>
+<text x="55" y="404" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">bahamas_pavonia_hurricane_pollination</text>
+<text x="500" y="404" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">same-direction</text>
+<text x="770" y="404" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">sign-compatible</text>
+<text x="45" y="455" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold" text-anchor="start">B  Observation-to-mechanism diagnostics</text>
+<text x="55" y="482" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="bold" text-anchor="start">diagnostic</text>
+<text x="610" y="482" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="bold" text-anchor="start">sensitivity</text>
+<text x="750" y="482" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="bold" text-anchor="start">false-positive</text>
+<text x="910" y="482" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="bold" text-anchor="start">specificity</text>
+<text x="55" y="510" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">mixed_sign_branching_for_trait_heterogeneity</text>
+<text x="650" y="510" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.417</text>
+<text x="800" y="510" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.000</text>
+<text x="950" y="510" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">1.000</text>
+<rect x="610" y="517" width="50.0" height="7" fill="#444" stroke="none" />
+<rect x="760" y="517" width="0.0" height="7" fill="#999" stroke="none" />
+<rect x="910" y="517" width="120.0" height="7" fill="#222" stroke="none" />
+<text x="55" y="558" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">same_direction_for_trait_uniformity</text>
+<text x="650" y="558" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">1.000</text>
+<text x="800" y="558" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.583</text>
+<text x="950" y="558" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.417</text>
+<rect x="610" y="565" width="120.0" height="7" fill="#444" stroke="none" />
+<rect x="760" y="565" width="69.99999999999999" height="7" fill="#999" stroke="none" />
+<rect x="910" y="565" width="50.00000000000001" height="7" fill="#222" stroke="none" />
+<text x="55" y="606" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">sign_rescue_for_network_context_vs_assurance</text>
+<text x="650" y="606" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.167</text>
+<text x="800" y="606" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.000</text>
+<text x="950" y="606" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">1.000</text>
+<rect x="610" y="613" width="20.0" height="7" fill="#444" stroke="none" />
+<rect x="760" y="613" width="0.0" height="7" fill="#999" stroke="none" />
+<rect x="910" y="613" width="120.0" height="7" fill="#222" stroke="none" />
+<text x="55" y="654" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="normal" text-anchor="start">magnitude_attenuation_for_assurance_vs_network_context</text>
+<text x="650" y="654" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.958</text>
+<text x="800" y="654" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.885</text>
+<text x="950" y="654" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" text-anchor="middle">0.115</text>
+<rect x="610" y="661" width="115.0" height="7" fill="#444" stroke="none" />
+<rect x="760" y="661" width="106.25" height="7" fill="#999" stroke="none" />
+<rect x="910" y="661" width="13.750000000000004" height="7" fill="#222" stroke="none" />
+<text x="600" y="730" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="normal" text-anchor="middle">State-space compatibility is broad, but inverse mechanism identification is asymmetric; Dominica remains a protected failure.</text>
+</svg>
