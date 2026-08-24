@@ -30,11 +30,13 @@ REVIEW_FILES = (
     "scripts/render_island_ecology_mechanism_figures_svg.py",
     "scripts/render_island_ecology_external_figures_svg.py",
     "tests/test_island_ecology_primary_manuscript.py",
-    "tests/test_island_ecology_jecology_submission_draft.py",
     "tests/test_island_ecology_figure_routing.py",
     "tests/test_island_ecology_submission_manifest.py",
 )
 
+# The anonymous-manuscript identity regression test intentionally contains the
+# forbidden token literal in its assertion, so that test is run in CI but is not
+# itself packaged inside the review archive.
 DEFAULT_DENY_TOKENS = (
     "zuizui0223",
     "github.com/zuizui0223",
