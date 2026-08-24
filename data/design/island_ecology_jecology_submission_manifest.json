@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-24",
+  "journal_target": "Journal of Ecology",
+  "article_type": "Research Article",
+  "primary_scientific_state": "H1_H5_closed_for_submission",
+  "scientific_reopening_required": false,
+  "main_files": {
+    "anonymous_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md",
+    "frozen_scientific_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
+    "figure_captions": "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
+    "reference_map": "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md",
+    "data_code_statement": "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
+    "journal_format_contract": "docs/ISLAND_ECOLOGY_JOURNAL_OF_ECOLOGY_FORMAT_20260824.md"
+  },
+  "main_figures": [
+    {
+      "figure": "Fig1",
+      "output": "figures/generated/Fig1_frozen_model_logic.svg",
+      "renderer": "scripts/render_simulation_manuscript_fig1_svg.py",
+      "role": "island_ecological_response_architecture"
+    },
+    {
+      "figure": "Fig2",
+      "output": "figures/generated/Fig2_minimal_branch_generator.svg",
+      "renderer": "scripts/render_island_ecology_mechanism_figures_svg.py",
+      "role": "replicated_minimal_branch_generator"
+    },
+    {
+      "figure": "Fig3",
+      "output": "figures/generated/Fig3_branch_allocation_buffering_attenuation.svg",
+      "renderer": "scripts/render_island_ecology_mechanism_figures_svg.py",
+      "role": "context_dependent_branch_allocation_and_assurance_attenuation"
+    },
+    {
+      "figure": "Fig4",
+      "output": "figures/generated/Fig4_cross_island_response_architecture.svg",
+      "renderer": "scripts/render_island_ecology_external_figures_svg.py",
+      "role": "cross_island_response_state_recurrence_and_protected_exceptions"
+    }
+  ],
+  "main_tables": [
+    {
+      "table": "Table1",
+      "source": "data/results/frozen_abm_state_atlas_frozen.json",
+      "role": "synthetic_response_state_atlas"
+    },
+    {
+      "table": "Table2",
+      "source": "data/design/simulation_manuscript_external_system_reference_matrix.json",
+      "role": "strict_external_island_system_response_classes_and_source_boundaries"
+    },
+    {
+      "table": "Table3",
+      "source": "data/results/simulation_manuscript_falsification_table_frozen.json",
+      "role": "protected_falsifications_and_claim_boundaries"
+    }
+  ],
+  "supplement": {
+    "state_separability_figure": {
+      "figure": "FigS1",
+      "output": "figures/generated/FigS1_state_separability.svg",
+      "renderer": "scripts/render_island_ecology_external_figures_svg.py",
+      "role": "supporting_inference_guard_not_primary_biological_result"
+    },
+    "external_reference_matrix": "docs/SIMULATION_MANUSCRIPT_EXTERNAL_SYSTEM_REFERENCES_20260824.md",
+    "full_external_source_matrix": "data/design/simulation_manuscript_external_system_reference_matrix.json",
+    "full_factorial_and_robustness_details": true
+  },
+  "review_archive": {
+    "required": true,
+    "anonymous": true,
+    "public_author_identifying_repository_link_in_review_manuscript": false,
+    "immutable_public_archive_with_doi_required_before_final_publication": true,
+    "new_unpublished_field_data_required": false
+  },
+  "separate_submission_files": {
+    "title_page": "pending_author_and_affiliation_metadata",
+    "cover_letter": "pending_after_final_manuscript_validation",
+    "anonymous_review_manuscript": "ready_for_format_validation",
+    "supplement": "ready_for_manifest_assembly"
+  },
+  "future_empirical_tracks_excluded_from_submission_gate": [
+    "real_signed_functional_starting_position",
+    "matched_real_network_context_effective_service_mapping",
+    "complete_external_service_dependency_response_bridge"
+  ],
+  "protected_boundaries": [
+    "thirteen_strict_systems_are_not_a_prevalence_sample",
+    "external_state_compatibility_does_not_identify_one_shared_empirical_mechanism",
+    "guaiacum_is_reproductive_axis_decoupling_not_whole_reproduction_buffering",
+    "dominica_heliconia_is_a_retained_failed_signed_position_projection",
+    "state_separability_is_supporting_inference_guard_only",
+    "no_new_simulation_for_journal_fit"
+  ],
+  "next_executable_task": "validate_anonymous_submission_draft_and_manifest_then_resolve_title_page_metadata_and_anonymized_review_archive"
+}
