@@ -5,49 +5,44 @@ ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / "data/design/simulation_study_mainline_20260824.json"
 
 
-def test_simulation_primary_claim_has_no_field_blocker():
+def test_island_ecology_primary_claim_has_no_field_blocker():
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    assert state["study_type"] == "methodological_simulation_with_qualitative_external_challenges"
+    assert state["study_type"] == "island_ecology_simulation_with_qualitative_external_island_challenges"
     assert state["field_data_required_for_primary_claim"] is False
     assert state["empirical_mechanism_mapping_required_for_primary_claim"] is False
-    assert state["external_system_role"] == "worked_held_out_state_challenge_not_parameter_calibration"
-    assert state["active_gate"]["name"] == "submission_release_preparation"
-    assert state["active_gate"]["required_outputs"] == [
-        "anonymized_review_archive",
-        "title_page_authorship_and_affiliations",
-        "immutable_versioned_code_archive_with_doi",
-    ]
-    assert state["primary_method_contribution"].startswith("frozen_state_separability_analysis")
-    assert state["core_simulation_robustness"]["status"] == "core_simulation_robustness_closed_for_primary_claim"
-    assert state["mechanism_readout"]["branch_generator_independent_replication"] == "replicated_minimal_generator"
-    assert state["final_results_prose"] == "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md"
-    assert state["final_methods_prose"] == "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md"
-    assert state["ecology_first_full_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
-    assert state["mee_method_first_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_MEE_20260824.md"
-    assert state["mee_submission_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_MEE_SUBMISSION_20260824.md"
-    assert state["state_separability_api"] == "channel_id/state_separability.py"
-    assert state["journal_strategy"]["first_target"] == "Methods in Ecology and Evolution"
-    assert state["journal_strategy"]["no_new_analysis_for_journal_fit"] is True
+    assert state["external_system_role"] == "comparative_held_out_island_response_state_challenge_not_parameter_calibration"
+    assert state["active_gate"]["name"] == "island_ecology_manuscript_reassembly"
+    assert state["primary_ecological_contribution"].startswith("a_state_dependent_island_response_model")
+    assert state["core_story"] == "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md"
+    assert state["primary_manuscript"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
 
-    validation = state["submission_package_validation"]
-    assert validation["pull_request"] == 269
-    assert validation["merge_commit"] == "07c67978941f335cecc8a0ba816e2c6157e43d11"
-    assert validation["ci"] == "passed_python_3_10_3_11_3_12"
-    assert validation["exact_frozen_state_separability_regeneration"] is True
-    assert validation["external_reference_matrix_13_systems_validated"] is True
-    assert validation["mee_submission_format_guards_validated"] is True
+    mechanism = state["ecological_mechanism_readout"]
+    assert mechanism["branch_generator_independent_replication"] == "replicated_minimal_generator"
+    assert mechanism["original_full_mixed_sign_run_fraction"] == 0.4166666666666667
+    assert mechanism["independent_full_mixed_sign_run_fraction"] == 0.4166666666666667
+    assert mechanism["original_initial_trait_off_mixed_sign_run_fraction"] == 0.0
+    assert mechanism["independent_initial_trait_off_mixed_sign_run_fraction"] == 0.0
+    assert mechanism["network_context_sign_rescue_count"] == 16
+    assert mechanism["network_context_worsening_count"] == 11
+    assert mechanism["assurance_attenuation_count"] == 207
+    assert mechanism["assurance_sign_rescue_count_independent"] == 0
+    assert mechanism["universal_post_establishment_island_syndrome_supported"] is False
 
-    completed = {row["name"]: row["status"] for row in state["completed_gates"]}
-    assert completed["mee_method_first_reframing_and_reusable_state_separability_api"] == "validated"
-    assert completed["source_level_13_system_reference_supplement"] == "validated"
-    assert completed["mee_standard_article_structure_and_anonymous_peer_review_draft"] == "validated"
-    assert completed["data_code_availability_statement"] == "validated"
-    assert completed["mee_submission_package_validation"] == "completed"
+    current = state["current_state"]
+    assert current["strict_external_systems"] == 13
+    assert current["branching_systems"] == 3
+    assert current["same_direction_systems"] == 6
+    assert current["buffering_or_alternative_systems"] == 2
+    assert current["empirical_axis_decoupling_constraints"] == 1
+    assert current["retained_falsifications"] == 1
 
-    assert state["next_executable_task"] == "prepare_submission_time_anonymized_review_archive_title_page_and_versioned_archival_doi_only"
+    supporting = state["supporting_method_layer"]
+    assert supporting["role"] == "inference_guard_and_supplement_not_primary_scientific_novelty"
+    assert state["archived_alternative_framings"]["status"] == "not_current_mainline_method_first_spin_off_only"
+
+    assert "method_first_MEE_framing_as_primary_story" in state["not_mainline"]
+    assert "claim_that_all_islands_follow_one_post_establishment_reproductive_syndrome" in state["not_mainline"]
+    assert "claim_that_all_thirteen_systems_share_one_empirical_mechanism" in state["not_mainline"]
     assert "collecting_field_data_before_the_primary_simulation_manuscript_is_resolved" in state["not_mainline"]
-    assert "requiring_zero_of_twelve_empirical_network_context_mapping_to_be_closed_before_the_simulation_claim" in state["not_mainline"]
-    assert "rerunning_independent_branch_generator_seeds_until_a_more_favorable_frequency_is_obtained" in state["not_mainline"]
-    assert "adding_new_simulation_only_to_make_the_manuscript_story_cleaner" in state["not_mainline"]
-    assert "adding_new_simulation_only_to_fit_a_target_journal" in state["not_mainline"]
-    assert "reopening_scientific_analysis_during_submission_release_preparation" in state["not_mainline"]
+    assert "retuning_dominica_signed_position_mapping" in state["not_mainline"]
+    assert state["next_executable_task"].startswith("freeze_island_ecology_title_abstract_discussion")
