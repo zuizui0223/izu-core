@@ -11,12 +11,13 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert state["field_data_required_for_primary_claim"] is False
     assert state["empirical_mechanism_mapping_required_for_primary_claim"] is False
     assert state["external_system_role"] == "comparative_held_out_island_response_state_challenge_not_parameter_calibration"
-    assert state["active_gate"]["name"] == "island_ecology_manuscript_alignment"
+    assert state["active_gate"]["name"] == "island_ecology_manuscript_validation"
     assert state["primary_ecological_contribution"].startswith("a_state_dependent_island_response_model")
     assert state["core_story"] == "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md"
     assert state["hypothesis_recovery"] == "data/design/island_ecology_hypothesis_recovery_20260824.json"
     assert state["manuscript_reassembly_spec"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md"
-    assert state["primary_manuscript"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
+    assert state["primary_manuscript"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
+    assert state["legacy_ecology_first_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
 
     mechanism = state["ecological_mechanism_readout"]
     assert mechanism["branch_generator_independent_replication"] == "replicated_minimal_generator"
@@ -57,6 +58,9 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert supporting["role"] == "inference_guard_and_supplement_not_primary_scientific_novelty"
     assert state["archived_alternative_framings"]["status"] == "not_current_mainline_method_first_spin_off_only"
 
+    completed = {row["name"]: row["status"] for row in state["completed_gates"]}
+    assert completed["island_ecology_H1_H5_primary_manuscript_assembled"] == "complete"
+
     assert "method_first_MEE_framing_as_primary_story" in state["not_mainline"]
     assert "inverse_problem_as_primary_discussion_result" in state["not_mainline"]
     assert "state_separability_metrics_as_primary_abstract_conclusion" in state["not_mainline"]
@@ -67,4 +71,4 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert "unresolved_empirical_translation_sidelines_as_submission_blockers" in state["not_mainline"]
     assert "retuning_dominica_signed_position_mapping" in state["not_mainline"]
     assert "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands" in state["not_mainline"]
-    assert state["next_executable_task"].startswith("apply_H1_H5_island_ecology_reassembly")
+    assert state["next_executable_task"].startswith("validate_H1_H5_primary_manuscript")
