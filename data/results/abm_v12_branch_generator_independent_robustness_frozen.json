@@ -1,0 +1,54 @@
+{
+  "analysis": "abm_v12_branch_generator_independent_robustness",
+  "schema_version": "1.0",
+  "run_date": "2026-08-24",
+  "freeze": "data/design/abm_v12_branch_generator_independent_robustness_freeze.json",
+  "seed": 90260825,
+  "design": {
+    "replicates": 4,
+    "lineages": 24,
+    "steps": 120,
+    "saturations": [
+      1.0,
+      2.0,
+      3.0
+    ],
+    "external_targets_loaded": false,
+    "empirical_inputs_loaded": false
+  },
+  "full_residual": {
+    "positive": 196,
+    "negative": 92,
+    "equal": 0,
+    "mixed_sign_run_fraction": 0.4166666666666667,
+    "mean_within_run_branching_balance": 0.29166666666666663
+  },
+  "drop_one": {
+    "initial_trait_heterogeneity": {
+      "mixed_sign_run_fraction": 0.0,
+      "mean_within_run_branching_balance": 0.0,
+      "paired_branch_sign_changes": 44,
+      "paired_branch_sign_change_fraction": 0.1527777777777778
+    },
+    "trait_adjustment_heterogeneity": {
+      "mixed_sign_run_fraction": 0.4166666666666667,
+      "mean_within_run_branching_balance": 0.2847222222222222,
+      "paired_branch_sign_changes": 5,
+      "paired_branch_sign_change_fraction": 0.017361111111111112
+    },
+    "assurance_ceiling_heterogeneity": {
+      "mixed_sign_run_fraction": 0.4166666666666667,
+      "mean_within_run_branching_balance": 0.29166666666666663,
+      "paired_branch_sign_changes": 0,
+      "paired_branch_sign_change_fraction": 0.0
+    }
+  },
+  "all_residual_factors_off": {
+    "mixed_sign_run_fraction": 0.0,
+    "mean_within_run_branching_balance": 0.0,
+    "within_run_branching_collapsed": true
+  },
+  "decision": "replicated_minimal_generator",
+  "stop_rule_honored": true,
+  "claim_boundary": "Independent stochastic replication inside the declared ABM only; no external system was used to select the seed or parameters."
+}
