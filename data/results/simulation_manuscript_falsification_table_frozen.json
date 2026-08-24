@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "study_type": "simulation_with_qualitative_external_island_challenges",
+  "rows": [
+    {
+      "claim_id": "F1_minimal_branch_generator",
+      "claim": "preexisting_lineage_position_is_the_minimal_identified_v12_branch_generator",
+      "falsification_rule": "mixed-sign within-run branching remains after the frozen initial-trait-heterogeneity OFF intervention",
+      "original_block": {
+        "mixed_sign_run_fraction_initial_trait_off": 0.0,
+        "mean_within_run_branching_balance_initial_trait_off": 0.0
+      },
+      "independent_block": {
+        "seed": 90260825,
+        "mixed_sign_run_fraction_initial_trait_off": 0.0,
+        "mean_within_run_branching_balance_initial_trait_off": 0.0
+      },
+      "status": "survives_two_independently_seeded_frozen_blocks",
+      "source_files": [
+        "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
+        "data/results/abm_v12_branch_generator_independent_robustness_frozen.json"
+      ]
+    },
+    {
+      "claim_id": "F2_universal_network_buffer",
+      "claim": "network_context_is_a_universal_protective_buffer",
+      "falsification_rule": "any matched support-ON worsening among eligible support-OFF declines",
+      "current_observation": {
+        "eligible_reproduction_declines": 96,
+        "reproduction_worsening_count": 11,
+        "worsening_fraction": 0.11458333333333333
+      },
+      "status": "rejected",
+      "replacement_claim": "network_context_is_a_bidirectional_branch_allocator_with_buffering_capacity",
+      "source_files": [
+        "data/results/network_context_buffering_capability_ablation_frozen.json",
+        "data/results/network_context_buffering_capability_robustness_frozen.json"
+      ]
+    },
+    {
+      "claim_id": "F3_assurance_strong_sign_buffer",
+      "claim": "autonomous_assurance_is_a_robust_strong_sign_buffer",
+      "falsification_rule": "independent and broadened frozen blocks fail to produce replicated sign rescue",
+      "current_observation": {
+        "independent_sign_rescues": 0,
+        "independent_service_decline_lineages": 216,
+        "broadened_sign_rescues": 0,
+        "broadened_eligible_declines": 525,
+        "independent_magnitude_attenuation_count": 207
+      },
+      "status": "rejected",
+      "replacement_claim": "autonomous_assurance_is_a_robust_magnitude_attenuator_in_the_declared_model",
+      "source_files": [
+        "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json",
+        "data/results/assurance_buffering_capability_ablation_frozen.json"
+      ]
+    },
+    {
+      "claim_id": "F4_dominica_signed_position_mapping",
+      "claim": "the_frozen_dominica_signed_position_projection_predicts_the_observed_direction",
+      "falsification_rule": "observed direction is counterdirectional or nonconcordant with the frozen signed-position prediction",
+      "status": "failed_and_retained",
+      "retuning_allowed": false,
+      "source_files": [
+        "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json"
+      ]
+    },
+    {
+      "claim_id": "F5_future_state_space_coverage",
+      "claim": "the_frozen_state_vocabulary_covers_a_future_predeclared_external_generative_target",
+      "falsification_rule": "a predeclared target falls outside every frozen state class before any model extension",
+      "status": "prospective_rule_not_yet_triggered",
+      "if_triggered": "record_state_space_miss_before_opening_any_new_mechanism_or_parameter_question",
+      "source_files": [
+        "data/design/frozen_abm_state_atlas_contract.json",
+        "data/results/frozen_abm_state_atlas_frozen.json"
+      ]
+    }
+  ],
+  "protected_boundaries": [
+    "do_not_retune_dominica_after_failure",
+    "do_not_describe_network_context_as_universally_protective",
+    "do_not_describe_assurance_as_a_robust_sign_buffer",
+    "do_not_search_additional_seeds_to_improve_the_branch_generator_frequency",
+    "do_not_reclassify_a_future_state_space_miss_after_inspection"
+  ]
+}

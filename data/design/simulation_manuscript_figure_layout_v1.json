@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "main_figures": [
+    {
+      "figure": "Fig1",
+      "title": "Frozen model logic: common perturbation, state-dependent branching and downstream filters",
+      "role": "conceptual_model_map",
+      "panels": [
+        {
+          "panel": "A",
+          "content": "common_pollinator_functional_perturbation",
+          "message": "one upstream shift is shared rather than fitted separately to each island system"
+        },
+        {
+          "panel": "B",
+          "content": "preexisting_lineage_position_in_functional_trait_space",
+          "message": "different starting positions create the possibility of different response signs"
+        },
+        {
+          "panel": "C",
+          "content": "branch_allocation_and_downstream_filters",
+          "message": "local support and partner effectiveness modify branch identity; assurance mainly attenuates magnitude"
+        },
+        {
+          "panel": "D",
+          "content": "observable_state_classes_and_inverse_problem",
+          "message": "branching, same-direction and buffering states are forward outputs, but state-to-mechanism inversion is not one-to-one"
+        }
+      ],
+      "renderer": "scripts/render_simulation_manuscript_fig1_svg.py",
+      "output": "Fig1_frozen_model_logic.svg"
+    },
+    {
+      "figure": "Fig2",
+      "title": "Minimal generator of within-run branching",
+      "role": "causal_ablation_result",
+      "source_data": "data/results/simulation_manuscript_figure_data_frozen.json",
+      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+      "output": "Fig2_minimal_branch_generator.svg",
+      "headline": "initial trait-position heterogeneity removal collapses branching in the original and independently seeded blocks"
+    },
+    {
+      "figure": "Fig3",
+      "title": "Branch allocation, strong buffering and attenuation occupy different synthetic regions",
+      "role": "mechanism_decomposition",
+      "source_data": "data/results/simulation_manuscript_figure_data_frozen.json",
+      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+      "output": "Fig3_branch_allocation_buffering_attenuation.svg",
+      "headline": "network context can rescue or worsen sign while assurance robustly attenuates magnitude without robust sign rescue"
+    },
+    {
+      "figure": "Fig4",
+      "title": "External island-state challenge and diagnostic asymmetry",
+      "role": "external_validity_and_identifiability",
+      "source_data": "data/results/simulation_manuscript_figure_data_frozen.json",
+      "renderer": "scripts/render_simulation_manuscript_figures_svg.py",
+      "output": "Fig4_external_state_identifiability.svg",
+      "headline": "eleven generative external challenges are covered or sign-compatible, but inverse mechanism identification remains asymmetric and Dominica is retained as a failure"
+    }
+  ],
+  "main_tables": [
+    {
+      "table": "Table1",
+      "title": "Frozen synthetic state-generation atlas",
+      "source": "data/results/frozen_abm_state_atlas_frozen.json"
+    },
+    {
+      "table": "Table2",
+      "title": "Observation-to-mechanism diagnostic asymmetry",
+      "source": "data/results/frozen_abm_state_separability_frozen.json"
+    },
+    {
+      "table": "Table3",
+      "title": "Protected falsifications and claim status",
+      "source": "data/results/simulation_manuscript_falsification_table_frozen.json"
+    }
+  ],
+  "supplement_display_priority": [
+    "full_v11_factorial_cells",
+    "independent_v12_branch_generator_replication_details",
+    "network_context_initial_and_independent_blocks",
+    "assurance_independent_and_broadened_envelopes",
+    "54_unit_global_archipelago_screen",
+    "13_system_source_audits",
+    "zero_of_twelve_empirical_mapping_readiness_as_optional_translation_boundary"
+  ],
+  "layout_rule": "Main figures communicate the forward state model, the minimal branch generator, downstream mechanism decomposition, and external/identifiability boundary. Source-audit detail and optional empirical translation remain Supplementary."
+}
