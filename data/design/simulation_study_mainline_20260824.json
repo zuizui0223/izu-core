@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5",
+  "schema_version": "1.6",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "parent_mainline": "data/design/active_development_mainline.json",
@@ -15,7 +15,11 @@
   "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
   "ecology_first_full_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
   "mee_method_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_MEE_20260824.md",
+  "mee_submission_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_MEE_SUBMISSION_20260824.md",
   "journal_positioning": "docs/SIMULATION_MANUSCRIPT_JOURNAL_POSITIONING_20260824.md",
+  "data_code_availability": "docs/SIMULATION_MANUSCRIPT_DATA_CODE_AVAILABILITY_20260824.md",
+  "external_system_reference_matrix": "data/design/simulation_manuscript_external_system_reference_matrix.json",
+  "external_system_reference_supplement": "docs/SIMULATION_MANUSCRIPT_EXTERNAL_SYSTEM_REFERENCES_20260824.md",
   "methods_traceability": "data/design/simulation_manuscript_methods_traceability.json",
   "falsification_table": "data/results/simulation_manuscript_falsification_table_frozen.json",
   "figure_layout": "data/design/simulation_manuscript_figure_layout_v1.json",
@@ -78,24 +82,31 @@
     {"name": "independent_v12_branch_generator_replication", "status": "replicated_minimal_generator"},
     {"name": "final_results_prose_methods_traceability_falsification_and_Fig1_to_Fig4_layout", "status": "frozen"},
     {"name": "full_ecology_first_manuscript_draft", "status": "assembled"},
-    {"name": "mee_method_first_reframing_and_reusable_state_separability_api", "status": "assembled_pending_ci"}
+    {"name": "mee_method_first_reframing_and_reusable_state_separability_api", "status": "assembled_pending_ci"},
+    {"name": "source_level_13_system_reference_supplement", "status": "assembled_pending_ci"},
+    {"name": "mee_standard_article_structure_and_anonymous_peer_review_draft", "status": "assembled_pending_ci"},
+    {"name": "data_code_availability_statement", "status": "assembled_pending_ci"}
   ],
   "active_gate": {
     "name": "mee_submission_package_validation",
-    "goal": "Validate that the reusable state-separability API exactly reproduces the frozen island diagnostics, then complete source-level Supplementary citations and editorial shortening without reopening simulation analysis.",
+    "goal": "Validate exact frozen state-separability regeneration, the reusable API, 13-system source registry and MEE submission-format guards without reopening simulation analysis.",
     "required_outputs": [
       "exact_frozen_state_separability_regeneration_after_api_refactor",
       "source_level_13_system_supplementary_reference_matrix",
-      "mee_length_and_structure_edit",
+      "mee_standard_article_structure_abstract_1_to_4_and_anonymous_code_statement",
       "data_code_availability_statement",
       "submission_ready_method_first_manuscript"
-    ]
+    ],
+    "assembled_before_ci": true
   },
   "journal_strategy": {
     "first_target": "Methods in Ecology and Evolution",
     "first_target_condition": "foreground_reusable_state_separability_method_island_pollination_as_worked_test_case",
     "fallback": "Ecological Modelling",
-    "no_new_analysis_for_journal_fit": true
+    "no_new_analysis_for_journal_fit": true,
+    "mee_standard_article_max_words": 8000,
+    "mee_abstract_numbered_parts": 4,
+    "double_anonymous_review": true
   },
   "optional_empirical_extension": {
     "issue91_field_bundle": "useful_for_future_real_world_mechanism_identification_but_not_needed_for_primary_simulation_study",
@@ -113,5 +124,5 @@
     "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
     "adding_new_simulation_only_to_fit_a_target_journal"
   ],
-  "next_executable_task": "run_ci_to_verify_state_separability_api_exactly_regenerates_frozen_diagnostics_then_build_the_13_system_source_reference_supplement_and_shorten_the_method_first_draft_for_MEE"
+  "next_executable_task": "open_pull_request_and_run_ci_for_the_complete_MEE_method_first_submission_package_then_merge_if_exact_regeneration_and_format_source_guards_pass"
 }
