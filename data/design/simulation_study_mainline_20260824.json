@@ -1,14 +1,19 @@
 {
-  "schema_version": "1.8",
+  "schema_version": "2.0",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
+  "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
+  "hypothesis_recovery_prose": "docs/ISLAND_ECOLOGY_HYPOTHESIS_RECOVERY_20260824.md",
+  "manuscript_reassembly_spec": "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md",
   "global_archipelago_state": "data/design/global_archipelago_programme_state_20260824.json",
   "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
   "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
-  "primary_manuscript": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
+  "primary_manuscript": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
+  "legacy_ecology_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
+  "primary_title_abstract": "docs/ISLAND_ECOLOGY_PRIMARY_ABSTRACT_20260824.md",
   "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
   "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
   "methods_traceability": "data/design/simulation_manuscript_methods_traceability.json",
@@ -64,6 +69,26 @@
     "assurance_boundary": "assurance_mainly_dampens_response_magnitude_in_the_tested_model",
     "external_boundary": "cross_island_state_recurrence_supports_generality_of_response_architecture_not_one_shared_empirical_mechanism"
   },
+  "hypothesis_status": {
+    "H1_universal_post_establishment_response": "rejected",
+    "H2_state_dependent_branching": "supported_within_declared_abm_and_independently_replicated",
+    "H3_context_dependent_branch_allocation": "supported_bidirectionally_within_declared_abm",
+    "H4_autonomous_assurance_buffering": "partially_supported_magnitude_attenuation_only",
+    "H5_cross_island_response_architecture_recurrence": "supported_at_qualitative_state_level"
+  },
+  "submission_logic": {
+    "primary_scientific_hypotheses_closed": true,
+    "unresolved_empirical_sidelines_block_submission": false,
+    "new_simulation_required": false,
+    "new_field_data_required": false,
+    "new_external_system_search_required": false,
+    "highest_value_future_test": "outcome_blind_source_native_signed_functional_position_mapping",
+    "future_empirical_tests": [
+      "real_signed_functional_starting_position",
+      "matched_real_network_context_effective_service_mapping",
+      "complete_external_service_dependency_response_bridge"
+    ]
+  },
   "supporting_method_layer": {
     "state_separability_result": "data/results/frozen_abm_state_separability_frozen.json",
     "state_separability_api": "channel_id/state_separability.py",
@@ -73,7 +98,9 @@
   "protected_boundaries": {
     "guaiacum": "reproductive_axis_decoupling_constraint_not_whole_reproduction_buffering",
     "dominica_heliconia": "retained_failed_frozen_signed_position_projection_no_retuning",
-    "state_compatibility": "does_not_identify_real_world_causal_mechanism"
+    "state_compatibility": "does_not_identify_real_world_causal_mechanism",
+    "external_set": "strict_state_challenge_set_not_prevalence_sample",
+    "functional_coordinate": "synthetic_relative_position_not_empirically_equated_to_one_named_trait"
   },
   "archived_alternative_framings": {
     "mee_method_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_MEE_20260824.md",
@@ -86,31 +113,39 @@
     {"name": "global_54_unit_screen_and_13_strict_external_challenge", "status": "frozen"},
     {"name": "results_methods_falsification_and_Fig1_to_Fig4_assets", "status": "frozen"},
     {"name": "state_separability_method_layer", "status": "validated_but_demoted_to_supporting_role"},
-    {"name": "island_ecology_core_story_recentered", "status": "current"}
+    {"name": "island_ecology_core_story_recentered", "status": "complete"},
+    {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen_and_unresolved_sidelines_classified"},
+    {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"}
   ],
   "active_gate": {
-    "name": "island_ecology_manuscript_reassembly",
-    "goal": "Rewrite the primary title abstract introduction discussion and figure order around the island ecological question of state-dependent branching propagation and buffering while keeping identifiability as an inference boundary.",
+    "name": "island_ecology_manuscript_validation",
+    "goal": "Validate the new H1-H5 primary manuscript against frozen numerical results, protected negative outcomes, the 13-system source matrix and the ecological Main/Supp architecture before journal-specific formatting.",
     "required_outputs": [
-      "island_ecology_primary_title_and_abstract",
-      "island_syndrome_vs_post_establishment_response_framing",
-      "mechanistic_story_initial_state_to_branch_allocation_to_assurance",
-      "cross_island_13_system_ecological_synthesis",
-      "main_vs_supp_reassignment_of_state_separability"
+      "all_headline_numbers_match_frozen_results",
+      "all_13_external_system_names_and_state_classes_match_source_matrix",
+      "Dominica_and_Guaiacum_boundaries_preserved",
+      "no_method_first_main_result_heading",
+      "no_new_empirical_or_simulation_claims",
+      "main_figures_and_tables_match_ecological_architecture"
     ]
   },
   "not_mainline": [
     "method_first_MEE_framing_as_primary_story",
+    "inverse_problem_as_primary_discussion_result",
+    "state_separability_metrics_as_primary_abstract_conclusion",
     "claim_that_all_islands_follow_one_post_establishment_reproductive_syndrome",
     "claim_that_all_thirteen_systems_share_one_empirical_mechanism",
+    "treating_thirteen_strict_systems_as_a_prevalence_sample",
     "collecting_field_data_before_the_primary_simulation_manuscript_is_resolved",
+    "unresolved_empirical_translation_sidelines_as_submission_blockers",
     "retuning_abm_to_any_of_the_13_external_systems",
     "adding_new_mechanisms_to_rescue_a_known_external_failure",
     "reopening_unrestricted_archipelago_search_to_raise_case_counts",
     "treating_qualitative_state_compatibility_as_empirical_causal_identification",
     "retuning_dominica_signed_position_mapping",
     "rerunning_independent_branch_generator_seeds_until_a_more_favorable_frequency_is_obtained",
-    "adding_new_simulation_only_to_make_the_manuscript_story_cleaner"
+    "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
+    "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands"
   ],
-  "next_executable_task": "freeze_island_ecology_title_abstract_discussion_and_main_figure_order_from_existing_frozen_results_without_new_simulation_or_field_data"
+  "next_executable_task": "validate_H1_H5_primary_manuscript_against_frozen_results_external_reference_matrix_and_protected_boundaries_then_freeze_journal_ready_ecology_draft"
 }
