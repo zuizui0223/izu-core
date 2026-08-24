@@ -54,7 +54,7 @@ def build() -> dict:
         "analysis": "abm_v12_branch_generator_independent_robustness",
         "schema_version": "1.0",
         "run_date": "2026-08-24",
-        "freeze": str(FREEZE.relative_to(ROOT)),
+        "freeze": FREEZE.relative_to(ROOT).as_posix(),
         "seed": freeze["independent_seed"],
         "design": {
             "replicates": freeze["replicates"],

@@ -56,7 +56,7 @@ def digest(payload: bytes, algorithm: str) -> str:
 def portable_path(path: Path) -> str:
     resolved = path.resolve()
     try:
-        return str(resolved.relative_to(ROOT))
+        return resolved.relative_to(ROOT).as_posix()
     except ValueError:
         return str(resolved)
 
