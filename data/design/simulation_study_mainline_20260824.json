@@ -1,11 +1,13 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "parent_mainline": "data/design/active_development_mainline.json",
   "global_archipelago_state": "data/design/global_archipelago_programme_state_20260824.json",
   "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
+  "state_separability_result": "data/results/frozen_abm_state_separability_frozen.json",
+  "paper_result_layer": "docs/FROZEN_ABM_STATE_ATLAS_20260824.md",
   "primary_study_question": "Which island-response state classes can the already-frozen ABM generate, which tested mechanism axes separate those states, and which observations would count as state-space misses or protected falsifications?",
   "study_type": "simulation_with_qualitative_external_challenges",
   "field_data_required_for_primary_claim": false,
@@ -32,14 +34,34 @@
     "partner_effectiveness_role": "branch_identity_modifier",
     "universal_buffer_supported": false
   },
-  "active_gate": {
+  "state_separability_readout": {
+    "mixed_sign_branching_trait_heterogeneity_specificity": 1.0,
+    "mixed_sign_branching_trait_heterogeneity_sensitivity": 0.4166666666666667,
+    "same_direction_trait_uniformity_false_positive_rate": 0.5833333333333333,
+    "network_context_sign_rescue_specificity_against_assurance": 1.0,
+    "network_context_sign_rescue_sensitivity": 0.16666666666666666,
+    "magnitude_attenuation_specificity_against_network_context": 0.11458333333333337,
+    "interpretation": "state_observations_are_asymmetrically_informative_and_inverse_mechanism_identification_is_not_one_to_one"
+  },
+  "completed_gate": {
     "name": "state_separability_and_transition_boundary_robustness",
-    "goal": "Test whether the frozen state labels and mechanism distinctions remain stable under prespecified independent stochastic blocks and already-declared parameter envelopes, without using external island outcomes to choose seeds or parameters.",
-    "priority_outputs": [
+    "status": "frozen",
+    "outputs": [
       "false_positive_and_false_negative_state_classification_rates",
-      "state_transition_boundaries_across_declared_saturation_and_support_envelopes",
-      "which_observations_are_nonidentifying_despite_state_compatibility",
-      "explicit_state_space_miss_rule_before_any_future_external_system_is_scored"
+      "tested_state_transition_boundaries",
+      "nonidentifying_observation_rules",
+      "explicit_state_space_miss_rule"
+    ]
+  },
+  "active_gate": {
+    "name": "manuscript_result_and_falsification_architecture",
+    "goal": "Use the frozen state atlas and diagnostic asymmetry as the primary simulation result, preserving Dominica and universal-buffer failures rather than adding field-data or post-hoc mechanism requirements.",
+    "required_outputs": [
+      "main_results_table_state_generation",
+      "main_results_table_state_identifiability",
+      "falsification_table",
+      "main_vs_supplement_figure_assignment",
+      "explicit_primary_claim_boundary"
     ]
   },
   "optional_empirical_extension": {
@@ -47,12 +69,13 @@
     "network_context_five_gate_mapping": "optional_external_mechanism_translation_not_a_simulation_blocker"
   },
   "not_mainline": [
-    "collecting_field_data_before_simulation_state_separability_is_resolved",
+    "collecting_field_data_before_the_primary_simulation_manuscript_is_resolved",
     "retuning_abm_to_any_of_the_13_external_systems",
     "adding_new_mechanisms_to_rescue_a_known_external_failure",
     "reopening_unrestricted_archipelago_search_to_raise_case_counts",
     "treating_qualitative_state_compatibility_as_empirical_causal_identification",
-    "retuning_dominica_signed_position_mapping"
+    "retuning_dominica_signed_position_mapping",
+    "requiring_zero_of_twelve_empirical_network_context_mapping_to_be_closed_before_the_simulation_claim"
   ],
-  "next_executable_task": "build_and_freeze_a_state_separability_audit_from_prespecified_independent_stochastic_blocks_and_already_declared_parameter_envelopes_then_use_it_to_define_the_paper_level_results_and_falsification_table"
+  "next_executable_task": "freeze_the_manuscript_level_results_falsification_and_figure_architecture_from_the_existing_state_atlas_without_new_model_tuning_or_field_data"
 }
