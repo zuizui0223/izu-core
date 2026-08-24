@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.1",
+  "updated_on": "2026-08-24",
+  "purpose": "Separate assembly filtering, in-situ evolution and post-establishment interaction response within the plant island-syndrome literature.",
+  "review_level_evidence": {
+    "source": "Ciarle and Burns 2025",
+    "doi": "10.1080/0028825X.2024.2377418",
+    "scope": "New_Zealand_outlying_islands_review",
+    "globally_proposed_components": 21,
+    "components_investigated_regionally": 16,
+    "well_supported_components": 4,
+    "tentative_components": 9,
+    "components_with_limited_evidence_against_syndrome_membership": 3,
+    "interpretation": "The plant island syndrome is empirically heterogeneous across component traits and should not be treated as one universal causal trajectory."
+  },
+  "layers": {
+    "assembly_filtering": {
+      "definition": "Traits alter long-distance arrival, establishment or persistence probability and therefore change the trait composition of island floras before within-lineage response is considered.",
+      "strongest_claims": [
+        {
+          "claim": "self_compatibility_is_enriched_among_island_species",
+          "status": "strong_support",
+          "sources": [
+            {"citation": "Grossenbacher et al. 2017", "doi": "10.1111/nph.14534", "design": "over_1500_species_three_families", "result": "66_percent_island_self_compatible_vs_41_percent_mainland"},
+            {"citation": "Zell et al. 2025", "doi": "10.1111/nph.20234", "design": "3222_species_169_families", "result": "self_compatibility_strongly_associated_with_island_occurrence"}
+          ]
+        },
+        {
+          "claim": "Bakers_law_is_about_uniparental_reproductive_capacity_not_uniform_high_realized_selfing",
+          "status": "conceptually_supported",
+          "sources": [
+            {"citation": "Pannell et al. 2015", "doi": "10.1111/nph.13539"},
+            {"citation": "Pannell 2015", "doi": "10.1111/mec.13087"}
+          ]
+        },
+        {
+          "claim": "lifespan_and_generalized_pollination_can_interact_with_breeding_system_in_island_colonization",
+          "status": "supported_with_interactions",
+          "sources": [
+            {"citation": "Zell et al. 2025", "doi": "10.1111/nph.20234"},
+            {"citation": "Schrader et al. 2021", "doi": "10.1111/brv.12782"}
+          ]
+        }
+      ]
+    },
+    "in_situ_evolution": {
+      "definition": "Trait change after island colonization relative to a mainland ancestor or sister/source lineage.",
+      "strongest_claims": [
+        {
+          "claim": "island_flowers_do_not_universally_evolve_smaller_size",
+          "status": "universal_claim_rejected",
+          "sources": [
+            {"citation": "Hetherington-Rauth and Johnson 2020", "doi": "10.1086/709018", "design": "556_species_136_phylogenetically_independent_contrasts", "result": "no_overall_flower_size_reduction_with_archipelago_and_family_heterogeneity"}
+          ]
+        },
+        {
+          "claim": "flower_size_evolution_can_be_starting_state_and_pollination_mode_dependent",
+          "status": "supported_regionally",
+          "sources": [
+            {"citation": "Ciarle et al. 2025", "doi": "10.1093/aob/mcaf005", "design": "129_colonization_events_ten_archipelagos", "result": "animal_pollinated_island_rule_vs_wind_pollinated_gigantism"},
+            {"citation": "Mendez 2025", "doi": "10.1093/aob/mcaf053", "role": "filtering_vs_in_situ_evolution_commentary"}
+          ]
+        }
+      ]
+    },
+    "interaction_reorganization": {
+      "definition": "Ecological change in established plant-pollinator systems caused by altered functional diversity, interaction opportunity, rewiring or partner context.",
+      "strongest_claims": [
+        {
+          "claim": "oceanic_pollination_networks_are_often_smaller_and_topologically_simplified_but_not_all_metrics_change_monotonically",
+          "status": "supported_metric_specific",
+          "sources": [
+            {"citation": "Traveset et al. 2016", "doi": "10.1111/geb.12362", "design": "52_quantitative_networks", "result": "lower_interaction_diversity_and_higher_plant_niche_overlap_in_oceanic_networks"}
+          ]
+        },
+        {
+          "claim": "ecological_generalization_is_recurrent_but_floral_traits_do_not_uniquely_predict_interaction_structure",
+          "status": "supported_context_dependent",
+          "sources": [
+            {"citation": "Wang et al. 2020", "doi": "10.1038/s41598-020-70954-7", "design": "55_plant_species_oceanic_island_community", "result": "floral_traits_explained_22_5_percent_of_visitor_preference"}
+          ]
+        },
+        {
+          "claim": "pollinator_functional_diversity_loss_can_reduce_trait_matching_and_pollination_even_when_species_diversity_is_not_the_main_predictor",
+          "status": "strong_support_in_Izu_coastal_system",
+          "sources": [
+            {"citation": "Hiraiwa and Ushimaru 2024", "doi": "10.1111/1365-2435.14527", "design": "40_spatiotemporally_variable_coastal_networks", "result": "functional_diversity_loss_reduced_matching_and_pollination_success"}
+          ]
+        }
+      ]
+    }
+  },
+  "counterexamples_and_limits": [
+    {
+      "claim": "anemophily_or_dioecy_are_not_universally_elevated_on_all_island_floras",
+      "source": "Lord 2015",
+      "doi": "10.1093/aobpla/plv095",
+      "interpretation": "source_flora_and_climate_can_confound_apparent_island_syndromes"
+    },
+    {
+      "claim": "specialist_pollination_niches_can_persist_inside_an_overall_generalized_island_pollination_context",
+      "source": "Abe 2006",
+      "doi": "10.1093/aob/mcl081",
+      "interpretation": "generalization_is_not_equivalent_to_loss_of_all_specialization"
+    }
+  ],
+  "manuscript_claim_boundary": {
+    "do_not_claim": [
+      "island_syndromes_are_false",
+      "all_island_syndrome_components_share_one_causal_mechanism",
+      "island_flowers_universally_shrink",
+      "island_pollination_networks_universally_generalize_in_every_metric",
+      "self_compatibility_implies_high_realized_selfing"
+    ],
+    "preferred_claim": "Aggregate plant island syndromes can arise from selective assembly and repeated conditional evolution, while established lineages exposed to pollinator-functional change can still branch into different post-establishment trajectories.",
+    "current_paper_gap_filled": "mechanistic_post_establishment_response_architecture"
+  }
+}
