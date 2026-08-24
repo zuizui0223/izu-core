@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "purpose": "Quantify which qualitative island-response states are generated in already-frozen ABM experiments, which tested mechanism axes distinguish them, and which observations count as model misses or protected falsifications without adding field-data requirements.",
+  "scope": "simulation_and_external_qualitative_challenge",
+  "field_raw_bundle_required_for_this_study": false,
+  "new_abm_mechanism_allowed": false,
+  "retuning_to_external_systems_allowed": false,
+  "continuous_parameter_coverage_claimed": false,
+  "region_definition": "A state region is a finite, already-tested ABM factor/configuration region. It is not a claim about the full continuous parameter space.",
+  "state_rules": {
+    "branches_downstream": "A matched run contains at least one positive and one negative lineage reproductive response under the same upstream island contrast.",
+    "same_direction_response": "A matched run is non-mixed: all nonzero lineage reproductive responses have the same sign.",
+    "strong_buffering": "A lineage that declines when local support is off becomes nonnegative when the tested support/network-context route is on.",
+    "magnitude_attenuation_without_sign_rescue": "A negative reproductive response becomes less negative under a tested route but remains negative.",
+    "branch_reallocation": "A lineage response sign changes when one tested mechanism factor is toggled in a paired synthetic contrast.",
+    "reproductive_axes_decouple": "Empirical constraint only; not assigned a synthetic generator from the current frozen ABM.",
+    "counterdirectional_prediction": "Protected empirical falsification of a frozen mapping; not treated as a state the ABM should tune itself to reproduce."
+  },
+  "identifiability_rule": "Synthetic mechanism identifiability is assessed only within the declared ABM and tested ablations. Real-world mechanism identification is not inferred from qualitative state compatibility.",
+  "external_challenge_rule": "The 13 strict island systems are qualitative held-out state challenges. Their literature-derived state labels may test state-space coverage without supplying numerical calibration targets.",
+  "falsification_rules": [
+    "If initial trait heterogeneity is removed in the frozen v12 residual gate and within-run mixed-sign branching persists, the minimal-generator claim is falsified.",
+    "If an external strict target is outside every frozen synthetic state class, record a state-space miss rather than adding or tuning a mechanism post hoc.",
+    "Dominica remains a protected failure of the frozen signed-position mapping and must not be retuned away.",
+    "Network context must not be called a universal buffer because the frozen robustness block contains both sign rescues and worsenings.",
+    "Autonomous assurance must not be called a robust strong sign buffer because independent and broadened frozen blocks contain zero sign rescues."
+  ],
+  "source_results": [
+    "data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json",
+    "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
+    "data/results/network_context_buffering_capability_robustness_frozen.json",
+    "data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json",
+    "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json"
+  ]
+}
