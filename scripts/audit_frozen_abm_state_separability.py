@@ -4,6 +4,8 @@ import argparse
 import json
 from pathlib import Path
 
+from channel_id.state_separability import diagnostic_from_frequencies
+
 ROOT = Path(__file__).resolve().parents[1]
 ATLAS = ROOT / "data/results/frozen_abm_state_atlas_frozen.json"
 DEFAULT_OUT = ROOT / "data/results/frozen_abm_state_separability_frozen.json"
@@ -23,14 +25,35 @@ def build() -> dict:
     assurance = states["assurance_attenuation_without_robust_sign_rescue"]
     reallocation = states["branch_reallocation"]
 
-    branching_sensitivity = branching["mixed_sign_run_fraction"]
-    branching_fpr = branching["initial_trait_off_mixed_sign_run_fraction"]
-    same_uniform_sensitivity = same["trait_off_nonmixed_run_fraction"]
-    same_uniform_fpr = same["also_occurs_with_trait_heterogeneity_on_fraction"]
-    network_sign_sensitivity = network["sign_rescue_fraction"]
-    assurance_sign_fpr = assurance["sign_rescue_fraction"]
-    assurance_attenuation_sensitivity = assurance["magnitude_rescue_fraction"]
-    network_attenuation_fpr = network["magnitude_rescue_fraction"]
+    branching_diag = diagnostic_from_frequencies(
+        state="mixed_sign_branching",
+        mechanism_present="initial_trait_heterogeneity_on",
+        mechanism_absent_or_alternative="initial_trait_heterogeneity_off",
+        present_frequency=branching["mixed_sign_run_fraction"],
+        absent_frequency=branching["initial_trait_off_mixed_sign_run_fraction"],
+    )
+    same_diag = diagnostic_from_frequencies(
+        state="same_direction_response",
+        mechanism_present="initial_trait_uniformity",
+        mechanism_absent_or_alternative="initial_trait_heterogeneity_on",
+        present_frequency=same["trait_off_nonmixed_run_fraction"],
+        absent_frequency=same["also_occurs_with_trait_heterogeneity_on_fraction"],
+    )
+    sign_rescue_diag = diagnostic_from_frequencies(
+        state="strong_sign_rescue",
+        mechanism_present="network_context_support",
+        mechanism_absent_or_alternative="autonomous_assurance_route",
+        present_frequency=network["sign_rescue_fraction"],
+        absent_frequency=assurance["sign_rescue_fraction"],
+    )
+    attenuation_diag = diagnostic_from_frequencies(
+        state="magnitude_attenuation",
+        mechanism_present="autonomous_assurance_route",
+        mechanism_absent_or_alternative="network_context_support",
+        present_frequency=assurance["magnitude_rescue_fraction"],
+        absent_frequency=network["magnitude_rescue_fraction"],
+    )
+
     local_reallocation_sensitivity = reallocation["local_support_paired_sign_change_fraction"]
     partner_reallocation_fpr = reallocation["partner_effectiveness_paired_sign_change_fraction"]
 
@@ -53,30 +76,30 @@ def build() -> dict:
         "new_simulation_parameters_selected_from_external_outcomes": False,
         "diagnostics": {
             "mixed_sign_branching_as_trait_heterogeneity_diagnostic": {
-                "sensitivity": branching_sensitivity,
-                "false_negative_rate": 1.0 - branching_sensitivity,
-                "false_positive_rate": branching_fpr,
-                "specificity": 1.0 - branching_fpr,
+                "sensitivity": branching_diag["sensitivity"],
+                "false_negative_rate": branching_diag["false_negative_rate"],
+                "false_positive_rate": branching_diag["false_positive_rate"],
+                "specificity": branching_diag["specificity"],
                 "interpretation": "high_specificity_low_sensitivity_within_v12_residual_gate"
             },
             "same_direction_as_trait_uniformity_diagnostic": {
-                "sensitivity": same_uniform_sensitivity,
-                "false_negative_rate": 1.0 - same_uniform_sensitivity,
-                "false_positive_rate": same_uniform_fpr,
-                "specificity": 1.0 - same_uniform_fpr,
+                "sensitivity": same_diag["sensitivity"],
+                "false_negative_rate": same_diag["false_negative_rate"],
+                "false_positive_rate": same_diag["false_positive_rate"],
+                "specificity": same_diag["specificity"],
                 "interpretation": "nonmixed_state_is_not_mechanistically_identifying"
             },
             "sign_rescue_as_network_context_vs_assurance_diagnostic": {
-                "network_context_sensitivity": network_sign_sensitivity,
-                "false_negative_rate_with_network_context": 1.0 - network_sign_sensitivity,
-                "assurance_false_positive_rate": assurance_sign_fpr,
-                "specificity_against_assurance": 1.0 - assurance_sign_fpr,
+                "network_context_sensitivity": sign_rescue_diag["sensitivity"],
+                "false_negative_rate_with_network_context": sign_rescue_diag["false_negative_rate"],
+                "assurance_false_positive_rate": sign_rescue_diag["false_positive_rate"],
+                "specificity_against_assurance": sign_rescue_diag["specificity"],
                 "interpretation": "high_specificity_low_sensitivity_for_network_context_against_tested_assurance_route"
             },
             "magnitude_attenuation_as_assurance_vs_network_context_diagnostic": {
-                "assurance_sensitivity": assurance_attenuation_sensitivity,
-                "network_context_false_positive_rate": network_attenuation_fpr,
-                "specificity_against_network_context": 1.0 - network_attenuation_fpr,
+                "assurance_sensitivity": attenuation_diag["sensitivity"],
+                "network_context_false_positive_rate": attenuation_diag["false_positive_rate"],
+                "specificity_against_network_context": attenuation_diag["specificity"],
                 "interpretation": "poorly_separable_because_both_routes_commonly_attenuate_declines"
             },
             "paired_sign_reallocation_as_local_support_vs_partner_effectiveness_diagnostic": {
