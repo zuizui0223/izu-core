@@ -1,6 +1,6 @@
 {
   "analysis": "system_agnostic_abm_multi_system_validation_v2",
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "run_date": "2026-08-24",
   "parent_frozen_result": "data/results/system_agnostic_abm_multi_system_validation_frozen.json",
   "input_gate": "data/design/system_agnostic_multi_system_validation_gate_v2.json",
@@ -45,18 +45,20 @@
     {"system_id":"puerto_rico_mona_guaiacum","target_state":"reproductive_axes_decouple","decision":"empirical_axis_decoupling_constraint","generation":"parent"},
     {"system_id":"caribbean_gesneriaceae_island_mainland","target_state":"branches_downstream","decision":"qualitatively_covered_by_frozen_synthetic_branching","generation":"new_external_challenge","mechanism_identified":false},
     {"system_id":"new_zealand_rhabdothamnus","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"new_external_challenge","mechanism_identified":false},
-    {"system_id":"mariana_guam_saipan_bird_loss","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"new_external_challenge","mechanism_identified":false}
+    {"system_id":"mariana_guam_saipan_bird_loss","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"new_external_challenge","mechanism_identified":false},
+    {"system_id":"seychelles_ant_disruption","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"new_external_challenge","mechanism_identified":false},
+    {"system_id":"mauritius_roussea_ant_disruption","target_state":"propagates_same_direction","decision":"sign_class_compatible_mechanism_mapping_not_validated","generation":"new_external_challenge","mechanism_identified":false}
   ],
   "summary": {
-    "systems": 9,
+    "systems": 11,
     "parent_systems": 6,
-    "new_external_challenges": 3,
+    "new_external_challenges": 5,
     "qualitatively_covered_branching": 2,
-    "sign_class_compatible_but_unmapped": 3,
+    "sign_class_compatible_but_unmapped": 5,
     "synthetic_buffering_class_available_empirical_mechanism_unmapped": 2,
     "empirical_axis_decoupling_constraints": 1,
     "retained_falsifications": 1
   },
-  "decision": "nine_system_state_class_challenge_strengthened_branching_replicated_in_two_system_layers_same_direction_challenged_by_three_systems_buffer_mapping_still_unresolved_axis_decoupling_and_dominica_failure_retained",
-  "claim_boundary": "This v2 result inherits frozen ABM capabilities and applies them to predeclared qualitative state classes. It is not a numerical posterior-predictive fit and does not identify the ABM mechanism in Caribbean Gesneriaceae, New Zealand or the Marianas. The protected six-system v1 result remains unchanged."
+  "decision": "eleven_system_state_class_challenge_branching_replicated_in_two_system_layers_same_direction_challenged_by_five_systems_buffer_mapping_still_unresolved_axis_decoupling_and_dominica_failure_retained",
+  "claim_boundary": "This v2 result inherits frozen ABM capabilities and applies them to predeclared qualitative state classes. It is not a numerical posterior-predictive fit and does not identify the ABM mechanism in any newly added system. The protected six-system v1 result remains unchanged."
 }
