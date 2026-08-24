@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-24",
   "analysis": "global_archipelago_pollination_state_screen",
   "purpose": "Screen the major oceanic and small-island archipelago series represented in the plant-pollination/reproductive-biology literature, then separate strict frozen-ABM state-class validation targets from partial mechanism links, filtering/architecture evidence, and unresolved geographic gaps.",
@@ -14,7 +14,7 @@
     "named archipelago and focal-taxon searches performed on 2026-08-24"
   ],
   "admission_tiers": {
-    "A": "strict state-class validation target: an external island-system contrast reaches a downstream reproductive/floral response and can be classified using the already-frozen ABM state vocabulary without retuning",
+    "A": "strict state-class validation target: an external island-system contrast or perturbation reaches a downstream reproductive/floral response and can be classified using the already-frozen ABM state vocabulary without retuning",
     "B": "direct mechanism component or partial propagation chain: useful for constraining support, effectiveness, dependency, replacement, morphology or reproduction, but missing a matched transition link",
     "C": "colonization/filtering, community architecture or macroevolution layer: useful for who reaches/persists on islands or how interaction structure differs, but not a strict ABM propagation-state test",
     "D": "screened geographic gap: no source-comparable chain was recovered in this pass; this is not a claim that no relevant literature exists"
@@ -37,11 +37,11 @@
     {"id":"caribbean_gesneriaceae","region":"Greater/Lesser Antilles Caribbean Gesneriaceae","basin":"Caribbean","tier":"A","strict_system_id":"caribbean_gesneriaceae_island_mainland","state":"branches_downstream","basis":"island hummingbird visitation is lower but lineages use different solutions: generalization, pollination-system transitions or autonomous assurance; no universal autofertility increase","source":"10.1111/1365-2745.12457; 10.1890/08-2115.1","newly_promoted":true},
     {"id":"new_zealand_offshore_refugia","region":"New Zealand North Island and offshore bird sanctuaries","basin":"Southwest Pacific","tier":"A","strict_system_id":"new_zealand_rhabdothamnus","state":"propagates_same_direction","basis":"bird functional loss -> stronger pollen limitation -> 84% lower seed production -> demographic decline","source":"10.1126/science.1199092","newly_promoted":true},
     {"id":"mariana_guam_saipan","region":"Mariana Islands: Guam-Saipan","basin":"Western Pacific","tier":"A","strict_system_id":"mariana_guam_saipan_bird_loss","state":"propagates_same_direction","basis":"brown-treesnake bird extirpation -> zero bird visitation on Guam -> lower seed set in two bird-pollinated plants -> lower Bruguiera recruitment","source":"10.1016/j.biocon.2008.06.014","newly_promoted":true},
+    {"id":"seychelles","region":"Seychelles / Mahe inselbergs","basin":"Western Indian Ocean","tier":"A","strict_system_id":"seychelles_ant_disruption","state":"propagates_same_direction","basis":"ant-exclusion experiments across eight inselbergs and four native plants show invasive-ant presence reduces legitimate flower probing and negatively affects reproduction","source":"10.1016/j.gecco.2023.e02413","newly_promoted":true},
+    {"id":"mauritius","region":"Mauritius","basin":"Western Indian Ocean","tier":"A","strict_system_id":"mauritius_roussea_ant_disruption","state":"propagates_same_direction","basis":"experimental ant removal/exclusion shows invasive ants reduce sole-pollinator gecko access and greatly reduce Roussea simplex seed set","source":"10.1111/j.1744-7429.2008.00473.x","newly_promoted":true},
 
     {"id":"canary","region":"Canary Islands","basin":"North Atlantic","tier":"B","basis":"Lotus maculatus and other endemic systems provide direct exclusion, visitation, pollen transport and reproduction; no matched archipelago transition currently closes the upstream-to-response chain","source":"10.26786/1920-7603(2024)777"},
     {"id":"galapagos_focal","region":"Galapagos focal plant systems","basin":"Eastern Pacific","tier":"B","basis":"bird-insect fitness treatments and network summaries provide complementary-service and architecture evidence; treatment semantics/raw network linkage remain incomplete for a strict transition","source":"10.1002/ajb2.1122"},
-    {"id":"seychelles","region":"Seychelles","basin":"Western Indian Ocean","tier":"B","basis":"visitor-class single-visit reproductive outcomes and autonomous breeding treatments show plant-specific effectiveness, but no matched floral-response transition","source":"10.1002/ajb2.1499"},
-    {"id":"mauritius","region":"Mauritius and Ile aux Aigrettes","basin":"Western Indian Ocean","tier":"B","basis":"restored-versus-unrestored Syzygium reproduction tracks generalist-bird visitation with herbivory context; island-wide networks also show endemic super-generalists"},
     {"id":"xisha","region":"Xisha Islands: Yongxing-Dong","basin":"South China Sea","tier":"B","basis":"near-complete two-island Cordia bridge with morph state, visitation, single-visit pollen deposition and dependency, but Dong-side effectiveness/dependency are missing"},
     {"id":"columbretes","region":"Columbretes Archipelago","basin":"Mediterranean","tier":"B","basis":"Medicago citrina occurs where permanent bee populations are absent; flies replace bees incompletely and natural fruit/seed set is far below hand pollination, directly identifying residual pollen limitation","source":"10.1007/s00606-003-0004-3"},
     {"id":"reunion","region":"Reunion","basin":"Western Indian Ocean","tier":"B","basis":"island Campanulaceae/Orchidaceae systems document pollinator dependence and vertebrate-associated floral shifts, but no matched before/after or paired-island transition closes the chain"},
@@ -73,17 +73,19 @@
   ],
   "summary": {
     "screening_units": 39,
-    "tier_A_strict_targets": 9,
-    "tier_A_newly_promoted": 3,
-    "tier_B_partial_mechanism_or_propagation": 15,
+    "tier_A_strict_targets": 11,
+    "tier_A_newly_promoted": 5,
+    "tier_B_partial_mechanism_or_propagation": 13,
     "tier_C_filtering_architecture": 7,
     "tier_D_screened_gaps": 8,
     "new_strict_targets": [
       "caribbean_gesneriaceae_island_mainland",
       "new_zealand_rhabdothamnus",
-      "mariana_guam_saipan_bird_loss"
+      "mariana_guam_saipan_bird_loss",
+      "seychelles_ant_disruption",
+      "mauritius_roussea_ant_disruption"
     ]
   },
-  "programme_decision": "expand_strict_frozen_state_harness_from_six_to_nine_targets_and_keep_all_other_archipelago_series_in_tiered_nonforced_roles",
+  "programme_decision": "expand_strict_frozen_state_harness_from_six_to_eleven_targets_and_keep_all_other_archipelago_series_in_tiered_nonforced_roles",
   "claim_boundary": "Tier A asks only whether an already-frozen qualitative response class can accommodate an external observed state. It does not identify the real-world ABM mechanism. Tier B/C systems must not be forced into state labels to inflate replication. Tier D records search coverage gaps, not biological absence. No common effect-size meta-analysis is licensed by this screen."
 }
