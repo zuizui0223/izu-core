@@ -1,9 +1,9 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "updated_on": "2026-08-24",
   "parent_frozen_gate": "data/design/system_agnostic_multi_system_validation_gate.json",
   "global_screen": "data/design/global_archipelago_pollination_screen_v1.json",
-  "purpose": "Prospectively expand the protected six-system qualitative validation harness to eleven system targets using the same frozen ABM state vocabulary and no parameter retuning.",
+  "purpose": "Prospectively expand the protected six-system qualitative validation harness to thirteen system targets using the same frozen ABM state vocabulary and no parameter retuning.",
   "rules": {
     "parent_six_system_result_is_not_rewritten": true,
     "no_abm_parameter_retuning": true,
@@ -23,7 +23,9 @@
     {"system_id":"new_zealand_rhabdothamnus","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"native bird functional loss -> stronger pollen limitation -> lower seed production -> lower recruitment/density","source_audit":"data/design/external_validation_new_zealand_rhabdothamnus_source_audit.json"},
     {"system_id":"mariana_guam_saipan_bird_loss","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"bird extirpation -> zero bird visitation on Guam -> lower seed set in two plants -> lower Bruguiera recruitment","source_audit":"data/design/external_validation_mariana_guam_saipan_source_audit.json"},
     {"system_id":"seychelles_ant_disruption","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"invasive-ant presence -> reduced legitimate flower probing -> reduced native plant reproduction","source_audit":"data/design/external_validation_seychelles_ant_disruption_source_audit.json"},
-    {"system_id":"mauritius_roussea_ant_disruption","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"invasive-ant interference -> reduced sole-pollinator gecko access/visitation -> reduced seed set","source_audit":"data/design/external_validation_mauritius_roussea_ant_disruption_source_audit.json"}
+    {"system_id":"mauritius_roussea_ant_disruption","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"invasive-ant interference -> reduced sole-pollinator gecko access/visitation -> reduced seed set","source_audit":"data/design/external_validation_mauritius_roussea_ant_disruption_source_audit.json"},
+    {"system_id":"canary_teide_honeybee_network","target_state":"branches_downstream","status":"new_predeclared_external_target","observed_chain":"common managed-honeybee/network perturbation -> plant-specific exposure -> divergent seed-output responses among five focal plant species","source_audit":"data/design/external_validation_canary_honeybee_network_source_audit.json"},
+    {"system_id":"bahamas_pavonia_hurricane_pollination","target_state":"propagates_same_direction","status":"new_predeclared_external_target","observed_chain":"hurricane-driven bird-pollinator decline -> reduced stigma pollen receipt -> additional pollination limitation -> fruit-set collapse","source_audit":"data/design/external_validation_bahamas_hurricane_pollination_source_audit.json"}
   ],
   "expected_frozen_class_readout_without_rerunning_or_retuning_abm": {
     "branches_downstream": "frozen synthetic capability already demonstrated",
@@ -33,5 +35,5 @@
     "reproductive_axes_decouple": "empirical constraint, not one synthetic state target",
     "counterdirectional_to_frozen_signed_position_prediction": "retained falsification, not model flexibility"
   },
-  "claim_boundary": "Five additions increase independent challenge of already-existing state classes without fitting. New Zealand, the Marianas, Seychelles and Mauritius test qualitative propagation; Caribbean Gesneriaceae tests qualitative branching; the original Dominica failure remains protected."
+  "claim_boundary": "Seven additions increase independent challenge of already-existing state classes without fitting. Caribbean Gesneriaceae and Canary test qualitative branching; New Zealand, Marianas, Seychelles, Mauritius and Bahamas test qualitative propagation; the original Dominica failure remains protected."
 }
