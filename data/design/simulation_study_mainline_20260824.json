@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "updated_on": "2026-08-24",
   "programme": "comparative_island_pollination_response_simulation_study",
   "parent_mainline": "data/design/active_development_mainline.json",
@@ -7,8 +7,10 @@
   "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
   "state_separability_result": "data/results/frozen_abm_state_separability_frozen.json",
+  "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
   "figure_data": "data/results/simulation_manuscript_figure_data_frozen.json",
+  "figure_renderer": "scripts/render_simulation_manuscript_figures_svg.py",
   "paper_result_layer": "docs/FROZEN_ABM_STATE_ATLAS_20260824.md",
   "primary_study_question": "Which island-response state classes can the already-frozen ABM generate, which tested mechanism axes separate those states, and which observations would count as state-space misses or protected falsifications?",
   "study_type": "simulation_with_qualitative_external_challenges",
@@ -29,6 +31,11 @@
   "mechanism_readout": {
     "minimal_branch_generator": "preexisting_lineage_position_in_functional_trait_space",
     "branch_generator_identified_within_declared_abm": true,
+    "branch_generator_independent_replication": "replicated_minimal_generator",
+    "original_full_mixed_sign_run_fraction": 0.4166666666666667,
+    "independent_full_mixed_sign_run_fraction": 0.4166666666666667,
+    "original_initial_trait_off_mixed_sign_run_fraction": 0.0,
+    "independent_initial_trait_off_mixed_sign_run_fraction": 0.0,
     "same_direction_state_mechanistically_unique": false,
     "network_context_strong_buffering_capability": "replicated_but_bidirectional",
     "autonomous_assurance_role": "robust_magnitude_attenuator_not_robust_sign_buffer",
@@ -45,6 +52,13 @@
     "magnitude_attenuation_specificity_against_network_context": 0.11458333333333337,
     "interpretation": "state_observations_are_asymmetrically_informative_and_inverse_mechanism_identification_is_not_one_to_one"
   },
+  "core_simulation_robustness": {
+    "branch_generator_independent_block": "passed_prespecified_replication",
+    "network_context_independent_block": "sign_buffering_replicated_but_bidirectional",
+    "assurance_independent_and_broadened_blocks": "magnitude_attenuation_replicated_sign_rescue_absent",
+    "dominica_external_mapping": "retained_falsification",
+    "status": "core_simulation_robustness_closed_for_primary_claim"
+  },
   "completed_gates": [
     {
       "name": "state_separability_and_transition_boundary_robustness",
@@ -55,18 +69,22 @@
       "status": "frozen"
     },
     {
-      "name": "figure_data_export",
+      "name": "figure_data_export_and_svg_renderer",
       "status": "frozen"
+    },
+    {
+      "name": "independent_v12_branch_generator_replication",
+      "status": "replicated_minimal_generator"
     }
   ],
   "active_gate": {
-    "name": "main_figure_generation_and_stale_blocker_cleanup",
-    "goal": "Generate the main manuscript figures directly from frozen figure data and demote stale documentation that still frames field collection or empirical mapping as a blocker for the primary simulation claim.",
+    "name": "manuscript_results_and_figure_polish",
+    "goal": "Write and polish the primary Results/Falsification narrative and main figures from frozen outputs. Add no new simulation merely to increase favorable counts.",
     "required_outputs": [
-      "Fig2_minimal_branch_generator",
-      "Fig3_branch_allocation_buffering_attenuation",
-      "Fig4_external_state_and_identifiability",
-      "simulation_first_current_state_documentation"
+      "final_results_prose",
+      "final_falsification_table",
+      "final_Fig1_to_Fig4_layout",
+      "methods_traceability_to_frozen_runs"
     ]
   },
   "optional_empirical_extension": {
@@ -80,7 +98,8 @@
     "reopening_unrestricted_archipelago_search_to_raise_case_counts",
     "treating_qualitative_state_compatibility_as_empirical_causal_identification",
     "retuning_dominica_signed_position_mapping",
-    "requiring_zero_of_twelve_empirical_network_context_mapping_to_be_closed_before_the_simulation_claim"
+    "requiring_zero_of_twelve_empirical_network_context_mapping_to_be_closed_before_the_simulation_claim",
+    "rerunning_independent_branch_generator_seeds_until_a_more_favorable_frequency_is_obtained"
   ],
-  "next_executable_task": "generate_Fig2_Fig3_Fig4_from_frozen_figure_data_then_reconcile_stale_docs_to_the_simulation_first_claim_boundary"
+  "next_executable_task": "freeze_final_results_prose_and_methods_traceability_from_existing_frozen_outputs_without_new_field_data_or_additional_parameter_search"
 }
