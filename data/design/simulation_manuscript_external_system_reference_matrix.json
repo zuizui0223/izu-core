@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-24",
+  "purpose": "Source-level reference matrix for the thirteen strict external island-system challenges used in the simulation manuscript. Citations support observed state assignment only; they do not calibrate ABM parameters or identify a shared empirical mechanism.",
+  "strict_system_count": 13,
+  "state_count_contract": {
+    "branches_downstream": 3,
+    "propagates_same_direction": 6,
+    "buffering_or_alternative": 2,
+    "reproductive_axes_decouple": 1,
+    "retained_falsification": 1
+  },
+  "systems": [
+    {
+      "system_id": "izu_multi_taxon_hiraiwa",
+      "display_name": "Izu multi-taxon Hiraiwa–Ushimaru system",
+      "strict_state_group": "branches_downstream",
+      "gate_target_state": "branches_downstream",
+      "primary_references": [
+        {
+          "citation": "Hiraiwa and Ushimaru 2024 functional plant-pollinator network study",
+          "doi": "10.1111/1365-2435.14527",
+          "dataset_doi": "10.6084/m9.figshare.25025000.v1"
+        },
+        {
+          "citation": "Hiraiwa and Ushimaru 2017 reproductive-sensitivity study",
+          "doi": "10.1098/rspb.2016.2218"
+        }
+      ],
+      "source_paths": [
+        "config/hiraiwa_ushimaru_figshare_source.json",
+        "data/predictive_meta/hiraiwa_ushimaru_2017_reproductive_sensitivity.csv",
+        "docs/HIRAIWA_USHIMARU_CROSS_STUDY_TRIANGULATION.md"
+      ],
+      "observed_state_basis": "independent datasets repeatedly reject a uniform downstream plant-response syndrome: shared corrected-matching decline coexists with divergent tube, pollen-receipt and reproductive response modes",
+      "claim_boundary": "cross-study response heterogeneity, not same-estimand replication or a single causal coefficient"
+    },
+    {
+      "system_id": "ogasawara_psychotria_homalosperma",
+      "display_name": "Ogasawara Psychotria homalosperma",
+      "strict_state_group": "propagates_same_direction",
+      "gate_target_state": "propagates_same_direction",
+      "primary_references": [
+        {
+          "citation": "Watanabe et al. 2018, Plant Species Biology 33:16-27",
+          "doi": "10.1111/1442-1984.12183"
+        },
+        {
+          "citation": "Watanabe and Sugawara 2015, AoB PLANTS",
+          "doi": "10.1093/aobpla/plv087"
+        },
+        {
+          "citation": "Watanabe et al. 2014, Flora",
+          "doi": "10.1016/j.flora.2014.09.006"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_bridge_ogasawara_psychotria_source_audit.json"
+      ],
+      "observed_state_basis": "introduced honeybee-dominated access asymmetry -> directional pollen transfer -> strong floral-morph fruit-set asymmetry",
+      "claim_boundary": "qualitative physical-access propagation; not randomized historical pollinator replacement and not a source-native numeric signed-position test"
+    },
+    {
+      "system_id": "hawaii_lobelioids_2026",
+      "display_name": "Hawaiian lobelioid post-extinction pollination system",
+      "strict_state_group": "buffering_or_alternative",
+      "gate_target_state": "buffered_or_resilient",
+      "primary_references": [
+        {
+          "citation": "Case et al. 2026, Functional Ecology, Bird extinctions shift bill-flower trait matching in Hawaiian lobelioids",
+          "doi": "10.1111/1365-2435.70415",
+          "dataset_doi": "10.5061/dryad.sj3tx96kr"
+        },
+        {
+          "citation": "Case et al. 2026, Ecology and Evolution, Mutualism and Antagonism in a Post-Extinction Hawaiian Bird-Lobelioid Pollination System",
+          "doi": "10.1002/ece3.74123"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_bridge_hawaii_lobelioid_2026_source_audit.json"
+      ],
+      "observed_state_basis": "post-extinction signed interaction mismatch and frequent robbing/resource change coexist with high reproductive performance",
+      "claim_boundary": "cross-study buffering boundary; no same-tagged full causal chain and no identified empirical ABM buffer mechanism"
+    },
+    {
+      "system_id": "dominica_heliconia",
+      "display_name": "Dominica Heliconia signed-position projection",
+      "strict_state_group": "retained_falsification",
+      "gate_target_state": "counterdirectional_to_frozen_signed_position_prediction",
+      "primary_references": [
+        {
+          "citation": "Temeles et al. 2013, Journal of Evolutionary Biology",
+          "doi": "10.1111/jeb.12053",
+          "dataset_doi": "10.5061/dryad.64835"
+        },
+        {
+          "citation": "Marten-Rodriguez et al. 2011, Oecologia",
+          "doi": "10.1007/s00442-011-2043-8"
+        }
+      ],
+      "source_paths": [
+        "docs/ABM_V12_HELICONIA_SOURCE_GATE.md",
+        "data/results/abm_v12_heliconia_signed_position_test_frozen.json"
+      ],
+      "observed_state_basis": "frozen negative signed-position prediction failed: the primary cross-unit selection slope was positive and declared sensitivities did not rescue the predicted direction",
+      "claim_boundary": "failure retained; mapping is not retuned and does not falsify the synthetic v12 branch-generator result"
+    },
+    {
+      "system_id": "california_channel_islands_nicotiana_glauca",
+      "display_name": "California Channel Islands Nicotiana glauca",
+      "strict_state_group": "buffering_or_alternative",
+      "gate_target_state": "buffered_or_alternative_mechanism",
+      "primary_references": [
+        {
+          "citation": "Schueller 2004, American Journal of Botany, Self-pollination in island and mainland populations of Nicotiana glauca",
+          "doi": "10.3732/ajb.91.5.672"
+        },
+        {
+          "citation": "Schueller 2007, Evolutionary Ecology, Island-mainland difference in Nicotiana glauca corolla length",
+          "doi": "10.1007/s10682-006-9125-9"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_bridge_nicotiana_source_audit.json"
+      ],
+      "observed_state_basis": "higher island autonomous selfing capacity and corolla differences occur without a detected current island pollinator-service deficit",
+      "claim_boundary": "supports buffering/establishment alternative state, not historical pollinator-mediated causation or a complete matched causal bridge"
+    },
+    {
+      "system_id": "puerto_rico_mona_guaiacum",
+      "display_name": "Puerto Rico-Mona Guaiacum sanctum",
+      "strict_state_group": "reproductive_axes_decouple",
+      "gate_target_state": "reproductive_axes_decouple",
+      "primary_references": [
+        {
+          "citation": "Fumero-Caban, Melendez-Ackerman and Rojas-Sandoval 2022, Journal of Pollination Ecology 32:139-153",
+          "doi": "10.26786/1920-7603(2022)669"
+        }
+      ],
+      "source_paths": [
+        "docs/GUAIACUM_JOINT_SOURCE_AUDIT.md",
+        "data/results/guaiacum_propagation_state_correction.json"
+      ],
+      "observed_state_basis": "large visitor-assemblage and visitation contrast coexists with similar self/outcross seed-set index, while other realized reproductive axes differ",
+      "claim_boundary": "axis-decoupling constraint; must not be collapsed into a whole-reproduction buffering label"
+    },
+    {
+      "system_id": "caribbean_gesneriaceae_island_mainland",
+      "display_name": "Caribbean Gesneriaceae island-mainland radiation",
+      "strict_state_group": "branches_downstream",
+      "gate_target_state": "branches_downstream",
+      "primary_references": [
+        {
+          "citation": "Marten-Rodriguez et al. 2015, Journal of Ecology, A comparison of reproductive strategies between island and mainland Caribbean Gesneriaceae",
+          "doi": "10.1111/1365-2745.12457"
+        },
+        {
+          "citation": "Marten-Rodriguez and Fenster 2010, Ecology, Pollen limitation and reproductive assurance in Antillean Gesnerieae",
+          "doi": "10.1890/08-2115.1"
+        },
+        {
+          "citation": "Marten-Rodriguez et al. 2010, New Phytologist, Evolutionary breakdown of pollination specialization in a Caribbean plant radiation",
+          "doi": "10.1111/j.1469-8137.2010.03330.x"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_bridge_caribbean_gesneriaceae_source_audit.json"
+      ],
+      "observed_state_basis": "lower island hummingbird visitation is associated with lineage-specific generalization, pollination-system transitions and reproductive-assurance alternatives rather than one universal autofertility response",
+      "claim_boundary": "clade-level cross-study branching recurrence; not a matched population-level causal chain and no visit-level effectiveness bridge"
+    },
+    {
+      "system_id": "new_zealand_rhabdothamnus",
+      "display_name": "New Zealand Rhabdothamnus solandri bird-pollination natural experiment",
+      "strict_state_group": "propagates_same_direction",
+      "gate_target_state": "propagates_same_direction",
+      "primary_references": [
+        {
+          "citation": "Anderson et al. 2011, Science, Cascading effects of bird functional extinction reduce pollination and plant density",
+          "doi": "10.1126/science.1199092"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_validation_new_zealand_rhabdothamnus_source_audit.json"
+      ],
+      "observed_state_basis": "native bird functional loss -> stronger pollen limitation -> lower seed production -> lower recruitment/density",
+      "claim_boundary": "strong qualitative propagation natural experiment; not a numerical fit of the ABM trait-position mechanism"
+    },
+    {
+      "system_id": "mariana_guam_saipan_bird_loss",
+      "display_name": "Mariana Guam-Saipan bird-loss natural experiment",
+      "strict_state_group": "propagates_same_direction",
+      "gate_target_state": "propagates_same_direction",
+      "primary_references": [
+        {
+          "citation": "Mortensen, Dupont and Olesen 2008, Biological Conservation 141:2146-2154, A snake in paradise",
+          "doi": "10.1016/j.biocon.2008.06.014"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_validation_mariana_guam_saipan_source_audit.json"
+      ],
+      "observed_state_basis": "bird extirpation -> zero bird visitation on Guam -> lower seed set in two native plants -> lower Bruguiera recruitment",
+      "claim_boundary": "qualitative propagation under a particular snake-driven bird-extirpation natural experiment; not a universal island-isolation mechanism"
+    },
+    {
+      "system_id": "seychelles_ant_disruption",
+      "display_name": "Seychelles invasive-ant pollination disruption",
+      "strict_state_group": "propagates_same_direction",
+      "gate_target_state": "propagates_same_direction",
+      "primary_references": [
+        {
+          "citation": "Global Ecology and Conservation 42 (2023) e02413, Impacts of invasive ants on pollination of native plants are similar in invaded and restored plant communities",
+          "doi": "10.1016/j.gecco.2023.e02413"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_validation_seychelles_ant_disruption_source_audit.json"
+      ],
+      "observed_state_basis": "invasive-ant presence -> reduced flowers probed per visit -> reduced native plant reproduction",
+      "claim_boundary": "within-island experimental/context propagation test; not a unique ABM mechanism or universal restoration effect"
+    },
+    {
+      "system_id": "mauritius_roussea_ant_disruption",
+      "display_name": "Mauritius Roussea simplex invasive-ant disruption",
+      "strict_state_group": "propagates_same_direction",
+      "gate_target_state": "propagates_same_direction",
+      "primary_references": [
+        {
+          "citation": "Hansen and Muller 2009, Biotropica 41:202-208, Invasive Ants Disrupt Gecko Pollination and Seed Dispersal of the Endangered Plant Roussea simplex in Mauritius",
+          "doi": "10.1111/j.1744-7429.2008.00473.x"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_validation_mauritius_roussea_ant_disruption_source_audit.json"
+      ],
+      "observed_state_basis": "invasive-ant interference -> reduced gecko access/visitation -> reduced seed set",
+      "claim_boundary": "within-island experimental propagation; not the ABM trait-position mechanism and not a universal invasive-ant effect"
+    },
+    {
+      "system_id": "canary_teide_honeybee_network",
+      "display_name": "Canary Islands Teide managed-honeybee network experiment",
+      "strict_state_group": "branches_downstream",
+      "gate_target_state": "branches_downstream",
+      "primary_references": [
+        {
+          "citation": "Valido, Rodriguez-Rodriguez and Jordano 2019, Scientific Reports 9:4711, Honeybees disrupt the structure and functionality of plant-pollinator networks",
+          "doi": "10.1038/s41598-019-41271-5"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_validation_canary_honeybee_network_source_audit.json"
+      ],
+      "observed_state_basis": "common managed-honeybee/network perturbation -> plant-specific interaction exposure -> divergent seed-output responses among five focal plant species",
+      "claim_boundary": "multi-plant branching state; reproductive axes remain distinct and the honeybee mechanism is not transported to other island systems"
+    },
+    {
+      "system_id": "bahamas_pavonia_hurricane_pollination",
+      "display_name": "Bahamas Pavonia bahamensis hurricane pollination natural experiment",
+      "strict_state_group": "propagates_same_direction",
+      "gate_target_state": "propagates_same_direction",
+      "primary_references": [
+        {
+          "citation": "Rathcke 2000, Ecology 81:1951-1958, Hurricane causes resource and pollination limitation of fruit set in a bird-pollinated shrub",
+          "doi": "10.1890/0012-9658(2000)081[1951:HCRAPL]2.0.CO;2"
+        }
+      ],
+      "source_paths": [
+        "data/design/external_validation_bahamas_hurricane_pollination_source_audit.json"
+      ],
+      "observed_state_basis": "hurricane-driven bird-pollinator decline -> loss of pollen receipt -> additional pollination limitation -> fruit-set collapse",
+      "claim_boundary": "the source separately identified direct resource limitation; the strict propagation claim concerns the additional pollination-limitation component"
+    }
+  ],
+  "manuscript_boundary": "These references support the source-locked observed-state assignments. They must not be used to imply that qualitative state compatibility identifies the ABM mechanism operating in a real system."
+}
