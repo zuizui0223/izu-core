@@ -1,9 +1,11 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "frozen_on": "2026-08-24",
   "study_type": "island_ecology_simulation_with_qualitative_external_island_challenges",
   "primary_claim": "Island-associated simplification or reorganization of pollinator function does not impose one universal post-establishment plant trajectory. In the frozen ABM, pre-existing lineage functional position generates response branching, local interaction context reallocates branches and can either buffer or worsen propagation, and autonomous assurance mainly attenuates response magnitude. Independent island systems contain the same broad diversity of branching, propagation and buffering states, while axis decoupling and a retained failed prediction prevent a universal-mechanism interpretation.",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
+  "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
+  "manuscript_reassembly_spec": "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md",
   "primary_manuscript": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md",
   "final_results_prose": "docs/SIMULATION_MANUSCRIPT_RESULTS_FROZEN_20260824.md",
   "final_methods_prose": "docs/SIMULATION_MANUSCRIPT_METHODS_FROZEN_20260824.md",
@@ -12,13 +14,13 @@
   "figure_layout": "data/design/simulation_manuscript_figure_layout_v1.json",
   "main_results": [
     {
-      "id": "R1",
+      "id": "R1_H1",
       "question": "Does a common island-like pollinator functional perturbation force one plant response syndrome?",
       "result": "no_one_frozen_architecture_generates_branching_same_direction_and_buffering_states_without_island_specific_retuning",
       "source": "data/results/frozen_abm_state_atlas_frozen.json"
     },
     {
-      "id": "R2",
+      "id": "R2_H2",
       "question": "Why can lineages exposed to the same perturbation respond in opposite directions?",
       "result": "preexisting_lineage_functional_position_is_the_only_tested_residual_factor_whose_removal_collapses_branching_in_two_independently_seeded_blocks",
       "sources": [
@@ -27,7 +29,7 @@
       ]
     },
     {
-      "id": "R3",
+      "id": "R3_H3_H4",
       "question": "What determines whether a lineage propagates, buffers or worsens after the initial perturbation?",
       "result": "local_support_is_a_strong_bidirectional_branch_allocator_network_context_has_buffering_capacity_but_is_not_universally_protective_and_autonomous_assurance_mainly_attenuates_magnitude",
       "sources": [
@@ -37,17 +39,26 @@
       ]
     },
     {
-      "id": "R4",
+      "id": "R4_H5",
       "question": "Does this response-state diversity recur across independent island plant-pollinator systems?",
       "result": "thirteen_strict_systems_span_three_branching_six_same_direction_two_buffering_or_alternative_one_axis_decoupling_and_one_retained_falsification_all_eleven_generative_challenges_are_covered_or_sign_compatible",
       "source": "data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json"
-    },
+    }
+  ],
+  "supporting_results": [
     {
-      "id": "R5",
+      "id": "S1_state_separability",
       "question": "What ecological inference is not justified by state compatibility alone?",
       "result": "external_state_compatibility_does_not_identify_the_real_world_mechanism_same_direction_and_attenuation_are_nonunique_and_dominica_and_guaiacum_remain_protected_boundaries",
       "source": "data/results/frozen_abm_state_separability_frozen.json",
-      "role": "inference_boundary_not_primary_novelty"
+      "role": "inference_guard_and_supplement_not_primary_novelty"
+    },
+    {
+      "id": "S2_starting_state_morphology_recurrence",
+      "question": "Do pre-v12 morphology comparisons independently suggest starting-state-dependent response shape?",
+      "result": "two_independent_OLS_directions_are_below_isometry_but_measurement_error_and_EIV_boundaries_prevent_formal_pooled_or_causal_promotion",
+      "source": "data/design/abm_v12_empirical_trait_position_gate.json",
+      "role": "supporting_context_not_direct_pollinator_matching_validation"
     }
   ],
   "main_figures": [
@@ -97,6 +108,7 @@
   ],
   "supplement": [
     "state-separability sensitivity specificity and inverse-identification diagnostics",
+    "pre-v12 starting-state morphology recurrence with measurement-error and EIV boundaries",
     "full v11 factorial cells and downstream ablations",
     "independent v12 branch-generator robustness block and provenance",
     "network-context initial and independent robustness blocks",
@@ -104,7 +116,7 @@
     "54-unit global archipelago screen and admission tiers",
     "source-level external-system audits",
     "method-first MEE draft retained only as an alternative spin-off framing",
-    "zero-of-twelve empirical network-context mapping readiness as an optional future empirical-translation boundary",
+    "zero-ready strict empirical network-context mapping as an optional future empirical-translation boundary",
     "Issue 91 prospective field protocol as optional future empirical mechanism mapping"
   ],
   "explicit_exclusions_from_primary_results": [
@@ -117,8 +129,9 @@
     "new field raw bundle requirement",
     "formal cross-system effect-size pooling",
     "system-specific ABM parameter fitting",
-    "additional seed search to increase favorable branch-generator frequencies"
+    "additional seed search to increase favorable branch-generator frequencies",
+    "state-separability diagnostics as a primary biological result"
   ],
-  "manuscript_end_state": "island_ecology_primary_story_recentered_on_state_dependent_branching_propagation_and_buffering",
-  "next_executable_task": "rewrite_the_primary_abstract_discussion_and_figure_order_around_island_ecology_while_demoting_state_separability_to_inference_guard_and_supplement"
+  "manuscript_end_state": "island_ecology_primary_story_H1_H5_frozen_with_state_separability_demoted_to_supporting_inference_guard",
+  "next_executable_task": "apply_the_H1_H5_section_order_to_the_primary_manuscript_and_figure_captions_without_new_scientific_analysis"
 }
