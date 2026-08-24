@@ -1,0 +1,206 @@
+{
+  "analysis": "simulation_manuscript_figure_data",
+  "schema_version": "1.0",
+  "run_date": "2026-08-24",
+  "fig2_minimal_branch_generator": [
+    {
+      "configuration": "full_residual",
+      "mixed_sign_run_fraction": 0.4166666666666667,
+      "mean_within_run_branching_balance": 0.2569444444444444,
+      "paired_sign_changes_vs_full": 0
+    },
+    {
+      "configuration": "initial_trait_heterogeneity_off",
+      "mixed_sign_run_fraction": 0.0,
+      "mean_within_run_branching_balance": 0.0,
+      "paired_sign_changes_vs_full": 37
+    },
+    {
+      "configuration": "trait_adjustment_heterogeneity_off",
+      "mixed_sign_run_fraction": 0.4166666666666667,
+      "mean_within_run_branching_balance": 0.2569444444444444,
+      "paired_sign_changes_vs_full": 2
+    },
+    {
+      "configuration": "assurance_ceiling_heterogeneity_off",
+      "mixed_sign_run_fraction": 0.4166666666666667,
+      "mean_within_run_branching_balance": 0.2569444444444444,
+      "paired_sign_changes_vs_full": 0
+    }
+  ],
+  "fig3_branch_allocation_buffering_attenuation": {
+    "branch_reallocation": [
+      {
+        "route": "local_support",
+        "paired_sign_change_fraction": 0.3645833333333333
+      },
+      {
+        "route": "partner_effectiveness",
+        "paired_sign_change_fraction": 0.04513888888888889
+      },
+      {
+        "route": "dependency_heterogeneity",
+        "paired_sign_change_fraction": 0.0
+      }
+    ],
+    "buffering_and_attenuation": [
+      {
+        "route": "network_context",
+        "sign_rescue_fraction": 0.16666666666666666,
+        "magnitude_attenuation_fraction": 0.8854166666666666,
+        "worsening_fraction": 0.11458333333333333
+      },
+      {
+        "route": "autonomous_assurance",
+        "sign_rescue_fraction": 0.0,
+        "magnitude_attenuation_fraction": 0.9583333333333334,
+        "worsening_fraction": null
+      }
+    ],
+    "assurance_by_saturation": [
+      {
+        "saturation": 1.0,
+        "service_decline_lineages": 75,
+        "sign_rescue_fraction": 0.0,
+        "magnitude_attenuation_fraction": 0.9466666666666667
+      },
+      {
+        "saturation": 2.0,
+        "service_decline_lineages": 76,
+        "sign_rescue_fraction": 0.0,
+        "magnitude_attenuation_fraction": 0.9605263157894737
+      },
+      {
+        "saturation": 3.0,
+        "service_decline_lineages": 65,
+        "sign_rescue_fraction": 0.0,
+        "magnitude_attenuation_fraction": 0.9692307692307692
+      }
+    ]
+  },
+  "fig4_external_state_and_identifiability": {
+    "systems": [
+      {
+        "system_id": "izu_multi_taxon_hiraiwa",
+        "target_state": "branches_downstream",
+        "decision": "qualitatively_covered_by_frozen_synthetic_branching",
+        "generation": "parent",
+        "mechanism_identified": null
+      },
+      {
+        "system_id": "ogasawara_psychotria_homalosperma",
+        "target_state": "propagates_same_direction",
+        "decision": "sign_class_compatible_mechanism_mapping_not_validated",
+        "generation": "parent",
+        "mechanism_identified": null
+      },
+      {
+        "system_id": "hawaii_lobelioids_2026",
+        "target_state": "buffered_or_resilient",
+        "decision": "synthetic_buffering_class_available_empirical_mechanism_unmapped",
+        "generation": "parent",
+        "mechanism_identified": null
+      },
+      {
+        "system_id": "dominica_heliconia",
+        "target_state": "counterdirectional_to_frozen_signed_position_prediction",
+        "decision": "retained_falsification",
+        "generation": "parent",
+        "mechanism_identified": null
+      },
+      {
+        "system_id": "california_channel_islands_nicotiana_glauca",
+        "target_state": "buffered_or_alternative_mechanism",
+        "decision": "synthetic_buffering_class_available_empirical_mechanism_unmapped",
+        "generation": "parent",
+        "mechanism_identified": null
+      },
+      {
+        "system_id": "puerto_rico_mona_guaiacum",
+        "target_state": "reproductive_axes_decouple",
+        "decision": "empirical_axis_decoupling_constraint",
+        "generation": "parent",
+        "mechanism_identified": null
+      },
+      {
+        "system_id": "caribbean_gesneriaceae_island_mainland",
+        "target_state": "branches_downstream",
+        "decision": "qualitatively_covered_by_frozen_synthetic_branching",
+        "generation": "new_external_challenge",
+        "mechanism_identified": false
+      },
+      {
+        "system_id": "new_zealand_rhabdothamnus",
+        "target_state": "propagates_same_direction",
+        "decision": "sign_class_compatible_mechanism_mapping_not_validated",
+        "generation": "new_external_challenge",
+        "mechanism_identified": false
+      },
+      {
+        "system_id": "mariana_guam_saipan_bird_loss",
+        "target_state": "propagates_same_direction",
+        "decision": "sign_class_compatible_mechanism_mapping_not_validated",
+        "generation": "new_external_challenge",
+        "mechanism_identified": false
+      },
+      {
+        "system_id": "seychelles_ant_disruption",
+        "target_state": "propagates_same_direction",
+        "decision": "sign_class_compatible_mechanism_mapping_not_validated",
+        "generation": "new_external_challenge",
+        "mechanism_identified": false
+      },
+      {
+        "system_id": "mauritius_roussea_ant_disruption",
+        "target_state": "propagates_same_direction",
+        "decision": "sign_class_compatible_mechanism_mapping_not_validated",
+        "generation": "new_external_challenge",
+        "mechanism_identified": false
+      },
+      {
+        "system_id": "canary_teide_honeybee_network",
+        "target_state": "branches_downstream",
+        "decision": "qualitatively_covered_by_frozen_synthetic_branching",
+        "generation": "new_external_challenge",
+        "mechanism_identified": false
+      },
+      {
+        "system_id": "bahamas_pavonia_hurricane_pollination",
+        "target_state": "propagates_same_direction",
+        "decision": "sign_class_compatible_mechanism_mapping_not_validated",
+        "generation": "new_external_challenge",
+        "mechanism_identified": false
+      }
+    ],
+    "diagnostics": [
+      {
+        "diagnostic": "mixed_sign_branching_for_trait_heterogeneity",
+        "sensitivity": 0.4166666666666667,
+        "false_positive_rate": 0.0,
+        "specificity": 1.0
+      },
+      {
+        "diagnostic": "same_direction_for_trait_uniformity",
+        "sensitivity": 1.0,
+        "false_positive_rate": 0.5833333333333333,
+        "specificity": 0.41666666666666674
+      },
+      {
+        "diagnostic": "sign_rescue_for_network_context_vs_assurance",
+        "sensitivity": 0.16666666666666666,
+        "false_positive_rate": 0.0,
+        "specificity": 1.0
+      },
+      {
+        "diagnostic": "magnitude_attenuation_for_assurance_vs_network_context",
+        "sensitivity": 0.9583333333333334,
+        "false_positive_rate": 0.8854166666666666,
+        "specificity": 0.11458333333333337
+      }
+    ],
+    "retained_falsification_system": "dominica_heliconia"
+  },
+  "source_only_from_frozen_results": true,
+  "external_systems_used_for_parameter_fitting": false,
+  "claim_boundary": "These are plotting tables derived from frozen results. They do not add simulations, fit parameters, or turn qualitative external systems into calibration data."
+}
