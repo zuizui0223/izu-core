@@ -1,121 +1,119 @@
-# Active development mainline — island comparative programme
+# Active development mainline — simulation-first island programme
 
-Updated: 2026-08-18  
-Machine-readable routing: `data/design/active_development_mainline.json`  
-Response-axis vocabulary: `data/design/island_comparative_response_axis_registry.json`  
-Current system matrix: `data/design/island_system_response_axis_matrix.json`
+Updated: 2026-08-24  
+Current machine-readable routing: `data/design/simulation_study_mainline_20260824.json`  
+Parent comparative state: `data/design/active_development_mainline.json`  
+Frozen state atlas: `data/results/frozen_abm_state_atlas_frozen.json`  
+State separability: `data/results/frozen_abm_state_separability_frozen.json`
 
-This is a routing document, not a new biological result. Source locks, estimand boundaries, negative admission states and system-level sampling hierarchies remain authoritative.
+The older comparative routing remains useful as an evidence inventory, but it is **not the current execution mainline**. The current primary study is a simulation study with qualitative external island-system challenges.
 
-## Programme centre
+## Current primary question
 
-The programme is no longer organised around Izu as the top-level unit. The inferential unit is the **independent island system**.
+> Which island-response state classes can the already-frozen ABM generate, which tested mechanism axes distinguish those states, and which observations count as state-space misses or protected falsifications?
 
-The central question is:
+External island systems are used as qualitative held-out challenges. They are not numerical calibration rows and do not choose seeds, parameters, or mechanisms.
 
-> Across independent island systems, which plant response axes change under altered pollinator functional environments, which combinations recur, and what explains recurrent heterogeneity?
+## What is already complete
 
-Izu remains a valuable calibration and mechanistic-anchor system, but it is one system among the comparative set.
+### Global external challenge
 
-## Comparative response axes
+- 54 screened island / archipelago system units;
+- 13 strict qualitative external systems;
+- 11 generative state challenges, all covered or sign-compatible with a frozen synthetic state class;
+- 1 reproductive-axis-decoupling constraint;
+- 1 retained Dominica falsification.
 
-The current common vocabulary is:
+### Minimal branching mechanism
 
-1. floral morphology;
-2. mating and reproductive assurance;
-3. visual signal, including nectar guides and UV signal;
-4. pollinator effectiveness / effective pollen service;
-5. interaction-network structure and rewiring;
-6. reproductive outcome.
+Within the declared v12 residual ABM:
 
-Every island system does **not** need to measure every axis. A missing axis is recorded as missing or unregistered, never as a biological zero.
+- mixed-sign run fraction with initial trait heterogeneity ON: **0.4167**;
+- mean within-run branching balance: **0.2569**;
+- removing initial trait heterogeneity collapses both to **0**.
 
-Visual signal is therefore not programme-wide `blocked`. In Izu it remains currently unmeasured under the adopted quantitative contract, but nectar-guide / visible-signal evidence is an active comparative axis wherever source-locked system-specific measurements exist.
+Pre-existing lineage position in functional trait space is therefore the minimal identified synthetic generator of within-run response-sign branching.
 
-## Current comparative reading
+### Branch allocation and buffering
 
-The strongest current result is not one universal island syndrome. Independent systems repeatedly show changes in different combinations of morphology, mating/assurance, interaction structure, effectiveness and reproductive outcome.
+- local-support paired sign changes: **105/288 = 0.3646**;
+- partner-effectiveness paired sign changes: **13/288 = 0.0451**;
+- network-context sign rescues: **16/96 = 0.1667**;
+- network-context worsenings: **11/96 = 0.1146**;
+- network-context magnitude rescues: **85/96 = 0.8854**.
 
-The Hiraiwa cross-study triangulation strengthens this framing: among the three shared taxa, **0/3** show a uniform matching-lower + tube-shorter + pollen-lower cascade. The recurring signal is qualitative response heterogeneity, not same-estimand replication or a stable species-specific sign.
+Network context is a bidirectional branch allocator with buffering capacity, not a universal protective buffer.
 
-External mechanism screening currently retains four independent partial bridges, one near-complete within-archipelago bridge, zero complete bridges, and no admissible formal cross-system common-mechanism fit.
+### Assurance
 
-## Protected Izu calibration result
+- independent block sign rescues: **0/216**;
+- independent magnitude attenuations: **207/216 = 0.9583**;
+- broadened support envelope sign rescues: **0/525**.
 
-Izu-specific source-locked calibration remains protected rather than discarded:
+Autonomous assurance is a robust magnitude attenuator in the tested model, not a robust strong sign buffer.
 
-- floral size: continuous erosion;
-- multilocus outcrossing: continuous erosion;
-- autonomous assurance: second-transition step;
-- current visual-signal measurement: missing, not zero;
-- historical Bombus-loss causation: not identified.
+### State separability
 
-These are calibration facts, not the programme definition.
+The inverse mapping from observed state to mechanism is asymmetric:
 
-## P0 — protect evidence structure
+- mixed-sign branching → initial trait heterogeneity: specificity **1.0**, sensitivity **0.4167**;
+- same-direction → trait uniformity: false-positive rate **0.5833**, specificity **0.4167**;
+- sign rescue → network context versus tested assurance: specificity **1.0**, sensitivity **0.1667**;
+- magnitude attenuation → assurance versus network context: specificity **0.1146**.
 
-Retain source locks, checksums, sampling hierarchy, estimand identity, negative admissions, generated canonical states and regression tests before implementation cleanup.
+Thus state compatibility does not imply one-to-one mechanism identification.
 
-## P1 — build and maintain the island system × response-axis matrix
+## Current mainline
 
-This is now the first executable scientific task.
+### P0 — protect the frozen model state
 
-For each independent system, record which response axes are source-locked, missing, context-only, blocked by provenance, or available only under a different estimand. Then identify:
+Do not retune the ABM to any of the 13 external systems. Preserve the v12 branch-generator result, replicated network-context buffering, assurance attenuation result, and Dominica failure.
 
-- recurrent response combinations;
-- recurrent branching / heterogeneous combinations;
-- axes that recur under different pollinator functional environments;
-- high-value missing cells whose recovery could distinguish alternative mechanisms.
+### P1 — manuscript figures and result architecture
 
-Do not pool noncommensurate channels into one pseudo-effect.
+Generate the main figures directly from:
 
-## P2 — comparative mechanism ladder
+`data/results/simulation_manuscript_figure_data_frozen.json`
 
-Mechanistic evidence is layered rather than treated as an all-or-nothing gate:
+Planned main figures:
 
-- response-axis recurrence can enter the comparative matrix without a complete bridge;
-- direct effectiveness strengthens mechanism interpretation;
-- controlled reproductive dependency strengthens it further;
-- a complete matched transition remains the strongest design but is not required for an axis-level comparative result;
-- formal same-estimand cross-system fitting remains closed until at least two independent clusters supply compatible estimands, uncertainty and hierarchy.
+1. model state-map / analysis logic;
+2. minimal branch-generator ablation;
+3. branch allocation, buffering and attenuation;
+4. 13-system external challenge plus state-identifiability diagnostics.
 
-Unconstrained bridge hunting remains closed after Issue #100 Route A completion. Reopen only when a named missing link can be filled by new lawful source-native material.
+### P2 — result and falsification prose
 
-## P3 — Izu mechanistic anchor
+The primary paper statement is:
 
-Issue #91 remains important but is no longer the programme-wide top-level blocker.
+> A frozen minimal model architecture spans multiple recurrent island-response state classes, while the mapping from observed state back to mechanism is only partially identifiable.
 
-Its role is to provide a direct six-channel Izu calibration of effective service and reproductive dependency. When real field rows arrive, preserve the existing preflight, raw freeze, structural audit, plant-level dispersion and precision gates.
+The paper must retain explicit negative results:
 
-Failure to have those rows today does not block comparative synthesis across already source-locked island systems.
+- network context is not universally protective;
+- assurance does not robustly rescue response sign;
+- Dominica fails the frozen signed-position mapping;
+- any future predeclared external state outside all frozen state classes is recorded as a state-space miss before model extension.
 
-## P4 — system-specific axis completion
+### P3 — optional empirical translation
 
-Complete response axes within existing systems when admissible data exist. High-value examples include:
+Issue #91 field data and the five-gate `V_k × E_k` empirical network-context mapping remain scientifically useful, but only for a stronger future claim assigning a named real island system to a synthetic mechanism.
 
-- visual signal / nectar guide measurements;
-- direct effectiveness where only network turnover is known;
-- controlled dependency where direct effectiveness exists;
-- reproductive outcome where morphology or interaction change exists alone.
-
-The priority is information gain for cross-system discrimination, not filling every cell mechanically.
+They are **not required for the primary simulation study** and do not block manuscript completion.
 
 ## Not the active mainline
 
 Do not spend the next cycle on:
 
-- a universal island dwarfism or response coefficient;
-- raw island-count accumulation without independent system identity;
-- treating visitor occurrence as effectiveness;
-- treating pollination syndrome as reproductive dependency;
-- interpreting missing response-axis data as no response;
-- pooling morphology, mating, effectiveness and reproductive outcomes into one effect size;
-- repeated searches of exhausted source routes;
-- formal meta-analysis before same-estimand replication exists;
-- legacy simulation complexity that does not change a comparative admission decision.
-
-Nectar-guide / visual-signal comparison is **not** on this exclusion list.
+- collecting a field raw bundle before the simulation paper is resolved;
+- closing the current 0/12 empirical network-context mapping before writing the simulation result;
+- adding more island systems merely to increase counts;
+- retuning parameters or choosing seeds based on external outcomes;
+- adding a mechanism to rescue Dominica or another future state-space miss;
+- calling qualitative state compatibility empirical causal identification;
+- claiming universal network buffering or robust assurance sign rescue;
+- formal cross-system effect-size pooling of noncommensurate systems.
 
 ## Next executable task
 
-Build the source-locked system × response-axis evidence matrix, then use it to identify the first recurrent response combinations and the most informative missing cells. Izu field calibration proceeds as a parallel mechanistic anchor rather than the programme centre.
+Generate the manuscript figures from the frozen figure-data layer, then perform one final repository sweep so stale comparative/field-oriented routing cannot override `simulation_study_mainline_20260824.json`.
