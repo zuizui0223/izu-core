@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "updated_on": "2026-08-25",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
@@ -9,6 +9,7 @@
   "main_files": {
     "anonymous_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
     "supporting_information": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
+    "h2_analytical_sign_decomposition": "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
     "figure_captions": "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
     "reference_map": "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md",
     "data_code_statement": "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
@@ -27,6 +28,11 @@
   ],
   "supplement": {
     "manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
+    "h2_analytical_sign_decomposition": {
+      "file": "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
+      "role": "algebraic_unpacking_of_frozen_v12_endpoint_not_new_scientific_result",
+      "exact_identity": "sign_delta_reproduction_equals_sign_delta_service_equals_sign_delta_functional_opportunity"
+    },
     "state_separability_figure": {
       "figure": "FigS1",
       "output": "figures/generated/FigS1_state_separability.svg",
@@ -55,7 +61,7 @@
     "cover_letter": "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
     "cover_letter_status": "assembled_pending_author_metadata",
     "anonymous_review_manuscript": "assembled_with_expanded_methods_and_figure_table_crossreferences",
-    "supplement": "assembled"
+    "supplement": "assembled_with_h2_analytical_sign_decomposition"
   },
   "archived_provenance": {
     "pre_submission_scientific_draft": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
@@ -67,8 +73,9 @@
     "guaiacum_is_reproductive_axis_decoupling_not_whole_reproduction_buffering",
     "dominica_heliconia_is_a_retained_failed_signed_position_projection",
     "state_separability_is_supporting_inference_guard_only",
+    "h2_sign_decomposition_is_model_internal_and_does_not_assign_one_real_world_trait_to_the_synthetic_coordinate",
     "no_new_simulation_for_journal_fit",
     "external_research_programmes_are_not_part_of_the_submission_package"
   ],
-  "next_executable_task": "validate_completed_manuscript_supplement_cover_letter_and_review_archive_then_fill_title_page_metadata"
+  "next_executable_task": "validate_completed_manuscript_supplement_h2_sign_decomposition_cover_letter_and_review_archive_then_fill_title_page_metadata"
 }

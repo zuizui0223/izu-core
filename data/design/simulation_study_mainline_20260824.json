@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.5",
+  "schema_version": "2.6",
   "updated_on": "2026-08-25",
   "programme": "comparative_island_pollination_response_simulation_study",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
@@ -10,6 +10,7 @@
   "state_atlas_contract": "data/design/frozen_abm_state_atlas_contract.json",
   "state_atlas_result": "data/results/frozen_abm_state_atlas_frozen.json",
   "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
+  "h2_analytical_sign_decomposition": "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
   "primary_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
   "supporting_information": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
@@ -53,6 +54,8 @@
     "common_upstream_problem": "island_associated_pollinator_functional_simplification_or_reorganization",
     "minimal_branch_generator": "preexisting_lineage_position_in_functional_trait_space",
     "branch_generator_independent_replication": "replicated_minimal_generator",
+    "h2_endpoint_sign_identity": "sign_delta_reproduction_equals_sign_delta_service_equals_sign_delta_functional_opportunity",
+    "h2_endpoint_sign_identity_role": "analytical_unpacking_of_frozen_v12_not_new_scientific_result",
     "original_full_mixed_sign_run_fraction": 0.4166666666666667,
     "independent_full_mixed_sign_run_fraction": 0.4166666666666667,
     "original_initial_trait_off_mixed_sign_run_fraction": 0.0,
@@ -75,13 +78,14 @@
   "ecological_synthesis": {
     "headline": "same_island_like_functional_perturbation_different_lineage_starting_states_and_local_contexts_produce_multiple_downstream_response_states",
     "colonization_vs_response_boundary": "macroecological_island_syndromes_may_reflect_colonization_and_persistence_filters_whereas_this_study_addresses_post_establishment_response_to_changed_pollinator_function",
+    "h2_sign_chain_boundary": "downstream_v12_service_and_reproduction_transforms_preserve_the_sign_of_the_upstream_functional_opportunity_contrast_but_do_not_prove_a_named_empirical_trait_mapping",
     "network_boundary": "network_context_can_rescue_or_worsen_and_must_not_be_called_universal_protection",
     "assurance_boundary": "assurance_mainly_dampens_response_magnitude_in_the_tested_model",
     "external_boundary": "cross_island_state_recurrence_supports_generality_of_response_architecture_not_one_shared_empirical_mechanism"
   },
   "hypothesis_status": {
     "H1_universal_post_establishment_response": "rejected",
-    "H2_state_dependent_branching": "supported_within_declared_abm_and_independently_replicated",
+    "H2_state_dependent_branching": "supported_within_declared_abm_independently_replicated_and_analytically_sign_decomposed",
     "H3_context_dependent_branch_allocation": "supported_bidirectionally_within_declared_abm",
     "H4_autonomous_assurance_buffering": "partially_supported_magnitude_attenuation_only",
     "H5_cross_island_response_architecture_recurrence": "supported_at_qualitative_state_level"
@@ -101,6 +105,7 @@
     "reference_list_assembled": true,
     "jecology_numbered_abstract_assembled": true,
     "expanded_methods_assembled": true,
+    "h2_analytical_sign_decomposition_assembled": true,
     "main_figure_table_crossreferences_assembled": true,
     "supporting_information_assembled": true,
     "cover_letter_assembled": true,
@@ -122,6 +127,7 @@
     "state_compatibility": "does_not_identify_real_world_causal_mechanism",
     "external_set": "strict_state_challenge_set_not_prevalence_sample",
     "functional_coordinate": "synthetic_relative_position_not_empirically_equated_to_one_named_trait",
+    "h2_sign_decomposition": "model_internal_endpoint_identity_not_a_real_world_trait_or_mechanism_identification",
     "external_research_programmes": "out_of_scope_and_not_part_of_submission"
   },
   "archived_alternative_framings": {
@@ -132,6 +138,7 @@
   "completed_gates": [
     {"name": "core_simulation_robustness", "status": "closed_for_primary_claim"},
     {"name": "independent_v12_branch_generator_replication", "status": "replicated_minimal_generator"},
+    {"name": "h2_analytical_sign_decomposition", "status": "complete_model_internal_endpoint_identity"},
     {"name": "global_54_unit_screen_and_13_strict_external_challenge", "status": "frozen"},
     {"name": "results_methods_falsification_and_Fig1_to_Fig4_assets", "status": "frozen"},
     {"name": "state_separability_method_layer", "status": "validated_but_demoted_to_supporting_role"},
@@ -141,18 +148,19 @@
     {"name": "island_ecology_main_figure_routing", "status": "ecology_first_main_Fig1_to_Fig4_with_state_separability_in_FigS1"},
     {"name": "island_ecology_reference_map_and_figure_captions", "status": "complete"},
     {"name": "island_ecology_jecology_submission_draft", "status": "expanded_methods_and_crossreferences_complete_pending_ci"},
-    {"name": "island_ecology_supporting_information", "status": "assembled"},
+    {"name": "island_ecology_supporting_information", "status": "assembled_with_h2_analytical_sign_decomposition"},
     {"name": "island_ecology_cover_letter", "status": "assembled_pending_author_metadata"},
     {"name": "island_ecology_submission_manifest_and_data_code_statement", "status": "assembled"},
     {"name": "external_research_programmes_separated_from_paper", "status": "complete"}
   ],
   "active_gate": {
     "name": "island_ecology_complete_package_validation",
-    "goal": "Validate the anonymous Journal of Ecology manuscript, Supporting Information, cover letter routing, figure/table cross-references and review archive before filling final author metadata.",
+    "goal": "Validate the anonymous Journal of Ecology manuscript, Supporting Information including the H2 analytical sign decomposition, cover letter routing, figure/table cross-references and review archive before filling final author metadata.",
     "required_outputs": [
       "numbered_abstract_under_350_words_with_final_Synthesis_point",
       "anonymous_review_manuscript_guard",
       "frozen_headline_number_guard",
+      "h2_analytical_sign_decomposition_guard",
       "external_13_system_and_protected_boundary_guard",
       "reference_and_intext_citation_guard",
       "main_Fig1_to_Fig4_and_Table1_to_Table3_crossreference_guard",
@@ -181,5 +189,5 @@
     "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands",
     "external_research_programmes_as_submission_dependencies_or_extensions"
   ],
-  "next_executable_task": "validate_completed_manuscript_supplement_cover_letter_and_review_archive_then_fill_title_page_metadata_without_reopening_scientific_analysis"
+  "next_executable_task": "validate_completed_manuscript_supplement_h2_sign_decomposition_cover_letter_and_review_archive_then_fill_title_page_metadata_without_reopening_scientific_analysis"
 }
