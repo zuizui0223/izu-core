@@ -12,6 +12,7 @@ DEFAULT_OUTPUT = ROOT / "dist/island_ecology_anonymous_review_archive.zip"
 REVIEW_FILES = (
     "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
     "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
+    "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
     "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
     "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
     "docs/SIMULATION_MANUSCRIPT_EXTERNAL_SYSTEM_REFERENCES_20260824.md",
@@ -28,11 +29,13 @@ REVIEW_FILES = (
     "data/results/simulation_manuscript_figure_data_frozen.json",
     "data/results/simulation_manuscript_falsification_table_frozen.json",
     "channel_id/state_separability.py",
+    "scripts/run_constraint_mechanism_abm_v12_residual_trait_causes.py",
     "scripts/render_simulation_manuscript_fig1_svg.py",
     "scripts/render_island_ecology_mechanism_figures_svg.py",
     "scripts/render_island_ecology_external_figures_svg.py",
     "tests/test_island_ecology_figure_routing.py",
     "tests/test_island_ecology_paper_completion.py",
+    "tests/test_h2_sign_decomposition.py",
 )
 
 DEFAULT_DENY_TOKENS = (
@@ -86,12 +89,13 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         "deny_tokens_checked": list(deny_tokens),
         "files": records,
         "claim_boundary": (
-            "The archive reproduces the frozen island-ecology simulation results and "
-            "source-audited external response-state challenge. It does not contain a "
-            "new field dataset or identify one shared empirical mechanism across islands."
+            "The archive reproduces the frozen island-ecology simulation results, "
+            "the algebraic H2 endpoint sign decomposition, and the source-audited "
+            "external response-state challenge. The H2 derivation unpacks the frozen "
+            "model and is not a new empirical mechanism claim."
         ),
     }
-    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and paper-specific regression guards. It intentionally excludes title-page material, author-identifying links, historical pre-submission drafts, and unrelated research programmes.\n\nEverything included here is part of the submitted paper's reproducibility package; no external research programme is required to define or validate the paper's claims.\n"""
+    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, the H2 analytical sign-decomposition note, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and paper-specific regression guards. It intentionally excludes title-page material, author-identifying links, historical pre-submission drafts, and unrelated research programmes.\n\nThe H2 sign decomposition is an algebraic unpacking of the frozen v12 endpoint equations: it shows that the downstream service and reproduction transforms preserve the sign of the upstream functional-opportunity contrast. It does not assign the synthetic coordinate to a named empirical trait or claim that the same mechanism has been identified across natural island systems.\n"""
 
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for record in records:
