@@ -1,7 +1,8 @@
 {
-  "schema_version": "2.6",
+  "schema_version": "2.7",
   "updated_on": "2026-08-25",
   "programme": "comparative_island_pollination_response_simulation_study",
+  "chapter2_scientific_status": "complete_and_frozen_for_submission",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
   "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
   "hypothesis_recovery_prose": "docs/ISLAND_ECOLOGY_HYPOTHESIS_RECOVERY_20260824.md",
@@ -111,7 +112,7 @@
     "cover_letter_assembled": true,
     "review_data_code_statement_assembled": true,
     "submission_manifest_assembled": true,
-    "submission_format_validation": "implemented_pending_ci",
+    "submission_format_validation": "passed_python_3_10_3_11_3_12",
     "title_page_metadata": "pending_author_and_affiliation_metadata",
     "external_research_programmes_part_of_paper": false
   },
@@ -147,27 +148,20 @@
     {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"},
     {"name": "island_ecology_main_figure_routing", "status": "ecology_first_main_Fig1_to_Fig4_with_state_separability_in_FigS1"},
     {"name": "island_ecology_reference_map_and_figure_captions", "status": "complete"},
-    {"name": "island_ecology_jecology_submission_draft", "status": "expanded_methods_and_crossreferences_complete_pending_ci"},
+    {"name": "island_ecology_jecology_submission_draft", "status": "expanded_methods_and_crossreferences_complete_ci_passed"},
     {"name": "island_ecology_supporting_information", "status": "assembled_with_h2_analytical_sign_decomposition"},
     {"name": "island_ecology_cover_letter", "status": "assembled_pending_author_metadata"},
     {"name": "island_ecology_submission_manifest_and_data_code_statement", "status": "assembled"},
-    {"name": "external_research_programmes_separated_from_paper", "status": "complete"}
+    {"name": "external_research_programmes_separated_from_paper", "status": "complete"},
+    {"name": "chapter2_scientific_closure", "status": "complete_no_scientific_blockers"}
   ],
   "active_gate": {
-    "name": "island_ecology_complete_package_validation",
-    "goal": "Validate the anonymous Journal of Ecology manuscript, Supporting Information including the H2 analytical sign decomposition, cover letter routing, figure/table cross-references and review archive before filling final author metadata.",
+    "name": "island_ecology_submission_metadata_only",
+    "goal": "Fill final author/title-page metadata and package the already-validated island-ecology submission without reopening scientific analysis.",
     "required_outputs": [
-      "numbered_abstract_under_350_words_with_final_Synthesis_point",
-      "anonymous_review_manuscript_guard",
-      "frozen_headline_number_guard",
-      "h2_analytical_sign_decomposition_guard",
-      "external_13_system_and_protected_boundary_guard",
-      "reference_and_intext_citation_guard",
-      "main_Fig1_to_Fig4_and_Table1_to_Table3_crossreference_guard",
-      "supporting_TableS1_to_TableS3_and_FigS1_guard",
-      "review_data_code_statement_guard",
-      "review_archive_guard",
-      "title_page_author_and_affiliation_metadata"
+      "title_page_author_and_affiliation_metadata",
+      "final_submission_system_metadata",
+      "immutable_public_archive_with_doi_before_final_publication"
     ]
   },
   "not_mainline": [
@@ -189,5 +183,5 @@
     "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands",
     "external_research_programmes_as_submission_dependencies_or_extensions"
   ],
-  "next_executable_task": "validate_completed_manuscript_supplement_h2_sign_decomposition_cover_letter_and_review_archive_then_fill_title_page_metadata_without_reopening_scientific_analysis"
+  "next_executable_task": "fill_title_page_author_and_affiliation_metadata_then_generate_final_submission_bundle_without_reopening_scientific_analysis"
 }
