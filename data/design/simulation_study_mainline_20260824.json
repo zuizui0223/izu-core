@@ -1,6 +1,6 @@
 {
-  "schema_version": "2.3",
-  "updated_on": "2026-08-24",
+  "schema_version": "2.4",
+  "updated_on": "2026-08-25",
   "programme": "comparative_island_pollination_response_simulation_study",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
   "hypothesis_recovery": "data/design/island_ecology_hypothesis_recovery_20260824.json",
@@ -36,6 +36,7 @@
   "field_data_required_for_primary_claim": false,
   "empirical_mechanism_mapping_required_for_primary_claim": false,
   "external_system_role": "comparative_held_out_island_response_state_challenge_not_parameter_calibration",
+  "paper_scope_independent_of_external_research_programmes": true,
   "current_state": {
     "global_screening_units": 54,
     "strict_external_systems": 13,
@@ -87,7 +88,6 @@
   },
   "submission_logic": {
     "primary_scientific_hypotheses_closed": true,
-    "unresolved_empirical_sidelines_block_submission": false,
     "new_simulation_required": false,
     "new_field_data_required": false,
     "new_external_system_search_required": false,
@@ -108,12 +108,7 @@
     "submission_manifest_assembled": true,
     "submission_format_validation": "implemented_pending_ci",
     "title_page_metadata": "pending_author_and_affiliation_metadata",
-    "highest_value_future_test": "outcome_blind_source_native_signed_functional_position_mapping",
-    "future_empirical_tests": [
-      "real_signed_functional_starting_position",
-      "matched_real_network_context_effective_service_mapping",
-      "complete_external_service_dependency_response_bridge"
-    ]
+    "external_research_programmes_part_of_paper": false
   },
   "supporting_method_layer": {
     "state_separability_result": "data/results/frozen_abm_state_separability_frozen.json",
@@ -126,7 +121,8 @@
     "dominica_heliconia": "retained_failed_frozen_signed_position_projection_no_retuning",
     "state_compatibility": "does_not_identify_real_world_causal_mechanism",
     "external_set": "strict_state_challenge_set_not_prevalence_sample",
-    "functional_coordinate": "synthetic_relative_position_not_empirically_equated_to_one_named_trait"
+    "functional_coordinate": "synthetic_relative_position_not_empirically_equated_to_one_named_trait",
+    "external_research_programmes": "out_of_scope_and_not_part_of_submission"
   },
   "archived_alternative_framings": {
     "mee_method_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_MEE_20260824.md",
@@ -140,18 +136,19 @@
     {"name": "results_methods_falsification_and_Fig1_to_Fig4_assets", "status": "frozen"},
     {"name": "state_separability_method_layer", "status": "validated_but_demoted_to_supporting_role"},
     {"name": "island_ecology_core_story_recentered", "status": "complete"},
-    {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen_and_unresolved_sidelines_classified"},
+    {"name": "island_ecology_hypothesis_recovery", "status": "H1_to_H5_frozen"},
     {"name": "island_ecology_H1_H5_primary_manuscript_assembled", "status": "complete"},
     {"name": "island_ecology_main_figure_routing", "status": "ecology_first_main_Fig1_to_Fig4_with_state_separability_in_FigS1"},
     {"name": "island_ecology_reference_map_and_figure_captions", "status": "complete"},
     {"name": "island_ecology_jecology_submission_draft", "status": "expanded_methods_and_crossreferences_complete_pending_ci"},
     {"name": "island_ecology_supporting_information", "status": "assembled"},
     {"name": "island_ecology_cover_letter", "status": "assembled_pending_author_metadata"},
-    {"name": "island_ecology_submission_manifest_and_data_code_statement", "status": "assembled"}
+    {"name": "island_ecology_submission_manifest_and_data_code_statement", "status": "assembled"},
+    {"name": "external_research_programmes_separated_from_paper", "status": "complete"}
   ],
   "active_gate": {
     "name": "island_ecology_complete_package_validation",
-    "goal": "Validate the expanded anonymous Journal of Ecology manuscript, Supporting Information, cover letter routing, figure/table cross-references and review archive before filling final author metadata.",
+    "goal": "Validate the anonymous Journal of Ecology manuscript, Supporting Information, cover letter routing, figure/table cross-references and review archive before filling final author metadata.",
     "required_outputs": [
       "numbered_abstract_under_350_words_with_final_Synthesis_point",
       "anonymous_review_manuscript_guard",
@@ -174,7 +171,6 @@
     "claim_that_all_thirteen_systems_share_one_empirical_mechanism",
     "treating_thirteen_strict_systems_as_a_prevalence_sample",
     "collecting_field_data_before_the_primary_simulation_manuscript_is_resolved",
-    "unresolved_empirical_translation_sidelines_as_submission_blockers",
     "retuning_abm_to_any_of_the_13_external_systems",
     "adding_new_mechanisms_to_rescue_a_known_external_failure",
     "reopening_unrestricted_archipelago_search_to_raise_case_counts",
@@ -182,7 +178,8 @@
     "retuning_dominica_signed_position_mapping",
     "rerunning_independent_branch_generator_seeds_until_a_more_favorable_frequency_is_obtained",
     "adding_new_simulation_only_to_make_the_manuscript_story_cleaner",
-    "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands"
+    "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands",
+    "external_research_programmes_as_submission_dependencies_or_extensions"
   ],
-  "next_executable_task": "validate_completed_manuscript_supporting_information_cover_letter_and_review_archive_then_fill_title_page_metadata_without_reopening_scientific_analysis"
+  "next_executable_task": "validate_completed_manuscript_supplement_cover_letter_and_review_archive_then_fill_title_page_metadata_without_reopening_scientific_analysis"
 }
