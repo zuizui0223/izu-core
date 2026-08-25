@@ -19,6 +19,7 @@ def test_island_ecology_primary_claim_and_package_state():
     assert state["manuscript_reassembly_spec"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md"
     assert state["primary_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
     assert state["supporting_information"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
+    assert state["h2_analytical_sign_decomposition"] == "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md"
     assert state["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
     assert state["archived_pre_submission_scientific_draft"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
     assert state["archived_legacy_ecology_first_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
@@ -33,6 +34,8 @@ def test_island_ecology_primary_claim_and_package_state():
 
     mechanism = state["ecological_mechanism_readout"]
     assert mechanism["branch_generator_independent_replication"] == "replicated_minimal_generator"
+    assert mechanism["h2_endpoint_sign_identity"] == "sign_delta_reproduction_equals_sign_delta_service_equals_sign_delta_functional_opportunity"
+    assert mechanism["h2_endpoint_sign_identity_role"] == "analytical_unpacking_of_frozen_v12_not_new_scientific_result"
     assert mechanism["original_full_mixed_sign_run_fraction"] == 0.4166666666666667
     assert mechanism["independent_full_mixed_sign_run_fraction"] == 0.4166666666666667
     assert mechanism["original_initial_trait_off_mixed_sign_run_fraction"] == 0.0
@@ -53,7 +56,7 @@ def test_island_ecology_primary_claim_and_package_state():
 
     hypotheses = state["hypothesis_status"]
     assert hypotheses["H1_universal_post_establishment_response"] == "rejected"
-    assert hypotheses["H2_state_dependent_branching"] == "supported_within_declared_abm_and_independently_replicated"
+    assert hypotheses["H2_state_dependent_branching"] == "supported_within_declared_abm_independently_replicated_and_analytically_sign_decomposed"
     assert hypotheses["H3_context_dependent_branch_allocation"] == "supported_bidirectionally_within_declared_abm"
     assert hypotheses["H4_autonomous_assurance_buffering"] == "partially_supported_magnitude_attenuation_only"
     assert hypotheses["H5_cross_island_response_architecture_recurrence"] == "supported_at_qualitative_state_level"
@@ -73,6 +76,7 @@ def test_island_ecology_primary_claim_and_package_state():
     assert submission["reference_list_assembled"] is True
     assert submission["jecology_numbered_abstract_assembled"] is True
     assert submission["expanded_methods_assembled"] is True
+    assert submission["h2_analytical_sign_decomposition_assembled"] is True
     assert submission["main_figure_table_crossreferences_assembled"] is True
     assert submission["supporting_information_assembled"] is True
     assert submission["cover_letter_assembled"] is True
@@ -90,15 +94,17 @@ def test_island_ecology_primary_claim_and_package_state():
     assert state["archived_alternative_framings"]["status"] == "not_current_mainline_method_first_spin_off_only"
 
     completed = {row["name"]: row["status"] for row in state["completed_gates"]}
+    assert completed["h2_analytical_sign_decomposition"] == "complete_model_internal_endpoint_identity"
     assert completed["island_ecology_H1_H5_primary_manuscript_assembled"] == "complete"
     assert completed["island_ecology_main_figure_routing"].startswith("ecology_first_main_Fig1_to_Fig4")
     assert completed["island_ecology_reference_map_and_figure_captions"] == "complete"
     assert completed["island_ecology_jecology_submission_draft"].startswith("expanded_methods")
-    assert completed["island_ecology_supporting_information"] == "assembled"
+    assert completed["island_ecology_supporting_information"] == "assembled_with_h2_analytical_sign_decomposition"
     assert completed["island_ecology_cover_letter"] == "assembled_pending_author_metadata"
     assert completed["island_ecology_submission_manifest_and_data_code_statement"] == "assembled"
     assert completed["external_research_programmes_separated_from_paper"] == "complete"
 
     assert "external_research_programmes_as_submission_dependencies_or_extensions" in state["not_mainline"]
     assert state["protected_boundaries"]["external_research_programmes"] == "out_of_scope_and_not_part_of_submission"
+    assert state["protected_boundaries"]["h2_sign_decomposition"] == "model_internal_endpoint_identity_not_a_real_world_trait_or_mechanism_identification"
     assert state["next_executable_task"].startswith("validate_completed_manuscript")
