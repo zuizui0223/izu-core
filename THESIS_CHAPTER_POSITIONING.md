@@ -6,13 +6,13 @@ This repository is the **Chapter 2 / mechanistic-identification** component of t
 
 The shared dissertation-level question is:
 
-> **How does geographic isolation alter plant reproduction through changes in ecological interactions, and why do those changes produce different floral outcomes across islands and lineages?**
+> **How does geographic isolation alter plant reproduction and floral phenotype, and why do different phenotype components respond differently across islands and lineages?**
 
-The companion repository [`zuizui0223/island`](https://github.com/zuizui0223/island) is Chapter 1 and asks **when and where different floral/reproductive island syndromes appear** at the global assemblage scale. [`zuizui0223/shimahotarubukuro`](https://github.com/zuizui0223/shimahotarubukuro) is Chapter 3 and provides the focal empirical phenotype: directly measured multidimensional floral divergence within *Campanula microdonta* across five Izu islands.
+The companion repository [`zuizui0223/island`](https://github.com/zuizui0223/island) is Chapter 1 and now asks whether isolation generates one coherent floral/reproductive syndrome or instead reorganizes particular trait components. [`zuizui0223/shimahotarubukuro`](https://github.com/zuizui0223/shimahotarubukuro) is Chapter 3 and provides the focal empirical phenotype: directly measured multidimensional floral divergence within *Campanula microdonta* across five Izu islands.
 
 `izu-core` addresses the mechanistic follow-up:
 
-> **Why do regional or lineage-level island responses differ, and how are changes in pollination function translated into branching, propagation, buffering, or alternative biological responses?**
+> **Why do some floral/reproductive response components change while others do not, and how are changes in ecological interaction state translated into branching, propagation, buffering, or alternative biological responses?**
 
 ## Chapter 2 framework
 
@@ -28,21 +28,25 @@ where:
 - `E(z)` is establishment / reachability conditional on viable reproduction;
 - `W(z)` is the observed island pattern.
 
-The purpose of Chapter 2 is not to redescribe a trait syndrome found in Chapter 1 or Chapter 3. It is to determine which intermediate mechanisms are actually supported by field, source-locked, simulation, or independent-system evidence.
+The purpose of Chapter 2 is not to redescribe a trait pattern found in Chapter 1 or Chapter 3. It is to determine which intermediate mechanisms are actually supported by field, source-locked, simulation, or independent-system evidence.
 
-## Relationship to the revised Chapter 1 hypothesis
+## Relationship to the revised Chapter 1 result
 
-Chapter 1 now tests a **biogeographically contingent floral island syndrome hypothesis** rather than a primary Bombus-deficit model:
+Chapter 1 no longer has a headline **biogeographically contingent floral island syndrome** result.
+
+Its current frozen evidence supports:
 
 ```text
-isolation × biogeographic context
--> regional floral / reproductive trait syndromes
--> pollination-syndrome concordance in Discussion
+isolation
+-> component-specific floral reorganization
+-> strong northern-midlatitude within-context signals
+-> no confirmatory broad generalized/plain/SC syndrome after lineage control
+-> no confirmatory regional slope heterogeneity from the formal joint interaction test
 ```
 
-Bombus-, bird-, Lepidoptera- and other pollination syndromes are therefore **candidate ecological interpretations** in Chapter 1, not fitted causal explanations.
+This is a stronger handoff for Chapter 2 because the unresolved question is no longer merely “why do regional syndromes differ?” It is:
 
-This makes Chapter 2 the appropriate place to ask what actually generates the difference.
+> **Why are response components decoupled in the first place?**
 
 Candidate mechanisms include:
 
@@ -64,7 +68,7 @@ The central expectation is not that every lineage exposed to a simplified or alt
 
 Instead:
 
-> **A shared change in pollination function can generate different biological response modes depending on functional starting state, interaction context, reproductive buffering and lineage history.**
+> **A shared change in ecological interaction state can generate different biological response modes depending on functional starting state, interaction context, reproductive buffering and lineage history.**
 
 The response architecture allows at least:
 
@@ -77,6 +81,25 @@ The response architecture allows at least:
 
 These outcomes are not pooled into one island-adaptation score.
 
+## Why the Chapter 1 result strengthens Chapter 2
+
+Chapter 1 shows that broad syndrome summaries can disappear even when individual floral components retain isolation-associated signals. That is exactly the situation in which a mechanistic branching framework is needed.
+
+The relevant transition is now:
+
+```text
+Chapter 1 observation:
+  component A changes
+  component B changes differently
+  component C does not survive lineage control
+        ↓
+Chapter 2 question:
+  which functional state / dependency / network pathway
+  determines the response branch of each component?
+```
+
+A binary Bombus label is therefore intentionally not treated as the complete contemporary mechanism. Bombus may be one biologically meaningful candidate in some systems, but functional diversity, trait matching, effective service, reproductive dependency and local interaction context determine how an altered pollination environment is translated biologically.
+
 ## Current mechanistic interpretation
 
 The current Izu evidence supports a useful distinction between upstream and downstream mechanisms:
@@ -88,7 +111,7 @@ pollinator functional diversity
 -> morphology / reproductive response [branching, lineage dependent]
 ```
 
-A binary Bombus label is therefore intentionally not treated as the complete contemporary mechanism. Bombus may be one biologically meaningful candidate in some systems, but functional diversity, trait matching, effective service, reproductive dependency and local interaction context determine how an altered pollination environment is translated biologically.
+This is compatible with the revised Chapter 1 result: macroecological isolation does not need to generate one coherent syndrome if downstream phenotype components occupy different response branches.
 
 ## Chapter 2 falsification logic
 
@@ -114,7 +137,7 @@ Chapter 2 is the mechanistic-resolution layer of the dissertation. Depending on 
 - within-lineage response shape;
 - branch allocation / propagation / buffering;
 - matched controls and independent system challenges; and
-- whether apparent trait differences require one common mechanism or multiple context-dependent mechanisms.
+- whether apparent trait differences require one common mechanism or multiple component-specific mechanisms.
 
 Where a link remains unmeasured, it remains unresolved rather than being filled by a proxy.
 
@@ -123,35 +146,34 @@ Where a link remains unmeasured, it remains unresolved rather than being filled 
 | Chapter 1 — `island` | Chapter 2 — `izu-core` | Chapter 3 — `shimahotarubukuro` |
 | --- | --- | --- |
 | global island-flora scale | mechanistic response architecture | one focal lineage across five Izu islands |
-| asks **when and where** different syndromes appear | asks **how and why** responses differ | asks **what phenotype actually diverges** |
-| tests `isolation × biogeographic context` | discriminates candidate ecological mechanisms | directly quantifies floral phenotype divergence |
-| pollinator syndromes are discussion-level candidate explanations | pollinator function is treated mechanistically | causal pollinator contrasts remain outside the morphometric pipeline |
-| output is regional trait-response pattern | output is branching / propagation / buffering / mechanism evidence | output is site-corrected morphology, guide traits and Pst |
-| does not infer causal pollinator identity from traits | does not equate pollinator identity with effectiveness | does not equate Pst with Qst or selection |
+| asks **which components reorganize and where signals are detectable** | asks **how and why components branch** | asks **what phenotype actually diverges** |
+| tests coherent syndrome vs component-specific response | discriminates candidate ecological mechanisms | directly quantifies floral phenotype divergence |
+| regional heterogeneity requires formal joint interaction support | pollinator function is treated mechanistically | causal pollinator contrasts remain outside the morphometric pipeline |
+| pollinator syndromes are discussion-level concordance/mismatch | separates visitor identity, service and dependency | does not equate Pst with Qst or selection |
+| output is frozen atomic trait-response structure | output is branching / propagation / buffering / mechanism evidence | output is site-corrected morphology, guide traits and Pst |
 
 The thesis-level handoff is:
 
 ```text
-Chapter 1: isolation × biogeographic context -> regional trait syndromes
+Chapter 1: which phenotype components reorganize under isolation?
                          |
                          v
-Chapter 2: candidate ecological mechanisms -> branching / propagation / buffering
+Chapter 2: which ecological interaction states make responses branch / propagate / buffer?
                          |
                          v
-Chapter 3: focal lineage -> realized multidimensional floral divergence
+Chapter 3: which phenotype axes actually diverge within one focal lineage?
 ```
-
-Chapter 1 establishes the pattern and its boundary conditions. Chapter 2 asks which ecological processes can generate the observed heterogeneity. Chapter 3 provides a directly measured focal phenotype that those broader explanations must ultimately account for.
 
 ## Claim boundary
 
 This thesis-positioning layer should not imply that:
 
-- Chapter 1 has already identified Bombus loss or any other pollinator as the cause of a regional syndrome;
+- Chapter 1 has identified Bombus loss or any other pollinator as the cause of a trait response;
+- Chapter 1 has confirmatorily demonstrated regional slope heterogeneity;
 - pollinator occurrence equals effectiveness;
 - floral form identifies effective-pollinator dependency;
 - one functional decline must yield one floral response direction;
 - occupancy / lineage replacement is equivalent to within-lineage floral evolution; or
 - Chapter 3 phenotypic divergence by itself identifies the historical pollinator mechanism.
 
-The Chapter 2 contribution is narrower and stronger: **to test why island-associated floral and reproductive responses branch, propagate, buffer, or decouple after Chapter 1 has established where those patterns differ.**
+The Chapter 2 contribution is narrower and stronger: **to explain why island-associated floral and reproductive response components branch, propagate, buffer, or decouple after Chapter 1 has shown that they do not assemble into one universal syndrome.**
