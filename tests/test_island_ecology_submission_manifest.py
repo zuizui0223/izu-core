@@ -14,9 +14,14 @@ def test_submission_manifest_routes_ecology_files_only():
     assert manifest["paper_scope_independent_of_external_research_programmes"] is True
     assert manifest["main_files"]["anonymous_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
     assert manifest["main_files"]["supporting_information"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
+    assert manifest["main_files"]["h2_analytical_sign_decomposition"] == "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md"
     assert "frozen_scientific_manuscript" not in manifest["main_files"]
     assert [row["figure"] for row in manifest["main_figures"]] == ["Fig1", "Fig2", "Fig3", "Fig4"]
     assert manifest["supplement"]["manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
+    h2 = manifest["supplement"]["h2_analytical_sign_decomposition"]
+    assert h2["file"] == "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md"
+    assert h2["role"] == "algebraic_unpacking_of_frozen_v12_endpoint_not_new_scientific_result"
+    assert h2["exact_identity"] == "sign_delta_reproduction_equals_sign_delta_service_equals_sign_delta_functional_opportunity"
     assert manifest["supplement"]["state_separability_figure"]["figure"] == "FigS1"
     assert manifest["supplement"]["state_separability_figure"]["role"] == "supporting_inference_guard_not_primary_biological_result"
     assert manifest["supplement"]["tables"] == ["TableS1_frozen_simulation_blocks", "TableS2_state_separability", "TableS3_external_systems"]
@@ -30,7 +35,7 @@ def test_submission_manifest_routes_ecology_files_only():
     assert manifest["separate_submission_files"]["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
     assert manifest["separate_submission_files"]["cover_letter_status"] == "assembled_pending_author_metadata"
     assert manifest["separate_submission_files"]["anonymous_review_manuscript"].startswith("assembled_with_expanded_methods")
-    assert manifest["separate_submission_files"]["supplement"] == "assembled"
+    assert manifest["separate_submission_files"]["supplement"] == "assembled_with_h2_analytical_sign_decomposition"
     assert "future_empirical_tracks_excluded_from_submission_gate" not in manifest
     assert manifest["archived_provenance"]["pre_submission_scientific_draft"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
 
