@@ -51,21 +51,34 @@ Populate `data/design/island_ecology_submission_metadata_template.json` with the
    - relevant legal/policy requirements are met
    - third-party data reuse is permitted
 
-## Builder
+## Metadata builder
 
-Run:
+Validate and generate identity-bearing files with:
 
 ```bash
 python scripts/build_island_ecology_submission_metadata.py \
   --metadata data/design/island_ecology_submission_metadata_template.json
 ```
 
-The builder fails closed while any required author metadata is unresolved. Once the metadata is complete it writes:
+The builder fails closed while any required author metadata is unresolved. Once complete it writes:
 
 - `dist/ISLAND_ECOLOGY_TITLE_PAGE.md`
 - `dist/ISLAND_ECOLOGY_COVER_LETTER.md`
 
-The anonymous manuscript and reviewer archive remain unchanged.
+## Final bundle builder
+
+After the same metadata file validates, run:
+
+```bash
+python scripts/build_island_ecology_submission_bundle.py \
+  --metadata data/design/island_ecology_submission_metadata_template.json
+```
+
+This writes:
+
+- `dist/island_ecology_jecology_submission_bundle.zip`
+
+The bundle contains the anonymous manuscript, Supporting Information, H2 analytical note, title page, cover letter, submission manifest and a nested anonymous review archive. The identity-bearing title page and cover letter are outside the reviewer archive.
 
 ## Journal-specific boundary
 
