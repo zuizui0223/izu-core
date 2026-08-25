@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "journal": "Journal of Ecology",
+  "article_type": "Research Article",
+  "manuscript_title": "One perturbation, multiple island responses: state-dependent branching under pollinator functional simplification",
+  "running_title": "State-dependent island pollination responses",
+  "keywords": [
+    "agent-based model",
+    "ecological networks",
+    "functional traits",
+    "island biogeography",
+    "plant–pollinator interactions",
+    "reproductive assurance",
+    "resilience",
+    "response heterogeneity"
+  ],
+  "authors": [],
+  "corresponding_author_index": null,
+  "acknowledgements": null,
+  "funding": null,
+  "author_contributions": null,
+  "inclusion_statement": null,
+  "conflict_of_interest": null,
+  "data_availability": "All primary numerical results derive from frozen simulation outputs and source-audited external-state assignments. An anonymized review archive containing the code, frozen results, figure inputs, source-audit matrices and regression tests will be supplied for peer review. Before final publication, the accepted code and frozen analysis materials will be deposited in an immutable versioned archive with a persistent DOI.",
+  "submission_declarations": {
+    "not_published_or_under_consideration_elsewhere": null,
+    "all_authors_approve_submission": null,
+    "all_entitled_authors_included": null,
+    "necessary_acknowledgements_made": null,
+    "legal_and_policy_requirements_met": null,
+    "third_party_data_reuse_is_permitted": null
+  },
+  "notes": [
+    "Do not infer author names, order, affiliations, emails, ORCIDs, funding, acknowledgements, contributions or declarations.",
+    "Populate only from author-supplied or explicitly source-locked metadata.",
+    "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata."
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5",
+  "schema_version": "1.7",
   "updated_on": "2026-08-25",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
@@ -57,9 +57,14 @@
   },
   "separate_submission_files": {
     "title_page_template": "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md",
-    "title_page_status": "pending_author_and_affiliation_metadata",
+    "submission_metadata_template": "data/design/island_ecology_submission_metadata_template.json",
+    "submission_metadata_checklist": "docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md",
+    "submission_metadata_builder": "scripts/build_island_ecology_submission_metadata.py",
+    "submission_bundle_builder": "scripts/build_island_ecology_submission_bundle.py",
+    "submission_bundle_output": "dist/island_ecology_jecology_submission_bundle.zip",
+    "title_page_status": "builder_ready_pending_author_supplied_metadata",
     "cover_letter": "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
-    "cover_letter_status": "assembled_pending_author_metadata",
+    "cover_letter_status": "builder_ready_pending_author_supplied_metadata",
     "anonymous_review_manuscript": "assembled_with_expanded_methods_and_figure_table_crossreferences",
     "supplement": "assembled_with_h2_analytical_sign_decomposition"
   },
@@ -75,7 +80,8 @@
     "state_separability_is_supporting_inference_guard_only",
     "h2_sign_decomposition_is_model_internal_and_does_not_assign_one_real_world_trait_to_the_synthetic_coordinate",
     "no_new_simulation_for_journal_fit",
-    "external_research_programmes_are_not_part_of_the_submission_package"
+    "external_research_programmes_are_not_part_of_the_submission_package",
+    "author_identity_metadata_must_be_explicitly_supplied_not_inferred"
   ],
-  "next_executable_task": "validate_completed_manuscript_supplement_h2_sign_decomposition_cover_letter_and_review_archive_then_fill_title_page_metadata"
+  "next_executable_task": "fill_author_supplied_submission_metadata_json_then_run_one_command_final_submission_bundle_builder_without_reopening_scientific_analysis"
 }

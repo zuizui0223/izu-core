@@ -30,14 +30,21 @@ def test_submission_manifest_routes_ecology_files_only():
     assert manifest["review_archive"]["identity_scan_required"] is True
     assert manifest["review_archive"]["new_unpublished_field_data_required"] is False
     assert manifest["review_archive"]["external_research_programmes_included"] is False
-    assert manifest["separate_submission_files"]["title_page_template"] == "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md"
-    assert manifest["separate_submission_files"]["title_page_status"] == "pending_author_and_affiliation_metadata"
-    assert manifest["separate_submission_files"]["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
-    assert manifest["separate_submission_files"]["cover_letter_status"] == "assembled_pending_author_metadata"
-    assert manifest["separate_submission_files"]["anonymous_review_manuscript"].startswith("assembled_with_expanded_methods")
-    assert manifest["separate_submission_files"]["supplement"] == "assembled_with_h2_analytical_sign_decomposition"
+
+    separate = manifest["separate_submission_files"]
+    assert separate["title_page_template"] == "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md"
+    assert separate["submission_metadata_template"] == "data/design/island_ecology_submission_metadata_template.json"
+    assert separate["submission_metadata_checklist"] == "docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md"
+    assert separate["submission_metadata_builder"] == "scripts/build_island_ecology_submission_metadata.py"
+    assert separate["title_page_status"] == "builder_ready_pending_author_supplied_metadata"
+    assert separate["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
+    assert separate["cover_letter_status"] == "builder_ready_pending_author_supplied_metadata"
+    assert separate["anonymous_review_manuscript"].startswith("assembled_with_expanded_methods")
+    assert separate["supplement"] == "assembled_with_h2_analytical_sign_decomposition"
     assert "future_empirical_tracks_excluded_from_submission_gate" not in manifest
     assert manifest["archived_provenance"]["pre_submission_scientific_draft"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
+    assert "author_identity_metadata_must_be_explicitly_supplied_not_inferred" in manifest["protected_boundaries"]
+    assert manifest["next_executable_task"].startswith("fill_author_supplied_submission_metadata_json")
 
 
 def test_data_code_statement_preserves_anonymous_review_and_paper_scope():
