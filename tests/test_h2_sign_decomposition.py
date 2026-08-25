@@ -78,4 +78,5 @@ def test_note_states_exact_identity_and_preserves_claim_boundary():
     assert "sign(Delta O_i)" in text
     assert "cannot manufacture a reproductive sign reversal from an opportunity contrast" in normalized
     assert "does **not** show that arbitrary heterogeneity" in normalized
-    assert "does not assign the synthetic coordinate to a named empirical trait" in normalized
+    assert "does not establish that one named empirical trait is the real-world coordinate" in normalized
+    assert "does not convert this algebraic/model-internal result into empirical identification" in normalized
