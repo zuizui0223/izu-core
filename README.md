@@ -4,107 +4,104 @@
 
 > **Why does island-associated simplification or reorganization of pollinator function produce divergent plant responses rather than one universal post-establishment trajectory?**
 
-The current manuscript is framed as an island-ecology paper, not a methods-first ABM paper. Its central result is that an aggregate plant **island syndrome** does not imply that all established island lineages follow the same ecological trajectory.
+## Current state
 
-## Current paper
+**Chapter 2 is scientifically complete and frozen for submission.**
+
+Primary target: **Journal of Ecology**  
+Fallbacks: **Functional Ecology**, **Oikos**
 
 Working title:
 
 > **One perturbation, multiple island responses: state-dependent branching under pollinator functional simplification**
 
-Primary target: **Journal of Ecology**  
-Fallbacks: **Functional Ecology**, **Oikos**
+No new simulation, field dataset, external-system search, parameter retuning, or external research programme is required for the paper. The repository test suite has passed on Python 3.10, 3.11 and 3.12.
 
-Primary submission files:
+Canonical files:
 
-- [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
+- Main manuscript: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
 - Supporting Information: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
-- Cover letter: [`docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md)
+- H2 analytical sign decomposition: [`docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md`](docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md)
 - Submission manifest: [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
 - Canonical study state: [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
-
-The primary scientific hypotheses are closed for submission. No new simulation, field dataset, external-system search, parameter retuning, or external research programme is required for this paper.
+- Current submission state: [`docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md)
 
 ## Ecological story
 
-The paper separates three processes often grouped together under the term **plant island syndrome**:
+The paper separates three processes often grouped under the plant **island syndrome**:
 
-1. **Colonization / assembly filtering** — traits alter arrival, establishment and persistence, changing which lineages are represented in island floras.
-2. **In-situ evolutionary change** — established island lineages evolve relative to mainland source lineages.
-3. **Post-establishment interaction response** — established lineages respond to altered pollinator functional composition, network context and reproductive buffering.
+1. **Colonization / assembly filtering** — which lineages arrive, establish and persist.
+2. **In-situ evolutionary change** — how established island lineages evolve relative to source lineages.
+3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and interaction context change.
 
-The current model addresses the third layer.
+This paper focuses on the third layer.
 
 ```text
 MAINLAND SOURCE POOL
-        |
-        | dispersal, arrival, establishment
-        v
+        ↓
 COLONIZATION / ASSEMBLY FILTER
-        v
+        ↓
 ESTABLISHED ISLAND FLORA
-        |
-        | altered pollinator functional composition
-        | interaction-network reorganization
-        v
-POST-ESTABLISHMENT RESPONSE
-        |
-        +--> starting functional state -> branch potential
-        +--> local interaction context -> branch allocation / rescue / worsening
-        +--> reproductive assurance -> magnitude attenuation
-        v
-OBSERVED LINEAGE TRAJECTORIES
-
-Repeated filtering + evolution + response across lineages and time
-        -> macroecological "island syndrome"
+        ↓
+POLLINATOR FUNCTIONAL CHANGE
+        ↓
+starting functional state → branch potential
+local interaction context → branch allocation / rescue / worsening
+reproductive assurance → magnitude attenuation
+        ↓
+MULTIPLE LINEAGE TRAJECTORIES
 ```
 
 The synthesis is:
 
-> **Aggregate island syndromes can coexist with lineage-level branching because colonization and persistence determine which states arrive, while functional starting state and local ecological context determine how established lineages respond after pollinator environments change.**
+> **Aggregate island syndromes can coexist with lineage-level branching because colonization and persistence determine which states arrive, whereas functional starting state and local ecological context determine how established lineages respond after pollinator environments change.**
 
 ## H1–H5
 
-| Hypothesis | Prediction | Current result |
-|---|---|---|
-| **H1 — universal post-establishment response** | one island-like perturbation pushes lineages in one common direction | **rejected** |
-| **H2 — state-dependent branching** | pre-existing functional-position heterogeneity is required for within-run sign branching | **supported within the declared ABM and independently replicated** |
-| **H3 — context-dependent propagation** | local interaction context reallocates branch identity and can rescue or worsen responses | **supported bidirectionally** |
-| **H4 — autonomous-assurance buffering** | assurance reduces downstream reproductive loss and may reverse sign | **partially supported: robust magnitude attenuation, no robust sign rescue** |
-| **H5 — cross-island recurrence** | branching, propagation and buffering/alternative states recur across island systems without retuning | **supported at the qualitative response-state level** |
+| Hypothesis | Current result |
+|---|---|
+| **H1 — universal post-establishment response** | **rejected** |
+| **H2 — state-dependent branching** | **supported within the declared ABM, independently replicated, and analytically sign-decomposed** |
+| **H3 — context-dependent propagation** | **supported bidirectionally** |
+| **H4 — autonomous-assurance buffering** | **partially supported: robust magnitude attenuation, no robust sign rescue** |
+| **H5 — cross-island recurrence** | **supported at the qualitative response-state level** |
 
 ## Main frozen results
 
-### Branch generation
+### H2 — branch generation
 
-In the original residual block and an independently seeded replication, mixed-sign branching occurred in **0.4167** of matched runs. Removing pre-existing functional-position heterogeneity reduced within-run mixed-sign branching to **0**, whereas other tested residual single-factor removals retained branching.
+Mixed-sign branching occurred in **0.4167** of matched runs in both the original and independently seeded blocks. Removing pre-existing functional-position heterogeneity reduced within-run mixed-sign branching to **0**, whereas the other tested residual single-factor removals retained branching.
 
-Within the declared ABM, pre-existing lineage position in functional trait space is therefore the replicated minimal tested generator of response-sign branching.
+The frozen v12 endpoint equations were then unpacked analytically. Under the matched endpoint comparison,
 
-### Local interaction context
+```text
+sign(Δ reproduction) = sign(Δ service) = sign(Δ functional opportunity)
+```
 
-Local support is not required to create branching, but it strongly reallocates branch identity.
+because the downstream service and reproduction transforms are monotonic under the declared v12 conditions. Thus the downstream transforms preserve rather than manufacture the response sign; the branching originates upstream in lineage-specific functional-opportunity change. This is a model-internal identity, not an empirical assignment of the synthetic coordinate to one named floral trait.
+
+### H3 — local interaction context
 
 - local-support removal changed **105/288** paired lineage response signs;
-- support produced **16/96** sign rescues among eligible declines;
+- local context produced **16/96** sign rescues among eligible declines;
 - **85/96** eligible declines were attenuated;
 - **11/96** were worsened.
 
-The stable interpretation is:
+Stable interpretation:
 
 > **network context is a bidirectional branch allocator with buffering capacity, not a universal buffer.**
 
-### Autonomous assurance
+### H4 — autonomous assurance
 
 Among **216** lineages with upstream service decline, autonomous assurance attenuated reproductive decline in **207/216** cases but produced **0** sign rescues in the independent block. A broadened envelope likewise produced **0/525** sign rescues.
 
-The stable interpretation is:
+Stable interpretation:
 
 > **autonomous assurance mainly attenuates response magnitude rather than reliably reversing response sign.**
 
 ## External island challenge
 
-The literature screen retained **54 geographic/system units**. Thirteen met the strict external state-challenge contract.
+The literature screen retained **54 geographic/system units**. Thirteen met the strict external state-challenge contract:
 
 | External state | Systems |
 |---|---:|
@@ -115,110 +112,111 @@ The literature screen retained **54 geographic/system units**. Thirteen met the 
 | retained falsification | 1 |
 | **total** | **13** |
 
-All **11 generative challenges** were covered or sign-compatible with response classes already present in the frozen model. The external set is a **strict challenge set, not a prevalence sample**.
+All **11 generative challenges** were covered or sign-compatible with response classes already present in the frozen model. The 13-system set is a **strict challenge set, not a prevalence sample**.
 
-Protected exceptions are retained:
+Protected exceptions remain:
 
-- **Puerto Rico–Mona `Guaiacum sanctum`** — reproductive axes decouple; it is not collapsed into a generic whole-reproduction buffer state.
-- **Dominica `Heliconia`** — the predeclared signed-position projection failed and was not retuned.
+- **Puerto Rico–Mona `Guaiacum sanctum`** — reproductive-axis decoupling, not generic whole-reproduction buffering.
+- **Dominica `Heliconia`** — retained failed signed-position projection; no retuning.
 
 Cross-island recurrence therefore supports the generality of the **response architecture**, not one shared empirical mechanism across all islands.
 
 ## Island-syndrome literature synthesis
 
-Canonical review:
-
-- [`docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md`](docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md)
+- Review: [`docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md`](docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md)
 - Claim matrix: [`data/design/island_syndrome_literature_claim_matrix_20260824.json`](data/design/island_syndrome_literature_claim_matrix_20260824.json)
 
-Key conclusions:
-
-- Baker's law is best treated as a colonization advantage of uniparental reproductive capacity, not a universal prediction of high realized selfing after colonization.
-- Self-compatibility is strongly enriched in island floras, consistent with assembly filtering.
-- Flower-size evolution is not universally directional; Pacific comparisons show archipelago-, lineage-, starting-size- and pollination-mode dependence.
-- Oceanic pollination networks are often smaller or functionally reorganized, but simplification does not imply that every network metric or plant response changes in the same direction.
-- Pollinator **functional diversity and trait matching**, rather than species richness alone, provide the strongest empirical bridge to the upstream perturbation represented in the model.
-- Proposed plant island-syndrome components have heterogeneous evidence strength and should not be treated as one universal evolutionary package.
+Key boundary: the paper rejects a universal **post-establishment trajectory**, not the existence of recurrent island syndromes. Assembly filtering, in-situ evolution and post-establishment interaction response are kept distinct.
 
 ## Main paper architecture
-
-The main figures are ecology-first:
 
 1. **Fig. 1 — ecological response architecture**
 2. **Fig. 2 — replicated minimal branch generator**
 3. **Fig. 3 — network-context branch allocation versus assurance attenuation**
 4. **Fig. 4 — cross-island response-state challenge**
 
-Detailed state-separability diagnostics are Supporting Information only (`Fig. S1` / `Table S2`). They are inference guards, not the primary biological novelty.
+State-separability diagnostics are Supporting Information only (`Fig. S1` / `Table S2`). They are inference guards, not the biological headline.
 
-## What this paper does not claim
+## Claim boundaries
 
-This study does **not** claim that:
+This paper does **not** claim that:
 
 - plant island syndromes are false;
-- all island plants follow one post-establishment reproductive trajectory;
+- all island plants follow one post-establishment trajectory;
 - all 13 external systems share one empirical mechanism;
-- the 13-system challenge set estimates global prevalence of response states;
-- the synthetic functional coordinate is automatically any named empirical floral trait;
-- visitor richness, identity, or visitation rate alone measures effective pollination service;
-- state compatibility constitutes empirical causal identification;
+- the 13-system challenge estimates global prevalence;
+- the synthetic functional coordinate is automatically one named empirical trait;
+- state compatibility is empirical causal identification;
 - Dominica should be retuned until it fits.
-
-These are claim boundaries of this paper, not pointers to an external research programme.
 
 ## Reproducibility
 
-Primary numerical claims are stored in frozen JSON artifacts, and manuscript figures are rendered deterministically from those artifacts.
+Primary numerical claims are stored in frozen JSON artifacts and figures are rendered deterministically from those artifacts.
 
-Key result files include:
-
-- [`data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json`](data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json)
-- [`data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json`](data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json)
-- [`data/results/abm_v12_branch_generator_independent_robustness_frozen.json`](data/results/abm_v12_branch_generator_independent_robustness_frozen.json)
-- [`data/results/network_context_buffering_capability_robustness_frozen.json`](data/results/network_context_buffering_capability_robustness_frozen.json)
-- [`data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json`](data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json)
-- [`data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json`](data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json)
-
-Cross-platform frozen-artifact paths are normalized to POSIX-style relative paths so committed metadata remains stable across operating systems.
-
-For anonymous review:
+Anonymous reviewer archive:
 
 ```bash
 python scripts/build_island_ecology_review_archive.py
 ```
 
-The archive intentionally excludes title-page, author-identifying material, and unrelated research programmes.
+The archive excludes title-page information, author-identifying links and unrelated research programmes.
 
-## Submission status
+## Submission workflow
 
-Completed:
+The scientific package is complete. Only **author-supplied identity/submission metadata** remain unresolved.
 
-- scientific H1–H5 closure;
-- independent branch-generator replication;
-- 54-unit global screen and 13-system strict challenge;
-- protected negative results and claim boundaries;
-- island-syndrome literature synthesis;
-- Journal of Ecology V2 anonymous manuscript;
-- expanded Methods and Fig./Table cross-references;
-- Supporting Information;
-- cover-letter draft;
-- figure captions, references and submission manifest;
-- anonymous review-archive routing;
-- separation from unrelated external research programmes.
+Populate:
 
-Still external to the scientific analysis:
+[`data/design/island_ecology_submission_metadata_template.json`](data/design/island_ecology_submission_metadata_template.json)
 
-- final title-page author/affiliation metadata;
-- final immutable public archive/DOI before publication;
-- final submission-system metadata.
+The metadata validator fails closed rather than guessing author identity, order, affiliations, ORCIDs, contributions, acknowledgements, funding, inclusion statement, conflict of interest or declarations.
+
+Generate identity-bearing files:
+
+```bash
+python scripts/build_island_ecology_submission_metadata.py \
+  --metadata data/design/island_ecology_submission_metadata_template.json
+```
+
+Generate the complete Journal of Ecology submission bundle:
+
+```bash
+python scripts/build_island_ecology_submission_bundle.py \
+  --metadata data/design/island_ecology_submission_metadata_template.json
+```
+
+Output:
+
+```text
+dist/island_ecology_jecology_submission_bundle.zip
+```
+
+The final bundle contains the title page and cover letter **outside** a nested anonymous reviewer archive. Packaging does not rerun or modify the scientific analysis.
+
+Metadata checklist: [`docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md)
+
+## Remaining external input
+
+Only the following must be supplied by the authors themselves:
+
+- final author order and affiliations;
+- corresponding-author email and postal address;
+- ORCID(s), if used;
+- acknowledgements and funding;
+- author contributions;
+- inclusion statement;
+- conflict-of-interest statement;
+- explicit submission declarations.
+
+A final immutable public archive/DOI is a publication-stage item and is not a scientific blocker for Chapter 2.
 
 ## Historical material
 
-Older field-design, channel-identification, empirical-bridge and method-first files remain in Git history and archival documentation for provenance. They are not part of the current manuscript, submission package, or current research programme when they conflict with the canonical state above.
+Older field-design, empirical-bridge and method-first files remain only for provenance. They are not part of the current manuscript or submission package when they conflict with the canonical state above.
 
 When older documentation conflicts with the current paper state, prefer:
 
 1. [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
 2. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
 3. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
-4. [`data/design/island_syndrome_literature_claim_matrix_20260824.json`](data/design/island_syndrome_literature_claim_matrix_20260824.json)
+4. [`docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md)
