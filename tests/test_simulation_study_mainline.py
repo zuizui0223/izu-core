@@ -5,22 +5,25 @@ ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / "data/design/simulation_study_mainline_20260824.json"
 
 
-def test_island_ecology_primary_claim_has_no_field_blocker():
+def test_island_ecology_primary_claim_and_package_state():
     state = json.loads(STATE.read_text(encoding="utf-8"))
     assert state["study_type"] == "island_ecology_simulation_with_qualitative_external_island_challenges"
     assert state["field_data_required_for_primary_claim"] is False
     assert state["empirical_mechanism_mapping_required_for_primary_claim"] is False
     assert state["external_system_role"] == "comparative_held_out_island_response_state_challenge_not_parameter_calibration"
+    assert state["paper_scope_independent_of_external_research_programmes"] is True
     assert state["active_gate"]["name"] == "island_ecology_complete_package_validation"
     assert state["primary_ecological_contribution"].startswith("a_state_dependent_island_response_model")
     assert state["core_story"] == "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md"
     assert state["hypothesis_recovery"] == "data/design/island_ecology_hypothesis_recovery_20260824.json"
     assert state["manuscript_reassembly_spec"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md"
     assert state["primary_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
-    assert state["frozen_scientific_manuscript"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
     assert state["supporting_information"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
     assert state["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
-    assert state["legacy_ecology_first_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
+    assert state["archived_pre_submission_scientific_draft"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
+    assert state["archived_legacy_ecology_first_draft"] == "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
+    assert "frozen_scientific_manuscript" not in state
+    assert "legacy_ecology_first_draft" not in state
     assert state["reference_map"] == "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md"
     assert state["figure_captions"] == "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md"
     assert state["journal_positioning"] == "docs/ISLAND_ECOLOGY_JOURNAL_POSITIONING_20260824.md"
@@ -57,7 +60,6 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
 
     submission = state["submission_logic"]
     assert submission["primary_scientific_hypotheses_closed"] is True
-    assert submission["unresolved_empirical_sidelines_block_submission"] is False
     assert submission["new_simulation_required"] is False
     assert submission["new_field_data_required"] is False
     assert submission["new_external_system_search_required"] is False
@@ -78,7 +80,10 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert submission["submission_manifest_assembled"] is True
     assert submission["submission_format_validation"] == "implemented_pending_ci"
     assert submission["title_page_metadata"] == "pending_author_and_affiliation_metadata"
-    assert len(submission["future_empirical_tests"]) == 3
+    assert submission["external_research_programmes_part_of_paper"] is False
+    assert "future_empirical_tests" not in submission
+    assert "highest_value_future_test" not in submission
+    assert "unresolved_empirical_sidelines_block_submission" not in submission
 
     supporting = state["supporting_method_layer"]
     assert supporting["role"] == "inference_guard_and_supplement_not_primary_scientific_novelty"
@@ -92,16 +97,8 @@ def test_island_ecology_primary_claim_has_no_field_blocker():
     assert completed["island_ecology_supporting_information"] == "assembled"
     assert completed["island_ecology_cover_letter"] == "assembled_pending_author_metadata"
     assert completed["island_ecology_submission_manifest_and_data_code_statement"] == "assembled"
+    assert completed["external_research_programmes_separated_from_paper"] == "complete"
 
-    assert "method_first_MEE_framing_as_primary_story" in state["not_mainline"]
-    assert "MEE_as_primary_journal_target" in state["not_mainline"]
-    assert "inverse_problem_as_primary_discussion_result" in state["not_mainline"]
-    assert "state_separability_metrics_as_primary_abstract_conclusion" in state["not_mainline"]
-    assert "claim_that_all_islands_follow_one_post_establishment_reproductive_syndrome" in state["not_mainline"]
-    assert "claim_that_all_thirteen_systems_share_one_empirical_mechanism" in state["not_mainline"]
-    assert "treating_thirteen_strict_systems_as_a_prevalence_sample" in state["not_mainline"]
-    assert "collecting_field_data_before_the_primary_simulation_manuscript_is_resolved" in state["not_mainline"]
-    assert "unresolved_empirical_translation_sidelines_as_submission_blockers" in state["not_mainline"]
-    assert "retuning_dominica_signed_position_mapping" in state["not_mainline"]
-    assert "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands" in state["not_mainline"]
+    assert "external_research_programmes_as_submission_dependencies_or_extensions" in state["not_mainline"]
+    assert state["protected_boundaries"]["external_research_programmes"] == "out_of_scope_and_not_part_of_submission"
     assert state["next_executable_task"].startswith("validate_completed_manuscript")
