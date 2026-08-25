@@ -1,6 +1,6 @@
 # Data and code availability — island ecology manuscript
 
-Updated: 2026-08-24
+Updated: 2026-08-25
 
 ## Anonymous peer-review statement
 
@@ -16,7 +16,8 @@ Before final publication, the exact accepted code and frozen analysis materials 
 
 ## Minimum review archive contents
 
-- `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_20260824.md` or its anonymous formatted derivative;
+- `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md` or its anonymous formatted derivative;
+- `docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`;
 - frozen primary simulation result summaries used in the manuscript;
 - independent branch-generator replication result and its frozen design;
 - network-context and assurance robustness results;
@@ -28,13 +29,6 @@ Before final publication, the exact accepted code and frozen analysis materials 
 - exact-regeneration and claim-boundary regression tests;
 - a README explaining reproduction commands and the distinction between synthetic mechanism results and qualitative external challenges.
 
-## Excluded from the current review archive requirement
+## Scope boundary
 
-The following future empirical translation tasks are not required to reproduce or evaluate the current paper:
-
-- direct real-world signed functional-position mapping;
-- matched empirical network-context to rate-weighted effective-service mapping;
-- a complete external pollinator-change → service → dependency/assurance → response bridge;
-- Issue #91 prospective field data.
-
-These remain future research tracks and must not be presented as missing data required for the current primary claims.
+The review archive is intentionally limited to materials needed to evaluate the claims made in this manuscript. Independent research programmes, prospective field studies, and observation-design work that are not used by the submitted analyses are outside the paper package and are neither dependencies nor validation requirements for this study.
