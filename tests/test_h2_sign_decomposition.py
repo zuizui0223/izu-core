@@ -72,9 +72,10 @@ def test_algebraic_coefficient_is_strictly_positive_over_declared_ceiling_range(
 
 def test_note_states_exact_identity_and_preserves_claim_boundary():
     text = NOTE.read_text(encoding="utf-8")
+    normalized = " ".join(text.split())
     assert "sign(Delta R_i)" in text
     assert "sign(Delta S_i)" in text
     assert "sign(Delta O_i)" in text
-    assert "cannot manufacture a reproductive sign reversal" in text
-    assert "does **not** show that arbitrary heterogeneity" in text
-    assert "does not assign the synthetic coordinate to a named empirical trait" in text
+    assert "cannot manufacture a reproductive sign reversal from an opportunity contrast" in normalized
+    assert "does **not** show that arbitrary heterogeneity" in normalized
+    assert "does not assign the synthetic coordinate to a named empirical trait" in normalized
