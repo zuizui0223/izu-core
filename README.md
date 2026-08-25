@@ -1,135 +1,252 @@
-# Campanula Channel Identification
+# Izu Core — state-dependent island plant responses
 
-A field-design and causal-identification repository for asking a deliberately narrow question about island floral-trait variation:
+`izu-core` is the reproducible analysis and manuscript repository for an island-ecology study asking:
 
-\[
-W(z)=F(z)E(z).
-\]
+> **Why does island-associated simplification or reorganization of pollinator function produce divergent plant responses rather than one universal post-establishment trajectory?**
 
-For a predeclared trait \(z\), can a difference between island regimes be assigned to
+The current manuscript is framed as an island-ecology paper, not a methods-first ABM paper. Its central result is that an aggregate plant **island syndrome** does not imply that all established island lineages follow the same ecological trajectory.
 
-- **local reproduction** \(F(z)\), or
-- **establishment / reachability conditional on viable seed output** \(E(z)\),
+## Current paper
 
-rather than merely described as a difference in flower size, mating system, visitor identity, or island position?
+Working title:
 
-## Current development mainline
+> **One perturbation, multiple island responses: state-dependent branching under pollinator functional simplification**
 
-The mechanistic chain is **not yet causally identified**. The active development target is Issue #91: collect the first real direct effective-pollinator dependency pilot for *Campanula microdonta* and move from a field-ready contract to measured plant-level dispersion, coverage/loss, and precision. Reliability of the final direct-dependency predictor is a separate repeated-final-estimand calibration problem, not an automatic output of the focal pilot.
+Primary target: **Journal of Ecology**  
+Fallbacks: **Functional Ecology**, **Oikos**
 
-The immediate empirical path is:
+Primary manuscript:
+
+- [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
+- Supporting Information: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
+- Cover letter: [`docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md)
+- Canonical machine-readable state: [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
+
+The primary scientific hypotheses are closed for submission. No new simulation, field dataset, external-system search, or parameter retuning is required for the current paper.
+
+## Ecological story
+
+The paper separates three processes that are often grouped together under the term **plant island syndrome**:
+
+1. **Colonization / assembly filtering** — traits alter arrival, establishment, and persistence, changing which lineages are represented in island floras.
+2. **In-situ evolutionary change** — established island lineages evolve relative to mainland source lineages.
+3. **Post-establishment interaction response** — established lineages respond to altered pollinator functional composition, network context, and reproductive buffering.
+
+The current model addresses the third layer.
 
 ```text
-first real six-channel field bundle
--> preflight and checksum freeze
--> linked plant / effort / visit / SVD / treatment / fruit / seed records
--> structural dependency admission
--> between-plant SVD and treatment dispersion
--> pilot variance / coverage-loss estimates
--> absolute precision target
--> confirmatory design
+MAINLAND SOURCE POOL
+        |
+        | dispersal, arrival, establishment
+        v
+COLONIZATION / ASSEMBLY FILTER
+        | self-compatibility
+        | lifespan / clonality
+        | generalized reproductive accessibility
+        v
+ESTABLISHED ISLAND FLORA
+        |
+        | altered pollinator functional composition
+        | interaction-network reorganization
+        v
+POST-ESTABLISHMENT RESPONSE
+        |
+        +--> starting functional state -> branch potential
+        |
+        +--> local interaction context -> branch allocation / rescue / worsening
+        |
+        +--> reproductive assurance -> magnitude attenuation
+        v
+OBSERVED LINEAGE TRAJECTORIES
 
-separate final-estimand calibration, if empirical reliability is required
--> independent non-overlapping plant panels for repeated taxon x site x season targets
--> calibration-scope dependency reliability
--> transportability review
--> only then possible replacement of synthetic dependency_reliability
+Repeated filtering + evolution + response across lineages and time
+        -> macroecological "island syndrome"
 ```
 
-Technical SVD recounts estimate pollen-count repeatability only; within-plant flowers or visits and biological dispersion from one unrepeated panel do not identify final predictor reliability.
+The resulting synthesis is:
 
-Until that path is populated with real field data, the repository does **not** claim historical pollinator-loss causation, an Oshima--Toshima causal boundary effect, or a cross-lineage dependency-by-functional-environment interaction.
+> **Aggregate island syndromes can coexist with lineage-level branching because colonization and persistence determine which states arrive, while functional starting state and local ecological context determine how established lineages respond after pollinator environments change.**
 
-In parallel, cross-archipelago work may close a missing link in an already source-audited mechanism bridge. The current strongest near-complete bridge is the Xisha *Cordia subcordata* two-island system; it still lacks Dong-specific direct single-visit effectiveness and controlled reproductive-dependency measurements. Source-controlled gates such as the Weigela / Ligustrum / Hosta queue stay parked until genuinely new lawful source material arrives.
+## H1–H5
 
-Machine-readable routing lives in [`data/design/active_development_mainline.json`](data/design/active_development_mainline.json). The narrative companion is [`docs/ACTIVE_DEVELOPMENT_MAINLINE_20260813.md`](docs/ACTIVE_DEVELOPMENT_MAINLINE_20260813.md).
+| Hypothesis | Prediction | Current result |
+|---|---|---|
+| **H1 — universal post-establishment response** | one island-like perturbation pushes lineages in one common direction | **rejected** |
+| **H2 — state-dependent branching** | pre-existing functional-position heterogeneity is required for within-run sign branching | **supported within the declared ABM and independently replicated** |
+| **H3 — context-dependent propagation** | local interaction context reallocates branch identity and can rescue or worsen responses | **supported bidirectionally** |
+| **H4 — autonomous-assurance buffering** | assurance reduces downstream reproductive loss and may reverse sign | **partially supported: robust magnitude attenuation, no robust sign rescue** |
+| **H5 — cross-island recurrence** | branching, propagation, and buffering/alternative states recur across independent island systems without retuning | **supported at the qualitative response-state level** |
 
-## Current scientific state
+## Main frozen results
 
-The source-locked focal Campanula calibration currently retains:
+### Branch generation
 
-- **floral size:** continuous erosion across the focal island series;
-- **multilocus outcrossing:** continuous erosion;
-- **autonomous reproductive assurance:** a second-transition step;
-- **visible signal / nectar-guide channel:** blocked-unmeasured and prospective only;
-- **historical Bombus causation:** not identified; and
-- **universal Izu-flora rule:** not supported as a current claim.
+In the original residual block and an independently seeded replication, mixed-sign branching occurred in **0.4167** of matched runs. Removing pre-existing functional-position heterogeneity reduced within-run mixed-sign branching to **0**, whereas other tested residual single-factor removals retained branching.
 
-External morphology shows directional recurrence in two independent systems under the declared OLS + island-cluster analysis, but no pooled universal island coefficient is admitted. Measurement-error identification is unresolved, and the formal cross-system fit remains closed because compatible same-family effects are not replicated across enough independent system clusters.
+Within the declared ABM, pre-existing lineage position in functional trait space is therefore the replicated minimal generator of response-sign branching.
 
-See [`docs/CURRENT_EVIDENCE_STATE.md`](docs/CURRENT_EVIDENCE_STATE.md) for the canonical claim boundary. When an older pilot, simulation, discovery note, or manuscript fragment conflicts with the generated/current state, the source-locked registries and current-state contracts take precedence.
+### Local interaction context
 
-The current counts and claim boundaries can be regenerated from committed tables:
+Local support is not required to create branching, but it strongly reallocates branch identity.
+
+- local-support removal changed **105/288** paired lineage response signs;
+- in the independent network-context block, support produced **16/96** sign rescues;
+- **85/96** eligible declines were attenuated;
+- **11/96** were worsened.
+
+The stable interpretation is therefore:
+
+> **network context is a bidirectional branch allocator with buffering capacity, not a universal buffer.**
+
+### Autonomous assurance
+
+Among **216** lineages with upstream service decline, autonomous assurance attenuated reproductive decline in **207/216** cases but produced **0** sign rescues in the independent block. A broadened envelope likewise produced **0/525** sign rescues.
+
+The stable interpretation is:
+
+> **autonomous assurance mainly attenuates response magnitude rather than reliably reversing response sign.**
+
+## External island challenge
+
+The literature screen retained **54 geographic/system units**. Thirteen met the strict external state-challenge contract.
+
+| External state | Systems |
+|---|---:|
+| branching | 3 |
+| same-direction propagation | 6 |
+| buffering / alternative | 2 |
+| reproductive-axis decoupling constraint | 1 |
+| retained falsification | 1 |
+| **total** | **13** |
+
+All **11 generative challenges** were covered or sign-compatible with response classes already present in the frozen model. The external set is a **strict challenge set, not a prevalence sample**.
+
+Protected exceptions are retained:
+
+- **Puerto Rico–Mona `Guaiacum sanctum`** — reproductive axes decouple; it is not collapsed into a generic whole-reproduction buffer state.
+- **Dominica `Heliconia`** — the predeclared signed-position projection failed and was not retuned.
+
+Cross-island recurrence therefore supports the generality of the **response architecture**, not one shared empirical mechanism across all islands.
+
+## Island-syndrome literature synthesis
+
+The manuscript now uses a deeper literature review rather than treating the island syndrome as a single causal trajectory.
+
+Canonical review:
+
+- [`docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md`](docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md)
+- Machine-readable claim matrix: [`data/design/island_syndrome_literature_claim_matrix_20260824.json`](data/design/island_syndrome_literature_claim_matrix_20260824.json)
+
+Key literature conclusions:
+
+- **Baker's law** is most defensibly treated as a colonization advantage of uniparental reproductive capacity, not as a universal prediction of high realized selfing after colonization.
+- Self-compatibility is strongly enriched in island floras, consistent with assembly filtering.
+- Flower-size evolution is not universally directional; comparative Pacific studies show archipelago-, lineage-, starting-size-, and pollination-mode dependence.
+- Oceanic pollination networks are often smaller or functionally reorganized, but simplification does not imply that every network metric or plant response changes in the same direction.
+- Pollinator **functional diversity and trait matching**, rather than species richness alone, provide the strongest empirical bridge to the upstream perturbation represented in the model.
+- Proposed plant island-syndrome components have heterogeneous evidence strength and should not be treated as one universal evolutionary package.
+
+## Main paper architecture
+
+The main figures are ecology-first:
+
+1. **Fig. 1 — ecological response architecture**  
+   common pollinator-functional change → starting state → local context → response states
+2. **Fig. 2 — minimal branch generator**  
+   original and independent ablation evidence for pre-existing functional position
+3. **Fig. 3 — downstream propagation**  
+   network-context branch allocation versus assurance attenuation
+4. **Fig. 4 — cross-island challenge**  
+   branching, propagation, buffering/alternative states, axis decoupling, and retained failure
+
+Detailed state-separability diagnostics are Supporting Information only (`Fig. S1` / `Table S2`). They are inference guards, not the primary biological novelty.
+
+Figure and table routing is declared in:
+
+- [`data/design/simulation_manuscript_figure_layout_v1.json`](data/design/simulation_manuscript_figure_layout_v1.json)
+- [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
+
+## What this paper does not claim
+
+This study does **not** claim that:
+
+- plant island syndromes are false;
+- all island plants follow one post-establishment reproductive trajectory;
+- all 13 external systems share one empirical mechanism;
+- the 13-system challenge set estimates global prevalence of response states;
+- the synthetic functional coordinate is automatically corolla length, colour, nectar guides, FDQ, or any other named empirical trait;
+- visitor richness, visitor identity, or visitation rate alone measures effective pollination service;
+- state compatibility constitutes empirical causal identification;
+- Dominica should be retuned until it fits.
+
+## Future empirical translation
+
+Three high-value empirical tracks remain open, but they are **not submission blockers** for the current paper:
+
+1. **real signed functional starting position** — define an outcome-blind, source-native plant position relative to a pollinator functional centre;
+2. **real network context → effective service** — link partner context to rate-weighted direct effectiveness rather than visitation alone;
+3. **complete causal bridge** — close `pollinator functional change → effective service → dependency/assurance → downstream response` on compatible matched units.
+
+These are prospective tests generated by the present paper, not missing data that must be filled before submission.
+
+## Reproducibility
+
+Primary numerical claims are stored in frozen JSON artifacts, and manuscript figures are rendered deterministically from those artifacts.
+
+Key result files include:
+
+- [`data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json`](data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json)
+- [`data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json`](data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json)
+- [`data/results/abm_v12_branch_generator_independent_robustness_frozen.json`](data/results/abm_v12_branch_generator_independent_robustness_frozen.json)
+- [`data/results/network_context_buffering_capability_robustness_frozen.json`](data/results/network_context_buffering_capability_robustness_frozen.json)
+- [`data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json`](data/results/constraint_mechanism_abm_v14_assurance_buffering_robustness_frozen.json)
+- [`data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json`](data/results/system_agnostic_abm_multi_system_validation_v2_frozen.json)
+
+Cross-platform frozen-artifact paths are normalized to POSIX-style relative paths so committed metadata remains stable across operating systems.
+
+For anonymous review, the repository contains a review-archive builder:
 
 ```bash
-python scripts/report_current_evidence_state.py \
-  --markdown-out artifacts/current_evidence_state.md \
-  --json-out artifacts/current_evidence_state.json
+python scripts/build_island_ecology_review_archive.py
 ```
 
-## What this repository does
+The archive intentionally excludes title-page and author-identifying material.
 
-- protects source locks, canonical result registries, negative admission states, and claim-boundary regressions before implementation cleanup;
-- defines the direct field measurements needed to distinguish effective service from reproductive dependency;
-- freezes and audits linked plant, observation-effort, visitor-contact, single-visit pollen-deposition, pollination-treatment, fruit, seed, and optional parentage records;
-- distinguishes direct measurements from proxies whose calibration must be stable or independently checked;
-- keeps published patterns, prospective field measurements, and pollinator-specific claims separate;
-- compares cline, threshold, no-response, and environment/history alternatives only where the required observation model is declared;
-- uses source-native or independently replicated systems as falsification / bridge evidence without converting heterogeneous observations into a universal coefficient;
-- retains a small set of constrained diagnostic tools only when they enforce a current claim boundary or measurement decision; and
-- keeps unfinished visible-signal work and exhausted discovery routes outside the active evidence path.
+## Submission status
 
-## What is not the development mainline
+Completed:
 
-The following do not advance the current scientific admission state by themselves:
+- scientific H1–H5 closure;
+- independent branch-generator replication;
+- 54-unit global screen and 13-system strict challenge;
+- protected negative results and claim boundaries;
+- island-syndrome literature synthesis;
+- Journal of Ecology V2 anonymous manuscript;
+- expanded Methods and Fig./Table cross-references;
+- Supporting Information;
+- cover-letter draft;
+- figure captions, references, and submission manifest;
+- anonymous review-archive routing.
 
-- historical nectar-guide / visible-signal inference from public images;
-- a universal island-dwarfism coefficient;
-- accumulating more island counts without independent-system replication;
-- treating visitor occurrence or identity as pollinator effectiveness;
-- repeating an already exhausted source-recovery route;
-- formal meta-analysis before compatible same-family replication exists; or
-- adding simulation complexity that does not change an admission or field-measurement decision.
+Still external to the scientific analysis:
 
-Historical implementations and failed routes remain recoverable from Git and PR history; their scientific lessons are summarized in [`docs/RESEARCH_TRIALS_RETROSPECTIVE.md`](docs/RESEARCH_TRIALS_RETROSPECTIVE.md).
+- final title-page author/affiliation metadata;
+- final immutable public archive/DOI before publication;
+- final submission-system metadata.
 
-## Response domains
+## Historical material
 
-A lineage may enter through one of several explicitly separated domains:
+The repository contains older field-design, channel-identification, empirical-bridge, and method-first manuscript work. Those files remain useful as provenance and for future empirical translation, but they are **not the current manuscript mainline** when they conflict with the canonical state above.
 
-| domain | examples | what it can test |
-|---|---|---|
-| quantitative trait | flower size, outcrossing rate, bagged capsule set | within-lineage cline or step |
-| binary/ordinal state | SI/SC, autonomous reproduction absent/present, accessible/restrictive floral form | regime-associated state transition |
-| interaction state | effective guild, partner breadth, legitimate-contact class | ecological rewiring, after effectiveness gates |
-| island occupancy | species present/absent by island | filtering or range truncation, not trait evolution |
+In particular:
 
-Raw occurrence is never converted into a floral phenotype. An occupancy analysis asks whether a dependency class crosses a regime boundary less often than a control class; it does not show that an extant island population evolved a particular trait.
+- Issue #91 field work is a future empirical-translation programme, not a blocker for the present synthetic island-ecology paper;
+- method-first MEE drafts are archived alternative framings;
+- state-separability is a supporting inference layer rather than the headline contribution.
 
-## Generalist falsification
+When older documentation conflicts with the current paper state, prefer:
 
-Open-generalist lineages are not assumed to be absolutely invariant. The prospective prediction is narrower: they should not repeatedly share a specialist-specific breakpoint at the same pollinator-regime boundary. The primary contrast is therefore a dependency-class × boundary interaction, with climate, area, isolation, history, observation effort, and lineage dependence modelled explicitly.
-
-## Simulation boundary
-
-Any retained simulation or diagnostic layer is a design or identifiability aid, not evidence that the same mechanism generated the field pattern. Synthetic recovery, candidate ranking, or a successful virtual reconstruction cannot substitute for direct effectiveness, reproductive-dependency, provenance, and uncertainty measurements.
-
-## What it does not claim
-
-A visit count is not automatically a measurement of local reproduction. Flower-size means, mating-system estimates, pollinator turnover, and occupancy alone do not identify \(F\) versus \(E\).
-
-A high-ranked measurement is not automatically the best field protocol: feasibility, sampling variance, biological relevance, and cost still require an explicit design check.
-
-The factorisation is a declared model choice. It does not claim that all natural processes are multiplicative or independent.
-
-## Repository boundary
-
-This is the active empirical design home for the Campanula/Izu channel-identification programme extracted from `microdonta`.
-
-The active tree is intentionally narrower than its Git history. Exploratory public-photo pipelines, broad literature-discovery machinery, legacy synthetic stress suites, and other completed one-off trial implementations are kept out of the current execution surface once their reusable scientific lesson, provenance state, or negative result has been frozen.
-
-## Relationship to RACH causal invariants
-
-[`rach-causal-invariants`](https://github.com/zuizui0223/rach-causal-invariants) is the separate general-methods repository. It provides finite qualitative-program grammars, robust-admissibility classifications, coverage labels, and exact known-truth observation-channel calibration. It does not specify floral fitness, island geography, pollinator guilds, pollen deposition, recruitment, or any Campanula parameter.
-
-This repository owns those biological assumptions: the \(F(z)E(z)\) factorisation, island-regime definitions, response-shape contracts, observation units, and field protocols. A predeclared subset may be translated into a RACH candidate universe to audit logical consequences; that translation is not empirical validation of a biological mechanism.
+1. [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
+2. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
+3. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
+4. [`data/design/island_syndrome_literature_claim_matrix_20260824.json`](data/design/island_syndrome_literature_claim_matrix_20260824.json)
