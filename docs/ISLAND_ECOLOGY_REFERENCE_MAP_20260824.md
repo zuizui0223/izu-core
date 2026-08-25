@@ -49,7 +49,7 @@ Use only in Methods/inference-boundary text if needed. State-separability is not
 
 ## B. Strict external island-system challenge — source locked
 
-The authoritative state assignments remain in `data/design/simulation_manuscript_external_system_reference_matrix.json`. The sources below support **observed-state assignment only**. They are not parameter-fitting inputs and do not identify a shared empirical mechanism.
+The authoritative state assignments remain in `data/design/simulation_manuscript_external_system_reference_matrix.json`. The sources below support **observed-state assignment only**. They are not parameter-fitting inputs and do not identify a shared empirical mechanism. The 13-system strict challenge set is **not a prevalence estimate** and must not be interpreted as a random or exhaustive sample of island systems.
 
 ### Branching — 3 systems
 
