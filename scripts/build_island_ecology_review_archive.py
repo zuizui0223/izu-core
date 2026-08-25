@@ -37,9 +37,6 @@ REVIEW_FILES = (
     "tests/test_island_ecology_paper_completion.py",
 )
 
-# The anonymous-manuscript identity regression test intentionally contains the
-# forbidden token literal in its assertion, so that test is run in CI but is not
-# itself packaged inside the review archive.
 DEFAULT_DENY_TOKENS = (
     "zuizui0223",
     "github.com/zuizui0223",
@@ -87,6 +84,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         "journal_target": "Journal of Ecology",
         "author_identity_included": False,
         "title_page_included": False,
+        "external_research_programmes_included": False,
         "deny_tokens_checked": list(deny_tokens),
         "files": records,
         "claim_boundary": (
@@ -95,7 +93,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "new field dataset or identify one shared empirical mechanism across islands."
         ),
     }
-    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and regression guards. It intentionally excludes the title page, author affiliations, acknowledgements, cover letter and author-identifying public repository links.\n\nThe three future empirical translation tracks (real signed functional position, matched network-context/effective-service mapping, and a complete external causal bridge) are not required to reproduce the current primary claims.\n"""
+    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and regression guards. It intentionally excludes the title page, author affiliations, acknowledgements, cover letter, author-identifying public repository links, and unrelated research programmes.\n\nEverything included here is part of the submitted paper's reproducibility package; no external research programme is required to define or validate the paper's claims.\n"""
 
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for record in records:
