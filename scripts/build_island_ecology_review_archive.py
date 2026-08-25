@@ -31,9 +31,7 @@ REVIEW_FILES = (
     "scripts/render_simulation_manuscript_fig1_svg.py",
     "scripts/render_island_ecology_mechanism_figures_svg.py",
     "scripts/render_island_ecology_external_figures_svg.py",
-    "tests/test_island_ecology_primary_manuscript.py",
     "tests/test_island_ecology_figure_routing.py",
-    "tests/test_island_ecology_submission_manifest.py",
     "tests/test_island_ecology_paper_completion.py",
 )
 
@@ -93,7 +91,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "new field dataset or identify one shared empirical mechanism across islands."
         ),
     }
-    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and regression guards. It intentionally excludes the title page, author affiliations, acknowledgements, cover letter, author-identifying public repository links, and unrelated research programmes.\n\nEverything included here is part of the submitted paper's reproducibility package; no external research programme is required to define or validate the paper's claims.\n"""
+    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and paper-specific regression guards. It intentionally excludes title-page material, author-identifying links, historical pre-submission drafts, and unrelated research programmes.\n\nEverything included here is part of the submitted paper's reproducibility package; no external research programme is required to define or validate the paper's claims.\n"""
 
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for record in records:
