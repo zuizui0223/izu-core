@@ -1,5 +1,22 @@
 # Title page template — Journal of Ecology
 
+## Current status
+
+The scientific manuscript is complete. This file is a human-readable title-page template only.
+
+Final author-identifying values must be supplied explicitly in:
+
+`data/design/island_ecology_submission_metadata_template.json`
+
+Then generate the final title page with:
+
+```bash
+python scripts/build_island_ecology_submission_metadata.py \
+  --metadata data/design/island_ecology_submission_metadata_template.json
+```
+
+Do **not** infer author names/order, affiliations, email addresses, ORCIDs, acknowledgements, funding, contributions or declarations from Git history, account names, other manuscripts or institutional context.
+
 ## Title
 
 **One perturbation, multiple island responses: state-dependent branching under pollinator functional simplification**
@@ -21,11 +38,11 @@ Use numbered author–affiliation links in the formatted submission file.
 
 `[FULL NAME]`  
 `[institutional email]`  
-`[postal address if requested by submission system]`
+`[postal address]`
 
 ## ORCID
 
-- `[AUTHOR]: [ORCID]`
+- `[AUTHOR]: [ORCID, if supplied]`
 
 ## Running title
 
@@ -41,19 +58,27 @@ agent-based model; ecological networks; functional traits; island biogeography; 
 
 ## Author contributions
 
-`[CRediT contribution statement to be completed after final author list is agreed]`
+`[explicit author-supplied contribution statement using full names]`
+
+## Inclusion statement
+
+`[explicit author-supplied statement for the Journal of Ecology submission workflow]`
 
 ## Conflict of interest
 
-`[declaration]`
+`[explicit declaration]`
 
 ## Acknowledgements
 
-`[funding, field/logistical support and non-author contributions; keep out of the anonymous review manuscript]`
+`[funding, field/logistical support and non-author contributions, or explicit None]`
+
+## Funding
+
+`[funding statement, or explicit None]`
 
 ## Data availability
 
-Use the final public version of `docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md` after the immutable archive DOI is created.
+Use the submission-stage statement in `data/design/island_ecology_submission_metadata_template.json`. Replace it with the immutable archive DOI before final publication.
 
 ## Anonymous-review rule
 
