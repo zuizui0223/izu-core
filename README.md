@@ -117,7 +117,7 @@ All **11 generative challenges** were covered or sign-compatible with response c
 Protected exceptions remain:
 
 - **Puerto Rico–Mona `Guaiacum sanctum`** — reproductive-axis decoupling, not generic whole-reproduction buffering.
-- **Dominica `Heliconia`** — retained failed signed-position projection; no retuning.
+- **Dominica `Heliconia`** — retained failed signed-position projection; it **was not retuned** after failure.
 
 Cross-island recurrence therefore supports the generality of the **response architecture**, not one shared empirical mechanism across all islands.
 
@@ -148,6 +148,8 @@ This paper does **not** claim that:
 - the synthetic functional coordinate is automatically one named empirical trait;
 - state compatibility is empirical causal identification;
 - Dominica should be retuned until it fits.
+
+**These are claim boundaries of this paper, not pointers to an external research programme.**
 
 ## Reproducibility
 
