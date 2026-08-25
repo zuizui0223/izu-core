@@ -25,7 +25,7 @@ def test_review_archive_source_files_pass_default_identity_scan():
     assert all(len(record["sha256"]) == 64 for record in records)
 
 
-def test_review_archive_builds_with_manifest_and_no_title_page(tmp_path: Path):
+def test_review_archive_builds_with_manifest_and_no_external_programmes(tmp_path: Path):
     output = tmp_path / "review.zip"
     path = build_archive(output)
     assert path == output
@@ -40,7 +40,12 @@ def test_review_archive_builds_with_manifest_and_no_title_page(tmp_path: Path):
         manifest = json.loads(archive.read("REVIEW_ARCHIVE_MANIFEST.json"))
         assert manifest["author_identity_included"] is False
         assert manifest["title_page_included"] is False
+        assert manifest["external_research_programmes_included"] is False
         assert manifest["journal_target"] == "Journal of Ecology"
+        readme = archive.read("README_REVIEW_ARCHIVE.md").decode("utf-8").lower()
+        assert "no external research programme is required" in readme
+        for token in ["future empirical translation", "issue #91", "microdonta"]:
+            assert token not in readme
 
 
 def test_identity_scan_detects_explicit_token(tmp_path: Path):

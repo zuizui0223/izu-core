@@ -32,14 +32,7 @@ def test_jecology_submission_is_anonymous_and_has_review_code_statement():
 
 def test_jecology_submission_keeps_ecology_first_sections():
     text = MANUSCRIPT.read_text(encoding="utf-8")
-    sections = [
-        "# Introduction",
-        "# Materials and Methods",
-        "# Results",
-        "# Discussion",
-        "# Conclusion",
-        "# References",
-    ]
+    sections = ["# Introduction", "# Materials and Methods", "# Results", "# Discussion", "# Conclusion", "# References"]
     positions = [text.index(section) for section in sections]
     assert positions == sorted(positions)
     assert "The inverse problem is the main methodological result" not in text
@@ -48,17 +41,8 @@ def test_jecology_submission_keeps_ecology_first_sections():
 
 def test_jecology_submission_preserves_frozen_headline_results():
     text = MANUSCRIPT.read_text(encoding="utf-8")
-    for token in [
-        "0.4167",
-        "105 of 288",
-        "16/96",
-        "85/96",
-        "11/96",
-        "207/216",
-        "525",
-    ]:
+    for token in ["0.4167", "105 of 288", "16/96", "85/96", "11/96", "207/216", "525"]:
         assert token in text
-
     assert "three branching" in text
     assert "six same-direction propagation" in text
     assert "two buffering" in text
@@ -76,7 +60,7 @@ def test_jecology_submission_preserves_external_claim_boundaries():
     assert "reproductive-axis-decoupling" in text
     assert "Dominica *Heliconia*" in text
     assert "not retuned" in text
-    assert "None requires reopening the frozen simulation programme before submission" in text
+    assert "Questions that require direct empirical mechanism identification are outside the scope of this study" in text
 
 
 def test_jecology_submission_contains_source_controlled_citations_and_references():
@@ -92,7 +76,6 @@ def test_jecology_submission_contains_source_controlled_citations_and_references
         "Temeles et al., 2013",
     ]:
         assert citation in text
-
     for doi in [
         "10.1111/nph.14534",
         "10.1111/nph.20234",
@@ -123,6 +106,21 @@ def test_jecology_submission_expands_reproducible_methods_without_new_science():
         "No empirical inputs or Izu target frequencies were loaded",
     ]:
         assert token in text
+
+
+def test_submission_manuscript_has_no_external_future_programme_coupling():
+    lower = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    for token in [
+        "future empirical translation",
+        "three empirical questions",
+        "real signed functional starting position",
+        "network-context mechanism needs a matched empirical test",
+        "complete causal bridge",
+        "issue #91",
+        "microdonta",
+    ]:
+        assert token not in lower
+    assert "not part of the submitted research programme" in lower
 
 
 def test_jecology_submission_stays_within_research_article_scale():

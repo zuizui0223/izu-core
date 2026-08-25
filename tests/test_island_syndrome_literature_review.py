@@ -59,10 +59,10 @@ def test_primary_manuscript_integrates_deep_island_syndrome_review():
     for citation in [
         "Pannell et al., 2015",
         "Pannell, 2015",
-        "Hetherington-Rauth & Johnson, 2020",
+        "Hetherington-Rauth & Johnson (2020)",
         "Schrader et al., 2021",
-        "Ciarle & Burns, 2025",
-        "Ciarle et al., 2025",
+        "Ciarle & Burns (2025)",
+        "Ciarle et al. (2025)",
         "Traveset et al., 2016",
         "Wang et al., 2020",
     ]:

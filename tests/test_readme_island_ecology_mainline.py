@@ -34,11 +34,15 @@ def test_readme_preserves_frozen_scientific_boundaries():
     assert "strict challenge set, not a prevalence sample" in text
     assert "Dominica" in text
     assert "was not retuned" in text
-    assert "not submission blockers" in text
 
 
-def test_readme_does_not_route_issue_91_as_current_mainline():
+def test_readme_declares_external_programme_independence():
     text = README.read_text(encoding="utf-8")
-    assert "Issue #91 field work is a future empirical-translation programme" in text
-    assert "The current development target is Issue #91" not in text
-    assert "method-first MEE drafts are archived alternative framings" in text
+    lower = text.lower()
+    assert "no new simulation, field dataset, external-system search, parameter retuning, or external research programme is required" in lower
+    assert "these are claim boundaries of this paper, not pointers to an external research programme" in lower
+    assert "future empirical translation" not in lower
+    assert "issue #91" not in lower
+    assert "microdonta" not in lower
+    assert "real signed functional starting position" not in lower
+    assert "complete causal bridge" not in lower

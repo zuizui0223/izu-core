@@ -15,22 +15,23 @@ Working title:
 Primary target: **Journal of Ecology**  
 Fallbacks: **Functional Ecology**, **Oikos**
 
-Primary manuscript:
+Primary submission files:
 
 - [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
 - Supporting Information: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
 - Cover letter: [`docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md)
-- Canonical machine-readable state: [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
+- Submission manifest: [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
+- Canonical study state: [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
 
-The primary scientific hypotheses are closed for submission. No new simulation, field dataset, external-system search, or parameter retuning is required for the current paper.
+The primary scientific hypotheses are closed for submission. No new simulation, field dataset, external-system search, parameter retuning, or external research programme is required for this paper.
 
 ## Ecological story
 
-The paper separates three processes that are often grouped together under the term **plant island syndrome**:
+The paper separates three processes often grouped together under the term **plant island syndrome**:
 
-1. **Colonization / assembly filtering** — traits alter arrival, establishment, and persistence, changing which lineages are represented in island floras.
+1. **Colonization / assembly filtering** — traits alter arrival, establishment and persistence, changing which lineages are represented in island floras.
 2. **In-situ evolutionary change** — established island lineages evolve relative to mainland source lineages.
-3. **Post-establishment interaction response** — established lineages respond to altered pollinator functional composition, network context, and reproductive buffering.
+3. **Post-establishment interaction response** — established lineages respond to altered pollinator functional composition, network context and reproductive buffering.
 
 The current model addresses the third layer.
 
@@ -40,9 +41,6 @@ MAINLAND SOURCE POOL
         | dispersal, arrival, establishment
         v
 COLONIZATION / ASSEMBLY FILTER
-        | self-compatibility
-        | lifespan / clonality
-        | generalized reproductive accessibility
         v
 ESTABLISHED ISLAND FLORA
         |
@@ -52,9 +50,7 @@ ESTABLISHED ISLAND FLORA
 POST-ESTABLISHMENT RESPONSE
         |
         +--> starting functional state -> branch potential
-        |
         +--> local interaction context -> branch allocation / rescue / worsening
-        |
         +--> reproductive assurance -> magnitude attenuation
         v
 OBSERVED LINEAGE TRAJECTORIES
@@ -63,7 +59,7 @@ Repeated filtering + evolution + response across lineages and time
         -> macroecological "island syndrome"
 ```
 
-The resulting synthesis is:
+The synthesis is:
 
 > **Aggregate island syndromes can coexist with lineage-level branching because colonization and persistence determine which states arrive, while functional starting state and local ecological context determine how established lineages respond after pollinator environments change.**
 
@@ -75,7 +71,7 @@ The resulting synthesis is:
 | **H2 — state-dependent branching** | pre-existing functional-position heterogeneity is required for within-run sign branching | **supported within the declared ABM and independently replicated** |
 | **H3 — context-dependent propagation** | local interaction context reallocates branch identity and can rescue or worsen responses | **supported bidirectionally** |
 | **H4 — autonomous-assurance buffering** | assurance reduces downstream reproductive loss and may reverse sign | **partially supported: robust magnitude attenuation, no robust sign rescue** |
-| **H5 — cross-island recurrence** | branching, propagation, and buffering/alternative states recur across independent island systems without retuning | **supported at the qualitative response-state level** |
+| **H5 — cross-island recurrence** | branching, propagation and buffering/alternative states recur across island systems without retuning | **supported at the qualitative response-state level** |
 
 ## Main frozen results
 
@@ -83,18 +79,18 @@ The resulting synthesis is:
 
 In the original residual block and an independently seeded replication, mixed-sign branching occurred in **0.4167** of matched runs. Removing pre-existing functional-position heterogeneity reduced within-run mixed-sign branching to **0**, whereas other tested residual single-factor removals retained branching.
 
-Within the declared ABM, pre-existing lineage position in functional trait space is therefore the replicated minimal generator of response-sign branching.
+Within the declared ABM, pre-existing lineage position in functional trait space is therefore the replicated minimal tested generator of response-sign branching.
 
 ### Local interaction context
 
 Local support is not required to create branching, but it strongly reallocates branch identity.
 
 - local-support removal changed **105/288** paired lineage response signs;
-- in the independent network-context block, support produced **16/96** sign rescues;
+- support produced **16/96** sign rescues among eligible declines;
 - **85/96** eligible declines were attenuated;
 - **11/96** were worsened.
 
-The stable interpretation is therefore:
+The stable interpretation is:
 
 > **network context is a bidirectional branch allocator with buffering capacity, not a universal buffer.**
 
@@ -130,18 +126,16 @@ Cross-island recurrence therefore supports the generality of the **response arch
 
 ## Island-syndrome literature synthesis
 
-The manuscript now uses a deeper literature review rather than treating the island syndrome as a single causal trajectory.
-
 Canonical review:
 
 - [`docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md`](docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md)
-- Machine-readable claim matrix: [`data/design/island_syndrome_literature_claim_matrix_20260824.json`](data/design/island_syndrome_literature_claim_matrix_20260824.json)
+- Claim matrix: [`data/design/island_syndrome_literature_claim_matrix_20260824.json`](data/design/island_syndrome_literature_claim_matrix_20260824.json)
 
-Key literature conclusions:
+Key conclusions:
 
-- **Baker's law** is most defensibly treated as a colonization advantage of uniparental reproductive capacity, not as a universal prediction of high realized selfing after colonization.
+- Baker's law is best treated as a colonization advantage of uniparental reproductive capacity, not a universal prediction of high realized selfing after colonization.
 - Self-compatibility is strongly enriched in island floras, consistent with assembly filtering.
-- Flower-size evolution is not universally directional; comparative Pacific studies show archipelago-, lineage-, starting-size-, and pollination-mode dependence.
+- Flower-size evolution is not universally directional; Pacific comparisons show archipelago-, lineage-, starting-size- and pollination-mode dependence.
 - Oceanic pollination networks are often smaller or functionally reorganized, but simplification does not imply that every network metric or plant response changes in the same direction.
 - Pollinator **functional diversity and trait matching**, rather than species richness alone, provide the strongest empirical bridge to the upstream perturbation represented in the model.
 - Proposed plant island-syndrome components have heterogeneous evidence strength and should not be treated as one universal evolutionary package.
@@ -150,21 +144,12 @@ Key literature conclusions:
 
 The main figures are ecology-first:
 
-1. **Fig. 1 — ecological response architecture**  
-   common pollinator-functional change → starting state → local context → response states
-2. **Fig. 2 — minimal branch generator**  
-   original and independent ablation evidence for pre-existing functional position
-3. **Fig. 3 — downstream propagation**  
-   network-context branch allocation versus assurance attenuation
-4. **Fig. 4 — cross-island challenge**  
-   branching, propagation, buffering/alternative states, axis decoupling, and retained failure
+1. **Fig. 1 — ecological response architecture**
+2. **Fig. 2 — replicated minimal branch generator**
+3. **Fig. 3 — network-context branch allocation versus assurance attenuation**
+4. **Fig. 4 — cross-island response-state challenge**
 
 Detailed state-separability diagnostics are Supporting Information only (`Fig. S1` / `Table S2`). They are inference guards, not the primary biological novelty.
-
-Figure and table routing is declared in:
-
-- [`data/design/simulation_manuscript_figure_layout_v1.json`](data/design/simulation_manuscript_figure_layout_v1.json)
-- [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
 
 ## What this paper does not claim
 
@@ -174,20 +159,12 @@ This study does **not** claim that:
 - all island plants follow one post-establishment reproductive trajectory;
 - all 13 external systems share one empirical mechanism;
 - the 13-system challenge set estimates global prevalence of response states;
-- the synthetic functional coordinate is automatically corolla length, colour, nectar guides, FDQ, or any other named empirical trait;
-- visitor richness, visitor identity, or visitation rate alone measures effective pollination service;
+- the synthetic functional coordinate is automatically any named empirical floral trait;
+- visitor richness, identity, or visitation rate alone measures effective pollination service;
 - state compatibility constitutes empirical causal identification;
 - Dominica should be retuned until it fits.
 
-## Future empirical translation
-
-Three high-value empirical tracks remain open, but they are **not submission blockers** for the current paper:
-
-1. **real signed functional starting position** — define an outcome-blind, source-native plant position relative to a pollinator functional centre;
-2. **real network context → effective service** — link partner context to rate-weighted direct effectiveness rather than visitation alone;
-3. **complete causal bridge** — close `pollinator functional change → effective service → dependency/assurance → downstream response` on compatible matched units.
-
-These are prospective tests generated by the present paper, not missing data that must be filled before submission.
+These are claim boundaries of this paper, not pointers to an external research programme.
 
 ## Reproducibility
 
@@ -204,13 +181,13 @@ Key result files include:
 
 Cross-platform frozen-artifact paths are normalized to POSIX-style relative paths so committed metadata remains stable across operating systems.
 
-For anonymous review, the repository contains a review-archive builder:
+For anonymous review:
 
 ```bash
 python scripts/build_island_ecology_review_archive.py
 ```
 
-The archive intentionally excludes title-page and author-identifying material.
+The archive intentionally excludes title-page, author-identifying material, and unrelated research programmes.
 
 ## Submission status
 
@@ -225,8 +202,9 @@ Completed:
 - expanded Methods and Fig./Table cross-references;
 - Supporting Information;
 - cover-letter draft;
-- figure captions, references, and submission manifest;
-- anonymous review-archive routing.
+- figure captions, references and submission manifest;
+- anonymous review-archive routing;
+- separation from unrelated external research programmes.
 
 Still external to the scientific analysis:
 
@@ -236,13 +214,7 @@ Still external to the scientific analysis:
 
 ## Historical material
 
-The repository contains older field-design, channel-identification, empirical-bridge, and method-first manuscript work. Those files remain useful as provenance and for future empirical translation, but they are **not the current manuscript mainline** when they conflict with the canonical state above.
-
-In particular:
-
-- Issue #91 field work is a future empirical-translation programme, not a blocker for the present synthetic island-ecology paper;
-- method-first MEE drafts are archived alternative framings;
-- state-separability is a supporting inference layer rather than the headline contribution.
+Older field-design, channel-identification, empirical-bridge and method-first files remain in Git history and archival documentation for provenance. They are not part of the current manuscript, submission package, or current research programme when they conflict with the canonical state above.
 
 When older documentation conflicts with the current paper state, prefer:
 
