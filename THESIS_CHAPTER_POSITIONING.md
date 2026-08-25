@@ -8,7 +8,7 @@ The shared dissertation-level question is:
 
 > **How does geographic isolation alter plant reproduction through changes in ecological interactions, and why do those changes produce different floral outcomes across islands and lineages?**
 
-The companion repository [`zuizui0223/island`](https://github.com/zuizui0223/island) is Chapter 1 and addresses the macroecological boundary condition: where and under what biogeographic conditions island isolation is associated with floral and reproductive assemblage filtering.
+The companion repository [`zuizui0223/island`](https://github.com/zuizui0223/island) is Chapter 1 and addresses the macroecological boundary condition: where and under what biogeographic conditions island isolation is associated with floral and reproductive assemblage filtering. [`zuizui0223/shimahotarubukuro`](https://github.com/zuizui0223/shimahotarubukuro) is Chapter 3 and provides the focal empirical phenotype: directly measured multidimensional floral divergence within *Campanula microdonta* across five Izu islands.
 
 `izu-core` addresses the mechanistic follow-up:
 
@@ -28,7 +28,7 @@ where:
 - `E(z)` is establishment / reachability conditional on viable reproduction;
 - `W(z)` is the observed island pattern.
 
-The purpose of Chapter 2 is not to redescribe a floral pattern found in Chapter 1. It is to determine which intermediate mechanisms are actually identified by field, source-locked, or independent-system evidence.
+The purpose of Chapter 2 is not to redescribe a floral pattern found in Chapter 1 or Chapter 3. It is to determine which intermediate mechanisms are actually identified by field, source-locked, or independent-system evidence.
 
 ## Relationship to the Chapter 1 channel-gated hypothesis
 
@@ -102,17 +102,16 @@ Chapter 2 is the mechanistic-resolution layer of the dissertation. It can evalua
 
 Where these links remain unmeasured, the mechanism remains unresolved rather than being filled by proxy.
 
-## Relationship to Chapter 1 (`island`)
+## Relationship to Chapters 1 and 3
 
-| Chapter 1 — `island` | Chapter 2 — `izu-core` |
-| --- | --- |
-| global / multi-island comparative scale | Izu / lineage / plant / network scale |
-| asks **where and when** filtering appears | asks **how and why** the response is generated |
-| identifies boundary conditions for assemblage filtering | identifies mechanisms and response branching |
-| Bombus is a regional channel indicator / natural experiment | Bombus identity alone is not causal evidence |
-| structural absence vs expected deficit is a key comparison | effective service / dependency / response mode are key comparisons |
-| alternative bird/Lepidoptera-like phenotypes may support ecological interpretation | alternative guilds require source-resolved or direct mechanistic evidence for admission |
-| does not infer within-lineage evolution from composition alone | explicitly separates within-lineage response from occupancy / replacement |
+| Chapter 1 — `island` | Chapter 2 — `izu-core` | Chapter 3 — `shimahotarubukuro` |
+| --- | --- | --- |
+| global / multi-island comparative scale | Izu / lineage / plant / network scale | one focal lineage across five Izu islands |
+| asks **where and when** filtering appears | asks **how and why** the response is generated | asks **what phenotype actually diverges** |
+| identifies boundary conditions for assemblage filtering | identifies mechanisms and response branching | directly quantifies floral phenotype divergence |
+| Bombus is a regional channel indicator / natural experiment | Bombus identity alone is not causal evidence | causal Bombus contrasts remain outside the morphometric pipeline |
+| structural absence vs expected deficit is a key comparison | effective service / dependency / response mode are key comparisons | site-corrected morphology, guide traits and Pst are key outputs |
+| alternative bird/Lepidoptera-like phenotypes may support ecological interpretation | alternative guilds require source-resolved/direct evidence for mechanistic admission | phenotype is measured directly but its historical driver remains unresolved |
 
 The thesis-level handoff is:
 
@@ -121,9 +120,12 @@ Chapter 1: Geography -> channel regime -> assemblage filtering
                          |
                          v
 Chapter 2: channel regime -> plant-specific functional/reproductive response
+                         |
+                         v
+Chapter 3: focal lineage -> realized multidimensional floral divergence
 ```
 
-Chapter 1 establishes that a universal island floral syndrome is not expected and identifies the conditions under which a classical syndrome may emerge. Chapter 2 explains why even within a shared degraded pollination environment the downstream biological response can branch across lineages.
+Chapter 1 establishes that a universal island floral syndrome is not expected and identifies the conditions under which a classical syndrome may emerge. Chapter 2 explains why even within a shared altered pollination environment the downstream response can branch across lineages. Chapter 3 provides the high-resolution phenotype that the Chapter 2 mechanisms must ultimately explain: in *C. microdonta*, different floral axes carry markedly different levels of among-island differentiation.
 
 ## Claim boundary
 
@@ -133,7 +135,8 @@ This repository should not claim that:
 - every lineage should reproduce the same Oshima-to-post-Oshima breakpoint;
 - pollinator occurrence equals effectiveness;
 - floral form identifies effective-pollinator dependency;
-- one functional decline must yield one floral response direction; or
-- occupancy / lineage replacement is equivalent to within-lineage floral evolution.
+- one functional decline must yield one floral response direction;
+- occupancy / lineage replacement is equivalent to within-lineage floral evolution; or
+- Chapter 3 phenotypic divergence by itself identifies the pollinator mechanism responsible for it.
 
 The Chapter 2 contribution is narrower and stronger: **to identify the reproductive and interaction mechanisms that translate pollination-regime change into lineage-specific biological responses.**
