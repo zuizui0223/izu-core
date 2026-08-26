@@ -1,0 +1,8 @@
+{
+  "purpose": "trigger existing Chapter 2 scientific-gate workflow via pull_request",
+  "scientific_design_changed": false,
+  "thresholds_changed": false,
+  "seed_changed": false,
+  "parameter_ranges_changed": false,
+  "decision_rule_changed": false
+}
