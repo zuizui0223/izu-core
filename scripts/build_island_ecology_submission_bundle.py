@@ -18,6 +18,7 @@ from scripts.build_island_ecology_submission_metadata import (
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_jecology_submission_bundle.zip"
+REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 MANUSCRIPT_ARCNAME = "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
 
 STATIC_SUBMISSION_FILES = (
@@ -28,7 +29,20 @@ STATIC_SUBMISSION_FILES = (
 )
 
 
+def validate_scientific_gate() -> None:
+    if not REASSESSMENT_GATE.exists():
+        return
+    gate = json.loads(REASSESSMENT_GATE.read_text(encoding="utf-8"))
+    if gate.get("current_research_article_submission_ready") is not True:
+        raise ValueError(
+            "scientific reassessment gate is open; complete the response-geometry / "
+            "parameter-robustness gate before building a submission bundle"
+        )
+
+
 def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
+    validate_scientific_gate()
+
     metadata = load_metadata(metadata_path)
     errors = validate_metadata(metadata)
     if errors:
@@ -53,7 +67,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "chapter2_complete_and_frozen_for_submission",
+            "scientific_state": "submission_ready_after_reassessment",
             "manuscript_state": "editorial_v3_rendered_from_frozen_v2_source",
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
@@ -64,7 +78,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "ISLAND_ECOLOGY_COVER_LETTER.md",
                 "island_ecology_anonymous_review_archive.zip",
             ],
-            "boundary": "Packaging renders editorial V3 but does not rerun or modify scientific analysis.",
+            "boundary": "Packaging does not rerun scientific analysis and is blocked while the reassessment gate is open.",
         }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
