@@ -17,8 +17,9 @@ def test_v3_integrates_frozen_h2_sign_decomposition_without_scientific_drift():
     assert "had to be present already in lineage-specific functional-opportunity change" in v3
     assert "The key state dependence therefore enters before those downstream filters" in v3
     assert "does not assign the synthetic functional coordinate to a named empirical trait" in v3
-    for token in ("0.4167", "105/288", "16/96", "85/96", "11/96", "207/216", "0/525"):
+    for token in ("0.4167", "105/288", "16/96", "85/96", "11/96", "207/216"):
         assert token in v3
+    assert "zero sign rescues among 525 eligible declines" in v3
 
 
 def test_v3_sharpens_gap_without_reopening_island_syndrome_question():
