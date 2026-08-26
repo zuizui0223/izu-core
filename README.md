@@ -15,16 +15,20 @@ Working title:
 
 > **One perturbation, multiple island responses: state-dependent branching under pollinator functional simplification**
 
-No new simulation, field dataset, external-system search, parameter retuning, or external research programme is required for the paper. The repository test suite has passed on Python 3.10, 3.11 and 3.12.
+No new simulation, field dataset, external-system search, parameter retuning, or external research programme is required for the paper. The editorial V3 submission route has passed the repository test suite on Python 3.10, 3.11 and 3.12.
 
-Canonical files:
+Canonical files and routes:
 
-- Main manuscript: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
+- Reviewer-facing manuscript: **editorial V3**, generated as `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md`
+- Frozen manuscript source: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
+- V3 builder: [`scripts/build_island_ecology_manuscript_v3.py`](scripts/build_island_ecology_manuscript_v3.py)
 - Supporting Information: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
 - H2 analytical sign decomposition: [`docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md`](docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md)
 - Submission manifest: [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
 - Canonical study state: [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
 - Current submission state: [`docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md)
+
+V3 is a deterministic editorial render from the frozen V2 source. It sharpens the island-syndrome/post-establishment gap and integrates the already-frozen H2 sign decomposition into the Abstract, Methods, Results, Discussion and Conclusion. It does **not** rerun or change the scientific analysis.
 
 ## Ecological story
 
@@ -155,17 +159,23 @@ This paper does **not** claim that:
 
 Primary numerical claims are stored in frozen JSON artifacts and figures are rendered deterministically from those artifacts.
 
-Anonymous reviewer archive:
+Render editorial V3 directly:
+
+```bash
+python scripts/build_island_ecology_manuscript_v3.py
+```
+
+Build the anonymous reviewer archive:
 
 ```bash
 python scripts/build_island_ecology_review_archive.py
 ```
 
-The archive excludes title-page information, author-identifying links and unrelated research programmes.
+The archive renders V3 from the frozen V2 source and excludes title-page information, author-identifying links and unrelated research programmes.
 
 ## Submission workflow
 
-The scientific package is complete. Only **author-supplied identity/submission metadata** remain unresolved.
+The scientific and editorial manuscript package is complete. Only **author-supplied identity/submission metadata** remain unresolved.
 
 Populate:
 
@@ -180,7 +190,7 @@ python scripts/build_island_ecology_submission_metadata.py \
   --metadata data/design/island_ecology_submission_metadata_template.json
 ```
 
-Generate the complete Journal of Ecology submission bundle:
+Generate the complete Journal of Ecology submission bundle with editorial V3:
 
 ```bash
 python scripts/build_island_ecology_submission_bundle.py \
@@ -193,7 +203,7 @@ Output:
 dist/island_ecology_jecology_submission_bundle.zip
 ```
 
-The final bundle contains the title page and cover letter **outside** a nested anonymous reviewer archive. Packaging does not rerun or modify the scientific analysis.
+The final bundle contains editorial V3 plus the title page and cover letter **outside** a nested anonymous reviewer archive. Packaging renders prose deterministically but does not rerun or modify the scientific analysis.
 
 Metadata checklist: [`docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md)
 
@@ -219,6 +229,7 @@ Older field-design, empirical-bridge and method-first files remain only for prov
 When older documentation conflicts with the current paper state, prefer:
 
 1. [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
-2. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
-3. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
-4. [`docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md)
+2. [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
+3. [`scripts/build_island_ecology_manuscript_v3.py`](scripts/build_island_ecology_manuscript_v3.py) + frozen V2 source [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
+4. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
+5. [`docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md)
