@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-27",
+  "status": "fixed_before_execution",
+  "response_geometry_realizations": 96,
+  "joint_transition_surface": {
+    "latin_hypercube_points": 48,
+    "matched_realizations_per_point": 24,
+    "parameters": 10
+  },
+  "context_assurance_thresholds": {
+    "replicates_per_saturation": 12,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "support_strengths": [0.0, 0.1, 0.25, 0.4, 0.5, 0.6, 0.75],
+    "assurance_multipliers": [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0]
+  },
+  "seed": 20260826,
+  "retuning_after_result": false,
+  "empirical_calibration": false,
+  "decision_output": "data/results/chapter2_scientific_gate_decision.json"
+}
