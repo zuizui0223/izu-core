@@ -1,8 +1,5 @@
-import copy
 import json
 from pathlib import Path
-
-import pytest
 
 from scripts.build_island_ecology_submission_metadata import (
     load_metadata,
@@ -48,7 +45,7 @@ def test_template_fails_closed_without_author_supplied_metadata():
     assert any("conflict_of_interest" in error for error in errors)
 
 
-def test_complete_metadata_builds_title_page_and_cover_letter():
+def test_complete_metadata_can_still_render_identity_files_for_later_use():
     metadata = complete_metadata()
     assert validate_metadata(metadata) == []
     title_page = render_title_page(metadata)
@@ -78,12 +75,12 @@ def test_builder_does_not_silently_infer_optional_identity_metadata():
     assert "ORCID: not supplied" in title_page
 
 
-def test_checklist_keeps_science_frozen_and_requests_only_metadata():
+def test_checklist_places_scientific_reassessment_before_author_metadata():
     text = CHECKLIST.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "chapter 2 complete and frozen for submission" in lower
-    assert "must not reopen h1–h5" in lower
-    assert "final author list and order" in lower
-    assert "corresponding author" in lower
-    assert "submission declarations" in lower
-    assert "builder fails closed" in lower
+    assert "submission paused pending scientific reassessment" in lower
+    assert "author-metadata workflow remains prepared, but it is not the active gate" in lower
+    assert "response-geometry and parameter-robustness" in lower
+    assert "final author order and affiliations" in lower
+    assert "final bundle" in lower
+    assert "will raise an error while the scientific reassessment gate remains open" in lower
