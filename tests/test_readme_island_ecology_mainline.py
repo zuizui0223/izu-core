@@ -44,7 +44,8 @@ def test_readme_corrects_local_support_semantics_and_precision():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert "support_strength" in text
-    assert "local-availability filtering/stress parameter" in lower
+    assert "local context / availability filtering" in lower
+    assert "not extra beneficial support" in lower
     assert "5 of 12" in text
     assert "0.4167" in text
     assert "do not use `0.4167`" in text
