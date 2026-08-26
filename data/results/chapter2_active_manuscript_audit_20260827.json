@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-27",
+  "manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
+  "model_spec": "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
+  "status": "active_draft_created_submission_blocked_by_completion_audit",
+  "checks": {
+    "active_working_draft_exists": "pass",
+    "conditional_response_geometry_is_primary_headline": "pass",
+    "replicated_minimal_generator_removed_as_headline": "pass",
+    "matched_response_geometry_results_reported": "pass",
+    "joint_parameter_regime_results_reported": "pass",
+    "local_context_semantics_corrected_to_filtering": "pass",
+    "assurance_demoted_to_magnitude_attenuation": "pass",
+    "H5_external_coverage_removed_as_validation": "pass",
+    "synthetic_frequency_prevalence_boundary_explicit": "pass",
+    "canonical_empirical_claim_boundary_explicit": "pass",
+    "exact_model_specification_frozen_for_integration": "pass",
+    "full_model_equations_integrated_into_manuscript_body": "partial",
+    "full_local_filtering_projection_rules_integrated_into_manuscript_body": "partial",
+    "reference_list_rebuilt_from_source_audited_matrix": "fail",
+    "Lord_2015_and_Mendez_2025_reference_hygiene_resolved": "fail",
+    "main_figures_regenerated_from_final_gate_results": "fail",
+    "main_tables_regenerated_from_final_gate_results": "fail",
+    "final_submission_metadata_and_builder_audit": "fail"
+  },
+  "current_submission_ready": false,
+  "blocking_items": [
+    "integrate_the_exact_model_specification_into_the_active_manuscript_methods_or_supporting_information",
+    "rebuild_and_audit_the_reference_list_from_source_locked_repository_sources",
+    "resolve_Lord_2015_and_Mendez_2025_citation_status",
+    "generate_response_geometry_joint_regime_context_assurance_main_figures_from_final_results",
+    "generate_parameter_and_result_tables",
+    "run_final_claim_evidence_and_submission_builder_audit"
+  ],
+  "non_blocking_but_later": [
+    "journal_specific_word_count_and_formatting",
+    "cover_letter_regeneration",
+    "double_anonymous_archive_packaging"
+  ],
+  "next_action": "integrate_exact_model_specification_then_generate_the_four_primary_result_figures_before_reference_and_submission_packaging"
+}

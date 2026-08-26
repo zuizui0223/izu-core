@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-27",
+  "scope": "chapter2_research_article_only",
+  "status": "active_working_manuscript_reassembly",
+  "parent_programme_mainline": "data/design/active_development_mainline.json",
+  "supersession_rule": "For Chapter 2 manuscript claims, this file supersedes older active_development_mainline fields that label v12 initial-position heterogeneity as a replicated minimal generator. It does not alter the broader comparative programme or its empirical admission gates.",
+  "research_article_route": "conditional_response_geometry",
+  "submission_ready": false,
+  "primary_question": "Under what combinations of plant starting functional position, pollinator-community reorganization and realized local interaction context does an island-minus-mainland post-establishment response change sign?",
+  "primary_model_result": {
+    "matched_pollinator_community_realizations": 96,
+    "mixed_sign_realizations": 41,
+    "all_positive_realizations": 42,
+    "all_negative_realizations": 13,
+    "mean_geometry": "mixed_sign_nonmonotonic",
+    "mean_sign_switch_intervals": [[0.30, 0.35], [0.65, 0.70]],
+    "interpretation": "starting functional position conditions response sign; initial-position heterogeneity is not promoted as a universal minimal ecological generator"
+  },
+  "joint_robustness": {
+    "latin_hypercube_points": 48,
+    "parameters": 10,
+    "matched_realizations_per_point": 24,
+    "mixed_mean_geometry_points": 16,
+    "all_positive_mean_geometry_points": 22,
+    "all_negative_mean_geometry_points": 10,
+    "interpretation": "mixed geometry occupies a substantial declared design region but is not universal; design-space frequencies are not ecological prevalence"
+  },
+  "local_context": {
+    "semantic_label": "local_availability_or_interaction_filtering",
+    "lineage_contrasts_with_any_sign_change": 737,
+    "median_first_sign_change_strength": 0.40,
+    "role": "bidirectional_branch_allocator_with_buffering_capacity_not_universal_buffer",
+    "empirical_threshold_claim_allowed": false
+  },
+  "autonomous_assurance": {
+    "eligible_baseline_declines": 580,
+    "tested_multiplier_envelope": [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0],
+    "sign_rescues_from_0_5x_through_4x": 0,
+    "upstream_service_mismatch_count": 0,
+    "magnitude_improvements_at_0_5x": 565,
+    "magnitude_improvements_at_4x": 539,
+    "role": "robust_magnitude_attenuator_not_sign_rescue_branch"
+  },
+  "three_layer_scope": {
+    "assembly_filtering": "conceptual_background_not_simulated_as_primary_test",
+    "in_situ_evolution": "conceptual_background_not_supported_by_current_trait_adjustment_envelope",
+    "post_establishment_interaction_response": "primary_simulation_scope"
+  },
+  "external_system_role": "comparative_grounding_and_boundary_examples_not_validation_coverage",
+  "empirical_admission_state": {
+    "canonical_source": "docs/CURRENT_EVIDENCE_STATE.md",
+    "formal_cross_system_mechanism_fit_ready": false,
+    "complete_external_mechanism_bridges": 0,
+    "historical_bombus_causation_identified": false,
+    "general_izu_flora_rule_allowed": false
+  },
+  "claims_prohibited": [
+    "replicated_minimal_generator_as_general_ecological_discovery",
+    "11_of_11_external_state_coverage_as_validation",
+    "synthetic_design_frequencies_as_natural_prevalence",
+    "support_strength_0_40_as_empirical_ecological_threshold",
+    "trait_axis_sign_switches_as_calibrated_real_trait_thresholds",
+    "assurance_attenuation_as_emergent_sign_buffering_discovery",
+    "historical_bombus_loss_as_causally_identified",
+    "general_izu_flora_rule"
+  ],
+  "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
+  "next_manuscript_gate": "audit_the_new_active_draft_against_current_evidence_state_model_equations_parameterization_reference_hygiene_and_submission_builder_fail_closed_contract"
+}

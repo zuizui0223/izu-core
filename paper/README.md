@@ -22,24 +22,25 @@ Those later diagnostics are design / claim-boundary aids. They do not promote a 
 
 `paper/evidence_screening/` is retained as a **historical audit archive**. Its broad U0/U1 discovery programme is retired and must not be treated as the current development sequence.
 
-## No active manuscript claim
+## Active Chapter 2 working manuscript
 
-The former manuscript, prospective meta-analysis design, and July broad-literature-search note were retired from the active tree because they had become stale relative to the source-locked state. In particular, they still described the Hendriks provenance gate as incomplete after the exact institutional PDF had already been recovered, checksum locked, and strictly reverified.
+The former manuscript, prospective meta-analysis design, and July broad-literature-search note remain retired because they became stale relative to the source-locked state. They are provenance only and must not be restored as submission surfaces.
 
-A future manuscript should be regenerated from the then-current canonical evidence state rather than repaired by hand from an obsolete draft.
+After completion of the 2026-08-27 Chapter 2 scientific reassessment, a **new active working manuscript** has been regenerated from current state:
 
-### Chapter 2 update — 2026-08-27
+- [`docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`](../docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md)
+- exact model specification: [`docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md`](../docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md)
+- Chapter 2 manuscript supersession overlay: [`data/design/chapter2_active_manuscript_mainline_20260827.json`](../data/design/chapter2_active_manuscript_mainline_20260827.json)
+- current completion audit: [`data/results/chapter2_active_manuscript_audit_20260827.json`](../data/results/chapter2_active_manuscript_audit_20260827.json)
 
-The Chapter 2 model-side scientific reassessment is now complete and supports a **Research Article candidate centered on conditional response geometry**. This does **not** restore any historical draft as an active manuscript and does not make the repository submission-ready by itself.
+The working manuscript is a **Research Article candidate centered on conditional response geometry**. It is **not submission-ready**. The completed model-side gate does not promote historical drafts, does not complete the focal empirical programme, and does not convert synthetic thresholds or design frequencies into ecological estimates.
 
-The restart boundary is defined in [`docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md`](../docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md). A new manuscript must be generated from current canonical state, with the response-geometry and joint-regime results as the model-side quantitative core and with all empirical claims constrained by `docs/CURRENT_EVIDENCE_STATE.md`.
-
-Synthetic design frequencies and threshold values remain robustness/sensitivity descriptors, not natural prevalence or empirically calibrated ecological thresholds.
+The current completion blockers are exact model-spec integration into the manuscript/supporting information, source-audited reference rebuilding, final figure/table regeneration, and a final claim/evidence plus submission-builder audit.
 
 ## Current development target
 
 Issue #91 remains the direct empirical gate for the focal linked plant / effort / visit / single-visit pollen deposition / pollination-treatment / fruit / seed programme: collect a real linked bundle, freeze it, pass structural admission, estimate between-plant dispersion and measurement reliability/loss, and set an absolute precision target before confirmatory planning.
 
-That focal empirical gate is separate from the completed Chapter 2 model reassessment. Completion of one must not be used to imply completion of the other.
+That focal empirical gate is separate from the completed Chapter 2 model reassessment and from the Chapter 2 working manuscript. Completion of one must not be used to imply completion of the others.
 
 External and source-recovery work is secondary and gate-controlled. Repeated searches of exhausted routes, public-image visible-signal inference, and formal cross-system pooling before compatible independent replication are not active paper-building steps.
