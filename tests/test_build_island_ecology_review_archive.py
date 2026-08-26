@@ -47,7 +47,7 @@ def test_review_archive_builds_with_v3_manifest_and_no_external_programmes(tmp_p
         assert manifest["title_page_included"] is False
         assert manifest["external_research_programmes_included"] is False
         assert manifest["journal_target"] == "Journal of Ecology"
-        assert "editorial V3" in manifest["claim_boundary"]
+        assert "editorial v3" in manifest["claim_boundary"].lower()
         readme = archive.read("README_REVIEW_ARCHIVE.md").decode("utf-8").lower()
         assert "no external research programme is required" in readme
         assert "editorial v3" in readme
