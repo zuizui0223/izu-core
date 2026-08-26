@@ -12,7 +12,8 @@ def test_readme_declares_scientific_reassessment_before_submission():
     assert "do not submit the current journal of ecology research article yet" in lower
     assert "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md" in text
     assert "data/design/manuscript_reassessment_gate_20260826.json" in text
-    assert "response geometry / parameter robustness" in text
+    assert "response geometry" in lower
+    assert "parameter robustness" in lower
 
 
 def test_readme_preserves_three_layer_island_syndrome_core():
@@ -43,7 +44,7 @@ def test_readme_corrects_local_support_semantics_and_precision():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert "support_strength" in text
-    assert "availability/filtering stress parameter" in lower
+    assert "local-availability filtering/stress parameter" in lower
     assert "5 of 12" in text
     assert "0.4167" in text
     assert "do not use `0.4167`" in text
