@@ -6,58 +6,40 @@ MANIFEST = ROOT / "data/design/island_ecology_jecology_submission_manifest.json"
 DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 
-def test_submission_manifest_routes_ecology_files_only():
+def test_submission_manifest_blocks_submission_during_scientific_reassessment():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert manifest["journal_target"] == "Journal of Ecology"
-    assert manifest["primary_scientific_state"] == "H1_H5_closed_for_submission"
-    assert manifest["scientific_reopening_required"] is False
+    assert manifest["article_type"] == "Research Article"
+    assert manifest["submission_ready"] is False
+    assert manifest["scientific_reopening_required"] is True
+    assert manifest["active_scientific_gate"] == "data/design/manuscript_reassessment_gate_20260826.json"
+    assert manifest["scientific_reassessment"] == "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
     assert manifest["paper_scope_independent_of_external_research_programmes"] is True
 
-    main = manifest["main_files"]
-    assert main["anonymous_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
-    assert main["anonymous_manuscript_source"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
-    assert main["anonymous_manuscript_builder"] == "scripts/build_island_ecology_manuscript_v3.py"
-    assert main["anonymous_manuscript_status"] == "editorial_v3_rendered_deterministically_from_frozen_v2_source"
-    assert main["supporting_information"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
-    assert main["h2_analytical_sign_decomposition"] == "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md"
-    assert "frozen_scientific_manuscript" not in main
 
-    assert [row["figure"] for row in manifest["main_figures"]] == ["Fig1", "Fig2", "Fig3", "Fig4"]
-    assert manifest["supplement"]["manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
-    h2 = manifest["supplement"]["h2_analytical_sign_decomposition"]
-    assert h2["file"] == "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md"
-    assert h2["role"] == "algebraic_unpacking_of_frozen_v12_endpoint_not_new_scientific_result"
-    assert h2["exact_identity"] == "sign_delta_reproduction_equals_sign_delta_service_equals_sign_delta_functional_opportunity"
-    assert manifest["supplement"]["state_separability_figure"]["figure"] == "FigS1"
-    assert manifest["supplement"]["state_separability_figure"]["role"] == "supporting_inference_guard_not_primary_biological_result"
-    assert manifest["supplement"]["tables"] == ["TableS1_frozen_simulation_blocks", "TableS2_state_separability", "TableS3_external_systems"]
+def test_manifest_demotes_overstated_claims_and_routes_next_scientific_work():
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    claims = manifest["claim_reassignment"]
+    assert claims["H2"] == "demoted_to_model_specific_sensitivity_and_endpoint_geometry"
+    assert "bidirectional_local_context_filtering" in claims["H3"]
+    assert "structural_parameter_result" in claims["H4"]
+    assert claims["H5"] == "demoted_from_validation_to_comparative_grounding"
 
-    review = manifest["review_archive"]
-    assert review["anonymous"] is True
-    assert review["builder"] == "scripts/build_island_ecology_review_archive.py"
-    assert review["manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
-    assert review["identity_scan_required"] is True
-    assert review["new_unpublished_field_data_required"] is False
-    assert review["external_research_programmes_included"] is False
+    external = manifest["external_system_role"]
+    assert external["strict_systems"] == 13
+    assert external["coverage_11_of_11_must_not_be_used_as_validation"] is True
+    assert external["dominica"] == "retained_failed_specific_signed_position_projection"
 
-    separate = manifest["separate_submission_files"]
-    assert separate["title_page_template"] == "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md"
-    assert separate["submission_metadata_template"] == "data/design/island_ecology_submission_metadata_template.json"
-    assert separate["submission_metadata_checklist"] == "docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md"
-    assert separate["submission_metadata_builder"] == "scripts/build_island_ecology_submission_metadata.py"
-    assert separate["submission_bundle_builder"] == "scripts/build_island_ecology_submission_bundle.py"
-    assert separate["title_page_status"] == "builder_ready_pending_author_supplied_metadata"
-    assert separate["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
-    assert separate["cover_letter_status"] == "builder_ready_pending_author_supplied_metadata"
-    assert separate["anonymous_review_manuscript"] == "editorial_v3_ready_via_deterministic_builder"
-    assert separate["supplement"] == "assembled_with_h2_analytical_sign_decomposition"
+    required = manifest["required_new_scientific_work"]
+    assert "response_geometry_analysis_identifying_sign_switch_conditions" in required
+    assert "parameter_robustness_sweep_over_key_island_perturbation_and_matching_parameters" in required
+    assert "local_context_sign_change_robustness_map" in required
+    assert "assurance_sign_rescue_threshold_map" in required
 
-    assert "future_empirical_tracks_excluded_from_submission_gate" not in manifest
-    assert manifest["archived_provenance"]["pre_editorial_submission_source"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
-    assert manifest["archived_provenance"]["pre_submission_scientific_draft"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md"
-    assert "editorial_v3_does_not_rerun_or_change_scientific_analysis" in manifest["protected_boundaries"]
-    assert "author_identity_metadata_must_be_explicitly_supplied_not_inferred" in manifest["protected_boundaries"]
-    assert manifest["next_executable_task"].startswith("fill_author_supplied_submission_metadata_json")
+    bundle = manifest["submission_bundle"]
+    assert bundle["status"] == "blocked_while_scientific_reassessment_gate_is_open"
+    assert bundle["author_metadata_is_not_current_active_blocker"] is True
+    assert manifest["next_executable_task"].startswith("build_response_geometry")
 
 
 def test_data_code_statement_preserves_anonymous_review_and_paper_scope():

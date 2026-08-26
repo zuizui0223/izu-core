@@ -10,7 +10,7 @@ CURRENT_PAPER_FILES = (
     ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
     ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
     ROOT / "data/design/island_ecology_jecology_submission_manifest.json",
-    ROOT / "data/design/simulation_study_mainline_20260824.json",
+    ROOT / "data/design/manuscript_reassessment_gate_20260826.json",
 )
 
 FORBIDDEN_ACTIVE_COUPLING = (
@@ -34,18 +34,17 @@ def test_current_paper_package_has_no_external_programme_coupling():
 def test_machine_readable_boundaries_declare_independence():
     state = json.loads((ROOT / "data/design/simulation_study_mainline_20260824.json").read_text(encoding="utf-8"))
     manifest = json.loads((ROOT / "data/design/island_ecology_jecology_submission_manifest.json").read_text(encoding="utf-8"))
+    gate = json.loads((ROOT / "data/design/manuscript_reassessment_gate_20260826.json").read_text(encoding="utf-8"))
 
     assert state["paper_scope_independent_of_external_research_programmes"] is True
     assert state["submission_logic"]["external_research_programmes_part_of_paper"] is False
-    assert state["protected_boundaries"]["external_research_programmes"] == "out_of_scope_and_not_part_of_submission"
     assert manifest["paper_scope_independent_of_external_research_programmes"] is True
-    assert manifest["review_archive"]["external_research_programmes_included"] is False
+    assert gate["current_research_article_submission_ready"] is False
 
 
-def test_historical_drafts_are_not_submission_files():
+def test_reassessment_manifest_does_not_route_historical_drafts_as_submission_ready():
     manifest = json.loads((ROOT / "data/design/island_ecology_jecology_submission_manifest.json").read_text(encoding="utf-8"))
-    current_paths = set(manifest["main_files"].values())
-    archived = set(manifest["archived_provenance"].values())
-    assert "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md" in archived
-    assert "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md" not in current_paths
-    assert "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md" in archived
+    current = manifest["current_manuscript_artifacts"]
+    assert current["status"] == "retained_for_provenance_not_submission_ready"
+    assert current["v2_source"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
+    assert manifest["submission_ready"] is False

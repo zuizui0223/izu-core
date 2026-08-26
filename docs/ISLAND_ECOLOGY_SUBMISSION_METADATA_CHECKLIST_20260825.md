@@ -1,85 +1,61 @@
 # Journal of Ecology submission metadata checklist
 
-Updated: 2026-08-25
+Updated: 2026-08-26
 
-Scientific status: **Chapter 2 complete and frozen for submission.**
+Scientific status: **submission paused pending scientific reassessment.**
 
-This checklist contains only author/submission metadata. It must not reopen H1–H5, rerun simulations, add external systems, or reconnect external research programmes.
+The author-metadata workflow remains prepared, but it is not the active gate. Before any submission bundle can be created, complete the response-geometry and parameter-robustness gate in:
 
-## Already complete
+- `docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md`
+- `data/design/manuscript_reassessment_gate_20260826.json`
 
-- Research Article title and running title
-- numbered abstract under 350 words with final **Synthesis** point
-- anonymous main manuscript
-- Supporting Information
-- Fig. 1–4 and Fig. S1 routing
-- Table 1–3 and Table S1–S3 routing
-- H2 analytical sign decomposition
-- frozen numerical-result guards
-- 13-system source and protected-boundary guards
-- anonymized reviewer archive builder
-- Data/code statement for peer review
-- cover-letter scientific content
-- CI on Python 3.10, 3.11 and 3.12
+The final submission builder is intentionally blocked while that gate is open.
 
-## Author-supplied metadata still required
+## Scientific work required first
 
-Populate `data/design/island_ecology_submission_metadata_template.json` with the final agreed values below. Do not infer them from Git history, account names, other manuscripts or institutional context.
+- expose the complete model equations and parameterization in the manuscript;
+- report `5 of 12` rather than pseudo-precise `0.4167` as the headline design count;
+- demote H2 from `replicated minimal generator` to model-specific response decomposition;
+- rename `local support` as local context / availability filtering;
+- demote H5 `11/11 coverage` from validation to comparative grounding;
+- map response-sign geometry across plant starting position and pollinator-community change;
+- sweep key perturbation/matching parameters;
+- map local-context sign changes and assurance sign-rescue thresholds;
+- remove workflow/debug prose and resolve uncited references.
 
-1. **Final author list and order**
-   - full name exactly as it should appear
-   - affiliation(s) for each author
-   - ORCID for each author if used
+## Author metadata retained for later
 
-2. **Corresponding author**
-   - author index
-   - institutional email
-   - postal address
+Once the scientific gate is closed, populate `data/design/island_ecology_submission_metadata_template.json` with:
 
-3. **Authorship and disclosure text**
-   - acknowledgements, or explicit `None`
-   - funding, or explicit `None`
-   - author-contribution statement using full author names
-   - inclusion statement required by the submission workflow
-   - conflict-of-interest statement
+1. final author order and affiliations;
+2. corresponding-author email and postal address;
+3. ORCID(s), if used;
+4. acknowledgements and funding;
+5. author contributions;
+6. inclusion statement;
+7. conflict-of-interest statement;
+8. explicit submission declarations.
 
-4. **Submission declarations**
-   - not published / not under consideration elsewhere
-   - all authors approve the submitted version
-   - all entitled authors are included
-   - necessary acknowledgements are made
-   - relevant legal/policy requirements are met
-   - third-party data reuse is permitted
+These values must still be supplied explicitly rather than inferred.
 
-## Metadata builder
+## Builders
 
-Validate and generate identity-bearing files with:
+Identity-bearing metadata files can still be validated with:
 
 ```bash
 python scripts/build_island_ecology_submission_metadata.py \
   --metadata data/design/island_ecology_submission_metadata_template.json
 ```
 
-The builder fails closed while any required author metadata is unresolved. Once complete it writes:
-
-- `dist/ISLAND_ECOLOGY_TITLE_PAGE.md`
-- `dist/ISLAND_ECOLOGY_COVER_LETTER.md`
-
-## Final bundle builder
-
-After the same metadata file validates, run:
+The final bundle command is:
 
 ```bash
 python scripts/build_island_ecology_submission_bundle.py \
   --metadata data/design/island_ecology_submission_metadata_template.json
 ```
 
-This writes:
+but it will raise an error while the scientific reassessment gate remains open.
 
-- `dist/island_ecology_jecology_submission_bundle.zip`
+## Double-anonymous boundary
 
-The bundle contains the anonymous manuscript, Supporting Information, H2 analytical note, title page, cover letter, submission manifest and a nested anonymous review archive. The identity-bearing title page and cover letter are outside the reviewer archive.
-
-## Journal-specific boundary
-
-Journal of Ecology uses double-anonymous review. Author-identifying information belongs in the separate title-page file and must not be copied into the main manuscript, Supporting Information or reviewer archive. The title page carries manuscript title, author names and institutional addresses, acknowledgements, author contributions, data availability and conflict-of-interest information. The submission workflow also requests an inclusion statement.
+When submission readiness is restored, title-page and author information remain separate from the anonymous manuscript and reviewer archive.

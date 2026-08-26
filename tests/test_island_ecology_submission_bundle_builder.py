@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.build_island_ecology_submission_bundle import build_submission_bundle
+import scripts.build_island_ecology_submission_bundle as bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
@@ -32,15 +32,48 @@ def completed_metadata() -> dict:
     return metadata
 
 
-def test_submission_bundle_fails_closed_on_unresolved_metadata(tmp_path: Path):
-    with pytest.raises(ValueError):
-        build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
-
-
-def test_submission_bundle_contains_v3_review_and_identity_separated_files(tmp_path: Path):
+def test_submission_bundle_is_blocked_by_open_scientific_reassessment_gate(tmp_path: Path):
     metadata_path = tmp_path / "metadata.json"
     metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
-    output = build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+    with pytest.raises(ValueError, match="scientific reassessment gate is open"):
+        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+
+
+def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
+    missing_gate = tmp_path / "missing-gate.json"
+    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", missing_gate)
+    metadata_path = tmp_path / "metadata.json"
+    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
+    with pytest.raises(ValueError, match="scientific reassessment gate is missing"):
+        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+
+
+def test_submission_bundle_fails_closed_when_scientific_gate_is_unreadable(tmp_path: Path, monkeypatch):
+    gate = tmp_path / "gate.json"
+    gate.write_text("{not-json", encoding="utf-8")
+    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
+    metadata_path = tmp_path / "metadata.json"
+    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
+    with pytest.raises(ValueError, match="scientific reassessment gate is unreadable"):
+        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+
+
+def test_submission_bundle_still_fails_closed_on_unresolved_metadata_after_gate_closure(tmp_path: Path, monkeypatch):
+    gate = tmp_path / "gate.json"
+    gate.write_text(json.dumps({"current_research_article_submission_ready": True}), encoding="utf-8")
+    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
+    with pytest.raises(ValueError, match="submission metadata incomplete"):
+        bundle.build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
+
+
+def test_submission_bundle_functionality_remains_available_after_scientific_gate_closure(tmp_path: Path, monkeypatch):
+    gate = tmp_path / "gate.json"
+    gate.write_text(json.dumps({"current_research_article_submission_ready": True}), encoding="utf-8")
+    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
+
+    metadata_path = tmp_path / "metadata.json"
+    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
+    output = bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
     assert output.exists()
     with zipfile.ZipFile(output) as archive:
         names = set(archive.namelist())
@@ -49,9 +82,6 @@ def test_submission_bundle_contains_v3_review_and_identity_separated_files(tmp_p
         assert "island_ecology_anonymous_review_archive.zip" in names
         assert "SUBMISSION_BUNDLE_MANIFEST.json" in names
         assert V3 in names
-        assert "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md" not in names
-        manuscript = archive.read(V3).decode("utf-8")
-        assert "sign(Δ reproduction) = sign(Δ service) = sign(Δ functional opportunity)" in manuscript
         title = archive.read("ISLAND_ECOLOGY_TITLE_PAGE.md").decode("utf-8")
         assert "Example Author" in title
         nested = archive.read("island_ecology_anonymous_review_archive.zip")
