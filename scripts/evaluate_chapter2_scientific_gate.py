@@ -8,7 +8,11 @@ DEFAULT_OUT = Path("data/results/chapter2_scientific_gate_decision.json")
 
 
 def _joint_mixed_fraction(joint: dict) -> float:
-    """Read the actual phase-2 contract while retaining compatibility with early test payloads."""
+    """Read the actual phase-2 contract while retaining compatibility with early test payloads.
+
+    This helper is intentionally side-effect free so the scientific-gate workflow can be
+    re-triggered without changing the frozen decision logic.
+    """
     if "class_fractions" in joint:
         return float(joint["class_fractions"].get("mixed_mean_geometry", 0.0))
     summary = joint.get("summary", {})
