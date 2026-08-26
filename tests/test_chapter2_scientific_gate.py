@@ -8,7 +8,7 @@ def payloads(*, mean_boundary=True, realization_fraction=0.5, joint_fraction=0.5
             "mixed_sign_realization_fraction": realization_fraction,
         }
     }
-    joint = {"summary": {"mixed_mean_geometry_fraction": joint_fraction}}
+    joint = {"class_fractions": {"mixed_mean_geometry": joint_fraction}}
     thresholds = {
         "context_map": {
             "lineages_with_any_sign_change": context_changes,

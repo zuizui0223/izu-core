@@ -7,17 +7,22 @@ from pathlib import Path
 DEFAULT_OUT = Path("data/results/chapter2_scientific_gate_decision.json")
 
 
+def _joint_mixed_fraction(joint: dict) -> float:
+    """Read the actual phase-2 contract while retaining compatibility with early test payloads."""
+    if "class_fractions" in joint:
+        return float(joint["class_fractions"].get("mixed_mean_geometry", 0.0))
+    summary = joint.get("summary", {})
+    return float(summary.get("mixed_mean_geometry_fraction", 0.0))
+
+
 def assess(phase1: dict, joint: dict, thresholds: dict) -> dict:
     baseline = phase1["baseline"]
-    joint_summary = joint["summary"]
     context_map = thresholds["context_map"]
     assurance_map = thresholds["assurance_map"]
 
     mean_boundary = bool(baseline.get("mean_geometry_mixed_sign", baseline.get("mixed_sign_geometry", False)))
-    realization_fraction = float(
-        baseline.get("mixed_sign_realization_fraction", 0.0)
-    )
-    joint_mixed_fraction = float(joint_summary.get("mixed_mean_geometry_fraction", 0.0))
+    realization_fraction = float(baseline.get("mixed_sign_realization_fraction", 0.0))
+    joint_mixed_fraction = _joint_mixed_fraction(joint)
     context_any = int(context_map.get("lineages_with_any_sign_change", 0)) > 0
     assurance_service_safe = bool(assurance_map.get("upstream_service_identical_across_assurance_multipliers", False))
     assurance_any_rescue = int(assurance_map.get("lineages_with_any_sign_rescue", 0)) > 0
