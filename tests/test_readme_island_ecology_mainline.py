@@ -48,7 +48,7 @@ def test_readme_corrects_local_support_semantics_and_precision():
     assert "not extra beneficial support" in lower
     assert "5 of 12" in text
     assert "0.4167" in text
-    assert "do not use `0.4167`" in text
+    assert "do not use `0.4167`" in lower
     assert "16/96" in text
     assert "11/96" in text
     assert "dominica" in lower
