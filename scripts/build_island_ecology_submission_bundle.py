@@ -6,7 +6,6 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from scripts.build_island_ecology_manuscript_v3 import build_manuscript
 from scripts.build_island_ecology_review_archive import build_archive as build_review_archive
 from scripts.build_island_ecology_submission_metadata import (
     load_metadata,
@@ -14,41 +13,39 @@ from scripts.build_island_ecology_submission_metadata import (
     render_title_page,
     validate_metadata,
 )
+from scripts.generate_chapter2_manuscript_figures import build_figures
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_jecology_submission_bundle.zip"
 REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
-MANUSCRIPT_ARCNAME = "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
+MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
 
 STATIC_SUBMISSION_FILES = (
-    "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
-    "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
-    "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
+    MANUSCRIPT,
+    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
+    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
+    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "data/design/island_ecology_jecology_submission_manifest.json",
 )
 
 
-def validate_scientific_gate() -> None:
+def validate_scientific_gate() -> dict:
     if not REASSESSMENT_GATE.exists():
-        raise ValueError(
-            "scientific reassessment gate is missing; refuse to build a submission bundle"
-        )
+        raise ValueError("scientific reassessment gate is missing; refuse to build a submission bundle")
     try:
         gate = json.loads(REASSESSMENT_GATE.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        raise ValueError(
-            "scientific reassessment gate is unreadable; refuse to build a submission bundle"
-        ) from exc
-    if gate.get("current_research_article_submission_ready") is not True:
-        raise ValueError(
-            "scientific reassessment gate is open; complete the response-geometry / "
-            "parameter-robustness gate before building a submission bundle"
-        )
+        raise ValueError("scientific reassessment gate is unreadable; refuse to build a submission bundle") from exc
+    if gate.get("scientific_model_gate_complete") is not True:
+        raise ValueError("Chapter 2 scientific model gate is not complete")
+    if gate.get("research_article_route") != "candidate_conditional_response_geometry":
+        raise ValueError("Chapter 2 is not currently routed to the conditional-response-geometry Research Article candidate")
+    return gate
 
 
 def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
-    validate_scientific_gate()
+    gate = validate_scientific_gate()
 
     metadata = load_metadata(metadata_path)
     errors = validate_metadata(metadata)
@@ -59,38 +56,49 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         if not (ROOT / rel).exists():
             raise FileNotFoundError(rel)
 
+    figure_payload = build_figures()
+    figure_files = tuple(figure_payload["figure_outputs"])
+    for rel in figure_files:
+        if not (ROOT / rel).exists():
+            raise FileNotFoundError(rel)
+
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
         title_page = tmp / "ISLAND_ECOLOGY_TITLE_PAGE.md"
         cover_letter = tmp / "ISLAND_ECOLOGY_COVER_LETTER.md"
         review_archive = tmp / "island_ecology_anonymous_review_archive.zip"
-        manuscript = tmp / "ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
         title_page.write_text(render_title_page(metadata), encoding="utf-8")
         cover_letter.write_text(render_cover_letter(metadata), encoding="utf-8")
-        build_manuscript(manuscript)
         build_review_archive(review_archive)
 
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "submission_ready_after_reassessment",
-            "manuscript_state": "editorial_v3_rendered_from_frozen_v2_source",
+            "scientific_state": "model_gate_closed_conditional_response_geometry",
+            "manuscript_state": "active_20260827_reassembly",
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
+            "figures_regenerated_fail_closed": True,
+            "model_gate": gate.get("status"),
             "files": [
-                MANUSCRIPT_ARCNAME,
                 *STATIC_SUBMISSION_FILES,
+                *figure_files,
                 "ISLAND_ECOLOGY_TITLE_PAGE.md",
                 "ISLAND_ECOLOGY_COVER_LETTER.md",
                 "island_ecology_anonymous_review_archive.zip",
             ],
-            "boundary": "Packaging does not rerun scientific analysis and is blocked while the reassessment gate is open.",
+            "boundary": (
+                "Packaging uses the post-reassessment active manuscript. Figure regeneration must match the frozen "
+                "Chapter 2 scientific gate. Metadata validation remains fail-closed and no missing author or declaration "
+                "fields are inferred."
+            ),
         }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-            archive.write(manuscript, arcname=MANUSCRIPT_ARCNAME)
             for rel in STATIC_SUBMISSION_FILES:
+                archive.write(ROOT / rel, arcname=rel)
+            for rel in figure_files:
                 archive.write(ROOT / rel, arcname=rel)
             archive.write(title_page, arcname=title_page.name)
             archive.write(cover_letter, arcname=cover_letter.name)

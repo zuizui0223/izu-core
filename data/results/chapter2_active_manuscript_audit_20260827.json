@@ -1,9 +1,12 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "updated_on": "2026-08-27",
   "manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
+  "supporting_information": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
+  "reference_ledger": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
+  "tables": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
   "model_spec": "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
-  "status": "active_draft_created_submission_blocked_by_completion_audit",
+  "status": "repository_scientific_and_manuscript_completion_pass_metadata_and_execution_validation_pending",
   "checks": {
     "active_working_draft_exists": "pass",
     "conditional_response_geometry_is_primary_headline": "pass",
@@ -15,28 +18,35 @@
     "H5_external_coverage_removed_as_validation": "pass",
     "synthetic_frequency_prevalence_boundary_explicit": "pass",
     "canonical_empirical_claim_boundary_explicit": "pass",
-    "exact_model_specification_frozen_for_integration": "pass",
-    "full_model_equations_integrated_into_manuscript_body": "partial",
-    "full_local_filtering_projection_rules_integrated_into_manuscript_body": "partial",
-    "reference_list_rebuilt_from_source_audited_matrix": "fail",
-    "Lord_2015_and_Mendez_2025_reference_hygiene_resolved": "fail",
-    "main_figures_regenerated_from_final_gate_results": "fail",
-    "main_tables_regenerated_from_final_gate_results": "fail",
-    "final_submission_metadata_and_builder_audit": "fail"
+    "exact_model_specification_frozen": "pass",
+    "full_model_equations_integrated_into_manuscript_or_active_SI": "pass",
+    "full_local_filtering_projection_rules_integrated_into_manuscript_or_active_SI": "pass",
+    "reference_list_rebuilt_from_source_audited_matrix": "pass",
+    "Lord_2015_and_Mendez_2025_reference_hygiene_resolved": "pass",
+    "main_figure_regeneration_fail_closed_against_final_gate": "pass_implementation_requires_execution_validation",
+    "main_tables_regenerated_from_final_gate_results": "pass",
+    "submission_manifest_routed_to_active_manuscript": "pass",
+    "anonymous_review_archive_routed_to_active_manuscript": "pass",
+    "submission_metadata_title_and_keywords_current": "pass",
+    "author_metadata_and_declarations_complete": "blocked_external_input",
+    "final_submission_builder_execution": "blocked_until_metadata_complete"
   },
   "current_submission_ready": false,
-  "blocking_items": [
-    "integrate_the_exact_model_specification_into_the_active_manuscript_methods_or_supporting_information",
-    "rebuild_and_audit_the_reference_list_from_source_locked_repository_sources",
-    "resolve_Lord_2015_and_Mendez_2025_citation_status",
-    "generate_response_geometry_joint_regime_context_assurance_main_figures_from_final_results",
-    "generate_parameter_and_result_tables",
-    "run_final_claim_evidence_and_submission_builder_audit"
+  "repository_blocking_items": [
+    "execute_PR_CI_or_equivalent_validation_of_the_new_figure_review_archive_and_submission_bundle_code_paths"
   ],
-  "non_blocking_but_later": [
-    "journal_specific_word_count_and_formatting",
-    "cover_letter_regeneration",
-    "double_anonymous_archive_packaging"
+  "external_input_blocking_items": [
+    "author_names_order_affiliations_corresponding_author_and_optional_orcids",
+    "acknowledgements_funding_author_contributions_inclusion_statement_and_conflict_of_interest",
+    "submission_declaration_booleans"
   ],
-  "next_action": "integrate_exact_model_specification_then_generate_the_four_primary_result_figures_before_reference_and_submission_packaging"
+  "resolved_items": [
+    "exact_model_equations_and_local_filtering_rules_are_now_part_of_the_active_manuscript_supporting_information",
+    "active_reference_ledger_contains_only_currently_cited_sources",
+    "Lord_2015_and_Mendez_2025_are_retained_in_source_provenance_but_removed_from_active_reference_list_because_uncited",
+    "Tables_1_to_3_are_frozen_and_have_a_deterministic_generator",
+    "submission_and_review_archive_builders_no_longer_render_the_retired_V2_or_V3_manuscripts",
+    "figure_builder_exposes_a_callable_fail_closed_regeneration_function"
+  ],
+  "next_action": "open_PR_run_execution_validation_fix_any_failures_then_leave_only_author_supplied_submission_metadata"
 }

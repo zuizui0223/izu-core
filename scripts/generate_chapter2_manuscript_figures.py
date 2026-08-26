@@ -29,7 +29,6 @@ def _load(path: Path) -> dict:
 def _assert_frozen_identity(baseline: dict, joint: dict, phase12: dict) -> None:
     expected_geometry = phase12["response_geometry"]
     expected_joint = phase12["joint_transition_surface"]
-
     checks = {
         "baseline_replicates": baseline["replicates"] == expected_geometry["matched_pollinator_realizations"],
         "baseline_mixed": baseline["mixed_sign_realizations"] == expected_geometry["mixed_sign_realizations"],
@@ -48,7 +47,6 @@ def _fig2_response_geometry(baseline: dict) -> Path:
     rows = baseline["trait_rows"]
     x = [row["initial_trait"] for row in rows]
     y = [row["mean_delta_service"] for row in rows]
-
     fig, ax = plt.subplots(figsize=(7.0, 4.5))
     ax.plot(x, y, marker="o")
     ax.axhline(0.0, linewidth=1.0)
@@ -57,7 +55,6 @@ def _fig2_response_geometry(baseline: dict) -> Path:
     ax.set_title("Conditional response geometry")
     ax.set_xlim(0.0, 1.0)
     fig.tight_layout()
-
     path = OUT_DIR / "fig2_response_geometry.svg"
     fig.savefig(path)
     plt.close(fig)
@@ -83,7 +80,6 @@ def _fig3_joint_regime_map(joint: dict) -> Path:
         [[trait_row["mean_sign"] for trait_row in row["trait_rows"]] for row in rows],
         dtype=float,
     )
-
     fig, ax = plt.subplots(figsize=(8.0, 7.0))
     image = ax.imshow(matrix, aspect="auto", vmin=-1, vmax=1, origin="upper")
     ax.set_xlabel("Initial synthetic functional position")
@@ -95,7 +91,6 @@ def _fig3_joint_regime_map(joint: dict) -> Path:
     colorbar = fig.colorbar(image, ax=ax)
     colorbar.set_label("Mean response sign (−1, 0, +1)")
     fig.tight_layout()
-
     path = OUT_DIR / "fig3_joint_regime_map.svg"
     fig.savefig(path)
     plt.close(fig)
@@ -117,7 +112,6 @@ def _fig4a_local_context(phase3: dict) -> Path:
     any_change = np.array([cell["sign_changes"] for cell in cells], dtype=float) / n
     neg_to_nonnegative = np.array([cell["negative_to_nonnegative"] for cell in cells], dtype=float) / n
     pos_to_nonpositive = np.array([cell["positive_to_nonpositive"] for cell in cells], dtype=float) / n
-
     fig, ax = plt.subplots(figsize=(7.0, 4.5))
     ax.plot(strengths, any_change, marker="o", label="Any sign change")
     ax.plot(strengths, neg_to_nonnegative, marker="o", label="Negative → non-negative")
@@ -129,7 +123,6 @@ def _fig4a_local_context(phase3: dict) -> Path:
     ax.set_title("Local context reallocates response sign")
     ax.legend(frameon=False)
     fig.tight_layout()
-
     path = OUT_DIR / "fig4a_local_context_threshold.svg"
     fig.savefig(path)
     plt.close(fig)
@@ -142,7 +135,6 @@ def _fig4b_assurance(phase3: dict) -> Path:
     cells = [_cell(by_multiplier, value) for value in multipliers]
     magnitude = [cell["magnitude_improvement_fraction"] for cell in cells]
     sign_rescue = [cell["sign_rescue_fraction"] for cell in cells]
-
     fig, ax = plt.subplots(figsize=(7.0, 4.5))
     ax.plot(multipliers, magnitude, marker="o", label="Magnitude improvement")
     ax.plot(multipliers, sign_rescue, marker="o", label="Sign rescue")
@@ -152,21 +144,18 @@ def _fig4b_assurance(phase3: dict) -> Path:
     ax.set_title("Assurance attenuates magnitude without sign rescue")
     ax.legend(frameon=False)
     fig.tight_layout()
-
     path = OUT_DIR / "fig4b_assurance_sensitivity.svg"
     fig.savefig(path)
     plt.close(fig)
     return path
 
 
-def main() -> None:
+def build_figures() -> dict:
     phase12 = _load(PHASE12)
     phase3 = _load(PHASE3)
-
     baseline = realization_stability(BASE, replicates=96, seed=SEED)
     joint = build_joint_surface(points=48, replicates=24, seed=SEED)
     _assert_frozen_identity(baseline, joint, phase12)
-
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     outputs = [
         _fig2_response_geometry(baseline),
@@ -174,7 +163,6 @@ def main() -> None:
         _fig4a_local_context(phase3),
         _fig4b_assurance(phase3),
     ]
-
     payload = {
         "schema_version": "1.0",
         "updated_on": "2026-08-27",
@@ -189,7 +177,11 @@ def main() -> None:
     }
     FIG_INPUTS.parent.mkdir(parents=True, exist_ok=True)
     FIG_INPUTS.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload
 
+
+def main() -> None:
+    payload = build_figures()
     print(json.dumps({"figure_outputs": payload["figure_outputs"]}, indent=2))
 
 
