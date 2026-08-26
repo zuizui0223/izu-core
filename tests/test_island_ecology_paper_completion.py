@@ -1,18 +1,29 @@
 import re
 from pathlib import Path
 
+from scripts.build_island_ecology_manuscript_v3 import SOURCE, build_text
+
 ROOT = Path(__file__).resolve().parents[1]
-MANUSCRIPT = ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
 SUPPLEMENT = ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
 COVER = ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
 
 
+def manuscript_text() -> str:
+    return build_text(SOURCE.read_text(encoding="utf-8"))
+
+
 def test_completed_manuscript_has_main_display_crossreferences():
-    text = MANUSCRIPT.read_text(encoding="utf-8")
+    text = manuscript_text()
     for token in ["Fig. 1", "Fig. 2", "Fig. 3", "Fig. 4", "Table 1", "Table 2", "Table 3"]:
         assert token in text
     for token in ["Fig. S1", "Table S1", "Table S2", "Table S3"]:
         assert token in text
+
+
+def test_completed_manuscript_integrates_h2_analytical_explanation():
+    text = manuscript_text()
+    assert "sign(Δ reproduction) = sign(Δ service) = sign(Δ functional opportunity)" in text
+    assert "downstream transforms preserve rather than manufacture the response sign" in text
 
 
 def test_supporting_information_contains_frozen_blocks_and_external_contract():
@@ -61,7 +72,7 @@ def test_cover_letter_is_ecology_first_and_keeps_failure():
 
 
 def test_completed_manuscript_abstract_and_scale():
-    text = MANUSCRIPT.read_text(encoding="utf-8")
+    text = manuscript_text()
     abstract = text.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0]
     words = re.findall(r"\b[\w’'-]+\b", abstract)
     assert len(words) <= 350
