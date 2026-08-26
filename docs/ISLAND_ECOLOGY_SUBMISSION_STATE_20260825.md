@@ -4,61 +4,69 @@ Updated: 2026-08-26
 
 ## Current state
 
-The Chapter 2 science is **complete and frozen for submission**.
+The Chapter 2 **Research Article is not currently submission-ready**.
 
-No new simulation, field dataset, external-system search, parameter retuning, or external research programme is required for the manuscript.
+A scientific reassessment on 2026-08-26 identified three issues that must be resolved before submission:
 
-The reviewer-facing manuscript is now **editorial V3**, generated deterministically from the frozen V2 manuscript source by `scripts/build_island_ecology_manuscript_v3.py`. V3 sharpens the Introduction gap and integrates the already-frozen H2 analytical sign decomposition into the Abstract, Methods, Results, Discussion and Conclusion. This editorial rendering does not rerun or alter the scientific analysis.
+1. H2 was overstated as a discovery rather than a model-specific sensitivity/decomposition result;
+2. H5 qualitative state coverage was overstated as validation despite weak falsifiability;
+3. the current model parameterization and local-context semantics are not exposed or stress-tested strongly enough for the headline claims.
 
-The V3 submission route has passed repository CI on Python 3.10, 3.11 and 3.12. The Supporting Information, H2 analytical sign decomposition, figure/table routing, source-audited external-system matrix, claim-boundary tests, anonymous review archive and final submission bundle routing are complete.
+The controlling documents are now:
 
-## Manuscript routing
+- `docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md`;
+- `data/design/manuscript_reassessment_gate_20260826.json`.
 
-- reviewer-facing artifact: `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md`;
-- frozen source: `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`;
-- deterministic builder: `scripts/build_island_ecology_manuscript_v3.py`.
+These supersede the previous metadata-only submission gate.
 
-The V3 artifact is materialized by the manuscript/review/bundle builders; the V2 source remains the committed prose provenance boundary.
+## What remains valid
 
-## Remaining gate
+The existing simulation outputs, independent blocks, literature screen, source matrix, Dominica failure, state-separability results, manuscript drafts and reproducibility machinery remain retained as provenance.
 
-Only **author-supplied submission metadata** remain unresolved.
+The three-layer island-syndrome decomposition also remains the conceptual core:
 
-Required input:
+- assembly / colonization filtering;
+- in-situ evolution;
+- post-establishment interaction response.
 
-- final ordered author list;
-- affiliation(s) for each author;
-- corresponding-author email and postal address;
-- ORCID(s), if used;
-- acknowledgements and funding, including explicit `None` when absent;
-- author-contribution statement;
-- inclusion statement;
-- conflict-of-interest statement;
-- explicit submission declarations.
+What changed is the role of the evidence, not the underlying stored results.
 
-These values must not be inferred from Git history, account identity, another manuscript, or institutional context.
+## Claim reassignment
 
-## Fail-closed workflow
+### H2
 
-Populate:
+The endpoint identity `sign(Delta reproduction) = sign(Delta service) = sign(Delta functional opportunity)` is model structure. Initial-position ablation remains informative because trait-adjustment heterogeneity is still present when initial positions are homogenized, but it only establishes dominance of initial position within the declared parameterization. `replicated_minimal_generator` is no longer a submission headline.
 
-`data/design/island_ecology_submission_metadata_template.json`
+### H3
 
-Then run:
+The local-context result is retained after semantic correction. `support_strength` is an availability/filtering stress parameter, not added beneficial support. The interesting result is bidirectional response reallocation under local context filtering.
 
-```bash
-python scripts/build_island_ecology_submission_bundle.py \
-  --metadata data/design/island_ecology_submission_metadata_template.json
-```
+### H4
 
-If required metadata remain unresolved, the builder stops without creating an identity-bearing submission package.
+Assurance attenuation is largely structural because assurance is implemented as a compensating route. The useful result is the distinction between magnitude buffering and sign rescue, not attenuation itself.
 
-When all metadata are supplied, it produces:
+### H5
 
-`dist/island_ecology_jecology_submission_bundle.zip`
+The 13 systems remain comparative grounding. `11/11 covered` is no longer treated as validation of generality. Dominica remains a failed specific signed-position projection.
 
-The bundle contains editorial V3, the final title page and cover letter outside a nested **anonymous** review archive. Packaging materializes the validated editorial prose but does not rerun or modify the scientific analysis.
+## Active scientific gate
 
-## Publication-stage item
+Before restoring submission readiness, complete a **response-geometry and parameter-robustness analysis** that answers:
 
-A final immutable public code/data archive with persistent DOI is required before final publication, not before the scientific manuscript can be considered complete.
+- where in plant functional space a given pollinator-community change produces positive versus negative opportunity response;
+- whether sign-switching persists across a broad parameter region rather than one chosen scenario;
+- which perturbation parameters control the transition between one-direction and two-direction response;
+- whether local context filtering changes sign robustly or only under narrow settings;
+- what assurance strength is required for sign rescue.
+
+The next manuscript must also expose the model equations and parameter values, report `5 of 12` rather than `0.4167` as a design count, remove workflow/debug prose from Methods, and clean uncited references.
+
+## Submission builder status
+
+The submission bundle machinery is retained but must fail closed while `data/design/manuscript_reassessment_gate_20260826.json` has status `scientific_reassessment_required_before_submission`.
+
+Author metadata are **not** the active blocker now. The active blocker is scientific response-geometry/robustness.
+
+## Fallback
+
+If the response-geometry analysis does not reveal a stable, interpretable region structure, do not force the Research Article. Reframe as a conceptual Review or Mini-review around the three-layer decomposition of the plant island syndrome.
