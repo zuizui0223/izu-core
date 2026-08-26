@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-27",
+  "status": "interim_integrated_gate_before_new_threshold_curve_completion",
+  "route": "research_article_candidate",
+  "headline": "conditional_response_geometry",
+  "evidence": {
+    "baseline_mean_sign_boundary": true,
+    "baseline_mixed_sign_realizations": "41_of_96",
+    "baseline_mixed_sign_realization_fraction": 0.4270833333333333,
+    "joint_mixed_mean_geometry": "16_of_48",
+    "joint_mixed_mean_geometry_fraction": 0.3333333333333333,
+    "local_context_sign_change_replication": {
+      "independent_sign_rescues": 16,
+      "independent_worsenings": 11,
+      "source": "data/results/network_context_buffering_capability_robustness_frozen.json"
+    },
+    "assurance_upstream_service_invariance": {
+      "lineage_contrasts": 2880,
+      "upstream_service_mismatch_count": 0,
+      "assurance_sign_rescues_at_existing_strength": 0,
+      "assurance_magnitude_rescues": 1932,
+      "source": "data/results/constraint_mechanism_abm_v14b_assurance_buffering_robustness_frozen.json"
+    }
+  },
+  "blocking_failures_under_current_gate_logic": [],
+  "remaining_unresolved_quantity": "new assurance multiplier threshold for sign rescue and the full local-context first-sign-change threshold distribution",
+  "submission_ready": false,
+  "reason_submission_still_blocked": "the new fixed threshold-map workflow has not yet produced its final artifact; this file records only the route decision supported by Phase 1-2 plus existing independent robustness evidence",
+  "claim_boundary": "Research Article candidate means the response geometry survives a nontrivial joint parameter region and the existing context/assurance safety conditions are supported. It does not convert synthetic design frequencies into ecological prevalence, does not empirically identify the synthetic trait axis, and does not claim assurance sign rescue at the existing parameterization."
+}
