@@ -1,0 +1,50 @@
+{
+  "analysis": "context_assurance_threshold_maps",
+  "status": "scientific_reassessment_gate_phase3_frozen",
+  "run_date": "2026-08-27",
+  "execution_note": "Reproduced from the current main implementations after GitHub App-created commits/PRs did not emit Actions runs. The fetched main code paths and the predeclared fixed design were used without retuning.",
+  "design": {
+    "saturations": [1.0, 2.0, 3.0],
+    "replicates_per_saturation": 12,
+    "contexts": 4,
+    "lineages": 24,
+    "steps": 120,
+    "seed": 20260826,
+    "support_strengths": [0.0, 0.1, 0.25, 0.4, 0.5, 0.6, 0.75],
+    "assurance_multipliers": [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0],
+    "common_seed_ensemble_across_threshold_values": true,
+    "empirical_inputs_loaded": []
+  },
+  "context_map": {
+    "semantic_definition": "support_strength is local availability / interaction filtering stress, not beneficial support",
+    "lineages_with_any_sign_change": 737,
+    "median_first_sign_change_strength": 0.4,
+    "by_strength": {
+      "0.0": {"sign_changes": 0, "negative_to_nonnegative": 0, "positive_to_nonpositive": 0, "lineage_contrasts": 864, "sign_change_fraction": 0.0},
+      "0.1": {"sign_changes": 114, "negative_to_nonnegative": 25, "positive_to_nonpositive": 89, "lineage_contrasts": 864, "sign_change_fraction": 0.13194444444444445},
+      "0.25": {"sign_changes": 270, "negative_to_nonnegative": 41, "positive_to_nonpositive": 229, "lineage_contrasts": 864, "sign_change_fraction": 0.3125},
+      "0.4": {"sign_changes": 379, "negative_to_nonnegative": 42, "positive_to_nonpositive": 337, "lineage_contrasts": 864, "sign_change_fraction": 0.4386574074074074},
+      "0.5": {"sign_changes": 416, "negative_to_nonnegative": 32, "positive_to_nonpositive": 384, "lineage_contrasts": 864, "sign_change_fraction": 0.48148148148148145},
+      "0.6": {"sign_changes": 506, "negative_to_nonnegative": 47, "positive_to_nonpositive": 459, "lineage_contrasts": 864, "sign_change_fraction": 0.5856481481481481},
+      "0.75": {"sign_changes": 635, "negative_to_nonnegative": 132, "positive_to_nonpositive": 503, "lineage_contrasts": 864, "sign_change_fraction": 0.7349537037037037}
+    }
+  },
+  "assurance_map": {
+    "eligible_baseline_declines": 580,
+    "lineages_with_any_sign_rescue": 0,
+    "median_first_sign_rescue_multiplier": null,
+    "upstream_service_mismatch_count": 0,
+    "upstream_service_identical_across_assurance_multipliers": true,
+    "by_multiplier": {
+      "0.0": {"sign_rescues": 0, "magnitude_improvements": 0, "sign_rescue_fraction": 0.0, "magnitude_improvement_fraction": 0.0},
+      "0.5": {"sign_rescues": 0, "magnitude_improvements": 565, "sign_rescue_fraction": 0.0, "magnitude_improvement_fraction": 0.9741379310344828},
+      "1.0": {"sign_rescues": 0, "magnitude_improvements": 555, "sign_rescue_fraction": 0.0, "magnitude_improvement_fraction": 0.9568965517241379},
+      "1.5": {"sign_rescues": 0, "magnitude_improvements": 545, "sign_rescue_fraction": 0.0, "magnitude_improvement_fraction": 0.9396551724137931},
+      "2.0": {"sign_rescues": 0, "magnitude_improvements": 545, "sign_rescue_fraction": 0.0, "magnitude_improvement_fraction": 0.9396551724137931},
+      "3.0": {"sign_rescues": 0, "magnitude_improvements": 541, "sign_rescue_fraction": 0.0, "magnitude_improvement_fraction": 0.9327586206896552},
+      "4.0": {"sign_rescues": 0, "magnitude_improvements": 539, "sign_rescue_fraction": 0.0, "magnitude_improvement_fraction": 0.9293103448275862}
+    }
+  },
+  "decision": "local_context_has_a_quantifiable_sign_boundary_but_assurance_remains_magnitude_attenuation_only_with_no_sign_rescue_through_4x",
+  "claim_boundary": "These are synthetic model thresholds/sensitivity results, not empirical ecological thresholds. The assurance result rejects a strong sign-rescue interpretation within the declared 0-4x envelope; it does not imply that autonomous assurance is biologically absent in real islands."
+}

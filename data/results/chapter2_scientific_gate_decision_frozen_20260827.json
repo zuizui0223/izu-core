@@ -1,0 +1,33 @@
+{
+  "analysis": "chapter2_scientific_gate_decision",
+  "status": "final_frozen_20260827",
+  "route": "research_article_candidate",
+  "headline": "conditional_response_geometry",
+  "evidence": {
+    "baseline_mean_sign_boundary": true,
+    "baseline_mixed_sign_realizations": 41,
+    "baseline_realizations": 96,
+    "baseline_mixed_realization_fraction": 0.4270833333333333,
+    "joint_mixed_mean_geometries": 16,
+    "joint_parameter_points": 48,
+    "joint_mixed_mean_geometry_fraction": 0.3333333333333333,
+    "local_context_changes_sign_for_some_lineages": true,
+    "local_context_lineages_with_any_sign_change": 737,
+    "median_context_first_sign_change_strength": 0.4,
+    "assurance_threshold_upstream_service_invariant": true,
+    "assurance_upstream_service_mismatch_count": 0,
+    "assurance_sign_rescue_exists_within_0_to_4x_envelope": false,
+    "assurance_lineages_with_any_sign_rescue": 0,
+    "median_assurance_first_sign_rescue_multiplier": null
+  },
+  "blocking_failures": [],
+  "scientific_gate_closed": true,
+  "submission_ready_at_model_gate_level": true,
+  "manuscript_interpretation": {
+    "primary_result": "Pollinator reorganization produces a non-monotonic response geometry whose sign depends on starting functional position and realized pollinator community, and mixed mean geometry occupies a nontrivial fraction of the declared joint parameter design.",
+    "local_context_role": "Local availability / interaction filtering is a strong bidirectional branch allocator; its first sign-change threshold has median support_strength 0.40 in the declared synthetic envelope.",
+    "assurance_role": "Autonomous assurance is not a sign-rescue mechanism in the declared model envelope. Even at 4x the existing assurance ceiling/responsiveness, no eligible service-decline lineage crosses the reproduction sign boundary. It should be described only as magnitude attenuation.",
+    "excluded_claim": "Do not present assurance as a second strong buffering branch or infer an empirical 0.40 filtering threshold for real islands."
+  },
+  "claim_boundary": "This closes the synthetic model robustness gate, not empirical causal identification. Design-space frequencies and thresholds are robustness descriptors of the declared model. Empirical island systems still require source-native tests before mechanism admission."
+}
