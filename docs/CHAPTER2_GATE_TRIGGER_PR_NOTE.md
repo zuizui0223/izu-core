@@ -1,0 +1,1 @@
+The only executable-file edit in this trigger PR is a documentation-only docstring expansion in the integrated gate evaluator. The scientific workflow, design freeze, thresholds, seed, parameter ranges, and route criteria are unchanged.
