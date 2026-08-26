@@ -1,7 +1,12 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -10,7 +15,6 @@ from scripts.run_joint_response_transition_surface import build as build_joint_s
 from scripts.run_response_geometry_parameter_robustness import BASE, TRAIT_GRID
 from scripts.run_response_geometry_realization_stability import realization_stability
 
-ROOT = Path(__file__).resolve().parents[1]
 PHASE12 = ROOT / "data/results/chapter2_phase12_fixed_gate_summary_20260827.json"
 PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json"
 OUT_DIR = ROOT / "figures/chapter2"
@@ -98,10 +102,17 @@ def _fig3_joint_regime_map(joint: dict) -> Path:
     return path
 
 
+def _cell(mapping: dict, value: float) -> dict:
+    for key in (str(value), f"{value:.1f}", f"{value:.2f}"):
+        if key in mapping:
+            return mapping[key]
+    raise KeyError(value)
+
+
 def _fig4a_local_context(phase3: dict) -> Path:
     by_strength = phase3["context_map"]["by_strength"]
     strengths = [float(value) for value in phase3["design"]["support_strengths"]]
-    cells = [by_strength[str(value)] if str(value) in by_strength else by_strength[f"{value:.1f}"] for value in strengths]
+    cells = [_cell(by_strength, value) for value in strengths]
     n = np.array([cell["lineage_contrasts"] for cell in cells], dtype=float)
     any_change = np.array([cell["sign_changes"] for cell in cells], dtype=float) / n
     neg_to_nonnegative = np.array([cell["negative_to_nonnegative"] for cell in cells], dtype=float) / n
@@ -128,7 +139,7 @@ def _fig4a_local_context(phase3: dict) -> Path:
 def _fig4b_assurance(phase3: dict) -> Path:
     by_multiplier = phase3["assurance_map"]["by_multiplier"]
     multipliers = [float(value) for value in phase3["design"]["assurance_multipliers"]]
-    cells = [by_multiplier[str(value)] if str(value) in by_multiplier else by_multiplier[f"{value:.1f}"] for value in multipliers]
+    cells = [_cell(by_multiplier, value) for value in multipliers]
     magnitude = [cell["magnitude_improvement_fraction"] for cell in cells]
     sign_rescue = [cell["sign_rescue_fraction"] for cell in cells]
 
