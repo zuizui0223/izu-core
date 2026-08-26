@@ -3,6 +3,7 @@ name: Chapter 2 scientific gate
 on:
   push:
     branches:
+      - main
       - codex/run-chapter2-scientific-gate
   pull_request:
     paths:
