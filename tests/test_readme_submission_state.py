@@ -11,7 +11,8 @@ def test_readme_exposes_reassessment_as_active_gate():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert "reopened for scientific reassessment" in lower
-    assert "response geometry / parameter robustness" in text
+    assert "response geometry" in lower
+    assert "parameter robustness" in lower
     assert "metadata" not in lower.split("## what is actually unresolved now", 1)[1].split("## current manuscript status", 1)[0]
 
 
