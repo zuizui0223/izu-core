@@ -1,6 +1,6 @@
 {
-  "schema_version": "2.7",
-  "updated_on": "2026-08-25",
+  "schema_version": "2.8",
+  "updated_on": "2026-08-26",
   "programme": "comparative_island_pollination_response_simulation_study",
   "chapter2_scientific_status": "complete_and_frozen_for_submission",
   "core_story": "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md",
@@ -13,7 +13,10 @@
   "branch_generator_independent_robustness": "data/results/abm_v12_branch_generator_independent_robustness_frozen.json",
   "h2_analytical_sign_decomposition": "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
   "manuscript_architecture": "data/design/simulation_manuscript_results_architecture.json",
-  "primary_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
+  "primary_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md",
+  "primary_manuscript_source": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
+  "primary_manuscript_builder": "scripts/build_island_ecology_manuscript_v3.py",
+  "primary_manuscript_status": "editorial_v3_generated_deterministically_from_frozen_v2_source",
   "supporting_information": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
   "cover_letter": "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
   "archived_pre_submission_scientific_draft": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
@@ -107,6 +110,9 @@
     "jecology_numbered_abstract_assembled": true,
     "expanded_methods_assembled": true,
     "h2_analytical_sign_decomposition_assembled": true,
+    "editorial_v3_ready": true,
+    "editorial_v3_source_frozen": true,
+    "editorial_v3_validation": "passed_python_3_10_3_11_3_12",
     "main_figure_table_crossreferences_assembled": true,
     "supporting_information_assembled": true,
     "cover_letter_assembled": true,
@@ -129,6 +135,7 @@
     "external_set": "strict_state_challenge_set_not_prevalence_sample",
     "functional_coordinate": "synthetic_relative_position_not_empirically_equated_to_one_named_trait",
     "h2_sign_decomposition": "model_internal_endpoint_identity_not_a_real_world_trait_or_mechanism_identification",
+    "editorial_v3": "deterministic_prose_render_from_frozen_v2_source_not_a_scientific_reanalysis",
     "external_research_programmes": "out_of_scope_and_not_part_of_submission"
   },
   "archived_alternative_framings": {
@@ -149,6 +156,7 @@
     {"name": "island_ecology_main_figure_routing", "status": "ecology_first_main_Fig1_to_Fig4_with_state_separability_in_FigS1"},
     {"name": "island_ecology_reference_map_and_figure_captions", "status": "complete"},
     {"name": "island_ecology_jecology_submission_draft", "status": "expanded_methods_and_crossreferences_complete_ci_passed"},
+    {"name": "island_ecology_jecology_editorial_v3", "status": "complete_deterministic_render_ci_passed"},
     {"name": "island_ecology_supporting_information", "status": "assembled_with_h2_analytical_sign_decomposition"},
     {"name": "island_ecology_cover_letter", "status": "assembled_pending_author_metadata"},
     {"name": "island_ecology_submission_manifest_and_data_code_statement", "status": "assembled"},
@@ -157,7 +165,7 @@
   ],
   "active_gate": {
     "name": "island_ecology_submission_metadata_only",
-    "goal": "Fill final author/title-page metadata and package the already-validated island-ecology submission without reopening scientific analysis.",
+    "goal": "Fill final author/title-page metadata and package the validated editorial V3 submission without reopening scientific analysis.",
     "required_outputs": [
       "title_page_author_and_affiliation_metadata",
       "final_submission_system_metadata",
@@ -183,5 +191,5 @@
     "forcing_a_cross_system_meta_analytic_coefficient_from_noncommensurate_estimands",
     "external_research_programmes_as_submission_dependencies_or_extensions"
   ],
-  "next_executable_task": "fill_title_page_author_and_affiliation_metadata_then_generate_final_submission_bundle_without_reopening_scientific_analysis"
+  "next_executable_task": "fill_author_supplied_submission_metadata_json_then_generate_final_submission_bundle_with_editorial_v3_without_reopening_scientific_analysis"
 }
