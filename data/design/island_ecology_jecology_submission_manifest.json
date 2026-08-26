@@ -1,93 +1,54 @@
 {
-  "schema_version": "1.8",
+  "schema_version": "2.0",
   "updated_on": "2026-08-26",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
-  "primary_scientific_state": "H1_H5_closed_for_submission",
-  "scientific_reopening_required": false,
+  "submission_ready": false,
+  "scientific_reopening_required": true,
+  "active_scientific_gate": "data/design/manuscript_reassessment_gate_20260826.json",
+  "scientific_reassessment": "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md",
   "paper_scope_independent_of_external_research_programmes": true,
-  "main_files": {
-    "anonymous_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md",
-    "anonymous_manuscript_source": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
-    "anonymous_manuscript_builder": "scripts/build_island_ecology_manuscript_v3.py",
-    "anonymous_manuscript_status": "editorial_v3_rendered_deterministically_from_frozen_v2_source",
+  "current_manuscript_artifacts": {
+    "v2_source": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
+    "v3_editorial_builder": "scripts/build_island_ecology_manuscript_v3.py",
     "supporting_information": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
-    "h2_analytical_sign_decomposition": "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
-    "figure_captions": "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
-    "reference_map": "docs/ISLAND_ECOLOGY_REFERENCE_MAP_20260824.md",
-    "data_code_statement": "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
-    "journal_format_contract": "docs/ISLAND_ECOLOGY_JOURNAL_OF_ECOLOGY_FORMAT_20260824.md"
+    "status": "retained_for_provenance_not_submission_ready"
   },
-  "main_figures": [
-    {"figure": "Fig1", "output": "figures/generated/Fig1_frozen_model_logic.svg", "renderer": "scripts/render_simulation_manuscript_fig1_svg.py", "role": "island_ecological_response_architecture"},
-    {"figure": "Fig2", "output": "figures/generated/Fig2_minimal_branch_generator.svg", "renderer": "scripts/render_island_ecology_mechanism_figures_svg.py", "role": "replicated_minimal_branch_generator"},
-    {"figure": "Fig3", "output": "figures/generated/Fig3_branch_allocation_buffering_attenuation.svg", "renderer": "scripts/render_island_ecology_mechanism_figures_svg.py", "role": "context_dependent_branch_allocation_and_assurance_attenuation"},
-    {"figure": "Fig4", "output": "figures/generated/Fig4_cross_island_response_architecture.svg", "renderer": "scripts/render_island_ecology_external_figures_svg.py", "role": "cross_island_response_state_recurrence_and_protected_exceptions"}
+  "claim_reassignment": {
+    "H1": "report_as_model_capability_and_counts_not_prevalence",
+    "H2": "demoted_to_model_specific_sensitivity_and_endpoint_geometry",
+    "H3": "retain_as_bidirectional_local_context_filtering_pending_broader_robustness",
+    "H4": "retain_magnitude_vs_sign_distinction_as_structural_parameter_result",
+    "H5": "demoted_from_validation_to_comparative_grounding"
+  },
+  "external_system_role": {
+    "strict_systems": 13,
+    "role": "comparative_grounding_and_boundary_examples_not_validation_coverage",
+    "dominica": "retained_failed_specific_signed_position_projection",
+    "guaiacum": "reproductive_axis_decoupling_constraint",
+    "coverage_11_of_11_must_not_be_used_as_validation": true
+  },
+  "model_reporting_required": {
+    "full_equations": true,
+    "scenario_parameter_table": true,
+    "lineage_parameter_distributions": true,
+    "design_choices_24_lineages_120_steps_explained_as_sensitivity_choices": true,
+    "local_support_semantics_corrected_to_context_or_availability_filtering": true,
+    "headline_5_of_12_reported_as_count_not_0_4167_precision": true,
+    "import_path_debug_prose_removed_from_methods": true,
+    "uncited_references_resolved": ["Lord_2015", "Mendez_2025"]
+  },
+  "required_new_scientific_work": [
+    "response_geometry_analysis_identifying_sign_switch_conditions",
+    "parameter_robustness_sweep_over_key_island_perturbation_and_matching_parameters",
+    "local_context_sign_change_robustness_map",
+    "assurance_sign_rescue_threshold_map"
   ],
-  "main_tables": [
-    {"table": "Table1", "source": "data/results/frozen_abm_state_atlas_frozen.json", "role": "synthetic_response_state_atlas"},
-    {"table": "Table2", "source": "data/design/simulation_manuscript_external_system_reference_matrix.json", "role": "strict_external_island_system_response_classes_and_source_boundaries"},
-    {"table": "Table3", "source": "data/results/simulation_manuscript_falsification_table_frozen.json", "role": "protected_falsifications_and_claim_boundaries"}
-  ],
-  "supplement": {
-    "manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
-    "h2_analytical_sign_decomposition": {
-      "file": "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
-      "role": "algebraic_unpacking_of_frozen_v12_endpoint_not_new_scientific_result",
-      "exact_identity": "sign_delta_reproduction_equals_sign_delta_service_equals_sign_delta_functional_opportunity"
-    },
-    "state_separability_figure": {
-      "figure": "FigS1",
-      "output": "figures/generated/FigS1_state_separability.svg",
-      "renderer": "scripts/render_island_ecology_external_figures_svg.py",
-      "role": "supporting_inference_guard_not_primary_biological_result"
-    },
-    "tables": ["TableS1_frozen_simulation_blocks", "TableS2_state_separability", "TableS3_external_systems"],
-    "external_reference_matrix": "docs/SIMULATION_MANUSCRIPT_EXTERNAL_SYSTEM_REFERENCES_20260824.md",
-    "full_external_source_matrix": "data/design/simulation_manuscript_external_system_reference_matrix.json",
-    "full_factorial_and_robustness_details": true
+  "submission_bundle": {
+    "builder": "scripts/build_island_ecology_submission_bundle.py",
+    "status": "blocked_while_scientific_reassessment_gate_is_open",
+    "author_metadata_is_not_current_active_blocker": true
   },
-  "review_archive": {
-    "required": true,
-    "anonymous": true,
-    "builder": "scripts/build_island_ecology_review_archive.py",
-    "default_output": "dist/island_ecology_anonymous_review_archive.zip",
-    "manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md",
-    "identity_scan_required": true,
-    "public_author_identifying_repository_link_in_review_manuscript": false,
-    "immutable_public_archive_with_doi_required_before_final_publication": true,
-    "new_unpublished_field_data_required": false,
-    "external_research_programmes_included": false
-  },
-  "separate_submission_files": {
-    "title_page_template": "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md",
-    "submission_metadata_template": "data/design/island_ecology_submission_metadata_template.json",
-    "submission_metadata_checklist": "docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md",
-    "submission_metadata_builder": "scripts/build_island_ecology_submission_metadata.py",
-    "submission_bundle_builder": "scripts/build_island_ecology_submission_bundle.py",
-    "submission_bundle_output": "dist/island_ecology_jecology_submission_bundle.zip",
-    "title_page_status": "builder_ready_pending_author_supplied_metadata",
-    "cover_letter": "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
-    "cover_letter_status": "builder_ready_pending_author_supplied_metadata",
-    "anonymous_review_manuscript": "editorial_v3_ready_via_deterministic_builder",
-    "supplement": "assembled_with_h2_analytical_sign_decomposition"
-  },
-  "archived_provenance": {
-    "pre_editorial_submission_source": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
-    "pre_submission_scientific_draft": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
-    "legacy_ecology_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
-  },
-  "protected_boundaries": [
-    "thirteen_strict_systems_are_not_a_prevalence_sample",
-    "external_state_compatibility_does_not_identify_one_shared_empirical_mechanism",
-    "guaiacum_is_reproductive_axis_decoupling_not_whole_reproduction_buffering",
-    "dominica_heliconia_is_a_retained_failed_signed_position_projection",
-    "state_separability_is_supporting_inference_guard_only",
-    "h2_sign_decomposition_is_model_internal_and_does_not_assign_one_real_world_trait_to_the_synthetic_coordinate",
-    "editorial_v3_does_not_rerun_or_change_scientific_analysis",
-    "no_new_simulation_for_journal_fit",
-    "external_research_programmes_are_not_part_of_the_submission_package",
-    "author_identity_metadata_must_be_explicitly_supplied_not_inferred"
-  ],
-  "next_executable_task": "fill_author_supplied_submission_metadata_json_then_generate_final_bundle_with_editorial_v3_without_reopening_scientific_analysis"
+  "fallback_if_research_article_gate_fails": "Journal_of_Ecology_Review_or_MiniReview_centered_on_three_layer_island_syndrome_decomposition",
+  "next_executable_task": "build_response_geometry_and_parameter_robustness_analysis_before_any_further_submission_packaging"
 }
