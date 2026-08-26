@@ -1,6 +1,9 @@
 name: Chapter 2 scientific gate
 
 on:
+  push:
+    branches:
+      - codex/run-chapter2-scientific-gate
   pull_request:
     paths:
       - 'scripts/run_response_geometry_realization_stability.py'
