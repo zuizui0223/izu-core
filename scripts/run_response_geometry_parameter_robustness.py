@@ -197,16 +197,15 @@ def build(replicates: int = 24, seed: int = 20260826) -> dict:
     sweeps = {}
     stable_mixed = 0
     total = 0
-    setting_index = 0
+    sweep_seed = seed + 10_000_000
     for name, values in SWEEPS.items():
         rows = []
         for value in values:
             cfg = apply_sweep(BASE, name, value)
-            result = geometry(cfg, replicates, seed + 10_000_000 + setting_index * 1_000_000)
+            result = geometry(cfg, replicates, sweep_seed)
             rows.append({"value": value, **result})
             stable_mixed += int(result["mixed_sign_geometry"])
             total += 1
-            setting_index += 1
         sweeps[name] = rows
     return {
         "analysis": "response_geometry_parameter_robustness",
@@ -223,6 +222,7 @@ def build(replicates: int = 24, seed: int = 20260826) -> dict:
             "trait_grid": list(TRAIT_GRID),
             "replicates_per_parameter_setting": replicates,
             "matched_pollinator_realizations_across_trait_grid": True,
+            "paired_seed_ensemble_across_parameter_values": True,
             "steps": BASE.steps,
             "sweeps": {name: list(values) for name, values in SWEEPS.items()},
             "baseline_scenario_source": "declared v4 mainland-like and oceanic-island parameterization",
