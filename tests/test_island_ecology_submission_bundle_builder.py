@@ -39,6 +39,25 @@ def test_submission_bundle_is_blocked_by_open_scientific_reassessment_gate(tmp_p
         bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
 
 
+def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
+    missing_gate = tmp_path / "missing-gate.json"
+    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", missing_gate)
+    metadata_path = tmp_path / "metadata.json"
+    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
+    with pytest.raises(ValueError, match="scientific reassessment gate is missing"):
+        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+
+
+def test_submission_bundle_fails_closed_when_scientific_gate_is_unreadable(tmp_path: Path, monkeypatch):
+    gate = tmp_path / "gate.json"
+    gate.write_text("{not-json", encoding="utf-8")
+    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
+    metadata_path = tmp_path / "metadata.json"
+    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
+    with pytest.raises(ValueError, match="scientific reassessment gate is unreadable"):
+        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+
+
 def test_submission_bundle_still_fails_closed_on_unresolved_metadata_after_gate_closure(tmp_path: Path, monkeypatch):
     gate = tmp_path / "gate.json"
     gate.write_text(json.dumps({"current_research_article_submission_ready": True}), encoding="utf-8")
