@@ -1,0 +1,62 @@
+name: Chapter 2 scientific gate
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/run_response_geometry_realization_stability.py'
+      - 'scripts/run_joint_response_transition_surface.py'
+      - 'scripts/run_context_assurance_threshold_maps.py'
+      - 'scripts/evaluate_chapter2_scientific_gate.py'
+      - '.github/workflows/chapter2-scientific-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  scientific-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run matched response-geometry stability
+        run: |
+          python scripts/run_response_geometry_realization_stability.py \
+            --replicates 96 \
+            --seed 20260826 \
+            --out data/results/response_geometry_realization_stability_gate.json
+      - name: Run joint transition surface
+        run: |
+          python scripts/run_joint_response_transition_surface.py \
+            --points 48 \
+            --replicates 24 \
+            --seed 20260826 \
+            --out data/results/joint_response_transition_surface_gate.json
+      - name: Run context and assurance thresholds
+        run: |
+          python scripts/run_context_assurance_threshold_maps.py \
+            --replicates 12 \
+            --contexts 4 \
+            --lineages 24 \
+            --steps 120 \
+            --seed 20260826 \
+            --out data/results/context_assurance_threshold_maps_gate.json
+      - name: Evaluate Chapter 2 gate
+        run: |
+          python scripts/evaluate_chapter2_scientific_gate.py \
+            --phase1 data/results/response_geometry_realization_stability_gate.json \
+            --joint data/results/joint_response_transition_surface_gate.json \
+            --thresholds data/results/context_assurance_threshold_maps_gate.json \
+            --out data/results/chapter2_scientific_gate_decision.json
+      - name: Upload scientific gate results
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-scientific-gate-results
+          path: |
+            data/results/response_geometry_realization_stability_gate.json
+            data/results/joint_response_transition_surface_gate.json
+            data/results/context_assurance_threshold_maps_gate.json
+            data/results/chapter2_scientific_gate_decision.json
+          if-no-files-found: error
