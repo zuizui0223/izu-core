@@ -1,30 +1,58 @@
 {
-  "schema_version": "1.0",
-  "updated_on": "2026-08-26",
-  "status": "scientific_reassessment_required_before_submission",
+  "schema_version": "1.1",
+  "updated_on": "2026-08-27",
+  "status": "scientific_reassessment_complete_manuscript_reassembly_required",
+  "research_article_route": "candidate_conditional_response_geometry",
+  "scientific_model_gate_complete": true,
   "current_research_article_submission_ready": false,
-  "reason": "The current framing overstates model-internal H2 decomposition and qualitative H5 state coverage. A nontrivial response-geometry and parameter-robustness result is required before restoring Research Article readiness.",
+  "reason": "The response-geometry, joint parameter-robustness, local-context sign-threshold, and assurance sensitivity gates are complete and support a conditional-response-geometry Research Article candidate. Submission remains blocked because the active manuscript surface must be regenerated from the current canonical evidence state and must incorporate the revised model description, claim hierarchy, references, and synthetic-versus-empirical boundaries.",
+  "final_model_gate": {
+    "matched_realizations": 96,
+    "mixed_sign_realizations": 41,
+    "joint_parameter_points": 48,
+    "joint_mixed_mean_geometry_points": 16,
+    "median_local_context_first_sign_change_strength": 0.40,
+    "local_context_lineages_with_any_sign_change": 737,
+    "assurance_eligible_baseline_declines": 580,
+    "assurance_sign_rescues_through_4x": 0,
+    "assurance_upstream_service_mismatch_count": 0,
+    "assurance_role": "robust_magnitude_attenuator_not_sign_rescue_branch"
+  },
   "claim_reassignment": {
     "H1": "descriptive_model_capability_not_frequency_estimate",
-    "H2": "model_specific_sensitivity_and_endpoint_geometry_not_headline_discovery",
-    "H3": "retain_as_local_context_filtering_bidirectionality_pending_semantic_correction_and_robustness",
-    "H4": "retain_magnitude_vs_sign_distinction_as_structural_parameter_result_not_headline_discovery",
-    "H5": "demote_from_validation_to_comparative_grounding"
+    "H2": "replace_minimal_generator_headline_with_conditional_response_geometry",
+    "H3": "retain_as_local_context_filtering_bidirectional_branch_reallocation",
+    "H4": "retain_magnitude_vs_sign_distinction_with_assurance_demoted_to_magnitude_attenuation",
+    "H5": "comparative_grounding_not_generality_validation"
   },
-  "required_before_submission": [
-    "expose_full_model_equations_and_parameterization_in_manuscript",
-    "replace_pseudoprecise_5_of_12_frequency_reporting",
-    "remove_import_path_failure_and_seed_hunting_procedural_prose_from_methods",
-    "fix_local_support_semantics_to_local_context_or_availability_filtering",
-    "resolve_uncited_Lord_2015_and_Mendez_2025_references",
+  "completed_scientific_requirements": [
     "response_geometry_analysis_identifying_sign_switch_conditions",
-    "parameter_robustness_analysis_over_key_island_perturbation_and_matching_parameters"
+    "joint_parameter_robustness_analysis_over_key_island_perturbation_and_matching_parameters",
+    "local_context_sign_change_threshold_map",
+    "assurance_sign_rescue_sensitivity_through_4x"
+  ],
+  "required_before_submission": [
+    "regenerate_active_manuscript_from_current_canonical_evidence_state",
+    "expose_full_model_equations_and_parameterization_in_manuscript",
+    "report_design_counts_and_robustness_fractions_without_ecological_prevalence_language",
+    "remove_import_path_failure_seed_hunting_and_other_repository_workflow_prose_from_methods",
+    "use_local_context_or_availability_filtering_semantics_instead_of_beneficial_support_language",
+    "state_that_assurance_is_magnitude_attenuation_not_observed_sign_rescue_within_0_to_4x_envelope",
+    "remove_H5_coverage_as_validation_and_retain_external_systems_only_as_comparative_grounding",
+    "resolve_uncited_Lord_2015_and_Mendez_2025_references",
+    "reconcile_manuscript_claims_with_docs_CURRENT_EVIDENCE_STATE_md_and_data_design_active_development_mainline_json"
   ],
   "do_not_use_as_validation": [
     "11_of_11_external_state_coverage",
     "replicated_minimal_generator_label",
-    "assurance_attenuation_as_emergent_discovery"
+    "assurance_attenuation_as_emergent_discovery",
+    "synthetic_thresholds_as_empirical_ecological_thresholds",
+    "design_space_frequencies_as_natural_prevalence"
   ],
-  "fallback_if_geometry_not_stable": "reframe_as_conceptual_review_or_mini_review_centered_on_three_layer_island_syndrome_decomposition",
-  "audit": "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
+  "fallback_if_manuscript_reassembly_cannot_support_research_article": "reframe_as_conceptual_review_or_mini_review_centered_on_three_layer_island_syndrome_decomposition",
+  "audit": [
+    "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md",
+    "docs/CHAPTER2_SCIENTIFIC_GATE_RUN_20260827.md",
+    "docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md"
+  ]
 }
