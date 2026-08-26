@@ -14,7 +14,7 @@ def test_v3_integrates_frozen_h2_sign_decomposition_without_scientific_drift():
     source, v3 = rendered()
     assert source != v3
     assert "sign(Δ reproduction) = sign(Δ service) = sign(Δ functional opportunity)" in v3
-    assert "the branching originates upstream in lineage-specific functional-opportunity change" in v3
+    assert "had to be present already in lineage-specific functional-opportunity change" in v3
     assert "The key state dependence therefore enters before those downstream filters" in v3
     assert "does not assign the synthetic functional coordinate to a named empirical trait" in v3
     for token in ("0.4167", "105/288", "16/96", "85/96", "11/96", "207/216", "0/525"):
