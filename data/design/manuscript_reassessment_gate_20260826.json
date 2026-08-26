@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-26",
+  "status": "scientific_reassessment_required_before_submission",
+  "current_research_article_submission_ready": false,
+  "reason": "The current framing overstates model-internal H2 decomposition and qualitative H5 state coverage. A nontrivial response-geometry and parameter-robustness result is required before restoring Research Article readiness.",
+  "claim_reassignment": {
+    "H1": "descriptive_model_capability_not_frequency_estimate",
+    "H2": "model_specific_sensitivity_and_endpoint_geometry_not_headline_discovery",
+    "H3": "retain_as_local_context_filtering_bidirectionality_pending_semantic_correction_and_robustness",
+    "H4": "retain_magnitude_vs_sign_distinction_as_structural_parameter_result_not_headline_discovery",
+    "H5": "demote_from_validation_to_comparative_grounding"
+  },
+  "required_before_submission": [
+    "expose_full_model_equations_and_parameterization_in_manuscript",
+    "replace_pseudoprecise_5_of_12_frequency_reporting",
+    "remove_import_path_failure_and_seed_hunting_procedural_prose_from_methods",
+    "fix_local_support_semantics_to_local_context_or_availability_filtering",
+    "resolve_uncited_Lord_2015_and_Mendez_2025_references",
+    "response_geometry_analysis_identifying_sign_switch_conditions",
+    "parameter_robustness_analysis_over_key_island_perturbation_and_matching_parameters"
+  ],
+  "do_not_use_as_validation": [
+    "11_of_11_external_state_coverage",
+    "replicated_minimal_generator_label",
+    "assurance_attenuation_as_emergent_discovery"
+  ],
+  "fallback_if_geometry_not_stable": "reframe_as_conceptual_review_or_mini_review_centered_on_three_layer_island_syndrome_decomposition",
+  "audit": "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
+}
