@@ -44,8 +44,7 @@ def realization_stability(cfg, replicates: int, seed: int) -> dict:
             trait_negative[trait] += int(value_sign < 0)
 
         nonzero = [value for value in signs if value != 0]
-        switches = sum(a != b for a, b in zip(nonzero, nonzero[1:]))
-        switch_counts.append(switches)
+        switch_counts.append(sum(a != b for a, b in zip(nonzero, nonzero[1:])))
         has_positive = 1 in signs
         has_negative = -1 in signs
         if has_positive and has_negative:
@@ -89,11 +88,12 @@ def build(replicates: int = 24, seed: int = 20260826) -> dict:
     sweeps = {}
     settings_with_mixed = 0
     setting_count = 0
+    sweep_seed = seed + 10_000_000
     for name, values in SWEEPS.items():
         rows = []
         for value in values:
             cfg = apply_sweep(BASE, name, value)
-            result = realization_stability(cfg, replicates, seed + 10_000_000 + setting_count * 1_000_000)
+            result = realization_stability(cfg, replicates, sweep_seed)
             rows.append({"value": value, **result})
             settings_with_mixed += int(result["mixed_sign_realizations"] > 0)
             setting_count += 1
@@ -119,6 +119,7 @@ def build(replicates: int = 24, seed: int = 20260826) -> dict:
         },
         "design": {
             "matched_pollinator_realization_across_all_trait_positions": True,
+            "paired_seed_ensemble_across_parameter_values": True,
             "trait_grid": list(TRAIT_GRID),
             "replicates_per_setting": replicates,
             "empirical_inputs_loaded": [],
