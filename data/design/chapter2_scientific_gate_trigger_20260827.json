@@ -1,0 +1,6 @@
+{
+  "triggered_on": "2026-08-27",
+  "purpose": "Explicitly trigger the Chapter 2 scientific gate workflow after the workflow definition was merged to main.",
+  "scientific_design_changed": false,
+  "retuning": false
+}
