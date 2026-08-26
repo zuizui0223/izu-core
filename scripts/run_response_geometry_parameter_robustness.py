@@ -80,26 +80,39 @@ def encounter(trait: float, pollinator: Pollinator, cfg: GeometryConfig) -> floa
     return clamp(match * (cfg.replacement_penalty if pollinator.introduced else 1.0))
 
 
-def service(trait: float, pollinators: list[Pollinator], cfg: GeometryConfig) -> float:
+def service(trait: float, pollinators: tuple[Pollinator, ...], cfg: GeometryConfig) -> float:
     if not pollinators:
         return 0.0
-    mean_match = mean(encounter(trait, p, cfg) for p in pollinators)
+    mean_match = sum(encounter(trait, p, cfg) for p in pollinators) / len(pollinators)
     return clamp(1.0 - math.exp(-cfg.saturation * mean_match))
 
 
-def endpoint(initial_trait: float, scenario: Scenario, seed: int, cfg: GeometryConfig) -> tuple[float, float]:
+def pollinator_trajectory(scenario: Scenario, seed: int, cfg: GeometryConfig) -> tuple[tuple[Pollinator, ...], ...]:
+    """Generate one pollinator realization shared by every plant starting position."""
     rng = random.Random(seed)
-    trait = initial_trait
     pollinators = [make_pollinator(rng, scenario, cfg) for _ in range(scenario.n_pollinator_types)]
+    snapshots = []
     for _ in range(cfg.steps):
         pollinators = [p for p in pollinators if rng.random() >= scenario.partner_loss]
         if rng.random() < scenario.partner_arrival:
             pollinators.append(make_pollinator(rng, scenario, cfg))
+        snapshots.append(tuple(pollinators))
+    return tuple(snapshots)
+
+
+def endpoint_on_trajectory(initial_trait: float, trajectory: tuple[tuple[Pollinator, ...], ...], cfg: GeometryConfig) -> tuple[float, float]:
+    trait = initial_trait
+    for pollinators in trajectory:
         current_service = service(trait, pollinators, cfg)
         if pollinators and current_service < 0.45 and cfg.trait_adjustment > 0.0:
             best = max(pollinators, key=lambda p: encounter(trait, p, cfg))
             trait = clamp(trait + cfg.trait_adjustment * (best.trait - trait))
-    return trait, service(trait, pollinators, cfg)
+    final_pollinators = trajectory[-1] if trajectory else ()
+    return trait, service(trait, final_pollinators, cfg)
+
+
+def endpoint(initial_trait: float, scenario: Scenario, seed: int, cfg: GeometryConfig) -> tuple[float, float]:
+    return endpoint_on_trajectory(initial_trait, pollinator_trajectory(scenario, seed, cfg), cfg)
 
 
 def sign(x: float) -> int:
@@ -110,39 +123,44 @@ def sign(x: float) -> int:
     return 0
 
 
-def summarize_trait(initial_trait: float, cfg: GeometryConfig, replicates: int, seed: int) -> dict:
-    deltas = []
-    endpoint_trait_deltas = []
+def geometry(cfg: GeometryConfig, replicates: int, seed: int) -> dict:
+    per_trait = {t: {"service": [], "trait": []} for t in TRAIT_GRID}
     for rep in range(replicates):
         run_seed = seed + rep * 10_000
-        mt, ms = endpoint(initial_trait, cfg.mainland, run_seed + 100_000, cfg)
-        it, iserv = endpoint(initial_trait, cfg.island, run_seed + 200_000, cfg)
-        deltas.append(iserv - ms)
-        endpoint_trait_deltas.append(it - mt)
-    positive = sum(d > EPS for d in deltas)
-    negative = sum(d < -EPS for d in deltas)
-    return {
-        "initial_trait": initial_trait,
-        "mean_delta_service": mean(deltas),
-        "mean_delta_endpoint_trait": mean(endpoint_trait_deltas),
-        "positive_replicates": positive,
-        "negative_replicates": negative,
-        "near_zero_replicates": replicates - positive - negative,
-        "positive_fraction": positive / replicates,
-        "negative_fraction": negative / replicates,
-        "mean_sign": sign(mean(deltas)),
-    }
+        mainland_trajectory = pollinator_trajectory(cfg.mainland, run_seed + 100_000, cfg)
+        island_trajectory = pollinator_trajectory(cfg.island, run_seed + 200_000, cfg)
+        for initial_trait in TRAIT_GRID:
+            mt, ms = endpoint_on_trajectory(initial_trait, mainland_trajectory, cfg)
+            it, iserv = endpoint_on_trajectory(initial_trait, island_trajectory, cfg)
+            per_trait[initial_trait]["service"].append(iserv - ms)
+            per_trait[initial_trait]["trait"].append(it - mt)
 
+    rows = []
+    for initial_trait in TRAIT_GRID:
+        deltas = per_trait[initial_trait]["service"]
+        trait_deltas = per_trait[initial_trait]["trait"]
+        positive = sum(d > EPS for d in deltas)
+        negative = sum(d < -EPS for d in deltas)
+        rows.append({
+            "initial_trait": initial_trait,
+            "mean_delta_service": mean(deltas),
+            "mean_delta_endpoint_trait": mean(trait_deltas),
+            "positive_replicates": positive,
+            "negative_replicates": negative,
+            "near_zero_replicates": replicates - positive - negative,
+            "positive_fraction": positive / replicates,
+            "negative_fraction": negative / replicates,
+            "mean_sign": sign(mean(deltas)),
+        })
 
-def geometry(cfg: GeometryConfig, replicates: int, seed: int) -> dict:
-    rows = [summarize_trait(t, cfg, replicates, seed + i * 1_000_000) for i, t in enumerate(TRAIT_GRID)]
     signs = [row["mean_sign"] for row in rows]
-    sign_switches = sum(a != b for a, b in zip(signs, signs[1:]) if a != 0 and b != 0)
-    mixed_geometry = 1 in signs and -1 in signs
+    nonzero_pairs = [(a, b) for a, b in zip(signs, signs[1:]) if a != 0 and b != 0]
+    sign_switches = sum(a != b for a, b in nonzero_pairs)
     positive_traits = [row["initial_trait"] for row in rows if row["mean_sign"] > 0]
     negative_traits = [row["initial_trait"] for row in rows if row["mean_sign"] < 0]
     return {
-        "mixed_sign_geometry": mixed_geometry,
+        "matched_pollinator_realizations_across_trait_grid": True,
+        "mixed_sign_geometry": 1 in signs and -1 in signs,
         "sign_switch_count_across_trait_grid": sign_switches,
         "positive_trait_range": [min(positive_traits), max(positive_traits)] if positive_traits else None,
         "negative_trait_range": [min(negative_traits), max(negative_traits)] if negative_traits else None,
@@ -179,19 +197,21 @@ def build(replicates: int = 24, seed: int = 20260826) -> dict:
     sweeps = {}
     stable_mixed = 0
     total = 0
+    setting_index = 0
     for name, values in SWEEPS.items():
         rows = []
-        for index, value in enumerate(values):
+        for value in values:
             cfg = apply_sweep(BASE, name, value)
-            result = geometry(cfg, replicates, seed + 10_000_000 + total * 1_000_000 + index * 100_000)
+            result = geometry(cfg, replicates, seed + 10_000_000 + setting_index * 1_000_000)
             rows.append({"value": value, **result})
             stable_mixed += int(result["mixed_sign_geometry"])
             total += 1
+            setting_index += 1
         sweeps[name] = rows
     return {
         "analysis": "response_geometry_parameter_robustness",
         "status": "scientific_reassessment_gate_phase1",
-        "question": "Across plant starting positions, when does the island-minus-mainland functional-service response change sign, and does that sign geometry persist under plausible perturbations of the declared model parameters?",
+        "question": "Across plant starting positions, when does the island-minus-mainland functional-service response change sign, and does that sign geometry persist under perturbations of the declared model parameters?",
         "baseline": baseline,
         "parameter_sweeps": sweeps,
         "robustness_summary": {
@@ -201,7 +221,8 @@ def build(replicates: int = 24, seed: int = 20260826) -> dict:
         },
         "design": {
             "trait_grid": list(TRAIT_GRID),
-            "replicates_per_trait_parameter_setting": replicates,
+            "replicates_per_parameter_setting": replicates,
+            "matched_pollinator_realizations_across_trait_grid": True,
             "steps": BASE.steps,
             "sweeps": {name: list(values) for name, values in SWEEPS.items()},
             "baseline_scenario_source": "declared v4 mainland-like and oceanic-island parameterization",
