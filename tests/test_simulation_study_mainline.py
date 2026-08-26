@@ -18,7 +18,10 @@ def test_island_ecology_primary_claim_and_package_state():
     assert state["core_story"] == "docs/ISLAND_ECOLOGY_CORE_STORY_20260824.md"
     assert state["hypothesis_recovery"] == "data/design/island_ecology_hypothesis_recovery_20260824.json"
     assert state["manuscript_reassembly_spec"] == "docs/ISLAND_ECOLOGY_MANUSCRIPT_REASSEMBLY_SPEC_20260824.md"
-    assert state["primary_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
+    assert state["primary_manuscript"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
+    assert state["primary_manuscript_source"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
+    assert state["primary_manuscript_builder"] == "scripts/build_island_ecology_manuscript_v3.py"
+    assert state["primary_manuscript_status"] == "editorial_v3_generated_deterministically_from_frozen_v2_source"
     assert state["supporting_information"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md"
     assert state["h2_analytical_sign_decomposition"] == "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md"
     assert state["cover_letter"] == "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md"
@@ -78,6 +81,9 @@ def test_island_ecology_primary_claim_and_package_state():
     assert submission["jecology_numbered_abstract_assembled"] is True
     assert submission["expanded_methods_assembled"] is True
     assert submission["h2_analytical_sign_decomposition_assembled"] is True
+    assert submission["editorial_v3_ready"] is True
+    assert submission["editorial_v3_source_frozen"] is True
+    assert submission["editorial_v3_validation"] == "passed_python_3_10_3_11_3_12"
     assert submission["main_figure_table_crossreferences_assembled"] is True
     assert submission["supporting_information_assembled"] is True
     assert submission["cover_letter_assembled"] is True
@@ -100,6 +106,7 @@ def test_island_ecology_primary_claim_and_package_state():
     assert completed["island_ecology_main_figure_routing"].startswith("ecology_first_main_Fig1_to_Fig4")
     assert completed["island_ecology_reference_map_and_figure_captions"] == "complete"
     assert completed["island_ecology_jecology_submission_draft"] == "expanded_methods_and_crossreferences_complete_ci_passed"
+    assert completed["island_ecology_jecology_editorial_v3"] == "complete_deterministic_render_ci_passed"
     assert completed["island_ecology_supporting_information"] == "assembled_with_h2_analytical_sign_decomposition"
     assert completed["island_ecology_cover_letter"] == "assembled_pending_author_metadata"
     assert completed["island_ecology_submission_manifest_and_data_code_statement"] == "assembled"
@@ -109,4 +116,5 @@ def test_island_ecology_primary_claim_and_package_state():
     assert "external_research_programmes_as_submission_dependencies_or_extensions" in state["not_mainline"]
     assert state["protected_boundaries"]["external_research_programmes"] == "out_of_scope_and_not_part_of_submission"
     assert state["protected_boundaries"]["h2_sign_decomposition"] == "model_internal_endpoint_identity_not_a_real_world_trait_or_mechanism_identification"
-    assert state["next_executable_task"].startswith("fill_title_page_author_and_affiliation_metadata")
+    assert state["protected_boundaries"]["editorial_v3"] == "deterministic_prose_render_from_frozen_v2_source_not_a_scientific_reanalysis"
+    assert state["next_executable_task"].startswith("fill_author_supplied_submission_metadata_json")

@@ -8,10 +8,13 @@ def test_readme_routes_to_current_island_ecology_manuscript():
     text = README.read_text(encoding="utf-8")
     assert text.startswith("# Izu Core — state-dependent island plant responses")
     assert "Why does island-associated simplification or reorganization of pollinator function" in text
+    assert "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md" in text
     assert "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md" in text
+    assert "scripts/build_island_ecology_manuscript_v3.py" in text
     assert "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md" in text
     assert "data/design/simulation_study_mainline_20260824.json" in text
     assert "Journal of Ecology" in text
+    assert "deterministic editorial render from the frozen V2 source" in text
 
 
 def test_readme_preserves_island_syndrome_three_layer_framing():
