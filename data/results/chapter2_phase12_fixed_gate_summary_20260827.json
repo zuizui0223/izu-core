@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-27",
+  "status": "phase1_phase2_fixed_run_complete",
+  "seed": 20260826,
+  "response_geometry": {
+    "matched_pollinator_realizations": 96,
+    "mixed_sign_realizations": 41,
+    "mixed_sign_realization_fraction": 0.4270833333333333,
+    "mean_geometry_mixed_sign": true,
+    "mean_sign_switches": [
+      {"between_initial_trait": [0.30, 0.35], "direction": "positive_to_negative"},
+      {"between_initial_trait": [0.65, 0.70], "direction": "negative_to_positive"}
+    ],
+    "negative_mean_trait_region": [0.35, 0.65],
+    "interpretation": "mean response geometry is U-shaped: central starting positions lose service under the island perturbation while peripheral positions gain service"
+  },
+  "joint_transition_surface": {
+    "sampling": "fixed_seed_latin_hypercube",
+    "points": 48,
+    "matched_realizations_per_point": 24,
+    "parameter_count": 10,
+    "class_counts": {
+      "mixed_mean_geometry": 16,
+      "all_positive_mean_geometry": 22,
+      "all_negative_mean_geometry": 10
+    },
+    "class_fractions": {
+      "mixed_mean_geometry": 0.3333333333333333,
+      "all_positive_mean_geometry": 0.4583333333333333,
+      "all_negative_mean_geometry": 0.20833333333333334
+    },
+    "mean_mixed_sign_realization_fraction_across_points": 0.4852430555555556,
+    "range_mixed_sign_realization_fraction_across_points": [0.041666666666666664, 0.9166666666666666]
+  },
+  "interim_gate": {
+    "mean_boundary_present": true,
+    "joint_mixed_fraction_at_least_0_25": true,
+    "route_if_threshold_safety_passes": "research_article_candidate",
+    "remaining_required_checks": [
+      "local_context_changes_sign_for_some_lineages",
+      "assurance_threshold_upstream_service_invariant"
+    ]
+  },
+  "claim_boundary": "These are synthetic robustness results from the frozen design. Fractions describe the declared stochastic and parameter design, not natural ecological prevalence. No empirical calibration or post-result retuning was used."
+}
