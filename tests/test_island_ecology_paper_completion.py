@@ -23,7 +23,8 @@ def test_completed_manuscript_has_main_display_crossreferences():
 def test_completed_manuscript_integrates_h2_analytical_explanation():
     text = manuscript_text()
     assert "sign(Δ reproduction) = sign(Δ service) = sign(Δ functional opportunity)" in text
-    assert "downstream transforms preserve rather than manufacture the response sign" in text
+    assert "downstream transforms preserved response sign" in text
+    assert "could not be manufactured downstream" in text
 
 
 def test_supporting_information_contains_frozen_blocks_and_external_contract():
