@@ -31,8 +31,15 @@ STATIC_SUBMISSION_FILES = (
 
 def validate_scientific_gate() -> None:
     if not REASSESSMENT_GATE.exists():
-        return
-    gate = json.loads(REASSESSMENT_GATE.read_text(encoding="utf-8"))
+        raise ValueError(
+            "scientific reassessment gate is missing; refuse to build a submission bundle"
+        )
+    try:
+        gate = json.loads(REASSESSMENT_GATE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(
+            "scientific reassessment gate is unreadable; refuse to build a submission bundle"
+        ) from exc
     if gate.get("current_research_article_submission_ready") is not True:
         raise ValueError(
             "scientific reassessment gate is open; complete the response-geometry / "
