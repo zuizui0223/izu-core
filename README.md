@@ -1,235 +1,136 @@
-# Izu Core — state-dependent island plant responses
+# Izu Core — island plant response architecture under reassessment
 
-`izu-core` is the reproducible analysis and manuscript repository for an island-ecology study asking:
-
-> **Why does island-associated simplification or reorganization of pollinator function produce divergent plant responses rather than one universal post-establishment trajectory?**
+`izu-core` studies why island-associated pollinator reorganization can produce different plant responses rather than one universal post-establishment trajectory.
 
 ## Current state
 
-**Chapter 2 is scientifically complete and frozen for submission.**
+**Chapter 2 has been reopened for scientific reassessment. Do not submit the current Journal of Ecology Research Article yet.**
 
-Primary target: **Journal of Ecology**  
-Fallbacks: **Functional Ecology**, **Oikos**
+The previous `complete_and_frozen_for_submission` status is superseded by:
 
-Working title:
+- [`docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md`](docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md)
+- [`data/design/manuscript_reassessment_gate_20260826.json`](data/design/manuscript_reassessment_gate_20260826.json)
 
-> **One perturbation, multiple island responses: state-dependent branching under pollinator functional simplification**
+The existing simulations, literature screen and manuscript drafts remain valid provenance. What changed is **their claim role**.
 
-No new simulation, field dataset, external-system search, parameter retuning, or external research programme is required for the paper. The editorial V3 submission route has passed the repository test suite on Python 3.10, 3.11 and 3.12.
+## Conceptual core that survives
 
-Canonical files and routes:
-
-- Reviewer-facing manuscript: **editorial V3**, generated as `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md`
-- Frozen manuscript source: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
-- V3 builder: [`scripts/build_island_ecology_manuscript_v3.py`](scripts/build_island_ecology_manuscript_v3.py)
-- Supporting Information: [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
-- H2 analytical sign decomposition: [`docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md`](docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md)
-- Submission manifest: [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
-- Canonical study state: [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
-- Current submission state: [`docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md)
-
-V3 is a deterministic editorial render from the frozen V2 source. It sharpens the island-syndrome/post-establishment gap and integrates the already-frozen H2 sign decomposition into the Abstract, Methods, Results, Discussion and Conclusion. It does **not** rerun or change the scientific analysis.
-
-## Ecological story
-
-The paper separates three processes often grouped under the plant **island syndrome**:
+The strongest idea is the three-layer decomposition of the plant island syndrome:
 
 1. **Colonization / assembly filtering** — which lineages arrive, establish and persist.
 2. **In-situ evolutionary change** — how established island lineages evolve relative to source lineages.
-3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and interaction context change.
+3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and local interaction context change.
 
-This paper focuses on the third layer.
+The current model addresses the third layer. This distinction remains the conceptual core of Chapter 2.
 
-```text
-MAINLAND SOURCE POOL
-        ↓
-COLONIZATION / ASSEMBLY FILTER
-        ↓
-ESTABLISHED ISLAND FLORA
-        ↓
-POLLINATOR FUNCTIONAL CHANGE
-        ↓
-starting functional state → branch potential
-local interaction context → branch allocation / rescue / worsening
-reproductive assurance → magnitude attenuation
-        ↓
-MULTIPLE LINEAGE TRAJECTORIES
-```
+## Scientific reassignment after critique
 
-The synthesis is:
+### H2 — demoted from headline discovery
 
-> **Aggregate island syndromes can coexist with lineage-level branching because colonization and persistence determine which states arrive, whereas functional starting state and local ecological context determine how established lineages respond after pollinator environments change.**
-
-## H1–H5
-
-| Hypothesis | Current result |
-|---|---|
-| **H1 — universal post-establishment response** | **rejected** |
-| **H2 — state-dependent branching** | **supported within the declared ABM, independently replicated, and analytically sign-decomposed** |
-| **H3 — context-dependent propagation** | **supported bidirectionally** |
-| **H4 — autonomous-assurance buffering** | **partially supported: robust magnitude attenuation, no robust sign rescue** |
-| **H5 — cross-island recurrence** | **supported at the qualitative response-state level** |
-
-## Main frozen results
-
-### H2 — branch generation
-
-Mixed-sign branching occurred in **0.4167** of matched runs in both the original and independently seeded blocks. Removing pre-existing functional-position heterogeneity reduced within-run mixed-sign branching to **0**, whereas the other tested residual single-factor removals retained branching.
-
-The frozen v12 endpoint equations were then unpacked analytically. Under the matched endpoint comparison,
+The frozen v12 endpoint identity is
 
 ```text
 sign(Δ reproduction) = sign(Δ service) = sign(Δ functional opportunity)
 ```
 
-because the downstream service and reproduction transforms are monotonic under the declared v12 conditions. Thus the downstream transforms preserve rather than manufacture the response sign; the branching originates upstream in lineage-specific functional-opportunity change. This is a model-internal identity, not an empirical assignment of the synthetic coordinate to one named floral trait.
+so downstream transforms preserve rather than create response sign.
 
-### H3 — local interaction context
+Removing initial functional-position heterogeneity eliminated mixed-sign branching in the tested residual model, while trait-adjustment and assurance-ceiling heterogeneity remained. This is **not a pure algebraic tautology**, because trait-adjustment heterogeneity can still generate different endpoint traits and opportunity contrasts. However, the result only shows that initial position dominates the other tested heterogeneity sources **under the declared parameterization**.
 
-- local-support removal changed **105/288** paired lineage response signs;
-- local context produced **16/96** sign rescues among eligible declines;
-- **85/96** eligible declines were attenuated;
-- **11/96** were worsened.
+The previous `replicated_minimal_generator` wording is therefore no longer a main-paper claim. The independent seed block is retained as a model-specific robustness check, not as independent evidence for a new ecological principle.
 
-Stable interpretation:
+### H3 — retained, but renamed
 
-> **network context is a bidirectional branch allocator with buffering capacity, not a universal buffer.**
+The old term `local support ON` was misleading. In the implementation, increasing `support_strength` removes locally available plant/resource rows and then projects pollinator/pair support. It is a **local context / availability filtering** parameter, not extra beneficial support.
 
-### H4 — autonomous assurance
+The useful result is that matched local-context filtering can change response direction in both directions:
 
-Among **216** lineages with upstream service decline, autonomous assurance attenuated reproductive decline in **207/216** cases but produced **0** sign rescues in the independent block. A broadened envelope likewise produced **0/525** sign rescues.
+- 16/96 eligible declines crossed the sign boundary;
+- 11/96 worsened;
+- many others changed only in magnitude.
 
-Stable interpretation:
+This bidirectionality is retained, but requires broader robustness analysis before becoming a headline Research Article result.
 
-> **autonomous assurance mainly attenuates response magnitude rather than reliably reversing response sign.**
+### H4 — retained as a structural distinction, not a discovery
 
-## External island challenge
+Autonomous assurance is explicitly implemented as a compensating reproductive route that increases when reproduction is low. Magnitude attenuation is therefore largely structural.
 
-The literature screen retained **54 geographic/system units**. Thirteen met the strict external state-challenge contract:
+The useful distinction is narrower:
 
-| External state | Systems |
-|---|---:|
-| branching | 3 |
-| same-direction propagation | 6 |
-| buffering / alternative | 2 |
-| reproductive-axis decoupling constraint | 1 |
-| retained falsification | 1 |
-| **total** | **13** |
+> **magnitude buffering is not the same as qualitative sign rescue.**
 
-All **11 generative challenges** were covered or sign-compatible with response classes already present in the frozen model. The 13-system set is a **strict challenge set, not a prevalence sample**.
+The current tested envelope produced strong attenuation but no robust sign rescue. This remains useful, but it is not treated as an emergent ecological discovery.
 
-Protected exceptions remain:
+### H5 — demoted from validation
 
-- **Puerto Rico–Mona `Guaiacum sanctum`** — reproductive-axis decoupling, not generic whole-reproduction buffering.
-- **Dominica `Heliconia`** — retained failed signed-position projection; it **was not retuned** after failure.
+The 13-system external set remains a source-audited comparative resource, but `11/11 covered or sign-compatible` is no longer used as validation. The broad state vocabulary is too inclusive for that coverage count to be strongly falsifiable.
 
-Cross-island recurrence therefore supports the generality of the **response architecture**, not one shared empirical mechanism across all islands.
+The systems are retained as **comparative grounding and boundary examples**. Dominica remains a genuine failure of the more specific signed-position projection and was not retuned.
 
-## Island-syndrome literature synthesis
+## Numerical reporting
 
-- Review: [`docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md`](docs/ISLAND_SYNDROME_DEEP_LITERATURE_REVIEW_20260824.md)
-- Claim matrix: [`data/design/island_syndrome_literature_claim_matrix_20260824.json`](data/design/island_syndrome_literature_claim_matrix_20260824.json)
+Do not use `0.4167` as if it were a precise ecological frequency. The relevant frozen result is **5 of 12 matched runs** in each of two model blocks. Those runs span three saturation settings and are not a random sample from a natural population.
 
-Key boundary: the paper rejects a universal **post-establishment trajectory**, not the existence of recurrent island syndromes. Assembly filtering, in-situ evolution and post-establishment interaction response are kept distinct.
+Similarly, 16/96, 11/96 and related counts are design-specific capability summaries, not natural prevalence estimates.
 
-## Main paper architecture
+## Model assumptions that must be exposed in the next manuscript
 
-1. **Fig. 1 — ecological response architecture**
-2. **Fig. 2 — replicated minimal branch generator**
-3. **Fig. 3 — network-context branch allocation versus assurance attenuation**
-4. **Fig. 4 — cross-island response-state challenge**
+Current v4 scenario values include:
 
-State-separability diagnostics are Supporting Information only (`Fig. S1` / `Table S2`). They are inference guards, not the biological headline.
+| Parameter | mainland-like | oceanic-island |
+|---|---:|---:|
+| pollinator types | 9 | 4 |
+| partner arrival | 0.28 | 0.12 |
+| partner loss | 0.015 | 0.055 |
+| pollinator trait dispersion | 0.22 | 0.16 |
+| generalist fraction | 0.35 | 0.58 |
+| replacement fraction | 0.05 | 0.22 |
 
-## Claim boundaries
+Lineage defaults include initial trait `Normal(0.5, 0.18)` clipped to [0,1], dependency `U(0.35,0.95)`, assurance ceiling `U(0.10,0.90)`, assurance responsiveness `U(0.004,0.035)`, and trait adjustment `U(0.01,0.055)`.
 
-This paper does **not** claim that:
+Matching is Gaussian-like in trait distance; introduced partners receive a 0.82 multiplier. Fixed visit budget uses mean partner match followed by a saturating service transform.
 
-- plant island syndromes are false;
-- all island plants follow one post-establishment trajectory;
-- all 13 external systems share one empirical mechanism;
-- the 13-system challenge estimates global prevalence;
-- the synthetic functional coordinate is automatically one named empirical trait;
-- state compatibility is empirical causal identification;
-- Dominica should be retuned until it fits.
+The ecological meanings of 24 lineages, 120 steps and saturation values 1/2/3 are not empirically identified and must be treated as model-design/sensitivity choices unless separately justified.
 
-**These are claim boundaries of this paper, not pointers to an external research programme.**
+## What is actually unresolved now
 
-## Reproducibility
+The Research Article needs one nontrivial quantitative result beyond the three-layer conceptual decomposition.
 
-Primary numerical claims are stored in frozen JSON artifacts and figures are rendered deterministically from those artifacts.
+### Active scientific gate
 
-Render editorial V3 directly:
+**Response geometry / parameter robustness**:
 
-```bash
-python scripts/build_island_ecology_manuscript_v3.py
-```
+1. Map when pollinator-community change produces positive, negative or sign-switching functional-opportunity responses across plant starting position.
+2. Sweep the key perturbation and matching parameters rather than relying on one frozen scenario.
+3. Determine whether mixed-sign response is a stable region of parameter space or an artefact of particular stochastic partner realizations.
+4. Quantify when local context filtering changes sign versus only magnitude.
+5. Quantify the assurance threshold for sign rescue instead of treating attenuation as a discovery.
 
-Build the anonymous reviewer archive:
+If a stable, interpretable response map emerges, the Research Article can be rebuilt around that result. If not, the stronger product is a conceptual Review/Mini-review centered on the three-layer island-syndrome decomposition.
 
-```bash
-python scripts/build_island_ecology_review_archive.py
-```
+## Current manuscript status
 
-The archive renders V3 from the frozen V2 source and excludes title-page information, author-identifying links and unrelated research programmes.
+The following are retained as historical/pre-reassessment drafts and **must not be submitted as-is**:
 
-## Submission workflow
+- `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`
+- editorial V3 generated by `scripts/build_island_ecology_manuscript_v3.py`
+- `docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`
 
-The scientific and editorial manuscript package is complete. Only **author-supplied identity/submission metadata** remain unresolved.
+The submission-bundle machinery remains in the repository for later reuse, but the current scientific reassessment gate overrides the previous metadata-only submission gate.
 
-Populate:
+## Reference and prose cleanup already identified
 
-[`data/design/island_ecology_submission_metadata_template.json`](data/design/island_ecology_submission_metadata_template.json)
+Before the next manuscript version:
 
-The metadata validator fails closed rather than guessing author identity, order, affiliations, ORCIDs, contributions, acknowledgements, funding, inclusion statement, conflict of interest or declarations.
+- remove the import-path failure / seed-search narrative from Methods;
+- report `5 of 12` rather than `0.4167` in prose;
+- explain the full model equations and scenario values;
+- remove or explicitly cite Lord (2015) and Méndez (2025);
+- replace beneficial-sounding `local support` language with neutral `local context filtering` / `local availability filtering`;
+- reduce `frozen`, `predeclared`, `protected`, `gate`, and similar procedural language in the scientific narrative.
 
-Generate identity-bearing files:
+## Positive contribution to preserve
 
-```bash
-python scripts/build_island_ecology_submission_metadata.py \
-  --metadata data/design/island_ecology_submission_metadata_template.json
-```
+> **Island syndromes conflate assembly filtering, in-situ evolution and post-establishment interaction response. The third process is conditional rather than monotonic: pollinator reorganization is filtered through plant–pollinator matching geometry, local interaction context can redirect outcomes in either direction, and downstream reproductive assurance changes magnitude without necessarily changing sign.**
 
-Generate the complete Journal of Ecology submission bundle with editorial V3:
-
-```bash
-python scripts/build_island_ecology_submission_bundle.py \
-  --metadata data/design/island_ecology_submission_metadata_template.json
-```
-
-Output:
-
-```text
-dist/island_ecology_jecology_submission_bundle.zip
-```
-
-The final bundle contains editorial V3 plus the title page and cover letter **outside** a nested anonymous reviewer archive. Packaging renders prose deterministically but does not rerun or modify the scientific analysis.
-
-Metadata checklist: [`docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md)
-
-## Remaining external input
-
-Only the following must be supplied by the authors themselves:
-
-- final author order and affiliations;
-- corresponding-author email and postal address;
-- ORCID(s), if used;
-- acknowledgements and funding;
-- author contributions;
-- inclusion statement;
-- conflict-of-interest statement;
-- explicit submission declarations.
-
-A final immutable public archive/DOI is a publication-stage item and is not a scientific blocker for Chapter 2.
-
-## Historical material
-
-Older field-design, empirical-bridge and method-first files remain only for provenance. They are not part of the current manuscript or submission package when they conflict with the canonical state above.
-
-When older documentation conflicts with the current paper state, prefer:
-
-1. [`data/design/simulation_study_mainline_20260824.json`](data/design/simulation_study_mainline_20260824.json)
-2. [`data/design/island_ecology_jecology_submission_manifest.json`](data/design/island_ecology_jecology_submission_manifest.json)
-3. [`scripts/build_island_ecology_manuscript_v3.py`](scripts/build_island_ecology_manuscript_v3.py) + frozen V2 source [`docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md)
-4. [`docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`](docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md)
-5. [`docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md`](docs/ISLAND_ECOLOGY_SUBMISSION_STATE_20260825.md)
+The next task is to determine whether this architecture has a stable quantitative response geometry strong enough for a Research Article.
