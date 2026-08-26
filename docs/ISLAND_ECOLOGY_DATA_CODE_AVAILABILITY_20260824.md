@@ -1,10 +1,12 @@
 # Data and code availability — island ecology manuscript
 
-Updated: 2026-08-25
+Updated: 2026-08-26
 
 ## Anonymous peer-review statement
 
 All primary numerical results in this study derive from frozen simulation outputs, matched intervention summaries and source-audited qualitative external-system assignments. The code required to reproduce the primary analyses, the frozen result files used for figures and tables, figure-generation scripts, source-audit matrices, falsification records and regression tests will be provided to reviewers in an **anonymized review archive** or suitable private peer-review repository.
+
+The reviewer-facing manuscript is editorial V3, rendered deterministically from the frozen V2 manuscript source. The V3 rendering integrates the already-frozen H2 analytical sign decomposition and sharpens prose only; it does not rerun simulations, change parameters, alter frozen numerical results, modify external-system assignments or add empirical mechanism claims.
 
 The current primary claims require **no new unpublished field dataset**. The external island systems are literature-derived qualitative state challenges; their source references and claim boundaries are documented in the Supplementary Reference Matrix. External sources were not used to choose model parameters, random seeds or mechanisms.
 
@@ -16,8 +18,9 @@ Before final publication, the exact accepted code and frozen analysis materials 
 
 ## Minimum review archive contents
 
-- `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md` or its anonymous formatted derivative;
+- editorial V3 anonymous manuscript, generated as `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md` from the frozen V2 source;
 - `docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`;
+- `docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md`;
 - frozen primary simulation result summaries used in the manuscript;
 - independent branch-generator replication result and its frozen design;
 - network-context and assurance robustness results;
@@ -26,7 +29,7 @@ Before final publication, the exact accepted code and frozen analysis materials 
 - `data/results/simulation_manuscript_falsification_table_frozen.json`;
 - ecology-first Fig1–Fig4 renderers and plotting inputs;
 - Supplementary FigS1 state-separability renderer/input;
-- exact-regeneration and claim-boundary regression tests;
+- exact-regeneration, editorial-render and claim-boundary regression tests;
 - a README explaining reproduction commands and the distinction between synthetic mechanism results and qualitative external challenges.
 
 ## Scope boundary
