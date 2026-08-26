@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import tempfile
 import zipfile
 from pathlib import Path
 
+from scripts.build_island_ecology_manuscript_v3 import build_manuscript
 from scripts.build_island_ecology_review_archive import build_archive as build_review_archive
 from scripts.build_island_ecology_submission_metadata import (
     load_metadata,
@@ -18,9 +18,9 @@ from scripts.build_island_ecology_submission_metadata import (
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_jecology_submission_bundle.zip"
+MANUSCRIPT_ARCNAME = "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
 
 STATIC_SUBMISSION_FILES = (
-    "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
     "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
     "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
     "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
@@ -44,26 +44,31 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         title_page = tmp / "ISLAND_ECOLOGY_TITLE_PAGE.md"
         cover_letter = tmp / "ISLAND_ECOLOGY_COVER_LETTER.md"
         review_archive = tmp / "island_ecology_anonymous_review_archive.zip"
+        manuscript = tmp / "ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
         title_page.write_text(render_title_page(metadata), encoding="utf-8")
         cover_letter.write_text(render_cover_letter(metadata), encoding="utf-8")
+        build_manuscript(manuscript)
         build_review_archive(review_archive)
 
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
             "scientific_state": "chapter2_complete_and_frozen_for_submission",
+            "manuscript_state": "editorial_v3_rendered_from_frozen_v2_source",
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
             "files": [
+                MANUSCRIPT_ARCNAME,
                 *STATIC_SUBMISSION_FILES,
                 "ISLAND_ECOLOGY_TITLE_PAGE.md",
                 "ISLAND_ECOLOGY_COVER_LETTER.md",
                 "island_ecology_anonymous_review_archive.zip",
             ],
-            "boundary": "No scientific analysis is rerun by this packaging step.",
+            "boundary": "Packaging renders editorial V3 but does not rerun or modify scientific analysis.",
         }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.write(manuscript, arcname=MANUSCRIPT_ARCNAME)
             for rel in STATIC_SUBMISSION_FILES:
                 archive.write(ROOT / rel, arcname=rel)
             archive.write(title_page, arcname=title_page.name)

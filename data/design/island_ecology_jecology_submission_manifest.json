@@ -1,13 +1,16 @@
 {
-  "schema_version": "1.7",
-  "updated_on": "2026-08-25",
+  "schema_version": "1.8",
+  "updated_on": "2026-08-26",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
   "primary_scientific_state": "H1_H5_closed_for_submission",
   "scientific_reopening_required": false,
   "paper_scope_independent_of_external_research_programmes": true,
   "main_files": {
-    "anonymous_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
+    "anonymous_manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md",
+    "anonymous_manuscript_source": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
+    "anonymous_manuscript_builder": "scripts/build_island_ecology_manuscript_v3.py",
+    "anonymous_manuscript_status": "editorial_v3_rendered_deterministically_from_frozen_v2_source",
     "supporting_information": "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
     "h2_analytical_sign_decomposition": "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
     "figure_captions": "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md",
@@ -49,6 +52,7 @@
     "anonymous": true,
     "builder": "scripts/build_island_ecology_review_archive.py",
     "default_output": "dist/island_ecology_anonymous_review_archive.zip",
+    "manuscript": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md",
     "identity_scan_required": true,
     "public_author_identifying_repository_link_in_review_manuscript": false,
     "immutable_public_archive_with_doi_required_before_final_publication": true,
@@ -65,10 +69,11 @@
     "title_page_status": "builder_ready_pending_author_supplied_metadata",
     "cover_letter": "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
     "cover_letter_status": "builder_ready_pending_author_supplied_metadata",
-    "anonymous_review_manuscript": "assembled_with_expanded_methods_and_figure_table_crossreferences",
+    "anonymous_review_manuscript": "editorial_v3_ready_via_deterministic_builder",
     "supplement": "assembled_with_h2_analytical_sign_decomposition"
   },
   "archived_provenance": {
+    "pre_editorial_submission_source": "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
     "pre_submission_scientific_draft": "docs/ISLAND_ECOLOGY_MANUSCRIPT_DRAFT_20260824.md",
     "legacy_ecology_first_draft": "docs/SIMULATION_MANUSCRIPT_DRAFT_20260824.md"
   },
@@ -79,9 +84,10 @@
     "dominica_heliconia_is_a_retained_failed_signed_position_projection",
     "state_separability_is_supporting_inference_guard_only",
     "h2_sign_decomposition_is_model_internal_and_does_not_assign_one_real_world_trait_to_the_synthetic_coordinate",
+    "editorial_v3_does_not_rerun_or_change_scientific_analysis",
     "no_new_simulation_for_journal_fit",
     "external_research_programmes_are_not_part_of_the_submission_package",
     "author_identity_metadata_must_be_explicitly_supplied_not_inferred"
   ],
-  "next_executable_task": "fill_author_supplied_submission_metadata_json_then_run_one_command_final_submission_bundle_builder_without_reopening_scientific_analysis"
+  "next_executable_task": "fill_author_supplied_submission_metadata_json_then_generate_final_bundle_with_editorial_v3_without_reopening_scientific_analysis"
 }
