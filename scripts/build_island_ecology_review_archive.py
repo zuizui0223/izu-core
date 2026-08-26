@@ -3,14 +3,17 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import tempfile
 import zipfile
 from pathlib import Path
 
+from scripts.build_island_ecology_manuscript_v3 import build_manuscript
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_anonymous_review_archive.zip"
+MANUSCRIPT_ARCNAME = "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
 
 REVIEW_FILES = (
-    "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
     "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
     "docs/ISLAND_ECOLOGY_H2_SIGN_DECOMPOSITION_20260825.md",
     "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
@@ -36,6 +39,7 @@ REVIEW_FILES = (
     "tests/test_island_ecology_figure_routing.py",
     "tests/test_island_ecology_paper_completion.py",
     "tests/test_h2_sign_decomposition.py",
+    "tests/test_island_ecology_manuscript_v3.py",
 )
 
 DEFAULT_DENY_TOKENS = (
@@ -80,28 +84,41 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
     records = validate_review_files(deny_tokens)
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    manifest = {
-        "archive_role": "double_anonymous_peer_review",
-        "journal_target": "Journal of Ecology",
-        "author_identity_included": False,
-        "title_page_included": False,
-        "external_research_programmes_included": False,
-        "deny_tokens_checked": list(deny_tokens),
-        "files": records,
-        "claim_boundary": (
-            "The archive reproduces the frozen island-ecology simulation results, "
-            "the algebraic H2 endpoint sign decomposition, and the source-audited "
-            "external response-state challenge. The H2 derivation unpacks the frozen "
-            "model and is not a new empirical mechanism claim."
-        ),
-    }
-    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nIt contains the anonymous manuscript, Supporting Information, the H2 analytical sign-decomposition note, frozen analysis summaries, source-audited external-system matrix, figure inputs/renderers and paper-specific regression guards. It intentionally excludes title-page material, author-identifying links, historical pre-submission drafts, and unrelated research programmes.\n\nNo external research programme is required to define, reproduce, or validate the submitted paper.\n\nThe H2 sign decomposition is an algebraic unpacking of the frozen v12 endpoint equations: it shows that the downstream service and reproduction transforms preserve the sign of the upstream functional-opportunity contrast. It does not assign the synthetic coordinate to a named empirical trait or claim that the same mechanism has been identified across natural island systems.\n"""
+    with tempfile.TemporaryDirectory() as tmp_name:
+        generated_manuscript = Path(tmp_name) / "ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
+        build_manuscript(generated_manuscript)
+        denied = find_denied_tokens(generated_manuscript, deny_tokens)
+        if denied:
+            raise ValueError(f"author-identifying token(s) {denied!r} found in generated V3 manuscript")
+        manuscript_record = {
+            "path": MANUSCRIPT_ARCNAME,
+            "sha256": sha256(generated_manuscript),
+            "size_bytes": generated_manuscript.stat().st_size,
+        }
+        manifest = {
+            "archive_role": "double_anonymous_peer_review",
+            "journal_target": "Journal of Ecology",
+            "author_identity_included": False,
+            "title_page_included": False,
+            "external_research_programmes_included": False,
+            "manuscript_source": "V2 source rendered deterministically to editorial V3",
+            "deny_tokens_checked": list(deny_tokens),
+            "files": [manuscript_record, *records],
+            "claim_boundary": (
+                "The archive reproduces the frozen island-ecology simulation results, "
+                "the algebraic H2 endpoint sign decomposition, and the source-audited "
+                "external response-state challenge. Editorial V3 integrates the already-frozen "
+                "H2 algebra into the manuscript without changing scientific results."
+            ),
+        }
+        readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the island-ecology manuscript.\n\nThe reviewer-facing manuscript is editorial V3, rendered deterministically from the frozen V2 source. V3 sharpens the Introduction gap statement and integrates the already-frozen H2 endpoint sign decomposition into the Abstract, Methods, Results, Discussion and Conclusion. It does not rerun or alter any scientific analysis.\n\nThe archive also contains Supporting Information, frozen analysis summaries, the source-audited external-system matrix, figure inputs/renderers and paper-specific regression guards. It intentionally excludes title-page material, author-identifying links, historical pre-submission drafts, and unrelated research programmes.\n\nNo external research programme is required to define, reproduce, or validate the submitted paper.\n"""
 
-    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for record in records:
-            archive.write(ROOT / record["path"], arcname=record["path"])
-        archive.writestr("REVIEW_ARCHIVE_MANIFEST.json", json.dumps(manifest, indent=2, sort_keys=True) + "\n")
-        archive.writestr("README_REVIEW_ARCHIVE.md", readme)
+        with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.write(generated_manuscript, arcname=MANUSCRIPT_ARCNAME)
+            for record in records:
+                archive.write(ROOT / record["path"], arcname=record["path"])
+            archive.writestr("REVIEW_ARCHIVE_MANIFEST.json", json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+            archive.writestr("README_REVIEW_ARCHIVE.md", readme)
     return output
 
 
