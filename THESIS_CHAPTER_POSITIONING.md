@@ -11,7 +11,7 @@ The shared dissertation-level question is:
 The three empirical levels are now:
 
 - [`zuizui0223/island`](https://github.com/zuizui0223/island) — **Chapter 1:** asks **when and where** isolation-associated floral/reproductive filtering is detectable and where multivariate response vectors differ.
-- `izu-core` — **Chapter 2:** asks **why** supported contexts generate different response architectures.
+- `izu-core` — **Chapter 2:** asks **how** post-establishment interaction change can generate different response architectures and supplies a model-conditional **proximal why**. It does not assign the Chapter 1 regions to particular model regimes.
 - [`zuizui0223/shimahotarubukuro`](https://github.com/zuizui0223/shimahotarubukuro) — **Chapter 3:** measures **what phenotype axes actually diverge** within one focal lineage.
 
 ## Chapter 1 handoff now entering Chapter 2
@@ -44,7 +44,9 @@ where:
 - `E(z)` is establishment / reachability conditional on viable reproduction;
 - `W(z)` is the observed island pattern.
 
-Chapter 1 mainly detects differences in `W`. Chapter 2 asks which ecological processes inside `F`, and which alternative establishment/history processes inside `E`, can generate the confirmed regional response-vector difference.
+Chapter 1 mainly detects differences in `W`. The current Chapter 2 simulation diagnoses post-establishment ecological processes inside `F`. Alternative establishment/history processes inside `E` remain ultimate explanations outside its direct test.
+
+The bridge is therefore a capability and conditional-response argument: Chapter 1 establishes that a broad geographic/source-pool gradient is expressed through different regional multivariate vectors, while Chapter 2 shows how one broad interaction perturbation can produce different response signs. It does **not** empirically identify which Chapter 2 regime generated the northern-midlatitude or tropical Chapter 1 vector.
 
 ## Candidate mechanisms to distinguish
 
@@ -77,6 +79,16 @@ pollinator functional diversity
 This is now interpreted against a stronger Chapter 1 boundary result: the same broad exposure, geographic isolation, is associated with **different multivariate floral/reproductive response vectors** in northern-midlatitude and tropical floras.
 
 Chapter 2 therefore needs to explain **response allocation**, not merely whether isolation matters.
+
+## HOW, proximal WHY and ultimate WHY
+
+- **HOW:** pollinator turnover and matching alter service; local availability / interaction filtering changes the realized response branch; autonomous assurance changes downstream magnitude without rescuing sign in the declared envelope.
+- **Proximal WHY:** the response surface changes with the balance of partner loss and arrival and other matching dimensions, realized community state is the largest source of cell-level variation, and starting position combines non-additively with community realization.
+- **Ultimate WHY:** why a region acquired its biota, lineage starting states or local interaction architecture remains an assembly, colonization, persistence and evolutionary-history question not tested by the current simulation.
+
+The frozen conditional-WHY diagnostics sharpen this division. In the baseline `21 × 96` response matrix, starting-position, community-realization and non-additive remainder account for `2.18%`, `80.17%` and `17.64%` of total sum of squares, respectively. Starting position organizes the mean U-shaped boundary, but realized community state dominates cell-level variation. Across the fixed joint surface, partner loss and partner arrival have the largest sign-stable additive associations with the negative fraction of the starting-position grid. Local filtering is bidirectional but asymmetric: positive baseline branches cross to non-positive more readily than negative branches cross to non-negative at every non-zero declared strength.
+
+These are synthetic design diagnostics. They do not estimate natural frequencies, causal field effects or calibrated ecological thresholds.
 
 ## Response-branching expectation
 
@@ -139,6 +151,8 @@ Chapter 2 should not imply that:
 - floral form identifies effective-pollinator dependency;
 - one functional decline must yield one floral response direction;
 - occupancy / lineage replacement equals within-lineage floral evolution; or
-- Chapter 3 phenotypic divergence identifies the historical mechanism.
+- Chapter 3 phenotypic divergence identifies the historical mechanism;
+- the northern-midlatitude and tropical Chapter 1 vectors have been assigned to particular Chapter 2 parameter regimes; or
+- the Chapter 2 model explains why those regional biotas, starting states or interaction architectures formed.
 
-The Chapter 2 contribution is: **to determine which ecological interaction states can explain why isolation-associated filtering is present in multiple biogeographic contexts but expressed through different response architectures.**
+The Chapter 2 contribution is: **to show how declared post-establishment interaction states can produce different response architectures under a common broad perturbation, while leaving the origins of the Chapter 1 regional patterns unresolved.**

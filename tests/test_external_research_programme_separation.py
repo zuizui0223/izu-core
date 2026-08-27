@@ -45,6 +45,8 @@ def test_machine_readable_boundaries_declare_independence():
 def test_reassessment_manifest_does_not_route_historical_drafts_as_submission_ready():
     manifest = json.loads((ROOT / "data/design/island_ecology_jecology_submission_manifest.json").read_text(encoding="utf-8"))
     current = manifest["current_manuscript_artifacts"]
-    assert current["status"] == "retained_for_provenance_not_submission_ready"
-    assert current["v2_source"] == "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md"
+    assert current["status"] == "active_reassembled_manuscript_surface"
+    assert current["active_manuscript"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
+    assert current["supporting_information"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md"
+    assert "v2_source" not in current
     assert manifest["submission_ready"] is False

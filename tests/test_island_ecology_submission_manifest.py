@@ -6,40 +6,44 @@ MANIFEST = ROOT / "data/design/island_ecology_jecology_submission_manifest.json"
 DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 
-def test_submission_manifest_blocks_submission_during_scientific_reassessment():
+def test_submission_manifest_keeps_scientific_gate_closed_but_metadata_blocked():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert manifest["journal_target"] == "Journal of Ecology"
     assert manifest["article_type"] == "Research Article"
     assert manifest["submission_ready"] is False
-    assert manifest["scientific_reopening_required"] is True
+    assert manifest["scientific_reopening_required"] is False
     assert manifest["active_scientific_gate"] == "data/design/manuscript_reassessment_gate_20260826.json"
     assert manifest["scientific_reassessment"] == "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
     assert manifest["paper_scope_independent_of_external_research_programmes"] is True
+    assert manifest["research_article_route"] == "candidate_conditional_response_geometry"
+    assert manifest["scientific_gate_result"]["model_gate_closed"] is True
 
 
-def test_manifest_demotes_overstated_claims_and_routes_next_scientific_work():
+def test_manifest_routes_frozen_conditional_why_diagnostics_without_reopening():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     claims = manifest["claim_reassignment"]
-    assert claims["H2"] == "demoted_to_model_specific_sensitivity_and_endpoint_geometry"
-    assert "bidirectional_local_context_filtering" in claims["H3"]
-    assert "structural_parameter_result" in claims["H4"]
-    assert claims["H5"] == "demoted_from_validation_to_comparative_grounding"
+    assert claims["H2"] == "conditional_response_geometry_not_minimal_generator_headline"
+    assert "directionally_asymmetric" in claims["H3"]
+    assert claims["H4"] == "magnitude_attenuation_without_sign_rescue_in_declared_envelope"
+    assert claims["H5"] == "comparative_grounding_not_validation_coverage"
 
     external = manifest["external_system_role"]
-    assert external["strict_systems"] == 13
     assert external["coverage_11_of_11_must_not_be_used_as_validation"] is True
     assert external["dominica"] == "retained_failed_specific_signed_position_projection"
 
-    required = manifest["required_new_scientific_work"]
-    assert "response_geometry_analysis_identifying_sign_switch_conditions" in required
-    assert "parameter_robustness_sweep_over_key_island_perturbation_and_matching_parameters" in required
-    assert "local_context_sign_change_robustness_map" in required
-    assert "assurance_sign_rescue_threshold_map" in required
+    completed = manifest["scientific_work_completed"]
+    assert "response_geometry_analysis_identifying_sign_switch_conditions" in completed
+    assert "fixed_surface_regime_boundary_driver_diagnostic" in completed
+    assert "starting_position_by_community_realization_decomposition" in completed
+    assert "local_filtering_directional_asymmetry_diagnostic" in completed
+    why = manifest["model_reporting"]["conditional_why_diagnostics"]
+    assert why["unchanged_parent_design_identity_verified"] is True
+    assert why["ultimate_why_claimed"] is False
 
     bundle = manifest["submission_bundle"]
-    assert bundle["status"] == "blocked_while_scientific_reassessment_gate_is_open"
-    assert bundle["author_metadata_is_not_current_active_blocker"] is True
-    assert manifest["next_executable_task"].startswith("build_response_geometry")
+    assert bundle["status"] == "scientifically_routed_metadata_blocked"
+    assert bundle["remaining_blocker"] == "author_supplied_metadata_and_submission_declarations"
+    assert manifest["next_executable_task"].startswith("validate_current_code")
 
 
 def test_data_code_statement_preserves_anonymous_review_and_paper_scope():

@@ -120,8 +120,57 @@ Filtering strengths are `s in {0, 0.10, 0.25, 0.40, 0.50, 0.60, 0.75}` with satu
 
 For each lineage, the first non-zero filtering strength at which the sign of island-minus-mainland reproduction differs from its `s = 0` sign is recorded. Across the fixed envelope, 737 lineage contrasts changed sign at least once; the median first sign-change strength was 0.40. This 0.40 value is a synthetic sensitivity threshold, not a field-estimated ecological threshold.
 
-# Appendix S9. Interpretation boundary
+# Appendix S9. Fixed-surface regime-driver diagnostic
 
-The following are not empirically identified by the model: the numerical sign-switch locations on the synthetic trait axis; the median local-filtering first-sign-change strength; the frequency of mixed/all-positive/all-negative design points; an assurance multiplier required in any natural lineage; or 24 lineages, 120 steps and saturation values as demographic quantities.
+The additional diagnostic retained the exact 48 Latin-hypercube points, 24 matched community realizations per point, seed and parameter ranges from Appendix S7. No new points, parameter interactions, parameter selection or regularization tuning were introduced after the regime outcomes were known.
+
+For point `i`, let `y_i` be the fraction of the 21 starting positions whose mean island-minus-mainland service response is negative. Each parameter `p` was transformed using its declared range `[L_p, U_p]`:
+
+`z_(i,p) = (p_i - (L_p + U_p)/2) / (U_p - L_p)`.
+
+All ten `z` terms entered one additive ordinary-least-squares model with an intercept. A coefficient is therefore expressed over a full declared-range change. Diagnostics include in-sample `R²`, leave-one-point-out prediction RMSE, coefficient ranges and sign stability over the 48 leave-one-point-out fits. Adjacent regime contrasts use destination-minus-source mean scaled values and Cliff's delta for all-positive to mixed and mixed to all-negative points.
+
+The model yielded `R² = 0.611` and leave-one-point-out RMSE `0.329`. The largest coefficients were partner-loss multiplier (`+0.634`), partner-arrival multiplier (`−0.626`) and saturation (`+0.265`); all three retained their sign in every leave-one-point-out fit. The strongest all-positive-to-mixed contrasts were replacement penalty (Cliff's delta `−0.574`) and partner loss (`+0.506`), while the strongest mixed-to-all-negative contrast was partner arrival (`−0.550`). These associations describe the fixed synthetic surface and are not causal effects.
+
+# Appendix S10. Starting-position × community-realization decomposition
+
+For response matrix `Y` with starting positions `t = 1,...,T` and matched community realizations `r = 1,...,R`, the additive fitted value was
+
+`Yhat_(t,r) = mean(Y_t.) + mean(Y_.r) - mean(Y_..) `.
+
+Total sum of squares was partitioned exactly into:
+
+- starting-position main effect: `R * sum_t(mean(Y_t.) - mean(Y_..))^2`;
+- community-realization main effect: `T * sum_r(mean(Y_.r) - mean(Y_..))^2`;
+- non-additive remainder: `sum_(t,r)(Y_(t,r) - Yhat_(t,r))^2`.
+
+For the baseline `21 × 96` matrix, the shares were `2.18%`, `80.17%` and `17.64%`, respectively. The observed and additive-fitted response signs differed in `271/2016 = 13.44%` of cells. The same decomposition was applied separately to every `21 × 24` joint-design matrix. Median additive-sign mismatch was `13.59%` for all-positive, `18.06%` for mixed and `11.61%` for all-negative points.
+
+Because there is one simulated value per starting-position × realization cell, the non-additive remainder combines state-by-realization contingency with cell-level simulation variation. It is not a pure empirical interaction variance estimate.
+
+# Appendix S11. Direction-specific local-filtering transitions
+
+The zero-filtering baseline contained 268 negative, zero zero-valued and 596 positive reproduction contrasts. At every frozen strength, the full `baseline sign × current sign` transition table was retained. The two directional rates were
+
+`negative-to-non-negative count / 268`
+
+and
+
+`positive-to-non-positive count / 596`.
+
+| Filtering strength | Negative → non-negative | Positive → non-positive | Directional rate difference |
+|---:|---:|---:|---:|
+| 0.10 | 9.33% | 14.93% | −5.60 percentage points |
+| 0.25 | 15.30% | 38.42% | −23.12 percentage points |
+| 0.40 | 15.67% | 56.54% | −40.87 percentage points |
+| 0.50 | 11.94% | 64.43% | −52.49 percentage points |
+| 0.60 | 17.54% | 77.01% | −59.48 percentage points |
+| 0.75 | 49.25% | 84.40% | −35.14 percentage points |
+
+Among the 166 baseline-negative contrasts that changed sign somewhere in the envelope, median first change was 0.60. Among the 571 changing baseline-positive contrasts, the median was 0.40. These are complete-design synthetic rates, not estimates from independent biological replicates.
+
+# Appendix S12. Interpretation boundary
+
+The following are not empirically identified by the model: the numerical sign-switch locations on the synthetic trait axis; additive regime-driver coefficients as causal field effects; variance shares as empirical interaction components; directional filtering rates or the median local-filtering first-sign-change strength as natural frequencies/thresholds; the frequency of mixed/all-positive/all-negative design points; an assurance multiplier required in any natural lineage; or 24 lineages, 120 steps and saturation values as demographic quantities.
 
 Empirical claims remain controlled by `docs/CURRENT_EVIDENCE_STATE.md`. External island systems provide ecological grounding and falsification boundaries only; they are not treated as validation coverage of a broad response vocabulary.

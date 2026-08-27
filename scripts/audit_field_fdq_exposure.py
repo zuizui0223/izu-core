@@ -4,11 +4,14 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from pathlib import Path
 
-from channel_id.field_fdq_exposure import audit_field_fdq_from_files
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from channel_id.field_fdq_exposure import audit_field_fdq_from_files
 
 
 def main() -> None:

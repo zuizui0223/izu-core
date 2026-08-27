@@ -1,17 +1,18 @@
 # Journal of Ecology submission metadata checklist
 
-Updated: 2026-08-26
+Updated: 2026-08-27
 
-Scientific status: **submission paused pending scientific reassessment.**
+Scientific status: **the scientific and manuscript-integration gates are closed.**
 
-The author-metadata workflow remains prepared, but it is not the active gate. Before any submission bundle can be created, complete the response-geometry and parameter-robustness gate in:
+Author-supplied metadata and declarations are the active blocker. The completed response-geometry, parameter-robustness and conditional-WHY diagnostics are recorded in:
 
-- `docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md`
-- `data/design/manuscript_reassessment_gate_20260826.json`
+- `data/results/chapter2_scientific_gate_decision_frozen_20260827.json`
+- `data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json`
+- `data/design/chapter2_active_manuscript_mainline_20260827.json`
 
-The final submission builder is intentionally blocked while that gate is open.
+The final submission builder is intentionally blocked until all required identity metadata and declarations are supplied.
 
-## Scientific work required first
+## Completed scientific and manuscript work
 
 - expose the complete model equations and parameterization in the manuscript;
 - report `5 of 12` rather than pseudo-precise `0.4167` as the headline design count;
@@ -23,9 +24,11 @@ The final submission builder is intentionally blocked while that gate is open.
 - map local-context sign changes and assurance sign-rescue thresholds;
 - remove workflow/debug prose and resolve uncited references.
 
-## Author metadata retained for later
+These items are implemented in the active manuscript and supporting information and are validated by the review-archive build.
 
-Once the scientific gate is closed, populate `data/design/island_ecology_submission_metadata_template.json` with:
+## Author metadata required now
+
+Populate `data/design/island_ecology_submission_metadata_template.json` with:
 
 1. final author order and affiliations;
 2. corresponding-author email and postal address;
@@ -54,7 +57,7 @@ python scripts/build_island_ecology_submission_bundle.py \
   --metadata data/design/island_ecology_submission_metadata_template.json
 ```
 
-but it will raise an error while the scientific reassessment gate remains open.
+It will raise an error until all required metadata and declarations are supplied.
 
 ## Double-anonymous boundary
 

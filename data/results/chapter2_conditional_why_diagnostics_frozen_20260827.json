@@ -1,0 +1,2480 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_conditional_why_diagnostics",
+  "status": "frozen_complete_20260827",
+  "design_freeze": "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json",
+  "design_freeze_sha256": "a183d57661053e91eab547c000e60926b2e396c365f558ad1e0c65705b635749",
+  "input_identity_checks": {
+    "scripts/run_response_geometry_parameter_robustness.py": {
+      "expected_sha256": "8f8859c4fefb0b0d690eb8ced27bbabe13acb10a1d00e111192a9e3a2d0ba6ed",
+      "observed_sha256": "8f8859c4fefb0b0d690eb8ced27bbabe13acb10a1d00e111192a9e3a2d0ba6ed",
+      "match": true
+    },
+    "scripts/run_response_geometry_realization_stability.py": {
+      "expected_sha256": "e180e37e2edabb6dde243b637fadee5f58779b894fc744a0f652578a5f132ce3",
+      "observed_sha256": "e180e37e2edabb6dde243b637fadee5f58779b894fc744a0f652578a5f132ce3",
+      "match": true
+    },
+    "scripts/run_joint_response_transition_surface.py": {
+      "expected_sha256": "d16748aab8cf76cdc5487bb1de7bc66f255d4480617bd62ded9645e93b395184",
+      "observed_sha256": "d16748aab8cf76cdc5487bb1de7bc66f255d4480617bd62ded9645e93b395184",
+      "match": true
+    },
+    "scripts/run_context_assurance_threshold_maps.py": {
+      "expected_sha256": "ee7ad76b5e94358ebf4c9b23839d2bda22b2e20f028ddfc5ef826d3e4e6eb545",
+      "observed_sha256": "ee7ad76b5e94358ebf4c9b23839d2bda22b2e20f028ddfc5ef826d3e4e6eb545",
+      "match": true
+    },
+    "data/results/chapter2_phase12_fixed_gate_summary_20260827.json": {
+      "expected_sha256": "bf8cfdbbbc7358996df81d3c94c214e4d628747ba5ef41e5f4d8b6d221bbd7ef",
+      "observed_sha256": "bf8cfdbbbc7358996df81d3c94c214e4d628747ba5ef41e5f4d8b6d221bbd7ef",
+      "match": true
+    },
+    "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json": {
+      "expected_sha256": "a4aa00be43c8be77c132255cf32175416a8cf5ee5a7f7a8b30e9bbb539f763d1",
+      "observed_sha256": "a4aa00be43c8be77c132255cf32175416a8cf5ee5a7f7a8b30e9bbb539f763d1",
+      "match": true
+    }
+  },
+  "frozen_identity_checks": {
+    "baseline_realization_counts": true,
+    "joint_regime_counts": true,
+    "local_filtering_total": true,
+    "local_filtering_0.0": true,
+    "local_filtering_0.1": true,
+    "local_filtering_0.25": true,
+    "local_filtering_0.4": true,
+    "local_filtering_0.5": true,
+    "local_filtering_0.6": true,
+    "local_filtering_0.75": true,
+    "local_filtering_any_change": true,
+    "local_filtering_median_first_change": true
+  },
+  "regime_boundary_driver_diagnostics": {
+    "response": "negative_trait_grid_fraction",
+    "parameter_scaling": "declared-range centred; a one-unit change spans the full declared range",
+    "additive_ols": {
+      "intercept": 0.36672170211647065,
+      "r_squared": 0.6110086480212311,
+      "leave_one_point_out_rmse": 0.3290356511643606,
+      "coefficients": [
+        {
+          "parameter": "partner_loss_multiplier",
+          "coefficient_over_full_declared_range": 0.6343797881478489,
+          "absolute_coefficient": 0.6343797881478489,
+          "leave_one_point_out_coefficient_median": 0.6340626763379147,
+          "leave_one_point_out_coefficient_range": [
+            0.5889591302173054,
+            0.697161421901873
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 1
+        },
+        {
+          "parameter": "partner_arrival_multiplier",
+          "coefficient_over_full_declared_range": -0.6261960883464672,
+          "absolute_coefficient": 0.6261960883464672,
+          "leave_one_point_out_coefficient_median": -0.6273182494226404,
+          "leave_one_point_out_coefficient_range": [
+            -0.7097503390355768,
+            -0.5742758006469965
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 2
+        },
+        {
+          "parameter": "saturation",
+          "coefficient_over_full_declared_range": 0.26461591191982275,
+          "absolute_coefficient": 0.26461591191982275,
+          "leave_one_point_out_coefficient_median": 0.26245314496942407,
+          "leave_one_point_out_coefficient_range": [
+            0.18840231867780766,
+            0.3461475822375272
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 3
+        },
+        {
+          "parameter": "trait_adjustment",
+          "coefficient_over_full_declared_range": -0.21989005348183818,
+          "absolute_coefficient": 0.21989005348183818,
+          "leave_one_point_out_coefficient_median": -0.2195036078535021,
+          "leave_one_point_out_coefficient_range": [
+            -0.3068133959936029,
+            -0.10954541038774288
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 4
+        },
+        {
+          "parameter": "replacement_penalty",
+          "coefficient_over_full_declared_range": -0.19842894118172072,
+          "absolute_coefficient": 0.19842894118172072,
+          "leave_one_point_out_coefficient_median": -0.1996588803126823,
+          "leave_one_point_out_coefficient_range": [
+            -0.27133900912452213,
+            -0.12644933261307104
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 5
+        },
+        {
+          "parameter": "specialist_breadth",
+          "coefficient_over_full_declared_range": 0.19636359640280832,
+          "absolute_coefficient": 0.19636359640280832,
+          "leave_one_point_out_coefficient_median": 0.19752175070075678,
+          "leave_one_point_out_coefficient_range": [
+            0.10896869025552179,
+            0.2609219678624814
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 6
+        },
+        {
+          "parameter": "replacement_fraction_shift",
+          "coefficient_over_full_declared_range": 0.17665282995366494,
+          "absolute_coefficient": 0.17665282995366494,
+          "leave_one_point_out_coefficient_median": 0.17574254653820262,
+          "leave_one_point_out_coefficient_range": [
+            0.11207954505919557,
+            0.23916574614693453
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 7
+        },
+        {
+          "parameter": "generalist_fraction_shift",
+          "coefficient_over_full_declared_range": -0.07787783770293326,
+          "absolute_coefficient": 0.07787783770293326,
+          "leave_one_point_out_coefficient_median": -0.07338717391537758,
+          "leave_one_point_out_coefficient_range": [
+            -0.16077321027248112,
+            -0.017628183113519574
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 8
+        },
+        {
+          "parameter": "trait_dispersion_multiplier",
+          "coefficient_over_full_declared_range": -0.07337629457417383,
+          "absolute_coefficient": 0.07337629457417383,
+          "leave_one_point_out_coefficient_median": -0.07565533830337935,
+          "leave_one_point_out_coefficient_range": [
+            -0.13901845721453177,
+            -0.021823685360417067
+          ],
+          "leave_one_point_out_sign_stability_fraction": 1.0,
+          "absolute_coefficient_rank": 9
+        },
+        {
+          "parameter": "generalist_breadth",
+          "coefficient_over_full_declared_range": -0.05025280460464867,
+          "absolute_coefficient": 0.05025280460464867,
+          "leave_one_point_out_coefficient_median": -0.05252229024805184,
+          "leave_one_point_out_coefficient_range": [
+            -0.1151060539289569,
+            0.014164895660635612
+          ],
+          "leave_one_point_out_sign_stability_fraction": 0.9375,
+          "absolute_coefficient_rank": 10
+        }
+      ]
+    },
+    "adjacent_regime_contrasts": {
+      "all_positive_mean_geometry_to_mixed_mean_geometry": {
+        "source_points": 22,
+        "destination_points": 16,
+        "parameters": [
+          {
+            "parameter": "replacement_penalty",
+            "destination_minus_source_mean_scaled_value": -0.28962842383204346,
+            "cliffs_delta_destination_vs_source": -0.5738636363636364
+          },
+          {
+            "parameter": "partner_loss_multiplier",
+            "destination_minus_source_mean_scaled_value": 0.2487684118917143,
+            "cliffs_delta_destination_vs_source": 0.5056818181818182
+          },
+          {
+            "parameter": "saturation",
+            "destination_minus_source_mean_scaled_value": 0.17978719514466224,
+            "cliffs_delta_destination_vs_source": 0.38636363636363635
+          },
+          {
+            "parameter": "trait_adjustment",
+            "destination_minus_source_mean_scaled_value": -0.1204897247078649,
+            "cliffs_delta_destination_vs_source": -0.25
+          },
+          {
+            "parameter": "specialist_breadth",
+            "destination_minus_source_mean_scaled_value": 0.1073770360100767,
+            "cliffs_delta_destination_vs_source": 0.2159090909090909
+          },
+          {
+            "parameter": "partner_arrival_multiplier",
+            "destination_minus_source_mean_scaled_value": -0.0906846931941527,
+            "cliffs_delta_destination_vs_source": -0.19318181818181818
+          },
+          {
+            "parameter": "replacement_fraction_shift",
+            "destination_minus_source_mean_scaled_value": -0.08728617344031289,
+            "cliffs_delta_destination_vs_source": -0.17613636363636365
+          },
+          {
+            "parameter": "generalist_fraction_shift",
+            "destination_minus_source_mean_scaled_value": 0.06897496684175589,
+            "cliffs_delta_destination_vs_source": 0.13636363636363635
+          },
+          {
+            "parameter": "trait_dispersion_multiplier",
+            "destination_minus_source_mean_scaled_value": -0.027882192576397652,
+            "cliffs_delta_destination_vs_source": -0.06818181818181818
+          },
+          {
+            "parameter": "generalist_breadth",
+            "destination_minus_source_mean_scaled_value": -0.00427678787657426,
+            "cliffs_delta_destination_vs_source": -0.011363636363636364
+          }
+        ]
+      },
+      "mixed_mean_geometry_to_all_negative_mean_geometry": {
+        "source_points": 16,
+        "destination_points": 10,
+        "parameters": [
+          {
+            "parameter": "partner_arrival_multiplier",
+            "destination_minus_source_mean_scaled_value": -0.2650807215024503,
+            "cliffs_delta_destination_vs_source": -0.55
+          },
+          {
+            "parameter": "replacement_fraction_shift",
+            "destination_minus_source_mean_scaled_value": 0.2189638020072848,
+            "cliffs_delta_destination_vs_source": 0.4375
+          },
+          {
+            "parameter": "partner_loss_multiplier",
+            "destination_minus_source_mean_scaled_value": 0.13946205609388085,
+            "cliffs_delta_destination_vs_source": 0.3
+          },
+          {
+            "parameter": "replacement_penalty",
+            "destination_minus_source_mean_scaled_value": 0.1275939878225199,
+            "cliffs_delta_destination_vs_source": 0.275
+          },
+          {
+            "parameter": "trait_adjustment",
+            "destination_minus_source_mean_scaled_value": 0.14027801800645576,
+            "cliffs_delta_destination_vs_source": 0.2625
+          },
+          {
+            "parameter": "saturation",
+            "destination_minus_source_mean_scaled_value": 0.069034762888605,
+            "cliffs_delta_destination_vs_source": 0.2
+          },
+          {
+            "parameter": "generalist_breadth",
+            "destination_minus_source_mean_scaled_value": 0.05365085087924108,
+            "cliffs_delta_destination_vs_source": 0.1375
+          },
+          {
+            "parameter": "generalist_fraction_shift",
+            "destination_minus_source_mean_scaled_value": -0.055177649579839755,
+            "cliffs_delta_destination_vs_source": -0.1125
+          },
+          {
+            "parameter": "specialist_breadth",
+            "destination_minus_source_mean_scaled_value": 0.057671622069145466,
+            "cliffs_delta_destination_vs_source": 0.1125
+          },
+          {
+            "parameter": "trait_dispersion_multiplier",
+            "destination_minus_source_mean_scaled_value": 0.003959790069116283,
+            "cliffs_delta_destination_vs_source": -0.0125
+          }
+        ]
+      }
+    },
+    "claim_boundary": "Associations diagnose the fixed synthetic design surface. They are not causal effects, empirical parameter estimates or ecological prevalence estimates."
+  },
+  "starting_position_by_community_realization": {
+    "baseline_realization_class_counts": {
+      "mixed_sign": 41,
+      "all_positive": 42,
+      "all_negative": 13,
+      "other": 0
+    },
+    "baseline": {
+      "shape": {
+        "starting_positions": 21,
+        "community_realizations": 96
+      },
+      "grand_mean_delta_service": 0.035586654489133,
+      "sum_of_squares": {
+        "total": 165.20532297855755,
+        "starting_position": 3.606776441856492,
+        "community_realization": 132.45144132346314,
+        "starting_position_by_community_nonadditivity": 29.147105213237893
+      },
+      "sum_of_squares_fraction": {
+        "starting_position": 0.021832083717572618,
+        "community_realization": 0.8017383395125494,
+        "starting_position_by_community_nonadditivity": 0.17642957676987792
+      },
+      "additive_sign_mismatch_cells": 271,
+      "additive_sign_mismatch_fraction": 0.13442460317460317,
+      "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+    },
+    "joint_points": [
+      {
+        "point_index": 0,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.4418835161276315,
+          "generalist_fraction_shift": -0.09191666082404609,
+          "replacement_fraction_shift": 0.06592798960964985,
+          "partner_loss_multiplier": 0.6556695973178754,
+          "partner_arrival_multiplier": 1.2638502086642434,
+          "saturation": 1.3074890564417072,
+          "trait_adjustment": 0.04303004170634767,
+          "generalist_breadth": 0.36174631025909876,
+          "specialist_breadth": 0.18641535509021093,
+          "replacement_penalty": 0.9860955532630011
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.14816857131005326,
+          "sum_of_squares": {
+            "total": 8.916886039967286,
+            "starting_position": 1.5713828647764347,
+            "community_realization": 3.4383558488225012,
+            "starting_position_by_community_nonadditivity": 3.907147326368349
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.1762255183853622,
+            "community_realization": 0.38560051495680164,
+            "starting_position_by_community_nonadditivity": 0.438173966657836
+          },
+          "additive_sign_mismatch_cells": 45,
+          "additive_sign_mismatch_fraction": 0.08928571428571429,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 1,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.5919399517624511,
+          "generalist_fraction_shift": -0.01036935798768715,
+          "replacement_fraction_shift": -0.003012766991230681,
+          "partner_loss_multiplier": 1.192956122934738,
+          "partner_arrival_multiplier": 1.3084311087470195,
+          "saturation": 1.5975641178765843,
+          "trait_adjustment": 0.024099943462933596,
+          "generalist_breadth": 0.4432137268245766,
+          "specialist_breadth": 0.19630295422622723,
+          "replacement_penalty": 0.8588737276622969
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.23809523809523808,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.04956859527360313,
+          "sum_of_squares": {
+            "total": 17.567070499486867,
+            "starting_position": 1.6453476649387775,
+            "community_realization": 11.338033692522844,
+            "starting_position_by_community_nonadditivity": 4.583689142025247
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.09366090179844375,
+            "community_realization": 0.6454140257963914,
+            "starting_position_by_community_nonadditivity": 0.2609250724051649
+          },
+          "additive_sign_mismatch_cells": 103,
+          "additive_sign_mismatch_fraction": 0.20436507936507936,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 2,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.0503550313803918,
+          "generalist_fraction_shift": 0.08952125397948724,
+          "replacement_fraction_shift": 0.008646072338258176,
+          "partner_loss_multiplier": 1.2600598516295656,
+          "partner_arrival_multiplier": 1.0262557333719307,
+          "saturation": 2.0594392837624094,
+          "trait_adjustment": 0.04033911460951545,
+          "generalist_breadth": 0.3776788192575013,
+          "specialist_breadth": 0.1837303732275568,
+          "replacement_penalty": 0.9022027235172687
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.23809523809523808,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.039816503792008524,
+          "sum_of_squares": {
+            "total": 39.93945823609192,
+            "starting_position": 1.1570431426027152,
+            "community_realization": 33.09921968049334,
+            "starting_position_by_community_nonadditivity": 5.683195412995872
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.028969925825311642,
+            "community_realization": 0.8287348187057457,
+            "starting_position_by_community_nonadditivity": 0.1422952554689428
+          },
+          "additive_sign_mismatch_cells": 61,
+          "additive_sign_mismatch_fraction": 0.12103174603174603,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 3,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.3488375866541098,
+          "generalist_fraction_shift": -0.026646748078294175,
+          "replacement_fraction_shift": -0.05803859195126651,
+          "partner_loss_multiplier": 0.5025736807144341,
+          "partner_arrival_multiplier": 1.1121303659951989,
+          "saturation": 1.7126428527541346,
+          "trait_adjustment": 0.027077417454235683,
+          "generalist_breadth": 0.43273441246260047,
+          "specialist_breadth": 0.12727134593853962,
+          "replacement_penalty": 0.7196806748391968
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.1524892264689527,
+          "sum_of_squares": {
+            "total": 10.830446881460693,
+            "starting_position": 0.6265648194780191,
+            "community_realization": 4.655119599084313,
+            "starting_position_by_community_nonadditivity": 5.5487624628983605
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.0578521667975269,
+            "community_realization": 0.42981786901635965,
+            "starting_position_by_community_nonadditivity": 0.5123299641861134
+          },
+          "additive_sign_mismatch_cells": 73,
+          "additive_sign_mismatch_fraction": 0.14484126984126985,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 4,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.028758066420898,
+          "generalist_fraction_shift": 0.023536598316315993,
+          "replacement_fraction_shift": -0.12186895275391403,
+          "partner_loss_multiplier": 1.1780052610041922,
+          "partner_arrival_multiplier": 1.1528363601347245,
+          "saturation": 1.9554111988004457,
+          "trait_adjustment": 0.031017387794613722,
+          "generalist_breadth": 0.47922607484650526,
+          "specialist_breadth": 0.1526788596608599,
+          "replacement_penalty": 0.7758648044410652
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.09523809523809523,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.04982767868017938,
+          "sum_of_squares": {
+            "total": 24.663995600240256,
+            "starting_position": 0.6145588310558759,
+            "community_realization": 14.36654483069981,
+            "starting_position_by_community_nonadditivity": 9.682891938484573
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.02491724540568315,
+            "community_realization": 0.5824905689879325,
+            "starting_position_by_community_nonadditivity": 0.3925921856063845
+          },
+          "additive_sign_mismatch_cells": 93,
+          "additive_sign_mismatch_fraction": 0.18452380952380953,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 5,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.49362839818706,
+          "generalist_fraction_shift": -0.18632525281527557,
+          "replacement_fraction_shift": -0.024352321020933237,
+          "partner_loss_multiplier": 0.92710955208736,
+          "partner_arrival_multiplier": 0.8449074008580952,
+          "saturation": 2.162262935154435,
+          "trait_adjustment": 0.051718619228453146,
+          "generalist_breadth": 0.3086220672918457,
+          "specialist_breadth": 0.1747979869661762,
+          "replacement_penalty": 0.8411981076023208
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.5714285714285714,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.010980379989723574,
+          "sum_of_squares": {
+            "total": 46.44773877506658,
+            "starting_position": 1.0025840459385558,
+            "community_realization": 38.03956624076325,
+            "starting_position_by_community_nonadditivity": 7.4055884883647725
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.021585206780329828,
+            "community_realization": 0.8189756324840319,
+            "starting_position_by_community_nonadditivity": 0.15943916073563813
+          },
+          "additive_sign_mismatch_cells": 56,
+          "additive_sign_mismatch_fraction": 0.1111111111111111,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 6,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.6492894056376088,
+          "generalist_fraction_shift": 0.17812896049920168,
+          "replacement_fraction_shift": 0.12338740164851567,
+          "partner_loss_multiplier": 1.351939910148762,
+          "partner_arrival_multiplier": 1.061872588777213,
+          "saturation": 2.799982327399653,
+          "trait_adjustment": 0.01986465296169378,
+          "generalist_breadth": 0.32480192121078105,
+          "specialist_breadth": 0.1169862190271823,
+          "replacement_penalty": 0.654546480999083
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.7619047619047619,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.06792989279629287,
+          "sum_of_squares": {
+            "total": 60.142605242946175,
+            "starting_position": 1.977532797686088,
+            "community_realization": 53.01977769742107,
+            "starting_position_by_community_nonadditivity": 5.1452947478390065
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.03288073055195797,
+            "community_realization": 0.8815676920420652,
+            "starting_position_by_community_nonadditivity": 0.08555157740597664
+          },
+          "additive_sign_mismatch_cells": 54,
+          "additive_sign_mismatch_fraction": 0.10714285714285714,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 7,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.1673944084221466,
+          "generalist_fraction_shift": 0.11115829865890159,
+          "replacement_fraction_shift": -0.04548296659449344,
+          "partner_loss_multiplier": 1.2463265483757673,
+          "partner_arrival_multiplier": 0.771647870732511,
+          "saturation": 2.2175795953234934,
+          "trait_adjustment": 0.013219536485855927,
+          "generalist_breadth": 0.4223685335893672,
+          "specialist_breadth": 0.2154732733973474,
+          "replacement_penalty": 0.6619071256074125
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.6666666666666666,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.008223927135594151,
+          "sum_of_squares": {
+            "total": 45.33926162124048,
+            "starting_position": 1.2302019613726136,
+            "community_realization": 33.71697820730928,
+            "starting_position_by_community_nonadditivity": 10.392081452558587
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.027133259726406532,
+            "community_realization": 0.7436596230652683,
+            "starting_position_by_community_nonadditivity": 0.22920711720832518
+          },
+          "additive_sign_mismatch_cells": 97,
+          "additive_sign_mismatch_fraction": 0.19246031746031747,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 8,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.9028570504650337,
+          "generalist_fraction_shift": -0.18237810110096947,
+          "replacement_fraction_shift": -0.031338437339549455,
+          "partner_loss_multiplier": 1.0613926043944213,
+          "partner_arrival_multiplier": 0.6561149864220208,
+          "saturation": 2.109629913851977,
+          "trait_adjustment": 0.04793502011708365,
+          "generalist_breadth": 0.49539590263914,
+          "specialist_breadth": 0.20354007216444284,
+          "replacement_penalty": 0.6815170956562973
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.10001811883654235,
+          "sum_of_squares": {
+            "total": 65.40245102785221,
+            "starting_position": 1.7499635578095463,
+            "community_realization": 56.03443194289961,
+            "starting_position_by_community_nonadditivity": 7.6180555271430475
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.026756849786322364,
+            "community_realization": 0.8567634861121161,
+            "starting_position_by_community_nonadditivity": 0.11647966410156145
+          },
+          "additive_sign_mismatch_cells": 79,
+          "additive_sign_mismatch_fraction": 0.15674603174603174,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 9,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.0170961739842368,
+          "generalist_fraction_shift": -0.14808153276233002,
+          "replacement_fraction_shift": -0.07167080653956255,
+          "partner_loss_multiplier": 1.0391551111332065,
+          "partner_arrival_multiplier": 0.8652937877185438,
+          "saturation": 2.3926194252102837,
+          "trait_adjustment": 0.012305955202898719,
+          "generalist_breadth": 0.47402945894289283,
+          "specialist_breadth": 0.1664357979861792,
+          "replacement_penalty": 0.8536968512647916
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.6190476190476191,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.010313505754725682,
+          "sum_of_squares": {
+            "total": 66.90498469272458,
+            "starting_position": 1.333371671372963,
+            "community_realization": 52.19093037052714,
+            "starting_position_by_community_nonadditivity": 13.380682650824477
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.019929332283637115,
+            "community_realization": 0.7800753652396025,
+            "starting_position_by_community_nonadditivity": 0.1999953024767604
+          },
+          "additive_sign_mismatch_cells": 92,
+          "additive_sign_mismatch_fraction": 0.18253968253968253,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 10,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.6273741315887781,
+          "generalist_fraction_shift": 0.1000600409689485,
+          "replacement_fraction_shift": -0.011098362130231021,
+          "partner_loss_multiplier": 0.7877032604660243,
+          "partner_arrival_multiplier": 0.9995089634540348,
+          "saturation": 1.9684749700386859,
+          "trait_adjustment": 0.05118737332074935,
+          "generalist_breadth": 0.3595049420597024,
+          "specialist_breadth": 0.16829319626586486,
+          "replacement_penalty": 0.9947307435230678
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.10439826918754562,
+          "sum_of_squares": {
+            "total": 6.5578093908835715,
+            "starting_position": 0.9560494388957376,
+            "community_realization": 2.2080152185708077,
+            "starting_position_by_community_nonadditivity": 3.3937447334170265
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.1457879273259761,
+            "community_realization": 0.3367001214826875,
+            "starting_position_by_community_nonadditivity": 0.5175119511913364
+          },
+          "additive_sign_mismatch_cells": 93,
+          "additive_sign_mismatch_fraction": 0.18452380952380953,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 11,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.1345116538300002,
+          "generalist_fraction_shift": -0.02204740975286773,
+          "replacement_fraction_shift": 0.05114396232944174,
+          "partner_loss_multiplier": 1.3904771205127906,
+          "partner_arrival_multiplier": 0.9050999114112008,
+          "saturation": 1.528481342643401,
+          "trait_adjustment": 0.046833181307976646,
+          "generalist_breadth": 0.3101641826612192,
+          "specialist_breadth": 0.14470965656635945,
+          "replacement_penalty": 0.749389066200813
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.1125932918770452,
+          "sum_of_squares": {
+            "total": 55.670195114475646,
+            "starting_position": 0.8335591614038125,
+            "community_realization": 48.226344498743195,
+            "starting_position_by_community_nonadditivity": 6.610291454328649
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.014973167593354927,
+            "community_realization": 0.866286608113632,
+            "starting_position_by_community_nonadditivity": 0.11874022429301324
+          },
+          "additive_sign_mismatch_cells": 46,
+          "additive_sign_mismatch_fraction": 0.09126984126984126,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 12,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.8179081122279706,
+          "generalist_fraction_shift": 0.1514342847007893,
+          "replacement_fraction_shift": -0.12853774875010265,
+          "partner_loss_multiplier": 0.6067357275099055,
+          "partner_arrival_multiplier": 1.0737424650641376,
+          "saturation": 1.3759821624160613,
+          "trait_adjustment": 0.020605275525817566,
+          "generalist_breadth": 0.34433131143911017,
+          "specialist_breadth": 0.12922911290840797,
+          "replacement_penalty": 0.8017073362488454
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.1193884957656001,
+          "sum_of_squares": {
+            "total": 11.30127558753295,
+            "starting_position": 1.4398250257227962,
+            "community_realization": 3.7941813717225403,
+            "starting_position_by_community_nonadditivity": 6.067269190087615
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.1274037620417951,
+            "community_realization": 0.3357303644473644,
+            "starting_position_by_community_nonadditivity": 0.5368658735108405
+          },
+          "additive_sign_mismatch_cells": 71,
+          "additive_sign_mismatch_fraction": 0.14087301587301587,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 13,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.7140224972462268,
+          "generalist_fraction_shift": 0.0621382843597888,
+          "replacement_fraction_shift": 0.06168898970476486,
+          "partner_loss_multiplier": 1.409511014143264,
+          "partner_arrival_multiplier": 0.8871739597248629,
+          "saturation": 2.8803267463665216,
+          "trait_adjustment": 0.059484338184798535,
+          "generalist_breadth": 0.46993932318071685,
+          "specialist_breadth": 0.1361629512435102,
+          "replacement_penalty": 0.9657600756854194
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.17771562574489252,
+          "sum_of_squares": {
+            "total": 96.49297501617036,
+            "starting_position": 2.4848165160393387,
+            "community_realization": 88.60512088045446,
+            "starting_position_by_community_nonadditivity": 5.403037619676552
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.02575126858326144,
+            "community_realization": 0.9182546280245371,
+            "starting_position_by_community_nonadditivity": 0.05599410339220143
+          },
+          "additive_sign_mismatch_cells": 49,
+          "additive_sign_mismatch_fraction": 0.09722222222222222,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 14,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.2909284624353363,
+          "generalist_fraction_shift": 0.14383256421038731,
+          "replacement_fraction_shift": -0.10849471428231322,
+          "partner_loss_multiplier": 1.0895807402067914,
+          "partner_arrival_multiplier": 1.4525336109436462,
+          "saturation": 2.594494841324175,
+          "trait_adjustment": 0.03386410345364713,
+          "generalist_breadth": 0.3735738005384381,
+          "specialist_breadth": 0.21770787176581582,
+          "replacement_penalty": 0.9577398230975562
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.06220110457118287,
+          "sum_of_squares": {
+            "total": 27.637744184401672,
+            "starting_position": 1.7696874891528633,
+            "community_realization": 16.480062673681743,
+            "starting_position_by_community_nonadditivity": 9.387994021567067
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.06403154603882788,
+            "community_realization": 0.5962882702627678,
+            "starting_position_by_community_nonadditivity": 0.33968018369840436
+          },
+          "additive_sign_mismatch_cells": 102,
+          "additive_sign_mismatch_fraction": 0.20238095238095238,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 15,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.7838671755177254,
+          "generalist_fraction_shift": -0.1705260037332853,
+          "replacement_fraction_shift": 0.09004049088839558,
+          "partner_loss_multiplier": 0.6351325071415583,
+          "partner_arrival_multiplier": 1.2065293825991072,
+          "saturation": 2.560385092139697,
+          "trait_adjustment": 0.008666005481221107,
+          "generalist_breadth": 0.4927141540818317,
+          "specialist_breadth": 0.10926313433301062,
+          "replacement_penalty": 0.8235896242647274
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.09100400546710227,
+          "sum_of_squares": {
+            "total": 33.50091838083953,
+            "starting_position": 0.33313646666037144,
+            "community_realization": 25.548778654812278,
+            "starting_position_by_community_nonadditivity": 7.619003259366874
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.009944099528056671,
+            "community_realization": 0.7626292021123998,
+            "starting_position_by_community_nonadditivity": 0.22742669835954338
+          },
+          "additive_sign_mismatch_cells": 39,
+          "additive_sign_mismatch_fraction": 0.07738095238095238,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 16,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.531307298049509,
+          "generalist_fraction_shift": 0.12947721865664796,
+          "replacement_fraction_shift": 0.08000441510403877,
+          "partner_loss_multiplier": 1.1534603476508425,
+          "partner_arrival_multiplier": 0.6219582669429137,
+          "saturation": 2.9694474594092783,
+          "trait_adjustment": 0.03374549798388262,
+          "generalist_breadth": 0.345103797451733,
+          "specialist_breadth": 0.21476646801476287,
+          "replacement_penalty": 0.7052315720605145
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.14618516647314103,
+          "sum_of_squares": {
+            "total": 75.0989964071697,
+            "starting_position": 2.470249130085128,
+            "community_realization": 63.484987785782835,
+            "starting_position_by_community_nonadditivity": 9.143759491301706
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.03289323756994033,
+            "community_realization": 0.8453506814070012,
+            "starting_position_by_community_nonadditivity": 0.12175608102305815
+          },
+          "additive_sign_mismatch_cells": 89,
+          "additive_sign_mismatch_fraction": 0.1765873015873016,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 17,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.4067758210889818,
+          "generalist_fraction_shift": 0.006329769759467918,
+          "replacement_fraction_shift": 0.0249592132791836,
+          "partner_loss_multiplier": 0.8138395470893565,
+          "partner_arrival_multiplier": 1.3516537558563062,
+          "saturation": 2.843451071178487,
+          "trait_adjustment": 0.0055628570838955,
+          "generalist_breadth": 0.40866761838505306,
+          "specialist_breadth": 0.11826713474934988,
+          "replacement_penalty": 0.7619294018491798
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.23809523809523808,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.01571241063605558,
+          "sum_of_squares": {
+            "total": 38.35532473130266,
+            "starting_position": 0.2297657457149946,
+            "community_realization": 19.430021104776003,
+            "starting_position_by_community_nonadditivity": 18.695537880811667
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.005990452364166207,
+            "community_realization": 0.5065794968727958,
+            "starting_position_by_community_nonadditivity": 0.48743005076303814
+          },
+          "additive_sign_mismatch_cells": 109,
+          "additive_sign_mismatch_fraction": 0.21626984126984128,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 18,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.6135538251673727,
+          "generalist_fraction_shift": -0.12484842270320537,
+          "replacement_fraction_shift": 0.02706192622087375,
+          "partner_loss_multiplier": 1.442691308355525,
+          "partner_arrival_multiplier": 0.5740241461903547,
+          "saturation": 2.43170457060046,
+          "trait_adjustment": 0.025230035886164775,
+          "generalist_breadth": 0.36575392921619193,
+          "specialist_breadth": 0.1140220629857174,
+          "replacement_penalty": 0.8891349283797032
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.15474042577349656,
+          "sum_of_squares": {
+            "total": 87.53114196563311,
+            "starting_position": 0.8017737545584129,
+            "community_realization": 74.6246011974986,
+            "starting_position_by_community_nonadditivity": 12.104767013576083
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.00915986855139179,
+            "community_realization": 0.8525491558969729,
+            "starting_position_by_community_nonadditivity": 0.13829097555163525
+          },
+          "additive_sign_mismatch_cells": 62,
+          "additive_sign_mismatch_fraction": 0.12301587301587301,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 19,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.0834498866521964,
+          "generalist_fraction_shift": -0.19428762195348254,
+          "replacement_fraction_shift": -0.013948077044808466,
+          "partner_loss_multiplier": 1.225677385587867,
+          "partner_arrival_multiplier": 0.9518204253267488,
+          "saturation": 2.6881847518938287,
+          "trait_adjustment": 0.05328992123935847,
+          "generalist_breadth": 0.4378592705983448,
+          "specialist_breadth": 0.13952324060370183,
+          "replacement_penalty": 0.7317597736921989
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.11100709930751393,
+          "sum_of_squares": {
+            "total": 55.56096756012694,
+            "starting_position": 1.7439264695647934,
+            "community_realization": 47.06323530328915,
+            "starting_position_by_community_nonadditivity": 6.753805787273004
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.03138761879331119,
+            "community_realization": 0.8470557186096207,
+            "starting_position_by_community_nonadditivity": 0.12155666259706824
+          },
+          "additive_sign_mismatch_cells": 29,
+          "additive_sign_mismatch_fraction": 0.057539682539682536,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 20,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.1107747471753546,
+          "generalist_fraction_shift": -0.15030188071601247,
+          "replacement_fraction_shift": 0.1282220574458501,
+          "partner_loss_multiplier": 1.1166218200990015,
+          "partner_arrival_multiplier": 0.9239062406443104,
+          "saturation": 2.3258160727094204,
+          "trait_adjustment": 0.017738839343179005,
+          "generalist_breadth": 0.3868394364155845,
+          "specialist_breadth": 0.16367311132565504,
+          "replacement_penalty": 0.9296096050614046
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.046334289090619485,
+          "sum_of_squares": {
+            "total": 51.13491918940939,
+            "starting_position": 0.6296910161658549,
+            "community_realization": 36.414826916366756,
+            "starting_position_by_community_nonadditivity": 14.090401256876778
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.012314305491193011,
+            "community_realization": 0.7121322863830529,
+            "starting_position_by_community_nonadditivity": 0.2755534081257541
+          },
+          "additive_sign_mismatch_cells": 83,
+          "additive_sign_mismatch_fraction": 0.16468253968253968,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 21,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.5424189986647872,
+          "generalist_fraction_shift": 0.07641430247205439,
+          "replacement_fraction_shift": -0.07941879489095202,
+          "partner_loss_multiplier": 1.0754882447854093,
+          "partner_arrival_multiplier": 1.3287449034234018,
+          "saturation": 1.691036697206695,
+          "trait_adjustment": 0.0026023294532029994,
+          "generalist_breadth": 0.5386700295511395,
+          "specialist_breadth": 0.1241425950408515,
+          "replacement_penalty": 0.7273857919040211
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.38095238095238093,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.0107387803101497,
+          "sum_of_squares": {
+            "total": 26.793042629106527,
+            "starting_position": 0.3921807682265588,
+            "community_realization": 22.10232758474637,
+            "starting_position_by_community_nonadditivity": 4.298534276133589
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.014637410676177352,
+            "community_realization": 0.8249278699215589,
+            "starting_position_by_community_nonadditivity": 0.16043471940226348
+          },
+          "additive_sign_mismatch_cells": 45,
+          "additive_sign_mismatch_fraction": 0.08928571428571429,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 22,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.9478360166785347,
+          "generalist_fraction_shift": 0.17040768200584305,
+          "replacement_fraction_shift": -0.13897266863845625,
+          "partner_loss_multiplier": 0.6826119793609199,
+          "partner_arrival_multiplier": 0.7418413535623193,
+          "saturation": 2.208324308513153,
+          "trait_adjustment": 0.0018554245241558785,
+          "generalist_breadth": 0.4864653824391272,
+          "specialist_breadth": 0.1787601472231239,
+          "replacement_penalty": 0.6785183433040151
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.8095238095238095,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.027543899526769708,
+          "sum_of_squares": {
+            "total": 37.47777807963746,
+            "starting_position": 0.41356030982526204,
+            "community_realization": 30.097911702456287,
+            "starting_position_by_community_nonadditivity": 6.966306067355913
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.011034813988878355,
+            "community_realization": 0.8030868756013361,
+            "starting_position_by_community_nonadditivity": 0.18587831040978567
+          },
+          "additive_sign_mismatch_cells": 91,
+          "additive_sign_mismatch_fraction": 0.18055555555555555,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 23,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.5091094876189041,
+          "generalist_fraction_shift": 0.03856783121956742,
+          "replacement_fraction_shift": 0.03780945097471017,
+          "partner_loss_multiplier": 0.5275418127007991,
+          "partner_arrival_multiplier": 1.3827340426218484,
+          "saturation": 2.5159040020409495,
+          "trait_adjustment": 0.04391544133000583,
+          "generalist_breadth": 0.33007335860628756,
+          "specialist_breadth": 0.1482560725543152,
+          "replacement_penalty": 0.8920878671190666
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.05951984171187243,
+          "sum_of_squares": {
+            "total": 4.539402355405935,
+            "starting_position": 0.44950548139133045,
+            "community_realization": 1.317344815663069,
+            "starting_position_by_community_nonadditivity": 2.7725520583515353
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.0990230533004016,
+            "community_realization": 0.2902022584744563,
+            "starting_position_by_community_nonadditivity": 0.610774688225142
+          },
+          "additive_sign_mismatch_cells": 121,
+          "additive_sign_mismatch_fraction": 0.2400793650793651,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 24,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.7575515657357166,
+          "generalist_fraction_shift": -0.16025197765846383,
+          "replacement_fraction_shift": 0.03442767995731974,
+          "partner_loss_multiplier": 0.9389211837709477,
+          "partner_arrival_multiplier": 1.2223044751783423,
+          "saturation": 1.2693055635961077,
+          "trait_adjustment": 0.058241328912245684,
+          "generalist_breadth": 0.4127932359234303,
+          "specialist_breadth": 0.13108897220876556,
+          "replacement_penalty": 0.6871699300819032
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.11886987803127332,
+          "sum_of_squares": {
+            "total": 23.246923399882082,
+            "starting_position": 1.1187341240748354,
+            "community_realization": 19.263151557947214,
+            "starting_position_by_community_nonadditivity": 2.8650377178600293
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.04812396482884742,
+            "community_realization": 0.8286322979859315,
+            "starting_position_by_community_nonadditivity": 0.1232437371852209
+          },
+          "additive_sign_mismatch_cells": 33,
+          "additive_sign_mismatch_fraction": 0.06547619047619048,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 25,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.3212647861040119,
+          "generalist_fraction_shift": 0.16104416530600385,
+          "replacement_fraction_shift": 0.1378190282488775,
+          "partner_loss_multiplier": 0.6033104168896518,
+          "partner_arrival_multiplier": 0.7275578507501025,
+          "saturation": 1.7984865332257516,
+          "trait_adjustment": 0.05596947347940265,
+          "generalist_breadth": 0.3902426037499591,
+          "specialist_breadth": 0.208796192030577,
+          "replacement_penalty": 0.8813402792590403
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.09729022231627436,
+          "sum_of_squares": {
+            "total": 18.784486017305262,
+            "starting_position": 1.069826385489287,
+            "community_realization": 11.935665644200373,
+            "starting_position_by_community_nonadditivity": 5.778993987615605
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.05695265680965167,
+            "community_realization": 0.635400171886769,
+            "starting_position_by_community_nonadditivity": 0.30764717130357944
+          },
+          "additive_sign_mismatch_cells": 66,
+          "additive_sign_mismatch_fraction": 0.13095238095238096,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 26,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.3923732918088674,
+          "generalist_fraction_shift": 0.05130790481912295,
+          "replacement_fraction_shift": 0.13640565861483925,
+          "partner_loss_multiplier": 1.470849159130856,
+          "partner_arrival_multiplier": 1.1445884304233083,
+          "saturation": 2.473846457648806,
+          "trait_adjustment": 0.016678009370293127,
+          "generalist_breadth": 0.4272915842206655,
+          "specialist_breadth": 0.18140371082972478,
+          "replacement_penalty": 0.948052882774607
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.15356585232730638,
+          "sum_of_squares": {
+            "total": 75.69469542315076,
+            "starting_position": 1.504803173477523,
+            "community_realization": 64.44680798264066,
+            "starting_position_by_community_nonadditivity": 9.743084267032566
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.01987990261491016,
+            "community_realization": 0.8514045485270557,
+            "starting_position_by_community_nonadditivity": 0.12871554885803402
+          },
+          "additive_sign_mismatch_cells": 55,
+          "additive_sign_mismatch_fraction": 0.10912698412698413,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 27,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.9282662014423235,
+          "generalist_fraction_shift": -0.066570372019911,
+          "replacement_fraction_shift": -0.04178682405388101,
+          "partner_loss_multiplier": 0.5714128839576649,
+          "partner_arrival_multiplier": 1.2793280271091665,
+          "saturation": 2.74796137346946,
+          "trait_adjustment": 0.02822924154327099,
+          "generalist_breadth": 0.33561054152218245,
+          "specialist_breadth": 0.15125449294726784,
+          "replacement_penalty": 0.807385314200844
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.12018781931992847,
+          "sum_of_squares": {
+            "total": 10.08259526081822,
+            "starting_position": 1.7828567014498873,
+            "community_realization": 3.14720547784713,
+            "starting_position_by_community_nonadditivity": 5.152533081521202
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.17682517797557665,
+            "community_realization": 0.31214239949484285,
+            "starting_position_by_community_nonadditivity": 0.5110324225295805
+          },
+          "additive_sign_mismatch_cells": 75,
+          "additive_sign_mismatch_fraction": 0.1488095238095238,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 28,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.4692636530681598,
+          "generalist_fraction_shift": 0.014690508373449124,
+          "replacement_fraction_shift": 0.10404054411443284,
+          "partner_loss_multiplier": 0.9758696877746638,
+          "partner_arrival_multiplier": 1.4291653479842794,
+          "saturation": 1.5719887181328298,
+          "trait_adjustment": 0.004325699151062699,
+          "generalist_breadth": 0.4164286543824267,
+          "specialist_breadth": 0.13251937564133992,
+          "replacement_penalty": 0.8132879313799967
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.06224577048154944,
+          "sum_of_squares": {
+            "total": 21.76651657502581,
+            "starting_position": 0.15178589985516805,
+            "community_realization": 12.382038934761848,
+            "starting_position_by_community_nonadditivity": 9.232691740408793
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.006973366607926701,
+            "community_realization": 0.568857166101102,
+            "starting_position_by_community_nonadditivity": 0.42416946729097116
+          },
+          "additive_sign_mismatch_cells": 100,
+          "additive_sign_mismatch_fraction": 0.1984126984126984,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 29,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.7988226040695829,
+          "generalist_fraction_shift": 0.19238838108591577,
+          "replacement_fraction_shift": -0.09609867738354691,
+          "partner_loss_multiplier": 0.692305271281439,
+          "partner_arrival_multiplier": 0.5395693130348442,
+          "saturation": 2.252397036762185,
+          "trait_adjustment": 0.0569368582186118,
+          "generalist_breadth": 0.5189700864205127,
+          "specialist_breadth": 0.21147934119304201,
+          "replacement_penalty": 0.6670039528569135
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.3333333333333333,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.0238712008340212,
+          "sum_of_squares": {
+            "total": 20.54440194535245,
+            "starting_position": 0.7077347497523474,
+            "community_realization": 14.378106199181007,
+            "starting_position_by_community_nonadditivity": 5.458560996419102
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.03444903149942756,
+            "community_realization": 0.6998551837832212,
+            "starting_position_by_community_nonadditivity": 0.2656957847173515
+          },
+          "additive_sign_mismatch_cells": 91,
+          "additive_sign_mismatch_fraction": 0.18055555555555555,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 30,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.253697692545622,
+          "generalist_fraction_shift": -0.0724229447334907,
+          "replacement_fraction_shift": 0.09860269947161124,
+          "partner_loss_multiplier": 0.7511513493917208,
+          "partner_arrival_multiplier": 0.5190371267757898,
+          "saturation": 1.1303093780421687,
+          "trait_adjustment": 0.0158159430188527,
+          "generalist_breadth": 0.5323038193190178,
+          "specialist_breadth": 0.10159520811847934,
+          "replacement_penalty": 0.8655091171062257
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.08386107938289908,
+          "sum_of_squares": {
+            "total": 31.629731509861884,
+            "starting_position": 0.14594880688486617,
+            "community_realization": 22.488147017127908,
+            "starting_position_by_community_nonadditivity": 8.995635685849113
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.004614291678048565,
+            "community_realization": 0.7109812807015543,
+            "starting_position_by_community_nonadditivity": 0.28440442762039725
+          },
+          "additive_sign_mismatch_cells": 59,
+          "additive_sign_mismatch_fraction": 0.11706349206349206,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 31,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.4241406144060895,
+          "generalist_fraction_shift": 0.1866381569646704,
+          "replacement_fraction_shift": 0.1453965799373105,
+          "partner_loss_multiplier": 1.1349930683625002,
+          "partner_arrival_multiplier": 0.596944347630449,
+          "saturation": 1.2383028068737931,
+          "trait_adjustment": 0.03671279173745312,
+          "generalist_breadth": 0.4568718256111973,
+          "specialist_breadth": 0.155038316195497,
+          "replacement_penalty": 0.7588081451704629
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.12254286687971364,
+          "sum_of_squares": {
+            "total": 45.15867792679211,
+            "starting_position": 0.8814356336618647,
+            "community_realization": 39.71106623081275,
+            "starting_position_by_community_nonadditivity": 4.566176062317499
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.019518632389787464,
+            "community_realization": 0.879367334340243,
+            "starting_position_by_community_nonadditivity": 0.10111403326996961
+          },
+          "additive_sign_mismatch_cells": 34,
+          "additive_sign_mismatch_fraction": 0.06746031746031746,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 32,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.2061285523188463,
+          "generalist_fraction_shift": 0.09297617515421236,
+          "replacement_fraction_shift": -0.0827975265280581,
+          "partner_loss_multiplier": 1.2941899954575184,
+          "partner_arrival_multiplier": 0.9584612310479825,
+          "saturation": 1.4286904800135036,
+          "trait_adjustment": 0.028782207993477818,
+          "generalist_breadth": 0.3980074256568089,
+          "specialist_breadth": 0.15768844825575087,
+          "replacement_penalty": 0.794424787283293
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.053663988850421465,
+          "sum_of_squares": {
+            "total": 35.17678780665097,
+            "starting_position": 0.7610486817386394,
+            "community_realization": 30.33756720489981,
+            "starting_position_by_community_nonadditivity": 4.078171920012523
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.021634968090939385,
+            "community_realization": 0.8624314241439579,
+            "starting_position_by_community_nonadditivity": 0.11593360776510277
+          },
+          "additive_sign_mismatch_cells": 42,
+          "additive_sign_mismatch_fraction": 0.08333333333333333,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 33,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.9743604229637051,
+          "generalist_fraction_shift": -0.0034064261998947853,
+          "replacement_fraction_shift": -0.02616238350302208,
+          "partner_loss_multiplier": 0.853298408962017,
+          "partner_arrival_multiplier": 0.561501216523855,
+          "saturation": 2.957158176427841,
+          "trait_adjustment": 0.01113149757003578,
+          "generalist_breadth": 0.44630077558189596,
+          "specialist_breadth": 0.194393672287075,
+          "replacement_penalty": 0.7863304123600431
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.06177928377341558,
+          "sum_of_squares": {
+            "total": 49.78540919294517,
+            "starting_position": 0.354170495240005,
+            "community_realization": 36.090608181832124,
+            "starting_position_by_community_nonadditivity": 13.340630515873041
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.007113941634333151,
+            "community_realization": 0.7249234015926566,
+            "starting_position_by_community_nonadditivity": 0.2679626567730104
+          },
+          "additive_sign_mismatch_cells": 130,
+          "additive_sign_mismatch_fraction": 0.25793650793650796,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 34,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.6879353652250436,
+          "generalist_fraction_shift": -0.03805968395516279,
+          "replacement_fraction_shift": -0.14480990092922694,
+          "partner_loss_multiplier": 0.9120839240916174,
+          "partner_arrival_multiplier": 0.6682458817429452,
+          "saturation": 1.1670096648753876,
+          "trait_adjustment": 0.039399402000987925,
+          "generalist_breadth": 0.5140179397771214,
+          "specialist_breadth": 0.10508315378879943,
+          "replacement_penalty": 0.979856124329545
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.06155321249277305,
+          "sum_of_squares": {
+            "total": 32.371151932833705,
+            "starting_position": 0.2948456035726656,
+            "community_realization": 28.88371206244193,
+            "starting_position_by_community_nonadditivity": 3.1925942668191074
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.00910828271370865,
+            "community_realization": 0.8922670445084007,
+            "starting_position_by_community_nonadditivity": 0.09862467277789068
+          },
+          "additive_sign_mismatch_cells": 17,
+          "additive_sign_mismatch_fraction": 0.03373015873015873,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 35,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.8856878236993824,
+          "generalist_fraction_shift": -0.08350460242058276,
+          "replacement_fraction_shift": -0.10114534687599915,
+          "partner_loss_multiplier": 0.8931492496942217,
+          "partner_arrival_multiplier": 1.492705599320315,
+          "saturation": 1.085307636343482,
+          "trait_adjustment": 0.04213585543910925,
+          "generalist_breadth": 0.3020657074285325,
+          "specialist_breadth": 0.11035697773483591,
+          "replacement_penalty": 0.9721627195295368
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.16546729926849496,
+          "sum_of_squares": {
+            "total": 11.954363003101042,
+            "starting_position": 1.858193932207453,
+            "community_realization": 6.694404091537662,
+            "starting_position_by_community_nonadditivity": 3.4017649793559235
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.15544064804836735,
+            "community_realization": 0.5599967216823757,
+            "starting_position_by_community_nonadditivity": 0.28456263026925677
+          },
+          "additive_sign_mismatch_cells": 30,
+          "additive_sign_mismatch_fraction": 0.05952380952380952,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 36,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.1661657391478708,
+          "generalist_fraction_shift": -0.1415416552482915,
+          "replacement_fraction_shift": 0.08352712259246181,
+          "partner_loss_multiplier": 0.7247633490170451,
+          "partner_arrival_multiplier": 0.6454025152999099,
+          "saturation": 1.6452863207419814,
+          "trait_adjustment": 0.03221092104281422,
+          "generalist_breadth": 0.4048201844013739,
+          "specialist_breadth": 0.18856185788781793,
+          "replacement_penalty": 0.8361512324398341
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.42857142857142855,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.026247278899809788,
+          "sum_of_squares": {
+            "total": 41.8267102234456,
+            "starting_position": 0.986146488167755,
+            "community_realization": 32.507079367541216,
+            "starting_position_by_community_nonadditivity": 8.333484367736634
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.02357695556020514,
+            "community_realization": 0.7771847031211088,
+            "starting_position_by_community_nonadditivity": 0.19923834131868615
+          },
+          "additive_sign_mismatch_cells": 83,
+          "additive_sign_mismatch_fraction": 0.16468253968253968,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 37,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.9873321203810088,
+          "generalist_fraction_shift": -0.10031360135227442,
+          "replacement_fraction_shift": -0.11802039507567688,
+          "partner_loss_multiplier": 1.0184363432867505,
+          "partner_arrival_multiplier": 0.8021074314151357,
+          "saturation": 2.356280174138246,
+          "trait_adjustment": 0.006377328726831402,
+          "generalist_breadth": 0.500353995356216,
+          "specialist_breadth": 0.17079635703039195,
+          "replacement_penalty": 0.7411060560685282
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.06592970897992222,
+          "sum_of_squares": {
+            "total": 69.08848005087442,
+            "starting_position": 0.3633305149248378,
+            "community_realization": 55.08694640943096,
+            "starting_position_by_community_nonadditivity": 13.638203126518631
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.005258916025613727,
+            "community_realization": 0.7973390986292764,
+            "starting_position_by_community_nonadditivity": 0.19740198534510991
+          },
+          "additive_sign_mismatch_cells": 83,
+          "additive_sign_mismatch_fraction": 0.16468253968253968,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 38,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.2222765399680058,
+          "generalist_fraction_shift": -0.04307163609515949,
+          "replacement_fraction_shift": 0.07410287374885974,
+          "partner_loss_multiplier": 1.3223256630679239,
+          "partner_arrival_multiplier": 0.7539664791939152,
+          "saturation": 1.7655323931792855,
+          "trait_adjustment": 0.049388654428829656,
+          "generalist_breadth": 0.48045066206854126,
+          "specialist_breadth": 0.19934898248330427,
+          "replacement_penalty": 0.9144467944533792
+        },
+        "classification": "all_negative_mean_geometry",
+        "negative_trait_grid_fraction": 1.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.12926201518541214,
+          "sum_of_squares": {
+            "total": 72.1056848566744,
+            "starting_position": 0.9540178742337102,
+            "community_realization": 67.55657518856277,
+            "starting_position_by_community_nonadditivity": 3.595091793877906
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.013230827446268993,
+            "community_realization": 0.9369105268585416,
+            "starting_position_by_community_nonadditivity": 0.04985864569518931
+          },
+          "additive_sign_mismatch_cells": 9,
+          "additive_sign_mismatch_fraction": 0.017857142857142856,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 39,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.8664805956281725,
+          "generalist_fraction_shift": 0.14152479447250388,
+          "replacement_fraction_shift": 0.00020386756646506576,
+          "partner_loss_multiplier": 0.554687380828305,
+          "partner_arrival_multiplier": 0.7007334954714387,
+          "saturation": 1.3367636203378492,
+          "trait_adjustment": 0.023315610727305,
+          "generalist_breadth": 0.46079082305074165,
+          "specialist_breadth": 0.20213141679447494,
+          "replacement_penalty": 0.9502943344215597
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.09012459303840484,
+          "sum_of_squares": {
+            "total": 6.780320954901397,
+            "starting_position": 0.7318309883366066,
+            "community_realization": 1.3818899107221347,
+            "starting_position_by_community_nonadditivity": 4.666600055842655
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.10793456433763308,
+            "community_realization": 0.20380892289813896,
+            "starting_position_by_community_nonadditivity": 0.6882565127642278
+          },
+          "additive_sign_mismatch_cells": 104,
+          "additive_sign_mismatch_fraction": 0.20634920634920634,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 40,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.074743883850672,
+          "generalist_fraction_shift": 0.07133068638536266,
+          "replacement_fraction_shift": -0.133423788590616,
+          "partner_loss_multiplier": 1.430486087318013,
+          "partner_arrival_multiplier": 1.2458482405500813,
+          "saturation": 1.9005713527681842,
+          "trait_adjustment": 0.014221588306986978,
+          "generalist_breadth": 0.38362821140546444,
+          "specialist_breadth": 0.162294885949881,
+          "replacement_penalty": 0.6990090506341685
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.14285714285714285,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.03963978595618455,
+          "sum_of_squares": {
+            "total": 31.457502146484995,
+            "starting_position": 0.6280935623643226,
+            "community_realization": 15.384124409917707,
+            "starting_position_by_community_nonadditivity": 15.445284174202962
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.019966415624468284,
+            "community_realization": 0.489044690779325,
+            "starting_position_by_community_nonadditivity": 0.4909888935962066
+          },
+          "additive_sign_mismatch_cells": 127,
+          "additive_sign_mismatch_fraction": 0.251984126984127,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 41,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.8539709246280718,
+          "generalist_fraction_shift": -0.07708465635802478,
+          "replacement_fraction_shift": 0.10639895536095931,
+          "partner_loss_multiplier": 0.9847694038506181,
+          "partner_arrival_multiplier": 1.3581996538110115,
+          "saturation": 1.0006482826478087,
+          "trait_adjustment": 1.810102502636954e-05,
+          "generalist_breadth": 0.31831488965716515,
+          "specialist_breadth": 0.14615540009011363,
+          "replacement_penalty": 0.7719012422961135
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.5238095238095238,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.0014801917377593784,
+          "sum_of_squares": {
+            "total": 12.579478013935772,
+            "starting_position": 0.12221784675903222,
+            "community_realization": 3.232547782219291,
+            "starting_position_by_community_nonadditivity": 9.224712384957447
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.009715653274614185,
+            "community_realization": 0.2569699457034876,
+            "starting_position_by_community_nonadditivity": 0.7333144010218982
+          },
+          "additive_sign_mismatch_cells": 143,
+          "additive_sign_mismatch_fraction": 0.2837301587301587,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 42,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.2422349536172592,
+          "generalist_fraction_shift": 0.1217387126583564,
+          "replacement_fraction_shift": 0.11452611840521196,
+          "partner_loss_multiplier": 1.3627114578586097,
+          "partner_arrival_multiplier": 1.398000729285033,
+          "saturation": 2.0391830587768407,
+          "trait_adjustment": 0.04538401660614935,
+          "generalist_breadth": 0.35199402727429174,
+          "specialist_breadth": 0.19213880218832802,
+          "replacement_penalty": 0.9390524674318894
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.13400970166278198,
+          "sum_of_squares": {
+            "total": 15.985270748971981,
+            "starting_position": 1.7914737548399935,
+            "community_realization": 3.763874548067973,
+            "starting_position_by_community_nonadditivity": 10.429922446064015
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.11207027913213193,
+            "community_realization": 0.23545891759825396,
+            "starting_position_by_community_nonadditivity": 0.6524708032696142
+          },
+          "additive_sign_mismatch_cells": 99,
+          "additive_sign_mismatch_fraction": 0.19642857142857142,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 43,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.3692394437270772,
+          "generalist_fraction_shift": -0.054246141341661586,
+          "replacement_fraction_shift": -0.05491005938880718,
+          "partner_loss_multiplier": 0.7456314661655831,
+          "partner_arrival_multiplier": 1.4727340088246783,
+          "saturation": 1.845533029818959,
+          "trait_adjustment": 0.008885105753414845,
+          "generalist_breadth": 0.527689748053713,
+          "specialist_breadth": 0.20662093953895744,
+          "replacement_penalty": 0.8759500636000375
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.05866214157631686,
+          "sum_of_squares": {
+            "total": 23.472792909006508,
+            "starting_position": 0.5683057070896453,
+            "community_realization": 13.998280093287525,
+            "starting_position_by_community_nonadditivity": 8.90620710862934
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.024211252120389413,
+            "community_realization": 0.5963619304934261,
+            "starting_position_by_community_nonadditivity": 0.37942681738618456
+          },
+          "additive_sign_mismatch_cells": 73,
+          "additive_sign_mismatch_fraction": 0.14484126984126985,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 44,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.6726188087946141,
+          "generalist_fraction_shift": -0.1260063944646938,
+          "replacement_fraction_shift": -0.09120266053640627,
+          "partner_loss_multiplier": 1.2888167074788672,
+          "partner_arrival_multiplier": 0.8326132374632624,
+          "saturation": 2.645087432923199,
+          "trait_adjustment": 0.038725887160822973,
+          "generalist_breadth": 0.3289294415453761,
+          "specialist_breadth": 0.12080018327354222,
+          "replacement_penalty": 0.7095058760781451
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.6666666666666666,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.005492097180347099,
+          "sum_of_squares": {
+            "total": 69.29968322776008,
+            "starting_position": 2.4769888116548815,
+            "community_realization": 57.73928631634057,
+            "starting_position_by_community_nonadditivity": 9.083408099764625
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.03574314767809283,
+            "community_realization": 0.8331825432242574,
+            "starting_position_by_community_nonadditivity": 0.13107430909764956
+          },
+          "additive_sign_mismatch_cells": 55,
+          "additive_sign_mismatch_fraction": 0.10912698412698413,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 45,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.5674428607463041,
+          "generalist_fraction_shift": 0.03093955008258767,
+          "replacement_fraction_shift": -0.06725092631289742,
+          "partner_loss_multiplier": 0.8642178525616031,
+          "partner_arrival_multiplier": 1.097721618237173,
+          "saturation": 1.482257763136628,
+          "trait_adjustment": 0.022254849495842572,
+          "generalist_breadth": 0.5230206545366951,
+          "specialist_breadth": 0.10456479048146096,
+          "replacement_penalty": 0.8256118357093354
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.08757061946912982,
+          "sum_of_squares": {
+            "total": 18.717670113979075,
+            "starting_position": 0.5466340520825627,
+            "community_realization": 14.447495404877047,
+            "starting_position_by_community_nonadditivity": 3.7235406570194662
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.029204171713354182,
+            "community_realization": 0.7718639829049612,
+            "starting_position_by_community_nonadditivity": 0.1989318453816847
+          },
+          "additive_sign_mismatch_cells": 60,
+          "additive_sign_mismatch_fraction": 0.11904761904761904,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 46,
+        "parameters": {
+          "trait_dispersion_multiplier": 0.7297839467330659,
+          "generalist_fraction_shift": -0.11179925290638498,
+          "replacement_fraction_shift": 0.012748820455189463,
+          "partner_loss_multiplier": 0.8107134074377029,
+          "partner_arrival_multiplier": 1.0017422132163798,
+          "saturation": 1.063225315515756,
+          "trait_adjustment": 0.03550228155954525,
+          "generalist_breadth": 0.5097399217825375,
+          "specialist_breadth": 0.142001281718023,
+          "replacement_penalty": 0.9261287152125484
+        },
+        "classification": "all_positive_mean_geometry",
+        "negative_trait_grid_fraction": 0.0,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": 0.16027495647375137,
+          "sum_of_squares": {
+            "total": 6.434827795982226,
+            "starting_position": 1.002967234311302,
+            "community_realization": 2.8531343501701274,
+            "starting_position_by_community_nonadditivity": 2.578726211500797
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.15586543511506776,
+            "community_realization": 0.44338938672944217,
+            "starting_position_by_community_nonadditivity": 0.4007451781554901
+          },
+          "additive_sign_mismatch_cells": 35,
+          "additive_sign_mismatch_fraction": 0.06944444444444445,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      },
+      {
+        "point_index": 47,
+        "parameters": {
+          "trait_dispersion_multiplier": 1.3096056290335416,
+          "generalist_fraction_shift": 0.04892342193810112,
+          "replacement_fraction_shift": 0.04801249267277413,
+          "partner_loss_multiplier": 1.4918702155896728,
+          "partner_arrival_multiplier": 1.1717404021028566,
+          "saturation": 2.7563622671190178,
+          "trait_adjustment": 0.054260094653680306,
+          "generalist_breadth": 0.4517758516350595,
+          "specialist_breadth": 0.17509507540924676,
+          "replacement_penalty": 0.9094222018328877
+        },
+        "classification": "mixed_mean_geometry",
+        "negative_trait_grid_fraction": 0.8571428571428571,
+        "decomposition": {
+          "shape": {
+            "starting_positions": 21,
+            "community_realizations": 24
+          },
+          "grand_mean_delta_service": -0.05352689209098533,
+          "sum_of_squares": {
+            "total": 66.45641786757007,
+            "starting_position": 1.4680510611279642,
+            "community_realization": 56.50009150566365,
+            "starting_position_by_community_nonadditivity": 8.488275300778454
+          },
+          "sum_of_squares_fraction": {
+            "starting_position": 0.022090433222768626,
+            "community_realization": 0.8501826207102116,
+            "starting_position_by_community_nonadditivity": 0.12772694606701981
+          },
+          "additive_sign_mismatch_cells": 80,
+          "additive_sign_mismatch_fraction": 0.15873015873015872,
+          "interpretation_boundary": "The non-additive remainder contains starting-position-by-community contingency plus cell-level simulation variation because the fixed design has one value per cell."
+        }
+      }
+    ],
+    "joint_summary_by_regime": {
+      "all_positive_mean_geometry": {
+        "points": 22,
+        "starting_position_ss_fraction": {
+          "median": 0.057402411803589286,
+          "range": [
+            0.004614291678048565,
+            0.17682517797557665
+          ]
+        },
+        "community_realization_ss_fraction": {
+          "median": 0.5825727181819349,
+          "range": [
+            0.20380892289813896,
+            0.8922670445084007
+          ]
+        },
+        "nonadditive_ss_fraction": {
+          "median": 0.35955350054229446,
+          "range": [
+            0.09862467277789068,
+            0.6882565127642278
+          ]
+        },
+        "additive_sign_mismatch_fraction": {
+          "median": 0.13591269841269843,
+          "range": [
+            0.03373015873015873,
+            0.2400793650793651
+          ]
+        }
+      },
+      "mixed_mean_geometry": {
+        "points": 16,
+        "starting_position_ss_fraction": {
+          "median": 0.022833694391486883,
+          "range": [
+            0.005990452364166207,
+            0.09366090179844375
+          ]
+        },
+        "community_realization_ss_fraction": {
+          "median": 0.7786300341803556,
+          "range": [
+            0.2569699457034876,
+            0.8815676920420652
+          ]
+        },
+        "nonadditive_ss_fraction": {
+          "median": 0.19961682189772328,
+          "range": [
+            0.08555157740597664,
+            0.7333144010218982
+          ]
+        },
+        "additive_sign_mismatch_fraction": {
+          "median": 0.18055555555555555,
+          "range": [
+            0.08928571428571429,
+            0.2837301587301587
+          ]
+        }
+      },
+      "all_negative_mean_geometry": {
+        "points": 10,
+        "starting_position_ss_fraction": {
+          "median": 0.017245899991571195,
+          "range": [
+            0.005258916025613727,
+            0.03289323756994033
+          ]
+        },
+        "community_realization_ss_fraction": {
+          "median": 0.8546563210045445,
+          "range": [
+            0.7249234015926566,
+            0.9369105268585416
+          ]
+        },
+        "nonadditive_ss_fraction": {
+          "median": 0.1202481526580357,
+          "range": [
+            0.04985864569518931,
+            0.2679626567730104
+          ]
+        },
+        "additive_sign_mismatch_fraction": {
+          "median": 0.11607142857142858,
+          "range": [
+            0.017857142857142856,
+            0.25793650793650796
+          ]
+        }
+      }
+    },
+    "claim_boundary": "Variance shares and sign mismatch describe the fixed synthetic ensemble. They do not estimate an empirical interaction or its natural frequency."
+  },
+  "local_filtering_directionality": {
+    "baseline_sign_denominators": {
+      "negative": 268,
+      "zero": 0,
+      "positive": 596,
+      "total": 864
+    },
+    "by_strength": {
+      "0.0": {
+        "transition_table": {
+          "-1": {
+            "-1": 268,
+            "0": 0,
+            "1": 0
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 0,
+            "0": 0,
+            "1": 596
+          }
+        },
+        "any_sign_change": 0,
+        "negative_to_nonnegative": 0,
+        "positive_to_nonpositive": 0,
+        "negative_to_nonnegative_rate_among_baseline_negative": 0.0,
+        "positive_to_nonpositive_rate_among_baseline_positive": 0.0,
+        "directional_rate_difference_negative_rescue_minus_positive_loss": 0.0
+      },
+      "0.1": {
+        "transition_table": {
+          "-1": {
+            "-1": 243,
+            "0": 0,
+            "1": 25
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 89,
+            "0": 0,
+            "1": 507
+          }
+        },
+        "any_sign_change": 114,
+        "negative_to_nonnegative": 25,
+        "positive_to_nonpositive": 89,
+        "negative_to_nonnegative_rate_among_baseline_negative": 0.09328358208955224,
+        "positive_to_nonpositive_rate_among_baseline_positive": 0.1493288590604027,
+        "directional_rate_difference_negative_rescue_minus_positive_loss": -0.05604527697085045
+      },
+      "0.25": {
+        "transition_table": {
+          "-1": {
+            "-1": 227,
+            "0": 0,
+            "1": 41
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 223,
+            "0": 6,
+            "1": 367
+          }
+        },
+        "any_sign_change": 270,
+        "negative_to_nonnegative": 41,
+        "positive_to_nonpositive": 229,
+        "negative_to_nonnegative_rate_among_baseline_negative": 0.15298507462686567,
+        "positive_to_nonpositive_rate_among_baseline_positive": 0.38422818791946306,
+        "directional_rate_difference_negative_rescue_minus_positive_loss": -0.2312431132925974
+      },
+      "0.4": {
+        "transition_table": {
+          "-1": {
+            "-1": 226,
+            "0": 7,
+            "1": 35
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 320,
+            "0": 17,
+            "1": 259
+          }
+        },
+        "any_sign_change": 379,
+        "negative_to_nonnegative": 42,
+        "positive_to_nonpositive": 337,
+        "negative_to_nonnegative_rate_among_baseline_negative": 0.15671641791044777,
+        "positive_to_nonpositive_rate_among_baseline_positive": 0.5654362416107382,
+        "directional_rate_difference_negative_rescue_minus_positive_loss": -0.4087198237002905
+      },
+      "0.5": {
+        "transition_table": {
+          "-1": {
+            "-1": 236,
+            "0": 11,
+            "1": 21
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 344,
+            "0": 40,
+            "1": 212
+          }
+        },
+        "any_sign_change": 416,
+        "negative_to_nonnegative": 32,
+        "positive_to_nonpositive": 384,
+        "negative_to_nonnegative_rate_among_baseline_negative": 0.11940298507462686,
+        "positive_to_nonpositive_rate_among_baseline_positive": 0.6442953020134228,
+        "directional_rate_difference_negative_rescue_minus_positive_loss": -0.5248923169387959
+      },
+      "0.6": {
+        "transition_table": {
+          "-1": {
+            "-1": 221,
+            "0": 27,
+            "1": 20
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 373,
+            "0": 86,
+            "1": 137
+          }
+        },
+        "any_sign_change": 506,
+        "negative_to_nonnegative": 47,
+        "positive_to_nonpositive": 459,
+        "negative_to_nonnegative_rate_among_baseline_negative": 0.17537313432835822,
+        "positive_to_nonpositive_rate_among_baseline_positive": 0.7701342281879194,
+        "directional_rate_difference_negative_rescue_minus_positive_loss": -0.5947610938595612
+      },
+      "0.75": {
+        "transition_table": {
+          "-1": {
+            "-1": 136,
+            "0": 117,
+            "1": 15
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 230,
+            "0": 273,
+            "1": 93
+          }
+        },
+        "any_sign_change": 635,
+        "negative_to_nonnegative": 132,
+        "positive_to_nonpositive": 503,
+        "negative_to_nonnegative_rate_among_baseline_negative": 0.4925373134328358,
+        "positive_to_nonpositive_rate_among_baseline_positive": 0.8439597315436241,
+        "directional_rate_difference_negative_rescue_minus_positive_loss": -0.35142241811078834
+      }
+    },
+    "first_sign_change_by_baseline_sign": {
+      "negative": {
+        "contrasts_with_any_sign_change": 166,
+        "median_first_sign_change_strength": 0.6,
+        "counts_by_first_strength": {
+          "0.1": 25,
+          "0.25": 22,
+          "0.4": 16,
+          "0.5": 9,
+          "0.6": 21,
+          "0.75": 73
+        }
+      },
+      "zero": {
+        "contrasts_with_any_sign_change": 0,
+        "median_first_sign_change_strength": null,
+        "counts_by_first_strength": {
+          "0.1": 0,
+          "0.25": 0,
+          "0.4": 0,
+          "0.5": 0,
+          "0.6": 0,
+          "0.75": 0
+        }
+      },
+      "positive": {
+        "contrasts_with_any_sign_change": 571,
+        "median_first_sign_change_strength": 0.4,
+        "counts_by_first_strength": {
+          "0.1": 89,
+          "0.25": 153,
+          "0.4": 139,
+          "0.5": 69,
+          "0.6": 70,
+          "0.75": 51
+        }
+      }
+    },
+    "claim_boundary": "Rates enumerate the fixed synthetic lineage contrasts. They are not estimates from independent biological replicates and no inferential p-values are attached."
+  },
+  "scope": {
+    "how": "The diagnostics trace how matching geometry and local filtering allocate response sign.",
+    "proximal_why": "They identify which declared model dimensions accompany sign-regime change and how starting position combines non-additively with realized community state.",
+    "ultimate_why": "Not tested: the analyses do not explain why an island biota, starting state or local community formed."
+  },
+  "claim_boundary": "All results are frozen synthetic design diagnostics. No seed, parameter range, grid, replicate count, model rule or threshold was changed, and no design frequency is a natural prevalence estimate."
+}

@@ -6,7 +6,7 @@ Updated: 2026-08-27
 
 The Chapter 2 **scientific model reassessment is complete**, and the model-side route is now a **Research Article candidate centered on conditional response geometry**.
 
-The Chapter 2 Research Article is **not yet submission-ready**. The reason has changed: response-geometry / robustness is no longer the blocker. The remaining work is manuscript reassembly and claim/evidence alignment.
+The Chapter 2 Research Article is **scientifically assembled but not yet submission-ready**. Response geometry, conditional-WHY diagnostics, claim/evidence alignment, figures and tables are complete. Actual submission remains blocked by author-supplied identity metadata and declarations, followed by a successful fail-closed bundle build.
 
 The controlling documents are now:
 
@@ -14,7 +14,10 @@ The controlling documents are now:
 - `data/design/active_development_mainline.json` for executable programme state;
 - `data/design/manuscript_reassessment_gate_20260826.json` for the Chapter 2 manuscript gate;
 - `docs/CHAPTER2_SCIENTIFIC_GATE_RUN_20260827.md` for the completed model reassessment;
-- `docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md` for the manuscript restart boundary.
+- `docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md` for the manuscript restart boundary;
+- `docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md` for the cross-chapter claim audit;
+- `data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json` for the added fixed-design diagnostics;
+- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md` for the active manuscript.
 
 Historical Journal of Ecology drafts remain provenance only and must not be submitted or hand-repaired as the active manuscript.
 
@@ -26,6 +29,9 @@ The recovery route specified after the 2026-08-26 critique has now been executed
 - Joint parameter design: 16 of 48 fixed Latin-hypercube points showed mixed mean response geometry, while 22 were all-positive and 10 all-negative.
 - Local context: 737 lineage contrasts showed at least one sign change across the declared filtering envelope; median first sign-change strength was 0.40.
 - Autonomous assurance: among 580 eligible baseline declines, no sign rescue occurred from 0.5× through 4×; upstream effective service remained invariant. Assurance therefore remains a magnitude attenuator rather than a sign-rescue branch.
+- Fixed-surface regime diagnostic: the additive 10-parameter model explains 61.10% of fixed-design variation in negative trait-grid fraction. Partner loss and arrival are the largest signed coefficients; regime contrasts also implicate saturation, trait adjustment and replacement penalty. This is boundary diagnosis within the declared design, not causal parameter selection.
+- Starting-position × community decomposition: community realization accounts for 80.17% of baseline total sum of squares, the non-additive remainder for 17.64%, and starting position for 2.18%. The one-observation-per-cell remainder combines interaction and simulation noise.
+- Filtering directionality: sign changes are bidirectional but asymmetric. At every non-zero filtering strength, positive baselines cross to non-positive more often than negative baselines cross to non-negative.
 
 These are synthetic robustness and sensitivity results. They are not ecological prevalence estimates or empirically calibrated thresholds.
 
@@ -55,23 +61,25 @@ Retain the distinction between magnitude buffering and sign rescue. The 0–4× 
 
 The 13 systems remain comparative grounding only. `11/11 covered` is not validation of generality; Dominica remains a failed more-specific signed-position projection.
 
-## Required before submission
+## Chapter connection and claim ceiling
 
-The response-geometry scientific blocker is closed. Before any submission bundle can be promoted, a new active manuscript must be regenerated from current canonical state and must:
+Chapter 1 establishes where contrasting island states and response vectors are observed. Chapter 2 asks how a common broad perturbation can propagate differently across already-established lineages and why those responses differ conditionally.
 
-1. expose the model equations and parameter values, distinguishing generic sensitivity choices from empirically motivated directions;
-2. report design counts/fractions as synthetic robustness descriptors rather than natural prevalence;
-3. replace beneficial-support wording with local-context / availability-filtering semantics;
-4. state explicitly that assurance produced no sign rescue through 4× and is retained as magnitude attenuation;
-5. remove workflow/debug/import-path/seed-search prose from scientific Methods;
-6. remove H5 state coverage as validation and retain external systems only as ecological grounding/boundaries;
-7. resolve uncited Lord (2015) and Méndez (2025) references;
-8. reconcile every empirical statement with `docs/CURRENT_EVIDENCE_STATE.md` and the active development mainline.
+- **HOW:** matching, local filtering and reproduction form the propagation architecture.
+- **Proximal WHY:** the realized consequence depends on starting functional position, community realization and local filtering.
+- **Ultimate WHY:** not answered here. Chapter 2 does not explain why a regional species pool, island interaction environment or lineage starting state arose, and no Chapter 1 region is assigned to a Chapter 2 synthetic regime.
+
+## Required before actual submission
+
+1. Supply final author order, affiliations, corresponding-author details and optional ORCIDs.
+2. Supply acknowledgements, funding, author contributions, inclusion statement and conflict-of-interest text.
+3. Approve the explicit submission declarations.
+4. Run the submission builder successfully and retain its validation report.
 
 ## Submission builder status
 
-The submission bundle machinery should continue to **fail closed**. `data/design/manuscript_reassessment_gate_20260826.json` now records `scientific_reassessment_complete_manuscript_reassembly_required`: the Research Article route is scientifically reopened, but no historical draft is automatically promoted to an active submission surface.
+The submission bundle machinery continues to **fail closed**, now against the active post-reassessment manuscript, frozen scientific identities and author-supplied metadata. The historical reassessment gate remains provenance; it does not route historical drafts into the current package.
 
 ## Fallback
 
-If a clean reassembly cannot sustain a focused Research Article without importing blocked empirical claims, use the three-layer island-syndrome decomposition as a conceptual Review/Mini-review rather than weakening the evidence boundary.
+If later editorial revision would require blocked empirical or ultimate-WHY claims, retain the present conditional claim ceiling rather than promoting synthetic design frequencies or comparative examples into field validation.

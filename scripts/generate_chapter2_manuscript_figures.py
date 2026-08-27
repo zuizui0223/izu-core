@@ -17,6 +17,7 @@ from scripts.run_response_geometry_realization_stability import realization_stab
 
 PHASE12 = ROOT / "data/results/chapter2_phase12_fixed_gate_summary_20260827.json"
 PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json"
+WHY_DIAGNOSTICS = ROOT / "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json"
 OUT_DIR = ROOT / "figures/chapter2"
 FIG_INPUTS = ROOT / "data/results/chapter2_manuscript_figure_inputs_20260827.json"
 SEED = 20260826
@@ -150,9 +151,81 @@ def _fig4b_assurance(phase3: dict) -> Path:
     return path
 
 
+def _figs2_conditional_why(why: dict) -> Path:
+    """Render three compact comparisons from the frozen diagnostic result."""
+    coefficients = why["regime_boundary_driver_diagnostics"]["additive_ols"]["coefficients"]
+    decomposition = why["starting_position_by_community_realization"]["baseline"]
+    filtering = why["local_filtering_directionality"]
+
+    blue = "#3B5B92"
+    blue_mid = "#7895C2"
+    blue_light = "#B8C8E2"
+    orange = "#D9822B"
+    ink = "#252A31"
+    fig, axes = plt.subplots(1, 3, figsize=(14.5, 5.4))
+
+    coefficient_rows = list(reversed(coefficients))
+    coefficient_values = [row["coefficient_over_full_declared_range"] for row in coefficient_rows]
+    axes[0].barh(
+        [row["parameter"].replace("_", " ") for row in coefficient_rows],
+        coefficient_values,
+        color=[orange if value > 0 else blue for value in coefficient_values],
+    )
+    axes[0].axvline(0.0, color=ink, linewidth=0.8)
+    axes[0].set_xlabel("Coefficient over declared range")
+    axes[0].set_title("A  Fixed-surface associations\n48 joint-design points", loc="left")
+
+    fractions = decomposition["sum_of_squares_fraction"]
+    labels = ["Starting\nposition", "Community\nrealization", "Non-additive\nremainder"]
+    values = [
+        fractions["starting_position"],
+        fractions["community_realization"],
+        fractions["starting_position_by_community_nonadditivity"],
+    ]
+    axes[1].bar(labels, values, color=[blue_light, blue, blue_mid], edgecolor=ink, linewidth=0.5)
+    axes[1].set_ylim(0.0, 1.0)
+    axes[1].set_ylabel("Fraction of total sum of squares")
+    axes[1].set_title("B  Response decomposition\n21 positions × 96 communities", loc="left")
+
+    strengths = [float(value) for value in filtering["by_strength"]]
+    rows = [filtering["by_strength"][str(value)] for value in strengths]
+    axes[2].plot(
+        strengths,
+        [row["negative_to_nonnegative_rate_among_baseline_negative"] for row in rows],
+        marker="o",
+        color=blue,
+        linestyle="-",
+        label="Negative → non-negative",
+    )
+    axes[2].plot(
+        strengths,
+        [row["positive_to_nonpositive_rate_among_baseline_positive"] for row in rows],
+        marker="s",
+        color=orange,
+        linestyle="--",
+        label="Positive → non-positive",
+    )
+    axes[2].set_ylim(-0.03, 1.03)
+    axes[2].set_xlabel("Local filtering strength")
+    axes[2].set_ylabel("Conditional transition rate")
+    axes[2].set_title("C  Directional branch reallocation\nBaseline n = 268 negative; 596 positive", loc="left")
+    axes[2].legend(frameon=False, fontsize=8)
+
+    fig.suptitle("Conditional response diagnostics", color=ink, fontsize=14, x=0.01, ha="left")
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    path = OUT_DIR / "figS2_conditional_why_diagnostics.svg"
+    fig.savefig(path)
+    fig.savefig(path.with_suffix(".png"), dpi=160)
+    plt.close(fig)
+    return path
+
+
 def build_figures() -> dict:
     phase12 = _load(PHASE12)
     phase3 = _load(PHASE3)
+    why = _load(WHY_DIAGNOSTICS)
+    if not all(why["frozen_identity_checks"].values()):
+        raise RuntimeError("conditional-WHY diagnostics did not pass frozen identity checks")
     baseline = realization_stability(BASE, replicates=96, seed=SEED)
     joint = build_joint_surface(points=48, replicates=24, seed=SEED)
     _assert_frozen_identity(baseline, joint, phase12)
@@ -162,17 +235,23 @@ def build_figures() -> dict:
         _fig3_joint_regime_map(joint),
         _fig4a_local_context(phase3),
         _fig4b_assurance(phase3),
+        _figs2_conditional_why(why),
     ]
     payload = {
         "schema_version": "1.0",
         "updated_on": "2026-08-27",
         "status": "deterministic_manuscript_figure_inputs_regenerated",
         "seed": SEED,
-        "source_results": [str(PHASE12.relative_to(ROOT)), str(PHASE3.relative_to(ROOT))],
+        "source_results": [
+            PHASE12.relative_to(ROOT).as_posix(),
+            PHASE3.relative_to(ROOT).as_posix(),
+            WHY_DIAGNOSTICS.relative_to(ROOT).as_posix(),
+        ],
         "baseline_response_geometry": baseline,
         "joint_transition_surface": joint,
         "context_assurance_thresholds": phase3,
-        "figure_outputs": [str(path.relative_to(ROOT)) for path in outputs],
+        "conditional_why_diagnostics": why,
+        "figure_outputs": [path.relative_to(ROOT).as_posix() for path in outputs],
         "claim_boundary": "Figures display frozen synthetic response geometry and sensitivity results. They do not estimate natural ecological prevalence or empirical trait/filtering thresholds.",
     }
     FIG_INPUTS.parent.mkdir(parents=True, exist_ok=True)

@@ -76,6 +76,23 @@ Any sign change across the declared envelope: **737 lineage contrasts**. Median 
 
 Eligible baseline declines: **580**. Sign rescues anywhere through 4×: **0**. Upstream effective-service mismatches: **0**.
 
+## Table 4. Conditional-WHY diagnostics from the unchanged frozen design
+
+| Diagnostic | Result | Interpretation boundary |
+|---|---:|---|
+| Additive 10-parameter model `R²` | 0.611 | descriptive fit to 48 fixed design points |
+| Leave-one-point-out RMSE | 0.329 | substantial predictive error; not a precise classifier |
+| Partner-loss full-range coefficient | +0.634 | association with negative trait-grid fraction |
+| Partner-arrival full-range coefficient | -0.626 | association with negative trait-grid fraction |
+| Starting-position SS fraction | 2.2% | baseline 21 × 96 synthetic matrix |
+| Community-realization SS fraction | 80.2% | baseline 21 × 96 synthetic matrix |
+| Non-additive SS fraction | 17.6% | includes cell-level simulation variation |
+| Additive-sign mismatch | 271 of 2016 (13.4%) | state-by-realization contingency diagnostic |
+| Baseline filtering signs | 268 negative; 596 positive | fixed 864-contrast enumeration |
+| Strength 0.40: negative → non-negative | 15.7% | denominator is 268 baseline-negative contrasts |
+| Strength 0.40: positive → non-positive | 56.5% | denominator is 596 baseline-positive contrasts |
+| Median first change, baseline negative / positive | 0.60 / 0.40 | synthetic filtering strengths, not field thresholds |
+
 ## Interpretation boundary
 
-Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. None is an estimate of natural prevalence or an empirically identified island threshold.
+Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen design. None is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold.

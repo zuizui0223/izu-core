@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PHASE12 = ROOT / "data/results/chapter2_phase12_fixed_gate_summary_20260827.json"
 PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json"
+WHY_DIAGNOSTICS = ROOT / "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json"
 OUT = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md"
 
 BASELINE_ROWS = [
@@ -44,6 +45,7 @@ def pct(x: float) -> str:
 def build() -> str:
     p12 = load(PHASE12)
     p3 = load(PHASE3)
+    why = load(WHY_DIAGNOSTICS)
     rg = p12["response_geometry"]
     jt = p12["joint_transition_surface"]
     cm = p3["context_map"]
@@ -61,6 +63,14 @@ def build() -> str:
     assert am["eligible_baseline_declines"] == 580
     assert am["lineages_with_any_sign_rescue"] == 0
     assert am["upstream_service_mismatch_count"] == 0
+    assert all(why["frozen_identity_checks"].values())
+
+    driver = why["regime_boundary_driver_diagnostics"]["additive_ols"]
+    coefficients = {row["parameter"]: row for row in driver["coefficients"]}
+    decomposition = why["starting_position_by_community_realization"]["baseline"]
+    filtering = why["local_filtering_directionality"]
+    filtering_040 = filtering["by_strength"]["0.4"]
+    first_changes = filtering["first_sign_change_by_baseline_sign"]
 
     lines: list[str] = []
     lines += [
@@ -128,9 +138,26 @@ def build() -> str:
         "",
         f"Eligible baseline declines: **{am['eligible_baseline_declines']}**. Sign rescues anywhere through 4×: **{am['lineages_with_any_sign_rescue']}**. Upstream effective-service mismatches: **{am['upstream_service_mismatch_count']}**.",
         "",
+        "## Table 4. Conditional-WHY diagnostics from the unchanged frozen design",
+        "",
+        "| Diagnostic | Result | Interpretation boundary |",
+        "|---|---:|---|",
+        f"| Additive 10-parameter model `R²` | {driver['r_squared']:.3f} | descriptive fit to 48 fixed design points |",
+        f"| Leave-one-point-out RMSE | {driver['leave_one_point_out_rmse']:.3f} | substantial predictive error; not a precise classifier |",
+        f"| Partner-loss full-range coefficient | {coefficients['partner_loss_multiplier']['coefficient_over_full_declared_range']:+.3f} | association with negative trait-grid fraction |",
+        f"| Partner-arrival full-range coefficient | {coefficients['partner_arrival_multiplier']['coefficient_over_full_declared_range']:+.3f} | association with negative trait-grid fraction |",
+        f"| Starting-position SS fraction | {pct(decomposition['sum_of_squares_fraction']['starting_position'])} | baseline 21 × 96 synthetic matrix |",
+        f"| Community-realization SS fraction | {pct(decomposition['sum_of_squares_fraction']['community_realization'])} | baseline 21 × 96 synthetic matrix |",
+        f"| Non-additive SS fraction | {pct(decomposition['sum_of_squares_fraction']['starting_position_by_community_nonadditivity'])} | includes cell-level simulation variation |",
+        f"| Additive-sign mismatch | {decomposition['additive_sign_mismatch_cells']} of 2016 ({pct(decomposition['additive_sign_mismatch_fraction'])}) | state-by-realization contingency diagnostic |",
+        f"| Baseline filtering signs | {filtering['baseline_sign_denominators']['negative']} negative; {filtering['baseline_sign_denominators']['positive']} positive | fixed 864-contrast enumeration |",
+        f"| Strength 0.40: negative → non-negative | {pct(filtering_040['negative_to_nonnegative_rate_among_baseline_negative'])} | denominator is 268 baseline-negative contrasts |",
+        f"| Strength 0.40: positive → non-positive | {pct(filtering_040['positive_to_nonpositive_rate_among_baseline_positive'])} | denominator is 596 baseline-positive contrasts |",
+        f"| Median first change, baseline negative / positive | {first_changes['negative']['median_first_sign_change_strength']:.2f} / {first_changes['positive']['median_first_sign_change_strength']:.2f} | synthetic filtering strengths, not field thresholds |",
+        "",
         "## Interpretation boundary",
         "",
-        "Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. None is an estimate of natural prevalence or an empirically identified island threshold.",
+        "Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen design. None is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold.",
         "",
     ]
     return "\n".join(lines)
