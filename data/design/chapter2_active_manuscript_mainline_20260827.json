@@ -1,13 +1,14 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "updated_on": "2026-08-27",
   "scope": "chapter2_research_article_only",
   "status": "active_working_manuscript_reassembly",
   "parent_programme_mainline": "data/design/active_development_mainline.json",
   "supersession_rule": "For Chapter 2 manuscript claims, this file supersedes older active_development_mainline fields that label v12 initial-position heterogeneity as a replicated minimal generator. It does not alter the broader comparative programme or its empirical admission gates.",
   "research_article_route": "conditional_response_geometry",
+  "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_20260827.md",
   "submission_ready": false,
-  "primary_question": "Under what combinations of plant starting functional position, pollinator-community reorganization and realized local interaction context does an island-minus-mainland post-establishment response change sign?",
+  "primary_question": "Why need not a common island-like pollinator reorganization produce one post-establishment plant response, and how do partner turnover, starting functional state, realized community and local filtering allocate response sign?",
   "primary_model_result": {
     "matched_pollinator_community_realizations": 96,
     "mixed_sign_realizations": 41,
@@ -15,7 +16,7 @@
     "all_negative_realizations": 13,
     "mean_geometry": "mixed_sign_nonmonotonic",
     "mean_sign_switch_intervals": [[0.30, 0.35], [0.65, 0.70]],
-    "interpretation": "starting functional position conditions response sign; initial-position heterogeneity is not promoted as a universal minimal ecological generator"
+    "interpretation": "starting functional position organizes the mean sign boundary but does not determine cell-level response alone; realized community state and state-by-community non-additivity are part of the active explanation"
   },
   "joint_robustness": {
     "latin_hypercube_points": 48,
@@ -24,7 +25,7 @@
     "mixed_mean_geometry_points": 16,
     "all_positive_mean_geometry_points": 22,
     "all_negative_mean_geometry_points": 10,
-    "interpretation": "mixed geometry occupies a substantial declared design region but is not universal; design-space frequencies are not ecological prevalence"
+    "interpretation": "mixed geometry occupies a substantial declared design region but is not universal; coexistence of mixed and one-direction regimes is part of the result; design-space frequencies are not ecological prevalence"
   },
   "conditional_why_diagnostics": {
     "design": "unchanged_frozen_phase1_to_phase3_design",
@@ -40,7 +41,7 @@
       "starting_position_by_community_nonadditivity": 0.17642957676987792
     },
     "baseline_additive_sign_mismatch_fraction": 0.13442460317460317,
-    "interpretation": "starting position organizes the mean sign boundary, while realized community state dominates cell-level variation and combines non-additively with starting position; driver coefficients are fixed-design associations rather than causal effects"
+    "interpretation": "partner turnover accompanies regime movement; starting position organizes mean geometry; realized community dominates cell-level variation and combines non-additively with starting position; driver coefficients are fixed-design associations rather than causal effects"
   },
   "local_context": {
     "semantic_label": "local_availability_or_interaction_filtering",
@@ -64,11 +65,13 @@
     "post_establishment_interaction_response": "primary_simulation_scope"
   },
   "how_why_scope": {
-    "how": "directly represented matching_to_service_to_local_filtering_to_reproduction architecture",
-    "proximal_why": "model-conditional turnover balance plus starting-position-by-community contingency",
+    "how": "directly represented partner_turnover_to_matching_to_service_to_local_filtering_to_reproduction architecture",
+    "proximal_why": "model-conditional turnover-dependent regime plus starting-state-by-realized-community contingency and asymmetric local branch allocation",
     "ultimate_why": "not tested; assembly colonization persistence and evolutionary history remain outside the simulation"
   },
-  "external_system_role": "comparative_grounding_and_boundary_examples_not_validation_coverage",
+  "external_system_role": "broad_comparison_for_grounding_falsification_and_boundary_examples_not_validation_coverage",
+  "izu_role": "deep_empirical_mechanistic_anchor_not_exchangeable_replication_unit",
+  "chapter3_handoff": "focal phenotype is a coordinated size/investment trajectory plus selected departures beyond common allometry; Chapter 3 does not identify the historical mechanism",
   "empirical_admission_state": {
     "canonical_source": "docs/CURRENT_EVIDENCE_STATE.md",
     "formal_cross_system_mechanism_fit_ready": false,
@@ -78,6 +81,7 @@
   },
   "claims_prohibited": [
     "replicated_minimal_generator_as_general_ecological_discovery",
+    "starting_position_alone_as_universal_response_determinant",
     "11_of_11_external_state_coverage_as_validation",
     "synthetic_design_frequencies_as_natural_prevalence",
     "support_strength_0_40_as_empirical_ecological_threshold",
@@ -86,8 +90,9 @@
     "historical_bombus_loss_as_causally_identified",
     "general_izu_flora_rule",
     "chapter1_regional_vectors_assigned_to_chapter2_parameter_regimes",
+    "chapter3_phenotype_as_historical_mechanism_identification",
     "ultimate_history_or_assembly_explanation"
   ],
   "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
-  "next_manuscript_gate": "audit_the_new_active_draft_against_current_evidence_state_model_equations_parameterization_reference_hygiene_and_submission_builder_fail_closed_contract"
+  "next_manuscript_gate": "keep active manuscript and submission surfaces synchronized to the canonical conditional-response story without changing frozen numerical results or empirical claim ceilings"
 }

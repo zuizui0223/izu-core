@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.1",
+  "schema_version": "3.2",
   "updated_on": "2026-08-27",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
@@ -11,12 +11,15 @@
   "paper_scope_independent_of_external_research_programmes": true,
   "current_manuscript_artifacts": {
     "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
+    "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_20260827.md",
+    "thesis_positioning": "THESIS_CHAPTER_POSITIONING.md",
     "supporting_information": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
     "reference_ledger": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "tables": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "model_specification": "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
     "conditional_why_audit": "docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md",
     "conditional_why_result": "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
+    "comparative_universe": "docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md",
     "figure_generator": "scripts/generate_chapter2_manuscript_figures.py",
     "table_generator": "scripts/generate_chapter2_manuscript_tables.py",
     "status": "active_reassembled_manuscript_surface"
@@ -40,8 +43,21 @@
     "H4": "magnitude_attenuation_without_sign_rescue_in_declared_envelope",
     "H5": "comparative_grounding_not_validation_coverage"
   },
+  "story_contract": {
+    "chapter1": "when_where_filtering_is_detectable_and_regional_response_vectors_differ",
+    "chapter2": "how_plus_model_conditional_proximal_why_for_nonuniform_post_establishment_response",
+    "regime": "partner_turnover_balance",
+    "mean_geometry": "starting_functional_state",
+    "cell_level_realization": "realized_community_plus_nonadditivity",
+    "local_context": "directionally_asymmetric_branch_reallocation",
+    "assurance": "magnitude_attenuation_without_sign_rescue",
+    "ultimate_why": "assembly_colonization_persistence_and_history_outside_model",
+    "chapter3": "coordinated_size_investment_trajectory_plus_selected_departures_beyond_common_allometry"
+  },
   "external_system_role": {
-    "role": "comparative_grounding_and_boundary_examples_not_validation_coverage",
+    "role": "comparative_grounding_falsification_and_boundary_examples_not_validation_coverage",
+    "broader_universe_larger_than_strict_13": true,
+    "izu": "deep_empirical_mechanistic_anchor",
     "dominica": "retained_failed_specific_signed_position_projection",
     "coverage_11_of_11_must_not_be_used_as_validation": true
   },
@@ -58,6 +74,7 @@
       "starting_position_by_community_decomposition": true,
       "local_filtering_directional_asymmetry": true,
       "unchanged_parent_design_identity_verified": true,
+      "starting_position_alone_promoted": false,
       "ultimate_why_claimed": false
     },
     "uncited_reference_hygiene": {
@@ -72,7 +89,8 @@
     "assurance_sign_rescue_sensitivity_through_4x",
     "fixed_surface_regime_boundary_driver_diagnostic",
     "starting_position_by_community_realization_decomposition",
-    "local_filtering_directional_asymmetry_diagnostic"
+    "local_filtering_directional_asymmetry_diagnostic",
+    "canonical_chapter2_story_consolidation"
   ],
   "submission_bundle": {
     "builder": "scripts/build_island_ecology_submission_bundle.py",
@@ -87,5 +105,5 @@
     "approve_submission_declaration_booleans",
     "run_submission_builder_successfully_with_completed_metadata"
   ],
-  "next_executable_task": "validate_current_code_and_bundle_route_then_wait_only_for_author_supplied_metadata_if_all_repository_checks_pass"
+  "next_executable_task": "validate_current_code_and_active_manuscript_against_the_canonical_story_then_wait_only_for_author_supplied_metadata_if_repository_checks_pass"
 }
