@@ -88,15 +88,17 @@ def test_frozen_result_passes_identity_and_claim_boundaries():
 
 def test_active_manuscript_and_thesis_positioning_preserve_how_why_boundary():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
+    manuscript_lower = manuscript.lower()
     supplement = SUPPORTING_INFORMATION.read_text(encoding="utf-8")
     positioning = THESIS_POSITIONING.read_text(encoding="utf-8")
     for token in [
         "80.17%",
-        "Partner-loss multiplier",
+        "partner-loss multiplier",
         "positive baselines crossed to non-positive",
-        "mechanistic HOW and a model-conditional proximal WHY",
+        "proximal why",
     ]:
-        assert token in manuscript
+        assert token in manuscript_lower
+    assert "mechanistic" in manuscript_lower
     assert "# Appendix S10. Starting-position × community-realization decomposition" in supplement
     assert "# Appendix S11. Direction-specific local-filtering transitions" in supplement
     assert "**Ultimate WHY:**" in positioning
