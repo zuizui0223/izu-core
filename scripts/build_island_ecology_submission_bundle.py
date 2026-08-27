@@ -14,15 +14,16 @@ from scripts.build_island_ecology_submission_metadata import (
     validate_metadata,
 )
 from scripts.generate_chapter2_manuscript_figures import build_figures
+from scripts.render_island_ecology_submission_manuscript import render_to_path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_jecology_submission_bundle.zip"
 REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
-MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SUBMISSION_MANUSCRIPT_NAME = "ISLAND_ECOLOGY_MANUSCRIPT.md"
 
 STATIC_SUBMISSION_FILES = (
-    MANUSCRIPT,
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
@@ -53,6 +54,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     if errors:
         raise ValueError("submission metadata incomplete:\n- " + "\n- ".join(errors))
 
+    if not (ROOT / SOURCE_MANUSCRIPT).exists():
+        raise FileNotFoundError(SOURCE_MANUSCRIPT)
     for rel in STATIC_SUBMISSION_FILES:
         if not (ROOT / rel).exists():
             raise FileNotFoundError(rel)
@@ -66,9 +69,11 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
+        manuscript = tmp / SUBMISSION_MANUSCRIPT_NAME
         title_page = tmp / "ISLAND_ECOLOGY_TITLE_PAGE.md"
         cover_letter = tmp / "ISLAND_ECOLOGY_COVER_LETTER.md"
         review_archive = tmp / "island_ecology_anonymous_review_archive.zip"
+        render_to_path(manuscript)
         title_page.write_text(render_title_page(metadata), encoding="utf-8")
         cover_letter.write_text(render_cover_letter(metadata), encoding="utf-8")
         build_review_archive(review_archive)
@@ -77,12 +82,16 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
             "scientific_state": "model_gate_closed_conditional_response_geometry_with_focal_izu_triangulation",
-            "manuscript_state": "active_v2_20260827",
+            "manuscript_state": "active_v2_source_rendered_to_journal_clean_submission",
+            "source_manuscript": SOURCE_MANUSCRIPT,
+            "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
+            "submission_manuscript_internal_thesis_language_removed_fail_closed": True,
             "figures_regenerated_fail_closed": True,
             "model_gate": gate.get("status"),
             "files": [
+                SUBMISSION_MANUSCRIPT_NAME,
                 *STATIC_SUBMISSION_FILES,
                 *figure_files,
                 "ISLAND_ECOLOGY_TITLE_PAGE.md",
@@ -90,15 +99,17 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "island_ecology_anonymous_review_archive.zip",
             ],
             "boundary": (
-                "Packaging uses the Chapter 2 v2 active manuscript: synthetic response geometry is the primary analysis; "
-                "Izu is focal empirical triangulation at the source-state/community-composition level and is not treated as "
-                "validation of synthetic thresholds or as evidence for non-random partner sorting beyond background composition. "
-                "The dedicated Izu empirical appendix retains the raw-positive/null-corrected-negative structural boundary. "
-                "Figure regeneration must match the frozen Chapter 2 scientific gate. Metadata validation remains fail-closed."
+                "Packaging renders the Chapter 2 v2 scientific source into a journal-facing clean manuscript that removes "
+                "dissertation/chapter-routing language without changing scientific results. Synthetic response geometry is the "
+                "primary analysis; Izu is focal empirical triangulation at the source-state/community-composition level and is "
+                "not treated as validation of synthetic thresholds or as evidence for non-random partner sorting beyond "
+                "background composition. The dedicated Izu empirical appendix retains the raw-positive/null-corrected-negative "
+                "structural boundary. Figure regeneration must match the frozen scientific gate and metadata validation remains fail-closed."
             ),
         }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.write(manuscript, arcname=SUBMISSION_MANUSCRIPT_NAME)
             for rel in STATIC_SUBMISSION_FILES:
                 archive.write(ROOT / rel, arcname=rel)
             for rel in figure_files:

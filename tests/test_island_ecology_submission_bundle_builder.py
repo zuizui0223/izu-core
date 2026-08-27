@@ -8,7 +8,8 @@ import scripts.build_island_ecology_submission_bundle as bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
-MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SUBMISSION_MANUSCRIPT = "ISLAND_ECOLOGY_MANUSCRIPT.md"
 
 
 def completed_metadata() -> dict:
@@ -66,7 +67,7 @@ def test_submission_bundle_still_fails_closed_on_unresolved_metadata(tmp_path: P
         bundle.build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
 
 
-def test_submission_bundle_routes_v2_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
+def test_submission_bundle_routes_journal_clean_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
     monkeypatch.setattr(bundle, "build_figures", lambda: {"figure_outputs": []})
 
     def fake_review_archive(path: Path) -> Path:
@@ -85,13 +86,23 @@ def test_submission_bundle_routes_v2_manuscript_after_gate_closure(tmp_path: Pat
         assert "ISLAND_ECOLOGY_COVER_LETTER.md" in names
         assert "island_ecology_anonymous_review_archive.zip" in names
         assert "SUBMISSION_BUNDLE_MANIFEST.json" in names
-        assert MANUSCRIPT in names
+        assert SUBMISSION_MANUSCRIPT in names
+        assert SOURCE_MANUSCRIPT not in names
         title = archive.read("ISLAND_ECOLOGY_TITLE_PAGE.md").decode("utf-8")
         assert "Example Author" in title
-        manuscript = archive.read(MANUSCRIPT).decode("utf-8")
-        assert "null-corrected matching response" in manuscript
-        assert "empirical echo" in manuscript.lower()
+        manuscript = archive.read(SUBMISSION_MANUSCRIPT).decode("utf-8")
+        lower = manuscript.lower()
+        assert "null-corrected matching response" in lower
+        assert "empirical echo" in lower
+        assert "dissertation" not in lower
+        assert "chapter 1" not in lower
+        assert "chapter 2" not in lower
+        assert "chapter 3" not in lower
+        assert "campanula microdonta" not in lower
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
         assert manifest["scientific_state"] == "model_gate_closed_conditional_response_geometry_with_focal_izu_triangulation"
-        assert manifest["manuscript_state"] == "active_v2_20260827"
+        assert manifest["manuscript_state"] == "active_v2_source_rendered_to_journal_clean_submission"
+        assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
+        assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
+        assert manifest["submission_manuscript_internal_thesis_language_removed_fail_closed"] is True
         assert manifest["figures_regenerated_fail_closed"] is True
