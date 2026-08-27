@@ -2,7 +2,7 @@
 
 Updated: 2026-08-27
 
-This is the canonical reference list for `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`. It contains only works currently cited in that active draft. Source admission is checked against `data/design/island_syndrome_literature_claim_matrix_20260824.json` and the prior source-audited manuscript record. Inclusion here supports the specific framing claim for which the source is cited; it does not upgrade external systems to mechanism validation.
+This is the canonical reference list for `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md`. It contains only works currently cited in that active draft. Source admission is checked against `data/design/island_syndrome_literature_claim_matrix_20260824.json` and the prior source-audited manuscript record. Inclusion here supports the specific framing or empirical claim for which the source is cited; it does not upgrade external systems to mechanism validation.
 
 ## Active references
 
@@ -24,6 +24,10 @@ Traveset, A. & Navarro, L. (2018). Plant reproductive ecology and evolution in t
 
 Zell, A.N., Miranda, C.H., Grady, E.L., Grossenbacher, D.L. & Igić, B. (2025). Island colonization in flowering plants is determined by the interplay of breeding system, lifespan, floral symmetry, and arrival opportunity. *New Phytologist*, 245, 420–432. https://doi.org/10.1111/nph.20234
 
+## Izu empirical triangulation source boundary
+
+The v2 manuscript uses Hiraiwa & Ushimaru (2017, 2024) as the source-locked empirical basis for the Izu secondary analysis. The analysis reports both the positive raw realized-matching association and the negative result for the 2024 source paper's background-community-corrected matching response. Those sources therefore support an empirical source-state/community-composition triangulation, **not** a claim that signed source position identifies non-random partner sorting beyond background community composition.
+
 ## Hygiene decisions
 
 ### Lord (2015)
@@ -36,4 +40,4 @@ Zell, A.N., Miranda, C.H., Grady, E.L., Grossenbacher, D.L. & Igić, B. (2025). 
 
 ## Claim boundary
 
-This ledger is deliberately shorter than the retired Journal of Ecology draft reference list because the active paper no longer uses the former 13-system coverage exercise as validation. External-system sources belong in the comparative-grounding supplement only when the corresponding system is actually discussed there.
+This ledger is deliberately shorter than the retired Journal of Ecology draft reference list because the active paper no longer uses the former 13-system coverage exercise as validation. External-system sources belong in the comparative-grounding supplement only when the corresponding system is actually discussed there. Izu is the focal empirical triangulation, but the active claim ceiling remains source-state/background-community structure rather than causal pollinator selection or validation of the synthetic coordinate.
