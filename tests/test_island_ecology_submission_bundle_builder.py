@@ -8,7 +8,7 @@ import scripts.build_island_ecology_submission_bundle as bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
-V3 = "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V3_20260826.md"
+MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
 
 
 def completed_metadata() -> dict:
@@ -32,45 +32,49 @@ def completed_metadata() -> dict:
     return metadata
 
 
-def test_submission_bundle_is_blocked_by_open_scientific_reassessment_gate(tmp_path: Path):
-    metadata_path = tmp_path / "metadata.json"
-    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
-    with pytest.raises(ValueError, match="scientific reassessment gate is open"):
-        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+def test_current_scientific_gate_accepts_conditional_response_geometry_route():
+    gate = bundle.validate_scientific_gate()
+    assert gate["scientific_model_gate_complete"] is True
+    assert gate["research_article_route"] == "candidate_conditional_response_geometry"
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
     missing_gate = tmp_path / "missing-gate.json"
     monkeypatch.setattr(bundle, "REASSESSMENT_GATE", missing_gate)
-    metadata_path = tmp_path / "metadata.json"
-    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
     with pytest.raises(ValueError, match="scientific reassessment gate is missing"):
-        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+        bundle.validate_scientific_gate()
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_unreadable(tmp_path: Path, monkeypatch):
     gate = tmp_path / "gate.json"
     gate.write_text("{not-json", encoding="utf-8")
     monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
-    metadata_path = tmp_path / "metadata.json"
-    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
     with pytest.raises(ValueError, match="scientific reassessment gate is unreadable"):
-        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+        bundle.validate_scientific_gate()
 
 
-def test_submission_bundle_still_fails_closed_on_unresolved_metadata_after_gate_closure(tmp_path: Path, monkeypatch):
+def test_submission_bundle_rejects_incomplete_scientific_gate(tmp_path: Path, monkeypatch):
     gate = tmp_path / "gate.json"
-    gate.write_text(json.dumps({"current_research_article_submission_ready": True}), encoding="utf-8")
+    gate.write_text(json.dumps({"scientific_model_gate_complete": False}), encoding="utf-8")
     monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
+    with pytest.raises(ValueError, match="scientific model gate is not complete"):
+        bundle.validate_scientific_gate()
+
+
+def test_submission_bundle_still_fails_closed_on_unresolved_metadata(tmp_path: Path):
     with pytest.raises(ValueError, match="submission metadata incomplete"):
         bundle.build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
 
 
-def test_submission_bundle_functionality_remains_available_after_scientific_gate_closure(tmp_path: Path, monkeypatch):
-    gate = tmp_path / "gate.json"
-    gate.write_text(json.dumps({"current_research_article_submission_ready": True}), encoding="utf-8")
-    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
+def test_submission_bundle_routes_active_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
+    monkeypatch.setattr(bundle, "build_figures", lambda: {"figure_outputs": []})
 
+    def fake_review_archive(path: Path) -> Path:
+        with zipfile.ZipFile(path, "w") as archive:
+            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous conditional-WHY review archive\n")
+        return path
+
+    monkeypatch.setattr(bundle, "build_review_archive", fake_review_archive)
     metadata_path = tmp_path / "metadata.json"
     metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
     output = bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
@@ -81,14 +85,9 @@ def test_submission_bundle_functionality_remains_available_after_scientific_gate
         assert "ISLAND_ECOLOGY_COVER_LETTER.md" in names
         assert "island_ecology_anonymous_review_archive.zip" in names
         assert "SUBMISSION_BUNDLE_MANIFEST.json" in names
-        assert V3 in names
+        assert MANUSCRIPT in names
         title = archive.read("ISLAND_ECOLOGY_TITLE_PAGE.md").decode("utf-8")
         assert "Example Author" in title
-        nested = archive.read("island_ecology_anonymous_review_archive.zip")
-        nested_path = tmp_path / "nested.zip"
-        nested_path.write_bytes(nested)
-        with zipfile.ZipFile(nested_path) as review:
-            review_names = set(review.namelist())
-            assert V3 in review_names
-            assert not any("TITLE_PAGE" in name.upper() for name in review_names)
-            assert not any("COVER_LETTER" in name.upper() for name in review_names)
+        manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
+        assert manifest["scientific_state"] == "model_gate_closed_conditional_response_geometry"
+        assert manifest["figures_regenerated_fail_closed"] is True

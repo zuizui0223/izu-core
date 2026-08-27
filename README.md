@@ -1,17 +1,19 @@
-# Izu Core — island plant response architecture under reassessment
+# Izu Core — conditional island plant response geometry
 
 `izu-core` studies why island-associated pollinator reorganization can produce different plant responses rather than one universal post-establishment trajectory.
 
 ## Current state
 
-**Chapter 2 has been reopened for scientific reassessment. Do not submit the current Journal of Ecology Research Article yet.**
+**The Chapter 2 synthetic scientific gate is closed as a conditional-response-geometry Research Article candidate. Actual submission remains blocked by author metadata and declarations.**
 
-The previous `complete_and_frozen_for_submission` status is superseded by:
+The current manuscript surface and controlling state are:
 
-- [`docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md`](docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md)
-- [`data/design/manuscript_reassessment_gate_20260826.json`](data/design/manuscript_reassessment_gate_20260826.json)
+- [`docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`](docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md)
+- [`data/design/chapter2_active_manuscript_mainline_20260827.json`](data/design/chapter2_active_manuscript_mainline_20260827.json)
+- [`data/results/chapter2_scientific_gate_decision_frozen_20260827.json`](data/results/chapter2_scientific_gate_decision_frozen_20260827.json)
+- [`data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json`](data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json)
 
-The existing simulations, literature screen and manuscript drafts remain valid provenance. What changed is **their claim role**.
+Earlier simulations, literature screens and retired manuscript drafts remain provenance only. The active claim is conditional response geometry, not a universal minimal generator or external-state coverage validation.
 
 ## Conceptual core that survives
 
@@ -25,7 +27,7 @@ The current model addresses the third layer. This distinction remains the concep
 
 ## Scientific reassignment after critique
 
-### H2 — demoted from headline discovery
+### H2 — reassigned to conditional response geometry
 
 The frozen v12 endpoint identity is
 
@@ -37,19 +39,21 @@ so downstream transforms preserve rather than create response sign.
 
 Removing initial functional-position heterogeneity eliminated mixed-sign branching in the tested residual model, while trait-adjustment and assurance-ceiling heterogeneity remained. This is **not a pure algebraic tautology**, because trait-adjustment heterogeneity can still generate different endpoint traits and opportunity contrasts. However, the result only shows that initial position dominates the other tested heterogeneity sources **under the declared parameterization**.
 
-The previous `replicated_minimal_generator` wording is therefore no longer a main-paper claim. The independent seed block is retained as a model-specific robustness check, not as independent evidence for a new ecological principle.
+The previous `replicated_minimal_generator` wording is therefore no longer a main-paper claim. The independent seed block is retained as a model-specific robustness check, not as independent evidence for a new ecological principle. The active analysis instead maps the full starting-position response geometry: 41 of 96 matched community realizations are mixed-sign, and the mean surface has positive outer regions and a negative central region. Across the fixed 48-point joint design, 16 points are mixed, 22 all-positive and 10 all-negative.
+
+The frozen conditional-WHY diagnostic further shows that starting position organizes the mean boundary but does not dominate cell-level variation: community realization accounts for 80.17% of baseline total sum of squares and the non-additive starting-position-by-community remainder for 17.64%, compared with 2.18% for the starting-position main effect.
 
 ### H3 — retained, but renamed
 
 The old term `local support ON` was misleading. In the implementation, increasing `support_strength` removes locally available plant/resource rows and then projects pollinator/pair support. It is a **local context / availability filtering** parameter, not extra beneficial support.
 
-The useful result is that matched local-context filtering can change response direction in both directions:
+The useful result is that matched local-context filtering can change response direction in both directions. In the fixed 864-contrast threshold design:
 
-- 16/96 eligible declines crossed the sign boundary;
-- 11/96 worsened;
-- many others changed only in magnitude.
+- 737 contrasts changed sign somewhere in the 0–0.75 envelope;
+- the median first sign-change strength was 0.40;
+- positive baselines crossed to non-positive at a higher conditional rate than negative baselines crossed to non-negative at every non-zero strength.
 
-This bidirectionality is retained, but requires broader robustness analysis before becoming a headline Research Article result.
+Local filtering is therefore retained as a bidirectional but directionally asymmetric branch allocator. The counts and strengths remain synthetic design diagnostics, not ecological frequencies or field thresholds.
 
 ### H4 — retained as a structural distinction, not a discovery
 
@@ -71,9 +75,9 @@ The systems are retained as **comparative grounding and boundary examples**. Dom
 
 Do not use `0.4167` as if it were a precise ecological frequency. The relevant frozen result is **5 of 12 matched runs** in each of two model blocks. Those runs span three saturation settings and are not a random sample from a natural population.
 
-Similarly, 16/96, 11/96 and related counts are design-specific capability summaries, not natural prevalence estimates.
+Similarly, 41/96, 16/48, filtering transition rates, regression coefficients and variance shares are design-specific capability/diagnostic summaries, not natural prevalence estimates or causal field effects.
 
-## Model assumptions that must be exposed in the next manuscript
+## Model assumptions exposed in the active manuscript and supporting information
 
 Current v4 scenario values include:
 
@@ -94,21 +98,18 @@ The ecological meanings of 24 lineages, 120 steps and saturation values 1/2/3 ar
 
 ## What is actually unresolved now
 
-The Research Article needs one nontrivial quantitative result beyond the three-layer conceptual decomposition.
+The scientific response-geometry gate and the conditional-WHY diagnostics are complete. The active manuscript explicitly positions Chapter 2 as mechanistic **HOW** plus **proximal WHY**: it resolves how pollinator reorganization propagates through matching, local filtering and reproduction, and why established lineages can respond differently under the same broad perturbation. It does not claim the **ultimate WHY** of why island biotas, interaction environments or lineage starting states arose.
 
-### Active scientific gate
-
-**Response geometry / parameter robustness**:
-
-1. Map when pollinator-community change produces positive, negative or sign-switching functional-opportunity responses across plant starting position.
-2. Sweep the key perturbation and matching parameters rather than relying on one frozen scenario.
-3. Determine whether mixed-sign response is a stable region of parameter space or an artefact of particular stochastic partner realizations.
-4. Quantify when local context filtering changes sign versus only magnitude.
-5. Quantify the assurance threshold for sign rescue instead of treating attenuation as a discovery.
-
-If a stable, interpretable response map emerges, the Research Article can be rebuilt around that result. If not, the stronger product is a conceptual Review/Mini-review centered on the three-layer island-syndrome decomposition.
+Actual submission is blocked only by author-supplied identity metadata and declarations, followed by a successful fail-closed bundle build. Repository validation and PR CI must pass before that handoff.
 
 ## Current manuscript status
+
+The active manuscript surface is:
+
+- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`
+- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md`
+- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md`
+- `data/design/chapter2_active_manuscript_mainline_20260827.json`
 
 The following are retained as historical/pre-reassessment drafts and **must not be submitted as-is**:
 
@@ -116,21 +117,14 @@ The following are retained as historical/pre-reassessment drafts and **must not 
 - editorial V3 generated by `scripts/build_island_ecology_manuscript_v3.py`
 - `docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`
 
-The submission-bundle machinery remains in the repository for later reuse, but the current scientific reassessment gate overrides the previous metadata-only submission gate.
+The submission-bundle machinery now routes only the active post-reassessment surface and fails closed if the frozen scientific identities or required author metadata are incomplete.
 
-## Reference and prose cleanup already identified
+## Completed manuscript cleanup
 
-Before the next manuscript version:
-
-- remove the import-path failure / seed-search narrative from Methods;
-- report `5 of 12` rather than `0.4167` in prose;
-- explain the full model equations and scenario values;
-- remove or explicitly cite Lord (2015) and Méndez (2025);
-- replace beneficial-sounding `local support` language with neutral `local context filtering` / `local availability filtering`;
-- reduce `frozen`, `predeclared`, `protected`, `gate`, and similar procedural language in the scientific narrative.
+The active manuscript and supporting information now report `5 of 12` rather than a pseudoprecise frequency, expose the full equations and scenario values, exclude uncited Lord (2015) and Méndez (2025) entries from the active reference list, use neutral local-filtering language, and keep workflow/debug prose outside scientific Methods.
 
 ## Positive contribution to preserve
 
 > **Island syndromes conflate assembly filtering, in-situ evolution and post-establishment interaction response. The third process is conditional rather than monotonic: pollinator reorganization is filtered through plant–pollinator matching geometry, local interaction context can redirect outcomes in either direction, and downstream reproductive assurance changes magnitude without necessarily changing sign.**
 
-The next task is to determine whether this architecture has a stable quantitative response geometry strong enough for a Research Article.
+This is a conditional, synthetic mechanistic result. It is not a regional mapping, a natural-frequency estimate or an ultimate explanation of island assembly and evolutionary history.

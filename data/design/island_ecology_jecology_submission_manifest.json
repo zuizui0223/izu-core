@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.0",
+  "schema_version": "3.1",
   "updated_on": "2026-08-27",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
@@ -15,6 +15,8 @@
     "reference_ledger": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "tables": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "model_specification": "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
+    "conditional_why_audit": "docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md",
+    "conditional_why_result": "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
     "figure_generator": "scripts/generate_chapter2_manuscript_figures.py",
     "table_generator": "scripts/generate_chapter2_manuscript_tables.py",
     "status": "active_reassembled_manuscript_surface"
@@ -34,7 +36,7 @@
   "claim_reassignment": {
     "H1": "model_capability_and_design_counts_not_prevalence",
     "H2": "conditional_response_geometry_not_minimal_generator_headline",
-    "H3": "bidirectional_local_availability_interaction_filtering_branch_reallocation",
+    "H3": "bidirectional_but_directionally_asymmetric_local_filtering_branch_reallocation",
     "H4": "magnitude_attenuation_without_sign_rescue_in_declared_envelope",
     "H5": "comparative_grounding_not_validation_coverage"
   },
@@ -51,6 +53,13 @@
     "local_support_semantics_corrected_to_filtering": true,
     "pseudoprecise_prevalence_language_removed": true,
     "workflow_debug_prose_removed_from_active_methods": true,
+    "conditional_why_diagnostics": {
+      "regime_boundary_additive_diagnostic": true,
+      "starting_position_by_community_decomposition": true,
+      "local_filtering_directional_asymmetry": true,
+      "unchanged_parent_design_identity_verified": true,
+      "ultimate_why_claimed": false
+    },
     "uncited_reference_hygiene": {
       "Lord_2015": "retained_in_source_matrix_excluded_from_active_reference_list_because_not_cited",
       "Mendez_2025": "retained_in_source_matrix_excluded_from_active_reference_list_because_not_cited"
@@ -60,12 +69,15 @@
     "response_geometry_analysis_identifying_sign_switch_conditions",
     "joint_parameter_robustness_sweep",
     "local_context_sign_change_threshold_map",
-    "assurance_sign_rescue_sensitivity_through_4x"
+    "assurance_sign_rescue_sensitivity_through_4x",
+    "fixed_surface_regime_boundary_driver_diagnostic",
+    "starting_position_by_community_realization_decomposition",
+    "local_filtering_directional_asymmetry_diagnostic"
   ],
   "submission_bundle": {
     "builder": "scripts/build_island_ecology_submission_bundle.py",
     "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
-    "figure_regeneration": "fail_closed_against_frozen_scientific_gate",
+    "figure_regeneration": "fail_closed_against_frozen_scientific_gate_and_conditional_why_identity",
     "status": "scientifically_routed_metadata_blocked",
     "remaining_blocker": "author_supplied_metadata_and_submission_declarations"
   },

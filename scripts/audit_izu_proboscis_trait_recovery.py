@@ -2,11 +2,15 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from channel_id.proboscis_trait_recovery import load_status, recovery_state
 
-ROOT = Path(__file__).resolve().parents[1]
 STATUS = ROOT / "data/design/izu_pollinator_proboscis_recovery_status.json"
 OUT = ROOT / "data/results/izu_pollinator_proboscis_recovery_audit.json"
 

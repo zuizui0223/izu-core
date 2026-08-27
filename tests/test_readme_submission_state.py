@@ -7,23 +7,25 @@ GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 AUDIT = ROOT / "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
 
 
-def test_readme_exposes_reassessment_as_active_gate():
+def test_readme_exposes_closed_science_and_active_metadata_gate():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "reopened for scientific reassessment" in lower
-    assert "response geometry" in lower
-    assert "parameter robustness" in lower
-    assert "metadata" not in lower.split("## what is actually unresolved now", 1)[1].split("## current manuscript status", 1)[0]
+    unresolved = lower.split("## what is actually unresolved now", 1)[1].split("## current manuscript status", 1)[0]
+    assert "response-geometry gate and the conditional-why diagnostics are complete" in unresolved
+    assert "author-supplied identity metadata and declarations" in unresolved
+    assert "ultimate why" in unresolved
 
 
-def test_submission_state_reopens_science_and_blocks_packaging():
+def test_submission_state_closes_science_and_blocks_on_metadata():
     text = STATE.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "not currently submission-ready" in lower
-    assert "scientific reassessment" in lower
-    assert "response-geometry and parameter-robustness analysis" in lower
-    assert "author metadata are **not** the active blocker now" in lower
-    assert "submission bundle machinery is retained but must fail closed" in lower
+    assert "scientifically assembled but not yet submission-ready" in lower
+    assert "conditional-why diagnostics" in lower
+    assert "author-supplied identity metadata and declarations" in lower
+    assert "**how:**" in lower
+    assert "**proximal why:**" in lower
+    assert "**ultimate why:** not answered here" in lower
+    assert "continues to **fail closed**" in lower
 
 
 def test_reassessment_gate_and_audit_are_present():

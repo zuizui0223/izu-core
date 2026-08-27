@@ -75,12 +75,12 @@ def test_builder_does_not_silently_infer_optional_identity_metadata():
     assert "ORCID: not supplied" in title_page
 
 
-def test_checklist_places_scientific_reassessment_before_author_metadata():
+def test_checklist_places_author_metadata_after_closed_scientific_gate():
     text = CHECKLIST.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "submission paused pending scientific reassessment" in lower
-    assert "author-metadata workflow remains prepared, but it is not the active gate" in lower
-    assert "response-geometry and parameter-robustness" in lower
+    assert "scientific and manuscript-integration gates are closed" in lower
+    assert "author-supplied metadata and declarations are the active blocker" in lower
+    assert "conditional-why diagnostics" in lower
     assert "final author order and affiliations" in lower
     assert "final bundle" in lower
-    assert "will raise an error while the scientific reassessment gate remains open" in lower
+    assert "will raise an error until all required metadata and declarations are supplied" in lower

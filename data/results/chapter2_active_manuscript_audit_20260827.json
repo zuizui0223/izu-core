@@ -1,18 +1,22 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "updated_on": "2026-08-27",
   "manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
   "supporting_information": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
   "reference_ledger": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
   "tables": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
   "model_spec": "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
-  "status": "repository_scientific_and_manuscript_completion_pass_metadata_and_execution_validation_pending",
+  "status": "repository_scientific_and_manuscript_completion_pass_local_execution_validated_PR_CI_pending",
   "checks": {
     "active_working_draft_exists": "pass",
     "conditional_response_geometry_is_primary_headline": "pass",
     "replicated_minimal_generator_removed_as_headline": "pass",
     "matched_response_geometry_results_reported": "pass",
     "joint_parameter_regime_results_reported": "pass",
+    "fixed_surface_regime_driver_diagnostics_reported": "pass",
+    "starting_position_by_community_realization_decomposition_reported": "pass",
+    "local_filtering_directional_asymmetry_reported": "pass",
+    "chapter1_to_chapter2_how_proximal_why_ultimate_why_boundary_explicit": "pass",
     "local_context_semantics_corrected_to_filtering": "pass",
     "assurance_demoted_to_magnitude_attenuation": "pass",
     "H5_external_coverage_removed_as_validation": "pass",
@@ -23,17 +27,18 @@
     "full_local_filtering_projection_rules_integrated_into_manuscript_or_active_SI": "pass",
     "reference_list_rebuilt_from_source_audited_matrix": "pass",
     "Lord_2015_and_Mendez_2025_reference_hygiene_resolved": "pass",
-    "main_figure_regeneration_fail_closed_against_final_gate": "pass_implementation_requires_execution_validation",
+    "main_figure_regeneration_fail_closed_against_final_gate": "pass_local_execution",
+    "supplementary_conditional_why_figure_visual_QA": "pass",
     "main_tables_regenerated_from_final_gate_results": "pass",
     "submission_manifest_routed_to_active_manuscript": "pass",
-    "anonymous_review_archive_routed_to_active_manuscript": "pass",
+    "anonymous_review_archive_routed_to_active_manuscript": "pass_local_execution",
     "submission_metadata_title_and_keywords_current": "pass",
     "author_metadata_and_declarations_complete": "blocked_external_input",
     "final_submission_builder_execution": "blocked_until_metadata_complete"
   },
   "current_submission_ready": false,
   "repository_blocking_items": [
-    "execute_PR_CI_or_equivalent_validation_of_the_new_figure_review_archive_and_submission_bundle_code_paths"
+    "PR_CI_must_pass_for_the_new_diagnostic_figure_review_archive_and_submission_bundle_code_paths"
   ],
   "external_input_blocking_items": [
     "author_names_order_affiliations_corresponding_author_and_optional_orcids",
@@ -46,7 +51,10 @@
     "Lord_2015_and_Mendez_2025_are_retained_in_source_provenance_but_removed_from_active_reference_list_because_uncited",
     "Tables_1_to_3_are_frozen_and_have_a_deterministic_generator",
     "submission_and_review_archive_builders_no_longer_render_the_retired_V2_or_V3_manuscripts",
-    "figure_builder_exposes_a_callable_fail_closed_regeneration_function"
+    "figure_builder_exposes_a_callable_fail_closed_regeneration_function",
+    "conditional_why_design_was_committed_before_execution_and_all_parent_identity_checks_passed",
+    "fixed_surface_driver_decomposition_and_directionality_results_are_integrated_into_main_SI_tables_and_FigS2",
+    "Chapter_1_to_Chapter_2_bridge_is_explicit_without_assigning_regions_to_model_regimes_or_claiming_ultimate_history"
   ],
-  "next_action": "open_PR_run_execution_validation_fix_any_failures_then_leave_only_author_supplied_submission_metadata"
+  "next_action": "open_PR_require_CI_then_leave_only_author_supplied_submission_metadata_and_declarations"
 }

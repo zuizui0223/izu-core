@@ -4,16 +4,16 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 
 
-def test_readme_declares_scientific_reassessment_before_submission():
+def test_readme_declares_closed_scientific_gate_and_metadata_blocker():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert text.startswith("# Izu Core — island plant response architecture under reassessment")
-    assert "chapter 2 has been reopened for scientific reassessment" in lower
-    assert "do not submit the current journal of ecology research article yet" in lower
-    assert "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md" in text
-    assert "data/design/manuscript_reassessment_gate_20260826.json" in text
-    assert "response geometry" in lower
-    assert "parameter robustness" in lower
+    assert text.startswith("# Izu Core — conditional island plant response geometry")
+    assert "synthetic scientific gate is closed" in lower
+    assert "actual submission remains blocked by author metadata and declarations" in lower
+    assert "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md" in text
+    assert "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json" in text
+    assert "mechanistic **how** plus **proximal why**" in lower
+    assert "ultimate why" in lower
 
 
 def test_readme_preserves_three_layer_island_syndrome_core():
@@ -30,7 +30,7 @@ def test_readme_preserves_three_layer_island_syndrome_core():
 def test_readme_demotes_overstated_h2_h4_h5_claims():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "h2 — demoted from headline discovery" in lower
+    assert "h2 — reassigned to conditional response geometry" in lower
     assert "not a pure algebraic tautology" in lower
     assert "replicated_minimal_generator" in text
     assert "no longer a main-paper claim" in lower
@@ -49,8 +49,10 @@ def test_readme_corrects_local_support_semantics_and_precision():
     assert "5 of 12" in text
     assert "0.4167" in text
     assert "do not use `0.4167`" in lower
-    assert "16/96" in text
-    assert "11/96" in text
+    assert "41/96" in text
+    assert "16/48" in text
+    assert "737" in text
+    assert "directionally asymmetric" in lower
     assert "dominica" in lower
     assert "was not retuned" in lower
 

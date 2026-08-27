@@ -31,11 +31,13 @@ After completion of the 2026-08-27 Chapter 2 scientific reassessment, a **new ac
 - [`docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`](../docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md)
 - exact model specification: [`docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md`](../docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md)
 - Chapter 2 manuscript supersession overlay: [`data/design/chapter2_active_manuscript_mainline_20260827.json`](../data/design/chapter2_active_manuscript_mainline_20260827.json)
+- HOW/proximal-WHY/ultimate-WHY audit: [`docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md`](../docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md)
+- frozen conditional-WHY diagnostics: [`data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json`](../data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json)
 - current completion audit: [`data/results/chapter2_active_manuscript_audit_20260827.json`](../data/results/chapter2_active_manuscript_audit_20260827.json)
 
-The working manuscript is a **Research Article candidate centered on conditional response geometry**. It is **not submission-ready**. The completed model-side gate does not promote historical drafts, does not complete the focal empirical programme, and does not convert synthetic thresholds or design frequencies into ecological estimates.
+The working manuscript is a **Research Article candidate centered on conditional response geometry**. The synthetic scientific gate and frozen conditional-WHY diagnostics are complete, but the package is **not submission-ready** until author metadata and declarations are supplied. Completion does not promote historical drafts, complete the focal empirical programme or convert synthetic coefficients, variance shares, thresholds or design frequencies into ecological estimates.
 
-The current completion blockers are exact model-spec integration into the manuscript/supporting information, source-audited reference rebuilding, final figure/table regeneration, and a final claim/evidence plus submission-builder audit.
+The conditional-WHY extension reuses the unchanged frozen design. It identifies partner loss/arrival as the strongest sign-stable fixed-surface associations, partitions baseline response variation into starting-position, community-realization and non-additive components, and shows that local filtering is bidirectional but directionally asymmetric. It supports a mechanistic HOW and model-conditional proximal WHY, not an ultimate historical explanation for why island biotas or regional response vectors formed.
 
 ## Current development target
 
