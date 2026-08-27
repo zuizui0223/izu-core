@@ -105,5 +105,5 @@
     "approve_submission_declaration_booleans",
     "run_submission_builder_successfully_with_completed_metadata"
   ],
-  "next_executable_task": "validate that active manuscript wording remains compatible with the canonical story, then keep repository checks passing while awaiting only author-supplied submission metadata"
+  "next_executable_task": "validate_current_code_and_active_manuscript_against_the_canonical_story_then_wait_only_for_author_supplied_metadata_if_repository_checks_pass"
 }
