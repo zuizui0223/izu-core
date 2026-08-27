@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-27",
   "scope": "chapter2_research_article_only",
-  "status": "active_working_manuscript_reassembly",
+  "status": "active_working_manuscript_v2",
   "parent_programme_mainline": "data/design/active_development_mainline.json",
   "supersession_rule": "For Chapter 2 manuscript claims, this file supersedes older active_development_mainline fields that label v12 initial-position heterogeneity as a replicated minimal generator. It does not alter the broader comparative programme or its empirical admission gates.",
-  "research_article_route": "conditional_response_geometry",
+  "research_article_route": "conditional_response_geometry_with_focal_izu_triangulation",
   "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_20260827.md",
   "submission_ready": false,
   "primary_question": "Why need not a common island-like pollinator reorganization produce one post-establishment plant response, and how do partner turnover, starting functional state, realized community and local filtering allocate response sign?",
@@ -70,7 +70,33 @@
     "ultimate_why": "not tested; assembly colonization persistence and evolutionary history remain outside the simulation"
   },
   "external_system_role": "broad_comparison_for_grounding_falsification_and_boundary_examples_not_validation_coverage",
-  "izu_role": "deep_empirical_mechanistic_anchor_not_exchangeable_replication_unit",
+  "izu_role": "focal_empirical_triangulation_and_deep_mechanistic_anchor_not_exchangeable_replication_unit",
+  "izu_empirical_triangulation": {
+    "source_regime": "study_defined_three_continental_sites",
+    "safe_pollinator_trait_coverage": "202_of_209_named_taxa",
+    "rows": 83,
+    "plant_clusters": 30,
+    "islands": 5,
+    "raw_matching_projection": {
+      "slope": 0.566904,
+      "cluster_robust_se": 0.131615,
+      "ci95": [0.297722, 0.836087],
+      "sign_concordance": "63_of_83",
+      "plant_position_permutation_one_sided_p": "1_of_10001",
+      "interpretation": "source floral starting state plus broad community composition organizes realized raw trait matching"
+    },
+    "structural_audit": {
+      "exact_island_center_order_unique": false,
+      "center_assignment_extreme_count": "13_of_120",
+      "source_position_only_r_squared": 0.409056,
+      "full_geometry_r_squared": 0.364938,
+      "null_corrected_matching_slope": 0.033285,
+      "null_corrected_ci95": [-0.268008, 0.334578],
+      "null_corrected_supported": false,
+      "interpretation": "empirical support is at source-state and background-community-composition level, not non-random partner sorting beyond composition"
+    },
+    "claim_ceiling": "empirical_echo_not_synthetic_validation_or_causal_pollinator_selection"
+  },
   "chapter3_handoff": "focal phenotype is a coordinated size/investment trajectory plus selected departures beyond common allometry; Chapter 3 does not identify the historical mechanism",
   "empirical_admission_state": {
     "canonical_source": "docs/CURRENT_EVIDENCE_STATE.md",
@@ -91,8 +117,11 @@
     "general_izu_flora_rule",
     "chapter1_regional_vectors_assigned_to_chapter2_parameter_regimes",
     "chapter3_phenotype_as_historical_mechanism_identification",
+    "izu_raw_matching_as_nonrandom_partner_sorting_beyond_community_composition",
+    "exact_izu_island_center_magnitudes_as_uniquely_identified",
+    "izu_empirical_projection_as_validation_of_synthetic_thresholds",
     "ultimate_history_or_assembly_explanation"
   ],
-  "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
-  "next_manuscript_gate": "keep active manuscript and submission surfaces synchronized to the canonical conditional-response story without changing frozen numerical results or empirical claim ceilings"
+  "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
+  "next_manuscript_gate": "keep v2 manuscript and submission surfaces synchronized; retain Izu null-corrected negative result and empirical claim ceiling; do not change frozen numerical results"
 }
