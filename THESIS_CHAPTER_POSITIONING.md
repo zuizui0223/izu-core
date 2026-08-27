@@ -82,6 +82,10 @@ where `W(z)` is the observed island pattern, `F(z)` is local reproductive contri
 
 ## HOW, proximal WHY and ultimate WHY
 
+- **HOW:** how partner turnover propagates through matching, service, local filtering and reproduction.
+- **Proximal WHY:** why the same broad perturbation can yield different branches because regime, starting state and realized community differ and combine non-additively.
+- **Ultimate WHY:** why the island acquired its biota, starting states or interaction architecture in the first place; this remains outside the Chapter 2 test.
+
 | Level | Question | Current Chapter 2 answer | Claim ceiling |
 |---|---|---|---|
 | **HOW** | Through what response architecture does pollinator reorganization propagate? | Partner turnover changes functional matching and service; local availability / interaction filtering can change branch identity; autonomous assurance changes downstream magnitude without sign rescue in the declared envelope. | Directly represented within the declared synthetic model. |
