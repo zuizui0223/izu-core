@@ -4,17 +4,17 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 
 
-def test_readme_declares_closed_scientific_gate_and_current_submission_blockers():
+def test_readme_declares_closed_scientific_gate_and_metadata_only_blocker():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert text.startswith("# Izu Core — conditional island plant response geometry")
-    assert "synthetic scientific gate is closed" in lower
+    assert "synthetic gate is closed" in lower
     assert "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md" in text
     assert "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json" in text
     assert "mechanistic **how** plus model-conditional **proximal why**" in lower
     assert "ultimate why" in lower
-    assert "source-locked izu analysis implementation" in lower
-    assert "author identity metadata and declarations" in lower
+    assert "source-locked implementation/source gate/structural audit are part of the active paper branch" in lower
+    assert "only author-supplied identity metadata and submission declarations remain unresolved" in lower
 
 
 def test_readme_preserves_three_layer_island_syndrome_core():
