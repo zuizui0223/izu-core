@@ -7,6 +7,7 @@ from scripts.build_island_ecology_submission_metadata import (
     render_title_page,
     validate_metadata,
 )
+from scripts.render_island_ecology_submission_manuscript import FINAL_TITLE
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
@@ -35,6 +36,18 @@ def complete_metadata() -> dict:
     return metadata
 
 
+def test_template_is_synchronized_to_journal_clean_scientific_surface():
+    metadata = load_metadata(TEMPLATE)
+    assert metadata["journal"] == "Journal of Ecology"
+    assert metadata["article_type"] == "Research Article"
+    assert metadata["manuscript_title"] == FINAL_TITLE
+    keywords = {value.lower() for value in metadata["keywords"]}
+    assert "source state" in keywords
+    assert "izu islands" in keywords
+    assert "agent-based model" not in keywords
+    assert "source-locked secondary analysis of published Izu plant–pollinator data" in metadata["data_availability"]
+
+
 def test_template_fails_closed_without_author_supplied_metadata():
     metadata = load_metadata(TEMPLATE)
     errors = validate_metadata(metadata)
@@ -56,6 +69,8 @@ def test_complete_metadata_can_still_render_identity_files_for_later_use():
     assert "## Inclusion statement" in title_page
     assert "## Conflict of interest" in title_page
     assert "## Data availability" in title_page
+    assert FINAL_TITLE in title_page
+    assert FINAL_TITLE in cover_letter
     assert "Example Author" in cover_letter
     assert "not under consideration elsewhere" in cover_letter
 
