@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_jecology_submission_bundle.zip"
 REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
-MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
+MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
 
 STATIC_SUBMISSION_FILES = (
     MANUSCRIPT,
@@ -75,8 +75,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "model_gate_closed_conditional_response_geometry",
-            "manuscript_state": "active_20260827_reassembly",
+            "scientific_state": "model_gate_closed_conditional_response_geometry_with_focal_izu_triangulation",
+            "manuscript_state": "active_v2_20260827",
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
             "figures_regenerated_fail_closed": True,
@@ -89,9 +89,10 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "island_ecology_anonymous_review_archive.zip",
             ],
             "boundary": (
-                "Packaging uses the post-reassessment active manuscript. Figure regeneration must match the frozen "
-                "Chapter 2 scientific gate. Metadata validation remains fail-closed and no missing author or declaration "
-                "fields are inferred."
+                "Packaging uses the Chapter 2 v2 active manuscript: synthetic response geometry is the primary analysis; "
+                "Izu is focal empirical triangulation at the source-state/community-composition level and is not treated as "
+                "validation of synthetic thresholds or as evidence for non-random partner sorting beyond background composition. "
+                "Figure regeneration must match the frozen Chapter 2 scientific gate. Metadata validation remains fail-closed."
             ),
         }
 
