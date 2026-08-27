@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.3",
+  "schema_version": "3.4",
   "updated_on": "2026-08-27",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
@@ -21,9 +21,14 @@
     "conditional_why_audit": "docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md",
     "conditional_why_result": "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
     "comparative_universe": "docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md",
+    "izu_source_recovery": "docs/IZU_POLLINATOR_PROBOSCIS_RECOVERY.md",
+    "izu_triangulation": "docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md",
+    "izu_structural_audit": "docs/IZU_SIGNED_POSITION_STRUCTURAL_AUDIT_20260827.md",
+    "izu_source_gate": "data/design/izu_signed_position_source_gate_20260827.json",
+    "izu_trait_recovery_state": "data/design/izu_pollinator_proboscis_recovery_status.json",
     "figure_generator": "scripts/generate_chapter2_manuscript_figures.py",
     "table_generator": "scripts/generate_chapter2_manuscript_tables.py",
-    "status": "active_v2_synthetic_primary_plus_izu_triangulation"
+    "status": "active_v2_synthetic_primary_plus_izu_triangulation_reproducible"
   },
   "scientific_gate_result": {
     "model_gate_closed": true,
@@ -39,6 +44,9 @@
   },
   "focal_izu_triangulation": {
     "role": "empirical_echo_of_source_state_and_community_composition_not_validation",
+    "implementation_on_active_branch": true,
+    "source_gate_on_active_branch": true,
+    "structural_audit_on_active_branch": true,
     "raw_matching_supported": true,
     "raw_slope": 0.566904,
     "raw_ci95": [0.297722, 0.836087],
@@ -92,6 +100,8 @@
       "ultimate_why_claimed": false
     },
     "izu_empirical_hygiene": {
+      "source_native_trait_recovery_fail_closed": true,
+      "fuzzy_or_guild_proxy_imputation_used": false,
       "raw_matching_reported": true,
       "null_corrected_negative_result_reported": true,
       "exact_island_center_uniqueness_not_claimed": true,
@@ -112,21 +122,22 @@
     "starting_position_by_community_realization_decomposition",
     "local_filtering_directional_asymmetry_diagnostic",
     "canonical_chapter2_story_consolidation",
-    "focal_izu_raw_matching_source_state_triangulation_with_structural_negative_control"
+    "focal_izu_raw_matching_source_state_triangulation_with_structural_negative_control",
+    "source_locked_izu_analysis_implementation_and_structural_audit_ported_to_active_submission_branch"
   ],
   "submission_bundle": {
     "builder": "scripts/build_island_ecology_submission_bundle.py",
     "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
     "figure_regeneration": "fail_closed_against_frozen_scientific_gate_and_conditional_why_identity",
-    "status": "scientifically_routed_metadata_blocked",
+    "izu_reproducibility_files_in_review_archive": true,
+    "status": "scientifically_complete_metadata_blocked",
     "remaining_blocker": "author_supplied_metadata_and_submission_declarations"
   },
   "remaining_before_actual_submission": [
-    "merge_or_port_the_source_locked_Izu_analysis_implementation_and_structural_audit_into_main_before_submission",
     "provide_author_names_order_affiliations_corresponding_author_and_orcids_if_used",
     "provide_acknowledgements_funding_author_contributions_inclusion_statement_and_conflict_of_interest",
     "approve_submission_declaration_booleans",
     "run_submission_builder_successfully_with_completed_metadata"
   ],
-  "next_executable_task": "validate_current_code_and_v2_active_manuscript_against_the_canonical_story; ensure Izu implementation/audit is on main; then wait only for author-supplied metadata if repository checks pass"
+  "next_executable_task": "run repository CI and fail-closed v2 review/submission-builder checks; if green, wait only for author-supplied metadata and declarations"
 }
