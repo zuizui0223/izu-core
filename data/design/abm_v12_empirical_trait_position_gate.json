@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.2",
-  "status": "model_mechanism_identified_empirical_signed_position_test_not_yet_open",
+  "schema_version": "1.3",
+  "status": "model_mechanism_identified_izu_community_center_signed_position_open_prospective_direct_gate_pending",
   "model_result": {
     "source": "data/results/constraint_mechanism_abm_v12_residual_trait_causes_frozen.json",
     "decision": "v12_residual_lineage_factors_exhaust_within_run_branching_in_declared_model",
@@ -88,25 +88,63 @@
     {
       "id": "izu_signed_functional_position",
       "role": "preferred_focal_mechanism_test",
-      "baseline_regime_candidate": "Oshima bridge-state or a separately frozen mainland baseline; choice must be source-justified before downstream test",
+      "baseline_regime_candidate": "study-defined continental three-site pool primary; Oshima bridge-state retained only as the already-prespecified sensitivity",
       "plant_trait_available": {
         "field": "tube",
         "unit": "mm",
-        "source": "Hiraiwa & Ushimaru 2024 data_sp_plant.csv",
+        "source": "Hiraiwa & Ushimaru 2024 data_sp_plant.csv from the same 2013/2014 eight-site x five-season network system",
         "measurement": "species x site mean from five flowers"
       },
-      "pollinator_trait_available": false,
-      "pollinator_trait_target": "2017 Table S2 species x site mean proboscis_length_mm",
-      "current_numeric_proboscis_coverage": "0/209 current named pollinator taxa",
-      "pair_weight_or_functional_center_state": "2024 public archive contains derived network metrics/species summaries but no source-native plant x pollinator quantitative pair table suitable for reconstructing a signed plant-specific partner center",
+      "pollinator_trait_available": true,
+      "pollinator_trait_source": {
+        "paper": "Hiraiwa & Ushimaru 2017",
+        "doi": "10.1098/rspb.2016.2218",
+        "supplement_figshare_file_id": 7336688,
+        "supplement_pdf_sha256": "0386acd110c53a8b089aa79325a6f7889e8176c804bdd2a7ebfa104e972abe8e",
+        "table_s2_species": 211,
+        "safe_joined_current_taxa": 202,
+        "current_taxa": 209,
+        "safe_join_rule": "exact name or whitespace-only normalization",
+        "complete_site_specific_numeric_values_for_all_taxa": false,
+        "table_s4_explicit_site_numeric_taxa": 5
+      },
+      "pair_weight_or_functional_center_state": {
+        "plant_specific_pair_weight_table_recovered": false,
+        "dryad_version_id": 11003,
+        "dryad_file_id": 45693,
+        "dryad_file_md5": "bec80ba4f3929517af0ca711bd5b1cb0",
+        "dryad_transport_state": "metadata public; individual file bytes blocked HTTP 401/403",
+        "community_level_center_rule_available": true,
+        "community_level_center_rule_type": "prospectively frozen Table S2 species-level proboscis transfer x site visit weights",
+        "mapping_gate": "data/design/izu_signed_position_source_gate_20260827.json",
+        "mapping_freeze_commit": "646f5236fca6144ce73a69ac3fe81b2d825afe17"
+      },
       "source_native_unsigned_alignment_available": "TM_sp_z",
-      "unsigned_alignment_limitation": "TM_sp_z can support retrospective alignment-magnitude checks but cannot identify the sign of plant position around a functional optimum",
-      "decision": "blocked_for_direct_signed_position_test",
-      "reopen_conditions": [
-        "recover source-native numeric proboscis values with exact site identity",
-        "recover or identify a source-native quantitative plant x pollinator weighting sufficient to define the functional center, or predeclare a valid community-level center for the intended estimand",
-        "freeze baseline regime and signed-position formula before downstream reproductive outcomes are used for a new test"
-      ]
+      "unsigned_alignment_limitation": "TM_sp_z supports alignment magnitude but cannot identify the side of the functional center; the new community-center route preserves sign before the target fit",
+      "current_signed_position_result": {
+        "workflow_run": 33039478288,
+        "artifact": "izu-signed-position-triangulation-33039478288",
+        "artifact_digest": "sha256:2fb746789640aba09c364740dd248f09ab457cd51d894d99de41db6d6f554e95",
+        "primary_source": "continental three-site pooled community center",
+        "eligible_plants": 30,
+        "plant_island_rows": 83,
+        "slope": 0.5669042695418104,
+        "cluster_robust_se": 0.13161467926135867,
+        "p_one_sided_positive": 0.00008635527121542942,
+        "sign_concordance": "63/83",
+        "leave_one_island_all_positive": true,
+        "oshima_bridge_slope": 0.28082460652825425,
+        "oshima_bridge_p_one_sided_positive": 0.19965651768206433,
+        "oshima_bridge_supported": false,
+        "decision": "mainland_source_projection_supported_oshima_bridge_projection_not_supported"
+      },
+      "decision": "opened_for_same_network_community_center_signed_position_triangulation; plant-specific partner-center and prospective effective-service tests remain blocked",
+      "remaining_reopen_conditions_for_direct_partner_specific_test": [
+        "recover source-native quantitative plant x pollinator weighting or collect prospective plant-specific visitor weights",
+        "use exact-source or newly measured visitor proboscis values under the frozen lookup rules",
+        "link signed position to prospective single-visit pollen deposition and reproductive dependency without retuning the source mapping"
+      ],
+      "claim_boundary": "The current positive result is same-network community-center triangulation. Table S2 supplies source-reported species-level numeric values with a prospectively frozen site-transfer rule, not a complete site-exact trait matrix. It is not independent held-out validation, a plant-specific partner-center test, or a reproductive causal test."
     },
     {
       "id": "izu_unsigned_retrospective_alignment",
@@ -130,10 +168,14 @@
       "response heterogeneity is empirical across island systems",
       "v12 identifies initial trait-position heterogeneity as the minimal source of within-run lineage sign branching in the declared ABM",
       "two independent morphology systems analysed before v12 show OLS response shapes below isometry, consistent with pre-island starting state influencing island floral response",
-      "the preexisting Nicotiana bridge shows that apparent floral-pollinator trait correspondence alone is not sufficient for current pollen-transfer or seed-selection propagation"
+      "the preexisting Nicotiana bridge shows that apparent floral-pollinator trait correspondence alone is not sufficient for current pollen-transfer or seed-selection propagation",
+      "in the Izu same-network system, a prospectively frozen continental-source signed-position x community-center-shift projection positively tracks realized plant-level TM_sp change and survives all five leave-one-island deletions",
+      "the prespecified Oshima bridge-state projection is not supported, so source regime is not empirically interchangeable in this Izu projection"
     ],
     "not_yet_supported": [
       "real island reproductive branch sign is caused by signed plant position relative to pollinator functional optimum",
+      "a plant-specific partner-weighted Izu functional center has been reconstructed",
+      "the Izu signed-position result is independent held-out validation",
       "the v12 standardized trait is numerically equivalent to corolla tube length or flower area",
       "reproductive dependency is empirically irrelevant",
       "a universal functional optimum applies across island systems",
@@ -141,7 +183,7 @@
       "trait position alone is sufficient to determine downstream fitness response"
     ]
   },
-  "working_mechanism_after_boundary_evidence": "common pollinator-functional shift x pre-existing plant trait position generates branch potential; local opportunity, partner effectiveness, reproductive limitation/assurance and historical state determine whether and how that branch propagates into realized reproductive or evolutionary response",
-  "next_decisive_task": "Find or recover an independent system with source-native plant matching trait, pollinator functional trait/environment, and downstream reproductive response measured on compatible units; freeze the signed-position mapping before inspecting its downstream outcome. Izu can reopen for a direct signed test only when the missing source-native proboscis/weight information is available.",
-  "claim_boundary": "This gate distinguishes model sufficiency, pre-existing empirical consistency, propagation boundaries and direct empirical identification. It intentionally leaves the focal signed-position mechanism unconfirmed rather than filling missing pollinator traits or pair weights with proxies."
+  "working_mechanism_after_boundary_evidence": "common pollinator-functional shift x pre-existing plant trait position generates branch potential; source regime, local opportunity, partner effectiveness, reproductive limitation/assurance and historical state determine whether and how that branch propagates into realized reproductive or evolutionary response",
+  "next_decisive_task": "Keep the frozen Izu community-center result fixed and move to the prospective Issue #91 route: collect plant-specific visitor identity/weights, exact-source or newly measured proboscis, single-visit pollen deposition and direct reproductive dependency on linked plants. This is the test that can separate community-center geometry from realized partner-specific effective service and downstream reproduction.",
+  "claim_boundary": "This gate now separates model sufficiency, independent morphology consistency, same-network signed-position triangulation, propagation boundaries and prospective direct identification. The Izu community-center projection is open and positive under the study-defined mainland source, but plant-specific partner centers, reproductive propagation and historical pollinator causation remain unconfirmed."
 }
