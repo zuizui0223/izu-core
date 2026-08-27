@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-08-27",
+  "purpose": "separate the broad empirical comparison universe from the 13-system strict manuscript challenge set",
+  "counting_rules": {
+    "strict_external_challenge": "system admitted to the frozen manuscript matrix",
+    "additional_analytical_target": "distinct source-gated or reanalysed dataset/system outside the strict set",
+    "geographic_duplicates_are_not_new_archipelagos": true,
+    "multi_archipelago_studies_preserve_source_hierarchy": true,
+    "habitat_islands_are_not_relabelled_oceanic_archipelagos": true
+  },
+  "minimum_named_entry_count_before_geographic_deduplication": 25,
+  "strict_external_challenges": 13,
+  "additional_named_analytical_targets_minimum": 12,
+  "strict_system_ids": [
+    "izu_hiraiwa_ushimaru",
+    "ogasawara_psychotria_homalosperma",
+    "hawaii_lobelioids",
+    "dominica_heliconia",
+    "california_channel_islands_nicotiana_glauca",
+    "puerto_rico_mona_guaiacum_sanctum",
+    "caribbean_gesneriaceae",
+    "new_zealand_rhabdothamnus_solandri",
+    "mariana_guam_saipan",
+    "seychelles_ant_disruption",
+    "mauritius_roussea_simplex",
+    "canary_teide_honeybee_network",
+    "bahamas_pavonia_bahamensis"
+  ],
+  "additional_targets": [
+    {"id": "wanshan_yongxing_2025", "layer": "cross_archipelago_expansion"},
+    {"id": "ogasawara_quitian_2026", "layer": "cross_archipelago_expansion", "geographic_overlap": "ogasawara_strict_system"},
+    {"id": "galapagos_nnakenyi_2019", "layer": "cross_archipelago_expansion"},
+    {"id": "southwest_pacific_ciarle_2025", "layer": "cross_archipelago_expansion", "source_scope": "129 colonisation events across 10 archipelagos"},
+    {"id": "new_zealand_hendriks_2019", "layer": "cross_archipelago_expansion", "source_scope": "flower-area subset 35 pairs across 9 populated island groups"},
+    {"id": "pacific_sister_taxa_hetherington_rauth_johnson_2020", "layer": "cross_archipelago_expansion", "source_scope": "136 contrasts across 7 island systems"},
+    {"id": "menorca", "layer": "model_development_falsification"},
+    {"id": "cabrera", "layer": "model_development_falsification"},
+    {"id": "martinique", "layer": "source_measurement_gate_blocked"},
+    {"id": "giannutri", "layer": "source_gate", "source_scope": "29 daily three-focal-bee networks"},
+    {"id": "mahe_seychelles", "layer": "source_gate", "geographic_overlap": "seychelles_strict_system", "source_scope": "64 monthly networks"},
+    {"id": "thousand_island_lake", "layer": "source_gate", "system_type": "fragmented land-bridge habitat islands", "source_scope": "42 networks from 41 islands plus mainland"}
+  ],
+  "mechanistic_anchor": {
+    "system": "Izu Islands",
+    "role": "high-resolution historical plus contemporary mechanism anchor",
+    "reason": "historical Campanula evidence, contemporary networks, pollinator traits, signed source-position analysis, prospective effectiveness/dependency measurements, and a focal within-lineage phenotype can be linked in one island series"
+  },
+  "dissertation_zoom": [
+    "broad comparative universe",
+    "13 strict external challenges",
+    "Izu deep mechanistic anchor",
+    "Campanula microdonta within-lineage phenotypic realization"
+  ],
+  "claim_boundary": "25 is a minimum count of named research entries before geographic de-duplication, not a count of independent archipelagos or successful validations."
+}
