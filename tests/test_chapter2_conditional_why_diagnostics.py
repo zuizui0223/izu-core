@@ -7,6 +7,7 @@ from scripts.run_chapter2_conditional_why_diagnostics import (
     DESIGN,
     PARAMETER_RANGES,
     cliff_delta,
+    frozen_input_sha256,
     scaled_parameters,
     two_way_decomposition,
     verify_inputs,
@@ -57,6 +58,14 @@ def test_parameter_scaling_uses_declared_ranges_without_sample_tuning():
     assert scaled.shape == (2, len(PARAMETER_RANGES))
     assert scaled[0].tolist() == pytest.approx([-0.5] * len(PARAMETER_RANGES))
     assert scaled[1].tolist() == pytest.approx([0.5] * len(PARAMETER_RANGES))
+
+
+def test_frozen_input_hash_is_checkout_newline_invariant(tmp_path: Path):
+    lf = tmp_path / "lf.py"
+    crlf = tmp_path / "crlf.py"
+    lf.write_bytes(b"first\nsecond\n")
+    crlf.write_bytes(b"first\r\nsecond\r\n")
+    assert frozen_input_sha256(lf) == frozen_input_sha256(crlf)
 
 
 def test_cliffs_delta_direction_is_destination_minus_source():

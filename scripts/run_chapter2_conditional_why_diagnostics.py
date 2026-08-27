@@ -59,11 +59,24 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def frozen_input_sha256(path: Path) -> str:
+    """Hash declared text inputs with the freeze machine's CRLF representation.
+
+    Git materializes these tracked Python and JSON inputs with LF on Linux and
+    CRLF in the Windows freeze worktree. Canonicalizing newlines preserves the
+    byte identity that was fixed before execution without making validation
+    depend on the checkout platform.
+    """
+    text = path.read_text(encoding="utf-8")
+    canonical = text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r\n")
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
 def verify_inputs(design: dict) -> dict[str, dict[str, str | bool]]:
     checks: dict[str, dict[str, str | bool]] = {}
     for relative, expected_with_prefix in design["input_identity"].items():
         expected = expected_with_prefix.removeprefix("sha256:")
-        observed = sha256(ROOT / relative)
+        observed = frozen_input_sha256(ROOT / relative)
         checks[relative] = {
             "expected_sha256": expected,
             "observed_sha256": observed,
