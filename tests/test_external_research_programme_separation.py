@@ -12,7 +12,6 @@ CURRENT_PAPER_FILES = (
 )
 
 FORBIDDEN_ACTIVE_COUPLING = (
-    "microdonta",
     "matched_real_network_context_effective_service_mapping",
     "complete_external_service_dependency_response_bridge",
     "future empirical translation",
@@ -25,6 +24,15 @@ def test_current_paper_package_has_no_external_programme_coupling():
         text = path.read_text(encoding="utf-8").lower()
         for token in FORBIDDEN_ACTIVE_COUPLING:
             assert token not in text, f"active external-programme coupling in {path.name}: {token}"
+
+
+def test_bounded_chapter3_handoff_does_not_claim_mechanism_validation():
+    manuscript = (ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md").read_text(encoding="utf-8")
+    lower = manuscript.lower()
+    if "campanula microdonta" in lower:
+        assert "not treated as proof" in lower
+        assert "historical assembly" in lower
+        assert "remain viable explanations" in lower
 
 
 def test_machine_readable_boundaries_declare_independence():
