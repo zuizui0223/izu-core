@@ -24,6 +24,7 @@ MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
 STATIC_SUBMISSION_FILES = (
     MANUSCRIPT,
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
+    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "data/design/island_ecology_jecology_submission_manifest.json",
@@ -92,6 +93,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "Packaging uses the Chapter 2 v2 active manuscript: synthetic response geometry is the primary analysis; "
                 "Izu is focal empirical triangulation at the source-state/community-composition level and is not treated as "
                 "validation of synthetic thresholds or as evidence for non-random partner sorting beyond background composition. "
+                "The dedicated Izu empirical appendix retains the raw-positive/null-corrected-negative structural boundary. "
                 "Figure regeneration must match the frozen Chapter 2 scientific gate. Metadata validation remains fail-closed."
             ),
         }
