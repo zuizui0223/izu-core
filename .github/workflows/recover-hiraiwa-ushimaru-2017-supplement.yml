@@ -1,0 +1,41 @@
+name: Recover Hiraiwa-Ushimaru 2017 sources
+
+on:
+  push:
+    branches: [empirical-2017-proboscis-recovery]
+    paths:
+      - "scripts/recover_hiraiwa_ushimaru_2017_supplement.py"
+      - "scripts/recover_hiraiwa_ushimaru_2017_dryad_file.py"
+      - ".github/workflows/recover-hiraiwa-ushimaru-2017-supplement.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install source readers
+        run: python -m pip install 'pypdf>=5,<7' 'openpyxl>=3.1,<4'
+      - name: Recover source-native supplementary material
+        run: |
+          python scripts/recover_hiraiwa_ushimaru_2017_supplement.py \
+            --output-dir /tmp/hiraiwa2017/supplement
+          cat /tmp/hiraiwa2017/supplement/recovery_summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Recover source-native Dryad workbook
+        run: |
+          python scripts/recover_hiraiwa_ushimaru_2017_dryad_file.py \
+            --output-dir /tmp/hiraiwa2017/dryad
+          cat /tmp/hiraiwa2017/dryad/dryad_recovery_summary.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hiraiwa-ushimaru-2017-sources-${{ github.run_id }}
+          path: /tmp/hiraiwa2017/
+          if-no-files-found: error
+          retention-days: 90

@@ -1,0 +1,88 @@
+name: Run Izu signed-position triangulation
+
+on:
+  push:
+    branches: [empirical-2017-proboscis-recovery]
+    paths:
+      - "data/design/izu_signed_position_source_gate_20260827.json"
+      - "scripts/analyze_izu_signed_position_triangulation.py"
+      - "scripts/audit_izu_signed_position_table_s4_sensitivity.py"
+      - "tests/test_izu_signed_position_triangulation.py"
+      - ".github/workflows/run-izu-signed-position-triangulation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install analysis dependencies
+        run: python -m pip install numpy pandas scipy pytest pypdf
+      - name: Validate signed-position implementation
+        run: pytest -q tests/test_izu_signed_position_triangulation.py
+      - name: Acquire frozen 2024 network files
+        run: |
+          python scripts/acquire_hiraiwa_ushimaru_figshare.py --output-dir /tmp/hiraiwa2024
+      - name: Recover and verify 2017 supplementary source
+        run: |
+          python scripts/recover_hiraiwa_ushimaru_2017_supplement.py --output-dir /tmp/hiraiwa2017
+      - name: Run frozen signed-position triangulation
+        run: |
+          mkdir -p /tmp/signed_position
+          python scripts/analyze_izu_signed_position_triangulation.py \
+            --gate data/design/izu_signed_position_source_gate_20260827.json \
+            --plant-csv /tmp/hiraiwa2024/files/data_sp_plant.csv \
+            --pollinator-csv /tmp/hiraiwa2024/files/data_sp_pollinator.csv \
+            --supplement-audit /tmp/hiraiwa2017/recovery_audit.json \
+            --out /tmp/signed_position/result.json \
+            --rows-out /tmp/signed_position/analysis_rows.csv
+          python scripts/audit_izu_signed_position_table_s4_sensitivity.py \
+            --gate data/design/izu_signed_position_source_gate_20260827.json \
+            --plant-csv /tmp/hiraiwa2024/files/data_sp_plant.csv \
+            --out /tmp/signed_position/table_s4_sensitivity.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path('/tmp/signed_position/result.json').read_text())
+          s4 = json.loads(Path('/tmp/signed_position/table_s4_sensitivity.json').read_text())
+          primary = result['primary_mainland_source_test']
+          sensitivity = result['oshima_bridge_sensitivity']
+          s4fit = s4['result']['primary_model']
+          lines = [
+              '# Izu source-native signed-position triangulation',
+              '',
+              f"Decision: **{result['decision']}**",
+              f"Primary n rows / plant clusters: {primary['n_rows']} / {primary['n_plants']}",
+              f"Primary slope: {primary['primary_model']['slope']:.6f}",
+              f"Primary one-sided p: {primary['primary_model']['p_one_sided_positive']:.6g}",
+              f"Sign concordance: {primary['sign_concordance']['concordant']}/{primary['sign_concordance']['eligible']}",
+              f"Leave-one-island slope range: {primary['leave_one_island']['min_slope']:.6f} to {primary['leave_one_island']['max_slope']:.6f}",
+              '',
+              f"Table S4 partial site-value correction slope: {s4fit['slope']:.6f}",
+              f"Table S4 partial correction one-sided p: {s4fit['p_one_sided_positive']:.6g}",
+              '',
+              f"Oshima sensitivity slope: {sensitivity['primary_model']['slope']:.6f}",
+              f"Oshima sensitivity one-sided p: {sensitivity['primary_model']['p_one_sided_positive']:.6g}",
+              '',
+              'The frozen primary uses Table S2 species-level proboscis means with site visit weights. Table S4 corrects the five taxa for which site-specific numeric values are explicitly reported.',
+              'This is same-network mechanistic triangulation, not independent validation or historical causal identification.'
+          ]
+          Path('/tmp/signed_position/summary.md').write_text('\n'.join(lines) + '\n')
+          PY
+          cat /tmp/signed_position/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: izu-signed-position-triangulation-${{ github.run_id }}
+          path: |
+            /tmp/signed_position/
+            /tmp/hiraiwa2017/recovery_audit.json
+            /tmp/hiraiwa2024/summary.json
+          if-no-files-found: error
+          retention-days: 90
