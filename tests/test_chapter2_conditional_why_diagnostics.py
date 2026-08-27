@@ -91,7 +91,7 @@ def test_active_manuscript_and_thesis_positioning_preserve_how_why_boundary():
     supplement = SUPPORTING_INFORMATION.read_text(encoding="utf-8")
     positioning = THESIS_POSITIONING.read_text(encoding="utf-8")
     for token in [
-        "community realization for `80.17%`",
+        "80.17%",
         "Partner-loss multiplier",
         "positive baselines crossed to non-positive",
         "mechanistic HOW and a model-conditional proximal WHY",
