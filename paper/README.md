@@ -24,25 +24,30 @@ Those later diagnostics are design / claim-boundary aids. They do not promote a 
 
 ## Active Chapter 2 working manuscript
 
-The former manuscript, prospective meta-analysis design, and July broad-literature-search note remain retired because they became stale relative to the source-locked state. They are provenance only and must not be restored as submission surfaces.
+After completion of the 2026-08-27 scientific reassessment, Chapter 2 was rebuilt around conditional response geometry. The current active manuscript is now v2:
 
-After completion of the 2026-08-27 Chapter 2 scientific reassessment, a **new active working manuscript** has been regenerated from current state:
-
-- [`docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`](../docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md)
-- exact model specification: [`docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md`](../docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md)
+- [`docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md`](../docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md)
+- exact synthetic model specification: [`docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md`](../docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md)
 - Chapter 2 manuscript supersession overlay: [`data/design/chapter2_active_manuscript_mainline_20260827.json`](../data/design/chapter2_active_manuscript_mainline_20260827.json)
 - HOW/proximal-WHY/ultimate-WHY audit: [`docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md`](../docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md)
 - frozen conditional-WHY diagnostics: [`data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json`](../data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json)
-- current completion audit: [`data/results/chapter2_active_manuscript_audit_20260827.json`](../data/results/chapter2_active_manuscript_audit_20260827.json)
 
-The working manuscript is a **Research Article candidate centered on conditional response geometry**. The synthetic scientific gate and frozen conditional-WHY diagnostics are complete, but the package is **not submission-ready** until author metadata and declarations are supplied. Completion does not promote historical drafts, complete the focal empirical programme or convert synthetic coefficients, variance shares, thresholds or design frequencies into ecological estimates.
+The v2 manuscript keeps the synthetic model as the primary analysis and adds one focal empirical layer in the Izu Islands. The Izu result is intentionally reported with its structural negative control: source floral state and broad community composition structure raw realized matching, but the frozen projection does not explain the source paper's null-corrected matching response. Izu is therefore empirical triangulation of source-state/community structure, not validation of the synthetic thresholds or evidence for non-random partner sorting beyond background composition.
 
-The conditional-WHY extension reuses the unchanged frozen design. It identifies partner loss/arrival as the strongest sign-stable fixed-surface associations, partitions baseline response variation into starting-position, community-realization and non-additive components, and shows that local filtering is bidirectional but directionally asymmetric. It supports a mechanistic HOW and model-conditional proximal WHY, not an ultimate historical explanation for why island biotas or regional response vectors formed.
+The former active draft remains provenance only:
+
+- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`
+
+The working manuscript is **not submission-ready** until the source-locked Izu analysis implementation and structural audit are present on main, author metadata/declarations are supplied, and the fail-closed bundle build succeeds.
 
 ## Current development target
 
-Issue #91 remains the direct empirical gate for the focal linked plant / effort / visit / single-visit pollen deposition / pollination-treatment / fruit / seed programme: collect a real linked bundle, freeze it, pass structural admission, estimate between-plant dispersion and measurement reliability/loss, and set an absolute precision target before confirmatory planning.
+The current paper-building target is to keep three layers synchronized:
 
-That focal empirical gate is separate from the completed Chapter 2 model reassessment and from the Chapter 2 working manuscript. Completion of one must not be used to imply completion of the others.
+1. synthetic conditional response geometry as the primary quantitative result;
+2. broad external systems as comparative grounding/falsification rather than validation coverage; and
+3. Izu as the focal empirical depth case, with the raw-positive/null-corrected-negative boundary retained.
+
+Issue #91 remains the decisive future prospective test for propagation from visitor identity and plant-specific partner weights through single-visit pollen deposition to reproductive outcome. That prospective gate is separate from the current source-locked Izu triangulation.
 
 External and source-recovery work is secondary and gate-controlled. Repeated searches of exhausted routes, public-image visible-signal inference, and formal cross-system pooling before compatible independent replication are not active paper-building steps.
