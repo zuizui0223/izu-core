@@ -14,7 +14,7 @@ def test_readme_declares_closed_scientific_gate_and_metadata_only_blocker():
     assert "mechanistic **how** plus model-conditional **proximal why**" in lower
     assert "ultimate why" in lower
     assert "source-locked implementation/source gate/structural audit are part of the active paper branch" in lower
-    assert "only author-supplied identity metadata and submission declarations remain unresolved" in lower
+    assert "only author-supplied identity metadata and declarations remain unresolved" in lower
 
 
 def test_readme_preserves_three_layer_island_syndrome_core():
