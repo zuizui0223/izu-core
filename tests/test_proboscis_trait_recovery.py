@@ -18,18 +18,18 @@ STATUS = ROOT / "data/design/izu_pollinator_proboscis_recovery_status.json"
 TEMPLATE = ROOT / "templates/field_pollinator_trait_lookup_template.csv"
 
 
-def test_current_source_state_stays_blocked_without_numeric_table_s2() -> None:
+def test_current_source_state_records_species_level_recovery_but_keeps_site_exact_fdq_blocked() -> None:
     status = load_status(STATUS)
     validate_recovery_status(status)
     state = recovery_state(status)
     assert state == {
         "current_named_pollinator_taxa": 209,
-        "recovered_numeric_proboscis_taxa": 0,
-        "coverage_fraction": 0.0,
+        "recovered_numeric_proboscis_taxa": 202,
+        "coverage_fraction": 202 / 209,
         "paper_vs_current_count_discrepancy": 2,
-        "table_s2_values_recovered": False,
+        "table_s2_values_recovered": True,
         "fdq_trait_lookup_ready": False,
-        "decision": "blocked_until_source_native_proboscis_values_recovered",
+        "decision": "species_level_numeric_recovered_site_exact_fdq_still_blocked",
     }
 
 

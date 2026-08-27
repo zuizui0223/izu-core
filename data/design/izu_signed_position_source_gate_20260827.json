@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "status": "mapping_frozen_before_signed_position_target_fit",
+  "mapping_freeze_parent_sha": "f2f52aa832e680b02fd82289dd4db1501d01a038",
+  "scientific_role": "same-network source-native signed-position triangulation; not independent validation and not historical causal identification",
+  "source_system": {
+    "study": "Hiraiwa & Ushimaru coastal plant-pollinator networks",
+    "network_scope": "8 sites x 5 seasonal surveys in 2013 or 2014",
+    "pollinator_trait_source_doi": "10.1098/rspb.2016.2218",
+    "pollinator_supplement_figshare_file_id": 7336688,
+    "pollinator_supplement_pdf_sha256": "0386acd110c53a8b089aa79325a6f7889e8176c804bdd2a7ebfa104e972abe8e",
+    "table_s2_pollinator_species": 211,
+    "table_s2_total_visits": 6257,
+    "plant_and_matching_data_source_doi": "10.6084/m9.figshare.25025000.v1",
+    "data_sp_plant_sha256": "d3c59dd1cdc847f910530338eac9fe24e02c4f5ca11a51d7111861ce9b808e04",
+    "data_sp_pollinator_sha256": "261a59febc28f7bdfc7fa6e489f3d0fef0947adcce35cb3f30ef00a44a49c627",
+    "source_identity_audit": {
+      "current_2024_named_pollinator_taxa": 209,
+      "2017_table_s2_taxa": 211,
+      "safe_join_taxa_exact_or_whitespace_only": 202,
+      "safe_join_fraction_of_2024_taxa": 0.9665071770334929,
+      "shared_taxon_site_presences_2017": 532,
+      "shared_taxon_site_presences_2024": 532,
+      "presence_discordances": 0,
+      "unresolved_current_taxa": 7,
+      "rule": "exact name or whitespace-only normalization; no fuzzy, family, guild or midpoint substitution"
+    }
+  },
+  "pollinator_community_centers": {
+    "definition": "visit-weighted mean proboscis length from 2017 Table S2; weights are all source-recorded pollinator visits at the stated site(s)",
+    "site_centers_mm": {
+      "hitachi": {"code": "HT", "n_visits": 620, "center_mm": 5.764354838709677},
+      "hitachinaka": {"code": "HN", "n_visits": 820, "center_mm": 6.518414634146341},
+      "tateyama": {"code": "TY", "n_visits": 1175, "center_mm": 8.715063829787233},
+      "oshima": {"code": "OS", "n_visits": 697, "center_mm": 4.332998565279771},
+      "niijima": {"code": "NJ", "n_visits": 774, "center_mm": 5.044573643410852},
+      "kozu": {"code": "KZ", "n_visits": 709, "center_mm": 6.073483779971792},
+      "miyake": {"code": "MY", "n_visits": 881, "center_mm": 5.162656072644722},
+      "hachijo": {"code": "HJ", "n_visits": 581, "center_mm": 2.7383820998278825}
+    },
+    "primary_source_regime": {
+      "sites": ["hitachi", "hitachinaka", "tateyama"],
+      "n_visits": 2615,
+      "center_mm": 7.326653919694071,
+      "reason": "the source study defines these three Honshu coastal sites as the continental comparison; pooling all source-recorded visits avoids choosing one mainland site after target inspection"
+    },
+    "prespecified_sensitivity_source_regime": {
+      "sites": ["oshima"],
+      "n_visits": 697,
+      "center_mm": 4.332998565279771,
+      "reason": "Oshima bridge-state sensitivity was already named in the pre-existing v12 empirical trait-position gate; it is not the primary source baseline"
+    }
+  },
+  "plant_starting_position": {
+    "source_table": "2024 source-native data_sp_plant.csv from the same 40-network system; the 2024 article states that mean proboscis and corolla tube lengths were measured per species x site and the complete lengths were reported in the 2017 study",
+    "site_season_deduplication": "one unique tube value per plant x site; repeated seasonal rows do not receive extra weight",
+    "source_trait": "equal-weight mean tube_mm across unique continental plant x site observations",
+    "eligibility": "plant species with >=1 continental site and >=1 Izu oceanic-island site in data_sp_plant",
+    "eligible_species_count": 30,
+    "eligible_position_range_mm": [-7.326653919694071, 19.3800127469726],
+    "eligible_negative_positions": 20,
+    "eligible_positive_positions": 10,
+    "formula": "initial_signed_position_mm = source_tube_mm - 7.326653919694071"
+  },
+  "target_test_frozen_before_fit": {
+    "primary_response": "delta_TM_sp",
+    "response_definition": "mean source-native plant species-level trait matching TM_sp at one Izu site across available seasons minus the plant's equal-weight mean TM_sp across continental plant x site units; higher TM_sp means better matching because TM_sp is the negative interaction-frequency-weighted absolute proboscis-tube mismatch",
+    "context_shift": "island_center_shift_mm = island_visit_weighted_proboscis_center_mm - 7.326653919694071",
+    "center_only_geometric_prediction": "predicted_matching_change_mm = abs(initial_signed_position_mm) - abs(initial_signed_position_mm - island_center_shift_mm)",
+    "primary_model": "delta_TM_sp ~ predicted_matching_change_mm + island fixed effects",
+    "primary_inference": "plant-cluster-robust standard error for predicted_matching_change_mm",
+    "predeclared_direction": "positive",
+    "secondary_checks": [
+      "continuous Pearson and Spearman association without island fixed effects",
+      "sign concordance between predicted_matching_change_mm and delta_TM_sp",
+      "leave-one-island-out primary slope",
+      "Oshima-source-regime sensitivity where the required source plant observations exist"
+    ],
+    "failure_rule": "A non-positive primary slope or sign-instability under island deletion is reported as failure of this community-center projection. Do not retune the baseline, midpoint, taxon mapping or response threshold after inspection."
+  },
+  "shared_data_warning": {
+    "community_center_and_TM_sp_share_network_observations": true,
+    "target_plant_leave-out_center_available": false,
+    "reason": "the public Table S2 supplies site-level pollinator visit totals but not plant x pollinator interaction counts; the legacy Dryad primary_data.xlsx metadata are public but file bytes remain HTTP 401/403 blocked",
+    "interpretation_ceiling": "same-network mechanistic triangulation only; this cannot serve as independent held-out validation. The prospective Issue #91 field design remains the direct empirical gate."
+  },
+  "forbidden_after_freeze": [
+    "fuzzy taxon matching",
+    "pollinator functional-group midpoint imputation",
+    "family-level proboscis substitution",
+    "switching the primary mainland baseline after target inspection",
+    "using reproductive or pollen outcomes to choose the signed-position mapping",
+    "calling same-network concordance independent validation",
+    "claiming historical Bombus causation"
+  ]
+}

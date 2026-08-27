@@ -22,6 +22,7 @@ def validate_recovery_status(status: dict[str, object]) -> None:
     current = status["current_trait_coverage"]
     source = status["source_reference"]
     artifact = status["current_2024_reference_artifact"]
+    retrieval = status["retrieval_state"]
 
     if int(current["current_named_pollinator_taxa"]) != int(artifact["unique_named_pollinator_taxa"]):
         raise ValueError("current named-taxon count must match frozen 2024 artifact inventory")
@@ -35,6 +36,11 @@ def validate_recovery_status(status: dict[str, object]) -> None:
     discrepancy = int(source["paper_reported_pollinator_species"]) - total
     if int(current["paper_species_count_minus_current_named_taxa"]) != discrepancy:
         raise ValueError("paper/current species-count discrepancy is inconsistent")
+    table_s2_recovered = bool(retrieval["supplementary_table_s2_numeric_values_recovered"])
+    if recovered > 0 and not table_s2_recovered:
+        raise ValueError("numeric recovery count is positive but Table S2 is marked unrecovered")
+    if recovered == 0 and table_s2_recovered:
+        raise ValueError("Table S2 is marked recovered but no source-native numeric taxa are recorded")
     if recovered == 0 and bool(current["fdq_reconstruction_from_current_repo_trait_values_ready"]):
         raise ValueError("FDQ cannot be trait-ready with zero recovered numeric traits")
 
@@ -80,16 +86,21 @@ def recovery_state(status: dict[str, object]) -> dict[str, object]:
     validate_recovery_status(status)
     current = status["current_trait_coverage"]
     retrieval = status["retrieval_state"]
+    recovered = int(current["exact_source_native_numeric_proboscis_mm_recovered"])
+    table_s2_recovered = bool(retrieval["supplementary_table_s2_numeric_values_recovered"])
+    fdq_ready = bool(current["fdq_reconstruction_from_current_repo_trait_values_ready"])
+    if fdq_ready:
+        decision = "ready_for_exact_trait_join"
+    elif recovered > 0 and table_s2_recovered:
+        decision = "species_level_numeric_recovered_site_exact_fdq_still_blocked"
+    else:
+        decision = "blocked_until_source_native_proboscis_values_recovered"
     return {
         "current_named_pollinator_taxa": current["current_named_pollinator_taxa"],
         "recovered_numeric_proboscis_taxa": current["exact_source_native_numeric_proboscis_mm_recovered"],
         "coverage_fraction": current["coverage_fraction"],
         "paper_vs_current_count_discrepancy": current["paper_species_count_minus_current_named_taxa"],
-        "table_s2_values_recovered": retrieval["supplementary_table_s2_numeric_values_recovered"],
-        "fdq_trait_lookup_ready": current["fdq_reconstruction_from_current_repo_trait_values_ready"],
-        "decision": (
-            "ready_for_exact_trait_join"
-            if current["fdq_reconstruction_from_current_repo_trait_values_ready"]
-            else "blocked_until_source_native_proboscis_values_recovered"
-        ),
+        "table_s2_values_recovered": table_s2_recovered,
+        "fdq_trait_lookup_ready": fdq_ready,
+        "decision": decision,
     }

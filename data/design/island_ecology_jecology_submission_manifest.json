@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.2",
+  "schema_version": "3.4",
   "updated_on": "2026-08-27",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
@@ -7,10 +7,11 @@
   "scientific_reopening_required": false,
   "active_scientific_gate": "data/design/manuscript_reassessment_gate_20260826.json",
   "scientific_reassessment": "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md",
-  "research_article_route": "candidate_conditional_response_geometry",
+  "research_article_route": "candidate_conditional_response_geometry_with_focal_izu_triangulation",
   "paper_scope_independent_of_external_research_programmes": true,
   "current_manuscript_artifacts": {
-    "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
+    "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
+    "retired_pre_v2_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
     "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_20260827.md",
     "thesis_positioning": "THESIS_CHAPTER_POSITIONING.md",
     "supporting_information": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
@@ -20,9 +21,14 @@
     "conditional_why_audit": "docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md",
     "conditional_why_result": "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
     "comparative_universe": "docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md",
+    "izu_source_recovery": "docs/IZU_POLLINATOR_PROBOSCIS_RECOVERY.md",
+    "izu_triangulation": "docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md",
+    "izu_structural_audit": "docs/IZU_SIGNED_POSITION_STRUCTURAL_AUDIT_20260827.md",
+    "izu_source_gate": "data/design/izu_signed_position_source_gate_20260827.json",
+    "izu_trait_recovery_state": "data/design/izu_pollinator_proboscis_recovery_status.json",
     "figure_generator": "scripts/generate_chapter2_manuscript_figures.py",
     "table_generator": "scripts/generate_chapter2_manuscript_tables.py",
-    "status": "active_reassembled_manuscript_surface"
+    "status": "active_v2_synthetic_primary_plus_izu_triangulation_reproducible"
   },
   "scientific_gate_result": {
     "model_gate_closed": true,
@@ -35,6 +41,21 @@
     "median_local_context_first_sign_change_strength": 0.4,
     "assurance_eligible_baseline_declines": 580,
     "assurance_sign_rescues_through_4x": 0
+  },
+  "focal_izu_triangulation": {
+    "role": "empirical_echo_of_source_state_and_community_composition_not_validation",
+    "implementation_on_active_branch": true,
+    "source_gate_on_active_branch": true,
+    "structural_audit_on_active_branch": true,
+    "raw_matching_supported": true,
+    "raw_slope": 0.566904,
+    "raw_ci95": [0.297722, 0.836087],
+    "raw_sign_concordance": "63_of_83",
+    "exact_island_center_magnitudes_uniquely_identified": false,
+    "null_corrected_matching_supported": false,
+    "null_corrected_slope": 0.033285,
+    "null_corrected_ci95": [-0.268008, 0.334578],
+    "claim_ceiling": "source_state_and_background_community_structure_only"
   },
   "claim_reassignment": {
     "H1": "model_capability_and_design_counts_not_prevalence",
@@ -51,13 +72,14 @@
     "cell_level_realization": "realized_community_plus_nonadditivity",
     "local_context": "directionally_asymmetric_branch_reallocation",
     "assurance": "magnitude_attenuation_without_sign_rescue",
+    "empirical_depth": "izu_source_state_plus_community_composition_structures_raw_matching_but_not_null_corrected_matching",
     "ultimate_why": "assembly_colonization_persistence_and_history_outside_model",
     "chapter3": "coordinated_size_investment_trajectory_plus_selected_departures_beyond_common_allometry"
   },
   "external_system_role": {
     "role": "comparative_grounding_falsification_and_boundary_examples_not_validation_coverage",
     "broader_universe_larger_than_strict_13": true,
-    "izu": "deep_empirical_mechanistic_anchor",
+    "izu": "focal_empirical_triangulation_and_deep_anchor",
     "dominica": "retained_failed_specific_signed_position_projection",
     "coverage_11_of_11_must_not_be_used_as_validation": true
   },
@@ -77,6 +99,15 @@
       "starting_position_alone_promoted": false,
       "ultimate_why_claimed": false
     },
+    "izu_empirical_hygiene": {
+      "source_native_trait_recovery_fail_closed": true,
+      "fuzzy_or_guild_proxy_imputation_used": false,
+      "raw_matching_reported": true,
+      "null_corrected_negative_result_reported": true,
+      "exact_island_center_uniqueness_not_claimed": true,
+      "causal_pollinator_selection_not_claimed": true,
+      "synthetic_threshold_validation_not_claimed": true
+    },
     "uncited_reference_hygiene": {
       "Lord_2015": "retained_in_source_matrix_excluded_from_active_reference_list_because_not_cited",
       "Mendez_2025": "retained_in_source_matrix_excluded_from_active_reference_list_because_not_cited"
@@ -90,13 +121,16 @@
     "fixed_surface_regime_boundary_driver_diagnostic",
     "starting_position_by_community_realization_decomposition",
     "local_filtering_directional_asymmetry_diagnostic",
-    "canonical_chapter2_story_consolidation"
+    "canonical_chapter2_story_consolidation",
+    "focal_izu_raw_matching_source_state_triangulation_with_structural_negative_control",
+    "source_locked_izu_analysis_implementation_and_structural_audit_ported_to_active_submission_branch"
   ],
   "submission_bundle": {
     "builder": "scripts/build_island_ecology_submission_bundle.py",
     "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
     "figure_regeneration": "fail_closed_against_frozen_scientific_gate_and_conditional_why_identity",
-    "status": "scientifically_routed_metadata_blocked",
+    "izu_reproducibility_files_in_review_archive": true,
+    "status": "scientifically_complete_metadata_blocked",
     "remaining_blocker": "author_supplied_metadata_and_submission_declarations"
   },
   "remaining_before_actual_submission": [
@@ -105,5 +139,5 @@
     "approve_submission_declaration_booleans",
     "run_submission_builder_successfully_with_completed_metadata"
   ],
-  "next_executable_task": "validate_current_code_and_active_manuscript_against_the_canonical_story_then_wait_only_for_author_supplied_metadata_if_repository_checks_pass"
+  "next_executable_task": "run repository CI and fail-closed v2 review/submission-builder checks; if green, wait only for author-supplied metadata and declarations"
 }

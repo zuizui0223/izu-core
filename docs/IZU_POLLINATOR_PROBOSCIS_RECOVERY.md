@@ -2,94 +2,137 @@
 
 ## Current state
 
-The functional-exposure construct is now fixed, but the source-native numeric trait table needed to reconstruct it is **not yet in the repository**.
+The 2017 source-native supplementary PDF is now recovered and byte-locked. Table S2 supplies a numeric species-level proboscis value for 211 pollinator taxa together with visit counts at the eight study sites.
 
-Hiraiwa & Ushimaru (2017) measured pollinator proboscis length in millimetres with digital calipers and report mean values by species × site in electronic supplementary Table S2. The paper reports **211 pollinator species**.
+The old `0 / 209` state is obsolete.
 
-The frozen 2024 source artifact currently used by `izu-core` contains **209 unique named pollinator taxa** in `data_sp_pollinator.csv`, but no raw `proboscis_length_mm` column. It contains standardized functional columns used by the later analysis, which are not silently reverse-transformed into millimetres.
-
-Therefore:
+Current safe linkage to the 2024 network archive:
 
 ```text
-current named visitor taxa in 2024 artifact = 209
-source-native numeric proboscis values recovered in repo = 0
-FDQ trait coverage = 0 / 209
-2017 paper species count = 211
-211 - 209 name/count discrepancy = unresolved
+2024 named visitor taxa = 209
+2017 Table S2 taxa = 211
+safe exact / whitespace-only joined current taxa = 202 / 209 = 96.65%
+unresolved current taxa = 7
+unresolved 2017 taxa = 9
+shared joined taxon x site presences = 532 / 532 identical
 ```
 
-The 209 and 211 sets are **not assumed to be identical**.
+No fuzzy, family, guild, body-size or midpoint value is used.
 
-## Source target
+## Recovered source
 
-Primary targets:
-
-- 2017 paper DOI: `10.1098/rspb.2016.2218`
-- Dryad dataset: `10.5061/dryad.pm29d`
-- Dryad file: `primary_data.xlsx`
+- article DOI: `10.1098/rspb.2016.2218`
 - supplementary collection: `10.6084/m9.figshare.c.3647738`
-- supplementary figures/tables item: `10.6084/m9.figshare.4479803.v2`
-- numeric target: electronic supplementary **Table S2**
+- recovered Figshare file id: `7336688`
+- file name: `rspb20162218_si_001.pdf`
+- SHA256: `0386acd110c53a8b089aa79325a6f7889e8176c804bdd2a7ebfa104e972abe8e`
+- Table S2 pollinator species: 211
+- Table S2 total visits: 6,257
+- Table S2 proboscis range: 0.1–32.8 mm
 
-The paper states that at each site five pollinator individuals per species were measured, or all individuals when fewer than five were available, and that mean proboscis length was calculated per species × site.
+Dedicated recovery run `33038243186` successfully recovered the source PDF. Later source-run `33038891807` also resolved the legacy Dryad metadata while confirming that the workbook bytes remain transport-blocked.
 
-The Dryad landing page exposes `primary_data.xlsx`, but direct workbook retrieval returns HTTP 403 in the current execution environment. This is an acquisition block, not evidence that the data are absent.
+## Important measurement distinction
 
-## Why functional bins are insufficient
+The original study measured pollinator proboscis length at each site and calculated species × site means. However, Table S2 exposes one numeric proboscis value per species plus site-specific visit counts; it is therefore treated here as a **source-reported species-level numeric value**, not silently relabelled as a complete site-specific numeric table.
 
-The 2017 source also classifies pollinators as:
+Table S4 explicitly reports site-specific numeric means for five pollinator species whose functional-group assignment changes among sites. Those values are used only in a separate sensitivity that corrects the five reported cases.
 
-- short-tongued: `< 4.5 mm`
-- medium-tongued: `4.5–9 mm`
-- long-tongued: `> 9 mm`
+Therefore two routes must remain distinct:
 
-Those bins are biologically useful but cannot reconstruct the Izu FDQ distance matrix. FDQ uses pairwise **numeric** proboscis-length distances, so assigning a group midpoint would add invented information.
+1. **community-center transfer estimand** — Table S2 species values may be combined with site-specific source visit counts under a rule frozen before the target fit;
+2. **exact site-specific FDQ / plant-specific partner center** — remains blocked unless complete compatible site-level traits or direct new measurements are available.
 
-Primary analysis therefore prohibits:
+## Frozen signed-position transfer
+
+Before the target `TM_sp` fit, commit `646f5236fca6144ce73a69ac3fe81b2d825afe17` froze the following primary rule:
+
+```text
+source pollinator center
+  = visit-weighted mean Table S2 species proboscis
+    pooled across Hitachi + Hitachinaka + Tateyama
+  = 7.326653919694071 mm
+
+initial signed position
+  = continental source tube mean - source pollinator center
+```
+
+This was prospective relative to the new signed-position target fit. It does not make the transferred species value site-exact.
+
+A post-target Table S4 sensitivity replaces the Table S2 value with the explicitly reported site-specific numeric value for the five affected taxa only. The rest remain source-reported species-level values.
+
+## Current signed-position result
+
+Dedicated run `33039478288` passed source-byte reacquisition, source checks, four synthetic tests and the frozen target analysis.
+
+Primary continental-source projection:
+
+- 83 plant × island-site rows
+- 30 plant species
+- slope `+0.5669`, plant-cluster SE `0.1316`
+- one-sided positive `p = 8.64e-5`
+- sign concordance `63 / 83 = 75.9%`
+- all five leave-one-island slopes positive
+
+Prespecified Oshima bridge sensitivity is unsupported (`slope +0.2808`, one-sided `p = 0.200`).
+
+See `docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md` for the complete interpretation and claim ceiling.
+
+## Dryad plant × pollinator weight status
+
+The legacy workbook is now identified exactly from public metadata:
+
+- dataset DOI: `10.5061/dryad.pm29d`
+- dataset version id: `11003`
+- file id: `45693`
+- file: `primary_data.xlsx`
+- size: 93,457 bytes
+- MD5: `bec80ba4f3929517af0ca711bd5b1cb0`
+- description: plant–pollinator interaction data used in the analysis
+
+The current anonymous file routes remain blocked:
+
+- exact file API download: HTTP 401
+- public file-stream routes: HTTP 403
+
+Thus plant-specific interaction weights have **not** been recovered from this workbook.
+
+## Why functional bins remain insufficient
+
+The 2017 source classifies pollinators as short (`<4.5 mm`), medium (`4.5–9 mm`) and long (`>9 mm`) tongued. These bins remain biologically useful but are not numeric substitutes for continuous proboscis distance.
+
+Primary analyses continue to prohibit:
 
 - group-midpoint imputation;
 - family-level mean substitution;
 - body-size allometry used as if source-native;
 - inferred values from taxonomic/guild labels;
-- choosing a trait estimate after examining SVD, dependency or reproductive outcomes.
+- fuzzy taxon joins chosen to increase coverage.
 
-## Join rule after Table S2 recovery
+## Field rule
 
-The first join key is:
+Issue #91 visitor observations should preserve taxon identity and link to `templates/field_pollinator_trait_lookup_template.csv`.
+
+Allowed states remain:
+
+- `source_exact_site`
+- `source_transfer_prespecified`
+- `measured_new`
+- `trait_missing`
+
+The 2017 Table S2 community-center route is a `source_transfer_prespecified` use. It must not be relabelled `source_exact_site`.
+
+## Remaining decisive work
+
+For the direct mechanism test:
 
 ```text
-exact pollinator taxon name × exact site
+plant-specific visitor observations
+  -> exact-source or newly measured proboscis
+  -> plant-specific visitor weights
+  -> signed plant position relative to the prespecified functional center
+  -> single-visit pollen deposition
+  -> reproductive dependency / mature seed outcome
 ```
 
-because the original source reports site-specific mean proboscis lengths.
-
-A taxon-only mean across sites is not automatically substituted. If a future transfer rule is needed, it must be declared prospectively and sensitivity-tested separately.
-
-The two-species difference between the paper count (211) and current named table (209) must be resolved by source identity, not fuzzy matching.
-
-## Issue #91 field rule
-
-The existing field experiment does not change. Visitor observations should preserve taxon identity and link to:
-
-`templates/field_pollinator_trait_lookup_template.csv`
-
-Allowed trait states are:
-
-- `source_exact_site` — exact source taxon × site value;
-- `source_transfer_prespecified` — a separately justified source transfer rule;
-- `measured_new` — new direct measurement with measurement `n` and provenance;
-- `trait_missing` — no defensible numeric trait yet.
-
-`trait_missing` rows stay missing. They are not given family/guild midpoint values just to make FDQ calculable.
-
-## Turn-opening condition
-
-FDQ reconstruction from source-native traits opens only after:
-
-1. numeric Table S2 values are lawfully recovered;
-2. source bytes/rows and checksums are frozen;
-3. exact taxon × site mapping to the 2024 visitor table is audited;
-4. the 211-versus-209 discrepancy is resolved or retained explicitly;
-5. missing-trait handling is declared before examining downstream dependency/SVD results.
-
-Until then the scientific state is `blocked_until_source_native_proboscis_values_recovered`.
+This prospective field route is required to distinguish a community-center geometric correspondence from realized partner-specific effective service and downstream reproduction.

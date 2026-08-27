@@ -2,7 +2,7 @@
 
 Updated: 2026-08-27
 
-Generated from the frozen Chapter 2 gate outputs. Frequencies and thresholds are synthetic robustness/sensitivity descriptors, not natural ecological prevalence or empirically calibrated thresholds.
+Tables 1–4 are generated from the frozen Chapter 2 synthetic gate outputs. Frequencies and thresholds are synthetic robustness/sensitivity descriptors, not natural ecological prevalence or empirically calibrated thresholds. Table 5 reports the separately source-locked Izu secondary analysis and its structural negative control.
 
 ## Table 1. Baseline scenario and lineage parameterization
 
@@ -93,6 +93,19 @@ Eligible baseline declines: **580**. Sign rescues anywhere through 4×: **0**. U
 | Strength 0.40: positive → non-positive | 56.5% | denominator is 596 baseline-positive contrasts |
 | Median first change, baseline negative / positive | 0.60 / 0.40 | synthetic filtering strengths, not field thresholds |
 
+## Table 5. Focal Izu empirical triangulation and structural audit
+
+| Analysis | Rows / plants | Slope | 95% CI | Additional diagnostic | Interpretation |
+|---|---:|---:|---:|---|---|
+| Frozen source-position × island-centre projection → raw `delta_TM_sp` | 83 / 30 | +0.5669 | +0.2977 to +0.8361 | sign concordance 63/83; all five leave-one-island slopes positive | realized raw matching is structured by correct source state plus community composition |
+| Plant-source-position permutation, raw target | 10,000 draws | — | — | 0/10,000 null slopes ≥ observed; empirical one-sided p = 1/10001 | correct plant source identity carries information |
+| Exact island-centre reassignment | 120 assignments | observed +0.5669 | range +0.4133 to +0.6078 | 13/120 assignments ≥ observed | exact five island-centre magnitudes/order are not uniquely identified |
+| Source-position-only raw comparator | 83 / 30 | -0.2033 | — | R² 0.4091; AIC 362.1 vs full geometry R² 0.3649; AIC 368.1 | raw signal is strongly source-state structured |
+| Same frozen projection → null-corrected `delta_TM_sp_z` | 83 / 30 | +0.0333 | -0.2680 to +0.3346 | sign concordance 42/83; permutation p = 0.3919 | no support for beyond-composition non-random matching |
+| Prespecified Oshima-source sensitivity | 62 / 22 | +0.2808 | -0.3980 to +0.9596 | sign concordance 48.4%; one LOO slope slightly negative | source baseline is not interchangeable |
+
+The Izu analysis is a same-system secondary triangulation, not an external validation of the synthetic model. The active claim ceiling is source floral state plus broad background community composition; historical Bombus causation, causal floral evolution, plant-specific partner centres and reproductive propagation remain untested.
+
 ## Interpretation boundary
 
-Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen design. None is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold.
+Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen synthetic design. Table 5 is a source-locked empirical secondary analysis with an explicit null-corrected negative result. None of the synthetic quantities is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold; the Izu quantities do not validate the synthetic coordinate or identify causal floral evolution.

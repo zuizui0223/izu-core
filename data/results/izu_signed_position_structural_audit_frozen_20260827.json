@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "analysis": "izu_signed_position_structural_independence_audit_frozen_for_manuscript",
+  "updated_on": "2026-08-27",
+  "source_audit": {
+    "workflow_run": 33055165742,
+    "artifact": "izu-signed-position-structural-audit-33055165742",
+    "artifact_digest": "sha256:7c3275190a52d268d87d826594373904d8b4937ab2e19586479fbc25ee40d9ac",
+    "mapping_frozen_before_target_fit": true
+  },
+  "analysis_units": {
+    "plant_island_rows": 83,
+    "plant_clusters": 30,
+    "islands": 5
+  },
+  "raw_matching": {
+    "slope": 0.5669042695,
+    "cluster_robust_se": 0.1316146793,
+    "ci95": [0.297722, 0.836087],
+    "sign_concordant": 63,
+    "sign_concordance_denominator": 83,
+    "all_five_leave_one_island_slopes_positive": true,
+    "plant_position_permutation": {
+      "draws": 10000,
+      "n_null_ge_observed": 0,
+      "empirical_p_one_sided": 0.00009999000099990001
+    }
+  },
+  "island_center_assignment": {
+    "n_exact_assignments": 120,
+    "observed_slope": 0.5669042695,
+    "null_min": 0.413293,
+    "null_median": 0.482107,
+    "null_max": 0.607778,
+    "n_assignments_ge_observed": 13,
+    "uniquely_identified": false
+  },
+  "source_position_only_raw_comparator": {
+    "slope": -0.203295,
+    "cluster_robust_se": 0.0454485,
+    "r_squared": 0.409056,
+    "aic": 362.109
+  },
+  "full_center_shift_raw_model": {
+    "r_squared": 0.364938,
+    "aic": 368.085
+  },
+  "null_corrected_matching": {
+    "slope": 0.0332847,
+    "cluster_robust_se": 0.1473150,
+    "ci95": [-0.268008, 0.334578],
+    "p_two_sided": 0.822831,
+    "sign_concordant": 42,
+    "sign_concordance_denominator": 83,
+    "plant_position_permutation": {
+      "draws": 10000,
+      "n_null_ge_observed": 3918,
+      "empirical_p_one_sided": 0.391861
+    },
+    "supported": false
+  },
+  "source_position_only_corrected_comparator": {
+    "slope": -0.0375894,
+    "cluster_robust_se": 0.0470113,
+    "p_two_sided": 0.430454
+  },
+  "oshima_source_sensitivity": {
+    "plant_island_rows": 62,
+    "plant_clusters": 22,
+    "slope": 0.280825,
+    "cluster_robust_se": 0.326408,
+    "ci95": [-0.39798, 0.95963],
+    "sign_concordant": 30,
+    "sign_concordance_denominator": 62,
+    "all_leave_one_island_slopes_positive": false,
+    "supported": false
+  },
+  "decision": {
+    "raw_realized_matching_structured_by_correct_source_state": true,
+    "exact_island_center_magnitudes_uniquely_supported": false,
+    "beyond_composition_nonrandom_matching_supported": false,
+    "claim_ceiling": "source_floral_state_plus_background_community_composition",
+    "historical_bombus_causation_identified": false,
+    "causal_floral_evolution_identified": false,
+    "synthetic_thresholds_empirically_validated": false
+  }
+}
