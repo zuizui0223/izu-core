@@ -15,8 +15,12 @@ def test_submission_manifest_keeps_scientific_gate_closed_but_metadata_blocked()
     assert manifest["active_scientific_gate"] == "data/design/manuscript_reassessment_gate_20260826.json"
     assert manifest["scientific_reassessment"] == "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
     assert manifest["paper_scope_independent_of_external_research_programmes"] is True
-    assert manifest["research_article_route"] == "candidate_conditional_response_geometry"
+    assert manifest["research_article_route"] == "candidate_conditional_response_geometry_with_focal_izu_triangulation"
     assert manifest["scientific_gate_result"]["model_gate_closed"] is True
+    assert manifest["focal_izu_triangulation"]["implementation_on_active_branch"] is True
+    assert manifest["focal_izu_triangulation"]["structural_audit_on_active_branch"] is True
+    assert manifest["focal_izu_triangulation"]["raw_matching_supported"] is True
+    assert manifest["focal_izu_triangulation"]["null_corrected_matching_supported"] is False
 
 
 def test_manifest_routes_frozen_conditional_why_diagnostics_without_reopening():
@@ -36,14 +40,21 @@ def test_manifest_routes_frozen_conditional_why_diagnostics_without_reopening():
     assert "fixed_surface_regime_boundary_driver_diagnostic" in completed
     assert "starting_position_by_community_realization_decomposition" in completed
     assert "local_filtering_directional_asymmetry_diagnostic" in completed
+    assert "focal_izu_raw_matching_source_state_triangulation_with_structural_negative_control" in completed
+    assert "source_locked_izu_analysis_implementation_and_structural_audit_ported_to_active_submission_branch" in completed
     why = manifest["model_reporting"]["conditional_why_diagnostics"]
     assert why["unchanged_parent_design_identity_verified"] is True
     assert why["ultimate_why_claimed"] is False
+    izu = manifest["model_reporting"]["izu_empirical_hygiene"]
+    assert izu["fuzzy_or_guild_proxy_imputation_used"] is False
+    assert izu["null_corrected_negative_result_reported"] is True
+    assert izu["causal_pollinator_selection_not_claimed"] is True
 
     bundle = manifest["submission_bundle"]
-    assert bundle["status"] == "scientifically_routed_metadata_blocked"
+    assert bundle["status"] == "scientifically_complete_metadata_blocked"
     assert bundle["remaining_blocker"] == "author_supplied_metadata_and_submission_declarations"
-    assert manifest["next_executable_task"].startswith("validate_current_code")
+    assert bundle["izu_reproducibility_files_in_review_archive"] is True
+    assert manifest["next_executable_task"].startswith("run repository CI")
 
 
 def test_data_code_statement_preserves_anonymous_review_and_paper_scope():
