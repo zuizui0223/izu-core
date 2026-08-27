@@ -10,10 +10,10 @@ from scripts.generate_chapter2_manuscript_figures import build_figures
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "dist/island_ecology_anonymous_review_archive.zip"
-MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
+MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
 
 CORE_REVIEW_FILES = (
-    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
+    MANUSCRIPT,
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
@@ -78,7 +78,6 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
     figure_payload = build_figures()
     figure_files = tuple(figure_payload["figure_outputs"])
     generated_files = figure_files + ("data/results/chapter2_manuscript_figure_inputs_20260827.json",)
-    files = CORE_REVIEW_FILES + generated_files
     records = core_records + validate_files(generated_files, deny_tokens)
 
     manifest = {
@@ -87,17 +86,19 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         "author_identity_included": False,
         "title_page_included": False,
         "manuscript_source": MANUSCRIPT,
-        "scientific_state": "conditional_response_geometry_model_gate_closed",
+        "scientific_state": "conditional_response_geometry_with_focal_izu_triangulation",
         "figures_regenerated_fail_closed": True,
         "deny_tokens_checked": list(deny_tokens),
         "files": records,
         "claim_boundary": (
-            "The archive reproduces the frozen synthetic response-geometry, joint-regime, "
-            "local-context, assurance and conditional-WHY diagnostics. External island evidence is comparative "
-            "grounding only and does not constitute cross-system mechanism validation."
+            "The archive reproduces the frozen synthetic response-geometry, joint-regime, local-context, assurance and "
+            "conditional-WHY diagnostics. The manuscript also reports focal Izu empirical triangulation only at the "
+            "source-state/community-composition level: raw realized matching is structured, whereas the source-paper "
+            "null-corrected matching response is unsupported. External island evidence remains comparative grounding "
+            "and does not constitute cross-system mechanism validation."
         ),
     }
-    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the active Chapter 2 Research Article candidate.\n\nThe active manuscript is regenerated from the completed scientific reassessment rather than from the retired Journal of Ecology V2/V3 drafts. The primary quantitative claim is conditional response geometry. The archive contains the complete manuscript companion specification, canonical active reference ledger, manuscript tables, frozen gate summaries, deterministic figure regeneration inputs and analysis scripts.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds.\n"""
+    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the active Chapter 2 Research Article candidate.\n\nThe active manuscript is the v2 conditional-response paper. Synthetic response geometry is the primary analysis. A focal Izu secondary analysis is included as empirical triangulation of source-state/community structure, with the negative null-corrected matching result retained explicitly. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds.\n"""
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
