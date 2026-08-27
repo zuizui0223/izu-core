@@ -72,7 +72,7 @@ The current tested envelope produced strong attenuation but no robust sign rescu
 
 The 13-system external set remains a source-audited comparative resource, but `11/11 covered or sign-compatible` is no longer used as validation. The broader research universe is larger than the strict 13-system manuscript set and is tracked separately.
 
-The systems are retained as **comparative grounding, falsification and boundary examples**. They are not a prevalence sample and are not used to fit the synthetic model.
+The systems are retained as **comparative grounding, falsification and boundary examples**. They are not used as validation, are not a prevalence sample, and are not used to fit the synthetic model.
 
 ## Focal empirical depth: Izu Islands
 
@@ -119,9 +119,9 @@ The ecological meanings of 24 lineages, 120 steps and saturation values 1/2/3 ar
 
 ## What is actually unresolved now
 
-The synthetic response-geometry gate and conditional-WHY diagnostics are complete. Chapter 2 is mechanistic **HOW** plus model-conditional **proximal WHY**: it resolves how pollinator reorganization propagates through matching, local filtering and reproduction, and why established lineages can respond differently under the same broad perturbation. It does not claim the **ultimate WHY** of why island biotas, interaction environments or lineage starting states arose.
+The response-geometry gate and the conditional-WHY diagnostics are complete. Chapter 2 is mechanistic **HOW** plus model-conditional **proximal WHY**: it resolves how pollinator reorganization propagates through matching, local filtering and reproduction, and why established lineages can respond differently under the same broad perturbation. It does not claim the **ultimate WHY** of why island biotas, interaction environments or lineage starting states arose.
 
-The v2 manuscript reports the audited Izu empirical triangulation, including its null-corrected negative result, and the source-locked implementation/source gate/structural audit are part of the active paper branch. After repository CI and the fail-closed archive/bundle checks pass, only author-supplied identity metadata and submission declarations remain unresolved.
+The v2 manuscript reports the audited Izu empirical triangulation, including its null-corrected negative result, and the source-locked implementation/source gate/structural audit are part of the active paper branch. After repository CI and the fail-closed archive/bundle checks pass, only author-supplied identity metadata and declarations remain unresolved.
 
 ## Current manuscript status
 
