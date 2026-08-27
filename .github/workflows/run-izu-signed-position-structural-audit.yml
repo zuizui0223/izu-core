@@ -1,0 +1,88 @@
+name: Run Izu signed-position structural audit
+
+on:
+  push:
+    branches: [empirical-2017-proboscis-recovery-signed-test]
+    paths:
+      - "scripts/audit_izu_signed_position_structural_independence.py"
+      - "tests/test_izu_signed_position_structural_independence.py"
+      - ".github/workflows/run-izu-signed-position-structural-audit.yml"
+      - "data/design/izu_signed_position_source_gate_20260827.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install analysis dependencies
+        run: python -m pip install -e ".[dev]"
+      - name: Validate structural audit implementation
+        run: pytest -q tests/test_izu_signed_position_structural_independence.py
+      - name: Acquire frozen Hiraiwa-Ushimaru 2024 source
+        run: |
+          python scripts/acquire_hiraiwa_ushimaru_figshare.py \
+            --output-dir /tmp/hiraiwa2024
+          test -s /tmp/hiraiwa2024/files/data_sp_plant.csv
+      - name: Run structural independence audit
+        run: |
+          mkdir -p /tmp/audit
+          python scripts/audit_izu_signed_position_structural_independence.py \
+            --plant-csv /tmp/hiraiwa2024/files/data_sp_plant.csv \
+            --gate data/design/izu_signed_position_source_gate_20260827.json \
+            --draws 10000 \
+            --seed 20260827 \
+            --output-dir /tmp/audit
+      - name: Verify frozen audit result
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          r = json.loads(Path('/tmp/audit/izu_signed_position_structural_audit.json').read_text())
+          raw = r['frozen_raw_target']
+          corr = r['source_paper_null_corrected_target']
+          comp = r['source_position_only_comparator']
+
+          assert math.isclose(raw['model']['slope'], 0.5669042695418095, abs_tol=1e-10), raw
+          assert math.isclose(raw['model']['cluster_robust_se'], 0.13161467926135853, abs_tol=1e-9), raw
+          assert raw['plant_position_permutation']['n_null_ge_observed'] == 0, raw
+          assert math.isclose(raw['plant_position_permutation']['empirical_p_one_sided'], 1/10001, abs_tol=1e-15), raw
+          assert raw['island_center_permutation']['n_assignments_ge_observed'] == 13, raw
+          assert raw['island_center_permutation']['n_exact_assignments'] == 120, raw
+
+          assert math.isclose(corr['model']['slope'], 0.03328467458835527, abs_tol=1e-10), corr
+          assert math.isclose(corr['model']['cluster_robust_se'], 0.1473149987511276, abs_tol=1e-9), corr
+          assert corr['model']['p_two_sided_t'] > 0.8, corr
+          assert corr['plant_position_permutation']['empirical_p_one_sided'] > 0.3, corr
+          assert math.isclose(corr['association']['sign_concordance_fraction'], 0.5060240963855421, abs_tol=1e-12), corr
+
+          assert comp['raw_target']['ols_r_squared'] > raw['model']['ols_r_squared'], (comp, raw)
+          assert comp['raw_target']['ols_aic'] < raw['model']['ols_aic'], (comp, raw)
+          assert r['decision']['corrected_trait_matching_projection_supported'] is False, r['decision']
+          assert r['decision']['exact_island_center_assignment_uniquely_supported'] is False, r['decision']
+
+          print(json.dumps({
+              'raw': raw,
+              'corrected': corr,
+              'source_position_comparator': comp,
+              'decision': r['decision'],
+          }, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: izu-signed-position-structural-audit-${{ github.run_id }}
+          path: |
+            /tmp/audit/
+            /tmp/hiraiwa2024/summary.json
+          if-no-files-found: error
+          retention-days: 90
