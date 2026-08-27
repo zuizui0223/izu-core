@@ -16,7 +16,7 @@ from scripts.generate_chapter2_manuscript_tables import build as build_tables
 
 ROOT = Path(__file__).resolve().parents[1]
 FROZEN = ROOT / "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json"
-MANUSCRIPT = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
+MANUSCRIPT = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
 SUPPORTING_INFORMATION = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md"
 TABLES = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md"
 THESIS_POSITIONING = ROOT / "THESIS_CHAPTER_POSITIONING.md"
@@ -100,12 +100,16 @@ def test_active_manuscript_and_thesis_positioning_preserve_how_why_boundary():
     assert "# Appendix S10. Starting-position × community-realization decomposition" in supplement
     assert "# Appendix S11. Direction-specific local-filtering transitions" in supplement
     assert "**Ultimate WHY:**" in positioning
-    assert "does **not** empirically identify" in positioning
+    assert "remains outside the Chapter 2 test" in positioning
+    assert "Not tested." in positioning
 
 
-def test_generated_tables_include_conditional_why_diagnostics():
+def test_generated_tables_include_conditional_why_and_izu_audit():
     text = TABLES.read_text(encoding="utf-8")
     assert text == build_tables()
     assert "## Table 4. Conditional-WHY diagnostics" in text
     assert "Community-realization SS fraction | 80.2%" in text
     assert "Strength 0.40: positive → non-positive | 56.5%" in text
+    assert "## Table 5. Focal Izu empirical triangulation and structural audit" in text
+    assert "null-corrected `delta_TM_sp_z`" in text
+    assert "no support for beyond-composition non-random matching" in text
