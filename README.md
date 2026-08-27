@@ -4,11 +4,12 @@
 
 ## Current state
 
-**The Chapter 2 synthetic scientific gate is closed as a conditional-response-geometry Research Article candidate. Actual submission remains blocked by author metadata and declarations.**
+**The Chapter 2 synthetic scientific gate is closed as a conditional-response-geometry Research Article candidate. The active manuscript is now v2 and adds focal Izu empirical triangulation with an explicit structural negative control. Actual submission remains blocked until the Izu analysis implementation/audit is on main and author metadata/declarations are complete.**
 
 The current manuscript surface and controlling state are:
 
-- [`docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`](docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md)
+- [`docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md`](docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md)
+- [`docs/CHAPTER2_CANONICAL_STORY_20260827.md`](docs/CHAPTER2_CANONICAL_STORY_20260827.md)
 - [`data/design/chapter2_active_manuscript_mainline_20260827.json`](data/design/chapter2_active_manuscript_mainline_20260827.json)
 - [`data/results/chapter2_scientific_gate_decision_frozen_20260827.json`](data/results/chapter2_scientific_gate_decision_frozen_20260827.json)
 - [`data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json`](data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json)
@@ -39,7 +40,7 @@ so downstream transforms preserve rather than create response sign.
 
 Removing initial functional-position heterogeneity eliminated mixed-sign branching in the tested residual model, while trait-adjustment and assurance-ceiling heterogeneity remained. This is **not a pure algebraic tautology**, because trait-adjustment heterogeneity can still generate different endpoint traits and opportunity contrasts. However, the result only shows that initial position dominates the other tested heterogeneity sources **under the declared parameterization**.
 
-The previous `replicated_minimal_generator` wording is therefore no longer a main-paper claim. The independent seed block is retained as a model-specific robustness check, not as independent evidence for a new ecological principle. The active analysis instead maps the full starting-position response geometry: 41 of 96 matched community realizations are mixed-sign, and the mean surface has positive outer regions and a negative central region. Across the fixed 48-point joint design, 16 points are mixed, 22 all-positive and 10 all-negative.
+The previous `replicated_minimal_generator` wording is therefore no longer a main-paper claim. The active analysis maps the full starting-position response geometry: 41 of 96 matched community realizations are mixed-sign, and the mean surface has positive outer regions and a negative central region. Across the fixed 48-point joint design, 16 points are mixed, 22 all-positive and 10 all-negative.
 
 The frozen conditional-WHY diagnostic further shows that starting position organizes the mean boundary but does not dominate cell-level variation: community realization accounts for 80.17% of baseline total sum of squares and the non-additive starting-position-by-community remainder for 17.64%, compared with 2.18% for the starting-position main effect.
 
@@ -67,9 +68,27 @@ The current tested envelope produced strong attenuation but no robust sign rescu
 
 ### H5 — demoted from validation
 
-The 13-system external set remains a source-audited comparative resource, but `11/11 covered or sign-compatible` is no longer used as validation. The broad state vocabulary is too inclusive for that coverage count to be strongly falsifiable.
+The 13-system external set remains a source-audited comparative resource, but `11/11 covered or sign-compatible` is no longer used as validation. The broader research universe is larger than the strict 13-system manuscript set and is now tracked separately.
 
-The systems are retained as **comparative grounding and boundary examples**. Dominica remains a genuine failure of the more specific signed-position projection and was not retuned.
+The systems are retained as **comparative grounding, falsification and boundary examples**. They are not a prevalence sample and are not used to fit the synthetic model.
+
+## Focal empirical depth: Izu Islands
+
+Chapter 2 v2 adds one empirical layer that is deliberately deeper than the broad comparative inventory.
+
+A frozen source-state projection based on the study-defined continental source and published floral/pollinator functional traits is associated with **raw realized trait matching** across 83 plant × island-site rows (slope `+0.5669`, 95% CI `+0.2977 .. +0.8361`, sign concordance `63/83`). Permuting plant source positions shows that correct plant source identity matters.
+
+However, the structural audit prevents a stronger interpretation:
+
+- exact island-specific pollinator-centre magnitudes/order are not uniquely identified;
+- source starting position alone describes raw matching at least as well as the full centre-shift geometry;
+- the same frozen predictor does **not** explain the source paper's null-corrected trait matching (`slope = +0.0333`, 95% CI `-0.2680 .. +0.3346`).
+
+The defensible empirical reading is therefore:
+
+> **source floral state and broad background community composition structure realized raw matching in Izu, but a beyond-composition non-random partner-sorting or causal pollinator-selection mechanism is not established.**
+
+Izu is the focal empirical triangulation and deep mechanistic anchor because the source state, pollinator functional composition and matching response can be placed on the same archipelago-level measurement chain. It is not treated as validation of the synthetic [0,1] coordinate or its thresholds.
 
 ## Numerical reporting
 
@@ -98,33 +117,30 @@ The ecological meanings of 24 lineages, 120 steps and saturation values 1/2/3 ar
 
 ## What is actually unresolved now
 
-The scientific response-geometry gate and the conditional-WHY diagnostics are complete. The active manuscript explicitly positions Chapter 2 as mechanistic **HOW** plus **proximal WHY**: it resolves how pollinator reorganization propagates through matching, local filtering and reproduction, and why established lineages can respond differently under the same broad perturbation. It does not claim the **ultimate WHY** of why island biotas, interaction environments or lineage starting states arose.
+The synthetic response-geometry gate and conditional-WHY diagnostics are complete. Chapter 2 is mechanistic **HOW** plus model-conditional **proximal WHY**: it resolves how pollinator reorganization propagates through matching, local filtering and reproduction, and why established lineages can respond differently under the same broad perturbation. It does not claim the **ultimate WHY** of why island biotas, interaction environments or lineage starting states arose.
 
-Actual submission is blocked only by author-supplied identity metadata and declarations, followed by a successful fail-closed bundle build. Repository validation and PR CI must pass before that handoff.
+The v2 manuscript now reports the audited Izu empirical triangulation, including its null-corrected negative result. Before actual submission, the source-locked Izu analysis implementation and structural audit must be on main so the empirical paragraph is reproducible from the submission state. Author identity metadata and declarations remain fail-closed blockers after that.
 
 ## Current manuscript status
 
 The active manuscript surface is:
 
-- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`
+- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md`
 - `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md`
 - `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md`
 - `data/design/chapter2_active_manuscript_mainline_20260827.json`
 
-The following are retained as historical/pre-reassessment drafts and **must not be submitted as-is**:
+The following are retained as historical/pre-v2 drafts and **must not be submitted as-is**:
 
+- `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`
 - `docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md`
 - editorial V3 generated by `scripts/build_island_ecology_manuscript_v3.py`
 - `docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md`
 
-The submission-bundle machinery now routes only the active post-reassessment surface and fails closed if the frozen scientific identities or required author metadata are incomplete.
-
-## Completed manuscript cleanup
-
-The active manuscript and supporting information now report `5 of 12` rather than a pseudoprecise frequency, expose the full equations and scenario values, exclude uncited Lord (2015) and Méndez (2025) entries from the active reference list, use neutral local-filtering language, and keep workflow/debug prose outside scientific Methods.
+The submission-bundle machinery routes only the active v2 post-reassessment surface and fails closed if the frozen scientific identities, required Izu implementation state or required author metadata are incomplete.
 
 ## Positive contribution to preserve
 
-> **Island syndromes conflate assembly filtering, in-situ evolution and post-establishment interaction response. The third process is conditional rather than monotonic: pollinator reorganization is filtered through plant–pollinator matching geometry, local interaction context can redirect outcomes in either direction, and downstream reproductive assurance changes magnitude without necessarily changing sign.**
+> **Island syndromes conflate assembly filtering, in-situ evolution and post-establishment interaction response. The third process is conditional rather than monotonic: partner turnover defines a response regime, plant source state organizes mean matching geometry, realized community strongly conditions individual outcomes, local interaction context can redirect branch identity, and downstream reproductive assurance changes magnitude without necessarily changing sign. In Izu, source state and community composition are visible in realized raw matching, but not as an identified beyond-composition sorting mechanism.**
 
-This is a conditional, synthetic mechanistic result. It is not a regional mapping, a natural-frequency estimate or an ultimate explanation of island assembly and evolutionary history.
+This is a conditional mechanistic result with focal empirical triangulation. It is not a natural-frequency estimate, a calibrated regional mapping, or an ultimate explanation of island assembly and evolutionary history.
