@@ -5,18 +5,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 CURRENT_PAPER_FILES = (
     ROOT / "README.md",
-    ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_SUBMISSION_DRAFT_V2_20260824.md",
-    ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_SUPPLEMENT_20260824.md",
-    ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md",
-    ROOT / "docs/ISLAND_ECOLOGY_JECOLOGY_COVER_LETTER_20260824.md",
+    ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
+    ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     ROOT / "data/design/island_ecology_jecology_submission_manifest.json",
     ROOT / "data/design/manuscript_reassessment_gate_20260826.json",
 )
 
 FORBIDDEN_ACTIVE_COUPLING = (
     "microdonta",
-    "issue #91",
-    "real_signed_functional_starting_position",
     "matched_real_network_context_effective_service_mapping",
     "complete_external_service_dependency_response_bridge",
     "future empirical translation",
@@ -42,11 +38,13 @@ def test_machine_readable_boundaries_declare_independence():
     assert gate["current_research_article_submission_ready"] is False
 
 
-def test_reassessment_manifest_does_not_route_historical_drafts_as_submission_ready():
+def test_manifest_routes_v2_without_promoting_historical_drafts():
     manifest = json.loads((ROOT / "data/design/island_ecology_jecology_submission_manifest.json").read_text(encoding="utf-8"))
     current = manifest["current_manuscript_artifacts"]
-    assert current["status"] == "active_reassembled_manuscript_surface"
-    assert current["active_manuscript"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
+    assert current["status"] == "active_v2_synthetic_primary_plus_izu_triangulation_reproducible"
+    assert current["active_manuscript"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+    assert current["retired_pre_v2_manuscript"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
     assert current["supporting_information"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md"
-    assert "v2_source" not in current
+    assert current["izu_source_gate"] == "data/design/izu_signed_position_source_gate_20260827.json"
+    assert manifest["focal_izu_triangulation"]["null_corrected_matching_supported"] is False
     assert manifest["submission_ready"] is False
