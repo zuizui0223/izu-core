@@ -4,7 +4,7 @@
 
 The previously blocked Izu signed-position route is now partially open at the **community functional-center** level.
 
-The source-native pollinator trait table was recovered from Hiraiwa & Ushimaru (2017) supplementary Table S2 before the target fit. The mapping was then frozen in commit `646f5236fca6144ce73a69ac3fe81b2d825afe17` before `TM_sp` response coefficients were estimated.
+The 2017 supplementary source was recovered before the target fit. The primary mapping was then frozen in commit `646f5236fca6144ce73a69ac3fe81b2d825afe17` before any new `TM_sp` response coefficient was estimated.
 
 This is same-network mechanistic triangulation, not independent validation.
 
@@ -17,15 +17,21 @@ This is same-network mechanistic triangulation, not independent validation.
 - source PDF SHA256: `0386acd110c53a8b089aa79325a6f7889e8176c804bdd2a7ebfa104e972abe8e`
 - Table S2: 211 pollinator species
 - total source-recorded visits: 6,257
-- proboscis range: 0.1–32.8 mm
+- reported species-level proboscis range: 0.1–32.8 mm
 
-The 2024 source-native network archive has 209 named pollinator taxa. Under the fail-closed name rule, 202/209 taxa are safely linked to 2017 numeric proboscis values using exact names or whitespace-only normalization. Seven current taxa remain unresolved; no fuzzy, family, guild, body-size or midpoint substitution is used.
+The 2024 source-native network archive has 209 named pollinator taxa. Under the fail-closed name rule, 202/209 taxa are safely linked to Table S2 using exact names or whitespace-only normalization. Seven current taxa remain unresolved; no fuzzy, family, guild, body-size or midpoint substitution is used.
 
-For the 202 shared taxa, aggregation over the 2024 pollinator species × site × season table gives **532/532 identical site presences** relative to positive Table S2 site-visit cells, with zero presence discordances. This confirms that the recovered trait table and the 2024 archive refer to the same underlying eight-site pollinator system for the safely joined taxa.
+For the 202 safely shared taxa, aggregation over the 2024 pollinator species × site × season table gives **532/532 identical site presences** relative to positive Table S2 visit cells, with zero presence discordances. This confirms that the recovered 2017 source and the 2024 archive refer to the same underlying eight-site pollinator system for those taxa.
+
+### Important trait-resolution boundary
+
+The original field protocol measured pollinator proboscis at each site and calculated species × site means. But Table S2 exposes one numeric proboscis value per species plus site-specific visit counts. The primary center therefore uses a **prospectively frozen transfer of the Table S2 species-level reported value across sites**, not a claim that Table S2 is a complete site-exact numeric matrix.
+
+Table S4 explicitly supplies site-specific numeric values for five pollinator taxa whose functional-group classification changes among sites. A separate post-target sensitivity corrects those five cases only.
 
 ## Frozen community centers
 
-Visit-weighted mean proboscis length from Table S2:
+Primary Table S2 species-mean-transfer centers:
 
 | site | visits | center (mm) |
 |---|---:|---:|
@@ -38,7 +44,7 @@ Visit-weighted mean proboscis length from Table S2:
 | Miyake | 881 | 5.16266 |
 | Hachijo | 581 | 2.73838 |
 
-The **primary source regime** was frozen before the target fit as the pooled three continental sites:
+The **primary source regime** was frozen as the pooled three continental sites:
 
 ```text
 continental center = 7.326653919694071 mm
@@ -61,7 +67,7 @@ predicted_matching_change_mm
     - abs(initial_signed_position_mm - island_center_shift_mm)
 ```
 
-Thirty plant species are eligible. Their initial positions span `-7.32665` to `+19.38001 mm` (20 negative, 10 positive), so the empirical mapping covers both sides of the source functional center.
+Thirty plant species are eligible. Their initial positions span `-7.32665` to `+19.38001 mm` (20 negative, 10 positive), so both sides of the frozen source center are represented.
 
 ## Target
 
@@ -83,14 +89,13 @@ delta_TM_sp ~ predicted_matching_change_mm + island fixed effects
 
 Inference uses plant-cluster-robust standard errors.
 
-## Materialized run
+## Materialized primary run
 
 Dedicated workflow:
 
 - run `33039478288`
 - validated head `f9c3d25b8003d4be95b0b195bbca8312e264adf4`
 - artifact `izu-signed-position-triangulation-33039478288`
-- artifact id `9633297259`
 - digest `sha256:2fb746789640aba09c364740dd248f09ab457cd51d894d99de41db6d6f554e95`
 
 The workflow reacquired the frozen 2024 Figshare files, recovered and byte-checked the 2017 supplement, passed four synthetic tests, ran the frozen target fit and uploaded the result artifact.
@@ -108,7 +113,7 @@ The workflow reacquired the frozen 2024 Figshare files, recovered and byte-check
 - Spearman `rho = 0.5269`
 - predicted/observed sign concordance: **63/83 = 75.9%**; one-sided binomial `p = 1.22 × 10^-6`
 
-Leave-one-island-out primary slopes:
+Leave-one-island-out slopes:
 
 - omit Hachijo: `+0.5161`
 - omit Kozu: `+0.5749`
@@ -116,13 +121,31 @@ Leave-one-island-out primary slopes:
 - omit Niijima: `+0.4919`
 - omit Oshima: `+0.6971`
 
-All five remain positive; the slope range is `+0.4919` to `+0.6971`.
+All five remain positive.
 
 ### Reading
 
 With the study-defined continental source as baseline, the response expected from **initial signed tube position × community functional-center shift** tracks the observed change in realized plant-level trait matching across Izu islands.
 
-This is the first source-native Izu result that keeps the sign of plant position instead of replacing it with unsigned TM/FDQ summaries.
+This is the first Izu result in the repository that preserves the side of the functional center instead of replacing position with an unsigned matching/FDQ summary.
+
+## Table S4 partial site-value correction
+
+After the primary result was frozen, run `33039695653` added a sensitivity that changes only the five pollinator taxa for which Table S4 explicitly reports site-specific numeric proboscis means.
+
+- artifact: `izu-signed-position-triangulation-33039695653`
+- artifact id: `9633374987`
+- digest: `sha256:627abed63e957dc1c1c0c1c6dff628f46b5677bb37dbeefe8ee50db774a056e9`
+- corrected continental center: `7.3297896749522 mm`
+- corrected primary slope: **+0.565909**
+- cluster robust SE: **0.131472**
+- one-sided p: **8.70 × 10^-5**
+- sign concordance: **63/83**
+- leave-one-island slopes: **+0.4910 to +0.6969**, all positive
+
+Thus the primary result is not generated by leaving those five explicitly site-variable taxa at their Table S2 species-level values.
+
+This sensitivity still does **not** create a complete site-exact numeric proboscis matrix for the remaining taxa.
 
 ## Prespecified Oshima bridge sensitivity
 
@@ -150,9 +173,9 @@ mainland_source_projection_supported
 oshima_bridge_projection_not_supported
 ```
 
-The source regime is therefore not interchangeable. The result supports a conditional source-state interpretation rather than a universal trait coordinate with any nearby island as an equivalent baseline.
+The source regime is not interchangeable. This supports a conditional source-state interpretation rather than a universal trait coordinate for which any nearby island can be substituted as the starting environment.
 
-This matches the direction of the `island` Chapter 1 source-pool work: source definition and region-specific lineage assembly matter before a pollination mechanism is assigned.
+That connects directly to the `island` Chapter 1 result: source-pool and regional lineage assembly must be resolved before assigning a pollination mechanism.
 
 ## Dryad plant × pollinator weight status
 
@@ -167,20 +190,22 @@ The legacy Dryad metadata are now fully resolved:
 
 Anonymous metadata are public, but the exact individual-file API route remains HTTP 401 and public file-stream routes remain HTTP 403 in the current runner environment.
 
-Therefore a **plant-specific partner-weighted functional center** is still not reconstructed. The current result uses a prespecified community-level source center, which was explicitly allowed by the existing v12 empirical gate as a separate estimand.
+Therefore a **plant-specific partner-weighted functional center** is still not reconstructed. The present result uses the separately frozen community-center transfer estimand.
 
 ## Claim boundary
 
 Supported:
 
-- source-native numeric proboscis data are recovered;
-- safe numeric coverage is 202/209 current named pollinator taxa without proxy filling;
-- continental-source signed position plus community center shift predicts same-network `TM_sp` response;
-- the primary result is distributed across all five Izu islands;
+- Table S2 source-native species-level numeric proboscis data are recovered;
+- 202/209 current named taxa can be safely linked without proxy filling;
+- a prospectively frozen Table S2 species-mean community-center transfer gives a positive continental-source signed-position projection;
+- the result is distributed across all five Izu islands;
+- correcting the five Table S4 site-specific numeric taxa leaves the result essentially unchanged;
 - Oshima is not an equivalent source baseline under the predeclared sensitivity.
 
 Not supported:
 
+- a complete site-exact numeric proboscis matrix for all taxa;
 - historical Bombus loss as the cause;
 - a plant-specific partner-center mechanism;
 - independent held-out validation;
@@ -193,15 +218,15 @@ Not supported:
 
 Do **not** retune this projection.
 
-The next decisive Izu step is prospective:
+The decisive next Izu step is prospective:
 
 ```text
 new field plant / visitor identity
-  -> directly measured or source-exact proboscis
+  -> source-exact or newly measured proboscis
   -> plant-specific realized visitor weights
   -> source-frozen signed position
   -> single-visit pollen deposition
   -> direct reproductive dependency
 ```
 
-That test can separate community-center geometry from plant-specific partner context and can finally test whether the signed-position branch propagates into effective service and reproduction.
+That test can separate community-center geometry from plant-specific partner context and can test whether the signed-position branch propagates into effective service and reproduction.
