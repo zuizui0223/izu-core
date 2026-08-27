@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "analysis": "izu_pollinator_proboscis_trait_recovery",
-  "target_estimand": "pollinator_proboscis_length_mm_for_abundance_weighted_Rao_Q_FDQ",
+  "target_estimand": "pollinator_proboscis_length_mm_for_signed_position_and_abundance_weighted_Rao_Q_FDQ",
   "source_reference": {
     "paper_doi": "10.1098/rspb.2016.2218",
     "paper_title": "Low functional diversity promotes niche changes in natural island pollinator communities",
@@ -9,9 +9,13 @@
     "dryad_file": "primary_data.xlsx",
     "supplementary_collection_doi": "10.6084/m9.figshare.c.3647738",
     "supplementary_tables_item_doi": "10.6084/m9.figshare.4479803.v2",
-    "target_source_locator": "electronic supplementary material Table S2",
+    "supplementary_figshare_file_id": 7336688,
+    "supplementary_pdf_sha256": "0386acd110c53a8b089aa79325a6f7889e8176c804bdd2a7ebfa104e972abe8e",
+    "target_source_locator": "electronic supplementary material Table S2; Table S4 for the five taxa with explicitly reported site-specific numeric values",
     "paper_measurement_protocol": "At each site, five pollinator individuals per species, or all individuals when fewer than five were available, were measured with digital calipers; mean proboscis length was calculated per species x site.",
     "paper_reported_pollinator_species": 211,
+    "table_s2_total_visits": 6257,
+    "table_s2_proboscis_range_mm": [0.1, 32.8],
     "functional_bins_mm": {
       "short_tongued": "<4.5",
       "medium_tongued": "4.5-9",
@@ -20,46 +24,71 @@
   },
   "current_2024_reference_artifact": {
     "dataset_doi": "10.6084/m9.figshare.25025000.v1",
-    "github_workflow_run": 31287851102,
-    "github_artifact_id": 9030413803,
-    "artifact_digest": "sha256:dce1cf210e3674722b39d4b01ff47709c78e642eefd207228a6c5ac5bc6b4037",
     "pollinator_table": "data_sp_pollinator.csv",
+    "pollinator_table_sha256": "261a59febc28f7bdfc7fa6e489f3d0fef0947adcce35cb3f30ef00a44a49c627",
     "unique_named_pollinator_taxa": 209,
     "sites": 8,
     "seasons": 5,
     "numeric_proboscis_length_mm_column_present": false,
-    "source_table_contains_standardized_functional_columns_only": true
+    "source_table_contains_standardized_functional_columns_only": true,
+    "same_network_identity_audit": {
+      "safe_shared_taxa": 202,
+      "shared_taxon_site_presences_2017": 532,
+      "shared_taxon_site_presences_2024": 532,
+      "presence_discordances": 0
+    }
   },
   "current_trait_coverage": {
     "current_named_pollinator_taxa": 209,
-    "exact_source_native_numeric_proboscis_mm_recovered": 0,
-    "coverage_fraction": 0.0,
+    "exact_source_native_numeric_proboscis_mm_recovered": 202,
+    "coverage_fraction": 0.9665071770334929,
+    "safe_join_rule": "exact taxon name or whitespace-only normalization",
+    "unresolved_current_taxa": 7,
+    "unresolved_2017_taxa": 9,
     "paper_species_count_minus_current_named_taxa": 2,
     "two_name_discrepancy_resolved": false,
-    "fdq_reconstruction_from_current_repo_trait_values_ready": false
+    "table_s2_values_are_species_level_source_reported_values": true,
+    "complete_site_specific_numeric_values_for_all_taxa_recovered": false,
+    "table_s4_site_specific_numeric_taxa": 5,
+    "fdq_reconstruction_from_current_repo_trait_values_ready": false,
+    "community_center_transfer_rule_frozen_for_signed_position": true,
+    "community_center_mapping_gate_commit": "646f5236fca6144ce73a69ac3fe81b2d825afe17"
   },
   "retrieval_state": {
-    "dryad_landing_page_accessible": true,
-    "dryad_lists_primary_data_xlsx": true,
-    "direct_xlsx_download_in_current_environment": "blocked_http_403",
-    "supplementary_table_s2_known_to_exist": true,
-    "supplementary_table_s2_numeric_values_recovered": false,
-    "current_state": "source_known_numeric_trait_values_not_yet_recovered"
+    "supplementary_table_s2_numeric_values_recovered": true,
+    "supplementary_pdf_source_bytes_frozen": true,
+    "dryad_metadata_accessible": true,
+    "dryad_version_id": 11003,
+    "dryad_file_id": 45693,
+    "dryad_file_size_bytes": 93457,
+    "dryad_file_md5": "bec80ba4f3929517af0ca711bd5b1cb0",
+    "dryad_exact_file_api_download": "blocked_http_401",
+    "dryad_public_file_stream": "blocked_http_403",
+    "plant_specific_interaction_weight_table_recovered": false,
+    "current_state": "species_level_numeric_proboscis_recovered_community_center_projection_open_plant_specific_and_exact_site_fdq_still_blocked"
   },
   "admission_rules": [
-    "Join historical source traits by exact taxon name plus site whenever site-specific Table S2 values are available.",
-    "A taxon-level average across sites is not substituted for a site-specific value unless a separate prespecified transfer rule is declared.",
+    "Join historical source traits by exact taxon name plus site whenever site-specific source values are available.",
+    "Table S2 species-level numeric values may be transferred across sites only under a prospectively frozen estimand-specific rule; they are not silently relabelled as site-exact values.",
+    "The signed-position community-center rule was frozen before its target fit in commit 646f5236fca6144ce73a69ac3fe81b2d825afe17.",
     "Functional-group bins (<4.5, 4.5-9, >9 mm) are descriptive classes and are not numeric substitutes for Rao-Q distances.",
-    "Do not impute proboscis length from taxonomic family, body size, guild label, or external allometry in the primary Izu-compatible FDQ analysis.",
-    "Future field visitors with no exact source trait remain trait_missing until measured directly or supported by a prospectively frozen source.",
-    "Trait values must be frozen independently of SVD, dependency, fruit, seed, or floral-response outcomes."
+    "Do not impute proboscis length from taxonomic family, body size, guild label, or external allometry in the primary Izu-compatible analyses.",
+    "Future field visitors with no exact source trait remain trait_missing until measured directly or supported by a prospectively frozen transfer rule.",
+    "Trait values and any transfer rule must be frozen independently of SVD, dependency, fruit, seed, or floral-response outcomes."
+  ],
+  "completed_recovery_steps": [
+    "recover Table S2 source-native species-level numeric values and source PDF checksum",
+    "audit exact/whitespace-only taxon mapping against the current 209-taxon visitor table",
+    "verify 532/532 shared taxon x site presences between the 2017 supplement and 2024 network archive",
+    "freeze a community-level signed-position transfer rule before target inspection",
+    "materialize the signed-position target workflow"
   ],
   "next_recovery_order": [
-    "recover supplementary Table S2 source-native numeric values",
-    "audit taxon-name and site-name mapping against the 2024 209-taxon visitor table",
-    "resolve the 211-versus-209 species-count discrepancy without fuzzy matching",
-    "freeze exact source rows and checksums",
-    "calculate FDQ only for exposure units whose admitted visitor abundance has complete trait coverage or a prespecified missing-trait rule"
+    "retain the seven current and nine 2017 unmatched taxa as unresolved unless source identity is established without fuzzy matching",
+    "recover plant x pollinator interaction weights if lawful Dryad bytes become available, or collect prospective plant-specific visitor weights",
+    "measure missing visitor proboscis directly when a site-exact FDQ or plant-specific center is required",
+    "keep the community-center signed-position result separate from a plant-specific partner-center claim",
+    "use prospective SVD and reproductive-dependency data for the next causal propagation gate"
   ],
-  "claim_boundary": "No numeric proboscis lengths are reconstructed from functional bins or taxonomic expectations while Table S2 remains unrecovered. The 209 current taxa and 211 paper-reported species are not assumed to be identical sets."
+  "claim_boundary": "Source-native species-level numeric proboscis values are now recovered for 202/209 current named taxa, but this does not make all site-specific proboscis values exact and does not open exact plant-specific FDQ reconstruction. The frozen community-center signed-position projection is a separate same-network transfer estimand; no functional-bin, family, guild, body-size or fuzzy-match values are inserted."
 }
