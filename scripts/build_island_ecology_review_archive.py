@@ -15,6 +15,7 @@ MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
 CORE_REVIEW_FILES = (
     MANUSCRIPT,
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
+    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
@@ -100,6 +101,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         "figures_regenerated_fail_closed": True,
         "izu_source_gate_included": True,
         "izu_structural_audit_included": True,
+        "izu_empirical_appendix_included": True,
         "deny_tokens_checked": list(deny_tokens),
         "files": records,
         "claim_boundary": (
@@ -110,7 +112,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "remains comparative grounding and does not constitute cross-system mechanism validation."
         ),
     }
-    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the active Chapter 2 Research Article candidate.\n\nThe active manuscript is the v2 conditional-response paper. Synthetic response geometry is the primary analysis. A focal Izu secondary analysis is included as empirical triangulation of source-state/community structure, with the negative null-corrected matching result retained explicitly. The archive contains the Izu source gate, recovery state, triangulation code and structural audit so that the empirical claim ceiling is reviewable. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds.\n"""
+    readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the active Chapter 2 Research Article candidate.\n\nThe active manuscript is the v2 conditional-response paper. Synthetic response geometry is the primary analysis. A focal Izu secondary analysis is included as empirical triangulation of source-state/community structure, with the negative null-corrected matching result retained explicitly. The archive contains the Izu empirical appendix, source gate, recovery state, triangulation code and structural audit so that the empirical claim ceiling is reviewable. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds.\n"""
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
