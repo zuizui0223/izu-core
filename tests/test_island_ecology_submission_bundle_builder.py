@@ -8,7 +8,7 @@ import scripts.build_island_ecology_submission_bundle as bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
-MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
+MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
 
 
 def completed_metadata() -> dict:
@@ -66,12 +66,12 @@ def test_submission_bundle_still_fails_closed_on_unresolved_metadata(tmp_path: P
         bundle.build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
 
 
-def test_submission_bundle_routes_active_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
+def test_submission_bundle_routes_v2_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
     monkeypatch.setattr(bundle, "build_figures", lambda: {"figure_outputs": []})
 
     def fake_review_archive(path: Path) -> Path:
         with zipfile.ZipFile(path, "w") as archive:
-            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous conditional-WHY review archive\n")
+            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous conditional-response review archive\n")
         return path
 
     monkeypatch.setattr(bundle, "build_review_archive", fake_review_archive)
@@ -88,6 +88,10 @@ def test_submission_bundle_routes_active_manuscript_after_gate_closure(tmp_path:
         assert MANUSCRIPT in names
         title = archive.read("ISLAND_ECOLOGY_TITLE_PAGE.md").decode("utf-8")
         assert "Example Author" in title
+        manuscript = archive.read(MANUSCRIPT).decode("utf-8")
+        assert "null-corrected matching response" in manuscript
+        assert "empirical echo" in manuscript.lower()
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
-        assert manifest["scientific_state"] == "model_gate_closed_conditional_response_geometry"
+        assert manifest["scientific_state"] == "model_gate_closed_conditional_response_geometry_with_focal_izu_triangulation"
+        assert manifest["manuscript_state"] == "active_v2_20260827"
         assert manifest["figures_regenerated_fail_closed"] is True
