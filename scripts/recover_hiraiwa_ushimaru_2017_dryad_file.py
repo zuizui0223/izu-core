@@ -13,6 +13,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 import urllib.parse
 import urllib.request
 import zipfile
@@ -106,6 +107,54 @@ def embedded(data: dict[str, Any], key: str) -> list[dict[str, Any]]:
     return value if isinstance(value, list) else []
 
 
+def link_href(row: dict[str, Any], key: str) -> str:
+    return str(row.get("_links", {}).get(key, {}).get("href") or "")
+
+
+def id_from_row_or_links(row: dict[str, Any], kind: str) -> int | None:
+    value = row.get("id")
+    if value is not None:
+        try:
+            return int(value)
+        except (TypeError, ValueError):
+            pass
+    patterns = {
+        "version": r"/(?:api/v2/)?versions/(\d+)(?:/|$)",
+        "file": r"/(?:api/v2/)?files/(\d+)(?:/|$)|/(?:stash/)?downloads/file_stream/(\d+)(?:/|$)",
+    }
+    hrefs = [str(v.get("href") or "") for v in row.get("_links", {}).values() if isinstance(v, dict)]
+    for href in hrefs:
+        match = re.search(patterns[kind], href)
+        if match:
+            for group in match.groups():
+                if group is not None:
+                    return int(group)
+    return None
+
+
+def write_blocked(outdir: Path, *, status: str, audit: list[dict[str, Any]], extra: dict[str, Any]) -> None:
+    result = {
+        "contract": "hiraiwa_ushimaru_2017_dryad_individual_file_recovery_v2",
+        "dataset_doi": DOI,
+        "target_file": EXPECTED_FILE,
+        "status": status,
+        **extra,
+        "audit": audit,
+        "claim_boundary": (
+            "Source acquisition only. No biological mapping or downstream outcome is used. "
+            "A blocked transport route is not evidence that the published data are absent."
+        ),
+    }
+    (outdir / "dryad_recovery_audit.json").write_text(json.dumps(result, indent=2, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
+    (outdir / "dryad_recovery_summary.md").write_text(
+        "# Hiraiwa-Ushimaru 2017 Dryad individual-file recovery\n\n"
+        f"Status: **{status}**\n\n"
+        + "\n".join(f"- `{row.get('route')}` — `{row.get('status')}` — {row.get('url', '')}" for row in audit)
+        + "\n",
+        encoding="utf-8",
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
@@ -119,41 +168,63 @@ def main() -> None:
     versions = get_json(versions_url, audit, "dryad_versions_metadata")
     version_rows = embedded(versions, "stash:versions")
     if not version_rows:
-        raise SystemExit("no public Dryad dataset version returned")
+        write_blocked(outdir, status="blocked_no_public_version_metadata", audit=audit, extra={})
+        return
 
-    # Prefer the latest public version, but record all version IDs.
-    version_ids = [int(v["id"]) for v in version_rows if v.get("id") is not None]
-    if not version_ids:
-        raise SystemExit("Dryad versions lack numeric ids")
-    version_id = version_ids[-1]
     version = version_rows[-1]
-    files_href = str(version.get("_links", {}).get("stash:files", {}).get("href") or f"/api/v2/versions/{version_id}/files")
+    files_href = link_href(version, "stash:files")
+    version_id = id_from_row_or_links(version, "version")
+    if not files_href:
+        write_blocked(
+            outdir,
+            status="blocked_legacy_version_missing_files_link",
+            audit=audit,
+            extra={"selected_version_id": version_id, "selected_version_metadata": version},
+        )
+        return
+
     files_url = absolute(files_href)
     files = get_json(files_url, audit, "dryad_version_files_metadata")
     file_rows = embedded(files, "stash:files")
-    if not file_rows:
-        raise SystemExit("Dryad version exposes no files")
-
     (outdir / "dryad_versions.json").write_text(json.dumps(versions, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (outdir / "dryad_files.json").write_text(json.dumps(files, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if not file_rows:
+        write_blocked(
+            outdir,
+            status="blocked_no_public_file_metadata",
+            audit=audit,
+            extra={"selected_version_id": version_id, "files_url": files_url},
+        )
+        return
 
-    targets = [row for row in file_rows if Path(str(row.get("path") or "")).name == EXPECTED_FILE]
+    targets = [row for row in file_rows if Path(str(row.get("path") or row.get("name") or "")).name == EXPECTED_FILE]
     if len(targets) != 1:
-        raise SystemExit(f"expected exactly one {EXPECTED_FILE}; found {len(targets)}")
-    target = targets[0]
-    file_id = int(target["id"])
+        write_blocked(
+            outdir,
+            status="blocked_target_file_not_unique",
+            audit=audit,
+            extra={
+                "selected_version_id": version_id,
+                "n_target_file_matches": len(targets),
+                "public_file_paths": [str(row.get("path") or row.get("name") or "") for row in file_rows],
+            },
+        )
+        return
 
-    link_download = str(target.get("_links", {}).get("stash:download", {}).get("href") or "")
+    target = targets[0]
+    file_id = id_from_row_or_links(target, "file")
+    link_download = link_href(target, "stash:download")
     candidates: list[tuple[str, str]] = []
     if link_download:
         candidates.append(("metadata_stash_download", absolute(link_download)))
-    candidates.extend(
-        [
-            ("api_file_download", f"{API}/files/{file_id}/download"),
-            ("stash_file_stream", f"{BASE}/stash/downloads/file_stream/{file_id}"),
-            ("public_file_stream", f"{BASE}/downloads/file_stream/{file_id}"),
-        ]
-    )
+    if file_id is not None:
+        candidates.extend(
+            [
+                ("api_file_download", f"{API}/files/{file_id}/download"),
+                ("stash_file_stream", f"{BASE}/stash/downloads/file_stream/{file_id}"),
+                ("public_file_stream", f"{BASE}/downloads/file_stream/{file_id}"),
+            ]
+        )
 
     workbook_path: Path | None = None
     accepted: dict[str, Any] | None = None
@@ -194,15 +265,16 @@ def main() -> None:
     if workbook_path is not None:
         extraction = extract_workbook(workbook_path, outdir)
 
+    status = "source_workbook_recovered" if workbook_path is not None else "blocked_public_metadata_only_download_not_recovered"
     result = {
-        "contract": "hiraiwa_ushimaru_2017_dryad_individual_file_recovery_v1",
+        "contract": "hiraiwa_ushimaru_2017_dryad_individual_file_recovery_v2",
         "dataset_doi": DOI,
-        "version_ids": version_ids,
         "selected_version_id": version_id,
+        "files_url": files_url,
         "target_file": EXPECTED_FILE,
         "target_file_id": file_id,
         "target_file_metadata": target,
-        "status": "source_workbook_recovered" if workbook_path is not None else "blocked_public_metadata_only_download_not_recovered",
+        "status": status,
         "accepted_source": accepted,
         "extraction": extraction,
         "audit": audit,
@@ -216,7 +288,7 @@ def main() -> None:
     lines = [
         "# Hiraiwa-Ushimaru 2017 Dryad individual-file recovery",
         "",
-        f"Status: **{result['status']}**",
+        f"Status: **{status}**",
         f"Version ID: `{version_id}`",
         f"File ID: `{file_id}`",
         f"Target: `{EXPECTED_FILE}`",
@@ -234,7 +306,7 @@ def main() -> None:
     for row in audit:
         lines.append(f"- `{row.get('route')}` — `{row.get('status')}` — {row.get('url', '')}")
     (outdir / "dryad_recovery_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(json.dumps({"status": result["status"], "file_id": file_id, "accepted": accepted, "sheets": extraction.get("sheets", [])}, indent=2, default=str))
+    print(json.dumps({"status": status, "version_id": version_id, "file_id": file_id, "accepted": accepted, "sheets": extraction.get("sheets", [])}, indent=2, default=str))
 
 
 if __name__ == "__main__":
