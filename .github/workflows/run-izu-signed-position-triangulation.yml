@@ -6,6 +6,7 @@ on:
     paths:
       - "data/design/izu_signed_position_source_gate_20260827.json"
       - "scripts/analyze_izu_signed_position_triangulation.py"
+      - "scripts/audit_izu_signed_position_table_s4_sensitivity.py"
       - "tests/test_izu_signed_position_triangulation.py"
       - ".github/workflows/run-izu-signed-position-triangulation.yml"
   workflow_dispatch:
@@ -42,12 +43,18 @@ jobs:
             --supplement-audit /tmp/hiraiwa2017/recovery_audit.json \
             --out /tmp/signed_position/result.json \
             --rows-out /tmp/signed_position/analysis_rows.csv
+          python scripts/audit_izu_signed_position_table_s4_sensitivity.py \
+            --gate data/design/izu_signed_position_source_gate_20260827.json \
+            --plant-csv /tmp/hiraiwa2024/files/data_sp_plant.csv \
+            --out /tmp/signed_position/table_s4_sensitivity.json
           python - <<'PY'
           import json
           from pathlib import Path
           result = json.loads(Path('/tmp/signed_position/result.json').read_text())
+          s4 = json.loads(Path('/tmp/signed_position/table_s4_sensitivity.json').read_text())
           primary = result['primary_mainland_source_test']
           sensitivity = result['oshima_bridge_sensitivity']
+          s4fit = s4['result']['primary_model']
           lines = [
               '# Izu source-native signed-position triangulation',
               '',
@@ -58,9 +65,13 @@ jobs:
               f"Sign concordance: {primary['sign_concordance']['concordant']}/{primary['sign_concordance']['eligible']}",
               f"Leave-one-island slope range: {primary['leave_one_island']['min_slope']:.6f} to {primary['leave_one_island']['max_slope']:.6f}",
               '',
+              f"Table S4 partial site-value correction slope: {s4fit['slope']:.6f}",
+              f"Table S4 partial correction one-sided p: {s4fit['p_one_sided_positive']:.6g}",
+              '',
               f"Oshima sensitivity slope: {sensitivity['primary_model']['slope']:.6f}",
               f"Oshima sensitivity one-sided p: {sensitivity['primary_model']['p_one_sided_positive']:.6g}",
               '',
+              'The frozen primary uses Table S2 species-level proboscis means with site visit weights. Table S4 corrects the five taxa for which site-specific numeric values are explicitly reported.',
               'This is same-network mechanistic triangulation, not independent validation or historical causal identification.'
           ]
           Path('/tmp/signed_position/summary.md').write_text('\n'.join(lines) + '\n')
