@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "journal": "Journal of Ecology",
   "article_type": "Research Article",
-  "manuscript_title": "Conditional response geometry under island pollinator reorganization: starting functional position and local context generate divergent post-establishment plant responses",
+  "manuscript_title": "Conditional response geometry under island pollinator reorganization: from synthetic regime structure to source-state matching in the Izu Islands",
   "running_title": "Conditional island pollination response geometry",
   "keywords": [
     "island syndrome",
@@ -10,8 +10,9 @@
     "functional matching",
     "response heterogeneity",
     "ecological networks",
-    "reproductive assurance",
-    "agent-based model"
+    "source state",
+    "Izu Islands",
+    "reproductive assurance"
   ],
   "authors": [],
   "corresponding_author_index": null,
@@ -20,7 +21,7 @@
   "author_contributions": null,
   "inclusion_statement": null,
   "conflict_of_interest": null,
-  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs and a source-audited literature framing. The reviewer archive contains the active manuscript companion specification, frozen response-geometry and threshold results, deterministic figure inputs, analysis scripts and claim-boundary records. Before final publication, accepted code and frozen analysis materials will be deposited in an immutable versioned archive with a persistent DOI.",
+  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, frozen response-geometry and threshold results, deterministic figure inputs, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Before final publication, accepted code and frozen analysis materials will be deposited in an immutable versioned archive with a persistent DOI.",
   "submission_declarations": {
     "not_published_or_under_consideration_elsewhere": null,
     "all_authors_approve_submission": null,
@@ -33,6 +34,6 @@
     "Do not infer author names, order, affiliations, emails, ORCIDs, funding, acknowledgements, contributions or declarations.",
     "Populate only from author-supplied or explicitly source-locked metadata.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
-    "Scientific manuscript title and keywords are synchronized to the active 2026-08-27 conditional-response-geometry draft."
+    "Scientific manuscript title, keywords and data-availability language are synchronized to the active 2026-08-27 v2 conditional-response-geometry manuscript with focal Izu triangulation."
   ]
 }
