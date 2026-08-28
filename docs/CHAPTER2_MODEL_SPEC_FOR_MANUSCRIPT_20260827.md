@@ -1,6 +1,6 @@
 # Chapter 2 model specification for manuscript
 
-Updated: 2026-08-27
+Updated: 2026-08-28
 
 This document extracts the exact model rules needed to finish the active Research Article Methods. It is a manuscript specification, not a new model and not an empirical calibration.
 
@@ -67,6 +67,20 @@ For an extant pollinator assemblage with match values `m_j`:
 If no pollinator remains, service is zero.
 
 This formulation prevents pollinator richness from automatically increasing total visitation opportunity: richness changes partner composition while service uses the mean match under a fixed budget.
+
+Equivalently, for environment `E` and fixed plant state `x`, define the community interaction kernel
+
+`K_E(x) = mean_j[a_Ej * exp(-((x - p_Ej) / b_Ej)^2)]`,
+
+where `a_Ej` is the replacement penalty or 1. Then
+
+`S_E(x) = 1 - exp(-saturation * K_E(x))`.
+
+Because the saturation map is strictly increasing, a fixed-state service contrast has the same sign as `K_island(x) - K_mainland(x)`. The implemented endpoint geometry also permits trait adjustment, so its exact coordinate is instead the trajectory-conditioned composite
+
+`G_omega(x0) = K_island,T(Phi_island,T(x0)) - K_mainland,T(Phi_mainland,T(x0))`,
+
+where `Phi_E,T` is the final plant state under environment `E`. The shortcut `K_island(x0) - K_mainland(x0)` is not exact when the two trajectories change final plant state. Per-realization sign equivalence also does not allow the nonlinear mean service contrast to be replaced by a difference of mean kernels. The full derivation and executable identity audit are in `docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md` and `data/results/chapter2_interaction_kernel_audit_frozen_20260828.json`.
 
 ## 5. Trait adjustment
 

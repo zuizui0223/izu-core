@@ -49,7 +49,7 @@ def test_machine_readable_boundaries_declare_independence():
 def test_manifest_routes_v2_without_promoting_historical_drafts():
     manifest = json.loads((ROOT / "data/design/island_ecology_jecology_submission_manifest.json").read_text(encoding="utf-8"))
     current = manifest["current_manuscript_artifacts"]
-    assert current["status"] == "active_v2_synthetic_primary_plus_izu_triangulation_reproducible"
+    assert current["status"] == "active_v2_mechanistic_funnel_reproducible"
     assert current["active_manuscript"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
     assert current["retired_pre_v2_manuscript"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md"
     assert current["supporting_information"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md"

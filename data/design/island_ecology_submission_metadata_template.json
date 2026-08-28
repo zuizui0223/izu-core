@@ -1,16 +1,17 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "journal": "Journal of Ecology",
   "article_type": "Research Article",
-  "manuscript_title": "Conditional response geometry under island pollinator reorganization: from synthetic regime structure to source-state matching in the Izu Islands",
-  "running_title": "Conditional island pollination response geometry",
+  "manuscript_title": "Response geometry under community reorganization: from ecological possibility to mechanistic resolution in island plant–pollinator systems",
+  "running_title": "Response geometry under community reorganization",
   "keywords": [
-    "island syndrome",
+    "community reorganization",
     "plant–pollinator interactions",
     "functional matching",
-    "response heterogeneity",
-    "ecological networks",
+    "response geometry",
     "source state",
+    "realized community",
+    "identifiability",
     "Izu Islands",
     "reproductive assurance"
   ],
@@ -21,7 +22,7 @@
   "author_contributions": null,
   "inclusion_statement": null,
   "conflict_of_interest": null,
-  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, frozen response-geometry and threshold results, deterministic figure inputs, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Before final publication, accepted code and frozen analysis materials will be deposited in an immutable versioned archive with a persistent DOI.",
+  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, a frozen 25-entry source-readiness audit and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, exact interaction-kernel identity audit, frozen response-geometry and threshold results, deterministic figure inputs, external source-readiness records, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Before final publication, accepted code and frozen analysis materials will be deposited in an immutable versioned archive with a persistent DOI.",
   "submission_declarations": {
     "not_published_or_under_consideration_elsewhere": null,
     "all_authors_approve_submission": null,
@@ -34,6 +35,6 @@
     "Do not infer author names, order, affiliations, emails, ORCIDs, funding, acknowledgements, contributions or declarations.",
     "Populate only from author-supplied or explicitly source-locked metadata.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
-    "Scientific manuscript title, keywords and data-availability language are synchronized to the active 2026-08-27 v2 conditional-response-geometry manuscript with focal Izu triangulation."
+    "Scientific manuscript title, keywords and data-availability language are synchronized to the active 2026-08-28 v2 mechanistic-funnel reconstruction with focal Izu resolution."
   ]
 }

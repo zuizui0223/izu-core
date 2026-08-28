@@ -9,27 +9,31 @@ SOURCE = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.m
 DEFAULT_OUTPUT = ROOT / "dist/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUBMISSION_CLEAN.md"
 
 FINAL_TITLE = (
-    "Conditional response geometry under island pollinator reorganization: "
-    "from synthetic regime structure to source-state matching in the Izu Islands"
+    "Response geometry under community reorganization: from ecological possibility "
+    "to mechanistic resolution in island plant–pollinator systems"
 )
 
 INTRO_THESIS_PARAGRAPH = (
-    "At the dissertation scale, the preceding comparative chapter supplies the when/where handoff: "
-    "isolation-associated floral and reproductive filtering is detectable in multiple biogeographic contexts, "
-    "but the observed multivariate response vectors differ. That result does not by itself identify why the vectors differ. "
-    "It motivates a narrower post-establishment question: **when pollinator functional environments are reorganized in a "
-    "broadly island-like direction, what determines whether an already-established plant lineage benefits or declines?**"
+    "That audit motivates, rather than competes with, the Izu focal analysis. Izu was not selected as an outcome-independent "
+    "winner from a global ranking. It is the island series in which source floral state, source and island pollinator composition, "
+    "numeric pollinator traits, interaction structure, raw realized matching and null-corrected matching can be connected at higher "
+    "resolution. The contrast between raw and corrected matching attacks a specific mechanistic distinction: background "
+    "community-composition structure versus additional within-community non-random partner sorting. Chapter 2 ends at this "
+    "distinction and at the measurements still required to connect matching to reproduction; Chapter 3 is the next measurement "
+    "stage, not causal validation of the present model."
 )
 
 INTRO_STANDALONE_PARAGRAPH = (
-    "The coexistence of recurrent island-associated floral and reproductive syndromes with heterogeneous responses among "
-    "lineages and biogeographic contexts does not by itself identify why response vectors differ. It motivates a narrower "
-    "post-establishment question: **when pollinator functional environments are reorganized in a broadly island-like direction, "
-    "what determines whether an already-established plant lineage benefits or declines?**"
+    "That audit motivates, rather than competes with, the Izu focal analysis. Izu was not selected as an outcome-independent "
+    "winner from a global ranking. It is the island series in which source floral state, source and island pollinator composition, "
+    "numeric pollinator traits, interaction structure, raw realized matching and null-corrected matching can be connected at higher "
+    "resolution. The contrast between raw and corrected matching attacks a specific mechanistic distinction: background "
+    "community-composition structure versus additional within-community non-random partner sorting. The analysis ends at this "
+    "distinction and at the prospective measurements still required to connect matching to reproductive propagation."
 )
 
 THESIS_SECTION_RE = re.compile(
-    r"\n## From Chapter 1 to Chapter 3\n.*?(?=\n## Limitations and decisive next test\n)",
+    r"\n## Chapter 2 hands a measurement contract to Chapter 3\n.*?(?=\n## Limits and decisive next measurement\n)",
     flags=re.DOTALL,
 )
 
@@ -52,10 +56,10 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     text = source.read_text(encoding="utf-8")
 
     working_title_block = (
-        "# Conditional response geometry under island pollinator reorganization\n\n"
-        "**Status:** active working manuscript v2 — not submission-ready  \n"
-        "**Updated:** 2026-08-27  \n"
-        "**Inference architecture:** synthetic primary analysis + comparative reality boundary + focal Izu empirical triangulation  \n"
+        "# Response geometry under community reorganization\n\n"
+        "**Status:** active working manuscript v2 — mechanistic-funnel reconstruction; not submission-ready\n"
+        "**Updated:** 2026-08-28\n"
+        "**Inference architecture:** model possibilities → world confrontation → identifiability bottleneck → focal Izu mechanistic-resolution zoom\n"
         "**Controlling state:** `docs/CHAPTER2_CANONICAL_STORY_20260827.md`, `data/design/chapter2_active_manuscript_mainline_20260827.json`, `data/results/chapter2_scientific_gate_final_20260827.json`\n\n"
         "## Working title\n\n"
         f"**{FINAL_TITLE}**"
@@ -72,10 +76,9 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     if n_removed != 1:
         raise ValueError("thesis Chapter 1-to-3 section not found exactly once")
 
-    # One Discussion sentence refers to the framework by chapter number; make it article-internal.
     text = text.replace(
-        "This is not a failure of the Chapter 2 framework.",
-        "This does not undermine the conditional-response framework.",
+        "the remaining effectiveness-to-reproduction contract is handed to Chapter 3 without validation claims.",
+        "the remaining effectiveness-to-reproduction contract is retained as a prospective measurement target.",
         1,
     )
 

@@ -4,25 +4,37 @@ Updated: 2026-08-28
 
 ## Audit basis
 
-- `izu-core` current `main` at the 2026-08-28 audit freeze: `98cbb6975295e8c2b8f72291a895d145dbf76f36`.
+- `izu-core` current `main` at the 2026-08-28 audit freeze: `a9c2db66a4ee4d706e543d458338fdd871228122`; PRs #307 and #308 are merged, and post-merge `main` CI runs `33144453645` and `33144453682` succeeded.
 - Chapter 1 (`island`) current `main`: `9d6677d4ead4b331e327028fcd1a6d2a59c83e37`.
 - Canonical Chapter 1 when/where workflow: run `32837335384`, successful at head `a3fe6d63e41cad37f0605b512762a599d64890b6`.
 - Chapter 2 parent scientific gate: `data/design/chapter2_scientific_gate_run_20260827.json` and its frozen Phase 1–3 summaries.
 - Additional diagnostic design, frozen before execution: `data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json`.
 - Additional diagnostic result: `data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json`.
 - External-prediction readiness design and result: `data/design/chapter2_external_prediction_challenge_freeze_20260828.json` and `data/results/chapter2_external_prediction_readiness_frozen_20260828.json`.
+- Exact kernel audit: `docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md` and `data/results/chapter2_interaction_kernel_audit_frozen_20260828.json`.
 
 ## Current handoff
 
 Chapter 1 is a **WHEN/WHERE** chapter. It establishes, within opportunistically observed floras, that isolation/source-pool-accessibility gradients are associated with floral and reproductive filtering in northern mid-latitude and tropical regions, that the signals persist in native non-endemic assemblages, and that the two regional multivariate response vectors differ. It does not identify the pollinator or historical mechanism that produced those vectors, and it does not reduce either vector to a named classical pollination syndrome.
 
-Chapter 2 is a **mechanistic HOW plus proximal WHY** chapter. Its direct scope is post-establishment response: how a declared pollinator reorganization propagates through functional matching, realized local filtering, effective service and reproduction, and why lineages can occupy different response branches under the same broad perturbation.
+Chapter 2 is a **mechanistic HOW plus proximal WHY** chapter assembled as a breadth-to-depth funnel. Its direct scope is post-establishment response: how a declared pollinator reorganization propagates through functional matching, realized local filtering, effective service and reproduction, why lineages can occupy different response branches under the same broad perturbation, why empirical island ecology requires that richer response vocabulary, what existing comparisons cannot jointly identify, and what becomes distinguishable when resolution increases in Izu.
 
 The defensible bridge is therefore:
 
 > Chapter 1 establishes that one broad geographic/source-pool gradient is expressed through different regional multivariate response vectors. Chapter 2 tests a model class in which one broad interaction perturbation can generate different response signs because matching consequences depend on starting functional position and realized community context.
 
 This is a theoretical/mechanistic bridge, not an empirical assignment of the Chapter 1 northern-midlatitude and tropical vectors to particular Chapter 2 parameter regimes.
+
+The active handoff is now:
+
+```text
+Chapter 1: different regional response vectors exist
+    -> Chapter 2 model: define possible conditional response geometry
+        -> world confrontation: confirm that one-state vocabulary is inadequate
+            -> source audit: expose the joint-measurement bottleneck
+                -> Izu zoom: separate composition-level signal from additional sorting
+                    -> Chapter 3: measure the remaining focal contract, without retrospective validation
+```
 
 ## HOW, proximal WHY and ultimate WHY
 
@@ -32,11 +44,15 @@ This is a theoretical/mechanistic bridge, not an empirical assignment of the Cha
 | Proximal WHY | Why can the same broad perturbation yield opposite lineage responses? | The negative portion of the starting-position surface changes with the balance of partner loss and arrival and other matching dimensions; realized community state dominates cell-level variation; starting position and community combine non-additively; filtering changes positive and negative branches at different rates. | A diagnostic explanation within the fixed model design, not a field-estimated causal effect. |
 | Ultimate WHY | Why did an island acquire its biota, starting states, interaction architecture or historical regional vector? | Not tested. Assembly, colonization, regional species pools, persistence and evolutionary history remain upstream alternatives. | Chapter 2 must not claim to explain formation of the Chapter 1 regional contexts or starting states. |
 
+The exact HOW coordinate is the trajectory-conditioned kernel difference `G_omega(x0)`. The simpler `K_island(x0) - K_mainland(x0)` is exact only when the plant state is held fixed; it is not the endpoint coordinate when environment-specific trait adjustment changes final states. This correction strengthens mechanistic interpretation without altering the frozen response results.
+
 ## External-prediction ceiling
 
 The 25-entry source-readiness audit does not raise this handoff from model-conditional proximal WHY to an empirically general predictive WHY. Zero entries passed the full outcome-independent plant-response contract, so `H0`–`H4` comparison and held-out system/archipelago prediction are not evaluable. Chapter 2 therefore remains at Level 2: it explains within the frozen model why heterogeneous responses are possible, while external systems provide retrospective explanation, reality boundaries and retained falsification.
 
 This stop protects the Chapter 1 → Chapter 2 bridge. Chapter 1 regional vectors are not assigned to the four model-derived axes (`T`, `D0`, `C`, `F`), and the absence of a formal external prediction set is not repaired by importing Chapter 3 phenotype or inferring predictors from observed outcomes.
+
+The Izu structural audit provides the next valid resolution step rather than an exception to that stop. Raw matching is structured by source state plus background community composition, whereas null-corrected matching does not support additional non-random partner sorting. Izu is therefore a data-depth focal system that localizes the signal, not an outcome-independent global ranking winner or a validation replicate.
 
 ## Frozen additional diagnostics
 
@@ -86,6 +102,7 @@ The Chapter 2 manuscript should now state all four boundaries explicitly:
 2. Chapter 2 supplies the mechanistic HOW and a proximal, model-conditional WHY.
 3. Community realization and state-by-realization non-additivity are part of the explanation, so starting position alone must not be promoted as a universal generator.
 4. Ultimate/historical WHY remains outside the current simulation and requires assembly, colonization, persistence or evolutionary evidence.
+5. The world comparison supplies reality necessity and an identifiability result; Izu supplies mechanistic resolution; neither is renamed validation, and Chapter 3 remains a prospective measurement handoff.
 
 ## Prohibited promotion
 
@@ -96,3 +113,5 @@ The Chapter 2 manuscript should now state all four boundaries explicitly:
 - Do not retune seeds, parameter ranges, trait grids, realization counts or filtering strengths after these results.
 - Do not claim an ultimate explanation for why the observed island contexts formed.
 - Do not call the current 25-entry audit formal external prediction or treat its geographic-overlap labels as independent archipelago replication.
+- Do not describe Izu raw matching as beyond-composition sorting or the Izu system as a formal global ranking winner.
+- Do not use Chapter 3 phenotype as Chapter 2 validation, Bombus-causation proof, pollinator-selection proof or external prediction success.

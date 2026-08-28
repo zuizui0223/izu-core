@@ -81,7 +81,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "model_gate_closed_conditional_response_geometry_with_focal_izu_triangulation",
+            "scientific_state": "model_gate_closed_mechanistic_response_geometry_with_world_identifiability_and_izu_resolution",
             "manuscript_state": "active_v2_source_rendered_to_journal_clean_submission",
             "source_manuscript": SOURCE_MANUSCRIPT,
             "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
@@ -100,8 +100,9 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             ],
             "boundary": (
                 "Packaging renders the Chapter 2 v2 scientific source into a journal-facing clean manuscript that removes "
-                "dissertation/chapter-routing language without changing scientific results. Synthetic response geometry is the "
-                "primary analysis; Izu is focal empirical triangulation at the source-state/community-composition level and is "
+                "dissertation/chapter-routing language without changing scientific results. Synthetic response geometry and its "
+                "exact interaction-kernel coordinate define the possibilities; world confrontation supplies response diversity and "
+                "a joint-measurement bottleneck; Izu supplies focal mechanistic resolution at the source-state/community-composition level and is "
                 "not treated as validation of synthetic thresholds or as evidence for non-random partner sorting beyond "
                 "background composition. The dedicated Izu empirical appendix retains the raw-positive/null-corrected-negative "
                 "structural boundary. Figure regeneration must match the frozen scientific gate and metadata validation remains fail-closed."

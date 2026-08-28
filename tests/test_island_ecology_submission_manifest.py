@@ -15,7 +15,9 @@ def test_submission_manifest_keeps_scientific_gate_closed_but_metadata_blocked()
     assert manifest["active_scientific_gate"] == "data/design/manuscript_reassessment_gate_20260826.json"
     assert manifest["scientific_reassessment"] == "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
     assert manifest["paper_scope_independent_of_external_research_programmes"] is True
-    assert manifest["research_article_route"] == "candidate_conditional_response_geometry_with_focal_izu_triangulation"
+    assert manifest["research_article_route"] == "mechanistic_response_geometry_funnel_with_world_identifiability_and_izu_resolution_zoom"
+    assert manifest["preferred_next_journal_route"] == "Oikos Research paper"
+    assert "retained_as_fallback" in manifest["routing_status"]
     assert manifest["scientific_gate_result"]["model_gate_closed"] is True
     assert manifest["focal_izu_triangulation"]["implementation_on_active_branch"] is True
     assert manifest["focal_izu_triangulation"]["structural_audit_on_active_branch"] is True
@@ -37,6 +39,7 @@ def test_manifest_routes_frozen_conditional_why_diagnostics_without_reopening():
 
     completed = manifest["scientific_work_completed"]
     assert "response_geometry_analysis_identifying_sign_switch_conditions" in completed
+    assert "exact_interaction_kernel_derivation_and_deterministic_code_identity_audit" in completed
     assert "fixed_surface_regime_boundary_driver_diagnostic" in completed
     assert "starting_position_by_community_realization_decomposition" in completed
     assert "local_filtering_directional_asymmetry_diagnostic" in completed

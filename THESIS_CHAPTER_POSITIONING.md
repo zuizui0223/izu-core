@@ -164,34 +164,29 @@ The roles are asymmetric:
 broad comparative universe
     -> response-state breadth, counterexamples, source gates and falsification
         -> 13 strict external challenges
-            -> Izu as the focal data-depth triangulation system
+            -> Izu as the focal mechanistic-resolution system
 ```
 
 The external systems are **comparative grounding and boundary examples**, not validation coverage of a universal mechanism. Failed or blocked cases remain part of the scientific evidence trail.
 
-Izu is used for depth because the same island series can connect historical reproductive evidence, contemporary interaction networks, pollinator functional traits, source-native signed-position analyses and prospective direct effectiveness/dependency measurements. This is a transparent programme rationale, not an outcome-independent global ranking. The focal *Campanula microdonta* phenotype in Chapter 3 is a downstream dissertation handoff and is excluded from Chapter 2 selection and validation.
+Izu is used for depth because the same island series can connect historical reproductive evidence, contemporary interaction networks, pollinator functional traits, source-native signed-position analyses and prospective direct effectiveness/dependency measurements. This is a transparent programme rationale, not an outcome-independent global ranking. The raw-versus-null-corrected contrast localizes the current matching signal to source state plus background community composition rather than additional non-random sorting. Chapter 3 remains a downstream measurement handoff and is excluded from Chapter 2 selection and validation.
 
 ## Relationship to Chapter 3
 
-Chapter 3 does not simply provide a list of independently branching traits, and Chapter 2 must not imply that it does.
-
-The current *Campanula microdonta* result is better summarized as:
-
-> **a strongly coordinated island size/investment trajectory plus selected departures from common size scaling in mouth allometry, reproductive-interface length, nectar-guide investment and a residual multivariate phenotype axis.**
-
-The Chapter 2 → Chapter 3 handoff is therefore:
+The Chapter 2 → Chapter 3 handoff is therefore a measurement contract:
 
 ```text
 Chapter 2
-WHY one ecological perturbation need not imply one response
-and HOW branch identity can be conditional on state and community
+defines possible response geometry, confronts it with empirical diversity,
+identifies the state-community-context-outcome measurement bottleneck,
+and separates composition-level from beyond-composition matching in Izu
         ↓
 Chapter 3
-WHAT phenotype structure is actually realized in the focal lineage:
-shared coordination plus residual departures beyond common scaling
+advances to higher-resolution focal phenotype, effectiveness and dependency
+measurement in the same island series
 ```
 
-Chapter 3 supplies a phenotype that any proposed historical mechanism must explain; it does not by itself identify the historical pollinator cause.
+No Chapter 3 phenotype is used as Chapter 2 model validation, Bombus-causation proof, pollinator-selection proof or external prediction success.
 
 ## Falsification logic
 
@@ -239,4 +234,4 @@ is actually realized within one focal Izu lineage?
 
 The Chapter 2 contribution is:
 
-> **to replace a one-direction island-syndrome expectation with a conditional post-establishment response architecture in which partner turnover sets the regime, starting state organizes mean geometry, realized community strongly governs individual outcomes, local filtering reallocates branch identity, and reproductive assurance mainly modifies magnitude—while leaving the historical origin of island contexts unresolved.**
+> **to define a conditional post-establishment response geometry, confront its response vocabulary with empirical island diversity, expose the joint-measurement bottleneck that prevents formal external identification, and use Izu resolution to separate source-state/community-composition structure from unsupported beyond-composition sorting—while leaving ultimate history and the remaining causal test unresolved.**

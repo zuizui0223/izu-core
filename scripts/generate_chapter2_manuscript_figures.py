@@ -9,9 +9,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 from matplotlib.colors import BoundaryNorm, ListedColormap
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 from scripts.run_joint_response_transition_surface import build as build_joint_surface
 from scripts.run_response_geometry_parameter_robustness import BASE, TRAIT_GRID
@@ -22,6 +25,7 @@ PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260
 WHY_DIAGNOSTICS = ROOT / "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json"
 EXTERNAL_READINESS = ROOT / "data/results/chapter2_external_prediction_readiness_frozen_20260828.json"
 EXTERNAL_LEDGER = ROOT / "data/design/chapter2_external_prediction_admission_ledger_20260828.csv"
+IZU_STRUCTURAL = ROOT / "data/results/izu_signed_position_structural_audit_frozen_20260827.json"
 OUT_DIR = ROOT / "figures/chapter2"
 FIG_INPUTS = ROOT / "data/results/chapter2_manuscript_figure_inputs_20260827.json"
 SEED = 20260826
@@ -48,6 +52,89 @@ def _assert_frozen_identity(baseline: dict, joint: dict, phase12: dict) -> None:
         raise RuntimeError(f"figure regeneration differs from frozen Chapter 2 gate: {failed}")
 
 
+def _fig1_mechanistic_resolution_funnel() -> Path:
+    fig, ax = plt.subplots(figsize=(14.0, 5.2))
+    ax.set_axis_off()
+    boxes = [
+        (
+            "MODEL\npossibilities",
+            "interaction kernel\nconditional geometry\n41/96 mixed",
+            "#DCE8F5",
+        ),
+        (
+            "WORLD\nconfrontation",
+            "propagation · branching\nbuffering · decoupling\nretained falsification",
+            "#E8E1F2",
+        ),
+        (
+            "IDENTIFIABILITY\nbottleneck",
+            "0/25 full joint contracts\nH0–H4 not evaluable",
+            "#F5E1DE",
+        ),
+        (
+            "IZU\nresolution zoom",
+            "raw: state + composition\nnull-corrected sorting:\nunsupported",
+            "#DDEFE4",
+        ),
+        (
+            "MEASUREMENT\nhandoff",
+            "sorting · effectiveness\nreproductive propagation\nhandoff ≠ validation",
+            "#F1EBCF",
+        ),
+    ]
+    x_positions = np.linspace(0.03, 0.81, len(boxes))
+    for index, ((title, body, color), x) in enumerate(zip(boxes, x_positions)):
+        ax.text(
+            x,
+            0.58,
+            f"{title}\n\n{body}",
+            transform=ax.transAxes,
+            ha="left",
+            va="center",
+            fontsize=10,
+            linespacing=1.25,
+            bbox={
+                "boxstyle": "round,pad=0.65",
+                "facecolor": color,
+                "edgecolor": "#43505C",
+                "linewidth": 1.0,
+            },
+        )
+        if index < len(boxes) - 1:
+            ax.annotate(
+                "",
+                xy=(x_positions[index + 1] - 0.012, 0.58),
+                xytext=(x + 0.155, 0.58),
+                xycoords="axes fraction",
+                arrowprops={"arrowstyle": "->", "color": "#43505C", "lw": 1.5},
+            )
+    ax.text(
+        0.01,
+        0.96,
+        "Breadth-to-depth mechanistic-resolution funnel",
+        transform=ax.transAxes,
+        ha="left",
+        va="top",
+        fontsize=15,
+        color="#252A31",
+    )
+    ax.text(
+        0.01,
+        0.08,
+        "The stages have different inferential roles: possibility is not prevalence; confrontation is not validation; Izu is not a ranking winner.",
+        transform=ax.transAxes,
+        ha="left",
+        va="bottom",
+        fontsize=9,
+        color="#505A64",
+    )
+    path = OUT_DIR / "fig1_mechanistic_resolution_funnel.svg"
+    fig.savefig(path, bbox_inches="tight")
+    fig.savefig(path.with_suffix(".png"), dpi=160, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
 def _fig2_response_geometry(baseline: dict) -> Path:
     rows = baseline["trait_rows"]
     x = [row["initial_trait"] for row in rows]
@@ -62,6 +149,165 @@ def _fig2_response_geometry(baseline: dict) -> Path:
     fig.tight_layout()
     path = OUT_DIR / "fig2_response_geometry.svg"
     fig.savefig(path)
+    plt.close(fig)
+    return path
+
+
+def _fig3_proximal_why_hierarchy(why: dict, phase3: dict) -> Path:
+    coefficients = why["regime_boundary_driver_diagnostics"]["additive_ols"]["coefficients"]
+    decomposition = why["starting_position_by_community_realization"]["baseline"]
+    filtering = why["local_filtering_directionality"]
+    assurance = phase3["assurance_map"]
+    ink = "#252A31"
+    blue = "#3B5B92"
+    blue_mid = "#7895C2"
+    blue_light = "#B8C8E2"
+    orange = "#D9822B"
+
+    fig, axes = plt.subplots(2, 2, figsize=(13.5, 10.0))
+    coefficient_rows = list(reversed(coefficients))
+    coefficient_values = [row["coefficient_over_full_declared_range"] for row in coefficient_rows]
+    axes[0, 0].barh(
+        [row["parameter"].replace("_", " ") for row in coefficient_rows],
+        coefficient_values,
+        color=[orange if value > 0 else blue for value in coefficient_values],
+    )
+    axes[0, 0].axvline(0.0, color=ink, linewidth=0.8)
+    axes[0, 0].set_xlabel("Coefficient over declared range")
+    axes[0, 0].set_title("A  Turnover accompanies regime movement\n48 fixed design points", loc="left")
+
+    fractions = decomposition["sum_of_squares_fraction"]
+    axes[0, 1].bar(
+        ["Starting\nposition", "Community\nrealization", "Non-additive\nremainder"],
+        [
+            fractions["starting_position"],
+            fractions["community_realization"],
+            fractions["starting_position_by_community_nonadditivity"],
+        ],
+        color=[blue_light, blue, blue_mid],
+        edgecolor=ink,
+        linewidth=0.5,
+    )
+    axes[0, 1].set_ylim(0.0, 1.0)
+    axes[0, 1].set_ylabel("Fraction of total sum of squares")
+    axes[0, 1].set_title("B  Realized community allocates branches\n21 positions × 96 communities", loc="left")
+
+    filter_row = filtering["by_strength"]["0.4"]
+    axes[1, 0].bar(
+        ["Negative →\nnon-negative", "Positive →\nnon-positive"],
+        [
+            filter_row["negative_to_nonnegative_rate_among_baseline_negative"],
+            filter_row["positive_to_nonpositive_rate_among_baseline_positive"],
+        ],
+        color=[blue, orange],
+        edgecolor=ink,
+        linewidth=0.5,
+    )
+    axes[1, 0].set_ylim(0.0, 0.65)
+    axes[1, 0].set_ylabel("Conditional transition rate")
+    axes[1, 0].set_title("C  Local filtering reallocates asymmetrically\nsynthetic strength = 0.40", loc="left")
+
+    multipliers = [float(value) for value in phase3["design"]["assurance_multipliers"]]
+    assurance_rows = [_cell(assurance["by_multiplier"], value) for value in multipliers]
+    axes[1, 1].plot(
+        multipliers,
+        [row["magnitude_improvement_fraction"] for row in assurance_rows],
+        marker="o",
+        color=blue,
+        label="Magnitude improvement",
+    )
+    axes[1, 1].plot(
+        multipliers,
+        [row["sign_rescue_fraction"] for row in assurance_rows],
+        marker="s",
+        linestyle="--",
+        color=orange,
+        label="Sign rescue",
+    )
+    axes[1, 1].set_ylim(-0.03, 1.03)
+    axes[1, 1].set_xlabel("Assurance multiplier")
+    axes[1, 1].set_ylabel("Fraction of 580 eligible declines")
+    axes[1, 1].set_title("D  Assurance acts downstream\n0 sign rescues in tested envelope", loc="left")
+    axes[1, 1].legend(frameon=False, fontsize=9)
+
+    fig.suptitle("Proximal-WHY hierarchy", fontsize=15, x=0.01, ha="left")
+    fig.tight_layout(rect=(0, 0, 1, 0.96))
+    path = OUT_DIR / "fig3_proximal_why_hierarchy.svg"
+    fig.savefig(path)
+    fig.savefig(path.with_suffix(".png"), dpi=160)
+    plt.close(fig)
+    return path
+
+
+def _fig4_global_to_izu_resolution(external: dict, izu: dict) -> Path:
+    class_counts = external["admission"]["class_counts"]
+    labels = ["Retrospective\nexplanation", "Reality\nboundary", "Source-gated /\nunusable"]
+    counts = [
+        class_counts["retrospective_explanatory_test_only"],
+        class_counts["reality_boundary_only"],
+        class_counts["source_gated_unusable"],
+    ]
+    colors = ["#7895C2", "#B8C8E2", "#D4D7DC"]
+    ink = "#252A31"
+    green = "#4B8C6B"
+    red = "#B04A4A"
+
+    fig, axes = plt.subplots(1, 2, figsize=(13.5, 5.8))
+    axes[0].bar(labels, counts, color=colors, edgecolor=ink, linewidth=0.5)
+    axes[0].set_ylabel("Research entries")
+    axes[0].set_ylim(0, 14)
+    axes[0].set_title("A  Global breadth exposes a joint-measurement gap", loc="left")
+    for index, count in enumerate(counts):
+        axes[0].text(index, count + 0.35, str(count), ha="center", va="bottom")
+    axes[0].text(
+        0.98,
+        0.92,
+        "0/25 full contracts\nH0–H4: not evaluable",
+        transform=axes[0].transAxes,
+        ha="right",
+        va="top",
+        color=red,
+        bbox={"boxstyle": "round,pad=0.35", "facecolor": "#F8E9EA", "edgecolor": red},
+    )
+
+    outcomes = [izu["raw_matching"], izu["null_corrected_matching"]]
+    y = np.array([1.0, 0.0])
+    slopes = np.array([row["slope"] for row in outcomes])
+    lower = slopes - np.array([row["ci95"][0] for row in outcomes])
+    upper = np.array([row["ci95"][1] for row in outcomes]) - slopes
+    axes[1].errorbar(
+        slopes,
+        y,
+        xerr=np.vstack((lower, upper)),
+        fmt="o",
+        color=ink,
+        ecolor=ink,
+        capsize=5,
+        markersize=8,
+    )
+    axes[1].scatter(slopes[0], y[0], color=green, s=75, zorder=3)
+    axes[1].scatter(slopes[1], y[1], color=red, s=75, zorder=3)
+    axes[1].axvline(0.0, color="#70777E", linewidth=1.0, linestyle="--")
+    axes[1].set_yticks(y, ["Raw realized matching", "Null-corrected matching"])
+    axes[1].set_xlabel("Frozen projection slope (95% CI)")
+    axes[1].set_xlim(-0.35, 0.90)
+    axes[1].set_ylim(-0.65, 1.65)
+    axes[1].set_title("B  Izu resolution separates composition from sorting", loc="left")
+    axes[1].text(
+        0.98,
+        0.08,
+        "Exact centre magnitudes non-unique\n13/120 assignments ≥ observed raw slope",
+        transform=axes[1].transAxes,
+        ha="right",
+        va="bottom",
+        fontsize=9,
+        color="#505A64",
+    )
+    fig.suptitle("From global response breadth to Izu mechanistic resolution", fontsize=15, x=0.01, ha="left")
+    fig.tight_layout(rect=(0, 0, 1, 0.95))
+    path = OUT_DIR / "fig4_global_to_izu_resolution.svg"
+    fig.savefig(path)
+    fig.savefig(path.with_suffix(".png"), dpi=160)
     plt.close(fig)
     return path
 
@@ -96,7 +342,7 @@ def _fig3_joint_regime_map(joint: dict) -> Path:
     colorbar = fig.colorbar(image, ax=ax)
     colorbar.set_label("Mean response sign (−1, 0, +1)")
     fig.tight_layout()
-    path = OUT_DIR / "fig3_joint_regime_map.svg"
+    path = OUT_DIR / "figS4_joint_regime_map.svg"
     fig.savefig(path)
     plt.close(fig)
     return path
@@ -128,7 +374,7 @@ def _fig4a_local_context(phase3: dict) -> Path:
     ax.set_title("Local context reallocates response sign")
     ax.legend(frameon=False)
     fig.tight_layout()
-    path = OUT_DIR / "fig4a_local_context_threshold.svg"
+    path = OUT_DIR / "figS5_local_context_threshold.svg"
     fig.savefig(path)
     plt.close(fig)
     return path
@@ -149,7 +395,7 @@ def _fig4b_assurance(phase3: dict) -> Path:
     ax.set_title("Assurance attenuates magnitude without sign rescue")
     ax.legend(frameon=False)
     fig.tight_layout()
-    path = OUT_DIR / "fig4b_assurance_sensitivity.svg"
+    path = OUT_DIR / "figS6_assurance_sensitivity.svg"
     fig.savefig(path)
     plt.close(fig)
     return path
@@ -328,6 +574,7 @@ def build_figures() -> dict:
     phase3 = _load(PHASE3)
     why = _load(WHY_DIAGNOSTICS)
     external = _load(EXTERNAL_READINESS)
+    izu = _load(IZU_STRUCTURAL)
     if not all(why["frozen_identity_checks"].values()):
         raise RuntimeError("conditional-WHY diagnostics did not pass frozen identity checks")
     baseline = realization_stability(BASE, replicates=96, seed=SEED)
@@ -335,7 +582,10 @@ def build_figures() -> dict:
     _assert_frozen_identity(baseline, joint, phase12)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     outputs = [
+        _fig1_mechanistic_resolution_funnel(),
         _fig2_response_geometry(baseline),
+        _fig3_proximal_why_hierarchy(why, phase3),
+        _fig4_global_to_izu_resolution(external, izu),
         _fig3_joint_regime_map(joint),
         _fig4a_local_context(phase3),
         _fig4b_assurance(phase3),
@@ -343,8 +593,8 @@ def build_figures() -> dict:
         _figs3_external_prediction_readiness(external),
     ]
     payload = {
-        "schema_version": "1.0",
-        "updated_on": "2026-08-27",
+        "schema_version": "1.1",
+        "updated_on": "2026-08-28",
         "status": "deterministic_manuscript_figure_inputs_regenerated",
         "seed": SEED,
         "source_results": [
@@ -352,14 +602,16 @@ def build_figures() -> dict:
             PHASE3.relative_to(ROOT).as_posix(),
             WHY_DIAGNOSTICS.relative_to(ROOT).as_posix(),
             EXTERNAL_READINESS.relative_to(ROOT).as_posix(),
+            IZU_STRUCTURAL.relative_to(ROOT).as_posix(),
         ],
         "baseline_response_geometry": baseline,
         "joint_transition_surface": joint,
         "context_assurance_thresholds": phase3,
         "conditional_why_diagnostics": why,
         "external_prediction_readiness": external,
+        "izu_mechanistic_resolution": izu,
         "figure_outputs": [path.relative_to(ROOT).as_posix() for path in outputs],
-        "claim_boundary": "Figures display frozen synthetic response geometry, sensitivity results and external source readiness. They do not estimate natural ecological prevalence, empirical trait/filtering thresholds or cross-system predictive performance.",
+        "claim_boundary": "Figures display frozen synthetic response geometry, sensitivity results, external source readiness and Izu raw-versus-null-corrected resolution. They do not estimate natural ecological prevalence, empirical trait/filtering thresholds, cross-system predictive performance, beyond-composition sorting or causal floral evolution.",
     }
     FIG_INPUTS.parent.mkdir(parents=True, exist_ok=True)
     FIG_INPUTS.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
