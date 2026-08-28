@@ -8,6 +8,7 @@ PHASE12 = ROOT / "data/results/chapter2_phase12_fixed_gate_summary_20260827.json
 PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json"
 WHY_DIAGNOSTICS = ROOT / "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json"
 IZU_AUDIT = ROOT / "data/results/izu_signed_position_structural_audit_frozen_20260827.json"
+EXTERNAL_READINESS = ROOT / "data/results/chapter2_external_prediction_readiness_frozen_20260828.json"
 OUT = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md"
 
 BASELINE_ROWS = [
@@ -48,6 +49,7 @@ def build() -> str:
     p3 = load(PHASE3)
     why = load(WHY_DIAGNOSTICS)
     izu = load(IZU_AUDIT)
+    external = load(EXTERNAL_READINESS)
     rg = p12["response_geometry"]
     jt = p12["joint_transition_surface"]
     cm = p3["context_map"]
@@ -80,6 +82,9 @@ def build() -> str:
     assert centers["n_exact_assignments"] == 120 and centers["n_assignments_ge_observed"] == 13
     assert corrected["supported"] is False
     assert decision["claim_ceiling"] == "source_floral_state_plus_background_community_composition"
+    assert external["decision"] == "C_formal_external_prediction_not_supported_by_current_world_data"
+    assert external["formal_evaluation_gate"]["passed"] is False
+    assert external["maximum_supported_claim_level"] == "Level 2"
 
     driver = why["regime_boundary_driver_diagnostics"]["additive_ols"]
     coefficients = {row["parameter"]: row for row in driver["coefficients"]}
@@ -94,7 +99,7 @@ def build() -> str:
         "",
         "Updated: 2026-08-27",
         "",
-        "Tables 1–4 are generated from the frozen Chapter 2 synthetic gate outputs. Frequencies and thresholds are synthetic robustness/sensitivity descriptors, not natural ecological prevalence or empirically calibrated thresholds. Table 5 reports the separately source-locked Izu secondary analysis and its structural negative control.",
+        "Tables 1–4 are generated from the frozen Chapter 2 synthetic gate outputs. Frequencies and thresholds are synthetic robustness/sensitivity descriptors, not natural ecological prevalence or empirically calibrated thresholds. Table 5 reports the separately source-locked Izu secondary analysis and its structural negative control. Table 6 reports the frozen external-prediction readiness stop.",
         "",
         "## Table 1. Baseline scenario and lineage parameterization",
         "",
@@ -184,9 +189,22 @@ def build() -> str:
         "",
         "The Izu analysis is a same-system secondary triangulation, not an external validation of the synthetic model. The active claim ceiling is source floral state plus broad background community composition; historical Bombus causation, causal floral evolution, plant-specific partner centres and reproductive propagation remain untested.",
         "",
+        "## Table 6. External-prediction readiness and claim ceiling",
+        "",
+        "| Audit quantity | Result | Interpretation boundary |",
+        "|---|---:|---|",
+        f"| Research entries before geographic de-duplication | {external['universe']['research_entries']} | not independent archipelagos |",
+        f"| Strict / additional / model-development entries | {external['universe']['layer_counts']['strict']} / {external['universe']['layer_counts']['additional']} / {external['universe']['layer_counts']['model_development']} | heterogeneous source roles |",
+        f"| Full plant-response contract passes | {external['admission']['target_contract_pass_count']} | no response classifier fitted |",
+        f"| Retrospective explanatory / reality-boundary / source-gated entries | {external['admission']['class_counts']['retrospective_explanatory_test_only']} / {external['admission']['class_counts']['reality_boundary_only']} / {external['admission']['class_counts']['source_gated_unusable']} | categories are not outcome frequencies |",
+        f"| Prospective-like complete `H0`–`H3` entries | {external['admission']['prospective_like_complete_H0_to_H3_entry_count']} | frozen minimum was {external['formal_evaluation_gate']['minimum_independent_system_clusters']} independent clusters |",
+        f"| `H0`–`H4` / held-out / permutation evaluation | {external['formal_evaluation_gate']['H0_to_H4_model_comparison']} | data-readiness stop, not failed fitted prediction |",
+        f"| Maximum supported claim | {external['maximum_supported_claim_level']} | conditional synthetic explanation, not empirical regime placement |",
+        f"| Outcome-independent Izu anchor score | {str(external['izu_anchor_selection']['formal_preoutcome_selection_score_available']).lower()} | focal data-depth rationale, not global ranking |",
+        "",
         "## Interpretation boundary",
         "",
-        "Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen synthetic design. Table 5 is a source-locked empirical secondary analysis with an explicit null-corrected negative result. None of the synthetic quantities is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold; the Izu quantities do not validate the synthetic coordinate or identify causal floral evolution.",
+        "Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen synthetic design. Table 5 is a source-locked empirical secondary analysis with an explicit null-corrected negative result. Table 6 is a data-readiness and identifiability audit; `not_evaluable` is not a failed fitted model. None of the synthetic quantities is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold; the Izu quantities do not validate the synthetic coordinate or identify causal floral evolution.",
         "",
     ]
     return "\n".join(lines)

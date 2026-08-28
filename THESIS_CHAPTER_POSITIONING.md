@@ -164,12 +164,12 @@ The roles are asymmetric:
 broad comparative universe
     -> response-state breadth, counterexamples, source gates and falsification
         -> 13 strict external challenges
-            -> Izu as the deepest empirical mechanistic anchor
+            -> Izu as the focal data-depth triangulation system
 ```
 
 The external systems are **comparative grounding and boundary examples**, not validation coverage of a universal mechanism. Failed or blocked cases remain part of the scientific evidence trail.
 
-Izu is used for depth because the same island series can connect historical phenotype/reproductive evidence, contemporary interaction networks, pollinator functional traits, source-native signed-position analyses, prospective direct effectiveness/dependency measurements, and the focal *Campanula microdonta* phenotype in Chapter 3.
+Izu is used for depth because the same island series can connect historical reproductive evidence, contemporary interaction networks, pollinator functional traits, source-native signed-position analyses and prospective direct effectiveness/dependency measurements. This is a transparent programme rationale, not an outcome-independent global ranking. The focal *Campanula microdonta* phenotype in Chapter 3 is a downstream dissertation handoff and is excluded from Chapter 2 selection and validation.
 
 ## Relationship to Chapter 3
 

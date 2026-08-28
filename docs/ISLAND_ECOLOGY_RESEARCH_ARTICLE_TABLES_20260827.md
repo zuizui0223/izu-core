@@ -2,7 +2,7 @@
 
 Updated: 2026-08-27
 
-Tables 1–4 are generated from the frozen Chapter 2 synthetic gate outputs. Frequencies and thresholds are synthetic robustness/sensitivity descriptors, not natural ecological prevalence or empirically calibrated thresholds. Table 5 reports the separately source-locked Izu secondary analysis and its structural negative control.
+Tables 1–4 are generated from the frozen Chapter 2 synthetic gate outputs. Frequencies and thresholds are synthetic robustness/sensitivity descriptors, not natural ecological prevalence or empirically calibrated thresholds. Table 5 reports the separately source-locked Izu secondary analysis and its structural negative control. Table 6 reports the frozen external-prediction readiness stop.
 
 ## Table 1. Baseline scenario and lineage parameterization
 
@@ -106,6 +106,19 @@ Eligible baseline declines: **580**. Sign rescues anywhere through 4×: **0**. U
 
 The Izu analysis is a same-system secondary triangulation, not an external validation of the synthetic model. The active claim ceiling is source floral state plus broad background community composition; historical Bombus causation, causal floral evolution, plant-specific partner centres and reproductive propagation remain untested.
 
+## Table 6. External-prediction readiness and claim ceiling
+
+| Audit quantity | Result | Interpretation boundary |
+|---|---:|---|
+| Research entries before geographic de-duplication | 25 | not independent archipelagos |
+| Strict / additional / model-development entries | 13 / 6 / 6 | heterogeneous source roles |
+| Full plant-response contract passes | 0 | no response classifier fitted |
+| Retrospective explanatory / reality-boundary / source-gated entries | 12 / 8 / 5 | categories are not outcome frequencies |
+| Prospective-like complete `H0`–`H3` entries | 0 | frozen minimum was 4 independent clusters |
+| `H0`–`H4` / held-out / permutation evaluation | not_evaluable | data-readiness stop, not failed fitted prediction |
+| Maximum supported claim | Level 2 | conditional synthetic explanation, not empirical regime placement |
+| Outcome-independent Izu anchor score | false | focal data-depth rationale, not global ranking |
+
 ## Interpretation boundary
 
-Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen synthetic design. Table 5 is a source-locked empirical secondary analysis with an explicit null-corrected negative result. None of the synthetic quantities is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold; the Izu quantities do not validate the synthetic coordinate or identify causal floral evolution.
+Table 1 values define the synthetic model. Table 2 frequencies describe the declared stochastic and Latin-hypercube designs. Table 3 thresholds describe the declared sensitivity envelope. Table 4 coefficients, variance shares and transition rates are diagnostics of the unchanged frozen synthetic design. Table 5 is a source-locked empirical secondary analysis with an explicit null-corrected negative result. Table 6 is a data-readiness and identifiability audit; `not_evaluable` is not a failed fitted model. None of the synthetic quantities is a causal field estimate, an estimate of natural prevalence or an empirically identified island threshold; the Izu quantities do not validate the synthetic coordinate or identify causal floral evolution.

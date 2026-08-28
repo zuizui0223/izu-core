@@ -129,16 +129,16 @@ The intended hierarchy is:
 broader comparison universe
     -> response-state breadth, counterexamples and source gates
         -> 13 strict challenge systems
-            -> Izu deep mechanistic anchor
+            -> Izu focal data-depth triangulation
 ```
 
-The 13-system set is not evidence that one response vocabulary or one mechanism was validated by `coverage`. Retained failures such as Dominica remain failures.
+The 13-system set is not evidence that one response vocabulary or one mechanism was validated by `coverage`. A frozen 25-entry source-readiness audit found zero systems meeting the full outcome-independent Chapter 2 plant-response contract, so cross-system `H0`–`H4` comparison and held-out prediction are not evaluable. Retained failures such as Dominica remain failures.
 
 ## 7. Why Izu matters
 
-Izu is not treated as one exchangeable replicate among many archipelagos. It is the system where the programme can go deepest by connecting historical reproductive/phenotypic evidence, contemporary plant–pollinator networks, pollinator functional traits, source-native signed functional position, and prospective direct effectiveness/dependency measurements.
+Izu is not treated as one exchangeable replicate among many archipelagos. It is the system where the programme can go deepest by connecting historical reproductive evidence, contemporary plant–pollinator networks, pollinator functional traits, source-native signed functional position, and prospective direct effectiveness/dependency measurements.
 
-This makes Izu the empirical bridge between the synthetic response geometry and the focal lineage studied in Chapter 3.
+No pre-outcome scalar score selected Izu from the global universe: eligibility, weights and missingness rules were not frozen before the focal programme was established. Izu is therefore a transparent data-depth choice, not an outcome-independent ranking winner. Chapter 3 phenotype is part of the dissertation handoff but is not an input to Chapter 2 system selection or validation.
 
 ## 8. Handoff to Chapter 3
 
@@ -175,6 +175,8 @@ Do not claim that:
 - partner-loss/arrival coefficients are causal field effects;
 - assurance is a sign-rescue mechanism in the tested envelope;
 - the 13 strict systems validate a universal mechanism;
+- the 25-entry source audit constitutes formal external prediction or independent archipelago replication;
+- Izu was selected by an outcome-independent global ranking;
 - Chapter 1 regional vectors have been assigned to Chapter 2 regimes;
 - Chapter 3 phenotype proves Bombus causation, selection or Qst divergence; or
 - the model explains the historical origin of island biotas or lineage starting states.

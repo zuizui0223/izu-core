@@ -23,12 +23,16 @@ CORE_REVIEW_FILES = (
     "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
     "docs/CHAPTER2_SCIENTIFIC_GATE_RUN_20260827.md",
     "docs/CHAPTER2_CONDITIONAL_WHY_DIAGNOSTICS_20260827.md",
+    "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md",
+    "docs/CHAPTER2_EXTERNAL_PREDICTION_UPGRADE_AUDIT_20260828.md",
     "docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md",
     "docs/IZU_POLLINATOR_PROBOSCIS_RECOVERY.md",
     "docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md",
     "docs/IZU_SIGNED_POSITION_STRUCTURAL_AUDIT_20260827.md",
     "data/design/chapter2_active_manuscript_mainline_20260827.json",
     "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json",
+    "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
+    "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
     "data/design/manuscript_reassessment_gate_20260826.json",
     "data/design/island_syndrome_literature_claim_matrix_20260824.json",
     "data/design/izu_pollinator_proboscis_recovery_status.json",
@@ -38,11 +42,13 @@ CORE_REVIEW_FILES = (
     "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json",
     "data/results/chapter2_scientific_gate_decision_frozen_20260827.json",
     "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
+    "data/results/chapter2_external_prediction_readiness_frozen_20260828.json",
     "scripts/generate_chapter2_manuscript_figures.py",
     "scripts/generate_chapter2_manuscript_tables.py",
     "scripts/run_response_geometry_realization_stability.py",
     "scripts/run_joint_response_transition_surface.py",
     "scripts/run_chapter2_conditional_why_diagnostics.py",
+    "scripts/run_chapter2_external_prediction_readiness.py",
     "scripts/analyze_izu_signed_position_triangulation.py",
     "scripts/audit_izu_signed_position_table_s4_sensitivity.py",
     "scripts/audit_izu_signed_position_structural_independence.py",
@@ -123,6 +129,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "izu_source_gate_included": True,
             "izu_structural_audit_included": True,
             "izu_empirical_appendix_included": True,
+            "external_prediction_readiness_audit_included": True,
             "deny_tokens_checked": list(deny_tokens),
             "files": records,
             "claim_boundary": (
@@ -131,10 +138,12 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
                 "The journal-facing manuscript is rendered from the scientific v2 source while removing dissertation/chapter-routing "
                 "language only. The Izu manuscript claim remains at the source-state/community-composition level: raw realized matching "
                 "is structured, whereas the source-paper null-corrected matching response is unsupported. External island evidence "
-                "remains comparative grounding and does not constitute cross-system mechanism validation."
+                "remains comparative grounding and does not constitute cross-system mechanism validation. The frozen 25-entry "
+                "readiness audit found no full outcome-independent external-prediction contract, so H0-H4 comparison and held-out "
+                "prediction remain not evaluable rather than being fitted after source repair."
             ),
         }
-        readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the conditional-response Research Article.\n\nThe manuscript is rendered from the frozen v2 scientific source into a journal-facing form that removes dissertation-internal chapter routing while preserving all scientific results and claim boundaries. Synthetic response geometry is the primary analysis. A focal Izu secondary analysis is included as empirical triangulation of source-state/community structure, with the negative null-corrected matching result retained explicitly. The archive contains the Izu empirical appendix, source gate, recovery state, triangulation code and structural audit so that the empirical claim ceiling is reviewable. Source-acquisition helper scripts that contain repository-account identifiers are intentionally excluded; their source locks and recovery state are represented by the included machine-readable gates and audit documents. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds.\n"""
+        readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the conditional-response Research Article.\n\nThe manuscript is rendered from the frozen v2 scientific source into a journal-facing form that removes dissertation-internal chapter routing while preserving all scientific results and claim boundaries. Synthetic response geometry is the primary analysis. A focal Izu secondary analysis is included as empirical triangulation of source-state/community structure, with the negative null-corrected matching result retained explicitly. The archive contains the Izu empirical appendix, source gate, recovery state, triangulation code and structural audit so that the empirical claim ceiling is reviewable. Source-acquisition helper scripts that contain repository-account identifiers are intentionally excluded; their source locks and recovery state are represented by the included machine-readable gates and audit documents. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nA separate frozen source-readiness audit covers 25 research entries while preserving geographic overlap and source gates. None met the full outcome-independent plant-response contract, so cross-system H0-H4 comparison and held-out prediction are recorded as not evaluable. No missing predictor was reconstructed from a known response category.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds.\n"""
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=ANONYMOUS_MANUSCRIPT_NAME)

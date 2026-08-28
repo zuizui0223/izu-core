@@ -25,6 +25,9 @@ def test_review_archive_file_list_excludes_identity_files_and_retired_manuscript
     assert ANONYMOUS_MANUSCRIPT_NAME == "MANUSCRIPT.md"
     assert "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json" in CORE_REVIEW_FILES
     assert "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json" in CORE_REVIEW_FILES
+    assert "data/design/chapter2_external_prediction_challenge_freeze_20260828.json" in CORE_REVIEW_FILES
+    assert "data/design/chapter2_external_prediction_admission_ledger_20260828.csv" in CORE_REVIEW_FILES
+    assert "data/results/chapter2_external_prediction_readiness_frozen_20260828.json" in CORE_REVIEW_FILES
 
 
 def test_review_archive_source_files_pass_default_identity_scan():
@@ -47,6 +50,7 @@ def test_review_archive_builds_with_journal_clean_claim_boundary(tmp_path: Path)
         assert SOURCE_MANUSCRIPT not in names
         assert set(CORE_REVIEW_FILES).issubset(names)
         assert "figures/chapter2/figS2_conditional_why_diagnostics.svg" in names
+        assert "figures/chapter2/figS3_external_prediction_readiness.svg" in names
         assert not any("title_page" in name.lower() for name in names)
         manuscript = archive.read(ANONYMOUS_MANUSCRIPT_NAME).decode("utf-8")
         lower = manuscript.lower()
@@ -63,11 +67,13 @@ def test_review_archive_builds_with_journal_clean_claim_boundary(tmp_path: Path)
         assert manifest["title_page_included"] is False
         assert manifest["journal_target"] == "Journal of Ecology"
         assert manifest["figures_regenerated_fail_closed"] is True
+        assert manifest["external_prediction_readiness_audit_included"] is True
         assert manifest["review_manuscript_internal_thesis_language_removed_fail_closed"] is True
         assert "source-state/community-composition" in manifest["claim_boundary"]
         readme = archive.read("README_REVIEW_ARCHIVE.md").decode("utf-8")
         assert "synthetic response geometry is the primary analysis" in readme.lower()
         assert "does not treat Izu as validation" in readme
+        assert "not evaluable" in readme
 
 
 def test_identity_scan_detects_explicit_token(tmp_path: Path):

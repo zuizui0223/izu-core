@@ -174,3 +174,26 @@ Among the 166 baseline-negative contrasts that changed sign somewhere in the env
 The following are not empirically identified by the model: the numerical sign-switch locations on the synthetic trait axis; additive regime-driver coefficients as causal field effects; variance shares as empirical interaction components; directional filtering rates or the median local-filtering first-sign-change strength as natural frequencies/thresholds; the frequency of mixed/all-positive/all-negative design points; an assurance multiplier required in any natural lineage; or 24 lineages, 120 steps and saturation values as demographic quantities.
 
 Empirical claims remain controlled by `docs/CURRENT_EVIDENCE_STATE.md`. External island systems provide ecological grounding and falsification boundaries only; they are not treated as validation coverage of a broad response vocabulary.
+
+# Appendix S13. Frozen external-prediction readiness audit
+
+A separate design was frozen before computing a new source-admission summary, while explicitly recording that the published literature outcomes were already known. The audit therefore tests data readiness and identifiability; it cannot convert historical papers into prospective observations.
+
+The ten synthetic parameters were organized into four model-derived coordinates without changing the parent design:
+
+- turnover imbalance `T = z_loss - z_arrival`, using the declared synthetic ranges;
+- source functional displacement `D0 = (plant source position - partner source centre) / partner source scale`;
+- realized-community shift `C = (partner target centre - partner source centre) / partner source scale`;
+- local filtering `F = 1 - realized positive opportunity / feasible positive opportunity`.
+
+Reproductive assurance was retained separately because the frozen assurance envelope altered magnitude but produced no sign rescue. These coordinates are dimensionless model descriptors, not field-calibrated thresholds.
+
+The external comparison declared `H0` universal direction, `H1` starting state only, `H2` turnover only, `H3` starting state × realized community and `H4` `H3` plus local filtering. A formal comparison required at least four geographically de-duplicated system clusters with the same plant-response family and complete outcome-independent inputs for `H0`–`H3` on matched units. Missing predictors could not be inferred from known response categories.
+
+The source audit covered 13 strict systems, six additional cross-archipelago targets and six model-development/falsification targets. All 25 failed the full Chapter 2 plant-response contract. The resulting admission classes were 12 retrospective explanatory tests, eight reality boundaries and five source-gated/unusable targets; zero systems were admitted as prospective-like full challenges. Although four narrower tests had pre-target repository chronology, only Dominica addressed a signed plant-position outcome and its publication-level result was already known; Menorca, Cabrera and Giannutri addressed network architecture rather than a linked plant response.
+
+Consequently, no same-response family contained the frozen minimum of four complete independent system clusters. `H0`–`H4` comparison, leave-one-system-out, leave-one-archipelago-out and exact system-label permutation were recorded as `not_evaluable`. No classifier was fitted, no system was replaced and no response state was used to repair a missing predictor.
+
+The audit also found no defensible pre-outcome scalar score that selected Izu from the global universe. Izu remains the data-depth focal triangulation by transparent programme rationale, not an outcome-independent ranking. Chapter 3 phenotype was excluded from the predictor ledger and Chapter 2 validation decision.
+
+**Figure S3. Frozen external-prediction readiness.** Panel A shows the four model-derived coordinates and the failed formal-admission gate. Panel B records source-native availability for the eight required audit fields across all 25 research entries. Availability in an individual field is not equivalent to a complete matched predictor–response contract; the intersection required for formal `H0`–`H4` comparison was empty.

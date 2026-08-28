@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.2",
-  "updated_on": "2026-08-27",
+  "schema_version": "1.3",
+  "updated_on": "2026-08-28",
   "scope": "chapter2_research_article_only",
   "status": "active_working_manuscript_v2",
   "parent_programme_mainline": "data/design/active_development_mainline.json",
@@ -69,8 +69,24 @@
     "proximal_why": "model-conditional turnover-dependent regime plus starting-state-by-realized-community contingency and asymmetric local branch allocation",
     "ultimate_why": "not tested; assembly colonization persistence and evolutionary history remain outside the simulation"
   },
-  "external_system_role": "broad_comparison_for_grounding_falsification_and_boundary_examples_not_validation_coverage",
-  "izu_role": "focal_empirical_triangulation_and_deep_mechanistic_anchor_not_exchangeable_replication_unit",
+  "external_system_role": "broad_comparison_for_grounding_falsification_and_boundary_examples_not_validation_coverage_or_formal_prediction",
+  "external_prediction_readiness": {
+    "design": "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
+    "admission_ledger": "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
+    "source_audit": "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md",
+    "frozen_result": "data/results/chapter2_external_prediction_readiness_frozen_20260828.json",
+    "research_entries": 25,
+    "full_chapter2_target_contract_passes": 0,
+    "prospective_like_full_challenges": 0,
+    "retrospective_explanatory_tests": 12,
+    "reality_boundaries": 8,
+    "source_gated_or_unusable": 5,
+    "formal_H0_to_H4_comparison": "not_evaluable",
+    "leave_one_system_or_archipelago_out": "not_evaluable",
+    "decision": "C_formal_external_prediction_not_supported_by_current_world_data",
+    "maximum_supported_level": 2
+  },
+  "izu_role": "focal_data_depth_empirical_triangulation_not_exchangeable_replication_or_outcome_independent_selection_winner",
   "izu_empirical_triangulation": {
     "source_regime": "study_defined_three_continental_sites",
     "safe_pollinator_trait_coverage": "202_of_209_named_taxa",
@@ -120,8 +136,10 @@
     "izu_raw_matching_as_nonrandom_partner_sorting_beyond_community_composition",
     "exact_izu_island_center_magnitudes_as_uniquely_identified",
     "izu_empirical_projection_as_validation_of_synthetic_thresholds",
+    "formal_external_prediction_from_the_current_25_entry_registry",
+    "izu_selected_by_an_outcome_independent_global_score",
     "ultimate_history_or_assembly_explanation"
   ],
   "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
-  "next_manuscript_gate": "keep v2 manuscript and submission surfaces synchronized; retain Izu null-corrected negative result and empirical claim ceiling; do not change frozen numerical results"
+  "next_manuscript_gate": "keep v2 manuscript and submission surfaces synchronized; retain the external-prediction not-evaluable result, Izu null-corrected negative result and empirical claim ceiling; do not change frozen numerical results"
 }
