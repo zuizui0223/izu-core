@@ -1,6 +1,6 @@
 {
-  "schema_version": "3.4",
-  "updated_on": "2026-08-27",
+  "schema_version": "3.5",
+  "updated_on": "2026-08-28",
   "journal_target": "Journal of Ecology",
   "article_type": "Research Article",
   "submission_ready": false,
@@ -21,6 +21,11 @@
     "conditional_why_audit": "docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md",
     "conditional_why_result": "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
     "comparative_universe": "docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md",
+    "external_prediction_design": "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
+    "external_prediction_admission_ledger": "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
+    "external_prediction_source_audit": "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md",
+    "external_prediction_claim_audit": "docs/CHAPTER2_EXTERNAL_PREDICTION_UPGRADE_AUDIT_20260828.md",
+    "external_prediction_readiness_result": "data/results/chapter2_external_prediction_readiness_frozen_20260828.json",
     "izu_source_recovery": "docs/IZU_POLLINATOR_PROBOSCIS_RECOVERY.md",
     "izu_triangulation": "docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md",
     "izu_structural_audit": "docs/IZU_SIGNED_POSITION_STRUCTURAL_AUDIT_20260827.md",
@@ -77,9 +82,13 @@
     "chapter3": "coordinated_size_investment_trajectory_plus_selected_departures_beyond_common_allometry"
   },
   "external_system_role": {
-    "role": "comparative_grounding_falsification_and_boundary_examples_not_validation_coverage",
+    "role": "comparative_grounding_falsification_and_boundary_examples_not_validation_coverage_or_formal_prediction",
     "broader_universe_larger_than_strict_13": true,
-    "izu": "focal_empirical_triangulation_and_deep_anchor",
+    "audited_research_entries": 25,
+    "full_external_prediction_contract_passes": 0,
+    "formal_H0_to_H4_comparison": "not_evaluable",
+    "maximum_supported_claim_level": 2,
+    "izu": "focal_data_depth_triangulation_not_outcome_independent_selection_winner",
     "dominica": "retained_failed_specific_signed_position_projection",
     "coverage_11_of_11_must_not_be_used_as_validation": true
   },
@@ -98,6 +107,18 @@
       "unchanged_parent_design_identity_verified": true,
       "starting_position_alone_promoted": false,
       "ultimate_why_claimed": false
+    },
+    "external_prediction_readiness": {
+      "model_derived_axes_frozen": ["T", "D0", "C", "F"],
+      "competing_hypotheses_frozen": ["H0", "H1", "H2", "H3", "H4"],
+      "target_contract_passes": 0,
+      "admissible_prospective_like_full_challenges": 0,
+      "retrospective_explanatory_tests": 12,
+      "reality_boundaries": 8,
+      "source_gated_or_unusable": 5,
+      "held_out_evaluation_run": false,
+      "not_evaluable_preserved": true,
+      "posthoc_retuning_or_system_replacement": false
     },
     "izu_empirical_hygiene": {
       "source_native_trait_recovery_fail_closed": true,
@@ -123,7 +144,8 @@
     "local_filtering_directional_asymmetry_diagnostic",
     "canonical_chapter2_story_consolidation",
     "focal_izu_raw_matching_source_state_triangulation_with_structural_negative_control",
-    "source_locked_izu_analysis_implementation_and_structural_audit_ported_to_active_submission_branch"
+    "source_locked_izu_analysis_implementation_and_structural_audit_ported_to_active_submission_branch",
+    "external_prediction_source_readiness_audit_with_not_evaluable_stop"
   ],
   "submission_bundle": {
     "builder": "scripts/build_island_ecology_submission_bundle.py",

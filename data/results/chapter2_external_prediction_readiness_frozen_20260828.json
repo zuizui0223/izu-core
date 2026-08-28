@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_external_prediction_readiness",
+  "status": "frozen_complete_20260828",
+  "input_identity": {
+    "data/design/chapter2_external_prediction_challenge_freeze_20260828.json": {
+      "canonical_text_sha256": "470cbbc55708a0d0274fcd79b012fd97d154e0fe4d7b2f52752d7db213388a15"
+    },
+    "data/design/chapter2_external_prediction_admission_ledger_20260828.csv": {
+      "canonical_text_sha256": "120aa265314c60bdf4705478d6b3ac72dfe4d16f1e53a4f90a2ce1873225e9d5"
+    },
+    "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md": {
+      "canonical_text_sha256": "9757f78c516e2488d72250e035aa4bae1cc11b9d5744f8250ba6c0fe3bc470a1"
+    }
+  },
+  "universe": {
+    "research_entries": 25,
+    "layer_counts": {
+      "strict": 13,
+      "additional": 6,
+      "model_development": 6
+    },
+    "geographic_overlap_groups": 21,
+    "independence_boundary": "Geographic overlap groups are de-duplication labels, not an estimate of exchangeable archipelago n."
+  },
+  "admission": {
+    "class_counts": {
+      "retrospective_explanatory_test_only": 12,
+      "reality_boundary_only": 8,
+      "source_gated_unusable": 5
+    },
+    "target_contract_pass_count": 0,
+    "predictor_availability_counts": {
+      "source_functional_state": {
+        "direct_measurement": 5,
+        "source_derived_proxy": 5,
+        "unavailable": 15
+      },
+      "partner_loss": {
+        "source_derived_proxy": 5,
+        "unavailable": 12,
+        "direct_measurement": 5,
+        "not_applicable": 3
+      },
+      "partner_arrival_replacement": {
+        "source_derived_proxy": 10,
+        "unavailable": 10,
+        "direct_measurement": 2,
+        "not_applicable": 3
+      },
+      "community_functional_shift": {
+        "direct_measurement": 13,
+        "source_derived_proxy": 5,
+        "unavailable": 7
+      },
+      "richness_fd_change": {
+        "direct_measurement": 8,
+        "unavailable": 11,
+        "source_derived_proxy": 6
+      },
+      "local_filtering": {
+        "source_derived_proxy": 11,
+        "direct_measurement": 9,
+        "unavailable": 5
+      },
+      "reproductive_assurance": {
+        "unavailable": 12,
+        "source_derived_proxy": 3,
+        "direct_measurement": 5,
+        "not_applicable": 5
+      },
+      "response_outcome": {
+        "direct_measurement": 21,
+        "unavailable": 4
+      }
+    },
+    "hypothesis_evaluable_entry_counts": {
+      "H0": 0,
+      "H1": 0,
+      "H2": 0,
+      "H3": 0,
+      "H4": 0
+    },
+    "prospective_like_complete_H0_to_H3_entry_count": 0,
+    "retrospective_complete_H0_to_H3_entry_count": 0,
+    "prospective_like_complete_response_family_cluster_counts": {}
+  },
+  "formal_evaluation_gate": {
+    "minimum_independent_system_clusters": 4,
+    "maximum_same_response_family_prospective_like_clusters": 0,
+    "passed": false,
+    "H0_to_H4_model_comparison": "not_evaluable",
+    "leave_one_system_out": "not_evaluable",
+    "leave_one_archipelago_out": "not_evaluable",
+    "permutation_test": "not_evaluable",
+    "reason": "No response family has the frozen minimum of four geographically de-duplicated, prospective-like entries with a common Chapter 2 target and complete H0-H3 inputs."
+  },
+  "control_axis_decision": {
+    "synthetic_axes_defined": [
+      "T",
+      "D0",
+      "C",
+      "F"
+    ],
+    "assurance_role": "downstream magnitude modifier, excluded from sign-regime rescue",
+    "empirical_projection_ready": false,
+    "boundary": "The four axes are model-derived coordinates. Defining them does not make an empirical system projectable when source-native measurements or mappings are absent."
+  },
+  "izu_anchor_selection": {
+    "formal_preoutcome_selection_score_available": false,
+    "chronology": "post_outcome_not_prespecified",
+    "allowed_role": "data-depth focal triangulation selected transparently after the comparative programme, not an outcome-independent winner of a global score",
+    "chapter3_data_used_for_chapter2_validation": false
+  },
+  "decision": "C_formal_external_prediction_not_supported_by_current_world_data",
+  "maximum_supported_claim_level": "Level 2",
+  "journal_route": "retain_current_Journal_of_Ecology_or_Oikos_conditional_geometry_route",
+  "figure_concept": {
+    "panel_A": "General response phase diagram on model-derived turnover imbalance T and source/community matching displacement, with local filtering shown as branch-transition arrows rather than an empirical threshold.",
+    "panel_B": "External-system projection matrix showing measured, proxy and missing inputs; non-projectable systems remain outside the phase plane rather than being assigned from their outcomes.",
+    "status": "design_only_because_formal_external_projection_gate_failed"
+  },
+  "claim_boundary": "This is a frozen data-readiness and identifiability result, not a failed fitted model. No response classifier was fitted, no system was removed or replaced by fit, and no synthetic frequency is interpreted as natural prevalence."
+}

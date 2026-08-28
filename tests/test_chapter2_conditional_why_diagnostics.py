@@ -115,3 +115,6 @@ def test_generated_tables_include_conditional_why_and_izu_audit():
     assert "## Table 5. Focal Izu empirical triangulation and structural audit" in text
     assert "null-corrected `delta_TM_sp_z`" in text
     assert "no support for beyond-composition non-random matching" in text
+    assert "## Table 6. External-prediction readiness and claim ceiling" in text
+    assert "Full plant-response contract passes | 0" in text
+    assert "Maximum supported claim | Level 2" in text

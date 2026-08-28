@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import json
 import sys
 from pathlib import Path
@@ -10,6 +11,7 @@ if str(ROOT) not in sys.path:
 
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.colors import BoundaryNorm, ListedColormap
 
 from scripts.run_joint_response_transition_surface import build as build_joint_surface
 from scripts.run_response_geometry_parameter_robustness import BASE, TRAIT_GRID
@@ -18,6 +20,8 @@ from scripts.run_response_geometry_realization_stability import realization_stab
 PHASE12 = ROOT / "data/results/chapter2_phase12_fixed_gate_summary_20260827.json"
 PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json"
 WHY_DIAGNOSTICS = ROOT / "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json"
+EXTERNAL_READINESS = ROOT / "data/results/chapter2_external_prediction_readiness_frozen_20260828.json"
+EXTERNAL_LEDGER = ROOT / "data/design/chapter2_external_prediction_admission_ledger_20260828.csv"
 OUT_DIR = ROOT / "figures/chapter2"
 FIG_INPUTS = ROOT / "data/results/chapter2_manuscript_figure_inputs_20260827.json"
 SEED = 20260826
@@ -220,10 +224,110 @@ def _figs2_conditional_why(why: dict) -> Path:
     return path
 
 
+def _figs3_external_prediction_readiness(external: dict) -> Path:
+    with EXTERNAL_LEDGER.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+
+    columns = [
+        "source_functional_state",
+        "partner_loss",
+        "partner_arrival_replacement",
+        "community_functional_shift",
+        "richness_fd_change",
+        "local_filtering",
+        "reproductive_assurance",
+        "response_outcome",
+    ]
+    labels = ["D0", "Loss", "Arrival", "C", "Richness/FD", "F", "Assurance", "Outcome"]
+    codes = {
+        "not_applicable": 0,
+        "unavailable": 1,
+        "source_derived_proxy": 2,
+        "direct_measurement": 3,
+    }
+    matrix = np.array([[codes[row[column]] for column in columns] for row in rows])
+    colors = ["#FFFFFF", "#D4D7DC", "#E9B872", "#5C9E7C"]
+    cmap = ListedColormap(colors)
+    norm = BoundaryNorm([-0.5, 0.5, 1.5, 2.5, 3.5], cmap.N)
+
+    fig = plt.figure(figsize=(13.5, 11.0))
+    grid = fig.add_gridspec(1, 2, width_ratios=[1.05, 2.4], wspace=0.18)
+    ax0 = fig.add_subplot(grid[0, 0])
+    ax1 = fig.add_subplot(grid[0, 1])
+
+    ax0.axis("off")
+    ax0.set_title("A  Frozen general coordinates", loc="left", fontsize=11)
+    axis_rows = [
+        ("T", "loss − arrival", "turnover regime"),
+        ("D0", "source displacement", "starting state"),
+        ("C", "community shift", "realized matching"),
+        ("F", "1 − realized / feasible", "local filtering"),
+    ]
+    y = 0.88
+    for symbol, formula, role in axis_rows:
+        ax0.text(
+            0.03,
+            y,
+            f"{symbol}   {formula}\n{role}",
+            transform=ax0.transAxes,
+            va="top",
+            fontsize=10,
+            bbox={"boxstyle": "round,pad=0.35", "facecolor": "#EEF2F7", "edgecolor": "#5C6B7A"},
+        )
+        y -= 0.16
+    ax0.annotate(
+        "",
+        xy=(0.5, 0.20),
+        xytext=(0.5, 0.30),
+        xycoords="axes fraction",
+        arrowprops={"arrowstyle": "->", "color": "#5C6B7A"},
+    )
+    ax0.text(
+        0.03,
+        0.17,
+        "External projection gate\n0 full contracts / 25 entries\nH0–H4: not evaluable",
+        transform=ax0.transAxes,
+        va="top",
+        fontsize=10,
+        color="#8C2F39",
+        bbox={"boxstyle": "round,pad=0.4", "facecolor": "#F8E9EA", "edgecolor": "#8C2F39"},
+    )
+
+    image = ax1.imshow(matrix, aspect="auto", cmap=cmap, norm=norm, interpolation="nearest")
+    ax1.set_title("B  Source-native predictor availability", loc="left", fontsize=11)
+    ax1.set_xticks(range(len(labels)), labels=labels, rotation=35, ha="right")
+    ax1.set_yticks(
+        range(len(rows)),
+        labels=[row["system_name"] for row in rows],
+        fontsize=7.5,
+    )
+    ax1.set_xticks(np.arange(-0.5, len(labels), 1), minor=True)
+    ax1.set_yticks(np.arange(-0.5, len(rows), 1), minor=True)
+    ax1.grid(which="minor", color="white", linewidth=0.8)
+    ax1.tick_params(which="minor", bottom=False, left=False)
+    cbar = fig.colorbar(image, ax=ax1, fraction=0.04, pad=0.02, ticks=[0, 1, 2, 3])
+    cbar.ax.set_yticklabels(["not applicable", "unavailable", "source-derived proxy", "direct measurement"])
+    cbar.ax.tick_params(labelsize=8)
+    fig.suptitle("External prediction remains source-limited", fontsize=14, x=0.01, ha="left")
+    fig.text(
+        0.01,
+        0.01,
+        "Availability does not imply matched units, common response families, prospective chronology or independent archipelagos.",
+        fontsize=8,
+    )
+    fig.subplots_adjust(left=0.04, right=0.91, bottom=0.09, top=0.92, wspace=0.20)
+    path = OUT_DIR / "figS3_external_prediction_readiness.svg"
+    fig.savefig(path)
+    fig.savefig(path.with_suffix(".png"), dpi=160)
+    plt.close(fig)
+    return path
+
+
 def build_figures() -> dict:
     phase12 = _load(PHASE12)
     phase3 = _load(PHASE3)
     why = _load(WHY_DIAGNOSTICS)
+    external = _load(EXTERNAL_READINESS)
     if not all(why["frozen_identity_checks"].values()):
         raise RuntimeError("conditional-WHY diagnostics did not pass frozen identity checks")
     baseline = realization_stability(BASE, replicates=96, seed=SEED)
@@ -236,6 +340,7 @@ def build_figures() -> dict:
         _fig4a_local_context(phase3),
         _fig4b_assurance(phase3),
         _figs2_conditional_why(why),
+        _figs3_external_prediction_readiness(external),
     ]
     payload = {
         "schema_version": "1.0",
@@ -246,13 +351,15 @@ def build_figures() -> dict:
             PHASE12.relative_to(ROOT).as_posix(),
             PHASE3.relative_to(ROOT).as_posix(),
             WHY_DIAGNOSTICS.relative_to(ROOT).as_posix(),
+            EXTERNAL_READINESS.relative_to(ROOT).as_posix(),
         ],
         "baseline_response_geometry": baseline,
         "joint_transition_surface": joint,
         "context_assurance_thresholds": phase3,
         "conditional_why_diagnostics": why,
+        "external_prediction_readiness": external,
         "figure_outputs": [path.relative_to(ROOT).as_posix() for path in outputs],
-        "claim_boundary": "Figures display frozen synthetic response geometry and sensitivity results. They do not estimate natural ecological prevalence or empirical trait/filtering thresholds.",
+        "claim_boundary": "Figures display frozen synthetic response geometry, sensitivity results and external source readiness. They do not estimate natural ecological prevalence, empirical trait/filtering thresholds or cross-system predictive performance.",
     }
     FIG_INPUTS.parent.mkdir(parents=True, exist_ok=True)
     FIG_INPUTS.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")

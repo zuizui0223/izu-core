@@ -1,15 +1,16 @@
 # Chapter 1 → Chapter 2 HOW/WHY audit
 
-Updated: 2026-08-27
+Updated: 2026-08-28
 
 ## Audit basis
 
-- `izu-core` current `main`: `c19c3d34b9df9951af8edcb112817fb0e684369c`.
+- `izu-core` current `main` at the 2026-08-28 audit freeze: `98cbb6975295e8c2b8f72291a895d145dbf76f36`.
 - Chapter 1 (`island`) current `main`: `9d6677d4ead4b331e327028fcd1a6d2a59c83e37`.
 - Canonical Chapter 1 when/where workflow: run `32837335384`, successful at head `a3fe6d63e41cad37f0605b512762a599d64890b6`.
 - Chapter 2 parent scientific gate: `data/design/chapter2_scientific_gate_run_20260827.json` and its frozen Phase 1–3 summaries.
 - Additional diagnostic design, frozen before execution: `data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json`.
 - Additional diagnostic result: `data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json`.
+- External-prediction readiness design and result: `data/design/chapter2_external_prediction_challenge_freeze_20260828.json` and `data/results/chapter2_external_prediction_readiness_frozen_20260828.json`.
 
 ## Current handoff
 
@@ -30,6 +31,12 @@ This is a theoretical/mechanistic bridge, not an empirical assignment of the Cha
 | HOW | Through which response architecture does interaction reorganization propagate? | Pollinator turnover and matching alter functional service; local filtering changes the realized branch; assurance changes downstream magnitude without sign rescue. | Directly represented within the declared synthetic model. |
 | Proximal WHY | Why can the same broad perturbation yield opposite lineage responses? | The negative portion of the starting-position surface changes with the balance of partner loss and arrival and other matching dimensions; realized community state dominates cell-level variation; starting position and community combine non-additively; filtering changes positive and negative branches at different rates. | A diagnostic explanation within the fixed model design, not a field-estimated causal effect. |
 | Ultimate WHY | Why did an island acquire its biota, starting states, interaction architecture or historical regional vector? | Not tested. Assembly, colonization, regional species pools, persistence and evolutionary history remain upstream alternatives. | Chapter 2 must not claim to explain formation of the Chapter 1 regional contexts or starting states. |
+
+## External-prediction ceiling
+
+The 25-entry source-readiness audit does not raise this handoff from model-conditional proximal WHY to an empirically general predictive WHY. Zero entries passed the full outcome-independent plant-response contract, so `H0`–`H4` comparison and held-out system/archipelago prediction are not evaluable. Chapter 2 therefore remains at Level 2: it explains within the frozen model why heterogeneous responses are possible, while external systems provide retrospective explanation, reality boundaries and retained falsification.
+
+This stop protects the Chapter 1 → Chapter 2 bridge. Chapter 1 regional vectors are not assigned to the four model-derived axes (`T`, `D0`, `C`, `F`), and the absence of a formal external prediction set is not repaired by importing Chapter 3 phenotype or inferring predictors from observed outcomes.
 
 ## Frozen additional diagnostics
 
@@ -88,3 +95,4 @@ The Chapter 2 manuscript should now state all four boundaries explicitly:
 - Do not treat the 17.64% non-additive remainder as a pure empirical interaction variance component.
 - Do not retune seeds, parameter ranges, trait grids, realization counts or filtering strengths after these results.
 - Do not claim an ultimate explanation for why the observed island contexts formed.
+- Do not call the current 25-entry audit formal external prediction or treat its geographic-overlap labels as independent archipelago replication.

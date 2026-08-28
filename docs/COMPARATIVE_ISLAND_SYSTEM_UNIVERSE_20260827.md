@@ -70,16 +70,18 @@ The ABM development history contains additional systems that materially constrai
 
 These negative, blocked and partial cases are part of the scientific evidence trail. They should not disappear merely because they are not in the final manuscript challenge table.
 
-## Why Izu is the deep anchor
+## Why Izu is the focal data-depth system
 
-The cross-archipelago design explicitly identifies the Izu Islands as the **high-resolution historical plus contemporary mechanism anchor**. Izu is unusual because the programme can connect, at the same geographic series:
+The cross-archipelago design identifies the Izu Islands as the **high-resolution historical plus contemporary focal system**. This is a transparent programme rationale, not the result of an outcome-independent ranking: the eligibility universe, criteria, weights, missingness rules and ties were not frozen before Izu was designated. Izu is unusual because the programme can connect, at the same geographic series:
 
 1. historical *Campanula* phenotype and mating-system evidence;
 2. contemporary plant–pollinator network structure;
 3. recovered pollinator functional traits;
 4. a prospectively frozen signed source-position projection;
 5. prospective direct visitor-effectiveness / reproductive-dependency measurements;
-6. an independently measured within-lineage phenotype in `zuizui0223/shimahotarubukuro`.
+6. a dissertation handoff to an independently measured within-lineage phenotype.
+
+Item 6 is not used to select or validate Izu for the Chapter 2 paper. Chapter 3 phenotype remains a downstream dissertation target, not evidence for the Chapter 2 pollinator mechanism.
 
 The dissertation therefore uses breadth and depth asymmetrically:
 
@@ -87,7 +89,7 @@ The dissertation therefore uses breadth and depth asymmetrically:
 broad comparative universe
     -> recurrent states, counterexamples, source and identifiability boundaries
         -> 13 strict external challenges
-            -> Izu deep mechanistic anchor
+            -> Izu focal data-depth triangulation
                 -> C. microdonta within-lineage phenotypic realization
 ```
 
@@ -96,9 +98,9 @@ This is preferable to treating every island system as an exchangeable replicate.
 ## Dissertation use
 
 - **Chapter 1:** establishes when/where island-associated floral/reproductive filtering is detectable and how regional response vectors differ.
-- **Chapter 2:** uses the broad comparison universe to protect response-state breadth and falsification, then uses Izu for the strongest empirical connection to source-state/community-contingent response geometry.
+- **Chapter 2:** uses the broad comparison universe to protect response-state breadth and falsification, then uses Izu for a data-depth empirical connection to source-state/community-contingent response geometry without claiming a formal global selection score.
 - **Chapter 3:** asks how that conditional response architecture is realized as unequal divergence among floral phenotype axes within one Izu lineage.
 
 ## Claim ceiling
 
-Do not report `25` as the number of independent archipelagos. Do not expand multi-archipelago studies into pseudo-replicates. Do not treat source-gated or blocked candidates as successful validation. Do not treat the 13 strict systems as evidence for a universal mechanism. The defensible statement is that the programme examined a **broader, heterogeneous empirical universe**, retained 13 strict challenge systems for the frozen manuscript, and selected Izu as the uniquely deep mechanistic anchor.
+Do not report `25` as the number of independent archipelagos. Do not expand multi-archipelago studies into pseudo-replicates. Do not treat source-gated or blocked candidates as successful validation. Do not treat the 13 strict systems as evidence for a universal mechanism. Do not claim that Izu won an outcome-independent global ranking. The defensible statement is that the programme examined a **broader, heterogeneous empirical universe**, retained 13 strict challenge systems for the frozen manuscript, and uses Izu as a focal data-depth triangulation system.
