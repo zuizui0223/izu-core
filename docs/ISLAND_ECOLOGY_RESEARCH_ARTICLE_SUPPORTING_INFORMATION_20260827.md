@@ -1,10 +1,12 @@
-# Supporting Information — Conditional response geometry under island pollinator reorganization
+# Supporting Information — Response geometry under community reorganization
 
 **Status:** active manuscript companion  
-**Updated:** 2026-08-27  
-**Main manuscript:** `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md`
+**Updated:** 2026-08-28
+**Main manuscript:** `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md`
 
 This Supporting Information is part of the active manuscript surface. It exposes the complete model rules required to reproduce the response-geometry, local-context and assurance analyses. The numerical values below are synthetic design and sensitivity choices unless explicitly identified as literature-motivated directions; they are not empirical estimates of one island system.
+
+The appendices follow the active funnel: S1–S11 define and diagnose the synthetic response space, S12 records the claim boundary, S13 reports the world-comparison identifiability gate, S14 gives the exact interaction-kernel derivation, and S15 separates the roles of simulation, comparative research entries, Izu and the Chapter 3 handoff.
 
 # Appendix S1. Pollinator environments and matching model
 
@@ -197,3 +199,48 @@ Consequently, no same-response family contained the frozen minimum of four compl
 The audit also found no defensible pre-outcome scalar score that selected Izu from the global universe. Izu remains the data-depth focal triangulation by transparent programme rationale, not an outcome-independent ranking. Chapter 3 phenotype was excluded from the predictor ledger and Chapter 2 validation decision.
 
 **Figure S3. Frozen external-prediction readiness.** Panel A shows the four model-derived coordinates and the failed formal-admission gate. Panel B records source-native availability for the eight required audit fields across all 25 research entries. Availability in an individual field is not equivalent to a complete matched predictor–response contract; the intersection required for formal `H0`–`H4` comparison was empty.
+
+# Appendix S14. Exact interaction-kernel derivation
+
+For pollinator `j` in environment `E`, define
+
+`k_Ej(x) = a_Ej exp(-((x - p_Ej) / b_Ej)^2)`
+
+and, under the fixed visit budget,
+
+`K_E(x) = mean_j k_Ej(x)`.
+
+The implemented service is `S_E(x) = f_sigma(K_E(x))`, where `f_sigma(z) = 1 - exp(-sigma z)`. Since `f'_sigma(z) > 0` for positive saturation, fixed-state service and kernel contrasts have the same sign.
+
+Weak trait adjustment makes the exact endpoint coordinate trajectory conditioned. If `Phi_E,T(x0; omega_E)` is the final plant state under pollinator trajectory `omega_E`, then
+
+`calK_E(x0; omega_E) = K_E,T(Phi_E,T(x0; omega_E))`
+
+and
+
+`G_omega(x0) = calK_I(x0; omega_I) - calK_M(x0; omega_M)`.
+
+Per realization, `sign(delta S_omega(x0)) = sign(G_omega(x0))`. The same-`x0` shortcut is not exact when the two trajectories change final state. Because the saturation map is nonlinear, the sign of the mean service contrast also cannot generally be replaced by the sign of a difference between mean kernels.
+
+Local filtering is represented by an operator `L_(s,h)` that restricts plant, pollinator and pair support, retains legal empty outcomes, restores the original row budget for each retained positive row, and redistributes that row total among retained partners. With effectiveness multipliers `q_j`, the local effective kernel is `sum_j [L_(s,h)(w)]_j q_j`. This is a support-and-reallocation operator, not uniform scalar shrinkage.
+
+For fixed dependency `d` and fixed autonomous-route contribution `U`, reproduction is `R(S) = U + d(1-U)S`, so service sign is preserved. The full assurance model is dynamic, so this identity is not a theorem for environment-specific assurance trajectories. The valid full-model result is the frozen zero-rescue outcome among 580 eligible declines in the tested envelope.
+
+The complete derivation is in `docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md`. A deterministic implementation audit with no random draws or parameter search is frozen at `data/results/chapter2_interaction_kernel_audit_frozen_20260828.json`.
+
+# Appendix S15. Evidence roles and mechanistic-resolution funnel
+
+| Layer | Supported role | Explicit exclusion |
+|---|---|---|
+| Synthetic model | Defines possible response geometries and a model-conditional proximal explanation | Natural prevalence, empirical thresholds, ultimate history and external predictive accuracy |
+| Comparative universe | Establishes empirical response diversity and audits source-native joint measurement | Meta-analysis, independent-archipelago denominator, validation coverage and outcome-derived regime assignment |
+| Izu focal system | Separates raw source-state/community-composition structure from null-corrected beyond-composition sorting | Outcome-independent global selection, synthetic-threshold validation, precise island-centre causation and floral evolution |
+| Chapter 3 | Receives the remaining plant-linked effectiveness/dependency/phenotype measurement problem | Retrospective validation, Bombus-causation proof, pollinator-selection proof and external prediction success |
+
+The Izu raw-matching slope was `0.5669` (95% CI `0.2977–0.8361`), whereas the same frozen predictor had slope `0.0333` (95% CI `−0.2680–0.3346`) for null-corrected matching. Thirteen of 120 exact assignments of observed island centre shifts produced raw slopes at least as large as the observed assignment, and a source-position-only model described raw response at least as well as the full centre-shift projection. These attacks locate the current signal at source state plus background community composition and do not support additional non-random partner sorting.
+
+The remaining prospective contract is:
+
+`source state + community assembly + realized partner sorting + partner effectiveness + reproductive dependency/outcome`.
+
+Chapter 2 identifies that contract; it does not claim that Chapter 3 has already satisfied it.

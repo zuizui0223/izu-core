@@ -1,71 +1,62 @@
-# Journal positioning — island ecology manuscript
+# Journal positioning — Chapter 2 response geometry
 
-Updated: 2026-08-24
+Updated: 2026-08-28
 
 ## Decision
 
-### First target: Journal of Ecology
+### First target: Oikos
 
-The current paper is an island-plant ecology study whose main biological contribution is a general response architecture for established plant lineages exposed to pollinator-functional simplification or reorganization.
+The reconstructed paper is a theory-first Research paper about why community reorganization can define a response regime without determining branch identity. Its general contribution is the hierarchy among turnover, starting state, realized community, non-additivity, local filtering and downstream assurance, followed by a breadth-to-depth empirical confrontation.
 
-The manuscript should be submitted as a plant-ecology paper, not as an ABM-method paper. Its general contribution is:
+Oikos is the strongest fit under the no-new-results constraint because the paper can make generalization and synthesis the primary object while retaining island plant–pollinator systems as the worked biological realization. The paper should not be relabelled as a Forum article unless the result package is redesigned into a genuinely broader concept paper.
 
-> A recurrent aggregate island syndrome does not imply a universal within-lineage post-establishment trajectory. Under a common pollinator-functional perturbation, pre-existing lineage state determines branch potential, local interaction context reallocates propagation, and autonomous assurance mainly attenuates downstream magnitude.
+### Second target: Journal of Ecology
 
-Journal of Ecology is the preferred first target because its current scope explicitly requires plant ecology to be central, includes plant–animal interactions, and prioritizes advances in general ecological principles and plant ecological mechanisms. The current paper is theoretical/simulation-based but uses a globally screened external island challenge to show that the ecological response classes are not peculiar to one focal archipelago.
+Journal of Ecology is the strong plant-centred fallback. Use this route if editorial feedback indicates that the response-geometry contribution is not yet demonstrated beyond the focal interaction class, or if retaining plant reproduction and Izu as the central biological narrative is preferred over the broadest conceptual framing.
 
-### Second target: Functional Ecology
+The existing Journal of Ecology metadata and bundle builder are retained as a reproducible fallback package. Their continued existence does not make Journal of Ecology the preferred route after this audit.
 
-Functional Ecology is the strongest fallback if editors judge the paper too model-heavy or too mechanistic for Journal of Ecology. Its current scope emphasizes significant advances in mechanistic understanding of ecological pattern and process across organizational scales. The current H1–H5 structure maps naturally onto that criterion.
+### Stretch target: Ecology
 
-For a Functional Ecology submission, emphasize:
+Ecology is defensible only if the final manuscript states a general ecological deduction that remains clear after island-specific terminology is removed. The present risk is substantive: the analytic kernel is exact for the frozen model, but no second model class or independent response challenge demonstrates transportability.
 
-- why pre-existing functional state changes response direction;
-- why network context is bidirectional rather than universally buffering;
-- why assurance changes magnitude more robustly than sign;
-- how these mechanisms explain divergent plant outcomes under similar biotic simplification.
+### Closed under the current evidence state
 
-### Third target: Oikos
+- **Ecology Letters:** the current package lacks an independent outcome-blind response prediction, a broad structured synthesis or a model-class-invariant theoretical result. Reframing alone does not remove the likely desk-reject objection.
+- **The American Naturalist:** the current theory is ecologically coherent but does not yet provide the cross-organism or eco-evolutionary conceptual unification expected for a Major Article.
 
-Oikos is the conceptual/theoretical fallback. Its current scope emphasizes generalization and synthesis across systems and accepts theory and tests of general ecological hypotheses. The cross-island response architecture and the distinction between aggregate syndrome and lineage-level trajectory fit that positioning.
+The source-backed five-journal comparison is `docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md`.
 
-For Oikos, the paper should be shortened around the general conditional-response theory and the 13-system island challenge rather than expanded with more system detail.
+## Active manuscript order
 
-## Archived alternative: Methods in Ecology and Evolution
-
-The method-first MEE drafts remain useful as a possible later spin-off around frozen state separability, but MEE is **not** the current target for the izu-core island-ecology paper.
-
-Do not reverse the manuscript order back to:
-
-1. ABM equifinality;
-2. state-separability method;
-3. island ecology as worked example.
-
-The current primary order is:
-
-1. island ecological problem;
-2. H1 common perturbation does not force one response;
-3. H2 pre-existing functional state generates branch potential;
-4. H3/H4 local context and assurance govern propagation differently;
-5. H5 recurrence across independent island systems;
-6. inference boundary and future empirical translation.
+1. model the possible response geometries;
+2. identify the proximal hierarchy controlling regime and branch identity;
+3. confront the response vocabulary with real island response diversity;
+4. retain the zero-contract identifiability stop;
+5. increase resolution in Izu to separate composition-level from beyond-composition matching;
+6. hand the remaining measurement contract forward without validation claims.
 
 ## Journal-fit claim boundary
 
-Journal positioning does not reopen the scientific programme. Before first submission do not:
+Journal positioning does not reopen the frozen scientific programme. Do not:
 
-- add random seeds;
-- retune model parameters;
-- numerically fit the 13 external systems;
-- search for additional success cases merely to increase counts;
-- collect field data for the current primary claim;
-- rescue the Dominica failure;
-- promote state-separability metrics back to the main biological result.
+- add random seeds, parameter points or new simulations to make the result appear more general;
+- retune model parameters or reconstruct stopped external predictors from known outcomes;
+- search for additional success cases;
+- interpret synthetic counts or filtering rates as natural prevalence;
+- treat the 25 entries as independent archipelagos or validation coverage;
+- treat Izu as an outcome-independent ranking winner or raw matching as beyond-composition sorting;
+- rescue the retained Dominica falsification; or
+- use Chapter 3 phenotype as validation, causal pollinator-selection evidence or external prediction success.
 
 ## Submission sequence
 
-1. **Journal of Ecology** — ecology-first manuscript.
-2. **Functional Ecology** — mechanistic ecology fallback.
-3. **Oikos** — theoretical/synthetic ecology fallback.
+1. **Oikos** — theory-first response-geometry Research paper.
+2. **Journal of Ecology** — plant-centred fallback using the retained package builder.
+3. **Ecology** — stretch only after the general deduction passes the manuscript-level removal-of-island-language test.
 
-Editorial changes between these targets may change emphasis, title length, word count and Supplement structure, but must not change frozen scientific results or claim boundaries.
+Ecology Letters and The American Naturalist remain closed until genuinely new evidence or theory clears their stated objections. Editorial changes may alter title length, word count and Supplement structure, but must not change frozen results, `not_evaluable` outcomes or claim ceilings.
+
+## Archived alternative
+
+Methods in Ecology and Evolution remains an archived method-first alternative; MEE is **not** the current target for this Chapter 2 paper.

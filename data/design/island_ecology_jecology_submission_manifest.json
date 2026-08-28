@@ -1,13 +1,16 @@
 {
-  "schema_version": "3.5",
+  "schema_version": "3.6",
   "updated_on": "2026-08-28",
   "journal_target": "Journal of Ecology",
+  "routing_status": "journal_of_ecology_package_retained_as_fallback_while_oikos_is_the_recommended_theory_first_route",
+  "preferred_next_journal_route": "Oikos Research paper",
+  "journal_fit_audit": "docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md",
   "article_type": "Research Article",
   "submission_ready": false,
   "scientific_reopening_required": false,
   "active_scientific_gate": "data/design/manuscript_reassessment_gate_20260826.json",
   "scientific_reassessment": "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md",
-  "research_article_route": "candidate_conditional_response_geometry_with_focal_izu_triangulation",
+  "research_article_route": "mechanistic_response_geometry_funnel_with_world_identifiability_and_izu_resolution_zoom",
   "paper_scope_independent_of_external_research_programmes": true,
   "current_manuscript_artifacts": {
     "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
@@ -18,6 +21,9 @@
     "reference_ledger": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "tables": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "model_specification": "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
+    "mechanistic_funnel_reassembly": "docs/CHAPTER2_MECHANISTIC_FUNNEL_REASSEMBLY_20260828.md",
+    "interaction_kernel_derivation": "docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md",
+    "interaction_kernel_frozen_audit": "data/results/chapter2_interaction_kernel_audit_frozen_20260828.json",
     "conditional_why_audit": "docs/CHAPTER1_CHAPTER2_HOW_WHY_AUDIT_20260827.md",
     "conditional_why_result": "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
     "comparative_universe": "docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md",
@@ -33,7 +39,7 @@
     "izu_trait_recovery_state": "data/design/izu_pollinator_proboscis_recovery_status.json",
     "figure_generator": "scripts/generate_chapter2_manuscript_figures.py",
     "table_generator": "scripts/generate_chapter2_manuscript_tables.py",
-    "status": "active_v2_synthetic_primary_plus_izu_triangulation_reproducible"
+    "status": "active_v2_mechanistic_funnel_reproducible"
   },
   "scientific_gate_result": {
     "model_gate_closed": true,
@@ -48,7 +54,7 @@
     "assurance_sign_rescues_through_4x": 0
   },
   "focal_izu_triangulation": {
-    "role": "empirical_echo_of_source_state_and_community_composition_not_validation",
+    "role": "mechanistic_resolution_zoom_separating_composition_level_signal_from_beyond_composition_sorting_not_validation",
     "implementation_on_active_branch": true,
     "source_gate_on_active_branch": true,
     "structural_audit_on_active_branch": true,
@@ -71,7 +77,7 @@
   },
   "story_contract": {
     "chapter1": "when_where_filtering_is_detectable_and_regional_response_vectors_differ",
-    "chapter2": "how_plus_model_conditional_proximal_why_for_nonuniform_post_establishment_response",
+    "chapter2": "model_possibilities_to_world_confrontation_to_identifiability_bottleneck_to_izu_mechanistic_resolution_zoom",
     "regime": "partner_turnover_balance",
     "mean_geometry": "starting_functional_state",
     "cell_level_realization": "realized_community_plus_nonadditivity",
@@ -79,16 +85,16 @@
     "assurance": "magnitude_attenuation_without_sign_rescue",
     "empirical_depth": "izu_source_state_plus_community_composition_structures_raw_matching_but_not_null_corrected_matching",
     "ultimate_why": "assembly_colonization_persistence_and_history_outside_model",
-    "chapter3": "coordinated_size_investment_trajectory_plus_selected_departures_beyond_common_allometry"
+    "chapter3": "next_focal_measurement_stage_not_chapter2_validation_or_causal_pollinator_selection_proof"
   },
   "external_system_role": {
-    "role": "comparative_grounding_falsification_and_boundary_examples_not_validation_coverage_or_formal_prediction",
+    "role": "reality_necessity_falsification_and_joint_measurement_identifiability_not_validation_coverage_or_formal_prediction",
     "broader_universe_larger_than_strict_13": true,
     "audited_research_entries": 25,
     "full_external_prediction_contract_passes": 0,
     "formal_H0_to_H4_comparison": "not_evaluable",
     "maximum_supported_claim_level": 2,
-    "izu": "focal_data_depth_triangulation_not_outcome_independent_selection_winner",
+    "izu": "focal_mechanistic_resolution_zoom_not_outcome_independent_selection_winner",
     "dominica": "retained_failed_specific_signed_position_projection",
     "coverage_11_of_11_must_not_be_used_as_validation": true
   },
@@ -136,6 +142,7 @@
   },
   "scientific_work_completed": [
     "response_geometry_analysis_identifying_sign_switch_conditions",
+    "exact_interaction_kernel_derivation_and_deterministic_code_identity_audit",
     "joint_parameter_robustness_sweep",
     "local_context_sign_change_threshold_map",
     "assurance_sign_rescue_sensitivity_through_4x",

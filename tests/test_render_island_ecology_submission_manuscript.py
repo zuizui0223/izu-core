@@ -38,7 +38,7 @@ def test_renderer_writes_clean_submission_file(tmp_path: Path):
 def test_renderer_fails_closed_if_source_header_contract_changes(tmp_path: Path):
     broken = tmp_path / "broken.md"
     source = SOURCE.read_text(encoding="utf-8")
-    broken.write_text(source.replace("**Status:** active working manuscript v2 — not submission-ready", "**Status:** changed"), encoding="utf-8")
+    broken.write_text(source.replace("**Status:** active working manuscript v2 — mechanistic-funnel reconstruction; not submission-ready", "**Status:** changed"), encoding="utf-8")
     with pytest.raises(ValueError, match="header changed"):
         render_submission_manuscript(broken)
 
@@ -46,6 +46,6 @@ def test_renderer_fails_closed_if_source_header_contract_changes(tmp_path: Path)
 def test_renderer_fails_closed_if_thesis_bridge_contract_changes(tmp_path: Path):
     broken = tmp_path / "broken.md"
     source = SOURCE.read_text(encoding="utf-8")
-    broken.write_text(source.replace("At the dissertation scale", "At another scale", 1), encoding="utf-8")
+    broken.write_text(source.replace("That audit motivates, rather than competes with", "That comparison motivates", 1), encoding="utf-8")
     with pytest.raises(ValueError, match="Introduction bridge changed"):
         render_submission_manuscript(broken)

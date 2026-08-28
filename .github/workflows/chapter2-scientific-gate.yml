@@ -11,6 +11,7 @@ on:
       - 'scripts/run_joint_response_transition_surface.py'
       - 'scripts/run_context_assurance_threshold_maps.py'
       - 'scripts/evaluate_chapter2_scientific_gate.py'
+      - 'scripts/audit_chapter2_interaction_kernel.py'
       - '.github/workflows/chapter2-scientific-gate.yml'
   workflow_dispatch:
 
@@ -54,6 +55,10 @@ jobs:
             --joint data/results/joint_response_transition_surface_gate.json \
             --thresholds data/results/context_assurance_threshold_maps_gate.json \
             --out data/results/chapter2_scientific_gate_decision.json
+      - name: Audit exact interaction-kernel identity
+        run: |
+          python -m scripts.audit_chapter2_interaction_kernel \
+            --out data/results/chapter2_interaction_kernel_audit_ci.json
       - name: Upload scientific gate results
         uses: actions/upload-artifact@v4
         with:
@@ -63,4 +68,5 @@ jobs:
             data/results/joint_response_transition_surface_gate.json
             data/results/context_assurance_threshold_maps_gate.json
             data/results/chapter2_scientific_gate_decision.json
+            data/results/chapter2_interaction_kernel_audit_ci.json
           if-no-files-found: error

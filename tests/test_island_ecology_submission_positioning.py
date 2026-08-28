@@ -8,9 +8,11 @@ CAPTIONS = ROOT / "docs/ISLAND_ECOLOGY_FIGURE_CAPTIONS_20260824.md"
 
 def test_journal_positioning_is_ecology_first():
     text = POSITION.read_text(encoding="utf-8")
-    assert "### First target: Journal of Ecology" in text
-    assert "### Second target: Functional Ecology" in text
-    assert "### Third target: Oikos" in text
+    assert "### First target: Oikos" in text
+    assert "### Second target: Journal of Ecology" in text
+    assert "### Stretch target: Ecology" in text
+    assert "Ecology Letters" in text
+    assert "The American Naturalist" in text
     assert "MEE is **not** the current target" in text
     assert "do not" in text.lower()
     assert "retune" in text.lower()

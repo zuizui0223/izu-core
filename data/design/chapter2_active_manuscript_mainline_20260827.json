@@ -1,14 +1,39 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "updated_on": "2026-08-28",
   "scope": "chapter2_research_article_only",
-  "status": "active_working_manuscript_v2",
+  "status": "active_working_manuscript_v2_mechanistic_funnel_reconstruction",
   "parent_programme_mainline": "data/design/active_development_mainline.json",
   "supersession_rule": "For Chapter 2 manuscript claims, this file supersedes older active_development_mainline fields that label v12 initial-position heterogeneity as a replicated minimal generator. It does not alter the broader comparative programme or its empirical admission gates.",
-  "research_article_route": "conditional_response_geometry_with_focal_izu_triangulation",
+  "research_article_route": "community_reorganization_response_geometry_with_world_identifiability_and_izu_resolution_zoom",
   "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_20260827.md",
+  "mechanistic_funnel": {
+    "sequence": [
+      "model_the_possibilities",
+      "confront_with_empirical_response_diversity",
+      "identify_joint_measurement_bottleneck",
+      "increase_mechanistic_resolution_in_izu",
+      "hand_remaining_measurement_contract_to_chapter3_without_validation_claim"
+    ],
+    "five_questions": [
+      "Can the same broad interaction reorganization generate opposite biological responses?",
+      "What controls response sign and branch identity?",
+      "Does real island ecology require a vocabulary richer than a single syndrome?",
+      "Can existing island studies distinguish the mechanisms implied by that architecture?",
+      "What becomes distinguishable when resolution increases in Izu?"
+    ],
+    "design_document": "docs/CHAPTER2_MECHANISTIC_FUNNEL_REASSEMBLY_20260828.md"
+  },
   "submission_ready": false,
-  "primary_question": "Why need not a common island-like pollinator reorganization produce one post-establishment plant response, and how do partner turnover, starting functional state, realized community and local filtering allocate response sign?",
+  "primary_question": "Why can the same community reorganization produce different biological response signs, what information identifies branch identity, and which components become distinguishable when empirical resolution increases?",
+  "interaction_kernel": {
+    "derivation": "docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md",
+    "frozen_audit": "data/results/chapter2_interaction_kernel_audit_frozen_20260828.json",
+    "status": "exact_code_identity_verified",
+    "exact_per_realization_coordinate": "G_omega(x0) = K_I,T(Phi_I,T(x0; omega_I)) - K_M,T(Phi_M,T(x0; omega_M))",
+    "rejected_shortcut": "K_I(x0) - K_M(x0) when environment-specific trait adjustment changes final plant states",
+    "aggregation_boundary": "per-realization sign equivalence does not replace the nonlinear mean service contrast with a difference of mean kernels"
+  },
   "primary_model_result": {
     "matched_pollinator_community_realizations": 96,
     "mixed_sign_realizations": 41,
@@ -69,7 +94,7 @@
     "proximal_why": "model-conditional turnover-dependent regime plus starting-state-by-realized-community contingency and asymmetric local branch allocation",
     "ultimate_why": "not tested; assembly colonization persistence and evolutionary history remain outside the simulation"
   },
-  "external_system_role": "broad_comparison_for_grounding_falsification_and_boundary_examples_not_validation_coverage_or_formal_prediction",
+  "external_system_role": "world_confrontation_for_reality_necessity_falsification_and_joint_measurement_identifiability_not_validation_coverage_or_formal_prediction",
   "external_prediction_readiness": {
     "design": "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
     "admission_ledger": "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
@@ -86,7 +111,7 @@
     "decision": "C_formal_external_prediction_not_supported_by_current_world_data",
     "maximum_supported_level": 2
   },
-  "izu_role": "focal_data_depth_empirical_triangulation_not_exchangeable_replication_or_outcome_independent_selection_winner",
+  "izu_role": "focal_mechanistic_resolution_zoom_from_global_breadth_to_composition_vs_beyond_composition_separation_not_exchangeable_replication_or_outcome_independent_selection_winner",
   "izu_empirical_triangulation": {
     "source_regime": "study_defined_three_continental_sites",
     "safe_pollinator_trait_coverage": "202_of_209_named_taxa",
@@ -113,7 +138,7 @@
     },
     "claim_ceiling": "empirical_echo_not_synthetic_validation_or_causal_pollinator_selection"
   },
-  "chapter3_handoff": "focal phenotype is a coordinated size/investment trajectory plus selected departures beyond common allometry; Chapter 3 does not identify the historical mechanism",
+  "chapter3_handoff": "measure source state, community assembly, realized sorting, effectiveness and reproductive propagation on comparable focal units; Chapter 3 is a next measurement stage and is not Chapter 2 validation, Bombus causation, pollinator-selection proof or external prediction success",
   "empirical_admission_state": {
     "canonical_source": "docs/CURRENT_EVIDENCE_STATE.md",
     "formal_cross_system_mechanism_fit_ready": false,
@@ -141,5 +166,5 @@
     "ultimate_history_or_assembly_explanation"
   ],
   "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
-  "next_manuscript_gate": "keep v2 manuscript and submission surfaces synchronized; retain the external-prediction not-evaluable result, Izu null-corrected negative result and empirical claim ceiling; do not change frozen numerical results"
+  "next_manuscript_gate": "validate the five-question funnel, exact interaction-kernel identity, redesigned figures, supporting-information role separation and unchanged frozen numerical results; retain external-prediction not_evaluable and the Izu null-corrected negative result"
 }

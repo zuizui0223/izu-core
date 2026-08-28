@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-28",
+  "analysis": "chapter2_interaction_kernel_identity_audit",
+  "status": "exact_code_identity_verified",
+  "audit_kind": "deterministic_algebraic_identity_no_new_simulation",
+  "source_canonical_text_sha256": {
+    "scripts/run_response_geometry_parameter_robustness.py": "6ab6dc72cb22703831a5ddd6da1b582b56376245d34bfa690992fe573980e451",
+    "scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py": "48e8ad13bf89d21a0a9eea7d86aad858bba800438a08f916505a3515c025ddee",
+    "scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py": "06ffd016492e0d316a5cc865c274abe03cda62356e6451cf7fea750bf5d8949a"
+  },
+  "checks": {
+    "service_equals_monotone_saturation_of_mean_match_kernel": true,
+    "trajectory_endpoint_service_equals_saturation_of_composite_kernel": true,
+    "per_realization_service_sign_equals_composite_kernel_difference_sign": true,
+    "fixed_downstream_assurance_route_preserves_service_sign": true,
+    "no_random_draws_or_parameter_search": true
+  },
+  "maximum_direct_identity_error": 0.0,
+  "maximum_trajectory_composite_identity_error": 0.0,
+  "fixture_rows": [
+    {
+      "initial_trait": 0.0,
+      "mainland_final_trait": 0.0418582842,
+      "island_final_trait": 0.0,
+      "mainland_composite_kernel": 0.2649425734755108,
+      "island_composite_kernel": 0.3828192991562486,
+      "delta_service": 0.12363571226166925,
+      "composite_kernel_difference": 0.11787672568073781
+    },
+    {
+      "initial_trait": 0.25,
+      "mainland_final_trait": 0.25,
+      "island_final_trait": 0.25,
+      "mainland_composite_kernel": 0.515740802588005,
+      "island_composite_kernel": 0.3672490504679401,
+      "delta_service": -0.12326777386279197,
+      "composite_kernel_difference": -0.14849175212006493
+    },
+    {
+      "initial_trait": 0.5,
+      "mainland_final_trait": 0.5,
+      "island_final_trait": 0.46880882,
+      "mainland_composite_kernel": 0.34535484833571667,
+      "island_composite_kernel": 0.28517687935336583,
+      "delta_service": -0.06410518605020721,
+      "composite_kernel_difference": -0.06017796898235084
+    },
+    {
+      "initial_trait": 0.75,
+      "mainland_final_trait": 0.75,
+      "island_final_trait": 0.75,
+      "mainland_composite_kernel": 0.502487688423496,
+      "island_composite_kernel": 0.45311036862953424,
+      "delta_service": -0.037994698964419316,
+      "composite_kernel_difference": -0.04937731979396176
+    },
+    {
+      "initial_trait": 1.0,
+      "mainland_final_trait": 0.9638744158000001,
+      "island_final_trait": 0.9655867791999999,
+      "mainland_composite_kernel": 0.24182583620440887,
+      "island_composite_kernel": 0.027134446960419084,
+      "delta_service": -0.33064946381746263,
+      "composite_kernel_difference": -0.21469138924398978
+    }
+  ],
+  "valid_response_coordinate": "G_omega(x0) = K_I,T(Phi_I,T(x0; omega_I)) - K_M,T(Phi_M,T(x0; omega_M))",
+  "rejected_shortcut": "K_I(x0) - K_M(x0) is not the exact endpoint response coordinate when environment-specific trait adjustment changes the two final plant states.",
+  "aggregation_boundary": "Per-realization sign equivalence does not imply that the sign of mean service contrast equals the sign of a mean-kernel contrast, because the saturation map is nonlinear.",
+  "local_filtering_boundary": "The local operator stochastically restricts plant, pollinator and pair support, then conserves the original row budget for retained positive rows and redistributes weight; it is not a scalar shrinkage of the global kernel.",
+  "assurance_boundary": "Sign preservation is an algebraic identity only when dependency and the autonomous route are held fixed across the comparison. Environment-specific dynamic assurance is not covered by that theorem; the frozen sensitivity envelope supplies the empirical model result of zero sign rescues among 580 eligible declines.",
+  "claim_boundary": "This audit exposes exact identities already implemented in the frozen model. It adds no simulation evidence, field calibration, natural-frequency estimate or external prediction, and it does not convert model-conditional geometry into an ultimate historical explanation."
+}

@@ -92,15 +92,15 @@ def test_submission_bundle_routes_journal_clean_manuscript_after_gate_closure(tm
         assert "Example Author" in title
         manuscript = archive.read(SUBMISSION_MANUSCRIPT).decode("utf-8")
         lower = manuscript.lower()
-        assert "null-corrected matching response" in lower
-        assert "empirical echo" in lower
+        assert "null-corrected matching" in lower
+        assert "mechanistic resolution" in lower
         assert "dissertation" not in lower
         assert "chapter 1" not in lower
         assert "chapter 2" not in lower
         assert "chapter 3" not in lower
         assert "campanula microdonta" not in lower
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
-        assert manifest["scientific_state"] == "model_gate_closed_conditional_response_geometry_with_focal_izu_triangulation"
+        assert manifest["scientific_state"] == "model_gate_closed_mechanistic_response_geometry_with_world_identifiability_and_izu_resolution"
         assert manifest["manuscript_state"] == "active_v2_source_rendered_to_journal_clean_submission"
         assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
         assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT

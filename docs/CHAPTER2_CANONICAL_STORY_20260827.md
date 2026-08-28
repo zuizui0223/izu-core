@@ -1,12 +1,24 @@
 # Chapter 2 canonical story
 
-Updated: 2026-08-27
+Updated: 2026-08-28
 
 ## One-sentence claim
 
-> **Island-like pollinator reorganization does not prescribe one post-establishment plant response: it defines a conditional response geometry whose realized direction depends on partner turnover, plant starting functional state, realized pollinator community and local interaction filtering, while autonomous assurance mainly modifies response magnitude.**
+> **Community reorganization defines a conditional response geometry rather than one biological outcome: partner turnover deforms the response surface, starting state locates a lineage, realized community and local filtering allocate branch identity, and downstream assurance mainly modifies magnitude; world comparison shows why that vocabulary is needed, while Izu reveals which components current data can and cannot distinguish.**
 
 This is the canonical Chapter 2 story. Older `minimal generator`, `11/11 validation coverage`, beneficial `support`, prevalence-like simulation-frequency and assurance sign-rescue framings are superseded for manuscript interpretation.
+
+The active narrative order is:
+
+```text
+model possibilities
+    -> world confrontation
+        -> identifiability bottleneck
+            -> Izu mechanistic-resolution zoom
+                -> Chapter 3 measurement handoff, not validation
+```
+
+The exact analytic coordinate is the trajectory-conditioned interaction-kernel difference `G_omega(x0)`, not an unchanged-state shortcut when trait adjustment moves the two endpoints. See `docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md`.
 
 ## 1. The problem inherited from Chapter 1
 
@@ -129,7 +141,7 @@ The intended hierarchy is:
 broader comparison universe
     -> response-state breadth, counterexamples and source gates
         -> 13 strict challenge systems
-            -> Izu focal data-depth triangulation
+            -> Izu focal mechanistic-resolution zoom
 ```
 
 The 13-system set is not evidence that one response vocabulary or one mechanism was validated by `coverage`. A frozen 25-entry source-readiness audit found zero systems meeting the full outcome-independent Chapter 2 plant-response contract, so cross-system `H0`–`H4` comparison and held-out prediction are not evaluable. Retained failures such as Dominica remain failures.
@@ -138,17 +150,21 @@ The 13-system set is not evidence that one response vocabulary or one mechanism 
 
 Izu is not treated as one exchangeable replicate among many archipelagos. It is the system where the programme can go deepest by connecting historical reproductive evidence, contemporary plant–pollinator networks, pollinator functional traits, source-native signed functional position, and prospective direct effectiveness/dependency measurements.
 
-No pre-outcome scalar score selected Izu from the global universe: eligibility, weights and missingness rules were not frozen before the focal programme was established. Izu is therefore a transparent data-depth choice, not an outcome-independent ranking winner. Chapter 3 phenotype is part of the dissertation handoff but is not an input to Chapter 2 system selection or validation.
+No pre-outcome scalar score selected Izu from the global universe: eligibility, weights and missingness rules were not frozen before the focal programme was established. Izu is therefore a transparent data-depth choice, not an outcome-independent ranking winner. Its Chapter 2 role is to separate composition-level matching structure from additional null-corrected interaction sorting. Chapter 3 phenotype is part of the dissertation handoff but is not an input to Chapter 2 system selection or validation.
 
 ## 8. Handoff to Chapter 3
 
-Chapter 2 predicts that a broad ecological perturbation need not be expressed as one uniform biological outcome. Chapter 3 then asks what phenotype structure is actually present in one focal Izu lineage.
+Chapter 2 identifies the measurement contract that existing global comparisons do not jointly satisfy and that the current Izu secondary analysis only partly resolves:
 
-The current *Campanula microdonta* result is not independent trait-module branching. It is:
+```text
+source state
+    + community assembly
+        + realized partner sorting
+            + partner effectiveness
+                + reproductive dependency / outcome
+```
 
-> **a strongly coordinated island size/investment trajectory plus selected departures from common size scaling.**
-
-The departures currently include mouth allometric reconfiguration, reproductive-organ length, nectar-guide investment and a residual multivariate phenotype axis. This phenotype is a target for mechanistic explanation, not proof of the historical mechanism.
+Chapter 3 advances to higher-resolution focal measurement in the same Izu series. No Chapter 3 phenotype is used as Chapter 2 model validation, Bombus-causation proof, pollinator-selection proof or external prediction success.
 
 ## 9. Final dissertation bridge
 
@@ -160,9 +176,9 @@ Chapter 2 — HOW / proximal WHY
 A common broad interaction perturbation can generate conditional response geometry
 because regime, starting state, realized community and local filtering matter.
         ↓
-Chapter 3 — realized phenotype
-One focal Izu lineage shows strong shared phenotypic coordination plus selected
-residual departures beyond common scaling.
+Chapter 3 — next focal measurement
+Measure the remaining phenotype, interaction-effectiveness and reproductive
+propagation contract without retroactively validating Chapter 2.
 ```
 
 ## Claim ceiling
