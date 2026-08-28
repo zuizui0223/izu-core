@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-08-28",
+  "status": "fixed_before_new_readiness_evaluation",
+  "purpose": "Determine whether the existing Chapter 2 comparative universe can support an outcome-independent external prediction challenge of conditional response geometry, without changing the frozen synthetic model or reclassifying published outcomes to improve fit.",
+  "chronology_boundary": {
+    "published_outcomes_were_already_known": true,
+    "new_evaluation_is_literature_blind": false,
+    "allowed_claim": "prospective-like only where an earlier repository freeze demonstrably preceded calculation of the exact target; all other fitted or projected comparisons are retrospective",
+    "forbidden_claim": "this 2026-08-28 audit cannot retrospectively convert known literature outcomes into independent prospective predictions"
+  },
+  "frozen_synthetic_parent": {
+    "design": "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json",
+    "result": "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
+    "retuning_allowed": false,
+    "new_parameter_points_allowed": false,
+    "empirical_calibration_of_synthetic_thresholds_allowed": false
+  },
+  "target_contract": {
+    "target": "direction or preregistered ordinal state of a post-establishment plant functional-service or reproductive response to an observed interaction reorganization",
+    "comparable_target_required": true,
+    "trait_morphology_without_a_matched_interaction_reorganization": "not_a_chapter2_response_target",
+    "network_topology_without_a_linked_plant_response": "not_a_chapter2_response_target",
+    "published_qualitative_state_only": "reality_boundary_unless_predictors_and_target_are_reconstructable_on_a_prespecified_unit",
+    "unit_of_independence": "named island-system or archipelago transition cluster; nested plants, islands, sites, seasons, taxa and contrasts do not increase independent system n"
+  },
+  "model_derived_control_axes": [
+    {
+      "axis_id": "T",
+      "name": "turnover_imbalance",
+      "definition": "T = z_loss - z_arrival, where each z is centered and divided by its declared synthetic range; positive T is loss-dominated and negative T is arrival-dominated",
+      "derivation": "The fixed ten-parameter transition-surface diagnostic gave sign-stable positive association for partner loss and sign-stable negative association for partner arrival. No empirical outcomes enter this axis definition.",
+      "empirical_minimum": "source-defined loss and arrival/replacement quantities on the same transition unit, or a directionally explicit source-derived proxy; richness change alone is insufficient"
+    },
+    {
+      "axis_id": "D0",
+      "name": "source_functional_displacement",
+      "definition": "D0 = (plant_source_position - partner_source_centre) / partner_source_scale, using a source-defined SD, IQR or bounded functional range fixed before the target",
+      "derivation": "The matching equation depends on distance between plant and partner functional positions, and the frozen response geometry varies over plant starting position.",
+      "empirical_minimum": "matched source plant and partner functional traits in commensurate units; island outcome values may not define the centre or scale"
+    },
+    {
+      "axis_id": "C",
+      "name": "realized_community_shift",
+      "definition": "C = (partner_target_centre - partner_source_centre) / partner_source_scale, accompanied by source-native richness, functional-diversity and turnover descriptors rather than substituted by any one of them",
+      "derivation": "Matched-community simulations and the fixed decomposition show that realized pollinator community is a distinct control layer from starting position.",
+      "empirical_minimum": "source and target partner composition plus functional traits or a prespecified functional-shift proxy on the same plant-system transition"
+    },
+    {
+      "axis_id": "F",
+      "name": "local_filtering",
+      "definition": "F = 1 - realized_positive_opportunity / feasible_positive_opportunity on a prespecified support or weighted-opportunity scale; higher F denotes stronger local removal",
+      "derivation": "The frozen local projection can only remove active plants, pollinators or feasible pairs, and its direction-specific diagnostics show asymmetric branch reallocation.",
+      "empirical_minimum": "a source-defined feasible or regional opportunity set and a matched realized local interaction set; observed richness alone is insufficient"
+    }
+  ],
+  "downstream_modifier": {
+    "name": "reproductive_assurance",
+    "role": "reported separately from the four sign-regime axes",
+    "reason": "The frozen assurance envelope changed decline magnitude but produced zero sign rescues; it must not be used to tune or rescue a response-sign classifier.",
+    "empirical_minimum": "direct autonomous fruit or seed production, controlled dependency, or another source-native assurance measure"
+  },
+  "competing_hypotheses": [
+    {
+      "id": "H0",
+      "label": "universal_one_direction",
+      "inputs": [],
+      "prediction": "all admitted systems share one response direction fixed before holdout evaluation",
+      "baseline_role": "universal-island-syndrome null"
+    },
+    {
+      "id": "H1",
+      "label": "starting_state_only",
+      "inputs": ["D0"],
+      "prediction": "response varies with source functional displacement without using target community realization",
+      "claim_boundary": "synthetic coordinate thresholds cannot be exported to an empirical trait without an outcome-independent mapping"
+    },
+    {
+      "id": "H2",
+      "label": "turnover_regime_only",
+      "inputs": ["T"],
+      "prediction": "more loss-dominated turnover increases the probability or extent of negative response regardless of plant starting state"
+    },
+    {
+      "id": "H3",
+      "label": "starting_state_by_realized_community",
+      "inputs": ["D0", "C"],
+      "prediction": "the prespecified matching projection abs(D0) - abs(D0 - C) predicts response direction better than H0, H1 or H2"
+    },
+    {
+      "id": "H4",
+      "label": "starting_state_by_community_plus_local_filtering",
+      "inputs": ["D0", "C", "F"],
+      "prediction": "a prespecified local opportunity projection improves held-out response classification beyond H3",
+      "claim_boundary": "the synthetic filtering-strength values are not empirical thresholds and may not be selected by fit"
+    }
+  ],
+  "availability_vocabulary": {
+    "direct_measurement": "source reports the required quantity on the matched prediction unit",
+    "source_derived_proxy": "quantity can be derived by a rule fixed independently of the response outcome, but is not a direct measurement of the model variable",
+    "unavailable": "the source does not expose the required quantity on the matched unit",
+    "not_applicable": "the field is outside the source system's declared estimand"
+  },
+  "admission_classes": {
+    "admissible_prospective_like_challenge": "predictor mapping and exact target were frozen before target calculation, the Chapter 2 target contract is met, and the required model inputs are available on one matched transition unit",
+    "retrospective_explanatory_test_only": "a model projection can be reconstructed, but published outcome knowledge, same-source target construction, or post-outcome mapping prevents an independent prediction claim",
+    "reality_boundary_only": "the source supports a response state or mechanism boundary but lacks a comparable outcome or one or more indispensable predictors",
+    "source_gated_unusable": "essential source bytes, tables, units or provenance are not currently recoverable"
+  },
+  "formal_evaluation_gate": {
+    "minimum_independent_system_clusters": 4,
+    "minimum_basis": "the repository's pre-existing Tier-B leave-one-system-out design uses four systems as the minimum first transfer test; this is a floor, not evidence of broad generality",
+    "required_for_level3": [
+      "at least four geographically de-duplicated system clusters share one comparable response target",
+      "the same clusters expose D0, T or C as required for H1-H3 without using outcome values to define the mapping",
+      "predictor and response units are matched",
+      "H0, H1, H2 and H3 can all be evaluated on the same admitted clusters",
+      "no missing input is imputed from response state"
+    ],
+    "required_for_level4": [
+      "all Level 3 conditions",
+      "leave-one-system-out and leave-one-archipelago-cluster-out evaluation without system replacement",
+      "the frozen H3 or H4 rule has lower held-out error than H0 and both simpler conditional alternatives",
+      "an exact system-label permutation test is reported where its resolution is adequate"
+    ],
+    "if_gate_fails": "do not fit H0-H4, do not report cross-system accuracy, and freeze the result as not_evaluable"
+  },
+  "planned_outputs": {
+    "admission_ledger": "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
+    "source_audit": "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md",
+    "readiness_result": "data/results/chapter2_external_prediction_readiness_frozen_20260828.json",
+    "claim_audit": "docs/CHAPTER2_EXTERNAL_PREDICTION_UPGRADE_AUDIT_20260828.md"
+  },
+  "prohibited_interpretations": [
+    "13 strict entries as 13 independent archipelagos",
+    "25 or more research entries as independent systems",
+    "published response examples as mechanistic validation",
+    "retrospective projection as prospective prediction",
+    "raw Izu matching as non-random partner sorting beyond community composition",
+    "starting position alone as a universal response determinant",
+    "synthetic parameter or design-point frequencies as natural prevalence",
+    "Chapter 3 phenotype as causal validation of the Chapter 2 pollinator mechanism",
+    "missing predictors reconstructed from known response categories",
+    "post-hoc system deletion, replacement, axis redefinition, threshold selection or parameter tuning"
+  ]
+}
