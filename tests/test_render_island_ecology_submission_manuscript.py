@@ -19,10 +19,13 @@ def test_renderer_removes_internal_thesis_routing_and_preserves_science():
         assert token.lower() not in lower
     assert "dissertation" not in lower
     assert "campanula microdonta" not in lower
-    assert "80.17%" in text
-    assert "41" in text and "96" in text
+    assert "response direction is therefore relational rather than intrinsic" in lower
+    assert "53/96" in text
+    assert "partner arrival/replacement" in lower
     assert "null-corrected matching" in lower
     assert "non-random partner sorting" in lower
+    assert "prespecified oshima-source bridge was unsupported" in lower
+    assert "cell-level simulation variation" not in lower
     assert "Izu Islands" in text
 
 
@@ -30,15 +33,20 @@ def test_renderer_writes_clean_submission_file(tmp_path: Path):
     output = tmp_path / "manuscript.md"
     assert render_to_path(output) == output
     text = output.read_text(encoding="utf-8")
+    lower = text.lower()
     assert text.startswith(f"# {FINAL_TITLE}\n")
     assert "At the dissertation scale" not in text
-    assert "## From Chapter 1 to Chapter 3" not in text
+    assert "chapter 1" not in lower
+    assert "chapter 2" not in lower
+    assert "chapter 3" not in lower
 
 
 def test_renderer_fails_closed_if_source_header_contract_changes(tmp_path: Path):
     broken = tmp_path / "broken.md"
     source = SOURCE.read_text(encoding="utf-8")
-    broken.write_text(source.replace("**Status:** active working manuscript v2 — mechanistic-funnel reconstruction; not submission-ready", "**Status:** changed"), encoding="utf-8")
+    original = "**Status:** active Chapter 2 scientific manuscript — relational-robustness revision; submission metadata still fail-closed"
+    assert original in source
+    broken.write_text(source.replace(original, "**Status:** changed", 1), encoding="utf-8")
     with pytest.raises(ValueError, match="header changed"):
         render_submission_manuscript(broken)
 
