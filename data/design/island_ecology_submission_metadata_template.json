@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5",
+  "schema_version": "1.6",
   "journal": "Oikos",
   "article_type": "Research Paper",
   "manuscript_title": "Response geometry under community reorganization: from ecological possibility to mechanistic resolution in island plant–pollinator systems",
@@ -16,6 +16,7 @@
     "Izu Islands"
   ],
   "significance_statement": "Ecological perturbations are often summarized by average effects even when response direction changes among organismal states and realized communities. We show that response direction is relational rather than intrinsic: turnover reshapes the response geometry, starting state is evaluated against the community actually realized, local filtering can reallocate branches, and downstream assurance mainly modifies magnitude. Prespecified seed, time-horizon and trait-adjustment sensitivities preserve the structural ordering, while mixed geometry persists when initial pollinator richness is equalized. A source audit then shows an outcome-rich but process-poor literature, especially for partner arrival/replacement, and an Izu analysis localizes the current empirical signal to source state plus background community composition rather than beyond-composition sorting.",
+  "significance_prior_work_context": null,
   "authors": [],
   "corresponding_author_index": null,
   "acknowledgements": null,
@@ -23,7 +24,9 @@
   "author_contributions": null,
   "inclusion_statement": null,
   "conflict_of_interest": null,
-  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, a prespecified relational-robustness audit, a frozen 25-entry source-readiness audit and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, corrected Supporting Information, exact interaction-kernel identity audit, frozen response-geometry and threshold results, seed/horizon/trait-adjustment/equal-richness sensitivities, deterministic figure inputs, external source-readiness records, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous review archive; before final publication, accepted code and frozen analysis materials will be deposited in an immutable versioned public archive with a persistent DOI.",
+  "ethics_statement": "Not applicable to new data collection in this manuscript. The study reports simulations, a source-audited synthesis of published literature, and secondary analysis of published plant–pollinator data; it includes no new field sampling, specimen collection or experimental work requiring new approvals, licences or permissions.",
+  "planned_public_repository": null,
+  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, a prespecified relational-robustness audit, a frozen 25-entry source-readiness audit and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, corrected Supporting Information, exact interaction-kernel identity audit, frozen response-geometry and threshold results, seed/horizon/trait-adjustment/equal-richness sensitivities, deterministic figure inputs, external source-readiness records, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous review archive; before final publication, accepted code and frozen analysis materials will be deposited in the named public repository with a persistent identifier where supported.",
   "submission_declarations": {
     "not_published_or_under_consideration_elsewhere": null,
     "all_authors_approve_submission": null,
@@ -35,8 +38,11 @@
   "notes": [
     "Do not infer author names, order, affiliations, emails, ORCIDs, funding, acknowledgements, contributions or declarations.",
     "Populate only from author-supplied or explicitly source-locked metadata.",
+    "The corresponding author ORCID is mandatory for Oikos submission; coauthor ORCIDs remain encouraged but optional.",
+    "planned_public_repository must name the public repository intended for accepted data/code archiving; do not leave this as a generic future archive.",
+    "significance_prior_work_context must state how the manuscript builds on relevant work by the submitting authors/coauthors cited in the manuscript and on other published work; this cannot be inferred safely until the final author list is supplied.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
-    "Oikos initial submission uses double-blind review and requires a significance statement plus data/code readiness; these scientific submission fields are populated from the frozen Chapter 2 evidence, while identity-bearing fields remain fail-closed.",
+    "Oikos initial submission uses double-blind review and requires significance, data archiving, conflict-of-interest and ethics information plus data/code readiness.",
     "The historical 80.17/17.64/2.18% baseline remains one reproducible design instance; the active headline is relational component ordering and state-by-community nonadditivity, not one stable magnitude.",
     "Journal of Ecology remains the documented fallback route."
   ]

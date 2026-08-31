@@ -4,7 +4,9 @@ from pathlib import Path
 from scripts.build_island_ecology_submission_metadata import (
     load_metadata,
     render_cover_letter,
+    render_data_archiving_statement,
     render_significance_statement,
+    render_submission_statements,
     render_title_page,
     validate_metadata,
 )
@@ -13,6 +15,7 @@ from scripts.render_island_ecology_submission_manuscript import FINAL_TITLE
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 CHECKLIST = ROOT / "docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md"
+OIKOS_CHECKLIST = ROOT / "docs/CHAPTER2_OIKOS_SUBMISSION_CHECKLIST_20260831.md"
 
 
 def complete_metadata() -> dict:
@@ -27,6 +30,10 @@ def complete_metadata() -> dict:
         }
     ]
     metadata["corresponding_author_index"] = 0
+    metadata["significance_prior_work_context"] = (
+        "This study extends prior work by the submitting author on plant–pollinator matching and builds on independent published work on island interaction reorganization."
+    )
+    metadata["planned_public_repository"] = "Dryad Digital Repository"
     metadata["acknowledgements"] = "None"
     metadata["funding"] = "None"
     metadata["author_contributions"] = "Example Author conceived the study, performed the analyses and wrote the manuscript."
@@ -41,7 +48,7 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     metadata = load_metadata(TEMPLATE)
     assert metadata["journal"] == "Oikos"
     assert metadata["article_type"] == "Research Paper"
-    assert metadata["schema_version"] == "1.5"
+    assert metadata["schema_version"] == "1.6"
     assert metadata["manuscript_title"] == FINAL_TITLE
     keywords = {value.lower() for value in metadata["keywords"]}
     assert "source state" in keywords
@@ -53,6 +60,9 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     assert "response direction is relational rather than intrinsic" in significance
     assert "partner arrival/replacement" in significance
     assert "initial pollinator richness is equalized" in significance
+    assert metadata["significance_prior_work_context"] is None
+    assert metadata["planned_public_repository"] is None
+    assert "no new field sampling" in metadata["ethics_statement"].lower()
     data_availability = metadata["data_availability"].lower()
     assert "source-locked secondary analysis of published izu plant–pollinator data" in data_availability
     assert "relational-robustness audit" in data_availability
@@ -60,36 +70,55 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     assert "anonymous reviewer archive" in data_availability
 
 
-def test_template_fails_closed_without_author_supplied_metadata():
+def test_template_fails_closed_on_author_repository_and_prior_work_inputs_only():
     metadata = load_metadata(TEMPLATE)
     errors = validate_metadata(metadata)
     assert errors
     assert any("authors" in error for error in errors)
     assert any("corresponding_author_index" in error for error in errors)
+    assert any("significance_prior_work_context" in error for error in errors)
+    assert any("planned_public_repository" in error for error in errors)
     assert any("author_contributions" in error for error in errors)
     assert any("conflict_of_interest" in error for error in errors)
+    assert not any("significance_statement" == error.split(" requires", 1)[0] for error in errors)
+    assert not any("data_availability" == error.split(" requires", 1)[0] for error in errors)
+    assert not any("ethics_statement" == error.split(" requires", 1)[0] for error in errors)
 
 
-def test_complete_metadata_renders_oikos_identity_and_significance_files():
+def test_complete_metadata_renders_oikos_identity_significance_and_statement_files():
     metadata = complete_metadata()
     assert validate_metadata(metadata) == []
     title_page = render_title_page(metadata)
     cover_letter = render_cover_letter(metadata)
     significance = render_significance_statement(metadata)
+    archiving = render_data_archiving_statement(metadata)
+    statements = render_submission_statements(metadata)
     assert "Title page — Oikos" in title_page
     assert "Example Author" in title_page
     assert "Example Institute" in title_page
-    assert "## Author contributions" in title_page
-    assert "## Inclusion statement" in title_page
-    assert "## Conflict of interest" in title_page
-    assert "## Data availability" in title_page
+    assert "ORCID: 0000-0000-0000-0000" in title_page
+    assert "## Author contributions" not in title_page
+    assert "## Conflict of interest" not in title_page
     assert FINAL_TITLE in title_page
     assert FINAL_TITLE in cover_letter
     assert "publication in *Oikos*" in cover_letter
     assert "Example Author" in cover_letter
     assert "not under consideration elsewhere" in cover_letter
+    lower_cover = cover_letter.lower()
+    assert "state–community relationship" in lower_cover
+    assert "response direction can be relational" in lower_cover
+    assert "partner arrival/replacement" in lower_cover
+    assert "21 of 25" in lower_cover and "2 of 25" in lower_cover
+    assert "initial pollinator richness was equalized" in lower_cover
+    assert "dryad digital repository" in lower_cover
+    assert "80.17%" not in cover_letter
+    assert "realized community dominates cell-level outcomes" not in lower_cover
     assert "Significance statement — Oikos" in significance
     assert metadata["significance_statement"] in significance
+    assert metadata["significance_prior_work_context"] in significance
+    assert "Dryad Digital Repository" in archiving
+    assert "## Ethics statement" in statements
+    assert "## Data archiving statement" in statements
 
 
 def test_builder_requires_explicit_submission_declarations():
@@ -99,18 +128,31 @@ def test_builder_requires_explicit_submission_declarations():
     assert "submission_declarations.all_authors_approve_submission must be explicitly true" in errors
 
 
-def test_builder_requires_significance_statement():
+def test_builder_requires_significance_prior_work_context_and_repository_choice():
     metadata = complete_metadata()
-    metadata["significance_statement"] = ""
+    metadata["significance_prior_work_context"] = ""
+    metadata["planned_public_repository"] = ""
     errors = validate_metadata(metadata)
-    assert "significance_statement requires an explicit statement" in errors
+    assert "significance_prior_work_context requires an explicit statement" in errors
+    assert "planned_public_repository requires an explicit statement" in errors
 
 
-def test_builder_does_not_silently_infer_optional_identity_metadata():
+def test_corresponding_author_orcid_is_required_but_coauthor_orcid_is_optional():
     metadata = complete_metadata()
     metadata["authors"][0].pop("orcid")
+    errors = validate_metadata(metadata)
+    assert "corresponding author orcid is required by Oikos at submission" in errors
+
+    metadata = complete_metadata()
+    metadata["authors"].append(
+        {
+            "full_name": "Example Coauthor",
+            "affiliations": ["Example Institute"],
+        }
+    )
     assert validate_metadata(metadata) == []
     title_page = render_title_page(metadata)
+    assert "Example Coauthor" in title_page
     assert "ORCID: not supplied" in title_page
 
 
@@ -123,3 +165,19 @@ def test_checklist_places_author_metadata_after_closed_scientific_gate():
     assert "final author order and affiliations" in lower
     assert "final bundle" in lower
     assert "will raise an error until all required metadata and declarations are supplied" in lower
+
+
+def test_oikos_checklist_uses_relational_and_current_submission_contract():
+    text = OIKOS_CHECKLIST.read_text(encoding="utf-8")
+    lower = text.lower()
+    assert "process-measurement bottleneck" in lower
+    assert "response direction is relational rather than intrinsic" in lower
+    assert "exact baseline variance shares are finite-ensemble diagnostics" in lower
+    assert "21/25" in text and "2/25" in text
+    assert "prespecified Oshima-source bridge is unsupported" in text
+    assert "manuscript.rtf" in lower
+    assert "continuous line numbering" in lower
+    assert "introduction forced to begin on page two" in lower
+    assert "orcid" in lower
+    assert "named public repository" in lower
+    assert "significance prior-work context" in lower
