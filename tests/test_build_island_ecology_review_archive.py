@@ -96,7 +96,7 @@ def test_review_archive_builds_with_oikos_claim_boundary(tmp_path: Path):
         readme = archive.read("README_REVIEW_ARCHIVE.md").decode("utf-8")
         assert "Oikos double-anonymous review" in readme
         assert "relational-robustness audit" in readme.lower()
-        assert "not evaluable" in readme
+        assert "no entry meets the full joint outcome-independent contract" in readme.lower()
         assert "reviewer inspection at first submission" in readme
 
 
