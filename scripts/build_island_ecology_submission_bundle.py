@@ -26,7 +26,8 @@ SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.md"
 SUBMISSION_SI_NAME = "SUPPORTING_INFORMATION.md"
 ACTIVE_SUBMISSION_MANIFEST = "data/design/chapter2_oikos_submission_manifest_20260831.json"
-RELATIONAL_FIGURE_INPUTS = ROOT / "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
+RELATIONAL_FIGURE_INPUTS_ARCNAME = "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
+RELATIONAL_FIGURE_INPUTS = ROOT / RELATIONAL_FIGURE_INPUTS_ARCNAME
 
 STATIC_SUBMISSION_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
@@ -115,6 +116,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 SUBMISSION_SI_NAME,
                 *STATIC_SUBMISSION_FILES,
                 *figure_files,
+                RELATIONAL_FIGURE_INPUTS_ARCNAME,
                 "TITLE_PAGE.md",
                 "COVER_LETTER.md",
                 "SIGNIFICANCE_STATEMENT.md",
@@ -136,7 +138,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 archive.write(ROOT / rel, arcname=rel)
             for rel in figure_files:
                 archive.write(ROOT / rel, arcname=rel)
-            archive.write(RELATIONAL_FIGURE_INPUTS, arcname=str(RELATIONAL_FIGURE_INPUTS.relative_to(ROOT)))
+            archive.write(RELATIONAL_FIGURE_INPUTS, arcname=RELATIONAL_FIGURE_INPUTS_ARCNAME)
             archive.write(title_page, arcname=title_page.name)
             archive.write(cover_letter, arcname=cover_letter.name)
             archive.write(significance, arcname=significance.name)
