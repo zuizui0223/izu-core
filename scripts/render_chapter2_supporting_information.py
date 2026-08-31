@@ -35,6 +35,9 @@ NEW_NONADD = """For the historical baseline `21 × 96` matrix, the shares were `
 Each pollinator-community trajectory is generated once per realization and shared across all 21 starting positions. Conditional on that trajectory, `endpoint_on_trajectory` contains no additional random draw and every response-matrix cell is deterministic. The non-additive remainder is therefore the exact starting-position × community-realization non-additive component of the fixed matrix, not a mixture with within-cell simulation noise. The numerical shares remain finite-ensemble synthetic diagnostics rather than population variance parameters. A later prespecified six-seed audit places the baseline community share at the upper end of a `69.34–80.17%` sensitivity range while preserving the component ordering; see Appendix S16.
 """
 
+OLD_S13_CH3 = "Chapter 3 phenotype was excluded from the predictor ledger and Chapter 2 validation decision."
+NEW_S13_CH3 = "Prospective focal phenotype data were excluded from the predictor ledger and the present validation decision."
+
 OLD_S15 = """# Appendix S15. Evidence roles and mechanistic-resolution funnel
 
 | Layer | Supported role | Explicit exclusion |
@@ -92,6 +95,7 @@ def render_supporting_information(source: Path = SOURCE) -> str:
     for old, new, label in (
         (OLD_HEADER, NEW_HEADER, "header"),
         (OLD_NONADD, NEW_NONADD, "nonadditivity interpretation"),
+        (OLD_S13_CH3, NEW_S13_CH3, "prospective-data boundary"),
         (OLD_S15, NEW_S15, "evidence-role appendix"),
     ):
         if old not in text:
