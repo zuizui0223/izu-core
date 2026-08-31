@@ -106,7 +106,7 @@ def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_
         assert "SUBMISSION_BUNDLE_MANIFEST.json" in names
         assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
         assert "data/results/chapter2_relational_robustness_audit_frozen_20260831.json" in names
-        assert relational_inputs.name in names
+        assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in names
         assert SUBMISSION_MANUSCRIPT in names
         assert SUBMISSION_SI in names
         assert SOURCE_MANUSCRIPT not in names
@@ -142,6 +142,7 @@ def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_
         assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
         assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
         assert manifest["submission_supporting_information"] == SUBMISSION_SI
+        assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in manifest["files"]
         assert manifest["oikos_significance_statement_included"] is True
         assert manifest["oikos_data_code_ready_for_first_submission"] is True
         assert manifest["submission_manuscript_internal_thesis_language_removed_fail_closed"] is True
