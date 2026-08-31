@@ -78,7 +78,14 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
 
 
 def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
-    monkeypatch.setattr(bundle, "build_figures", lambda: {"figure_outputs": []})
+    relational_inputs = tmp_path / "chapter2_manuscript_figure_inputs_relational_20260831.json"
+
+    def fake_build_figures() -> dict:
+        relational_inputs.write_text(json.dumps({"status": "test-generated"}), encoding="utf-8")
+        return {"figure_outputs": []}
+
+    monkeypatch.setattr(bundle, "RELATIONAL_FIGURE_INPUTS", relational_inputs)
+    monkeypatch.setattr(bundle, "build_figures", fake_build_figures)
 
     def fake_review_archive(path: Path) -> Path:
         with zipfile.ZipFile(path, "w") as archive:
@@ -99,6 +106,7 @@ def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_
         assert "SUBMISSION_BUNDLE_MANIFEST.json" in names
         assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
         assert "data/results/chapter2_relational_robustness_audit_frozen_20260831.json" in names
+        assert relational_inputs.name in names
         assert SUBMISSION_MANUSCRIPT in names
         assert SUBMISSION_SI in names
         assert SOURCE_MANUSCRIPT not in names
