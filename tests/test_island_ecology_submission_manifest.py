@@ -9,7 +9,7 @@ DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "1.4"
+    assert manifest["schema_version"] == "1.5"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_first_submission_route"
@@ -20,6 +20,7 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert manifest["oikos_rtf_renderer"] == "scripts/render_oikos_submission_rtf.py"
     assert manifest["submission_ready"] is False
     assert manifest["remaining_blocker"] == "author_supplied_identity_repository_prior_work_context_and_submission_declarations"
+    assert "author_contributions" not in manifest["remaining_before_actual_submission"]
 
     claims = manifest["claim_ceiling"]
     assert claims["relational_response_headline"] == "response_direction_depends_on_state_evaluated_against_realized_community"
@@ -56,6 +57,8 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert oikos["data_archiving_statement_required"] is True
     assert oikos["planned_public_repository_must_be_named"] is True
     assert oikos["ethics_statement_ready"] is True
+    assert oikos["credit_required_at_initial_submission"] is False
+    assert oikos["credit_required_at_revision"] is True
     assert oikos["data_and_code_ready_for_first_submission"] is True
     assert oikos["old_within_cell_noise_wording_blocked_from_submission_si"] is True
 
