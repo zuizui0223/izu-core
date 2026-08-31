@@ -10,6 +10,7 @@ from scripts.build_island_ecology_review_archive import build_archive as build_r
 from scripts.build_island_ecology_submission_metadata import (
     load_metadata,
     render_cover_letter,
+    render_significance_statement,
     render_title_page,
     validate_metadata,
 )
@@ -18,17 +19,18 @@ from scripts.render_island_ecology_submission_manuscript import render_to_path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
-DEFAULT_OUTPUT = ROOT / "dist/island_ecology_jecology_submission_bundle.zip"
+DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_submission_bundle.zip"
 REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
-SUBMISSION_MANUSCRIPT_NAME = "ISLAND_ECOLOGY_MANUSCRIPT.md"
+SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.md"
+ACTIVE_SUBMISSION_MANIFEST = "data/design/chapter2_oikos_submission_manifest_20260831.json"
 
 STATIC_SUBMISSION_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
-    "data/design/island_ecology_jecology_submission_manifest.json",
+    ACTIVE_SUBMISSION_MANIFEST,
 )
 
 
@@ -53,6 +55,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     errors = validate_metadata(metadata)
     if errors:
         raise ValueError("submission metadata incomplete:\n- " + "\n- ".join(errors))
+    if metadata.get("journal") != "Oikos" or metadata.get("article_type") != "Research Paper":
+        raise ValueError("active submission metadata must route to Oikos Research Paper")
 
     if not (ROOT / SOURCE_MANUSCRIPT).exists():
         raise FileNotFoundError(SOURCE_MANUSCRIPT)
@@ -70,40 +74,46 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
         manuscript = tmp / SUBMISSION_MANUSCRIPT_NAME
-        title_page = tmp / "ISLAND_ECOLOGY_TITLE_PAGE.md"
-        cover_letter = tmp / "ISLAND_ECOLOGY_COVER_LETTER.md"
-        review_archive = tmp / "island_ecology_anonymous_review_archive.zip"
+        title_page = tmp / "TITLE_PAGE.md"
+        cover_letter = tmp / "COVER_LETTER.md"
+        significance = tmp / "SIGNIFICANCE_STATEMENT.md"
+        review_archive = tmp / "anonymous_review_archive.zip"
         render_to_path(manuscript)
         title_page.write_text(render_title_page(metadata), encoding="utf-8")
         cover_letter.write_text(render_cover_letter(metadata), encoding="utf-8")
+        significance.write_text(render_significance_statement(metadata), encoding="utf-8")
         build_review_archive(review_archive)
 
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
             "scientific_state": "model_gate_closed_mechanistic_response_geometry_with_world_identifiability_and_izu_resolution",
-            "manuscript_state": "active_v2_source_rendered_to_journal_clean_submission",
+            "manuscript_state": "active_v2_source_rendered_to_oikos_clean_submission",
             "source_manuscript": SOURCE_MANUSCRIPT,
             "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
+            "active_submission_manifest": ACTIVE_SUBMISSION_MANIFEST,
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
             "submission_manuscript_internal_thesis_language_removed_fail_closed": True,
+            "oikos_significance_statement_included": True,
+            "oikos_data_code_ready_for_first_submission": True,
             "figures_regenerated_fail_closed": True,
             "model_gate": gate.get("status"),
             "files": [
                 SUBMISSION_MANUSCRIPT_NAME,
                 *STATIC_SUBMISSION_FILES,
                 *figure_files,
-                "ISLAND_ECOLOGY_TITLE_PAGE.md",
-                "ISLAND_ECOLOGY_COVER_LETTER.md",
-                "island_ecology_anonymous_review_archive.zip",
+                "TITLE_PAGE.md",
+                "COVER_LETTER.md",
+                "SIGNIFICANCE_STATEMENT.md",
+                "anonymous_review_archive.zip",
             ],
             "boundary": (
-                "Packaging renders the Chapter 2 v2 scientific source into a journal-facing clean manuscript that removes "
+                "Packaging renders the Chapter 2 v2 scientific source into an Oikos-facing clean manuscript that removes "
                 "dissertation/chapter-routing language without changing scientific results. Synthetic response geometry and its "
                 "exact interaction-kernel coordinate define the possibilities; world confrontation supplies response diversity and "
-                "a joint-measurement bottleneck; Izu supplies focal mechanistic resolution at the source-state/community-composition level and is "
-                "not treated as validation of synthetic thresholds or as evidence for non-random partner sorting beyond "
+                "a joint-measurement bottleneck; Izu supplies focal mechanistic resolution at the source-state/community-composition "
+                "level and is not treated as validation of synthetic thresholds or as evidence for non-random partner sorting beyond "
                 "background composition. The dedicated Izu empirical appendix retains the raw-positive/null-corrected-negative "
                 "structural boundary. Figure regeneration must match the frozen scientific gate and metadata validation remains fail-closed."
             ),
@@ -117,6 +127,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 archive.write(ROOT / rel, arcname=rel)
             archive.write(title_page, arcname=title_page.name)
             archive.write(cover_letter, arcname=cover_letter.name)
+            archive.write(significance, arcname=significance.name)
             archive.write(review_archive, arcname=review_archive.name)
             archive.writestr(
                 "SUBMISSION_BUNDLE_MANIFEST.json",
