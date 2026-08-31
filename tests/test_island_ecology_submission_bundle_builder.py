@@ -9,7 +9,7 @@ import scripts.build_island_ecology_submission_bundle as bundle
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
-SUBMISSION_MANUSCRIPT = "ISLAND_ECOLOGY_MANUSCRIPT.md"
+SUBMISSION_MANUSCRIPT = "MANUSCRIPT.md"
 
 
 def completed_metadata() -> dict:
@@ -67,7 +67,16 @@ def test_submission_bundle_still_fails_closed_on_unresolved_metadata(tmp_path: P
         bundle.build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
 
 
-def test_submission_bundle_routes_journal_clean_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
+def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
+    metadata = completed_metadata()
+    metadata["journal"] = "Journal of Ecology"
+    metadata_path = tmp_path / "metadata.json"
+    metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
+    with pytest.raises(ValueError, match="Oikos Research Paper"):
+        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+
+
+def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
     monkeypatch.setattr(bundle, "build_figures", lambda: {"figure_outputs": []})
 
     def fake_review_archive(path: Path) -> Path:
@@ -82,14 +91,21 @@ def test_submission_bundle_routes_journal_clean_manuscript_after_gate_closure(tm
     assert output.exists()
     with zipfile.ZipFile(output) as archive:
         names = set(archive.namelist())
-        assert "ISLAND_ECOLOGY_TITLE_PAGE.md" in names
-        assert "ISLAND_ECOLOGY_COVER_LETTER.md" in names
-        assert "island_ecology_anonymous_review_archive.zip" in names
+        assert "TITLE_PAGE.md" in names
+        assert "COVER_LETTER.md" in names
+        assert "SIGNIFICANCE_STATEMENT.md" in names
+        assert "anonymous_review_archive.zip" in names
         assert "SUBMISSION_BUNDLE_MANIFEST.json" in names
+        assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
         assert SUBMISSION_MANUSCRIPT in names
         assert SOURCE_MANUSCRIPT not in names
-        title = archive.read("ISLAND_ECOLOGY_TITLE_PAGE.md").decode("utf-8")
+        title = archive.read("TITLE_PAGE.md").decode("utf-8")
+        cover = archive.read("COVER_LETTER.md").decode("utf-8")
+        significance = archive.read("SIGNIFICANCE_STATEMENT.md").decode("utf-8")
+        assert "Title page — Oikos" in title
         assert "Example Author" in title
+        assert "publication in *Oikos*" in cover
+        assert "Significance statement — Oikos" in significance
         manuscript = archive.read(SUBMISSION_MANUSCRIPT).decode("utf-8")
         lower = manuscript.lower()
         assert "null-corrected matching" in lower
@@ -100,9 +116,13 @@ def test_submission_bundle_routes_journal_clean_manuscript_after_gate_closure(tm
         assert "chapter 3" not in lower
         assert "campanula microdonta" not in lower
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
+        assert manifest["journal"] == "Oikos"
+        assert manifest["article_type"] == "Research Paper"
         assert manifest["scientific_state"] == "model_gate_closed_mechanistic_response_geometry_with_world_identifiability_and_izu_resolution"
-        assert manifest["manuscript_state"] == "active_v2_source_rendered_to_journal_clean_submission"
+        assert manifest["manuscript_state"] == "active_v2_source_rendered_to_oikos_clean_submission"
         assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
         assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
+        assert manifest["oikos_significance_statement_included"] is True
+        assert manifest["oikos_data_code_ready_for_first_submission"] is True
         assert manifest["submission_manuscript_internal_thesis_language_removed_fail_closed"] is True
         assert manifest["figures_regenerated_fail_closed"] is True
