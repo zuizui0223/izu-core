@@ -14,19 +14,33 @@ def test_oikos_manifest_is_active_and_metadata_blocked():
     assert manifest["routing_status"] == "active_first_submission_route"
     assert manifest["fallback_route"] == "Journal of Ecology Research Article"
     assert manifest["project_tier"] == "Tier_B"
-    assert manifest["story"] == "simulation_to_world_confrontation_to_identifiability_bottleneck_to_izu_mechanistic_resolution_zoom"
+    assert manifest["story"] == "simulation_to_world_confrontation_to_process_measurement_bottleneck_to_izu_mechanistic_resolution_zoom"
+    assert manifest["active_manuscript"] == "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
     assert manifest["submission_ready"] is False
     assert manifest["remaining_blocker"] == "author_supplied_identity_metadata_and_submission_declarations"
-    assert manifest["claim_ceiling"]["formal_external_prediction"] == "not_evaluable"
-    assert manifest["claim_ceiling"]["external_full_contracts"] == "0_of_25"
-    assert manifest["claim_ceiling"]["izu_beyond_composition_sorting"] == "unsupported"
-    assert manifest["claim_ceiling"]["chapter3_used_as_validation"] is False
+    claims = manifest["claim_ceiling"]
+    assert claims["relational_response_headline"] == "response_direction_depends_on_state_evaluated_against_realized_community"
+    assert claims["formal_external_prediction"] == "not_evaluable"
+    assert claims["external_full_contracts"] == "0_of_25"
+    assert claims["direct_response_outcome"] == "21_of_25"
+    assert claims["direct_partner_arrival_replacement"] == "2_of_25"
+    assert claims["izu_beyond_composition_sorting"] == "unsupported"
+    assert claims["izu_oshima_bridge"] == "unsupported"
+    assert claims["chapter3_used_as_validation"] is False
+    robustness = manifest["relational_robustness"]
+    assert robustness["historical_freeze_rewritten"] is False
+    assert robustness["community_largest_across_prespecified_seeds"] is True
+    assert robustness["community_largest_across_steps_30_60_120_240"] is True
+    assert robustness["mixed_at_zero_trait_adjustment"] == "64_of_96"
+    assert robustness["equal_initial_richness_mixed"] == "53_of_96"
     oikos = manifest["oikos_initial_submission_contract"]
     assert oikos["double_blind"] is True
     assert oikos["article_type"] == "Research Paper"
     assert oikos["abstract_max_words"] == 300
+    assert oikos["active_abstract_target_words"] == 278
     assert oikos["significance_statement_required"] is True
     assert oikos["data_and_code_ready_for_first_submission"] is True
+    assert oikos["old_within_cell_noise_wording_blocked_from_submission_si"] is True
 
 
 def test_journal_of_ecology_manifest_is_retained_as_fallback_provenance():
