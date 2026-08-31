@@ -14,22 +14,26 @@ from scripts.build_island_ecology_submission_metadata import (
     render_title_page,
     validate_metadata,
 )
-from scripts.generate_chapter2_manuscript_figures import build_figures
+from scripts.generate_chapter2_manuscript_figures_relational import build_figures
+from scripts.render_chapter2_supporting_information import render_to_path as render_si_to_path
 from scripts.render_island_ecology_submission_manuscript import render_to_path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_submission_bundle.zip"
 REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
-SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.md"
+SUBMISSION_SI_NAME = "SUPPORTING_INFORMATION.md"
 ACTIVE_SUBMISSION_MANIFEST = "data/design/chapter2_oikos_submission_manifest_20260831.json"
 
 STATIC_SUBMISSION_FILES = (
-    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
+    "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
+    "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
+    "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
     ACTIVE_SUBMISSION_MANIFEST,
 )
 
@@ -74,11 +78,13 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
         manuscript = tmp / SUBMISSION_MANUSCRIPT_NAME
+        supporting_information = tmp / SUBMISSION_SI_NAME
         title_page = tmp / "TITLE_PAGE.md"
         cover_letter = tmp / "COVER_LETTER.md"
         significance = tmp / "SIGNIFICANCE_STATEMENT.md"
         review_archive = tmp / "anonymous_review_archive.zip"
         render_to_path(manuscript)
+        render_si_to_path(supporting_information)
         title_page.write_text(render_title_page(metadata), encoding="utf-8")
         cover_letter.write_text(render_cover_letter(metadata), encoding="utf-8")
         significance.write_text(render_significance_statement(metadata), encoding="utf-8")
@@ -87,20 +93,23 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "model_gate_closed_mechanistic_response_geometry_with_world_identifiability_and_izu_resolution",
-            "manuscript_state": "active_v2_source_rendered_to_oikos_clean_submission",
+            "scientific_state": "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution",
+            "manuscript_state": "active_20260831_relational_source_rendered_to_oikos_clean_submission",
             "source_manuscript": SOURCE_MANUSCRIPT,
             "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
+            "submission_supporting_information": SUBMISSION_SI_NAME,
             "active_submission_manifest": ACTIVE_SUBMISSION_MANIFEST,
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
             "submission_manuscript_internal_thesis_language_removed_fail_closed": True,
+            "supporting_information_superseded_nonadditivity_wording_removed_fail_closed": True,
             "oikos_significance_statement_included": True,
             "oikos_data_code_ready_for_first_submission": True,
-            "figures_regenerated_fail_closed": True,
+            "figures_regenerated_from_frozen_gate_then_relational_overlay": True,
             "model_gate": gate.get("status"),
             "files": [
                 SUBMISSION_MANUSCRIPT_NAME,
+                SUBMISSION_SI_NAME,
                 *STATIC_SUBMISSION_FILES,
                 *figure_files,
                 "TITLE_PAGE.md",
@@ -109,22 +118,25 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "anonymous_review_archive.zip",
             ],
             "boundary": (
-                "Packaging renders the Chapter 2 v2 scientific source into an Oikos-facing clean manuscript that removes "
-                "dissertation/chapter-routing language without changing scientific results. Synthetic response geometry and its "
-                "exact interaction-kernel coordinate define the possibilities; world confrontation supplies response diversity and "
-                "a joint-measurement bottleneck; Izu supplies focal mechanistic resolution at the source-state/community-composition "
-                "level and is not treated as validation of synthetic thresholds or as evidence for non-random partner sorting beyond "
-                "background composition. The dedicated Izu empirical appendix retains the raw-positive/null-corrected-negative "
-                "structural boundary. Figure regeneration must match the frozen scientific gate and metadata validation remains fail-closed."
+                "The historical Chapter 2 freeze chain remains unchanged. Packaging renders the 2026-08-31 relational manuscript and a corrected "
+                "Supporting Information surface that supersedes the old within-cell-noise interpretation without rewriting historical frozen inputs. "
+                "The exact 80.17/17.64/2.18% baseline decomposition remains one frozen example; structural inference is based on component ordering, "
+                "state-by-community nonadditivity and prespecified seed/horizon/trait-adjustment/equal-richness sensitivities. World confrontation is "
+                "reported as an outcome-rich/process-poor measurement audit, and Izu remains a mechanistic-resolution analysis rather than validation."
             ),
         }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=SUBMISSION_MANUSCRIPT_NAME)
+            archive.write(supporting_information, arcname=SUBMISSION_SI_NAME)
             for rel in STATIC_SUBMISSION_FILES:
                 archive.write(ROOT / rel, arcname=rel)
             for rel in figure_files:
                 archive.write(ROOT / rel, arcname=rel)
+            relational_inputs = ROOT / "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
+            if not relational_inputs.exists():
+                raise FileNotFoundError(relational_inputs)
+            archive.write(relational_inputs, arcname=str(relational_inputs.relative_to(ROOT)))
             archive.write(title_page, arcname=title_page.name)
             archive.write(cover_letter, arcname=cover_letter.name)
             archive.write(significance, arcname=significance.name)
