@@ -32,6 +32,7 @@ def _rtf_escape(text: str) -> str:
 def _plain_markdown(text: str) -> str:
     text = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", text)
     text = text.replace("**", "").replace("__", "").replace("`", "")
+    text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"\1", text)
     return text
 
 
@@ -41,6 +42,13 @@ def _paragraph(line: str, *, bold: bool = False, size: int = 24) -> str:
     if bold:
         return f"{controls}\\b {clean}\\b0\\par\n"
     return f"{controls} {clean}\\par\n"
+
+
+def _table_line(line: str) -> str | None:
+    cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+    if cells and all(re.fullmatch(r":?-{3,}:?", cell) for cell in cells):
+        return None
+    return "\t".join(cells)
 
 
 def markdown_to_oikos_rtf(text: str, *, introduction_page_two: bool) -> str:
@@ -76,6 +84,10 @@ def markdown_to_oikos_rtf(text: str, *, introduction_page_two: bool) -> str:
             parts.append(_paragraph(line[4:].strip(), bold=True, size=24))
         elif line.startswith("- "):
             parts.append(_paragraph("• " + line[2:].strip(), size=24))
+        elif line.startswith("|") and line.endswith("|"):
+            table_text = _table_line(line)
+            if table_text is not None:
+                parts.append(_paragraph(table_text, size=22))
         else:
             parts.append(_paragraph(line, size=24))
 
