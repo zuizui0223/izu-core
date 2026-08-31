@@ -4,6 +4,7 @@ from pathlib import Path
 from scripts.build_island_ecology_submission_metadata import (
     load_metadata,
     render_cover_letter,
+    render_significance_statement,
     render_title_page,
     validate_metadata,
 )
@@ -36,16 +37,18 @@ def complete_metadata() -> dict:
     return metadata
 
 
-def test_template_is_synchronized_to_journal_clean_scientific_surface():
+def test_template_is_synchronized_to_oikos_scientific_surface():
     metadata = load_metadata(TEMPLATE)
-    assert metadata["journal"] == "Journal of Ecology"
-    assert metadata["article_type"] == "Research Article"
+    assert metadata["journal"] == "Oikos"
+    assert metadata["article_type"] == "Research Paper"
     assert metadata["manuscript_title"] == FINAL_TITLE
     keywords = {value.lower() for value in metadata["keywords"]}
     assert "source state" in keywords
     assert "izu islands" in keywords
     assert "agent-based model" not in keywords
+    assert "conditional response geometry" in metadata["significance_statement"]
     assert "source-locked secondary analysis of published Izu plant–pollinator data" in metadata["data_availability"]
+    assert "reviewer inspection at first submission" in metadata["data_availability"]
 
 
 def test_template_fails_closed_without_author_supplied_metadata():
@@ -58,11 +61,13 @@ def test_template_fails_closed_without_author_supplied_metadata():
     assert any("conflict_of_interest" in error for error in errors)
 
 
-def test_complete_metadata_can_still_render_identity_files_for_later_use():
+def test_complete_metadata_renders_oikos_identity_and_significance_files():
     metadata = complete_metadata()
     assert validate_metadata(metadata) == []
     title_page = render_title_page(metadata)
     cover_letter = render_cover_letter(metadata)
+    significance = render_significance_statement(metadata)
+    assert "Title page — Oikos" in title_page
     assert "Example Author" in title_page
     assert "Example Institute" in title_page
     assert "## Author contributions" in title_page
@@ -71,8 +76,11 @@ def test_complete_metadata_can_still_render_identity_files_for_later_use():
     assert "## Data availability" in title_page
     assert FINAL_TITLE in title_page
     assert FINAL_TITLE in cover_letter
+    assert "publication in *Oikos*" in cover_letter
     assert "Example Author" in cover_letter
     assert "not under consideration elsewhere" in cover_letter
+    assert "Significance statement — Oikos" in significance
+    assert metadata["significance_statement"] in significance
 
 
 def test_builder_requires_explicit_submission_declarations():
@@ -80,6 +88,13 @@ def test_builder_requires_explicit_submission_declarations():
     metadata["submission_declarations"]["all_authors_approve_submission"] = False
     errors = validate_metadata(metadata)
     assert "submission_declarations.all_authors_approve_submission must be explicitly true" in errors
+
+
+def test_builder_requires_significance_statement():
+    metadata = complete_metadata()
+    metadata["significance_statement"] = ""
+    errors = validate_metadata(metadata)
+    assert "significance_statement requires an explicit statement" in errors
 
 
 def test_builder_does_not_silently_infer_optional_identity_metadata():
