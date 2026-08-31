@@ -7,7 +7,7 @@ Updated: 2026-08-31
 - Journal: **Oikos**
 - Article type: **Research Paper**
 - Scientific tier: **Tier B — mechanistically resolved synthetic response geometry with bounded empirical confrontation**
-- Story: **simulation → world confrontation → identifiability bottleneck → Izu mechanistic-resolution zoom**
+- Story: **simulation → world confrontation → process-measurement bottleneck → Izu mechanistic-resolution zoom**
 - Fallback: **Journal of Ecology Research Article**
 
 The scientific and manuscript-integration gates are closed. No additional simulation, world projection or Chapter 3 empirical result is required for the active Chapter 2 submission route.
@@ -20,9 +20,9 @@ The scientific and manuscript-integration gates are closed. No additional simula
 - dedicated Significance statement;
 - Data Availability / archiving statement;
 - reviewer-ready frozen data, code and audit materials in the anonymous review archive;
-- figures regenerated fail-closed against frozen scientific results;
+- figures regenerated fail-closed against frozen scientific results before the relational Oikos overlay;
 - supporting information and source-locked Izu structural audit included;
-- no dissertation-internal Chapter 1/2/3 routing in the blinded manuscript.
+- no dissertation-internal Chapter 1/2/3 routing in the blinded manuscript or rendered Supporting Information.
 
 The active submission manifest is:
 
@@ -38,12 +38,16 @@ The submission must continue to state that:
 
 - the model defines conditional response possibilities, not natural prevalence;
 - partner loss/arrival coefficients are fixed-surface diagnostics, not field-causal estimates;
-- starting position does not determine response alone;
-- realized community is the dominant cell-level component in the frozen decomposition;
-- external island systems establish response diversity, falsification and an identifiability bottleneck, not validation coverage;
+- response direction is relational rather than intrinsic: starting state matters through its relation to the community actually realized;
+- the exact baseline variance shares are finite-ensemble diagnostics, not stable population magnitudes;
+- realized community remains the largest additive component across the prespecified seed and structural-horizon sensitivities, while starting state alone remains weak and state × community nonadditivity remains consequential;
+- mixed geometry persists at zero trait adjustment and under equal initial pollinator richness; the latter supports only that richness reduction is not necessary for mixed geometry;
+- external island systems establish response diversity and a process-measurement bottleneck, not validation coverage;
+- the audited literature is outcome-rich but process-poor: direct response outcomes occur in 21/25 entries but partner arrival/replacement in only 2/25;
 - 0/25 audited research entries meet the full outcome-independent external-prediction contract, so formal held-out prediction is `not_evaluable`;
 - Izu raw matching is structured at the source-state/background-community-composition level;
 - null-corrected beyond-composition sorting is unsupported;
+- the prespecified Oshima-source bridge is unsupported;
 - Chapter 3 phenotype is not Chapter 2 validation.
 
 ## Author-supplied metadata still required
@@ -79,6 +83,6 @@ Expected bundle:
 
 `dist/chapter2_oikos_submission_bundle.zip`
 
-It contains the blinded manuscript, separate title page, Oikos Significance statement, cover letter, supporting files, deterministic figures, active Oikos manifest and anonymous reviewer archive.
+It contains the blinded manuscript, corrected Supporting Information, separate title page, Oikos Significance statement, relationally aligned cover letter, deterministic figures, active Oikos manifest and anonymous reviewer archive.
 
 Until the identity metadata and declarations are supplied, the builder remains fail-closed by design.
