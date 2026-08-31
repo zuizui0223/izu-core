@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.2",
+  "updated_on": "2026-08-31",
+  "journal_target": "Oikos",
+  "article_type": "Research Paper",
+  "routing_status": "active_first_submission_route",
+  "fallback_route": "Journal of Ecology Research Article",
+  "journal_fit_audit": "docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md",
+  "submission_checklist": "docs/CHAPTER2_OIKOS_SUBMISSION_CHECKLIST_20260831.md",
+  "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
+  "journal_clean_renderer": "scripts/render_island_ecology_submission_manuscript.py",
+  "submission_metadata": "data/design/island_ecology_submission_metadata_template.json",
+  "submission_builder": "scripts/build_island_ecology_submission_bundle.py",
+  "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
+  "scientific_state": "mechanistically_resolved_synthetic_response_geometry_with_bounded_empirical_confrontation",
+  "project_tier": "Tier_B",
+  "story": "simulation_to_world_confrontation_to_identifiability_bottleneck_to_izu_mechanistic_resolution_zoom",
+  "claim_ceiling": {
+    "formal_external_prediction": "not_evaluable",
+    "external_full_contracts": "0_of_25",
+    "izu_raw_matching": "supported_at_source_state_plus_background_community_composition_level",
+    "izu_beyond_composition_sorting": "unsupported",
+    "chapter3_used_as_validation": false,
+    "synthetic_design_frequencies_interpreted_as_natural_prevalence": false
+  },
+  "oikos_initial_submission_contract": {
+    "double_blind": true,
+    "article_type": "Research Paper",
+    "abstract_max_words": 300,
+    "significance_statement_required": true,
+    "data_and_code_ready_for_first_submission": true,
+    "title_page_separate_from_blinded_main_text": true
+  },
+  "submission_ready": false,
+  "remaining_blocker": "author_supplied_identity_metadata_and_submission_declarations",
+  "remaining_before_actual_submission": [
+    "final_author_order_and_affiliations",
+    "corresponding_author_email_and_postal_address",
+    "orcids_if_used",
+    "acknowledgements_and_funding",
+    "author_contributions",
+    "inclusion_statement",
+    "conflict_of_interest",
+    "explicit_submission_declarations",
+    "successful_fail_closed_bundle_build"
+  ]
+}

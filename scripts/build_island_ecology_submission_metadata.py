@@ -8,9 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_TITLE_PAGE = ROOT / "dist/ISLAND_ECOLOGY_TITLE_PAGE.md"
 DEFAULT_COVER_LETTER = ROOT / "dist/ISLAND_ECOLOGY_COVER_LETTER.md"
+DEFAULT_SIGNIFICANCE = ROOT / "dist/OIKOS_SIGNIFICANCE_STATEMENT.md"
 
 REQUIRED_AUTHOR_FIELDS = ("full_name", "affiliations")
 REQUIRED_TOP_LEVEL_TEXT = (
+    "significance_statement",
     "author_contributions",
     "inclusion_statement",
     "conflict_of_interest",
@@ -62,7 +64,7 @@ def validate_metadata(metadata: dict) -> list[str]:
     for field in REQUIRED_TOP_LEVEL_TEXT:
         value = metadata.get(field)
         if not isinstance(value, str) or not value.strip():
-            errors.append(f"{field} requires an explicit author-supplied statement")
+            errors.append(f"{field} requires an explicit statement")
 
     for optional_explicit in ("acknowledgements", "funding"):
         value = metadata.get(optional_explicit)
@@ -91,7 +93,14 @@ def render_title_page(metadata: dict) -> str:
     acknowledgements = metadata["acknowledgements"]
     funding = metadata["funding"]
     author_lines = "\n".join(_format_author(author, idx) for idx, author in enumerate(authors))
-    return f"""# Title page — Journal of Ecology\n\n## Title\n\n**{metadata['manuscript_title']}**\n\n## Authors and affiliations\n\n{author_lines}\n\n## Corresponding author\n\n**{corresponding['full_name']}**  \n{corresponding['email']}  \n{corresponding['postal_address']}\n\n## Running title\n\n**{metadata['running_title']}**\n\n## Article type\n\n{metadata['article_type']}\n\n## Keywords\n\n{'; '.join(metadata['keywords'])}\n\n## Acknowledgements\n\n{acknowledgements}\n\n## Funding\n\n{funding}\n\n## Author contributions\n\n{metadata['author_contributions']}\n\n## Inclusion statement\n\n{metadata['inclusion_statement']}\n\n## Conflict of interest\n\n{metadata['conflict_of_interest']}\n\n## Data availability\n\n{metadata['data_availability']}\n"""
+    return f"""# Title page — {metadata['journal']}\n\n## Title\n\n**{metadata['manuscript_title']}**\n\n## Authors and affiliations\n\n{author_lines}\n\n## Corresponding author\n\n**{corresponding['full_name']}**  \n{corresponding['email']}  \n{corresponding['postal_address']}\n\n## Running title\n\n**{metadata['running_title']}**\n\n## Article type\n\n{metadata['article_type']}\n\n## Keywords\n\n{'; '.join(metadata['keywords'])}\n\n## Acknowledgements\n\n{acknowledgements}\n\n## Funding\n\n{funding}\n\n## Author contributions\n\n{metadata['author_contributions']}\n\n## Inclusion statement\n\n{metadata['inclusion_statement']}\n\n## Conflict of interest\n\n{metadata['conflict_of_interest']}\n\n## Data availability\n\n{metadata['data_availability']}\n"""
+
+
+def render_significance_statement(metadata: dict) -> str:
+    errors = validate_metadata(metadata)
+    if errors:
+        raise ValueError("submission metadata incomplete:\n- " + "\n- ".join(errors))
+    return f"# Significance statement — {metadata['journal']}\n\n{metadata['significance_statement'].strip()}\n"
 
 
 def render_cover_letter(metadata: dict) -> str:
@@ -99,7 +108,7 @@ def render_cover_letter(metadata: dict) -> str:
     if errors:
         raise ValueError("submission metadata incomplete:\n- " + "\n- ".join(errors))
     corresponding = metadata["authors"][metadata["corresponding_author_index"]]
-    return f"""Dear Editors,\n\nPlease consider our Research Article, **“{metadata['manuscript_title']},”** for publication in *Journal of Ecology*.\n\nThe same directional ecological change can produce opposite biological responses, yet aggregate perturbation effects rarely identify the state and community information that determines branch identity. Island plant–pollinator reorganization provides a stringent case because source state, partner turnover, local realization and reproductive propagation are often measured separately.\n\nOur manuscript defines the exact community-interaction-kernel coordinate embedded in a frozen matching model and develops a conditional response geometry rather than a universal island trajectory. Across 96 matched pollinator-community realizations, response sign varied non-monotonically across starting functional position, and mixed mean geometry persisted in 16 of 48 points of a fixed joint 10-parameter design. Community realization accounted for 80.17% of response-matrix sums of squares, the non-additive remainder for 17.64% and starting position alone for 2.18%. Local filtering reallocated branch identity asymmetrically, whereas the autonomous-assurance route attenuated decline magnitude without sign rescue in 580 eligible declines through the declared envelope.\n\nThe paper then moves from breadth to depth. A frozen 25-entry source audit shows that real island research requires a vocabulary including propagation, branching, buffering, axis decoupling and retained falsification, while no entry jointly supplies the outcome-independent state–community–context–outcome contract needed for formal external comparison. In Izu, the same frozen source-state projection explains raw realized matching but not null-corrected matching, localizing the present signal to source state plus background community composition rather than additional non-random partner sorting.\n\nWe explicitly separate this mechanistic-resolution funnel from causal identification. Design-space frequencies and thresholds are not interpreted as natural prevalence or calibrated ecological thresholds; the comparative inventory is not validation coverage; and Izu is not used to validate synthetic thresholds or infer causal floral evolution.\n\nThe scientific reassessment and model robustness gate are closed. The submission package is built from the active post-reassessment manuscript, complete model specification, frozen tables and fail-closed figure regeneration. Author metadata and submission declarations are validated separately and are never inferred by the build system.\n\nWe confirm that this manuscript has not been published and is not under consideration elsewhere, that all authors approve submission, and that all required acknowledgements and permissions have been made.\n\nThank you for considering this manuscript.\n\nSincerely,\n\n{corresponding['full_name']}\n{', '.join(corresponding['affiliations'])}\n{corresponding['email']}\n"""
+    return f"""Dear Editors,\n\nPlease consider our {metadata['article_type']}, **“{metadata['manuscript_title']},”** for publication in *{metadata['journal']}*.\n\nThe same broad ecological perturbation can produce opposite biological responses, yet average effects rarely identify the state and community information that determines response direction. We address this problem with a theory-first mechanistic funnel built around community reorganization rather than a universal island trajectory.\n\nThe manuscript defines the exact community-interaction-kernel coordinate embedded in a frozen matching model and separates five roles that are commonly conflated: turnover sets the response regime; starting state locates organisms within the response geometry; realized community dominates cell-level outcomes; local filtering can reallocate branch identity; and downstream reproductive assurance mainly modifies response magnitude. Across 96 matched pollinator-community realizations, response sign varied non-monotonically across starting functional position, and mixed mean geometry persisted in 16 of 48 points of a fixed joint 10-parameter design. Community realization accounted for 80.17% of response-matrix sums of squares, non-additivity for 17.64% and starting position alone for 2.18%.\n\nThe paper then confronts this response vocabulary with empirical island ecology without converting retrospective examples into validation. A frozen 25-entry source audit shows that observed systems require propagation, branching, buffering, axis decoupling and retained falsification, but none supplies the full outcome-independent state–community–context–outcome contract needed for formal external prediction. A focal Izu analysis then increases mechanistic resolution: the frozen source-state projection explains raw realized matching but not null-corrected matching, localizing the present signal to source state plus background community composition rather than additional non-random partner sorting.\n\nWe believe *{metadata['journal']}* is the appropriate venue because the contribution is not a regional extension of island pollination patterns. It is a general ecological decomposition of heterogeneous response under community reorganization, coupled to an explicit identifiability boundary and a worked empirical resolution step. The accompanying significance statement makes this general contribution explicit.\n\nWe preserve strict claim boundaries: design-space frequencies and thresholds are not interpreted as natural prevalence or calibrated ecological thresholds; the comparative inventory is not validation coverage; and the Izu analysis is not used to infer causal floral evolution or beyond-composition partner sorting. Data and custom analysis code are prepared for reviewer inspection at first submission through the anonymous review package.\n\nWe confirm that this manuscript has not been published and is not under consideration elsewhere, that all authors approve submission, and that all required acknowledgements and permissions have been made.\n\nThank you for considering this manuscript.\n\nSincerely,\n\n{corresponding['full_name']}\n{', '.join(corresponding['affiliations'])}\n{corresponding['email']}\n"""
 
 
 def main() -> None:
@@ -107,6 +116,7 @@ def main() -> None:
     parser.add_argument("--metadata", type=Path, default=DEFAULT_METADATA)
     parser.add_argument("--title-page", type=Path, default=DEFAULT_TITLE_PAGE)
     parser.add_argument("--cover-letter", type=Path, default=DEFAULT_COVER_LETTER)
+    parser.add_argument("--significance", type=Path, default=DEFAULT_SIGNIFICANCE)
     parser.add_argument("--validate-only", action="store_true")
     args = parser.parse_args()
     metadata = load_metadata(args.metadata)
@@ -118,10 +128,13 @@ def main() -> None:
         return
     args.title_page.parent.mkdir(parents=True, exist_ok=True)
     args.cover_letter.parent.mkdir(parents=True, exist_ok=True)
+    args.significance.parent.mkdir(parents=True, exist_ok=True)
     args.title_page.write_text(render_title_page(metadata), encoding="utf-8")
     args.cover_letter.write_text(render_cover_letter(metadata), encoding="utf-8")
+    args.significance.write_text(render_significance_statement(metadata), encoding="utf-8")
     print(args.title_page)
     print(args.cover_letter)
+    print(args.significance)
 
 
 if __name__ == "__main__":

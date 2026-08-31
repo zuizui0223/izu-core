@@ -11,7 +11,7 @@ from scripts.generate_chapter2_manuscript_figures import build_figures
 from scripts.render_island_ecology_submission_manuscript import render_to_path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "dist/island_ecology_anonymous_review_archive.zip"
+DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_anonymous_review_archive.zip"
 SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
 ANONYMOUS_MANUSCRIPT_NAME = "MANUSCRIPT.md"
 
@@ -30,6 +30,7 @@ CORE_REVIEW_FILES = (
     "docs/IZU_POLLINATOR_PROBOSCIS_RECOVERY.md",
     "docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md",
     "docs/IZU_SIGNED_POSITION_STRUCTURAL_AUDIT_20260827.md",
+    "data/design/chapter2_oikos_submission_manifest_20260831.json",
     "data/design/chapter2_active_manuscript_mainline_20260827.json",
     "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json",
     "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
@@ -121,7 +122,8 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
 
         manifest = {
             "archive_role": "double_anonymous_peer_review",
-            "journal_target": "Journal of Ecology",
+            "journal_target": "Oikos",
+            "article_type": "Research Paper",
             "author_identity_included": False,
             "title_page_included": False,
             "scientific_source_manuscript": SOURCE_MANUSCRIPT,
@@ -134,22 +136,22 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "izu_structural_audit_included": True,
             "izu_empirical_appendix_included": True,
             "external_prediction_readiness_audit_included": True,
+            "oikos_data_code_review_ready": True,
             "deny_tokens_checked": list(deny_tokens),
             "files": records,
             "claim_boundary": (
                 "The archive reproduces the frozen synthetic response-geometry, exact interaction-kernel identity, joint-regime, "
-                "local-context, assurance and conditional-WHY diagnostics and contains the source-locked Izu resolution analysis "
-                "plus structural audit. "
-                "The journal-facing manuscript is rendered from the scientific v2 source while removing dissertation/chapter-routing "
-                "language only. World confrontation establishes response diversity and a joint-measurement bottleneck rather than "
-                "validation. The Izu manuscript claim remains at the source-state/community-composition level: raw realized matching "
-                "is structured, whereas the source-paper null-corrected matching response is unsupported. External island evidence "
-                "remains comparative grounding and does not constitute cross-system mechanism validation. The frozen 25-entry "
-                "readiness audit found no full outcome-independent external-prediction contract, so H0-H4 comparison and held-out "
-                "prediction remain not evaluable rather than being fitted after source repair."
+                "local-context, assurance and conditional-WHY diagnostics and contains the source-locked Izu resolution analysis plus structural audit. "
+                "The journal-facing manuscript is rendered from the scientific v2 source while removing dissertation/chapter-routing language only. "
+                "World confrontation establishes response diversity and a joint-measurement bottleneck rather than validation. "
+                "The Izu manuscript claim remains at the source-state/community-composition level: raw realized matching is structured, "
+                "whereas the source-paper null-corrected matching response is unsupported. External island evidence remains comparative "
+                "grounding and does not constitute cross-system mechanism validation. The frozen 25-entry readiness audit found no full "
+                "outcome-independent external-prediction contract, so H0-H4 comparison and held-out prediction remain not evaluable rather than "
+                "being fitted after source repair."
             ),
         }
-        readme = """# Anonymous review archive\n\nThis archive supports double-anonymous peer review of the response-geometry Research Article.\n\nThe manuscript is rendered from the frozen v2 scientific source into a journal-facing form that removes dissertation-internal chapter routing while preserving all scientific results and claim boundaries. The paper follows a mechanistic-resolution funnel: the synthetic model defines possible response geometry; world confrontation establishes response diversity; the source audit exposes a joint-measurement bottleneck; and the focal Izu analysis separates source-state/community-composition structure from unsupported null-corrected sorting. The exact interaction-kernel representation is checked by a deterministic code-identity audit that contains no new scientific simulation. The archive contains the Izu empirical appendix, source gate, recovery state, triangulation code and structural audit so that the empirical claim ceiling is reviewable. Source-acquisition helper scripts that contain repository-account identifiers are intentionally excluded; their source locks and recovery state are represented by the included machine-readable gates and audit documents. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nA separate frozen source-readiness audit covers 25 research entries while preserving geographic overlap and source gates. None met the full outcome-independent plant-response contract, so cross-system H0-H4 comparison and held-out prediction are recorded as not evaluable. No missing predictor was reconstructed from a known response category.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds.\n"""
+        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous peer review of the response-geometry Research Paper.\n\nThe manuscript is rendered from the frozen v2 scientific source into a journal-facing form that removes dissertation-internal chapter routing while preserving all scientific results and claim boundaries. The paper follows a mechanistic-resolution funnel: the synthetic model defines possible response geometry; world confrontation establishes response diversity; the source audit exposes a joint-measurement bottleneck; and the focal Izu analysis separates source-state/community-composition structure from unsupported null-corrected sorting. The exact interaction-kernel representation is checked by a deterministic code-identity audit that contains no new scientific simulation. The archive contains the Izu empirical appendix, source gate, recovery state, triangulation code and structural audit so that the empirical claim ceiling is reviewable. Source-acquisition helper scripts that contain repository-account identifiers are intentionally excluded; their source locks and recovery state are represented by the included machine-readable gates and audit documents. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nA separate frozen source-readiness audit covers 25 research entries while preserving geographic overlap and source gates. None met the full outcome-independent plant-response contract, so cross-system H0-H4 comparison and held-out prediction are recorded as not evaluable. No missing predictor was reconstructed from a known response category.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds. The data and custom analysis code in this archive are prepared for reviewer inspection at first submission.\n"""
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=ANONYMOUS_MANUSCRIPT_NAME)
