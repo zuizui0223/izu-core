@@ -12,17 +12,23 @@ Updated: 2026-08-31
 
 The scientific and manuscript-integration gates are closed. No additional simulation, world projection or Chapter 3 empirical result is required for the active Chapter 2 submission route.
 
-## Oikos initial-submission requirements already implemented
+## Oikos initial-submission requirements implemented
 
 - double-anonymous manuscript rendering;
 - separate identity-bearing title page;
+- main text rendered to **RTF**, an Oikos-supported upload format;
+- single-column, double-spaced RTF main text;
+- continuous line numbering and page numbering encoded in the RTF;
+- Introduction forced to begin on page two;
 - abstract capped at 300 words by the active manuscript contract;
 - dedicated Significance statement;
-- Data Availability / archiving statement;
+- Data Availability / data-archiving statement;
+- conflict-of-interest and ethics statement surfaces;
 - reviewer-ready frozen data, code and audit materials in the anonymous review archive;
 - figures regenerated fail-closed against frozen scientific results before the relational Oikos overlay;
-- supporting information and source-locked Izu structural audit included;
-- no dissertation-internal Chapter 1/2/3 routing in the blinded manuscript or rendered Supporting Information.
+- Supporting information rendered as a separate RTF file;
+- specific Appendix/Fig. S references are blocked from the blinded main text; the Oshima sensitivity is referred to only as **Supporting information**;
+- no dissertation-internal Chapter 1/2/3 routing in the blinded manuscript or rendered Supporting information.
 
 The active submission manifest is:
 
@@ -50,20 +56,21 @@ The submission must continue to state that:
 - the prespecified Oshima-source bridge is unsupported;
 - Chapter 3 phenotype is not Chapter 2 validation.
 
-## Author-supplied metadata still required
+## Author-supplied information still required
 
-Populate the metadata template with:
+Populate the metadata template with one consolidated block containing:
 
-1. final author order;
-2. each author's affiliations;
-3. corresponding-author email and postal address;
-4. ORCID(s), if used;
-5. acknowledgements, explicitly including `None` if none;
-6. funding, explicitly including `None` if none;
-7. author contributions;
+1. final ordered author list and each author's affiliations;
+2. corresponding-author email, postal address and **ORCID** — Oikos requires the corresponding author to provide an ORCID at submission;
+3. coauthor ORCIDs if supplied (encouraged, not required by this preflight);
+4. the **named public repository** planned for accepted data/code archiving;
+5. a short **Significance prior-work context** explaining how this manuscript builds on relevant work by the submitting authors/coauthors cited in the paper and on other published work;
+6. acknowledgements and funding, explicitly using `None` where applicable;
+7. author contributions (kept ready even though Oikos does not require CRediT at initial submission);
 8. inclusion / EDI statement;
 9. conflict-of-interest statement;
-10. explicit submission-declaration booleans.
+10. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals;
+11. explicit submission-declaration booleans.
 
 These values are intentionally not inferred from repository history.
 
@@ -83,6 +90,16 @@ Expected bundle:
 
 `dist/chapter2_oikos_submission_bundle.zip`
 
-It contains the blinded manuscript, corrected Supporting Information, separate title page, Oikos Significance statement, relationally aligned cover letter, deterministic figures, active Oikos manifest and anonymous reviewer archive.
+The upload-facing bundle contains:
 
-Until the identity metadata and declarations are supplied, the builder remains fail-closed by design.
+- `MANUSCRIPT.rtf` — blinded, double-spaced, continuous line/page numbers, Introduction on page two;
+- `SUPPORTING_INFORMATION.rtf`;
+- `TITLE_PAGE.rtf`;
+- `COVER_LETTER.rtf`;
+- `SIGNIFICANCE_STATEMENT.rtf`;
+- `SUBMISSION_STATEMENTS.rtf`;
+- deterministic figures and figure-input provenance;
+- the anonymous reviewer data/code archive;
+- the active Oikos manifest and frozen scientific audit files.
+
+Until the author-supplied fields and declarations are complete, the builder remains fail-closed by design.
