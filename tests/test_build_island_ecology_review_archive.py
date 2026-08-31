@@ -23,6 +23,7 @@ def test_review_archive_file_list_excludes_identity_files_and_retired_manuscript
     assert "zuizui0223" in DEFAULT_DENY_TOKENS
     assert SOURCE_MANUSCRIPT == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
     assert ANONYMOUS_MANUSCRIPT_NAME == "MANUSCRIPT.md"
+    assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in CORE_REVIEW_FILES
     assert "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json" in CORE_REVIEW_FILES
     assert "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json" in CORE_REVIEW_FILES
     assert "data/design/chapter2_external_prediction_challenge_freeze_20260828.json" in CORE_REVIEW_FILES
@@ -38,7 +39,7 @@ def test_review_archive_source_files_pass_default_identity_scan():
     assert all(len(record["sha256"]) == 64 for record in records)
 
 
-def test_review_archive_builds_with_journal_clean_claim_boundary(tmp_path: Path):
+def test_review_archive_builds_with_oikos_claim_boundary(tmp_path: Path):
     output = tmp_path / "review.zip"
     path = build_archive(output)
     assert path == output
@@ -70,16 +71,20 @@ def test_review_archive_builds_with_journal_clean_claim_boundary(tmp_path: Path)
         manifest = json.loads(archive.read("REVIEW_ARCHIVE_MANIFEST.json"))
         assert manifest["author_identity_included"] is False
         assert manifest["title_page_included"] is False
-        assert manifest["journal_target"] == "Journal of Ecology"
+        assert manifest["journal_target"] == "Oikos"
+        assert manifest["article_type"] == "Research Paper"
+        assert manifest["oikos_data_code_review_ready"] is True
         assert manifest["figures_regenerated_fail_closed"] is True
         assert manifest["interaction_kernel_identity_audit_included"] is True
         assert manifest["external_prediction_readiness_audit_included"] is True
         assert manifest["review_manuscript_internal_thesis_language_removed_fail_closed"] is True
         assert "source-state/community-composition" in manifest["claim_boundary"]
         readme = archive.read("README_REVIEW_ARCHIVE.md").decode("utf-8")
+        assert "Oikos double-anonymous peer review" in readme
         assert "mechanistic-resolution funnel" in readme.lower()
         assert "does not treat Izu as validation" in readme
         assert "not evaluable" in readme
+        assert "reviewer inspection at first submission" in readme
 
 
 def test_identity_scan_detects_explicit_token(tmp_path: Path):
@@ -90,4 +95,4 @@ def test_identity_scan_detects_explicit_token(tmp_path: Path):
 
 def test_archive_builder_rejects_additional_identity_token_present_in_review_file(tmp_path: Path):
     with pytest.raises(ValueError):
-        build_archive(tmp_path / "should-not-build.zip", extra_deny_tokens=("Journal of Ecology",))
+        build_archive(tmp_path / "should-not-build.zip", extra_deny_tokens=("Oikos",))
