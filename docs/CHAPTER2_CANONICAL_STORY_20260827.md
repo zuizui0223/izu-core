@@ -1,56 +1,47 @@
 # Chapter 2 canonical story
 
-Updated: 2026-08-28
+Updated: 2026-08-31
 
 ## One-sentence claim
 
-> **Community reorganization defines a conditional response geometry rather than one biological outcome: partner turnover deforms the response surface, starting state locates a lineage, realized community and local filtering allocate branch identity, and downstream assurance mainly modifies magnitude; world comparison shows why that vocabulary is needed, while Izu reveals which components current data can and cannot distinguish.**
+> **Response direction under community reorganization is relational rather than intrinsic: partner turnover reshapes the response geometry, organismal starting state is evaluated against the community actually realized, state × community non-additivity remains consequential, local filtering reallocates branch identity, and downstream assurance mainly modifies magnitude; world comparison shows that outcomes are measured much more often than the processes needed to distinguish those branches, while Izu localizes the present empirical signal to source state plus background community composition rather than beyond-composition sorting.**
 
-This is the canonical Chapter 2 story. Older `minimal generator`, `11/11 validation coverage`, beneficial `support`, prevalence-like simulation-frequency and assurance sign-rescue framings are superseded for manuscript interpretation.
+This is the canonical Chapter 2 story. Older `minimal generator`, `11/11 validation coverage`, beneficial `support`, prevalence-like simulation-frequency, assurance sign-rescue and stable-80.17%-magnitude framings are superseded for manuscript interpretation.
 
 The active narrative order is:
 
 ```text
 model possibilities
-    -> world confrontation
-        -> identifiability bottleneck
-            -> Izu mechanistic-resolution zoom
-                -> Chapter 3 measurement handoff, not validation
+    -> relational response geometry
+        -> world confrontation
+            -> process-measurement / identifiability bottleneck
+                -> Izu mechanistic-resolution zoom
+                    -> Chapter 3 measurement handoff, not validation
 ```
 
-The exact analytic coordinate is the trajectory-conditioned interaction-kernel difference `G_omega(x0)`, not an unchanged-state shortcut when trait adjustment moves the two endpoints. See `docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md`.
+The exact analytic coordinate is the trajectory-conditioned interaction-kernel difference `G_omega(x0)`. See `docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md` and the interpretation correction in `docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md`.
 
-## 1. The problem inherited from Chapter 1
+## 1. The Chapter 2 problem
 
-Chapter 1 establishes **WHEN / WHERE** island-associated floral and reproductive filtering is detectable and shows that northern-midlatitude and tropical island floras do not share one identical multivariate response vector.
+The broader programme shows that island-associated floral and reproductive responses do not form one identical multivariate response vector. Chapter 2 asks a narrower mechanistic question:
 
-That observation creates the Chapter 2 problem:
+> **Why can a common broad interaction perturbation be expressed through different biological response directions?**
 
-> **Why can a common broad exposure—geographic isolation and associated interaction reorganization—be expressed through different biological response directions?**
+The paper isolates post-establishment ecological response to pollinator-community reorganization. It does not identify why an island acquired a particular species pool, source state, colonization history or interaction architecture.
 
-Chapter 2 does not explain the formation of the particular northern-midlatitude and tropical biotas. It asks whether a plausible post-establishment interaction mechanism can generate conditional response directions at all, and under what synthetic conditions.
+## 2. Response sign is a relation between state and realized community
 
-## 2. The scope is deliberately narrower than a complete island-syndrome theory
+The model evaluates 21 starting positions against the same mainland-like and island-like pollinator trajectory within each realization. The implemented response coordinate is
 
-The plant island syndrome mixes at least three processes:
+`G_omega(x0) = K_I,T(Phi_I,T(x0; omega_I)) - K_M,T(Phi_M,T(x0; omega_M))`.
 
-1. assembly / colonization filtering;
-2. in-situ evolutionary change after establishment;
-3. ecological response of already-established lineages to changed interactions.
+Thus response is not an intrinsic property of starting state or community in isolation. Starting state supplies the coordinate at which a realized community kernel is evaluated; the realized trajectory changes that kernel and, with trait adjustment, may also change the endpoint state.
 
-Chapter 2 directly tests the third layer.
+At zero trait adjustment, `Phi_E,T(x0)=x0`, so state dependence remains explicitly in `K_I,T(x0)-K_M,T(x0)`. Trait adjustment therefore changes how state dependence is expressed; it does not create state dependence de novo.
 
-Therefore the paper is not evidence that one ABM explains island evolution. It is a synthetic mechanistic experiment on **post-establishment response architecture**.
+## 3. Possibility and regime structure
 
-## 3. The key methodological move is to map sign geometry, not one average effect
-
-The model compares matched mainland-like and island-like pollinator environments under a fixed visit budget and an explicit functional-matching axis.
-
-Plant starting positions are evaluated on a 21-point grid against the **same pollinator trajectory within each realization**. This matched design asks where the island-minus-mainland response changes sign without conflating plant starting state with a different stochastic pollinator history.
-
-The result is not a single threshold or one directional island effect. The mean response is approximately U-shaped, with positive outer regions and a negative central region on the synthetic coordinate.
-
-Across 96 matched community realizations:
+Across the historical frozen baseline of 96 matched community realizations:
 
 - mixed-sign: 41;
 - all-positive: 42;
@@ -62,137 +53,136 @@ Across the fixed 48-point joint 10-parameter design:
 - all-positive: 22;
 - all-negative: 10.
 
-Thus conditional geometry is real within the declared model, but it is not universal even there.
+Partner loss and arrival are the strongest sign-stable fixed-surface regime associations:
 
-## 4. The proximal WHY is hierarchical
-
-The final explanation is not `starting position causes branching`.
-
-### Regime level
-
-Partner turnover balance is the strongest stable correlate of movement across response regimes in the fixed joint design:
-
-- partner loss coefficient: `+0.634`;
-- partner arrival coefficient: `−0.626`;
+- loss coefficient `+0.634`;
+- arrival coefficient `−0.626`;
 - additive diagnostic `R² = 0.611`;
 - leave-one-point-out RMSE `0.329`.
 
-Greater loss and weaker arrival accompany a larger negative portion of the response surface within the declared design.
+These are synthetic surface diagnostics, not field-causal coefficients or natural frequencies.
 
-### Mean-geometry level
+## 4. The decomposition headline is ordering, not one percentage
 
-Starting functional position organizes the mean sign boundary.
+The historical 21 × 96 baseline decomposition is:
 
-### Realization level
+- starting-position additive main effect: `2.18%`;
+- community-realization additive main effect: `80.17%`;
+- starting-position × community-realization non-additivity: `17.64%`.
 
-The baseline `21 × 96` decomposition is:
+The earlier wording that the non-additive remainder also contained `cell-level simulation variation` was incorrect. Each community trajectory is generated once and shared across all starting positions; conditional on that trajectory each cell is deterministic. The 17.64% is therefore exact non-additivity in that fixed response matrix.
 
-- starting-position main effect: `2.18%`;
-- community-realization main effect: `80.17%`;
-- non-additive remainder: `17.64%`.
+The exact percentages are not stable population parameters. A prespecified six-seed sensitivity gives:
 
-Therefore the relevant ecological object is not a plant trait in isolation, but a plant's state **relative to the community that is actually realized**.
+- community realization `69.34–80.17%`;
+- starting-position additive effect `2.17–3.14%`;
+- non-additivity `17.64–27.91%`.
 
-### Local-context level
+The historical seed is the upper end of the community range but remains the frozen baseline; it was not replaced after inspection.
 
-Local availability / interaction filtering can change branch identity. It acts in both directions but asymmetrically: positive branches are lost more readily than negative branches are rescued throughout the non-zero tested envelope.
+Across `steps={30,60,120,240}`, community realization remains the largest component at every horizon, starting-position share ranges `0.59–4.26%`, and mixed geometry remains present (`65, 48, 41, 43` of 96). Across trait-adjustment values `0–0.06`, community realization is again largest. At adjustment `0`, mixed geometry is `64/96`, starting-position additive share is only `0.18%`, and non-additivity is `32.50%`.
 
-At filtering strength `0.40`:
+Therefore the defensible structural claim is:
+
+> **Starting state alone is a weak additive predictor, but state remains essential as a coordinate evaluated relative to the realized community. Community realization is the larger additive component and state × community non-additivity is consequential.**
+
+## 5. Mixed geometry does not require reduced initial richness
+
+A prespecified equal-richness sensitivity sets the mainland-like and island-like initial pollinator counts to `9` and `9`, retaining all other baseline differences in loss, arrival, trait dispersion, generalist fraction and replacement fraction.
+
+The result is:
+
+- mixed-sign `53/96`;
+- all-positive `31/96`;
+- all-negative `12/96`.
+
+Therefore:
+
+> **Reduced initial pollinator richness is not necessary for mixed response geometry.**
+
+Do not strengthen this to “island restructuring is unnecessary”; other scenario differences remain.
+
+## 6. Local filtering and assurance act at different levels
+
+Local availability / interaction filtering changes branch identity bidirectionally but asymmetrically. At synthetic filtering strength `0.40`:
 
 - negative → non-negative: `15.67%`;
 - positive → non-positive: `56.54%`.
 
-### Downstream propagation level
+Autonomous assurance acts downstream. Among 580 eligible declines, multipliers through `4×` yield zero sign rescues while commonly attenuating decline magnitude.
 
-Autonomous assurance changes magnitude but not sign in the tested `0.5×–4×` envelope. Among 580 eligible declines, sign rescues are `0` while magnitude attenuation is widespread.
+Hence filtering reallocates branches; assurance modifies propagation magnitude in the declared envelope.
 
-## 5. What Chapter 2 therefore explains
+## 7. World confrontation is outcome-rich but process-poor
 
-### HOW
+The 25 research entries are not 25 independent archipelagos. They establish response breadth and reveal a measurement asymmetry.
 
-```text
-pollinator turnover
-    -> functional matching / service
-        -> realized local filtering
-            -> reproduction
-```
+Direct measurements are available for:
 
-### Proximal WHY
+- response outcome: `21/25`;
+- community functional shift: `13/25`;
+- local filtering: `9/25`;
+- richness / functional-diversity change: `8/25`;
+- source functional state: `5/25`;
+- partner loss: `5/25`;
+- reproductive assurance: `5/25`;
+- partner arrival / replacement: `2/25`.
 
-```text
-turnover-dependent regime
-    × starting functional state
-    × realized community
-    + non-additivity
-    -> different response branches
-```
+This is the stronger interpretation than the naked `0/25` full-contract count. The synthetic theory says turnover balance matters, while existing island literature most rarely measures the arrival/replacement side of that balance.
 
-### Not the ultimate WHY
+The full outcome-independent plant-response contract still passes in `0/25`, so `H0–H4`, leave-one-system/archipelago-out evaluation and permutation remain `not_evaluable`. No predictor is reconstructed from observed outcome state.
 
-Chapter 2 does not explain why an island acquired a particular species pool, why a lineage began at a particular functional state, or why a regional interaction architecture formed. Those remain assembly, colonization, persistence and evolutionary-history problems.
+## 8. Why Izu matters
 
-## 6. External island systems provide breadth and falsification, not universal validation
+Izu is a focal mechanistic-resolution system, not a formal global ranking winner or validation set. It connects source floral state, mainland/source and island pollinator composition, numeric pollinator traits, interaction structure, raw realized matching and null-corrected matching.
 
-The broader programme inspected more than the 13 strict manuscript challenges. The canonical inventory is `docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md`.
-
-The intended hierarchy is:
+The defensible hierarchy is:
 
 ```text
-broader comparison universe
-    -> response-state breadth, counterexamples and source gates
-        -> 13 strict challenge systems
-            -> Izu focal mechanistic-resolution zoom
+source floral state + broad community composition
+    -> realized raw matching                         supported
+
+exact island-centre magnitudes / ordering
+    -> additional identification                    weak / non-unique
+
+signed source position
+    -> null-corrected non-random partner sorting    unsupported
 ```
 
-The 13-system set is not evidence that one response vocabulary or one mechanism was validated by `coverage`. A frozen 25-entry source-readiness audit found zero systems meeting the full outcome-independent Chapter 2 plant-response contract, so cross-system `H0`–`H4` comparison and held-out prediction are not evaluable. Retained failures such as Dominica remain failures.
+A prespecified Oshima-source bridge is also unsupported, showing that source regimes are not interchangeable.
 
-## 7. Why Izu matters
+Thus Izu increases resolution by locating the current signal at source state plus background community composition rather than treating a raw positive association as proof of within-community sorting or causal floral evolution.
 
-Izu is not treated as one exchangeable replicate among many archipelagos. It is the system where the programme can go deepest by connecting historical reproductive evidence, contemporary plant–pollinator networks, pollinator functional traits, source-native signed functional position, and prospective direct effectiveness/dependency measurements.
+## 9. Handoff to Chapter 3
 
-No pre-outcome scalar score selected Izu from the global universe: eligibility, weights and missingness rules were not frozen before the focal programme was established. Izu is therefore a transparent data-depth choice, not an outcome-independent ranking winner. Its Chapter 2 role is to separate composition-level matching structure from additional null-corrected interaction sorting. Chapter 3 phenotype is part of the dissertation handoff but is not an input to Chapter 2 system selection or validation.
-
-## 8. Handoff to Chapter 3
-
-Chapter 2 identifies the measurement contract that existing global comparisons do not jointly satisfy and that the current Izu secondary analysis only partly resolves:
+Chapter 2 identifies the measurement contract that broad comparisons do not jointly satisfy and that the current Izu secondary analysis only partly resolves:
 
 ```text
 source state
-    + community assembly
-        + realized partner sorting
-            + partner effectiveness
-                + reproductive dependency / outcome
+    + partner loss and arrival/replacement
+        + community assembly
+            + realized partner sorting
+                + partner effectiveness
+                    + reproductive dependency / outcome
 ```
 
-Chapter 3 advances to higher-resolution focal measurement in the same Izu series. No Chapter 3 phenotype is used as Chapter 2 model validation, Bombus-causation proof, pollinator-selection proof or external prediction success.
-
-## 9. Final dissertation bridge
-
-```text
-Chapter 1 — WHEN / WHERE
-Isolation-associated filtering exists, but regional response vectors differ.
-        ↓
-Chapter 2 — HOW / proximal WHY
-A common broad interaction perturbation can generate conditional response geometry
-because regime, starting state, realized community and local filtering matter.
-        ↓
-Chapter 3 — next focal measurement
-Measure the remaining phenotype, interaction-effectiveness and reproductive
-propagation contract without retroactively validating Chapter 2.
-```
+Chapter 3 advances to higher-resolution focal measurement in the same Izu series. No Chapter 3 phenotype is used as Chapter 2 validation, Bombus-causation proof, pollinator-selection proof or external prediction success.
 
 ## Claim ceiling
 
 Do not claim that:
 
 - starting position alone determines response;
-- the synthetic trait coordinate is a calibrated real floral trait;
-- `41/96`, `16/48`, filtering rates or threshold strengths are natural frequencies or field thresholds;
+- a small starting-position additive percentage means state is unimportant;
+- trait adjustment creates state dependence de novo;
+- `80.17%` is a stable population variance parameter;
+- the old `cell-level simulation variation` wording remains valid;
+- `41/96`, `53/96`, `16/48`, filtering rates or step sensitivities are natural frequencies or empirical thresholds;
+- equal initial richness removes all island-like community differences;
 - partner-loss/arrival coefficients are causal field effects;
 - assurance is a sign-rescue mechanism in the tested envelope;
-- the 13 strict systems validate a universal mechanism;
-- the 25-entry source audit constitutes formal external prediction or independent archipelago replication;
-- Izu was selected by an outcome-independent global ranking;
-- Chapter 1 regional vectors have been assigned to Chapter 2 regimes;
-- Chapter 3 phenotype proves Bombus causation, selection or Qst divergence; or
-- the model explains the historical origin of island biotas or lineage starting states.
+- the 25 entries are independent archipelago replicates or formal external prediction;
+- Izu was selected by an outcome-independent ranking;
+- raw matching establishes beyond-composition sorting;
+- Chapter 3 phenotype proves Chapter 2 mechanism; or
+- the model explains the historical origin of island biotas or source states.

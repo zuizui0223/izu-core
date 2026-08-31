@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SOURCE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 DEFAULT_OUTPUT = ROOT / "dist/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUBMISSION_CLEAN.md"
 
 FINAL_TITLE = (
@@ -33,19 +33,18 @@ INTRO_STANDALONE_PARAGRAPH = (
 )
 
 THESIS_SECTION_RE = re.compile(
-    r"\n## Chapter 2 hands a measurement contract to Chapter 3\n.*?(?=\n## Limits and decisive next measurement\n)",
+    r"\n## Chapter 2 hands a measurement contract to Chapter 3\n.*?(?=\n## Limits\n)",
     flags=re.DOTALL,
 )
 
 FORBIDDEN_SUBMISSION_TOKENS = (
     "At the dissertation scale",
     "preceding comparative chapter",
-    "## From Chapter 1 to Chapter 3",
     "Chapter 1",
     "Chapter 2",
     "Chapter 3",
     "Campanula microdonta",
-    "**Status:** active working manuscript",
+    "**Status:** active Chapter 2 scientific manuscript",
     "**Inference architecture:**",
     "**Controlling state:**",
     "## Working title",
@@ -57,15 +56,15 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
 
     working_title_block = (
         "# Response geometry under community reorganization\n\n"
-        "**Status:** active working manuscript v2 — mechanistic-funnel reconstruction; not submission-ready\n"
-        "**Updated:** 2026-08-28\n"
+        "**Status:** active Chapter 2 scientific manuscript — relational-robustness revision; submission metadata still fail-closed\n"
+        "**Updated:** 2026-08-31\n"
         "**Inference architecture:** model possibilities → world confrontation → identifiability bottleneck → focal Izu mechanistic-resolution zoom\n"
-        "**Controlling state:** `docs/CHAPTER2_CANONICAL_STORY_20260827.md`, `data/design/chapter2_active_manuscript_mainline_20260827.json`, `data/results/chapter2_scientific_gate_final_20260827.json`\n\n"
+        "**Controlling state:** `docs/CHAPTER2_CANONICAL_STORY_20260827.md`, `docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md`, `data/results/chapter2_scientific_gate_decision_frozen_20260827.json`, `data/results/chapter2_relational_robustness_audit_frozen_20260831.json`\n\n"
         "## Working title\n\n"
         f"**{FINAL_TITLE}**"
     )
     if working_title_block not in text:
-        raise ValueError("active manuscript header changed; refuse to render submission manuscript silently")
+        raise ValueError("active relational manuscript header changed; refuse silent submission rendering")
     text = text.replace(working_title_block, f"# {FINAL_TITLE}", 1)
 
     if INTRO_THESIS_PARAGRAPH not in text:
@@ -74,15 +73,14 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
 
     text, n_removed = THESIS_SECTION_RE.subn("\n", text, count=1)
     if n_removed != 1:
-        raise ValueError("thesis Chapter 1-to-3 section not found exactly once")
+        raise ValueError("thesis handoff section not found exactly once")
 
     text = text.replace(
         "the remaining effectiveness-to-reproduction contract is handed to Chapter 3 without validation claims.",
-        "the remaining effectiveness-to-reproduction contract is retained as a prospective measurement target.",
+        "the remaining effectiveness-to-reproduction contract is retained as a prospective measurement target without validation claims.",
         1,
     )
 
-    # Submission source should not expose repository-internal reference routing instructions.
     text = re.sub(
         r"\n## References\n\nUse the source-audited active reference ledger in `[^`]+`\. "
         r"Hiraiwa & Ushimaru \(2017, 2024\) are the empirical sources for the Izu triangulation\. "
@@ -96,12 +94,19 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         if token.lower() in text.lower():
             raise ValueError(f"submission manuscript still contains internal token: {token}")
 
-    if "null-corrected matching" not in text.lower():
-        raise ValueError("Izu structural negative control disappeared from submission manuscript")
-    if "80.17%" not in text:
-        raise ValueError("community-realization diagnostic disappeared from submission manuscript")
-    if "41" not in text or "96" not in text:
-        raise ValueError("baseline response-geometry counts disappeared from submission manuscript")
+    lower = text.lower()
+    required = (
+        "response direction is therefore relational rather than intrinsic",
+        "53/96",
+        "partner arrival/replacement",
+        "null-corrected matching",
+        "prespecified oshima-source bridge was unsupported",
+    )
+    missing = [token for token in required if token not in lower]
+    if missing:
+        raise ValueError(f"relational manuscript claim(s) disappeared from submission render: {missing}")
+    if "cell-level simulation variation" in lower:
+        raise ValueError("superseded nonadditivity wording survived submission render")
 
     return text.rstrip() + "\n"
 

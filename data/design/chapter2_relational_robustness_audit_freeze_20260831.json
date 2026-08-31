@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-08-31",
+  "status": "fixed_before_execution",
+  "purpose": "Audit structural constants and interpretation boundaries that can affect the magnitude but should not be allowed to redefine the frozen Chapter 2 conclusion after inspection.",
+  "parent_main_commit": "fce7dcfe0fd10e38d6c627d71de3f00f8ef4d946",
+  "audit_script": "scripts/audit_chapter2_relational_robustness.py",
+  "baseline": {
+    "seed": 20260826,
+    "matched_community_realizations": 96,
+    "trait_grid": "scripts/run_response_geometry_parameter_robustness.py:TRAIT_GRID",
+    "config": "scripts/run_response_geometry_parameter_robustness.py:BASE"
+  },
+  "structural_horizon": {
+    "steps": [30, 60, 120, 240],
+    "claim_test": [
+      "mixed response geometry remains possible",
+      "starting-position additive main effect is not promoted as a stable magnitude",
+      "component ordering is reported rather than tuned"
+    ]
+  },
+  "trait_adjustment_context": {
+    "values": [0.0, 0.01, 0.03, 0.06],
+    "claim_test": "Trait adjustment may change the additive versus non-additive partition but must not be described as creating state dependence if mixed geometry persists at zero adjustment."
+  },
+  "seed_ensemble": {
+    "values": [20260826, 20250101, 20260833, 20260827, 999983, 12345],
+    "claim_test": "Exact variance-share magnitudes are ensemble dependent; report ordering and ranges, with 20260826 retained as the historically frozen baseline rather than reselected."
+  },
+  "equal_richness": {
+    "mainland_initial_pollinator_types": 9,
+    "island_initial_pollinator_types": 9,
+    "all_other_baseline_scenario_differences_retained": true,
+    "claim_test": "A mixed-sign result supports only that pollinator richness reduction is not necessary for mixed response geometry, not that all island-specific restructuring is unnecessary."
+  },
+  "external_measurement_asymmetry": {
+    "source": "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
+    "availability_level": "direct_measurement",
+    "columns": [
+      "source_functional_state",
+      "partner_loss",
+      "partner_arrival_replacement",
+      "community_functional_shift",
+      "richness_fd_change",
+      "local_filtering",
+      "reproductive_assurance",
+      "response_outcome"
+    ]
+  },
+  "prohibited": [
+    "selecting a new seed because it strengthens a headline magnitude",
+    "interpreting structural-horizon sensitivity as a natural time scale",
+    "claiming equal richness removes all island-specific differences",
+    "using the audit to reopen external prediction or Chapter 3 validation",
+    "changing the historical frozen 20260827 input files to repair wording"
+  ]
+}

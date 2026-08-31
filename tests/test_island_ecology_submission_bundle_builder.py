@@ -8,8 +8,9 @@ import scripts.build_island_ecology_submission_bundle as bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
-SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT = "MANUSCRIPT.md"
+SUBMISSION_SI = "SUPPORTING_INFORMATION.md"
 
 
 def completed_metadata() -> dict:
@@ -77,11 +78,18 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
 
 
 def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_path: Path, monkeypatch):
-    monkeypatch.setattr(bundle, "build_figures", lambda: {"figure_outputs": []})
+    relational_inputs = tmp_path / "chapter2_manuscript_figure_inputs_relational_20260831.json"
+
+    def fake_build_figures() -> dict:
+        relational_inputs.write_text(json.dumps({"status": "test-generated"}), encoding="utf-8")
+        return {"figure_outputs": []}
+
+    monkeypatch.setattr(bundle, "RELATIONAL_FIGURE_INPUTS", relational_inputs)
+    monkeypatch.setattr(bundle, "build_figures", fake_build_figures)
 
     def fake_review_archive(path: Path) -> Path:
         with zipfile.ZipFile(path, "w") as archive:
-            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous conditional-response review archive\n")
+            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous relational-response review archive\n")
         return path
 
     monkeypatch.setattr(bundle, "build_review_archive", fake_review_archive)
@@ -97,7 +105,10 @@ def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_
         assert "anonymous_review_archive.zip" in names
         assert "SUBMISSION_BUNDLE_MANIFEST.json" in names
         assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
+        assert "data/results/chapter2_relational_robustness_audit_frozen_20260831.json" in names
+        assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in names
         assert SUBMISSION_MANUSCRIPT in names
+        assert SUBMISSION_SI in names
         assert SOURCE_MANUSCRIPT not in names
         title = archive.read("TITLE_PAGE.md").decode("utf-8")
         cover = archive.read("COVER_LETTER.md").decode("utf-8")
@@ -108,6 +119,8 @@ def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_
         assert "Significance statement — Oikos" in significance
         manuscript = archive.read(SUBMISSION_MANUSCRIPT).decode("utf-8")
         lower = manuscript.lower()
+        assert "response direction is therefore relational rather than intrinsic" in lower
+        assert "53/96" in manuscript
         assert "null-corrected matching" in lower
         assert "mechanistic resolution" in lower
         assert "dissertation" not in lower
@@ -115,14 +128,23 @@ def test_submission_bundle_routes_oikos_clean_manuscript_after_gate_closure(tmp_
         assert "chapter 2" not in lower
         assert "chapter 3" not in lower
         assert "campanula microdonta" not in lower
+        supporting = archive.read(SUBMISSION_SI).decode("utf-8")
+        support_lower = supporting.lower()
+        assert "69.34–80.17%" in supporting
+        assert "partner arrival/replacement `2/25`" in supporting
+        assert "cell-level simulation variation" not in support_lower
+        assert "chapter 3" not in support_lower
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
         assert manifest["journal"] == "Oikos"
         assert manifest["article_type"] == "Research Paper"
-        assert manifest["scientific_state"] == "model_gate_closed_mechanistic_response_geometry_with_world_identifiability_and_izu_resolution"
-        assert manifest["manuscript_state"] == "active_v2_source_rendered_to_oikos_clean_submission"
+        assert manifest["scientific_state"] == "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution"
+        assert manifest["manuscript_state"] == "active_20260831_relational_source_rendered_to_oikos_clean_submission"
         assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
         assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
+        assert manifest["submission_supporting_information"] == SUBMISSION_SI
+        assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in manifest["files"]
         assert manifest["oikos_significance_statement_included"] is True
         assert manifest["oikos_data_code_ready_for_first_submission"] is True
         assert manifest["submission_manuscript_internal_thesis_language_removed_fail_closed"] is True
-        assert manifest["figures_regenerated_fail_closed"] is True
+        assert manifest["supporting_information_superseded_nonadditivity_wording_removed_fail_closed"] is True
+        assert manifest["figures_regenerated_from_frozen_gate_then_relational_overlay"] is True

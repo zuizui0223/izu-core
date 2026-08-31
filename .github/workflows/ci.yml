@@ -23,6 +23,16 @@ jobs:
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
           test ${PIPESTATUS[0]} -eq 0
+      - name: Run Chapter 2 relational robustness audit
+        if: matrix.python-version == '3.11'
+        run: python -m scripts.audit_chapter2_relational_robustness --out data/results/chapter2_relational_robustness_audit_frozen_20260831.json
+      - name: Upload Chapter 2 relational robustness audit
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-relational-robustness-audit
+          path: data/results/chapter2_relational_robustness_audit_frozen_20260831.json
+          if-no-files-found: error
       - name: Upload pytest reports on failure
         if: failure()
         uses: actions/upload-artifact@v4

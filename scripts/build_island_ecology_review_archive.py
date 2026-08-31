@@ -7,26 +7,27 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from scripts.generate_chapter2_manuscript_figures import build_figures
+from scripts.generate_chapter2_manuscript_figures_relational import build_figures
+from scripts.render_chapter2_supporting_information import render_to_path as render_si_to_path
 from scripts.render_island_ecology_submission_manuscript import render_to_path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_anonymous_review_archive.zip"
-SOURCE_MANUSCRIPT = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md"
+SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 ANONYMOUS_MANUSCRIPT_NAME = "MANUSCRIPT.md"
+ANONYMOUS_SI_NAME = "SUPPORTING_INFORMATION.md"
 
 CORE_REVIEW_FILES = (
-    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
     "docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md",
+    "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
     "docs/CHAPTER2_SCIENTIFIC_GATE_RUN_20260827.md",
     "docs/CHAPTER2_CONDITIONAL_WHY_DIAGNOSTICS_20260827.md",
     "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md",
     "docs/CHAPTER2_EXTERNAL_PREDICTION_UPGRADE_AUDIT_20260828.md",
-    "docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md",
     "docs/IZU_POLLINATOR_PROBOSCIS_RECOVERY.md",
     "docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md",
     "docs/IZU_SIGNED_POSITION_STRUCTURAL_AUDIT_20260827.md",
@@ -35,6 +36,7 @@ CORE_REVIEW_FILES = (
     "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json",
     "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
     "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
+    "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
     "data/design/manuscript_reassessment_gate_20260826.json",
     "data/design/island_syndrome_literature_claim_matrix_20260824.json",
     "data/design/izu_pollinator_proboscis_recovery_status.json",
@@ -46,8 +48,11 @@ CORE_REVIEW_FILES = (
     "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
     "data/results/chapter2_external_prediction_readiness_frozen_20260828.json",
     "data/results/chapter2_interaction_kernel_audit_frozen_20260828.json",
+    "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
     "scripts/audit_chapter2_interaction_kernel.py",
+    "scripts/audit_chapter2_relational_robustness.py",
     "scripts/generate_chapter2_manuscript_figures.py",
+    "scripts/generate_chapter2_manuscript_figures_relational.py",
     "scripts/generate_chapter2_manuscript_tables.py",
     "scripts/run_response_geometry_realization_stability.py",
     "scripts/run_joint_response_transition_surface.py",
@@ -101,24 +106,39 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
     core_records = validate_files(CORE_REVIEW_FILES, deny_tokens)
     figure_payload = build_figures()
     figure_files = tuple(figure_payload["figure_outputs"])
-    generated_files = figure_files + ("data/results/chapter2_manuscript_figure_inputs_20260827.json",)
+    generated_files = figure_files + (
+        "data/results/chapter2_manuscript_figure_inputs_20260827.json",
+        "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json",
+    )
     generated_records = validate_files(generated_files, deny_tokens)
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
         manuscript = tmp / ANONYMOUS_MANUSCRIPT_NAME
+        supporting_information = tmp / ANONYMOUS_SI_NAME
         render_to_path(manuscript)
-        denied = find_denied_tokens(manuscript, deny_tokens)
-        if denied:
-            raise ValueError(f"author-identifying token(s) {denied!r} found in rendered anonymous manuscript")
+        render_si_to_path(supporting_information)
+        for generated in (manuscript, supporting_information):
+            denied = find_denied_tokens(generated, deny_tokens)
+            if denied:
+                raise ValueError(f"author-identifying token(s) {denied!r} found in rendered anonymous file {generated.name}")
+        if "cell-level simulation variation" in supporting_information.read_text(encoding="utf-8").lower():
+            raise ValueError("superseded nonadditivity wording survived anonymous Supporting Information")
+
         manuscript_record = {
             "path": ANONYMOUS_MANUSCRIPT_NAME,
             "source": SOURCE_MANUSCRIPT,
             "sha256": sha256(manuscript),
             "size_bytes": manuscript.stat().st_size,
         }
-        records = [manuscript_record, *core_records, *generated_records]
+        si_record = {
+            "path": ANONYMOUS_SI_NAME,
+            "source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md + relational correction renderer",
+            "sha256": sha256(supporting_information),
+            "size_bytes": supporting_information.stat().st_size,
+        }
+        records = [manuscript_record, si_record, *core_records, *generated_records]
 
         manifest = {
             "archive_role": "double_anonymous_peer_review",
@@ -128,9 +148,12 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "title_page_included": False,
             "scientific_source_manuscript": SOURCE_MANUSCRIPT,
             "review_manuscript": ANONYMOUS_MANUSCRIPT_NAME,
+            "review_supporting_information": ANONYMOUS_SI_NAME,
             "review_manuscript_internal_thesis_language_removed_fail_closed": True,
-            "scientific_state": "mechanistic_response_geometry_funnel_with_world_identifiability_and_izu_resolution_zoom",
-            "figures_regenerated_fail_closed": True,
+            "supporting_information_superseded_nonadditivity_wording_removed_fail_closed": True,
+            "scientific_state": "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution",
+            "frozen_figures_regenerated_then_relational_overlay": True,
+            "relational_robustness_audit_included": True,
             "interaction_kernel_identity_audit_included": True,
             "izu_source_gate_included": True,
             "izu_structural_audit_included": True,
@@ -140,21 +163,19 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "deny_tokens_checked": list(deny_tokens),
             "files": records,
             "claim_boundary": (
-                "The archive reproduces the frozen synthetic response-geometry, exact interaction-kernel identity, joint-regime, "
-                "local-context, assurance and conditional-WHY diagnostics and contains the source-locked Izu resolution analysis plus structural audit. "
-                "The journal-facing manuscript is rendered from the scientific v2 source while removing dissertation/chapter-routing language only. "
-                "World confrontation establishes response diversity and a joint-measurement bottleneck rather than validation. "
-                "The Izu manuscript claim remains at the source-state/community-composition level: raw realized matching is structured, "
-                "whereas the source-paper null-corrected matching response is unsupported. External island evidence remains comparative "
-                "grounding and does not constitute cross-system mechanism validation. The frozen 25-entry readiness audit found no full "
-                "outcome-independent external-prediction contract, so H0-H4 comparison and held-out prediction remain not evaluable rather than "
-                "being fitted after source repair."
+                "The archive preserves the historical freeze chain while adding a prespecified relational-robustness audit. The old statement that "
+                "the non-additive remainder includes cell-level simulation variation is superseded: response-matrix cells are deterministic conditional "
+                "on each shared community trajectory, so the residual is starting-state x community-realization nonadditivity in the fixed matrix. "
+                "Exact variance shares are ensemble-dependent; component ordering and relational state-versus-community structure are the headline. "
+                "Equal initial richness establishes only that richness reduction is not necessary for mixed geometry. World confrontation is reported as "
+                "an outcome-rich/process-poor measurement audit, and Izu remains bounded at source-state/community-composition resolution."
             ),
         }
-        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous peer review of the response-geometry Research Paper.\n\nThe manuscript is rendered from the frozen v2 scientific source into a journal-facing form that removes dissertation-internal chapter routing while preserving all scientific results and claim boundaries. The paper follows a mechanistic-resolution funnel: the synthetic model defines possible response geometry; world confrontation establishes response diversity; the source audit exposes a joint-measurement bottleneck; and the focal Izu analysis separates source-state/community-composition structure from unsupported null-corrected sorting. The exact interaction-kernel representation is checked by a deterministic code-identity audit that contains no new scientific simulation. The archive contains the Izu empirical appendix, source gate, recovery state, triangulation code and structural audit so that the empirical claim ceiling is reviewable. Source-acquisition helper scripts that contain repository-account identifiers are intentionally excluded; their source locks and recovery state are represented by the included machine-readable gates and audit documents. The paper does not treat Izu as validation of synthetic thresholds or as evidence for causal pollinator selection.\n\nA separate frozen source-readiness audit covers 25 research entries while preserving geographic overlap and source gates. None met the full outcome-independent plant-response contract, so cross-system H0-H4 comparison and held-out prediction are recorded as not evaluable. No missing predictor was reconstructed from a known response category.\n\nThe figure builder recomputes the response geometry and joint parameter surface and refuses to continue if the regenerated regime counts differ from the frozen scientific gate. The conditional-WHY diagnostics reuse the same fixed points, seeds, realization counts and filtering strengths and fail closed against the frozen counts. Synthetic coefficients, variance shares, frequencies and thresholds are design diagnostics, not causal field effects, ecological prevalence or empirically calibrated thresholds. The data and custom analysis code in this archive are prepared for reviewer inspection at first submission.\n"""
+        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the response-geometry Research Paper.\n\nThe historical Chapter 2 freeze chain is retained unchanged. A prespecified 2026-08-31 relational-robustness audit tests seed ensemble, model horizon, trait adjustment and equal initial pollinator richness without selecting a new baseline after inspection. The active inference is structural: response direction is relational, starting state alone is a weak additive predictor, realized community remains the larger additive component across the audited sensitivities, and state-by-community non-additivity is consequential. The old within-cell-simulation-noise interpretation is removed from the rendered Supporting Information because each response cell is deterministic conditional on its shared community trajectory.\n\nThe world audit is presented as measurement availability rather than prediction success: response outcomes are directly measured in 21/25 entries but partner arrival/replacement in only 2/25, and no entry meets the full joint outcome-independent contract. The Izu analysis retains the raw-positive/null-corrected-negative boundary and the unsupported prespecified Oshima-source bridge. No missing predictor is reconstructed from known outcomes and no Chapter 3 result is used as validation.\n\nThe original frozen figure builder still regenerates and checks the historical scientific gate before the Oikos relational overlay rewrites the main communication panels. Data and custom analysis code are prepared for reviewer inspection at first submission.\n"""
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=ANONYMOUS_MANUSCRIPT_NAME)
+            archive.write(supporting_information, arcname=ANONYMOUS_SI_NAME)
             for record in [*core_records, *generated_records]:
                 archive.write(ROOT / record["path"], arcname=record["path"])
             archive.writestr("REVIEW_ARCHIVE_MANIFEST.json", json.dumps(manifest, indent=2, sort_keys=True) + "\n")

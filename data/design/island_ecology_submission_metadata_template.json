@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "journal": "Oikos",
   "article_type": "Research Paper",
   "manuscript_title": "Response geometry under community reorganization: from ecological possibility to mechanistic resolution in island plant–pollinator systems",
@@ -11,11 +11,11 @@
     "response geometry",
     "source state",
     "realized community",
+    "state-by-community interaction",
     "identifiability",
-    "Izu Islands",
-    "reproductive assurance"
+    "Izu Islands"
   ],
-  "significance_statement": "Ecological perturbations are often summarized by average effects even when organisms exposed to the same broad change respond in opposite directions. We show that community reorganization defines a conditional response geometry in which turnover sets the response regime, starting state locates organisms within that geometry, realized community strongly determines cell-level outcomes, local filtering can reallocate response branches, and downstream assurance mainly modifies magnitude. A source-audited confrontation with island systems then identifies the joint measurements required to distinguish these mechanisms, while an Izu deep dive separates composition-level matching structure from unsupported beyond-composition sorting. The framework therefore turns heterogeneous responses from an exception to be averaged away into an ecological object that can be mechanistically decomposed and tested.",
+  "significance_statement": "Ecological perturbations are often summarized by average effects even when response direction changes among organismal states and realized communities. We show that response direction is relational rather than intrinsic: turnover reshapes the response geometry, starting state is evaluated against the community actually realized, local filtering can reallocate branches, and downstream assurance mainly modifies magnitude. Prespecified seed, time-horizon and trait-adjustment sensitivities preserve the structural ordering, while mixed geometry persists when initial pollinator richness is equalized. A source audit then shows an outcome-rich but process-poor literature, especially for partner arrival/replacement, and an Izu analysis localizes the current empirical signal to source state plus background community composition rather than beyond-composition sorting.",
   "authors": [],
   "corresponding_author_index": null,
   "acknowledgements": null,
@@ -23,7 +23,7 @@
   "author_contributions": null,
   "inclusion_statement": null,
   "conflict_of_interest": null,
-  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, a frozen 25-entry source-readiness audit and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, exact interaction-kernel identity audit, frozen response-geometry and threshold results, deterministic figure inputs, external source-readiness records, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous review archive; before final publication, accepted code and frozen analysis materials will be deposited in an immutable versioned public archive with a persistent DOI.",
+  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, a prespecified relational-robustness audit, a frozen 25-entry source-readiness audit and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, corrected Supporting Information, exact interaction-kernel identity audit, frozen response-geometry and threshold results, seed/horizon/trait-adjustment/equal-richness sensitivities, deterministic figure inputs, external source-readiness records, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous review archive; before final publication, accepted code and frozen analysis materials will be deposited in an immutable versioned public archive with a persistent DOI.",
   "submission_declarations": {
     "not_published_or_under_consideration_elsewhere": null,
     "all_authors_approve_submission": null,
@@ -37,6 +37,7 @@
     "Populate only from author-supplied or explicitly source-locked metadata.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
     "Oikos initial submission uses double-blind review and requires a significance statement plus data/code readiness; these scientific submission fields are populated from the frozen Chapter 2 evidence, while identity-bearing fields remain fail-closed.",
-    "Journal of Ecology remains the documented fallback route in the journal-fit audit and historical submission manifest."
+    "The historical 80.17/17.64/2.18% baseline remains one reproducible design instance; the active headline is relational component ordering and state-by-community nonadditivity, not one stable magnitude.",
+    "Journal of Ecology remains the documented fallback route."
   ]
 }
