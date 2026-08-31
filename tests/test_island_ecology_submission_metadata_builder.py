@@ -47,8 +47,10 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     assert "izu islands" in keywords
     assert "agent-based model" not in keywords
     assert "conditional response geometry" in metadata["significance_statement"]
-    assert "source-locked secondary analysis of published Izu plant–pollinator data" in metadata["data_availability"]
-    assert "reviewer inspection at first submission" in metadata["data_availability"]
+    data_availability = metadata["data_availability"].lower()
+    assert "source-locked secondary analysis of published izu plant–pollinator data" in data_availability
+    assert "prepared for first submission" in data_availability
+    assert "anonymous review archive" in data_availability
 
 
 def test_template_fails_closed_without_author_supplied_metadata():
