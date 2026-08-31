@@ -24,7 +24,11 @@ def test_renderer_removes_internal_thesis_routing_and_preserves_science():
     assert "partner arrival/replacement" in lower
     assert "null-corrected matching" in lower
     assert "non-random partner sorting" in lower
-    assert "prespecified oshima-source bridge was unsupported" in lower
+    assert "prespecified oshima-source bridge was unsupported (supporting information)" in lower
+    assert "(appendix)" not in lower
+    assert "fig. s" not in lower
+    assert "figure s" not in lower
+    assert "appendix s" not in lower
     assert "cell-level simulation variation" not in lower
     assert "Izu Islands" in text
 
@@ -56,4 +60,17 @@ def test_renderer_fails_closed_if_thesis_bridge_contract_changes(tmp_path: Path)
     source = SOURCE.read_text(encoding="utf-8")
     broken.write_text(source.replace("That audit motivates, rather than competes with", "That comparison motivates", 1), encoding="utf-8")
     with pytest.raises(ValueError, match="Introduction bridge changed"):
+        render_submission_manuscript(broken)
+
+
+def test_renderer_fails_closed_on_new_specific_supporting_information_reference(tmp_path: Path):
+    broken = tmp_path / "broken.md"
+    source = SOURCE.read_text(encoding="utf-8")
+    source = source.replace(
+        "The prespecified Oshima-source bridge was unsupported (Appendix),",
+        "The prespecified Oshima-source bridge was unsupported (Appendix), see Fig. S9,",
+        1,
+    )
+    broken.write_text(source, encoding="utf-8")
+    with pytest.raises(ValueError, match="specific Supporting information reference"):
         render_submission_manuscript(broken)
