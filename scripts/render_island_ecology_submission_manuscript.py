@@ -50,6 +50,13 @@ FORBIDDEN_SUBMISSION_TOKENS = (
     "## Working title",
 )
 
+SPECIFIC_SI_REFERENCE_TOKENS = (
+    "(Appendix)",
+    "Fig. S",
+    "Figure S",
+    "Appendix S",
+)
+
 
 def render_submission_manuscript(source: Path = SOURCE) -> str:
     text = source.read_text(encoding="utf-8")
@@ -81,6 +88,14 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         1,
     )
 
+    # Oikos requires generic main-text references to Supporting information rather than
+    # subsection- or appendix-specific references.
+    text = text.replace(
+        "The prespecified Oshima-source bridge was unsupported (Appendix),",
+        "The prespecified Oshima-source bridge was unsupported (Supporting information),",
+        1,
+    )
+
     text = re.sub(
         r"\n## References\n\nUse the source-audited active reference ledger in `[^`]+`\. "
         r"Hiraiwa & Ushimaru \(2017, 2024\) are the empirical sources for the Izu triangulation\. "
@@ -93,6 +108,9 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     for token in FORBIDDEN_SUBMISSION_TOKENS:
         if token.lower() in text.lower():
             raise ValueError(f"submission manuscript still contains internal token: {token}")
+    for token in SPECIFIC_SI_REFERENCE_TOKENS:
+        if token.lower() in text.lower():
+            raise ValueError(f"submission manuscript contains a specific Supporting information reference: {token}")
 
     lower = text.lower()
     required = (
@@ -100,7 +118,7 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         "53/96",
         "partner arrival/replacement",
         "null-corrected matching",
-        "prespecified oshima-source bridge was unsupported",
+        "prespecified oshima-source bridge was unsupported (supporting information)",
     )
     missing = [token for token in required if token not in lower]
     if missing:
