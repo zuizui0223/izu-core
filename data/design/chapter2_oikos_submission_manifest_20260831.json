@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "updated_on": "2026-08-31",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
@@ -7,8 +7,8 @@
   "fallback_route": "Journal of Ecology Research Article",
   "journal_fit_audit": "docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md",
   "submission_checklist": "docs/CHAPTER2_OIKOS_SUBMISSION_CHECKLIST_20260831.md",
-  "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE.md",
-  "scientific_source_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
+  "active_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
+  "journal_clean_renderer": "scripts/render_island_ecology_submission_manuscript.py",
   "submission_metadata": "data/design/island_ecology_submission_metadata_template.json",
   "submission_builder": "scripts/build_island_ecology_submission_bundle.py",
   "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
