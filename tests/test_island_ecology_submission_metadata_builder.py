@@ -41,16 +41,23 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     metadata = load_metadata(TEMPLATE)
     assert metadata["journal"] == "Oikos"
     assert metadata["article_type"] == "Research Paper"
+    assert metadata["schema_version"] == "1.5"
     assert metadata["manuscript_title"] == FINAL_TITLE
     keywords = {value.lower() for value in metadata["keywords"]}
     assert "source state" in keywords
+    assert "realized community" in keywords
+    assert "state-by-community interaction" in keywords
     assert "izu islands" in keywords
     assert "agent-based model" not in keywords
-    assert "conditional response geometry" in metadata["significance_statement"]
+    significance = metadata["significance_statement"].lower()
+    assert "response direction is relational rather than intrinsic" in significance
+    assert "partner arrival/replacement" in significance
+    assert "initial pollinator richness is equalized" in significance
     data_availability = metadata["data_availability"].lower()
     assert "source-locked secondary analysis of published izu plant–pollinator data" in data_availability
+    assert "relational-robustness audit" in data_availability
     assert "prepared for first submission" in data_availability
-    assert "anonymous review archive" in data_availability
+    assert "anonymous reviewer archive" in data_availability
 
 
 def test_template_fails_closed_without_author_supplied_metadata():
