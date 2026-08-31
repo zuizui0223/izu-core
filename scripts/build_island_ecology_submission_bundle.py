@@ -26,6 +26,7 @@ SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.md"
 SUBMISSION_SI_NAME = "SUPPORTING_INFORMATION.md"
 ACTIVE_SUBMISSION_MANIFEST = "data/design/chapter2_oikos_submission_manifest_20260831.json"
+RELATIONAL_FIGURE_INPUTS = ROOT / "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
 
 STATIC_SUBMISSION_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
@@ -73,6 +74,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     for rel in figure_files:
         if not (ROOT / rel).exists():
             raise FileNotFoundError(rel)
+    if not RELATIONAL_FIGURE_INPUTS.exists():
+        raise FileNotFoundError(RELATIONAL_FIGURE_INPUTS)
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp_name:
@@ -133,10 +136,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 archive.write(ROOT / rel, arcname=rel)
             for rel in figure_files:
                 archive.write(ROOT / rel, arcname=rel)
-            relational_inputs = ROOT / "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
-            if not relational_inputs.exists():
-                raise FileNotFoundError(relational_inputs)
-            archive.write(relational_inputs, arcname=str(relational_inputs.relative_to(ROOT)))
+            archive.write(RELATIONAL_FIGURE_INPUTS, arcname=str(RELATIONAL_FIGURE_INPUTS.relative_to(ROOT)))
             archive.write(title_page, arcname=title_page.name)
             archive.write(cover_letter, arcname=cover_letter.name)
             archive.write(significance, arcname=significance.name)
