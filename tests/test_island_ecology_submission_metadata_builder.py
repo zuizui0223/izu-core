@@ -13,6 +13,7 @@ from scripts.render_island_ecology_submission_manuscript import FINAL_TITLE
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 CHECKLIST = ROOT / "docs/ISLAND_ECOLOGY_SUBMISSION_METADATA_CHECKLIST_20260825.md"
+OIKOS_CHECKLIST = ROOT / "docs/CHAPTER2_OIKOS_SUBMISSION_CHECKLIST_20260831.md"
 
 
 def complete_metadata() -> dict:
@@ -68,6 +69,8 @@ def test_template_fails_closed_without_author_supplied_metadata():
     assert any("corresponding_author_index" in error for error in errors)
     assert any("author_contributions" in error for error in errors)
     assert any("conflict_of_interest" in error for error in errors)
+    assert not any("significance_statement" in error for error in errors)
+    assert not any("data_availability" in error for error in errors)
 
 
 def test_complete_metadata_renders_oikos_identity_and_significance_files():
@@ -88,6 +91,14 @@ def test_complete_metadata_renders_oikos_identity_and_significance_files():
     assert "publication in *Oikos*" in cover_letter
     assert "Example Author" in cover_letter
     assert "not under consideration elsewhere" in cover_letter
+    lower_cover = cover_letter.lower()
+    assert "state–community relationship" in lower_cover
+    assert "response direction can be relational" in lower_cover
+    assert "partner arrival/replacement" in lower_cover
+    assert "21 of 25" in lower_cover and "2 of 25" in lower_cover
+    assert "initial pollinator richness was equalized" in lower_cover
+    assert "80.17%" not in cover_letter
+    assert "realized community dominates cell-level outcomes" not in lower_cover
     assert "Significance statement — Oikos" in significance
     assert metadata["significance_statement"] in significance
 
@@ -123,3 +134,14 @@ def test_checklist_places_author_metadata_after_closed_scientific_gate():
     assert "final author order and affiliations" in lower
     assert "final bundle" in lower
     assert "will raise an error until all required metadata and declarations are supplied" in lower
+
+
+def test_oikos_checklist_uses_relational_not_single_magnitude_story():
+    text = OIKOS_CHECKLIST.read_text(encoding="utf-8")
+    lower = text.lower()
+    assert "process-measurement bottleneck" in lower
+    assert "response direction is relational rather than intrinsic" in lower
+    assert "exact baseline variance shares are finite-ensemble diagnostics" in lower
+    assert "21/25" in text and "2/25" in text
+    assert "prespecified Oshima-source bridge is unsupported" in text
+    assert "relationally aligned cover letter" in lower
