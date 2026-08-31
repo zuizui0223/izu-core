@@ -15,7 +15,6 @@ REQUIRED_AUTHOR_FIELDS = ("full_name", "affiliations")
 REQUIRED_TOP_LEVEL_TEXT = (
     "significance_statement",
     "significance_prior_work_context",
-    "author_contributions",
     "inclusion_statement",
     "conflict_of_interest",
     "ethics_statement",
@@ -127,7 +126,10 @@ def render_submission_statements(metadata: dict) -> str:
     errors = validate_metadata(metadata)
     if errors:
         raise ValueError("submission metadata incomplete:\n- " + "\n- ".join(errors))
-    return f"""# Submission statements — {metadata['journal']}\n\n## Data archiving statement\n\n{render_data_archiving_statement(metadata)}\n## Conflict of interest\n\n{metadata['conflict_of_interest']}\n\n## Ethics statement\n\n{metadata['ethics_statement']}\n\n## Funding\n\n{metadata['funding']}\n\n## Acknowledgements\n\n{metadata['acknowledgements']}\n\n## Inclusion / EDI statement\n\n{metadata['inclusion_statement']}\n\n## Author contributions\n\n{metadata['author_contributions']}\n"""
+    contributions = metadata.get("author_contributions")
+    if not isinstance(contributions, str) or not contributions.strip():
+        contributions = "CRediT roles will be supplied if a revised submission is invited, as required by Oikos."
+    return f"""# Submission statements — {metadata['journal']}\n\n## Data archiving statement\n\n{render_data_archiving_statement(metadata)}\n## Conflict of interest\n\n{metadata['conflict_of_interest']}\n\n## Ethics statement\n\n{metadata['ethics_statement']}\n\n## Funding\n\n{metadata['funding']}\n\n## Acknowledgements\n\n{metadata['acknowledgements']}\n\n## Inclusion / EDI statement\n\n{metadata['inclusion_statement']}\n\n## Author contributions\n\n{contributions}\n"""
 
 
 def render_cover_letter(metadata: dict) -> str:

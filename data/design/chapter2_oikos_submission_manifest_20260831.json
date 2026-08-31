@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "updated_on": "2026-08-31",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
@@ -68,6 +68,8 @@
     "planned_public_repository_must_be_named": true,
     "conflict_of_interest_required": true,
     "ethics_statement_ready": true,
+    "credit_required_at_initial_submission": false,
+    "credit_required_at_revision": true,
     "data_and_code_ready_for_first_submission": true,
     "old_within_cell_noise_wording_blocked_from_submission_si": true
   },
@@ -80,7 +82,6 @@
     "planned_public_repository",
     "significance_prior_work_context",
     "acknowledgements_and_funding",
-    "author_contributions",
     "inclusion_statement",
     "conflict_of_interest",
     "review_ethics_statement_for_accuracy",

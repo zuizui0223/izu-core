@@ -66,11 +66,12 @@ Populate the metadata template with one consolidated block containing:
 4. the **named public repository** planned for accepted data/code archiving;
 5. a short **Significance prior-work context** explaining how this manuscript builds on relevant work by the submitting authors/coauthors cited in the paper and on other published work;
 6. acknowledgements and funding, explicitly using `None` where applicable;
-7. author contributions (kept ready even though Oikos does not require CRediT at initial submission);
-8. inclusion / EDI statement;
-9. conflict-of-interest statement;
-10. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals;
-11. explicit submission-declaration booleans.
+7. inclusion / EDI statement;
+8. conflict-of-interest statement;
+9. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals;
+10. explicit submission-declaration booleans.
+
+**CRediT / author-contribution roles are not an initial-submission blocker.** Oikos requires CRediT for revised submissions; if no contribution statement is supplied now, the submission statements explicitly defer CRediT to revision.
 
 These values are intentionally not inferred from repository history.
 

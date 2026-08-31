@@ -36,7 +36,6 @@ def complete_metadata() -> dict:
     metadata["planned_public_repository"] = "Dryad Digital Repository"
     metadata["acknowledgements"] = "None"
     metadata["funding"] = "None"
-    metadata["author_contributions"] = "Example Author conceived the study, performed the analyses and wrote the manuscript."
     metadata["inclusion_statement"] = "This study used secondary literature and simulation data and involved no new local field data collection."
     metadata["conflict_of_interest"] = "The author declares no conflict of interest."
     for key in metadata["submission_declarations"]:
@@ -70,7 +69,7 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     assert "anonymous reviewer archive" in data_availability
 
 
-def test_template_fails_closed_on_author_repository_and_prior_work_inputs_only():
+def test_template_fails_closed_on_initial_submission_inputs_only():
     metadata = load_metadata(TEMPLATE)
     errors = validate_metadata(metadata)
     assert errors
@@ -78,8 +77,8 @@ def test_template_fails_closed_on_author_repository_and_prior_work_inputs_only()
     assert any("corresponding_author_index" in error for error in errors)
     assert any("significance_prior_work_context" in error for error in errors)
     assert any("planned_public_repository" in error for error in errors)
-    assert any("author_contributions" in error for error in errors)
     assert any("conflict_of_interest" in error for error in errors)
+    assert not any("author_contributions" in error for error in errors)
     assert not any("significance_statement" == error.split(" requires", 1)[0] for error in errors)
     assert not any("data_availability" == error.split(" requires", 1)[0] for error in errors)
     assert not any("ethics_statement" == error.split(" requires", 1)[0] for error in errors)
@@ -97,8 +96,6 @@ def test_complete_metadata_renders_oikos_identity_significance_and_statement_fil
     assert "Example Author" in title_page
     assert "Example Institute" in title_page
     assert "ORCID: 0000-0000-0000-0000" in title_page
-    assert "## Author contributions" not in title_page
-    assert "## Conflict of interest" not in title_page
     assert FINAL_TITLE in title_page
     assert FINAL_TITLE in cover_letter
     assert "publication in *Oikos*" in cover_letter
@@ -119,6 +116,15 @@ def test_complete_metadata_renders_oikos_identity_significance_and_statement_fil
     assert "Dryad Digital Repository" in archiving
     assert "## Ethics statement" in statements
     assert "## Data archiving statement" in statements
+    assert "CRediT roles will be supplied if a revised submission is invited" in statements
+
+
+def test_author_contributions_are_optional_at_initial_submission():
+    metadata = complete_metadata()
+    metadata["author_contributions"] = None
+    assert validate_metadata(metadata) == []
+    statements = render_submission_statements(metadata)
+    assert "CRediT roles will be supplied if a revised submission is invited" in statements
 
 
 def test_builder_requires_explicit_submission_declarations():
@@ -181,3 +187,4 @@ def test_oikos_checklist_uses_relational_and_current_submission_contract():
     assert "orcid" in lower
     assert "named public repository" in lower
     assert "significance prior-work context" in lower
+    assert "credit / author-contribution roles are not an initial-submission blocker" in lower
