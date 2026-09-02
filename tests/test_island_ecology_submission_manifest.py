@@ -19,8 +19,9 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert manifest["active_manuscript"] == "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
     assert manifest["oikos_rtf_renderer"] == "scripts/render_oikos_submission_rtf.py"
     assert manifest["submission_ready"] is False
-    assert manifest["remaining_blocker"] == "author_supplied_identity_repository_prior_work_context_and_submission_declarations"
+    assert manifest["remaining_blocker"] == "author_supplied_identity_prior_work_context_and_submission_declarations"
     assert "author_contributions" not in manifest["remaining_before_actual_submission"]
+    assert "planned_public_repository" not in manifest["remaining_before_actual_submission"]
 
     claims = manifest["claim_ceiling"]
     assert claims["relational_response_headline"] == "response_direction_depends_on_state_evaluated_against_realized_community"
@@ -56,6 +57,8 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert oikos["significance_prior_author_work_context_required"] is True
     assert oikos["data_archiving_statement_required"] is True
     assert oikos["planned_public_repository_must_be_named"] is True
+    assert oikos["planned_public_repository"] == "Dryad Digital Repository"
+    assert oikos["dryad_selected_for_accepted_stage_public_archiving"] is True
     assert oikos["ethics_statement_ready"] is True
     assert oikos["credit_required_at_initial_submission"] is False
     assert oikos["credit_required_at_revision"] is True
