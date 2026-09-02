@@ -33,7 +33,6 @@ def complete_metadata() -> dict:
     metadata["significance_prior_work_context"] = (
         "This study extends prior work by the submitting author on plant–pollinator matching and builds on independent published work on island interaction reorganization."
     )
-    metadata["planned_public_repository"] = "Dryad Digital Repository"
     metadata["acknowledgements"] = "None"
     metadata["funding"] = "None"
     metadata["inclusion_statement"] = "This study used secondary literature and simulation data and involved no new local field data collection."
@@ -60,13 +59,14 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     assert "partner arrival/replacement" in significance
     assert "initial pollinator richness is equalized" in significance
     assert metadata["significance_prior_work_context"] is None
-    assert metadata["planned_public_repository"] is None
+    assert metadata["planned_public_repository"] == "Dryad Digital Repository"
     assert "no new field sampling" in metadata["ethics_statement"].lower()
     data_availability = metadata["data_availability"].lower()
     assert "source-locked secondary analysis of published izu plant–pollinator data" in data_availability
     assert "relational-robustness audit" in data_availability
     assert "prepared for first submission" in data_availability
     assert "anonymous reviewer archive" in data_availability
+    assert "dryad digital repository" in data_availability
 
 
 def test_template_fails_closed_on_initial_submission_inputs_only():
@@ -76,7 +76,7 @@ def test_template_fails_closed_on_initial_submission_inputs_only():
     assert any("authors" in error for error in errors)
     assert any("corresponding_author_index" in error for error in errors)
     assert any("significance_prior_work_context" in error for error in errors)
-    assert any("planned_public_repository" in error for error in errors)
+    assert not any("planned_public_repository" in error for error in errors)
     assert any("conflict_of_interest" in error for error in errors)
     assert not any("author_contributions" in error for error in errors)
     assert not any("significance_statement" == error.split(" requires", 1)[0] for error in errors)
@@ -134,7 +134,7 @@ def test_builder_requires_explicit_submission_declarations():
     assert "submission_declarations.all_authors_approve_submission must be explicitly true" in errors
 
 
-def test_builder_requires_significance_prior_work_context_and_repository_choice():
+def test_builder_requires_significance_prior_work_context_and_rejects_blank_repository():
     metadata = complete_metadata()
     metadata["significance_prior_work_context"] = ""
     metadata["planned_public_repository"] = ""
@@ -185,6 +185,7 @@ def test_oikos_checklist_uses_relational_and_current_submission_contract():
     assert "continuous line numbering" in lower
     assert "introduction forced to begin on page two" in lower
     assert "orcid" in lower
-    assert "named public repository" in lower
+    assert "dryad digital repository" in lower
+    assert "public repository choice is no longer an author blocker" in lower
     assert "significance prior-work context" in lower
     assert "credit / author-contribution roles are not an initial-submission blocker" in lower

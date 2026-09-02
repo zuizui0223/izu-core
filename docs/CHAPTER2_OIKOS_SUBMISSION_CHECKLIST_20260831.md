@@ -31,6 +31,7 @@ The global step must remain bounded: the **response vocabulary** is projected/ca
 - submission renderer replaces the old five-question labels with the four-act journal-facing funnel;
 - dedicated Significance statement;
 - Data Availability / data-archiving statement;
+- accepted-stage public repository fixed to **Dryad Digital Repository**; the anonymous review ZIP remains the first-submission reviewer surface;
 - conflict-of-interest and ethics statement surfaces;
 - reviewer-ready frozen data, code and audit materials in the anonymous review archive;
 - figures regenerated fail-closed against frozen scientific results before the relational Oikos overlay;
@@ -66,18 +67,19 @@ The submission must continue to state that:
 
 ## Author-supplied information still required
 
+The public repository choice is no longer an author blocker: **Dryad Digital Repository** is fixed for accepted-stage public data/code archiving under the active Oikos route.
+
 Populate the metadata template with one consolidated block containing:
 
 1. final ordered author list and each author's affiliations;
 2. corresponding-author email, postal address and **ORCID** — Oikos requires the corresponding author to provide an ORCID at submission;
 3. coauthor ORCIDs if supplied (encouraged, not required by this preflight);
-4. the **named public repository** planned for accepted data/code archiving;
-5. a short **Significance prior-work context** explaining how this manuscript builds on relevant work by the submitting authors/coauthors cited in the paper and on other published work;
-6. acknowledgements and funding, explicitly using `None` where applicable;
-7. inclusion / EDI statement;
-8. conflict-of-interest statement;
-9. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals;
-10. explicit submission-declaration booleans.
+4. a short **Significance prior-work context** explaining how this manuscript builds on relevant work by the submitting authors/coauthors cited in the paper and on other published work;
+5. acknowledgements and funding, explicitly using `None` where applicable;
+6. inclusion / EDI statement;
+7. conflict-of-interest statement;
+8. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals;
+9. explicit submission-declaration booleans.
 
 **CRediT / author-contribution roles are not an initial-submission blocker.** Oikos requires CRediT for revised submissions; if no contribution statement is supplied now, the submission statements explicitly defer CRediT to revision.
 

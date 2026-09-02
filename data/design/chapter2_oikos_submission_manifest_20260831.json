@@ -76,6 +76,8 @@
     "significance_prior_author_work_context_required": true,
     "data_archiving_statement_required": true,
     "planned_public_repository_must_be_named": true,
+    "planned_public_repository": "Dryad Digital Repository",
+    "dryad_selected_for_accepted_stage_public_archiving": true,
     "conflict_of_interest_required": true,
     "ethics_statement_ready": true,
     "credit_required_at_initial_submission": false,
@@ -84,12 +86,11 @@
     "old_within_cell_noise_wording_blocked_from_submission_si": true
   },
   "submission_ready": false,
-  "remaining_blocker": "author_supplied_identity_repository_prior_work_context_and_submission_declarations",
+  "remaining_blocker": "author_supplied_identity_prior_work_context_and_submission_declarations",
   "remaining_before_actual_submission": [
     "final_author_order_and_affiliations",
     "corresponding_author_email_postal_address_and_orcid",
     "coauthor_orcids_if_supplied",
-    "planned_public_repository",
     "significance_prior_work_context",
     "acknowledgements_and_funding",
     "inclusion_statement",
