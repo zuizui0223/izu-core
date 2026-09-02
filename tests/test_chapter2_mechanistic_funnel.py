@@ -108,7 +108,10 @@ def test_submission_routing_keeps_oikos_first_and_joecology_fallback():
     assert manifest["journal_target"] == "Oikos"
     assert manifest["fallback_route"] == "Journal of Ecology Research Article"
     assert manifest["claim_ceiling"]["relational_response_headline"].startswith("response_direction_depends_on_state")
+    assert manifest["claim_ceiling"]["world_step_projects"] == "response_vocabulary_not_synthetic_regime_assignments"
     assert manifest["narrative_lock"] == "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md"
-    assert manifest["story"] == "theory_to_global_confrontation_to_identifiability_to_izu_mechanistic_resolution_zoom"
+    assert manifest["story"] == "simulation_to_world_confrontation_to_process_measurement_bottleneck_to_izu_mechanistic_resolution_zoom"
+    assert manifest["oikos_initial_submission_contract"]["four_act_submission_narrative"] is True
+    assert manifest["oikos_initial_submission_contract"]["world_step_assigns_empirical_systems_to_synthetic_regimes"] is False
     assert "project Tier B" in journal_audit
     assert "Oikos — recommended" in journal_audit
