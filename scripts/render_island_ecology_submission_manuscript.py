@@ -32,6 +32,21 @@ INTRO_STANDALONE_PARAGRAPH = (
     "distinction and at the prospective measurements still required to connect matching to reproductive propagation."
 )
 
+FIVE_QUESTION_PARAGRAPH = (
+    "The paper follows five linked questions. **Possibility:** can the same broad interaction reorganization generate opposite biological responses? "
+    "**Mechanism:** what controls response sign and branch identity? **Reality:** does empirical island ecology require a response vocabulary richer than one syndrome? "
+    "**Identifiability:** do existing studies jointly measure the state, community, local context and comparable plant outcome required to distinguish those mechanisms? "
+    "**Resolution:** what becomes distinguishable when analysis moves from global breadth to one data-rich island series?"
+)
+
+FOUR_ACT_PARAGRAPH = (
+    "The paper therefore proceeds through four inferential acts. **Theory:** simulation defines a relational response geometry and separates regime movement, "
+    "state-by-community branch identity, local filtering and downstream assurance. **Global confrontation:** that response vocabulary is carried into the island literature "
+    "to ask whether empirical response diversity requires more than a single syndrome; empirical systems are not assigned to synthetic regime labels. "
+    "**Identifiability:** a source audit asks whether the process coordinates needed to distinguish those mechanisms are jointly measured. "
+    "**Izu mechanistic-resolution zoom:** the focal island series then increases depth to separate source-state/background-composition structure from additional within-community sorting."
+)
+
 THESIS_SECTION_RE = re.compile(
     r"\n## Chapter 2 hands a measurement contract to Chapter 3\n.*?(?=\n## Limits\n)",
     flags=re.DOTALL,
@@ -57,6 +72,42 @@ SPECIFIC_SI_REFERENCE_TOKENS = (
     "Appendix S",
 )
 
+RESULT_HEADING_REPLACEMENTS = {
+    "## Possibility: the same reorganization generated opposite responses":
+        "## Theory — possibility: the same reorganization generated opposite responses",
+    "## Mechanism: turnover moved the system among response regimes":
+        "## Theory — regime structure: turnover moved the system among response regimes",
+    "## Mechanism: response direction was relational rather than a stable state-only effect":
+        "## Theory — relational branch identity: response direction was not a stable state-only effect",
+    "## Mechanism: local filtering reallocated branches asymmetrically":
+        "## Theory — branch allocation: local filtering reallocated branches asymmetrically",
+    "## Mechanism: downstream assurance attenuated magnitude without rescuing sign":
+        "## Theory — downstream propagation: assurance attenuated magnitude without rescuing sign",
+    "## Reality: the comparative universe required more than one response state":
+        "## Global confrontation: real island systems required more than one response state",
+    "## Resolution: Izu localized the raw signal to source state and composition":
+        "## Izu mechanistic zoom: raw matching localized the signal to source state and composition",
+    "## Resolution: Izu null-corrected matching did not support beyond-composition sorting":
+        "## Izu mechanistic zoom: null-corrected matching did not support beyond-composition sorting",
+}
+
+DISCUSSION_HEADING_REPLACEMENTS = {
+    "## Response direction is relational rather than intrinsic":
+        "## Theory: response direction is relational rather than intrinsic",
+    "## The proximal WHY separates regime, relational branch identity and downstream propagation":
+        "## Theory: the proximal mechanism separates regime, relational branch identity and downstream propagation",
+    "## World confrontation establishes necessity and a measurement agenda":
+        "## Global confrontation and identifiability: empirical diversity exposes a process-measurement bottleneck",
+    "## Izu increases resolution and localizes the present signal":
+        "## Izu mechanistic zoom: increasing resolution localizes the present signal",
+}
+
+
+def _replace_exact_once(text: str, old: str, new: str, label: str) -> str:
+    if text.count(old) != 1:
+        raise ValueError(f"{label} changed; expected exactly one source occurrence")
+    return text.replace(old, new, 1)
+
 
 def render_submission_manuscript(source: Path = SOURCE) -> str:
     text = source.read_text(encoding="utf-8")
@@ -74,6 +125,13 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         raise ValueError("active relational manuscript header changed; refuse silent submission rendering")
     text = text.replace(working_title_block, f"# {FINAL_TITLE}", 1)
 
+    text = _replace_exact_once(
+        text,
+        FIVE_QUESTION_PARAGRAPH,
+        FOUR_ACT_PARAGRAPH,
+        "five-question Introduction funnel",
+    )
+
     if INTRO_THESIS_PARAGRAPH not in text:
         raise ValueError("thesis-specific Introduction bridge changed; refuse silent submission rendering")
     text = text.replace(INTRO_THESIS_PARAGRAPH, INTRO_STANDALONE_PARAGRAPH, 1)
@@ -86,6 +144,18 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         "the remaining effectiveness-to-reproduction contract is handed to Chapter 3 without validation claims.",
         "the remaining effectiveness-to-reproduction contract is retained as a prospective measurement target without validation claims.",
         1,
+    )
+
+    for old, new in RESULT_HEADING_REPLACEMENTS.items():
+        text = _replace_exact_once(text, old, new, f"Results heading: {old}")
+    for old, new in DISCUSSION_HEADING_REPLACEMENTS.items():
+        text = _replace_exact_once(text, old, new, f"Discussion heading: {old}")
+
+    text = _replace_exact_once(
+        text,
+        "**Figure 1. Breadth-to-depth mechanistic-resolution funnel.**",
+        "**Figure 1. Four-act breadth-to-depth inference funnel.**",
+        "Figure 1 caption heading",
     )
 
     # Oikos requires generic main-text references to Supporting information rather than
@@ -114,6 +184,11 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
 
     lower = text.lower()
     required = (
+        "the paper therefore proceeds through four inferential acts",
+        "## theory — possibility:",
+        "## global confrontation:",
+        "## identifiability:",
+        "## izu mechanistic zoom:",
         "response direction is therefore relational rather than intrinsic",
         "53/96",
         "partner arrival/replacement",
@@ -122,9 +197,11 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     )
     missing = [token for token in required if token not in lower]
     if missing:
-        raise ValueError(f"relational manuscript claim(s) disappeared from submission render: {missing}")
+        raise ValueError(f"four-act relational manuscript claim(s) disappeared from submission render: {missing}")
     if "cell-level simulation variation" in lower:
         raise ValueError("superseded nonadditivity wording survived submission render")
+    if "five linked questions" in lower or "## reality:" in lower or "## resolution:" in lower:
+        raise ValueError("superseded five-question labels survived the four-act submission render")
 
     return text.rstrip() + "\n"
 
