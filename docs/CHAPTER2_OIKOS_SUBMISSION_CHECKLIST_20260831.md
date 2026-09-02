@@ -8,7 +8,7 @@ Updated: 2026-09-02
 - Article type: **Research Paper**
 - Scientific tier: **Tier B — mechanistically resolved synthetic response geometry with bounded empirical confrontation**
 - Journal-facing story: **Theory → Global confrontation → Identifiability → Izu mechanistic-resolution zoom**
-- Expanded story: **simulation builds the relational response theory → the response vocabulary is carried into global island ecology → the source audit exposes an outcome-rich/process-poor identifiability bottleneck → Izu increases resolution to separate composition-level matching from beyond-composition sorting**
+- Expanded story: **simulation builds the relational response theory → the response vocabulary is carried into global island ecology → the source audit exposes an outcome-rich/process-poor process-measurement bottleneck → Izu increases resolution to separate composition-level matching from beyond-composition sorting**
 - Fallback: **Journal of Ecology Research Article**
 
 Narrative contract:
