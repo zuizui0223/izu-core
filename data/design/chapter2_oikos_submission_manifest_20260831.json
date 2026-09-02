@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.6",
+  "schema_version": "1.5",
   "updated_on": "2026-09-02",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
@@ -18,7 +18,7 @@
   "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
   "scientific_state": "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution",
   "project_tier": "Tier_B",
-  "story": "theory_to_global_confrontation_to_identifiability_to_izu_mechanistic_resolution_zoom",
+  "story": "simulation_to_world_confrontation_to_process_measurement_bottleneck_to_izu_mechanistic_resolution_zoom",
   "four_act_inference_roles": {
     "theory": "simulation_defines_relational_response_geometry_and_proximal_mechanism",
     "global_confrontation": "carry_response_vocabulary_into_empirical_island_diversity_without_assigning_synthetic_regime_labels",
