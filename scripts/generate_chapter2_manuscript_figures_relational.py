@@ -50,17 +50,31 @@ def _cell(mapping: dict, value: float) -> dict:
 
 def _fig1(audit: dict) -> None:
     direct = audit["external_measurement_asymmetry"]["direct_measurement_counts"]
-    equal = audit["equal_initial_pollinator_richness"]["realization_class_counts"]
-    fig, ax = plt.subplots(figsize=(14.0, 5.2))
+    fig, ax = plt.subplots(figsize=(16.5, 5.4))
     ax.set_axis_off()
     boxes = [
-        ("MODEL\npossibilities", "relational kernel geometry\n41/96 mixed baseline\n53/96 mixed at 9 vs 9 richness"),
-        ("WORLD\nconfrontation", "propagation · branching\nbuffering · decoupling\nretained falsification"),
-        ("MEASUREMENT\nBOTTLENECK", f"outcome {direct['response_outcome']}/25\narrival/replacement {direct['partner_arrival_replacement']}/25\n0/25 full joint contracts"),
-        ("IZU\nresolution zoom", "raw: state + composition\nnull-corrected sorting:\nunsupported"),
-        ("NEXT\nmeasurement", "loss + arrival/replacement\nstate + realized community\neffectiveness + reproduction"),
+        (
+            "THEORY\nresponse geometry",
+            "relational kernel geometry\nmixed: 41/96 baseline\n53/96 at equal richness",
+        ),
+        (
+            "GLOBAL\nCONFRONTATION",
+            "response vocabulary only\nbranching · buffering · decoupling\n+ propagation / falsification",
+        ),
+        (
+            "IDENTIFIABILITY\nBOTTLENECK",
+            f"outcomes {direct['response_outcome']}/25\narrival/replacement {direct['partner_arrival_replacement']}/25\nfull contracts 0/25",
+        ),
+        (
+            "IZU\nMECHANISTIC ZOOM",
+            "raw: state + composition\nnull-corrected sorting:\nunsupported",
+        ),
+        (
+            "NEXT\nmeasurement",
+            "loss + arrival/replacement\nstate + realized community\neffectiveness + reproduction",
+        ),
     ]
-    x_positions = np.linspace(0.03, 0.81, len(boxes))
+    x_positions = np.linspace(0.02, 0.81, len(boxes))
     for index, ((title, body), x) in enumerate(zip(boxes, x_positions)):
         ax.text(
             x,
@@ -69,9 +83,9 @@ def _fig1(audit: dict) -> None:
             transform=ax.transAxes,
             ha="left",
             va="center",
-            fontsize=10,
+            fontsize=9.2,
             linespacing=1.25,
-            bbox={"boxstyle": "round,pad=0.65", "facecolor": "white", "edgecolor": "0.35", "linewidth": 1.0},
+            bbox={"boxstyle": "round,pad=0.6", "facecolor": "white", "edgecolor": "0.35", "linewidth": 1.0},
         )
         if index < len(boxes) - 1:
             ax.annotate(
@@ -81,11 +95,19 @@ def _fig1(audit: dict) -> None:
                 xycoords="axes fraction",
                 arrowprops={"arrowstyle": "->", "lw": 1.5},
             )
-    ax.text(0.01, 0.96, "From response possibilities to mechanistic resolution", transform=ax.transAxes, ha="left", va="top", fontsize=15)
+    ax.text(
+        0.01,
+        0.96,
+        "Theory → global confrontation → identifiability → Izu mechanistic zoom",
+        transform=ax.transAxes,
+        ha="left",
+        va="top",
+        fontsize=15,
+    )
     ax.text(
         0.01,
         0.08,
-        "Possibility is not prevalence; the literature audit diagnoses measurement availability rather than prediction accuracy; Izu localizes rather than validates the synthetic surface.",
+        "World confrontation carries the response vocabulary, not fitted regime labels; the audit diagnoses identifiability; Izu localizes rather than validates.",
         transform=ax.transAxes,
         ha="left",
         va="bottom",
@@ -235,8 +257,10 @@ def build_figures() -> dict:
     _fig4(audit, izu)
 
     payload = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "relational_oikos_overlay_after_frozen_figure_regeneration",
+        "narrative": "theory_to_global_confrontation_to_identifiability_to_izu_mechanistic_zoom",
+        "world_step": "response_vocabulary_not_synthetic_regime_assignment",
         "frozen_figure_builder": "scripts/generate_chapter2_manuscript_figures.py",
         "relational_audit": "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
         "relational_claim_tests": audit["claim_tests"],
