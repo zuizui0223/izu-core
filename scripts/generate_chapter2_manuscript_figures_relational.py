@@ -50,20 +50,20 @@ def _cell(mapping: dict, value: float) -> dict:
 
 def _fig1(audit: dict) -> None:
     direct = audit["external_measurement_asymmetry"]["direct_measurement_counts"]
-    fig, ax = plt.subplots(figsize=(14.0, 5.2))
+    fig, ax = plt.subplots(figsize=(16.5, 5.4))
     ax.set_axis_off()
     boxes = [
         (
             "THEORY\nresponse geometry",
-            "simulation defines relational geometry\n41/96 mixed baseline\n53/96 mixed at 9 vs 9 richness",
+            "relational kernel geometry\nmixed: 41/96 baseline\n53/96 at equal richness",
         ),
         (
             "GLOBAL\nCONFRONTATION",
-            "carry response vocabulary\npropagation · branching · buffering\ndecoupling · retained falsification",
+            "response vocabulary only\nbranching · buffering · decoupling\n+ propagation / falsification",
         ),
         (
             "IDENTIFIABILITY\nBOTTLENECK",
-            f"outcome {direct['response_outcome']}/25\narrival/replacement {direct['partner_arrival_replacement']}/25\n0/25 full joint contracts",
+            f"outcomes {direct['response_outcome']}/25\narrival/replacement {direct['partner_arrival_replacement']}/25\nfull contracts 0/25",
         ),
         (
             "IZU\nMECHANISTIC ZOOM",
@@ -74,7 +74,7 @@ def _fig1(audit: dict) -> None:
             "loss + arrival/replacement\nstate + realized community\neffectiveness + reproduction",
         ),
     ]
-    x_positions = np.linspace(0.03, 0.81, len(boxes))
+    x_positions = np.linspace(0.02, 0.81, len(boxes))
     for index, ((title, body), x) in enumerate(zip(boxes, x_positions)):
         ax.text(
             x,
@@ -83,9 +83,9 @@ def _fig1(audit: dict) -> None:
             transform=ax.transAxes,
             ha="left",
             va="center",
-            fontsize=10,
+            fontsize=9.2,
             linespacing=1.25,
-            bbox={"boxstyle": "round,pad=0.65", "facecolor": "white", "edgecolor": "0.35", "linewidth": 1.0},
+            bbox={"boxstyle": "round,pad=0.6", "facecolor": "white", "edgecolor": "0.35", "linewidth": 1.0},
         )
         if index < len(boxes) - 1:
             ax.annotate(
@@ -107,7 +107,7 @@ def _fig1(audit: dict) -> None:
     ax.text(
         0.01,
         0.08,
-        "The world step carries the response vocabulary, not fitted synthetic regime labels; the audit diagnoses measurement availability rather than prediction accuracy; Izu localizes rather than validates the synthetic surface.",
+        "World confrontation carries the response vocabulary, not fitted regime labels; the audit diagnoses identifiability; Izu localizes rather than validates.",
         transform=ax.transAxes,
         ha="left",
         va="bottom",
