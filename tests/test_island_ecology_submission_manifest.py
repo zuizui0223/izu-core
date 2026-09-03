@@ -9,7 +9,7 @@ DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "1.5"
+    assert manifest["schema_version"] == "1.6"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_first_submission_route"
@@ -23,12 +23,25 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert "author_contributions" not in manifest["remaining_before_actual_submission"]
     assert "planned_public_repository" not in manifest["remaining_before_actual_submission"]
 
+    breadth = manifest["world_breadth_extension"]
+    assert breadth["formal_identifiability_research_entries"] == 25
+    assert breadth["frozen_exact_geographic_overlap_labels"] == 21
+    assert breadth["post_freeze_source_verified_research_entries"] == 11
+    assert breadth["post_freeze_exact_geographic_groups"] == 10
+    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 36
+    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 31
+    assert breadth["post_freeze_direct_or_historical_arrival_entries"] == 3
+    assert breadth["formal_external_prediction_reopened"] is False
+    assert breadth["frozen_25_measurement_fractions_recomputed"] is False
+    assert breadth["independent_archipelago_denominator_claimed"] is False
+
     claims = manifest["claim_ceiling"]
     assert claims["relational_response_headline"] == "response_direction_depends_on_state_evaluated_against_realized_community"
     assert claims["formal_external_prediction"] == "not_evaluable"
     assert claims["external_full_contracts"] == "0_of_25"
     assert claims["direct_response_outcome"] == "21_of_25"
     assert claims["direct_partner_arrival_replacement"] == "2_of_25"
+    assert claims["post_freeze_breadth_extension_changes_frozen_25_metrics"] is False
     assert claims["izu_beyond_composition_sorting"] == "unsupported"
     assert claims["izu_oshima_bridge"] == "unsupported"
     assert claims["chapter3_used_as_validation"] is False
