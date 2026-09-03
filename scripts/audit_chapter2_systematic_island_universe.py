@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "data/design/chapter2_systematic_island_universe_v1_20260903.csv"
 FIRST_WAVE_GATE = ROOT / "data/design/chapter2_systematic_first_wave_source_gate_20260903.csv"
+FIRST_WAVE_DEDUP = ROOT / "data/design/chapter2_systematic_first_wave_dedup_review_20260903.csv"
 DEFAULT_OUTPUT = ROOT / "data/results/chapter2_systematic_island_universe_audit_v1_20260903.json"
 
 ALLOWED_STATUS = {
@@ -38,10 +39,13 @@ def _read_rows(path: Path) -> list[dict[str, str]]:
 def build_audit() -> dict:
     rows = _read_rows(UNIVERSE)
     gates = _read_rows(FIRST_WAVE_GATE)
+    dedup = _read_rows(FIRST_WAVE_DEDUP)
     if len(rows) != 110:
         raise RuntimeError(f"systematic island universe changed: expected 110 rows, got {len(rows)}")
     if len(gates) != 7:
         raise RuntimeError(f"first-wave source gate changed: expected 7 rows, got {len(gates)}")
+    if len(dedup) != 7:
+        raise RuntimeError(f"first-wave dedup review changed: expected 7 rows, got {len(dedup)}")
 
     keys = [(row["macroregion"], row["geographic_target"]) for row in rows]
     if len(keys) != len(set(keys)):
@@ -65,12 +69,27 @@ def build_audit() -> dict:
     if missing_gate_targets:
         raise RuntimeError(f"first-wave targets missing from systematic universe: {missing_gate_targets}")
 
+    gate_ids = {row["gate_id"] for row in gates}
+    dedup_ids = {row["gate_id"] for row in dedup}
+    if gate_ids != dedup_ids:
+        raise RuntimeError("first-wave source gate and dedup review IDs do not match")
+
     gate_decisions = Counter(row["global_confrontation_admission"] for row in gates)
     if set(gate_decisions) != {
         "eligible_for_breadth_after_dedup_review",
         "retain_search_record_not_confrontation",
     }:
         raise RuntimeError(f"unexpected first-wave admission decisions: {sorted(gate_decisions)}")
+
+    promotion_decisions = Counter(row["promotion_decision"] for row in dedup)
+    expected_promotions = {
+        "eligible_new_group",
+        "eligible_shared_new_group",
+        "eligible_existing_group",
+        "do_not_promote",
+    }
+    if set(promotion_decisions) != expected_promotions:
+        raise RuntimeError(f"unexpected first-wave promotion decisions: {sorted(promotion_decisions)}")
 
     status_counts = Counter(row["coverage_status"] for row in rows)
     region_counts = Counter(row["macroregion"] for row in rows)
@@ -93,9 +112,17 @@ def build_audit() -> dict:
         for row in rows
     )
 
+    eligible_dedup_rows = [row for row in dedup if row["promotion_decision"] != "do_not_promote"]
+    candidate_groups = {row["proposed_higher_level_group"] for row in eligible_dedup_rows}
+    candidate_new_groups = {
+        row["proposed_higher_level_group"]
+        for row in eligible_dedup_rows
+        if row["overlap_with_current36"].lower() == "false"
+    }
+
     return {
-        "schema_version": "1.1",
-        "status": "systematic_search_universe_v1_with_first_wave_source_gate",
+        "schema_version": "1.2",
+        "status": "systematic_search_universe_v1_with_first_wave_source_and_dedup_gate",
         "scope": (
             "Named archipelagos, island groups and selected large/sentinel islands relevant to terrestrial "
             "flowering-plant pollination, breeding systems, reproductive assurance or plant-pollinator networks. "
@@ -113,6 +140,14 @@ def build_audit() -> dict:
             "full_chapter2_contract_passes": 0,
             "newly_source_resolved_targets": len(unresolved_gate_targets),
         },
+        "first_wave_dedup_review": {
+            "rows": len(dedup),
+            "eligible_research_entries": len(eligible_dedup_rows),
+            "eligible_higher_level_groups": len(candidate_groups),
+            "potential_new_higher_level_groups_relative_to_current36": len(candidate_new_groups),
+            "promotion_decision_counts": dict(sorted(promotion_decisions.items())),
+            "current36_changed_by_this_audit": False,
+        },
         "resolved_or_umbrella_indexed_targets_after_first_wave": resolved_after_first_wave,
         "targets_requiring_further_source_work_after_first_wave": len(rows) - resolved_after_first_wave,
         "directly_not_yet_source_gated_after_first_wave": status_counts["target_not_yet_source_gated"] - gated_from_not_yet,
@@ -120,8 +155,8 @@ def build_audit() -> dict:
         "nested_targets_needing_specific_gate": status_counts["nested_target_needs_specific_gate"],
         "claim_boundary": (
             "Do not add these 110 targets to the frozen 25-entry identifiability denominator or the current "
-            "36-entry descriptive confrontation. First-wave eligibility is not promotion: any expansion of the "
-            "36-entry confrontation requires a separate overlap/de-duplication review."
+            "36-entry descriptive confrontation. First-wave eligibility is not promotion. Even after de-duplication, "
+            "the current 36 changes only in a separate promotion step after explicit manuscript-value review."
         ),
     }
 
