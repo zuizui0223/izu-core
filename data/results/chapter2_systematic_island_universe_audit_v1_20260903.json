@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.4",
+  "status": "systematic_search_universe_v1_through_second_wave_with_source_native_overlap_correction",
+  "scope": "Named archipelagos, island groups and selected large/sentinel islands relevant to terrestrial flowering-plant pollination, breeding systems, reproductive assurance or plant-pollinator networks. The effective target count can increase when source-native multi-archipelago datasets reveal a missing named target. It is not a claim about the total number of island systems on Earth.",
+  "seed_target_rows": 110,
+  "effective_target_rows_after_source_native_recovery": 111,
+  "macroregions": 8,
+  "macroregion_counts": {
+    "Australasia / Southern Ocean": 12,
+    "Caribbean / West Atlantic": 17,
+    "Central / East Pacific": 13,
+    "Indian Ocean": 18,
+    "Mediterranean": 10,
+    "North Atlantic / Macaronesia": 9,
+    "South / East Atlantic": 7,
+    "West / Central Pacific": 25
+  },
+  "seed_coverage_status_counts": {
+    "nested_target_needs_specific_gate": 5,
+    "source_found_needs_ledger_gate": 7,
+    "source_gated_current": 1,
+    "source_verified_current": 25,
+    "target_not_yet_source_gated": 56,
+    "umbrella_network_indexed": 2,
+    "umbrella_source_covered": 3,
+    "umbrella_source_verified": 11
+  },
+  "effective_priority_counts": {
+    "covered": 27,
+    "high": 37,
+    "low": 12,
+    "medium": 35
+  },
+  "source_native_overlap_corrections": {
+    "rows": 10,
+    "current36_source_native_targets_confirmed": 10,
+    "new_search_targets_added": 1,
+    "added_target_names": [
+      "Three Kings Islands"
+    ],
+    "source_reference": "10.1093/aob/mcaf005"
+  },
+  "first_wave_source_gate": {
+    "gated_targets": 7,
+    "eligible_for_breadth_after_dedup_review": 6,
+    "retain_search_record_not_confrontation": 1,
+    "full_chapter2_contract_passes": 0
+  },
+  "first_wave_dedup_review": {
+    "rows": 7,
+    "eligible_research_entries": 6,
+    "eligible_higher_level_groups": 5,
+    "confirmed_new_higher_level_groups_relative_to_current36": 3,
+    "promotion_decision_counts": {
+      "do_not_promote": 1,
+      "eligible_existing_group": 2,
+      "eligible_new_group": 2,
+      "eligible_shared_new_group": 2
+    },
+    "current36_changed_by_this_audit": false
+  },
+  "second_wave_search_gate": {
+    "reviewed_targets": 19,
+    "search_outcome_counts": {
+      "initial_search_inconclusive": 8,
+      "resolved_by_subtarget_gates": 1,
+      "source_found_authoritative_grey": 1,
+      "source_found_direct": 3,
+      "source_found_direct_exact_subtarget": 1,
+      "source_found_direct_historical": 1,
+      "source_found_trait_only": 2,
+      "source_insufficient_ecology_only": 1,
+      "source_insufficient_hypothesis_only": 1
+    },
+    "global_confrontation_candidates_before_dedup": 5,
+    "candidate_targets_before_dedup": [
+      "Comoros and Mayotte",
+      "Cook Islands",
+      "Kermadec Islands",
+      "Samoa",
+      "Socotra"
+    ],
+    "full_chapter2_contract_passes": 0,
+    "targets_requiring_stronger_or_broader_source": 13
+  },
+  "second_wave_dedup_review": {
+    "rows": 5,
+    "confirmed_new_higher_level_groups": 2,
+    "confirmed_new_group_names": [
+      "comoros_mayotte",
+      "socotra"
+    ],
+    "existing_current36_groups": 1,
+    "overlap_unresolved_groups": 2,
+    "overlap_unresolved_group_names": [
+      "cook_islands",
+      "samoa"
+    ],
+    "promotion_decision_counts": {
+      "eligible_existing_group": 1,
+      "eligible_new_group": 2,
+      "hold_overlap_unresolved": 2
+    },
+    "current36_changed_by_this_audit": false
+  },
+  "coverage_after_second_wave": {
+    "targets_with_documented_search_or_prior_coverage": 69,
+    "targets_never_yet_directly_reviewed_or_prior_covered": 42,
+    "targets_requiring_additional_source_work": 55,
+    "directly_not_yet_source_gated": 37,
+    "source_found_needing_ledger_gate": 0,
+    "nested_targets_needing_specific_gate": 5
+  },
+  "claim_boundary": "Do not add the effective systematic-search target count to the frozen 25-entry identifiability denominator or automatically to the current 36-entry descriptive confrontation. A documented search, source gate, breadth candidacy, or source-native overlap correction is not promotion. Search-inconclusive targets remain coverage gaps, not biological absences."
+}

@@ -1,0 +1,111 @@
+macroregion,geographic_target,island_type,coverage_status,current_evidence_layer,search_priority,seed_source
+North Atlantic / Macaronesia,Azores,oceanic_or_high-latitude,source_verified_current,Layer D,covered,Olesen 2002; Boieiro 2025
+North Atlantic / Macaronesia,Madeira,oceanic_or_high-latitude,source_verified_current,Layer D,covered,Esposito 2021
+North Atlantic / Macaronesia,Selvagens,oceanic_or_high-latitude,target_not_yet_source_gated,none,medium,Macaronesia review 2021
+North Atlantic / Macaronesia,Canary Islands,oceanic_or_high-latitude,source_verified_current,Layer A/B,covered,Trøjelsgaard et al. 2013; Teide studies
+North Atlantic / Macaronesia,Cabo Verde,oceanic_or_high-latitude,target_not_yet_source_gated,none,high,Macaronesia review 2021
+North Atlantic / Macaronesia,Bermuda,oceanic_or_high-latitude,target_not_yet_source_gated,none,medium,systematic target
+North Atlantic / Macaronesia,Iceland,oceanic_or_high-latitude,target_not_yet_source_gated,none,low,systematic target
+North Atlantic / Macaronesia,Faroe Islands,oceanic_or_high-latitude,target_not_yet_source_gated,none,low,systematic target
+North Atlantic / Macaronesia,Greenland,oceanic_or_high-latitude,umbrella_network_indexed,global network index,medium,Web of Life / global pollination networks
+Mediterranean,Balearic Islands,continental_island_or_archipelago,source_verified_current,Layer C / prior analytical,covered,Menorca/Cabrera/Castro-Urgal
+Mediterranean,Corsica,continental_island_or_archipelago,target_not_yet_source_gated,none,medium,systematic target
+Mediterranean,Sardinia,continental_island_or_archipelago,target_not_yet_source_gated,none,medium,systematic target
+Mediterranean,Sicily,continental_island_or_archipelago,target_not_yet_source_gated,none,medium,systematic target
+Mediterranean,Maltese Islands,continental_island_or_archipelago,target_not_yet_source_gated,none,medium,systematic target
+Mediterranean,Aegean Archipelago,continental_island_or_archipelago,source_found_needs_ledger_gate,network/climate,high,Petanidou et al. 2018
+Mediterranean,Crete,continental_island_or_archipelago,target_not_yet_source_gated,none,medium,systematic target
+Mediterranean,Cyprus,continental_island_or_archipelago,target_not_yet_source_gated,none,medium,systematic target
+Mediterranean,Tuscan Archipelago,continental_island_or_archipelago,source_verified_current,Layer C,covered,Giannutri
+Mediterranean,Dalmatian Islands,continental_island_or_archipelago,target_not_yet_source_gated,none,low,systematic target
+Caribbean / West Atlantic,Bahamas,continental_or_oceanic_island,source_verified_current,Layer A,covered,Pavonia bahamensis
+Caribbean / West Atlantic,Turks and Caicos,continental_or_oceanic_island,target_not_yet_source_gated,none,medium,systematic target
+Caribbean / West Atlantic,Cayman Islands,continental_or_oceanic_island,target_not_yet_source_gated,none,medium,systematic target
+Caribbean / West Atlantic,Cuba,continental_or_oceanic_island,umbrella_source_covered,Caribbean Gesneriaceae,medium,Martén-Rodríguez 2010/2015
+Caribbean / West Atlantic,Hispaniola,continental_or_oceanic_island,umbrella_source_covered,Caribbean Gesneriaceae,medium,Martén-Rodríguez 2010/2015
+Caribbean / West Atlantic,Jamaica,continental_or_oceanic_island,umbrella_network_indexed,global network index + Caribbean,high,Trøjelsgaard & Olesen 2013
+Caribbean / West Atlantic,Puerto Rico,continental_or_oceanic_island,source_verified_current,Layer A,covered,Guaiacum + Caribbean Gesneriaceae
+Caribbean / West Atlantic,Mona Island,continental_or_oceanic_island,source_verified_current,Layer A,covered,Guaiacum sanctum
+Caribbean / West Atlantic,Virgin Islands,continental_or_oceanic_island,target_not_yet_source_gated,none,medium,systematic target
+Caribbean / West Atlantic,Guadeloupe,continental_or_oceanic_island,target_not_yet_source_gated,none,medium,systematic target
+Caribbean / West Atlantic,Dominica,continental_or_oceanic_island,source_verified_current,Layer A,covered,Heliconia
+Caribbean / West Atlantic,Martinique,continental_or_oceanic_island,source_gated_current,Layer C,covered,v9 source gate
+Caribbean / West Atlantic,Saint Lucia,continental_or_oceanic_island,umbrella_source_covered,Caribbean Gesneriaceae,medium,Martén-Rodríguez 2015
+Caribbean / West Atlantic,Saint Vincent and the Grenadines,continental_or_oceanic_island,target_not_yet_source_gated,none,medium,systematic target
+Caribbean / West Atlantic,Grenada,continental_or_oceanic_island,source_found_needs_ledger_gate,vertebrate network,medium,2025 neotropical network compilation
+Caribbean / West Atlantic,Trinidad and Tobago,continental_or_oceanic_island,target_not_yet_source_gated,none,medium,systematic target
+Caribbean / West Atlantic,ABC Islands,continental_or_oceanic_island,target_not_yet_source_gated,none,low,systematic target
+South / East Atlantic,São Tomé and Príncipe,oceanic_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+South / East Atlantic,Bioko,oceanic_or_subantarctic,target_not_yet_source_gated,none,low,systematic target
+South / East Atlantic,St Helena,oceanic_or_subantarctic,source_verified_current,Layer D,covered,Paajanen & Cronk 2020
+South / East Atlantic,Ascension Island,oceanic_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+South / East Atlantic,Tristan da Cunha,oceanic_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+South / East Atlantic,Falkland Islands,oceanic_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+South / East Atlantic,South Georgia,oceanic_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Indian Ocean,Madagascar,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,medium,systematic target
+Indian Ocean,Comoros and Mayotte,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+Indian Ocean,Seychelles,oceanic_continental_or_subantarctic,source_verified_current,Layer A/C,covered,ant disruption + Mahé networks
+Indian Ocean,Mauritius,oceanic_continental_or_subantarctic,source_verified_current,Layer A,covered,Roussea / pollination webs
+Indian Ocean,Réunion,oceanic_continental_or_subantarctic,source_verified_current,Layer D,covered,Angraecum bird pollination
+Indian Ocean,Rodrigues,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+Indian Ocean,Maldives,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,medium,systematic target
+Indian Ocean,Chagos Archipelago,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,medium,systematic target
+Indian Ocean,Socotra,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+Indian Ocean,Cocos (Keeling) Islands,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,medium,systematic target
+Indian Ocean,Christmas Island,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,medium,systematic target
+Indian Ocean,Andaman and Nicobar Islands,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,medium,systematic target
+Indian Ocean,Lakshadweep,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,low,systematic target
+Indian Ocean,Sri Lanka,oceanic_continental_or_subantarctic,target_not_yet_source_gated,none,low,systematic target
+Indian Ocean,Îles Crozet,oceanic_continental_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Indian Ocean,Prince Edward and Marion Islands,oceanic_continental_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Indian Ocean,Îles Kerguelen,oceanic_continental_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Indian Ocean,Heard and McDonald Islands,oceanic_continental_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+West / Central Pacific,Izu Islands,oceanic_or_continental_island,source_verified_current,Layer A + focal,covered,current focal
+West / Central Pacific,Ogasawara Islands,oceanic_or_continental_island,source_verified_current,Layer A/B,covered,Psychotria + Qiu/Tian
+West / Central Pacific,Ryukyu Islands,oceanic_or_continental_island,source_found_needs_ledger_gate,breeding/pollination,high,Psychotria studies
+West / Central Pacific,Taiwan,oceanic_or_continental_island,target_not_yet_source_gated,none,medium,systematic target
+West / Central Pacific,Philippines,oceanic_or_continental_island,target_not_yet_source_gated,none,medium,systematic target
+West / Central Pacific,Palau,oceanic_or_continental_island,target_not_yet_source_gated,none,high,systematic target
+West / Central Pacific,Mariana Islands,oceanic_or_continental_island,source_verified_current,Layer A,covered,Guam–Saipan
+West / Central Pacific,Caroline Islands / Pohnpei,oceanic_or_continental_island,source_verified_current,Layer D,covered,Yomai & Williams 2021
+West / Central Pacific,Marshall Islands,oceanic_or_continental_island,target_not_yet_source_gated,none,high,systematic target
+West / Central Pacific,Kiribati / Gilbert Islands,oceanic_or_continental_island,target_not_yet_source_gated,none,medium,systematic target
+West / Central Pacific,Nauru,oceanic_or_continental_island,target_not_yet_source_gated,none,low,systematic target
+West / Central Pacific,Solomon Islands,oceanic_or_continental_island,target_not_yet_source_gated,none,high,systematic target
+West / Central Pacific,Vanuatu,oceanic_or_continental_island,source_verified_current,Layer D,covered,Quero Garcia et al. 2008
+West / Central Pacific,New Caledonia,oceanic_or_continental_island,source_verified_current,Layer D,covered,Kato & Kawakita 2004
+West / Central Pacific,Fiji,oceanic_or_continental_island,source_verified_current,Layer D,covered,Groom et al. 2015
+West / Central Pacific,Samoa,oceanic_or_continental_island,target_not_yet_source_gated,none,high,systematic target
+West / Central Pacific,Tonga,oceanic_or_continental_island,target_not_yet_source_gated,none,high,systematic target
+West / Central Pacific,Cook Islands,oceanic_or_continental_island,target_not_yet_source_gated,none,high,systematic target
+West / Central Pacific,Niue,oceanic_or_continental_island,target_not_yet_source_gated,none,medium,systematic target
+West / Central Pacific,Wallis and Futuna,oceanic_or_continental_island,target_not_yet_source_gated,none,medium,systematic target
+West / Central Pacific,Tuvalu,oceanic_or_continental_island,target_not_yet_source_gated,none,low,systematic target
+West / Central Pacific,Tokelau,oceanic_or_continental_island,target_not_yet_source_gated,none,low,systematic target
+Central / East Pacific,Hawaiian Islands,oceanic_archipelago,source_verified_current,Layer A,covered,lobelioids + network sources
+Central / East Pacific,French Polynesia,oceanic_archipelago,source_verified_current,Layer D,covered,Groom et al. 2017
+Central / East Pacific,Society Islands,oceanic_archipelago,nested_target_needs_specific_gate,none,medium,French Polynesia sub-archipelago
+Central / East Pacific,Marquesas Islands,oceanic_archipelago,nested_target_needs_specific_gate,none,medium,French Polynesia sub-archipelago
+Central / East Pacific,Tuamotu Archipelago,oceanic_archipelago,nested_target_needs_specific_gate,none,medium,French Polynesia sub-archipelago
+Central / East Pacific,Austral Islands,oceanic_archipelago,nested_target_needs_specific_gate,none,medium,French Polynesia sub-archipelago
+Central / East Pacific,Gambier Islands,oceanic_archipelago,nested_target_needs_specific_gate,none,low,French Polynesia sub-archipelago
+Central / East Pacific,Pitcairn Islands,oceanic_archipelago,target_not_yet_source_gated,none,high,systematic target
+Central / East Pacific,Rapa Nui / Easter Island,oceanic_archipelago,target_not_yet_source_gated,none,high,systematic target
+Central / East Pacific,Galápagos Islands,oceanic_archipelago,source_verified_current,Layer B,covered,network summary + review
+Central / East Pacific,Juan Fernández Islands,oceanic_archipelago,source_verified_current,Layer D,covered,Anderson et al. 2001
+Central / East Pacific,Revillagigedo Islands,oceanic_archipelago,target_not_yet_source_gated,none,high,systematic target
+Central / East Pacific,Desventuradas Islands,oceanic_archipelago,target_not_yet_source_gated,none,low,systematic target
+Australasia / Southern Ocean,New Zealand,continental_oceanic_or_subantarctic,source_verified_current,Layer A/B,covered,Rhabdothamnus + global networks
+Australasia / Southern Ocean,Chatham Islands,continental_oceanic_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+Australasia / Southern Ocean,Kermadec Islands,continental_oceanic_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+Australasia / Southern Ocean,Lord Howe Island,continental_oceanic_or_subantarctic,source_found_needs_ledger_gate,pollination/speciation,high,Howea studies
+Australasia / Southern Ocean,Norfolk Island,continental_oceanic_or_subantarctic,target_not_yet_source_gated,none,high,systematic target
+Australasia / Southern Ocean,Tasmania,continental_oceanic_or_subantarctic,target_not_yet_source_gated,none,medium,systematic target
+Australasia / Southern Ocean,The Snares,continental_oceanic_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Australasia / Southern Ocean,Antipodes Islands,continental_oceanic_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Australasia / Southern Ocean,Auckland Islands,continental_oceanic_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Australasia / Southern Ocean,Campbell Island,continental_oceanic_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+Australasia / Southern Ocean,Macquarie Island,continental_oceanic_or_subantarctic,umbrella_source_verified,Southern Ocean review,high,Lord 2015
+West / Central Pacific,Amami Islands,oceanic_or_continental_island,source_found_needs_ledger_gate,community pollination network,high,Kato 2000
+West / Central Pacific,Okinawa and Iriomote,oceanic_or_continental_island,source_found_needs_ledger_gate,breeding/pollination,high,Watanabe et al. 2021
+West / Central Pacific,Yakushima,continental_island,source_found_needs_ledger_gate,pollination systems,high,Yumoto 1987
