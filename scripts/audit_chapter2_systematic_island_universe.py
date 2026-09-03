@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "data/design/chapter2_systematic_island_universe_v1_20260903.csv"
 FIRST_WAVE_GATE = ROOT / "data/design/chapter2_systematic_first_wave_source_gate_20260903.csv"
 FIRST_WAVE_DEDUP = ROOT / "data/design/chapter2_systematic_first_wave_dedup_review_20260903.csv"
+SECOND_WAVE_GATE = ROOT / "data/design/chapter2_systematic_second_wave_search_gate_20260903.csv"
 DEFAULT_OUTPUT = ROOT / "data/results/chapter2_systematic_island_universe_audit_v1_20260903.json"
 
 ALLOWED_STATUS = {
@@ -30,6 +31,18 @@ RESOLVED_OR_INDEXED = {
     "umbrella_network_indexed",
 }
 
+SECOND_WAVE_OUTCOMES = {
+    "source_found_trait_only",
+    "initial_search_inconclusive",
+    "source_found_direct_exact_subtarget",
+    "source_found_direct",
+    "source_insufficient_hypothesis_only",
+    "source_insufficient_ecology_only",
+    "source_found_direct_historical",
+    "source_found_authoritative_grey",
+    "resolved_by_subtarget_gates",
+}
+
 
 def _read_rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as handle:
@@ -40,12 +53,15 @@ def build_audit() -> dict:
     rows = _read_rows(UNIVERSE)
     gates = _read_rows(FIRST_WAVE_GATE)
     dedup = _read_rows(FIRST_WAVE_DEDUP)
+    second = _read_rows(SECOND_WAVE_GATE)
     if len(rows) != 110:
         raise RuntimeError(f"systematic island universe changed: expected 110 rows, got {len(rows)}")
     if len(gates) != 7:
         raise RuntimeError(f"first-wave source gate changed: expected 7 rows, got {len(gates)}")
     if len(dedup) != 7:
         raise RuntimeError(f"first-wave dedup review changed: expected 7 rows, got {len(dedup)}")
+    if len(second) != 19:
+        raise RuntimeError(f"second-wave search gate changed: expected 19 rows, got {len(second)}")
 
     keys = [(row["macroregion"], row["geographic_target"]) for row in rows]
     if len(keys) != len(set(keys)):
@@ -58,16 +74,21 @@ def build_audit() -> dict:
 
     if any(not row["seed_source"].strip() for row in rows):
         raise RuntimeError("every target must carry a seed source or explicit systematic-target marker")
-    if any(row["full_chapter2_contract"] != "fail" for row in gates):
-        raise RuntimeError("first-wave source gates must not silently create a full Chapter 2 contract")
+    if any(row["full_chapter2_contract"] != "fail" for row in gates + second):
+        raise RuntimeError("systematic source gates must not silently create a full Chapter 2 contract")
 
     target_names = {row["geographic_target"] for row in rows}
     gate_targets = [row["geographic_target"] for row in gates]
+    second_targets = [row["geographic_target"] for row in second]
     if len(gate_targets) != len(set(gate_targets)):
         raise RuntimeError("duplicate first-wave geographic targets")
-    missing_gate_targets = sorted(set(gate_targets) - target_names)
+    if len(second_targets) != len(set(second_targets)):
+        raise RuntimeError("duplicate second-wave geographic targets")
+    if set(gate_targets) & set(second_targets):
+        raise RuntimeError("first- and second-wave target sets overlap")
+    missing_gate_targets = sorted((set(gate_targets) | set(second_targets)) - target_names)
     if missing_gate_targets:
-        raise RuntimeError(f"first-wave targets missing from systematic universe: {missing_gate_targets}")
+        raise RuntimeError(f"systematic-wave targets missing from universe: {missing_gate_targets}")
 
     gate_ids = {row["gate_id"] for row in gates}
     dedup_ids = {row["gate_id"] for row in dedup}
@@ -91,24 +112,32 @@ def build_audit() -> dict:
     if set(promotion_decisions) != expected_promotions:
         raise RuntimeError(f"unexpected first-wave promotion decisions: {sorted(promotion_decisions)}")
 
+    second_outcomes = Counter(row["search_outcome"] for row in second)
+    if set(second_outcomes) - SECOND_WAVE_OUTCOMES:
+        raise RuntimeError(f"unexpected second-wave outcomes: {sorted(set(second_outcomes) - SECOND_WAVE_OUTCOMES)}")
+    if any(row["further_source_work"].lower() not in {"true", "false"} for row in second):
+        raise RuntimeError("second-wave further_source_work must be true/false")
+    if any(row["global_confrontation_candidate"].lower() not in {"true", "false"} for row in second):
+        raise RuntimeError("second-wave global_confrontation_candidate must be true/false")
+
     status_counts = Counter(row["coverage_status"] for row in rows)
     region_counts = Counter(row["macroregion"] for row in rows)
     priority_counts = Counter(row["search_priority"] for row in rows)
     base_resolved = sum(row["coverage_status"] in RESOLVED_OR_INDEXED for row in rows)
 
-    unresolved_gate_targets = {
+    first_unresolved_targets = {
         row["geographic_target"]
         for row in rows
         if row["coverage_status"] not in RESOLVED_OR_INDEXED and row["geographic_target"] in set(gate_targets)
     }
-    resolved_after_first_wave = base_resolved + len(unresolved_gate_targets)
+    resolved_after_first_wave = base_resolved + len(first_unresolved_targets)
 
-    gated_from_not_yet = sum(
-        row["coverage_status"] == "target_not_yet_source_gated" and row["geographic_target"] in unresolved_gate_targets
+    gated_first_from_not_yet = sum(
+        row["coverage_status"] == "target_not_yet_source_gated" and row["geographic_target"] in first_unresolved_targets
         for row in rows
     )
-    gated_from_source_found = sum(
-        row["coverage_status"] == "source_found_needs_ledger_gate" and row["geographic_target"] in unresolved_gate_targets
+    gated_first_from_source_found = sum(
+        row["coverage_status"] == "source_found_needs_ledger_gate" and row["geographic_target"] in first_unresolved_targets
         for row in rows
     )
 
@@ -120,9 +149,35 @@ def build_audit() -> dict:
         if row["overlap_with_current36"].lower() == "false"
     }
 
+    second_unresolved_targets = {
+        row["geographic_target"]
+        for row in rows
+        if row["coverage_status"] not in RESOLVED_OR_INDEXED and row["geographic_target"] in set(second_targets)
+    }
+    if len(second_unresolved_targets) != 19:
+        raise RuntimeError(
+            f"second wave must review 19 previously unresolved broad targets, got {len(second_unresolved_targets)}"
+        )
+    reviewed_or_prior_covered = resolved_after_first_wave + len(second_unresolved_targets)
+
+    gated_second_from_not_yet = sum(
+        row["coverage_status"] == "target_not_yet_source_gated" and row["geographic_target"] in second_unresolved_targets
+        for row in rows
+    )
+    gated_second_from_source_found = sum(
+        row["coverage_status"] == "source_found_needs_ledger_gate" and row["geographic_target"] in second_unresolved_targets
+        for row in rows
+    )
+
+    second_further_work = sum(row["further_source_work"].lower() == "true" for row in second)
+    second_candidates = [row["geographic_target"] for row in second if row["global_confrontation_candidate"].lower() == "true"]
+
+    never_reviewed_or_covered = len(rows) - reviewed_or_prior_covered
+    additional_source_work = never_reviewed_or_covered + second_further_work
+
     return {
-        "schema_version": "1.2",
-        "status": "systematic_search_universe_v1_with_first_wave_source_and_dedup_gate",
+        "schema_version": "1.3",
+        "status": "systematic_search_universe_v1_through_second_wave",
         "scope": (
             "Named archipelagos, island groups and selected large/sentinel islands relevant to terrestrial "
             "flowering-plant pollination, breeding systems, reproductive assurance or plant-pollinator networks. "
@@ -138,7 +193,7 @@ def build_audit() -> dict:
             "eligible_for_breadth_after_dedup_review": gate_decisions["eligible_for_breadth_after_dedup_review"],
             "retain_search_record_not_confrontation": gate_decisions["retain_search_record_not_confrontation"],
             "full_chapter2_contract_passes": 0,
-            "newly_source_resolved_targets": len(unresolved_gate_targets),
+            "newly_source_resolved_targets": len(first_unresolved_targets),
         },
         "first_wave_dedup_review": {
             "rows": len(dedup),
@@ -148,15 +203,34 @@ def build_audit() -> dict:
             "promotion_decision_counts": dict(sorted(promotion_decisions.items())),
             "current36_changed_by_this_audit": False,
         },
-        "resolved_or_umbrella_indexed_targets_after_first_wave": resolved_after_first_wave,
-        "targets_requiring_further_source_work_after_first_wave": len(rows) - resolved_after_first_wave,
-        "directly_not_yet_source_gated_after_first_wave": status_counts["target_not_yet_source_gated"] - gated_from_not_yet,
-        "source_found_needing_ledger_gate_after_first_wave": status_counts["source_found_needs_ledger_gate"] - gated_from_source_found,
-        "nested_targets_needing_specific_gate": status_counts["nested_target_needs_specific_gate"],
+        "second_wave_search_gate": {
+            "reviewed_targets": len(second),
+            "search_outcome_counts": dict(sorted(second_outcomes.items())),
+            "global_confrontation_candidates_before_dedup": len(second_candidates),
+            "candidate_targets_before_dedup": sorted(second_candidates),
+            "full_chapter2_contract_passes": 0,
+            "targets_requiring_stronger_or_broader_source": second_further_work,
+        },
+        "coverage_after_second_wave": {
+            "targets_with_documented_search_or_prior_coverage": reviewed_or_prior_covered,
+            "targets_never_yet_directly_reviewed_or_prior_covered": never_reviewed_or_covered,
+            "targets_requiring_additional_source_work": additional_source_work,
+            "directly_not_yet_source_gated": (
+                status_counts["target_not_yet_source_gated"]
+                - gated_first_from_not_yet
+                - gated_second_from_not_yet
+            ),
+            "source_found_needing_ledger_gate": (
+                status_counts["source_found_needs_ledger_gate"]
+                - gated_first_from_source_found
+                - gated_second_from_source_found
+            ),
+            "nested_targets_needing_specific_gate": status_counts["nested_target_needs_specific_gate"],
+        },
         "claim_boundary": (
-            "Do not add these 110 targets to the frozen 25-entry identifiability denominator or the current "
-            "36-entry descriptive confrontation. First-wave eligibility is not promotion. Even after de-duplication, "
-            "the current 36 changes only in a separate promotion step after explicit manuscript-value review."
+            "Do not add the 110-target search universe to the frozen 25-entry identifiability denominator or "
+            "automatically to the current 36-entry descriptive confrontation. A documented search, source gate, "
+            "or breadth candidacy is not promotion. Search-inconclusive targets remain coverage gaps, not biological absences."
         ),
     }
 
