@@ -25,7 +25,8 @@ def test_systematic_universe_does_not_redefine_frozen_chapter2_denominators():
     assert "frozen 25-entry identifiability denominator" in boundary
     assert "current 36-entry descriptive confrontation" in boundary
     assert "first-wave eligibility is not promotion" in boundary
-    assert "overlap/de-duplication" in boundary
+    assert "de-duplication" in boundary
+    assert "separate promotion step" in boundary
 
 
 def test_first_wave_source_gate_is_explicit_and_bounded():
@@ -36,6 +37,22 @@ def test_first_wave_source_gate_is_explicit_and_bounded():
     assert gate["retain_search_record_not_confrontation"] == 1
     assert gate["full_chapter2_contract_passes"] == 0
     assert gate["newly_source_resolved_targets"] == 7
+
+
+def test_first_wave_dedup_prevents_pseudoreplication():
+    computed = build_audit()
+    dedup = computed["first_wave_dedup_review"]
+    assert dedup["rows"] == 7
+    assert dedup["eligible_research_entries"] == 6
+    assert dedup["eligible_higher_level_groups"] == 5
+    assert dedup["potential_new_higher_level_groups_relative_to_current36"] == 4
+    assert dedup["promotion_decision_counts"] == {
+        "do_not_promote": 1,
+        "eligible_existing_group": 1,
+        "eligible_new_group": 3,
+        "eligible_shared_new_group": 2,
+    }
+    assert dedup["current36_changed_by_this_audit"] is False
 
 
 def test_high_priority_search_pool_is_explicit():
