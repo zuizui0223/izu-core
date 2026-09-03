@@ -15,10 +15,10 @@ def test_world_breadth_extension_matches_deterministic_audit():
     assert computed == frozen
     assert computed["frozen_identifiability_denominator"]["research_entries"] == 25
     assert computed["frozen_identifiability_denominator"]["geographic_overlap_labels"] == 21
-    assert computed["post_freeze_extension"]["research_entries"] == 10
-    assert computed["post_freeze_extension"]["exact_geographic_groups"] == 9
-    assert computed["combined_descriptive_universe"]["research_entries_before_cross_layer_deduplication"] == 35
-    assert computed["combined_descriptive_universe"]["exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 30
+    assert computed["post_freeze_extension"]["research_entries"] == 11
+    assert computed["post_freeze_extension"]["exact_geographic_groups"] == 10
+    assert computed["combined_descriptive_universe"]["research_entries_before_cross_layer_deduplication"] == 36
+    assert computed["combined_descriptive_universe"]["exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 31
     assert computed["combined_descriptive_universe"]["independent_archipelago_denominator_claimed"] is False
 
 
@@ -31,6 +31,8 @@ def test_extension_strengthens_arrival_axis_without_reopening_prediction_gate():
         "fiji_braunsapis_invasion_2015",
         "french_polynesia_apid_origins_2017",
     }
+    assert extension["arrival_evidence_class_counts"]["none"] == 4
+    assert "vanuatu" in extension["geographic_groups"]
     assert extension["full_chapter2_contract_passes"] == 0
     assert payload["frozen_identifiability_denominator"]["formal_external_prediction_reopened"] is False
     assert payload["frozen_identifiability_denominator"]["frozen_25_recomputed"] is False
@@ -40,18 +42,19 @@ def test_world_breadth_documentation_keeps_denominators_separate():
     text = DOC.read_text(encoding="utf-8")
     lower = text.lower()
     assert "25 research entries" in lower
-    assert "10 source-verified research entries" in lower
-    assert "9 exact geographic groups" in lower
-    assert "35 research entries" in lower
-    assert "30 exact overlap labels" in lower
+    assert "11 source-verified research entries" in lower
+    assert "10 exact geographic groups" in lower
+    assert "36 research entries" in lower
+    assert "31 exact overlap labels" in lower
     assert "new caledonia" in lower
     assert "fiji" in lower
     assert "french polynesia" in lower
+    assert "vanuatu" in lower
     assert "0/25" in lower
     assert "not_evaluable" in lower
     assert "independent-archipelago denominator" in lower
 
     universe = UNIVERSE.read_text(encoding="utf-8").lower()
     assert "layer d — post-freeze source-verified breadth extension" in universe
-    assert "combined descriptive universe of 35 research entries" in universe
+    assert "combined descriptive universe of 36 research entries" in universe
     assert "formal identifiability audit remains frozen at 25 entries" in universe
