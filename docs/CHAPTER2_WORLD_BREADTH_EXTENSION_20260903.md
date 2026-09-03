@@ -6,9 +6,9 @@ Updated: 2026-09-03
 
 The frozen Chapter 2 identifiability audit remains **25 research entries**. It is not reopened or renormalized.
 
-A separate, post-freeze breadth layer adds **10 source-verified research entries spanning 9 exact geographic groups** that were not represented by the frozen ledger's `geographic_overlap_group` labels. The combined descriptive universe is therefore **35 research entries before cross-layer de-duplication** and **30 exact overlap labels before higher-level archipelago de-duplication**.
+A separate, post-freeze breadth layer adds **11 source-verified research entries spanning 10 exact geographic groups** that were not represented by the frozen ledger's `geographic_overlap_group` labels. The combined descriptive universe is therefore **36 research entries before cross-layer de-duplication** and **31 exact overlap labels before higher-level archipelago de-duplication**.
 
-Neither 35 nor 30 is an independent-archipelago denominator.
+Neither 36 nor 31 is an independent-archipelago denominator.
 
 The machine-readable extension is:
 
@@ -41,6 +41,7 @@ Adding literature after that freeze and silently recalculating those fractions w
 | St Helena | *Commidendrum* pollination | Paajanen & Cronk 2020, `10.3897/BDJ.8.e52057` | contrasting fly- and moth-associated pollination in fragmented endemic taxa | none | fail |
 | Réunion | bird-pollinated *Angraecum* | Micheneau et al. 2006, `10.1093/aob/mcl056` | pollen removal, deposition and fruit set under an insular pollinator-mode shift | none | fail |
 | Pohnpei | breeding systems of 28 species | Yomai & Williams 2021, `10.1093/aobpla/plab038` | hand-pollination, autonomous selfing, pollen limitation and reproductive assurance | none | fail |
+| Vanuatu | wild giant taro reproductive biology | Quero Garcia et al. 2008, `10.1080/00288250809509762` | direct self-incompatibility tests, rare sexual reproduction and reported absence of efficient pollinators | no matched transition; current effective-pollinator absence direct | fail |
 
 The 2002 Olesen paper also contains the Mauritian Ile aux Aigrettes network. That secondary site is not counted as a new exact geographic group here because Mauritius is already represented in the frozen 25-entry universe; the extension row is explicitly scoped to Azores-Flores.
 
@@ -48,14 +49,14 @@ The 2002 Olesen paper also contains the Mauritian Ile aux Aigrettes network. Tha
 
 ### 1. Geographic breadth
 
-The extension adds exact geographic groups in the North Atlantic, South Atlantic, eastern and western Pacific, southwest Indian Ocean and Micronesia that were absent from the frozen overlap labels. This makes it incorrect to describe the empirical programme as only 25 island systems.
+The extension adds exact geographic groups in the North Atlantic, South Atlantic, eastern and western Pacific, southwest Indian Ocean, Melanesia and Micronesia that were absent from the frozen overlap labels. This makes it incorrect to describe the empirical programme as only 25 island systems.
 
 The defensible counts are now:
 
 - **25 frozen research entries** for the formal identifiability audit;
-- **10 additional post-freeze research entries** for breadth/process extension;
-- **35 research entries** in the combined descriptive universe before cross-layer de-duplication;
-- **21 frozen exact overlap labels + 9 extension exact geographic groups = 30 exact labels** before higher-level archipelago de-duplication;
+- **11 additional post-freeze research entries** for breadth/process extension;
+- **36 research entries** in the combined descriptive universe before cross-layer de-duplication;
+- **21 frozen exact overlap labels + 10 extension exact geographic groups = 31 exact labels** before higher-level archipelago de-duplication;
 - no claimed independent-archipelago `n`.
 
 ### 2. Partner-arrival evidence
@@ -73,6 +74,7 @@ These strengthen the reality of the model's arrival axis, but none supplies the 
 Other new systems strengthen different parts of the response vocabulary:
 
 - Pohnpei directly measures autonomous selfing and pollen limitation;
+- Vanuatu directly tests self-incompatibility and documents rare sexual reproduction in populations lacking efficient pollinators;
 - Réunion directly measures pollen removal, pollen deposition and fruit set under a bird-pollination system;
 - Juan Fernández shows extremely sparse native insect visitation alongside widespread self-compatibility and mixed breeding systems;
 - Madeira measures visitor-specific foraging and pollen loads, including non-native bees;
@@ -87,13 +89,14 @@ No extension entry passes the full Chapter 2 predictor–outcome contract. There
 - changing 0/25 full contracts;
 - fitting `H0`–`H4` on an enlarged denominator;
 - leave-one-archipelago-out prediction;
-- describing 35 entries as 35 independent island systems;
-- treating introduced status alone as a measured before/after replacement process.
+- describing 36 entries as 36 independent island systems;
+- treating introduced status alone as a measured before/after replacement process;
+- treating Vanuatu's current effective-pollinator absence as a measured historical loss transition.
 
 ## Manuscript use
 
 The active paper should keep the 25-entry audit as the quantitative identifiability result. The extension can be used to make the global-confrontation language more accurate:
 
-> The formal identifiability audit was frozen at 25 research entries, but a post-freeze breadth screen identified 10 additional source-verified entries spanning nine exact geographic groups, including unusually direct pollinator-arrival records from Fiji, French Polynesia and New Caledonia. These additional systems broaden the empirical universe without altering the frozen 0/25 full-contract result.
+> The formal identifiability audit was frozen at 25 research entries, but a post-freeze breadth screen identified 11 additional source-verified entries spanning ten exact geographic groups, including unusually direct pollinator-arrival records from Fiji, French Polynesia and New Caledonia and a Vanuatu reproductive study linking efficient-pollinator absence to rare sexual reproduction. These additional systems broaden the empirical universe without altering the frozen 0/25 full-contract result.
 
 This distinction preserves chronology while removing the misleading impression that the programme considered only 25 island systems worldwide.
