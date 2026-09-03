@@ -17,7 +17,7 @@ Counting rules are deliberately conservative:
 
 The frozen identifiability universe contains **13 strict challenges plus 12 additional analytical/model-development targets = 25 research entries**. Those 25 map to **21 exact `geographic_overlap_group` labels**, but those labels are not an independent-archipelago denominator.
 
-A source-verified post-freeze breadth extension adds **10 research entries across 9 new exact geographic groups**, producing a **combined descriptive universe of 35 research entries and 30 exact overlap labels before higher-level archipelago de-duplication**. The extension does not change the frozen 21/25 outcome, 2/25 arrival/replacement or 0/25 full-contract results.
+A source-verified post-freeze breadth extension adds **11 research entries across 10 new exact geographic groups**, producing a **combined descriptive universe of 36 research entries and 31 exact overlap labels before higher-level archipelago de-duplication**. The extension does not change the frozen 21/25 outcome, 2/25 arrival/replacement or 0/25 full-contract results.
 
 The extension is documented in `docs/CHAPTER2_WORLD_BREADTH_EXTENSION_20260903.md` and `data/design/chapter2_world_breadth_extension_20260902.csv`.
 
@@ -90,8 +90,9 @@ This layer was assembled after the 25-entry identifiability audit was frozen and
 | St Helena | 1 | contrasting pollinator-mode realization under fragmentation |
 | Réunion | 1 | bird-pollination effectiveness and fruit set in an insular orchid |
 | Pohnpei | 1 | experimental self-compatibility, autonomous selfing and pollen limitation |
+| Vanuatu | 1 | direct self-incompatibility tests plus rare sexual reproduction under effective-pollinator absence |
 
-Three extension entries provide especially useful arrival evidence: New Caledonia, Fiji and French Polynesia. None of the ten passes the full Chapter 2 source-state → transition → local realization → plant-response contract.
+Three extension entries provide especially useful arrival evidence: New Caledonia, Fiji and French Polynesia. Vanuatu adds a different process boundary: direct reproductive limitation under current effective-pollinator absence, without a measured historical loss transition. None of the eleven passes the full Chapter 2 source-state → transition → local realization → plant-response contract.
 
 The 2002 Azores paper also includes Mauritian Ile aux Aigrettes. That secondary site is not counted as a new extension group because Mauritius is already represented in the frozen universe; the extension row is scoped to Azores-Flores.
 
@@ -129,6 +130,6 @@ This is preferable to treating every island system as an exchangeable replicate.
 
 ## Claim ceiling
 
-Do not report `25`, `35` or `30` as the number of independent archipelagos. Do not expand multi-archipelago studies into pseudo-replicates. Do not recompute the frozen 25-entry measurement fractions using post-freeze additions. Do not treat source-gated or blocked candidates as successful validation. Do not treat the 13 strict systems as evidence for a universal mechanism. Do not claim that Izu won an outcome-independent global ranking.
+Do not report `25`, `36` or `31` as the number of independent archipelagos. Do not expand multi-archipelago studies into pseudo-replicates. Do not recompute the frozen 25-entry measurement fractions using post-freeze additions. Do not treat source-gated or blocked candidates as successful validation. Do not treat the 13 strict systems as evidence for a universal mechanism. Do not claim that Izu won an outcome-independent global ranking.
 
-The defensible statement is that the programme now documents a **combined descriptive universe of 35 research entries**, while the **formal identifiability audit remains frozen at 25 entries**. The post-freeze extension adds nine exact geographic groups and strengthens process breadth, especially pollinator-arrival evidence, without creating a full external-prediction contract.
+The defensible statement is that the programme now documents a **combined descriptive universe of 36 research entries**, while the **formal identifiability audit remains frozen at 25 entries**. The post-freeze extension adds ten exact geographic groups and strengthens process breadth, especially pollinator-arrival evidence and one independent effective-pollinator-absence/reproduction boundary, without creating a full external-prediction contract.
