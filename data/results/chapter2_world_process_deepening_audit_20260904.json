@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "source_verified_process_deepening_without_denominator_inflation",
+  "frozen_boundaries": {
+    "formal_identifiability_research_entries": 25,
+    "post_freeze_exact_group_research_entries": 14,
+    "formal_external_prediction_reopened": false,
+    "frozen_measurement_fractions_recomputed": false
+  },
+  "process_packages": {
+    "count": 3,
+    "geographic_groups": [
+      "fiji",
+      "mauritius",
+      "ogasawara"
+    ],
+    "matched_single_transition_contract_passes": 0,
+    "changes_research_entry_or_geographic_denominator": false,
+    "stage_depth": {
+      "mauritius_honeybee_bird_competition": "interaction_to_effectiveness_and_reproductive_performance",
+      "ogasawara_honeybee_network_to_psychotria": "community_restructuring_to_pollen_transfer_and_fruit_set",
+      "fiji_recent_bee_arrival_to_interaction_network": "arrival_to_distribution_and_interaction_network"
+    }
+  },
+  "strongest_new_resolution": {
+    "mauritius": "introduced honeybee visitation and nectar depletion plus experimental comparative pollination efficiency",
+    "ogasawara": "island-scale honeybee dominance/spread plus focal honeybee-mediated asymmetric pollen transfer and fruit set",
+    "fiji": "recent bee-arrival chronology plus contemporary introduced-versus-native bee interaction structure"
+  },
+  "claim_boundary": "These packages deepen mechanisms inside geographic systems already counted elsewhere. They are not new independent systems, do not alter the 39-entry/34-label descriptive breadth counts, and do not change the frozen 0/25 full-contract or not_evaluable external-prediction conclusions."
+}
