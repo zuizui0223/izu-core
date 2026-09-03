@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0",
-  "status": "systematic_search_frame_complete_first_pass",
+  "schema_version": "1.1",
+  "status": "systematic_search_frame_complete_first_pass_with_source_strengthening",
   "second_wave_audit_schema": "1.4",
   "effective_search_targets": 111,
   "macroregions": 8,
@@ -8,7 +8,7 @@
     "targets_with_documented_search_or_prior_coverage": 111,
     "targets_never_reviewed_or_prior_covered": 0,
     "first_pass_search_complete": true,
-    "targets_requiring_additional_source_work": 49,
+    "targets_requiring_additional_source_work": 48,
     "directly_not_yet_source_gated": 0,
     "source_found_needing_ledger_gate": 0,
     "nested_targets_needing_specific_gate": 0
@@ -43,13 +43,23 @@
       "Sri Lanka",
       "Taiwan"
     ],
-    "targets_requiring_stronger_or_broader_source": 36,
+    "targets_requiring_stronger_or_broader_source_after_strengthening": 35,
+    "full_chapter2_contract_passes": 0
+  },
+  "source_strengthening_wave1": {
+    "rows": 1,
+    "targets_strengthened": [
+      "Andaman and Nicobar Islands"
+    ],
+    "primary_sources_verified": 1,
+    "targets_cleared_from_source_work": 1,
     "full_chapter2_contract_passes": 0
   },
   "third_wave_dedup_review": {
     "rows": 7,
-    "confirmed_new_higher_level_groups": 5,
+    "confirmed_new_higher_level_groups": 6,
     "confirmed_new_group_names": [
+      "andaman_nicobar",
       "madagascar",
       "sardinia",
       "sicily",
@@ -60,14 +70,11 @@
     "existing_group_names": [
       "society_islands"
     ],
-    "held_for_source_verification": 1,
-    "held_group_names": [
-      "andaman_nicobar"
-    ],
-    "promotion_decision_counts": {
+    "held_for_source_verification": 0,
+    "held_group_names": [],
+    "promotion_decision_counts_after_strengthening": {
       "eligible_existing_group": 1,
-      "eligible_new_group": 5,
-      "hold_source_verification": 1
+      "eligible_new_group": 6
     },
     "current36_changed_by_this_audit": false
   },
@@ -75,7 +82,8 @@
     "first_wave_passes": 0,
     "second_wave_passes": 0,
     "third_wave_passes": 0,
+    "source_strengthening_passes": 0,
     "systematic_extension_creates_full_contract": false
   },
-  "claim_boundary": "The current 111-target systematic search frame has completed one documented search/coverage pass, but this is not a census of all islands on Earth and not 111 independent tests. Forty-nine targets still need stronger or broader sources. The frozen 25-entry identifiability denominator and current 36-entry descriptive confrontation remain unchanged."
+  "claim_boundary": "The current 111-target systematic search frame has completed one documented search/coverage pass, but this is not a census of all islands on Earth and not 111 independent tests. Forty-eight targets still need stronger or broader sources after the first source-strengthening action. The frozen 25-entry identifiability denominator and current 36-entry descriptive confrontation remain unchanged."
 }
