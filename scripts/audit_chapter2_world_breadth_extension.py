@@ -30,6 +30,13 @@ def build_audit() -> dict:
         raise RuntimeError(f"frozen identifiability ledger changed: expected 25 rows, got {len(frozen)}")
     if len(extension) != 10:
         raise RuntimeError(f"post-freeze breadth extension changed: expected 10 rows, got {len(extension)}")
+
+    extension_ids = [row["extension_id"] for row in extension]
+    if len(set(extension_ids)) != len(extension_ids):
+        duplicates = sorted(key for key, count in Counter(extension_ids).items() if count > 1)
+        raise RuntimeError(f"duplicate breadth-extension IDs: {duplicates}")
+    if any(not row["source_reference"].strip() for row in extension):
+        raise RuntimeError("every breadth-extension row must carry a source reference")
     if any(row["full_chapter2_contract"] != "fail" for row in extension):
         raise RuntimeError("breadth extension must not silently create a full Chapter 2 contract")
     if any(row["source_verification"] == "" for row in extension):
