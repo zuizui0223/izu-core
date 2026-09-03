@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_search_universe_v1",
+  "scope": "Named archipelagos, island groups and selected large/sentinel islands relevant to terrestrial flowering-plant pollination, breeding systems, reproductive assurance or plant-pollinator networks. This is a reproducible search universe, not a claim that 110 is the number of island systems on Earth.",
+  "target_rows": 110,
+  "macroregions": 8,
+  "macroregion_counts": {
+    "Australasia / Southern Ocean": 11,
+    "Caribbean / West Atlantic": 17,
+    "Central / East Pacific": 13,
+    "Indian Ocean": 18,
+    "Mediterranean": 10,
+    "North Atlantic / Macaronesia": 9,
+    "South / East Atlantic": 7,
+    "West / Central Pacific": 25
+  },
+  "coverage_status_counts": {
+    "nested_target_needs_specific_gate": 5,
+    "source_found_needs_ledger_gate": 7,
+    "source_gated_current": 1,
+    "source_verified_current": 25,
+    "target_not_yet_source_gated": 56,
+    "umbrella_network_indexed": 2,
+    "umbrella_source_covered": 3,
+    "umbrella_source_verified": 11
+  },
+  "priority_counts": {
+    "covered": 26,
+    "high": 37,
+    "low": 12,
+    "medium": 35
+  },
+  "resolved_or_umbrella_indexed_targets": 42,
+  "targets_requiring_further_source_work": 68,
+  "directly_not_yet_source_gated": 56,
+  "source_found_needing_ledger_gate": 7,
+  "nested_targets_needing_specific_gate": 5,
+  "claim_boundary": "Do not add these 110 targets to the frozen 25-entry identifiability denominator or the current 36-entry descriptive confrontation. A target is promoted only after source verification and explicit overlap/de-duplication review."
+}
