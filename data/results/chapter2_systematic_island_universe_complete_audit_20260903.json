@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_search_frame_complete_first_pass",
+  "second_wave_audit_schema": "1.4",
+  "effective_search_targets": 111,
+  "macroregions": 8,
+  "search_completion": {
+    "targets_with_documented_search_or_prior_coverage": 111,
+    "targets_never_reviewed_or_prior_covered": 0,
+    "first_pass_search_complete": true,
+    "targets_requiring_additional_source_work": 49,
+    "directly_not_yet_source_gated": 0,
+    "source_found_needing_ledger_gate": 0,
+    "nested_targets_needing_specific_gate": 0
+  },
+  "third_wave_search_gate": {
+    "reviewed_targets": 42,
+    "search_outcome_counts": {
+      "initial_search_inconclusive": 23,
+      "source_found_authoritative_breeding_pollination": 1,
+      "source_found_authoritative_data_gap": 1,
+      "source_found_biogeography_not_pollination": 1,
+      "source_found_breeding_cross_pollination": 1,
+      "source_found_breeding_system_indication": 1,
+      "source_found_controlled_pollination_applied": 1,
+      "source_found_crop_reproductive_strategy": 5,
+      "source_found_direct_breeding": 1,
+      "source_found_direct_brood_pollination_network": 1,
+      "source_found_direct_network": 2,
+      "source_found_direct_pollination_breeding": 1,
+      "source_found_direct_pollination_network": 1,
+      "source_found_regional_obligate_mutualism": 1,
+      "source_found_regional_trait_compilation": 1
+    },
+    "initial_search_inconclusive": 23,
+    "global_confrontation_candidates_before_dedup": 7,
+    "candidate_targets_before_dedup": [
+      "Andaman and Nicobar Islands",
+      "Madagascar",
+      "Sardinia",
+      "Sicily",
+      "Society Islands",
+      "Sri Lanka",
+      "Taiwan"
+    ],
+    "targets_requiring_stronger_or_broader_source": 36,
+    "full_chapter2_contract_passes": 0
+  },
+  "third_wave_dedup_review": {
+    "rows": 7,
+    "confirmed_new_higher_level_groups": 5,
+    "confirmed_new_group_names": [
+      "madagascar",
+      "sardinia",
+      "sicily",
+      "sri_lanka",
+      "taiwan_lanyu"
+    ],
+    "existing_current36_groups": 1,
+    "existing_group_names": [
+      "society_islands"
+    ],
+    "held_for_source_verification": 1,
+    "held_group_names": [
+      "andaman_nicobar"
+    ],
+    "promotion_decision_counts": {
+      "eligible_existing_group": 1,
+      "eligible_new_group": 5,
+      "hold_source_verification": 1
+    },
+    "current36_changed_by_this_audit": false
+  },
+  "full_contract_result": {
+    "first_wave_passes": 0,
+    "second_wave_passes": 0,
+    "third_wave_passes": 0,
+    "systematic_extension_creates_full_contract": false
+  },
+  "claim_boundary": "The current 111-target systematic search frame has completed one documented search/coverage pass, but this is not a census of all islands on Earth and not 111 independent tests. Forty-nine targets still need stronger or broader sources. The frozen 25-entry identifiability denominator and current 36-entry descriptive confrontation remain unchanged."
+}
