@@ -1,0 +1,8 @@
+gate_id,geographic_target,proposed_higher_level_group,overlap_with_current36,overlap_note,source_gate_decision,promotion_decision
+thirdwave_sardinia,Sardinia,sardinia,false,"No Sardinia exact or higher-level cluster in current 36-entry confrontation",candidate_for_breadth_after_dedup_review,eligible_new_group
+thirdwave_sicily,Sicily,sicily,false,"No Sicily exact or higher-level cluster in current 36-entry confrontation",candidate_for_breadth_after_dedup_review,eligible_new_group
+thirdwave_madagascar,Madagascar,madagascar,false,"No Madagascar exact or higher-level cluster in current 36-entry confrontation",candidate_for_breadth_after_dedup_review,eligible_new_group
+thirdwave_andaman,"Andaman and Nicobar Islands",andaman_nicobar,false,"No Andaman/Nicobar cluster in current 36, but the recovered bibliographic record still needs primary article/DOI lock",candidate_for_breadth_after_dedup_review,hold_source_verification
+thirdwave_srilanka,Sri Lanka,sri_lanka,false,"No Sri Lanka exact or higher-level cluster in current 36-entry confrontation",candidate_for_breadth_after_dedup_review,eligible_new_group
+thirdwave_taiwan,Taiwan,taiwan_lanyu,false,"No Taiwan/Lanyu cluster in current 36; direct evidence is from oceanic Lanyu (Orchid Island) and should be reported at that source-native subtarget scale",candidate_for_breadth_after_dedup_review,eligible_new_group
+thirdwave_society,Society Islands,society_islands,true,"Society Islands are nested within the French Polynesia geographic layer already represented in the current 36-entry confrontation",candidate_for_breadth_after_dedup_review,eligible_existing_group
