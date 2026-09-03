@@ -16,18 +16,31 @@ def test_source_strengthening_wave2_matches_frozen_result():
     assert computed["starting_source_work_targets"] == 48
 
 
-def test_cabo_verde_and_tasmania_are_cleared_without_creating_full_contract():
+def test_five_targets_are_cleared_without_creating_full_contract():
     payload = build_strengthening_audit()
     wave = payload["wave2"]
-    assert wave["reviewed_targets"] == 3
-    assert wave["cleared_from_source_work"] == 2
-    assert wave["cleared_target_names"] == ["Cabo Verde", "Tasmania"]
-    assert wave["new_global_confrontation_candidates"] == 2
-    assert wave["candidate_target_names"] == ["Cabo Verde", "Tasmania"]
-    assert wave["decision_counts"]["eligible_new_group"] == 2
+    assert wave["reviewed_targets"] == 6
+    assert wave["cleared_from_source_work"] == 5
+    assert wave["cleared_target_names"] == [
+        "Cabo Verde",
+        "Corsica",
+        "Cyprus",
+        "Maltese Islands",
+        "Tasmania",
+    ]
+    assert wave["new_global_confrontation_candidates"] == 5
+    assert wave["candidate_target_names"] == wave["cleared_target_names"]
+    assert wave["decision_counts"] == {
+        "eligible_new_group": 5,
+        "hold_mechanism_conflict": 1,
+    }
+    assert wave["source_verification_counts"] == {
+        "authoritative_sources_conflict_unresolved": 1,
+        "primary_article_verified": 4,
+        "primary_government_research_report": 1,
+    }
     assert wave["full_chapter2_contract_passes"] == 0
-    assert payload["source_work_state_after_wave2"]["targets_requiring_additional_source_work"] == 46
-    assert payload["source_work_state_after_wave2"]["cabo_verde_source_state"] == "direct_island_pollination_biology_primary_article"
+    assert payload["source_work_state_after_wave2"]["targets_requiring_additional_source_work"] == 43
 
 
 def test_norfolk_conflict_remains_open():
