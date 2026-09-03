@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_strengthening_wave2",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 48,
+  "wave2": {
+    "reviewed_targets": 2,
+    "target_names": [
+      "Norfolk Island",
+      "Tasmania"
+    ],
+    "cleared_from_source_work": 1,
+    "cleared_target_names": [
+      "Tasmania"
+    ],
+    "remain_open_after_review": 1,
+    "open_target_names": [
+      "Norfolk Island"
+    ],
+    "new_global_confrontation_candidates": 1,
+    "candidate_target_names": [
+      "Tasmania"
+    ],
+    "decision_counts": {
+      "eligible_new_group": 1,
+      "hold_mechanism_conflict": 1
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave2": {
+    "targets_requiring_additional_source_work": 47,
+    "tasmania_source_state": "direct_original_field_and_pollination_experiment_in_authoritative_research_report",
+    "norfolk_source_state": "authoritative_mechanism_conflict_unresolved"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave2_passes": 0
+  },
+  "claim_boundary": "Source strengthening changes evidence quality, not the frozen 25-entry identifiability denominator, the current 36-entry descriptive confrontation, or formal prediction readiness. Tasmania is cleared for later breadth-value review; Norfolk remains unresolved because authoritative sources conflict on reproductive mechanism."
+}
