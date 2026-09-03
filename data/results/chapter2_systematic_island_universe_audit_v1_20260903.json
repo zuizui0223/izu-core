@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0",
-  "status": "systematic_search_universe_v1",
+  "schema_version": "1.1",
+  "status": "systematic_search_universe_v1_with_first_wave_source_gate",
   "scope": "Named archipelagos, island groups and selected large/sentinel islands relevant to terrestrial flowering-plant pollination, breeding systems, reproductive assurance or plant-pollinator networks. This is a reproducible search universe, not a claim that 110 is the number of island systems on Earth.",
   "target_rows": 110,
   "macroregions": 8,
@@ -14,7 +14,7 @@
     "South / East Atlantic": 7,
     "West / Central Pacific": 25
   },
-  "coverage_status_counts": {
+  "seed_coverage_status_counts": {
     "nested_target_needs_specific_gate": 5,
     "source_found_needs_ledger_gate": 7,
     "source_gated_current": 1,
@@ -30,10 +30,17 @@
     "low": 12,
     "medium": 35
   },
-  "resolved_or_umbrella_indexed_targets": 42,
-  "targets_requiring_further_source_work": 68,
-  "directly_not_yet_source_gated": 56,
-  "source_found_needing_ledger_gate": 7,
+  "first_wave_source_gate": {
+    "gated_targets": 7,
+    "eligible_for_breadth_after_dedup_review": 6,
+    "retain_search_record_not_confrontation": 1,
+    "full_chapter2_contract_passes": 0,
+    "newly_source_resolved_targets": 7
+  },
+  "resolved_or_umbrella_indexed_targets_after_first_wave": 49,
+  "targets_requiring_further_source_work_after_first_wave": 61,
+  "directly_not_yet_source_gated_after_first_wave": 55,
+  "source_found_needing_ledger_gate_after_first_wave": 1,
   "nested_targets_needing_specific_gate": 5,
-  "claim_boundary": "Do not add these 110 targets to the frozen 25-entry identifiability denominator or the current 36-entry descriptive confrontation. A target is promoted only after source verification and explicit overlap/de-duplication review."
+  "claim_boundary": "Do not add these 110 targets to the frozen 25-entry identifiability denominator or the current 36-entry descriptive confrontation. First-wave eligibility is not promotion: any expansion of the 36-entry confrontation requires a separate overlap/de-duplication review."
 }
