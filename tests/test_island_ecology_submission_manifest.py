@@ -26,10 +26,10 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     breadth = manifest["world_breadth_extension"]
     assert breadth["formal_identifiability_research_entries"] == 25
     assert breadth["frozen_exact_geographic_overlap_labels"] == 21
-    assert breadth["post_freeze_source_verified_research_entries"] == 10
-    assert breadth["post_freeze_exact_geographic_groups"] == 9
-    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 35
-    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 30
+    assert breadth["post_freeze_source_verified_research_entries"] == 11
+    assert breadth["post_freeze_exact_geographic_groups"] == 10
+    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 36
+    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 31
     assert breadth["post_freeze_direct_or_historical_arrival_entries"] == 3
     assert breadth["formal_external_prediction_reopened"] is False
     assert breadth["frozen_25_measurement_fractions_recomputed"] is False
