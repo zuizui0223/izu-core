@@ -28,8 +28,8 @@ def build_audit() -> dict:
 
     if len(frozen) != 25:
         raise RuntimeError(f"frozen identifiability ledger changed: expected 25 rows, got {len(frozen)}")
-    if len(extension) != 10:
-        raise RuntimeError(f"post-freeze breadth extension changed: expected 10 rows, got {len(extension)}")
+    if len(extension) != 11:
+        raise RuntimeError(f"post-freeze breadth extension changed: expected 11 rows, got {len(extension)}")
 
     extension_ids = [row["extension_id"] for row in extension]
     if len(set(extension_ids)) != len(extension_ids):
@@ -53,7 +53,7 @@ def build_audit() -> dict:
     direct_arrival_rows = [row["extension_id"] for row in extension if row["arrival_evidence_class"] in DIRECT_ARRIVAL_CLASSES]
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "post_freeze_breadth_extension_source_verified",
         "frozen_identifiability_denominator": {
             "research_entries": len(frozen),
@@ -76,7 +76,7 @@ def build_audit() -> dict:
             "independent_archipelago_denominator_claimed": False,
         },
         "claim_boundary": (
-            "The 10 post-freeze entries broaden geographic and process coverage only. "
+            "The 11 post-freeze entries broaden geographic and process coverage only. "
             "They do not alter the frozen 25-entry identifiability audit, its 0/25 full-contract result, "
             "or the not_evaluable formal external-prediction conclusion."
         ),
