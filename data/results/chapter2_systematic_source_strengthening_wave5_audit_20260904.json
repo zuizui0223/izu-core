@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_strengthening_wave5",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 38,
+  "wave5": {
+    "reviewed_targets": 7,
+    "target_names": [
+      "ABC Islands",
+      "Bermuda",
+      "Christmas Island",
+      "Crete",
+      "Iceland",
+      "Philippines",
+      "Trinidad and Tobago"
+    ],
+    "cleared_from_source_work": 4,
+    "cleared_target_names": [
+      "Crete",
+      "Iceland",
+      "Philippines",
+      "Trinidad and Tobago"
+    ],
+    "remain_open_after_review": 3,
+    "open_target_names": [
+      "ABC Islands",
+      "Bermuda",
+      "Christmas Island"
+    ],
+    "global_confrontation_candidates_after_review": 5,
+    "candidate_target_names": [
+      "ABC Islands",
+      "Crete",
+      "Iceland",
+      "Philippines",
+      "Trinidad and Tobago"
+    ],
+    "cleared_candidates": 4,
+    "cleared_candidate_names": [
+      "Crete",
+      "Iceland",
+      "Philippines",
+      "Trinidad and Tobago"
+    ],
+    "decision_counts": {
+      "eligible_new_group": 4,
+      "eligible_new_group_with_subtarget_limit": 1,
+      "hold_direct_pollination_unrecovered": 2
+    },
+    "source_verification_counts": {
+      "authoritative_flora_plus_nonexperimental_reproductive_claim_incomplete": 1,
+      "primary_article_repository_record_verified": 1,
+      "primary_article_verified": 3,
+      "primary_articles_verified_exact_curacao_subtarget": 1,
+      "primary_morphology_plus_authoritative_flora_no_pollination": 1
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave5": {
+    "targets_requiring_additional_source_work": 34,
+    "resolved_targets": [
+      "Crete",
+      "Iceland",
+      "Philippines",
+      "Trinidad and Tobago"
+    ],
+    "open_targets": [
+      "ABC Islands",
+      "Bermuda",
+      "Christmas Island"
+    ],
+    "abc_scope_state": "curacao_direct_broad_abc_incomplete",
+    "bermuda_source_state": "self_seeding_claim_without_controlled_reproductive_experiment",
+    "christmas_source_state": "pollinarium_morphology_without_local_pollination_observation"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave5_passes": 0
+  },
+  "claim_boundary": "Source strengthening resolves direct reproductive or pollination evidence for Crete, the Philippines, Trinidad and Tobago, and Iceland, but does not alter the frozen 25-entry identifiability audit, the current 36-entry descriptive confrontation, or formal prediction readiness. Curacao evidence is not generalized to the entire ABC archipelago; Bermuda and Christmas Island remain open because direct local process evidence is still insufficient."
+}
