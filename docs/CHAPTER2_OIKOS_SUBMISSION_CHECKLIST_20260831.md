@@ -1,6 +1,6 @@
 # Chapter 2 Oikos submission checklist
 
-Updated: 2026-09-02
+Updated: 2026-09-04
 
 ## Active route
 
@@ -18,6 +18,18 @@ Narrative contract:
 The scientific and manuscript-integration gates are closed. No additional simulation, world projection or Chapter 3 empirical result is required for the active Chapter 2 submission route.
 
 The global step must remain bounded: the **response vocabulary** is projected/carried into the empirical island literature, but empirical systems are not assigned to synthetic regime labels and the 25-entry audit is not presented as validation coverage.
+
+### Global evidence accounting
+
+Keep three denominators separate throughout submission:
+
+- **54 global screening units**: broad coverage screen = 13 strict state targets + 12 partial mechanism/propagation units + 7 filtering/architecture units + 22 explicit geographic gaps. This is not a literal census of every island and is not the identifiability sample.
+- **25 frozen identifiability research entries**: the quantitative measurement audit that yields 21/25 direct outcomes, 2/25 direct partner arrival/replacement and 0/25 full contracts.
+- **41 source-backed descriptive research entries** after the post-freeze breadth extension: 25 frozen entries + 16 source-verified extension entries spanning 15 exact geographic groups. These map to 36 exact overlap labels before higher-level de-duplication and are not independent archipelagos.
+
+A separate Southern Ocean synthesis covers 321 flowering plant species across 11 island groups and remains outside all three denominators above.
+
+The blinded submission renderer explicitly states that the 25-entry identifiability inventory is nested within the broader 54-unit global screen, preventing `25` from being read as the total number of island systems considered.
 
 ## Oikos initial-submission requirements implemented
 
@@ -58,8 +70,10 @@ The submission must continue to state that:
 - realized community remains the largest additive component across the prespecified seed and structural-horizon sensitivities, while starting state alone remains weak and state × community nonadditivity remains consequential;
 - mixed geometry persists at zero trait adjustment and under equal initial pollinator richness; the latter supports only that richness reduction is not necessary for mixed geometry;
 - global island systems establish the empirical necessity of a richer response vocabulary, not fitted synthetic-regime projection or validation coverage;
+- the 54-unit screen is broad coverage context, not a prediction or identifiability sample;
 - the audited literature is outcome-rich but process-poor: direct response outcomes occur in 21/25 entries but partner arrival/replacement in only 2/25;
 - 0/25 audited research entries meet the full outcome-independent external-prediction contract, so formal held-out prediction is `not_evaluable`;
+- the post-freeze 16-entry breadth extension does not recalculate those frozen 25-entry fractions;
 - Izu raw matching is structured at the source-state/background-community-composition level;
 - null-corrected beyond-composition sorting is unsupported;
 - the prespecified Oshima-source bridge is unsupported;
