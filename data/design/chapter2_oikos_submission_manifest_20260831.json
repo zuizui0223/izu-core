@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.8",
+  "schema_version": "1.9",
   "updated_on": "2026-09-04",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
@@ -24,6 +24,18 @@
     "global_confrontation": "carry_response_vocabulary_into_empirical_island_diversity_without_assigning_synthetic_regime_labels",
     "identifiability": "diagnose_outcome_rich_process_poor_measurement_bottleneck",
     "izu_mechanistic_zoom": "separate_source_state_plus_background_composition_from_beyond_composition_sorting"
+  },
+  "global_screening_context": {
+    "combined_screening_units": 54,
+    "tier_A_strict_state_targets": 13,
+    "tier_B_partial_mechanism_or_propagation": 12,
+    "tier_C_filtering_or_architecture": 7,
+    "tier_D_explicit_screened_geographic_gaps": 22,
+    "role": "global_coverage_screen_not_identifiability_denominator",
+    "literal_census_of_all_islands": false,
+    "programme_state": "data/design/global_archipelago_programme_state_20260824.json",
+    "primary_screen": "data/design/global_archipelago_pollination_screen_v1.json",
+    "gap_extension": "data/design/global_archipelago_pollination_screen_extension_v1.json"
   },
   "world_breadth_extension": {
     "formal_identifiability_research_entries": 25,
@@ -70,6 +82,7 @@
     "external_full_contracts": "0_of_25",
     "external_measurement_structure": "outcome_rich_process_poor",
     "world_step_projects": "response_vocabulary_not_synthetic_regime_assignments",
+    "global_screen_units_not_identifiability_sample": true,
     "direct_response_outcome": "21_of_25",
     "direct_partner_arrival_replacement": "2_of_25",
     "post_freeze_breadth_extension_changes_frozen_25_metrics": false,
@@ -84,6 +97,7 @@
     "article_type": "Research Paper",
     "abstract_max_words": 300,
     "active_abstract_target_words": 278,
+    "submission_render_adds_54_unit_global_screen_context": true,
     "four_act_submission_narrative": true,
     "world_step_assigns_empirical_systems_to_synthetic_regimes": false,
     "upload_file_format": "RTF",
