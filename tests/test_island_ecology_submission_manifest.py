@@ -36,12 +36,13 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     breadth = manifest["world_breadth_extension"]
     assert breadth["formal_identifiability_research_entries"] == 25
     assert breadth["frozen_exact_geographic_overlap_labels"] == 21
-    assert breadth["post_freeze_source_verified_research_entries"] == 16
-    assert breadth["post_freeze_exact_geographic_groups"] == 15
-    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 41
-    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 36
+    assert breadth["post_freeze_source_verified_research_entries"] == 17
+    assert breadth["post_freeze_exact_geographic_groups"] == 16
+    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 42
+    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 37
     assert breadth["post_freeze_direct_or_historical_arrival_entries"] == 4
-    assert set(breadth["latest_exact_geographic_group_additions"]) == {"cape_verde", "lord_howe"}
+    assert set(breadth["latest_exact_geographic_group_additions"]) == {"cape_verde", "lord_howe", "rodrigues"}
+    assert set(breadth["frozen_tier_D_groups_recovered_as_post_freeze_source_backed_breadth"]) == {"lord_howe", "rodrigues", "socotra"}
     assert breadth["separate_multi_group_syntheses"] == 1
     assert breadth["southern_ocean_source_native_island_groups"] == 11
     assert breadth["southern_ocean_flowering_plant_species"] == 321
