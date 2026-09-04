@@ -8,8 +8,8 @@
     "frozen_25_recomputed": false
   },
   "post_freeze_extension": {
-    "research_entries": 16,
-    "exact_geographic_groups": 15,
+    "research_entries": 17,
+    "exact_geographic_groups": 16,
     "geographic_groups": [
       "azores",
       "cape_verde",
@@ -22,6 +22,7 @@
       "new_caledonia",
       "pohnpei_caroline",
       "reunion_mascarene",
+      "rodrigues",
       "samoa",
       "socotra",
       "st_helena",
@@ -32,7 +33,7 @@
       "direct_recent_arrival": 1,
       "direct_recent_arrival_phylogeographic": 2,
       "introduced_presence_no_matched_transition": 4,
-      "none": 8
+      "none": 9
     },
     "direct_or_historical_arrival_entries": 4,
     "direct_or_historical_arrival_ids": [
@@ -50,9 +51,9 @@
     "included_in_formal_or_exact_group_denominators": false
   },
   "combined_descriptive_universe": {
-    "research_entries_before_cross_layer_deduplication": 41,
-    "exact_overlap_labels_before_higher_level_archipelago_deduplication": 36,
+    "research_entries_before_cross_layer_deduplication": 42,
+    "exact_overlap_labels_before_higher_level_archipelago_deduplication": 37,
     "independent_archipelago_denominator_claimed": false
   },
-  "claim_boundary": "The 16 post-freeze exact-group entries plus the separately tracked Southern Ocean synthesis broaden geographic and process coverage only. They do not alter the frozen 25-entry identifiability audit, its 0/25 full-contract result, or the not_evaluable formal external-prediction conclusion."
+  "claim_boundary": "The 17 post-freeze exact-group entries plus the separately tracked Southern Ocean synthesis broaden geographic and process coverage only. They do not alter the frozen 25-entry identifiability audit, its 0/25 full-contract result, or the not_evaluable formal external-prediction conclusion."
 }
