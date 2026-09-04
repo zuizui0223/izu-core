@@ -32,6 +32,11 @@ def test_renderer_removes_internal_thesis_routing_and_preserves_four_act_science
     assert "five linked questions" not in lower
     assert "## reality:" not in lower
     assert "## resolution:" not in lower
+    assert "54-unit global island screen" in lower
+    assert "54 major island/small-island research units" in lower
+    assert "13 strict state targets" in lower
+    assert "22 explicit geographic gaps" in lower
+    assert "not the denominator of all screened island systems" in lower
     assert "response direction is therefore relational rather than intrinsic" in lower
     assert "53/96" in text
     assert "partner arrival/replacement" in lower
@@ -45,6 +50,9 @@ def test_renderer_removes_internal_thesis_routing_and_preserves_four_act_science
     assert "cell-level simulation variation" not in lower
     assert "Izu Islands" in text
 
+    abstract = text.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0]
+    assert len(abstract.split()) <= 300
+
 
 def test_renderer_writes_clean_submission_file(tmp_path: Path):
     output = tmp_path / "manuscript.md"
@@ -57,6 +65,7 @@ def test_renderer_writes_clean_submission_file(tmp_path: Path):
     assert "chapter 2" not in lower
     assert "chapter 3" not in lower
     assert "four inferential acts" in lower
+    assert "54 major island/small-island research units" in lower
 
 
 def test_renderer_fails_closed_if_source_header_contract_changes(tmp_path: Path):
@@ -69,11 +78,27 @@ def test_renderer_fails_closed_if_source_header_contract_changes(tmp_path: Path)
         render_submission_manuscript(broken)
 
 
+def test_renderer_fails_closed_if_abstract_world_screen_contract_changes(tmp_path: Path):
+    broken = tmp_path / "broken.md"
+    source = SOURCE.read_text(encoding="utf-8")
+    broken.write_text(source.replace("source-audited 25-entry island literature inventory", "source-audited literature inventory", 1), encoding="utf-8")
+    with pytest.raises(ValueError, match="Abstract world-screen sentence changed"):
+        render_submission_manuscript(broken)
+
+
 def test_renderer_fails_closed_if_introduction_funnel_contract_changes(tmp_path: Path):
     broken = tmp_path / "broken.md"
     source = SOURCE.read_text(encoding="utf-8")
     broken.write_text(source.replace("The paper follows five linked questions.", "The paper follows several questions.", 1), encoding="utf-8")
     with pytest.raises(ValueError, match="five-question Introduction funnel changed"):
+        render_submission_manuscript(broken)
+
+
+def test_renderer_fails_closed_if_methods_world_screen_contract_changes(tmp_path: Path):
+    broken = tmp_path / "broken.md"
+    source = SOURCE.read_text(encoding="utf-8")
+    broken.write_text(source.replace("The source-audited comparative universe contains 13 strict external state challenges", "The comparative universe contains 13 strict external state challenges", 1), encoding="utf-8")
+    with pytest.raises(ValueError, match="Methods global-screen opening changed"):
         render_submission_manuscript(broken)
 
 
