@@ -30,8 +30,8 @@ def build_audit() -> dict:
 
     if len(frozen) != 25:
         raise RuntimeError(f"frozen identifiability ledger changed: expected 25 rows, got {len(frozen)}")
-    if len(extension) != 16:
-        raise RuntimeError(f"post-freeze breadth extension changed: expected 16 rows, got {len(extension)}")
+    if len(extension) != 17:
+        raise RuntimeError(f"post-freeze breadth extension changed: expected 17 rows, got {len(extension)}")
     if len(syntheses) != 1:
         raise RuntimeError(f"breadth synthesis context changed: expected 1 row, got {len(syntheses)}")
 
@@ -53,7 +53,7 @@ def build_audit() -> dict:
     if frozen_groups & extension_groups:
         raise RuntimeError(f"exact geographic overlap leaked into extension: {sorted(frozen_groups & extension_groups)}")
 
-    required_new_groups = {"cape_verde", "lord_howe"}
+    required_new_groups = {"cape_verde", "lord_howe", "rodrigues"}
     if not required_new_groups <= extension_groups:
         raise RuntimeError(f"new breadth groups disappeared: {sorted(required_new_groups - extension_groups)}")
 
@@ -98,7 +98,7 @@ def build_audit() -> dict:
             "independent_archipelago_denominator_claimed": False,
         },
         "claim_boundary": (
-            "The 16 post-freeze exact-group entries plus the separately tracked Southern Ocean synthesis broaden geographic and process coverage only. "
+            "The 17 post-freeze exact-group entries plus the separately tracked Southern Ocean synthesis broaden geographic and process coverage only. "
             "They do not alter the frozen 25-entry identifiability audit, its 0/25 full-contract result, "
             "or the not_evaluable formal external-prediction conclusion."
         ),
