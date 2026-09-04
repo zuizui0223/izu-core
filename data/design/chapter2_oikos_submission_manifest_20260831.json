@@ -40,14 +40,20 @@
   "world_breadth_extension": {
     "formal_identifiability_research_entries": 25,
     "frozen_exact_geographic_overlap_labels": 21,
-    "post_freeze_source_verified_research_entries": 16,
-    "post_freeze_exact_geographic_groups": 15,
-    "combined_descriptive_research_entries_before_cross_layer_deduplication": 41,
-    "combined_exact_overlap_labels_before_higher_level_archipelago_deduplication": 36,
+    "post_freeze_source_verified_research_entries": 17,
+    "post_freeze_exact_geographic_groups": 16,
+    "combined_descriptive_research_entries_before_cross_layer_deduplication": 42,
+    "combined_exact_overlap_labels_before_higher_level_archipelago_deduplication": 37,
     "post_freeze_direct_or_historical_arrival_entries": 4,
     "latest_exact_geographic_group_additions": [
       "cape_verde",
-      "lord_howe"
+      "lord_howe",
+      "rodrigues"
+    ],
+    "frozen_tier_D_groups_recovered_as_post_freeze_source_backed_breadth": [
+      "lord_howe",
+      "rodrigues",
+      "socotra"
     ],
     "separate_multi_group_syntheses": 1,
     "southern_ocean_source_native_island_groups": 11,
