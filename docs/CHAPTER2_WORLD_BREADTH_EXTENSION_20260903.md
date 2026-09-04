@@ -6,20 +6,33 @@ Updated: 2026-09-04
 
 The frozen Chapter 2 identifiability audit remains **25 research entries**. It is not reopened or renormalized.
 
-A separate post-freeze breadth layer now contains **16 source-verified research entries spanning 15 exact geographic groups** that were absent from the frozen ledger's exact `geographic_overlap_group` labels. The combined descriptive universe is therefore **41 research entries before cross-layer de-duplication** and **36 exact overlap labels before higher-level archipelago de-duplication**.
+A separate post-freeze breadth layer now contains **17 source-verified research entries spanning 16 exact geographic groups** that were absent from the frozen ledger's exact `geographic_overlap_group` labels. The combined descriptive universe is therefore **42 research entries before cross-layer de-duplication** and **37 exact overlap labels before higher-level archipelago de-duplication**.
 
-Neither 41 nor 36 is an independent-archipelago denominator.
+Neither 42 nor 37 is an independent-archipelago denominator.
 
-A second, deliberately separate breadth context records one multi-group synthesis covering **11 Southern Ocean island groups and 321 flowering plant species**. That synthesis is not added to the 25-entry formal audit or to the 15 exact-group extension denominator because its source-native unit is a multi-island regional synthesis rather than one matched transition system.
+A second, deliberately separate breadth context records one multi-group synthesis covering **11 Southern Ocean island groups and 321 flowering plant species**. That synthesis is not added to the 25-entry formal audit or to the 16 exact-group extension denominator because its source-native unit is a multi-island regional synthesis rather than one matched transition system.
+
+## Relation to the pre-existing 54-unit global screen
+
+Before the 25-entry identifiability audit, the programme had already frozen a **54-unit global archipelago screen**: 13 strict state targets, 12 partial mechanism/propagation units, seven filtering/architecture units and 22 explicit geographic gaps. The 54 units are a coverage screen, not a literal census and not an identifiability denominator.
+
+The three relevant denominators are therefore different objects:
+
+- **54 screening units** = where the programme explicitly looked, including gaps where no source-comparable chain was recovered;
+- **42 source-backed descriptive research entries** = 25 frozen entries plus 17 post-freeze source-verified entries;
+- **25 frozen identifiability entries** = the quantitative measurement audit that produced 21/25 outcome, 2/25 arrival/replacement and 0/25 full-contract results.
+
+Post-freeze source recovery has now moved **Socotra, Lord Howe and Rodrigues** from the older screen's Tier-D gap status into source-backed descriptive breadth. The frozen screen itself is not rewritten.
 
 Machine-readable surfaces:
 
+- `data/design/global_archipelago_programme_state_20260824.json`
 - `data/design/chapter2_world_breadth_extension_20260902.csv`
 - `data/design/chapter2_world_breadth_synthesis_context_20260904.csv`
 - deterministic audit: `scripts/audit_chapter2_world_breadth_extension.py`
 - audit result: `data/results/chapter2_world_breadth_extension_audit_20260903.json`
 
-## Why this is a separate layer
+## Why the source-backed extension is a separate layer
 
 The 25-entry audit was frozen to test whether existing studies jointly measure the outcome-independent coordinates required to distinguish the synthetic response geometry. Its current results remain:
 
@@ -28,7 +41,7 @@ The 25-entry audit was frozen to test whether existing studies jointly measure t
 - 0/25 entries meet the full Chapter 2 contract;
 - formal external prediction remains `not_evaluable`.
 
-Adding literature after that freeze and silently recalculating those fractions would change the denominator after inspection. The extension therefore answers a different question: **how much wider is the empirical island universe, and can additional systems strengthen coverage of process dimensions that were sparse in the frozen audit?**
+Adding literature after that freeze and silently recalculating those fractions would change the denominator after inspection. The extension therefore answers a different question: **how much wider is the source-backed empirical island universe, and can additional systems strengthen coverage of process dimensions that were sparse in the frozen audit?**
 
 ## Post-freeze exact-group extension
 
@@ -50,8 +63,9 @@ Adding literature after that freeze and silently recalculating those fractions w
 | Socotra | *Dracaena cinnabari*–gecko interaction | García & Vasconcelos 2017, `10.1016/j.jnc.2016.11.005` | three endemic gecko species carried *D. cinnabari* pollen across 11 surveyed tree populations | none | fail: reproductive service not experimentally quantified |
 | Cape Verde | *Campanula jacobaea* | Olesen et al. 2012, `10.1016/j.ppees.2012.01.003` | small solitary Halictidae visitation plus self-pollination potential under very low visitation | none | fail |
 | Lord Howe Island | two endemic *Howea* palms | Babik et al. 2009, `10.1111/j.1365-294X.2009.04306.x` | experimental pollination-mode assessment together with recruitment and reproductive-isolation data | none | fail |
+| Rodrigues | *Hibiscus liliiflorus* remnant populations | Mashburn et al. 2023, `10.1093/jhered/esad021` | current flower visitors, severe fragmentation, rare seed set in isolated wild plants, and parentage-resolved selfing/crossing in nursery progeny | no matched transition | fail |
 
-The 2002 Olesen paper also contains the Mauritian Ile aux Aigrettes network. That secondary site is not counted as a new exact geographic group because Mauritius is already represented in the frozen 25-entry universe; the extension row is explicitly scoped to Azores-Flores. The 2012 bellflower comparison spans several archipelagos already represented elsewhere; its extension row is scoped only to the Cape Verde *Campanula jacobaea* component.
+The 2002 Olesen paper also contains the Mauritian Ile aux Aigrettes network. That secondary site is not counted as a new exact geographic group because Mauritius is already represented in the frozen 25-entry universe; the extension row is explicitly scoped to Azores-Flores. The 2012 bellflower comparison spans several archipelagos already represented elsewhere; its extension row is scoped only to the Cape Verde *Campanula jacobaea* component. Rodrigues is counted as a separate exact island group from Mauritius and Réunion, while higher-level Mascarene de-duplication remains outside the exact-label count.
 
 ## Separate multi-group breadth context
 
@@ -65,14 +79,15 @@ This synthesis is useful because it substantially broadens the geographic and re
 
 The defensible counts are now:
 
+- **54 global screening units** for broad coverage, including explicit gaps;
 - **25 frozen research entries** for the formal identifiability audit;
-- **16 additional post-freeze research entries** for exact-group breadth/process extension;
-- **41 research entries** in the combined descriptive universe before cross-layer de-duplication;
-- **21 frozen exact overlap labels + 15 extension exact geographic groups = 36 exact labels** before higher-level archipelago de-duplication;
+- **17 additional post-freeze research entries** for exact-group breadth/process extension;
+- **42 research entries** in the combined source-backed descriptive universe before cross-layer de-duplication;
+- **21 frozen exact overlap labels + 16 extension exact geographic groups = 37 exact labels** before higher-level archipelago de-duplication;
 - a separate **11-island-group Southern Ocean synthesis** that is not folded into those denominators;
 - no claimed independent-archipelago `n`.
 
-Cape Verde and Lord Howe add two regions that were absent from the exact-group ledger. Cape Verde adds a particularly useful low-visitation/self-pollination boundary; Lord Howe adds experimentally assessed pollination mode and reproductive isolation within a compact endemic island lineage.
+Cape Verde and Lord Howe add low-visitation/selfing and experimental pollination-mode/reproductive-isolation breadth. Rodrigues adds a fragmented endemic system in which current flower visitors, spatial isolation, seed-set realization and parentage are all source-native, while still lacking a matched directional pollinator transition.
 
 ### 2. Partner-arrival evidence
 
@@ -98,6 +113,7 @@ Other systems strengthen different response-vocabulary components:
 - Socotra adds a non-insect mutualistic pollination route, with geckos carrying *Dracaena* pollen;
 - Cape Verde *C. jacobaea* combines insect visitation with self-pollination under low visitation;
 - Lord Howe *Howea* adds experimental pollination-mode and reproductive-isolation evidence;
+- Rodrigues *H. liliiflorus* adds fragmentation, current flower visitors and parentage-resolved reproductive realization;
 - the Southern Ocean synthesis shows how breeding-system and pollination-mode constraints recur across a much broader climatic island domain.
 
 ## What did not improve
@@ -108,14 +124,14 @@ No exact-group extension entry passes the full Chapter 2 predictor–outcome con
 - changing 0/25 full contracts;
 - fitting `H0`–`H4` on an enlarged denominator;
 - leave-one-archipelago-out prediction;
-- describing 41 entries or 36 labels as independent island systems;
+- describing 42 entries, 37 labels or 54 screening units as independent island systems;
 - treating introduced status alone as a measured before/after replacement process;
 - counting the Southern Ocean synthesis as eleven independent prediction replicates.
 
 ## Manuscript use
 
-The active paper should keep the 25-entry audit as the quantitative identifiability result. The broader programme can be described more accurately as follows:
+The active paper should keep the 25-entry audit as the quantitative identifiability result while exposing the broader 54-unit screen as coverage context. The broader programme can be described more accurately as follows:
 
-> The formal identifiability audit was frozen at 25 research entries. A separate post-freeze breadth screen subsequently added 16 source-verified entries spanning 15 new exact geographic groups, including unusually direct pollinator-arrival records from New Caledonia, Fiji, French Polynesia and Samoa, a Lower Florida Keys study linking local pollinator filtering to plant reproductive measurements, low-visitation/self-pollination evidence from Cape Verde, and experimental pollination-mode evidence from Lord Howe Island. A separately tracked synthesis covers 321 flowering plant species across 11 Southern Ocean island groups. These additions broaden the empirical universe without altering the frozen 0/25 full-contract result.
+> A global coverage screen indexed 54 major island/small-island research units, including explicit evidence gaps. The formal identifiability audit was separately frozen at 25 research entries. A post-freeze breadth screen subsequently added 17 source-verified entries spanning 16 new exact geographic groups, bringing the source-backed descriptive universe to 42 entries while leaving the frozen 0/25 full-contract result unchanged. A separately tracked synthesis covers 321 flowering plant species across 11 Southern Ocean island groups.
 
 This distinction preserves chronology while removing the misleading impression that the programme considered only 25 island systems worldwide.
