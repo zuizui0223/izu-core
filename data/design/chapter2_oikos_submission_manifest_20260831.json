@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7",
+  "schema_version": "1.8",
   "updated_on": "2026-09-04",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
@@ -28,11 +28,15 @@
   "world_breadth_extension": {
     "formal_identifiability_research_entries": 25,
     "frozen_exact_geographic_overlap_labels": 21,
-    "post_freeze_source_verified_research_entries": 14,
-    "post_freeze_exact_geographic_groups": 13,
-    "combined_descriptive_research_entries_before_cross_layer_deduplication": 39,
-    "combined_exact_overlap_labels_before_higher_level_archipelago_deduplication": 34,
+    "post_freeze_source_verified_research_entries": 16,
+    "post_freeze_exact_geographic_groups": 15,
+    "combined_descriptive_research_entries_before_cross_layer_deduplication": 41,
+    "combined_exact_overlap_labels_before_higher_level_archipelago_deduplication": 36,
     "post_freeze_direct_or_historical_arrival_entries": 4,
+    "latest_exact_geographic_group_additions": [
+      "cape_verde",
+      "lord_howe"
+    ],
     "separate_multi_group_syntheses": 1,
     "southern_ocean_source_native_island_groups": 11,
     "southern_ocean_flowering_plant_species": 321,
