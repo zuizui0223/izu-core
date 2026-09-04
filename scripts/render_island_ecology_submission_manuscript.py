@@ -47,6 +47,23 @@ FOUR_ACT_PARAGRAPH = (
     "**Izu mechanistic-resolution zoom:** the focal island series then increases depth to separate source-state/background-composition structure from additional within-community sorting."
 )
 
+ABSTRACT_WORLD_SENTENCE = (
+    "We then confronted this vocabulary with a source-audited 25-entry island literature inventory and increased mechanistic resolution in Izu using source floral state, pollinator composition, raw matching and null-corrected matching."
+)
+
+ABSTRACT_WORLD_SENTENCE_WITH_SCREEN = (
+    "We then confronted this vocabulary with a source-audited 25-entry identifiability inventory nested within a broader 54-unit global island screen and increased mechanistic resolution in Izu using source floral state, pollinator composition, raw matching and null-corrected matching."
+)
+
+METHOD_WORLD_OPENING = (
+    "The source-audited comparative universe contains 13 strict external state challenges and 12 additional analytical or model-development entries; these 25 research entries are not independent archipelagos."
+)
+
+METHOD_WORLD_OPENING_WITH_SCREEN = (
+    "A separate global coverage screen had indexed 54 major island/small-island research units: 13 strict state targets, 12 partial mechanism or propagation units, seven filtering or architecture units and 22 explicit geographic gaps. "
+    "The source-audited identifiability ledger contains 13 strict external state challenges and 12 additional analytical or model-development entries; these 25 research entries are not independent archipelagos and are not the denominator of all screened island systems."
+)
+
 THESIS_SECTION_RE = re.compile(
     r"\n## Chapter 2 hands a measurement contract to Chapter 3\n.*?(?=\n## Limits\n)",
     flags=re.DOTALL,
@@ -127,6 +144,12 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
 
     text = _replace_exact_once(
         text,
+        ABSTRACT_WORLD_SENTENCE,
+        ABSTRACT_WORLD_SENTENCE_WITH_SCREEN,
+        "Abstract world-screen sentence",
+    )
+    text = _replace_exact_once(
+        text,
         FIVE_QUESTION_PARAGRAPH,
         FOUR_ACT_PARAGRAPH,
         "five-question Introduction funnel",
@@ -135,6 +158,13 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     if INTRO_THESIS_PARAGRAPH not in text:
         raise ValueError("thesis-specific Introduction bridge changed; refuse silent submission rendering")
     text = text.replace(INTRO_THESIS_PARAGRAPH, INTRO_STANDALONE_PARAGRAPH, 1)
+
+    text = _replace_exact_once(
+        text,
+        METHOD_WORLD_OPENING,
+        METHOD_WORLD_OPENING_WITH_SCREEN,
+        "Methods global-screen opening",
+    )
 
     text, n_removed = THESIS_SECTION_RE.subn("\n", text, count=1)
     if n_removed != 1:
@@ -185,6 +215,8 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     lower = text.lower()
     required = (
         "the paper therefore proceeds through four inferential acts",
+        "54 major island/small-island research units",
+        "not the denominator of all screened island systems",
         "## theory — possibility:",
         "## global confrontation:",
         "## identifiability:",
