@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_strengthening_wave7",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 32,
+  "wave7": {
+    "reviewed_targets": 7,
+    "target_names": [
+      "Austral Islands",
+      "Gambier Islands",
+      "Kiribati / Gilbert Islands",
+      "Niue",
+      "Tuamotu Archipelago",
+      "Tuvalu",
+      "Wallis and Futuna"
+    ],
+    "cleared_from_source_work": 2,
+    "cleared_target_names": [
+      "Austral Islands",
+      "Tuamotu Archipelago"
+    ],
+    "remain_open_after_review": 5,
+    "open_target_names": [
+      "Gambier Islands",
+      "Kiribati / Gilbert Islands",
+      "Niue",
+      "Tuvalu",
+      "Wallis and Futuna"
+    ],
+    "global_confrontation_candidates_after_review": 0,
+    "candidate_target_names": [],
+    "decision_counts": {
+      "hold_direct_pollination_unrecovered": 3,
+      "hold_local_pollination_directness": 2,
+      "resolve_existing_french_polynesia_source_no_new_entry": 2
+    },
+    "source_verification_counts": {
+      "primary_article_verified_host_phylogeography_local_pair_incomplete": 1,
+      "primary_article_verified_host_sampling_without_local_pollinator_pair": 1,
+      "primary_article_verified_source_native_mutualist_presence": 2,
+      "search_documented_no_qualifying_primary_pollination_source": 3
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave7": {
+    "targets_requiring_additional_source_work": 30,
+    "resolved_targets": [
+      "Austral Islands",
+      "Tuamotu Archipelago"
+    ],
+    "open_targets": [
+      "Gambier Islands",
+      "Kiribati / Gilbert Islands",
+      "Niue",
+      "Tuvalu",
+      "Wallis and Futuna"
+    ],
+    "austral_source_state": "native_specialized_mutualist_presence_existing_french_polynesia_source",
+    "tuamotu_source_state": "native_specialized_mutualist_presence_existing_french_polynesia_source",
+    "gambier_source_state": "host_phylogeography_without_explicit_local_pollination_effectiveness",
+    "wallis_source_state": "host_sampling_without_explicit_local_pollinator_pair"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave7_passes": 0
+  },
+  "claim_boundary": "Austral and Tuamotu are cleared using source-native specialized-mutualist evidence already contained in the existing French Polynesia research layer; they are not split into new research entries. Gambier, Wallis/Futuna, Niue, Kiribati and Tuvalu remain open. The frozen 25-entry audit, current 36-entry confrontation and formal prediction boundary are unchanged."
+}
