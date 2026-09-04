@@ -1,3 +1,4 @@
+import csv
 import json
 from pathlib import Path
 
@@ -5,6 +6,7 @@ from scripts.audit_chapter2_world_breadth_extension import build_audit
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULT = ROOT / "data/results/chapter2_world_breadth_extension_audit_20260903.json"
+LEDGER = ROOT / "data/design/chapter2_world_breadth_extension_20260902.csv"
 DOC = ROOT / "docs/CHAPTER2_WORLD_BREADTH_EXTENSION_20260903.md"
 UNIVERSE = ROOT / "docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md"
 SYNTHESIS = ROOT / "data/design/chapter2_world_breadth_synthesis_context_20260904.csv"
@@ -47,6 +49,25 @@ def test_extension_strengthens_breadth_without_reopening_prediction_gate():
     assert extension["full_chapter2_contract_passes"] == 0
     assert payload["frozen_identifiability_denominator"]["formal_external_prediction_reopened"] is False
     assert payload["frozen_identifiability_denominator"]["frozen_25_recomputed"] is False
+
+
+def test_new_exact_groups_keep_source_and_role_boundaries_explicit():
+    with LEDGER.open(encoding="utf-8", newline="") as handle:
+        rows = {row["extension_id"]: row for row in csv.DictReader(handle)}
+
+    cape = rows["cape_verde_campanula_jacobaea_2012"]
+    assert cape["geographic_overlap_group"] == "cape_verde"
+    assert cape["source_reference"] == "10.1016/j.ppees.2012.01.003"
+    assert cape["arrival_evidence_class"] == "none"
+    assert "halictidae" in cape["community_reorganization_evidence"].lower()
+    assert cape["full_chapter2_contract"] == "fail"
+
+    lord_howe = rows["lord_howe_howea_pollination_2009"]
+    assert lord_howe["geographic_overlap_group"] == "lord_howe"
+    assert lord_howe["source_reference"] == "10.1111/j.1365-294X.2009.04306.x"
+    assert lord_howe["arrival_evidence_class"] == "none"
+    assert "pollination mode" in lord_howe["plant_response_evidence"].lower()
+    assert lord_howe["full_chapter2_contract"] == "fail"
 
 
 def test_multi_group_synthesis_is_breadth_context_not_prediction_replication():
