@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_strengthening_wave6",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 34,
+  "wave6": {
+    "reviewed_targets": 7,
+    "target_names": [
+      "Bioko",
+      "Cayman Islands",
+      "Dalmatian Islands",
+      "Faroe Islands",
+      "Norfolk Island",
+      "Saint Vincent and the Grenadines",
+      "Turks and Caicos"
+    ],
+    "cleared_from_source_work": 2,
+    "cleared_target_names": [
+      "Faroe Islands",
+      "Saint Vincent and the Grenadines"
+    ],
+    "remain_open_after_review": 5,
+    "open_target_names": [
+      "Bioko",
+      "Cayman Islands",
+      "Dalmatian Islands",
+      "Norfolk Island",
+      "Turks and Caicos"
+    ],
+    "global_confrontation_candidates_after_review": 1,
+    "candidate_target_names": [
+      "Faroe Islands"
+    ],
+    "cleared_candidates": 1,
+    "cleared_candidate_names": [
+      "Faroe Islands"
+    ],
+    "decision_counts": {
+      "eligible_new_group_historical_primary_with_mechanism_caveat": 1,
+      "hold_direct_pollination_unrecovered": 3,
+      "hold_local_pollination_directness": 1,
+      "hold_pollination_mechanism_unresolved": 1,
+      "retain_direct_crop_pollination_record_existing_caribbean_layer": 1
+    },
+    "source_verification_counts": {
+      "authoritative_taxonomic_sex_system_resolved_pollination_mechanism_unresolved": 1,
+      "historical_primary_monograph_bibliography_and_observation_scope_verified": 1,
+      "primary_and_repository_sources_local_pollination_still_incomplete": 1,
+      "primary_article_verified": 1,
+      "primary_article_verified_explicit_pollination_gap": 1,
+      "search_documented_no_qualifying_primary_pollination_source": 2
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave6": {
+    "targets_requiring_additional_source_work": 32,
+    "resolved_targets": [
+      "Faroe Islands",
+      "Saint Vincent and the Grenadines"
+    ],
+    "open_targets": [
+      "Bioko",
+      "Cayman Islands",
+      "Dalmatian Islands",
+      "Norfolk Island",
+      "Turks and Caicos"
+    ],
+    "norfolk_source_state": "taxonomic_sex_system_resolved_pollination_mechanism_unresolved",
+    "faroe_source_state": "historical_primary_pollination_monograph_with_later_mechanism_caveat",
+    "turks_source_state": "primary_article_explicitly_reports_pollination_unknown",
+    "cayman_source_state": "association_and_candidate_pollinators_without_direct_local_plant_pollination"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave6_passes": 0
+  },
+  "claim_boundary": "Source strengthening clears St Vincent as a direct crop-pollination record and the Faroe Islands as historical primary pollination evidence, while keeping later mechanism caveats explicit. It does not alter the frozen 25-entry identifiability audit, the current 36-entry descriptive confrontation, or formal prediction readiness. Turks and Caicos, Norfolk, Cayman, Dalmatian Islands and Bioko remain open source/process gaps."
+}
