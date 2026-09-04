@@ -9,7 +9,7 @@ DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "1.7"
+    assert manifest["schema_version"] == "1.8"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_first_submission_route"
@@ -26,11 +26,12 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     breadth = manifest["world_breadth_extension"]
     assert breadth["formal_identifiability_research_entries"] == 25
     assert breadth["frozen_exact_geographic_overlap_labels"] == 21
-    assert breadth["post_freeze_source_verified_research_entries"] == 14
-    assert breadth["post_freeze_exact_geographic_groups"] == 13
-    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 39
-    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 34
+    assert breadth["post_freeze_source_verified_research_entries"] == 16
+    assert breadth["post_freeze_exact_geographic_groups"] == 15
+    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 41
+    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 36
     assert breadth["post_freeze_direct_or_historical_arrival_entries"] == 4
+    assert set(breadth["latest_exact_geographic_group_additions"]) == {"cape_verde", "lord_howe"}
     assert breadth["separate_multi_group_syntheses"] == 1
     assert breadth["southern_ocean_source_native_island_groups"] == 11
     assert breadth["southern_ocean_flowering_plant_species"] == 321
