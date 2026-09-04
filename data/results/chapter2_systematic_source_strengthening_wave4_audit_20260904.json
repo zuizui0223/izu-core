@@ -44,7 +44,8 @@
       "primary_article_verified_regional_inference_only": 1,
       "primary_conservation_article_no_pollination": 1,
       "primary_taxonomic_and_authoritative_flora_no_pollination": 1,
-      "search_documented_no_qualifying_primary_source": 2
+      "search_documented_ecology_not_pollination": 1,
+      "search_documented_no_qualifying_primary_source": 1
     },
     "full_chapter2_contract_passes": 0
   },
