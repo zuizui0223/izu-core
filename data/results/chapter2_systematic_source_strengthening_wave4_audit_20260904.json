@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_strengthening_wave4",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 39,
+  "wave4": {
+    "reviewed_targets": 8,
+    "target_names": [
+      "Ascension Island",
+      "Marshall Islands",
+      "Palau",
+      "Rapa Nui / Easter Island",
+      "Solomon Islands",
+      "São Tomé and Príncipe",
+      "Tonga",
+      "Tristan da Cunha"
+    ],
+    "cleared_from_source_work": 1,
+    "cleared_target_names": [
+      "Rapa Nui / Easter Island"
+    ],
+    "remain_open_after_review": 7,
+    "open_target_names": [
+      "Ascension Island",
+      "Marshall Islands",
+      "Palau",
+      "Solomon Islands",
+      "São Tomé and Príncipe",
+      "Tonga",
+      "Tristan da Cunha"
+    ],
+    "global_confrontation_candidates_after_review": 0,
+    "candidate_target_names": [],
+    "decision_counts": {
+      "hold_direct_pollination_unrecovered": 5,
+      "hold_local_pollination_directness": 2,
+      "retain_breeding_system_record_not_promote": 1
+    },
+    "source_verification_counts": {
+      "primary_article_plus_direct_conservation_reproductive_research": 1,
+      "primary_article_verified_explicit_pollination_gap": 1,
+      "primary_article_verified_historical_context_only": 1,
+      "primary_article_verified_regional_inference_only": 1,
+      "primary_conservation_article_no_pollination": 1,
+      "primary_taxonomic_and_authoritative_flora_no_pollination": 1,
+      "search_documented_ecology_not_pollination": 1,
+      "search_documented_no_qualifying_primary_source": 1
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave4": {
+    "targets_requiring_additional_source_work": 38,
+    "resolved_targets": [
+      "Rapa Nui / Easter Island"
+    ],
+    "open_targets": [
+      "Ascension Island",
+      "Marshall Islands",
+      "Palau",
+      "Solomon Islands",
+      "São Tomé and Príncipe",
+      "Tonga",
+      "Tristan da Cunha"
+    ],
+    "rapa_nui_source_state": "ex_situ_self_pollination_and_controlled_breeding_record_not_extant_transition",
+    "palau_source_state": "primary_article_explicitly_reports_no_published_pollination_observations"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave4_passes": 0
+  },
+  "claim_boundary": "Source strengthening can resolve breeding-system evidence without resolving extant island interaction mechanism. Rapa Nui is cleared only as an ex-situ breeding-system record; São Tomé, Ascension, Tristan, Palau, Marshall, Solomon and Tonga remain source gaps. The frozen 25-entry audit, current 36-entry confrontation and formal prediction readiness remain unchanged."
+}
