@@ -19,10 +19,10 @@ def test_world_breadth_extension_matches_deterministic_audit():
     assert computed["schema_version"] == "1.3"
     assert computed["frozen_identifiability_denominator"]["research_entries"] == 25
     assert computed["frozen_identifiability_denominator"]["geographic_overlap_labels"] == 21
-    assert computed["post_freeze_extension"]["research_entries"] == 16
-    assert computed["post_freeze_extension"]["exact_geographic_groups"] == 15
-    assert computed["combined_descriptive_universe"]["research_entries_before_cross_layer_deduplication"] == 41
-    assert computed["combined_descriptive_universe"]["exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 36
+    assert computed["post_freeze_extension"]["research_entries"] == 17
+    assert computed["post_freeze_extension"]["exact_geographic_groups"] == 16
+    assert computed["combined_descriptive_universe"]["research_entries_before_cross_layer_deduplication"] == 42
+    assert computed["combined_descriptive_universe"]["exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 37
     assert computed["combined_descriptive_universe"]["independent_archipelago_denominator_claimed"] is False
 
 
@@ -36,7 +36,7 @@ def test_extension_strengthens_breadth_without_reopening_prediction_gate():
         "french_polynesia_apid_origins_2017",
         "samoa_apid_introductions_2014",
     }
-    assert extension["arrival_evidence_class_counts"]["none"] == 8
+    assert extension["arrival_evidence_class_counts"]["none"] == 9
     for group in (
         "vanuatu",
         "samoa",
@@ -44,6 +44,7 @@ def test_extension_strengthens_breadth_without_reopening_prediction_gate():
         "socotra",
         "cape_verde",
         "lord_howe",
+        "rodrigues",
     ):
         assert group in extension["geographic_groups"]
     assert extension["full_chapter2_contract_passes"] == 0
@@ -69,6 +70,14 @@ def test_new_exact_groups_keep_source_and_role_boundaries_explicit():
     assert "pollination mode" in lord_howe["plant_response_evidence"].lower()
     assert lord_howe["full_chapter2_contract"] == "fail"
 
+    rodrigues = rows["rodrigues_hibiscus_liliiflorus_2023"]
+    assert rodrigues["geographic_overlap_group"] == "rodrigues"
+    assert rodrigues["source_reference"] == "10.1093/jhered/esad021"
+    assert rodrigues["arrival_evidence_class"] == "none"
+    assert "rarely set seed" in rodrigues["community_reorganization_evidence"].lower()
+    assert "parentage" in rodrigues["plant_response_evidence"].lower()
+    assert rodrigues["full_chapter2_contract"] == "fail"
+
 
 def test_multi_group_synthesis_is_breadth_context_not_prediction_replication():
     payload = build_audit()
@@ -86,12 +95,13 @@ def test_world_breadth_documentation_keeps_denominators_separate():
     text = DOC.read_text(encoding="utf-8")
     lower = text.lower()
     assert "25 research entries" in lower
-    assert "16 source-verified research entries" in lower
-    assert "15 exact geographic groups" in lower
-    assert "41 research entries" in lower
-    assert "36 exact overlap labels" in lower
+    assert "17 source-verified research entries" in lower
+    assert "16 exact geographic groups" in lower
+    assert "42 research entries" in lower
+    assert "37 exact overlap labels" in lower
     assert "cape verde" in lower
     assert "lord howe" in lower
+    assert "rodrigues" in lower
     assert "samoa" in lower
     assert "lower florida keys" in lower
     assert "socotra" in lower
@@ -104,5 +114,5 @@ def test_world_breadth_documentation_keeps_denominators_separate():
     universe = UNIVERSE.read_text(encoding="utf-8").lower()
     assert "layer d — post-freeze source-verified exact-group breadth extension" in universe
     assert "layer e — multi-group breadth context kept outside exact-group denominators" in universe
-    assert "combined descriptive universe of 41 research entries" in universe
+    assert "combined descriptive universe of 42 research entries" in universe
     assert "formal identifiability audit remains frozen at 25 entries" in universe
