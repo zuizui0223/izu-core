@@ -9,7 +9,7 @@ DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "1.8"
+    assert manifest["schema_version"] == "1.9"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_first_submission_route"
@@ -22,6 +22,16 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert manifest["remaining_blocker"] == "author_supplied_identity_prior_work_context_and_submission_declarations"
     assert "author_contributions" not in manifest["remaining_before_actual_submission"]
     assert "planned_public_repository" not in manifest["remaining_before_actual_submission"]
+
+    screen = manifest["global_screening_context"]
+    assert screen["combined_screening_units"] == 54
+    assert screen["tier_A_strict_state_targets"] == 13
+    assert screen["tier_B_partial_mechanism_or_propagation"] == 12
+    assert screen["tier_C_filtering_or_architecture"] == 7
+    assert screen["tier_D_explicit_screened_geographic_gaps"] == 22
+    assert screen["role"] == "global_coverage_screen_not_identifiability_denominator"
+    assert screen["literal_census_of_all_islands"] is False
+    assert screen["programme_state"] == "data/design/global_archipelago_programme_state_20260824.json"
 
     breadth = manifest["world_breadth_extension"]
     assert breadth["formal_identifiability_research_entries"] == 25
@@ -43,6 +53,7 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert claims["relational_response_headline"] == "response_direction_depends_on_state_evaluated_against_realized_community"
     assert claims["formal_external_prediction"] == "not_evaluable"
     assert claims["external_full_contracts"] == "0_of_25"
+    assert claims["global_screen_units_not_identifiability_sample"] is True
     assert claims["direct_response_outcome"] == "21_of_25"
     assert claims["direct_partner_arrival_replacement"] == "2_of_25"
     assert claims["post_freeze_breadth_extension_changes_frozen_25_metrics"] is False
@@ -62,6 +73,7 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert oikos["article_type"] == "Research Paper"
     assert oikos["abstract_max_words"] == 300
     assert oikos["active_abstract_target_words"] == 278
+    assert oikos["submission_render_adds_54_unit_global_screen_context"] is True
     assert oikos["upload_file_format"] == "RTF"
     assert oikos["single_column"] is True
     assert oikos["double_spaced"] is True
