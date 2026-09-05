@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_strengthening_wave9_with_terminal_gap_rule",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 26,
+  "terminal_gap_rule": {
+    "enabled": true,
+    "definition": "After repeated target-specific searches, a geography may leave active source work as a documented terminal source gap when no qualifying local primary process source is recovered. This is a literature/source state, not evidence of biological absence.",
+    "reopen_if_new_source_found": true
+  },
+  "wave9": {
+    "reviewed_targets": 7,
+    "target_names": [
+      "ABC Islands",
+      "Bermuda",
+      "Chagos Archipelago",
+      "Cocos (Keeling) Islands",
+      "Desventuradas Islands",
+      "Lakshadweep",
+      "Maldives"
+    ],
+    "closed_from_active_source_work": 7,
+    "terminal_source_gap_targets": 5,
+    "terminal_source_gap_names": [
+      "Bermuda",
+      "Chagos Archipelago",
+      "Cocos (Keeling) Islands",
+      "Desventuradas Islands",
+      "Lakshadweep"
+    ],
+    "direct_or_partial_evidence_resolutions": 2,
+    "global_confrontation_candidates_after_review": 2,
+    "candidate_target_names": [
+      "ABC Islands",
+      "Maldives"
+    ],
+    "resolution_class_counts": {
+      "direct_source_resolved": 1,
+      "terminal_partial_subtarget_evidence": 1,
+      "terminal_source_gap": 5
+    },
+    "decision_counts": {
+      "eligible_new_group_with_visitation_effectiveness_caveat": 1,
+      "retain_candidate_with_curacao_subtarget_limit": 1,
+      "terminal_authoritative_only_no_primary_mechanism": 1,
+      "terminal_biogeography_only_process_unrecovered": 1,
+      "terminal_inventory_only_no_local_process_source": 1,
+      "terminal_no_qualifying_primary_process_source": 2
+    },
+    "source_verification_counts": {
+      "authoritative_government_natural_history_no_primary_mechanism": 1,
+      "primary_article_verified_multiisland_flower_visitor_network": 1,
+      "primary_biogeography_only_terminal_process_gap": 1,
+      "primary_curacao_plus_authoritative_bonaire_broad_abc_incomplete": 1,
+      "primary_flora_plus_authoritative_pollinator_inventory_no_local_process": 1,
+      "terminal_search_no_qualifying_primary_pollination_source": 2
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave9": {
+    "targets_requiring_additional_source_work": 19,
+    "closed_targets": [
+      "ABC Islands",
+      "Bermuda",
+      "Chagos Archipelago",
+      "Cocos (Keeling) Islands",
+      "Desventuradas Islands",
+      "Lakshadweep",
+      "Maldives"
+    ],
+    "maldives_source_state": "direct_multiisland_flower_visitor_assemblage_with_land_use_contrast_effectiveness_unmeasured",
+    "abc_source_state": "curacao_direct_bonaire_authoritative_broad_abc_generalization_blocked",
+    "terminal_gap_targets": [
+      "Bermuda",
+      "Chagos Archipelago",
+      "Cocos (Keeling) Islands",
+      "Desventuradas Islands",
+      "Lakshadweep"
+    ]
+  },
+  "manuscript_boundary": {
+    "source_backed_research_entries": 39,
+    "exact_geographic_labels": 34,
+    "changed_by_wave9": false,
+    "formal_external_prediction": "not_evaluable",
+    "frozen_full_contracts": "0_of_25"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave9_passes": 0
+  },
+  "claim_boundary": "Wave 9 introduces a terminal source-gap state so exhaustive review can finish without treating unrecovered literature as biological absence. Seven targets leave active source work, reducing the queue from 26 to 19; only ABC (Curaçao-limited) and Maldives remain breadth candidates. The frozen 25-entry identifiability audit and manuscript-facing 39-entry / 34-label breadth remain unchanged, and formal prediction remains not_evaluable."
+}
