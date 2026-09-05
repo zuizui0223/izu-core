@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_strengthening_wave10_terminal_review_completion",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 19,
+  "terminal_gap_rule": {
+    "enabled": true,
+    "definition": "After repeated target-specific searches, a geography may leave active source work as a documented terminal source gap when no qualifying local primary process source is recovered. This is a literature/source state, not evidence of biological absence.",
+    "reopen_if_new_source_found": true
+  },
+  "wave10": {
+    "reviewed_targets": 10,
+    "target_names": [
+      "Ascension Island",
+      "Bioko",
+      "Chatham Islands",
+      "Dalmatian Islands",
+      "Marshall Islands",
+      "Nauru",
+      "Norfolk Island",
+      "Selvagens",
+      "Tristan da Cunha",
+      "Turks and Caicos"
+    ],
+    "closed_from_active_source_work": 10,
+    "global_confrontation_candidates_after_review": 0,
+    "candidate_target_names": [],
+    "resolution_class_counts": {
+      "terminal_authoritative_conflict": 1,
+      "terminal_geography_covered_process_gap": 1,
+      "terminal_primary_source_explicit_unknown": 1,
+      "terminal_source_gap": 7
+    },
+    "decision_counts": {
+      "terminal_authoritative_conflict_process_unresolved": 1,
+      "terminal_geography_covered_local_process_unrecovered": 1,
+      "terminal_no_qualifying_primary_process_source": 7,
+      "terminal_primary_source_explicit_pollination_unknown": 1
+    },
+    "source_verification_counts": {
+      "terminal_authoritative_conflict_process_unresolved": 1,
+      "terminal_geography_covered_local_process_unrecovered": 1,
+      "terminal_primary_source_explicit_pollination_unknown": 1,
+      "terminal_search_no_qualifying_primary_pollination_source": 7
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave10": {
+    "targets_requiring_additional_source_work": 9,
+    "closed_targets": [
+      "Ascension Island",
+      "Bioko",
+      "Chatham Islands",
+      "Dalmatian Islands",
+      "Marshall Islands",
+      "Nauru",
+      "Norfolk Island",
+      "Selvagens",
+      "Tristan da Cunha",
+      "Turks and Caicos"
+    ],
+    "terminal_source_gap_targets": [
+      "Ascension Island",
+      "Bioko",
+      "Dalmatian Islands",
+      "Marshall Islands",
+      "Nauru",
+      "Selvagens",
+      "Tristan da Cunha"
+    ],
+    "terminal_special_state_targets": [
+      "Chatham Islands",
+      "Norfolk Island",
+      "Turks and Caicos"
+    ],
+    "norfolk_source_state": "authoritative_reproductive_wording_conflict_pollination_mechanism_unresolved",
+    "turks_source_state": "primary_article_explicitly_reports_pollination_unknown",
+    "chatham_source_state": "geography_already_covered_local_pollination_process_unrecovered"
+  },
+  "manuscript_boundary": {
+    "source_backed_research_entries": 39,
+    "exact_geographic_labels": 34,
+    "changed_by_wave10": false,
+    "formal_external_prediction": "not_evaluable",
+    "frozen_full_contracts": "0_of_25"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave10_passes": 0
+  },
+  "claim_boundary": "Wave 10 terminally completes ten repeatedly searched targets without converting source gaps, authoritative conflicts, or an explicit primary-study unknown into biological absence. No wave-10 target becomes a global-confrontation candidate. The active source-work queue falls from 19 to 9; manuscript-facing breadth remains 39 research entries / 34 exact labels, the frozen 25-entry identifiability audit remains unchanged, and formal external prediction remains not_evaluable."
+}
