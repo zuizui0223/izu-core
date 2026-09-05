@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REVIEW = ROOT / "data/design/chapter2_manuscript_value_promotion_review_20260905.csv"
 WAVE11 = ROOT / "data/results/chapter2_systematic_source_strengthening_wave11_audit_20260905.json"
-MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
+MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_pre_promotion_20260905.json"
 DEFAULT_OUTPUT = ROOT / "data/results/chapter2_manuscript_value_promotion_review_audit_20260905.json"
 
 EXPECTED_PROMOTIONS = {
