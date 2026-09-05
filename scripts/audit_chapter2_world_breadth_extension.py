@@ -17,6 +17,12 @@ DIRECT_ARRIVAL_CLASSES = {
     "direct_historical_arrival",
 }
 
+PROMOTED_MANUSCRIPT_VALUE_IDS = {
+    "crete_cyclamen_breeding_1997",
+    "trinidad_tobago_hummingbird_pollination_1982",
+    "iceland_campanula_uniflora_breeding_2006",
+}
+
 
 def _read_rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as handle:
@@ -30,8 +36,8 @@ def build_audit() -> dict:
 
     if len(frozen) != 25:
         raise RuntimeError(f"frozen identifiability ledger changed: expected 25 rows, got {len(frozen)}")
-    if len(extension) != 14:
-        raise RuntimeError(f"post-freeze breadth extension changed: expected 14 rows, got {len(extension)}")
+    if len(extension) != 17:
+        raise RuntimeError(f"post-freeze breadth extension changed: expected 17 rows, got {len(extension)}")
     if len(syntheses) != 1:
         raise RuntimeError(f"breadth synthesis context changed: expected 1 row, got {len(syntheses)}")
 
@@ -39,6 +45,9 @@ def build_audit() -> dict:
     if len(set(extension_ids)) != len(extension_ids):
         duplicates = sorted(key for key, count in Counter(extension_ids).items() if count > 1)
         raise RuntimeError(f"duplicate breadth-extension IDs: {duplicates}")
+    if not PROMOTED_MANUSCRIPT_VALUE_IDS.issubset(set(extension_ids)):
+        missing = sorted(PROMOTED_MANUSCRIPT_VALUE_IDS - set(extension_ids))
+        raise RuntimeError(f"selected manuscript-value promotions missing from breadth extension: {missing}")
     if any(not row["source_reference"].strip() for row in extension):
         raise RuntimeError("every breadth-extension row must carry a source reference")
     if any(row["full_chapter2_contract"] != "fail" for row in extension):
@@ -52,6 +61,8 @@ def build_audit() -> dict:
     extension_groups = {row["geographic_overlap_group"] for row in extension}
     if frozen_groups & extension_groups:
         raise RuntimeError(f"exact geographic overlap leaked into extension: {sorted(frozen_groups & extension_groups)}")
+    if len(extension_groups) != 16:
+        raise RuntimeError(f"post-freeze exact geographic groups changed: expected 16, got {len(extension_groups)}")
 
     synthesis = syntheses[0]
     synthesis_group_count = int(synthesis["source_native_island_group_count"])
@@ -65,8 +76,8 @@ def build_audit() -> dict:
     direct_arrival_rows = [row["extension_id"] for row in extension if row["arrival_evidence_class"] in DIRECT_ARRIVAL_CLASSES]
 
     return {
-        "schema_version": "1.2",
-        "status": "post_freeze_breadth_extension_source_verified",
+        "schema_version": "1.3",
+        "status": "post_freeze_breadth_extension_source_verified_and_value_promoted",
         "frozen_identifiability_denominator": {
             "research_entries": len(frozen),
             "geographic_overlap_labels": len(frozen_groups),
@@ -80,6 +91,8 @@ def build_audit() -> dict:
             "arrival_evidence_class_counts": dict(sorted(arrival_counts.items())),
             "direct_or_historical_arrival_entries": len(direct_arrival_rows),
             "direct_or_historical_arrival_ids": direct_arrival_rows,
+            "manuscript_value_promoted_entries": len(PROMOTED_MANUSCRIPT_VALUE_IDS),
+            "manuscript_value_promoted_ids": sorted(PROMOTED_MANUSCRIPT_VALUE_IDS),
             "full_chapter2_contract_passes": 0,
         },
         "multi_group_breadth_context": {
@@ -94,7 +107,8 @@ def build_audit() -> dict:
             "independent_archipelago_denominator_claimed": False,
         },
         "claim_boundary": (
-            "The 14 post-freeze exact-group entries plus the separately tracked Southern Ocean synthesis broaden geographic and process coverage only. "
+            "The 17 post-freeze exact-group entries include three manuscript-value-selected additions from Crete, Trinidad and Tobago, and Iceland. "
+            "Together with the separately tracked Southern Ocean synthesis they broaden geographic, falsification, and process coverage only. "
             "They do not alter the frozen 25-entry identifiability audit, its 0/25 full-contract result, "
             "or the not_evaluable formal external-prediction conclusion."
         ),
