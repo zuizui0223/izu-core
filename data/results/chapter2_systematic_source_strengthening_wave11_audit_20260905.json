@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "status": "systematic_source_review_complete_wave11",
+  "effective_search_targets": 111,
+  "first_pass_search_complete": true,
+  "starting_source_work_targets": 9,
+  "terminal_gap_rule": {
+    "enabled": true,
+    "definition": "After repeated target-specific searches, a geography may leave active source work as a documented terminal source gap when no qualifying local primary process source is recovered. This is a literature/source state, not evidence of biological absence.",
+    "reopen_if_new_source_found": true
+  },
+  "wave11": {
+    "reviewed_targets": 9,
+    "target_names": [
+      "Cayman Islands",
+      "Gambier Islands",
+      "Kiribati / Gilbert Islands",
+      "Niue",
+      "São Tomé and Príncipe",
+      "Tokelau",
+      "Tonga",
+      "Tuvalu",
+      "Wallis and Futuna"
+    ],
+    "closed_from_active_source_work": 9,
+    "terminal_source_gap_targets": 6,
+    "terminal_source_gap_names": [
+      "Kiribati / Gilbert Islands",
+      "Niue",
+      "São Tomé and Príncipe",
+      "Tokelau",
+      "Tonga",
+      "Tuvalu"
+    ],
+    "special_terminal_state_targets": 3,
+    "special_terminal_state_names": [
+      "Cayman Islands",
+      "Gambier Islands",
+      "Wallis and Futuna"
+    ],
+    "global_confrontation_candidates_after_review": 0,
+    "candidate_target_names": [],
+    "resolution_class_counts": {
+      "terminal_host_phylogeography_pollinator_pairing_unrecovered": 1,
+      "terminal_indirect_local_mutualism_trace": 1,
+      "terminal_local_pollinator_association_effectiveness_unrecovered": 1,
+      "terminal_source_gap": 6
+    },
+    "decision_counts": {
+      "terminal_host_coverage_pollinator_pairing_unrecovered": 1,
+      "terminal_indirect_mutualism_trace_no_direct_pollination": 1,
+      "terminal_local_effectiveness_unrecovered": 1,
+      "terminal_no_qualifying_native_primary_process_source": 1,
+      "terminal_no_qualifying_primary_process_source": 5
+    },
+    "source_verification_counts": {
+      "primary_article_verified_host_phylogeography_pollinator_pairing_unrecovered": 1,
+      "primary_article_verified_indirect_local_mutualism_trace": 1,
+      "primary_articles_verified_regional_mutualism_local_association_effectiveness_unrecovered": 1,
+      "terminal_search_no_qualifying_native_primary_pollination_source": 1,
+      "terminal_search_no_qualifying_primary_pollination_source": 5
+    },
+    "full_chapter2_contract_passes": 0
+  },
+  "source_work_state_after_wave11": {
+    "targets_requiring_additional_source_work": 0,
+    "source_review_complete_under_current_protocol": true,
+    "closed_targets": [
+      "Cayman Islands",
+      "Gambier Islands",
+      "Kiribati / Gilbert Islands",
+      "Niue",
+      "São Tomé and Príncipe",
+      "Tokelau",
+      "Tonga",
+      "Tuvalu",
+      "Wallis and Futuna"
+    ],
+    "terminal_source_gap_targets": [
+      "Kiribati / Gilbert Islands",
+      "Niue",
+      "São Tomé and Príncipe",
+      "Tokelau",
+      "Tonga",
+      "Tuvalu"
+    ],
+    "special_terminal_states": {
+      "Cayman Islands": "terminal_local_pollinator_association_effectiveness_unrecovered",
+      "Gambier Islands": "terminal_indirect_local_mutualism_trace",
+      "Wallis and Futuna": "terminal_host_phylogeography_pollinator_pairing_unrecovered"
+    },
+    "reopen_if_new_source_found": true
+  },
+  "manuscript_boundary": {
+    "source_backed_research_entries": 39,
+    "exact_geographic_labels": 34,
+    "changed_by_wave11": false,
+    "formal_external_prediction": "not_evaluable",
+    "frozen_full_contracts": "0_of_25"
+  },
+  "full_contract_result": {
+    "systematic_extension_creates_full_contract": false,
+    "source_strengthening_wave11_passes": 0
+  },
+  "claim_boundary": "Wave 11 closes the final nine active source-work targets under the documented terminal-review protocol. The active source-work queue reaches zero, but terminal source gaps and bounded/indirect evidence states remain reopenable and are not biological absences or new confrontation cases. The current 111-target search frame is review-complete, not a census of every island or every possible paper. Manuscript-facing breadth remains 39 research entries / 34 exact labels, the frozen 25-entry identifiability audit remains unchanged, and formal external prediction remains not_evaluable."
+}
