@@ -1,9 +1,11 @@
 import json
 from pathlib import Path
 
-from scripts.build_island_ecology_submission_bundle import render_reference_list_text
-from scripts.render_island_ecology_submission_manuscript import render_submission_manuscript
-from scripts.render_oikos_submission_rtf import render_manuscript_rtf, render_plain_text_rtf
+from scripts.render_island_ecology_submission_manuscript import (
+    render_active_reference_list,
+    render_submission_manuscript,
+)
+from scripts.render_oikos_submission_rtf import render_manuscript_rtf
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
@@ -27,7 +29,7 @@ def test_active_manuscript_reports_current_breadth_without_reopening_frozen_audi
     assert "these cases strengthen falsification and mechanism breadth" in lower
 
 
-def test_value_selected_cases_survive_clean_submission_render():
+def test_value_selected_cases_and_references_survive_clean_submission_render():
     rendered = render_submission_manuscript()
     lower = rendered.lower()
 
@@ -38,11 +40,17 @@ def test_value_selected_cases_survive_clean_submission_render():
     assert "campanula uniflora" in lower
     assert "not equivalent to validation" in lower
     assert "formal external prediction remains `not_evaluable`" in lower
-    assert "references are supplied in the accompanying reference list" in lower
+    assert "## references" in lower
+    assert "affre, l. & thompson, j.d. (1997)" in lower
+    assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in lower
+    assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in lower
+    assert "hiraiwa, m.k. & ushimaru, a. (2024)" in lower
+    assert "value-selected breadth source boundary" not in lower
+    assert "hygiene decisions" not in lower
     assert INTERNAL_REFERENCE_PATH.lower() not in lower
 
 
-def test_value_selected_cases_survive_oikos_rtf_render():
+def test_value_selected_cases_and_references_survive_oikos_rtf_render():
     rtf = render_manuscript_rtf().lower()
 
     assert "42 research entries across 37 exact geographic labels" in rtf
@@ -51,7 +59,10 @@ def test_value_selected_cases_survive_oikos_rtf_render():
     assert "campanula uniflora" in rtf
     assert "not equivalent to validation" in rtf
     assert "not_evaluable" in rtf
-    assert "references are supplied in the accompanying reference list" in rtf
+    assert "references" in rtf
+    assert "affre, l. & thompson, j.d. (1997)" in rtf
+    assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in rtf
+    assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in rtf
     assert INTERNAL_REFERENCE_PATH.lower() not in rtf
 
 
@@ -66,11 +77,11 @@ def test_reference_ledger_contains_only_explicitly_promoted_breadth_sources():
     assert "does not change the frozen 25-entry identifiability denominator" in lower
 
 
-def test_submission_reference_list_contains_active_references_only():
-    text = render_reference_list_text()
+def test_active_reference_extraction_excludes_audit_metadata():
+    text = render_active_reference_list()
     lower = text.lower()
 
-    assert text.startswith("# References\n\n")
+    assert text.startswith("## References\n\n")
     assert "affre, l. & thompson, j.d. (1997)" in lower
     assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in lower
     assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in lower
@@ -78,11 +89,6 @@ def test_submission_reference_list_contains_active_references_only():
     assert "value-selected breadth source boundary" not in lower
     assert "hygiene decisions" not in lower
     assert INTERNAL_REFERENCE_PATH.lower() not in lower
-
-    rtf = render_plain_text_rtf(text).lower()
-    assert rtf.startswith("{\\rtf1")
-    assert "affre, l. & thompson, j.d. (1997)" in rtf
-    assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in rtf
 
 
 def test_manifest_and_manuscript_keep_descriptive_and_formal_denominators_separate():
