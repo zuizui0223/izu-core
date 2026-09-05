@@ -27,8 +27,10 @@ DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_templa
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_submission_bundle.zip"
 REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+REFERENCE_LEDGER = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md"
 SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.rtf"
 SUBMISSION_SI_NAME = "SUPPORTING_INFORMATION.rtf"
+REFERENCE_LIST_NAME = "REFERENCE_LIST.rtf"
 TITLE_PAGE_NAME = "TITLE_PAGE.rtf"
 COVER_LETTER_NAME = "COVER_LETTER.rtf"
 SIGNIFICANCE_NAME = "SIGNIFICANCE_STATEMENT.rtf"
@@ -62,6 +64,18 @@ def validate_scientific_gate() -> dict:
     return gate
 
 
+def render_reference_list_text() -> str:
+    text = REFERENCE_LEDGER.read_text(encoding="utf-8")
+    active_heading = "## Active references\n\n"
+    boundary_heading = "\n## Izu empirical triangulation source boundary\n"
+    if text.count(active_heading) != 1 or text.count(boundary_heading) != 1:
+        raise ValueError("active reference-ledger section contract changed; refuse silent reference-list rendering")
+    body = text.split(active_heading, 1)[1].split(boundary_heading, 1)[0].strip()
+    if not body:
+        raise ValueError("active reference list is empty")
+    return "# References\n\n" + body + "\n"
+
+
 def _write_rtf(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
     rendered = path.read_text(encoding="utf-8")
@@ -81,6 +95,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
 
     if not (ROOT / SOURCE_MANUSCRIPT).exists():
         raise FileNotFoundError(SOURCE_MANUSCRIPT)
+    if not REFERENCE_LEDGER.exists():
+        raise FileNotFoundError(REFERENCE_LEDGER)
     for rel in STATIC_SUBMISSION_FILES:
         if not (ROOT / rel).exists():
             raise FileNotFoundError(rel)
@@ -98,6 +114,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         tmp = Path(tmp_name)
         manuscript = tmp / SUBMISSION_MANUSCRIPT_NAME
         supporting_information = tmp / SUBMISSION_SI_NAME
+        reference_list = tmp / REFERENCE_LIST_NAME
         title_page = tmp / TITLE_PAGE_NAME
         cover_letter = tmp / COVER_LETTER_NAME
         significance = tmp / SIGNIFICANCE_NAME
@@ -106,6 +123,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
 
         _write_rtf(manuscript, render_manuscript_rtf())
         _write_rtf(supporting_information, render_supporting_information_rtf())
+        _write_rtf(reference_list, render_plain_text_rtf(render_reference_list_text()))
         _write_rtf(title_page, render_plain_text_rtf(render_title_page(metadata)))
         _write_rtf(cover_letter, render_plain_text_rtf(render_cover_letter(metadata)))
         _write_rtf(significance, render_plain_text_rtf(render_significance_statement(metadata)))
@@ -125,6 +143,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "source_manuscript": SOURCE_MANUSCRIPT,
             "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
             "submission_supporting_information": SUBMISSION_SI_NAME,
+            "submission_reference_list": REFERENCE_LIST_NAME,
             "active_submission_manifest": ACTIVE_SUBMISSION_MANIFEST,
             "author_metadata_source": metadata_path.name,
             "review_archive_anonymous": True,
@@ -138,6 +157,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "planned_public_repository_named": True,
             "significance_prior_work_context_included": True,
             "submission_manuscript_internal_thesis_language_removed_fail_closed": True,
+            "submission_reference_list_generated_from_active_reference_ledger": True,
             "supporting_information_superseded_nonadditivity_wording_removed_fail_closed": True,
             "oikos_significance_statement_included": True,
             "oikos_submission_statements_included": True,
@@ -147,6 +167,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "files": [
                 SUBMISSION_MANUSCRIPT_NAME,
                 SUBMISSION_SI_NAME,
+                REFERENCE_LIST_NAME,
                 *STATIC_SUBMISSION_FILES,
                 *figure_files,
                 RELATIONAL_FIGURE_INPUTS_ARCNAME,
@@ -166,7 +187,16 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-            for generated in (manuscript, supporting_information, title_page, cover_letter, significance, statements, review_archive):
+            for generated in (
+                manuscript,
+                supporting_information,
+                reference_list,
+                title_page,
+                cover_letter,
+                significance,
+                statements,
+                review_archive,
+            ):
                 archive.write(generated, arcname=generated.name)
             for rel in STATIC_SUBMISSION_FILES:
                 archive.write(ROOT / rel, arcname=rel)
