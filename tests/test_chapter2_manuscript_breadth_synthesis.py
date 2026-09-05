@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from scripts.render_island_ecology_submission_manuscript import render_submission_manuscript
+from scripts.render_oikos_submission_rtf import render_manuscript_rtf
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
@@ -35,6 +36,17 @@ def test_value_selected_cases_survive_clean_submission_render():
     assert "campanula uniflora" in lower
     assert "not equivalent to validation" in lower
     assert "formal external prediction remains `not_evaluable`" in lower
+
+
+def test_value_selected_cases_survive_oikos_rtf_render():
+    rtf = render_manuscript_rtf().lower()
+
+    assert "42 research entries across 37 exact geographic labels" in rtf
+    assert "cyclamen creticum" in rtf
+    assert "trinidad and tobago" in rtf
+    assert "campanula uniflora" in rtf
+    assert "not equivalent to validation" in rtf
+    assert "not_evaluable" in rtf
 
 
 def test_reference_ledger_contains_only_explicitly_promoted_breadth_sources():
