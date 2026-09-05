@@ -11,6 +11,7 @@ TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT = "MANUSCRIPT.rtf"
 SUBMISSION_SI = "SUPPORTING_INFORMATION.rtf"
+REFERENCE_LIST = "REFERENCE_LIST.rtf"
 
 
 def completed_metadata() -> dict:
@@ -106,6 +107,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         for name in (
             "MANUSCRIPT.rtf",
             "SUPPORTING_INFORMATION.rtf",
+            "REFERENCE_LIST.rtf",
             "TITLE_PAGE.rtf",
             "COVER_LETTER.rtf",
             "SIGNIFICANCE_STATEMENT.rtf",
@@ -133,6 +135,10 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "53/96" in manuscript
         assert "null-corrected matching" in lower
         assert "supporting information" in lower
+        assert "42 research entries across 37 exact geographic labels" in lower
+        assert "cyclamen creticum" in lower
+        assert "trinidad and tobago" in lower
+        assert "campanula uniflora" in lower
         assert "(appendix)" not in lower
         assert "fig. s" not in lower
         assert "dissertation" not in lower
@@ -140,6 +146,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "chapter 2" not in lower
         assert "chapter 3" not in lower
         assert "campanula microdonta" not in lower
+        assert "docs/island_ecology_research_article_reference_ledger_20260827.md" not in lower
 
         supporting = archive.read(SUBMISSION_SI).decode("utf-8")
         assert supporting.startswith("{\\rtf1")
@@ -149,6 +156,16 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "2/25" in supporting
         assert "cell-level simulation variation" not in support_lower
         assert "chapter 3" not in support_lower
+
+        references = archive.read(REFERENCE_LIST).decode("utf-8")
+        assert references.startswith("{\\rtf1")
+        refs_lower = references.lower()
+        assert "affre, l. & thompson, j.d. (1997)" in refs_lower
+        assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in refs_lower
+        assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in refs_lower
+        assert "hiraiwa, m.k. & ushimaru, a. (2024)" in refs_lower
+        assert "value-selected breadth source boundary" not in refs_lower
+        assert "hygiene decisions" not in refs_lower
 
         title = archive.read("TITLE_PAGE.rtf").decode("utf-8")
         cover = archive.read("COVER_LETTER.rtf").decode("utf-8")
@@ -172,6 +189,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
         assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
         assert manifest["submission_supporting_information"] == SUBMISSION_SI
+        assert manifest["submission_reference_list"] == REFERENCE_LIST
         assert manifest["oikos_upload_format"] == "RTF"
         assert manifest["main_text_double_spaced"] is True
         assert manifest["main_text_continuous_line_numbers"] is True
@@ -181,9 +199,11 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert manifest["planned_public_repository_named"] is True
         assert manifest["significance_prior_work_context_included"] is True
         assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in manifest["files"]
+        assert REFERENCE_LIST in manifest["files"]
         assert manifest["oikos_significance_statement_included"] is True
         assert manifest["oikos_submission_statements_included"] is True
         assert manifest["oikos_data_code_ready_for_first_submission"] is True
         assert manifest["submission_manuscript_internal_thesis_language_removed_fail_closed"] is True
+        assert manifest["submission_reference_list_generated_from_active_reference_ledger"] is True
         assert manifest["supporting_information_superseded_nonadditivity_wording_removed_fail_closed"] is True
         assert manifest["figures_regenerated_from_frozen_gate_then_relational_overlay"] is True
