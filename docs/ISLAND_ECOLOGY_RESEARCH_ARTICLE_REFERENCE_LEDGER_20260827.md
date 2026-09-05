@@ -6,7 +6,7 @@ This is the canonical reference list for `docs/CHAPTER2_MANUSCRIPT_ACTIVE_202608
 
 ## Active references
 
-Affre, L. & Thompson, J.D. (1997). Population genetic structure and levels of inbreeding depression in the Mediterranean island endemic *Cyclamen creticum* (Primulaceae). *Biological Journal of the Linnean Society*, 60, 527–549. Source-locked DOI: https://doi.org/10.1006/bijl.1996.0119
+Affre, L. & Thompson, J.D. (1997). Population genetic structure and levels of inbreeding depression in the Mediterranean island endemic *Cyclamen creticum* (Primulaceae). *Biological Journal of the Linnean Society*, 60, 527–549. https://doi.org/10.1111/j.1095-8312.1997.tb01511.x
 
 Ægisdóttir, H.H. & Thórhallsdóttir, T.E. (2006). Breeding system evolution in the Arctic: a comparative study of *Campanula uniflora* in Greenland and Iceland. *Arctic, Antarctic, and Alpine Research*, 38, 305–312. https://doi.org/10.1657/1523-0430(2006)38[305:BSEITA]2.0.CO;2
 
@@ -14,17 +14,17 @@ Ciarle, R., Burns, K.C. & Mologni, F. (2025). Flower size evolution in the South
 
 Feinsinger, P., Wolfe, J.A. & Swarm, L.A. (1982). Island ecology: reduced hummingbird diversity and the pollination biology of plants, Trinidad and Tobago, West Indies. *Ecology*, 63, 494–506. https://doi.org/10.2307/1938966
 
-Grossenbacher, D.L. et al. (2017). Self-compatibility is over-represented on islands. *New Phytologist*, 215, 469–478. https://doi.org/10.1111/nph.14534
+Grossenbacher, D.L., Brandvain, Y., Auld, J.R., Burd, M., Cheptou, P.-O., Conner, J.K., Grant, A.G., Hovick, S.M., Pannell, J.R., Pauw, A., Petanidou, T., Randle, A.M., Rubio de Casas, R., Vamosi, J.C., Winn, A.A., Igić, B., Busch, J.W., Kalisz, S. & Goldberg, E.E. (2017). Self-compatibility is over-represented on islands. *New Phytologist*, 215, 469–478. https://doi.org/10.1111/nph.14534
 
-Hetherington-Rauth, M.C. & Johnson, M.T.J. (2020). Floral Trait Evolution of Angiosperms on Pacific Islands. *The American Naturalist*, 196. https://doi.org/10.1086/709018
+Hetherington-Rauth, M.C. & Johnson, M.T.J. (2020). Floral trait evolution of angiosperms on Pacific islands. *The American Naturalist*, 196, 87–100. https://doi.org/10.1086/709018
 
 Hiraiwa, M.K. & Ushimaru, A. (2017). Low functional diversity promotes niche changes in natural island pollinator communities. *Proceedings of the Royal Society B*, 284, 20162218. https://doi.org/10.1098/rspb.2016.2218
 
 Hiraiwa, M.K. & Ushimaru, A. (2024). Loss of functional diversity rather than species diversity of pollinators decreases community-wide trait matching and pollination function. *Functional Ecology*, 38, 1296–1308. https://doi.org/10.1111/1365-2435.14527
 
-Pannell, J.R. et al. (2015). The scope of Baker's law. *New Phytologist*, 208, 656–667. https://doi.org/10.1111/nph.13539
+Pannell, J.R., Auld, J.R., Brandvain, Y., Burd, M., Busch, J.W., Cheptou, P.-O., Conner, J.K., Goldberg, E.E., Grant, A.-G., Grossenbacher, D.L., Hovick, S.M., Igić, B., Kalisz, S., Petanidou, T., Randle, A.M., Rubio de Casas, R., Pauw, A., Vamosi, J.C. & Winn, A.A. (2015). The scope of Baker's law. *New Phytologist*, 208, 656–667. https://doi.org/10.1111/nph.13539
 
-Traveset, A., Tur, C., Trøjelsgaard, K., Heleno, R., Castro-Urgal, R. & Olesen, J.M. (2016). Global patterns of mainland and insular pollination networks. *Global Ecology and Biogeography*. https://doi.org/10.1111/geb.12362
+Traveset, A., Tur, C., Trøjelsgaard, K., Heleno, R., Castro-Urgal, R. & Olesen, J.M. (2016). Global patterns of mainland and insular pollination networks. *Global Ecology and Biogeography*, 25, 880–890. https://doi.org/10.1111/geb.12362
 
 Traveset, A. & Navarro, L. (2018). Plant reproductive ecology and evolution in the Mediterranean islands: state of the art. *Plant Biology*, 20(Suppl. 1), 63–77. https://doi.org/10.1111/plb.12636
 
