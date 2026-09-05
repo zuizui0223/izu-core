@@ -62,7 +62,7 @@ def test_value_selected_cases_and_references_survive_oikos_rtf_render():
     assert "references" in rtf
     assert "affre, l. & thompson, j.d. (1997)" in rtf
     assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in rtf
-    assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in rtf
+    assert "10.1657/1523-0430(2006)38[305:bseita]2.0.co;2" in rtf
     assert INTERNAL_REFERENCE_PATH.lower() not in rtf
 
 
@@ -86,6 +86,8 @@ def test_active_reference_extraction_excludes_audit_metadata():
     assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in lower
     assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in lower
     assert "hiraiwa, m.k. & ushimaru, a. (2024)" in lower
+    assert "grossenbacher, d.l. et al." not in lower
+    assert "pannell, j.r. et al." not in lower
     assert "value-selected breadth source boundary" not in lower
     assert "hygiene decisions" not in lower
     assert INTERNAL_REFERENCE_PATH.lower() not in lower
