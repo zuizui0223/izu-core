@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "status": "manuscript_value_promotion_review_complete",
+  "review_precondition": {
+    "systematic_search_targets": 111,
+    "source_work_queue": 0,
+    "source_review_complete_under_current_protocol": true
+  },
+  "candidate_review": {
+    "reviewed_candidates": 29,
+    "decision_counts": {
+      "do_not_promote": 1,
+      "hold_overlap": 3,
+      "promote_next_integration": 3,
+      "retain_si_only": 22
+    },
+    "falsification_value_counts": {
+      "high": 6,
+      "low": 3,
+      "medium": 20
+    },
+    "promote_next_integration_ids": [
+      "wave5_crete",
+      "wave5_iceland",
+      "wave5_trinidad_tobago"
+    ],
+    "promote_next_integration_targets": [
+      "Crete",
+      "Trinidad and Tobago",
+      "Iceland"
+    ],
+    "full_chapter2_contract_passes": 0
+  },
+  "active_manuscript_boundary": {
+    "source_backed_research_entries_before_integration": 39,
+    "exact_geographic_labels_before_integration": 34,
+    "changed_by_review_only": false,
+    "formal_external_prediction": "not_evaluable",
+    "frozen_full_contracts": "0_of_25"
+  },
+  "promotion_logic": {
+    "Crete": "negative control: self-compatible does not equal autonomous reproductive assurance",
+    "Trinidad and Tobago": "direct inter-island pollinator-diversity contrast linked to plant pollination biology",
+    "Iceland": "distinct Arctic reproductive-assurance state with cleistogamy and predominant inbreeding",
+    "held_high_value_cases": [
+      "Solomon Islands",
+      "Palau",
+      "Cook Islands"
+    ],
+    "held_reason": "Pacific geographic de-duplication and/or provenance must be resolved before count-changing admission"
+  },
+  "next_step": "integrate the three shortlisted exact-group entries into the post-freeze breadth layer without reopening the frozen 25-entry audit",
+  "claim_boundary": "This review ranks source-resolved candidates by marginal manuscript value rather than by source availability alone. It shortlists Crete, Trinidad and Tobago, and Iceland for the next integration step because each adds a clean exact geography, high mechanistic or falsification value, and low redundancy. The review itself does not change the active 39-entry / 34-label breadth, does not alter the frozen 25-entry identifiability audit, and does not reopen formal external prediction."
+}
