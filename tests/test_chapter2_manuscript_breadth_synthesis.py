@@ -93,10 +93,11 @@ def test_active_reference_extraction_excludes_audit_metadata():
     assert INTERNAL_REFERENCE_PATH.lower() not in lower
 
 
-def test_manifest_and_manuscript_keep_descriptive_and_formal_denominators_separate():
+def test_manifest_and_manuscript_keep_descriptive_formal_and_reference_contracts_separate():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     breadth = manifest["world_breadth_extension"]
     claims = manifest["claim_ceiling"]
+    oikos = manifest["oikos_initial_submission_contract"]
 
     assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 42
     assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 37
@@ -104,3 +105,7 @@ def test_manifest_and_manuscript_keep_descriptive_and_formal_denominators_separa
     assert breadth["frozen_exact_geographic_overlap_labels"] == 21
     assert claims["external_full_contracts"] == "0_of_25"
     assert claims["formal_external_prediction"] == "not_evaluable"
+    assert oikos["main_text_reference_list_included"] is True
+    assert oikos["main_text_reference_source"] == INTERNAL_REFERENCE_PATH
+    assert oikos["main_text_reference_scope"] == "active_references_only"
+    assert oikos["main_text_reference_audit_metadata_excluded"] is True
