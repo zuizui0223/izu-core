@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SECOND_WAVE = ROOT / "data/design/chapter2_systematic_second_wave_search_gate_20260903.csv"
 THIRD_WAVE = ROOT / "data/design/chapter2_systematic_third_wave_search_gate_20260903.csv"
 WAVE11 = ROOT / "data/design/chapter2_systematic_source_strengthening_wave11_20260905.csv"
-MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
+MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_pre_promotion_20260905.json"
 DEFAULT_OUTPUT = ROOT / "data/results/chapter2_systematic_source_strengthening_wave11_audit_20260905.json"
 
 EXPECTED_TARGETS = {
