@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.7",
-  "updated_on": "2026-09-04",
+  "schema_version": "1.8",
+  "updated_on": "2026-09-05",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
   "routing_status": "active_first_submission_route",
@@ -43,6 +43,22 @@
     "synthesis_context": "data/design/chapter2_world_breadth_synthesis_context_20260904.csv",
     "audit": "data/results/chapter2_world_breadth_extension_audit_20260903.json",
     "documentation": "docs/CHAPTER2_WORLD_BREADTH_EXTENSION_20260903.md"
+  },
+  "systematic_island_review": {
+    "effective_search_targets": 111,
+    "first_pass_search_complete": true,
+    "source_review_complete_under_current_protocol": true,
+    "active_source_work_targets": 0,
+    "terminal_states_reopen_if_new_source_found": true,
+    "search_frame_is_census_of_all_islands": false,
+    "search_targets_are_independent_model_tests": false,
+    "terminal_source_gaps_interpreted_as_biological_absence": false,
+    "manuscript_source_backed_research_entries": 39,
+    "manuscript_exact_geographic_labels": 34,
+    "formal_identifiability_research_entries": 25,
+    "completion_audit": "data/results/chapter2_systematic_source_strengthening_wave11_audit_20260905.json",
+    "completion_documentation": "docs/CHAPTER2_SYSTEMATIC_SOURCE_STRENGTHENING_WAVE11_20260905.md",
+    "submission_overlay": "scripts/apply_chapter2_systematic_review_submission_overlay.py"
   },
   "relational_robustness": {
     "design": "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
