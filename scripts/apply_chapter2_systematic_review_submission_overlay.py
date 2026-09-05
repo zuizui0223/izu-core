@@ -68,16 +68,13 @@ def apply_systematic_review_overlay(text: str) -> str:
     search_targets, descriptive_entries, exact_labels, formal_entries = _counts()
 
     abstract = (
-        f"We then screened a systematic {search_targets}-target island search frame, admitted {descriptive_entries} "
-        f"source-backed research entries across {exact_labels} exact geographic labels to the descriptive global confrontation, "
-        f"quantified mechanism identifiability in a frozen {formal_entries}-entry audit, and increased mechanistic resolution in "
-        "Izu using source floral state, pollinator composition, raw matching and null-corrected matching."
+        f"We then screened a systematic {search_targets}-target island frame, retained {descriptive_entries} source-backed "
+        f"research entries for global confrontation, audited mechanism identifiability in a frozen {formal_entries}-entry subset, "
+        "and increased resolution in Izu using source floral state, pollinator composition, raw matching and null-corrected matching."
     )
     results = (
-        f"The systematic {search_targets}-target search frame completed one documented review pass, while {descriptive_entries} "
-        f"source-backed research entries across {exact_labels} exact geographic labels were admitted to the descriptive confrontation. "
-        f"Within the frozen {formal_entries}-entry identifiability audit, studies were outcome-rich but process-poor: responses were "
-        "directly measured in 21/25 entries, partner arrival/replacement in only 2/25, and no entry supplied the full "
+        f"The systematic search was review-complete, but the frozen {formal_entries}-entry audit remained outcome-rich and process-poor: "
+        "responses were directly measured in 21/25 entries, partner arrival/replacement in 2/25, and none supplied the full "
         "outcome-independent contract."
     )
     methods = (
@@ -95,10 +92,10 @@ def apply_systematic_review_overlay(text: str) -> str:
 
     lower = text.lower()
     required = (
-        f"systematic {search_targets}-target island search frame",
+        f"systematic {search_targets}-target island frame",
         f"{descriptive_entries} source-backed research entries",
+        f"frozen {formal_entries}-entry subset",
         f"{exact_labels} exact geographic labels",
-        f"frozen {formal_entries}-entry identifiability audit",
         "terminal source gaps are literature states, not biological absences",
         "not a census of all islands",
     )
