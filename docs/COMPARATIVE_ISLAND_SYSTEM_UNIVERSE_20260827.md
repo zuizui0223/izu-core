@@ -1,6 +1,6 @@
 # Comparative island-system universe
 
-Updated: 2026-09-04
+Updated: 2026-09-05
 
 ## Purpose
 
@@ -18,9 +18,9 @@ Counting rules are deliberately conservative:
 
 The frozen identifiability universe contains **13 strict challenges plus 12 additional analytical/model-development targets = 25 research entries**. Those 25 map to **21 exact `geographic_overlap_group` labels**, but those labels are not an independent-archipelago denominator.
 
-A source-verified post-freeze breadth extension now adds **14 research entries across 13 new exact geographic groups**, producing a **combined descriptive universe of 39 research entries and 34 exact overlap labels before higher-level archipelago de-duplication**. A separately tracked Southern Ocean synthesis covers **11 named island groups and 321 flowering plant species** without being added to those denominators. The extension does not change the frozen 21/25 outcome, 2/25 arrival/replacement or 0/25 full-contract results.
+A source-verified post-freeze breadth extension now adds **17 research entries across 16 new exact geographic groups**, producing a **combined descriptive universe of 42 research entries and 37 exact overlap labels before higher-level archipelago de-duplication**. A separately tracked Southern Ocean synthesis covers **11 named island groups and 321 flowering plant species** without being added to those denominators. The extension does not change the frozen 21/25 outcome, 2/25 arrival/replacement or 0/25 full-contract results.
 
-The extension is documented in `docs/CHAPTER2_WORLD_BREADTH_EXTENSION_20260903.md`, `data/design/chapter2_world_breadth_extension_20260902.csv` and `data/design/chapter2_world_breadth_synthesis_context_20260904.csv`.
+The extension is documented in `docs/CHAPTER2_WORLD_BREADTH_EXTENSION_20260903.md`, `data/design/chapter2_world_breadth_extension_20260902.csv` and `data/design/chapter2_world_breadth_synthesis_context_20260904.csv`. The value-based selection step is separately documented in `docs/CHAPTER2_MANUSCRIPT_VALUE_PROMOTION_REVIEW_20260905.md`.
 
 ## Layer A — 13 strict external challenges
 
@@ -78,7 +78,7 @@ These negative, blocked and partial cases are part of the scientific evidence tr
 
 ## Layer D — post-freeze source-verified exact-group breadth extension
 
-This layer was assembled after the 25-entry identifiability audit was frozen and is therefore excluded from its denominator and measurement fractions.
+This layer was assembled after the 25-entry identifiability audit was frozen and is therefore excluded from its denominator and measurement fractions. The first 14 entries were source-admitted for breadth/process coverage; the final three were selected only after the 111-target systematic source-review programme reached a zero active source-work queue and a separate manuscript-value review was performed.
 
 | Exact geographic group | Added research entries | Main added role |
 |---|---:|---|
@@ -95,8 +95,11 @@ This layer was assembled after the 25-entry identifiability audit was frozen and
 | Samoa | 1 | historical plus DNA-supported apid introduction evidence |
 | Lower Florida Keys | 1 | direct pollinator visitation and reproduction under anthropogenic local filtering |
 | Socotra | 1 | non-insect mutualistic pollen transport by endemic geckos |
+| **Crete** | **1** | negative control separating self-compatibility from autonomous reproductive assurance |
+| **Trinidad and Tobago** | **1** | inter-island realized-pollinator-community contrast linked to plant pollination responses |
+| **Iceland** | **1** | Arctic cleistogamy/inbreeding assurance state plus strong abiotic alternative context |
 
-Four extension entries now provide especially useful arrival evidence: New Caledonia, Fiji, French Polynesia and Samoa. Vanuatu adds a reproductive boundary under effective-pollinator absence; the Lower Florida Keys adds a local-filtering/reproduction bridge. None of the fourteen passes the full Chapter 2 source-state → transition → local realization → plant-response contract.
+Four extension entries provide especially useful arrival evidence: New Caledonia, Fiji, French Polynesia and Samoa. Vanuatu adds a reproductive boundary under effective-pollinator absence; the Lower Florida Keys adds a local-filtering/reproduction bridge. Crete, Trinidad and Tobago, and Iceland were added because they increase discriminating response/falsification value rather than because they increase the arrival count. None of the **17** passes the full Chapter 2 source-state → transition → local realization → plant-response contract.
 
 The 2002 Azores paper also includes Mauritian Ile aux Aigrettes. That secondary site is not counted as a new extension group because Mauritius is already represented in the frozen universe; the extension row is scoped to Azores-Flores.
 
@@ -104,7 +107,7 @@ The 2002 Azores paper also includes Mauritian Ile aux Aigrettes. That secondary 
 
 Lord (2015; `10.1093/aobpla/plv095`) synthesizes floral traits and breeding systems for **321 flowering plant species across 11 Southern Ocean island groups**. Those groups include Crozet, Prince Edward/Marion, Snares, Kerguelen, Antipodes, Auckland, Falklands, Campbell, Heard/McDonald, South Georgia and Macquarie.
 
-This source provides strong geographic and reproductive-strategy breadth but not a matched community-transition unit. It is therefore not exploded into eleven prediction replicates and is not included in the frozen 25-entry denominator or the 13 exact-group post-freeze denominator.
+This source provides strong geographic and reproductive-strategy breadth but not a matched community-transition unit. It is therefore not exploded into eleven prediction replicates and is not included in the frozen 25-entry denominator or the **16 exact-group** post-freeze denominator.
 
 ## Why Izu is the focal data-depth system
 
@@ -141,6 +144,6 @@ This is preferable to treating every island system as an exchangeable replicate.
 
 ## Claim ceiling
 
-Do not report `25`, `39`, `34` or the Southern Ocean `11` as interchangeable independent-archipelago counts. Do not expand multi-archipelago studies or syntheses into pseudo-replicates. Do not recompute the frozen 25-entry measurement fractions using post-freeze additions. Do not treat source-gated or blocked candidates as successful validation. Do not treat the 13 strict systems as evidence for a universal mechanism. Do not claim that Izu won an outcome-independent global ranking.
+Do not report `25`, `42`, `37` or the Southern Ocean `11` as interchangeable independent-archipelago counts. Do not expand multi-archipelago studies or syntheses into pseudo-replicates. Do not recompute the frozen 25-entry measurement fractions using post-freeze additions. Do not treat source-gated or blocked candidates as successful validation. Do not treat the 13 strict systems as evidence for a universal mechanism. Do not claim that Izu won an outcome-independent global ranking.
 
-The defensible statement is that the programme now documents a **combined descriptive universe of 39 research entries**, while the **formal identifiability audit remains frozen at 25 entries**. The post-freeze extension adds thirteen exact geographic groups and strengthens process breadth, especially pollinator-arrival evidence, local filtering and reproductive boundaries. A separate Southern Ocean synthesis adds 11 source-native island groups of geographic/reproductive context without creating a full external-prediction contract.
+The defensible statement is that the programme now documents a **combined descriptive universe of 42 research entries**, while the **formal identifiability audit remains frozen at 25 entries**. The post-freeze extension adds 16 exact geographic groups and strengthens process breadth, especially pollinator-arrival evidence, local filtering, reproductive boundaries, negative controls and realized-community response contrast. A separate Southern Ocean synthesis adds 11 source-native island groups of geographic/reproductive context without creating a full external-prediction contract.
