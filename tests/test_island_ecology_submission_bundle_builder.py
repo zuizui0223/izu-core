@@ -139,7 +139,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "campanula uniflora" in lower
         assert "affre, l. & thompson, j.d. (1997)" in lower
         assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in lower
-        assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in lower
+        assert "10.1657/1523-0430(2006)38[305:bseita]2.0.co;2" in lower
         assert "hiraiwa, m.k. & ushimaru, a. (2024)" in lower
         assert "value-selected breadth source boundary" not in lower
         assert "hygiene decisions" not in lower
