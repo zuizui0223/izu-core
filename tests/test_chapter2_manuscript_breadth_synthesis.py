@@ -1,8 +1,9 @@
 import json
 from pathlib import Path
 
+from scripts.build_island_ecology_submission_bundle import render_reference_list_text
 from scripts.render_island_ecology_submission_manuscript import render_submission_manuscript
-from scripts.render_oikos_submission_rtf import render_manuscript_rtf
+from scripts.render_oikos_submission_rtf import render_manuscript_rtf, render_plain_text_rtf
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
@@ -63,6 +64,25 @@ def test_reference_ledger_contains_only_explicitly_promoted_breadth_sources():
     assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in lower
     assert "value-selected breadth source boundary" in lower
     assert "does not change the frozen 25-entry identifiability denominator" in lower
+
+
+def test_submission_reference_list_contains_active_references_only():
+    text = render_reference_list_text()
+    lower = text.lower()
+
+    assert text.startswith("# References\n\n")
+    assert "affre, l. & thompson, j.d. (1997)" in lower
+    assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in lower
+    assert "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)" in lower
+    assert "hiraiwa, m.k. & ushimaru, a. (2024)" in lower
+    assert "value-selected breadth source boundary" not in lower
+    assert "hygiene decisions" not in lower
+    assert INTERNAL_REFERENCE_PATH.lower() not in lower
+
+    rtf = render_plain_text_rtf(text).lower()
+    assert rtf.startswith("{\\rtf1")
+    assert "affre, l. & thompson, j.d. (1997)" in rtf
+    assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in rtf
 
 
 def test_manifest_and_manuscript_keep_descriptive_and_formal_denominators_separate():
