@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+REFERENCE_LEDGER = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md"
 DEFAULT_OUTPUT = ROOT / "dist/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUBMISSION_CLEAN.md"
 
 FINAL_TITLE = (
@@ -116,6 +117,18 @@ def _replace_exact_once(text: str, old: str, new: str, label: str) -> str:
     return text.replace(old, new, 1)
 
 
+def render_active_reference_list() -> str:
+    text = REFERENCE_LEDGER.read_text(encoding="utf-8")
+    active_heading = "## Active references\n\n"
+    boundary_heading = "\n## Izu empirical triangulation source boundary\n"
+    if text.count(active_heading) != 1 or text.count(boundary_heading) != 1:
+        raise ValueError("active reference-ledger section contract changed; refuse silent reference rendering")
+    body = text.split(active_heading, 1)[1].split(boundary_heading, 1)[0].strip()
+    if not body:
+        raise ValueError("active reference list is empty")
+    return "## References\n\n" + body
+
+
 def render_submission_manuscript(source: Path = SOURCE) -> str:
     text = source.read_text(encoding="utf-8")
 
@@ -173,10 +186,11 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         1,
     )
 
+    # Oikos initial-submission guidance requires the reference list inside the blinded main text.
     text = _replace_exact_once(
         text,
         f"## References\n\n{REFERENCE_HANDOFF_PARAGRAPH}",
-        "## References\n\nReferences are supplied in the accompanying reference list.",
+        render_active_reference_list(),
         "reference-list handoff",
     )
 
@@ -199,6 +213,10 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         "partner arrival/replacement",
         "null-corrected matching",
         "prespecified oshima-source bridge was unsupported (supporting information)",
+        "## references",
+        "affre, l. & thompson, j.d. (1997)",
+        "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)",
+        "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)",
     )
     missing = [token for token in required if token not in lower]
     if missing:
@@ -207,6 +225,8 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         raise ValueError("superseded nonadditivity wording survived submission render")
     if "five linked questions" in lower or "## reality:" in lower or "## resolution:" in lower:
         raise ValueError("superseded five-question labels survived the four-act submission render")
+    if "value-selected breadth source boundary" in lower or "hygiene decisions" in lower:
+        raise ValueError("reference-ledger audit metadata leaked into submission manuscript")
 
     return text.rstrip() + "\n"
 
