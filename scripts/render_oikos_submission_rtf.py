@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from scripts.apply_chapter2_systematic_review_submission_overlay import apply_systematic_review_overlay
 from scripts.render_chapter2_supporting_information import render_supporting_information
 from scripts.render_island_ecology_submission_manuscript import render_submission_manuscript
 
@@ -98,7 +99,8 @@ def markdown_to_oikos_rtf(text: str, *, introduction_page_two: bool) -> str:
 
 
 def render_manuscript_rtf() -> str:
-    return markdown_to_oikos_rtf(render_submission_manuscript(), introduction_page_two=True)
+    manuscript = apply_systematic_review_overlay(render_submission_manuscript())
+    return markdown_to_oikos_rtf(manuscript, introduction_page_two=True)
 
 
 def render_supporting_information_rtf() -> str:
