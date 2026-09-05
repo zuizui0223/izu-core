@@ -47,6 +47,13 @@ FOUR_ACT_PARAGRAPH = (
     "**Izu mechanistic-resolution zoom:** the focal island series then increases depth to separate source-state/background-composition structure from additional within-community sorting."
 )
 
+REFERENCE_HANDOFF_PARAGRAPH = (
+    "Use the source-audited active reference ledger in `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md`. "
+    "Hiraiwa & Ushimaru (2017, 2024) are the empirical sources for the Izu triangulation. "
+    "Affre & Thompson (1997), Feinsinger et al. (1982) and Ægisdóttir & Thórhallsdóttir (2006) are cited only for the three value-selected breadth roles above. "
+    "Other external-system references remain in the comparative-grounding supplement and are not presented as validation coverage."
+)
+
 THESIS_SECTION_RE = re.compile(
     r"\n## Chapter 2 hands a measurement contract to Chapter 3\n.*?(?=\n## Limits\n)",
     flags=re.DOTALL,
@@ -166,13 +173,11 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         1,
     )
 
-    text = re.sub(
-        r"\n## References\n\nUse the source-audited active reference ledger in `[^`]+`\. "
-        r"Hiraiwa & Ushimaru \(2017, 2024\) are the empirical sources for the Izu triangulation\. "
-        r"External-system references remain in the comparative-grounding supplement and are not presented as validation coverage\.\s*$",
-        "\n## References\n\nReferences are supplied in the accompanying reference list.\n",
+    text = _replace_exact_once(
         text,
-        flags=re.DOTALL,
+        f"## References\n\n{REFERENCE_HANDOFF_PARAGRAPH}",
+        "## References\n\nReferences are supplied in the accompanying reference list.",
+        "reference-list handoff",
     )
 
     for token in FORBIDDEN_SUBMISSION_TOKENS:
