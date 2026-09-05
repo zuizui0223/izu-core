@@ -133,6 +133,16 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "53/96" in manuscript
         assert "null-corrected matching" in lower
         assert "supporting information" in lower
+        assert "42 research entries across 37 exact geographic labels" in lower
+        assert "cyclamen creticum" in lower
+        assert "trinidad and tobago" in lower
+        assert "campanula uniflora" in lower
+        assert "affre, l. & thompson, j.d. (1997)" in lower
+        assert "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)" in lower
+        assert "10.1657/1523-0430(2006)38[305:bseita]2.0.co;2" in lower
+        assert "hiraiwa, m.k. & ushimaru, a. (2024)" in lower
+        assert "value-selected breadth source boundary" not in lower
+        assert "hygiene decisions" not in lower
         assert "(appendix)" not in lower
         assert "fig. s" not in lower
         assert "dissertation" not in lower
@@ -140,6 +150,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "chapter 2" not in lower
         assert "chapter 3" not in lower
         assert "campanula microdonta" not in lower
+        assert "docs/island_ecology_research_article_reference_ledger_20260827.md" not in lower
 
         supporting = archive.read(SUBMISSION_SI).decode("utf-8")
         assert supporting.startswith("{\\rtf1")

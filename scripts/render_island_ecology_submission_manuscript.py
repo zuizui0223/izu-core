@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+REFERENCE_LEDGER = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md"
 DEFAULT_OUTPUT = ROOT / "dist/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUBMISSION_CLEAN.md"
 
 FINAL_TITLE = (
@@ -45,6 +46,13 @@ FOUR_ACT_PARAGRAPH = (
     "to ask whether empirical response diversity requires more than a single syndrome; empirical systems are not assigned to synthetic regime labels. "
     "**Identifiability:** a source audit asks whether the process coordinates needed to distinguish those mechanisms are jointly measured. "
     "**Izu mechanistic-resolution zoom:** the focal island series then increases depth to separate source-state/background-composition structure from additional within-community sorting."
+)
+
+REFERENCE_HANDOFF_PARAGRAPH = (
+    "Use the source-audited active reference ledger in `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md`. "
+    "Hiraiwa & Ushimaru (2017, 2024) are the empirical sources for the Izu triangulation. "
+    "Affre & Thompson (1997), Feinsinger et al. (1982) and Ægisdóttir & Thórhallsdóttir (2006) are cited only for the three value-selected breadth roles above. "
+    "Other external-system references remain in the comparative-grounding supplement and are not presented as validation coverage."
 )
 
 THESIS_SECTION_RE = re.compile(
@@ -109,6 +117,18 @@ def _replace_exact_once(text: str, old: str, new: str, label: str) -> str:
     return text.replace(old, new, 1)
 
 
+def render_active_reference_list() -> str:
+    text = REFERENCE_LEDGER.read_text(encoding="utf-8")
+    active_heading = "## Active references\n\n"
+    boundary_heading = "\n## Izu empirical triangulation source boundary\n"
+    if text.count(active_heading) != 1 or text.count(boundary_heading) != 1:
+        raise ValueError("active reference-ledger section contract changed; refuse silent reference rendering")
+    body = text.split(active_heading, 1)[1].split(boundary_heading, 1)[0].strip()
+    if not body:
+        raise ValueError("active reference list is empty")
+    return "## References\n\n" + body
+
+
 def render_submission_manuscript(source: Path = SOURCE) -> str:
     text = source.read_text(encoding="utf-8")
 
@@ -166,13 +186,12 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         1,
     )
 
-    text = re.sub(
-        r"\n## References\n\nUse the source-audited active reference ledger in `[^`]+`\. "
-        r"Hiraiwa & Ushimaru \(2017, 2024\) are the empirical sources for the Izu triangulation\. "
-        r"External-system references remain in the comparative-grounding supplement and are not presented as validation coverage\.\s*$",
-        "\n## References\n\nReferences are supplied in the accompanying reference list.\n",
+    # Oikos initial-submission guidance requires the reference list inside the blinded main text.
+    text = _replace_exact_once(
         text,
-        flags=re.DOTALL,
+        f"## References\n\n{REFERENCE_HANDOFF_PARAGRAPH}",
+        render_active_reference_list(),
+        "reference-list handoff",
     )
 
     for token in FORBIDDEN_SUBMISSION_TOKENS:
@@ -194,6 +213,10 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         "partner arrival/replacement",
         "null-corrected matching",
         "prespecified oshima-source bridge was unsupported (supporting information)",
+        "## references",
+        "affre, l. & thompson, j.d. (1997)",
+        "feinsinger, p., wolfe, j.a. & swarm, l.a. (1982)",
+        "ægisdóttir, h.h. & thórhallsdóttir, t.e. (2006)",
     )
     missing = [token for token in required if token not in lower]
     if missing:
@@ -202,6 +225,8 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         raise ValueError("superseded nonadditivity wording survived submission render")
     if "five linked questions" in lower or "## reality:" in lower or "## resolution:" in lower:
         raise ValueError("superseded five-question labels survived the four-act submission render")
+    if "value-selected breadth source boundary" in lower or "hygiene decisions" in lower:
+        raise ValueError("reference-ledger audit metadata leaked into submission manuscript")
 
     return text.rstrip() + "\n"
 
