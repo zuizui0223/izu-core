@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 REFERENCES = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
+INTERNAL_REFERENCE_PATH = "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md"
 
 
 def test_active_manuscript_reports_current_breadth_without_reopening_frozen_audit():
@@ -36,6 +37,8 @@ def test_value_selected_cases_survive_clean_submission_render():
     assert "campanula uniflora" in lower
     assert "not equivalent to validation" in lower
     assert "formal external prediction remains `not_evaluable`" in lower
+    assert "references are supplied in the accompanying reference list" in lower
+    assert INTERNAL_REFERENCE_PATH.lower() not in lower
 
 
 def test_value_selected_cases_survive_oikos_rtf_render():
@@ -47,6 +50,8 @@ def test_value_selected_cases_survive_oikos_rtf_render():
     assert "campanula uniflora" in rtf
     assert "not equivalent to validation" in rtf
     assert "not_evaluable" in rtf
+    assert "references are supplied in the accompanying reference list" in rtf
+    assert INTERNAL_REFERENCE_PATH.lower() not in rtf
 
 
 def test_reference_ledger_contains_only_explicitly_promoted_breadth_sources():
