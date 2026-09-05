@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.7",
-  "updated_on": "2026-09-04",
+  "schema_version": "1.8",
+  "updated_on": "2026-09-05",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
   "routing_status": "active_first_submission_route",
@@ -28,11 +28,17 @@
   "world_breadth_extension": {
     "formal_identifiability_research_entries": 25,
     "frozen_exact_geographic_overlap_labels": 21,
-    "post_freeze_source_verified_research_entries": 14,
-    "post_freeze_exact_geographic_groups": 13,
-    "combined_descriptive_research_entries_before_cross_layer_deduplication": 39,
-    "combined_exact_overlap_labels_before_higher_level_archipelago_deduplication": 34,
+    "post_freeze_source_verified_research_entries": 17,
+    "post_freeze_exact_geographic_groups": 16,
+    "combined_descriptive_research_entries_before_cross_layer_deduplication": 42,
+    "combined_exact_overlap_labels_before_higher_level_archipelago_deduplication": 37,
     "post_freeze_direct_or_historical_arrival_entries": 4,
+    "manuscript_value_promoted_entries": 3,
+    "manuscript_value_promoted_geographic_groups": [
+      "crete",
+      "trinidad_tobago",
+      "iceland"
+    ],
     "separate_multi_group_syntheses": 1,
     "southern_ocean_source_native_island_groups": 11,
     "southern_ocean_flowering_plant_species": 321,
@@ -41,6 +47,7 @@
     "independent_archipelago_denominator_claimed": false,
     "ledger": "data/design/chapter2_world_breadth_extension_20260902.csv",
     "synthesis_context": "data/design/chapter2_world_breadth_synthesis_context_20260904.csv",
+    "manuscript_value_review": "data/results/chapter2_manuscript_value_promotion_review_audit_20260905.json",
     "audit": "data/results/chapter2_world_breadth_extension_audit_20260903.json",
     "documentation": "docs/CHAPTER2_WORLD_BREADTH_EXTENSION_20260903.md"
   },
