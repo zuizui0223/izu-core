@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "precondition": {
+    "large_island_saturation_met": true,
+    "large_island_zero_novelty_tranches": 2
+  },
+  "supplement": {
+    "preselected_systems": 8,
+    "reviewed_systems": 8,
+    "source_status_counts": {
+      "authoritative_project_plus_primary_article": 1,
+      "bounded_pollen_rain_source": 1,
+      "bounded_source_gap": 1,
+      "initial_source_gap": 1,
+      "primary_article_plus_direct_reintroduction_history": 1,
+      "primary_article_verified": 3
+    },
+    "direct_measurement_counts": {
+      "direct_source_functional_state": 2,
+      "direct_partner_loss": 0,
+      "direct_partner_arrival_replacement": 1,
+      "direct_realized_community_shift": 3,
+      "direct_local_filtering": 1,
+      "direct_breeding_assurance": 2,
+      "direct_plant_response": 4
+    },
+    "partial_historical_partner_arrival_systems": [
+      "Surtsey"
+    ],
+    "direct_historical_partner_arrival_systems": [
+      "Tiritiri Matangi Island"
+    ],
+    "direct_historical_partner_loss_systems": [],
+    "material_novelty_systems": [
+      "Surtsey",
+      "Tiritiri Matangi Island"
+    ],
+    "full_contract_passes": 0
+  },
+  "bottleneck_update": {
+    "status": "partially_moved_not_closed",
+    "before_small_islands": "new geography-first >=20 km2 waves repeatedly recovered current interaction, breeding and plant-response measurements but no direct historical partner arrival/loss coordinate",
+    "after_small_islands": "a direct dated partner reintroduction is recovered for Tiritiri Matangi and Surtsey supplies an empty-island colonization history with partially bounded pollinator arrival, but neither system closes the matched source-state -> transition -> realization -> plant-response chain",
+    "remaining_missing_link": "direct historical partner turnover linked to a matched pre-transition functional state and post-transition plant response in the same focal system",
+    "formal_frozen_25_reopened": false
+  },
+  "active_manuscript_boundary": {
+    "descriptive_research_entries": 42,
+    "exact_geographic_labels": 37,
+    "formal_identifiability_research_entries": 25,
+    "formal_full_contracts": "0_of_25",
+    "formal_external_prediction": "not_evaluable",
+    "mutated_by_small_island_supplement": false
+  },
+  "next_step": "perform the preregistered manuscript-value review of the geography-first expansion, then move to the final Izu mechanistic-resolution zoom"
+}

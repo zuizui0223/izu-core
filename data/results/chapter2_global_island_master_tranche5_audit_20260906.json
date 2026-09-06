@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "tranche": 5,
+  "preselected_systems": 8,
+  "reviewed_systems": 8,
+  "saturation_tranche_eligible_by_size": true,
+  "source_status_counts": {
+    "bounded_mating_system_source": 1,
+    "bounded_paleo_vegetation_source": 1,
+    "bounded_taxonomic_ecology_source": 1,
+    "initial_source_gap": 2,
+    "primary_article_verified": 1,
+    "primary_pollinator_fauna_source": 1,
+    "source_gap_with_false_lead_excluded": 1
+  },
+  "direct_measurement_counts": {
+    "direct_visitation_or_community": 1,
+    "direct_breeding_assurance": 1,
+    "direct_plant_response_or_fitness": 1
+  },
+  "direct_historical_partner_loss": 0,
+  "direct_historical_partner_arrival_replacement": 0,
+  "full_contract_passes": 0,
+  "material_novelty_events": 0,
+  "material_novelty_systems": [],
+  "zero_novelty_saturation_tranche": true,
+  "consecutive_zero_novelty_tranches_after_this": 2,
+  "large_island_saturation_met": true,
+  "active_manuscript_boundary": {
+    "descriptive_research_entries": 42,
+    "exact_geographic_labels": 37,
+    "formal_identifiability_research_entries": 25,
+    "formal_full_contracts": "0_of_25",
+    "formal_external_prediction": "not_evaluable",
+    "mutated_by_tranche5": false
+  },
+  "scientific_readout": "Two consecutive geography-first tranches add no new response/process/falsification state and no full contract. The historical partner-loss/arrival coordinate remains absent despite wider geography, so the >=20 km2 world-island confrontation is now saturated under the preregistered rule.",
+  "next_step": "run the mandatory geography-independent <20 km2 small-island supplement before the final Izu mechanistic zoom"
+}

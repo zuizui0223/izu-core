@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "master_provenance": {
+    "source_repository": "zuizui0223/island",
+    "source_commit": "f1462cd1aa76b2703bc2df159996a4ab65510a25",
+    "source_path": "legacy/v1/artifacts/data_global_islands/global_islands_over20km2.csv",
+    "source_blob": "42f31df81db250ebfe46b35ebce6cb1c52b19fc9",
+    "source_lineage": "Global Islands v3 / WCMC-USGS-derived historical artifact",
+    "area_threshold_km2": 20,
+    "candidate_island_polygons": 4663
+  },
+  "search_frame_boundary": {
+    "prior_named_target_frame": 111,
+    "prior_frame_is_world_census": false,
+    "independent_master_candidate_island_polygons_ge_20km2": 4663,
+    "individual_polygons_treated_as_independent_ecological_systems": false
+  },
+  "priority_queue": {
+    "documented_omitted_geographic_systems": 20,
+    "searched_wave1": 8,
+    "next_wave": 12
+  },
+  "wave1": {
+    "systems": 8,
+    "primary_verified": 8,
+    "decision_counts": {
+      "promote_next_review": 3,
+      "retain_breadth_candidate": 1,
+      "retain_process_candidate": 4
+    },
+    "falsification_value_counts": {
+      "high": 1,
+      "medium": 5,
+      "very_high": 2
+    },
+    "direct_measurement_counts": {
+      "direct_source_state": 0,
+      "direct_partner_loss": 0,
+      "direct_partner_arrival_replacement": 0,
+      "direct_realized_community_shift": 5,
+      "direct_local_filtering": 1,
+      "direct_assurance_breeding": 7,
+      "direct_plant_response": 8
+    },
+    "full_contract_passes": 0,
+    "promotion_review_queue": [
+      "channel_islands_nicotiana_2004",
+      "chiloe_embothrium_2006",
+      "newfoundland_menyanthes_1998"
+    ]
+  },
+  "active_manuscript_boundary": {
+    "descriptive_research_entries": 42,
+    "exact_geographic_labels": 37,
+    "formal_identifiability_research_entries": 25,
+    "formal_full_contracts": "0_of_25",
+    "formal_external_prediction": "not_evaluable",
+    "mutated_by_wave1": false
+  },
+  "next_step": "continue master-driven gap waves before any Izu zoom; promotion requires a separate value review"
+}

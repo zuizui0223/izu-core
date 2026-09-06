@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "candidate_systems": 13,
+  "decision_counts": {
+    "do_not_promote": 2,
+    "promote_final_synthesis": 3,
+    "retain_search_gap": 2,
+    "retain_search_record": 1,
+    "retain_supporting_information": 5
+  },
+  "promote_final_synthesis_ids": [
+    "gulf_california_cardon",
+    "surtsey_honckenya_2014",
+    "tiritiri_hihi_2022"
+  ],
+  "promotion_logic": {
+    "surtsey_honckenya_2014": "dated empty-island colonization plus persistent breeding-system response",
+    "tiritiri_hihi_2022": "direct documented pollinator reintroduction plus direct functional test and compensatory-community result",
+    "gulf_california_cardon": "historical/ploidy alternative mechanism that bounds current-pollinator causality"
+  },
+  "historical_bottleneck": {
+    "direct_partner_loss_closed": false,
+    "direct_partner_arrival_present_in_small_island_supplement": true,
+    "full_source_transition_realization_response_contracts": 0,
+    "status": "partially_moved_not_closed"
+  },
+  "active_manuscript_boundary": {
+    "descriptive_research_entries": 42,
+    "exact_geographic_labels": 37,
+    "formal_identifiability_research_entries": 25,
+    "formal_full_contracts": "0_of_25",
+    "formal_external_prediction": "not_evaluable",
+    "mutated_by_value_review": false
+  },
+  "izu_transition_gate": {
+    "large_island_saturation_met": true,
+    "small_island_supplement_complete": true,
+    "separate_manuscript_value_review_complete": true,
+    "ready_for_final_izu_mechanistic_zoom": true
+  }
+}

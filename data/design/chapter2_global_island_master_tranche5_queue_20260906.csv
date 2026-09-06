@@ -1,0 +1,9 @@
+tranche_rank,geographic_system,system_class,master_anchors,prior_111_relation,selection_status,selection_reason
+1,Gotland,continental_island,"Gotland 318994",absent,selected_before_search,"Baltic island independent of Saaremaa and omitted from prior frame"
+2,St Lawrence Island,continental_island,"St. Lawrence 318950",absent,selected_before_search,"Bering Sea island distinct from Aleutian and Nunivak systems"
+3,Akimiski Island,continental_island,"Akimiski 318993",absent,selected_before_search,"Hudson Bay sub-Arctic island adds a separate continental-island climate regime"
+4,Alexander Archipelago,continental_archipelago,"Prince of Wales 318940; Admiralty 318966; Baranof 318970; Chicagof 318947; Kupreanof 319001",absent,selected_before_search,"Southeast Alaska archipelago fills a northeast-Pacific temperate-rainforest gap"
+5,Nias Island,continental_island,"Nias 318971",absent,selected_before_search,"west-Sumatra offshore island distinct from Sumatra mainland-island process system"
+6,Tanimbar Islands,continental_archipelago,"Yamdena 318991",absent,selected_before_search,"eastern Lesser Sunda/Tanimbar geography not represented by prior system units"
+7,Raja Ampat Islands,continental_archipelago,"Waigeo 318992; Misool 319280",absent,selected_before_search,"Bird's Head archipelago distinct from New Guinea focal system"
+8,Buton-Muna Islands,continental_archipelago,"Buton 318964; Muna 318999",absent,selected_before_search,"southeast-Sulawesi offshore island system distinct from Sulawesi main-island process evidence"

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "entry_gate": {
+    "large_island_saturation_met": true,
+    "small_island_supplement_complete": true,
+    "post_saturation_value_review_complete": true,
+    "final_izu_zoom_allowed": true
+  },
+  "world_to_izu_bottleneck": {
+    "world_after_small_islands": "historical partner arrival can be recovered in special small-island histories, but a matched source-state -> transition -> realized community -> plant-response contract remains unclosed",
+    "izu_current_role": "resolves contemporary functional realization and downstream response branching, not the historical transition coordinate",
+    "same_core_bottleneck_persists": true
+  },
+  "izu_current_evidence": {
+    "historical_proboscis_species_level_recovery": "202_of_209_current_named_taxa",
+    "exact_site_level_fdq_reconstruction_complete": false,
+    "current_functional_exposure_to_matching": {
+      "supported": true,
+      "izu5_fdq_coefficient": 1.94255840267522,
+      "post4_fdq_coefficient": 2.0589617769543915,
+      "all_izu5_leave_one_island_coefficients_positive": true,
+      "all_post4_leave_one_island_coefficients_positive": true
+    },
+    "matching_to_pollen": {
+      "average_direction_positive": true,
+      "izu5_tm_coefficient": 0.03528541439362932,
+      "post4_tm_coefficient": 0.03415875775284908,
+      "leave_one_island_sign_stable": false
+    },
+    "response_branching": {
+      "shared_targets": 8,
+      "corrected_matching_lower": 8,
+      "tube_shorter": 3,
+      "tube_longer": 4,
+      "tube_equal": 1,
+      "pollen_lower": 4,
+      "pollen_higher": 4,
+      "full_matching_lower_tube_shorter_pollen_lower": 2
+    },
+    "signed_position": {
+      "raw_slope": 0.5669042695,
+      "raw_ci95": [
+        0.297722,
+        0.836087
+      ],
+      "raw_all_leave_one_island_positive": true,
+      "null_corrected_supported": false,
+      "exact_island_center_order_uniquely_identified": false
+    },
+    "second_boundary_replication": {
+      "oshima_bridge_sites": 1,
+      "post_boundary_sites": 4,
+      "causal_boundary_effect_identifiable": false
+    }
+  },
+  "still_missing_in_izu": {
+    "direct_historical_partner_loss": false,
+    "direct_historical_partner_arrival_replacement_in_same_focal_transition": false,
+    "direct_effective_dependency_same_tagged_populations": false,
+    "matched_single_visit_pollen_to_mature_seed_chain": false,
+    "independent_bridge_state_geographic_replication": false,
+    "temporal_pre_post_transition_with_matched_plant_response": false,
+    "field_data_status": "implementation_ready_field_data_missing"
+  },
+  "final_mechanistic_resolution": {
+    "resolved_now": [
+      "continuous contemporary pollinator functional structure predicts corrected trait matching within Izu and within the post-Oshima subset",
+      "translation from matching to pollen receipt is weaker and network-state conditional",
+      "a shared decline in corrected matching branches into shorter, longer or unchanged tubes and higher or lower pollen receipt",
+      "the precise island-center geometry and historical Bombus-causation reading are not identified"
+    ],
+    "single_highest_value_next_measurement": "a tagged-population transition panel linking visitor identity/proboscis and zero-visit effort to SVD, open/bagged/outcross reproduction and mature seed, repeated across a true transition or independently replicated bridge-state exposure",
+    "do_not_spend_next_effort_on": [
+      "more cross-sectional island examples after the preregistered world saturation condition",
+      "more synthetic parameter tuning as the main line",
+      "more species or seasons at the single Oshima bridge site while calling them independent boundary replicates",
+      "inferring effective dependency from floral morphology or visitor-group labels"
+    ]
+  },
+  "claim_boundary": {
+    "historical_bombus_causation_identified": false,
+    "causal_oshima_post_boundary_identified": false,
+    "formal_external_prediction_reopened": false,
+    "full_world_contracts": "0_of_25_frozen_formal_audit",
+    "active_descriptive_breadth_mutated": false
+  },
+  "decision": "world_confrontation_saturated_and_izu_contemporary_mechanism_resolved_as_far_as_existing_data_allow; next empirical gain requires linked transition/dependency field data rather than further cross-sectional expansion"
+}

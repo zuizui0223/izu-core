@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-09-06",
+  "purpose": "convert geography-independent island polygons into defensible ecological island-system search units before literature review",
+  "geographic_master": {
+    "source_repository": "zuizui0223/island",
+    "source_commit": "f1462cd1aa76b2703bc2df159996a4ab65510a25",
+    "source_blob": "42f31df81db250ebfe46b35ebce6cb1c52b19fc9",
+    "minimum_area_km2": 20,
+    "candidate_polygons": 4663,
+    "is_world_census": false,
+    "known_limitation": "islands below 20 km2 require a separate small-island supplement"
+  },
+  "system_unit_rules": [
+    "Do not treat one polygon as one independent ecological replicate by default.",
+    "Use a named archipelago or biogeographically coherent island group as the default system unit when islands share colonization history and are routinely analysed together.",
+    "Retain a large nested island as its own system when source-native studies analyse it independently or when it represents a distinct biogeographic or interaction regime.",
+    "Do not merge islands solely because they share a country or political administration.",
+    "Do not split one research transition into pseudo-independent island systems merely because several polygons were sampled.",
+    "Record nested coverage explicitly so broad archipelago searches and island-specific searches can coexist without double counting.",
+    "Keep continental-island controls and oceanic islands as different geography classes rather than excluding one class based on expected outcome.",
+    "No system is promoted to manuscript evidence merely because a relevant source exists; source admission and manuscript-value promotion remain separate stages."
+  ],
+  "system_classes": [
+    "oceanic_archipelago",
+    "oceanic_single_large_island",
+    "continental_island",
+    "continental_archipelago",
+    "high_arctic_archipelago",
+    "subantarctic_archipelago",
+    "nested_large_island",
+    "main_island_control"
+  ],
+  "coverage_states": [
+    "unreviewed_master_gap",
+    "searched_source_gap",
+    "bounded_source_only",
+    "primary_process_source_verified",
+    "promotion_review_candidate",
+    "represented_by_existing_system",
+    "small_island_supplement_required"
+  ],
+  "deduplication_rule": "Counts used for world-confrontation breadth must be system-level exact geographic labels after nested overlap review, never raw polygon count.",
+  "inference_rule": "The 4663-polygon master is a coverage frame only. It is never a validation denominator, prevalence sample, or set of independent tests.",
+  "izu_rule": "Izu remains outside master-gap promotion until the world-confrontation search stops adding materially new response, process, or falsification states."
+}

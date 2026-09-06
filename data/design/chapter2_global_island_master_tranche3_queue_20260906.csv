@@ -1,0 +1,11 @@
+tranche_rank,geographic_system,system_class,master_anchors,prior_111_relation,selection_status,selection_reason
+1,Aleutian Islands,oceanic_archipelago,"Unalaska 319004; Umnak 319043; Unimak 318968",absent,selected_before_search,"North Pacific volcanic archipelago missing from the 111 frame"
+2,Haida Gwaii,continental_archipelago,"Graham 319278; Moresby 319279",absent,selected_before_search,"isolated northeast-Pacific archipelago with large native temperate flora"
+3,Anticosti Island,continental_island,"Anticosti 318934",absent,selected_before_search,"large Gulf of St Lawrence island omitted from the 111 frame"
+4,Zanzibar Archipelago,continental_archipelago,"Zanzibar/Unguja 319064; Pemba 319151",absent,selected_before_search,"tropical East African island system underrepresented by prior macroregions"
+5,Jeju Island,continental_island,"Jeju 319039",absent,selected_before_search,"East Asian volcanic/continental island omitted from the 111 frame"
+6,Ulleungdo,oceanic_single_large_island,"Ulleung-do 326780",absent,selected_before_search,"isolated East Asian volcanic island omitted from the 111 frame"
+7,Kuril Islands,continental_archipelago,"Paramushir 319009; Urup 319079; Shikotan 319522",absent,"selected_before_search_with_nested_prior_gap","archipelago-level unit replacing any temptation to count Shikotan alone; Shikotan had only an initial source-gap review"
+8,Kangaroo Island,continental_island,"Kangaroo 318965",absent,selected_before_search,"large southern-temperate Australian island absent from the 111 frame"
+9,Tiwi Islands,continental_archipelago,"Melville 318942",absent,selected_before_search,"tropical northern Australian island system omitted from the 111 frame"
+10,Gulf of California large islands,continental_archipelago,"Angel de la Guarda 319143",absent,selected_before_search,"arid subtropical island system adds a climatic and pollinator-community contrast absent from the prior frame"

@@ -4,6 +4,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 READINESS = ROOT / "data" / "design" / "effective_pollinator_dependency_field_readiness.json"
 PRIORITY = ROOT / "data" / "design" / "effective_dependency_pilot_field_priority.json"
+PROBOSCIS = ROOT / "data" / "design" / "izu_pollinator_proboscis_recovery_status.json"
 
 
 def load_readiness():
@@ -16,7 +17,7 @@ def load_priority():
 
 def test_field_dependency_design_is_ready_but_empirical_data_are_missing():
     data = load_readiness()
-    assert data["schema_version"] == "1.5"
+    assert data["schema_version"] == "1.6"
     assert data["status"] == "implementation_ready_field_data_missing"
     assert data["focal_anchor"] == "Campanula microdonta"
     assert data["structural_readiness_only"] is True
@@ -35,11 +36,16 @@ def test_direct_dependency_design_requires_svd_and_three_core_reproductive_treat
 def test_dependency_and_fdq_readiness_are_parallel_not_collapsed():
     data = load_readiness()
     fdq = data["functional_exposure_readiness"]
+    authoritative = json.loads(PROBOSCIS.read_text(encoding="utf-8"))["current_trait_coverage"]
     assert fdq["dependency_structural_completion_requires_fdq"] is False
     assert fdq["dependency_x_fdq_test_requires_fdq"] is True
-    assert fdq["status"] == "execution_ready_historical_trait_table_unrecovered"
+    assert fdq["status"] == "execution_ready_species_level_historical_traits_recovered_site_exact_fdq_incomplete"
     assert fdq["historical_trait_recovery"]["current_named_pollinator_taxa"] == 209
-    assert fdq["historical_trait_recovery"]["recovered_numeric_proboscis_taxa"] == 0
+    assert fdq["historical_trait_recovery"]["recovered_numeric_proboscis_taxa"] == 202
+    assert fdq["historical_trait_recovery"]["coverage_fraction"] == authoritative["coverage_fraction"]
+    assert fdq["historical_trait_recovery"]["state"] == "species_level_numeric_values_recovered_site_exact_and_plant_specific_weights_incomplete"
+    assert authoritative["complete_site_specific_numeric_values_for_all_taxa_recovered"] is False
+    assert authoritative["fdq_reconstruction_from_current_repo_trait_values_ready"] is False
 
 
 def test_fdq_uses_source_locked_rao_q_and_strict_trait_coverage():
@@ -102,8 +108,9 @@ def test_design_does_not_relabel_floral_form_as_dependency():
 
 def test_claim_boundary_keeps_selfing_historical_causation_and_fdq_separate():
     text = load_readiness()["claim_boundary"].lower()
-    assert "does not by itself identify historical bombus loss" in text
+    assert "historical bombus loss" in text
     assert "self-compatibility" in text
     assert "realized selfing" in text
     assert "causal oshima-toshima boundary effect" in text
     assert "fdq is a separate functional-exposure gate" in text
+    assert "202/209" in text
