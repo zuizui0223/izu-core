@@ -208,6 +208,16 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         raise ValueError("reference handoff section missing")
     text = text.split("\n## References\n", 1)[0].rstrip() + "\n\n" + render_active_reference_list() + "\n"
 
+    # Standalone journal text must not retain dissertation chapter routing anywhere,
+    # including isolated references that survive the targeted section rewrites above.
+    chapter_replacements = (
+        ("Chapter 1", "the preceding comparative analysis"),
+        ("Chapter 2", "the present analysis"),
+        ("Chapter 3", "the downstream focal-phenotype analysis"),
+    )
+    for old, new in chapter_replacements:
+        text = text.replace(old, new)
+
     for token in FORBIDDEN_SUBMISSION_TOKENS:
         if token.lower() in text.lower():
             raise ValueError(f"submission manuscript still contains internal token: {token}")
