@@ -4,7 +4,7 @@
 
 ## Current state
 
-**Chapter 2 is scientifically closed.** The active paper now follows one sequence:
+**Chapter 2 is scientifically closed, and the synthetic gate is closed.** The active paper now follows one sequence:
 
 ```text
 relational response geometry
@@ -22,9 +22,9 @@ Historical V2 manuscripts, earlier literature screens and frozen simulation arti
 
 Island syndromes can conflate three distinct processes:
 
-1. **colonization / assembly filtering** — which lineages arrive and persist;
-2. **in-situ evolutionary change** — how established island lineages diverge from source populations;
-3. **post-establishment interaction response** — how established lineages respond when pollinator functional composition and local interaction context change.
+1. **Colonization / assembly filtering** — which lineages arrive and persist;
+2. **In-situ evolutionary change** — how established island lineages diverge from source populations;
+3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and local interaction context change.
 
 Chapter 2 isolates the third layer. Its main result is not a universal island syndrome but a **conditional response geometry**: response direction depends on plant state evaluated against the realized community, and downstream propagation can branch or weaken.
 
