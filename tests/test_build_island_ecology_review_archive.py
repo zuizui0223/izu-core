@@ -68,12 +68,14 @@ def test_review_archive_builds_with_oikos_claim_boundary(tmp_path: Path):
         assert "response direction is therefore relational rather than intrinsic" in lower
         assert "53/96" in manuscript
         assert "null-corrected matching" in lower
-        assert "non-random partner sorting" in lower
+        assert "historical signed-position" in lower
+        assert "measurement continuity" in lower
         assert "dissertation" not in lower
         assert "chapter 1" not in lower
         assert "chapter 2" not in lower
         assert "chapter 3" not in lower
-        assert "campanula microdonta" not in lower
+        # Scientific taxon names are part of the evidence, not identifying author metadata.
+        assert "campanula microdonta" in lower
         supporting = archive.read(ANONYMOUS_SI_NAME).decode("utf-8")
         support_lower = supporting.lower()
         assert "69.34–80.17%" in supporting
