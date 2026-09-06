@@ -4,17 +4,16 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 
 
-def test_readme_declares_closed_scientific_gate_and_metadata_only_blocker():
+def test_readme_declares_closed_science_and_current_active_surface():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert text.startswith("# Izu Core — conditional island plant response geometry")
+    assert "chapter 2 is scientifically closed" in lower
     assert "synthetic gate is closed" in lower
-    assert "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md" in text
-    assert "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json" in text
-    assert "mechanistic **how** plus model-conditional **proximal why**" in lower
-    assert "ultimate why" in lower
-    assert "source-locked implementation/source gate/structural audit are part of the active paper branch" in lower
-    assert "only author-supplied identity metadata and declarations remain unresolved" in lower
+    assert "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md" in text
+    assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in text
+    assert "historical v2 manuscripts" in lower
+    assert "must not be treated as the current manuscript surface" in lower
 
 
 def test_readme_preserves_three_layer_island_syndrome_core():
@@ -25,48 +24,49 @@ def test_readme_preserves_three_layer_island_syndrome_core():
         "Post-establishment interaction response",
     ]:
         assert token in text
-    assert "three-layer decomposition" in text.lower()
+    assert "three distinct processes" in text.lower()
 
 
-def test_readme_demotes_overstated_h2_h4_h5_claims():
+def test_readme_preserves_current_claim_ceiling_without_old_hypothesis_headings():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "h2 — reassigned to conditional response geometry" in lower
-    assert "not a pure algebraic tautology" in lower
-    assert "replicated_minimal_generator" in text
-    assert "no longer a main-paper claim" in lower
-    assert "h4 — retained as a structural distinction, not a discovery" in lower
-    assert "h5 — demoted from validation" in lower
-    assert "not used as validation" in lower
+    assert "conditional response geometry" in lower
+    assert "community realization is the largest additive component" in lower
+    assert "not natural frequencies or calibrated ecological thresholds" in lower
+    assert "the frozen 25 systems validate one universal mechanism" in lower
+    assert "formal external prediction: **`not_evaluable`**" in text
+    assert "h2 — reassigned" not in lower
+    assert "h4 — retained" not in lower
+    assert "h5 — demoted" not in lower
 
 
-def test_readme_corrects_local_support_semantics_and_precision():
+def test_readme_routes_implementation_detail_to_active_surfaces_not_entrypoint_history():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "support_strength" in text
-    assert "local context / availability filtering" in lower
-    assert "not extra beneficial support" in lower
-    assert "5 of 12" in text
-    assert "0.4167" in text
-    assert "do not use `0.4167`" in lower
-    assert "41 of 96" in text or "41/96" in text
-    assert "16 points are mixed" in lower or "16/48" in text
-    assert "737" in text
-    assert "directionally asymmetric" in lower
+    assert "active scientific and submission surfaces" in lower
+    assert "scripts/render_island_ecology_submission_manuscript.py" in text
+    assert "scripts/build_island_ecology_review_archive.py" in text
+    assert "support_strength" not in text
+    assert "0.4167" not in text
+    assert "replicated_minimal_generator" not in text
 
 
-def test_readme_registers_izu_empirical_claim_ceiling():
+def test_readme_registers_current_izu_claim_ceiling_and_selection_logic():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "focal empirical depth: izu islands" in lower
-    assert "raw realized trait matching" in lower
-    assert "null-corrected trait matching" in lower
-    assert "does **not** explain" in text
-    assert "beyond-composition" in lower
-    assert "validation of the synthetic" in lower
+    assert "why izu is the focal depth system" in lower
+    assert "measurement continuity across the unresolved chain" in lower
+    assert "not focal because it is in japan" in lower
+    assert "null-corrected matching" in lower
+    assert "leave-one-island sign stability" in lower
+    assert "matching-to-pollen propagation is positive on average but not leave-one-island sign stable" in lower
+    assert "does not infer historical *bombus* loss" in lower
 
 
-def test_readme_keeps_external_programmes_outside_current_paper():
+def test_readme_allows_focal_lineage_context_but_blocks_retroactive_validation():
     lower = README.read_text(encoding="utf-8").lower()
-    assert "microdonta" not in lower
-    assert "future empirical translation" not in lower
+    assert "microdonta" in lower
+    assert "chapter 3" in lower
+    assert "not** used to tune, validate or retroactively prove" in lower
+    assert "chapter 3 phenotype validates chapter 2" in lower
+    assert "present functional structure identifies the historical cause" in lower
