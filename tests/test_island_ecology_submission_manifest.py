@@ -9,7 +9,7 @@ DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "1.9"
+    assert manifest["schema_version"] == "1.10"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_first_submission_route"
@@ -18,8 +18,10 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert manifest["story"] == "simulation_to_world_confrontation_to_process_measurement_bottleneck_to_izu_mechanistic_resolution_zoom"
     assert manifest["active_manuscript"] == "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
     assert manifest["oikos_rtf_renderer"] == "scripts/render_oikos_submission_rtf.py"
+    assert manifest["submission_closure_audit"] == "data/results/chapter2_submission_closure_audit_20260906.json"
     assert manifest["submission_ready"] is False
-    assert manifest["remaining_blocker"] == "author_supplied_identity_prior_work_context_and_submission_declarations"
+    assert manifest["remaining_blocker"] == "author_supplied_identity_prior_work_context_ethics_confirmation_and_submission_declarations"
+    assert "review_ethics_statement_for_accuracy" in manifest["remaining_before_actual_submission"]
     assert "author_contributions" not in manifest["remaining_before_actual_submission"]
     assert "planned_public_repository" not in manifest["remaining_before_actual_submission"]
 
@@ -106,6 +108,7 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert oikos["planned_public_repository"] == "Dryad Digital Repository"
     assert oikos["dryad_selected_for_accepted_stage_public_archiving"] is True
     assert oikos["ethics_statement_ready"] is True
+    assert oikos["ethics_statement_author_confirmation_required"] is True
     assert oikos["credit_required_at_initial_submission"] is False
     assert oikos["credit_required_at_revision"] is True
     assert oikos["data_and_code_ready_for_first_submission"] is True
