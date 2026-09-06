@@ -116,6 +116,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
             assert name in names
         assert "MANUSCRIPT.md" not in names
         assert "TITLE_PAGE.md" not in names
+        assert "REFERENCE_LIST.rtf" not in names
         assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
         assert "data/results/chapter2_relational_robustness_audit_frozen_20260831.json" in names
         assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in names
@@ -132,6 +133,8 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "response direction is therefore relational rather than intrinsic" in lower
         assert "53/96" in manuscript
         assert "null-corrected matching" in lower
+        assert "measurement continuity" in lower
+        assert "42 research entries across 37 exact geographic labels" in lower
         assert "supporting information" in lower
         assert "(appendix)" not in lower
         assert "fig. s" not in lower
@@ -139,7 +142,17 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "chapter 1" not in lower
         assert "chapter 2" not in lower
         assert "chapter 3" not in lower
-        assert "campanula microdonta" not in lower
+        assert "zuizui0223" not in lower
+        assert "shimahotarubukuro" not in lower
+        # Scientific taxon names can remain in the blinded manuscript/reference list.
+        assert "campanula microdonta" in lower
+        # The Oikos main-text RTF carries the active reference list, not a separate upload.
+        assert "10.1111/cobi.13892" in lower
+        assert "10.5194/bg-11-6657-2014" in lower
+        assert "10.1111/j.1442-1984.1986.tb00018.x" in lower
+        assert "10.1086/368394" in lower
+        assert "hygiene decisions" not in lower
+        assert "world-saturation synthesis source boundary" not in lower
 
         supporting = archive.read(SUBMISSION_SI).decode("utf-8")
         assert supporting.startswith("{\\rtf1")
