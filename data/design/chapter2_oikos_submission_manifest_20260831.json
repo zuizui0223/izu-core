@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.9",
+  "schema_version": "1.10",
   "updated_on": "2026-09-06",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
@@ -7,6 +7,7 @@
   "fallback_route": "Journal of Ecology Research Article",
   "journal_fit_audit": "docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md",
   "submission_checklist": "docs/CHAPTER2_OIKOS_SUBMISSION_CHECKLIST_20260831.md",
+  "submission_closure_audit": "data/results/chapter2_submission_closure_audit_20260906.json",
   "narrative_lock": "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "historical_v2_source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
@@ -75,9 +76,18 @@
     "audit_script": "scripts/audit_chapter2_relational_robustness.py",
     "historical_freeze_rewritten": false,
     "baseline_percentages_role": "historical_reproducible_example_not_stable_headline",
-    "seed_community_fraction_range": [0.6933825278526522, 0.8017383395125494],
-    "seed_starting_position_fraction_range": [0.021691380526058714, 0.0313738285406023],
-    "seed_nonadditive_fraction_range": [0.17642957676987792, 0.27913675615068034],
+    "seed_community_fraction_range": [
+      0.6933825278526522,
+      0.8017383395125494
+    ],
+    "seed_starting_position_fraction_range": [
+      0.021691380526058714,
+      0.0313738285406023
+    ],
+    "seed_nonadditive_fraction_range": [
+      0.17642957676987792,
+      0.27913675615068034
+    ],
     "community_largest_across_prespecified_seeds": true,
     "community_largest_across_steps_30_60_120_240": true,
     "mixed_at_zero_trait_adjustment": "64_of_96",
@@ -132,13 +142,14 @@
     "dryad_selected_for_accepted_stage_public_archiving": true,
     "conflict_of_interest_required": true,
     "ethics_statement_ready": true,
+    "ethics_statement_author_confirmation_required": true,
     "credit_required_at_initial_submission": false,
     "credit_required_at_revision": true,
     "data_and_code_ready_for_first_submission": true,
     "old_within_cell_noise_wording_blocked_from_submission_si": true
   },
   "submission_ready": false,
-  "remaining_blocker": "author_supplied_identity_prior_work_context_and_submission_declarations",
+  "remaining_blocker": "author_supplied_identity_prior_work_context_ethics_confirmation_and_submission_declarations",
   "remaining_before_actual_submission": [
     "final_author_order_and_affiliations",
     "corresponding_author_email_postal_address_and_orcid",

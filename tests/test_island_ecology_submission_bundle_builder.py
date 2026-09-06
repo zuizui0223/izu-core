@@ -32,6 +32,7 @@ def completed_metadata() -> dict:
     metadata["author_contributions"] = "Example Author conceived the study, performed the analyses and wrote the manuscript."
     metadata["inclusion_statement"] = "This study used secondary literature and simulation data and involved no new local field data collection."
     metadata["conflict_of_interest"] = "The author declares no conflict of interest."
+    metadata["ethics_statement_confirmed"] = True
     for key in metadata["submission_declarations"]:
         metadata["submission_declarations"][key] = True
     return metadata

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "audited_on": "2026-09-06",
+  "journal": "Oikos",
+  "article_type": "Research Paper",
+  "scientific_gate_complete": true,
+  "nonmetadata_submission_preflight_ready": true,
+  "nonmetadata_submission_errors": [],
+  "metadata_template_validation_errors": [
+    "authors must contain the final ordered author list",
+    "corresponding_author_index must identify one author",
+    "significance_prior_work_context requires an explicit statement",
+    "inclusion_statement requires an explicit statement",
+    "conflict_of_interest requires an explicit statement",
+    "acknowledgements must be explicitly set to text or 'None'",
+    "funding must be explicitly set to text or 'None'",
+    "ethics_statement_confirmed must be explicitly true after author review",
+    "submission_declarations.not_published_or_under_consideration_elsewhere must be explicitly true",
+    "submission_declarations.all_authors_approve_submission must be explicitly true",
+    "submission_declarations.all_entitled_authors_included must be explicitly true",
+    "submission_declarations.necessary_acknowledgements_made must be explicitly true",
+    "submission_declarations.legal_and_policy_requirements_met must be explicitly true",
+    "submission_declarations.third_party_data_reuse_is_permitted must be explicitly true"
+  ],
+  "metadata_template_validation_error_count": 14,
+  "unexpected_metadata_errors": [],
+  "only_author_supplied_metadata_and_confirmations_remain": true,
+  "required_human_input_categories": [
+    "final_ordered_author_list_and_affiliations",
+    "corresponding_author_selection_email_postal_address_and_orcid",
+    "significance_prior_work_context",
+    "acknowledgements",
+    "funding",
+    "inclusion_statement",
+    "conflict_of_interest",
+    "ethics_statement_author_confirmation",
+    "explicit_submission_declarations"
+  ],
+  "optional_not_initial_submission_blockers": [
+    "coauthor_orcids",
+    "author_contributions_credit_roles"
+  ],
+  "planned_public_repository_already_fixed": "Dryad Digital Repository",
+  "ethics_statement_prefilled": true,
+  "ethics_statement_author_confirmation_required": true,
+  "submission_ready": false,
+  "next_transition": "author supplies the nine required metadata/confirmation categories; then run the fail-closed metadata and bundle builders"
+}

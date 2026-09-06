@@ -37,6 +37,7 @@ def complete_metadata() -> dict:
     metadata["funding"] = "None"
     metadata["inclusion_statement"] = "This study used secondary literature and simulation data and involved no new local field data collection."
     metadata["conflict_of_interest"] = "The author declares no conflict of interest."
+    metadata["ethics_statement_confirmed"] = True
     for key in metadata["submission_declarations"]:
         metadata["submission_declarations"][key] = True
     return metadata
@@ -46,7 +47,7 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     metadata = load_metadata(TEMPLATE)
     assert metadata["journal"] == "Oikos"
     assert metadata["article_type"] == "Research Paper"
-    assert metadata["schema_version"] == "1.6"
+    assert metadata["schema_version"] == "1.7"
     assert metadata["manuscript_title"] == FINAL_TITLE
     keywords = {value.lower() for value in metadata["keywords"]}
     assert "source state" in keywords
@@ -61,6 +62,7 @@ def test_template_is_synchronized_to_oikos_scientific_surface():
     assert metadata["significance_prior_work_context"] is None
     assert metadata["planned_public_repository"] == "Dryad Digital Repository"
     assert "no new field sampling" in metadata["ethics_statement"].lower()
+    assert metadata["ethics_statement_confirmed"] is None
     data_availability = metadata["data_availability"].lower()
     assert "source-locked secondary analysis of published izu plant–pollinator data" in data_availability
     assert "relational-robustness audit" in data_availability
@@ -78,6 +80,7 @@ def test_template_fails_closed_on_initial_submission_inputs_only():
     assert any("significance_prior_work_context" in error for error in errors)
     assert not any("planned_public_repository" in error for error in errors)
     assert any("conflict_of_interest" in error for error in errors)
+    assert any("ethics_statement_confirmed" in error for error in errors)
     assert not any("author_contributions" in error for error in errors)
     assert not any("significance_statement" == error.split(" requires", 1)[0] for error in errors)
     assert not any("data_availability" == error.split(" requires", 1)[0] for error in errors)
@@ -134,6 +137,13 @@ def test_builder_requires_explicit_submission_declarations():
     assert "submission_declarations.all_authors_approve_submission must be explicitly true" in errors
 
 
+def test_builder_requires_explicit_author_confirmation_of_prefilled_ethics_statement():
+    metadata = complete_metadata()
+    metadata["ethics_statement_confirmed"] = False
+    errors = validate_metadata(metadata)
+    assert "ethics_statement_confirmed must be explicitly true after author review" in errors
+
+
 def test_builder_requires_significance_prior_work_context_and_rejects_blank_repository():
     metadata = complete_metadata()
     metadata["significance_prior_work_context"] = ""
@@ -188,4 +198,5 @@ def test_oikos_checklist_uses_relational_and_current_submission_contract():
     assert "dryad digital repository" in lower
     assert "public repository choice is no longer an author blocker" in lower
     assert "significance prior-work context" in lower
+    assert "ethics_statement_confirmed" in text
     assert "credit / author-contribution roles are not an initial-submission blocker" in lower

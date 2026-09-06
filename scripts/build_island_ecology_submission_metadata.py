@@ -76,6 +76,9 @@ def validate_metadata(metadata: dict) -> list[str]:
         if value is None:
             errors.append(f"{optional_explicit} must be explicitly set to text or 'None'")
 
+    if metadata.get("ethics_statement_confirmed") is not True:
+        errors.append("ethics_statement_confirmed must be explicitly true after author review")
+
     declarations = metadata.get("submission_declarations", {})
     for field in REQUIRED_DECLARATIONS:
         if declarations.get(field) is not True:
