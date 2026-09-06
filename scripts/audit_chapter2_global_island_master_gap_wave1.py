@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WAVE = ROOT / "data/design/chapter2_global_island_master_gap_wave1_20260906.csv"
-PRIORITY = ROOT / "data/design/chapter2_global_island_master_priority_systems_20260906.csv"
+PRIORITY = ROOT / "data/design/chapter2_global_island_master_priority_systems_wave1_snapshot_20260906.csv"
 UNIVERSE = ROOT / "data/design/chapter2_systematic_island_universe_v1_20260903.csv"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
 DEFAULT_OUT = ROOT / "data/results/chapter2_global_island_master_gap_wave1_audit_20260906.json"
