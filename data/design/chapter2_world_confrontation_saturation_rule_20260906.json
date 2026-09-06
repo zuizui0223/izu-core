@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-09-06",
+  "purpose": "define an outcome-independent stopping rule for world-island expansion before the final Izu zoom",
+  "large_island_master_scope": {
+    "source": "Global Islands v3 / WCMC-USGS-derived historical artifact in zuizui0223/island",
+    "minimum_area_km2": 20,
+    "raw_candidate_polygons": 4663,
+    "unit_of_review": "deduplicated ecological island system, not polygon"
+  },
+  "eligible_saturation_tranche": {
+    "minimum_new_system_units": 8,
+    "selection_must_precede_literature_result": true,
+    "nested_systems_already_represented_by_a_broader_review_unit_do_not_count_as_new_units": true,
+    "main_island_controls_do_not_count_as_new_island_response_units": true,
+    "explicit_source_gaps_count_as_reviewed_units": true
+  },
+  "material_novelty_dimensions": [
+    "new_response_state",
+    "new_process_state",
+    "new_falsification_or_negative_control_role",
+    "new_direct_historical_partner_loss_measurement",
+    "new_direct_historical_partner_arrival_or_replacement_measurement",
+    "new_full_chapter2_contract"
+  ],
+  "large_island_saturation_condition": {
+    "consecutive_eligible_tranches_required": 2,
+    "maximum_material_novelty_events_per_tranche": 0,
+    "full_contract_passes_required_to_be_zero": true,
+    "interpretation": "two consecutive geography-first tranches add no materially new response/process/falsification state and no full contract"
+  },
+  "mandatory_before_izu": [
+    "complete at least one geography-independent small-island supplement below the 20 km2 master threshold",
+    "perform a separate manuscript-value review rather than automatically promoting searched systems",
+    "preserve the frozen 25-entry formal identifiability denominator unless a separately preregistered re-audit is opened",
+    "document whether the historical turnover-coordinate bottleneck persists"
+  ],
+  "izu_transition_rule": "Izu may become the final mechanistic-resolution zoom only after the large-island saturation condition is met and the small-island supplement has been reviewed.",
+  "anti_cherry_picking_rule": "A tranche cannot be declared saturated by dropping systems after their literature outcomes are known."
+}
