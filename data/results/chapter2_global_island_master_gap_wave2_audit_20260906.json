@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "master_provenance": {
+    "source_repository": "zuizui0223/island",
+    "source_commit": "f1462cd1aa76b2703bc2df159996a4ab65510a25",
+    "source_path": "legacy/v1/artifacts/data_global_islands/global_islands_over20km2.csv",
+    "source_blob": "42f31df81db250ebfe46b35ebce6cb1c52b19fc9",
+    "area_threshold_km2": 20,
+    "candidate_island_polygons": 4663
+  },
+  "search_frame_boundary": {
+    "prior_named_target_frame": 111,
+    "prior_frame_is_world_census": false,
+    "independent_master_candidate_island_polygons_ge_20km2": 4663,
+    "individual_polygons_treated_as_independent_ecological_systems": false,
+    "first_master_gap_tranche_geographic_systems": 20,
+    "first_master_gap_tranche_reviewed": 20
+  },
+  "wave1": {
+    "systems": 8,
+    "primary_verified": 8
+  },
+  "wave2": {
+    "systems": 12,
+    "source_status_counts": {
+      "bounded_flora_source": 1,
+      "bounded_visitor_source": 1,
+      "initial_source_gap": 8,
+      "primary_article_verified": 2
+    },
+    "decision_counts": {
+      "promote_next_review": 1,
+      "retain_process_candidate": 1,
+      "retain_search_gap": 10
+    },
+    "full_contract_passes": 0
+  },
+  "combined_20_system_review": {
+    "systems": 20,
+    "primary_verified_sources": 10,
+    "promotion_review_queue": [
+      "channel_islands_nicotiana_2004",
+      "chiloe_embothrium_2006",
+      "newfoundland_menyanthes_1998",
+      "tierra_fuego_fuchsia_1998"
+    ],
+    "direct_measurement_counts": {
+      "direct_source_state": 0,
+      "direct_partner_loss": 0,
+      "direct_partner_arrival_replacement": 0,
+      "direct_realized_community_shift": 7,
+      "direct_local_filtering": 2,
+      "direct_assurance_breeding": 9,
+      "direct_plant_response": 10
+    },
+    "full_contract_passes": 0,
+    "transition_coordinate_result": "no direct partner-loss or partner-arrival/replacement series recovered"
+  },
+  "active_manuscript_boundary": {
+    "descriptive_research_entries": 42,
+    "exact_geographic_labels": 37,
+    "formal_identifiability_research_entries": 25,
+    "formal_full_contracts": "0_of_25",
+    "formal_external_prediction": "not_evaluable",
+    "mutated_by_master_gap_review": false
+  },
+  "scientific_readout": "Geography-independent expansion recovers additional direct outcome, breeding, community and local-filtering evidence, including strong falsification cases, but the historical transition coordinates remain the limiting measurements.",
+  "next_step": "expand the master-gap queue beyond the first 20 systems, then separately review promotion value; defer Izu until world confrontation stabilizes"
+}
