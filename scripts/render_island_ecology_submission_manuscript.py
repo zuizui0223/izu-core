@@ -162,7 +162,7 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     if n_focal != 1:
         raise ValueError("focal-system selection section changed; refuse silent submission rendering")
 
-    # Remove the dissertation routing section while preserving the scientific Izu discussion.
+    # Remove dissertation routing while preserving the scientific Izu discussion.
     thesis_re = re.compile(
         r"\n## Chapter 2 closes at the continuity-system boundary\n.*?(?=\n## Limits\n)",
         flags=re.DOTALL,
@@ -171,57 +171,11 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
     if n_removed != 1:
         raise ValueError("thesis continuity handoff section not found exactly once")
 
-    # The active abstract/conclusion contain thesis-routing language; the standalone paper keeps only the scientific boundary.
-    text = text.replace(
-        "Historical partner turnover linked to a matched pre-transition state and post-transition plant response remains the unresolved coordinate and is handed forward rather than retrofitted into Chapter 2.",
-        "Historical partner turnover linked to a matched pre-transition state and post-transition plant response remains the unresolved coordinate rather than being inferred retrospectively.",
-        1,
-    )
     text = _replace_paragraph_starting(
         text,
         "Chapter 2 therefore closes with a conditional response geometry, a world-level saturation/identifiability result and a justified continuity system for depth.",
         "The study therefore closes with a conditional response geometry, a world-level saturation/identifiability result and a justified continuity system for depth. The remaining transition-linked effectiveness-to-reproduction bridge is a prospective empirical target rather than retrospective validation. The contribution is a mechanistic coordinate system plus a sharply localized measurement contract—not a calibrated island predictor, natural-frequency estimate or ultimate historical explanation.",
         "thesis-specific conclusion routing",
-    )
-
-    # Restore the current descriptive-breadth boundary and its three non-redundant mechanism examples on the standalone surface.
-    formal_anchor = (
-        "The source-audited comparative universe contains 13 strict external state challenges and 12 additional analytical or model-development entries; "
-        "these 25 research entries are not independent archipelagos. We retained the qualitative state vocabulary already present in the registry—same-direction propagation, "
-        "branching, buffering, axis decoupling and retained falsification—as a reality-necessity test. Known outcomes were not used to infer missing predictors or assign systems to synthetic regimes."
-    )
-    formal_replacement = (
-        "The formal source-audited identifiability universe contains 13 strict external state challenges and 12 additional analytical or model-development entries; "
-        "these 25 research entries are not independent archipelagos. We retained the qualitative state vocabulary already present in the registry—same-direction propagation, branching, buffering, axis decoupling and retained falsification—as a reality-necessity test. "
-        "Known outcomes were not used to infer missing predictors or assign systems to synthetic regimes. That formal denominator was frozen before later expansion; the descriptive universe subsequently reached 42 research entries across 37 exact geographic labels, without treating those labels as independent archipelagos or changing the frozen measurement fractions."
-    )
-    text = _replace_exact_once(text, formal_anchor, formal_replacement, "formal/descriptive breadth boundary")
-
-    reality_anchor = (
-        "The source-audited comparative universe retained examples of same-direction propagation, branching, buffering, reproductive-axis decoupling and explicit falsification. "
-        "These states arose from heterogeneous outcomes and study designs and were not treated as exchangeable draws. Their supported role is qualitative but consequential: a universal one-direction syndrome would discard response structures already present in real island research, whereas the conditional architecture can represent their distinction without claiming that one synthetic mechanism generated every case."
-    )
-    reality_addition = (
-        reality_anchor
-        + "\n\nAfter the frozen audit, manuscript-value screening retained three non-redundant breadth cases for direct discussion. On Crete, self-compatible *Cyclamen creticum* still requires pollinators for seed set, separating compatibility from autonomous assurance (Affre & Thompson, 1997). Trinidad and Tobago provide a 13-month hummingbird-diversity contrast linked to visitation, pollen loads and nectar traits (Feinsinger et al., 1982). In Iceland, *Campanula uniflora* shows cleistogamy and predominant inbreeding under severe pollinator constraints (Ægisdóttir & Thórhallsdóttir, 2006). These examples increase contrast among plausible pathways rather than the number of independent tests of one pathway."
-    )
-    text = _replace_exact_once(text, reality_anchor, reality_addition, "value-selected breadth examples")
-
-    # Cite the three final saturation roles at first scientific use.
-    text = text.replace(
-        "A third geography-first tranche added a new historical/ploidy alternative mechanism in the Gulf of California and reset the saturation count.",
-        "A third geography-first tranche added a new historical/ploidy alternative mechanism in the Gulf of California (Gutiérrez-Flores et al., 2018; Molina-Freaner et al., 2003) and reset the saturation count.",
-        1,
-    )
-    text = text.replace(
-        "Among eight preselected small-island systems, Tiritiri Matangi supplied a direct dated partner-reintroduction history and Surtsey supplied a partially bounded empty-island colonization chronology;",
-        "Among eight preselected small-island systems, Tiritiri Matangi supplied a direct dated partner-reintroduction history linked to a functional pollination experiment (Andrews et al., 2022), while Surtsey supplied a partially bounded empty-island colonization chronology (Philipp & Adsersen, 2014);",
-        1,
-    )
-    text = text.replace(
-        "The small-island supplement was more informative: Surtsey added a dated founding chronology and Tiritiri Matangi added a directly documented pollinator reintroduction plus a functional pollination test.",
-        "The small-island supplement was more informative: Surtsey added a dated founding chronology (Philipp & Adsersen, 2014) and Tiritiri Matangi added a directly documented pollinator reintroduction plus a functional pollination test (Andrews et al., 2022).",
-        1,
     )
 
     for old, new in RESULT_HEADING_REPLACEMENTS.items():
