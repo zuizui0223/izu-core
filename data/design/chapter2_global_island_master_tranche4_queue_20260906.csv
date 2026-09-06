@@ -1,0 +1,9 @@
+tranche_rank,geographic_system,system_class,master_anchors,prior_111_relation,selection_status,selection_reason
+1,Saaremaa,continental_island,"Saaremaa 319005",absent,selected_before_search,"Baltic continental island adds northern European temperate geography absent from prior frame"
+2,Nunivak Island,continental_island,"Nunivak 318967",absent,selected_before_search,"Bering Sea island fills North Pacific/sub-Arctic gap"
+3,Shantar Islands,continental_archipelago,"Bolshoy Shantar 319044",absent,selected_before_search,"Russian northwest-Pacific island system absent from prior frame"
+4,Sado Island,continental_island,"Sado 319144",absent,selected_before_search,"large Sea of Japan island omitted from prior 111 despite strong regional relevance"
+5,Prince Edward Island Canada,continental_island,"Prince Edward 318943",absent,selected_before_search,"North American Atlantic continental island distinct from the sub-Antarctic Prince Edward/Marion group already in 111"
+6,Woodlark Island,oceanic_single_large_island,"Muyua/Woodlark 319156",absent,selected_before_search,"Papuan oceanic island east of New Guinea; not collapsed into New Guinea mainland-island control"
+7,Ramree Island,continental_island,"Ramree 319087",absent,selected_before_search,"Bay of Bengal continental island adds mainland-proximate tropical control"
+8,K'gari / Fraser Island,continental_island,"Fraser 319038",absent,selected_before_search,"large Australian sand island adds southern subtropical continental-island geography"
