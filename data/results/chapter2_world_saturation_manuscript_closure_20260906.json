@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-09-06",
+  "status": "chapter2_scientific_closure_ready_for_ci",
+  "formal_identifiability": {
+    "research_entries": 25,
+    "exact_geographic_labels": 21,
+    "full_contracts": "0_of_25",
+    "formal_external_prediction": "not_evaluable",
+    "reopened": false
+  },
+  "descriptive_breadth": {
+    "research_entries": 42,
+    "exact_geographic_labels": 37,
+    "independent_archipelago_denominator_claimed": false
+  },
+  "world_saturation": {
+    "large_island_zero_novelty_tranches": "2_of_2",
+    "small_island_supplement_completed": true,
+    "transition_bottleneck_partially_moved_not_closed": true
+  },
+  "izu_selection": {
+    "criterion": "measurement_continuity_after_world_saturation",
+    "proximity_or_japan_access_used_as_scientific_reason": false,
+    "representativeness_used_as_scientific_reason": false,
+    "positive_model_fit_used_as_scientific_reason": false,
+    "negative_model_facing_results_retained": true
+  },
+  "chapter_boundary": {
+    "chapter2": "conditional response geometry + world saturation/identifiability + Izu contemporary functional resolution + precise missing transition contract",
+    "chapter3": "direct Campanula microdonta multichannel phenotype and any new focal effectiveness/dependency measurements",
+    "chapter3_used_as_chapter2_validation": false
+  },
+  "submission_surface": {
+    "active_abstract_words": 280,
+    "oikos_main_text_references_included": true,
+    "internal_thesis_routing_removed_from_clean_render": true,
+    "active_reference_audit_metadata_excluded_from_clean_render": true
+  }
+}

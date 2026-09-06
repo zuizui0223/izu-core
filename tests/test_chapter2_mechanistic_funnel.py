@@ -27,7 +27,7 @@ def test_active_science_preserves_relational_results_and_four_act_narrative_lock
     assert "Response direction is therefore relational rather than intrinsic" in manuscript
     assert "53/96" in manuscript
     assert "64/96" in manuscript
-    assert "partner arrival/replacement in only 2/25" in manuscript
+    assert "partner arrival/replacement in 2/25" in manuscript
     assert "prespecified Oshima-source bridge was unsupported" in manuscript
     assert "cell-level simulation variation" not in manuscript
     assert "chapter2_scientific_gate_final_20260827.json" not in manuscript
@@ -48,7 +48,7 @@ def test_active_science_preserves_relational_results_and_four_act_narrative_lock
     assert "## resolution:" not in lower_submission
 
     abstract = manuscript.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0]
-    assert 260 <= len(abstract.split()) <= 280
+    assert len(abstract.split()) == 280
 
 
 def test_relational_audit_preserves_ordering_without_stable_magnitude_claim():
@@ -113,5 +113,7 @@ def test_submission_routing_keeps_oikos_first_and_joecology_fallback():
     assert manifest["story"] == "simulation_to_world_confrontation_to_process_measurement_bottleneck_to_izu_mechanistic_resolution_zoom"
     assert manifest["oikos_initial_submission_contract"]["four_act_submission_narrative"] is True
     assert manifest["oikos_initial_submission_contract"]["world_step_assigns_empirical_systems_to_synthetic_regimes"] is False
+    assert manifest["world_saturation_and_izu_continuity"]["large_island_saturation_rule_met"] is True
+    assert manifest["world_saturation_and_izu_continuity"]["chapter3_direct_phenotype_owned_separately"] is True
     assert "project Tier B" in journal_audit
     assert "Oikos — recommended" in journal_audit

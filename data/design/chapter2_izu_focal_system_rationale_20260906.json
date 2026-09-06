@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-09-06",
+  "purpose": "justify the final Izu depth axis after world-confrontation saturation without using geographic convenience or a positive outcome as the selection rule",
+  "selection_timing": "after geography-first world-confrontation saturation and small-island supplementation",
+  "selection_rule": "maximize cross-layer measurement continuity for the exact identifiability bottleneck exposed by the world audit; do not select for representativeness, proximity, expected effect direction, or fit to the synthetic model",
+  "explicitly_not_selection_reasons": [
+    "researcher geographic proximity or travel convenience",
+    "Japan-based accessibility",
+    "a claim that Izu is representative of all islands",
+    "a claim that Izu is the strongest positive match to the simulation",
+    "an outcome-independent global winner score that does not exist"
+  ],
+  "world_bottleneck_to_be_resolved": [
+    "historical partner loss or arrival/replacement is rarely measured directly",
+    "matched pre-transition plant/source state is rarely linked to the transition",
+    "realized community and visitor effectiveness are rarely linked to the same plant response unit",
+    "reproductive dependency and mature reproductive outcome are rarely carried through the same transition chain"
+  ],
+  "izu_measurement_continuity": {
+    "same_regional_series": {
+      "status": "available",
+      "evidence": "three mainland coastal sites, Oshima as one bridge-state site, and four post-Oshima island sites occur in the same source-defined contemporary network programme",
+      "source": "data/design/hiraiwa_ushimaru_boundary_identifiability.json"
+    },
+    "historical_focal_lineage_response": {
+      "status": "available_but_causally_bounded",
+      "evidence": "Campanula microdonta has island-series flower-size/outcrossing erosion plus a sharp Oshima-to-Toshima change in autonomous reproductive capacity; colonisation and demographic history remain explicit alternatives",
+      "source": "data/inoue_literature_island_traits.csv; docs/CAMPANULA_GENETIC_HISTORY_CONSTRAINTS.md"
+    },
+    "contemporary_repeated_networks": {
+      "status": "available",
+      "evidence": "eight sites with five repeated seasonal network snapshots per site",
+      "source": "data/design/hiraiwa_ushimaru_boundary_identifiability.json"
+    },
+    "pollinator_functional_traits": {
+      "status": "high_coverage_species_level",
+      "evidence": "source-native numeric proboscis values safely recovered for 202 of 209 current named pollinator taxa; exact site-specific values remain incomplete",
+      "source": "data/design/izu_pollinator_proboscis_recovery_status.json"
+    },
+    "contemporary_functional_chain": {
+      "status": "partially_resolved",
+      "evidence": "FDQ-to-corrected-matching is leave-one-island sign robust; matching-to-pollen is positive on average but network-state conditional; downstream plant responses branch",
+      "source": "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json; data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json; data/predictive_meta/hiraiwa_ushimaru_cross_channel_concordance.json"
+    },
+    "within_lineage_phenotypic_endpoint": {
+      "status": "chapter3_independent_endpoint_available",
+      "evidence": "the shimahotarubukuro Chapter 3 repository contains a directly measured five-island Campanula microdonta phenotype dataset and a size/allometry-gated decomposition of coordinated versus residual divergence",
+      "source_repository": "zuizui0223/shimahotarubukuro",
+      "source_commit": "5c0494bdd0a37f0dae31f442afddcd6982c5e7fa",
+      "source_document": "THESIS_CHAPTER_POSITIONING.md",
+      "chapter2_use": "rationale and downstream handoff only; do not use Chapter 3 phenotype as Chapter 2 model validation or historical-cause evidence"
+    },
+    "prospective_missing_link": {
+      "status": "implementation_ready_field_data_missing",
+      "evidence": "linked visitor-effort, SVD/no-visit controls, reproductive-dependency treatments, fruit/seed outcomes and optional parentage are already specified for the same tagged populations",
+      "source": "data/design/effective_pollinator_dependency_field_readiness.json"
+    }
+  },
+  "falsification_value": {
+    "signed_position_null_corrected_result_supported": false,
+    "oshima_source_sensitivity_supported": false,
+    "reason": "Izu is retained despite important negative/fragile analyses, demonstrating that focal selection is not conditional on producing a positive model match"
+  },
+  "why_this_is_stronger_than_a_case_study": "The focal value is not that Izu is nearby or typical. It is that one regional island series can carry the argument across historical reproductive response, repeated contemporary interaction structure, source-native functional traits, present functional matching and pollen response, an independent within-lineage phenotype endpoint, and a prospective plant-linked effectiveness/dependency design while preserving explicit alternative historical explanations.",
+  "chapter_boundary": {
+    "chapter2_closes_with": "conditional response geometry + world saturation + localized identifiability bottleneck + Izu as the continuity system that resolves the contemporary half and defines the missing transition-linked measurements",
+    "chapter3_owns": "direct focal Campanula microdonta phenotypic realization and any new field effectiveness/dependency evidence",
+    "forbidden_chapter2_upgrade": "do not import Chapter 3 phenotype or future field results as retrospective validation of Chapter 2"
+  }
+}

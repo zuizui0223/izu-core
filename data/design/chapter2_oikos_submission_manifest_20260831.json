@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.8",
-  "updated_on": "2026-09-05",
+  "schema_version": "1.9",
+  "updated_on": "2026-09-06",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
   "routing_status": "active_first_submission_route",
@@ -21,9 +21,9 @@
   "story": "simulation_to_world_confrontation_to_process_measurement_bottleneck_to_izu_mechanistic_resolution_zoom",
   "four_act_inference_roles": {
     "theory": "simulation_defines_relational_response_geometry_and_proximal_mechanism",
-    "global_confrontation": "carry_response_vocabulary_into_empirical_island_diversity_without_assigning_synthetic_regime_labels",
-    "identifiability": "diagnose_outcome_rich_process_poor_measurement_bottleneck",
-    "izu_mechanistic_zoom": "separate_source_state_plus_background_composition_from_beyond_composition_sorting"
+    "global_confrontation": "carry_response_vocabulary_into_empirical_island_diversity_without_assigning_synthetic_regime_labels_and_test_geography_first_saturation",
+    "identifiability": "diagnose_outcome_rich_process_poor_transition_measurement_bottleneck",
+    "izu_mechanistic_zoom": "select_depth_by_measurement_continuity_and_separate_historical_inference_from_present_functional_realization"
   },
   "world_breadth_extension": {
     "formal_identifiability_research_entries": 25,
@@ -51,6 +51,23 @@
     "audit": "data/results/chapter2_world_breadth_extension_audit_20260903.json",
     "documentation": "docs/CHAPTER2_WORLD_BREADTH_EXTENSION_20260903.md"
   },
+  "world_saturation_and_izu_continuity": {
+    "large_island_saturation_rule_met": true,
+    "consecutive_zero_novelty_tranches": 2,
+    "small_island_supplement_completed": true,
+    "small_island_direct_historical_partner_loss": "0_of_8",
+    "small_island_direct_partner_arrival_reintroduction": "1_of_8",
+    "small_island_full_contracts": "0_of_8",
+    "final_world_synthesis_roles": [
+      "surtsey_dated_founding_chronology",
+      "tiritiri_matangi_documented_reintroduction_and_functional_test",
+      "gulf_california_historical_ploidy_alternative"
+    ],
+    "izu_focal_selection_rule": "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit",
+    "izu_rationale": "data/design/chapter2_izu_focal_system_rationale_20260906.json",
+    "chapter3_direct_phenotype_owned_separately": true,
+    "chapter3_phenotype_used_to_tune_or_validate_chapter2": false
+  },
   "relational_robustness": {
     "design": "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
     "result": "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
@@ -77,8 +94,12 @@
     "direct_partner_arrival_replacement": "2_of_25",
     "post_freeze_breadth_extension_changes_frozen_25_metrics": false,
     "izu_raw_matching": "supported_at_source_state_plus_background_community_composition_level",
-    "izu_beyond_composition_sorting": "unsupported",
+    "izu_beyond_composition_sorting": "unsupported_for_historical_signed_position_projection",
+    "izu_contemporary_fdq_to_corrected_matching": "supported_with_leave_one_island_sign_stability",
+    "izu_matching_to_pollen": "positive_on_average_not_leave_one_island_sign_stable",
     "izu_oshima_bridge": "unsupported",
+    "izu_focal_selection_based_on_convenience": false,
+    "izu_focal_selection_based_on_positive_model_fit": false,
     "chapter3_used_as_validation": false,
     "synthetic_design_frequencies_interpreted_as_natural_prevalence": false
   },
@@ -86,7 +107,7 @@
     "double_blind": true,
     "article_type": "Research Paper",
     "abstract_max_words": 300,
-    "active_abstract_target_words": 278,
+    "active_abstract_target_words": 280,
     "four_act_submission_narrative": true,
     "world_step_assigns_empirical_systems_to_synthetic_regimes": false,
     "upload_file_format": "RTF",
@@ -96,6 +117,10 @@
     "page_numbers": true,
     "introduction_begins_page_two": true,
     "title_page_separate_from_blinded_main_text": true,
+    "main_text_reference_list_included": true,
+    "main_text_reference_source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
+    "main_text_reference_scope": "active_references_only",
+    "main_text_reference_audit_metadata_excluded": true,
     "supporting_information_separate": true,
     "supporting_information_references_generic_only": true,
     "corresponding_author_orcid_required": true,
