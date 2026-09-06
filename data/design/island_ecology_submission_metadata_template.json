@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.6",
+  "schema_version": "1.7",
   "journal": "Oikos",
   "article_type": "Research Paper",
   "manuscript_title": "Response geometry under community reorganization: from ecological possibility to mechanistic resolution in island plant–pollinator systems",
@@ -25,6 +25,7 @@
   "inclusion_statement": null,
   "conflict_of_interest": null,
   "ethics_statement": "Not applicable to new data collection in this manuscript. The study reports simulations, a source-audited synthesis of published literature, and secondary analysis of published plant–pollinator data; it includes no new field sampling, specimen collection or experimental work requiring new approvals, licences or permissions.",
+  "ethics_statement_confirmed": null,
   "planned_public_repository": "Dryad Digital Repository",
   "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, a prespecified relational-robustness audit, a frozen 25-entry source-readiness audit and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, corrected Supporting Information, exact interaction-kernel identity audit, frozen response-geometry and threshold results, seed/horizon/trait-adjustment/equal-richness sensitivities, deterministic figure inputs, external source-readiness records, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous reviewer archive; before final publication, accepted code and frozen analysis materials will be deposited in the Dryad Digital Repository with a persistent DOI.",
   "submission_declarations": {
@@ -41,6 +42,7 @@
     "The corresponding author ORCID is mandatory for Oikos submission; coauthor ORCIDs remain encouraged but optional.",
     "Dryad Digital Repository is fixed as the accepted-stage public archive for the active Oikos route; the anonymous reviewer archive remains the first-submission reviewer surface.",
     "significance_prior_work_context must state how the manuscript builds on relevant work by the submitting authors/coauthors cited in the manuscript and on other published work; this cannot be inferred safely until the final author list is supplied.",
+    "ethics_statement_confirmed must be set to true only after an author has checked that the prefilled ethics statement accurately describes the submitted manuscript.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
     "Oikos initial submission uses double-blind review and requires significance, data archiving, conflict-of-interest and ethics information plus data/code readiness.",
     "The historical 80.17/17.64/2.18% baseline remains one reproducible design instance; the active headline is relational component ordering and state-by-community nonadditivity, not one stable magnitude.",
