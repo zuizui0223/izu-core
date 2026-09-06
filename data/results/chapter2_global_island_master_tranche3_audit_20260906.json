@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "tranche": 3,
+  "preselected_systems": 10,
+  "reviewed_systems": 10,
+  "saturation_tranche_eligible_by_size": true,
+  "source_status_counts": {
+    "authoritative_bounded_source": 1,
+    "authoritative_local_synthesis_primary_lead": 1,
+    "initial_source_gap": 3,
+    "primary_article_verified": 3,
+    "review_backed_primary_lead": 1,
+    "review_backed_source_lead": 1
+  },
+  "direct_measurement_counts": {
+    "direct_visitation_or_community": 3,
+    "direct_breeding_assurance": 3,
+    "direct_plant_response_or_fitness": 3
+  },
+  "direct_historical_partner_loss": 0,
+  "direct_historical_partner_arrival_replacement": 0,
+  "full_contract_passes": 0,
+  "material_novelty_events": 1,
+  "material_novelty_systems": [
+    "Gulf of California large islands"
+  ],
+  "zero_novelty_saturation_tranche": false,
+  "consecutive_zero_novelty_tranches_after_this": 0,
+  "large_island_saturation_met": false,
+  "active_manuscript_boundary": {
+    "descriptive_research_entries": 42,
+    "exact_geographic_labels": 37,
+    "formal_identifiability_research_entries": 25,
+    "formal_full_contracts": "0_of_25",
+    "formal_external_prediction": "not_evaluable",
+    "mutated_by_tranche3": false
+  },
+  "scientific_readout": "The geography-first third tranche still adds a materially new historical/ploidy alternative in Gulf of California breeding-system variation, so world confrontation has not saturated and Izu remains deferred.",
+  "next_step": "freeze and review another geography-first tranche before any Izu zoom"
+}
