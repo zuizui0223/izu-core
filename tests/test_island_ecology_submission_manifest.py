@@ -9,7 +9,7 @@ DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "1.8"
+    assert manifest["schema_version"] == "1.9"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_first_submission_route"
@@ -44,6 +44,22 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert breadth["frozen_25_measurement_fractions_recomputed"] is False
     assert breadth["independent_archipelago_denominator_claimed"] is False
 
+    saturation = manifest["world_saturation_and_izu_continuity"]
+    assert saturation["large_island_saturation_rule_met"] is True
+    assert saturation["consecutive_zero_novelty_tranches"] == 2
+    assert saturation["small_island_supplement_completed"] is True
+    assert saturation["small_island_direct_historical_partner_loss"] == "0_of_8"
+    assert saturation["small_island_direct_partner_arrival_reintroduction"] == "1_of_8"
+    assert saturation["small_island_full_contracts"] == "0_of_8"
+    assert set(saturation["final_world_synthesis_roles"]) == {
+        "surtsey_dated_founding_chronology",
+        "tiritiri_matangi_documented_reintroduction_and_functional_test",
+        "gulf_california_historical_ploidy_alternative",
+    }
+    assert saturation["izu_focal_selection_rule"] == "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit"
+    assert saturation["chapter3_direct_phenotype_owned_separately"] is True
+    assert saturation["chapter3_phenotype_used_to_tune_or_validate_chapter2"] is False
+
     claims = manifest["claim_ceiling"]
     assert claims["relational_response_headline"] == "response_direction_depends_on_state_evaluated_against_realized_community"
     assert claims["formal_external_prediction"] == "not_evaluable"
@@ -51,8 +67,12 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert claims["direct_response_outcome"] == "21_of_25"
     assert claims["direct_partner_arrival_replacement"] == "2_of_25"
     assert claims["post_freeze_breadth_extension_changes_frozen_25_metrics"] is False
-    assert claims["izu_beyond_composition_sorting"] == "unsupported"
+    assert claims["izu_beyond_composition_sorting"] == "unsupported_for_historical_signed_position_projection"
+    assert claims["izu_contemporary_fdq_to_corrected_matching"] == "supported_with_leave_one_island_sign_stability"
+    assert claims["izu_matching_to_pollen"] == "positive_on_average_not_leave_one_island_sign_stable"
     assert claims["izu_oshima_bridge"] == "unsupported"
+    assert claims["izu_focal_selection_based_on_convenience"] is False
+    assert claims["izu_focal_selection_based_on_positive_model_fit"] is False
     assert claims["chapter3_used_as_validation"] is False
 
     robustness = manifest["relational_robustness"]
@@ -66,13 +86,17 @@ def test_oikos_manifest_is_active_and_current_submission_contract_is_explicit():
     assert oikos["double_blind"] is True
     assert oikos["article_type"] == "Research Paper"
     assert oikos["abstract_max_words"] == 300
-    assert oikos["active_abstract_target_words"] == 278
+    assert oikos["active_abstract_target_words"] == 280
     assert oikos["upload_file_format"] == "RTF"
     assert oikos["single_column"] is True
     assert oikos["double_spaced"] is True
     assert oikos["continuous_line_numbers"] is True
     assert oikos["page_numbers"] is True
     assert oikos["introduction_begins_page_two"] is True
+    assert oikos["main_text_reference_list_included"] is True
+    assert oikos["main_text_reference_source"] == "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md"
+    assert oikos["main_text_reference_scope"] == "active_references_only"
+    assert oikos["main_text_reference_audit_metadata_excluded"] is True
     assert oikos["supporting_information_separate"] is True
     assert oikos["supporting_information_references_generic_only"] is True
     assert oikos["corresponding_author_orcid_required"] is True
