@@ -109,5 +109,5 @@ def test_chapter2_closes_before_direct_chapter3_phenotype_validation():
     assert "No Chapter 3 phenotype is used as Chapter 2 model validation" in thesis
 
     assert "Izu is not the focal system because it is geographically close" in rationale_doc
-    assert "The current Chapter 3 phenotype layer" in rationale_doc
-    assert "not evidence used to tune Chapter 2" in rationale_doc
+    assert "## Chapter 3 supplies the independent phenotypic endpoint" in rationale_doc
+    assert "It is **not** evidence used to tune Chapter 2" in rationale_doc
