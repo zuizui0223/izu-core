@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5",
+  "schema_version": "1.6",
   "status": "implementation_ready_field_data_missing",
   "goal": "Measure effective pollinator dependency directly in the same tagged Izu populations rather than inferring dependency from floral form, family or realized interaction breadth, while preserving a separate strict functional-exposure path for dependency x FDQ analyses.",
   "required_linked_channels": [
@@ -28,7 +28,7 @@
     "open_pollinated capsule set / supplemental_outcross capsule set"
   ],
   "functional_exposure_readiness": {
-    "status": "execution_ready_historical_trait_table_unrecovered",
+    "status": "execution_ready_species_level_historical_traits_recovered_site_exact_fdq_incomplete",
     "estimand": "abundance-weighted Rao quadratic entropy of pollinator proboscis length",
     "formula": "sum_i sum_j p_i p_j abs(L_i - L_j)",
     "exposure_unit": "population_id x field_event_id x island_id x site_id",
@@ -46,12 +46,15 @@
     },
     "historical_trait_recovery": {
       "paper_doi": "10.1098/rspb.2016.2218",
-      "target_source": "electronic supplementary material Table S2 / Dryad primary_data.xlsx",
+      "target_source": "electronic supplementary material Table S2; Table S4 for the five taxa with explicitly reported site-specific numeric values",
       "current_named_pollinator_taxa": 209,
-      "recovered_numeric_proboscis_taxa": 0,
+      "recovered_numeric_proboscis_taxa": 202,
+      "coverage_fraction": 0.9665071770334929,
       "paper_reported_pollinator_species": 211,
-      "state": "source_known_numeric_values_not_yet_recovered",
-      "blocking_scope": "blocks exact reuse of historical source-native trait values but does not block prospective measured_new traits"
+      "safe_join_rule": "exact taxon name or whitespace-only normalization",
+      "state": "species_level_numeric_values_recovered_site_exact_and_plant_specific_weights_incomplete",
+      "blocking_scope": "does not block the frozen community-center signed-position transfer; exact site-specific Rao-Q reuse and plant-specific partner centers remain blocked where site-exact values or plant x pollinator weights are unavailable",
+      "authoritative_status_file": "data/design/izu_pollinator_proboscis_recovery_status.json"
     },
     "strict_fdq_gate": [
       "every scored positive-abundance visit in an FDQ exposure unit has confirmed taxon identity",
@@ -61,7 +64,7 @@
     ],
     "dependency_structural_completion_requires_fdq": false,
     "dependency_x_fdq_test_requires_fdq": true,
-    "boundary": "A valid SVD/effective-service/dependency panel may exist while FDQ is withheld. Conversely, FDQ does not establish pollinator effectiveness or reproductive dependency."
+    "boundary": "A valid SVD/effective-service/dependency panel may exist while exact FDQ is withheld. Species-level historical proboscis values are now largely recovered, but site-exact FDQ still requires site-linked numeric traits for every positive-abundance visitor. Conversely, FDQ does not establish pollinator effectiveness or reproductive dependency."
   },
   "structural_readiness_only": true,
   "sample_size_or_power_threshold_locked": false,
@@ -177,5 +180,5 @@
     "field_pilot": 91,
     "independent_primary_source_recovery": 92
   },
-  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. The ordinary pilot can estimate plant-level dispersion, coverage and attrition after admission, while technical recounts estimate pollen-count repeatability only. FDQ is a separate functional-exposure gate and must not be inferred from visitor groups, richness or body-size classes. Neither panel identifies the final direct-dependency reliability ratio without an independent repeated-final-estimand design. The panel does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, or a causal Oshima-Toshima boundary effect. The prospective design simulation uses synthetic dependency and effect assumptions only."
+  "claim_boundary": "The direct field panel can estimate contemporary per-visit effectiveness, rate-weighted effective service and reproductive dependence in sampled populations. The ordinary pilot can estimate plant-level dispersion, coverage and attrition after admission, while technical recounts estimate pollen-count repeatability only. FDQ is a separate functional-exposure gate and exact site-level FDQ still requires complete site-linked traits despite recovery of species-level historical proboscis values for 202/209 current taxa. Neither panel identifies the final direct-dependency reliability ratio without an independent repeated-final-estimand design. The panel does not by itself identify historical Bombus loss, historical selection, self-compatibility, realized selfing, empirical dependency x FDQ moderation, or a causal Oshima-Toshima boundary effect. The prospective design simulation uses synthetic dependency and effect assumptions only."
 }
