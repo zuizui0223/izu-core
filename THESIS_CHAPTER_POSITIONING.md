@@ -154,39 +154,52 @@ The defensible interpretation is:
 
 > **assurance is a downstream magnitude filter, not a second sign-changing branch in the current model.**
 
-## Broad comparative universe and the role of Izu
+## World confrontation closes breadth before the Izu depth axis
 
-Chapter 2 has examined a broader empirical universe than the 13 systems retained in the strict frozen manuscript challenge set. The canonical ledger is `docs/COMPARATIVE_ISLAND_SYSTEM_UNIVERSE_20260827.md`.
+Chapter 2 now distinguishes breadth from depth explicitly. The original 25-entry identifiability audit remains frozen, while later geography-first review used an independent island master and an outcome-independent stopping rule. The large-island expansion stopped only after two consecutive preselected tranches added no new response, process or falsification state, and a separate small-island supplement was then completed. The world programme therefore reaches Izu **after** breadth has stopped materially changing the mechanism vocabulary, not because the analysis simply began in Japan.
 
-The roles are asymmetric:
+The world result is also specific about what is missing. New systems repeatedly add present-day visitor communities, breeding systems and plant outcomes, whereas direct historical partner loss/arrival linked to a matched plant state remains rare. Small islands improve access to chronology—Surtsey provides a dated founding sequence and Tiritiri Matangi a documented pollinator reintroduction—but even these do not close a matched source-state → transition → realized-community → plant-response contract.
 
-```text
-broad comparative universe
-    -> response-state breadth, counterexamples, source gates and falsification
-        -> 13 strict external challenges
-            -> Izu as the focal mechanistic-resolution system
-```
+That bottleneck determines the focal-system criterion. After breadth saturates, the depth system should maximize **measurement continuity across the missing chain**, not geographic convenience, representativeness or agreement with the simulation.
 
-The external systems are **comparative grounding and boundary examples**, not validation coverage of a universal mechanism. Failed or blocked cases remain part of the scientific evidence trail.
+## Why Izu is the focal depth axis
 
-Izu is used for depth because the same island series can connect historical reproductive evidence, contemporary interaction networks, pollinator functional traits, source-native signed-position analyses and prospective direct effectiveness/dependency measurements. This is a transparent programme rationale, not an outcome-independent global ranking. The raw-versus-null-corrected contrast localizes the current matching signal to source state plus background community composition rather than additional non-random sorting. Chapter 3 remains a downstream measurement handoff and is excluded from Chapter 2 selection and validation.
+Izu is selected as a **continuity system**, not as a convenient local case and not as a globally ranked positive example. The rationale is frozen in `data/design/chapter2_izu_focal_system_rationale_20260906.json`.
+
+The same regional island series supports six unusually complementary layers:
+
+1. **Historical focal-lineage response.** *Campanula microdonta* has source-locked island-series information on flower size, multilocus outcrossing and autonomous reproductive capacity. The channels are not identical: size/outcrossing show ordered erosion, whereas autonomous capacity shows a sharp Oshima-to-Toshima transition. Population-genetic history remains an explicit competing explanation rather than being erased.
+2. **Repeated contemporary interaction structure.** The Hiraiwa–Ushimaru programme contains three mainland sites, one Oshima bridge-state site and four post-Oshima island sites, each sampled across repeated seasons.
+3. **Numeric pollinator functional traits.** Source-native proboscis values are safely recovered for 202/209 current named pollinator taxa, allowing functional structure to be analysed without family/guild midpoint substitution.
+4. **Present functional propagation.** Contemporary FDQ → corrected matching is leave-one-island sign robust, whereas matching → pollen is weaker and downstream plant responses branch. The system therefore contains both a strong upstream signal and internal counterexamples to a deterministic cascade.
+5. **An independent within-lineage phenotype endpoint.** Chapter 3 (`zuizui0223/shimahotarubukuro`) already contains a direct five-island *C. microdonta* phenotype dataset. Its current result is a large coordinated size/investment trajectory plus selected departures from common allometric scaling. That result belongs to Chapter 3 and is not imported as Chapter 2 validation; its value here is that the downstream phenotype is independently measurable in the same focal lineage.
+6. **A prospective missing-link design.** Visitor effort, visitor identity/contact, single-visit pollen deposition, autonomous/outcross treatments and mature fruit/seed can be linked in the same tagged populations under an already specified field schema.
+
+This combination makes Izu scientifically useful for **identifiability**, not merely accessible. It carries the argument from historical reproductive response through present community structure toward a directly measured phenotype while preserving alternative historical explanations and the possibility of negative results.
+
+The last point matters for selection bias. Izu is retained even though the frozen signed-position predictor does not explain null-corrected matching and the Oshima-source sensitivity is unsupported. The focal system is therefore not chosen because every analysis agrees with the synthetic mechanism. It is chosen because conflicting layers can be resolved within one linked system.
 
 ## Relationship to Chapter 3
 
-The Chapter 2 → Chapter 3 handoff is therefore a measurement contract:
+The Chapter 2 → Chapter 3 handoff is therefore not “theory followed by a convenient case study.” It is a change in inferential scale:
 
 ```text
 Chapter 2
-defines possible response geometry, confronts it with empirical diversity,
-identifies the state-community-context-outcome measurement bottleneck,
-and separates composition-level from beyond-composition matching in Izu
+world breadth saturates
+    -> conditional response geometry
+    -> transition-measurement bottleneck
+    -> Izu selected by measurement continuity
+    -> contemporary functional structure resolved, history still open
         ↓
 Chapter 3
-advances to higher-resolution focal phenotype, effectiveness and dependency
-measurement in the same island series
+same focal lineage, direct phenotype
+    -> quantify what coordinated and residual divergence is actually realized
+    -> add effectiveness/dependency only as new empirical measurements, not retroactive validation
 ```
 
-No Chapter 3 phenotype is used as Chapter 2 model validation, Bombus-causation proof, pollinator-selection proof or external prediction success.
+The current Chapter 3 phenotype layer already establishes, in its own repository, pronounced five-island *C. microdonta* divergence with a strong coordinated size/investment component and selected residual departures in access, reproductive-interface and visual-investment channels. Chapter 2 does **not** use those values to tune or validate its model. Instead, Chapter 2 explains why such a multichannel phenotype should not be expected to follow one universal direction and specifies which interaction measurements are still needed to connect the phenotype to mechanism.
+
+No Chapter 3 phenotype is used as Chapter 2 model validation, *Bombus*-causation proof, pollinator-selection proof or external-prediction success.
 
 ## Falsification logic
 
@@ -204,7 +217,7 @@ A convincing empirical mechanism should eventually show that:
 
 Chapter 2 must not imply that:
 
-- Chapter 1 identified Bombus loss or another pollinator as the cause of the northern/tropical difference;
+- Chapter 1 identified *Bombus* loss or another pollinator as the cause of the northern/tropical difference;
 - the northern-midlatitude and tropical Chapter 1 vectors have been assigned to particular Chapter 2 parameter regimes;
 - pollinator occurrence equals visitor effectiveness;
 - floral form identifies effective-pollinator dependency;
@@ -212,7 +225,8 @@ Chapter 2 must not imply that:
 - one functional decline must yield one floral response direction;
 - `41/96`, `16/48`, filtering transition rates or synthetic thresholds estimate natural prevalence;
 - additive design-space coefficients are causal ecological effect sizes;
-- the 13 strict systems validate one universal response mechanism;
+- the external systems validate one universal response mechanism;
+- Izu is focal because it is geographically close, logistically easy or representative of all islands;
 - Chapter 3 phenotypic divergence identifies the historical mechanism; or
 - the current model explains why regional biotas, starting states or interaction architectures formed.
 
@@ -226,12 +240,14 @@ WHERE do multivariate response vectors differ?
 Chapter 2
 HOW can interaction reorganization propagate differently?
 WHY can a common broad perturbation yield different response branches?
+WHICH measurements prevent that mechanism from being identified in world data?
+WHY is Izu the appropriate continuity system for the depth transition?
         ↓
 Chapter 3
 WHAT mixture of shared phenotypic coordination and residual divergence
-is actually realized within one focal Izu lineage?
+is actually realized within the focal Izu lineage?
 ```
 
 The Chapter 2 contribution is:
 
-> **to define a conditional post-establishment response geometry, confront its response vocabulary with empirical island diversity, expose the joint-measurement bottleneck that prevents formal external identification, and use Izu resolution to separate source-state/community-composition structure from unsupported beyond-composition sorting—while leaving ultimate history and the remaining causal test unresolved.**
+> **to define a conditional post-establishment response geometry, show that its response vocabulary and measurement bottleneck persist through geography-first world expansion to an outcome-independent saturation point, and then select Izu on measurement-continuity grounds to resolve the contemporary functional half of the chain while handing the directly measured focal phenotype and remaining transition-linked causal bridge to Chapter 3.**
