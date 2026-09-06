@@ -121,7 +121,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
             "scientific_state": "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution",
-            "manuscript_state": "active_20260831_relational_source_rendered_to_oikos_rtf_submission",
+            "manuscript_state": "active_20260906_world_saturation_izu_continuity_rendered_to_oikos_rtf_submission",
             "source_manuscript": SOURCE_MANUSCRIPT,
             "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
             "submission_supporting_information": SUBMISSION_SI_NAME,
@@ -134,6 +134,15 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "main_text_continuous_line_numbers": True,
             "main_text_page_numbers": True,
             "introduction_forced_to_page_two": True,
+            "main_text_reference_list_included": True,
+            "main_text_reference_scope": "active_references_only",
+            "main_text_reference_audit_metadata_excluded": True,
+            "world_descriptive_research_entries": 42,
+            "world_descriptive_exact_geographic_labels": 37,
+            "formal_identifiability_research_entries": 25,
+            "formal_full_contracts": "0_of_25",
+            "izu_focal_selection_rule": "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit",
+            "chapter3_direct_phenotype_used_as_validation": False,
             "corresponding_author_orcid_required": True,
             "planned_public_repository_named": True,
             "significance_prior_work_context_included": True,
@@ -157,11 +166,12 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "anonymous_review_archive.zip",
             ],
             "boundary": (
-                "The historical Chapter 2 freeze chain remains unchanged. Packaging renders the 2026-08-31 relational manuscript into "
-                "Oikos-compatible RTF with double spacing, continuous line numbering, page numbering and a page break before Introduction. "
+                "The historical Chapter 2 freeze chain remains unchanged. Packaging renders the active world-saturation/Izu-continuity manuscript into "
+                "Oikos-compatible RTF with double spacing, continuous line numbering, page numbering, an in-manuscript active reference list and a page break before Introduction. "
                 "The exact 80.17/17.64/2.18% baseline decomposition remains one frozen example; structural inference is based on component ordering, "
-                "state-by-community nonadditivity and prespecified seed/horizon/trait-adjustment/equal-richness sensitivities. World confrontation is "
-                "reported as an outcome-rich/process-poor measurement audit, and Izu remains a mechanistic-resolution analysis rather than validation."
+                "state-by-community nonadditivity and prespecified seed/horizon/trait-adjustment/equal-richness sensitivities. World confrontation retains a 42-entry/37-label descriptive breadth surface "
+                "while the formal identifiability audit stays frozen at 25 entries and 0/25 full contracts. Izu is selected after world saturation by measurement continuity and falsification capacity, "
+                "not proximity, representativeness or positive model fit; the direct focal phenotype remains outside Chapter 2 validation."
             ),
         }
 
