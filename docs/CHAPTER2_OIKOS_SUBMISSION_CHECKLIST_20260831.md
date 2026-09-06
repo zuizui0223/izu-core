@@ -8,7 +8,7 @@ Updated: 2026-09-06
 - Article type: **Research Paper**
 - Scientific tier: **Tier B — mechanistically resolved synthetic response geometry with bounded empirical confrontation**
 - Journal-facing story: **Theory → Global confrontation → Identifiability → Izu continuity-system resolution**
-- Expanded story: **simulation builds relational response theory → geography-first world confrontation reaches the preregistered saturation rule → the source audit exposes an outcome-rich/process-poor historical transition-measurement bottleneck → Izu is selected after saturation by measurement continuity and falsification capacity, separating weak historical inference from strong present functional organization**
+- Expanded story: **simulation builds relational response theory → geography-first world confrontation reaches the preregistered saturation rule → the source audit exposes an outcome-rich/process-poor historical transition process-measurement bottleneck → Izu is selected after saturation by measurement continuity and falsification capacity, separating weak historical inference from strong present functional organization**
 - Fallback: **Journal of Ecology Research Article**
 
 Narrative contract:
