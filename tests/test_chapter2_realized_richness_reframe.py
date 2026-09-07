@@ -2,25 +2,32 @@ import json
 from pathlib import Path
 
 from scripts.build_island_ecology_submission_bundle import validate_scientific_gate
-from scripts.render_chapter2_realized_richness_reframe import render_submission_manuscript
 from scripts.generate_chapter2_manuscript_figures_realized_richness import build_figures
+from scripts.render_chapter2_realized_richness_reframe import render_submission_manuscript
 
 ROOT = Path(__file__).resolve().parents[1]
 DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_20260907.json"
 GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 
 
-def test_final_submission_reframes_mean_regime_without_erasing_relational_branching():
+def test_final_submission_reframes_mean_regime_and_connects_three_results():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "mean regime placement is therefore richness-sensitive" in lower
+    assert "richness helps position the coarse" in lower
     assert "all six prespecified matching seeds" in lower
     assert "51–65 of 96 remained mixed-sign" in lower
     assert "state × community non-additivity remained 42.72–48.51%" in lower
     assert "starting-position share only 0.94–2.21%" in lower
+    assert "result 1—mechanistic prediction" in lower
+    assert "result 2—real-world exposure" in lower
+    assert "result 3—biological consequence" in lower
+    assert "pollinator assemblage turnover was 0.9796" in lower
+    assert "matched-plant turnover was 0.6817" in lower
+    assert "functional community structure in izu" in lower
     assert "richness reduction is not necessary for mixed response geometry" not in lower
     assert "mixed geometry persisted when initial pollinator richness was equalized" not in lower
     assert "response direction is therefore relational rather than intrinsic" not in lower
+    assert "## identifiability:" not in lower
 
 
 def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
@@ -29,6 +36,10 @@ def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
     words = abstract.split()
     assert len(words) <= 300
     assert len(words) >= 240
+    lower = abstract.lower()
+    assert "wanshan–yongxing" in lower
+    assert "ogasawara" in lower
+    assert "in izu" in lower
 
 
 def test_scientific_gate_requires_frozen_realized_richness_reframe():
