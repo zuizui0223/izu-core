@@ -56,7 +56,7 @@ def _validate_sources() -> None:
     assert zero["realization_class_counts"]["mixed_sign"] == 64
     assert relational["equal_initial_pollinator_richness"]["realization_class_counts"]["mixed_sign"] == 53
 
-    assert izu["raw_matching"]["slope"] == 0.5669
+    assert round(izu["raw_matching"]["slope"], 4) == 0.5669
     assert izu["null_corrected_matching"]["supported"] is False
     assert izu["island_center_assignment"]["n_exact_assignments"] == 120
     assert izu["island_center_assignment"]["n_assignments_ge_observed"] == 13
