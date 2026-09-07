@@ -49,7 +49,7 @@ For the primary seed, the three sum-of-squares fractions were `0.94%`, `51.59%` 
 
 The hard control rejects the stronger statement that realized richness differences are unnecessary for the **ensemble mean** mixed response geometry. In the declared model, forcing realized richness to be equal at every step shifts the mean regime to all-positive across all six prespecified matching seeds. Realized richness therefore materially helps position the coarse mean regime.
 
-The same result also rejects the opposite simplification that richness alone explains the branching. Mixed-sign individual communities remain common after exact richness matching, state × community non-additivity remains 42.7–48.5%, and the additive starting-position term remains small. The supported hierarchy is therefore:
+The same result also rejects the opposite simplification that richness alone explains the branching. Mixed-sign individual communities remain common after exact richness matching, state × community non-additivity remains 42.7–48.5%, and the additive starting-position term remains small. **Mean regime is richness-sensitive, while response branching remains relational.** The supported hierarchy is therefore:
 
 `realized richness / turnover -> coarse mean-regime placement`
 
