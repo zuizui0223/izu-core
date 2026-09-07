@@ -304,6 +304,8 @@ def _figS7(payload: dict) -> Path:
 def build_figures() -> dict:
     relational = build_relational_figures()
     decision = _load_decision()
+    izu_final = _load(IZU_FINAL)
+    mtp = izu_final["izu_current_evidence"]["matching_to_pollen"]
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     _fig1(decision)
     _fig4()
@@ -320,19 +322,13 @@ def build_figures() -> dict:
         "figure_narrative": "result1_mechanistic_prediction_to_result2_compositional_exposure_to_result3_biological_consequence",
         "figure4_external_sources": [WANSHAN.relative_to(ROOT).as_posix(), OGASAWARA.relative_to(ROOT).as_posix()],
         "figure4_izu_source": IZU_FINAL.relative_to(ROOT).as_posix(),
-        "figure4_matching_to_pollen_point_estimates": [
-            matching_to_pollen["izu5_tm_coefficient"] if False else 0
-        ],
+        "figure4_matching_to_pollen": {
+            "izu5_tm_coefficient": mtp["izu5_tm_coefficient"],
+            "post4_tm_coefficient": mtp["post4_tm_coefficient"],
+            "leave_one_island_sign_stable": mtp["leave_one_island_sign_stable"],
+        },
         "figure_outputs": outputs,
     })
-    # Keep the plotted Result-3 weakening explicit in the returned audit payload too.
-    mtp = _load(IZU_FINAL)["izu_current_evidence"]["matching_to_pollen"]
-    payload["figure4_matching_to_pollen"] = {
-        "izu5_tm_coefficient": mtp["izu5_tm_coefficient"],
-        "post4_tm_coefficient": mtp["post4_tm_coefficient"],
-        "leave_one_island_sign_stable": mtp["leave_one_island_sign_stable"],
-    }
-    payload.pop("figure4_matching_to_pollen_point_estimates", None)
     return payload
 
 
