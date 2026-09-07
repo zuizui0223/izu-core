@@ -125,6 +125,29 @@ FINAL_SYNTHESIS = (
     "The unresolved matched historical transition remains a limit on causal interpretation, not the central result. The contribution is therefore an ecological mechanism for why one island-response syndrome is insufficient, rather than an account of why previous studies failed to identify it."
 )
 
+FIGURE1_CAPTION = (
+    "**Figure 1. Three-result inference chain.** Result 1 defines the mechanism: exact realized-richness matching shifts the ensemble mean to all-positive in all six prespecified matching seeds while individual community branching and state × community non-additivity remain. "
+    "Result 2 asks whether the required exposure exists in nature and uses source-native Wanshan–Yongxing and Ogasawara contrasts to show substantial partner turnover despite less decisive richness contrasts. "
+    "Result 3 asks whether community structure reaches plants: contemporary Izu FDQ predicts corrected trait matching with leave-one-island sign stability, whereas downstream pollen and floral responses branch. Historical transition gaps are retained as a claim boundary rather than a fourth objective."
+)
+
+FIGURE2_CAPTION = (
+    "**Figure 2. Result 1 baseline conditional response geometry.** Mean island-minus-mainland functional service across the 21-point starting-position grid under 96 matched community realizations. Realization counts describe the frozen synthetic design and are not frequencies in nature. "
+    "The 53/96 equal-initial-richness sensitivity is an initial-condition diagnostic only; it does not isolate realized richness. The stronger exact realized-richness control shifts the ensemble mean geometry to all-positive in all six matching seeds while retaining mixed individual communities."
+)
+
+FIGURE3_CAPTION = (
+    "**Figure 3. Result 1 proximal mechanism and robustness.** Fixed-surface turnover associations; frozen baseline starting-position/community decomposition with seed-ensemble sensitivity; direction-specific local-filtering transitions; and magnitude improvement versus sign rescue across the assurance envelope. "
+    "The exact realized-richness hard control sharpens the hierarchy rather than removing it: richness-sensitive mean-regime placement coexists with large community-realization and state × community non-additive components."
+)
+
+FIGURE4_CAPTION = (
+    "**Figure 4. Result 2 exposure to Result 3 biological consequence.** (A) Wanshan–Yongxing and Ogasawara source-native contrasts plot partner turnover against pollinator-richness log response ratios; both richness intervals cross zero while turnover remains substantial, establishing compositional reorganization beyond a decisive richness contrast. "
+    "(B) In Izu, FDQ coefficients for corrected trait matching remain positive across all leave-one-island fits in the five-island and post-Oshima four-island subsets. "
+    "(C) Among eight shared plant targets, corrected matching is lower in all eight but floral tubes split into three shorter, four longer and one unchanged, while pollen receipt splits four lower versus four higher; only two targets follow the complete matching-lower + tube-shorter + pollen-lower combination. "
+    "The historical signed-position analysis remains a boundary check: raw matching is associated with the projection, null-corrected matching is unsupported and exact island-centre geometry is non-unique."
+)
+
 
 def _replace_once(text: str, old: str, new: str, label: str) -> str:
     if text.count(old) != 1:
@@ -309,12 +332,39 @@ def render_submission_manuscript() -> str:
         "final synthesis",
     )
 
+    text = _replace_paragraph_starting(
+        text,
+        "**Figure 1. Four-act breadth-to-depth inference funnel.**",
+        FIGURE1_CAPTION,
+        "Figure 1 caption",
+    )
+    text = _replace_paragraph_starting(
+        text,
+        "**Figure 2. Conditional response geometry.**",
+        FIGURE2_CAPTION,
+        "Figure 2 caption",
+    )
+    text = _replace_paragraph_starting(
+        text,
+        "**Figure 3. Proximal-WHY hierarchy and relational robustness.**",
+        FIGURE3_CAPTION,
+        "Figure 3 caption",
+    )
+    text = _replace_paragraph_starting(
+        text,
+        "**Figure 4. From outcome-rich literature to Izu mechanistic resolution.**",
+        FIGURE4_CAPTION,
+        "Figure 4 caption",
+    )
+
     lower = text.lower()
     stale = (
         "mixed geometry persisted when initial pollinator richness was equalized",
         "richness reduction is not necessary for mixed response geometry",
         "response direction is therefore relational rather than intrinsic",
         "the paper therefore proceeds through four inferential acts",
+        "figure 1. four-act breadth-to-depth inference funnel",
+        "figure 4. from outcome-rich literature to izu mechanistic resolution",
     )
     survived = [token for token in stale if token in lower]
     if survived:
@@ -343,6 +393,8 @@ def render_submission_manuscript() -> str:
         "state × community non-additivity remained 42.72–48.51%",
         "historical boundary check",
         "bounds causal interpretation rather than defining the study objective",
+        "figure 1. three-result inference chain",
+        "figure 4. result 2 exposure to result 3 biological consequence",
         "10.1111/btp.70027",
         "10.1111/cobi.70304",
     )
