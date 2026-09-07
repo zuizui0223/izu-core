@@ -106,15 +106,20 @@ def test_active_manuscript_and_thesis_positioning_preserve_how_why_boundary():
     assert "Not tested." in positioning
 
 
-def test_generated_tables_include_conditional_why_and_izu_audit():
+def test_generated_tables_include_current_supporting_material_contract():
     text = TABLES.read_text(encoding="utf-8")
     assert text == build_tables()
-    assert "## Table 4. Conditional-WHY diagnostics" in text
-    assert "Community-realization SS fraction | 80.2%" in text
-    assert "Strength 0.40: positive → non-positive | 56.5%" in text
-    assert "## Table 5. Focal Izu empirical triangulation and structural audit" in text
-    assert "null-corrected `delta_TM_sp_z`" in text
-    assert "no support for beyond-composition non-random matching" in text
-    assert "## Table 6. External-prediction readiness and claim ceiling" in text
-    assert "Full plant-response contract passes | 0" in text
-    assert "Maximum supported claim | Level 2" in text
+    assert text.startswith("# Chapter 2 Supporting Tables")
+    assert "## Table S4. Conditional-WHY and relational-robustness diagnostics" in text
+    assert "Historical community-realization SS fraction | 80.17%" in text
+    assert "exact non-additive remainder in the fixed deterministic matrix" in text
+    assert "## Table S5. Historical Izu signed-position projection and structural attacks" in text
+    assert "null-corrected matching" in text
+    assert "does not explain beyond-background sorting" in text
+    assert "## Table S6. Frozen external-prediction readiness" in text
+    assert "Full outcome-independent contracts | 0/25" in text
+    assert "## Table S7. Geography-first world-saturation audit" in text
+    assert "42 research entries / 37 exact labels" in text
+    assert "## Table S8. Contemporary Izu functional chain and branching" in text
+    assert "+1.9426" in text and "+2.0590" in text
+    assert "+0.0353" in text

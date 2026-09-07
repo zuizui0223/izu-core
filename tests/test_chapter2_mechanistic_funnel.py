@@ -11,6 +11,8 @@ NARRATIVE_LOCK = ROOT / "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md"
 RELATIONAL = ROOT / "data/results/chapter2_relational_robustness_audit_frozen_20260831.json"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
 JOURNAL_AUDIT = ROOT / "docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md"
+MATERIAL_MAP = ROOT / "docs/CHAPTER2_MAIN_SUPP_MATERIAL_MAP_20260907.md"
+TABLES = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md"
 
 
 def _load(path: Path) -> dict:
@@ -81,6 +83,13 @@ def test_rendered_submission_and_si_remove_superseded_internal_wording():
     assert "# Appendix S16. Prespecified relational-robustness audit" in supporting
     assert "69.34–80.17%" in supporting
     assert "partner arrival/replacement `2/25`" in supporting
+    assert "# Appendix S17. Geography-first saturation and final world synthesis" in supporting
+    assert "4,663" in supporting
+    assert "42 research entries across 37 exact geographic labels" in supporting
+    assert "# Appendix S18. Contemporary Izu functional-chain sensitivity" in supporting
+    assert "+1.9426" in supporting and "+2.0590" in supporting
+    assert "+0.0353" in supporting
+    assert "3 shorter / 4 longer / 1 unchanged" in supporting
 
 
 def test_relational_main_figures_overlay_only_after_frozen_regeneration(tmp_path: Path, monkeypatch):
@@ -89,10 +98,12 @@ def test_relational_main_figures_overlay_only_after_frozen_regeneration(tmp_path
     why = _load(figures.WHY)
     phase3 = _load(figures.PHASE3)
     izu = _load(figures.IZU)
+    contemporary = _load(figures.CONTEMPORARY)
+    pollen = _load(figures.POLLEN)
     figures._validate_relational(audit)
     figures._fig1(audit)
     figures._fig3(audit, why, phase3)
-    figures._fig4(audit, izu)
+    figures._fig4(audit, izu, contemporary, pollen)
     for name in [
         "fig1_mechanistic_resolution_funnel.svg",
         "fig3_proximal_why_hierarchy.svg",
@@ -100,6 +111,30 @@ def test_relational_main_figures_overlay_only_after_frozen_regeneration(tmp_path
     ]:
         path = tmp_path / name
         assert path.exists() and path.stat().st_size > 10_000
+
+
+def test_main_supp_material_map_and_supporting_tables_match_current_paper():
+    material = MATERIAL_MAP.read_text(encoding="utf-8")
+    tables = TABLES.read_text(encoding="utf-8")
+    lower_material = material.lower()
+    lower_tables = tables.lower()
+
+    assert "main figure 4" in lower_material
+    assert "fdq -> corrected matching" in lower_material
+    assert "supporting information structure" in lower_material
+    assert "s17" in lower_material and "s18" in lower_material
+    assert "table s1" in lower_material and "table s8" in lower_material
+    assert "prospective visitor-effectiveness" in lower_material
+    assert "not a prerequisite for the present paper" in lower_material
+
+    assert tables.startswith("# Chapter 2 Supporting Tables")
+    for label in range(1, 9):
+        assert f"Table S{label}." in tables
+    assert "cell-level simulation variation" not in lower_tables
+    assert "exact non-additive remainder" in lower_tables
+    assert "42 research entries / 37 exact labels" in tables
+    assert "+1.9426" in tables and "+2.0590" in tables
+    assert "3 | 4 | 1" in tables
 
 
 def test_submission_routing_keeps_oikos_first_and_joecology_fallback():
