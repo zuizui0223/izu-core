@@ -1,14 +1,18 @@
 {
-  "schema_version": "1.2",
-  "updated_on": "2026-08-27",
-  "status": "active_working_manuscript_created_completion_audit_required",
+  "schema_version": "1.3",
+  "updated_on": "2026-09-07",
+  "status": "scientific_gate_complete_after_realized_richness_reframe",
   "research_article_route": "candidate_conditional_response_geometry",
   "scientific_model_gate_complete": true,
-  "active_working_manuscript": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_20260827.md",
+  "realized_richness_reframe_complete": true,
+  "realized_richness_decision": "data/results/chapter2_realized_richness_matching_decision_20260907.json",
+  "realized_richness_design": "data/design/chapter2_realized_richness_matching_freeze_20260907.json",
+  "realized_richness_submission_renderer": "scripts/render_chapter2_realized_richness_reframe.py",
+  "active_working_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "chapter2_model_specification": "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
   "manuscript_audit": "data/results/chapter2_active_manuscript_audit_20260827.json",
   "current_research_article_submission_ready": false,
-  "reason": "A new active working manuscript has been regenerated from current state and the scientific model gate is complete. Submission remains blocked by integration of the exact model specification, reference-source audit, final figure/table regeneration, and a final claim/evidence plus submission-builder audit.",
+  "reason": "The historical model gate remains frozen. A prespecified exact realized-richness hard control subsequently showed that mean-regime placement is richness-sensitive while individual response branching remains relational. The Oikos submission surface is required to carry that reframe before author metadata can be the remaining blocker.",
   "final_model_gate": {
     "matched_realizations": 96,
     "mixed_sign_realizations": 41,
@@ -21,9 +25,22 @@
     "assurance_upstream_service_mismatch_count": 0,
     "assurance_role": "robust_magnitude_attenuator_not_sign_rescue_branch"
   },
+  "realized_richness_hard_control": {
+    "matching_policy": "stepwise_min_realized_richness_response_blind_subsampling",
+    "matching_seeds": 6,
+    "snapshot_pairs_per_seed": 11520,
+    "all_snapshot_pairs_equal_after_matching": true,
+    "mean_geometry": "all_positive_in_6_of_6_matching_seeds",
+    "mixed_individual_realizations": "51_to_65_of_96",
+    "starting_position_fraction_range": [0.009359098313020316, 0.02209561674670002],
+    "community_realization_fraction_range": [0.5003942039547032, 0.5592221633209156],
+    "state_by_community_nonadditivity_range": [0.4272397924506457, 0.4850701049302678],
+    "prespecified_gate_decision": "blocker_failed_reframe_before_author_metadata",
+    "revised_headline": "mean_regime_placement_richness_sensitive_branch_identity_relational"
+  },
   "claim_reassignment": {
     "H1": "descriptive_model_capability_not_frequency_estimate",
-    "H2": "conditional_response_geometry_replaces_minimal_generator_headline",
+    "H2": "conditional_response_geometry_with_richness_sensitive_mean_regime_and_relational_branching",
     "H3": "local_context_filtering_is_bidirectional_branch_reallocation",
     "H4": "magnitude_vs_sign_distinction_with_assurance_as_magnitude_attenuation",
     "H5": "comparative_grounding_not_generality_validation"
@@ -37,15 +54,14 @@
     "remove_minimal_generator_and_H5_validation_as_headline_claims",
     "correct_local_support_semantics",
     "state_assurance_zero_sign_rescue_through_4x",
-    "freeze_exact_model_specification_for_manuscript_integration"
+    "freeze_exact_model_specification_for_manuscript_integration",
+    "freeze_and_execute_exact_realized_richness_matching_before_author_metadata",
+    "reject_richness_independent_mean_geometry_claim_after_prespecified_gate_failure",
+    "route_oikos_submission_through_realized_richness_reframe",
+    "add_supporting_information_s19_and_supporting_table_s9"
   ],
   "required_before_submission": [
-    "integrate_exact_model_equations_and_full_local_filtering_projection_rules_into_active_manuscript_or_supporting_information",
-    "rebuild_reference_list_from_source_audited_repository_sources",
-    "resolve_uncited_Lord_2015_and_Mendez_2025_references",
-    "generate_final_response_geometry_joint_regime_local_context_and_assurance_figures",
-    "generate_parameter_and_result_tables",
-    "run_final_claim_evidence_audit_against_docs_CURRENT_EVIDENCE_STATE_md_and_chapter2_active_manuscript_mainline",
+    "supply_and_validate_author_identity_affiliation_prior_work_ethics_and_submission_metadata",
     "run_submission_builder_and_metadata_audit_with_fail_closed_contract"
   ],
   "do_not_use_as_validation": [
@@ -53,13 +69,16 @@
     "replicated_minimal_generator_label",
     "assurance_attenuation_as_emergent_discovery",
     "synthetic_thresholds_as_empirical_ecological_thresholds",
-    "design_space_frequencies_as_natural_prevalence"
+    "design_space_frequencies_as_natural_prevalence",
+    "equal_initial_richness_53_of_96_as_evidence_that_realized_richness_is_unnecessary",
+    "realized_richness_hard_control_as_empirical_causal_richness_estimate"
   ],
   "fallback_if_completion_audit_fails": "retain_the_model_results_but_reframe_the_product_to_a_conceptual_review_or_mini_review_if_a_clean_research_article_requires_blocked_empirical_claims",
   "audit": [
     "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md",
     "docs/CHAPTER2_SCIENTIFIC_GATE_RUN_20260827.md",
     "docs/CHAPTER2_MANUSCRIPT_REASSEMBLY_DECISION_20260827.md",
-    "data/results/chapter2_active_manuscript_audit_20260827.json"
+    "data/results/chapter2_active_manuscript_audit_20260827.json",
+    "data/results/chapter2_realized_richness_matching_decision_20260907.json"
   ]
 }
