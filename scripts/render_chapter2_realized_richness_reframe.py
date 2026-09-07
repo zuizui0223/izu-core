@@ -338,7 +338,7 @@ def render_submission_manuscript() -> str:
         "pollinator assemblage turnover was 0.9796",
         "matched-plant turnover was 0.6817",
         "## result 3 — functional community structure in izu propagated into divergent plant responses",
-        "mean geometry became all-positive in all six prespecified matching seeds",
+        "all-positive in all six prespecified matching seeds",
         "51–65 of 96 remained mixed-sign",
         "state × community non-additivity remained 42.72–48.51%",
         "historical boundary check",
