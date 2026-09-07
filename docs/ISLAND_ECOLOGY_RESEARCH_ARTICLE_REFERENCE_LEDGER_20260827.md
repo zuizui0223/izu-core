@@ -1,8 +1,8 @@
 # Active Chapter 2 reference ledger
 
-Updated: 2026-09-06
+Updated: 2026-09-08
 
-This is the canonical reference list for `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` and its standalone submission render. It contains the works needed for claims retained on the active manuscript/submission surface. Source admission is checked against the source-audited manuscript record, post-freeze breadth/promotion ledgers and the final world-saturation/Izu-continuity records. Inclusion supports a specific framing, empirical or focal-system-selection claim; it does not upgrade an external system to independent validation of the synthetic mechanism.
+This is the canonical reference list for `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` and its standalone submission render. It contains the works needed for claims retained on the active manuscript/submission surface. Source admission is checked against the source-audited manuscript record, post-freeze breadth/promotion ledgers, the final world-saturation/Izu-continuity records and the Result 2 source-native external network reanalyses. Inclusion supports a specific framing, empirical or focal-system-selection claim; it does not upgrade an external system to independent validation of the synthetic mechanism.
 
 ## Active references
 
@@ -44,9 +44,13 @@ Pannell, J.R., Auld, J.R., Brandvain, Y., Burd, M., Busch, J.W., Cheptou, P.-O.,
 
 Philipp, M. & Adsersen, H. (2014). Colonization of an empty island: how does a plant with a plastic gender system respond? *Biogeosciences*, 11, 6657–6665. https://doi.org/10.5194/bg-11-6657-2014
 
+Quitián, M., Planas-Sitjà, I., Morooka, M., Traveset, A., Tierney, S.M. & Cronin, A.L. (2026). Coinvasional disruptions to island pollinator networks. *Conservation Biology*, e70304. https://doi.org/10.1111/cobi.70304
+
 Traveset, A., Tur, C., Trøjelsgaard, K., Heleno, R., Castro-Urgal, R. & Olesen, J.M. (2016). Global patterns of mainland and insular pollination networks. *Global Ecology and Biogeography*, 25, 880–890. https://doi.org/10.1111/geb.12362
 
 Traveset, A. & Navarro, L. (2018). Plant reproductive ecology and evolution in the Mediterranean islands: state of the art. *Plant Biology*, 20(Suppl. 1), 63–77. https://doi.org/10.1111/plb.12636
+
+Wang, X.-P., Tong, M.-Y., Zhang, Y., Zhao, Z.-T., Li, S.-J., Shi, M.-M. & Tu, T.-Y. (2025). Differences in plant–pollinator network structure and pollinator importance between a continental and an oceanic island community. *Biotropica*, 57, e70027. https://doi.org/10.1111/btp.70027
 
 Zell, A.N., Miranda, C.H., Grady, E.L., Grossenbacher, D.L. & Igić, B. (2025). Island colonization in flowering plants is determined by the interplay of breeding system, lifespan, floral symmetry, and arrival opportunity. *New Phytologist*, 245, 420–432. https://doi.org/10.1111/nph.20234
 
@@ -54,9 +58,18 @@ Zell, A.N., Miranda, C.H., Grady, E.L., Grossenbacher, D.L. & Igić, B. (2025). 
 
 The active manuscript uses the Inoue series and Inoue & Kawahara (1990) to establish that Izu contains source-native historical reproductive/floral channels and an explicit colonisation/demographic alternative, not to prove historical *Bombus* causation. Oiki et al. (2001) further constrains island population history. Hiraiwa & Ushimaru (2017, 2024) provide the source-locked contemporary interaction/functional layer. The signed-position analysis is intentionally retained alongside its negative null-corrected result and unsupported Oshima-source sensitivity. These sources support Izu as a high-continuity mechanism-discrimination system, not as a positive validation case.
 
+## Result 2 external compositional-exposure source boundary
+
+Two source-native network systems are promoted into the main Results only for the narrow exposure claim that large partner turnover/rewiring can occur without a correspondingly decisive pollinator-richness contrast.
+
+- Wang et al. (2025): Wanshan–Yongxing matched-seven-plant visitation networks; turnover and richness effects are source-native reanalyses within one island pair sampled in different years.
+- Quitián et al. (2026): Ogasawara interaction networks; the retained Anijima anole presence/absence contrast is spatially structured and observational rather than randomized.
+
+Neither system is treated as causal replication of the synthetic mechanism, a universal island effect, or evidence of historical *Bombus* causation in Izu.
+
 ## World-saturation synthesis source boundary
 
-Three post-saturation systems are retained in the core synthesis for distinct roles rather than as additional validation replicates:
+Three post-saturation systems are retained in the supporting synthesis for distinct roles rather than as additional validation replicates:
 
 - Philipp & Adsersen (2014): Surtsey supplies a dated empty-island founding/colonisation chronology with a persistent reproductive-system response.
 - Andrews et al. (2022): Tiritiri Matangi supplies a documented pollinator reintroduction tied to a direct functional pollination experiment and compensatory-community result.
@@ -86,4 +99,4 @@ Their inclusion broadens the descriptive confrontation but does not turn the 42 
 
 ## Claim boundary
 
-The active reference surface is deliberately much narrower than the full systematic search universe. External-system references enter the main reference list only when the final manuscript uses them for a named mechanism, falsification, chronology or focal-system-selection role. The descriptive breadth remains 42 research entries / 37 exact labels, the formal identifiability audit remains 25 entries / 21 exact labels, and neither count is an independent-archipelago validation denominator.
+The active reference surface is deliberately much narrower than the full systematic search universe. External-system references enter the main reference list only when the final manuscript uses them for a named mechanism, falsification, chronology, focal-system-selection role or the narrow Result 2 compositional-exposure claim. The descriptive breadth remains 42 research entries / 37 exact labels, the formal identifiability audit remains 25 entries / 21 exact labels, and neither count is an independent-archipelago validation denominator.
