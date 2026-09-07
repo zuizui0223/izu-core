@@ -197,6 +197,7 @@ def _fig4() -> None:
 
     # C — Result 3 downstream: the same interaction shift does not force one plant response direction.
     branching = izu_final["izu_current_evidence"]["response_branching"]
+    matching_to_pollen = izu_final["izu_current_evidence"]["matching_to_pollen"]
     channels = ["Corrected\nmatching", "Floral\ntube", "Pollen\nreceipt"]
     lower_or_shorter = [branching["corrected_matching_lower"], branching["tube_shorter"], branching["pollen_lower"]]
     higher_or_longer = [0, branching["tube_longer"], branching["pollen_higher"]]
@@ -219,6 +220,21 @@ def _fig4() -> None:
         ha="left",
         va="top",
         fontsize=9,
+    )
+    axes[2].text(
+        0.03,
+        0.68,
+        (
+            "TM → pollen (mean):\n"
+            f"Izu5 β={matching_to_pollen['izu5_tm_coefficient']:+.3f}; "
+            f"post4 β={matching_to_pollen['post4_tm_coefficient']:+.3f}\n"
+            "leave-one-island sign not stable"
+        ),
+        transform=axes[2].transAxes,
+        ha="left",
+        va="top",
+        fontsize=8.5,
+        bbox={"boxstyle": "round,pad=0.3", "facecolor": "white", "edgecolor": "0.55"},
     )
 
     signed = izu_final["izu_current_evidence"]["signed_position"]
@@ -304,8 +320,19 @@ def build_figures() -> dict:
         "figure_narrative": "result1_mechanistic_prediction_to_result2_compositional_exposure_to_result3_biological_consequence",
         "figure4_external_sources": [WANSHAN.relative_to(ROOT).as_posix(), OGASAWARA.relative_to(ROOT).as_posix()],
         "figure4_izu_source": IZU_FINAL.relative_to(ROOT).as_posix(),
+        "figure4_matching_to_pollen_point_estimates": [
+            matching_to_pollen["izu5_tm_coefficient"] if False else 0
+        ],
         "figure_outputs": outputs,
     })
+    # Keep the plotted Result-3 weakening explicit in the returned audit payload too.
+    mtp = _load(IZU_FINAL)["izu_current_evidence"]["matching_to_pollen"]
+    payload["figure4_matching_to_pollen"] = {
+        "izu5_tm_coefficient": mtp["izu5_tm_coefficient"],
+        "post4_tm_coefficient": mtp["post4_tm_coefficient"],
+        "leave_one_island_sign_stable": mtp["leave_one_island_sign_stable"],
+    }
+    payload.pop("figure4_matching_to_pollen_point_estimates", None)
     return payload
 
 
