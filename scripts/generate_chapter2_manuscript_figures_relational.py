@@ -17,6 +17,8 @@ RELATIONAL = ROOT / "data/results/chapter2_relational_robustness_audit_frozen_20
 WHY = ROOT / "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json"
 PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json"
 IZU = ROOT / "data/results/izu_signed_position_structural_audit_frozen_20260827.json"
+CONTEMPORARY = ROOT / "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
+POLLEN = ROOT / "data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen_heterogeneity.json"
 FIG_INPUTS = ROOT / "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
 
 
@@ -67,11 +69,11 @@ def _fig1(audit: dict) -> None:
         ),
         (
             "IZU\nMECHANISTIC ZOOM",
-            "raw: state + composition\nnull-corrected sorting:\nunsupported",
+            "historical projection bounded\ncontemporary FDQ → matching\nrobust to island omission",
         ),
         (
             "NEXT\nmeasurement",
-            "loss + arrival/replacement\nstate + realized community\neffectiveness + reproduction",
+            "loss + arrival/replacement\nvisitor effectiveness\ndependency + mature output",
         ),
     ]
     x_positions = np.linspace(0.02, 0.81, len(boxes))
@@ -178,7 +180,7 @@ def _fig3(audit: dict, why: dict, phase3: dict) -> None:
     plt.close(fig)
 
 
-def _fig4(audit: dict, izu: dict) -> None:
+def _fig4(audit: dict, izu: dict, contemporary: dict, pollen: dict) -> None:
     direct = audit["external_measurement_asymmetry"]["direct_measurement_counts"]
     order = [
         "response_outcome",
@@ -193,20 +195,20 @@ def _fig4(audit: dict, izu: dict) -> None:
     labels = ["Response outcome", "Community functional shift", "Local filtering", "Richness / FD", "Source functional state", "Partner loss", "Reproductive assurance", "Arrival / replacement"]
     counts = [direct[key] for key in order]
 
-    fig, axes = plt.subplots(1, 2, figsize=(13.5, 6.2))
+    fig, axes = plt.subplots(1, 3, figsize=(18.0, 6.2), gridspec_kw={"width_ratios": [1.2, 1.0, 1.05]})
     y = np.arange(len(labels))
     axes[0].barh(y, counts, edgecolor="black", linewidth=0.5)
     axes[0].set_yticks(y, labels)
     axes[0].invert_yaxis()
     axes[0].set_xlim(0, 25)
     axes[0].set_xlabel("Entries with direct measurement (of 25)")
-    axes[0].set_title("A  Island research is outcome-rich but process-poor", loc="left")
+    axes[0].set_title("A  Outcome-rich, transition-poor", loc="left")
     for yi, count in zip(y, counts):
         axes[0].text(count + 0.3, yi, str(count), va="center")
     axes[0].text(
         0.98,
         0.96,
-        "0/25 full joint contracts\nresearch entries ≠ independent archipelagos",
+        "0/25 full joint contracts\nformal prediction: not evaluable",
         transform=axes[0].transAxes,
         ha="right",
         va="top",
@@ -222,20 +224,72 @@ def _fig4(audit: dict, izu: dict) -> None:
     axes[1].errorbar(slopes, yp, xerr=np.vstack((lower, upper)), fmt="o", capsize=5, markersize=8)
     axes[1].axvline(0.0, linewidth=1.0, linestyle="--")
     axes[1].set_yticks(yp, ["Raw realized matching", "Null-corrected matching"])
-    axes[1].set_xlabel("Frozen projection slope (95% CI)")
+    axes[1].set_xlabel("Historical signed-position slope (95% CI)")
     axes[1].set_xlim(-0.35, 0.90)
     axes[1].set_ylim(-0.65, 1.65)
-    axes[1].set_title("B  Izu separates composition-level signal from sorting", loc="left")
+    axes[1].set_title("B  Historical projection is bounded", loc="left")
     axes[1].text(
         0.98,
         0.08,
-        "Exact centre magnitudes non-unique\nOshima source bridge unsupported",
+        "exact centre magnitudes non-unique\nOshima source bridge unsupported",
         transform=axes[1].transAxes,
         ha="right",
         va="bottom",
         fontsize=9,
     )
-    fig.suptitle("From process-measurement bottleneck to Izu mechanistic resolution", fontsize=15, x=0.01, ha="left")
+
+    axes[2].set_axis_off()
+    izu_fdq = contemporary["fixed_effect_subsets"]["izu_five_islands"]["fdq_coefficient"]
+    post_fdq = contemporary["fixed_effect_subsets"]["post_oshima_four_islands"]["fdq_coefficient"]
+    izu_fdq_range = contemporary["leave_one_site_sensitivity"]["izu_five_islands"]["fdq_coefficient_range"]
+    post_fdq_range = contemporary["leave_one_site_sensitivity"]["post_oshima_four_islands"]["fdq_coefficient_range"]
+    izu_pollen = pollen["site_season_cluster_inference"]["izu_five_islands"]
+    post_pollen = pollen["site_season_cluster_inference"]["post_oshima_four_islands"]
+
+    axes[2].set_title("C  Contemporary functional realization", loc="left")
+    axes[2].text(
+        0.05,
+        0.76,
+        "FDQ → corrected matching\n"
+        f"Izu5  β = {izu_fdq:+.3f}\n"
+        f"LOO range {izu_fdq_range[0]:+.3f} to {izu_fdq_range[1]:+.3f}\n"
+        f"post4 β = {post_fdq:+.3f}\n"
+        f"LOO range {post_fdq_range[0]:+.3f} to {post_fdq_range[1]:+.3f}\n"
+        "all island omissions positive",
+        transform=axes[2].transAxes,
+        ha="left",
+        va="top",
+        fontsize=10,
+        linespacing=1.35,
+        bbox={"boxstyle": "round,pad=0.5", "facecolor": "white", "edgecolor": "0.35"},
+    )
+    axes[2].text(
+        0.05,
+        0.37,
+        "Corrected matching → pollen\n"
+        f"Izu5  β = {izu_pollen['tm_coefficient']:+.3f}\n"
+        f"95% cluster interval {izu_pollen['interval_95'][0]:+.3f} to {izu_pollen['interval_95'][1]:+.3f}\n"
+        f"post4 β = {post_pollen['tm_coefficient']:+.3f}\n"
+        f"95% cluster interval {post_pollen['interval_95'][0]:+.3f} to {post_pollen['interval_95'][1]:+.3f}\n"
+        "positive point estimates; network-state sensitive",
+        transform=axes[2].transAxes,
+        ha="left",
+        va="top",
+        fontsize=10,
+        linespacing=1.35,
+        bbox={"boxstyle": "round,pad=0.5", "facecolor": "white", "edgecolor": "0.35"},
+    )
+    axes[2].text(
+        0.05,
+        0.05,
+        "The robust contemporary link is upstream; downstream propagation branches.",
+        transform=axes[2].transAxes,
+        ha="left",
+        va="bottom",
+        fontsize=9,
+    )
+
+    fig.suptitle("From transition-measurement bottleneck to Izu functional resolution", fontsize=15, x=0.01, ha="left")
     fig.tight_layout(rect=(0, 0, 1, 0.95))
     path = OUT_DIR / "fig4_global_to_izu_resolution.svg"
     fig.savefig(path)
@@ -249,20 +303,24 @@ def build_figures() -> dict:
     why = _load(WHY)
     phase3 = _load(PHASE3)
     izu = _load(IZU)
+    contemporary = _load(CONTEMPORARY)
+    pollen = _load(POLLEN)
     _validate_relational(audit)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     _fig1(audit)
     _fig3(audit, why, phase3)
-    _fig4(audit, izu)
+    _fig4(audit, izu, contemporary, pollen)
 
     payload = {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "status": "relational_oikos_overlay_after_frozen_figure_regeneration",
         "narrative": "theory_to_global_confrontation_to_identifiability_to_izu_mechanistic_zoom",
         "world_step": "response_vocabulary_not_synthetic_regime_assignment",
         "frozen_figure_builder": "scripts/generate_chapter2_manuscript_figures.py",
         "relational_audit": "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
+        "contemporary_functional_exposure": "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json",
+        "matching_to_pollen_heterogeneity": "data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen_heterogeneity.json",
         "relational_claim_tests": audit["claim_tests"],
         "seed_component_ranges": {
             "community_realization": audit["seed_ensemble"]["community_realization_fraction_range"],
@@ -271,6 +329,12 @@ def build_figures() -> dict:
         },
         "equal_initial_richness_counts": audit["equal_initial_pollinator_richness"]["realization_class_counts"],
         "direct_measurement_counts": audit["external_measurement_asymmetry"]["direct_measurement_counts"],
+        "izu_contemporary_headlines": {
+            "izu5_fdq_to_matching": contemporary["fixed_effect_subsets"]["izu_five_islands"]["fdq_coefficient"],
+            "post4_fdq_to_matching": contemporary["fixed_effect_subsets"]["post_oshima_four_islands"]["fdq_coefficient"],
+            "izu5_matching_to_pollen": pollen["site_season_cluster_inference"]["izu_five_islands"]["tm_coefficient"],
+            "post4_matching_to_pollen": pollen["site_season_cluster_inference"]["post_oshima_four_islands"]["tm_coefficient"],
+        },
         "figure_outputs": frozen["figure_outputs"],
     }
     FIG_INPUTS.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
