@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from scripts.generate_chapter2_manuscript_tables import build as build_supporting_tables
 from scripts.render_chapter2_supporting_information import render_supporting_information
 from scripts.render_island_ecology_submission_manuscript import render_submission_manuscript
 
@@ -101,8 +102,14 @@ def render_manuscript_rtf() -> str:
     return markdown_to_oikos_rtf(render_submission_manuscript(), introduction_page_two=True)
 
 
+def render_supporting_information_markdown() -> str:
+    appendices = render_supporting_information().rstrip()
+    tables = build_supporting_tables().replace("# Chapter 2 Supporting Tables", "# Supporting Tables", 1)
+    return appendices + "\n\n" + tables
+
+
 def render_supporting_information_rtf() -> str:
-    return markdown_to_oikos_rtf(render_supporting_information(), introduction_page_two=False)
+    return markdown_to_oikos_rtf(render_supporting_information_markdown(), introduction_page_two=False)
 
 
 def render_plain_text_rtf(text: str) -> str:
