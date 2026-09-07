@@ -7,9 +7,9 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from scripts.generate_chapter2_manuscript_figures_relational import build_figures
-from scripts.render_chapter2_supporting_information import render_to_path as render_si_to_path
-from scripts.render_island_ecology_submission_manuscript import render_to_path
+from scripts.generate_chapter2_manuscript_figures_realized_richness import build_figures
+from scripts.render_chapter2_realized_richness_reframe import render_submission_manuscript
+from scripts.render_oikos_submission_rtf import render_supporting_information_markdown
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_anonymous_review_archive.zip"
@@ -24,6 +24,8 @@ CORE_REVIEW_FILES = (
     "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
     "docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md",
     "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
+    "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md",
+    "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md",
     "docs/CHAPTER2_SCIENTIFIC_GATE_RUN_20260827.md",
     "docs/CHAPTER2_CONDITIONAL_WHY_DIAGNOSTICS_20260827.md",
     "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md",
@@ -37,6 +39,7 @@ CORE_REVIEW_FILES = (
     "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
     "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
     "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
+    "data/design/chapter2_realized_richness_matching_freeze_20260907.json",
     "data/design/manuscript_reassessment_gate_20260826.json",
     "data/design/island_syndrome_literature_claim_matrix_20260824.json",
     "data/design/izu_pollinator_proboscis_recovery_status.json",
@@ -49,10 +52,13 @@ CORE_REVIEW_FILES = (
     "data/results/chapter2_external_prediction_readiness_frozen_20260828.json",
     "data/results/chapter2_interaction_kernel_audit_frozen_20260828.json",
     "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
+    "data/results/chapter2_realized_richness_matching_decision_20260907.json",
     "scripts/audit_chapter2_interaction_kernel.py",
     "scripts/audit_chapter2_relational_robustness.py",
+    "scripts/audit_chapter2_realized_richness_matching.py",
     "scripts/generate_chapter2_manuscript_figures.py",
     "scripts/generate_chapter2_manuscript_figures_relational.py",
+    "scripts/generate_chapter2_manuscript_figures_realized_richness.py",
     "scripts/generate_chapter2_manuscript_tables.py",
     "scripts/run_response_geometry_realization_stability.py",
     "scripts/run_joint_response_transition_surface.py",
@@ -117,14 +123,22 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         tmp = Path(tmp_name)
         manuscript = tmp / ANONYMOUS_MANUSCRIPT_NAME
         supporting_information = tmp / ANONYMOUS_SI_NAME
-        render_to_path(manuscript)
-        render_si_to_path(supporting_information)
+        manuscript.write_text(render_submission_manuscript(), encoding="utf-8")
+        supporting_information.write_text(render_supporting_information_markdown(), encoding="utf-8")
         for generated in (manuscript, supporting_information):
             denied = find_denied_tokens(generated, deny_tokens)
             if denied:
                 raise ValueError(f"author-identifying token(s) {denied!r} found in rendered anonymous file {generated.name}")
-        if "cell-level simulation variation" in supporting_information.read_text(encoding="utf-8").lower():
+        supporting_lower = supporting_information.read_text(encoding="utf-8").lower()
+        manuscript_lower = manuscript.read_text(encoding="utf-8").lower()
+        if "cell-level simulation variation" in supporting_lower:
             raise ValueError("superseded nonadditivity wording survived anonymous Supporting Information")
+        if "appendix s19. exact realized-richness matching hard control" not in supporting_lower:
+            raise ValueError("realized-richness hard control missing from anonymous Supporting Information")
+        if "mean regime placement is therefore richness-sensitive" not in manuscript_lower:
+            raise ValueError("realized-richness reframe missing from anonymous manuscript")
+        if "richness reduction is not necessary for mixed response geometry" in manuscript_lower:
+            raise ValueError("stale richness-independent claim survived anonymous manuscript")
 
         manuscript_record = {
             "path": ANONYMOUS_MANUSCRIPT_NAME,
@@ -134,7 +148,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         }
         si_record = {
             "path": ANONYMOUS_SI_NAME,
-            "source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md + relational correction renderer",
+            "source": "base SI + relational correction + realized-richness S19 + Supporting Tables S1-S9",
             "sha256": sha256(supporting_information),
             "size_bytes": supporting_information.stat().st_size,
         }
@@ -151,9 +165,11 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "review_supporting_information": ANONYMOUS_SI_NAME,
             "review_manuscript_internal_thesis_language_removed_fail_closed": True,
             "supporting_information_superseded_nonadditivity_wording_removed_fail_closed": True,
-            "scientific_state": "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution",
-            "frozen_figures_regenerated_then_relational_overlay": True,
+            "realized_richness_reframe_included_fail_closed": True,
+            "scientific_state": "richness_sensitive_mean_regime_with_relational_branching_and_bounded_empirical_resolution",
+            "frozen_figures_regenerated_then_realized_richness_overlay": True,
             "relational_robustness_audit_included": True,
+            "realized_richness_hard_control_included": True,
             "interaction_kernel_identity_audit_included": True,
             "izu_source_gate_included": True,
             "izu_structural_audit_included": True,
@@ -163,15 +179,13 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "deny_tokens_checked": list(deny_tokens),
             "files": records,
             "claim_boundary": (
-                "The archive preserves the historical freeze chain while adding a prespecified relational-robustness audit. The old statement that "
-                "the non-additive remainder includes cell-level simulation variation is superseded: response-matrix cells are deterministic conditional "
-                "on each shared community trajectory, so the residual is starting-state x community-realization nonadditivity in the fixed matrix. "
-                "Exact variance shares are ensemble-dependent; component ordering and relational state-versus-community structure are the headline. "
-                "Equal initial richness establishes only that richness reduction is not necessary for mixed geometry. World confrontation is reported as "
-                "an outcome-rich/process-poor measurement audit, and Izu remains bounded at source-state/community-composition resolution."
+                "The archive preserves the historical freeze chain and adds the prespecified exact realized-richness hard control. "
+                "The hard control changes the ensemble mean geometry to all-positive in all six matching seeds, so realized richness cannot be declared irrelevant to mean-regime placement. "
+                "At the same time, 51-65/96 individual communities remain mixed and state-by-community nonadditivity remains 42.72-48.51%, so response branching remains relational. "
+                "World confrontation remains an outcome-rich/process-poor measurement audit and Izu remains a bounded continuity-system zoom rather than validation."
             ),
         }
-        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the response-geometry Research Paper.\n\nThe historical Chapter 2 freeze chain is retained unchanged. A prespecified 2026-08-31 relational-robustness audit tests seed ensemble, model horizon, trait adjustment and equal initial pollinator richness without selecting a new baseline after inspection. The active inference is structural: response direction is relational, starting state alone is a weak additive predictor, realized community remains the larger additive component across the audited sensitivities, and state-by-community non-additivity is consequential. The old within-cell-simulation-noise interpretation is removed from the rendered Supporting Information because each response cell is deterministic conditional on its shared community trajectory.\n\nThe world audit is presented as measurement availability rather than prediction success: response outcomes are directly measured in 21/25 entries but partner arrival/replacement in only 2/25, and no entry meets the full joint outcome-independent contract. The Izu analysis retains the raw-positive/null-corrected-negative boundary and the unsupported prespecified Oshima-source bridge. No missing predictor is reconstructed from known outcomes and no Chapter 3 result is used as validation.\n\nThe original frozen figure builder still regenerates and checks the historical scientific gate before the Oikos relational overlay rewrites the main communication panels. Data and custom analysis code are prepared for reviewer inspection at first submission.\n"""
+        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the response-geometry Research Paper.\n\nThe historical Chapter 2 freeze chain is retained unchanged. A prespecified 2026-08-31 relational-robustness audit tests seed ensemble, model horizon, trait adjustment and equal initial pollinator richness. A second sensitivity was frozen on 2026-09-07 before execution and forces realized mainland-like and island-like pollinator richness to be exactly equal at every simulated step by response-blind subsampling.\n\nThat hard control changes the ensemble mean response geometry to all-positive in all six matching seeds. The submission therefore does not claim that richness differences are unnecessary for mean-regime placement. However, 51-65/96 individual community realizations remain mixed and state-by-community nonadditivity remains 42.72-48.51%, while the additive starting-position term remains 0.94-2.21%. The revised structural claim is that mean-regime placement is richness-sensitive whereas branch identity remains relational to starting state and realized community composition.\n\nThe world audit is presented as measurement availability rather than prediction success: response outcomes are directly measured in 21/25 entries but partner arrival/replacement in only 2/25, and no entry meets the full joint outcome-independent contract. The Izu analysis retains the historical raw-positive/null-corrected-negative boundary, a robust contemporary FDQ-to-matching association and weaker downstream matching-to-pollen propagation. No missing predictor is reconstructed from known outcomes and no downstream focal phenotype is used as validation.\n"""
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=ANONYMOUS_MANUSCRIPT_NAME)
