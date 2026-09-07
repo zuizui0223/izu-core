@@ -33,6 +33,16 @@ jobs:
           name: chapter2-relational-robustness-audit
           path: data/results/chapter2_relational_robustness_audit_frozen_20260831.json
           if-no-files-found: error
+      - name: Run Chapter 2 realized-richness matching audit
+        if: matrix.python-version == '3.11'
+        run: python -m scripts.audit_chapter2_realized_richness_matching --out data/results/chapter2_realized_richness_matching_frozen_20260907.json
+      - name: Upload Chapter 2 realized-richness matching audit
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-realized-richness-matching-audit
+          path: data/results/chapter2_realized_richness_matching_frozen_20260907.json
+          if-no-files-found: error
       - name: Upload pytest reports on failure
         if: failure()
         uses: actions/upload-artifact@v4
