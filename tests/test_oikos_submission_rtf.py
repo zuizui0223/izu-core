@@ -23,6 +23,10 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_three_result_r
     assert "functional community structure in izu" in lower
     assert "51" in text and "65/96" in text
     assert "all six prespecified matching seeds" in lower
+    assert "figure 1. three-result inference chain" in lower
+    assert "figure 4. result 2 exposure to result 3 biological consequence" in lower
+    assert "figure 1. four-act breadth-to-depth inference funnel" not in lower
+    assert "figure 4. from outcome-rich literature to izu mechanistic resolution" not in lower
     assert "richness reduction is not necessary for mixed response geometry" not in lower
     assert "response direction is therefore relational rather than intrinsic" not in lower
     assert "supporting information" in lower
