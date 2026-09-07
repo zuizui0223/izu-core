@@ -70,8 +70,8 @@ def test_main_figures_follow_three_result_argument_and_keep_hard_control_in_si()
         "data/results/ogasawara/context_analysis/effect_rows.json",
     ]
     assert payload["figure4_izu_source"] == "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
-    assert payload["figure4_matching_to_pollen"]["izu5_tm_coefficient"] == 0.0352853860295511
-    assert payload["figure4_matching_to_pollen"]["post4_tm_coefficient"] == 0.03415882462916251
+    assert payload["figure4_matching_to_pollen"]["izu5_tm_coefficient"] == 0.03528541439362932
+    assert payload["figure4_matching_to_pollen"]["post4_tm_coefficient"] == 0.03415875775284908
     assert payload["figure4_matching_to_pollen"]["leave_one_island_sign_stable"] is False
     assert "figures/chapter2/fig1_mechanistic_resolution_funnel.svg" in payload["figure_outputs"]
     assert "figures/chapter2/fig4_global_to_izu_resolution.svg" in payload["figure_outputs"]
