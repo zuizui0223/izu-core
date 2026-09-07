@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_decision_20260907",
+  "analysis": "chapter2_realized_richness_matching_sensitivity",
+  "design": "data/design/chapter2_realized_richness_matching_freeze_20260907.json",
+  "implementation": "scripts/audit_chapter2_realized_richness_matching.py",
+  "execution_provenance": {
+    "pull_request": 338,
+    "workflow_run": 34087352249,
+    "artifact_id": 10005728099,
+    "artifact_name": "chapter2-realized-richness-matching-audit",
+    "artifact_digest": "sha256:89962a20f23cfe6a7a11fa9191878ffa7a2b1524e9282b1adc1361c7d1a44854"
+  },
+  "hard_control": {
+    "matching_policy": "at every step match both trajectories to min(realized mainland richness, realized island richness) by response-blind uniform subsampling of the larger snapshot",
+    "snapshot_pairs_per_matching_seed": 11520,
+    "matching_seeds": 6,
+    "unequal_after_matching": 0,
+    "all_snapshot_pairs_equal_realized_richness": true,
+    "matched_target_richness_mean": 2.388541666666667,
+    "matched_target_richness_range": [0, 11],
+    "zero_target_snapshot_fraction": 0.10147569444444444,
+    "before_matching_mean_mainland_richness": 14.413975694444444,
+    "before_matching_mean_island_richness": 2.389236111111111,
+    "before_matching_mean_absolute_richness_gap": 12.026128472222222,
+    "before_matching_nonzero_gap_fraction": 0.9996527777777777
+  },
+  "primary_matching_seed": {
+    "seed": 20260907,
+    "mean_geometry_classification": "all_positive_mean_geometry",
+    "realization_class_counts": {
+      "mixed_sign": 58,
+      "all_positive": 21,
+      "all_negative": 4,
+      "other": 13
+    },
+    "sum_of_squares_fraction": {
+      "starting_position": 0.009359098313020316,
+      "community_realization": 0.5159302730922394,
+      "starting_position_by_community_nonadditivity": 0.4747106285947401
+    },
+    "additive_sign_mismatch_fraction": 0.3382936507936508
+  },
+  "matching_seed_ensemble": {
+    "seeds": [20260907, 20260908, 20260909, 20260910, 20260911, 20260912],
+    "mean_geometry_classification_all_seeds": "all_positive_mean_geometry",
+    "mixed_realization_count_range": [51, 65],
+    "starting_position_fraction_range": [0.009359098313020316, 0.02209561674670002],
+    "community_realization_fraction_range": [0.5003942039547032, 0.5592221633209156],
+    "nonadditivity_fraction_range": [0.4272397924506457, 0.4850701049302678],
+    "additive_sign_mismatch_fraction_range": [0.3179563492063492, 0.36755952380952384]
+  },
+  "prespecified_gate": {
+    "hard_control_valid": true,
+    "primary_mixed_geometry": false,
+    "ensemble_mixed_geometry": false,
+    "individual_mixed_realizations": true,
+    "relational_nonadditivity": true,
+    "decision": "blocker_failed_reframe_before_author_metadata"
+  },
+  "scientific_reframe": {
+    "rejected_claim": "realized richness differences are unnecessary for the ensemble mean mixed response geometry",
+    "retained_claim_1": "exact realized-richness matching removes the mixed ensemble mean geometry in all six prespecified matching seeds, so realized richness differences materially position the mean response regime in the declared model",
+    "retained_claim_2": "mixed-sign individual community realizations remain common after exact richness matching (51-65 of 96), so richness difference is not sufficient to explain response branching across realized communities",
+    "retained_claim_3": "state-by-community nonadditivity remains large after exact richness matching (42.72-48.51%), while the additive starting-position share remains small (0.94-2.21%) and community-realization share remains 50.04-55.92%",
+    "new_headline": "mean regime is richness-sensitive, whereas response branching remains relational to starting state and realized community composition"
+  },
+  "claim_boundary": "This is a hard synthetic control, not an empirical richness manipulation. Matching to the minimum realized richness strongly downsamples the richer trajectory and intentionally removes unilateral richness advantages, including zeroing both matched snapshots whenever either original snapshot is empty. It demonstrates that the previous richness-independent mean-geometry wording was too strong. It does not show that richness alone determines response, because mixed individual realizations and large state-by-community nonadditivity persist after exact matching."
+}
