@@ -6,7 +6,7 @@ from scripts.render_oikos_submission_rtf import (
 )
 
 
-def test_main_manuscript_rtf_has_oikos_review_format_controls():
+def test_main_manuscript_rtf_has_oikos_review_format_controls_and_richness_reframe():
     text = render_manuscript_rtf()
     assert text.startswith("{\\rtf1")
     assert "\\paperw11907" in text
@@ -16,20 +16,26 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls():
     assert "fldinst PAGE" in text
     assert "\\page" in text
     lower = text.lower()
-    assert "response direction is therefore relational rather than intrinsic" in lower
+    assert "mean regime placement is therefore richness-sensitive" in lower
+    assert "51" in text and "65/96" in text
+    assert "all six prespecified matching seeds" in lower
+    assert "richness reduction is not necessary for mixed response geometry" not in lower
+    assert "response direction is therefore relational rather than intrinsic" not in lower
     assert "supporting information" in lower
     assert "(appendix)" not in lower
     assert "fig. s" not in lower
     assert "chapter 3" not in lower
 
 
-def test_supporting_information_rtf_preserves_corrected_relational_audit_and_tables():
+def test_supporting_information_rtf_preserves_relational_world_izu_and_realized_richness_material():
     markdown = render_supporting_information_markdown()
     assert "# Appendix S17. Geography-first saturation and final world synthesis" in markdown
     assert "# Appendix S18. Contemporary Izu functional-chain sensitivity" in markdown
+    assert "# Appendix S19. Exact realized-richness matching hard control" in markdown
     assert "# Supporting Tables" in markdown
     assert "## Table S1." in markdown
     assert "## Table S8." in markdown
+    assert "# Supporting Table S9. Exact realized-richness matching sensitivity" in markdown
     assert "# Chapter 2 Supporting Tables" not in markdown
 
     text = render_supporting_information_rtf()
@@ -39,8 +45,11 @@ def test_supporting_information_rtf_preserves_corrected_relational_audit_and_tab
     assert "prespecified relational-robustness audit" in lower
     assert "geography-first saturation and final world synthesis" in lower
     assert "contemporary izu functional-chain sensitivity" in lower
-    assert "supporting tables" in lower
-    assert "table s8. contemporary izu functional chain and branching" in lower
+    assert "exact realized-richness matching hard control" in lower
+    assert "supporting table s9. exact realized-richness matching sensitivity" in lower
+    assert "51/96 to 65/96" in text
+    assert "42.72" in text and "48.51" in text
+    assert "mean regime is richness-sensitive" in lower
     assert "69.34" in text and "80.17" in text
     assert "53/96" in text
     assert "partner arrival/replacement" in lower
