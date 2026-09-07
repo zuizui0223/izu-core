@@ -6,7 +6,7 @@ from scripts.render_oikos_submission_rtf import (
 )
 
 
-def test_main_manuscript_rtf_has_oikos_review_format_controls_and_richness_reframe():
+def test_main_manuscript_rtf_has_oikos_review_format_controls_and_three_result_reframe():
     text = render_manuscript_rtf()
     assert text.startswith("{\\rtf1")
     assert "\\paperw11907" in text
@@ -16,7 +16,11 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_richness_refra
     assert "fldinst PAGE" in text
     assert "\\page" in text
     lower = text.lower()
-    assert "mean regime placement is therefore richness-sensitive" in lower
+    assert "result 1" in lower and "result 2" in lower and "result 3" in lower
+    assert "real island systems undergo compositional reorganization beyond richness loss" in lower
+    assert "pollinator assemblage turnover was 0.9796" in lower
+    assert "matched-plant turnover was 0.6817" in lower
+    assert "functional community structure in izu" in lower
     assert "51" in text and "65/96" in text
     assert "all six prespecified matching seeds" in lower
     assert "richness reduction is not necessary for mixed response geometry" not in lower
