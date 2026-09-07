@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "status": "fixed_before_execution",
+  "frozen_on": "2026-09-07",
+  "question": "Does Chapter 2 mixed response geometry persist when mainland-like and island-like pollinator trajectories are forced to have exactly equal realized richness at every simulated step?",
+  "source_commit": "9145d494f38859552848d0bab3593e6b47c1ac83",
+  "source_identity": {
+    "scripts/run_response_geometry_parameter_robustness.py": "blob:0b87fff5e7cfcc5e610dcc201e5a592371ffafad",
+    "scripts/run_chapter2_conditional_why_diagnostics.py": "blob:b380cd8e94eb867774552e261fd95dbd06426cd9"
+  },
+  "baseline": {
+    "community_seed": 20260826,
+    "matched_community_realizations": 96,
+    "steps": 120,
+    "trait_grid_points": 21,
+    "configuration": "unchanged BASE configuration from scripts/run_response_geometry_parameter_robustness.py"
+  },
+  "matching_policy": {
+    "name": "stepwise_min_richness_subsampling",
+    "unit": "each mainland-island trajectory pair at each simulated step",
+    "target_richness": "min(realized_mainland_richness, realized_island_richness)",
+    "larger_side_action": "uniform sample without replacement to target_richness using a response-independent prespecified matching RNG",
+    "smaller_side_action": "retain all pollinators",
+    "equal_side_action": "retain all pollinators",
+    "zero_target_action": "set both matched snapshots to empty",
+    "sampled_index_order": "sort sampled indices before reconstructing the snapshot",
+    "response_information_used_for_matching": false,
+    "trait_information_used_for_matching": false,
+    "pollinator_trait_or_breadth_used_for_matching": false,
+    "historical_trajectory_regenerated_after_matching": false,
+    "reason": "This is a hard control for realized richness. It removes richness differences from the full trajectory seen by trait adjustment while preserving a response-blind subset of each originally generated community composition."
+  },
+  "matching_rng": {
+    "seeds": [20260907, 20260908, 20260909, 20260910, 20260911, 20260912],
+    "primary_seed": 20260907,
+    "mainland_offset": 31,
+    "island_offset": 73,
+    "replicate_stride": 10000,
+    "note": "Matching seeds change only the response-blind subsample drawn from the larger community snapshot; original pollinator trajectories remain fixed by the baseline community seed."
+  },
+  "reported_outputs": [
+    "exact post-matching richness equality audit",
+    "mean-geometry classification for each matching seed",
+    "mixed/all-positive/all-negative realization counts for each matching seed",
+    "starting-position, community-realization and state-by-community non-additive sum-of-squares fractions",
+    "additive-sign mismatch fraction",
+    "matched target-richness distribution and zero-target snapshot fraction"
+  ],
+  "decision_gate": {
+    "hard_control_valid": "post-matching mainland and island richness must be identical for every step of every realization for every matching seed",
+    "primary_mixed_geometry": "primary matching seed mean geometry must contain both positive and negative response signs",
+    "ensemble_mixed_geometry": "every prespecified matching seed mean geometry must contain both positive and negative response signs",
+    "individual_mixed_realizations": "every prespecified matching seed must retain at least one mixed-sign community realization",
+    "relational_nonadditivity": "state-by-community non-additive fraction must be strictly positive for every matching seed",
+    "clear_blocker_if": "all five conditions above pass",
+    "partial_if": "hard control and primary mixed geometry pass but one or more ensemble conditions fail; narrow robustness wording before submission",
+    "fail_if": "hard control fails or primary mixed geometry fails; reframe the Chapter 2 richness-independent mechanism claim before author metadata"
+  },
+  "claim_boundary": "Passing this sensitivity would show that realized richness differences are not necessary for mixed response geometry under the declared synthetic model. It would not show that richness is biologically irrelevant, that mainland-like and island-like community reorganization is unnecessary, or that composition, turnover, breadth and replacement differences have been removed. The service function already uses a fixed visit budget through mean matching rather than a richness-proportional visitation sum. This analysis is a structural model sensitivity, not an empirical estimate."
+}
