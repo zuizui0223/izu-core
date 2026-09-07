@@ -54,8 +54,25 @@ def test_scientific_gate_requires_frozen_realized_richness_reframe():
     assert validated["realized_richness_hard_control"]["revised_headline"] == "mean_regime_placement_richness_sensitive_branch_identity_relational"
 
 
-def test_main_figure_overlay_exposes_hard_control_and_supplementary_figure():
+def test_main_figures_follow_three_result_argument_and_keep_hard_control_in_si():
     payload = build_figures()
     assert payload["status"] == "realized_richness_reframe_after_relational_regeneration"
     assert payload["realized_richness_headline"] == "mean_regime_richness_sensitive_branching_relational"
+    assert payload["figure_narrative"] == (
+        "result1_mechanistic_prediction_to_result2_compositional_exposure_to_result3_biological_consequence"
+    )
+    assert payload["figure4_external_sources"] == [
+        "data/results/wanshan_yongxing/effect_rows.json",
+        "data/results/ogasawara/context_analysis/effect_rows.json",
+    ]
+    assert payload["figure4_izu_source"] == "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
+    assert "figures/chapter2/fig1_mechanistic_resolution_funnel.svg" in payload["figure_outputs"]
+    assert "figures/chapter2/fig4_global_to_izu_resolution.svg" in payload["figure_outputs"]
     assert "figures/chapter2/figS7_realized_richness_hard_control.svg" in payload["figure_outputs"]
+    for rel in (
+        "figures/chapter2/fig1_mechanistic_resolution_funnel.svg",
+        "figures/chapter2/fig4_global_to_izu_resolution.svg",
+        "figures/chapter2/figS7_realized_richness_hard_control.svg",
+    ):
+        path = ROOT / rel
+        assert path.exists() and path.stat().st_size > 10_000
