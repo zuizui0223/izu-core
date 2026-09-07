@@ -24,9 +24,13 @@ def test_final_submission_reframes_mean_regime_and_connects_three_results():
     assert "pollinator assemblage turnover was 0.9796" in lower
     assert "matched-plant turnover was 0.6817" in lower
     assert "functional community structure in izu" in lower
+    assert "figure 1. three-result inference chain" in lower
+    assert "figure 4. result 2 exposure to result 3 biological consequence" in lower
     assert "richness reduction is not necessary for mixed response geometry" not in lower
     assert "mixed geometry persisted when initial pollinator richness was equalized" not in lower
     assert "response direction is therefore relational rather than intrinsic" not in lower
+    assert "figure 1. four-act breadth-to-depth inference funnel" not in lower
+    assert "figure 4. from outcome-rich literature to izu mechanistic resolution" not in lower
     assert "## identifiability:" not in lower
 
 
