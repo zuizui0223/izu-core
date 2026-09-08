@@ -7,9 +7,10 @@ def test_joint_existing_harness_crosscheck_retains_branching_without_new_paramet
     assert payload["configuration"]["new_parameter_values_introduced"] is False
     result = payload["result"]
     assert result["realization_class_counts"] == {
+        "mixed_sign": 75,
         "all_positive": 12,
         "all_negative": 9,
-        "mixed_sign": 75,
+        "other": 0,
     }
     assert result["largest_component"] != "starting_position"
     assert result["sum_of_squares_fraction"]["starting_position_by_community_nonadditivity"] > 0.0
