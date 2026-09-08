@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "status": "verified_against_ci_run_2437",
+  "analysis": "finite_n_gaussian_mean_field_summary",
+  "design": "data/design/finite_n_gaussian_limit_freeze_20260908.json",
+  "ci_artifact": "finite-n-gaussian-mean-field-audit",
+  "exact_single_copy_count_process": {
+    "mainland_like": {
+      "mean": 17.090419195260303,
+      "variance": 14.288050359281469,
+      "cv": 0.2211738464550402,
+      "empty_probability": 7.541288532772483e-09
+    },
+    "island_like": {
+      "mean": 2.1838667684369932,
+      "variance": 2.0492509709154607,
+      "cv": 0.6554980966865324,
+      "empty_probability": 0.10485855740302488
+    }
+  },
+  "mean_field": {
+    "classification": "all_positive",
+    "minimum_kernel_contrast": 0.020765021123712757,
+    "maximum_kernel_contrast": 0.1493959028569859,
+    "minimum_trait": 1.0,
+    "maximum_trait": 0.5
+  },
+  "asymptotic_kernel_covariance": {
+    "trace_times_k_limit": 0.9894540748069236,
+    "scaling": "contrast covariance trace approaches C/k"
+  },
+  "gaussian_vs_abm_mixed_probability": [
+    {"k": 1, "abm": 0.7135416666666666, "gaussian": 0.78241, "absolute_error": 0.06886833333333342},
+    {"k": 2, "abm": 0.7760416666666666, "gaussian": 0.814035, "absolute_error": 0.03799333333333332},
+    {"k": 4, "abm": 0.7361111111111112, "gaussian": 0.767645, "absolute_error": 0.03153388888888886},
+    {"k": 8, "abm": 0.6701388888888888, "gaussian": 0.681355, "absolute_error": 0.011216111111111204},
+    {"k": 16, "abm": 0.5642361111111112, "gaussian": 0.570775, "absolute_error": 0.006538888888888872}
+  ],
+  "gaussian_extrapolation": [
+    {"k": 32, "mixed": 0.437665, "all_positive": 0.562335},
+    {"k": 64, "mixed": 0.2841, "all_positive": 0.7159},
+    {"k": 128, "mixed": 0.13197, "all_positive": 0.86803},
+    {"k": 256, "mixed": 0.034215, "all_positive": 0.965785},
+    {"k": 512, "mixed": 0.002655, "all_positive": 0.997345},
+    {"k": 1024, "mixed": 0.000025, "all_positive": 0.999975}
+  ],
+  "interpretation": "The zero-trait-adjustment response geometry has an all-positive deterministic mean-field limit. Mixed branch identity is therefore a finite-community composition-realization phenomenon in the asymptotic sense. However, it is not a rare empty-community or N≈2 artifact: at k=16 the island empty probability is approximately 2.14e-16, the existing ABM still has a pooled mixed fraction of 0.5642, and the exact-moment Gaussian approximation predicts 0.5708. The Gaussian approximation becomes quantitatively accurate as k increases, while contrast covariance scales toward 1/k.",
+  "claim_boundary": "The Gaussian layer is a second-order finite-size approximation based on exact terminal count and kernel moments for the zero-trait-adjustment submodel. It is not an exact Fokker-Planck solution or a full LNA for adaptive plant dynamics, and pooled-copy k is not a natural abundance estimate."
+}
