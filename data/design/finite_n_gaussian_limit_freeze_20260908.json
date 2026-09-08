@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "status": "fixed_before_execution",
+  "frozen_on": "2026-09-08",
+  "source_main_commit": "46e52082abda631e01c6cf41158ac3aa9f994c7f",
+  "purpose": "Derive the finite-community to Gaussian/diffusion to deterministic mean-field ladder for the zero-trait-adjustment Chapter 2 submodel without changing the empirical claim ceiling.",
+  "model_scope": {
+    "parent_model": "scripts/run_response_geometry_parameter_robustness.py:BASE",
+    "trait_adjustment": 0.0,
+    "steps": 120,
+    "trait_grid": "scripts/run_response_geometry_parameter_robustness.py:TRAIT_GRID",
+    "pollinator_update": "N_{t+1}=Binomial(N_t,1-partner_loss)+Bernoulli(partner_arrival)",
+    "mark_distribution": "unchanged make_pollinator distribution; survival is mark-independent",
+    "response_coordinate": "terminal community interaction-kernel contrast K_island(x)-K_mainland(x); service has the same sign because saturation is monotone"
+  },
+  "exact_count_layer": {
+    "method": "propagate the full terminal count pmf by binomial thinning plus Bernoulli immigration",
+    "moments_checked": ["mean", "variance", "coefficient_of_variation", "empty_probability"],
+    "pooled_copy_counts": [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
+    "expected_scaling_test": "for k independent pooled copies, count CV must equal the k=1 CV divided by sqrt(k) up to floating-point tolerance"
+  },
+  "kernel_moment_layer": {
+    "mark_moments": "deterministic quadrature over the clamped-normal pollinator trait distribution and the frozen generalist/specialist/introduced mixtures",
+    "exact_pooled_kernel_mean": "p_nonempty * mu_mark",
+    "exact_pooled_kernel_covariance": "E[1/N * I(N>0)] * Sigma_mark + p_nonempty*(1-p_nonempty)*mu_mark*mu_mark^T",
+    "scenario_independence": true,
+    "mean_field_limit": "mu_mark_island - mu_mark_mainland"
+  },
+  "gaussian_layer": {
+    "approximation": "multivariate Gaussian with the exact finite-k kernel-contrast mean and covariance",
+    "probability_evaluation": "fixed-seed Gaussian Monte Carlo over the 21-dimensional trait grid",
+    "draws_per_k": 200000,
+    "rng_seed": 20260908,
+    "k_values": [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
+    "reported_classes": ["mixed", "all_positive", "all_negative"],
+    "comparison_to_abm": {
+      "source": "existing six-seed finite-community system-size audit",
+      "k_values": [1, 2, 4, 8, 16],
+      "replicates_per_seed": 96,
+      "seed_count": 6,
+      "metric": "pooled mixed-realization fraction across the six prespecified seeds"
+    }
+  },
+  "decision_rules": {
+    "mean_field_geometry": "classify the sign of the deterministic kernel contrast on all 21 trait-grid points without retuning",
+    "gaussian_accuracy": "report absolute mixed-probability error versus the pooled ABM estimate at k=1,2,4,8,16; no post-hoc threshold selection",
+    "asymptotic_branching": "if the mean-field contrast has one sign at every grid point, finite-community mixed branching must vanish asymptotically; if the mean-field contrast is mixed, branching survives the deterministic limit"
+  },
+  "prohibited": [
+    "calling the Gaussian approximation an exact Fokker-Planck solution",
+    "calling k=1024 the exact mean-field limit",
+    "using a result-dependent k grid or RNG seed",
+    "retuning the parent Chapter 2 parameters",
+    "interpreting pooled-copy k as a natural pollinator abundance estimate",
+    "changing the three-result empirical narrative or the historical 0/25 claim boundary"
+  ],
+  "claim_boundary": "This is a theory/approximation audit of the frozen zero-trait-adjustment synthetic submodel. It may clarify whether finite-community branching converges to a deterministic mean-field response, but it is not an empirical abundance model, an LNA validation for the full adaptive model, or a replacement for the finite-community simulation used in Chapter 2."
+}
