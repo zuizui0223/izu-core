@@ -19,7 +19,7 @@ def test_equal_turnover_generality_is_in_manuscript_and_fig2_caption():
     lower = text.lower()
     assert "70/96" in text
     assert "65.61%" in text
-    assert "equalizing the baseline mainland–island partner-arrival and partner-loss rates" in text
+    assert "equalizing the baseline mainland–island partner-arrival and partner-loss rates" in lower
     assert "does not make the two scenarios identical" in lower
     figure2 = text.split("**Figure 2.", 1)[1].split("**Figure 3.", 1)[0]
     assert "equal-turnover control" in figure2.lower()
