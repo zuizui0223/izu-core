@@ -40,12 +40,13 @@ Do not make the 0/25 full-contract result a fourth headline act. Do not use the 
 ### Main Figure 2 — Result 1 baseline conditional response geometry
 
 Retain:
-- 21-point starting-state response curve;
+- the 21-point baseline starting-state response curve as the visual reference;
 - 96 matched community realizations as the frozen historical design;
 - baseline mixed response count 41/96;
+- a compact robustness annotation that the existing-harness joint cross-check `replace(BASE, steps=240, trait_adjustment=0.0)` retains mixed branching in 75/96 realizations;
 - the baseline mean sign transitions as a model coordinate, not a universal ecological threshold.
 
-The exact realized-richness hard control is a structural attack on this baseline and should be stated in Result 1/Main Figure 1 rather than drawn as a replacement response curve.
+Do not add a second fitted response curve or retune any parameter. The joint 240-step / zero-adjustment check reuses two values already present in the frozen one-factor audit and is retained only to show that the branching claim is not peculiar to the historical baseline combination. The exact realized-richness hard control remains a separate structural attack and should be stated in Result 1/Main Figure 1 rather than drawn as a replacement response curve.
 
 ### Main Figure 3 — Result 1 proximal mechanism hierarchy
 
@@ -55,7 +56,7 @@ Retain four compact panels:
 - one representative local-filtering directionality contrast;
 - assurance magnitude improvement versus sign rescue.
 
-Interpret Fig. 3 together with the hard control: under exact realized-richness matching the community-realization share is 50.04–55.92%, state × community non-additivity 42.72–48.51% and starting-position additive share 0.94–2.21%.
+Interpret Fig. 3 together with the hard control: under exact realized-richness matching the community-realization share is 50.04–55.92%, state × community nonadditivity 42.72–48.51% and starting-position additive share 0.94–2.21%.
 
 ### Main Figure 4 — Result 2 exposure to Result 3 biological consequence
 
@@ -74,9 +75,10 @@ The main paper should be able to carry the argument with this compact set of qua
 
 ### Result 1
 - baseline response geometry: 41/96 individual realizations mixed;
+- existing-harness joint structural cross-check: 75/96 mixed at `steps=240` and `trait_adjustment=0.0`, with no new parameter values introduced;
 - equal-initial-richness diagnostic: 53/96 mixed, explicitly labelled as initial-richness only;
 - exact realized-richness hard control: mean all-positive in 6/6 matching seeds; individual mixed 51–65/96;
-- hard-control decomposition: starting position 0.94–2.21%, community realization 50.04–55.92%, state × community non-additivity 42.72–48.51%;
+- hard-control decomposition: starting position 0.94–2.21%, community realization 50.04–55.92%, state × community nonadditivity 42.72–48.51%;
 - regime movement: partner loss +0.634, arrival -0.626;
 - filtering example at strength 0.40: 15.67% negative->non-negative versus 56.54% positive->non-positive;
 - assurance: 0 sign rescues among 580 eligible declines through 4x.
@@ -99,7 +101,7 @@ Boundary-only numbers:
 
 ### S1-S16 — frozen model, mechanism and original robustness record
 
-Preserve model equations, parameterization, local-filtering/assurance designs, response decomposition, source-readiness audit and relational robustness.
+Preserve model equations, parameterization, local-filtering/assurance designs, response decomposition, source-readiness audit and relational robustness. The derived joint `steps=240` / `trait_adjustment=0.0` cross-check may be reported in Table S4 as a one-row structural generality check because it introduces no new model parameter or value.
 
 ### S17 — geography-first saturation and world-source boundary
 
@@ -141,6 +143,7 @@ Keep:
 ## Claim boundary
 
 The material split must not imply that:
+- the 75/96 joint structural cross-check is a new calibrated scenario or natural-frequency estimate;
 - the equal-initial-richness 53/96 result removes realized richness differences;
 - realized richness is irrelevant to mean-regime placement;
 - richness alone explains response branching;
