@@ -42,6 +42,7 @@ def test_current_scientific_gate_accepts_conditional_response_geometry_route():
     gate = bundle.validate_scientific_gate()
     assert gate["scientific_model_gate_complete"] is True
     assert gate["research_article_route"] == "candidate_conditional_response_geometry"
+    assert gate["realized_richness_reframe_complete"] is True
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
@@ -81,7 +82,7 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
         bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
 
 
-def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_path: Path, monkeypatch):
+def test_submission_bundle_routes_three_result_oikos_rtf_after_gate_closure(tmp_path: Path, monkeypatch):
     relational_inputs = tmp_path / "chapter2_manuscript_figure_inputs_relational_20260831.json"
 
     def fake_build_figures() -> dict:
@@ -93,7 +94,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
 
     def fake_review_archive(path: Path) -> Path:
         with zipfile.ZipFile(path, "w") as archive:
-            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous relational-response review archive\n")
+            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous three-result review archive\n")
         return path
 
     monkeypatch.setattr(bundle, "build_review_archive", fake_review_archive)
@@ -118,6 +119,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "MANUSCRIPT.md" not in names
         assert "TITLE_PAGE.md" not in names
         assert "REFERENCE_LIST.rtf" not in names
+        assert "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md" in names
         assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
         assert "data/results/chapter2_relational_robustness_audit_frozen_20260831.json" in names
         assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in names
@@ -131,11 +133,14 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "fldinst PAGE" in manuscript
         assert "\\page" in manuscript
         lower = manuscript.lower()
-        assert "response direction is therefore relational rather than intrinsic" in lower
-        assert "53/96" in manuscript
-        assert "null-corrected matching" in lower
-        assert "measurement continuity" in lower
-        assert "42 research entries across 37 exact geographic labels" in lower
+        assert "result 1" in lower and "result 2" in lower and "result 3" in lower
+        assert "real island systems undergo compositional reorganization beyond richness loss" in lower
+        assert "pollinator assemblage turnover was 0.9796" in lower
+        assert "matched-plant turnover was 0.6817" in lower
+        assert "functional community structure in izu" in lower
+        assert "historical boundary check" in lower
+        assert "response direction is therefore relational rather than intrinsic" not in lower
+        assert "richness reduction is not necessary for mixed response geometry" not in lower
         assert "supporting information" in lower
         assert "(appendix)" not in lower
         assert "fig. s" not in lower
@@ -146,12 +151,15 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "zuizui0223" not in lower
         assert "shimahotarubukuro" not in lower
         assert "campanula microdonta" in lower
+        assert "10.1111/btp.70027" in lower
+        assert "10.1111/cobi.70304" in lower
         assert "10.1111/cobi.13892" in lower
         assert "10.5194/bg-11-6657-2014" in lower
         assert "10.1111/j.1442-1984.1986.tb00018.x" in lower
         assert "10.1086/368394" in lower
         assert "hygiene decisions" not in lower
         assert "world-saturation synthesis source boundary" not in lower
+        assert "result 2 external compositional-exposure source boundary" not in lower
 
         supporting = archive.read(SUBMISSION_SI).decode("utf-8")
         assert supporting.startswith("{\\rtf1")
@@ -159,6 +167,7 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert "69.34" in supporting and "80.17" in supporting
         assert "partner arrival/replacement" in supporting
         assert "2/25" in supporting
+        assert "exact realized-richness matching hard control" in support_lower
         assert "cell-level simulation variation" not in support_lower
         assert "chapter 3" not in support_lower
 
@@ -179,8 +188,10 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
         assert manifest["journal"] == "Oikos"
         assert manifest["article_type"] == "Research Paper"
-        assert manifest["scientific_state"] == "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution"
-        assert manifest["manuscript_state"] == "active_20260906_world_saturation_izu_continuity_rendered_to_oikos_rtf_submission"
+        assert manifest["scientific_state"] == "three_result_hierarchical_response_architecture_with_bounded_historical_inference"
+        assert manifest["manuscript_state"] == "active_20260908_three_result_realized_richness_reframe_rendered_to_oikos_rtf_submission"
+        assert manifest["three_result_narrative"] is True
+        assert manifest["identifiability_coequal_study_objective"] is False
         assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
         assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
         assert manifest["submission_supporting_information"] == SUBMISSION_SI
@@ -190,12 +201,17 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert manifest["main_text_page_numbers"] is True
         assert manifest["introduction_forced_to_page_two"] is True
         assert manifest["main_text_reference_list_included"] is True
-        assert manifest["main_text_reference_scope"] == "active_references_only"
+        assert manifest["main_text_reference_scope"] == "active_references_plus_result2_external_sources"
         assert manifest["main_text_reference_audit_metadata_excluded"] is True
         assert manifest["world_descriptive_research_entries"] == 42
         assert manifest["world_descriptive_exact_geographic_labels"] == 37
         assert manifest["formal_identifiability_research_entries"] == 25
         assert manifest["formal_full_contracts"] == "0_of_25"
+        assert manifest["realized_richness_reframe_complete"] is True
+        assert manifest["realized_richness_mean_geometry"] == "all_positive_in_6_of_6_matching_seeds"
+        assert manifest["result2_external_exposure"]["wanshan_yongxing_partner_turnover"] == 0.979601473000006
+        assert manifest["result2_external_exposure"]["ogasawara_anijima_partner_turnover"] == 0.6816731479429761
+        assert manifest["result2_external_exposure"]["pooled_universal_effect_claimed"] is False
         assert manifest["izu_focal_selection_rule"] == "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit"
         assert manifest["chapter3_direct_phenotype_used_as_validation"] is False
         assert manifest["corresponding_author_orcid_required"] is True
@@ -207,4 +223,4 @@ def test_submission_bundle_routes_upload_ready_oikos_rtf_after_gate_closure(tmp_
         assert manifest["oikos_data_code_ready_for_first_submission"] is True
         assert manifest["submission_manuscript_internal_thesis_language_removed_fail_closed"] is True
         assert manifest["supporting_information_superseded_nonadditivity_wording_removed_fail_closed"] is True
-        assert manifest["figures_regenerated_from_frozen_gate_then_relational_overlay"] is True
+        assert manifest["figures_regenerated_from_frozen_gate_then_realized_richness_overlay"] is True

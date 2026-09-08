@@ -1,6 +1,6 @@
 # Chapter 2 Supporting Tables
 
-Updated: 2026-09-07
+Updated: 2026-09-08
 
 These tables are supporting material for the active Oikos manuscript. Main-text figures carry the inferential argument; the tables below preserve exact model settings, sensitivity summaries, structural attacks, world-saturation provenance and contemporary Izu diagnostics.
 
@@ -93,9 +93,10 @@ Upstream effective service was unchanged across assurance multipliers. In this i
 | Six-seed non-additivity range | 17.64-27.91% | relational contingency persists |
 | Horizon 30/60/120/240 mixed counts | 65/48/41/43 of 96 | mixed geometry persists across horizons |
 | Trait adjustment = 0 mixed count | 64/96 | trait adjustment not required for state-dependent mixed geometry |
+| Joint 240-step + trait adjustment = 0 mixed count | 75/96 | branching persists when the two existing structural sensitivities are imposed simultaneously; no new parameter values |
 | Equal initial richness mixed count | 53/96 | richness reduction not necessary for mixed geometry |
 
-The historical 17.64% remainder must not be described as containing within-cell simulation noise. Pollinator trajectories are generated once per realization and shared across starting positions; conditional on the trajectory, each response-matrix cell is deterministic.
+The historical 17.64% remainder must not be described as containing within-cell simulation noise. Pollinator trajectories are generated once per realization and shared across starting positions; conditional on the trajectory, each response-matrix cell is deterministic. The joint 240-step / zero-adjustment row is a derived cross-check using values already present in the frozen one-factor audit; it strengthens structural generality within the declared synthetic model but is not a new calibration or prevalence estimate.
 
 ## Table S5. Historical Izu signed-position projection and structural attacks
 

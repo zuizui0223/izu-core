@@ -3,13 +3,14 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from scripts.generate_chapter2_manuscript_tables import build as build_supporting_tables
+from scripts.render_chapter2_oikos_generality_overlay import build_supporting_tables, render_submission_manuscript
 from scripts.render_chapter2_supporting_information import render_supporting_information
-from scripts.render_island_ecology_submission_manuscript import render_submission_manuscript
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANUSCRIPT = ROOT / "dist/MANUSCRIPT.rtf"
 DEFAULT_SUPPORTING_INFORMATION = ROOT / "dist/SUPPORTING_INFORMATION.rtf"
+REALIZED_RICHNESS_S19 = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md"
+REALIZED_RICHNESS_TABLE_S9 = ROOT / "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md"
 
 
 def _rtf_escape(text: str) -> str:
@@ -104,8 +105,28 @@ def render_manuscript_rtf() -> str:
 
 def render_supporting_information_markdown() -> str:
     appendices = render_supporting_information().rstrip()
-    tables = build_supporting_tables().replace("# Chapter 2 Supporting Tables", "# Supporting Tables", 1)
-    return appendices + "\n\n" + tables
+    if not REALIZED_RICHNESS_S19.exists():
+        raise FileNotFoundError(REALIZED_RICHNESS_S19)
+    s19 = REALIZED_RICHNESS_S19.read_text(encoding="utf-8").strip()
+    tables = build_supporting_tables().replace("# Chapter 2 Supporting Tables", "# Supporting Tables", 1).rstrip()
+    if not REALIZED_RICHNESS_TABLE_S9.exists():
+        raise FileNotFoundError(REALIZED_RICHNESS_TABLE_S9)
+    table_s9 = REALIZED_RICHNESS_TABLE_S9.read_text(encoding="utf-8").strip()
+    text = appendices + "\n\n" + s19 + "\n\n" + tables + "\n\n" + table_s9 + "\n"
+    lower = text.lower()
+    for token in (
+        "appendix s19. exact realized-richness matching hard control",
+        "supporting table s9. exact realized-richness matching sensitivity",
+        "51–65/96",
+        "42.72–48.51%",
+        "mean regime is richness-sensitive",
+        "70/96",
+        "65.61%",
+        "equal turnover rates",
+    ):
+        if token not in lower:
+            raise ValueError(f"realized-richness / generality supporting material missing from Oikos SI: {token}")
+    return text
 
 
 def render_supporting_information_rtf() -> str:

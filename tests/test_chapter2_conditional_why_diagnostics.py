@@ -108,7 +108,7 @@ def test_active_manuscript_and_thesis_positioning_preserve_how_why_boundary():
 
 def test_generated_tables_include_current_supporting_material_contract():
     text = TABLES.read_text(encoding="utf-8")
-    assert text == build_tables()
+    assert text.rstrip("\n") == build_tables().rstrip("\n")
     assert text.startswith("# Chapter 2 Supporting Tables")
     assert "## Table S4. Conditional-WHY and relational-robustness diagnostics" in text
     assert "Historical community-realization SS fraction | 80.17%" in text

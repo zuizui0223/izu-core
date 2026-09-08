@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.10",
-  "updated_on": "2026-09-06",
+  "schema_version": "1.12",
+  "updated_on": "2026-09-08",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
   "routing_status": "active_first_submission_route",
@@ -8,23 +8,25 @@
   "journal_fit_audit": "docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md",
   "submission_checklist": "docs/CHAPTER2_OIKOS_SUBMISSION_CHECKLIST_20260831.md",
   "submission_closure_audit": "data/results/chapter2_submission_closure_audit_20260906.json",
-  "narrative_lock": "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md",
+  "narrative_lock": "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
+  "historical_four_act_narrative_lock": "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "historical_v2_source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
-  "journal_clean_renderer": "scripts/render_island_ecology_submission_manuscript.py",
+  "journal_clean_renderer": "scripts/render_chapter2_realized_richness_reframe.py",
+  "pre_richness_renderer": "scripts/render_island_ecology_submission_manuscript.py",
   "oikos_rtf_renderer": "scripts/render_oikos_submission_rtf.py",
-  "supporting_information_renderer": "scripts/render_chapter2_supporting_information.py",
+  "supporting_information_renderer": "scripts/render_chapter2_supporting_information.py + Appendix S19 overlay",
   "submission_metadata": "data/design/island_ecology_submission_metadata_template.json",
   "submission_builder": "scripts/build_island_ecology_submission_bundle.py",
   "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
-  "scientific_state": "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution",
+  "scientific_state": "three_result_hierarchical_response_architecture_with_bounded_historical_inference",
   "project_tier": "Tier_B",
-  "story": "simulation_to_world_confrontation_to_process_measurement_bottleneck_to_izu_mechanistic_resolution_zoom",
-  "four_act_inference_roles": {
-    "theory": "simulation_defines_relational_response_geometry_and_proximal_mechanism",
-    "global_confrontation": "carry_response_vocabulary_into_empirical_island_diversity_without_assigning_synthetic_regime_labels_and_test_geography_first_saturation",
-    "identifiability": "diagnose_outcome_rich_process_poor_transition_measurement_bottleneck",
-    "izu_mechanistic_zoom": "select_depth_by_measurement_continuity_and_separate_historical_inference_from_present_functional_realization"
+  "story": "mechanistic_prediction_to_real_world_compositional_exposure_to_izu_biological_consequence",
+  "three_result_inference_roles": {
+    "result_1_mechanistic_prediction": "simulation_separates_richness_sensitive_coarse_regime_placement_from_state_by_community_branch_identity",
+    "result_2_real_world_exposure": "source_native_external_networks_show_partner_turnover_rewiring_beyond_decisive_richness_loss",
+    "result_3_biological_consequence": "izu_contemporary_functional_structure_maps_to_corrected_matching_then_downstream_floral_and_pollen_responses_branch",
+    "identifiability_role": "claim_boundary_and_robustness_only_not_coequal_study_objective"
   },
   "world_breadth_extension": {
     "formal_identifiability_research_entries": 25,
@@ -76,30 +78,60 @@
     "audit_script": "scripts/audit_chapter2_relational_robustness.py",
     "historical_freeze_rewritten": false,
     "baseline_percentages_role": "historical_reproducible_example_not_stable_headline",
-    "seed_community_fraction_range": [
-      0.6933825278526522,
-      0.8017383395125494
-    ],
-    "seed_starting_position_fraction_range": [
-      0.021691380526058714,
-      0.0313738285406023
-    ],
-    "seed_nonadditive_fraction_range": [
-      0.17642957676987792,
-      0.27913675615068034
-    ],
+    "seed_community_fraction_range": [0.6933825278526522, 0.8017383395125494],
+    "seed_starting_position_fraction_range": [0.021691380526058714, 0.0313738285406023],
+    "seed_nonadditive_fraction_range": [0.17642957676987792, 0.27913675615068034],
     "community_largest_across_prespecified_seeds": true,
     "community_largest_across_steps_30_60_120_240": true,
     "mixed_at_zero_trait_adjustment": "64_of_96",
     "equal_initial_richness_mixed": "53_of_96",
-    "equal_richness_claim": "reduced_initial_pollinator_richness_not_necessary_for_mixed_geometry_only"
+    "equal_initial_richness_claim": "initial_richness_reduction_not_required_for_mixed_individual_realizations_only"
+  },
+  "realized_richness_hard_control": {
+    "design": "data/design/chapter2_realized_richness_matching_freeze_20260907.json",
+    "decision": "data/results/chapter2_realized_richness_matching_decision_20260907.json",
+    "audit_script": "scripts/audit_chapter2_realized_richness_matching.py",
+    "matching_rule": "stepwise_min_realized_richness_response_blind_subsampling",
+    "all_snapshot_pairs_equal_after_matching": true,
+    "matching_seeds": 6,
+    "mean_geometry": "all_positive_in_6_of_6_matching_seeds",
+    "mixed_individual_realizations_range": "51_to_65_of_96",
+    "starting_position_fraction_range": [0.009359098313020316, 0.02209561674670002],
+    "community_realization_fraction_range": [0.5003942039547032, 0.5592221633209156],
+    "state_by_community_nonadditivity_range": [0.4272397924506457, 0.4850701049302678],
+    "prespecified_gate_decision": "blocker_failed_reframe_before_author_metadata",
+    "reframe_integrated": true,
+    "supported_headline": "mean_regime_placement_is_richness_sensitive_while_branch_identity_remains_relational",
+    "prohibited_headline": "realized_richness_differences_are_unnecessary_for_mean_mixed_geometry"
+  },
+  "result2_external_exposure": {
+    "role": "real_world_test_of_compositional_reorganization_beyond_decisive_richness_loss",
+    "independent_context_examples": 2,
+    "wanshan_yongxing": {
+      "partner_turnover": 0.979601473000006,
+      "partner_turnover_interval": [0.9442575309081302, 1.0],
+      "pollinator_richness_lrr": -0.10536051565782628,
+      "pollinator_richness_lrr_interval": [-1.3217558399823195, 0.28768207245178085],
+      "causal_claim_allowed": false
+    },
+    "ogasawara_anijima_context": {
+      "partner_turnover": 0.6816731479429761,
+      "partner_turnover_interval": [0.49749331369503497, 0.9652568511362428],
+      "pollinator_richness_lrr": -0.31461524740250146,
+      "pollinator_richness_lrr_interval": [-0.8754687373538999, 0.4054651081081644],
+      "causal_claim_allowed": false
+    },
+    "pooled_universal_island_effect_claimed": false
   },
   "claim_ceiling": {
-    "relational_response_headline": "response_direction_depends_on_state_evaluated_against_realized_community",
+    "mean_regime_placement": "richness_sensitive_in_declared_synthetic_model",
+    "relational_response_headline": "branch_identity_depends_on_state_evaluated_against_realized_community_composition",
+    "external_compositional_exposure": "partner_turnover_beyond_decisive_richness_loss_supported_in_two_independent_source_native_contexts",
     "formal_external_prediction": "not_evaluable",
     "external_full_contracts": "0_of_25",
-    "external_measurement_structure": "outcome_rich_process_poor",
-    "world_step_projects": "response_vocabulary_not_synthetic_regime_assignments",
+    "external_measurement_structure": "outcome_rich_process_poor_historical_claim_boundary",
+    "identifiability_role": "claim_boundary_not_primary_result",
+    "world_step_projects": "response_vocabulary_and_compositional_exposure_not_synthetic_regime_assignments",
     "direct_response_outcome": "21_of_25",
     "direct_partner_arrival_replacement": "2_of_25",
     "post_freeze_breadth_extension_changes_frozen_25_metrics": false,
@@ -107,18 +139,22 @@
     "izu_beyond_composition_sorting": "unsupported_for_historical_signed_position_projection",
     "izu_contemporary_fdq_to_corrected_matching": "supported_with_leave_one_island_sign_stability",
     "izu_matching_to_pollen": "positive_on_average_not_leave_one_island_sign_stable",
+    "izu_cross_channel_branching": "matching_lower_8_of_8_tube_3_shorter_4_longer_1_unchanged_pollen_4_lower_4_higher",
     "izu_oshima_bridge": "unsupported",
     "izu_focal_selection_based_on_convenience": false,
     "izu_focal_selection_based_on_positive_model_fit": false,
     "chapter3_used_as_validation": false,
-    "synthetic_design_frequencies_interpreted_as_natural_prevalence": false
+    "synthetic_design_frequencies_interpreted_as_natural_prevalence": false,
+    "realized_richness_hard_control_interpreted_as_empirical_causal_estimate": false
   },
   "oikos_initial_submission_contract": {
     "double_blind": true,
     "article_type": "Research Paper",
     "abstract_max_words": 300,
-    "active_abstract_target_words": 280,
-    "four_act_submission_narrative": true,
+    "active_abstract_target_words": 299,
+    "three_result_submission_narrative": true,
+    "four_act_submission_narrative": false,
+    "identifiability_is_coequal_study_objective": false,
     "world_step_assigns_empirical_systems_to_synthetic_regimes": false,
     "upload_file_format": "RTF",
     "single_column": true,
@@ -128,8 +164,8 @@
     "introduction_begins_page_two": true,
     "title_page_separate_from_blinded_main_text": true,
     "main_text_reference_list_included": true,
-    "main_text_reference_source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
-    "main_text_reference_scope": "active_references_only",
+    "main_text_reference_source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md + Result 2 external source overlay",
+    "main_text_reference_scope": "active_references_plus_result2_external_sources",
     "main_text_reference_audit_metadata_excluded": true,
     "supporting_information_separate": true,
     "supporting_information_references_generic_only": true,
@@ -146,7 +182,11 @@
     "credit_required_at_initial_submission": false,
     "credit_required_at_revision": true,
     "data_and_code_ready_for_first_submission": true,
-    "old_within_cell_noise_wording_blocked_from_submission_si": true
+    "old_within_cell_noise_wording_blocked_from_submission_si": true,
+    "realized_richness_reframe_required_and_integrated": true,
+    "three_result_reframe_required_and_integrated": true,
+    "supporting_appendix_s19_included": true,
+    "supporting_table_s9_included": true
   },
   "submission_ready": false,
   "remaining_blocker": "author_supplied_identity_prior_work_context_ethics_confirmation_and_submission_declarations",

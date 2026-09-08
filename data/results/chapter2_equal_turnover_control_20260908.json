@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_equal_turnover_control",
+  "status": "reconstructed_existing_model_control_20260908",
+  "seed": 20260826,
+  "matched_community_realizations": 96,
+  "control": {
+    "description": "Remove the baseline mainland-island turnover-rate asymmetry by setting the island partner-arrival and partner-loss probabilities equal to the frozen mainland baseline values while leaving all other scenario differences unchanged.",
+    "mainland_partner_arrival": 0.28,
+    "mainland_partner_loss": 0.015,
+    "island_partner_arrival_before": 0.12,
+    "island_partner_loss_before": 0.055,
+    "island_partner_arrival_after": 0.28,
+    "island_partner_loss_after": 0.015,
+    "other_parameters_retained": true
+  },
+  "baseline": {
+    "mixed_sign": 41,
+    "all_positive": 42,
+    "all_negative": 13,
+    "other": 0,
+    "starting_position_fraction": 0.021832083717572618,
+    "community_realization_fraction": 0.8017383395125494,
+    "state_by_community_nonadditivity_fraction": 0.17642957676987792
+  },
+  "equal_turnover": {
+    "mixed_sign": 70,
+    "all_positive": 26,
+    "all_negative": 0,
+    "other": 0,
+    "starting_position_fraction": 0.0069225752114906,
+    "community_realization_fraction": 0.3369327069221323,
+    "state_by_community_nonadditivity_fraction": 0.6561447178663772
+  },
+  "interpretation": "The baseline mainland-island partner-arrival/loss asymmetry is not required for branching in the declared synthetic model. Equalizing those turnover rates increases the number of mixed individual community realizations from 41/96 to 70/96 and shifts the fixed-matrix decomposition toward state-by-community nonadditivity. This is a model-internal structural-generality control, not a natural-frequency estimate or evidence that all island assumptions have been removed.",
+  "claim_boundary": "The control leaves initial richness, trait dispersion, generalist fraction and replacement fraction at their original mainland-like versus island-like values. It therefore removes the baseline turnover-rate asymmetry specifically; it does not make the two scenarios identical and does not establish transportability beyond this plant-pollinator model class."
+}

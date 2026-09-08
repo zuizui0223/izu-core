@@ -15,7 +15,7 @@ from scripts.build_island_ecology_submission_metadata import (
     render_title_page,
     validate_metadata,
 )
-from scripts.generate_chapter2_manuscript_figures_relational import build_figures
+from scripts.generate_chapter2_manuscript_figures_realized_richness import build_figures
 from scripts.render_oikos_submission_rtf import (
     render_manuscript_rtf,
     render_plain_text_rtf,
@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_submission_bundle.zip"
 REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
+REALIZED_RICHNESS_DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_20260907.json"
 SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.rtf"
 SUBMISSION_SI_NAME = "SUPPORTING_INFORMATION.rtf"
@@ -41,9 +42,14 @@ STATIC_SUBMISSION_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
+    "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
     "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
+    "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md",
+    "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md",
     "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
+    "data/design/chapter2_realized_richness_matching_freeze_20260907.json",
     "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
+    "data/results/chapter2_realized_richness_matching_decision_20260907.json",
     ACTIVE_SUBMISSION_MANIFEST,
 )
 
@@ -59,6 +65,15 @@ def validate_scientific_gate() -> dict:
         raise ValueError("Chapter 2 scientific model gate is not complete")
     if gate.get("research_article_route") != "candidate_conditional_response_geometry":
         raise ValueError("Chapter 2 is not currently routed to the conditional-response-geometry Research Article candidate")
+    if gate.get("realized_richness_reframe_complete") is not True:
+        raise ValueError("Chapter 2 realized-richness reframe is not complete")
+    if not REALIZED_RICHNESS_DECISION.exists():
+        raise ValueError("realized-richness decision is missing")
+    decision = json.loads(REALIZED_RICHNESS_DECISION.read_text(encoding="utf-8"))
+    if decision.get("prespecified_gate", {}).get("decision") != "blocker_failed_reframe_before_author_metadata":
+        raise ValueError("realized-richness decision no longer matches the frozen reframe")
+    if gate.get("realized_richness_decision") != REALIZED_RICHNESS_DECISION.relative_to(ROOT).as_posix():
+        raise ValueError("scientific gate is not linked to the frozen realized-richness decision")
     return gate
 
 
@@ -113,15 +128,32 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         build_review_archive(review_archive)
 
         main_rtf = manuscript.read_text(encoding="utf-8")
+        lower_main = main_rtf.lower()
         for control in ("\\sl480\\slmult1", "\\linemod1", "\\linecont", "fldinst PAGE", "\\page"):
             if control not in main_rtf:
                 raise ValueError(f"Oikos manuscript formatting control missing: {control}")
+        required_story = (
+            "result 1",
+            "result 2",
+            "result 3",
+            "real island systems undergo compositional reorganization beyond richness loss",
+            "functional community structure in izu",
+        )
+        missing_story = [token for token in required_story if token not in lower_main]
+        if missing_story:
+            raise ValueError(f"Oikos manuscript lost the three-result narrative: {missing_story}")
+        if "richness reduction is not necessary for mixed response geometry" in lower_main:
+            raise ValueError("stale richness-independent claim survived Oikos manuscript rendering")
+        if "response direction is therefore relational rather than intrinsic" in lower_main:
+            raise ValueError("stale pre-richness headline survived Oikos manuscript rendering")
 
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "relational_response_geometry_with_structural_robustness_and_bounded_empirical_resolution",
-            "manuscript_state": "active_20260906_world_saturation_izu_continuity_rendered_to_oikos_rtf_submission",
+            "scientific_state": "three_result_hierarchical_response_architecture_with_bounded_historical_inference",
+            "manuscript_state": "active_20260908_three_result_realized_richness_reframe_rendered_to_oikos_rtf_submission",
+            "three_result_narrative": True,
+            "identifiability_coequal_study_objective": False,
             "source_manuscript": SOURCE_MANUSCRIPT,
             "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
             "submission_supporting_information": SUBMISSION_SI_NAME,
@@ -135,12 +167,23 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "main_text_page_numbers": True,
             "introduction_forced_to_page_two": True,
             "main_text_reference_list_included": True,
-            "main_text_reference_scope": "active_references_only",
+            "main_text_reference_scope": "active_references_plus_result2_external_sources",
             "main_text_reference_audit_metadata_excluded": True,
             "world_descriptive_research_entries": 42,
             "world_descriptive_exact_geographic_labels": 37,
             "formal_identifiability_research_entries": 25,
             "formal_full_contracts": "0_of_25",
+            "realized_richness_reframe_complete": True,
+            "realized_richness_mean_geometry": "all_positive_in_6_of_6_matching_seeds",
+            "realized_richness_mixed_individual_realizations": "51_to_65_of_96",
+            "realized_richness_nonadditivity_fraction": "0.4272_to_0.4851",
+            "result2_external_exposure": {
+                "wanshan_yongxing_partner_turnover": 0.979601473000006,
+                "wanshan_yongxing_richness_lrr": -0.10536051565782628,
+                "ogasawara_anijima_partner_turnover": 0.6816731479429761,
+                "ogasawara_anijima_richness_lrr": -0.31461524740250146,
+                "pooled_universal_effect_claimed": False,
+            },
             "izu_focal_selection_rule": "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit",
             "chapter3_direct_phenotype_used_as_validation": False,
             "corresponding_author_orcid_required": True,
@@ -151,7 +194,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "oikos_significance_statement_included": True,
             "oikos_submission_statements_included": True,
             "oikos_data_code_ready_for_first_submission": True,
-            "figures_regenerated_from_frozen_gate_then_relational_overlay": True,
+            "figures_regenerated_from_frozen_gate_then_realized_richness_overlay": True,
             "model_gate": gate.get("status"),
             "files": [
                 SUBMISSION_MANUSCRIPT_NAME,
@@ -166,12 +209,11 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "anonymous_review_archive.zip",
             ],
             "boundary": (
-                "The historical Chapter 2 freeze chain remains unchanged. Packaging renders the active world-saturation/Izu-continuity manuscript into "
-                "Oikos-compatible RTF with double spacing, continuous line numbering, page numbering, an in-manuscript active reference list and a page break before Introduction. "
-                "The exact 80.17/17.64/2.18% baseline decomposition remains one frozen example; structural inference is based on component ordering, "
-                "state-by-community nonadditivity and prespecified seed/horizon/trait-adjustment/equal-richness sensitivities. World confrontation retains a 42-entry/37-label descriptive breadth surface "
-                "while the formal identifiability audit stays frozen at 25 entries and 0/25 full contracts. Izu is selected after world saturation by measurement continuity and falsification capacity, "
-                "not proximity, representativeness or positive model fit; the direct focal phenotype remains outside Chapter 2 validation."
+                "The submission is organized as mechanistic prediction -> real-world compositional exposure -> Izu biological consequence. "
+                "Exact realized-richness matching shifts the ensemble mean geometry to all-positive in all six matching seeds, while 51-65/96 individual communities remain mixed and state-by-community nonadditivity remains 42.72-48.51%. "
+                "Wanshan-Yongxing and Ogasawara provide bounded source-native examples of strong partner turnover without a decisive richness contrast; they are not pooled as a universal island effect. "
+                "Izu then shows a robust contemporary FDQ-to-corrected-matching association and weaker, branched downstream propagation. "
+                "The frozen 25-entry identifiability audit remains a historical claim boundary at 0/25 full contracts, not a coequal study objective, and present associations do not identify historical Bombus loss."
             ),
         }
 

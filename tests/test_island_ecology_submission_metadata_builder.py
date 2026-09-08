@@ -183,14 +183,19 @@ def test_checklist_places_author_metadata_after_closed_scientific_gate():
     assert "will raise an error until all required metadata and declarations are supplied" in lower
 
 
-def test_oikos_checklist_uses_relational_and_current_submission_contract():
+def test_oikos_checklist_uses_three_result_and_current_submission_contract():
     text = OIKOS_CHECKLIST.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "process-measurement bottleneck" in lower
-    assert "response direction is relational rather than intrinsic" in lower
-    assert "exact baseline variance shares are finite-ensemble diagnostics" in lower
+    assert "mechanistic prediction → real-world compositional exposure → izu biological consequence" in lower
+    assert "identifiability role: **claim boundary / robustness only; not a coequal study objective**" in lower
+    assert "mean all-positive in **6/6**" in lower
+    assert "51–65/96" in text
+    assert "wanshan–yongxing matched plants show partner turnover **0.9796" in lower
+    assert "ogasawara anijima context shows partner turnover **0.6817" in lower
     assert "21/25" in text and "2/25" in text
-    assert "prespecified Oshima-source bridge is unsupported" in text
+    assert "matching-to-pollen propagation is positive on average" in lower
+    assert "3 shorter / 4 longer / 1 unchanged" in lower
+    assert "prespecified oshima-source bridge is unsupported" in lower
     assert "manuscript.rtf" in lower
     assert "continuous line numbering" in lower
     assert "introduction forced to begin on page two" in lower
