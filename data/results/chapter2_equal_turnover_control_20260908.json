@@ -28,8 +28,8 @@
     "all_positive": 26,
     "all_negative": 0,
     "other": 0,
-    "starting_position_fraction": 0.006922575211490598,
-    "community_realization_fraction": 0.3369327069221322,
+    "starting_position_fraction": 0.0069225752114906,
+    "community_realization_fraction": 0.3369327069221323,
     "state_by_community_nonadditivity_fraction": 0.6561447178663772
   },
   "interpretation": "The baseline mainland-island partner-arrival/loss asymmetry is not required for branching in the declared synthetic model. Equalizing those turnover rates increases the number of mixed individual community realizations from 41/96 to 70/96 and shifts the fixed-matrix decomposition toward state-by-community nonadditivity. This is a model-internal structural-generality control, not a natural-frequency estimate or evidence that all island assumptions have been removed.",
