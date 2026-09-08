@@ -14,6 +14,21 @@ def test_oikos_title_is_not_island_scoped():
     assert "in island plant–pollinator systems" not in first_line.lower()
 
 
+def test_island_syndrome_novelty_is_explicit_without_becoming_title_scope():
+    text = render_submission_manuscript()
+    lower = text.lower()
+    assert "ensemble-level regime shifts rather than deterministic lineage-level trait rules" in lower
+    assert "how a coherent island-level tendency can coexist with opposing lineage-level responses" in lower
+    assert "scale-dependent response architecture" in lower
+    assert "the syndrome is the shifted regime, not a universal phenotype" in lower
+    abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
+    assert "ensemble-level regime shifts" in abstract.lower()
+    introduction = text.split("# Introduction", 1)[1].split("# Materials and Methods", 1)[0]
+    assert "opposing lineage-level responses" in introduction.lower()
+    discussion = text.split("# Discussion", 1)[1]
+    assert "shift in the distribution of possible responses" in discussion.lower()
+
+
 def test_equal_turnover_generality_is_in_manuscript_and_fig2_caption():
     text = render_submission_manuscript()
     lower = text.lower()
