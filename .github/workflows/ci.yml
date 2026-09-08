@@ -43,6 +43,16 @@ jobs:
           name: chapter2-realized-richness-matching-audit
           path: data/results/chapter2_realized_richness_matching_frozen_20260907.json
           if-no-files-found: error
+      - name: Run Chapter 2 finite-community system-size audit
+        if: matrix.python-version == '3.11'
+        run: python -m scripts.audit_chapter2_finite_community_system_size --out data/results/chapter2_finite_community_system_size_20260908.json
+      - name: Upload Chapter 2 finite-community system-size audit
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-finite-community-system-size-audit
+          path: data/results/chapter2_finite_community_system_size_20260908.json
+          if-no-files-found: error
       - name: Upload pytest reports on failure
         if: failure()
         uses: actions/upload-artifact@v4
