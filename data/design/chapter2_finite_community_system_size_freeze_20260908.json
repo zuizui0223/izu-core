@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "status": "fixed_before_execution",
+  "frozen_on": "2026-09-08",
+  "parent_main_commit": "35d93436b8bd929b6767965c02c8f6c4cfb500dc",
+  "question": "Does response branching and community-realization variance persist as the finite pollinator community is enlarged toward a mean-field-like pooled limit without changing the per-copy stochastic process?",
+  "baseline": {
+    "config": "scripts/run_response_geometry_parameter_robustness.py:BASE",
+    "steps": 120,
+    "trait_adjustment": 0.0,
+    "matched_community_realizations": 96,
+    "trait_grid": "scripts/run_response_geometry_parameter_robustness.py:TRAIT_GRID"
+  },
+  "system_size_scaling": {
+    "copy_counts": [1, 2, 4, 8, 16],
+    "pooling_rule": "For each scenario and realization, generate k independent copies of the unchanged finite-community Markov process and concatenate their extant pollinators at each endpoint. Per-copy initial richness, arrival, loss, trait dispersion, generalist fraction, replacement fraction and match parameters are unchanged.",
+    "service_normalization": "unchanged mean extant-partner match; pooling does not increase service merely by increasing abundance",
+    "interpretation": "Increasing k reduces compositional sampling noise and empty-community probability while preserving the expected partner-trait mixture of each declared scenario. It is a finite-system-size proxy, not an exact PDE, master-equation or linear-noise solution."
+  },
+  "seed_ensemble": {
+    "values": [20260826, 20250101, 20260833, 20260827, 999983, 12345],
+    "provenance": "same prespecified six-seed ensemble as the frozen relational-robustness audit"
+  },
+  "reported_metrics": [
+    "realization_class_counts",
+    "starting_position_sum_of_squares_fraction",
+    "community_realization_sum_of_squares_fraction",
+    "starting_position_by_community_nonadditivity_fraction",
+    "final_pollinator_count_mean_sd_cv_by_scenario",
+    "empty_final_community_fraction_by_scenario"
+  ],
+  "decision_rules": {
+    "finite_N_signature": "A decline in final-community CV/empty fraction with k verifies that pooling reduces finite-community sampling noise.",
+    "branching_if_declines": "If mixed realizations and/or community-realization variance decline with k, finite-N sampling contributes materially to branch expression.",
+    "branching_if_persists": "If mixed realizations or nonadditivity persist at large k, branch geometry is not reducible to finite-N noise and survives toward the scenario-level compositional limit.",
+    "no_retuning": true,
+    "no_seed_selection": true
+  },
+  "claim_boundary": "This audit does not claim that k=16 is an exact mean-field limit, does not solve a Fokker-Planck or Langevin approximation, and does not estimate natural population sizes. The zero-trait-adjustment submodel is used to isolate community-composition sampling from adaptive plant-state motion."
+}

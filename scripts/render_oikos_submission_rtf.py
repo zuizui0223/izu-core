@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANUSCRIPT = ROOT / "dist/MANUSCRIPT.rtf"
 DEFAULT_SUPPORTING_INFORMATION = ROOT / "dist/SUPPORTING_INFORMATION.rtf"
 REALIZED_RICHNESS_S19 = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md"
+FINITE_COMMUNITY_S20 = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_S20_FINITE_COMMUNITY_20260908.md"
 REALIZED_RICHNESS_TABLE_S9 = ROOT / "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md"
 
 
@@ -108,14 +109,18 @@ def render_supporting_information_markdown() -> str:
     if not REALIZED_RICHNESS_S19.exists():
         raise FileNotFoundError(REALIZED_RICHNESS_S19)
     s19 = REALIZED_RICHNESS_S19.read_text(encoding="utf-8").strip()
+    if not FINITE_COMMUNITY_S20.exists():
+        raise FileNotFoundError(FINITE_COMMUNITY_S20)
+    s20 = FINITE_COMMUNITY_S20.read_text(encoding="utf-8").strip()
     tables = build_supporting_tables().replace("# Chapter 2 Supporting Tables", "# Supporting Tables", 1).rstrip()
     if not REALIZED_RICHNESS_TABLE_S9.exists():
         raise FileNotFoundError(REALIZED_RICHNESS_TABLE_S9)
     table_s9 = REALIZED_RICHNESS_TABLE_S9.read_text(encoding="utf-8").strip()
-    text = appendices + "\n\n" + s19 + "\n\n" + tables + "\n\n" + table_s9 + "\n"
+    text = appendices + "\n\n" + s19 + "\n\n" + s20 + "\n\n" + tables + "\n\n" + table_s9 + "\n"
     lower = text.lower()
     for token in (
         "appendix s19. exact realized-richness matching hard control",
+        "appendix s20. finite-community system-size audit",
         "supporting table s9. exact realized-richness matching sensitivity",
         "51–65/96",
         "42.72–48.51%",
@@ -123,6 +128,9 @@ def render_supporting_information_markdown() -> str:
         "70/96",
         "65.61%",
         "equal turnover rates",
+        "44–60",
+        "0.134–0.172",
+        "finite-community sampling therefore contributes materially",
     ):
         if token not in lower:
             raise ValueError(f"realized-richness / generality supporting material missing from Oikos SI: {token}")
