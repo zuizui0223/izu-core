@@ -8,7 +8,7 @@ import zipfile
 from pathlib import Path
 
 from scripts.generate_chapter2_manuscript_figures_realized_richness import build_figures
-from scripts.render_chapter2_realized_richness_reframe import render_submission_manuscript
+from scripts.render_chapter2_oikos_generality_overlay import render_submission_manuscript
 from scripts.render_oikos_submission_rtf import render_supporting_information_markdown
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,11 +54,13 @@ CORE_REVIEW_FILES = (
     "data/results/chapter2_interaction_kernel_audit_frozen_20260828.json",
     "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
     "data/results/chapter2_realized_richness_matching_decision_20260907.json",
+    "data/results/chapter2_equal_turnover_control_20260908.json",
     "data/results/wanshan_yongxing/effect_rows.json",
     "data/results/ogasawara/context_analysis/effect_rows.json",
     "scripts/audit_chapter2_interaction_kernel.py",
     "scripts/audit_chapter2_relational_robustness.py",
     "scripts/audit_chapter2_realized_richness_matching.py",
+    "scripts/audit_chapter2_equal_turnover_control.py",
     "scripts/generate_chapter2_manuscript_figures.py",
     "scripts/generate_chapter2_manuscript_figures_relational.py",
     "scripts/generate_chapter2_manuscript_figures_realized_richness.py",
@@ -145,10 +147,13 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "real island systems undergo compositional reorganization beyond richness loss",
             "pollinator assemblage turnover was 0.9796",
             "matched-plant turnover was 0.6817",
+            "response geometry under community reorganization: richness-sensitive regimes and state-dependent branching",
+            "70/96",
+            "65.61%",
         )
         missing_story = [token for token in required_story if token not in manuscript_lower]
         if missing_story:
-            raise ValueError(f"three-result narrative missing from anonymous manuscript: {missing_story}")
+            raise ValueError(f"three-result/generality narrative missing from anonymous manuscript: {missing_story}")
         if "richness reduction is not necessary for mixed response geometry" in manuscript_lower:
             raise ValueError("stale richness-independent claim survived anonymous manuscript")
         if "response direction is therefore relational rather than intrinsic" in manuscript_lower:
@@ -162,7 +167,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         }
         si_record = {
             "path": ANONYMOUS_SI_NAME,
-            "source": "base SI + relational correction + realized-richness S19 + Supporting Tables S1-S9",
+            "source": "base SI + relational correction + realized-richness S19 + Supporting Tables S1-S9 + equal-turnover generality overlay",
             "sha256": sha256(supporting_information),
             "size_bytes": supporting_information.stat().st_size,
         }
@@ -180,11 +185,13 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "review_manuscript_internal_thesis_language_removed_fail_closed": True,
             "supporting_information_superseded_nonadditivity_wording_removed_fail_closed": True,
             "realized_richness_reframe_included_fail_closed": True,
+            "equal_turnover_generality_control_included_fail_closed": True,
             "three_result_reframe_included_fail_closed": True,
             "scientific_state": "three_result_hierarchical_response_architecture_with_bounded_historical_inference",
             "frozen_figures_regenerated_then_realized_richness_overlay": True,
             "relational_robustness_audit_included": True,
             "realized_richness_hard_control_included": True,
+            "equal_turnover_control_included": True,
             "result2_external_exposure_rows_included": True,
             "interaction_kernel_identity_audit_included": True,
             "izu_source_gate_included": True,
@@ -197,12 +204,13 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "claim_boundary": (
                 "The archive preserves the frozen synthetic analyses but presents the paper as three linked results: mechanistic prediction, real-world compositional exposure and Izu biological consequence. "
                 "Exact realized-richness matching makes the ensemble mean all-positive in all six matching seeds while 51-65/96 individual communities remain mixed and state-by-community nonadditivity remains 42.72-48.51%. "
+                "A separate equal-turnover control removes the baseline mainland-island partner-arrival/loss asymmetry while retaining all other scenario differences; 70/96 individual communities remain mixed and state-by-community nonadditivity is 65.61%. "
                 "Wanshan-Yongxing and Ogasawara provide bounded source-native examples of substantial partner turnover without a decisive richness contrast, not pooled causal replication. "
                 "Izu then links contemporary functional community structure to corrected matching and shows weaker, branched downstream propagation. "
                 "The historical 0/25 full-contract result is retained only to bound causal transition claims and does not define the study objective."
             ),
         }
-        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the three-result response-architecture Research Paper.\n\nThe manuscript is organized as **mechanistic prediction -> real-world compositional exposure -> biological consequence**. Result 1 uses the frozen model and the prespecified exact realized-richness hard control. That control changes the ensemble mean response geometry to all-positive in all six matching seeds, while 51-65/96 individual community realizations remain mixed and state-by-community nonadditivity remains 42.72-48.51%. The supported theoretical claim is therefore that richness helps position the coarse regime while branch identity remains contingent on plant state and realized composition.\n\nResult 2 tests whether the required ecological exposure exists in real island networks. Wanshan-Yongxing and Ogasawara show substantial source-native partner turnover while the corresponding pollinator-richness contrasts are less decisive. These are bounded context examples, not a universal island coefficient or causal treatment.\n\nResult 3 uses contemporary Izu networks: FDQ-to-corrected-matching is sign-stable across island omissions, matching-to-pollen propagation is weaker, and plants sharing lower corrected matching branch into different floral and pollen outcomes. Historical signed-position and source-audit results are retained as claim boundaries so present functional associations are not rewritten as historical Bombus causation.\n\nThe formal source audit remains available for reviewer inspection: no entry meets the full joint outcome-independent historical transition contract. That result bounds causal interpretation; it is not a coequal study objective.\n"""
+        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the three-result response-architecture Research Paper.\n\nThe manuscript is organized as **mechanistic prediction -> real-world compositional exposure -> biological consequence**. Result 1 uses the frozen model and the prespecified exact realized-richness hard control. That control changes the ensemble mean response geometry to all-positive in all six matching seeds, while 51-65/96 individual community realizations remain mixed and state-by-community nonadditivity remains 42.72-48.51%. A separate equal-turnover control removes the baseline mainland-island partner-arrival/loss asymmetry while retaining the other scenario differences; 70/96 community realizations remain mixed and state-by-community nonadditivity is 65.61%. The supported theoretical claim is therefore that richness helps position the coarse regime while branch identity remains contingent on plant state and realized composition, and that the branching result is not contingent on the baseline turnover-rate asymmetry.\n\nResult 2 tests whether the required ecological exposure exists in real island networks. Wanshan-Yongxing and Ogasawara show substantial source-native partner turnover while the corresponding pollinator-richness contrasts are less decisive. These are bounded context examples, not a universal island coefficient or causal treatment.\n\nResult 3 uses contemporary Izu networks: FDQ-to-corrected-matching is sign-stable across island omissions, matching-to-pollen propagation is weaker, and plants sharing lower corrected matching branch into different floral and pollen outcomes. Historical signed-position and source-audit results are retained as claim boundaries so present functional associations are not rewritten as historical Bombus causation.\n\nThe formal source audit remains available for reviewer inspection: no entry meets the full joint outcome-independent historical transition contract. That result bounds causal interpretation; it is not a coequal study objective.\n"""
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=ANONYMOUS_MANUSCRIPT_NAME)
