@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_finite_community_system_size_summary",
+  "status": "verified_against_ci_artifact_run_2429",
+  "design": "data/design/chapter2_finite_community_system_size_freeze_20260908.json",
+  "full_ci_artifact": "chapter2-finite-community-system-size-audit",
+  "copy_counts": [1, 2, 4, 8, 16],
+  "seed_count": 6,
+  "matched_community_realizations_per_seed": 96,
+  "trait_adjustment": 0.0,
+  "scale_summary": [
+    {
+      "copies": 1,
+      "mixed_sign_count_range": [64, 75],
+      "community_realization_fraction_range": [0.514230957360031, 0.6732336068958719],
+      "nonadditivity_fraction_range": [0.3249838158577322, 0.48207667397262965],
+      "mainland_final_count_cv_range": [0.19837686156992768, 0.22795993426196468],
+      "island_final_count_cv_range": [0.5752850191599411, 0.6913590922292774],
+      "island_empty_fraction_range": [0.07291666666666667, 0.13541666666666666]
+    },
+    {
+      "copies": 2,
+      "mixed_sign_count_range": [71, 78],
+      "community_realization_fraction_range": [0.32531632957653195, 0.5208097892306519],
+      "nonadditivity_fraction_range": [0.464349029064695, 0.6409593227109448],
+      "mainland_final_count_cv_range": [0.14388612402986395, 0.16360265521983655],
+      "island_final_count_cv_range": [0.4044505494044732, 0.48947250518628044],
+      "island_empty_fraction_range": [0.0, 0.020833333333333332]
+    },
+    {
+      "copies": 4,
+      "mixed_sign_count_range": [67, 74],
+      "community_realization_fraction_range": [0.2646274815493463, 0.3418038489050417],
+      "nonadditivity_fraction_range": [0.6125251318972642, 0.6767189436321861],
+      "mainland_final_count_cv_range": [0.09516256482798037, 0.11902660018610611],
+      "island_final_count_cv_range": [0.2850889688581602, 0.3548086026075182],
+      "island_empty_fraction_range": [0.0, 0.0]
+    },
+    {
+      "copies": 8,
+      "mixed_sign_count_range": [57, 75],
+      "community_realization_fraction_range": [0.23914258917011114, 0.35889220518326004],
+      "nonadditivity_fraction_range": [0.5673191941352071, 0.6739861530119394],
+      "mainland_final_count_cv_range": [0.07723152624292909, 0.08497281748577827],
+      "island_final_count_cv_range": [0.21928598287507778, 0.23893625781056957],
+      "island_empty_fraction_range": [0.0, 0.0]
+    },
+    {
+      "copies": 16,
+      "mixed_sign_count_range": [44, 60],
+      "community_realization_fraction_range": [0.20269705737113938, 0.34518847819369275],
+      "nonadditivity_fraction_range": [0.506190378192398, 0.6540584143743282],
+      "mainland_final_count_cv_range": [0.04938969486928906, 0.06107938964411666],
+      "island_final_count_cv_range": [0.13377620823858358, 0.17227687804737143],
+      "island_empty_fraction_range": [0.0, 0.0]
+    }
+  ],
+  "interpretation": "Pooling independent copies strongly reduces finite-community count variation, empty-island-community events and the additive community-realization share, but mixed individual response geometry and a large relative state-by-community nonadditive component remain at k=16. Finite-N sampling therefore contributes materially to realization variance but is not sufficient to explain branching over the audited system-size range.",
+  "claim_boundary": "The audit uses the zero-trait-adjustment submodel to isolate community-composition sampling. k=16 is not an exact mean-field limit, and the result is not a PDE/LNA validation or a natural population-size estimate."
+}
