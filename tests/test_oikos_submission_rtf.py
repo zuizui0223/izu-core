@@ -16,6 +16,8 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_three_result_r
     assert "fldinst PAGE" in text
     assert "\\page" in text
     lower = text.lower()
+    assert "response geometry under community reorganization: richness-sensitive regimes and state-dependent branching" in lower
+    assert "in island plant–pollinator systems" not in lower.split("introduction", 1)[0]
     assert "result 1" in lower and "result 2" in lower and "result 3" in lower
     assert "real island systems undergo compositional reorganization beyond richness loss" in lower
     assert "pollinator assemblage turnover was 0.9796" in lower
@@ -23,6 +25,9 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_three_result_r
     assert "functional community structure in izu" in lower
     assert "51" in text and "65/96" in text
     assert "all six prespecified matching seeds" in lower
+    assert "70/96" in text and "65.61%" in text
+    assert "equalizing the baseline mainland" in lower
+    assert "does not make the two scenarios identical" in lower
     assert "figure 1. three-result inference chain" in lower
     assert "figure 4. result 2 exposure to result 3 biological consequence" in lower
     assert "figure 1. four-act breadth-to-depth inference funnel" not in lower
@@ -45,6 +50,8 @@ def test_supporting_information_rtf_preserves_relational_world_izu_and_realized_
     assert "## Table S8." in markdown
     assert "# Supporting Table S9. Exact realized-richness matching sensitivity" in markdown
     assert "# Chapter 2 Supporting Tables" not in markdown
+    assert "Equal turnover rates: mixed count / state × community non-additivity" in markdown
+    assert "70/96 / 65.61%" in markdown
 
     text = render_supporting_information_rtf()
     assert text.startswith("{\\rtf1")
@@ -60,6 +67,7 @@ def test_supporting_information_rtf_preserves_relational_world_izu_and_realized_
     assert "mean regime is richness-sensitive" in lower
     assert "69.34" in text and "80.17" in text
     assert "53/96" in text
+    assert "70/96" in text and "65.61%" in text
     assert "partner arrival/replacement" in lower
     assert "2/25" in text
     assert "+1.9426" in text and "+2.0590" in text
