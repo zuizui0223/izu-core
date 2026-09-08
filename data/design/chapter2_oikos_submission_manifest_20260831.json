@@ -12,7 +12,7 @@
   "historical_four_act_narrative_lock": "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "historical_v2_source": "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md",
-  "journal_clean_renderer": "scripts/render_chapter2_realized_richness_reframe.py",
+  "journal_clean_renderer": "scripts/render_chapter2_oikos_generality_overlay.py",
   "pre_richness_renderer": "scripts/render_island_ecology_submission_manuscript.py",
   "oikos_rtf_renderer": "scripts/render_oikos_submission_rtf.py",
   "supporting_information_renderer": "scripts/render_chapter2_supporting_information.py + Appendix S19 overlay",

@@ -19,7 +19,7 @@ def test_oikos_manifest_is_active_and_three_result_reframe_is_explicit():
     assert manifest["narrative_lock"] == "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md"
     assert manifest["historical_four_act_narrative_lock"] == "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md"
     assert manifest["active_manuscript"] == "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
-    assert manifest["journal_clean_renderer"] == "scripts/render_chapter2_realized_richness_reframe.py"
+    assert manifest["journal_clean_renderer"] == "scripts/render_chapter2_oikos_generality_overlay.py"
     assert manifest["oikos_rtf_renderer"] == "scripts/render_oikos_submission_rtf.py"
     assert manifest["submission_ready"] is False
     assert manifest["remaining_blocker"] == "author_supplied_identity_prior_work_context_ethics_confirmation_and_submission_declarations"
