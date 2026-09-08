@@ -117,7 +117,9 @@ OLD_DISCUSSION_STRUCTURAL = (
 )
 
 NEW_DISCUSSION_STRUCTURAL = (
-    "The structural audits also change what should be treated as robust. The historically frozen 80.17% community share is an upper-end value within the original six-seed sensitivity and should not serve as a population-like headline. Under exact realized-richness matching, community realization still accounted for 50.0–55.9% and state × community non-additivity for 42.7–48.5%, whereas starting position alone remained only 0.94–2.21%. The robust inference is therefore not that richness is irrelevant, but that richness-sensitive regime placement coexists with strong relational contingency that cannot be reduced to an additive starting-state effect."
+    "The structural audits also change what should be treated as robust. The historically frozen 80.17% community share is an upper-end value within the original six-seed sensitivity and should not serve as a population-like headline. Under exact realized-richness matching, community realization still accounted for 50.0–55.9% and state × community non-additivity for 42.7–48.5%, whereas starting position alone remained only 0.94–2.21%. The robust inference is therefore not that richness is irrelevant, but that richness-sensitive regime placement coexists with strong relational contingency that cannot be reduced to an additive starting-state effect. "
+    "That structural conclusion is not peculiar to the historical 120-step, trait-adjustment 0.03 baseline: imposing the already-audited 240-step horizon and zero trait adjustment simultaneously still left 75/96 community realizations mixed. "
+    "Because this cross-check changes only two values already present in the frozen one-factor audit, it strengthens generality within the declared synthetic model without adding a new calibrated scenario or changing the empirical claim ceiling."
 )
 
 FINAL_SYNTHESIS = (
@@ -133,6 +135,7 @@ FIGURE1_CAPTION = (
 
 FIGURE2_CAPTION = (
     "**Figure 2. Result 1 baseline conditional response geometry.** Mean island-minus-mainland functional service across the 21-point starting-position grid under 96 matched community realizations. Realization counts describe the frozen synthetic design and are not frequencies in nature. "
+    "The baseline curve is retained as the visual reference; a joint existing-harness cross-check that combines the already-audited 240-step horizon with zero trait adjustment retains mixed branching in 75/96 realizations without introducing a new parameter value. "
     "The 53/96 equal-initial-richness sensitivity is an initial-condition diagnostic only; it does not isolate realized richness. The stronger exact realized-richness control shifts the ensemble mean geometry to all-positive in all six matching seeds while retaining mixed individual communities."
 )
 
@@ -377,7 +380,6 @@ def render_submission_manuscript() -> str:
     survived_headings = [token for token in forbidden_top_level if token in lower]
     if survived_headings:
         raise ValueError(f"superseded top-level result architecture survived: {survived_headings}")
-
     required = (
         "result 1—mechanistic prediction",
         "result 2—real-world exposure",
@@ -391,6 +393,8 @@ def render_submission_manuscript() -> str:
         "all-positive in all six prespecified matching seeds",
         "51–65 of 96 remained mixed-sign",
         "state × community non-additivity remained 42.72–48.51%",
+        "75/96 community realizations mixed",
+        "240-step horizon and zero trait adjustment simultaneously",
         "historical boundary check",
         "bounds causal interpretation rather than defining the study objective",
         "figure 1. three-result inference chain",
