@@ -49,6 +49,8 @@ block_id × plant_id
 
 `block_id` is fixed before reproductive outcomes are known and identifies one population/site/time exposure window. It cannot be split, merged or moved after inspecting SVD, dependency or seed outcomes.
 
+**Same plant does not mean same flower.** SVD is destructive because the stigma is collected after the scored visit. The SVD flower and the open/bagged/outcross flowers must therefore be distinct prospectively assigned flowers on the same tagged plant. `flower_id` preserves those within-plant roles rather than pretending one flower can provide both destructive deposition and mature-seed outcomes.
+
 The existing `population_id`, `field_event_id`, `island_id`, `site_id`, `plant_id` and `flower_id` remain unchanged. The block manifest sits above the existing field files rather than replacing their schemas.
 
 ## Structural admission
@@ -60,7 +62,7 @@ A **full-chain plant** requires, within one predeclared block:
 3. usable observation effort attached to that plant, including retention of zero-visit windows in the block denominator;
 4. at least one linked single-visit SVD assay;
 5. at least one no-visit SVD control on the same plant/block;
-6. all three core treatments on flowers of the same plant:
+6. all three core treatments on distinct prospectively assigned flowers of the same plant:
    - `open_pollinated`;
    - `bagged_autonomous`;
    - `supplemental_outcross`;
