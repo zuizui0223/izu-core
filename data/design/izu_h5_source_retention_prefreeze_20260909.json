@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_source_retention_prefreeze",
+  "purpose": "Freeze the source-availability and retained/disrupted interpretation boundary for the Izu large-bumblebee pollination channel before future Issue #91 linked service outcomes are inspected. This file does not infer historical loss from floral phenotype.",
+  "channel_id": "large_bumblebee_pollination_channel",
+  "functional_definition": "Bombus-mediated large-bee pollination opportunity represented by source-locked Bombus diversus / Bombus ardens visitor evidence; species identity may differ between source and island while the functional channel is treated as homologous only for this bounded Izu audit.",
+  "source_state": {
+    "state": "available",
+    "geographic_reference": "mainland Shizuoka/Chiba source context",
+    "evidence": [
+      "data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv: multiple positive Bombus diversus visitor-rate rows on mainland",
+      "data/two_breakpoint_evidence/inoue1990_pollinator_groups.csv: Bombus diversus reported as main pollinator in Shizuoka and Chiba"
+    ],
+    "claim": "A large-bumblebee pollination channel is directly supported in the mainland source context."
+  },
+  "island_states": [
+    {
+      "island": "Oshima",
+      "strict_H5_state": "retained",
+      "evidence": [
+        "Inoue 1986 Table 2 transcription: Bombus ardens 1.1 per observation hour",
+        "Inoue 1986 Table 1 transcription: 9 total flower-visitor observation hours across Senzu and Oshima Park",
+        "Inoue 1990 Table 2 transcription: Bombus ardens reported as a main pollinator"
+      ],
+      "boundary": "Retention means the functional large-bumblebee channel is directly represented; it does not by itself quantify effective service."
+    },
+    {
+      "island": "Toshima",
+      "strict_H5_state": "unresolved",
+      "evidence": [
+        "Inoue 1988 Table 3 transcription: 3 hours natural Campanula observation with halictid and megachilid captures",
+        "Inoue 1990 Table 2 transcription: Megachile reported as main pollinator"
+      ],
+      "candidate_interpretation": "main-pollinator role replacement away from Bombus is supported; strict Bombus-channel disruption is not promoted without an explicit loss/non-detection rule."
+    },
+    {
+      "island": "Niijima",
+      "strict_H5_state": "unresolved",
+      "evidence": [
+        "Inoue 1986 Table 1 transcription: 7 total flower-visitor observation hours",
+        "Inoue 1986 Table 2 transcription: no positive Bombus ardens row; Lasioglossum/Megachilid/Ceratina positive rows",
+        "Inoue 1990 Table 2 transcription: Lasioglossum reported as main pollinator"
+      ],
+      "candidate_interpretation": "effort-recorded non-report plus main-pollinator replacement evidence; not proof of absence."
+    },
+    {
+      "island": "Kozushima",
+      "strict_H5_state": "unresolved",
+      "evidence": [
+        "Inoue 1986 Table 1 transcription: 8 flower-visitor observation hours",
+        "Inoue 1986 Table 2 transcription: no positive Bombus ardens row; Lasioglossum/Megachilid/Ceratina positive rows",
+        "Inoue 1990 Table 2 transcription: Lasioglossum reported as main pollinator"
+      ],
+      "candidate_interpretation": "effort-recorded non-report plus main-pollinator replacement evidence; not proof of absence."
+    },
+    {
+      "island": "Miyake",
+      "strict_H5_state": "unresolved",
+      "evidence": [
+        "Inoue 1988 Table 3 transcription: 3 hours natural Campanula observation with halictid captures",
+        "Inoue 1990 Table 2 transcription: Lasioglossum reported as main pollinator"
+      ],
+      "candidate_interpretation": "main-pollinator role replacement evidence; strict Bombus-channel disruption not identified."
+    },
+    {
+      "island": "Hachijo",
+      "strict_H5_state": "unresolved",
+      "evidence": [
+        "Inoue 1986 Table 1 transcription: 6 flower-visitor observation hours",
+        "Inoue 1986 Table 2 transcription: no positive Bombus ardens row; Lasioglossum and Apis mellifera positive rows",
+        "Inoue 1990 Table 2 transcription: Lasioglossum reported as main pollinator"
+      ],
+      "candidate_interpretation": "effort-recorded non-report plus main-pollinator replacement evidence; not proof of absence."
+    }
+  ],
+  "anti_leakage_rules": [
+    "Do not use flower size, mating system, autonomous reproduction or nectar-guide phenotype to classify channel state.",
+    "Do not convert omitted Bombus rows to zero captures.",
+    "Do not call main-pollinator replacement historical extinction or island absence.",
+    "Do not use future Issue #91 reproductive outcomes to revise these source/retention definitions.",
+    "Do not transport Bombus ardens rate or effectiveness from Oshima to other islands."
+  ],
+  "what_is_closed": {
+    "source_channel_availability": true,
+    "retained_reference_state": "Oshima",
+    "strict_disrupted_reference_state": null,
+    "main_pollinator_role_replacement_evidence": true
+  },
+  "next_gate": "Independently establish at least one strict disrupted large-bumblebee channel unit or define a prospective contemporary retained/disrupted contrast, then link that state to effort-aware visitation, controlled SVD and effective service under the Chapter 1 H5 chain."
+}
