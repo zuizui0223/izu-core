@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_outcome_blind_channel_state_contract",
+  "purpose": "Define a contemporary retained/disrupted channel classification for Izu that is independent of focal floral phenotype and reproductive outcome, so Issue #91 can connect channel state to visitation, SVD and effective service without treating historical non-report as proven loss.",
+  "channel_id": "large_bumblebee_pollination_channel",
+  "source_reference": "mainland Shizuoka/Chiba large-bumblebee channel; source availability already frozen in data/design/izu_h5_source_retention_prefreeze_20260909.json",
+  "independent_survey_unit": [
+    "island_id",
+    "site_id",
+    "field_event_id",
+    "channel_id"
+  ],
+  "required_fields": [
+    "island_id",
+    "site_id",
+    "field_event_id",
+    "channel_id",
+    "survey_method",
+    "survey_effort_hours",
+    "independent_channel_detections",
+    "detection_model_id",
+    "estimated_detection_probability_if_present",
+    "source_state",
+    "source_evidence_id"
+  ],
+  "state_rule": {
+    "retained": "source_state=available AND at least one independent channel detection under usable survey effort",
+    "disrupted": "source_state=available AND zero independent channel detections under usable survey effort AND prespecified probability of at least one detection if the channel were present is >=0.95",
+    "unresolved": "all other source-available cases, including zero detections with insufficient detection probability",
+    "structurally_absent": "source_state=structurally_absent; never treated as loss"
+  },
+  "detection_probability_rule": {
+    "threshold": 0.95,
+    "must_be_locked_before_focal_plant_outcomes": true,
+    "allowed_calibration": [
+      "independent repeat surveys within the same survey method",
+      "source/reference channel detections collected under the same method",
+      "a prespecified occupancy/detection model fitted without floral phenotype or reproductive outcomes"
+    ],
+    "prohibited_calibration": [
+      "choose threshold to reproduce historical Oshima-to-southern-island pattern",
+      "use floral size, floral syndrome, mating system, autonomous assurance, fruit set or seed set",
+      "set detection probability from climatic compatibility alone"
+    ]
+  },
+  "survey_independence": {
+    "preferred": "channel survey not conditioned on focal plant response; standardized transect, timed search, trap, or community-wide visitor survey with explicit effort",
+    "focal_plant_visitation_is_separate_link": true,
+    "same_event_linkage_allowed": true,
+    "rule": "The independent channel-state survey and focal-plant visitation may occur in the same site/event but must remain separately recorded estimands."
+  },
+  "historical_evidence_role": {
+    "mainland_source_available": true,
+    "oshima_retained_reference": true,
+    "southern_island_strict_disruption_preassigned": false,
+    "reason": "Inoue source-locked tables support main-pollinator replacement/non-report under effort but the existing audit explicitly forbids converting omitted Bombus rows into proven absence."
+  },
+  "handoff_to_issue91": {
+    "join_keys": [
+      "island_id",
+      "site_id",
+      "field_event_id"
+    ],
+    "next_links": [
+      "focal-plant visit bouts per monitored flower-hour",
+      "background-controlled single-visit conspecific pollen deposition",
+      "rate-weighted effective pollen service",
+      "open/bagged-autonomous/supplemental-outcross reproductive outcomes"
+    ]
+  },
+  "claim_boundary": "A contemporary disrupted state identifies an effort-aware current channel deficit relative to a source-available channel. It does not by itself identify historical extinction, historical selection, or the timing of floral evolution."
+}
