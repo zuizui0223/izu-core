@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "status": "fixed_before_field_execution",
+  "frozen_on": "2026-09-09",
+  "parent_main_commit": "34e1ebc5a8aaaa47fe928507c2d674622d1f939f",
+  "priority": "chapter2_primary_empirical_gate",
+  "question": "Can the synthetic richness/composition hierarchy be confronted with a real transition-linked Izu chain measured on the same tagged plants within prespecified field blocks?",
+  "strict_unit": "block_id x plant_id",
+  "block_definition": {
+    "rule": "A block is a prespecified population/site/time window within which visitor exposure, single-visit deposition assays, and reproductive-treatment assignment are linked before reproductive outcomes are known.",
+    "must_be_fixed_before_outcomes": true,
+    "no_posthoc_block_splitting_or_merging": true
+  },
+  "required_channels": {
+    "starting_state": [
+      "tagged plant identity",
+      "pre-outcome floral geometry measured on the same plant"
+    ],
+    "community_exposure": [
+      "usable observation effort including zero-visit windows",
+      "visitor identity/group on the same block",
+      "observed visitor richness",
+      "visitor composition"
+    ],
+    "effectiveness": [
+      "single-visit pollen deposition on a previously unvisited receptive stigma",
+      "no-visit SVD background control",
+      "rate-weighted effective pollen delivery where controlled"
+    ],
+    "dependency": [
+      "open_pollinated",
+      "bagged_autonomous",
+      "supplemental_outcross"
+    ],
+    "seed_outcome": [
+      "terminal treatment outcome",
+      "mature fruit linkage through fruit_id when applicable",
+      "mature seed count for every mature linked fruit"
+    ]
+  },
+  "synthetic_to_empirical_mapping": {
+    "synthetic_realized_richness": "block-level observed visitor richness, reported with observation effort and zero-visit windows; controlled-effective visitor-group count is a second richness-like exposure measure",
+    "synthetic_realized_composition": "block-level visitor-group composition and controlled effective-service composition based on visit rate x background-adjusted SVD",
+    "synthetic_starting_state": "same-plant pre-outcome floral geometry / corrected functional position; no phenotype measured after the response may be back-filled as starting state",
+    "synthetic_branch_identity": "same-plant downstream response conditional on block exposure, represented by dependency and mature-seed outcomes rather than a synthetic sign label"
+  },
+  "primary_hierarchy": {
+    "coarse_regime_test": "Ask whether block richness-like exposure predicts the block/plant mean level of effective service and downstream reproductive response.",
+    "branch_test": "After accounting for richness-like exposure, ask whether realized effective-service composition interacts with plant starting state to explain residual plant-level dependency/seed response.",
+    "transition_chain_test": "Visitor exposure -> visitor-specific SVD/effective service -> reproductive dependency/pollen limitation -> mature seed, all within the same block and tagged plant panel."
+  },
+  "structural_admission": {
+    "full_chain_plant": [
+      "plant is registered in the block population/site",
+      "at least one usable observation-effort row in the block",
+      "at least one linked single-visit SVD row and at least one no-visit SVD control on that plant in the block",
+      "all three core reproductive treatments are assigned on that plant in the block",
+      "all core treatments have terminal analyzable outcomes; every mature_fruit outcome links to a fruit row with mature_seed_count",
+      "pre-outcome floral geometry exists for the same plant"
+    ],
+    "full_chain_block": "At least one full-chain plant exists. This is structural completion only and is not a precision/power claim.",
+    "confirmatory_adequacy": "Remains closed until pilot dispersion, independent-plant replication, repeated temporal/site blocks, and precision goals pass the existing planning gates."
+  },
+  "analysis_guardrails": {
+    "flowers_are_subsamples_within_plant": true,
+    "plants_are_nested_within_block": true,
+    "blocks_are_not_relabelled_after_outcomes": true,
+    "zero_visit_windows_are_retained": true,
+    "missing_or_uncontrolled_svd_is_not_imputed": true,
+    "richness_is_not_reported_without_effort": true,
+    "historical_pollinator_loss_causation_is_not_identified": true,
+    "synthetic_branch_frequencies_are_not_natural_prevalence": true
+  },
+  "decision_states": {
+    "protocol_ready": "schemas and audit can encode the chain",
+    "field_chain_observed": "at least one full-chain block passes structural admission",
+    "hierarchy_estimable": "enough independent plants/blocks exist to fit richness and composition x starting-state terms without post-hoc simplification",
+    "transition_linked_support": "the visitor -> SVD/service -> dependency -> seed chain is supported in the prespecified model with uncertainty",
+    "historical_causal_transition": "not opened by this design alone"
+  },
+  "claim_boundary": "This design can convert the synthetic richness/composition hierarchy into a directly measured contemporary Izu transition-linked chain. It does not by itself identify historical Bombus loss, evolutionary selection, a universal island syndrome, or natural prevalence of synthetic response branches."
+}
