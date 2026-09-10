@@ -36,6 +36,7 @@ RESULT_SIZE_ANCHOR = (
 RESULT_SIZE_ADDITION = (
     "\n\nA prespecified system-size audit then reduced finite-community sampling without changing the per-copy Markov process. At zero trait adjustment, we pooled k={1,2,4,8,16} independent copies of each mainland-like and island-like community before evaluating the same mean-match service function. Across the six prespecified seeds, the island-like final-community coefficient of variation fell from 0.575–0.691 at k=1 to 0.134–0.172 at k=16, and empty final island-like communities fell from 7.3–13.5% to 0%. The additive community-realization share likewise declined from 51.4–67.3% to 20.3–34.5%. Mixed individual response geometry nevertheless remained in 44–60/96 realizations at k=16, with state × community non-additivity still 50.6–65.4%. Thus finite-community sampling contributes materially to realization variance but does not by itself generate response branching over the audited system-size range."
     "\n\nAn exact finite-k moment analysis of the same zero-trait-adjustment submodel resolved the asymptote. The deterministic mean-field kernel contrast was all-positive across all 21 starting states (minimum contrast 0.0208), so mixed branching must vanish as system size tends to infinity. A multivariate Gaussian approximation using the exact finite-k kernel mean and covariance increasingly matched the pooled six-seed ABM mixed fraction: absolute error fell from 0.0689 at k=1 to 0.00654 at k=16. Branching is therefore finite-community in the asymptotic sense, while its persistence after empty-community probability is effectively zero shows that it is not a rare-extinction or N≈2 artifact."
+    "\n\nA complementary prespecified system-size audit retained the headline plant response operator (`trait_adjustment=0.03`) and reused the existing six-seed ensemble. The variance hierarchy itself reversed as community sampling noise was reduced: median starting-position share rose monotonically from 2.55% at k=1 to 10.33%, 27.33%, 42.52% and 55.84% at k=2,4,8,16, whereas median community-realization share fell from 72.98% to 48.03%, 23.52%, 18.26% and 12.72%. Starting position exceeded community realization in 0/6 seeds at k=1 and k=2, but in 6/6 seeds at k=4, k=8 and k=16. Mixed-sign realizations nevertheless persisted at k=16 (28–42/96 across seeds). Thus the ordering of response determinants is itself regime dependent: realized community dominates in small stochastic communities, whereas starting state becomes the larger additive component as communities become larger and more stable under active plant adjustment."
 )
 
 DISCUSSION_ANCHOR = (
@@ -46,6 +47,7 @@ DISCUSSION_ADDITION = (
     "This control removes the baseline turnover-rate asymmetry specifically; it does not make the two scenarios identical or establish transportability beyond the declared plant–pollinator model class."
     "\n\nThe system-size audit separates the need to represent finite communities from the stronger claim that branching is merely finite-N noise. Pooling independent copies sharply reduced count variation, empty-community events and the additive community-realization share, yet mixed response geometry and large relative state × community non-additivity persisted at k=16. This supports the finite-community formulation for quantifying realization heterogeneity while showing that the branching result is not reducible to small-N extinction or sampling noise over the audited range."
     "\n\nThe exact-moment/Gaussian limit analysis sharpens that statement further. The zero-adjustment deterministic mean-field contrast is all-positive, so branch heterogeneity is ultimately a finite-community composition-realization phenomenon; however, the Gaussian approximation already reproduces the ABM mixed fraction closely at k=16, when empty island-like communities are effectively absent. Deterministic mean-field therefore removes the focal branch distribution by averaging over finite realized composition, whereas second-order finite-size structure retains it over a broad intermediate regime."
+    "\n\nAllowing plant state to respond dynamically reveals a further layer: the response hierarchy is not rank-stable across system size. In the active-adjustment audit, community realization dominated at k=1, but starting position overtook it in all six prespecified seeds by k=4 and reached a median 55.84% of total sum of squares at k=16 while community realization declined to 12.72%. The intermediate regime therefore differs from both extremes: branching remains common, yet variation is increasingly organized by where the plant starts rather than by which community realization is sampled. The numerical crossover is model-specific and is not a proposed natural threshold."
 )
 
 DISCUSSION_SYNDROME_ANCHOR = (
@@ -60,7 +62,7 @@ FIG2_ANCHOR = (
     "The stronger exact realized-richness control shifts the ensemble mean geometry to all-positive in all six matching seeds while retaining mixed individual communities."
 )
 FIG2_ADDITION = (
-    " A separate equal-turnover control, which sets island partner arrival and loss rates to the frozen mainland baseline while retaining all other scenario differences, yields 70/96 mixed individual communities and 65.61% state × community non-additivity. A separate finite-community system-size audit reduces island-like final-count CV from 0.575–0.691 at k=1 to 0.134–0.172 at k=16 while retaining 44–60/96 mixed realizations at k=16."
+    " A separate equal-turnover control, which sets island partner arrival and loss rates to the frozen mainland baseline while retaining all other scenario differences, yields 70/96 mixed individual communities and 65.61% state × community non-additivity. A separate finite-community system-size audit reduces island-like final-count CV from 0.575–0.691 at k=1 to 0.134–0.172 at k=16 while retaining 44–60/96 mixed realizations at k=16. With the headline trait-adjustment operator active, a complementary six-seed audit shows a rank crossover: median starting-position/community shares shift from 2.55%/72.98% at k=1 to 55.84%/12.72% at k=16, with starting position larger in 6/6 seeds from k=4 onward while 28–42/96 realizations remain mixed at k=16."
 )
 
 TABLE_ROW_ANCHOR = (
@@ -74,6 +76,9 @@ TABLE_ROW_SYSTEM_SIZE = (
 )
 TABLE_ROW_GAUSSIAN_LIMIT = (
     "| Exact finite-k moments + Gaussian limit | mean-field all-positive; Gaussian mixed error 0.0689 → 0.00654 from k=1 → 16 | branch heterogeneity is finite-community asymptotically but not a rare-extinction artifact; Gaussian branch probabilities only, not a full LNA |"
+)
+TABLE_ROW_RANK_CROSSOVER = (
+    "| Active-adjustment system-size rank crossover | median starting/community SS 2.55%/72.98% at k=1 → 55.84%/12.72% at k=16; starting > community in 6/6 seeds from k=4 | determinant ordering is regime dependent; mixed branching persists at k=16 (28–42/96); numerical crossover is model-specific |"
 )
 
 
@@ -108,6 +113,13 @@ def render_submission_manuscript() -> str:
         "ensemble-level regime shifts rather than deterministic lineage-level trait rules",
         "how a coherent island-level tendency can coexist with opposing lineage-level responses",
         "the syndrome is the shifted regime, not a universal phenotype",
+        "ordering of response determinants is itself regime dependent",
+        "2.55% at k=1",
+        "55.84% at k=16",
+        "12.72%",
+        "6/6 seeds at k=4",
+        "28–42/96",
+        "numerical crossover is model-specific",
     ):
         if token.lower() not in lower:
             raise ValueError(f"Oikos generality overlay missing from manuscript: {token}")
@@ -126,9 +138,11 @@ def build_supporting_tables() -> str:
         + TABLE_ROW_SYSTEM_SIZE
         + "\n"
         + TABLE_ROW_GAUSSIAN_LIMIT
+        + "\n"
+        + TABLE_ROW_RANK_CROSSOVER
     )
     text = _replace_once(text, TABLE_ROW_ANCHOR, insertion, "Table S4 structural-generality rows")
-    for row in (TABLE_ROW_EQUAL_TURNOVER, TABLE_ROW_SYSTEM_SIZE, TABLE_ROW_GAUSSIAN_LIMIT):
+    for row in (TABLE_ROW_EQUAL_TURNOVER, TABLE_ROW_SYSTEM_SIZE, TABLE_ROW_GAUSSIAN_LIMIT, TABLE_ROW_RANK_CROSSOVER):
         if row not in text:
             raise ValueError("structural-generality Table S4 row missing")
     return text
