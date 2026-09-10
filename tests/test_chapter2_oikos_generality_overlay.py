@@ -20,13 +20,17 @@ def test_island_syndrome_novelty_is_explicit_without_becoming_title_scope():
     assert "ensemble-level regime shifts rather than deterministic lineage-level trait rules" in lower
     assert "how a coherent island-level tendency can coexist with opposing lineage-level responses" in lower
     assert "scale-dependent response architecture" in lower
-    assert "the syndrome is the shifted regime, not a universal phenotype" in lower
+    assert "dominant source of response variation need not be fixed" in lower
+    assert "the syndrome is therefore the shifted response regime and its variance architecture" in lower
     abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     assert "ensemble-level regime shifts" in abstract.lower()
+    assert "hierarchy governing finite-community response variation is itself scale dependent" in abstract.lower()
     introduction = text.split("# Introduction", 1)[1].split("# Materials and Methods", 1)[0]
     assert "opposing lineage-level responses" in introduction.lower()
+    assert "dominant source of response variation need not be fixed" in introduction.lower()
     discussion = text.split("# Discussion", 1)[1]
     assert "shift in the distribution of possible responses" in discussion.lower()
+    assert "source of among-lineage variation" in discussion.lower()
 
 
 def test_equal_turnover_generality_is_in_manuscript_and_fig2_caption():
@@ -66,7 +70,7 @@ def test_finite_n_gaussian_limit_is_bounded_and_integrated():
     assert "not presented as an exact fokker–planck or full linear-noise solution" in lower
 
 
-def test_active_adjustment_rank_crossover_is_in_result_discussion_and_fig2():
+def test_active_adjustment_rank_crossover_is_in_result_discussion_and_figures():
     text = render_submission_manuscript()
     lower = text.lower()
     assert "ordering of response determinants is itself regime dependent" in lower
@@ -77,6 +81,10 @@ def test_active_adjustment_rank_crossover_is_in_result_discussion_and_fig2():
     assert "6/6 seeds at k=4" in lower
     assert "28–42/96" in text
     assert "numerical crossover is model-specific" in lower
+    figure1 = text.split("**Figure 1.", 1)[1].split("**Figure 2.", 1)[0]
+    assert "community realization dominates in small stochastic communities" in figure1.lower()
+    assert "starting state becomes dominant in a larger finite-community regime while branching persists" in figure1.lower()
+    assert "deterministic mean-field limit removes branching" in figure1.lower()
     figure2 = text.split("**Figure 2.", 1)[1].split("**Figure 3.", 1)[0]
     assert "rank crossover" in figure2.lower()
     assert "55.84%/12.72%" in figure2
