@@ -15,8 +15,8 @@ from scripts.run_response_geometry_parameter_robustness import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-DESIGN = ROOT / "data/design/chapter2_trait_adjustment_system_size_rank_crossover_freeze_20260910.json"
-OUT = ROOT / "data/results/chapter2_trait_adjustment_system_size_rank_crossover_20260910.json"
+DESIGN = ROOT / "data/design/chapter2_trait_adjustment_system_size_rank_crossover_freeze_v2_20260910.json"
+OUT = ROOT / "data/results/chapter2_trait_adjustment_system_size_rank_crossover_v2_20260910.json"
 
 
 def pooled_trajectory(scenario, seed: int, cfg, copies: int):
@@ -63,8 +63,8 @@ def summarize_scale(*, copies: int, seed: int, replicates: int) -> dict:
 
 def build() -> dict:
     design = json.loads(DESIGN.read_text(encoding="utf-8"))
-    if design.get("status") != "frozen_before_execution":
-        raise ValueError("rank-crossover design is not frozen")
+    if design.get("status") != "frozen_before_v2_execution":
+        raise ValueError("corrected rank-crossover design is not frozen")
     if float(design["trait_adjustment"]) != BASE.trait_adjustment:
         raise ValueError("frozen trait_adjustment differs from headline BASE")
 
@@ -110,9 +110,9 @@ def build() -> dict:
     decision = kmax_crossovers >= 5 and monotone_start and monotone_community
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "2.0",
         "analysis": "chapter2_trait_adjustment_system_size_rank_crossover",
-        "status": "complete_from_prespecified_20260910_freeze",
+        "status": "complete_from_corrected_existing_seed_freeze_v2_20260910",
         "design": DESIGN.relative_to(ROOT).as_posix(),
         "rows": rows,
         "scale_summary": scale_summary,
