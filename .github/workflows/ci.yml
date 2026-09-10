@@ -65,13 +65,13 @@ jobs:
           if-no-files-found: error
       - name: Run active-adjustment system-size rank crossover audit
         if: matrix.python-version == '3.11'
-        run: python -m scripts.audit_trait_adjustment_system_size_rank_crossover --out data/results/chapter2_trait_adjustment_system_size_rank_crossover_20260910.json
+        run: python -m scripts.audit_trait_adjustment_system_size_rank_crossover --out data/results/chapter2_trait_adjustment_system_size_rank_crossover_v2_20260910.json
       - name: Upload active-adjustment system-size rank crossover audit
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-trait-adjustment-system-size-rank-crossover-audit
-          path: data/results/chapter2_trait_adjustment_system_size_rank_crossover_20260910.json
+          name: chapter2-trait-adjustment-system-size-rank-crossover-audit-v2
+          path: data/results/chapter2_trait_adjustment_system_size_rank_crossover_v2_20260910.json
           if-no-files-found: error
       - name: Upload pytest reports on failure
         if: failure()
