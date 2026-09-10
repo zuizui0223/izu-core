@@ -58,6 +58,13 @@ DISCUSSION_SYNDROME_ADDITION = (
     "In this view, insularity can change not only the mean response but also the source of among-lineage variation: small stochastic interaction communities are more strongly organized by which partners are realized, whereas larger and more stable communities expose the legacy of plant starting state more strongly. The syndrome is therefore the shifted response regime and its variance architecture, not a universal phenotype."
 )
 
+FIG1_ANCHOR = (
+    "Result 1 defines the mechanism: exact realized-richness matching shifts the ensemble mean to all-positive in all six prespecified matching seeds while individual community branching and state × community non-additivity remain."
+)
+FIG1_ADDITION = (
+    " System-size scaling then shows that this within-regime hierarchy is itself conditional: community realization dominates in small stochastic communities, starting state becomes dominant in a larger finite-community regime while branching persists, and the deterministic mean-field limit removes branching."
+)
+
 FIG2_ANCHOR = (
     "The stronger exact realized-richness control shifts the ensemble mean geometry to all-positive in all six matching seeds while retaining mixed individual communities."
 )
@@ -97,6 +104,7 @@ def render_submission_manuscript() -> str:
     text = _replace_once(text, RESULT_SIZE_ANCHOR, RESULT_SIZE_ANCHOR + RESULT_SIZE_ADDITION, "finite-community system-size result")
     text = _replace_once(text, DISCUSSION_ANCHOR, DISCUSSION_ANCHOR + DISCUSSION_ADDITION, "Discussion generality sentences")
     text = _replace_once(text, DISCUSSION_SYNDROME_ANCHOR, DISCUSSION_SYNDROME_ANCHOR + DISCUSSION_SYNDROME_ADDITION, "Discussion island-syndrome implication")
+    text = _replace_once(text, FIG1_ANCHOR, FIG1_ANCHOR + FIG1_ADDITION, "Figure 1 inference chain")
     text = _replace_once(text, FIG2_ANCHOR, FIG2_ANCHOR + FIG2_ADDITION, "Figure 2 caption")
     lower = text.lower()
     for token in (
@@ -115,6 +123,7 @@ def render_submission_manuscript() -> str:
         "the syndrome is therefore the shifted response regime and its variance architecture",
         "dominant source of response variation need not be fixed",
         "ordering of response determinants is itself regime dependent",
+        "starting state becomes dominant in a larger finite-community regime while branching persists",
         "2.55% at k=1",
         "55.84% at k=16",
         "12.72%",
