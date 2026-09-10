@@ -11,7 +11,7 @@ ABSTRACT_OLD = (
     "The analysis does not establish one matched historical partner transition across all layers; that missing coordinate bounds causal interpretation rather than defining the study objective."
 )
 ABSTRACT_NEW = (
-    "Together, these results recast island syndromes as ensemble-level regime shifts rather than deterministic lineage-level trait rules: richness positions the coarse opportunity regime, while realized composition interacting with plant state produces finite-community response branches. "
+    "Together, these results recast island syndromes as ensemble-level regime shifts rather than deterministic lineage-level trait rules. Richness positions the coarse opportunity regime, but the hierarchy governing finite-community response variation is itself scale dependent: realized composition dominates in small stochastic communities, starting state becomes increasingly important as community sampling stabilizes, and branching disappears only in the deterministic mean-field limit. "
     "The unresolved matched historical transition bounds causal interpretation rather than this mechanism."
 )
 
@@ -20,7 +20,7 @@ INTRO_ANCHOR = (
 )
 INTRO_ADDITION = (
     " Previous work has therefore established heterogeneity; the unresolved problem is how a coherent island-level tendency can coexist with opposing lineage-level responses. "
-    "We treat that coexistence as a scale-dependent response architecture in which syndrome-like shifts can emerge in the ensemble while finite realized communities expose individual lineages to different response branches."
+    "We treat that coexistence as a scale-dependent response architecture in which syndrome-like shifts can emerge in the ensemble while finite realized communities expose individual lineages to different response branches. This formulation further predicts that the dominant source of response variation need not be fixed: realized community composition should dominate when communities are small and stochastic, whereas starting state should gain relative importance as community sampling stabilizes."
 )
 
 METHODS_ANCHOR = (
@@ -55,7 +55,7 @@ DISCUSSION_SYNDROME_ANCHOR = (
 )
 DISCUSSION_SYNDROME_ADDITION = (
     " They also change how an island syndrome can be interpreted: as an ensemble-level shift in the distribution of possible responses rather than a deterministic lineage-level trait rule. "
-    "In this view, insularity can generate a coherent mean tendency while finite realized communities expose lineages to opposing branches; the syndrome is the shifted regime, not a universal phenotype."
+    "In this view, insularity can change not only the mean response but also the source of among-lineage variation: small stochastic interaction communities are more strongly organized by which partners are realized, whereas larger and more stable communities expose the legacy of plant starting state more strongly. The syndrome is therefore the shifted response regime and its variance architecture, not a universal phenotype."
 )
 
 FIG2_ANCHOR = (
@@ -112,7 +112,8 @@ def render_submission_manuscript() -> str:
         "not presented as an exact fokker–planck or full linear-noise solution",
         "ensemble-level regime shifts rather than deterministic lineage-level trait rules",
         "how a coherent island-level tendency can coexist with opposing lineage-level responses",
-        "the syndrome is the shifted regime, not a universal phenotype",
+        "the syndrome is therefore the shifted response regime and its variance architecture",
+        "dominant source of response variation need not be fixed",
         "ordering of response determinants is itself regime dependent",
         "2.55% at k=1",
         "55.84% at k=16",
