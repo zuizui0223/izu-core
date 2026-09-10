@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_trait_adjustment_system_size_rank_crossover_summary",
+  "status": "verified_from_parallel_ci_run_34474738746",
+  "design": "data/design/chapter2_trait_adjustment_system_size_rank_crossover_freeze_v2_20260910.json",
+  "trait_adjustment": 0.03,
+  "seed_count": 6,
+  "realizations_per_seed": 96,
+  "system_size_multipliers": [1, 2, 4, 8, 16],
+  "scale_summary": [
+    {"k": 1, "mixed_sign_count_range": [41, 51], "median_starting_position_fraction": 0.025505369141108444, "median_community_realization_fraction": 0.729768204023474, "median_nonadditivity_fraction": 0.24707660383009297, "seeds_starting_exceeds_community": 0},
+    {"k": 2, "mixed_sign_count_range": [48, 54], "median_starting_position_fraction": 0.10333438759527874, "median_community_realization_fraction": 0.4802854890135982, "median_nonadditivity_fraction": 0.4170991859360301, "seeds_starting_exceeds_community": 0},
+    {"k": 4, "mixed_sign_count_range": [41, 58], "median_starting_position_fraction": 0.2732995670720706, "median_community_realization_fraction": 0.23521111167892866, "median_nonadditivity_fraction": 0.4947346258001309, "seeds_starting_exceeds_community": 6},
+    {"k": 8, "mixed_sign_count_range": [34, 46], "median_starting_position_fraction": 0.42516943684788566, "median_community_realization_fraction": 0.18263649860080938, "median_nonadditivity_fraction": 0.40073695605700654, "seeds_starting_exceeds_community": 6},
+    {"k": 16, "mixed_sign_count_range": [28, 42], "median_starting_position_fraction": 0.558439587521182, "median_community_realization_fraction": 0.12721274897084536, "median_nonadditivity_fraction": 0.3199441795599338, "seeds_starting_exceeds_community": 6}
+  ],
+  "decision": {
+    "seed_stable_rank_crossover": true,
+    "crossover_first_seed_stable_at_k": 4,
+    "k16_seeds_starting_exceeds_community": 6,
+    "median_starting_share_monotone_increase": true,
+    "median_community_share_monotone_decrease": true
+  },
+  "interpretation": "Under active plant adjustment, the dominant source of response variation changes with community system size: realized community dominates in the small stochastic regime, starting state overtakes community realization by k=4 across all six prespecified seeds, and branching persists at k=16 even though the deterministic mean-field limit is all-positive in the separate zero-adjustment limit audit.",
+  "claim_boundary": "This is a synthetic-model regime-dependence result. It does not estimate a universal ecological crossover threshold, natural community size, historical causation, or empirical prevalence."
+}

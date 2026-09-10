@@ -66,6 +66,22 @@ def test_finite_n_gaussian_limit_is_bounded_and_integrated():
     assert "not presented as an exact fokker–planck or full linear-noise solution" in lower
 
 
+def test_active_adjustment_rank_crossover_is_in_result_discussion_and_fig2():
+    text = render_submission_manuscript()
+    lower = text.lower()
+    assert "ordering of response determinants is itself regime dependent" in lower
+    assert "2.55% at k=1" in lower
+    assert "55.84% at k=16" in lower
+    assert "72.98%" in text
+    assert "12.72%" in text
+    assert "6/6 seeds at k=4" in lower
+    assert "28–42/96" in text
+    assert "numerical crossover is model-specific" in lower
+    figure2 = text.split("**Figure 2.", 1)[1].split("**Figure 3.", 1)[0]
+    assert "rank crossover" in figure2.lower()
+    assert "55.84%/12.72%" in figure2
+
+
 def test_structural_generality_rows_are_in_table_s4():
     tables = build_supporting_tables()
     table_s4 = tables.split("## Table S4.", 1)[1].split("## Table S5.", 1)[0]
@@ -77,3 +93,7 @@ def test_structural_generality_rows_are_in_table_s4():
     assert "Exact finite-k moments + Gaussian limit" in table_s4
     assert "mean-field all-positive" in table_s4
     assert "0.0689 → 0.00654" in table_s4
+    assert "Active-adjustment system-size rank crossover" in table_s4
+    assert "2.55%/72.98%" in table_s4
+    assert "55.84%/12.72%" in table_s4
+    assert "6/6 seeds from k=4" in table_s4

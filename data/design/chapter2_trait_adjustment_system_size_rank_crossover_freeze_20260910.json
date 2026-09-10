@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-10",
+  "question": "Does the variance hierarchy reverse with increasing community system size when the headline plant adjustment operator (trait_adjustment=0.03) is active?",
+  "base_model": "existing Chapter 2 response-geometry system-size harness",
+  "trait_adjustment": 0.03,
+  "system_size_multipliers": [1, 2, 4, 8, 16],
+  "matching_seeds": [101, 211, 307, 401, 503, 601],
+  "realizations_per_seed": 96,
+  "prespecified_outputs": [
+    "mixed_sign_realizations",
+    "starting_position_ss_fraction",
+    "community_realization_ss_fraction",
+    "nonadditive_ss_fraction"
+  ],
+  "primary_prediction": "Across system-size multipliers, community-realization share should decline and starting-position share should increase under trait_adjustment=0.03; a seed-stable rank crossover would imply that the hierarchy of response determinants is regime dependent.",
+  "decision_rule": "Call rank crossover seed-stable only if starting_position_ss_fraction exceeds community_realization_ss_fraction at k=16 in at least 5 of 6 prespecified seeds and the median starting-position share increases monotonically across k while the median community share decreases monotonically.",
+  "claim_boundary": "This audit tests regime dependence of the variance hierarchy inside the existing synthetic model. It does not establish natural frequencies, historical causation, or a universal finite-N threshold in real pollination systems."
+}
