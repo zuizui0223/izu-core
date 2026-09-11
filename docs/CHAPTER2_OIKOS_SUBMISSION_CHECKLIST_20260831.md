@@ -32,7 +32,7 @@ The scientific gate is closed. No additional simulation, world search, Izu same-
 - Data Availability / data-archiving statement;
 - accepted-stage public repository fixed to **Dryad Digital Repository**;
 - conflict-of-interest and ethics statement surfaces;
-- author confirmation of the prefilled ethics statement remains fail-closed;
+- author confirmation of the prefilled ethics statement remains fail-closed through `ethics_statement_confirmed`;
 - reviewer-ready frozen data, code and audit materials in the anonymous review archive.
 
 The active submission manifest is `data/design/chapter2_oikos_submission_manifest_20260831.json`.
@@ -82,7 +82,9 @@ The machine-readable submission-closure preflight is `data/results/chapter2_subm
 
 ## Author-supplied information still required
 
-Populate the metadata template with final author order/affiliations, corresponding-author email/postal address/ORCID, significance prior-work context, acknowledgements, funding, inclusion/EDI statement, conflict-of-interest statement, ethics confirmation, and explicit submission declarations. CRediT roles are not an initial-submission blocker.
+Populate the metadata template with final author order/affiliations, corresponding-author email/postal address/ORCID, significance prior-work context, acknowledgements, funding, inclusion/EDI statement, conflict-of-interest statement, ethics confirmation (`ethics_statement_confirmed=true` after author review), and explicit submission declarations.
+
+**CRediT / author-contribution roles are not an initial-submission blocker.**
 
 The public repository choice is already fixed to **Dryad Digital Repository**.
 
