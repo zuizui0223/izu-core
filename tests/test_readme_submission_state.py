@@ -11,7 +11,8 @@ def test_readme_exposes_closed_science_and_active_metadata_gate():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     submission = lower.split("## submission status", 1)[1].split("## claim boundary", 1)[0]
-    assert "scientific and renderer/test surfaces are closed" in submission
+    assert "scientific gate is closed" in submission
+    assert "mechanism-mainline contract" in submission
     assert "author-supplied identity and declaration fields" in submission
     assert "fail-closed" in submission
     assert "final metadata-driven bundle construction" in submission
