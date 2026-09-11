@@ -61,7 +61,8 @@ def derive_block_scales(rows: Sequence[Mapping[str, object]]) -> list[dict[str, 
             _parse_optional_float(row.get("effective_pollen_delivery_per_flower_hour"))
             for row in block_rows
         ]
-        complete = bool(parsed) and all(value is not None for value in parsed)
+        controlled_group_count = sum(value is not None for value in parsed)
+        complete = bool(parsed) and controlled_group_count == len(parsed)
         values = [float(value) for value in parsed if value is not None]
         nonnegative = complete and all(value >= 0 for value in values)
         total = sum(values) if complete else None
@@ -70,11 +71,9 @@ def derive_block_scales(rows: Sequence[Mapping[str, object]]) -> list[dict[str, 
         if ready:
             shares = [value / total for value in values]
             hill_q2 = 1.0 / sum(share * share for share in shares)
-            group_count = len(values)
-            evenness_q2 = hill_q2 / group_count if group_count > 0 else None
+            evenness_q2 = hill_q2 / controlled_group_count if controlled_group_count > 0 else None
             max_share = max(shares)
         else:
-            group_count = len(values) if complete else 0
             hill_q2 = None
             evenness_q2 = None
             max_share = None
@@ -82,7 +81,9 @@ def derive_block_scales(rows: Sequence[Mapping[str, object]]) -> list[dict[str, 
         outputs.append({
             "block_id": block_id,
             "effective_service_scale_ready": ready,
-            "controlled_effective_group_count": group_count,
+            "visitor_group_rows": len(parsed),
+            "controlled_effective_group_count": controlled_group_count,
+            "complete_effectiveness_coverage": complete,
             "total_effective_pollen_delivery_per_flower_hour": total if ready else None,
             "effective_service_hill_q2": hill_q2,
             "effective_service_evenness_q2": evenness_q2,
