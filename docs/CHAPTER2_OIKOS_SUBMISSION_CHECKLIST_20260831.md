@@ -12,57 +12,38 @@ Updated: 2026-09-11
 - Izu E3/E4: **future/optional validation, not a submission gate**
 - Fallback: **Journal of Ecology Research Article**
 
-Active narrative contract:
-
-`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`
-
-Historical narrative contracts are retained only as provenance:
-
-- `docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md`
-- `docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md`
+Active narrative contract: `docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`.
+Historical three-result and four-act narrative locks are provenance only.
 
 The scientific gate is closed. No additional simulation, world search, Izu same-block field measurement or Chapter 3 result is required to complete the current mechanism paper.
 
 ## Oikos initial-submission requirements implemented
 
+- blinded main upload: **`MANUSCRIPT.rtf`**;
+- separate supporting upload: **`SUPPORTING_INFORMATION.rtf`**;
+- separate identity-bearing **`TITLE_PAGE.rtf`**;
 - double-anonymous manuscript rendering;
-- separate identity-bearing title page;
-- main text rendered to RTF;
 - single-column, double-spaced main text;
 - continuous line numbering and page numbering;
 - Introduction forced to begin on page two;
 - abstract capped at 300 words;
-- renderer validates the mechanism-mainline contract rather than the historical three-result/four-act routing;
+- renderer validates the mechanism-mainline contract rather than historical three-result/four-act routing;
 - dedicated Significance statement;
 - Data Availability / data-archiving statement;
 - accepted-stage public repository fixed to **Dryad Digital Repository**;
 - conflict-of-interest and ethics statement surfaces;
 - author confirmation of the prefilled ethics statement remains fail-closed;
-- reviewer-ready frozen data, code and audit materials in the anonymous review archive;
-- Supporting Information rendered as a separate RTF file.
+- reviewer-ready frozen data, code and audit materials in the anonymous review archive.
 
-The active submission manifest is:
-
-`data/design/chapter2_oikos_submission_manifest_20260831.json`
-
-The active metadata template is:
-
-`data/design/island_ecology_submission_metadata_template.json`
-
-The machine-readable submission-closure preflight is:
-
-`data/results/chapter2_submission_closure_audit_20260906.json`
-
-It is regenerated/checked by:
-
-`python scripts/audit_chapter2_submission_closure.py --check`
+The active submission manifest is `data/design/chapter2_oikos_submission_manifest_20260831.json`.
+The active metadata template is `data/design/island_ecology_submission_metadata_template.json`.
+The machine-readable submission-closure preflight is `data/results/chapter2_submission_closure_audit_20260906.json` and is checked by `python scripts/audit_chapter2_submission_closure.py --check`.
 
 ## Scientific claim ceiling retained at submission
 
 ### 1. Conditional response geometry
 
 - baseline 96 matched community realizations contain 41 mixed, 42 all-positive and 13 all-negative response worlds;
-- the fixed 48-point joint design contains 16 mixed, 22 all-positive and 10 all-negative mean regimes;
 - partner loss and partner arrival are the largest sign-stable regime associations in the declared design;
 - baseline variance decomposition is starting position 2.18%, community realization 80.17%, state × community non-additivity 17.64%;
 - these are synthetic design quantities, not natural frequencies or calibrated ecological effect sizes.
@@ -72,9 +53,7 @@ It is regenerated/checked by:
 - exact stepwise realized-richness matching makes the ensemble mean all-positive in **6/6** prespecified matching seeds;
 - nevertheless **51–65/96** individual communities remain mixed-sign;
 - community-realization share remains **50.04–55.92%**, state × community nonadditivity **42.72–48.51%**, and starting-position additive share **0.94–2.21%**;
-- therefore realized richness helps position the coarse mean regime while branch identity remains contingent on starting state evaluated against realized community composition;
-- the earlier **53/96** equal-initial-richness result remains an initial-condition diagnostic only;
-- equalizing baseline partner-arrival/loss rates still yields **70/96** mixed realizations and **65.61%** nonadditivity, so that baseline turnover-rate asymmetry is not required for branching.
+- equalizing baseline partner-arrival/loss rates still yields **70/96** mixed realizations and **65.61%** nonadditivity.
 
 ### 3. Scale-dependent determinant hierarchy
 
@@ -83,10 +62,9 @@ It is regenerated/checked by:
 - with active plant adjustment, median starting-position share rises **2.55 → 10.33 → 27.33 → 42.52 → 55.84%**;
 - median community-realization share falls **72.98 → 48.03 → 23.52 → 18.26 → 12.72%**;
 - starting position exceeds community realization in **0/6, 0/6, 6/6, 6/6, 6/6** seeds across the declared `k` sequence;
-- mixed branching still persists at `k=16` in **28–42/96** realizations;
+- mixed branching persists at `k=16` in **28–42/96** realizations;
 - the supported conclusion is that **determinant ordering is regime dependent**;
-- the numerical crossover near `k=4` is model-specific and must not be interpreted as a natural threshold;
-- visitor richness and Hill diversity are not literal synthetic `k`.
+- the numerical crossover near `k=4` is model-specific and must not be interpreted as a natural threshold.
 
 ### 4. Downstream modifiers
 
@@ -96,50 +74,22 @@ It is regenerated/checked by:
 
 ### 5. Empirical claim boundary
 
-- the formal source audit remains outcome-rich but transition-process-poor: direct responses 21/25, direct partner arrival/replacement 2/25, full contracts 0/25;
+- direct responses 21/25, direct partner arrival/replacement 2/25, full contracts 0/25;
 - formal external prediction remains `not_evaluable`;
 - later world breadth and Izu analyses remain supporting evidence and provenance, not required validation of the synthetic determinant hierarchy;
-- no present-day Izu association identifies historical *Bombus* loss;
 - Chapter 3 phenotype divergence is not Chapter 2 validation;
 - Izu visitor → effectiveness → dependency → mature-seed E3/E4 remains an optional prospective validation programme.
 
 ## Author-supplied information still required
 
-The public repository choice is no longer an author blocker: **Dryad Digital Repository** is fixed for accepted-stage public data/code archiving.
+Populate the metadata template with final author order/affiliations, corresponding-author email/postal address/ORCID, significance prior-work context, acknowledgements, funding, inclusion/EDI statement, conflict-of-interest statement, ethics confirmation, and explicit submission declarations. CRediT roles are not an initial-submission blocker.
 
-Populate the metadata template with one consolidated block containing:
-
-1. final ordered author list and each author's affiliations;
-2. corresponding-author selection, email, postal address and **ORCID**;
-3. coauthor ORCIDs if supplied;
-4. a short **Significance prior-work context**;
-5. acknowledgements, explicitly using `None` where applicable;
-6. funding, explicitly using `None` where applicable;
-7. inclusion / EDI statement;
-8. conflict-of-interest statement;
-9. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals;
-10. explicit submission-declaration booleans.
-
-**CRediT / author-contribution roles are not an initial-submission blocker.** If not supplied now, they can be completed at revision according to the journal route.
-
-These values are intentionally not inferred from repository history.
+The public repository choice is already fixed to **Dryad Digital Repository**.
 
 ## Final build
 
-When author-supplied fields are complete:
+Run the metadata validator, `python scripts/audit_chapter2_submission_closure.py --check`, and then `python scripts/build_island_ecology_submission_bundle.py --metadata data/design/island_ecology_submission_metadata_template.json`.
 
-```bash
-python scripts/build_island_ecology_submission_metadata.py \
-  --metadata data/design/island_ecology_submission_metadata_template.json
+Expected bundle: `dist/chapter2_oikos_submission_bundle.zip`.
 
-python scripts/audit_chapter2_submission_closure.py --check
-
-python scripts/build_island_ecology_submission_bundle.py \
-  --metadata data/design/island_ecology_submission_metadata_template.json
-```
-
-Expected bundle:
-
-`dist/chapter2_oikos_submission_bundle.zip`
-
-Until those author-supplied fields, ethics confirmation and declarations are complete, the builder remains fail-closed by design. Any non-metadata failure is a packaging/renderer problem, not a scientific reason to reopen field E3/E4.
+Until the author-supplied fields, ethics confirmation and declarations are complete, the builder remains fail-closed by design. Any non-metadata failure is a packaging/renderer problem, not a scientific reason to reopen field E3/E4.
