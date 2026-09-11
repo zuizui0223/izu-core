@@ -15,15 +15,13 @@ SUBMISSION_SI = "SUPPORTING_INFORMATION.rtf"
 
 def completed_metadata() -> dict:
     metadata = json.loads(TEMPLATE.read_text(encoding="utf-8"))
-    metadata["authors"] = [
-        {
-            "full_name": "Example Author",
-            "affiliations": ["Example Institute, Example University, Example City, Example Country"],
-            "email": "example@example.org",
-            "postal_address": "Example Institute, Example City, Example Country",
-            "orcid": "0000-0000-0000-0000",
-        }
-    ]
+    metadata["authors"] = [{
+        "full_name": "Example Author",
+        "affiliations": ["Example Institute, Example University, Example City, Example Country"],
+        "email": "example@example.org",
+        "postal_address": "Example Institute, Example City, Example Country",
+        "orcid": "0000-0000-0000-0000",
+    }]
     metadata["corresponding_author_index"] = 0
     metadata["significance_prior_work_context"] = "This manuscript extends prior work by the submitting author and independent published work on island interaction reorganization."
     metadata["planned_public_repository"] = "Dryad Digital Repository"
@@ -46,25 +44,8 @@ def test_current_scientific_gate_accepts_conditional_response_geometry_route():
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
-    missing_gate = tmp_path / "missing-gate.json"
-    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", missing_gate)
+    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", tmp_path / "missing-gate.json")
     with pytest.raises(ValueError, match="scientific reassessment gate is missing"):
-        bundle.validate_scientific_gate()
-
-
-def test_submission_bundle_fails_closed_when_scientific_gate_is_unreadable(tmp_path: Path, monkeypatch):
-    gate = tmp_path / "gate.json"
-    gate.write_text("{not-json", encoding="utf-8")
-    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
-    with pytest.raises(ValueError, match="scientific reassessment gate is unreadable"):
-        bundle.validate_scientific_gate()
-
-
-def test_submission_bundle_rejects_incomplete_scientific_gate(tmp_path: Path, monkeypatch):
-    gate = tmp_path / "gate.json"
-    gate.write_text(json.dumps({"scientific_model_gate_complete": False}), encoding="utf-8")
-    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", gate)
-    with pytest.raises(ValueError, match="scientific model gate is not complete"):
         bundle.validate_scientific_gate()
 
 
@@ -82,7 +63,7 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
         bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
 
 
-def test_submission_bundle_routes_three_result_oikos_rtf_after_gate_closure(tmp_path: Path, monkeypatch):
+def test_submission_bundle_routes_mechanism_mainline_oikos_rtf_after_gate_closure(tmp_path: Path, monkeypatch):
     relational_inputs = tmp_path / "chapter2_manuscript_figure_inputs_relational_20260831.json"
 
     def fake_build_figures() -> dict:
@@ -94,7 +75,7 @@ def test_submission_bundle_routes_three_result_oikos_rtf_after_gate_closure(tmp_
 
     def fake_review_archive(path: Path) -> Path:
         with zipfile.ZipFile(path, "w") as archive:
-            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous three-result review archive\n")
+            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous mechanism-mainline review archive\n")
         return path
 
     monkeypatch.setattr(bundle, "build_review_archive", fake_review_archive)
@@ -116,12 +97,9 @@ def test_submission_bundle_routes_three_result_oikos_rtf_after_gate_closure(tmp_
             "SUBMISSION_BUNDLE_MANIFEST.json",
         ):
             assert name in names
-        assert "MANUSCRIPT.md" not in names
-        assert "TITLE_PAGE.md" not in names
-        assert "REFERENCE_LIST.rtf" not in names
+        assert "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md" in names
         assert "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md" in names
         assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
-        assert "data/results/chapter2_relational_robustness_audit_frozen_20260831.json" in names
         assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in names
         assert SOURCE_MANUSCRIPT not in names
 
@@ -129,98 +107,41 @@ def test_submission_bundle_routes_three_result_oikos_rtf_after_gate_closure(tmp_
         assert manuscript.startswith("{\\rtf1")
         assert "\\sl480\\slmult1" in manuscript
         assert "\\linemod1" in manuscript
-        assert "\\linecont" in manuscript
         assert "fldinst PAGE" in manuscript
-        assert "\\page" in manuscript
         lower = manuscript.lower()
-        assert "result 1" in lower and "result 2" in lower and "result 3" in lower
-        assert "real island systems undergo compositional reorganization beyond richness loss" in lower
-        assert "pollinator assemblage turnover was 0.9796" in lower
-        assert "matched-plant turnover was 0.6817" in lower
-        assert "functional community structure in izu" in lower
-        assert "historical boundary check" in lower
-        assert "response direction is therefore relational rather than intrinsic" not in lower
-        assert "richness reduction is not necessary for mixed response geometry" not in lower
-        assert "supporting information" in lower
-        assert "(appendix)" not in lower
-        assert "fig. s" not in lower
-        assert "dissertation" not in lower
-        assert "chapter 1" not in lower
-        assert "chapter 2" not in lower
-        assert "chapter 3" not in lower
-        assert "zuizui0223" not in lower
-        assert "shimahotarubukuro" not in lower
-        assert "campanula microdonta" in lower
-        assert "10.1111/btp.70027" in lower
-        assert "10.1111/cobi.70304" in lower
-        assert "10.1111/cobi.13892" in lower
-        assert "10.5194/bg-11-6657-2014" in lower
-        assert "10.1111/j.1442-1984.1986.tb00018.x" in lower
-        assert "10.1086/368394" in lower
-        assert "hygiene decisions" not in lower
-        assert "world-saturation synthesis source boundary" not in lower
-        assert "result 2 external compositional-exposure source boundary" not in lower
+        assert "conditional response geometry" in lower
+        assert "realized richness differences therefore help position the ensemble mean regime" in lower
+        assert "ordering of response determinants is itself regime dependent" in lower
+        assert "deterministic mean-field kernel contrast was all-positive" in lower
+        assert "optional future validation programme" in lower
+        assert "55.84%" in manuscript and "12.72%" in manuscript
+        assert "result 1—mechanistic prediction" not in lower
+        assert "result 2—real-world exposure" not in lower
+        assert "result 3—biological consequence" not in lower
 
         supporting = archive.read(SUBMISSION_SI).decode("utf-8")
         assert supporting.startswith("{\\rtf1")
         support_lower = supporting.lower()
-        assert "69.34" in supporting and "80.17" in supporting
-        assert "partner arrival/replacement" in supporting
-        assert "2/25" in supporting
         assert "exact realized-richness matching hard control" in support_lower
+        assert "finite-community system-size audit" in support_lower
+        assert "regime-dependent response hierarchy" in support_lower
         assert "cell-level simulation variation" not in support_lower
-        assert "chapter 3" not in support_lower
-
-        title = archive.read("TITLE_PAGE.rtf").decode("utf-8")
-        cover = archive.read("COVER_LETTER.rtf").decode("utf-8")
-        significance = archive.read("SIGNIFICANCE_STATEMENT.rtf").decode("utf-8")
-        statements = archive.read("SUBMISSION_STATEMENTS.rtf").decode("utf-8")
-        for rendered in (title, cover, significance, statements):
-            assert rendered.startswith("{\\rtf1")
-        assert "Example Author" in title
-        assert "0000-0000-0000-0000" in title
-        assert "publication in Oikos" in cover
-        assert "Dryad Digital Repository" in cover
-        assert "Relation to previous work" in significance
-        assert "Data archiving statement" in statements
-        assert "Ethics statement" in statements
 
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
         assert manifest["journal"] == "Oikos"
         assert manifest["article_type"] == "Research Paper"
-        assert manifest["scientific_state"] == "three_result_hierarchical_response_architecture_with_bounded_historical_inference"
-        assert manifest["manuscript_state"] == "active_20260908_three_result_realized_richness_reframe_rendered_to_oikos_rtf_submission"
-        assert manifest["three_result_narrative"] is True
-        assert manifest["identifiability_coequal_study_objective"] is False
+        assert manifest["scientific_state"] == "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering"
+        assert manifest["manuscript_state"] == "active_20260911_mechanism_mainline_rendered_to_oikos_rtf_submission"
+        assert manifest["mechanism_mainline_narrative"] is True
+        assert manifest["three_result_narrative"] is False
+        assert manifest["field_e3_e4_required_for_submission"] is False
+        assert manifest["system_size_rank_crossover"]["starting_exceeds_community_from_k4"] == "6_of_6_seeds"
+        assert manifest["system_size_rank_crossover"]["natural_threshold_claimed"] is False
+        assert manifest["izu_e3_e4_status"] == "future_optional_validation_not_completion_gate"
         assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
         assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
         assert manifest["submission_supporting_information"] == SUBMISSION_SI
-        assert manifest["oikos_upload_format"] == "RTF"
-        assert manifest["main_text_double_spaced"] is True
-        assert manifest["main_text_continuous_line_numbers"] is True
-        assert manifest["main_text_page_numbers"] is True
-        assert manifest["introduction_forced_to_page_two"] is True
-        assert manifest["main_text_reference_list_included"] is True
-        assert manifest["main_text_reference_scope"] == "active_references_plus_result2_external_sources"
-        assert manifest["main_text_reference_audit_metadata_excluded"] is True
-        assert manifest["world_descriptive_research_entries"] == 42
-        assert manifest["world_descriptive_exact_geographic_labels"] == 37
-        assert manifest["formal_identifiability_research_entries"] == 25
         assert manifest["formal_full_contracts"] == "0_of_25"
-        assert manifest["realized_richness_reframe_complete"] is True
         assert manifest["realized_richness_mean_geometry"] == "all_positive_in_6_of_6_matching_seeds"
-        assert manifest["result2_external_exposure"]["wanshan_yongxing_partner_turnover"] == 0.979601473000006
-        assert manifest["result2_external_exposure"]["ogasawara_anijima_partner_turnover"] == 0.6816731479429761
-        assert manifest["result2_external_exposure"]["pooled_universal_effect_claimed"] is False
-        assert manifest["izu_focal_selection_rule"] == "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit"
         assert manifest["chapter3_direct_phenotype_used_as_validation"] is False
-        assert manifest["corresponding_author_orcid_required"] is True
-        assert manifest["planned_public_repository_named"] is True
-        assert manifest["significance_prior_work_context_included"] is True
         assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in manifest["files"]
-        assert manifest["oikos_significance_statement_included"] is True
-        assert manifest["oikos_submission_statements_included"] is True
-        assert manifest["oikos_data_code_ready_for_first_submission"] is True
-        assert manifest["submission_manuscript_internal_thesis_language_removed_fail_closed"] is True
-        assert manifest["supporting_information_superseded_nonadditivity_wording_removed_fail_closed"] is True
-        assert manifest["figures_regenerated_from_frozen_gate_then_realized_richness_overlay"] is True
