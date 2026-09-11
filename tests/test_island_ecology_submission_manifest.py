@@ -7,51 +7,27 @@ JECOLOGY_FALLBACK = ROOT / "data/design/island_ecology_jecology_submission_manif
 DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 
-def test_oikos_manifest_is_active_and_three_result_reframe_is_explicit():
+def test_oikos_manifest_is_active_and_mechanism_mainline_is_explicit():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "1.12"
+    assert manifest["schema_version"] == "1.13"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_first_submission_route"
     assert manifest["fallback_route"] == "Journal of Ecology Research Article"
     assert manifest["project_tier"] == "Tier_B"
-    assert manifest["story"] == "mechanistic_prediction_to_real_world_compositional_exposure_to_izu_biological_consequence"
-    assert manifest["narrative_lock"] == "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md"
+    assert manifest["story"] == "conditional_geometry_to_richness_control_to_determinant_rank_crossover_to_bounded_empirical_claim_ceiling"
+    assert manifest["narrative_lock"] == "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md"
+    assert manifest["historical_three_result_narrative_lock"] == "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md"
     assert manifest["historical_four_act_narrative_lock"] == "docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md"
     assert manifest["active_manuscript"] == "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
     assert manifest["journal_clean_renderer"] == "scripts/render_chapter2_oikos_generality_overlay.py"
-    assert manifest["oikos_rtf_renderer"] == "scripts/render_oikos_submission_rtf.py"
     assert manifest["submission_ready"] is False
-    assert manifest["remaining_blocker"] == "author_supplied_identity_prior_work_context_ethics_confirmation_and_submission_declarations"
 
-    roles = manifest["three_result_inference_roles"]
-    assert "richness_sensitive_coarse_regime" in roles["result_1_mechanistic_prediction"]
-    assert "partner_turnover_rewiring" in roles["result_2_real_world_exposure"]
-    assert "izu_contemporary_functional_structure" in roles["result_3_biological_consequence"]
-    assert roles["identifiability_role"] == "claim_boundary_and_robustness_only_not_coequal_study_objective"
-
-    breadth = manifest["world_breadth_extension"]
-    assert breadth["formal_identifiability_research_entries"] == 25
-    assert breadth["frozen_exact_geographic_overlap_labels"] == 21
-    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 42
-    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 37
-    assert breadth["formal_external_prediction_reopened"] is False
-    assert breadth["frozen_25_measurement_fractions_recomputed"] is False
-
-    saturation = manifest["world_saturation_and_izu_continuity"]
-    assert saturation["large_island_saturation_rule_met"] is True
-    assert saturation["consecutive_zero_novelty_tranches"] == 2
-    assert saturation["small_island_direct_historical_partner_loss"] == "0_of_8"
-    assert saturation["small_island_direct_partner_arrival_reintroduction"] == "1_of_8"
-    assert saturation["small_island_full_contracts"] == "0_of_8"
-    assert saturation["izu_focal_selection_rule"] == "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit"
-    assert saturation["chapter3_phenotype_used_to_tune_or_validate_chapter2"] is False
-
-    robustness = manifest["relational_robustness"]
-    assert robustness["historical_freeze_rewritten"] is False
-    assert robustness["mixed_at_zero_trait_adjustment"] == "64_of_96"
-    assert robustness["equal_initial_richness_mixed"] == "53_of_96"
-    assert robustness["equal_initial_richness_claim"] == "initial_richness_reduction_not_required_for_mixed_individual_realizations_only"
+    roles = manifest["mechanism_mainline_roles"]
+    assert "mixed_positive_and_negative" in roles["conditional_geometry"]
+    assert "realized_richness_positions_coarse_mean_regime" in roles["richness_control"]
+    assert "ordering_changes" in roles["rank_crossover"]
+    assert roles["empirical_role"] == "biological_plausibility_and_claim_boundary_not_required_validation"
 
     hard = manifest["realized_richness_hard_control"]
     assert hard["all_snapshot_pairs_equal_after_matching"] is True
@@ -59,49 +35,48 @@ def test_oikos_manifest_is_active_and_three_result_reframe_is_explicit():
     assert hard["mean_geometry"] == "all_positive_in_6_of_6_matching_seeds"
     assert hard["mixed_individual_realizations_range"] == "51_to_65_of_96"
     assert hard["state_by_community_nonadditivity_range"] == [0.4272397924506457, 0.4850701049302678]
-    assert hard["prespecified_gate_decision"] == "blocker_failed_reframe_before_author_metadata"
-    assert hard["reframe_integrated"] is True
 
-    exposure = manifest["result2_external_exposure"]
-    assert exposure["independent_context_examples"] == 2
-    assert exposure["wanshan_yongxing"]["partner_turnover"] == 0.979601473000006
-    assert exposure["wanshan_yongxing"]["pollinator_richness_lrr_interval"][0] < 0 < exposure["wanshan_yongxing"]["pollinator_richness_lrr_interval"][1]
-    assert exposure["ogasawara_anijima_context"]["partner_turnover"] == 0.6816731479429761
-    assert exposure["ogasawara_anijima_context"]["pollinator_richness_lrr_interval"][0] < 0 < exposure["ogasawara_anijima_context"]["pollinator_richness_lrr_interval"][1]
-    assert exposure["pooled_universal_island_effect_claimed"] is False
+    rank = manifest["system_size_rank_crossover"]
+    assert rank["k_values"] == [1, 2, 4, 8, 16]
+    assert rank["median_starting_position_share_percent"] == [2.55, 10.33, 27.33, 42.52, 55.84]
+    assert rank["median_community_realization_share_percent"] == [72.98, 48.03, 23.52, 18.26, 12.72]
+    assert rank["starting_position_exceeds_community_seed_counts"] == [0, 0, 6, 6, 6]
+    assert rank["mixed_at_k16_range"] == "28_to_42_of_96"
+    assert rank["natural_threshold_claimed"] is False
+    assert rank["visitor_richness_equated_to_k"] is False
+
+    breadth = manifest["world_breadth_extension"]
+    assert breadth["formal_identifiability_research_entries"] == 25
+    assert breadth["combined_descriptive_research_entries_before_cross_layer_deduplication"] == 42
+    assert breadth["combined_exact_overlap_labels_before_higher_level_archipelago_deduplication"] == 37
+    assert breadth["formal_external_prediction_reopened"] is False
+
+    saturation = manifest["world_saturation_and_izu_continuity"]
+    assert saturation["large_island_saturation_rule_met"] is True
+    assert saturation["izu_e3_e4_status"] == "future_optional_validation_not_completion_gate"
+    assert saturation["chapter3_phenotype_used_to_tune_or_validate_chapter2"] is False
 
     claims = manifest["claim_ceiling"]
     assert claims["mean_regime_placement"] == "richness_sensitive_in_declared_synthetic_model"
     assert claims["relational_response_headline"] == "branch_identity_depends_on_state_evaluated_against_realized_community_composition"
-    assert claims["external_compositional_exposure"] == "partner_turnover_beyond_decisive_richness_loss_supported_in_two_independent_source_native_contexts"
+    assert claims["determinant_ordering"] == "regime_dependent_across_declared_system_size_audit"
+    assert claims["system_size_numeric_crossover_is_natural_threshold"] is False
+    assert claims["field_e3_e4_required_for_current_paper"] is False
     assert claims["formal_external_prediction"] == "not_evaluable"
     assert claims["external_full_contracts"] == "0_of_25"
-    assert claims["identifiability_role"] == "claim_boundary_not_primary_result"
-    assert claims["izu_beyond_composition_sorting"] == "unsupported_for_historical_signed_position_projection"
-    assert claims["izu_contemporary_fdq_to_corrected_matching"] == "supported_with_leave_one_island_sign_stability"
-    assert claims["izu_matching_to_pollen"] == "positive_on_average_not_leave_one_island_sign_stable"
-    assert claims["izu_cross_channel_branching"] == "matching_lower_8_of_8_tube_3_shorter_4_longer_1_unchanged_pollen_4_lower_4_higher"
     assert claims["chapter3_used_as_validation"] is False
 
     oikos = manifest["oikos_initial_submission_contract"]
     assert oikos["double_blind"] is True
-    assert oikos["article_type"] == "Research Paper"
     assert oikos["abstract_max_words"] == 300
-    assert oikos["three_result_submission_narrative"] is True
+    assert oikos["mechanism_mainline_submission_narrative"] is True
+    assert oikos["three_result_submission_narrative"] is False
     assert oikos["four_act_submission_narrative"] is False
-    assert oikos["identifiability_is_coequal_study_objective"] is False
-    assert oikos["upload_file_format"] == "RTF"
-    assert oikos["double_spaced"] is True
-    assert oikos["continuous_line_numbers"] is True
-    assert oikos["page_numbers"] is True
-    assert oikos["introduction_begins_page_two"] is True
-    assert oikos["supporting_information_separate"] is True
+    assert oikos["field_e3_e4_required_for_submission"] is False
+    assert oikos["system_size_rank_crossover_integrated"] is True
+    assert oikos["field_validation_demoted_from_completion_gate"] is True
     assert oikos["planned_public_repository"] == "Dryad Digital Repository"
     assert oikos["data_and_code_ready_for_first_submission"] is True
-    assert oikos["realized_richness_reframe_required_and_integrated"] is True
-    assert oikos["three_result_reframe_required_and_integrated"] is True
-    assert oikos["supporting_appendix_s19_included"] is True
-    assert oikos["supporting_table_s9_included"] is True
 
 
 def test_journal_of_ecology_manifest_is_retained_as_fallback_provenance():
