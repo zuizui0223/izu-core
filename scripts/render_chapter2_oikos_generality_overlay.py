@@ -21,15 +21,35 @@ TABLE_ROW_RANK_CROSSOVER = (
     "| Active-adjustment system-size rank crossover | median starting/community SS 2.55%/72.98% at k=1 → 55.84%/12.72% at k=16; starting > community in 6/6 seeds from k=4 | determinant ordering is regime dependent; mixed branching persists at k=16 (28–42/96); numerical crossover is model-specific |"
 )
 
+_INTERNAL_PREFIXES = (
+    "**Status:**",
+    "**Updated:**",
+    "**Inference architecture:**",
+    "**Controlling state:**",
+)
+
+
+def _strip_repository_metadata(text: str) -> str:
+    """Remove repository-only routing metadata from the blinded journal surface."""
+    lines = [line for line in text.splitlines() if not line.startswith(_INTERNAL_PREFIXES)]
+    cleaned = "\n".join(lines).strip() + "\n"
+    replacements = {
+        "No Chapter 2 conclusion requires field confirmation": "No conclusion in the current paper requires field confirmation",
+        "Chapter 2 closure": "current-paper closure",
+    }
+    for old, new in replacements.items():
+        cleaned = cleaned.replace(old, new)
+    return cleaned
+
 
 def render_submission_manuscript() -> str:
-    """Return the already-integrated canonical Chapter 2 manuscript.
+    """Return the submission-facing mechanism-mainline manuscript.
 
-    Historical overlay logic used literal replacements on an older empirical
-    three-act source.  The active manuscript now owns the final scientific
-    narrative, so this layer only validates the submission-facing claim lock.
+    The active source owns the scientific narrative. This layer validates the
+    claim lock and strips repository/dissertation routing metadata before RTF or
+    anonymous-review rendering.
     """
-    text = render_base_manuscript()
+    text = _strip_repository_metadata(render_base_manuscript())
     first_line = text.splitlines()[0]
     if NEW_TITLE not in first_line:
         raise ValueError("canonical Oikos title missing from active manuscript")
@@ -65,6 +85,10 @@ def render_submission_manuscript() -> str:
     for token in required:
         if token.lower() not in lower:
             raise ValueError(f"Oikos canonical manuscript missing claim-lock token: {token}")
+
+    for forbidden in _INTERNAL_PREFIXES:
+        if forbidden.lower() in lower:
+            raise ValueError(f"repository metadata leaked into journal manuscript: {forbidden}")
     return text
 
 
