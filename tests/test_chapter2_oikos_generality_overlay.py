@@ -24,7 +24,7 @@ def test_island_syndrome_novelty_is_explicit_without_becoming_title_scope():
     assert "the syndrome is therefore the shifted response regime and its variance architecture" in lower
     discussion = text.split("# Discussion", 1)[1].lower()
     assert "single island syndrome" in discussion
-    assert "ensemble-level" in discussion
+    assert "shifted response regime and its variance architecture" in discussion
 
 
 def test_equal_turnover_generality_is_in_manuscript_and_fig2_caption():
