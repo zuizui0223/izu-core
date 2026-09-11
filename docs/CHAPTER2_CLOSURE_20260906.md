@@ -1,80 +1,115 @@
-# Chapter 2 closure — world saturation to Izu continuity
+# Chapter 2 closure — mechanism paper boundary
 
-Updated: 2026-09-06  
-Closure addendum: 2026-09-11
+Updated: 2026-09-11
 
-## Revised closure decision
+## Closure decision
 
-The **world-breadth programme is closed**, but Chapter 2 is no longer treated as fully empirically closed after identifying the transition-measurement bottleneck.
+Chapter 2 is **not held open by missing same-block Izu field data**.
 
-The September 9 same-block design and September 10 active-adjustment system-size result open one final depth axis in Izu:
+The current paper closes on the synthetic/mechanistic spine:
 
-1. define a conditional response geometry and its proximal mechanism — complete;
-2. show that empirical island systems require a response vocabulary broader than one syndrome — complete;
-3. demonstrate, with a geography-first stopping rule, that further breadth stops adding materially new mechanism states while the transition-measurement bottleneck persists — complete;
-4. justify Izu as the depth system by cross-layer measurement continuity and resolve the contemporary functional-realization half — complete;
-5. prospectively link visitor exposure → single-visit effectiveness → reproductive dependency → mature seed within the same `block_id × plant_id` units — **primary open empirical gate (E3)**;
-6. where repeated blocks permit, test whether the relative contribution of plant starting state versus realized community/service composition changes with measured effective-service breadth/stability — **secondary open rank-order confrontation (E4)**.
+```text
+pollinator-interaction reorganization
+        ↓
+conditional response geometry
+        ×
+starting functional state
+        ×
+realized community
+        ↓
+response branch
+        ↓
+regime-dependent determinant ordering
+```
 
-This revision does not reopen geography-first world screening. The remaining work is depth-only and was selected because the world programme had already identified transition-linked measurement continuity as the limiting evidence.
+The September 2026 active-adjustment system-size audit is part of the paper result because it changes the model-level interpretation: dominance of starting state versus realized community is not globally fixed, and relational non-additivity persists across the declared system-size sequence.
 
-## Why Izu follows rather than precedes world breadth
+## What is complete enough for the current paper
 
-Izu is not selected because it is in Japan, close to the researcher, logistically convenient or representative of all islands. It is selected only after world expansion reaches the declared stopping condition.
+The paper has reached closure when the manuscript and figures consistently establish, within the frozen claim boundary, that:
 
-The focal criterion is measurement continuity: one regional series should connect as many of the missing mechanism layers as possible while retaining alternative historical explanations and the ability to falsify the preferred mechanism.
+1. a common broad interaction perturbation can generate mixed, positive and negative response branches;
+2. starting state organizes mean response geometry but is not sufficient to determine cell-level response;
+3. realized community is a major component in the baseline finite-community regime;
+4. state × community non-additivity is biologically consequential rather than negligible;
+5. determinant ordering can reverse across the declared stochastic/system-size regimes;
+6. local filtering and reproductive assurance remain downstream modifiers with the already-frozen interpretations; and
+7. all numerical synthetic quantities are kept separate from claims about natural prevalence, natural thresholds or historical island causation.
 
-Izu satisfies that criterion because it combines:
+No new field measurement is required to satisfy these seven conditions.
 
-- historical *Campanula microdonta* floral, mating-system and autonomous-reproduction response channels;
-- explicit population-history alternatives;
-- repeated mainland/Oshima/post-Oshima contemporary networks;
-- source-native numeric pollinator functional traits;
-- present corrected matching and pollen-response measurements;
-- negative as well as positive model-facing results;
-- an independently measured multichannel focal phenotype reserved for Chapter 3;
-- a prospective same-block tagged-plant route to visitor effectiveness, reproductive dependency and mature seed.
+## World evidence: breadth is closed
 
-## Why the synthetic rank crossover changes the endpoint
+The world/literature programme has already done the job needed for this paper:
 
-The active-adjustment audit shows that determinant ordering is not globally fixed inside the synthetic model. At the baseline small-community regime, realized-community variation dominates; as independent trajectories are pooled, community-realization share falls and starting-state share becomes larger, while state × community non-additivity persists.
+- establish that the modeled response ingredients are biologically plausible;
+- identify which transition-linked measurements are usually missing;
+- define the empirical/causal claim ceiling; and
+- show why a synthetic mechanism must not be narrated as an already demonstrated natural causal chain.
 
-The numerical crossover near synthetic `k=4` is not a field prediction. Raw visitor richness and Hill-q2 effective-service breadth are not literal `k`.
+Additional island-system searching is not a Chapter 2 completion task unless a manuscript claim creates a specific unresolved contradiction.
 
-The field-facing question is only qualitative:
+The absence of a natural dataset that simultaneously observes source state, realized visitor community, visitor effectiveness, reproductive dependency and mature seed is an **identifiability result/limitation**, not evidence that the present paper is unfinished.
 
-> Does the relative importance of plant starting state rise, and realized community/service composition fall, as effective service becomes broader and/or more stable across prespecified Izu blocks?
+## Status of Izu E3/E4
 
-The corresponding design is frozen in `data/design/izu_effective_service_rank_crossover_lock_20260911.json`.
+The prospective same-block chain remains scientifically useful:
 
-## Chapter 2 / Chapter 3 boundary
+```text
+pre-outcome plant state × visitor exposure/composition
+        → single-visit deposition / effective service
+        → dependency treatment
+        → mature seed
+```
 
-Chapter 2 owns:
+The associated E3/E4 design, audit scripts and templates remain in the repository. They are retained because they provide a disciplined future falsification protocol.
 
-- the conditional-response mechanism;
-- world saturation / empirical identifiability result;
-- Izu selection logic;
-- contemporary functional resolution;
-- the same-block visitor → effectiveness → dependency → mature-seed confrontation;
-- the qualitative determinant-rank confrontation across measured service context.
+Their status is now explicitly:
 
-Chapter 3 owns the direct multivariate *C. microdonta* phenotype: the coordinated size/investment trajectory and residual departures that are actually realized across the focal lineage.
+> **future/optional validation — not a remaining Chapter 2 empirical gate.**
 
-The same new field measurements may later contextualize Chapter 3, but Chapter 3 phenotype values are not used to tune Chapter 2, choose an E4 scale cutoff, validate the synthetic crossover, or establish historical *Bombus* causation.
+A later study can use the same `block_id × plant_id` design to test whether a qualitative field analogue of determinant-order change exists. Such a study must continue to respect the frozen boundary that raw visitor richness and Hill diversity are not literal synthetic `k`, and that the synthetic numerical crossover near `k=4` is not a field threshold.
 
-## Final Chapter 2 completion rule
+Positive or negative field results would be valuable later. Neither is required for the current paper to make its mechanistic claim.
 
-Chapter 2 can be treated as empirically complete when either:
+## What is no longer on the Chapter 2 critical path
 
-1. E3/E4 reach their prespecified analyzable state and are reported with their uncertainty and falsification outcomes; or
-2. the frozen admission/precision gates show that E3 or E4 is not identifiable with the obtainable Izu field design, and that non-identifiability is reported rather than repaired post hoc.
+The following are removed from the paper-completion queue:
 
-A positive result is not required for closure. A properly measured null, counterdirectional result, or declared identifiability failure also closes the gate.
+- filling the Izu visitor → effectiveness → dependency → mature-seed chain;
+- obtaining enough repeated Izu blocks to estimate a field determinant-rank crossover;
+- finding a natural analogue of synthetic `k`;
+- demonstrating historical *Bombus* loss as the cause of the modeled response geometry;
+- demonstrating an Oshima–Toshima causal boundary; and
+- using Chapter 3 phenotype data as Chapter 2 validation.
 
-## Claim boundary
+These may motivate later empirical papers, but they cannot block the present manuscript.
 
-Even after E3/E4, Chapter 2 does not by itself identify historical *Bombus* loss, historical evolutionary selection, a causal Oshima–Toshima boundary, a universal island syndrome, natural prevalence of synthetic branch classes, or a universal natural system-size threshold.
+## Active Chapter 2 tasks after closure
 
-## Final claim target
+The remaining work is paper work rather than discovery/field work:
 
-> A common interaction reorganization need not produce one island response because response direction is relational to plant state and realized community, and the relative importance of those determinants need not itself be fixed. World island evidence shows that the transition-linked chain is the persistent empirical bottleneck after breadth saturation. Izu is the depth system in which visitor exposure, effective pollen service, reproductive dependency and mature seed can be linked prospectively while historical transition causation remains explicitly separate.
+1. keep the Abstract, Introduction, Results, Discussion and figures synchronized around conditional response geometry and regime-dependent determinant ordering;
+2. preserve the exact distinction between baseline community dominance and system-size-dependent rank crossover;
+3. retain robustness/audit evidence needed for those claims;
+4. remove wording that implies the current mechanism has already been demonstrated as a historical natural causal chain; and
+5. keep the field E3/E4 materials clearly labeled as optional prospective validation.
+
+## Handoff to Chapter 3
+
+Chapter 2 hands off a **mechanistic possibility and its conditional structure**, not a completed Izu causal chain.
+
+```text
+Chapter 2
+conditional-response geometry
+    → regime-dependent determinant hierarchy
+        ↓
+Chapter 3
+realized multivariate phenotype of the focal lineage
+```
+
+Chapter 3 does not have to wait for E3/E4, and its phenotype values do not retroactively validate Chapter 2.
+
+## Final closure statement
+
+> **Chapter 2 is scientifically closed at the synthetic conditional-response / regime-dependent determinant-ordering claim. Same-block Izu E3/E4 is a separate future validation programme and is not a requirement for the present paper.**
