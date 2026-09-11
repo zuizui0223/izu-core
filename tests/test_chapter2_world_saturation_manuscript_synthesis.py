@@ -19,7 +19,7 @@ def test_world_program_is_preserved_as_bounded_claim_ceiling_not_main_result():
     assert manifest["world_breadth_extension"]["formal_identifiability_research_entries"] == 25
     assert manifest["claim_ceiling"]["external_full_contracts"] == "0_of_25"
     assert manifest["claim_ceiling"]["formal_external_prediction"] == "not_evaluable"
-    assert manifest["empirical_validation_role"]["field_e3_e4_required_for_current_paper"] is False
+    assert manifest["claim_ceiling"]["field_e3_e4_required_for_current_paper"] is False
 
 
 def test_world_saturation_assets_remain_frozen_for_reviewer_audit():
