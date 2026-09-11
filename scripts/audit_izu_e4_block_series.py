@@ -12,6 +12,7 @@ import argparse
 import csv
 import json
 from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 from typing import Iterable, Mapping, Sequence
 
@@ -22,6 +23,8 @@ BLOCK_REQUIRED = (
     "island_id",
     "site_id",
     "taxon",
+    "block_start",
+    "block_end",
     "season_id",
     "predeclared_before_outcomes",
     "realization_series_id",
@@ -60,6 +63,16 @@ def _as_bool(value: object) -> bool:
     return str(value or "").strip().lower() in TRUE_VALUES
 
 
+def _parse_dt(value: str, *, label: str) -> datetime:
+    try:
+        out = datetime.fromisoformat(value)
+    except ValueError as exc:
+        raise ValueError(f"invalid ISO-8601 datetime for {label}: {value!r}") from exc
+    if out.tzinfo is None:
+        raise ValueError(f"timezone offset required for {label}")
+    return out
+
+
 def audit_e4_series(
     blocks: Sequence[Mapping[str, object]],
     scales: Sequence[Mapping[str, object]],
@@ -83,6 +96,11 @@ def audit_e4_series(
         if block_id in seen_blocks:
             raise ValueError(f"duplicate block_id={block_id!r} in transition block manifest")
         seen_blocks.add(block_id)
+
+        start = _parse_dt(_text(row, "block_start"), label=f"block_id={block_id!r} block_start")
+        end = _parse_dt(_text(row, "block_end"), label=f"block_id={block_id!r} block_end")
+        if end <= start:
+            raise ValueError(f"block_end must be after block_start for block_id={block_id!r}")
 
         role = _text(row, "e4_scale_role")
         if role not in E4_ROLES:
@@ -122,6 +140,8 @@ def audit_e4_series(
             "realization_series_id": series_id or None,
             "block_sequence": sequence,
             "planned_duration_min": duration,
+            "block_start": start.isoformat(),
+            "block_end": end.isoformat(),
             "effective_service_scale_ready": scale_ready,
             "complete_effectiveness_coverage": complete_coverage,
             "effective_service_hill_q2": hill_q2,
@@ -137,6 +157,21 @@ def audit_e4_series(
             values = {_text(row, field) for row in members}
             if len(values) != 1:
                 raise ValueError(f"E4 series {series_id!r} mixes {field}: {sorted(values)!r}")
+
+        ordered = sorted(members, key=lambda row: int(_text(row, "block_sequence")))
+        starts = [
+            _parse_dt(_text(row, "block_start"), label=f"block_id={_text(row, 'block_id')!r} block_start")
+            for row in ordered
+        ]
+        ends = [
+            _parse_dt(_text(row, "block_end"), label=f"block_id={_text(row, 'block_id')!r} block_end")
+            for row in ordered
+        ]
+        if starts != sorted(starts):
+            raise ValueError(f"block_sequence is not chronological in realization_series_id={series_id!r}")
+        for previous_end, next_start in zip(ends, starts[1:]):
+            if next_start < previous_end:
+                raise ValueError(f"overlapping E4 blocks in realization_series_id={series_id!r}")
 
         member_ids = {_text(row, "block_id") for row in members}
         scale_ready_count = sum(
