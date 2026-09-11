@@ -42,6 +42,7 @@ STATIC_SUBMISSION_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
+    "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
     "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
     "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
     "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md",
@@ -133,27 +134,34 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             if control not in main_rtf:
                 raise ValueError(f"Oikos manuscript formatting control missing: {control}")
         required_story = (
-            "result 1",
-            "result 2",
-            "result 3",
-            "real island systems undergo compositional reorganization beyond richness loss",
-            "functional community structure in izu",
+            "conditional response geometry",
+            "realized richness differences therefore help position the ensemble mean regime",
+            "ordering of response determinants is itself regime dependent",
+            "deterministic mean-field kernel contrast was all-positive",
+            "optional future validation programme",
         )
         missing_story = [token for token in required_story if token not in lower_main]
         if missing_story:
-            raise ValueError(f"Oikos manuscript lost the three-result narrative: {missing_story}")
-        if "richness reduction is not necessary for mixed response geometry" in lower_main:
-            raise ValueError("stale richness-independent claim survived Oikos manuscript rendering")
-        if "response direction is therefore relational rather than intrinsic" in lower_main:
-            raise ValueError("stale pre-richness headline survived Oikos manuscript rendering")
+            raise ValueError(f"Oikos manuscript lost the mechanism-mainline narrative: {missing_story}")
+        stale_story = (
+            "result 1—mechanistic prediction",
+            "result 2—real-world exposure",
+            "result 3—biological consequence",
+            "figure 1. three-result inference chain",
+        )
+        leaked = [token for token in stale_story if token in lower_main]
+        if leaked:
+            raise ValueError(f"historical three-result narrative leaked into active manuscript: {leaked}")
 
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "three_result_hierarchical_response_architecture_with_bounded_historical_inference",
-            "manuscript_state": "active_20260908_three_result_realized_richness_reframe_rendered_to_oikos_rtf_submission",
-            "three_result_narrative": True,
+            "scientific_state": "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering",
+            "manuscript_state": "active_20260911_mechanism_mainline_rendered_to_oikos_rtf_submission",
+            "mechanism_mainline_narrative": True,
+            "three_result_narrative": False,
             "identifiability_coequal_study_objective": False,
+            "field_e3_e4_required_for_submission": False,
             "source_manuscript": SOURCE_MANUSCRIPT,
             "submission_manuscript": SUBMISSION_MANUSCRIPT_NAME,
             "submission_supporting_information": SUBMISSION_SI_NAME,
@@ -167,7 +175,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "main_text_page_numbers": True,
             "introduction_forced_to_page_two": True,
             "main_text_reference_list_included": True,
-            "main_text_reference_scope": "active_references_plus_result2_external_sources",
+            "main_text_reference_scope": "active_references_for_mechanism_mainline_and_empirical_claim_boundary",
             "main_text_reference_audit_metadata_excluded": True,
             "world_descriptive_research_entries": 42,
             "world_descriptive_exact_geographic_labels": 37,
@@ -177,14 +185,15 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "realized_richness_mean_geometry": "all_positive_in_6_of_6_matching_seeds",
             "realized_richness_mixed_individual_realizations": "51_to_65_of_96",
             "realized_richness_nonadditivity_fraction": "0.4272_to_0.4851",
-            "result2_external_exposure": {
-                "wanshan_yongxing_partner_turnover": 0.979601473000006,
-                "wanshan_yongxing_richness_lrr": -0.10536051565782628,
-                "ogasawara_anijima_partner_turnover": 0.6816731479429761,
-                "ogasawara_anijima_richness_lrr": -0.31461524740250146,
-                "pooled_universal_effect_claimed": False,
+            "system_size_rank_crossover": {
+                "k_values": [1, 2, 4, 8, 16],
+                "median_starting_share_percent": [2.55, 10.33, 27.33, 42.52, 55.84],
+                "median_community_share_percent": [72.98, 48.03, 23.52, 18.26, 12.72],
+                "starting_exceeds_community_from_k4": "6_of_6_seeds",
+                "mixed_at_k16": "28_to_42_of_96",
+                "natural_threshold_claimed": False,
             },
-            "izu_focal_selection_rule": "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit",
+            "izu_e3_e4_status": "future_optional_validation_not_completion_gate",
             "chapter3_direct_phenotype_used_as_validation": False,
             "corresponding_author_orcid_required": True,
             "planned_public_repository_named": True,
@@ -194,7 +203,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "oikos_significance_statement_included": True,
             "oikos_submission_statements_included": True,
             "oikos_data_code_ready_for_first_submission": True,
-            "figures_regenerated_from_frozen_gate_then_realized_richness_overlay": True,
+            "figures_regenerated_from_frozen_gate": True,
             "model_gate": gate.get("status"),
             "files": [
                 SUBMISSION_MANUSCRIPT_NAME,
@@ -209,11 +218,10 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "anonymous_review_archive.zip",
             ],
             "boundary": (
-                "The submission is organized as mechanistic prediction -> real-world compositional exposure -> Izu biological consequence. "
-                "Exact realized-richness matching shifts the ensemble mean geometry to all-positive in all six matching seeds, while 51-65/96 individual communities remain mixed and state-by-community nonadditivity remains 42.72-48.51%. "
-                "Wanshan-Yongxing and Ogasawara provide bounded source-native examples of strong partner turnover without a decisive richness contrast; they are not pooled as a universal island effect. "
-                "Izu then shows a robust contemporary FDQ-to-corrected-matching association and weaker, branched downstream propagation. "
-                "The frozen 25-entry identifiability audit remains a historical claim boundary at 0/25 full contracts, not a coequal study objective, and present associations do not identify historical Bombus loss."
+                "The submission is organized around synthetic conditional response geometry, exact realized-richness control, and a prespecified system-size determinant-rank crossover. "
+                "Exact realized-richness matching shifts the ensemble mean geometry to all-positive in all six matching seeds while individual branching and state-by-community nonadditivity remain. "
+                "Under active plant adjustment the additive determinant ordering reverses across the declared k sequence, but the numerical crossover is model-specific and is not transferred to nature. "
+                "World and Izu evidence bound biological plausibility and historical identifiability; field E3/E4 remains optional future validation rather than a submission gate."
             ),
         }
 
