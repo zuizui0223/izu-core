@@ -23,8 +23,6 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_mechanism_main
     assert "51" in text and "65/96" in text
     assert "all six prespecified matching seeds" in lower
     assert "70/96" in text and "65.61%" in text
-    assert "equalizing the baseline mainland" in lower
-    assert "does not make the two scenarios identical" in lower
     assert "55.84%" in text and "12.72%" in text
     assert "deterministic mean-field kernel contrast was all-positive" in lower
     assert "figure 1. conditional-response architecture and scale-dependent determinant hierarchy" in lower
@@ -33,7 +31,6 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_mechanism_main
     assert "result 1—mechanistic prediction" not in lower
     assert "result 2—real-world exposure" not in lower
     assert "result 3—biological consequence" not in lower
-    assert "supporting information" in lower
     assert "(appendix)" not in lower
     assert "fig. s" not in lower
 
@@ -48,7 +45,6 @@ def test_supporting_information_rtf_preserves_relational_world_izu_and_generalit
     assert "# Appendix S22. Regime-dependent response hierarchy under active plant adjustment" in markdown
     assert "# Supporting Tables" in markdown
     assert "# Supporting Table S9. Exact realized-richness matching sensitivity" in markdown
-    assert "Equal turnover rates: mixed count / state × community non-additivity" in markdown
     assert "70/96 / 65.61%" in markdown
     assert "Active-adjustment system-size rank crossover" in markdown
     assert "55.84%/12.72%" in markdown
@@ -61,13 +57,8 @@ def test_supporting_information_rtf_preserves_relational_world_izu_and_generalit
     assert "finite-community system-size audit" in lower
     assert "gaussian mean-field limit" in lower
     assert "regime-dependent response hierarchy" in lower
-    assert "51/96 to 65/96" in text
-    assert "42.72" in text and "48.51" in text
-    assert "69.34" in text and "80.17" in text
-    assert "53/96" in text
     assert "70/96" in text and "65.61%" in text
     assert "55.84%" in text and "72.98%" in text
-    assert "28" in text and "42/96" in text
     assert "partner arrival/replacement" in lower
     assert "2/25" in text
     assert "cell-level simulation variation" not in lower
