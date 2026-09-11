@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_field_outcomes",
+  "frozen_on": "2026-09-11",
+  "parent_empirical_design": "data/design/izu_transition_linked_estimand_lock_20260909.json",
+  "parent_synthetic_design": "data/design/chapter2_trait_adjustment_system_size_rank_crossover_freeze_20260910.json",
+  "question": "Does the ordering of plant-starting-state versus realized-community contributions to reproductive response change along an empirically measured effective-service scale in Izu, without treating raw visitor richness as the synthetic system-size parameter?",
+  "strict_unit": "block_id x plant_id",
+  "mapping_boundary": {
+    "synthetic_k_is_not_raw_visitor_richness": true,
+    "synthetic_k_is_not_literal_effective_species_number": true,
+    "no_field_claim_of_k_approximately_4_threshold": true,
+    "role": "The synthetic k pools independent pollinator trajectories. Field measurements can test the qualitative rank-order prediction, but do not inherit the synthetic numerical threshold."
+  },
+  "field_scale_coordinates": {
+    "raw_visitor_richness": {
+      "role": "E1 coarse-regime exposure only",
+      "required_guardrail": "report only with monitored flower-hours and retained zero-visit windows",
+      "not_allowed_as": "literal field counterpart of synthetic k"
+    },
+    "effective_service_hill_q2": {
+      "definition": "1 / sum_g(p_bg^2), where p_bg is visitor-group g's non-negative background-controlled effective-service share within block b",
+      "effective_service_weight": "visit_rate_per_flower_hour x background_adjusted_single_visit_conspecific_pollen_deposition",
+      "availability_rule": "defined only when effective-service composition is ready, total effective service is positive, and no group weight is negative",
+      "interpretation": "effective number of visitor groups contributing pollen service; an empirical service-breadth/concentration coordinate, not a direct estimate of synthetic k"
+    },
+    "effective_service_evenness_q2": {
+      "definition": "effective_service_hill_q2 / controlled_effective_group_count",
+      "availability_rule": "defined only when effective_service_hill_q2 is defined and controlled_effective_group_count > 0",
+      "interpretation": "how evenly controlled effective service is distributed across contributing groups"
+    },
+    "service_realization_stability": {
+      "status": "requires repeated prespecified within-season blocks",
+      "planned_summary": "dispersion of effective-service composition and total service across independent blocks after effort control",
+      "interpretation": "closer empirical analogue of the stochastic-realization component that shrinks under synthetic pooling"
+    }
+  },
+  "estimand_E4_rank_order_confrontation": {
+    "question": "As effective service becomes broader and/or realized service becomes more stable across prespecified blocks, does the relative predictive contribution of plant starting state increase while the contribution of realized community/service composition decreases?",
+    "primary_response": "same-plant dependency and mature-seed response",
+    "starting_state": "pre-outcome same-plant floral geometry / functional position",
+    "community_term": "background-controlled effective-service composition",
+    "scale_terms": [
+      "effective_service_hill_q2",
+      "service_realization_stability when repeated blocks permit estimation"
+    ],
+    "required_nonadditivity_check": "retain and report starting_state x effective_service_composition; rank reversal does not imply separability",
+    "preferred_inference": "hierarchical out-of-block predictive comparison or variance decomposition across prespecified exposure-defined scale strata, with plants nested within blocks",
+    "no_posthoc_breakpoint_search": true,
+    "synthetic_numeric_threshold_used_as_field_cutoff": false
+  },
+  "admission": {
+    "structural": "E4 remains unavailable until the same-block E3 chain is structurally observed and effective-service composition is available.",
+    "scale": "At least two controlled effective-service groups are needed for service breadth greater than one; one-group blocks remain valid low-breadth observations.",
+    "confirmatory": "Effect-size directions, scale cutoffs and crossover locations may not be chosen after mature-seed outcomes are inspected. Replication and precision remain governed by the frozen pilot/precision workflow."
+  },
+  "falsification": [
+    "starting-state contribution does not increase with service breadth/stability",
+    "community/service-composition contribution does not decrease with service breadth/stability",
+    "the apparent crossover disappears under out-of-block prediction",
+    "the same pattern is explained by effort, total service, site/time or other prespecified covariates",
+    "nonadditivity is negligible or behaves contrary to the synthetic qualitative prediction"
+  ],
+  "claim_boundary": "A supported E4 would show a qualitative real-world counterpart of regime-dependent determinant ordering. It would not validate the synthetic value k=4, equate effective visitor diversity with pooled trajectories, identify historical Bombus loss, or estimate a universal ecological threshold."
+}

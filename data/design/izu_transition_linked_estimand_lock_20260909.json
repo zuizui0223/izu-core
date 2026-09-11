@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "status": "estimands_locked_before_field_outcomes",
+  "locked_on": "2026-09-09",
+  "parent_design": "data/design/izu_transition_linked_chain_freeze_20260909.json",
+  "strict_unit": "block_id x plant_id",
+  "estimands": {
+    "E1_coarse_regime": {
+      "question": "Does richness-like visitor exposure position the mean real-world response regime?",
+      "exposure": "block observed visitor richness, always reported with monitored flower-hours and zero-visit windows; controlled-effective visitor-group count is a secondary richness-like measure",
+      "responses": [
+        "block effective pollen delivery",
+        "plant-level open/bagged/supplemental reproductive contrast",
+        "plant-level mature-seed response"
+      ],
+      "role": "empirical counterpart of synthetic richness-sensitive coarse regime placement"
+    },
+    "E2_branch": {
+      "question": "After richness-like exposure is accounted for, does realized composition interacting with plant starting state explain residual branch identity?",
+      "composition": "block visitor composition, with controlled SVD-weighted effective-service composition preferred when background-controlled SVD exists",
+      "starting_state": "pre-outcome same-plant floral geometry / functional position",
+      "response": "same-plant dependency and mature-seed response",
+      "role": "empirical counterpart of synthetic realized composition x starting-state branching"
+    },
+    "E3_propagation": {
+      "question": "Is the ecological chain transition-linked within the same plants/blocks?",
+      "path": [
+        "visitor exposure",
+        "single-visit pollen deposition / effective service",
+        "reproductive dependency / pollen limitation",
+        "mature seed"
+      ],
+      "role": "prospective real-chain confrontation of the synthetic mechanism"
+    }
+  },
+  "model_selection_boundary": {
+    "effect_directions_not_used_to_choose_model": true,
+    "no_posthoc_richness_threshold": true,
+    "no_posthoc_high_dependency_cutoff": true,
+    "distribution_family_and_replication_requirements": "chosen only after frozen pilot dispersion/diagnostic review using outcome-blind rules where possible",
+    "flowers_and_visits_are_not_independent_n": true,
+    "plants_nested_within_blocks": true
+  },
+  "minimum_reporting": [
+    "raw and usable monitored flower-hours",
+    "zero-visit blocks/windows",
+    "visitor-group/taxon richness with resolution status",
+    "SVD background control coverage",
+    "effective-service composition availability",
+    "full-chain plant/block counts",
+    "pending/lost/damaged treatment fractions",
+    "mature-fruit to mature-seed linkage completeness"
+  ],
+  "claim_boundary": "E1-E3 can establish a contemporary transition-linked hierarchy in Izu. They do not alone identify the historical origin of the pollinator community, evolutionary selection, or a causal geographic boundary."
+}

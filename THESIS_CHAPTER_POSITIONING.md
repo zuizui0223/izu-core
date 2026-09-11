@@ -44,7 +44,7 @@ autonomous assurance
 response magnitude, without sign rescue in the tested envelope
 ```
 
-The crucial distinction is that starting functional position organizes the **mean response geometry**, while realized community state dominates much of the **cell-level variation**. Starting position is therefore not promoted as a universal generator acting independently of community realization.
+Starting functional position organizes the **mean response geometry**, while realized community state dominates much of the **cell-level variation in the baseline finite-community regime**. The later active-adjustment system-size audit shows that this determinant ordering is not globally fixed: as independent community realizations are pooled, the community-realization share declines and the starting-state share can become larger while non-additivity remains substantial. Starting position is therefore not promoted as a universal generator acting independently of community realization, and realized community is not promoted as a universally dominant component either.
 
 ## Chapter 1 handoff
 
@@ -83,13 +83,13 @@ where `W(z)` is the observed island pattern, `F(z)` is local reproductive contri
 ## HOW, proximal WHY and ultimate WHY
 
 - **HOW:** how partner turnover propagates through matching, service, local filtering and reproduction.
-- **Proximal WHY:** why the same broad perturbation can yield different branches because regime, starting state and realized community differ and combine non-additively.
+- **Proximal WHY:** why the same broad perturbation can yield different branches because regime, starting state and realized community differ and combine non-additively, and why the relative importance of those determinants can itself depend on community stochasticity/system scale.
 - **Ultimate WHY:** why the island acquired its biota, starting states or interaction architecture in the first place; this remains outside the Chapter 2 test.
 
 | Level | Question | Current Chapter 2 answer | Claim ceiling |
 |---|---|---|---|
-| **HOW** | Through what response architecture does pollinator reorganization propagate? | Partner turnover changes functional matching and service; local availability / interaction filtering can change branch identity; autonomous assurance changes downstream magnitude without sign rescue in the declared envelope. | Directly represented within the declared synthetic model. |
-| **Proximal WHY** | Why can the same broad perturbation yield opposite responses? | Response regime changes with partner loss/arrival balance and other matching dimensions; starting state organizes the mean sign geometry; realized community is the largest cell-level component; state and community combine non-additively; local filtering reallocates branches asymmetrically. | Diagnostic explanation within the frozen synthetic design, not a field-estimated causal effect. |
+| **HOW** | Through what response architecture does pollinator reorganization propagate? | Partner turnover changes functional matching and service; local availability / interaction filtering can change branch identity; autonomous assurance changes downstream magnitude without sign rescue in the declared envelope. | Directly represented within the declared synthetic model and prospectively confronted by the same-block Izu visitor → effectiveness → dependency → mature-seed chain. |
+| **Proximal WHY** | Why can the same broad perturbation yield opposite responses? | Response regime changes with partner loss/arrival balance and other matching dimensions; starting state organizes the mean sign geometry; realized community is a major finite-community component; state and community combine non-additively; local filtering reallocates branches asymmetrically; determinant ordering changes across the declared system-size audit. | Diagnostic explanation within the frozen synthetic design; the Izu chain can test a qualitative real-world counterpart without transferring synthetic numerical thresholds. |
 | **Ultimate WHY** | Why did an island acquire its biota, lineage starting states or interaction architecture? | Not tested. | Assembly, colonization, persistence and evolutionary history remain upstream explanations. |
 
 ## Frozen evidence supporting the story
@@ -135,6 +135,14 @@ Observed sign differs from the fitted additive sign in `271/2016 = 13.44%` of ce
 
 Thus starting position organizes the mean U-shaped boundary, but the biologically relevant unit is a lineage **relative to the particular community that is realized**, not starting position or island status alone.
 
+### 3a. Determinant ordering is regime-dependent
+
+With active plant adjustment retained and independent community trajectories pooled at `k={1,2,4,8,16}`, median starting-position share increased across the six prespecified seeds from `2.55%` to `10.33%`, `27.33%`, `42.52%`, and `55.84%`. Median community-realization share declined from `72.98%` to `48.03%`, `23.52%`, `18.26%`, and `12.72%`.
+
+Starting-position share exceeded community-realization share in `0/6` seeds at `k=1`, `0/6` at `k=2`, and `6/6` at `k=4`, `k=8`, and `k=16`. Mixed-sign realizations persisted, and median state × community non-additivity remained substantial across the sequence.
+
+The supported synthetic conclusion is therefore not a universal threshold near `k=4`. It is that **the ordering of response determinants can itself depend on community stochasticity/system scale while relational non-additivity persists**.
+
 ### 4. Local filtering allocates branches asymmetrically
 
 Across the fixed local-filtering design, 737 lineage contrasts change sign at least once. Filtering is bidirectional, but positive baselines cross to non-positive more readily than negative baselines cross to non-negative at every non-zero declared strength.
@@ -173,7 +181,7 @@ The same regional island series supports six unusually complementary layers:
 3. **Numeric pollinator functional traits.** Source-native proboscis values are safely recovered for 202/209 current named pollinator taxa, allowing functional structure to be analysed without family/guild midpoint substitution.
 4. **Present functional propagation.** Contemporary FDQ → corrected matching is leave-one-island sign robust, whereas matching → pollen is weaker and downstream plant responses branch. The system therefore contains both a strong upstream signal and internal counterexamples to a deterministic cascade.
 5. **An independent within-lineage phenotype endpoint.** Chapter 3 (`zuizui0223/shimahotarubukuro`) already contains a direct five-island *C. microdonta* phenotype dataset. Its current result is a large coordinated size/investment trajectory plus selected departures from common allometric scaling. That result belongs to Chapter 3 and is not imported as Chapter 2 validation; its value here is that the downstream phenotype is independently measurable in the same focal lineage.
-6. **A prospective missing-link design.** Visitor effort, visitor identity/contact, single-visit pollen deposition, autonomous/outcross treatments and mature fruit/seed can be linked in the same tagged populations under an already specified field schema.
+6. **A prospective missing-link design.** Visitor effort, visitor identity/contact, single-visit pollen deposition, autonomous/outcross treatments and mature fruit/seed can be linked within the same prespecified `block_id × plant_id` units. Repeated blocks can additionally test whether determinant ordering changes with measured effective-service breadth/stability without treating visitor richness as synthetic system size.
 
 This combination makes Izu scientifically useful for **identifiability**, not merely accessible. It carries the argument from historical reproductive response through present community structure toward a directly measured phenotype while preserving alternative historical explanations and the possibility of negative results.
 
@@ -189,15 +197,19 @@ world breadth saturates
     -> conditional response geometry
     -> transition-measurement bottleneck
     -> Izu selected by measurement continuity
-    -> contemporary functional structure resolved, history still open
+    -> contemporary functional structure
+    -> same-block visitor -> effectiveness -> dependency -> mature-seed confrontation
+    -> determinant-rank confrontation across measured service context
+    -> historical transition causation still open
         ↓
 Chapter 3
 same focal lineage, direct phenotype
     -> quantify what coordinated and residual divergence is actually realized
-    -> add effectiveness/dependency only as new empirical measurements, not retroactive validation
 ```
 
-The current Chapter 3 phenotype layer already establishes, in its own repository, pronounced five-island *C. microdonta* divergence with a strong coordinated size/investment component and selected residual departures in access, reproductive-interface and visual-investment channels. Chapter 2 does **not** use those values to tune or validate its model. Instead, Chapter 2 explains why such a multichannel phenotype should not be expected to follow one universal direction and specifies which interaction measurements are still needed to connect the phenotype to mechanism.
+The current Chapter 3 phenotype layer already establishes, in its own repository, pronounced five-island *C. microdonta* divergence with a strong coordinated size/investment component and selected residual departures in access, reproductive-interface and visual-investment channels. Chapter 2 does **not** use those values to tune or validate its model.
+
+New same-block effectiveness/dependency/seed measurements belong primarily to Chapter 2 when they are used to test the transition-linked mechanism. If the same measurements are later used to contextualize the Chapter 3 focal phenotype, that reuse must preserve the frozen Chapter 2 estimands and may not retroactively tune the synthetic model, choose a crossover threshold, or convert phenotype divergence into proof of historical pollinator selection.
 
 No Chapter 3 phenotype is used as Chapter 2 model validation, *Bombus*-causation proof, pollinator-selection proof or external-prediction success.
 
@@ -211,7 +223,8 @@ A convincing empirical mechanism should eventually show that:
 - visitor identity is separated from effective pollen transfer;
 - effective service is separated from reproductive dependency;
 - occupancy or lineage replacement is not mislabeled as within-lineage adaptation;
-- null and counterdirectional results remain null rather than triggering post-hoc mechanism rescue.
+- null and counterdirectional results remain null rather than triggering post-hoc mechanism rescue;
+- any field analogue of determinant-rank change survives out-of-block evaluation and does not depend on equating raw richness or Hill diversity with synthetic `k`.
 
 ## Claim boundary
 
@@ -224,6 +237,8 @@ Chapter 2 must not imply that:
 - starting functional position alone determines a lineage response;
 - one functional decline must yield one floral response direction;
 - `41/96`, `16/48`, filtering transition rates or synthetic thresholds estimate natural prevalence;
+- the synthetic crossover near `k=4` is a natural field threshold;
+- raw visitor richness or effective-service Hill diversity is literally synthetic `k`;
 - additive design-space coefficients are causal ecological effect sizes;
 - the external systems validate one universal response mechanism;
 - Izu is focal because it is geographically close, logistically easy or representative of all islands;
@@ -240,6 +255,7 @@ WHERE do multivariate response vectors differ?
 Chapter 2
 HOW can interaction reorganization propagate differently?
 WHY can a common broad perturbation yield different response branches?
+WHEN can the relative importance of starting state versus realized community change?
 WHICH measurements prevent that mechanism from being identified in world data?
 WHY is Izu the appropriate continuity system for the depth transition?
         ↓
@@ -250,4 +266,4 @@ is actually realized within the focal Izu lineage?
 
 The Chapter 2 contribution is:
 
-> **to define a conditional post-establishment response geometry, show that its response vocabulary and measurement bottleneck persist through geography-first world expansion to an outcome-independent saturation point, and then select Izu on measurement-continuity grounds to resolve the contemporary functional half of the chain while handing the directly measured focal phenotype and remaining transition-linked causal bridge to Chapter 3.**
+> **to define a conditional post-establishment response geometry, show that both branch identity and the ordering of response determinants depend on realized community context/system regime inside the frozen model, show that the mechanism vocabulary and measurement bottleneck persist through geography-first world expansion to an outcome-independent saturation point, and then use Izu on measurement-continuity grounds to prospectively connect visitor exposure, effectiveness, dependency and mature seed while leaving historical transition causation open and handing the independently measured focal phenotype to Chapter 3.**
