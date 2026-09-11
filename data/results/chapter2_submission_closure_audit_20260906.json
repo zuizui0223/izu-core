@@ -1,9 +1,12 @@
 {
-  "schema_version": "1.0",
-  "audited_on": "2026-09-06",
+  "schema_version": "1.1",
+  "audited_on": "2026-09-11",
   "journal": "Oikos",
   "article_type": "Research Paper",
+  "scientific_state": "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering",
   "scientific_gate_complete": true,
+  "mechanism_mainline_locked": true,
+  "field_e3_e4_required": false,
   "nonmetadata_submission_preflight_ready": true,
   "nonmetadata_submission_errors": [],
   "metadata_template_validation_errors": [
