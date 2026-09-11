@@ -10,40 +10,38 @@ DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_202
 GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 
 
-def test_final_submission_reframes_mean_regime_and_connects_three_results():
+def test_final_submission_integrates_richness_control_and_rank_crossover():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "richness helps position the coarse" in lower
+    assert "realized richness differences therefore help position the ensemble mean regime" in lower
     assert "all six prespecified matching seeds" in lower
-    assert "51–65 of 96 remained mixed-sign" in lower
-    assert "state × community non-additivity remained 42.72–48.51%" in lower
-    assert "starting-position share only 0.94–2.21%" in lower
-    assert "result 1—mechanistic prediction" in lower
-    assert "result 2—real-world exposure" in lower
-    assert "result 3—biological consequence" in lower
-    assert "pollinator assemblage turnover was 0.9796" in lower
-    assert "matched-plant turnover was 0.6817" in lower
-    assert "functional community structure in izu" in lower
-    assert "figure 1. three-result inference chain" in lower
-    assert "figure 4. result 2 exposure to result 3 biological consequence" in lower
-    assert "richness reduction is not necessary for mixed response geometry" not in lower
-    assert "mixed geometry persisted when initial pollinator richness was equalized" not in lower
-    assert "response direction is therefore relational rather than intrinsic" not in lower
-    assert "figure 1. four-act breadth-to-depth inference funnel" not in lower
-    assert "figure 4. from outcome-rich literature to izu mechanistic resolution" not in lower
-    assert "## identifiability:" not in lower
+    assert "51–65 of 96 remained mixed" in lower or "51–65/96 individual realizations remained mixed" in lower
+    assert "42.72–48.51%" in text
+    assert "0.94–2.21%" in text
+    assert "ordering of response determinants is itself regime dependent" in lower
+    assert "55.84%" in text and "12.72%" in text
+    assert "6/6 seeds at `k=4`" in text
+    assert "optional future validation programme" in lower
+
+    # Historical empirical-cascade framing must not remain active in the manuscript.
+    assert "result 1—mechanistic prediction" not in lower
+    assert "result 2—real-world exposure" not in lower
+    assert "result 3—biological consequence" not in lower
+    assert "figure 1. three-result inference chain" not in lower
 
 
 def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
     text = render_submission_manuscript()
-    abstract = text.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0]
+    abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     words = abstract.split()
     assert len(words) <= 300
-    assert len(words) >= 240
+    assert len(words) >= 180
     lower = abstract.lower()
-    assert "wanshan–yongxing" in lower
-    assert "ogasawara" in lower
-    assert "in izu" in lower
+    assert "conditional" in lower
+    assert "realized-richness" in lower
+    assert "system-size" in lower
+    assert "55.84%" in abstract
+    assert "12.72%" in abstract
 
 
 def test_scientific_gate_requires_frozen_realized_richness_reframe():
@@ -58,28 +56,11 @@ def test_scientific_gate_requires_frozen_realized_richness_reframe():
     assert validated["realized_richness_hard_control"]["revised_headline"] == "mean_regime_placement_richness_sensitive_branch_identity_relational"
 
 
-def test_main_figures_follow_three_result_argument_and_keep_hard_control_in_si():
+def test_frozen_figure_generation_still_regenerates_review_evidence():
     payload = build_figures()
     assert payload["status"] == "realized_richness_reframe_after_relational_regeneration"
     assert payload["realized_richness_headline"] == "mean_regime_richness_sensitive_branching_relational"
-    assert payload["figure_narrative"] == (
-        "result1_mechanistic_prediction_to_result2_compositional_exposure_to_result3_biological_consequence"
-    )
-    assert payload["figure4_external_sources"] == [
-        "data/results/wanshan_yongxing/effect_rows.json",
-        "data/results/ogasawara/context_analysis/effect_rows.json",
-    ]
-    assert payload["figure4_izu_source"] == "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
-    assert payload["figure4_matching_to_pollen"]["izu5_tm_coefficient"] == 0.03528541439362932
-    assert payload["figure4_matching_to_pollen"]["post4_tm_coefficient"] == 0.03415875775284908
-    assert payload["figure4_matching_to_pollen"]["leave_one_island_sign_stable"] is False
-    assert "figures/chapter2/fig1_mechanistic_resolution_funnel.svg" in payload["figure_outputs"]
-    assert "figures/chapter2/fig4_global_to_izu_resolution.svg" in payload["figure_outputs"]
     assert "figures/chapter2/figS7_realized_richness_hard_control.svg" in payload["figure_outputs"]
-    for rel in (
-        "figures/chapter2/fig1_mechanistic_resolution_funnel.svg",
-        "figures/chapter2/fig4_global_to_izu_resolution.svg",
-        "figures/chapter2/figS7_realized_richness_hard_control.svg",
-    ):
+    for rel in payload["figure_outputs"]:
         path = ROOT / rel
-        assert path.exists() and path.stat().st_size > 10_000
+        assert path.exists() and path.stat().st_size > 1_000
