@@ -1,21 +1,21 @@
 {
-  "schema_version": "1.7",
+  "schema_version": "1.8",
   "journal": "Oikos",
   "article_type": "Research Paper",
-  "manuscript_title": "Response geometry under community reorganization: from ecological possibility to mechanistic resolution in island plant–pollinator systems",
+  "manuscript_title": "Response geometry under community reorganization: richness-sensitive regimes and state-dependent branching",
   "running_title": "Response geometry under community reorganization",
   "keywords": [
     "community reorganization",
     "plant–pollinator interactions",
-    "functional matching",
     "response geometry",
-    "source state",
+    "finite communities",
+    "realized richness",
     "realized community",
     "state-by-community interaction",
-    "identifiability",
-    "Izu Islands"
+    "non-additivity",
+    "island syndrome"
   ],
-  "significance_statement": "Ecological perturbations are often summarized by average effects even when response direction changes among organismal states and realized communities. We show that response direction is relational rather than intrinsic: turnover reshapes the response geometry, starting state is evaluated against the community actually realized, local filtering can reallocate branches, and downstream assurance mainly modifies magnitude. Prespecified seed, time-horizon and trait-adjustment sensitivities preserve the structural ordering, while mixed geometry persists when initial pollinator richness is equalized. A source audit then shows an outcome-rich but process-poor literature, especially for partner arrival/replacement, and an Izu analysis localizes the current empirical signal to source state plus background community composition rather than beyond-composition sorting.",
+  "significance_statement": "Ecological syndromes are often summarized as directional average responses, but that summary can conceal the mechanism that determines which branch an individual lineage realizes. In a frozen plant–pollinator model, exact control of realized richness shifts the ensemble mean response while substantial lineage-level branching persists, showing that coarse regime placement and branch identity are distinct operations. A prespecified finite-community audit then shows that the relative importance of plant starting state and realized community is itself scale dependent: realized community dominates in small stochastic systems, starting state becomes increasingly important as community sampling stabilizes, and branching disappears only in the deterministic mean-field limit. The numerical crossover is model-specific; world and Izu evidence bound biological plausibility and historical identifiability rather than calibrating it to nature.",
   "significance_prior_work_context": null,
   "authors": [],
   "corresponding_author_index": null,
@@ -27,7 +27,7 @@
   "ethics_statement": "Not applicable to new data collection in this manuscript. The study reports simulations, a source-audited synthesis of published literature, and secondary analysis of published plant–pollinator data; it includes no new field sampling, specimen collection or experimental work requiring new approvals, licences or permissions.",
   "ethics_statement_confirmed": null,
   "planned_public_repository": "Dryad Digital Repository",
-  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, a prespecified relational-robustness audit, a frozen 25-entry source-readiness audit and a source-locked secondary analysis of published Izu plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, corrected Supporting Information, exact interaction-kernel identity audit, frozen response-geometry and threshold results, seed/horizon/trait-adjustment/equal-richness sensitivities, deterministic figure inputs, external source-readiness records, Izu source/recovery gates, structural-audit records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous reviewer archive; before final publication, accepted code and frozen analysis materials will be deposited in the Dryad Digital Repository with a persistent DOI.",
+  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, exact realized-richness controls, finite-community system-size audits, exact finite-k moment calculations, a prespecified relational-robustness audit, a frozen 25-entry source-readiness audit and secondary analyses of published island plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, Supporting Information, interaction-kernel audit, response-geometry and threshold results, realized-richness and system-size robustness materials, deterministic figure inputs, source-readiness records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous reviewer archive; before final publication, accepted code and frozen analysis materials will be deposited in the Dryad Digital Repository with a persistent DOI.",
   "submission_declarations": {
     "not_published_or_under_consideration_elsewhere": null,
     "all_authors_approve_submission": null,
@@ -44,8 +44,9 @@
     "significance_prior_work_context must state how the manuscript builds on relevant work by the submitting authors/coauthors cited in the manuscript and on other published work; this cannot be inferred safely until the final author list is supplied.",
     "ethics_statement_confirmed must be set to true only after an author has checked that the prefilled ethics statement accurately describes the submitted manuscript.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
-    "Oikos initial submission uses double-blind review and requires significance, data archiving, conflict-of-interest and ethics information plus data/code readiness.",
-    "The historical 80.17/17.64/2.18% baseline remains one reproducible design instance; the active headline is relational component ordering and state-by-community nonadditivity, not one stable magnitude.",
+    "Synthetic k is a pooled-community model coordinate. The numerical rank crossover must not be presented as a natural field threshold, visitor richness or Hill diversity.",
+    "Izu E3/E4 is future optional validation and is not a current-paper completion or submission gate.",
+    "The historical 80.17/17.64/2.18% baseline remains one finite-community design instance; later system-size results show that determinant ordering is not globally fixed.",
     "Journal of Ecology remains the documented fallback route."
   ]
 }
