@@ -1,49 +1,45 @@
 # Chapter 2 Oikos submission checklist
 
-Updated: 2026-09-08
+Updated: 2026-09-11
 
 ## Active route
 
 - Journal: **Oikos**
 - Article type: **Research Paper**
-- Scientific tier: **Tier B — hierarchical response architecture with bounded empirical recurrence**
-- Journal-facing story: **Mechanistic prediction → Real-world compositional exposure → Izu biological consequence**
-- Expanded story: **simulation separates richness-sensitive coarse regime placement from state × composition branch identity → Wanshan–Yongxing and Ogasawara establish source-native partner turnover/rewiring beyond a decisive richness contrast → Izu links contemporary functional community structure to corrected plant matching and shows weaker, branched downstream floral and pollen responses**
-- Identifiability role: **claim boundary / robustness only; not a coequal study objective**
+- Scientific tier: **Tier B — synthetic conditional-response mechanism with bounded empirical claim ceiling**
+- Journal-facing story: **Conditional response geometry → exact realized-richness control → scale-dependent determinant ordering → downstream modifiers**
+- Empirical role: **biological plausibility, falsification context and historical claim boundary; not required validation**
+- Izu E3/E4: **future/optional validation, not a submission gate**
 - Fallback: **Journal of Ecology Research Article**
 
-Narrative contract:
+Active narrative contract:
 
-`docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md`
+`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`
 
-The earlier four-act contract is retained only as provenance:
+Historical narrative contracts are retained only as provenance:
 
-`docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md`
+- `docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md`
+- `docs/CHAPTER2_FOUR_ACT_NARRATIVE_LOCK_20260902.md`
 
-The scientific and manuscript-integration gates are closed. No additional simulation, world projection or Chapter 3 empirical result is required for the active Chapter 2 submission route.
-
-The external step remains bounded: empirical systems are not assigned to synthetic regime labels, Wanshan–Yongxing and Ogasawara are not pooled as a universal island effect, and the 25-entry audit is not presented as validation coverage.
+The scientific gate is closed. No additional simulation, world search, Izu same-block field measurement or Chapter 3 result is required to complete the current mechanism paper.
 
 ## Oikos initial-submission requirements implemented
 
 - double-anonymous manuscript rendering;
 - separate identity-bearing title page;
-- main text rendered to **RTF**, an Oikos-supported upload format;
-- single-column, double-spaced RTF main text;
-- continuous line numbering and page numbering encoded in the RTF;
+- main text rendered to RTF;
+- single-column, double-spaced main text;
+- continuous line numbering and page numbering;
 - Introduction forced to begin on page two;
-- abstract capped at 300 words by the active manuscript contract;
-- submission renderer uses the three-result journal-facing chain rather than dissertation-internal or old four-act routing;
+- abstract capped at 300 words;
+- renderer validates the mechanism-mainline contract rather than the historical three-result/four-act routing;
 - dedicated Significance statement;
 - Data Availability / data-archiving statement;
-- accepted-stage public repository fixed to **Dryad Digital Repository**; the anonymous review ZIP remains the first-submission reviewer surface;
+- accepted-stage public repository fixed to **Dryad Digital Repository**;
 - conflict-of-interest and ethics statement surfaces;
-- explicit author confirmation of the prefilled ethics statement is fail-closed in metadata validation;
+- author confirmation of the prefilled ethics statement remains fail-closed;
 - reviewer-ready frozen data, code and audit materials in the anonymous review archive;
-- figures regenerated fail-closed against frozen scientific results before the realized-richness overlay;
-- Supporting information rendered as a separate RTF file;
-- specific Appendix/Fig. S references are blocked from the blinded main text; the Oshima sensitivity is referred to only as **Supporting information**;
-- no dissertation-internal Chapter 1/2/3 routing in the blinded manuscript or rendered Supporting information.
+- Supporting Information rendered as a separate RTF file.
 
 The active submission manifest is:
 
@@ -61,50 +57,55 @@ It is regenerated/checked by:
 
 `python scripts/audit_chapter2_submission_closure.py --check`
 
-The closure preflight checks the scientific gate, active source/manifest paths, blinded manuscript RTF controls and Supporting Information renderer before classifying remaining blockers. In the blank author template, the expected state is **non-metadata preflight ready, submission not ready, and only author-supplied metadata/confirmations remaining**.
-
 ## Scientific claim ceiling retained at submission
 
-The submission must continue to state that:
+### 1. Conditional response geometry
 
-### Result 1 — mechanistic prediction
+- baseline 96 matched community realizations contain 41 mixed, 42 all-positive and 13 all-negative response worlds;
+- the fixed 48-point joint design contains 16 mixed, 22 all-positive and 10 all-negative mean regimes;
+- partner loss and partner arrival are the largest sign-stable regime associations in the declared design;
+- baseline variance decomposition is starting position 2.18%, community realization 80.17%, state × community non-additivity 17.64%;
+- these are synthetic design quantities, not natural frequencies or calibrated ecological effect sizes.
 
-- the model defines response possibilities and mechanism, not natural prevalence;
-- partner loss/arrival coefficients are fixed-surface diagnostics, not field-causal estimates;
-- exact realized-richness matching makes the ensemble mean all-positive in **6/6** prespecified matching seeds;
+### 2. Realized-richness control
+
+- exact stepwise realized-richness matching makes the ensemble mean all-positive in **6/6** prespecified matching seeds;
 - nevertheless **51–65/96** individual communities remain mixed-sign;
-- under that hard control, community-realization share remains **50.04–55.92%**, state × community nonadditivity **42.72–48.51%**, and starting-position additive share only **0.94–2.21%**;
-- therefore realized richness helps position the coarse mean regime, while branch identity remains contingent on starting state evaluated against realized community composition;
-- the earlier **53/96** equal-initial-richness result is an initial-state diagnostic only and must not be used to claim that realized richness is unnecessary;
-- local filtering and autonomous assurance remain downstream modifiers, not substitutes for the richness/composition hierarchy.
+- community-realization share remains **50.04–55.92%**, state × community nonadditivity **42.72–48.51%**, and starting-position additive share **0.94–2.21%**;
+- therefore realized richness helps position the coarse mean regime while branch identity remains contingent on starting state evaluated against realized community composition;
+- the earlier **53/96** equal-initial-richness result remains an initial-condition diagnostic only;
+- equalizing baseline partner-arrival/loss rates still yields **70/96** mixed realizations and **65.61%** nonadditivity, so that baseline turnover-rate asymmetry is not required for branching.
 
-### Result 2 — real-world compositional exposure
+### 3. Scale-dependent determinant hierarchy
 
-- Wanshan–Yongxing matched plants show partner turnover **0.9796 [0.9443, 1.0000]** while pollinator-richness LRR is **−0.1054 [−1.3218, +0.2877]**;
-- Ogasawara Anijima context shows partner turnover **0.6817 [0.4975, 0.9653]** while pollinator-richness LRR is **−0.3146 [−0.8755, +0.4055]**;
-- these support the bounded statement that substantial composition change/rewiring can occur without a correspondingly decisive richness contrast;
-- the two contexts are not exchangeable replication, a pooled coefficient, or causal evidence for geological island origin or anole invasion;
-- the broader 42-entry/37-label world inventory remains descriptive context rather than an independent prevalence sample.
+- zero-adjustment pooling across `k={1,2,4,8,16}` reduces finite-community count variation while mixed branching persists through `k=16`;
+- the deterministic mean-field kernel contrast is all-positive, so branching vanishes asymptotically when finite realized composition is averaged away;
+- with active plant adjustment, median starting-position share rises **2.55 → 10.33 → 27.33 → 42.52 → 55.84%**;
+- median community-realization share falls **72.98 → 48.03 → 23.52 → 18.26 → 12.72%**;
+- starting position exceeds community realization in **0/6, 0/6, 6/6, 6/6, 6/6** seeds across the declared `k` sequence;
+- mixed branching still persists at `k=16` in **28–42/96** realizations;
+- the supported conclusion is that **determinant ordering is regime dependent**;
+- the numerical crossover near `k=4` is model-specific and must not be interpreted as a natural threshold;
+- visitor richness and Hill diversity are not literal synthetic `k`.
 
-### Historical claim boundary
+### 4. Downstream modifiers
 
-- the audited literature remains outcome-rich but process-poor: direct response outcomes occur in 21/25 entries but partner arrival/replacement in only 2/25;
-- 0/25 audited research entries meet the full outcome-independent historical transition contract, so formal held-out prediction remains `not_evaluable`;
-- geography-first expansion and the small-island supplement remain supporting robustness/provenance, not the paper's primary objective;
-- this boundary prevents the contemporary empirical results from being rewritten as a matched historical causal transition.
+- local filtering reallocates branches bidirectionally but asymmetrically;
+- at filtering strength 0.40, negative→non-negative transitions are 42/268 (15.67%) and positive→non-positive transitions 337/596 (56.54%);
+- reproductive assurance attenuates magnitude but gives zero sign rescues among 580 eligible declines through 4× in the declared envelope.
 
-### Result 3 — Izu biological consequence
+### 5. Empirical claim boundary
 
-- contemporary pollinator functional diversity predicts corrected trait matching with leave-one-island sign stability: **+1.9426** in Izu5 and **+2.0590** in post-Oshima4;
-- matching-to-pollen propagation is positive on average (**+0.0353**, **+0.0342**) but island-fragile;
-- all 8/8 shared plant targets have lower corrected matching post-Oshima, but floral tubes split **3 shorter / 4 longer / 1 unchanged** and pollen responses split **4 lower / 4 higher**;
-- the historical signed-position raw association may remain as a boundary analysis, but null-corrected beyond-composition sorting is unsupported and the prespecified Oshima-source bridge is unsupported;
-- FDQ does not establish causal matching change, matching does not establish causal pollen change, and present-day Izu associations do not identify historical *Bombus* loss;
-- Chapter 3 phenotype is not Chapter 2 validation.
+- the formal source audit remains outcome-rich but transition-process-poor: direct responses 21/25, direct partner arrival/replacement 2/25, full contracts 0/25;
+- formal external prediction remains `not_evaluable`;
+- later world breadth and Izu analyses remain supporting evidence and provenance, not required validation of the synthetic determinant hierarchy;
+- no present-day Izu association identifies historical *Bombus* loss;
+- Chapter 3 phenotype divergence is not Chapter 2 validation;
+- Izu visitor → effectiveness → dependency → mature-seed E3/E4 remains an optional prospective validation programme.
 
 ## Author-supplied information still required
 
-The public repository choice is no longer an author blocker: **Dryad Digital Repository** is fixed for accepted-stage public data/code archiving under the active Oikos route.
+The public repository choice is no longer an author blocker: **Dryad Digital Repository** is fixed for accepted-stage public data/code archiving.
 
 Populate the metadata template with one consolidated block containing:
 
@@ -116,16 +117,16 @@ Populate the metadata template with one consolidated block containing:
 6. funding, explicitly using `None` where applicable;
 7. inclusion / EDI statement;
 8. conflict-of-interest statement;
-9. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals — set `ethics_statement_confirmed` to `true` only after that review;
+9. confirmation that the prefilled ethics statement accurately reflects the manuscript's lack of new field sampling, specimen collection or experimental work requiring new approvals;
 10. explicit submission-declaration booleans.
 
-**CRediT / author-contribution roles are not an initial-submission blocker.** Oikos requires CRediT for revised submissions; if no contribution statement is supplied now, the submission statements explicitly defer CRediT to revision.
+**CRediT / author-contribution roles are not an initial-submission blocker.** If not supplied now, they can be completed at revision according to the journal route.
 
 These values are intentionally not inferred from repository history.
 
 ## Final build
 
-When the author-supplied fields are complete:
+When author-supplied fields are complete:
 
 ```bash
 python scripts/build_island_ecology_submission_metadata.py \
@@ -141,16 +142,4 @@ Expected bundle:
 
 `dist/chapter2_oikos_submission_bundle.zip`
 
-The upload-facing bundle contains:
-
-- `MANUSCRIPT.rtf` — blinded, double-spaced, continuous line/page numbers, Introduction on page two;
-- `SUPPORTING_INFORMATION.rtf`;
-- `TITLE_PAGE.rtf`;
-- `COVER_LETTER.rtf`;
-- `SIGNIFICANCE_STATEMENT.rtf`;
-- `SUBMISSION_STATEMENTS.rtf`;
-- deterministic figures and figure-input provenance;
-- the anonymous reviewer data/code archive;
-- the active Oikos manifest and frozen scientific audit files.
-
-Until the author-supplied fields, ethics confirmation and declarations are complete, the builder remains fail-closed by design. Any future non-metadata error reopens packaging/renderer work rather than being mislabeled as an author blocker.
+Until those author-supplied fields, ethics confirmation and declarations are complete, the builder remains fail-closed by design. Any non-metadata failure is a packaging/renderer problem, not a scientific reason to reopen field E3/E4.
