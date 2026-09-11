@@ -12,10 +12,7 @@ from scripts.build_island_ecology_submission_bundle import (
     validate_scientific_gate,
 )
 from scripts.build_island_ecology_submission_metadata import load_metadata, validate_metadata
-from scripts.render_oikos_submission_rtf import (
-    render_manuscript_rtf,
-    render_supporting_information_rtf,
-)
+from scripts.render_oikos_submission_rtf import render_manuscript_rtf, render_supporting_information_rtf
 
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "data/results/chapter2_submission_closure_audit_20260906.json"
@@ -54,6 +51,24 @@ def _rtf_preflight(text: str, *, main_text: bool) -> list[str]:
         for control in ("\\sl480\\slmult1", "\\linemod1", "\\linecont", "fldinst PAGE", "\\page"):
             if control not in text:
                 errors.append(f"main-text RTF formatting control missing: {control}")
+        lower = text.lower()
+        for token in (
+            "conditional response geometry",
+            "realized richness differences therefore help position the ensemble mean regime",
+            "ordering of response determinants is itself regime dependent",
+            "deterministic mean-field kernel contrast was all-positive",
+            "optional future validation programme",
+        ):
+            if token not in lower:
+                errors.append(f"main-text mechanism-mainline token missing: {token}")
+        for stale in (
+            "result 1—mechanistic prediction",
+            "result 2—real-world exposure",
+            "result 3—biological consequence",
+            "figure 1. three-result inference chain",
+        ):
+            if stale in lower:
+                errors.append(f"historical three-result token leaked into main text: {stale}")
     return errors
 
 
@@ -64,7 +79,7 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
     nonmetadata_errors: list[str] = []
     try:
         gate = validate_scientific_gate()
-    except Exception as exc:  # fail-closed audit surface
+    except Exception as exc:
         gate = {}
         nonmetadata_errors.append(f"scientific gate: {exc}")
 
@@ -75,7 +90,7 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
     manifest_path = ROOT / ACTIVE_SUBMISSION_MANIFEST
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    except Exception as exc:  # fail-closed audit surface
+    except Exception as exc:
         manifest = {}
         nonmetadata_errors.append(f"active submission manifest: {exc}")
 
@@ -84,12 +99,18 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
             nonmetadata_errors.append("active manifest manuscript does not match bundle source manuscript")
         if manifest.get("submission_ready") is not False:
             nonmetadata_errors.append("active manifest must remain submission_ready=false before author metadata is supplied")
+        if manifest.get("scientific_state") != "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering":
+            nonmetadata_errors.append("active manifest lost the mechanism-mainline scientific state")
+        if manifest.get("narrative_lock") != "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md":
+            nonmetadata_errors.append("active manifest lost the mechanism-mainline narrative lock")
         if manifest.get("claim_ceiling", {}).get("external_full_contracts") != "0_of_25":
             nonmetadata_errors.append("active manifest lost the frozen 0/25 full-contract claim boundary")
-        if manifest.get("world_saturation_and_izu_continuity", {}).get("izu_focal_selection_rule") != (
-            "measurement_continuity_after_world_saturation_not_proximity_representativeness_or_positive_model_fit"
-        ):
-            nonmetadata_errors.append("active manifest lost the Izu measurement-continuity selection rule")
+        if manifest.get("claim_ceiling", {}).get("field_e3_e4_required_for_current_paper") is not False:
+            nonmetadata_errors.append("active manifest incorrectly restored field E3/E4 as a completion gate")
+        if manifest.get("claim_ceiling", {}).get("system_size_numeric_crossover_is_natural_threshold") is not False:
+            nonmetadata_errors.append("active manifest incorrectly promotes the synthetic crossover to a natural threshold")
+        if manifest.get("world_saturation_and_izu_continuity", {}).get("izu_e3_e4_status") != "future_optional_validation_not_completion_gate":
+            nonmetadata_errors.append("active manifest lost the optional future-validation status of Izu E3/E4")
 
     try:
         manuscript_rtf = render_manuscript_rtf()
@@ -103,17 +124,18 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
     except Exception as exc:
         nonmetadata_errors.append(f"supporting-information renderer: {exc}")
 
-    unexpected_metadata_errors = [
-        error for error in metadata_errors if not error.startswith(ALLOWED_METADATA_ERROR_PREFIXES)
-    ]
+    unexpected_metadata_errors = [error for error in metadata_errors if not error.startswith(ALLOWED_METADATA_ERROR_PREFIXES)]
     only_human_blockers = bool(metadata_errors) and not nonmetadata_errors and not unexpected_metadata_errors
 
     return {
-        "schema_version": "1.0",
-        "audited_on": "2026-09-06",
+        "schema_version": "1.1",
+        "audited_on": "2026-09-11",
         "journal": metadata.get("journal"),
         "article_type": metadata.get("article_type"),
+        "scientific_state": manifest.get("scientific_state") if manifest else None,
         "scientific_gate_complete": gate.get("scientific_model_gate_complete") is True,
+        "mechanism_mainline_locked": manifest.get("narrative_lock") == "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md" if manifest else False,
+        "field_e3_e4_required": manifest.get("claim_ceiling", {}).get("field_e3_e4_required_for_current_paper") if manifest else None,
         "nonmetadata_submission_preflight_ready": not nonmetadata_errors,
         "nonmetadata_submission_errors": nonmetadata_errors,
         "metadata_template_validation_errors": metadata_errors,
@@ -121,17 +143,12 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         "unexpected_metadata_errors": unexpected_metadata_errors,
         "only_author_supplied_metadata_and_confirmations_remain": only_human_blockers,
         "required_human_input_categories": REQUIRED_HUMAN_INPUT_CATEGORIES,
-        "optional_not_initial_submission_blockers": [
-            "coauthor_orcids",
-            "author_contributions_credit_roles",
-        ],
+        "optional_not_initial_submission_blockers": ["coauthor_orcids", "author_contributions_credit_roles"],
         "planned_public_repository_already_fixed": metadata.get("planned_public_repository"),
         "ethics_statement_prefilled": bool(str(metadata.get("ethics_statement") or "").strip()),
         "ethics_statement_author_confirmation_required": True,
         "submission_ready": not metadata_errors and not nonmetadata_errors,
-        "next_transition": (
-            "author supplies the nine required metadata/confirmation categories; then run the fail-closed metadata and bundle builders"
-        ),
+        "next_transition": "author supplies the nine required metadata/confirmation categories; then run the fail-closed metadata and bundle builders",
     }
 
 
