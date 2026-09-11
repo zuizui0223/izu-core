@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Audit prespecified repeated Izu blocks for the Chapter 2 E4 confrontation.
 
-This is an exposure-only structural audit.  It does not inspect dependency or
+This is an exposure-only structural audit. It does not inspect dependency or
 mature-seed outcomes and therefore cannot choose a crossover after seeing the
 response.
 """
@@ -75,8 +75,15 @@ def audit_e4_series(
 
     series: dict[str, list[Mapping[str, object]]] = defaultdict(list)
     block_rows: list[dict[str, object]] = []
+    seen_blocks: set[str] = set()
     for row in blocks:
         block_id = _text(row, "block_id")
+        if not block_id:
+            raise ValueError("blank block_id in transition block manifest")
+        if block_id in seen_blocks:
+            raise ValueError(f"duplicate block_id={block_id!r} in transition block manifest")
+        seen_blocks.add(block_id)
+
         role = _text(row, "e4_scale_role")
         if role not in E4_ROLES:
             raise ValueError(f"invalid e4_scale_role={role!r} for block_id={block_id!r}")
@@ -161,7 +168,7 @@ def audit_e4_series(
         "rank_confrontation_blocks": sum(row["e4_scale_role"] == "rank_confrontation" for row in block_rows),
         "rank_confrontation_series": len(series_rows),
         "descriptive_stability_ready_series": sum(bool(row["descriptive_stability_ready"]) for row in series_rows),
-        "outcomes_inspected": false if False else False,
+        "outcomes_inspected": False,
         "boundary": (
             "This audit establishes only exposure-side repeated-block structure. It does not establish "
             "a determinant-rank crossover or transfer the synthetic k threshold to field data."
