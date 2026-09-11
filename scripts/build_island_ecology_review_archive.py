@@ -21,6 +21,7 @@ CORE_REVIEW_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
+    "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
     "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
     "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
     "docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md",
@@ -74,10 +75,7 @@ CORE_REVIEW_FILES = (
     "scripts/audit_izu_signed_position_structural_independence.py",
 )
 
-DEFAULT_DENY_TOKENS = (
-    "zuizui0223",
-    "github.com/zuizui0223",
-)
+DEFAULT_DENY_TOKENS = ("zuizui0223", "github.com/zuizui0223")
 TEXT_SUFFIXES = {".md", ".py", ".json", ".txt", ".csv", ".toml", ".yaml", ".yml", ".svg"}
 
 
@@ -134,30 +132,35 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             denied = find_denied_tokens(generated, deny_tokens)
             if denied:
                 raise ValueError(f"author-identifying token(s) {denied!r} found in rendered anonymous file {generated.name}")
+
         supporting_lower = supporting_information.read_text(encoding="utf-8").lower()
         manuscript_lower = manuscript.read_text(encoding="utf-8").lower()
         if "cell-level simulation variation" in supporting_lower:
             raise ValueError("superseded nonadditivity wording survived anonymous Supporting Information")
         if "appendix s19. exact realized-richness matching hard control" not in supporting_lower:
             raise ValueError("realized-richness hard control missing from anonymous Supporting Information")
+
         required_story = (
-            "result 1",
-            "result 2",
-            "result 3",
-            "real island systems undergo compositional reorganization beyond richness loss",
-            "pollinator assemblage turnover was 0.9796",
-            "matched-plant turnover was 0.6817",
-            "response geometry under community reorganization: richness-sensitive regimes and state-dependent branching",
+            "conditional response geometry",
+            "realized richness differences therefore help position the ensemble mean regime",
+            "ordering of response determinants is itself regime dependent",
+            "deterministic mean-field kernel contrast was all-positive",
             "70/96",
             "65.61%",
+            "optional future validation programme",
         )
         missing_story = [token for token in required_story if token not in manuscript_lower]
         if missing_story:
-            raise ValueError(f"three-result/generality narrative missing from anonymous manuscript: {missing_story}")
-        if "richness reduction is not necessary for mixed response geometry" in manuscript_lower:
-            raise ValueError("stale richness-independent claim survived anonymous manuscript")
-        if "response direction is therefore relational rather than intrinsic" in manuscript_lower:
-            raise ValueError("stale pre-richness headline survived anonymous manuscript")
+            raise ValueError(f"mechanism-mainline narrative missing from anonymous manuscript: {missing_story}")
+        stale_story = (
+            "figure 1. three-result inference chain",
+            "result 1—mechanistic prediction",
+            "result 2—real-world exposure",
+            "result 3—biological consequence",
+        )
+        leaked = [token for token in stale_story if token in manuscript_lower]
+        if leaked:
+            raise ValueError(f"historical three-result narrative leaked into anonymous manuscript: {leaked}")
 
         manuscript_record = {
             "path": ANONYMOUS_MANUSCRIPT_NAME,
@@ -167,7 +170,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         }
         si_record = {
             "path": ANONYMOUS_SI_NAME,
-            "source": "base SI + relational correction + realized-richness S19 + Supporting Tables S1-S9 + equal-turnover generality overlay",
+            "source": "base SI + relational correction + realized-richness S19 + Supporting Tables S1-S9 + equal-turnover/system-size generality material",
             "sha256": sha256(supporting_information),
             "size_bytes": supporting_information.stat().st_size,
         }
@@ -186,31 +189,26 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "supporting_information_superseded_nonadditivity_wording_removed_fail_closed": True,
             "realized_richness_reframe_included_fail_closed": True,
             "equal_turnover_generality_control_included_fail_closed": True,
-            "three_result_reframe_included_fail_closed": True,
-            "scientific_state": "three_result_hierarchical_response_architecture_with_bounded_historical_inference",
-            "frozen_figures_regenerated_then_realized_richness_overlay": True,
+            "mechanism_mainline_included_fail_closed": True,
+            "three_result_reframe_active": False,
+            "scientific_state": "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering",
             "relational_robustness_audit_included": True,
             "realized_richness_hard_control_included": True,
             "equal_turnover_control_included": True,
-            "result2_external_exposure_rows_included": True,
             "interaction_kernel_identity_audit_included": True,
-            "izu_source_gate_included": True,
-            "izu_structural_audit_included": True,
-            "izu_empirical_appendix_included": True,
+            "izu_empirical_material_role": "future_validation_context_and_claim_boundary",
+            "field_e3_e4_required_for_current_paper": False,
             "external_prediction_readiness_audit_included": True,
             "oikos_data_code_review_ready": True,
             "deny_tokens_checked": list(deny_tokens),
             "files": records,
             "claim_boundary": (
-                "The archive preserves the frozen synthetic analyses but presents the paper as three linked results: mechanistic prediction, real-world compositional exposure and Izu biological consequence. "
-                "Exact realized-richness matching makes the ensemble mean all-positive in all six matching seeds while 51-65/96 individual communities remain mixed and state-by-community nonadditivity remains 42.72-48.51%. "
-                "A separate equal-turnover control removes the baseline mainland-island partner-arrival/loss asymmetry while retaining all other scenario differences; 70/96 individual communities remain mixed and state-by-community nonadditivity is 65.61%. "
-                "Wanshan-Yongxing and Ogasawara provide bounded source-native examples of substantial partner turnover without a decisive richness contrast, not pooled causal replication. "
-                "Izu then links contemporary functional community structure to corrected matching and shows weaker, branched downstream propagation. "
-                "The historical 0/25 full-contract result is retained only to bound causal transition claims and does not define the study objective."
+                "The archive presents Chapter 2 as a synthetic mechanism paper. Exact realized-richness matching shifts the ensemble mean geometry while preserving individual branching and state-by-community nonadditivity. "
+                "The prespecified system-size audit shows that the ordering of starting-state and community-realization contributions changes across the declared finite-community regime, with no natural threshold claim. "
+                "World and Izu materials are retained for plausibility, falsification and reviewer audit, not as required validation or as a coequal three-result empirical cascade."
             ),
         }
-        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the three-result response-architecture Research Paper.\n\nThe manuscript is organized as **mechanistic prediction -> real-world compositional exposure -> biological consequence**. Result 1 uses the frozen model and the prespecified exact realized-richness hard control. That control changes the ensemble mean response geometry to all-positive in all six matching seeds, while 51-65/96 individual community realizations remain mixed and state-by-community nonadditivity remains 42.72-48.51%. A separate equal-turnover control removes the baseline mainland-island partner-arrival/loss asymmetry while retaining the other scenario differences; 70/96 community realizations remain mixed and state-by-community nonadditivity is 65.61%. The supported theoretical claim is therefore that richness helps position the coarse regime while branch identity remains contingent on plant state and realized composition, and that the branching result is not contingent on the baseline turnover-rate asymmetry.\n\nResult 2 tests whether the required ecological exposure exists in real island networks. Wanshan-Yongxing and Ogasawara show substantial source-native partner turnover while the corresponding pollinator-richness contrasts are less decisive. These are bounded context examples, not a universal island coefficient or causal treatment.\n\nResult 3 uses contemporary Izu networks: FDQ-to-corrected-matching is sign-stable across island omissions, matching-to-pollen propagation is weaker, and plants sharing lower corrected matching branch into different floral and pollen outcomes. Historical signed-position and source-audit results are retained as claim boundaries so present functional associations are not rewritten as historical Bombus causation.\n\nThe formal source audit remains available for reviewer inspection: no entry meets the full joint outcome-independent historical transition contract. That result bounds causal interpretation; it is not a coequal study objective.\n"""
+        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the Chapter 2 mechanism paper.\n\nThe active manuscript is organized around **conditional response geometry -> exact realized-richness control -> scale-dependent determinant ordering -> downstream modifiers**. World and Izu materials remain available for reviewer inspection, but they define biological plausibility and the historical claim ceiling rather than a required empirical validation chain.\n\nExact realized-richness matching shifts the ensemble mean geometry to all-positive in all six matching seeds while 51-65/96 individual realizations remain mixed and state-by-community nonadditivity remains 42.72-48.51%. A separate equal-turnover control retains 70/96 mixed realizations and 65.61% nonadditivity. Under active plant adjustment, the additive determinant ordering reverses across the declared k sequence: median starting-position share rises from 2.55% to 55.84% while median community-realization share falls from 72.98% to 12.72%. The numerical crossover is model-specific and is not transferred to nature.\n\nThe formal source audit remains available for reviewer inspection: no entry meets the full joint outcome-independent historical transition contract. Izu same-block E3/E4 measurements remain an optional future validation programme, not a current manuscript completion gate.\n"""
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=ANONYMOUS_MANUSCRIPT_NAME)
