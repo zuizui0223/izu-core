@@ -17,7 +17,7 @@ def test_readme_exposes_closed_science_and_active_metadata_gate():
     assert "fail-closed" in submission
     assert "final metadata-driven bundle construction" in submission
     assert "chapter 2 is scientifically closed" in lower
-    assert "historical transition still bounded" in lower
+    assert "present-day izu associations do not identify historical *bombus* loss" in lower
 
 
 def test_submission_state_closes_science_and_blocks_on_metadata():
