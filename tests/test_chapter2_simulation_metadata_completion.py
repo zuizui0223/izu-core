@@ -6,6 +6,7 @@ LOCK = ROOT / "data/design/chapter2_simulation_metadata_completion_lock_20260912
 DOC = ROOT / "docs/CHAPTER2_SIMULATION_METADATA_COMPLETION_20260912.md"
 THESIS = ROOT / "THESIS_CHAPTER_POSITIONING.md"
 README = ROOT / "README.md"
+MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 FIGURES = ROOT / "scripts/generate_chapter2_manuscript_figures_realized_richness.py"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
 WORLD = ROOT / "data/results/chapter2_global_master_manuscript_value_review_audit_20260906.json"
@@ -64,6 +65,18 @@ def test_human_surfaces_preserve_no_field_completion_rule() -> None:
     assert "parallel/future validation" in thesis
     assert "not a submission gate or completion criterion" in readme
     assert "prospective Izu E3/E4 chain is required for Chapter 2 completion" in readme
+
+
+def test_active_manuscript_contains_metadata_confrontation_not_missing_field_endpoint() -> None:
+    text = MANUSCRIPT.read_text(encoding="utf-8")
+    lower = text.lower()
+    assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
+    assert "21/25" in text and "2/25" in text and "0/25" in text
+    assert "+1.9426" in text and "+2.0590" in text
+    assert "not leave-one-island sign stable" in lower
+    assert "historical signed-position projection was not supported after null correction" in lower
+    assert "post-chapter-2 transport/falsification" in lower
+    assert "not a completion gate" in lower
 
 
 def test_figure4_ends_on_existing_metadata_not_missing_field_work() -> None:
