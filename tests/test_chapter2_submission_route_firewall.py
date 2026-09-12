@@ -11,12 +11,15 @@ def _read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def test_current_manuscript_remains_current_paper_not_el_promotion_surface():
+def test_current_manuscript_remains_current_paper_not_el_or_field_completion_surface():
     text = _read(ACTIVE)
+    lower = text.lower()
     first_line = text.splitlines()[0]
     assert "Response geometry under community reorganization" in first_line
     assert "Community averaging reverses the hierarchy of ecological response determinants" not in text
-    assert "optional future validation programme, not a completion gate for the present manuscript" in text
+    assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
+    assert "post-chapter-2 transport/falsification" in lower
+    assert "not a completion gate for the present manuscript" in lower
 
 
 def test_el_lane_keeps_explicit_admission_gate_before_title_promotion():
