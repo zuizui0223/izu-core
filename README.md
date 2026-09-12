@@ -59,6 +59,32 @@ Izu remains valuable because it offers unusually strong measurement continuity, 
 
 For the current paper, however, Izu visitor → effectiveness → dependency → mature-seed E3/E4 is an **optional future validation programme, not a submission gate or completion criterion**. Present-day Izu associations do not identify historical *Bombus* loss.
 
+## Separate pre-data NEE promotion lane
+
+A higher-impact prospective route is now isolated from the closed Oikos paper. It does **not** reopen the synthetic manuscript or make new field data a completion requirement for the current Chapter 2 paper.
+
+Canonical pre-data surfaces:
+
+- [`docs/CHAPTER2_NEE_PREDATA_UPGRADE_CONTRACT_20260912.md`](docs/CHAPTER2_NEE_PREDATA_UPGRADE_CONTRACT_20260912.md) — human-readable promotion and stop rules;
+- [`data/design/chapter2_nee_predata_promotion_lock_20260912.json`](data/design/chapter2_nee_predata_promotion_lock_20260912.json) — machine-readable P1–P6 / Q1–Q6 promotion contract;
+- [`docs/CHAPTER2_NEE_REGISTERED_REPORT_STAGE1_V0_1.md`](docs/CHAPTER2_NEE_REGISTERED_REPORT_STAGE1_V0_1.md) — pre-data Nature Ecology & Evolution Registered Report Stage-1 skeleton;
+- [`docs/CHAPTER2_EXTERNAL_TRANSPORT_TRIAGE_20260912.md`](docs/CHAPTER2_EXTERNAL_TRANSPORT_TRIAGE_20260912.md) — bounded role of existing Seychelles, *Nicotiana* and *Guaiacum* evidence.
+
+This promotion lane wraps rather than replaces the previously frozen Izu designs:
+
+```text
+E1  coarse richness/amount regime
+E2  pre-outcome plant state × realized composition
+E3  visitor → SVD/effective service → dependency → mature seed
+E4  qualitative determinant-order confrontation across effective-service breadth/stability
+```
+
+The primary promotion hypothesis is E2/P2: **plant pre-outcome state × realized effective-community composition**. E3 supplies the functional and reproductive chain; E4 asks whether the relative contribution of state versus community realization changes as independent exposure opportunities are averaged.
+
+Synthetic `k` remains model-specific. Visitor richness, Hill diversity and effective-service breadth are not literal field estimates of `k`, and no field threshold near `k≈4` is predicted.
+
+The existing field-readiness state machine remains authoritative for sampling/precision. It does not invent a confirmatory sample size before pilot dispersion, coverage and attrition are observed and frozen. Flowers and SVD events remain within-plant subsamples; the independent precision unit is the plant.
+
 ## Chapter 2 / Chapter 3 boundary
 
 Chapter 2 closes with:
@@ -84,6 +110,8 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 ## Submission status
 
 The scientific gate is closed. Non-metadata submission surfaces are intended to close on the mechanism-mainline contract; actual submission remains fail-closed on author-supplied identity and declaration fields such as author order/affiliations, corresponding-author details and ORCID, prior-work context, acknowledgements/funding, inclusion/conflict declarations, ethics confirmation and final metadata-driven bundle construction.
+
+The NEE promotion lane is separately **pre-data and not Stage-1 submission-ready** until the exact field scope and pilot-derived sampling/precision rule are frozen. Its existence does not change the current Oikos submission status.
 
 ## Claim boundary
 
