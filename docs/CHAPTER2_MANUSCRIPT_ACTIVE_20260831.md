@@ -97,6 +97,14 @@ For the zero-adjustment submodel, exact terminal count and kernel moments were c
 
 Local context was represented as availability and interaction filtering. Filtering strengths were 0, 0.10, 0.25, 0.40, 0.50, 0.60 and 0.75. Autonomous reproductive assurance was varied independently from 0× to 4×. Upstream effective service was required to remain invariant across assurance multipliers before interpreting downstream reproductive changes.
 
+## Source-audited empirical confrontation
+
+The empirical confrontation was frozen as a secondary evidence layer rather than used to tune the synthetic model. For the formal source audit, the research entry was the bookkeeping unit. Each entry was scored separately for directly observed plant response, partner loss or arrival/replacement, realized community change and downstream filtering or reproductive-assurance information. Unavailable coordinates remained unavailable; they were not imputed from reported outcomes, floral syndromes or narrative interpretation. Geography-first expansion used the separately declared stopping rule and did not alter the frozen 25-entry denominator.
+
+For the two source-native network contrasts promoted to the main Results, we used matched plant species rather than treating plants as geographic replicates. Pollinator-richness change was summarized as a per-plant log response ratio, `ln(R_B/R_A)`, and assemblage reorganization as Morisita–Horn turnover, `1 − similarity`. We report medians across matched plant species with exact nonparametric bootstrap percentile intervals. The Wanshan–Yongxing comparison used seven shared plant species from the continental–oceanic island pair (Wang et al., 2025); the two island networks were sampled in different years. The Anijima comparison used eight matched plant species after taking within-plant medians across shared seasons for spatially distinct green-anole presence/absence forest contexts (Quitián et al., 2026). These bootstrap intervals describe plant-level heterogeneity within one geographic contrast and do not provide independent archipelago replication or randomized causal effects. We therefore did not pool the two systems into a universal island coefficient.
+
+The Izu confrontation used the existing source-locked secondary analyses only. We retained the prespecified functional-exposure → corrected-matching coefficients and their leave-one-island sign diagnostics, the matching → pollen coefficients and their weaker leave-one-island stability, the response directions of eight shared lower-matching targets, and the null-corrected signed-position and Oshima-bridge falsification results. No Chapter 3 focal phenotype was used to select or validate these Chapter 2 relations.
+
 # Results
 
 ## Conditional response geometry is mixed rather than universally directional
