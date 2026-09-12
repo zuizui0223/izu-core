@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "status": "prepilot_synthetic_screen_frozen",
+  "frozen_on": "2026-09-12",
+  "purpose": "Estimate the order of magnitude and bottleneck for H5 before committing a field season; this is not empirical R3 power and cannot set the final confirmatory sample size.",
+  "parents": {
+    "H5_stratification": "data/design/chapter2_nee_h5_correlation_stratification_lock_20260912.json",
+    "generic_theory": "data/design/chapter2_el_rank_crossover_generalization_freeze_20260912.json",
+    "R5_transport": "data/design/chapter2_nee_r5_transport_decision_20260912.json"
+  },
+  "benchmark_model": {
+    "form": "Y = a*X + b*Zbar + c*X*Zbar + block_intercept + residual",
+    "a": 0.5,
+    "b": 1.0,
+    "c": 0.8,
+    "var_X": 1.0,
+    "var_Z": 1.0,
+    "block_sd": 0.35,
+    "residual_sd": 1.0,
+    "aggregation_levels": [1, 16],
+    "shared_dependence_benchmarks": [0.0, 0.1, 0.4],
+    "rho_note": "These are generic sensitivity coordinates, not proposed natural cutoffs. rho=0.25 from the exact generic audit is explicitly not used as a field threshold."
+  },
+  "design_grid": {
+    "blocks": [16, 24, 32, 48, 64],
+    "plants_per_block_primary": 16,
+    "plants_per_block_upper_benchmark": 24,
+    "primary_retention": 0.7,
+    "retention_sensitivity": [0.55, 0.7, 0.85],
+    "monte_carlo_replicates": 400,
+    "directional_margin_z": 1.645
+  },
+  "decision_screen": {
+    "low_dependence_crossover_support": "Estimated state-share increase, community-share decrease, and state-over-community rank at aggregation=16 all exceed the one-sided Monte-Carlo sampling margin.",
+    "high_dependence_no_crossover_support": "Estimated state-minus-community rank at aggregation=16 remains below the negative one-sided Monte-Carlo sampling margin.",
+    "interpretation": "The screen is an oracle Monte-Carlo separation diagnostic for design scale, not a per-dataset inferential procedure. Final R3 must use frozen empirical pilot dispersion, support and attrition."
+  },
+  "forbidden_uses": [
+    "call these operating-characteristic rates empirical power",
+    "use them as final Stage-1 sample-size justification",
+    "set the field dependence cutoff from mature reproductive outcomes",
+    "weaken H5 because a convenient sample size performs poorly",
+    "map benchmark rho or aggregation directly to natural richness or synthetic k"
+  ]
+}
