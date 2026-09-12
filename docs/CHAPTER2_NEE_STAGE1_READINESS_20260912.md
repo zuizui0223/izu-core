@@ -1,6 +1,6 @@
-# Chapter 2 NEE Stage-1 readiness — 2026-09-12
+# Chapter 2 NEE Stage-1 readiness — 2026-09-13
 
-Status: **scientific mechanism, P1-P4, conditional H5, R4 effective-community representation, R5 breadth rule, and the H5 pre-pilot scale screen are closed; R1/R2/R3 and R6 remain open.**
+Status: **scientific mechanism, P1-P4, conditional H5, R4 effective-community representation, R5 breadth rule, H5 pre-pilot scale screen, and the R1 taxon/breadth/block architecture are closed; the exact R1 site/time registry plus R2/R3/R6 remain open.**
 
 ## What is already closed before new focal data
 
@@ -24,7 +24,10 @@ The following must not be reopened for journal escalation:
 - total effective service remains a separate amount term;
 - Hill q=2/evenness remain secondary context summaries;
 - negative background-adjusted effective-service weights are not clipped;
-- R5 strategy: existing secondary data do **not** count as P6; the NEE route requires a second prospective independent natural context under the same frozen mapping.
+- R5 strategy: existing secondary data do **not** count as P6; the NEE route requires a second prospective independent natural context under the same frozen mapping;
+- R1 focal taxon = `Campanula microdonta`;
+- R1 prospective transport taxon = `Farfugium japonicum`, selected before focal outcomes from source-defined role/coverage rather than focal effect direction;
+- R1 block-scale triage treats independent repeated blocks as the H5 lever and uses the 32-block scale only as a pre-pilot screening floor, not empirical power or a final sample-size rule.
 
 Canonical locks:
 
@@ -32,6 +35,7 @@ Canonical locks:
 - `data/design/chapter2_nee_h5_correlation_stratification_lock_20260912.json`
 - `data/design/chapter2_nee_r5_transport_decision_20260912.json`
 - `data/design/chapter2_nee_h5_prepilot_oc_freeze_20260912.json`
+- `data/design/chapter2_nee_r1_scope_architecture_20260913.json`
 
 ## Existing implementation assets
 
@@ -51,7 +55,8 @@ Already present:
 - generic rank-crossover theorem audit;
 - H5 correlation-aware two-sided design lock;
 - H5 pre-pilot operating-characteristics screen;
-- R5 prospective-transport breadth decision.
+- R5 prospective-transport breadth decision;
+- R1 focal/transport/block architecture lock.
 
 ## R4 — effective-community representation CLOSED
 
@@ -76,11 +81,11 @@ The old one-sided H5 has been replaced before focal reproductive outcomes by two
 
 Dependence strata, or a continuous dependence-by-aggregation interaction, must be frozen from predictor/exposure data before focal reproductive outcomes are opened. A numeric field cutoff cannot be selected from outcome direction, and `rho=0.25` cannot be imported as a natural cutoff.
 
-The pre-pilot synthetic screen shows why this matters. At low benchmark dependence, increasing independent blocks makes crossover separation increasingly clear. Near the generic boundary, even more than 1000 recruited plants can remain indecisive. At high dependence, evidence instead accumulates for the predicted no-crossover side. Therefore **independent block count and dependence regime, not nominal flower/visit counts, are the H5 bottleneck**.
+The pre-pilot synthetic screen shows why this matters. At low benchmark dependence, crossover separation rises from `0.5425` at 16 blocks to `0.835` at 32 and `0.900` at 48 under the benchmark design. Near the generic boundary, even more than 1000 recruited plants can remain indecisive. At high dependence, evidence instead accumulates for the predicted no-crossover side. Therefore **independent block count and dependence regime, not nominal flower/visit counts, are the H5 bottleneck**.
 
-This screen is not empirical power and cannot replace R3.
+These rates are synthetic order-of-magnitude diagnostics, not empirical power, and cannot replace R3.
 
-## R5 — breadth strategy CLOSED; exact transport context belongs to R1
+## R5 — breadth strategy CLOSED
 
 The existing source universe has useful components but no admitted full prospective contract. It is therefore not promoted to P6.
 
@@ -97,22 +102,49 @@ The second context may be in the same archipelago only if it is biologically and
 
 If no such second prospective context is feasible, the NEE route closes for the single-system study. Do not weaken H5 or relabel old secondary data as P6; retain the prospective study for Ecology Letters, Ecology, or another suitable general-ecology venue.
 
-## What remains genuinely open before Stage-1 submission
+## R1 — architecture CLOSED; exact site/time registry OPEN
 
-### R1 — exact focal + transport field scope
-
-Freeze the taxon/population/site/time universe before outcomes. Required output:
+The part of R1 that must precede site selection is now frozen:
 
 ```text
-focal population/site registry
-second prospective transport context
-field block schedule
+focal taxon = Campanula microdonta
+prospective transport taxon = Farfugium japonicum
+focal candidate geographic contrast = Oshima + Kozushima, not yet final site registry
+preferred transport geography = independent mainland coastal populations from the existing source-site universe
+primary H5 design lever = independent repeated blocks
+32-block scale = screening floor for NEE triage, not final n
+```
+
+`Farfugium japonicum` is used because it was already prospectively locked from source-defined pollen-target membership, high interaction breadth and broad source-site coverage, not because it agrees with a future Campanula outcome.
+
+What remains open is genuinely field-specific and cannot be invented from the repository:
+
+- exact named Campanula population/site units inside the focal geography;
+- exact named Farfugium transport population/site units;
+- exact predeclared time windows;
+- eligible flowering-plant counts;
+- whether those nominal blocks are sufficiently independent rather than temporal/spatial pseudoreplicates;
+- SVD background-control and three-treatment feasibility at each admitted context;
+- whether the outcome-blind dependence coordinate is measurable with enough support before reproductive outcomes are opened.
+
+Oshima and Kozushima remain **candidate geography**, not a frozen final R1 site pair merely because they are convenient or already represented in earlier work.
+
+## What remains genuinely open before Stage-1 submission
+
+### R1b — exact site/time registry
+
+Required output:
+
+```text
+named focal population/site registry
+named second prospective transport population/site registry
+predeclared field block schedule
 eligible plant definition
 field exclusion reasons
 outcome-blind dependence/synchronization coordinate or strata
 ```
 
-R1 must supply enough independent repeated exposure blocks to estimate H2 and the H5 conditional contrast. It must not create blocks after seeing effectiveness, dependency or reproductive outcomes.
+R1b must demonstrate that the nominal block schedule can supply independent repeated exposure opportunities. Within-plant flowers, visits and SVD repeats are subsamples and never repair an inadequate number of independent blocks.
 
 ### R2 — pilot feasibility/dispersion
 
@@ -162,7 +194,8 @@ Freeze permits/ethics where applicable, archival plan, protocol registration, au
 | R5 breadth strategy | **CLOSED** | second prospective context required for NEE |
 | existing external full-chain validation | ABSENT | do not promote old metadata to P6 |
 | H5 pre-pilot scale screen | **COMPLETE** | use only for R1 triage, not final power |
-| field scope + transport context | **OPEN** | R1 |
+| R1 focal/transport/block architecture | **CLOSED** | preserve Campanula + prospective Farfugium architecture |
+| R1 exact population/site/time registry | **OPEN** | R1b |
 | pilot dispersion/attrition/dependence support | **OPEN** | R2 |
 | confirmatory precision/power | **OPEN** | R3 |
 | permits/authorship/admin | **OPEN** | R6 |
@@ -172,7 +205,7 @@ Freeze permits/ethics where applicable, archival plan, protocol registration, au
 Activate the NEE route only when:
 
 ```text
-R1 focal scope + second prospective transport context frozen
+R1b exact focal + transport site/time registry frozen
 + R2 pilot feasibility adequate
 + R3 confirmatory H2/H5 precision locked
 + R4 representation preserved
