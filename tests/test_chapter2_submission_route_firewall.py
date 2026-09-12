@@ -33,7 +33,7 @@ def test_nee_lane_does_not_reopen_current_oikos_scientific_closure():
     text = _read(NEE)
     assert "Current Oikos paper remains scientifically closed" in text
     assert "The second prospective context is not optional for the NEE route" in text
-    assert "do not weaken H5" in text.lower()
+    assert "do not weaken h5" in text.lower()
     assert "source mechanism | CLOSED" in text
 
 
