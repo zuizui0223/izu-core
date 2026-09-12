@@ -34,7 +34,6 @@ def _load_decision() -> dict:
 
 
 def _fig1(manifest: dict) -> None:
-    rank = manifest["system_size_rank_crossover"]
     fig, ax = plt.subplots(figsize=(16.0, 5.4))
     ax.set_axis_off()
     boxes = [
@@ -150,48 +149,43 @@ def _fig4(manifest: dict) -> None:
         bbox={"boxstyle": "round,pad=0.65", "facecolor": "white", "edgecolor": "0.45"},
     )
 
-    # C — future optional Izu validation chain.
+    # C — existing-data stress test. This is the chapter endpoint, not future field work.
     axes[2].set_axis_off()
-    axes[2].set_title("C  Prospective falsification, not a completion gate", loc="left")
-    chain = [
-        "pre-outcome\nplant state",
-        "visitor exposure\n& composition",
-        "single-visit\neffectiveness",
-        "reproductive\ndependency",
-        "mature seed",
-    ]
-    ys = np.linspace(0.86, 0.20, len(chain))
-    for i, (label, y) in enumerate(zip(chain, ys)):
-        axes[2].text(
-            0.13,
-            y,
-            label,
-            transform=axes[2].transAxes,
-            ha="center",
-            va="center",
-            fontsize=9,
-            bbox={"boxstyle": "round,pad=0.35", "facecolor": "white", "edgecolor": "0.45"},
-        )
-        if i < len(chain) - 1:
-            axes[2].annotate(
-                "",
-                xy=(0.13, ys[i + 1] + 0.06),
-                xytext=(0.13, y - 0.06),
-                xycoords="axes fraction",
-                arrowprops={"arrowstyle": "->", "lw": 1.2},
-            )
+    axes[2].set_title("C  Existing-data stress test", loc="left")
+    izu_text = (
+        "IZU SECONDARY-DATA CONFRONTATION\n\n"
+        "✓ functional exposure → corrected matching:\n"
+        "   supported and leave-one-island sign robust\n\n"
+        "△ matching → pollen:\n"
+        "   positive on average, not leave-one-island stable\n\n"
+        "✕ historical signed-position projection:\n"
+        "   null-corrected support absent\n\n"
+        "✕ Oshima bridge as causal boundary:\n"
+        "   not independently identified"
+    )
     axes[2].text(
-        0.34,
-        0.53,
-        "Izu E3/E4 status:\nfuture / optional validation\n\nA positive or negative result\nwould extend the mechanism;\nneither is required for the\ncurrent paper.",
+        0.02,
+        0.92,
+        izu_text,
         transform=axes[2].transAxes,
         ha="left",
-        va="center",
-        fontsize=9.5,
+        va="top",
+        fontsize=9.4,
+        linespacing=1.28,
+        bbox={"boxstyle": "round,pad=0.60", "facecolor": "white", "edgecolor": "0.45"},
+    )
+    axes[2].text(
+        0.02,
+        0.08,
+        "Prospective visitor → SVD → dependency → seed work is post-Chapter-2 transport/falsification, not a missing result.",
+        transform=axes[2].transAxes,
+        ha="left",
+        va="bottom",
+        fontsize=8.8,
     )
 
     fig.suptitle(
-        "Empirical evidence bounds plausibility and identifiability rather than calibrating the synthetic crossover",
+        "Metadata confrontation closes the chapter at an explicit empirical claim ceiling",
         fontsize=14,
         x=0.01,
         ha="left",
@@ -261,8 +255,8 @@ def build_figures() -> dict:
         "status": "realized_richness_reframe_after_relational_regeneration",
         "realized_richness_decision": DECISION.relative_to(ROOT).as_posix(),
         "realized_richness_headline": "mean_regime_richness_sensitive_branching_relational",
-        "figure_narrative": "conditional_geometry_to_richness_control_to_rank_crossover_to_empirical_claim_boundary",
-        "figure4_role": "empirical_claim_boundary_and_future_optional_validation",
+        "figure_narrative": "conditional_geometry_to_richness_control_to_rank_crossover_to_metadata_claim_boundary",
+        "figure4_role": "metadata_confrontation_and_empirical_claim_ceiling",
         "field_e3_e4_required": False,
         "system_size_rank_crossover": manifest["system_size_rank_crossover"],
         "figure_outputs": outputs,
