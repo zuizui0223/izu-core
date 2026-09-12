@@ -53,13 +53,16 @@ def _rtf_preflight(text: str, *, main_text: bool) -> list[str]:
             if control not in text:
                 errors.append(f"main-text RTF formatting control missing: {control}")
         lower = text.lower()
+        # Keep these checks ASCII-safe because the RTF renderer escapes Unicode
+        # punctuation (for example an en dash) to \uN? control sequences.
         for token in (
             "conditional response geometry",
             "realized richness differences therefore help position the ensemble mean regime",
             "ordering of response determinants is itself regime dependent",
             "deterministic mean-field kernel contrast was all-positive",
             "metadata confrontation supports biological ingredients while bounding attribution",
-            "wanshan–yongxing",
+            "wanshan",
+            "yongxing",
             "anijima",
             "21/25",
             "2/25",
