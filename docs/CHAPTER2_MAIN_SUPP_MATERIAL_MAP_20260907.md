@@ -1,10 +1,10 @@
 # Chapter 2 main-text / Supporting Information material map
 
-Updated: 2026-09-11
+Updated: 2026-09-12
 
 ## Paper-facing rule
 
-The main paper carries only results that change the synthetic ecological argument. Supporting Information carries full parameterization, sensitivity surfaces, historical empirical analyses, source-readiness matrices, search-tranche provenance, and secondary structural attacks.
+The main paper carries the synthetic results that change the ecological argument plus one compact **metadata confrontation / claim-ceiling endpoint**. Supporting Information carries full parameterization, sensitivity surfaces, historical empirical analyses, source-readiness matrices, search-tranche provenance, row-level secondary analyses and structural attacks.
 
 The active mechanism mainline is:
 
@@ -16,9 +16,11 @@ The active mechanism mainline is:
 
 `→ downstream filtering / assurance`
 
-World and Izu materials bound biological plausibility and historical identifiability. They are not coequal main Results and do not provide required validation of the synthetic crossover.
+`→ source-audited metadata confrontation and empirical claim ceiling`
 
-The prospective visitor-effectiveness / reproductive-dependency / mature-output E3/E4 experiment remains optional future validation, not a prerequisite for the present paper.
+World and Izu materials bound biological plausibility and historical identifiability. They do not provide full validation of the synthetic crossover, but the audited positive and adverse secondary evidence is part of Chapter 2 completion because it establishes what is biologically non-vacuous and what remains unidentified.
+
+The prospective visitor-effectiveness / reproductive-dependency / mature-output E3/E4 experiment is **post-Chapter-2 transport/falsification**, not a prerequisite for the present paper.
 
 ## Main text
 
@@ -54,17 +56,19 @@ Retain four compact panels:
 
 Filtering and assurance must remain downstream modifiers rather than alternative explanations of the upstream response geometry.
 
-### Main Figure 4 — empirical claim boundary and future validation
+### Main Figure 4 — metadata confrontation and empirical claim ceiling
 
-Keep this figure compact. Its role is not a fourth scientific Result.
+This figure is the **existing-data endpoint** of Chapter 2, not a fourth synthetic mechanism result and not a placeholder for future fieldwork.
 
-Retain only enough to show:
-- real island systems contain partner turnover, branching, buffering, and response-axis decoupling;
-- the frozen formal audit remains outcome-rich but transition-process-poor (`21/25` direct response, `2/25` direct partner arrival/replacement, `0/25` full contracts, formal prediction `not_evaluable`);
-- Izu provides a prospective high-continuity same-block design for visitor → effectiveness → dependency → mature seed;
-- E3/E4 remains future/optional validation and no field quantity is equated to synthetic `k`.
+Retain three compact functions:
 
-Detailed Wanshan–Yongxing, Ogasawara, historical signed-position, contemporary Izu FDQ/matching/pollen, omission diagnostics and row-level plant results move to Supporting Information as supporting empirical context.
+1. **Measurement ceiling.** The formal audit remains outcome-rich but transition-process-poor: `21/25` direct comparable responses, `2/25` direct partner arrival/replacement, `0/25` full outcome-independent contracts and formal external prediction `not_evaluable`.
+2. **Synthetic-to-natural claim boundary.** Synthetic `k≈4` is not a natural threshold; visitor richness and Hill diversity are not synthetic `k`; current associations are not historical causation.
+3. **Existing Izu stress test.** Functional exposure → corrected matching is supported and leave-one-island sign robust; matching → pollen is positive on average but not leave-one-island sign stable; the null-corrected historical signed-position projection is unsupported; the Oshima bridge is not independently identified as a causal boundary.
+
+The prospective same-block visitor → effectiveness → dependency → mature-seed chain may be noted as a **post-Chapter-2 transport/falsification study** only. It is not the visual or inferential endpoint of this chapter.
+
+Detailed Wanshan–Yongxing, Ogasawara, historical signed-position, contemporary Izu FDQ/matching/pollen, omission diagnostics and row-level target results remain in Supporting Information / provenance, with only the claim-critical contrasts surfaced in Figure 4 and the compact metadata Results section.
 
 ## Main-text numerical ceiling
 
@@ -96,25 +100,31 @@ The core paper should be able to carry the mechanism with the following compact 
 - filtering strength 0.40: 15.67% negative→non-negative versus 56.54% positive→non-positive;
 - assurance: 0 sign rescues among 580 eligible declines through 4×.
 
-### Boundary-only empirical numbers
+### Metadata confrontation
 - formal external audit: response 21/25, arrival/replacement 2/25, full contracts 0/25, prediction `not_evaluable`;
-- descriptive world breadth: 42 research entries / 37 exact labels, separate from the formal denominator.
+- descriptive world breadth: 42 research entries / 37 exact labels, separate from the formal denominator;
+- Wanshan–Yongxing partner turnover: 0.9796; Ogasawara Anijima context: 0.6817; no pooled universal island effect is claimed;
+- Izu functional exposure → corrected matching: positive and leave-one-island sign robust;
+- Izu matching → pollen: positive on average but not leave-one-island sign stable;
+- eight shared lower-matching targets: tube shorter 3, longer 4, equal 1; pollen lower 4, higher 4;
+- null-corrected historical signed-position projection: unsupported;
+- causal Oshima/post-Oshima boundary: not identified.
 
 ## Supporting Information structure
 
 ### S1–S16 — model, mechanism, historical robustness and source audits
 
-Preserve equations, parameterization, local-filtering/assurance designs, response decomposition, source-readiness audit, world evidence and historical Izu analyses. These remain auditable but are not the active paper spine.
+Preserve equations, parameterization, local-filtering/assurance designs, response decomposition, source-readiness audit, world evidence and historical Izu analyses. These remain auditable but are not the active mechanism spine.
 
 The derived joint `steps=240` / `trait_adjustment=0.0` cross-check remains in Table S4 as a one-row structural generality check because it introduces no new parameter value. It retains 75/96 mixed realizations.
 
 ### S17 — geography-first saturation and world-source boundary
 
-Preserve the 4,663-island candidate frame, saturation stopping rule, small-island supplement and measurement-readiness provenance. Its active role is to bound historical inference.
+Preserve the 4,663-island candidate frame, saturation stopping rule, small-island supplement and measurement-readiness provenance. Its active role is to bound historical inference and document why more cross-sectional searching is not a Chapter 2 completion requirement.
 
 ### S18 — contemporary Izu functional-chain context
 
-Preserve FDQ-to-matching, leave-one-island checks, matching-to-pollen sensitivities and eight-plant branching details as empirical context and preparation for future validation. These are not required validation of the present synthetic mechanism.
+Preserve FDQ-to-matching, leave-one-island checks, matching-to-pollen sensitivities and eight-target branching details as the existing-data stress test. These analyses constrain the natural interpretation of the synthetic mechanism; they do not validate the full mechanism or historical causation. Any new same-block E3/E4 study is post-Chapter-2 transport/falsification.
 
 ### S19 — exact realized-richness matching hard control
 
@@ -138,7 +148,7 @@ Tables S1–S9 remain part of the reproducibility surface. Table S4 contains str
 
 ## Supplementary figures
 
-Keep the existing detailed diagnostic figures, including the realized-richness hard-control figure. Historical empirical figures may remain for provenance but should not be interpreted as the active main-text inference chain.
+Keep the existing detailed diagnostic figures, including the realized-richness hard-control figure. Historical and contemporary empirical figures remain auditable support for the metadata confrontation layer but must not be narrated as a matched validation chain.
 
 ## Claim boundary
 
@@ -152,9 +162,10 @@ The material split must not imply that:
 - raw visitor richness or Hill diversity is synthetic `k`;
 - Wanshan–Yongxing or Ogasawara validates the synthetic determinant hierarchy;
 - Izu contemporary associations identify historical *Bombus* loss;
+- metadata constitute full natural validation of the synthetic mechanism;
 - Chapter 3 phenotype divergence validates this mechanism;
 - the prospective tagged-plant E3/E4 experiment is already completed or required for current-paper closure.
 
 The supported headline is:
 
-**pollinator-community reorganization produces conditional response geometry; richness helps place the coarse regime, starting state evaluated against realized composition retains branch contingency, and the ordering of response determinants itself changes across the declared finite-community regimes.**
+**pollinator-community reorganization produces conditional response geometry; richness helps place the coarse regime, starting state evaluated against realized composition retains branch contingency, the ordering of response determinants changes across the declared finite-community regimes, and source-audited metadata define the biological plausibility and empirical claim ceiling without requiring new focal data.**
