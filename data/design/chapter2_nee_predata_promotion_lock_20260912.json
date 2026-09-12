@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "status": "frozen_before_new_focal_field_outcomes",
   "frozen_on": "2026-09-12",
   "purpose": "Bundle the already-frozen E1-E4 Izu field designs into one journal-independent promotion contract for a possible Nature Ecology & Evolution Registered Report without reopening the closed Oikos mechanism paper.",
@@ -13,7 +13,8 @@
   "parents": {
     "transition_chain": "data/design/izu_transition_linked_chain_freeze_20260909.json",
     "estimands": "data/design/izu_transition_linked_estimand_lock_20260909.json",
-    "rank_order": "data/design/izu_effective_service_rank_crossover_lock_20260911.json"
+    "rank_order": "data/design/izu_effective_service_rank_crossover_lock_20260911.json",
+    "field_readiness": "data/design/effective_pollinator_dependency_field_readiness.json"
   },
   "target_route": {
     "primary": "Nature Ecology & Evolution Registered Report",
@@ -63,6 +64,16 @@
     "data_material_code_commitment": true,
     "protocol_registration_after_aip": true,
     "confirmatory_data_before_aip": "not allowed for a primary Registered Report except declared pilot data"
+  },
+  "sampling_and_precision_inheritance": {
+    "independent_unit": "plant",
+    "within_plant_subsamples": ["flowers", "single-visit SVD events"],
+    "readiness_state_machine": "data/design/effective_pollinator_dependency_field_readiness.json",
+    "pilot_assumption_cli": "scripts/audit_effective_dependency_pilot_assumptions.py",
+    "precision_planning_cli": "scripts/plan_effective_dependency_pilot_precision.py",
+    "precision_goal_template": "templates/effective_dependency_precision_goals_template.csv",
+    "rule": "No confirmatory sample size is generated from a draft precision goal or synthetic operating characteristic. Pilot dispersion/coverage/attrition are frozen first, then a biologically meaningful precision or assurance target is locked and stress-tested hierarchically.",
+    "synthetic_design_simulation_is_empirical_power": false
   },
   "quality_gates": {
     "Q1_effort": "usable monitored flower-hours and zero-visit windows retained",
