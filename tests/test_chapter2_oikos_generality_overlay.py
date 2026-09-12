@@ -17,8 +17,7 @@ def test_oikos_title_is_not_island_scoped():
 def test_island_syndrome_novelty_is_explicit_without_becoming_title_scope():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "ensemble-level regime shifts rather than deterministic lineage-level trait rules" in lower
-    assert "same broad pollinator-community reorganization can generate a coherent ensemble tendency while individual plant lineages take opposing response branches" in lower
+    assert "richness can position the ensemble regime without determining individual branch identity" in lower
     assert "scale-dependent response architecture" in lower
     assert "dominant source of response variation need not be fixed" in lower
     assert "the syndrome is therefore the shifted response regime and its variance architecture" in lower
