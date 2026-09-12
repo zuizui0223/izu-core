@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import csv
 import importlib.util
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "audit_chapter2_nee_r1_site_registry.py"
 TEMPLATE = ROOT / "templates" / "chapter2_nee_r1_site_registry_template.csv"
 CANDIDATES = ROOT / "data" / "design" / "chapter2_nee_r1_site_registry_candidates_20260913.csv"
+PRIORITY = ROOT / "data" / "design" / "chapter2_nee_r1b_candidate_priority_lock_20260913.json"
 
 spec = importlib.util.spec_from_file_location("r1audit", SCRIPT)
 assert spec and spec.loader
@@ -119,6 +121,19 @@ def test_source_backed_candidate_registry_is_valid_but_not_admitted() -> None:
     assert result["admitted_transport_blocks"] == 0
     assert result["scope_complete"] is False
     assert result["errors"] == []
+
+
+def test_candidate_priority_is_outcome_blind_and_prefers_kozu_transport() -> None:
+    data = json.loads(PRIORITY.read_text(encoding="utf-8"))
+    assert data["status"] == "candidate_priority_frozen_before_field_outcomes"
+    assert data["focal_Campanula_priority"][0]["geographic_unit"] == "Oshima"
+    assert data["transport_Farfugium_priority"][0]["geographic_unit"] == "Kozushima"
+    assert "kozu-sainbara-lighthouse" in data["transport_Farfugium_priority"][0]["candidate_ids"]
+    assert data["regulatory_triage"]["oshima_senzu_coastal"]["status"] == "high_friction_pending_confirmation"
+    forbidden = "\n".join(data["ranking_inputs_forbidden"])
+    assert "mature seed" in forbidden
+    assert "expected crossover" in forbidden
+    assert "not proof of current abundance" in data["claim_boundary"].lower()
 
 
 def test_admitted_row_fails_closed_when_structural_gate_is_pending(tmp_path: Path) -> None:
