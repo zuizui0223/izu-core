@@ -6,6 +6,7 @@ LOCK = ROOT / "data/design/chapter2_simulation_metadata_completion_lock_20260912
 DOC = ROOT / "docs/CHAPTER2_SIMULATION_METADATA_COMPLETION_20260912.md"
 THESIS = ROOT / "THESIS_CHAPTER_POSITIONING.md"
 README = ROOT / "README.md"
+FIGURES = ROOT / "scripts/generate_chapter2_manuscript_figures_realized_richness.py"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
 WORLD = ROOT / "data/results/chapter2_global_master_manuscript_value_review_audit_20260906.json"
 IZU = ROOT / "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
@@ -63,3 +64,11 @@ def test_human_surfaces_preserve_no_field_completion_rule() -> None:
     assert "parallel/future validation" in thesis
     assert "not a submission gate or completion criterion" in readme
     assert "prospective Izu E3/E4 chain is required for Chapter 2 completion" in readme
+
+
+def test_figure4_ends_on_existing_metadata_not_missing_field_work() -> None:
+    text = FIGURES.read_text(encoding="utf-8")
+    assert "Existing-data stress test" in text
+    assert "metadata_confrontation_and_empirical_claim_ceiling" in text
+    assert "post-Chapter-2 transport/falsification" in text
+    assert "future_optional_validation" not in text
