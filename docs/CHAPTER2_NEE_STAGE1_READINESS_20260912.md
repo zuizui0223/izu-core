@@ -1,6 +1,6 @@
 # Chapter 2 NEE Stage-1 readiness — 2026-09-12
 
-Status: **scientific prediction architecture closed; Stage-1 field-feasibility/sampling layer still open.**
+Status: **scientific prediction architecture and R4 effective-community representation closed; Stage-1 field-feasibility/sampling layer still open.**
 
 ## What is already closed before new focal data
 
@@ -18,7 +18,15 @@ The following must not be reopened for journal escalation:
 - zero visits retained as data;
 - missing/uncontrolled SVD is not biological zero;
 - failed/lost treatments remain explicit failure states;
-- null/adverse adequate results cannot trigger retuning of the synthetic mechanism.
+- null/adverse adequate results cannot trigger retuning of the synthetic mechanism;
+- R4 primary effective-community object = background-controlled effective-service composition vector;
+- total effective service remains a separate amount term;
+- Hill q=2/evenness remain secondary context summaries;
+- negative background-adjusted effective-service weights are not clipped to manufacture a composition/diversity value.
+
+Canonical R4 lock:
+
+`data/design/chapter2_nee_effective_community_representation_lock_20260912.json`
 
 ## Existing implementation assets
 
@@ -38,6 +46,34 @@ Already present before this Stage-1 wrapper:
 - pilot precision planner;
 - synthetic design operating-characteristics simulation.
 
+## R4 — effective-community representation CLOSED
+
+The primary natural community object is now frozen as the **background-controlled effective-service composition vector**.
+
+For block `b` and declared visitor group `g`:
+
+```text
+w_bg = visit_rate_per_flower_hour
+       x background_adjusted_single_visit_conspecific_pollen_deposition
+
+p_bg = w_bg / sum_g(w_bg)
+```
+
+The composition exists only when the declared effectiveness coverage is controlled, all included weights are non-negative, and total effective service is positive.
+
+Guardrails:
+
+- missing/uncontrolled effectiveness is unavailable, not zero;
+- negative background-adjusted weight is not clipped or truncated;
+- a zero-total-service block remains valid for effort/amount/zero-service reporting, but no compositional vector is manufactured;
+- total effective service is retained as a separate amount/control term;
+- Hill q=2, evenness and maximum share are secondary summaries;
+- service-realization stability is a separate repeated-block context coordinate;
+- no outcome-informed PCA, clustering, visitor-group pooling, threshold or breakpoint selection is allowed;
+- the final visitor-group dictionary may be instantiated from taxonomy/functional identity and SVD feasibility, but not from dependency or mature-seed effect direction, and must be locked no later than the Stage-1 confirmatory protocol lock.
+
+This closes the scientific representation choice without pretending that pilot-derived measurement feasibility or confirmatory precision is already known.
+
 ## What remains genuinely open before Stage-1 submission
 
 ### R1 — exact field scope
@@ -52,6 +88,8 @@ field block schedule
 eligible plant definition
 field exclusion reasons
 ```
+
+R1 must instantiate enough prespecified repeated exposure blocks to make H2 composition variation and, if retained as confirmatory, H5 service-realization stability/aggregation identifiable without defining blocks after outcomes are known.
 
 ### R2 — pilot feasibility/dispersion
 
@@ -85,16 +123,6 @@ Existing planner:
 `scripts/plan_effective_dependency_pilot_precision.py`
 
 Synthetic operating characteristics are not empirical power and cannot substitute for R3.
-
-### R4 — freeze the effective-community representation
-
-Before focal endpoint opening, choose the primary representation:
-
-- full/low-dimensional background-controlled effective-service composition;
-- total effective service as a separate amount term;
-- Hill q=2/evenness only as secondary breadth/concentration summaries unless Stage 1 promotes one explicitly.
-
-Any dimension reduction must be defined without using focal seed/dependency outcomes.
 
 ### R5 — external transport decision
 
@@ -141,7 +169,7 @@ Freeze:
 | field scope | OPEN | R1 |
 | pilot dispersion/attrition | OPEN | R2 |
 | confirmatory precision/power | OPEN | R3 |
-| effective-community primary encoding | OPEN within frozen constraints | R4 |
+| effective-community primary encoding | **CLOSED** | preserve R4 lock |
 | independent transport P6 | OPEN | R5 |
 | permits/authorship/admin | OPEN | R6 |
 
@@ -153,7 +181,7 @@ Do not submit Stage 1 merely because the question is interesting. Activate only 
 R1 field scope frozen
 + R2 pilot feasibility adequate
 + R3 confirmatory sampling/precision locked
-+ R4 community representation frozen
++ R4 community representation lock preserved
 + P1-P5 executable under Q1-Q6 measurement gates
 + data/code/protocol commitments complete
 ```
