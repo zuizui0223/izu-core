@@ -18,12 +18,12 @@ def test_island_syndrome_novelty_is_explicit_without_becoming_title_scope():
     text = render_submission_manuscript()
     lower = text.lower()
     assert "ensemble-level regime shifts rather than deterministic lineage-level trait rules" in lower
-    assert "how a coherent island-level tendency can coexist with opposing lineage-level responses" in lower
+    assert "same broad pollinator-community reorganization can generate a coherent ensemble tendency while individual plant lineages take opposing response branches" in lower
     assert "scale-dependent response architecture" in lower
     assert "dominant source of response variation need not be fixed" in lower
     assert "the syndrome is therefore the shifted response regime and its variance architecture" in lower
     discussion = text.split("# Discussion", 1)[1].lower()
-    assert "single island syndrome" in discussion
+    assert "community reorganization has two separable consequences" in discussion
     assert "shifted response regime and its variance architecture" in discussion
 
 
