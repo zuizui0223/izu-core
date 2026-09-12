@@ -12,6 +12,9 @@ on:
       - 'scripts/run_context_assurance_threshold_maps.py'
       - 'scripts/evaluate_chapter2_scientific_gate.py'
       - 'scripts/audit_chapter2_interaction_kernel.py'
+      - 'scripts/audit_chapter2_el_rank_crossover_generalization.py'
+      - 'data/design/chapter2_el_rank_crossover_generalization_freeze_20260912.json'
+      - 'tests/test_chapter2_el_rank_crossover_generalization.py'
       - '.github/workflows/chapter2-scientific-gate.yml'
   workflow_dispatch:
 
@@ -59,6 +62,9 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_interaction_kernel \
             --out data/results/chapter2_interaction_kernel_audit_ci.json
+      - name: Audit generic determinant-rank crossover conditions
+        run: |
+          python -m scripts.audit_chapter2_el_rank_crossover_generalization
       - name: Upload scientific gate results
         uses: actions/upload-artifact@v4
         with:
@@ -69,4 +75,5 @@ jobs:
             data/results/context_assurance_threshold_maps_gate.json
             data/results/chapter2_scientific_gate_decision.json
             data/results/chapter2_interaction_kernel_audit_ci.json
+            data/results/chapter2_el_rank_crossover_generalization_20260912.json
           if-no-files-found: error
