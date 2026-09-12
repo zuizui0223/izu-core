@@ -19,13 +19,13 @@
     "prediction": "In prospectively classified lower-shared-dependence exposure strata, increasing aggregation across prespecified comparable opportunities should reduce community-realization contribution and increase relative plant-state contribution; a state-over-community rank reversal is expected only where the outcome-blind design places the stratum in a crossover-capable domain.",
     "support": "Both directional redistribution components must be supported; rank reversal is additionally tested where its pre-outcome admission rule is met.",
     "adverse": "Adequately measured lower-dependence strata show absent/opposite redistribution after prespecified amount, effort, site and time controls.",
-    "not_evaluable": "Dependence classification, repeated-opportunity support, effective-community measurement or confirmatory precision fails."
+    "not_evaluable": "NOT_EVALUABLE when dependence classification, repeated-opportunity support, effective-community measurement or confirmatory precision fails."
   },
   "H5b_high_dependence": {
     "prediction": "In prospectively classified higher-shared-dependence exposure strata, aggregation should leave a persistent community-realization floor, so state-over-community rank reversal should be weakened or absent even when aggregation increases.",
     "support": "Adequately measured higher-dependence strata retain community dominance or otherwise fail the predeclared state-over-community reversal while the dependence-floor criterion is met.",
     "adverse": "A clear state-over-community reversal occurs in a stratum that satisfied the frozen high-dependence admission rule and measurement/precision gates.",
-    "not_evaluable": "The high-dependence admission rule, repeated-opportunity support, effective-community measurement or precision gate fails."
+    "not_evaluable": "NOT_EVALUABLE when the high-dependence admission rule, repeated-opportunity support, effective-community measurement or precision gate fails."
   },
   "stratification_rules": {
     "timing": "Dependence strata or a continuous dependence interaction must be frozen from predictor/exposure data before focal reproductive outcomes are opened.",
