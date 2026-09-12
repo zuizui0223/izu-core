@@ -169,8 +169,8 @@ def test_checklist_places_author_metadata_after_closed_scientific_gate():
 def test_oikos_checklist_uses_mechanism_mainline_and_current_submission_contract():
     text = OIKOS_CHECKLIST.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "conditional response geometry → exact realized-richness control → scale-dependent determinant ordering → downstream modifiers" in lower
-    assert "future/optional validation, not a submission gate" in lower
+    assert "conditional response geometry → exact realized-richness control → scale-dependent determinant ordering → downstream modifiers → metadata confrontation / empirical claim ceiling" in lower
+    assert "post-chapter-2 future transport/falsification, not a submission gate" in lower
     assert "mean all-positive in **6/6**" in lower
     assert "51–65/96" in text
     assert "70/96" in text and "65.61%" in text
