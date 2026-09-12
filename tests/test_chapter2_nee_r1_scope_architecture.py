@@ -13,20 +13,26 @@ def _load() -> dict:
 
 def test_r1_architecture_is_frozen_without_false_site_closure() -> None:
     data = _load()
+    assert data["schema_version"] == "1.1"
     assert data["status"] == "R1_architecture_frozen_exact_site_registry_open"
     assert data["focal_context"]["taxon"] == "Campanula microdonta"
     assert data["focal_context"]["candidate_pair_is_final_R1_site_registry"] is False
     assert data["block_architecture"]["no_fixed_final_n"] is True
+    assert data["priority_revision"]["focal_outcome_information_used"] is False
 
 
-def test_r1_transport_is_prospective_farfugium_not_retrospective_rescue() -> None:
+def test_r1_transport_is_prospective_farfugium_with_kozu_first_priority() -> None:
     data = _load()
     transport = data["transport_context"]
     assert transport["taxon"] == "Farfugium japonicum"
     assert transport["selection_status"] == "prospectively_selected_before_focal_outcomes"
     assert "H2" in transport["P6_primary_target"]
-    assert transport["same_archipelago_fallback_allowed"] is True
-    assert "genuine transport challenge" in transport["same_archipelago_fallback_rule"]
+    assert "Kozushima" in transport["preferred_geographic_family"]
+    assert transport["preferred_candidate_sites"] == ["Kozushima: Nodo Sainbara-line lighthouse area"]
+    assert transport["mainland_contingency_sites"] == ["Hitachi", "Hitachinaka", "Tateyama"]
+    assert transport["same_archipelago_is_current_priority"] is True
+    assert "genuine prospective transport challenge" in transport["same_archipelago_fallback_rule"]
+    assert "focal effect direction" in transport["mainland_contingency_rule"]
 
 
 def test_r1_uses_block_scale_screen_without_calling_it_power() -> None:
