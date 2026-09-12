@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_confirmatory_reproductive_outcomes",
+  "frozen_on": "2026-09-12",
+  "purpose": "Close Chapter 2 NEE readiness item R4 by fixing how realized effective pollinator community is represented without using focal dependency or mature-seed outcomes.",
+  "parents": {
+    "transition_chain": "data/design/izu_transition_linked_chain_freeze_20260909.json",
+    "estimands": "data/design/izu_transition_linked_estimand_lock_20260909.json",
+    "rank_order": "data/design/izu_effective_service_rank_crossover_lock_20260911.json",
+    "nee_promotion": "data/design/chapter2_nee_predata_promotion_lock_20260912.json"
+  },
+  "strict_unit": "block_id x plant_id",
+  "weight_definition": {
+    "symbol": "w_bg",
+    "definition": "visit_rate_per_flower_hour x background_adjusted_single_visit_conspecific_pollen_deposition",
+    "background_control_required": true,
+    "missing_or_uncontrolled_effectiveness": "effective-service weight unavailable; do not impute zero",
+    "negative_background_adjusted_weight": "do not clip or truncate; composition is unavailable for that block under the primary representation",
+    "zero_total_effective_service": "retain the block for effort, zero-service and amount reporting, but do not manufacture a compositional share vector"
+  },
+  "primary_representation": {
+    "object": "background-controlled effective-service composition vector",
+    "share_definition": "p_bg = w_bg / sum_g(w_bg)",
+    "availability": [
+      "the declared visitor-group rows for the block have controlled effectiveness under the frozen measurement rules",
+      "all declared effective-service weights used for the composition are non-negative",
+      "total effective service is strictly positive"
+    ],
+    "analysis_role": "primary realized-community object for H1 composition-beyond-amount and H2 plant-state x community tests",
+    "encoding_rule": "Use the full predeclared visitor-group composition as a joint term. Any algebraic reference-component omission required for identifiability does not change the biological group universe and must not be selected by focal outcome association.",
+    "dimension_reduction": "No outcome-informed dimension reduction is permitted. If a lower-dimensional mapping is required for feasibility, the mapping rule and retained dimensions must be frozen from taxonomy, functional identity, measurement reliability or declared pilot-only information before confirmatory reproductive outcome opening."
+  },
+  "visitor_group_universe": {
+    "rule": "The final visitor-group dictionary is instantiated from the field taxonomic/functional recording scheme and SVD measurement feasibility, never from dependency or mature-seed effect direction.",
+    "lock_deadline": "no later than Stage-1 confirmatory protocol lock and before confirmatory reproductive outcome opening",
+    "absent_but_declared_group": "zero visit rate is a valid observed zero when observation effort is usable",
+    "unresolved_identification": "retain the declared resolution status; do not relabel to improve outcome fit"
+  },
+  "separate_amount_term": {
+    "object": "total_effective_pollen_delivery_per_flower_hour",
+    "role": "separate effective-service amount/control term",
+    "rule": "Do not normalize the amount term away and do not substitute it for community composition."
+  },
+  "secondary_context_summaries": {
+    "effective_service_hill_q2": "secondary breadth/concentration coordinate when the primary composition is available",
+    "effective_service_evenness_q2": "secondary evenness coordinate when defined",
+    "max_effective_service_share": "secondary dominance summary",
+    "service_realization_stability": "secondary repeated-block realization-stability coordinate when prespecified repeated comparable blocks permit estimation"
+  },
+  "hypothesis_admission": {
+    "H1_H2": "Blocks without a valid primary composition remain in effort/amount reporting but cannot contribute a manufactured composition vector. The hypothesis is NOT_EVALUABLE if the prespecified composition-support gate fails overall.",
+    "H5": "Breadth/stability analyses require their prespecified availability gates and repeated independent exposure opportunities where applicable; no post-hoc breakpoint or synthetic k cutoff is allowed."
+  },
+  "forbidden": [
+    "use raw visitor richness alone as the primary realized-community representation",
+    "map visitor richness, Hill diversity or effective-service breadth literally to synthetic k",
+    "clip negative background-adjusted effective-service weights to create a diversity value",
+    "impute missing or uncontrolled SVD as zero effectiveness",
+    "collapse visitor groups because their dependency or mature-seed coefficients are inconvenient",
+    "choose PCA axes, clustering, thresholds or aggregation cutoffs from focal confirmatory outcomes",
+    "search for a field breakpoint near synthetic k approximately 4"
+  ],
+  "claim_boundary": "This lock defines the natural effective-community measurement object for prospective H1/H2/H5 confrontation. It does not assert a universal visitor grouping, a historical Bombus-loss cause, a natural counterpart of synthetic k, or adequate precision before the pilot and R3 design step."
+}
