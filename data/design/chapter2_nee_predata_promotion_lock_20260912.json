@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "status": "frozen_before_new_focal_field_outcomes",
-  "frozen_on": "2026-09-12",
-  "purpose": "Bundle the frozen E1-E4 designs, conditional H5 countercondition, R4 representation and R5 breadth rule into a journal-independent promotion contract without reopening the closed Oikos paper.",
+  "frozen_on": "2026-09-13",
+  "purpose": "Bundle the frozen E1-E4 designs, conditional H5 countercondition, R4 representation, R5 breadth rule, and R1 focal/transport/block architecture into a journal-independent promotion contract without reopening the closed Oikos paper.",
   "fallback_surface": {
     "status": "immutable_scientifically_closed",
     "manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
@@ -18,15 +18,31 @@
     "effective_community": "data/design/chapter2_nee_effective_community_representation_lock_20260912.json",
     "h5_correlation_stratification": "data/design/chapter2_nee_h5_correlation_stratification_lock_20260912.json",
     "r5_transport": "data/design/chapter2_nee_r5_transport_decision_20260912.json",
-    "h5_prepilot_oc": "data/design/chapter2_nee_h5_prepilot_oc_freeze_20260912.json"
+    "h5_prepilot_oc": "data/design/chapter2_nee_h5_prepilot_oc_freeze_20260912.json",
+    "r1_scope_architecture": "data/design/chapter2_nee_r1_scope_architecture_20260913.json"
   },
   "target_route": {
     "primary": "Nature Ecology & Evolution Registered Report",
-    "activation_condition": "Outcome-independent focal design plus a second prospective independent transport context, adequate H2/H5 precision, and no confirmatory reproductive-outcome inspection before acceptance in principle.",
+    "activation_condition": "R1b exact focal and transport site/time registry frozen, outcome-independent focal design plus a second prospective independent transport context, adequate H2/H5 precision, and no confirmatory reproductive-outcome inspection before acceptance in principle.",
     "secondary": "Ecology Letters, Ecology, or another broad general-ecology route if the single-system study is strong but transport breadth or confirmatory H5 precision is infeasible.",
     "not_a_target_change_for_current_paper": true
   },
   "strict_unit": "block_id x plant_id",
+  "R1_architecture": {
+    "status": "CLOSED",
+    "focal_taxon": "Campanula microdonta",
+    "transport_taxon": "Farfugium japonicum",
+    "focal_candidate_geography": ["Oshima", "Kozushima"],
+    "focal_candidate_geography_is_final_site_registry": false,
+    "preferred_transport_geography": ["Hitachi", "Hitachinaka", "Tateyama"],
+    "transport_selection_timing": "before focal reproductive outcomes",
+    "transport_selection_basis": "source-defined pollen-success target membership, high interaction breadth and broad source-site coverage rather than focal effect direction",
+    "H5_primary_design_lever": "independent repeated blocks",
+    "R1_screening_floor_blocks": 32,
+    "R1_screening_floor_is_final_sample_size": false,
+    "R1_screening_floor_is_empirical_power": false,
+    "exact_site_time_registry_status": "OPEN"
+  },
   "predictions": {
     "P1_composition_beyond_amount": {
       "source_estimand": "E1/E2",
@@ -57,7 +73,7 @@
       "no_literal_mapping_to_synthetic_k": true
     },
     "P6_transport": {
-      "prediction": "The frozen P2/P5 mapping is challenged in at least one second prospective independent natural context without retuning.",
+      "prediction": "The frozen P2 mapping and outcome-state logic are challenged prospectively in Farfugium japonicum as the second independent natural context without retuning; the same H5 dependence/aggregation coordinates are carried when estimable.",
       "role": "required_breadth_condition_for_NEE_route",
       "existing_secondary_data_admitted_as_P6": false,
       "not_required_for_oikos": true,
@@ -72,6 +88,7 @@
     "sampling_plan": "pilot-frozen frequentist power or Bayesian assurance/precision required",
     "pilot_data": "allowed only as clearly separated design-calibration data",
     "second_prospective_context": "required for NEE route",
+    "R1b_exact_site_time_registry": "required before R2 confirmatory planning",
     "data_material_code_commitment": true,
     "protocol_registration_after_aip": true,
     "confirmatory_data_before_aip": "not allowed except declared pilot data"
@@ -86,11 +103,14 @@
     "h5_prepilot_oc_is_empirical_power": false,
     "H5_is_precision_bottleneck": true,
     "independent_block_count_is_primary_H5_design_lever": true,
+    "R1_screening_floor_blocks": 32,
+    "R1_screening_floor_is_confirmatory_n": false,
     "near_boundary_dependence_is_hardest": true,
     "final_R3_requires_empirical_pilot": true,
-    "rule": "No final confirmatory sample size is generated from synthetic operating characteristics. Pilot dispersion, effective-community support, dependence structure and attrition are frozen first; only then is R3 locked."
+    "rule": "The 32-block R1 screen is an order-of-magnitude admission preference, not a power-derived confirmatory n. Pilot dispersion, effective-community support, dependence structure and attrition are frozen first; only then is R3 locked."
   },
   "quality_gates": {
+    "Q0_scope": "named focal and transport population/site/time registry passes outcome-blind feasibility and block-independence rules",
     "Q1_effort": "usable monitored flower-hours and zero-visit windows retained",
     "Q2_effectiveness": "background-controlled SVD coverage sufficient for R4 composition",
     "Q3_dependency": "core reproductive treatments assigned under the frozen hierarchy",
@@ -100,13 +120,14 @@
     "Q7_breadth": "second prospective independent natural context feasible under the same mapping for NEE route"
   },
   "promotion_logic": {
-    "nee_strong": "P1-P5 evaluable with H5 low/high dependence logic, Q1-Q7 passing, and P6 supplied by a second prospective independent natural context",
+    "nee_strong": "R1b/Q0 plus P1-P5 evaluable with H5 low/high dependence logic, Q1-Q7 passing, and prospective Farfugium transport available",
     "general_ecology_strong": "single-system P1-P4 strong; H5 confirmatory if R3 feasible, otherwise H5 descriptive/exploratory; route to EL/Ecology when Q7 breadth is unavailable",
     "h5_precision_retreat": "if R3 says single-system confirmatory H5 is infeasible, do not weaken H5; retain H1-P4 confirmatory and reserve full H5 plus transport for a later expanded NEE design",
-    "no_upgrade": "Q2/Q3/Q6 fail or primary P2 cannot be tested; retain the closed Oikos paper without rescue analysis"
+    "no_upgrade": "Q0/Q2/Q3/Q6 fail or primary P2 cannot be tested; retain the closed Oikos paper without rescue analysis"
   },
   "R_states": {
-    "R1_field_scope_and_transport_context": "OPEN",
+    "R1a_focal_transport_block_architecture": "CLOSED",
+    "R1b_exact_population_site_time_registry": "OPEN",
     "R2_pilot_dispersion_attrition_dependence_support": "OPEN",
     "R3_confirmatory_precision": "OPEN",
     "R4_effective_community_representation": "CLOSED",
@@ -118,9 +139,11 @@
     "select dependence strata from mature reproductive outcomes",
     "weaken H5 after pilot investment to preserve the NEE label",
     "admit existing secondary metadata as P6 merely because it agrees",
-    "select the second prospective context after focal outcomes",
+    "select or replace the Farfugium transport context after focal outcomes",
+    "declare Oshima and Kozushima final field sites from convenience alone",
+    "treat the 32-block R1 screening floor as empirical power or final confirmatory n",
     "map visitor richness or Hill diversity literally to synthetic k",
     "use Chapter 3 phenotype divergence as Chapter 2 validation"
   ],
-  "claim_boundary": "The future NEE lane tests conditional natural transport of the frozen response architecture, including its predicted countercondition. It does not identify historical Bombus causation, a universal rho or k threshold, or natural prevalence of synthetic branches; none of these future requirements reopens the closed Oikos Chapter 2 paper."
+  "claim_boundary": "The future NEE lane tests conditional natural transport of the frozen response architecture, including its predicted countercondition. R1 architecture is frozen but actual population/site/time units remain an outcome-blind feasibility gate. The lane does not identify historical Bombus causation, a universal rho or k threshold, or natural prevalence of synthetic branches; none of these future requirements reopens the closed Oikos Chapter 2 paper."
 }
