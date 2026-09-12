@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LOCK = ROOT / "data" / "design" / "chapter2_nee_predata_promotion_lock_20260912.json"
 H5 = ROOT / "data" / "design" / "chapter2_nee_h5_correlation_stratification_lock_20260912.json"
 R5 = ROOT / "data" / "design" / "chapter2_nee_r5_transport_decision_20260912.json"
+R1 = ROOT / "data" / "design" / "chapter2_nee_r1_scope_architecture_20260913.json"
 OC = ROOT / "data" / "results" / "chapter2_nee_h5_prepilot_oc_20260912.json"
 STAGE1 = ROOT / "docs" / "CHAPTER2_NEE_REGISTERED_REPORT_STAGE1_V0_1.md"
 READINESS = ROOT / "docs" / "CHAPTER2_NEE_STAGE1_READINESS_20260912.md"
@@ -38,6 +39,7 @@ def test_promotion_lock_points_to_all_frozen_stage1_contracts() -> None:
         "h5_correlation_stratification",
         "r5_transport",
         "h5_prepilot_oc",
+        "r1_scope_architecture",
     ):
         assert key in parents
         assert (ROOT / parents[key]).exists(), parents[key]
@@ -68,6 +70,22 @@ def test_r5_requires_second_prospective_context_for_nee() -> None:
     assert "EL/Ecology" in promotion["promotion_logic"]["general_ecology_strong"]
 
 
+def test_r1_architecture_is_closed_without_false_site_closure() -> None:
+    promotion = _load(LOCK)
+    r1 = _load(R1)
+    p = promotion["R1_architecture"]
+    assert r1["status"] == "R1_architecture_frozen_exact_site_registry_open"
+    assert p["status"] == "CLOSED"
+    assert p["focal_taxon"] == "Campanula microdonta"
+    assert p["transport_taxon"] == "Farfugium japonicum"
+    assert p["focal_candidate_geography_is_final_site_registry"] is False
+    assert p["R1_screening_floor_blocks"] == 32
+    assert p["R1_screening_floor_is_final_sample_size"] is False
+    assert p["R1_screening_floor_is_empirical_power"] is False
+    assert p["exact_site_time_registry_status"] == "OPEN"
+    assert promotion["quality_gates"]["Q0_scope"].startswith("named focal and transport")
+
+
 def test_h5_prepilot_oc_is_scale_screen_not_empirical_power() -> None:
     oc = _load(OC)
     decision = oc["decision"]
@@ -80,10 +98,11 @@ def test_h5_prepilot_oc_is_scale_screen_not_empirical_power() -> None:
     assert "not empirical power" in oc["claim_boundary"].lower()
 
 
-def test_r_states_leave_r1_r2_r3_r6_open_but_close_r4_r5() -> None:
+def test_r_states_split_r1_architecture_from_exact_registry() -> None:
     states = _load(LOCK)["R_states"]
     assert states == {
-        "R1_field_scope_and_transport_context": "OPEN",
+        "R1a_focal_transport_block_architecture": "CLOSED",
+        "R1b_exact_population_site_time_registry": "OPEN",
         "R2_pilot_dispersion_attrition_dependence_support": "OPEN",
         "R3_confirmatory_precision": "OPEN",
         "R4_effective_community_representation": "CLOSED",
@@ -116,3 +135,5 @@ def test_stage1_sampling_contract_keeps_final_r3_empirical() -> None:
     assert sampling["H5_is_precision_bottleneck"] is True
     assert sampling["final_R3_requires_empirical_pilot"] is True
     assert sampling["precision_planning_cli"] == "scripts/plan_effective_dependency_pilot_precision.py"
+    assert sampling["R1_screening_floor_blocks"] == 32
+    assert sampling["R1_screening_floor_is_confirmatory_n"] is False
