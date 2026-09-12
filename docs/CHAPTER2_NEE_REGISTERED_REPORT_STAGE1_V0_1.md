@@ -1,65 +1,34 @@
 # Stage-1 skeleton — Nature Ecology & Evolution Registered Report
 
-Version: v0.1 — 2026-09-12  
-Status: **pre-data working surface; not yet submission-ready**  
+Version: v0.2 — 2026-09-12  
+Status: **pre-data working surface; H5 countercondition and R5 breadth rule frozen, R1/R2/R3/R6 still open**  
 Parent promotion lock: `data/design/chapter2_nee_predata_promotion_lock_20260912.json`
 
 ## Working title
 
-**Why the same pollinator-community reorganization need not produce the same plant reproductive response**
+**When community averaging changes — and fails to change — the determinants of plant reproductive response**
 
-Alternative shorter title:
+Alternative:
 
-**Plant state and realized pollinator communities jointly determine reproductive response**
+**Plant state, realized pollinator communities and the limits of ecological averaging**
 
 ## Stage-1 scientific sentence
 
-> Pollinator-community change is not expected to map to one plant response because coarse community amount, realized effective composition and plant pre-outcome state occupy different positions in the response architecture; we prospectively test whether plant state and effective-community composition interact, whether that relation propagates through pollination function to reproductive outcome, and whether averaging independent exposure opportunities changes the relative contribution of state versus community realization.
+> We prospectively test whether plant pre-outcome state and realized effective pollinator composition jointly determine reproductive response, whether that relation propagates through independently measured pollination function and dependency, and whether averaging repeated effective-community opportunities shifts determinant importance only when shared stochastic dependence is sufficiently low for averaging to operate.
 
 ## Why this is a Registered Report question
 
-The source mechanism is already frozen before focal field outcomes:
+The source mechanism and its countercondition are frozen before focal reproductive outcomes:
 
-- realized richness changes coarse regime placement but does not eliminate branch contingency;
-- realized composition x plant starting state remains non-additive after richness control;
-- finite-community realization variance changes with aggregation/system scale;
-- the relative contribution of plant starting state versus community realization changes across the frozen synthetic sequence.
+- realized richness can move coarse regime placement without eliminating branch contingency;
+- realized composition × plant starting state remains non-additive after richness control;
+- finite-community realization variance changes under aggregation;
+- plant-state versus community-realization ranking can reverse in the frozen synthetic sequence;
+- the generic theorem also predicts a failure domain: correlated/synchronous community realizations can leave a non-shrinking community-variance floor and prevent rank reversal.
 
-The field study is therefore designed to **falsify natural predictions derived before outcome inspection**, rather than calibrate the synthetic model after observing Izu responses.
+The field study therefore tests **both the predicted effect and its predicted failure condition**. It does not calibrate the synthetic model after observing Izu outcomes.
 
-A null result is informative: it would show that the synthetic conditional-response mechanism does not transport under the declared natural mapping, or that one of the required natural states is not identifiable at the available measurement resolution.
-
----
-
-# Introduction — planned logic
-
-## Paragraph 1 — ecological problem
-
-Pollinator-community reorganization can arise through colonization, extinction, replacement, phenology, disturbance and environmental change. Plant responses are often summarized using visitor richness, visitation rate, or mean reproductive success, implicitly treating community change as if it mapped monotonically to plant outcome.
-
-## Paragraph 2 — conceptual gap
-
-Three objects should be distinguished:
-
-1. **coarse community amount/breadth** — how much or how many visitors are observed;
-2. **realized effective composition** — which visitors actually provide functional pollen service and in what proportions;
-3. **plant pre-outcome functional state** — the plant-side configuration on which the realized community acts.
-
-The same coarse visitor breadth can therefore conceal different effective compositions, and the same effective community can have different consequences for plants in different starting states.
-
-## Paragraph 3 — source theory
-
-Chapter 2's frozen synthetic mechanism predicts a conditional response geometry. Exact richness matching moves the ensemble mean regime but leaves strong individual state x community non-additivity. Reducing finite-community realization variance changes the relative contribution of starting state versus realized community while non-additive branching can persist over the finite audited range.
-
-The field study does not predict the synthetic numerical crossover or equate a field diversity index with synthetic `k`. It tests only the qualitative natural implications defined prospectively below.
-
-## Paragraph 4 — empirical gap
-
-The existing source audit contains many systems measuring response, community change, filtering or reproductive dependence separately, but no admitted study links pre-outcome plant state, realized visitor composition, visitor effectiveness, reproductive dependency and mature seed in one outcome-independent same-unit chain. Existing partial systems therefore motivate the measurement architecture but cannot provide the focal confirmatory test.
-
-## Paragraph 5 — study objective
-
-We will create a transition-linked natural test in which plant state, visitor exposure, single-visit effectiveness, pollination dependency and mature reproductive outcome are linked within prespecified `block_id x plant_id` units.
+The generic theorem's `rho=0.25` critical value is a model-specific benchmark under frozen coefficients and variances. It is not a field threshold and will not be used to define natural strata.
 
 ---
 
@@ -67,193 +36,150 @@ We will create a transition-linked natural test in which plant state, visitor ex
 
 ## H1 — composition beyond amount [P1]
 
-**Prediction:** after controlling for monitored exposure effort, total visitation and a predeclared coarse richness/diversity summary, realized effective-community composition will retain predictive information for the mature reproductive endpoint.
+**Prediction:** after controlling for monitored effort, total effective service and predeclared coarse breadth summaries, realized background-controlled effective-community composition retains information for the mature reproductive endpoint.
 
-**Primary contrast:** model/estimand retaining effective composition versus the same frozen model with composition removed while keeping coarse amount/breadth terms.
+**Decision:** `SUPPORTED`, `FALSIFIED_OR_ADVERSE`, or `NOT_EVALUABLE` under the frozen measurement and precision gates.
 
-**Falsification:** no out-of-block predictive or inferential gain from effective composition, or gain disappears after prespecified effort/total-service controls.
+## H2 — plant state × realized community [P2; primary relational hypothesis]
 
-## H2 — plant state x realized community [P2; primary NEE hypothesis]
+**Prediction:** pre-outcome plant functional state interacts non-additively with realized effective-community composition for same-plant reproductive response.
 
-**Prediction:** pre-outcome plant functional state interacts with realized effective-community composition for same-plant reproductive response.
-
-**Primary relational estimand:** the predeclared state x effective-community term or low-dimensional relational contrast defined before focal outcome opening.
-
-**Falsification:** the relational term is not estimable with adequate support/reliability, or its predictive contribution is negligible under the frozen decision rule.
+No post-hoc state threshold, visitor regrouping or outcome-informed composition simplification is allowed.
 
 ## H3 — functional bridge [P3]
 
-**Prediction:** visitor identity/composition maps to an independent measure of pollination effectiveness before the mature reproductive endpoint is evaluated.
+**Prediction:** visitor identity/composition maps to an independent background-controlled measure of pollination effectiveness before the mature reproductive endpoint is evaluated.
 
-**Primary intermediate:** background-controlled single-visit conspecific pollen deposition where feasible.
-
-**Falsification:** effective-service weights cannot be estimated reliably or visitor composition does not map to the independent functional intermediate under the frozen model.
+Primary intended bridge: single-visit conspecific pollen deposition with valid no-visit/background controls.
 
 ## H4 — dependency consequence [P4]
 
-**Prediction:** reproductive treatment contrasts identify whether realized pollination service can alter mature reproductive outcome.
+**Prediction:** frozen open-natural, bagged-autonomous and supplemental-outcross contrasts identify whether realized pollination service can alter mature reproductive outcome.
 
-**Core treatment family:** open natural pollination, bagged autonomous treatment and supplemental outcross treatment. A single-visit-then-bagged treatment may be included if feasible and frozen before confirmatory execution.
+## H5 — conditional determinant-order response to aggregation [P5]
 
-**Falsification:** treatment implementation/retention is inadequate or the declared dependency contrast cannot be estimated.
+H5 is deliberately two-sided.
 
-## H5 — determinant-order shift with exposure aggregation [P5]
+### H5a — lower shared stochastic dependence
 
-**Prediction:** as additional independent prespecified community-exposure opportunities are aggregated, community-realization contribution will decline relative to plant-state contribution, while state x community non-additivity is retained and reported over at least part of the estimable field range.
+**Prediction:** in prospectively classified lower-dependence effective-community opportunities, increasing aggregation decreases community-realization contribution and increases plant-state contribution. A state-over-community rank reversal is tested only where the outcome-blind admission rule places the stratum in a crossover-capable domain.
 
-**Explicit non-predictions:**
+**Support:** both directional redistribution components are supported under adequate measurement and R3 precision; reversal is an additional condition only where pre-admitted.
 
-- no prediction of a field threshold at synthetic `k = 4`;
-- no claim that visitor richness, Hill diversity or effective-service breadth equals synthetic `k`;
-- no requirement that contribution changes monotonically at every adjacent aggregation level.
+**Adverse:** adequately measured lower-dependence strata show absent or opposite redistribution after prespecified amount, effort, site and time controls.
 
-**Falsification:** no directional redistribution of contribution, the pattern disappears under out-of-block prediction, or a prespecified effort/total-service/site/time control explains the apparent redistribution.
+### H5b — higher shared stochastic dependence
 
-## H6 — external transport [P6; escalation hypothesis]
+**Prediction:** in prospectively classified higher-dependence effective-community opportunities, aggregation leaves a persistent community-realization floor, so state-over-community rank reversal is weakened or absent.
 
-**Prediction:** the H2 state x effective-community relation will be challenged in at least one independent natural context or untouched external dataset if an admissible dataset exists before Stage-1 lock.
+**Support:** the frozen higher-dependence stratum retains community dominance or otherwise lacks the predeclared reversal under adequate precision.
 
-H6 is a breadth/escalation criterion, not a condition for the validity of H1-H5 and not a requirement for the closed Oikos manuscript.
+**Adverse:** a clear state-over-community reversal occurs despite satisfying the frozen high-dependence admission rule and precision gates.
+
+### H5 stratification rule
+
+Dependence strata, or a continuous dependence-by-aggregation interaction, are frozen from predictor/exposure data before focal reproductive outcomes are opened. Mature seed, dependency effect direction, H1-H4 effects and post-hoc optimization cannot define the dependence coordinate.
+
+If a stable numeric field cutoff cannot be justified outcome-blind, no cutoff is manufactured; the continuous interaction or ordered predeclared strata are retained.
+
+## H6 — second prospective transport context [P6; required for NEE route]
+
+**Prediction:** the frozen H2/H5 mapping is challenged in at least one second prospective independent natural context without retuning.
+
+Existing world/Izu secondary datasets are not admitted as P6 because none supplies the full prospective contract. The second context may occur in the same archipelago only if it is biologically and sampling-wise independent enough to be a genuine transport challenge rather than another focal block.
+
+H6 cannot rescue adverse H1-H5 results and is not required for the already-closed Oikos manuscript. It is a breadth requirement for keeping the NEE Stage-1 route eligible.
 
 ---
 
-# Methods
+# Methods architecture
 
-## Study system
-
-Prospective Izu field system. Final taxa, populations, sites and field windows must be frozen before confirmatory outcome collection/opening.
-
-Historical *Bombus* loss is not the confirmatory treatment and will not be inferred from contemporary associations.
-
-## Strict observational/experimental unit
+## Strict unit and hierarchy
 
 ```text
-block_id x plant_id
+flowers / visits / SVD events within plant
+plants within prespecified exposure block
+repeated blocks within focal context
+plus at least one independent prospective transport context for NEE
 ```
 
-A block is a prespecified population/site/time exposure window fixed before reproductive outcomes are known. Blocks cannot be split, merged or moved after inspecting effectiveness, dependency or seed outcomes.
+The independent precision unit is the plant; nominal flower, visit or SVD counts are not independent `n`.
 
-Flowers and visits are subsamples within plants. Plants are nested within blocks.
+Blocks are population/site/time exposure windows fixed before reproductive outcomes. Blocks cannot be split, merged or moved after inspecting effectiveness, dependency or mature-seed outcomes.
 
-## Pre-outcome plant state
+## Effective-community representation [R4 CLOSED]
 
-The primary plant-state vector must be measured before the reproductive outcome and frozen before focal outcome opening.
+For block `b` and visitor group `g`:
 
-Current admissible role:
+```text
+w_bg = visit_rate_per_flower_hour
+       × background_adjusted_single_visit_conspecific_pollen_deposition
 
-- same-plant floral geometry / corrected functional position;
-- additional pre-outcome coordinates only if justified and frozen before confirmatory execution.
+p_bg = w_bg / sum_g(w_bg)
+```
 
-No phenotype measured after the focal response may be back-filled as starting state.
+Missing/uncontrolled effectiveness is unavailable, not zero. Negative background-adjusted weights are not clipped. Zero-total-service blocks remain valid amount/effort observations but do not receive a manufactured composition vector. Total effective service remains a separate amount term.
 
-## Visitor exposure
+## H5 dependence coordinate
 
-Required records:
+The field dependence/synchronization coordinate must be derived from repeated background-controlled effective-community opportunities and/or prespecified forcing covariates before reproductive outcomes. It can enter as frozen ordered strata or a continuous dependence-by-aggregation interaction.
 
-- usable monitored flower-hours;
-- zero-visit windows retained;
-- visitor taxon/group identity with resolution status;
-- visit counts/rates linked to block and plant where the protocol allows.
+Forbidden:
 
-Raw richness is an E1 coarse-regime exposure only and is never treated as a literal counterpart of synthetic `k`.
+- literal import of generic `rho=0.25`;
+- dependence cutoff selected to maximize H5 separation;
+- block redefinition after outcome inspection;
+- literal mapping of raw richness, Hill diversity or effective-service breadth to synthetic `k`.
 
-## Visitor effectiveness
+## Reproductive treatments and endpoint
 
-Primary intended measure:
-
-- single-visit conspecific pollen deposition on a previously unvisited receptive stigma;
-- paired/background no-visit SVD control;
-- visitor-group-specific background-adjusted effectiveness where support permits.
-
-Effective-service weight for visitor group `g` in block `b` is intended to combine effort-standardized visitation and independently measured background-adjusted effectiveness.
-
-Negative/invalid weights are not silently truncated unless the exact rule is fixed at Stage 1.
-
-## Effective-community representation
-
-Primary representation should preserve functional composition. Candidate summaries include:
-
-- normalized effective-service composition vector;
-- effective-service Hill q=2 and evenness as secondary breadth/concentration summaries;
-- total effective service as a separate amount term.
-
-The vector representation and any dimension reduction must be frozen before focal endpoint inspection.
-
-## Reproductive dependency treatments
-
-Core within-plant/block treatment family:
+Core treatment family:
 
 1. open natural pollination;
 2. bagged autonomous treatment;
 3. supplemental outcross treatment.
 
-Treatment allocation, number of flowers per treatment, randomization and replacement rules must be frozen before confirmatory execution.
-
-If a single-visit-then-bagged arm is added, it must be declared before field execution and cannot be activated only after observing visitor-group effects.
-
-## Mature endpoint
-
-Primary terminal endpoint: mature seed outcome linked through treatment and `fruit_id` where applicable.
-
-The exact response scale (count, proportion, hurdle/two-part representation, or other) will be fixed from pilot dispersion/measurement diagnostics using outcome-blind rules where possible and before confirmatory focal analysis.
+Primary terminal outcome is mature reproductive output linked through plant/flower/fruit IDs. Exact response family is frozen from pilot diagnostics before confirmatory focal analysis.
 
 ## Missingness and measurement failure
 
-- zero visits are observations, not missing data;
-- missing/uncontrolled SVD is not imputed as zero effectiveness;
-- lost/damaged reproductive treatments remain explicit failure states;
-- incomplete mature-fruit/seed linkage is reported and cannot be silently dropped;
-- any exclusion must follow a Stage-1 rule independent of effect direction.
+Zero visits are observations. Missing SVD is not zero effectiveness. Lost treatments remain explicit failure states. Incomplete terminal linkage cannot be silently dropped. Failed support yields `NOT_EVALUABLE`, not biological absence.
 
 ---
 
-# Sampling plan
+# Sampling and precision plan
 
-## Design objective
+## Pre-pilot H5 operating-characteristics screen — COMPLETE, NOT EMPIRICAL POWER
 
-The design must power/identify the **relational H2 estimand**, not merely detect a visitation or treatment main effect.
+The frozen synthetic scale screen is stored in `data/results/chapter2_nee_h5_prepilot_oc_20260912.json`.
 
-## Pilot role
+Its role is only to decide whether R1 is remotely plausible before a field season. Under the generic benchmark:
 
-Pilot data may be used only to estimate:
+- low shared dependence becomes increasingly separable as the number of independent blocks increases;
+- near-boundary dependence remains difficult even with more than 1000 recruited plants;
+- high shared dependence increasingly supports the predicted no-crossover side.
 
-- block/plant recruitment and retention;
-- visitation zero inflation and count dispersion;
-- SVD measurement success and background variance;
-- treatment loss/damage rates;
-- mature-seed variance/distribution family;
-- plausible support of effective-community composition across blocks.
+This establishes the design bottleneck: **independent repeated blocks and dependence-regime contrast matter more for H5 than nominal flower/visit counts**. The rates are not empirical power and cannot justify the final Stage-1 sample size.
 
-Pilot outcomes must not be used to choose a predictor because its association is favorable.
+## R2 — pilot role [OPEN]
 
-## Power / Bayesian design criterion — OPEN ITEM BEFORE STAGE 1
+Pilot work estimates:
 
-The final Stage-1 package must include one of:
+- independent plant and block recruitment/retention;
+- monitored effort and zero visits;
+- SVD measurement success/background variance;
+- treatment attrition;
+- mature endpoint completion/dispersion;
+- effective-community support;
+- empirical support and stability of the frozen dependence coordinate/strata.
 
-1. simulation-based frequentist power for the frozen H2 relational estimand under a prespecified smallest effect of scientific interest; or
-2. Bayesian assurance / expected posterior precision for that relational estimand.
+Pilot outcome direction cannot select predictors or H5 strata.
 
-The simulation must preserve the actual hierarchy:
+## R3 — confirmatory precision [OPEN]
 
-```text
-flowers/visits within plant
-plants within block
-repeated prespecified blocks within site/island where applicable
-```
+After R2 is frozen, hierarchical simulation must establish confirmatory precision/assurance for H2 and the conditional H5 contrasts, preserving plant/block hierarchy and attrition.
 
-A nominal flower or visit count cannot be treated as independent sample size.
-
-## Precision safeguards
-
-The final sample-size rule should include minimum support for:
-
-- number of independent plants;
-- number of prespecified blocks;
-- effective-service composition variation;
-- SVD-controlled visitor groups;
-- retained plants with all core reproductive treatments reaching terminal status.
-
-Exact numbers remain open until pilot feasibility/dispersion is frozen.
+**Predeclared retreat line:** if single-system R3 cannot support confirmatory H5, H5 is not weakened. H1-H4 remain confirmatory and H5 becomes descriptive/exploratory for the single-system study; confirmatory H5 plus transport breadth is reserved for a later expanded NEE design.
 
 ---
 
@@ -261,49 +187,42 @@ Exact numbers remain open until pilot feasibility/dispersion is frozen.
 
 ## A1 — measurement/admission audit
 
-Before biological inference, report:
+Report effort, zero-visit windows, visitor resolution, SVD/background coverage, complete-chain plant/block counts, treatment retention and mature endpoint linkage before biological inference.
 
-- raw/usable monitored flower-hours;
-- zero-visit windows;
-- taxonomic/group resolution;
-- SVD coverage and background controls;
-- full-chain plant/block counts;
-- treatment retention/failure;
-- mature fruit-to-seed linkage completeness.
+## A2 — H1 composition beyond amount
 
-Failure of a measurement gate yields `not_evaluable`, not biological absence.
-
-## A2 — H1 coarse amount versus composition
-
-Fit the frozen hierarchical response model with effort/amount/breadth terms. Compare against the model adding effective-community composition using the predeclared inferential or out-of-block predictive criterion.
+Compare the frozen amount/breadth model against the same model retaining R4 effective-community composition.
 
 ## A3 — H2 relational test
 
-Estimate the predeclared plant-state x effective-community relation with plants nested in blocks. No post-hoc thresholding of plant state, dependency or community breadth.
+Estimate the predeclared plant-state × effective-community relation with plants nested in blocks.
 
-## A4 — H3 functional intermediate
+## A4 — H3 functional bridge
 
-Test visitor/group differences in background-controlled effectiveness and construct the effective-service representation only when its measurement gate passes.
+Estimate background-controlled visitor/group effectiveness before constructing effective-service composition.
 
-## A5 — H4 dependency/endpoint test
+## A5 — H4 dependency consequence
 
-Estimate open/bagged/supplemental contrasts on the mature endpoint under the frozen hierarchical model.
+Estimate the frozen reproductive-treatment contrasts on the mature endpoint.
 
-## A6 — H5 exposure aggregation
+## A6 — H5 conditional aggregation test
 
-Create aggregation levels only from prespecified independent exposure opportunities. Re-estimate or compare plant-state, community-realization and relational contributions under the frozen procedure.
+Use only prespecified comparable exposure opportunities. Evaluate the frozen dependence-by-aggregation prediction:
 
-No breakpoint search is allowed. The synthetic `k≈4` location is never used as a field cutoff.
+- lower shared dependence: state contribution up, community contribution down, with reversal tested only where pre-admitted;
+- higher shared dependence: persistent community floor / weakened or absent reversal.
 
-## A7 — H6 transport
+No breakpoint search, outcome-selected dependence threshold, or synthetic `k≈4` field cutoff is allowed.
 
-Apply the frozen H2 mapping to the independent system/dataset without retuning predictor direction, threshold, outcome definition or aggregation level.
+## A7 — H6 prospective transport
+
+Apply the same frozen H2/H5 mapping to the second prospective natural context without changing predictor direction, dependence definition, endpoint family or aggregation rule.
 
 ---
 
-# Quality-control and interpretation states
+# Quality-control states
 
-Each confirmatory hypothesis receives one of:
+Every confirmatory hypothesis receives exactly one of:
 
 ```text
 SUPPORTED
@@ -311,70 +230,55 @@ FALSIFIED_OR_ADVERSE
 NOT_EVALUABLE
 ```
 
-`NOT_EVALUABLE` is mandatory when the relevant measurement or support gate fails. It cannot be collapsed into a biological null.
+A high-dependence block lacking crossover is not automatically a falsification of H5; it is the H5b prediction when the pre-outcome dependence criterion and precision gates are satisfied. Unclassified or inadequately supported blocks are `NOT_EVALUABLE`.
 
-No combination of secondary/exploratory analyses can rescue a failed primary gate.
-
----
-
-# External evidence before new Izu data
-
-Use `docs/CHAPTER2_EXTERNAL_TRANSPORT_TRIAGE_20260912.md`.
-
-Current interpretation:
-
-- Seychelles / *Thespesia*: individual-level exposure + direct dependency architecture prototype;
-- *Nicotiana glauca*: strongest visitor-effectiveness + reproductive-dependency component bridge, provenance still partial;
-- *Guaiacum sanctum*: strong population-level visitor-assemblage + breeding-experiment separation;
-- no admitted external system supplies the full outcome-independent same-unit chain.
-
-These systems constrain design and may test components; they do not count as pilot confirmation of H1-H5.
+No secondary analysis can rescue a failed primary gate.
 
 ---
 
-# Data, code and protocol commitments
+# R5 breadth rule — CLOSED
 
-If submitted as a Nature Ecology & Evolution Registered Report, Stage 1 will commit to:
+For the NEE route, at least one second prospective independent natural context is required. Existing secondary literature remains design/transport triage only.
 
-- sharing anonymized/raw ecological data as appropriate, processed data, study materials and analysis code for published results;
-- registering the Stage-1 approved protocol in a recognized repository following acceptance in principle;
-- retaining a field/laboratory log and linking the Stage-2 manuscript to the approved protocol and public archive;
-- separating confirmatory from exploratory analyses.
+The exact focal and transport contexts are selected in R1 before focal confirmatory reproductive outcomes.
 
----
-
-# Open items before this becomes Stage-1 submission-ready
-
-Only the following classes may remain open:
-
-1. exact Izu sites/populations/taxa and feasible field dates;
-2. pilot-derived dispersion, retention and measurement-success parameters;
-3. final power/Bayesian assurance calculation;
-4. exact plant-state coordinate set if a feasibility variable is not yet measurable;
-5. final effective-community dimension-reduction representation, chosen without focal endpoint inspection;
-6. ethics/permit statements if required;
-7. author list, affiliations and declarations.
-
-The biological hypotheses P1-P5, same-block linkage, no-literal-`k` mapping, failure-state handling and promotion logic are not open to outcome-driven revision.
+If no second context is feasible, do not broaden literature hunting or retrofit secondary data as P6. Route the strong single-system prospective study to Ecology Letters, Ecology, or another appropriate general-ecology venue.
 
 ---
 
-# Promotion rule
+# Open items before Stage-1 readiness
+
+1. **R1:** focal taxon/population/site/time/block universe plus second prospective transport context and outcome-blind dependence coordinate;
+2. **R2:** empirical feasibility, dispersion, attrition and dependence-support pilot;
+3. **R3:** confirmatory H2/H5 precision/assurance and replication;
+4. **R6:** permits, ethics, archive, protocol-registration, authorship and operational randomization/blinding details.
+
+R4, R5 strategy, P1-P4 and the conditional H5 scientific logic are closed to outcome-driven revision.
+
+---
+
+# Promotion / retreat rule
 
 ```text
-Stage-1-ready design + broad H1-H5 importance
-    -> submit NEE Registered Report
+R1 supplies focal + second prospective context
++ R2 adequate
++ R3 supports confirmatory H2 and conditional H5
++ R4/R5 locks preserved
+    -> NEE Stage-1 route remains eligible
 
-Stage-1 editor/review judges breadth insufficient but design strong
-    -> retain same frozen protocol and route to another broad ecology venue
+second prospective context infeasible
+    -> EL / Ecology route for the single-system prospective study
 
-field measurement gates fail
-    -> report NOT_EVALUABLE where appropriate; do not retune the synthetic mechanism
+R3 says confirmatory H5 infeasible in one system
+    -> H1-H4 confirmatory + H5 descriptive/exploratory
+       reserve full H5 + transport for later expanded NEE
 
-H2/P2 adverse or null under adequate measurement
-    -> valid falsification; current closed Oikos mechanism paper remains unchanged
+measurement/support gate fails
+    -> NOT_EVALUABLE; do not weaken or retune the theory
 ```
+
+The current Oikos Chapter 2 paper is unaffected by all future promotion-lane outcomes.
 
 ## Final stop rule
 
-> The purpose of pre-data work is to make the future result harder to reinterpret, not easier to rescue.
+> The purpose of the pre-data design is to predict both where the mechanism should appear and where it should fail, before either outcome is observed.
