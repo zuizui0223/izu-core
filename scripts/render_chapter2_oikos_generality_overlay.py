@@ -80,7 +80,8 @@ def render_submission_manuscript() -> str:
         "6/6 seeds at `k=4`",
         "28–42/96",
         "the numerical crossover is model-specific",
-        "optional future validation programme",
+        "metadata confrontation supports biological ingredients while bounding attribution",
+        "post-chapter-2 transport/falsification",
     )
     for token in required:
         if token.lower() not in lower:
