@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_new_focal_field_outcomes",
+  "frozen_on": "2026-09-12",
+  "purpose": "Bundle the already-frozen E1-E4 Izu field designs into one journal-independent promotion contract for a possible Nature Ecology & Evolution Registered Report without reopening the closed Oikos mechanism paper.",
+  "fallback_surface": {
+    "status": "immutable_scientifically_closed",
+    "manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+    "narrative_lock": "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
+    "submission_route": "Oikos",
+    "rule": "Failure or null results in the promotion lane do not authorize retuning or reframing the closed synthetic paper."
+  },
+  "parents": {
+    "transition_chain": "data/design/izu_transition_linked_chain_freeze_20260909.json",
+    "estimands": "data/design/izu_transition_linked_estimand_lock_20260909.json",
+    "rank_order": "data/design/izu_effective_service_rank_crossover_lock_20260911.json"
+  },
+  "target_route": {
+    "primary": "Nature Ecology & Evolution Registered Report",
+    "activation_condition": "Stage-1 protocol can test a broad natural-system prediction with outcome-independent design, adequate sampling plan and no focal confirmatory outcome inspection before acceptance in principle.",
+    "secondary": "Ecology Letters or another broad general-ecology route if the design is strong but lacks the breadth/replication required for NEE.",
+    "not_a_target_change_for_current_paper": true
+  },
+  "strict_unit": "block_id x plant_id",
+  "predictions": {
+    "P1_composition_beyond_amount": {
+      "source_estimand": "E1/E2",
+      "prediction": "Effective-community composition retains predictive information for reproductive response after controlling for coarse visitation amount and predeclared richness/diversity summaries.",
+      "forbidden_substitute": "A richness or visitation main effect alone."
+    },
+    "P2_state_by_community": {
+      "source_estimand": "E2_branch",
+      "prediction": "Pre-outcome plant functional state interacts non-additively with realized effective-community composition for same-plant dependency and mature-seed response.",
+      "primary_for_neescope": true
+    },
+    "P3_functional_bridge": {
+      "source_estimand": "E3_propagation",
+      "prediction": "Visitor identity/composition connects to an independent effectiveness intermediate such as background-controlled single-visit pollen deposition before the mature reproductive endpoint is evaluated."
+    },
+    "P4_dependency_consequence": {
+      "source_estimand": "E3_propagation",
+      "prediction": "Predeclared open/bagged/supplemental treatment contrasts identify whether effective-service variation can alter a mature reproductive endpoint."
+    },
+    "P5_determinant_order": {
+      "source_estimand": "E4_rank_order_confrontation",
+      "prediction": "With broader and/or more stable effective service across prespecified independent exposure blocks, relative contribution of plant starting state increases while community-realization contribution decreases, while state x community non-additivity is retained and reported.",
+      "directional_not_threshold": true,
+      "no_literal_mapping_to_synthetic_k": true
+    },
+    "P6_transport": {
+      "prediction": "The P2 state x effective-community relation is evaluated in at least one independent natural context or untouched external dataset under the frozen mapping.",
+      "role": "breadth escalation for strongest NEE route",
+      "not_required_for_oikos": true
+    }
+  },
+  "stage1_requirements": {
+    "question_and_background": "required",
+    "hypotheses": ["P1", "P2", "P3", "P4", "P5", "P6_if_feasible"],
+    "experimental_procedures": "required",
+    "analysis_pipeline": "required",
+    "sampling_plan": "power analysis or Bayesian design criterion required",
+    "pilot_data": "optional and must be clearly separated from confirmatory focal outcomes",
+    "data_material_code_commitment": true,
+    "protocol_registration_after_aip": true,
+    "confirmatory_data_before_aip": "not allowed for a primary Registered Report except declared pilot data"
+  },
+  "quality_gates": {
+    "Q1_effort": "usable monitored flower-hours and zero-visit windows retained",
+    "Q2_effectiveness": "SVD background-control coverage sufficient for declared effective-service representation",
+    "Q3_dependency": "core reproductive treatments assigned under the frozen within-plant/block scheme",
+    "Q4_endpoint": "terminal mature-fruit/seed linkage complete enough for the primary endpoint",
+    "Q5_replication": "independent plants and repeated prespecified blocks satisfy the frozen precision/power rule",
+    "Q6_prediction": "primary state x effective-community estimand is identifiable without post-hoc model simplification"
+  },
+  "promotion_logic": {
+    "nee_strong": "P1-P5 evaluable with Q1-Q6 passing and P6 supplied by an independent natural context/transport test",
+    "general_ecology_strong": "P1-P5 evaluable with Q1-Q6 passing but no independent transport",
+    "mechanism_only": "P1-P4 evaluable but P5 unsupported or not estimable",
+    "no_upgrade": "Q2/Q3/Q6 fail or primary P2 relation cannot be tested; retain the closed Oikos paper without rescue analysis"
+  },
+  "external_public_data_before_own_data": {
+    "allowed": true,
+    "role": "prospective transport/triage only",
+    "minimum_for_P2": [
+      "plant/reproductive-unit identifier",
+      "pre-outcome plant state or outcome-independent proxy",
+      "visitor composition/exposure",
+      "reproductive endpoint"
+    ],
+    "additional_for_P3_P4": [
+      "visitor effectiveness or pollen-transfer measurement",
+      "dependency manipulation or equivalent causal contrast"
+    ],
+    "firewall": [
+      "do not tune Izu predictors from external outcome directions",
+      "do not choose field aggregation cutoffs after inspecting Izu outcomes",
+      "do not map visitor richness or Hill diversity literally to synthetic k",
+      "do not use Chapter 3 phenotype divergence as Chapter 2 validation"
+    ]
+  },
+  "claim_boundary": "A successful promotion lane would test a natural qualitative consequence of the synthetic conditional-response mechanism. It would not identify historical Bombus loss, a universal island threshold, natural prevalence of synthetic branches, or a numerical field counterpart of synthetic k."
+}
