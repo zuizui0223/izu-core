@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "audit_chapter2_nee_r1_site_registry.py"
 TEMPLATE = ROOT / "templates" / "chapter2_nee_r1_site_registry_template.csv"
+CANDIDATES = ROOT / "data" / "design" / "chapter2_nee_r1_site_registry_candidates_20260913.csv"
 
 spec = importlib.util.spec_from_file_location("r1audit", SCRIPT)
 assert spec and spec.loader
@@ -106,6 +107,17 @@ def test_candidate_can_preserve_pending_field_feasibility_without_schema_error(t
     assert result["status"] == "NOT_READY"
     assert result["registry_schema_valid"] is True
     assert result["candidate_counts"]["focal"] == 1
+    assert result["errors"] == []
+
+
+def test_source_backed_candidate_registry_is_valid_but_not_admitted() -> None:
+    result = r1audit.audit(CANDIDATES)
+    assert result["status"] == "NOT_READY"
+    assert result["registry_schema_valid"] is True
+    assert result["candidate_counts"] == {"focal": 5, "transport": 3}
+    assert result["admitted_focal_blocks"] == 0
+    assert result["admitted_transport_blocks"] == 0
+    assert result["scope_complete"] is False
     assert result["errors"] == []
 
 
