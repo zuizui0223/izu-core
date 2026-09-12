@@ -86,6 +86,7 @@ def test_human_surfaces_preserve_no_field_completion_rule() -> None:
 def test_active_manuscript_contains_metadata_confrontation_not_missing_field_endpoint() -> None:
     text = MANUSCRIPT.read_text(encoding="utf-8")
     lower = text.lower()
+    assert "## source-audited empirical confrontation" in lower
     assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
     assert "21/25" in text and "2/25" in text and "0/25" in text
     assert "wanshan–yongxing" in lower and "0.980" in text and "−0.105" in text
@@ -100,7 +101,9 @@ def test_active_manuscript_contains_metadata_confrontation_not_missing_field_end
 
 def test_figure4_ends_on_existing_metadata_not_missing_field_work() -> None:
     text = FIGURES.read_text(encoding="utf-8")
-    assert "Existing-data stress test" in text
+    assert "Source-native composition ≠ richness" in text
+    assert "Existing Izu stress test" in text
+    assert '"figure4_external_systems": ["wanshan_yongxing", "ogasawara_anijima"]' in text
     assert "metadata_confrontation_and_empirical_claim_ceiling" in text
     assert "post-Chapter-2 transport/falsification" in text
     assert "future_optional_validation" not in text
