@@ -1,7 +1,7 @@
 # Stage-1 skeleton — Nature Ecology & Evolution Registered Report
 
-Version: v0.2 — 2026-09-12  
-Status: **pre-data working surface; H5 countercondition and R5 breadth rule frozen, R1/R2/R3/R6 still open**  
+Version: v0.3 — 2026-09-13  
+Status: **pre-data working surface; H5 countercondition, R5 breadth rule and R1a focal/transport/block architecture frozen; R1b/R2/R3/R6 remain open**  
 Parent promotion lock: `data/design/chapter2_nee_predata_promotion_lock_20260912.json`
 
 ## Working title
@@ -14,7 +14,7 @@ Alternative:
 
 ## Stage-1 scientific sentence
 
-> We prospectively test whether plant pre-outcome state and realized effective pollinator composition jointly determine reproductive response, whether that relation propagates through independently measured pollination function and dependency, and whether averaging repeated effective-community opportunities shifts determinant importance only when shared stochastic dependence is sufficiently low for averaging to operate.
+> We prospectively test whether plant pre-outcome state and realized effective pollinator composition jointly determine reproductive response, whether that relation propagates through independently measured pollination function and dependency, and whether averaging repeated effective-community opportunities shifts determinant importance only when shared stochastic dependence is sufficiently low for averaging to operate; the frozen mapping is then challenged in a second prospective plant system without retuning.
 
 ## Why this is a Registered Report question
 
@@ -24,11 +24,29 @@ The source mechanism and its countercondition are frozen before focal reproducti
 - realized composition × plant starting state remains non-additive after richness control;
 - finite-community realization variance changes under aggregation;
 - plant-state versus community-realization ranking can reverse in the frozen synthetic sequence;
-- the generic theorem also predicts a failure domain: correlated/synchronous community realizations can leave a non-shrinking community-variance floor and prevent rank reversal.
+- correlated/synchronous community realizations can leave a non-shrinking community-variance floor and prevent rank reversal.
 
-The field study therefore tests **both the predicted effect and its predicted failure condition**. It does not calibrate the synthetic model after observing Izu outcomes.
+The field study therefore tests **both the predicted effect and its predicted failure condition**. It does not calibrate the synthetic model after observing Izu outcomes. Generic `rho=0.25` is a model-specific benchmark, not a natural field threshold.
 
-The generic theorem's `rho=0.25` critical value is a model-specific benchmark under frozen coefficients and variances. It is not a field threshold and will not be used to define natural strata.
+---
+
+# R1 architecture frozen before site-level feasibility
+
+## Focal system
+
+The focal natural system is *Campanula microdonta*. Oshima and Kozushima are the current candidate geographic contrast because they occupy source-resolved positions in the existing Izu evidence architecture, but they are **not yet admitted as final named sites**. Final site units require R1b feasibility independent of reproductive effect direction.
+
+## Prospective transport system
+
+The second prospective context is *Farfugium japonicum*. This taxon was selected before focal reproductive outcomes from source-defined pollen-target membership, high interaction breadth and broad source-site coverage, rather than from agreement with any future *Campanula* effect.
+
+The preferred transport geography is the independent mainland coastal source-site universe (Hitachi, Hitachinaka, Tateyama), subject to R1b field feasibility. A same-archipelago fallback is allowed only if it constitutes a genuinely independent biological and sampling context rather than another focal block.
+
+## Block-scale rule
+
+The pre-pilot synthetic screen makes independent block count the main H5 design lever. Under its low-dependence benchmark, crossover separation was `0.5425` at 16 blocks, `0.835` at 32 blocks and `0.900` at 48 blocks. Therefore materially fewer than 32 plausibly independent repeated blocks is not preferred for the NEE H5 lane unless R2/R3 later provide stronger empirical information.
+
+This is a **screening floor only**. It is not empirical power and not a final confirmatory sample size.
 
 ---
 
@@ -60,17 +78,17 @@ Primary intended bridge: single-visit conspecific pollen deposition with valid n
 
 H5 is deliberately two-sided.
 
-### H5a — lower shared stochastic dependence
+### H5a — lower shared dependence
 
-**Prediction:** in prospectively classified lower-dependence effective-community opportunities, increasing aggregation decreases community-realization contribution and increases plant-state contribution. A state-over-community rank reversal is tested only where the outcome-blind admission rule places the stratum in a crossover-capable domain.
+**Prediction:** in prospectively classified lower shared dependence effective-community opportunities, increasing aggregation decreases community-realization contribution and increases plant-state contribution. A state-over-community rank reversal is tested only where the outcome-blind admission rule places the stratum in a crossover-capable domain.
 
 **Support:** both directional redistribution components are supported under adequate measurement and R3 precision; reversal is an additional condition only where pre-admitted.
 
 **Adverse:** adequately measured lower-dependence strata show absent or opposite redistribution after prespecified amount, effort, site and time controls.
 
-### H5b — higher shared stochastic dependence
+### H5b — higher shared dependence
 
-**Prediction:** in prospectively classified higher-dependence effective-community opportunities, aggregation leaves a persistent community-realization floor, so state-over-community rank reversal is weakened or absent.
+**Prediction:** in prospectively classified higher shared dependence effective-community opportunities, aggregation leaves a persistent community-realization floor, so state-over-community rank reversal is weakened or absent.
 
 **Support:** the frozen higher-dependence stratum retains community dominance or otherwise lacks the predeclared reversal under adequate precision.
 
@@ -82,13 +100,11 @@ Dependence strata, or a continuous dependence-by-aggregation interaction, are fr
 
 If a stable numeric field cutoff cannot be justified outcome-blind, no cutoff is manufactured; the continuous interaction or ordered predeclared strata are retained.
 
-## H6 — second prospective transport context [P6; required for NEE route]
+## H6 — *Farfugium* prospective transport [P6; required for NEE route]
 
-**Prediction:** the frozen H2/H5 mapping is challenged in at least one second prospective independent natural context without retuning.
+**Prediction:** the frozen H2 mapping and outcome-state logic are challenged prospectively in *Farfugium japonicum* without retuning. The same H5 dependence and aggregation coordinates are carried where estimable.
 
-Existing world/Izu secondary datasets are not admitted as P6 because none supplies the full prospective contract. The second context may occur in the same archipelago only if it is biologically and sampling-wise independent enough to be a genuine transport challenge rather than another focal block.
-
-H6 cannot rescue adverse H1-H5 results and is not required for the already-closed Oikos manuscript. It is a breadth requirement for keeping the NEE Stage-1 route eligible.
+Existing world/Izu secondary datasets are not admitted as P6 because none supplies the full prospective contract. H6 cannot rescue adverse H1-H5 results and is not required for the already-closed Oikos manuscript.
 
 ---
 
@@ -99,13 +115,27 @@ H6 cannot rescue adverse H1-H5 results and is not required for the already-close
 ```text
 flowers / visits / SVD events within plant
 plants within prespecified exposure block
-repeated blocks within focal context
-plus at least one independent prospective transport context for NEE
+repeated independent blocks within focal Campanula context
+plus an independent prospective Farfugium transport context for NEE
 ```
 
-The independent precision unit is the plant; nominal flower, visit or SVD counts are not independent `n`.
+Plant is the independent precision unit within a block; nominal flower, visit or SVD counts are not independent `n`. Blocks are population/site/time exposure windows fixed before reproductive outcomes and cannot be split, merged or moved after inspecting effectiveness, dependency or mature seed.
 
-Blocks are population/site/time exposure windows fixed before reproductive outcomes. Blocks cannot be split, merged or moved after inspecting effectiveness, dependency or mature-seed outcomes.
+## R1b exact scope admission [OPEN]
+
+Before R2 opens, R1b must freeze:
+
+- actual named *Campanula* population/site units;
+- actual named *Farfugium* transport population/site units;
+- exact time-window construction;
+- eligible flowering-plant screen;
+- spatial/temporal block-independence basis;
+- SVD background-control feasibility;
+- open/bagged/supplemental treatment feasibility;
+- outcome-blind dependence-coordinate feasibility;
+- access, permit and phenology exclusions independent of effect direction.
+
+Oshima/Kozushima and Hitachi/Hitachinaka/Tateyama are candidate geographic families, not automatically admitted field sites.
 
 ## Effective-community representation [R4 CLOSED]
 
@@ -118,7 +148,7 @@ w_bg = visit_rate_per_flower_hour
 p_bg = w_bg / sum_g(w_bg)
 ```
 
-Missing/uncontrolled effectiveness is unavailable, not zero. Negative background-adjusted weights are not clipped. Zero-total-service blocks remain valid amount/effort observations but do not receive a manufactured composition vector. Total effective service remains a separate amount term.
+Missing/uncontrolled effectiveness is unavailable, not zero. Negative background-adjusted weights are not clipped. Zero-total-service blocks remain valid amount/effort observations but do not receive a manufactured composition vector. Total effective service remains separate.
 
 ## H5 dependence coordinate
 
@@ -127,7 +157,7 @@ The field dependence/synchronization coordinate must be derived from repeated ba
 Forbidden:
 
 - literal import of generic `rho=0.25`;
-- dependence cutoff selected to maximize H5 separation;
+- a dependence cutoff selected to maximize H5 separation;
 - block redefinition after outcome inspection;
 - literal mapping of raw richness, Hill diversity or effective-service breadth to synthetic `k`.
 
@@ -153,37 +183,25 @@ Zero visits are observations. Missing SVD is not zero effectiveness. Lost treatm
 
 The frozen synthetic scale screen is stored in `data/results/chapter2_nee_h5_prepilot_oc_20260912.json`.
 
-Its role is only to decide whether R1 is remotely plausible before a field season. Under the generic benchmark:
-
-- low shared dependence becomes increasingly separable as the number of independent blocks increases;
-- near-boundary dependence remains difficult even with more than 1000 recruited plants;
-- high shared dependence increasingly supports the predicted no-crossover side.
-
-This establishes the design bottleneck: **independent repeated blocks and dependence-regime contrast matter more for H5 than nominal flower/visit counts**. The rates are not empirical power and cannot justify the final Stage-1 sample size.
+Low shared dependence becomes increasingly separable with independent blocks; near-boundary dependence remains difficult even beyond 1000 recruited plants; high shared dependence increasingly supports the predicted no-crossover side. The bottleneck is therefore **independent repeated blocks and dependence-regime contrast**, not nominal flower/visit counts.
 
 ## R2 — pilot role [OPEN]
 
-Pilot work estimates:
-
-- independent plant and block recruitment/retention;
-- monitored effort and zero visits;
-- SVD measurement success/background variance;
-- treatment attrition;
-- mature endpoint completion/dispersion;
-- effective-community support;
-- empirical support and stability of the frozen dependence coordinate/strata.
-
-Pilot outcome direction cannot select predictors or H5 strata.
+Pilot work estimates independent plant/block recruitment and retention, monitored effort and zero visits, SVD success/background variance, treatment attrition, mature endpoint completion/dispersion, effective-community support, and empirical support/stability of the frozen dependence coordinate. Pilot outcome direction cannot select predictors or H5 strata.
 
 ## R3 — confirmatory precision [OPEN]
 
-After R2 is frozen, hierarchical simulation must establish confirmatory precision/assurance for H2 and the conditional H5 contrasts, preserving plant/block hierarchy and attrition.
+After R2 is frozen, hierarchical simulation must establish confirmatory precision/assurance for H2 and the conditional H5 contrasts while preserving plant/block hierarchy and attrition.
 
-**Predeclared retreat line:** if single-system R3 cannot support confirmatory H5, H5 is not weakened. H1-H4 remain confirmatory and H5 becomes descriptive/exploratory for the single-system study; confirmatory H5 plus transport breadth is reserved for a later expanded NEE design.
+**Predeclared retreat line:** if single-system R3 cannot support confirmatory H5, H5 is not weakened. **H1-H4 remain confirmatory** and H5 becomes descriptive/exploratory for the single-system study; confirmatory H5 plus prospective transport breadth is reserved for a later expanded NEE design.
 
 ---
 
 # Confirmatory analysis pipeline
+
+## A0 — R1b scope audit
+
+Before field confirmation, verify the named focal and transport site/time registry, block-independence basis, eligible plants, SVD/treatment feasibility and outcome-blind dependence coordinate. Failure keeps the NEE design at `NOT_READY`; it is not a biological result.
 
 ## A1 — measurement/admission audit
 
@@ -203,20 +221,15 @@ Estimate background-controlled visitor/group effectiveness before constructing e
 
 ## A5 — H4 dependency consequence
 
-Estimate the frozen reproductive-treatment contrasts on the mature endpoint.
+Estimate frozen reproductive-treatment contrasts on the mature endpoint.
 
 ## A6 — H5 conditional aggregation test
 
-Use only prespecified comparable exposure opportunities. Evaluate the frozen dependence-by-aggregation prediction:
+Use only prespecified comparable opportunities: lower shared dependence predicts state contribution up/community contribution down, while higher shared dependence predicts a persistent community floor and weakened/absent reversal. No breakpoint search, outcome-selected dependence threshold, or synthetic `k≈4` field cutoff is allowed.
 
-- lower shared dependence: state contribution up, community contribution down, with reversal tested only where pre-admitted;
-- higher shared dependence: persistent community floor / weakened or absent reversal.
+## A7 — H6 *Farfugium* transport
 
-No breakpoint search, outcome-selected dependence threshold, or synthetic `k≈4` field cutoff is allowed.
-
-## A7 — H6 prospective transport
-
-Apply the same frozen H2/H5 mapping to the second prospective natural context without changing predictor direction, dependence definition, endpoint family or aggregation rule.
+Apply the same frozen H2 mapping and outcome-state logic to the admitted *Farfugium* context without changing predictor direction or endpoint family. Carry H5 dependence/aggregation rules when the transport context supplies adequate repeated-block support.
 
 ---
 
@@ -230,43 +243,20 @@ FALSIFIED_OR_ADVERSE
 NOT_EVALUABLE
 ```
 
-A high-dependence block lacking crossover is not automatically a falsification of H5; it is the H5b prediction when the pre-outcome dependence criterion and precision gates are satisfied. Unclassified or inadequately supported blocks are `NOT_EVALUABLE`.
-
-No secondary analysis can rescue a failed primary gate.
-
----
-
-# R5 breadth rule — CLOSED
-
-For the NEE route, at least one second prospective independent natural context is required. Existing secondary literature remains design/transport triage only.
-
-The exact focal and transport contexts are selected in R1 before focal confirmatory reproductive outcomes.
-
-If no second context is feasible, do not broaden literature hunting or retrofit secondary data as P6. Route the strong single-system prospective study to Ecology Letters, Ecology, or another appropriate general-ecology venue.
-
----
-
-# Open items before Stage-1 readiness
-
-1. **R1:** focal taxon/population/site/time/block universe plus second prospective transport context and outcome-blind dependence coordinate;
-2. **R2:** empirical feasibility, dispersion, attrition and dependence-support pilot;
-3. **R3:** confirmatory H2/H5 precision/assurance and replication;
-4. **R6:** permits, ethics, archive, protocol-registration, authorship and operational randomization/blinding details.
-
-R4, R5 strategy, P1-P4 and the conditional H5 scientific logic are closed to outcome-driven revision.
+A high-dependence context lacking crossover is not automatically a falsification; it is the H5b prediction when the pre-outcome dependence criterion and precision gates pass. Unclassified or inadequately supported blocks are `NOT_EVALUABLE`.
 
 ---
 
 # Promotion / retreat rule
 
 ```text
-R1 supplies focal + second prospective context
+R1b exact focal + Farfugium site/time registry passes
 + R2 adequate
 + R3 supports confirmatory H2 and conditional H5
 + R4/R5 locks preserved
     -> NEE Stage-1 route remains eligible
 
-second prospective context infeasible
+Farfugium transport context infeasible
     -> EL / Ecology route for the single-system prospective study
 
 R3 says confirmatory H5 infeasible in one system
