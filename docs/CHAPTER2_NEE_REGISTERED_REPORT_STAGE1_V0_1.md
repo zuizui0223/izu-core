@@ -1,7 +1,7 @@
 # Stage-1 skeleton — Nature Ecology & Evolution Registered Report
 
-Version: v0.3 — 2026-09-13  
-Status: **pre-data working surface; H5 countercondition, R5 breadth rule and R1a focal/transport/block architecture frozen; R1b/R2/R3/R6 remain open**  
+Version: v0.4 — 2026-09-13  
+Status: **pre-data working surface; H5 countercondition, R5 breadth rule and R1a focal/transport/block architecture frozen; R1b exact site/time admission, R2/R3/R6 remain open**  
 Parent promotion lock: `data/design/chapter2_nee_predata_promotion_lock_20260912.json`
 
 ## Working title
@@ -30,21 +30,25 @@ The field study therefore tests **both the predicted effect and its predicted fa
 
 ---
 
-# R1 architecture frozen before site-level feasibility
+# R1 architecture frozen before site-level admission
 
 ## Focal system
 
-The focal natural system is *Campanula microdonta*. Oshima and Kozushima are the current candidate geographic contrast because they occupy source-resolved positions in the existing Izu evidence architecture, but they are **not yet admitted as final named sites**. Final site units require R1b feasibility independent of reproductive effect direction.
+The focal natural system is *Campanula microdonta*. Oshima and Kozushima remain the candidate geographic family, not automatically admitted final sites. Oshima is first reconnaissance priority because several named occurrence localities are already source-backed; Kozushima remains necessary to resolve as a post-Oshima focal geography, but its exact current *Campanula* population is not yet admitted.
+
+Current source-backed focal candidate rows are Fudeshima coast, Toshiki coast, Mt. Mihara, the Senzu/Oshima coastal plant community, and one unresolved Kozushima herbarium-level locality. All remain `candidate`; none is `admitted`.
 
 ## Prospective transport system
 
 The second prospective context is *Farfugium japonicum*. This taxon was selected before focal reproductive outcomes from source-defined pollen-target membership, high interaction breadth and broad source-site coverage, rather than from agreement with any future *Campanula* effect.
 
-The preferred transport geography is the independent mainland coastal source-site universe (Hitachi, Hitachinaka, Tateyama), subject to R1b field feasibility. A same-archipelago fallback is allowed only if it constitutes a genuinely independent biological and sampling context rather than another focal block.
+The first-priority transport geography is now **Kozushima**, with Nodo Sainbara-line lighthouse area as the first source-backed locality lead. This priority was revised before focal outcomes using only occurrence evidence, geographic independence, exact-site resolvability and regulatory/field feasibility. Hitachi, Hitachinaka and Tateyama remain contingency transport geography if Kozushima fails the frozen pre-outcome R1b gates; they cannot replace Kozushima because of focal effect direction.
+
+Oshima Nihonmatsu–Shiofuki and the Senzu coastal community remain backup *Farfugium* candidates. A same-archipelago transport is acceptable only if taxon, season, geography and sampling units make it a genuine prospective transport challenge rather than another *Campanula* focal block.
 
 ## Block-scale rule
 
-The pre-pilot synthetic screen makes independent block count the main H5 design lever. Under its low-dependence benchmark, crossover separation was `0.5425` at 16 blocks, `0.835` at 32 blocks and `0.900` at 48 blocks. Therefore materially fewer than 32 plausibly independent repeated blocks is not preferred for the NEE H5 lane unless R2/R3 later provide stronger empirical information.
+The pre-pilot synthetic screen makes independent block count the main H5 design lever. Under its low-dependence benchmark, crossover separation was `0.5425` at 16 blocks, `0.835` at 32 blocks and `0.900` at 48 blocks. Therefore materially fewer than 32 plausibly independent repeated focal blocks is not preferred for the NEE H5 lane unless R2/R3 later provide stronger empirical information.
 
 This is a **screening floor only**. It is not empirical power and not a final confirmatory sample size.
 
@@ -92,7 +96,7 @@ H5 is deliberately two-sided.
 
 **Support:** the frozen higher-dependence stratum retains community dominance or otherwise lacks the predeclared reversal under adequate precision.
 
-**Adverse:** a clear state-over-community reversal occurs despite satisfying the frozen high-dependence admission rule and precision gates.
+**Adverse:** a clear state-over-community rank reversal occurs despite satisfying the frozen higher-dependence admission rule and precision gates.
 
 ### H5 stratification rule
 
@@ -104,7 +108,7 @@ If a stable numeric field cutoff cannot be justified outcome-blind, no cutoff is
 
 **Prediction:** the frozen H2 mapping and outcome-state logic are challenged prospectively in *Farfugium japonicum* without retuning. The same H5 dependence and aggregation coordinates are carried where estimable.
 
-Existing world/Izu secondary datasets are not admitted as P6 because none supplies the full prospective contract. H6 cannot rescue adverse H1-H5 results and is not required for the already-closed Oikos manuscript.
+Kozushima is the first-priority transport reconnaissance geography, but no transport row is admitted yet. Existing world/Izu secondary datasets are not admitted as P6 because none supplies the full prospective contract. H6 cannot rescue adverse H1-H5 results and is not required for the already-closed Oikos manuscript.
 
 ---
 
@@ -123,19 +127,24 @@ Plant is the independent precision unit within a block; nominal flower, visit or
 
 ## R1b exact scope admission [OPEN]
 
-Before R2 opens, R1b must freeze:
+A source-backed candidate registry now contains 5 focal and 3 transport rows, with **0 admitted**. Candidate rows may preserve `pending` feasibility; unknown is not converted into biological failure.
 
-- actual named *Campanula* population/site units;
-- actual named *Farfugium* transport population/site units;
-- exact time-window construction;
+Before R2 opens, a row can be `admitted` only when it prospectively fixes or verifies:
+
+- actual named *Campanula* or *Farfugium* population/site unit;
+- exact site-time block construction;
 - eligible flowering-plant screen;
-- spatial/temporal block-independence basis;
+- block-independence basis;
 - SVD background-control feasibility;
-- open/bagged/supplemental treatment feasibility;
+- open natural pollination feasibility;
+- bagged autonomous treatment feasibility;
+- supplemental outcross feasibility;
 - outcome-blind dependence-coordinate feasibility;
-- access, permit and phenology exclusions independent of effect direction.
+- access, permit and phenology status.
 
-Oshima/Kozushima and Hitachi/Hitachinaka/Tateyama are candidate geographic families, not automatically admitted field sites.
+The current audit is `scripts/audit_chapter2_nee_r1_site_registry.py`. It fails closed for admitted rows and treats unresolved candidate feasibility as pending rather than zero.
+
+The Senzu/Oshima coastal plant community is high-friction for manipulation because it is a designated natural monument; occurrence there is useful, but permission is not assumed. Protected-area requirements are resolved site-by-site before admission.
 
 ## Effective-community representation [R4 CLOSED]
 
@@ -183,7 +192,7 @@ Zero visits are observations. Missing SVD is not zero effectiveness. Lost treatm
 
 The frozen synthetic scale screen is stored in `data/results/chapter2_nee_h5_prepilot_oc_20260912.json`.
 
-Low shared dependence becomes increasingly separable with independent blocks; near-boundary dependence remains difficult even beyond 1000 recruited plants; high shared dependence increasingly supports the predicted no-crossover side. The bottleneck is therefore **independent repeated blocks and dependence-regime contrast**, not nominal flower/visit counts.
+Lower shared dependence becomes increasingly separable with independent blocks; near-boundary dependence remains difficult even beyond 1000 recruited plants; higher shared dependence increasingly supports the predicted no-crossover side. The bottleneck is therefore **independent repeated blocks and dependence-regime contrast**, not nominal flower/visit counts.
 
 ## R2 — pilot role [OPEN]
 
@@ -243,7 +252,7 @@ FALSIFIED_OR_ADVERSE
 NOT_EVALUABLE
 ```
 
-A high-dependence context lacking crossover is not automatically a falsification; it is the H5b prediction when the pre-outcome dependence criterion and precision gates pass. Unclassified or inadequately supported blocks are `NOT_EVALUABLE`.
+A higher-dependence context lacking crossover is not automatically a falsification; it is the H5b prediction when the pre-outcome dependence criterion and precision gates pass. Unclassified or inadequately supported blocks are `NOT_EVALUABLE`.
 
 ---
 
@@ -257,10 +266,10 @@ R1b exact focal + Farfugium site/time registry passes
     -> NEE Stage-1 route remains eligible
 
 Farfugium transport context infeasible
-    -> EL / Ecology route for the single-system prospective study
+    -> EL / Ecology route for the single-system prospective study; do not weaken H5
 
 R3 says confirmatory H5 infeasible in one system
-    -> H1-H4 confirmatory + H5 descriptive/exploratory
+    -> H1-H4 remain confirmatory + H5 descriptive/exploratory
        reserve full H5 + transport for later expanded NEE
 
 measurement/support gate fails
