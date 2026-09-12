@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "status": "precontact_plan_frozen_before_field_outcomes",
+  "frozen_on": "2026-09-13",
+  "purpose": "Define the outcome-blind administrative reconnaissance needed to move source-backed R1b candidate rows toward admitted or excluded status without assuming legal access or manipulation permission.",
+  "parents": {
+    "r1_architecture": "data/design/chapter2_nee_r1_scope_architecture_20260913.json",
+    "candidate_registry": "data/design/chapter2_nee_r1_site_registry_candidates_20260913.csv",
+    "candidate_priority": "data/design/chapter2_nee_r1b_candidate_priority_lock_20260913.json"
+  },
+  "official_contacts": {
+    "moe_izu_islands_management_office": {
+      "role": "Fuji-Hakone-Izu National Park Izu Islands region; Natural Parks Act consultation and permission procedures",
+      "office": "Ministry of the Environment, Kanto Regional Environment Office, Fuji-Hakone-Izu National Park Management Office, Izu Islands Ranger Office",
+      "address": "445-9 Ienoue, Motomachi, Oshima-machi, Tokyo 100-0101",
+      "telephone": "04992-2-7115",
+      "fax": "04992-2-7116",
+      "email": "RO-IZUIS@env.go.jp",
+      "source": "https://kanto.env.go.jp/park.html",
+      "procedure_source": "https://kanto.env.go.jp/nature/mat/m_3_apply.html",
+      "preconsultation_rule": "Consult the nearest ranger office before finalizing a plan; exact park zone and planned acts determine whether an application or notification is required."
+    },
+    "tokyo_education_oshima_office": {
+      "role": "Official contact for Oshima cultural properties including the Oshima coastal plant community natural monument",
+      "office": "Tokyo Metropolitan Board of Education, Oshima Branch Office",
+      "telephone": "04992-2-4451",
+      "email": "S9000007@section.metro.tokyo.jp",
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/about/osima/cultural_property/oshima_list/oshimakaihinshokubutsugunraku",
+      "procedure_note": "Tokyo's current workflow for permission to alter or affect a historic site/place of scenic beauty/natural monument is submitted through the municipality and lists a standard processing period of 50 days; this does not mean every planned non-destructive action automatically requires permission.",
+      "procedure_source": "https://www.kyoiku.metro.tokyo.lg.jp/documents/d/kyoiku/2025-06-18-155732-309"
+    },
+    "kozu_village_industry_tourism": {
+      "role": "Local site-management, access, park and tourism facility reconnaissance for Kozushima candidate localities",
+      "office": "Kozushima Village Office, Industry and Tourism Division",
+      "address": "904 Kozushima-mura, Tokyo 100-0601",
+      "telephone": "04992-8-0011",
+      "fax": "04992-8-1242",
+      "email": "kankou@vill.kouzushima.tokyo.jp",
+      "source": "https://www.vill.kouzushima.tokyo.jp/busyo/sangyokankou/",
+      "contact_source": "https://www.vill.kouzushima.tokyo.jp/contact/"
+    }
+  },
+  "planned_actions_to_describe_verbatim_in_preconsultation": [
+    "tag and repeatedly observe individual flowering plants without removing them",
+    "mount or place camera/direct-observation equipment near flowers for declared time windows",
+    "apply temporary flower bags for autonomous-pollination and single-visit controls",
+    "perform controlled single-visit pollen-deposition measurements on flowers/stigmas",
+    "apply supplemental outcross pollen by hand to designated flowers",
+    "retain open-pollinated control flowers",
+    "follow treated flowers to mature fruit/seed and collect only the minimum material explicitly approved",
+    "record floral geometry before reproductive outcome",
+    "remove all temporary equipment and materials after the declared block"
+  ],
+  "candidate_contact_order": [
+    {
+      "priority": 1,
+      "candidate_group": "Oshima Campanula named localities excluding automatic admission",
+      "candidate_ids": ["oshima-fudeshima", "oshima-toshiki", "oshima-mihara"],
+      "first_contact": "moe_izu_islands_management_office",
+      "questions": [
+        "For each exact locality, what National Park zone or other protection category applies?",
+        "Which of the planned observation, camera, bagging, hand-pollination, SVD and mature-seed actions require permission or notification?",
+        "Who is the land/site manager whose consent is independently required?",
+        "Are there site-specific restrictions that make the three-treatment panel infeasible before any outcome is observed?"
+      ],
+      "admission_effect": "A site remains candidate until park category, land-manager access, phenology, abundance and all structural field gates are independently verified."
+    },
+    {
+      "priority": 2,
+      "candidate_group": "Oshima Senzu coastal natural-monument candidate",
+      "candidate_ids": ["oshima-senzu-coastal", "transport-oshima-senzu-c01"],
+      "first_contacts_parallel": ["tokyo_education_oshima_office", "moe_izu_islands_management_office"],
+      "questions": [
+        "Does each planned non-destructive or manipulative action count as alteration or an action affecting preservation of the designated natural monument?",
+        "If permission is required, which municipality route, owner/manager consent and attachments are required?",
+        "Is temporary bagging, hand pollination, SVD handling, camera placement or minimal mature-seed collection permissible under conditions?",
+        "Which exact parts of the named coastal route fall inside the designation and National Park protection zones?"
+      ],
+      "admission_effect": "High-friction candidate. Do not admit until both cultural-property and park-law routes are resolved where applicable."
+    },
+    {
+      "priority": 3,
+      "candidate_group": "Kozushima Farfugium primary transport lead",
+      "candidate_ids": ["kozu-sainbara-lighthouse"],
+      "first_contacts_parallel": ["kozu_village_industry_tourism", "moe_izu_islands_management_office"],
+      "questions": [
+        "Confirm the exact Nodo Sainbara-line lighthouse locality, current Farfugium occurrence and the responsible land/site manager.",
+        "Is research access with temporary cameras, flower bags and hand pollination locally acceptable subject to formal permissions?",
+        "What National Park zone applies at the exact locality and which planned actions require application/notification?",
+        "Are there access, road, safety, land-use or seasonal restrictions that prevent independent repeated site-time blocks?"
+      ],
+      "admission_effect": "First-priority P6 reconnaissance site; remains candidate until occurrence, access, park status, manipulation feasibility and independent-block structure pass."
+    },
+    {
+      "priority": 4,
+      "candidate_group": "Kozushima Campanula unresolved focal lead",
+      "candidate_ids": ["kozu-island-herbarium"],
+      "first_contacts_parallel": ["kozu_village_industry_tourism", "moe_izu_islands_management_office"],
+      "questions": [
+        "Can a current named Campanula microdonta population be resolved from local knowledge or lawful reconnaissance?",
+        "Which accessible localities have enough flowering plants to justify a formal plant-count screen?",
+        "What protection categories, land-manager permissions and manipulation restrictions apply at those localities?"
+      ],
+      "admission_effect": "Do not assign confirmatory blocks from the historical island-level herbarium record alone."
+    }
+  ],
+  "natural_monument_rule": {
+    "source": "Tokyo Metropolitan Board of Education workflow current as of 2025-04-01",
+    "legal_basis": "Cultural Properties Protection Act Article 125 and related delegated provisions",
+    "standard_processing_period_days": 50,
+    "submission_route_note": "Tokyo workflow states submission through the municipality and owner consent when the applicant is not the owner.",
+    "firewall": "The presence of a permit pathway is not evidence that the planned action will be permitted; no manipulation begins before required approvals are issued."
+  },
+  "national_park_rule": {
+    "source": "Kanto Regional Environment Office national-park application guidance",
+    "rule": "Exact park zone and action type determine whether an application or notification is required; preconsult the ranger office before final plan lock.",
+    "firewall": "Do not infer from island name alone that a candidate is inside a particular zone or that every proposed action is prohibited or permitted."
+  },
+  "next_state_transition": "contact/reconnaissance evidence -> update candidate registry fields -> R1b audit -> only admitted rows may enter R2 pilot planning",
+  "forbidden": [
+    "mark permit_status confirmed before receiving an authoritative determination",
+    "mark access confirmed from a public occurrence page alone",
+    "treat occurrence evidence as proof that the planned experimental manipulations are lawful",
+    "switch candidate priority because a focal reproductive result is favorable or adverse",
+    "begin manipulative field work before all required approvals and land-manager permissions are resolved"
+  ],
+  "claim_boundary": "This plan establishes who to ask and what to ask. It does not grant permission, establish current plant abundance, admit any R1b block, or constitute biological evidence."
+}
