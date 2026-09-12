@@ -18,6 +18,8 @@ REQUIRED_COLUMNS = [
     "geographic_unit",
     "population_site_id",
     "site_name",
+    "evidence_source",
+    "evidence_basis",
     "planned_block_id",
     "planned_start_date",
     "planned_end_date",
@@ -52,26 +54,43 @@ INDEPENDENCE = {"pass", "review", "fail"}
 ACCESS = {"confirmed", "pending", "blocked"}
 PERMIT = {"not_required", "confirmed", "pending", "blocked"}
 PHENOLOGY = {"confirmed", "pending", "failed"}
+PENDING_VALUES = {"", "pending", "unknown", "unverified", "na", "n/a"}
 
 
 def _cell(row: dict[str, str | None], field: str) -> str:
     return (row.get(field) or "").strip()
 
 
-def _bool(value: str | None) -> bool | None:
+def _tri_bool(value: str | None) -> bool | None | str:
     x = (value or "").strip().lower()
     if x in {"true", "1", "yes"}:
         return True
     if x in {"false", "0", "no"}:
         return False
-    return None
+    if x in PENDING_VALUES:
+        return None
+    return "INVALID"
 
 
 def _date(value: str | None) -> date | None:
+    x = (value or "").strip()
+    if not x or x.lower() in PENDING_VALUES:
+        return None
     try:
-        return date.fromisoformat((value or "").strip())
+        return date.fromisoformat(x)
     except ValueError:
         return None
+
+
+def _int_or_none(value: str | None) -> int | None | str:
+    x = (value or "").strip()
+    if not x or x.lower() in PENDING_VALUES:
+        return None
+    try:
+        out = int(x)
+    except ValueError:
+        return "INVALID"
+    return out if out >= 0 else "INVALID"
 
 
 def audit(path: Path) -> dict:
@@ -101,6 +120,12 @@ def audit(path: Path) -> dict:
         if context not in EXPECTED_TAXON:
             errors.append(f"{prefix}: context_id must be focal or transport")
             continue
+
+        status = _cell(row, "admission_status").lower()
+        if status not in ADMISSION:
+            errors.append(f"{prefix}: invalid admission_status")
+            continue
+
         if _cell(row, "taxon") != EXPECTED_TAXON[context]:
             errors.append(f"{prefix}: taxon does not match frozen {context} taxon")
 
@@ -112,24 +137,37 @@ def audit(path: Path) -> dict:
         else:
             seen_blocks.add(block_id)
 
-        for field in ("geographic_unit", "population_site_id", "site_name", "block_independence_basis"):
+        for field in (
+            "geographic_unit",
+            "population_site_id",
+            "site_name",
+            "evidence_source",
+            "evidence_basis",
+            "block_independence_basis",
+        ):
             if not _cell(row, field):
                 errors.append(f"{prefix}: {field} is required")
 
         start = _date(row.get("planned_start_date"))
         end = _date(row.get("planned_end_date"))
-        if start is None or end is None:
-            errors.append(f"{prefix}: planned dates must be ISO YYYY-MM-DD")
-        elif end < start:
-            errors.append(f"{prefix}: planned_end_date precedes planned_start_date")
+        raw_start = _cell(row, "planned_start_date").lower()
+        raw_end = _cell(row, "planned_end_date").lower()
+        dates_pending = raw_start in PENDING_VALUES and raw_end in PENDING_VALUES
+        if status == "admitted":
+            if start is None or end is None:
+                errors.append(f"{prefix}: admitted rows require ISO planned dates")
+            elif end < start:
+                errors.append(f"{prefix}: planned_end_date precedes planned_start_date")
+        elif not dates_pending:
+            if start is None or end is None:
+                errors.append(f"{prefix}: candidate/excluded planned dates must be ISO or both pending")
+            elif end < start:
+                errors.append(f"{prefix}: planned_end_date precedes planned_start_date")
 
-        try:
-            eligible = int(_cell(row, "eligible_flowering_plants_screen"))
-            if eligible < 0:
-                raise ValueError
-        except (ValueError, TypeError):
-            eligible = -1
-            errors.append(f"{prefix}: eligible_flowering_plants_screen must be a non-negative integer")
+        eligible = _int_or_none(row.get("eligible_flowering_plants_screen"))
+        if eligible == "INVALID":
+            errors.append(f"{prefix}: eligible_flowering_plants_screen must be a non-negative integer or pending")
+            eligible = None
 
         independence = _cell(row, "independence_review_status").lower()
         access = _cell(row, "access_status").lower()
@@ -144,15 +182,10 @@ def audit(path: Path) -> dict:
         if phenology not in PHENOLOGY:
             errors.append(f"{prefix}: invalid phenology_status")
 
-        bools = {field: _bool(row.get(field)) for field in BOOL_FIELDS}
+        bools = {field: _tri_bool(row.get(field)) for field in BOOL_FIELDS}
         for field, value in bools.items():
-            if value is None:
-                errors.append(f"{prefix}: {field} must be true/false")
-
-        status = _cell(row, "admission_status").lower()
-        if status not in ADMISSION:
-            errors.append(f"{prefix}: invalid admission_status")
-            continue
+            if value == "INVALID":
+                errors.append(f"{prefix}: {field} must be true/false/pending")
 
         if status == "excluded":
             excluded_counts[context] += 1
@@ -166,7 +199,7 @@ def audit(path: Path) -> dict:
 
         # Admitted rows fail closed: every structural feasibility gate must pass.
         admitted_failures = []
-        if eligible <= 0:
+        if eligible is None or eligible <= 0:
             admitted_failures.append("eligible flowering plants")
         if independence != "pass":
             admitted_failures.append("block independence")
@@ -198,6 +231,7 @@ def audit(path: Path) -> dict:
         "admitted_transport_blocks": transport_blocks,
         "candidate_counts": candidate_counts,
         "excluded_counts": excluded_counts,
+        "registry_schema_valid": not errors,
         "scope_complete": scope_complete,
         "h5_r1_screening_floor_blocks": 32,
         "h5_r1_screen_pass": h5_screen_pass,
