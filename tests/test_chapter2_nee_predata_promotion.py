@@ -5,108 +5,114 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCK = ROOT / "data" / "design" / "chapter2_nee_predata_promotion_lock_20260912.json"
-UPGRADE = ROOT / "docs" / "CHAPTER2_NEE_PREDATA_UPGRADE_CONTRACT_20260912.md"
-TRIAGE = ROOT / "docs" / "CHAPTER2_EXTERNAL_TRANSPORT_TRIAGE_20260912.md"
+H5 = ROOT / "data" / "design" / "chapter2_nee_h5_correlation_stratification_lock_20260912.json"
+R5 = ROOT / "data" / "design" / "chapter2_nee_r5_transport_decision_20260912.json"
+OC = ROOT / "data" / "results" / "chapter2_nee_h5_prepilot_oc_20260912.json"
 STAGE1 = ROOT / "docs" / "CHAPTER2_NEE_REGISTERED_REPORT_STAGE1_V0_1.md"
+READINESS = ROOT / "docs" / "CHAPTER2_NEE_STAGE1_READINESS_20260912.md"
+DESIGN = ROOT / "docs" / "CHAPTER2_NEE_STAGE1_DESIGN_TABLE_20260912.md"
 
 
-def test_promotion_lock_preserves_closed_oikos_fallback() -> None:
-    data = json.loads(LOCK.read_text(encoding="utf-8"))
+def _load(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def test_promotion_lane_preserves_closed_oikos_surface() -> None:
+    data = _load(LOCK)
     assert data["status"] == "frozen_before_new_focal_field_outcomes"
     assert data["fallback_surface"]["status"] == "immutable_scientifically_closed"
     assert data["fallback_surface"]["submission_route"] == "Oikos"
-    assert data["fallback_surface"]["manuscript"] == "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
-    assert data["fallback_surface"]["narrative_lock"] == "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md"
+    assert data["target_route"]["not_a_target_change_for_current_paper"] is True
+    assert data["predictions"]["P6_transport"]["not_required_for_oikos"] is True
 
 
-def test_promotion_lock_is_a_wrapper_over_existing_frozen_designs() -> None:
-    data = json.loads(LOCK.read_text(encoding="utf-8"))
-    assert data["parents"] == {
-        "transition_chain": "data/design/izu_transition_linked_chain_freeze_20260909.json",
-        "estimands": "data/design/izu_transition_linked_estimand_lock_20260909.json",
-        "rank_order": "data/design/izu_effective_service_rank_crossover_lock_20260911.json",
-        "field_readiness": "data/design/effective_pollinator_dependency_field_readiness.json",
+def test_promotion_lock_points_to_all_frozen_stage1_contracts() -> None:
+    data = _load(LOCK)
+    parents = data["parents"]
+    for key in (
+        "transition_chain",
+        "estimands",
+        "rank_order",
+        "field_readiness",
+        "effective_community",
+        "h5_correlation_stratification",
+        "r5_transport",
+        "h5_prepilot_oc",
+    ):
+        assert key in parents
+        assert (ROOT / parents[key]).exists(), parents[key]
+
+
+def test_h5_is_conditional_two_sided_and_rho_is_not_a_field_threshold() -> None:
+    promotion = _load(LOCK)
+    h5 = _load(H5)
+    p5 = promotion["predictions"]["P5_determinant_order"]
+    assert p5["status"] == "conditional_two_sided_frozen"
+    assert "decreases community-realization contribution" in p5["low_shared_dependence_prediction"]
+    assert "variance floor" in p5["high_shared_dependence_prediction"]
+    assert p5["generic_rho_critical"] == 0.25
+    assert p5["generic_rho_critical_is_natural_threshold"] is False
+    assert h5["theory_translation"]["natural_cutoff_allowed"] is False
+    assert h5["interpretation_firewall"]["no_redistribution_in_high_dependence_is_not_automatic_falsification"] is True
+    assert "NOT_EVALUABLE" in h5["H5a_low_dependence"]["not_evaluable"]
+    assert "NOT_EVALUABLE" in h5["H5b_high_dependence"]["not_evaluable"]
+
+
+def test_r5_requires_second_prospective_context_for_nee() -> None:
+    promotion = _load(LOCK)
+    r5 = _load(R5)
+    assert r5["current_secondary_evidence"]["P6_admitted_from_existing_secondary_data"] is False
+    assert r5["nee_route_decision"]["independent_transport_required_for_NEE_stage1"] is True
+    assert promotion["stage1_requirements"]["second_prospective_context"] == "required for NEE route"
+    assert promotion["quality_gates"]["Q7_breadth"].startswith("second prospective independent natural context")
+    assert "EL/Ecology" in promotion["promotion_logic"]["general_ecology_strong"]
+
+
+def test_h5_prepilot_oc_is_scale_screen_not_empirical_power() -> None:
+    oc = _load(OC)
+    decision = oc["decision"]
+    assert decision["H5_is_precision_bottleneck"] is True
+    assert decision["independent_block_count_is_primary_design_lever"] is True
+    assert decision["near_boundary_shared_dependence_is_hardest_region"] is True
+    assert decision["even_1536_recruits_does_not_make_near_boundary_H5_decisive"] is True
+    assert decision["final_R3_requires_empirical_pilot"] is True
+    assert decision["do_not_weaken_H5_if_R3_infeasible"] is True
+    assert "not empirical power" in oc["claim_boundary"].lower()
+
+
+def test_r_states_leave_r1_r2_r3_r6_open_but_close_r4_r5() -> None:
+    states = _load(LOCK)["R_states"]
+    assert states == {
+        "R1_field_scope_and_transport_context": "OPEN",
+        "R2_pilot_dispersion_attrition_dependence_support": "OPEN",
+        "R3_confirmatory_precision": "OPEN",
+        "R4_effective_community_representation": "CLOSED",
+        "R5_breadth_strategy": "CLOSED",
+        "R6_admin": "OPEN",
     }
-    for path in data["parents"].values():
-        assert (ROOT / path).exists(), path
 
 
-def test_prediction_set_and_primary_relation_are_frozen() -> None:
-    data = json.loads(LOCK.read_text(encoding="utf-8"))
-    assert set(data["predictions"]) == {
-        "P1_composition_beyond_amount",
-        "P2_state_by_community",
-        "P3_functional_bridge",
-        "P4_dependency_consequence",
-        "P5_determinant_order",
-        "P6_transport",
-    }
-    assert data["predictions"]["P2_state_by_community"]["primary_for_neescope"] is True
-    assert data["strict_unit"] == "block_id x plant_id"
+def test_human_surfaces_preserve_two_sided_h5_and_nee_retreat_line() -> None:
+    stage1 = STAGE1.read_text(encoding="utf-8")
+    readiness = READINESS.read_text(encoding="utf-8")
+    design = DESIGN.read_text(encoding="utf-8")
+    for text in (stage1, readiness, design):
+        lower = text.lower()
+        assert "lower shared dependence" in lower or "lower-shared-dependence" in lower
+        assert "higher shared dependence" in lower or "higher-shared-dependence" in lower
+        assert "not" in lower and "rho=0.25" in lower
+        assert "second prospective" in lower
+        assert "not_evaluable" in lower
+    assert "H1-H4 remain confirmatory" in stage1
+    assert "do not weaken H5" in readiness
+    assert "REQUIRED FOR NEE ROUTE" in design
 
 
-def test_no_literal_field_mapping_to_synthetic_k() -> None:
-    data = json.loads(LOCK.read_text(encoding="utf-8"))
-    p5 = data["predictions"]["P5_determinant_order"]
-    assert p5["directional_not_threshold"] is True
-    assert p5["no_literal_mapping_to_synthetic_k"] is True
-    assert "do not map visitor richness or Hill diversity literally to synthetic k" in data[
-        "external_public_data_before_own_data"
-    ]["firewall"]
-
-
-def test_stage1_contract_requires_predata_sampling_and_archiving_commitments() -> None:
-    data = json.loads(LOCK.read_text(encoding="utf-8"))
-    req = data["stage1_requirements"]
-    assert req["experimental_procedures"] == "required"
-    assert req["analysis_pipeline"] == "required"
-    assert "power analysis" in req["sampling_plan"]
-    assert req["data_material_code_commitment"] is True
-    assert req["protocol_registration_after_aip"] is True
-    assert req["confirmatory_data_before_aip"].startswith("not allowed")
-
-
-def test_sampling_plan_inherits_existing_precision_state_machine() -> None:
-    data = json.loads(LOCK.read_text(encoding="utf-8"))
+def test_stage1_sampling_contract_keeps_final_r3_empirical() -> None:
+    data = _load(LOCK)
     sampling = data["sampling_and_precision_inheritance"]
     assert sampling["independent_unit"] == "plant"
-    assert set(sampling["within_plant_subsamples"]) == {"flowers", "single-visit SVD events"}
-    assert sampling["readiness_state_machine"] == "data/design/effective_pollinator_dependency_field_readiness.json"
+    assert sampling["h5_prepilot_oc_is_empirical_power"] is False
+    assert sampling["H5_is_precision_bottleneck"] is True
+    assert sampling["final_R3_requires_empirical_pilot"] is True
     assert sampling["precision_planning_cli"] == "scripts/plan_effective_dependency_pilot_precision.py"
-    assert sampling["synthetic_design_simulation_is_empirical_power"] is False
-
-
-def test_quality_gate_failure_cannot_be_rescued_as_biological_null() -> None:
-    data = json.loads(LOCK.read_text(encoding="utf-8"))
-    assert data["promotion_logic"]["no_upgrade"].startswith("Q2/Q3/Q6 fail")
-    assert "not_evaluable" in STAGE1.read_text(encoding="utf-8").lower()
-
-
-def test_external_transport_is_partial_not_full_validation() -> None:
-    text = TRIAGE.read_text(encoding="utf-8")
-    for required in (
-        "Thespesia populnea",
-        "Nicotiana glauca",
-        "Guaiacum sanctum",
-        "No currently admitted external system closes the full natural chain",
-    ):
-        assert required in text
-
-
-def test_stage1_surface_preserves_primary_hypotheses_and_stop_rule() -> None:
-    text = STAGE1.read_text(encoding="utf-8")
-    for required in (
-        "H1 — composition beyond amount",
-        "H2 — plant state x realized community",
-        "H3 — functional bridge",
-        "H4 — dependency consequence",
-        "H5 — determinant-order shift with exposure aggregation",
-        "The purpose of pre-data work is to make the future result harder to reinterpret",
-    ):
-        assert required in text
-
-
-def test_human_readable_upgrade_contract_exists_and_keeps_oikos_closed() -> None:
-    text = UPGRADE.read_text(encoding="utf-8")
-    assert "does not reopen or supersede the scientifically closed Oikos manuscript" in text
-    assert "Do not reopen the synthetic mechanism to chase a higher journal" in text
