@@ -33,7 +33,8 @@ def test_active_submission_uses_mechanism_mainline_and_preserves_history():
     assert "optional future validation programme" in lower
 
     assert "coarse regime placement → relational branch identity → determinant-rank crossover → downstream modification" in narrative
-    assert "field e3/e4 remains future/optional validation" in narrative.lower()
+    assert "field e3/e4 remains post-chapter-2 future validation" in narrative.lower()
+    assert "simulation + source-audited metadata/secondary-data confrontation" in narrative.lower()
 
     # Historical contracts remain readable provenance but are no longer active routing.
     assert historical.startswith("# Chapter 2 three-result narrative lock")
@@ -92,8 +93,8 @@ def test_main_supp_material_map_matches_current_paper():
     lower = material.lower()
     assert "conditional response geometry" in lower
     assert "scale-dependent determinant ordering" in lower
-    assert "main figure 4 — empirical claim boundary and future validation" in lower
-    assert "future/optional validation" in lower
+    assert "main figure 4 — metadata confrontation and empirical claim ceiling" in lower
+    assert "post-chapter-2" in lower
     assert "replace(base, steps=240, trait_adjustment=0.0)" in lower
     assert "75/96" in material
     assert "55.84%" in material and "12.72%" in material
