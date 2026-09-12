@@ -25,6 +25,7 @@ def test_promotion_lock_is_a_wrapper_over_existing_frozen_designs() -> None:
         "transition_chain": "data/design/izu_transition_linked_chain_freeze_20260909.json",
         "estimands": "data/design/izu_transition_linked_estimand_lock_20260909.json",
         "rank_order": "data/design/izu_effective_service_rank_crossover_lock_20260911.json",
+        "field_readiness": "data/design/effective_pollinator_dependency_field_readiness.json",
     }
     for path in data["parents"].values():
         assert (ROOT / path).exists(), path
@@ -63,6 +64,16 @@ def test_stage1_contract_requires_predata_sampling_and_archiving_commitments() -
     assert req["data_material_code_commitment"] is True
     assert req["protocol_registration_after_aip"] is True
     assert req["confirmatory_data_before_aip"].startswith("not allowed")
+
+
+def test_sampling_plan_inherits_existing_precision_state_machine() -> None:
+    data = json.loads(LOCK.read_text(encoding="utf-8"))
+    sampling = data["sampling_and_precision_inheritance"]
+    assert sampling["independent_unit"] == "plant"
+    assert set(sampling["within_plant_subsamples"]) == {"flowers", "single-visit SVD events"}
+    assert sampling["readiness_state_machine"] == "data/design/effective_pollinator_dependency_field_readiness.json"
+    assert sampling["precision_planning_cli"] == "scripts/plan_effective_dependency_pilot_precision.py"
+    assert sampling["synthetic_design_simulation_is_empirical_power"] is False
 
 
 def test_quality_gate_failure_cannot_be_rescued_as_biological_null() -> None:
