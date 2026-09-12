@@ -1,6 +1,6 @@
 # Chapter 2 mechanism-mainline narrative lock
 
-Updated: 2026-09-11
+Updated: 2026-09-12
 Status: active journal-facing narrative contract
 
 ## One-sentence paper
@@ -61,11 +61,17 @@ World evidence is not a coequal Results act. It has three supporting roles only:
 2. define the empirical measurement ceiling;
 3. prevent synthetic results from being narrated as an already demonstrated historical natural causal chain.
 
-The frozen 25-entry audit and later geography-first saturation work remain valid evidence, but they belong in a compact claim-boundary section and Supporting Information rather than the paper headline.
+The frozen 25-entry audit and later geography-first saturation work remain valid evidence. Together with source-native secondary reanalyses and the existing Izu secondary-data stress tests, they form the chapter's **metadata confrontation layer**: an explicit external constraint on interpretation, not a substitute for a full natural transition experiment.
+
+The metadata layer is part of Chapter 2 completion because it closes the biological-plausibility and identifiability questions that can be answered from existing evidence. It does **not** count as validation of the complete synthetic mechanism.
+
+Canonical mapping: `docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`.
 
 ## Role of Izu
 
-Izu is not the current paper endpoint. The same-block visitor → effectiveness → dependency → mature-seed E3/E4 programme remains a high-value future validation design.
+Existing Izu secondary data contribute to the metadata confrontation layer because they include both support and failure: functional exposure predicts corrected matching, translation to pollen is weaker and not leave-one-island sign stable, shared targets branch in floral and pollen responses, and the null-corrected historical signed-position projection is unsupported.
+
+Izu is not the current paper endpoint. The same-block visitor → effectiveness → dependency → mature-seed E3/E4 programme remains a high-value **post-Chapter-2** validation design.
 
 It is explicitly not:
 
@@ -84,16 +90,16 @@ The Discussion should mirror the mechanism:
 3. the dominant source of variation can change rank across finite-community regimes;
 4. finite-community branching disappears only in the deterministic mean-field limit;
 5. local filtering and assurance occupy downstream positions;
-6. empirical work currently bounds plausibility and identifiability rather than validating the synthetic crossover.
+6. source-audited metadata show which biological ingredients and heterogeneous responses are already observed, while simultaneously defining the natural identifiability ceiling.
 
 ## Figure contract
 
 - **Figure 1:** conditional-response architecture + scale-dependent determinant hierarchy.
 - **Figure 2:** baseline geometry + exact richness control + equal-turnover control + system-size rank crossover.
 - **Figure 3:** partner-turnover regime movement + variance decomposition + filtering + assurance.
-- **Figure 4:** compact empirical claim boundary + optional future Izu validation protocol.
+- **Figure 4:** metadata confrontation + empirical claim ceiling: external partner-turnover examples, source-audit measurement coverage, Izu existing-data support/failure, and the explicit `0/25` full-contract boundary.
 
-Figure 4 is explicitly not a fourth scientific result.
+Figure 4 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
 
 ## Claim ceiling
 
@@ -104,7 +110,8 @@ Allowed:
 - persistent state × realized-community branch contingency after richness control;
 - regime-dependent ordering of starting-state and community-realization contributions;
 - finite-community branching over the audited finite range with deterministic mean-field disappearance;
-- downstream branch reallocation by filtering and magnitude attenuation by assurance.
+- downstream branch reallocation by filtering and magnitude attenuation by assurance;
+- biological plausibility, adversarial natural examples and empirical identifiability limits from source-audited metadata and secondary data.
 
 Not allowed:
 
@@ -113,11 +120,14 @@ Not allowed:
 - a natural field threshold at `k≈4`;
 - visitor richness or Hill diversity as literal synthetic `k`;
 - historical *Bombus* causation;
+- metadata as full validation of the synthetic mechanism;
 - current Izu E3/E4 as required validation;
 - Chapter 3 phenotype divergence as proof of Chapter 2 mechanism.
 
 ## Completion rule
 
-Chapter 2 is scientifically closed when the manuscript, figures, robustness checks and submission surfaces consistently support the conditional-response geometry and regime-dependent determinant-ordering claims above.
+Chapter 2 is scientifically closed when the manuscript, figures, robustness checks and metadata confrontation consistently support the conditional-response geometry and regime-dependent determinant-ordering claims above while preserving the declared natural claim ceiling.
 
-**Field E3/E4 remains future/optional validation, not a remaining empirical gate.**
+The canonical completion state is **simulation + source-audited metadata/secondary-data confrontation**. No new focal field data are required.
+
+**Field E3/E4 remains post-Chapter-2 future validation, not a remaining empirical gate.**
