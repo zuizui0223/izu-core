@@ -16,6 +16,7 @@ from scripts.render_oikos_submission_rtf import render_manuscript_rtf, render_su
 
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "data/results/chapter2_submission_closure_audit_20260906.json"
+COMPLETION_LOCK = ROOT / "data/design/chapter2_simulation_metadata_completion_lock_20260912.json"
 
 REQUIRED_HUMAN_INPUT_CATEGORIES = [
     "final_ordered_author_list_and_affiliations",
@@ -57,10 +58,16 @@ def _rtf_preflight(text: str, *, main_text: bool) -> list[str]:
             "realized richness differences therefore help position the ensemble mean regime",
             "ordering of response determinants is itself regime dependent",
             "deterministic mean-field kernel contrast was all-positive",
-            "optional future validation programme",
+            "metadata confrontation supports biological ingredients while bounding attribution",
+            "wanshan–yongxing",
+            "anijima",
+            "21/25",
+            "2/25",
+            "0/25",
+            "post-chapter-2 transport/falsification",
         ):
             if token not in lower:
-                errors.append(f"main-text mechanism-mainline token missing: {token}")
+                errors.append(f"main-text mechanism/metadata completion token missing: {token}")
         for stale in (
             "result 1—mechanistic prediction",
             "result 2—real-world exposure",
@@ -87,6 +94,20 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
     missing_paths = [rel for rel in required_paths if not (ROOT / rel).exists()]
     nonmetadata_errors.extend(f"missing required submission surface: {rel}" for rel in missing_paths)
 
+    try:
+        completion = json.loads(COMPLETION_LOCK.read_text(encoding="utf-8"))
+    except Exception as exc:
+        completion = {}
+        nonmetadata_errors.append(f"simulation-metadata completion lock: {exc}")
+    if completion:
+        if completion.get("status") != "chapter2_complete_without_new_focal_data":
+            nonmetadata_errors.append("Chapter 2 no-new-focal-data completion lock is not closed")
+        basis = completion.get("completion_basis", {})
+        if basis.get("new_focal_field_data_required") is not False:
+            nonmetadata_errors.append("completion lock incorrectly restores new focal field data as required")
+        if completion.get("claim_ceiling", {}).get("metadata_counts_as_full_mechanism_validation") is not False:
+            nonmetadata_errors.append("completion lock incorrectly promotes metadata to full mechanism validation")
+
     manifest_path = ROOT / ACTIVE_SUBMISSION_MANIFEST
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -110,7 +131,7 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         if manifest.get("claim_ceiling", {}).get("system_size_numeric_crossover_is_natural_threshold") is not False:
             nonmetadata_errors.append("active manifest incorrectly promotes the synthetic crossover to a natural threshold")
         if manifest.get("world_saturation_and_izu_continuity", {}).get("izu_e3_e4_status") != "future_optional_validation_not_completion_gate":
-            nonmetadata_errors.append("active manifest lost the optional future-validation status of Izu E3/E4")
+            nonmetadata_errors.append("active manifest lost the machine-compatible non-completion status of Izu E3/E4")
 
     try:
         manuscript_rtf = render_manuscript_rtf()
@@ -129,10 +150,11 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
 
     return {
         "schema_version": "1.1",
-        "audited_on": "2026-09-11",
+        "audited_on": "2026-09-12",
         "journal": metadata.get("journal"),
         "article_type": metadata.get("article_type"),
         "scientific_state": manifest.get("scientific_state") if manifest else None,
+        "simulation_metadata_completion_locked": completion.get("status") == "chapter2_complete_without_new_focal_data" if completion else False,
         "scientific_gate_complete": gate.get("scientific_model_gate_complete") is True,
         "mechanism_mainline_locked": manifest.get("narrative_lock") == "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md" if manifest else False,
         "field_e3_e4_required": manifest.get("claim_ceiling", {}).get("field_e3_e4_required_for_current_paper") if manifest else None,
