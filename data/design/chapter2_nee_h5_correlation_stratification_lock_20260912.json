@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_focal_reproductive_outcomes",
+  "frozen_on": "2026-09-12",
+  "purpose": "Amend H5 before R1 field-scope lock so the prospective natural test distinguishes theory failure from the theorem-predicted shared-stochasticity countercondition.",
+  "parents": {
+    "generic_theory": "data/design/chapter2_el_rank_crossover_generalization_freeze_20260912.json",
+    "effective_community": "data/design/chapter2_nee_effective_community_representation_lock_20260912.json",
+    "nee_promotion": "data/design/chapter2_nee_predata_promotion_lock_20260912.json"
+  },
+  "theory_translation": {
+    "generic_countercondition": "Correlated or synchronously forced community realizations can leave a non-shrinking community-variance floor and prevent determinant-rank reversal.",
+    "generic_audit_rho_critical": 0.25,
+    "rho_critical_role": "model-specific benchmark derived from the frozen generic coefficients and variances only",
+    "natural_cutoff_allowed": false,
+    "field_scaling_coordinate": "outcome-blind effective shared stochastic dependence / synchronization across repeated effective-community opportunities, not raw richness and not synthetic k"
+  },
+  "H5a_low_dependence": {
+    "prediction": "In prospectively classified lower-shared-dependence exposure strata, increasing aggregation across prespecified comparable opportunities should reduce community-realization contribution and increase relative plant-state contribution; a state-over-community rank reversal is expected only where the outcome-blind design places the stratum in a crossover-capable domain.",
+    "support": "Both directional redistribution components must be supported; rank reversal is additionally tested where its pre-outcome admission rule is met.",
+    "adverse": "Adequately measured lower-dependence strata show absent/opposite redistribution after prespecified amount, effort, site and time controls.",
+    "not_evaluable": "Dependence classification, repeated-opportunity support, effective-community measurement or confirmatory precision fails."
+  },
+  "H5b_high_dependence": {
+    "prediction": "In prospectively classified higher-shared-dependence exposure strata, aggregation should leave a persistent community-realization floor, so state-over-community rank reversal should be weakened or absent even when aggregation increases.",
+    "support": "Adequately measured higher-dependence strata retain community dominance or otherwise fail the predeclared state-over-community reversal while the dependence-floor criterion is met.",
+    "adverse": "A clear state-over-community reversal occurs in a stratum that satisfied the frozen high-dependence admission rule and measurement/precision gates.",
+    "not_evaluable": "The high-dependence admission rule, repeated-opportunity support, effective-community measurement or precision gate fails."
+  },
+  "stratification_rules": {
+    "timing": "Dependence strata or a continuous dependence interaction must be frozen from predictor/exposure data before focal reproductive outcomes are opened.",
+    "allowed_inputs": [
+      "background-controlled effective-service composition vectors",
+      "repeated block-to-block composition covariance or synchronization summaries",
+      "prespecified environmental forcing covariates measured before reproductive outcome",
+      "pilot-only exposure data declared before confirmatory execution"
+    ],
+    "forbidden_inputs": [
+      "mature-seed or fruit outcomes",
+      "dependency effect direction",
+      "H1-H4 effect direction",
+      "post-hoc search for a cutoff that maximizes H5 separation",
+      "literal use of rho=0.25 as a natural threshold"
+    ],
+    "fallback_if_numeric_cutoff_not_stable": "Use the predeclared continuous dependence-by-aggregation interaction or ordered outcome-blind strata; do not manufacture a natural threshold."
+  },
+  "interpretation_firewall": {
+    "no_redistribution_in_high_dependence_is_not_automatic_falsification": true,
+    "no_redistribution_in_unclassified_or_unsupported_blocks": "NOT_EVALUABLE",
+    "low_dependence_failure_with_adequate_precision_can_falsify": true,
+    "field_rho_equals_generic_rho": false,
+    "synthetic_k_equals_field_aggregation": false
+  },
+  "dependency_order": "This lock must precede final R1 block definition, because block construction determines the observable dependence structure and cannot be retrofitted from reproductive outcomes.",
+  "claim_boundary": "H5 tests a conditional prediction: stochastic averaging should redistribute determinant importance only when realized effective-community opportunities are sufficiently independent for averaging to operate. The generic rho=0.25 value is not a field threshold."
+}
