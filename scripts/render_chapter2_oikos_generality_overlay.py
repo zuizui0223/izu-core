@@ -58,7 +58,8 @@ def render_submission_manuscript() -> str:
     lower = text.lower()
     required = (
         "same broad pollinator-community reorganization can generate opposing plant-response branches",
-        "richness can position the ensemble regime without determining individual branch identity",
+        "realized richness differences therefore help position the ensemble mean regime",
+        "do not explain away response branching across realized community compositions",
         "scale-dependent response architecture",
         "dominant source of response variation need not be fixed",
         "the syndrome is therefore the shifted response regime and its variance architecture",
