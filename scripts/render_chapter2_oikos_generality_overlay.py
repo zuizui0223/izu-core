@@ -57,7 +57,7 @@ def render_submission_manuscript() -> str:
     lower = text.lower()
     required = (
         "ensemble-level regime shifts rather than deterministic lineage-level trait rules",
-        "how a coherent island-level tendency can coexist with opposing lineage-level responses",
+        "same broad pollinator-community reorganization can generate a coherent ensemble tendency while individual plant lineages take opposing response branches",
         "scale-dependent response architecture",
         "dominant source of response variation need not be fixed",
         "the syndrome is therefore the shifted response regime and its variance architecture",
