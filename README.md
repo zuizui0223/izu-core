@@ -4,15 +4,18 @@
 
 ## Current state
 
-**Chapter 2 is scientifically closed, and the synthetic gate is closed.** The active paper follows one mechanism-first sequence:
+**Chapter 2 is scientifically closed without new focal field data.** Its canonical completion state is **simulation + source-audited metadata/secondary-data confrontation**.
 
 ```text
 conditional response geometry
     -> exact realized-richness control
         -> finite-community / system-size determinant hierarchy
             -> downstream filtering and assurance
-                -> bounded empirical claim ceiling
+                -> source-audited metadata confrontation
+                    -> bounded empirical claim ceiling
 ```
+
+The completion contract is [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json), and the claim-by-claim map is [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md).
 
 The active manuscript is [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md). The active narrative lock is [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md), and the Oikos route is controlled by [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json).
 
@@ -36,13 +39,9 @@ A finite-community limit analysis then shows that the deterministic mean-field k
 
 These are synthetic mechanism and robustness results, **not natural frequencies or calibrated ecological thresholds**.
 
-## Downstream modifiers
+## Metadata confrontation layer
 
-Local filtering and reproductive assurance are retained because they change realized responses without replacing the upstream mechanism. Local filtering reallocates branches asymmetrically; reproductive assurance attenuates magnitude but does not rescue sign within the declared envelope.
-
-## Empirical claim boundary
-
-World and Izu evidence now have a bounded role: biological plausibility, falsification context, reviewer audit and identification of what remains unmeasured. They are **not required validation** of the synthetic determinant hierarchy.
+The source-audited natural layer is part of Chapter 2 completion, but it has a bounded role: **biological plausibility, adversarial stress testing and empirical identifiability**, not full validation of the synthetic mechanism.
 
 The formal source audit remains frozen at **25 research entries across 21 exact geographic labels**:
 
@@ -51,26 +50,40 @@ The formal source audit remains frozen at **25 research entries across 21 exact 
 - full outcome-independent contracts: **0/25**;
 - formal external prediction: **`not_evaluable`**.
 
-A later descriptive layer reached **42 research entries across 37 exact geographic labels**, and the geography-first world programme reached its declared saturation rule. Those assets remain Supporting Information/provenance rather than a coequal manuscript result.
+A later descriptive layer reached **42 research entries across 37 exact geographic labels**, and the geography-first world programme reached its declared saturation rule. Further cross-sectional searching is therefore not a Chapter 2 completion requirement.
 
-## Izu and future validation
+Existing Izu secondary analyses contribute both support and failure:
 
-Izu remains valuable because it offers unusually strong measurement continuity, contemporary functional-network data and an implementation-ready prospective field design. Existing Izu analyses also preserve useful negative results, including the unsupported null-corrected historical signed-position projection and the unsupported prespecified Oshima-source bridge.
+- functional exposure → corrected matching: supported and leave-one-island sign robust;
+- matching → pollen: positive on average but not leave-one-island sign stable;
+- eight lower-matching shared targets: tube shorter 3 / longer 4 / equal 1; pollen lower 4 / higher 4;
+- historical signed-position projection after null correction: unsupported;
+- Oshima bridge as a causal geographic boundary: not independently identified.
 
-For the current paper, however, Izu visitor → effectiveness → dependency → mature-seed E3/E4 is an **optional future validation programme, not a submission gate or completion criterion**. Present-day Izu associations do not identify historical *Bombus* loss.
+That mixture is intentional. The natural evidence makes the modeled ingredients biologically non-vacuous while preventing the simulation from being narrated as already validated historical causation.
 
-## Separate pre-data NEE promotion lane
+## Downstream modifiers
 
-A higher-impact prospective route is now isolated from the closed Oikos paper. It does **not** reopen the synthetic manuscript or make new field data a completion requirement for the current Chapter 2 paper.
+Local filtering and reproductive assurance are retained because they change realized responses without replacing the upstream mechanism. Local filtering reallocates branches asymmetrically; reproductive assurance attenuates magnitude but does not rescue sign within the declared envelope.
 
-Canonical pre-data surfaces:
+## Izu and post-Chapter-2 validation
+
+Izu remains valuable because it offers unusually strong measurement continuity, contemporary functional-network data and an implementation-ready prospective field design. The existing secondary-data layer already contributes to the completed Chapter 2 metadata confrontation.
+
+For the current paper, however, Izu visitor → effectiveness → dependency → mature-seed E3/E4 is an **optional future validation programme, not a submission gate or completion criterion**. Scientifically it is now classified as **post-Chapter-2 transport/falsification**. Present-day Izu associations do not identify historical *Bombus* loss.
+
+## Post-Chapter-2 prospective transport / NEE lane
+
+The previously built NEE Registered Report materials are retained because they provide a rigorous outcome-independent future transport design. They do **not** define an unfinished Chapter 2 task and do not reopen the closed Oikos manuscript.
+
+Reusable prospective surfaces:
 
 - [`docs/CHAPTER2_NEE_PREDATA_UPGRADE_CONTRACT_20260912.md`](docs/CHAPTER2_NEE_PREDATA_UPGRADE_CONTRACT_20260912.md) — human-readable promotion and stop rules;
 - [`data/design/chapter2_nee_predata_promotion_lock_20260912.json`](data/design/chapter2_nee_predata_promotion_lock_20260912.json) — machine-readable P1–P6 / Q1–Q6 promotion contract;
 - [`docs/CHAPTER2_NEE_REGISTERED_REPORT_STAGE1_V0_1.md`](docs/CHAPTER2_NEE_REGISTERED_REPORT_STAGE1_V0_1.md) — pre-data Nature Ecology & Evolution Registered Report Stage-1 skeleton;
 - [`docs/CHAPTER2_EXTERNAL_TRANSPORT_TRIAGE_20260912.md`](docs/CHAPTER2_EXTERNAL_TRANSPORT_TRIAGE_20260912.md) — bounded role of existing Seychelles, *Nicotiana* and *Guaiacum* evidence.
 
-This promotion lane wraps rather than replaces the previously frozen Izu designs:
+The future transport design keeps the frozen E1–E4 architecture:
 
 ```text
 E1  coarse richness/amount regime
@@ -79,11 +92,9 @@ E3  visitor → SVD/effective service → dependency → mature seed
 E4  qualitative determinant-order confrontation across effective-service breadth/stability
 ```
 
-The primary promotion hypothesis is E2/P2: **plant pre-outcome state × realized effective-community composition**. E3 supplies the functional and reproductive chain; E4 asks whether the relative contribution of state versus community realization changes as independent exposure opportunities are averaged.
-
 Synthetic `k` remains model-specific. Visitor richness, Hill diversity and effective-service breadth are not literal field estimates of `k`, and no field threshold near `k≈4` is predicted.
 
-The existing field-readiness state machine remains authoritative for sampling/precision. It does not invent a confirmatory sample size before pilot dispersion, coverage and attrition are observed and frozen. Flowers and SVD events remain within-plant subsamples; the independent precision unit is the plant.
+Any later pilot/precision work belongs to this post-Chapter-2 study. It is not needed to call Chapter 2 complete.
 
 ## Chapter 2 / Chapter 3 boundary
 
@@ -91,8 +102,9 @@ Chapter 2 closes with:
 
 1. conditional response geometry;
 2. exact realized-richness separation of coarse regime placement from branch contingency;
-3. a finite-community/system-size result showing regime-dependent determinant ordering; and
-4. downstream modifiers plus a bounded empirical claim ceiling.
+3. a finite-community/system-size result showing regime-dependent determinant ordering;
+4. downstream modifiers; and
+5. source-audited metadata / secondary-data confrontation that fixes the empirical claim ceiling.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.
 
@@ -100,6 +112,8 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 - [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md) — active manuscript.
 - [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md) — active narrative contract.
+- [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) — no-new-focal-data completion lock.
+- [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) — simulation ↔ metadata ↔ claim-ceiling map.
 - [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level HOW / proximal-WHY / ultimate-WHY boundary.
 - [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — current Oikos submission contract.
 - `scripts/render_island_ecology_submission_manuscript.py` — compatibility renderer delegating to the canonical mechanism-mainline render.
@@ -109,9 +123,9 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The scientific gate is closed. Non-metadata submission surfaces are intended to close on the mechanism-mainline contract; actual submission remains fail-closed on author-supplied identity and declaration fields such as author order/affiliations, corresponding-author details and ORCID, prior-work context, acknowledgements/funding, inclusion/conflict declarations, ethics confirmation and final metadata-driven bundle construction.
+The scientific gate is closed. Actual Oikos submission remains fail-closed only on author-supplied identity and declaration fields such as author order/affiliations, corresponding-author details and ORCID, prior-work context, acknowledgements/funding, inclusion/conflict declarations, ethics confirmation and final metadata-driven bundle construction.
 
-The NEE promotion lane is separately **pre-data and not Stage-1 submission-ready** until the exact field scope and pilot-derived sampling/precision rule are frozen. Its existence does not change the current Oikos submission status.
+The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure or Oikos submission readiness.
 
 ## Claim boundary
 
@@ -122,9 +136,10 @@ This repository does **not** claim that:
 - visitor richness or Hill diversity is literally synthetic `k`;
 - the 42/37 descriptive breadth is an independent global prevalence sample;
 - the frozen 25 systems validate one universal mechanism;
+- metadata constitute full natural validation of the synthetic determinant hierarchy;
 - a synthetic [0,1] coordinate is calibrated to a named field trait;
 - present functional structure identifies the historical cause of focal-lineage divergence;
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
-The retained contribution is a **synthetic conditional-response mechanism with a bounded empirical claim ceiling**: richness influences coarse regime placement, state × realized composition retains branch contingency, determinant ordering changes across finite-community regimes, and downstream processes modify rather than replace that architecture.
+The retained contribution is a **synthetic conditional-response mechanism completed by source-audited metadata confrontation at a bounded empirical claim ceiling**: richness influences coarse regime placement, state × realized composition retains branch contingency, determinant ordering changes across finite-community regimes, downstream processes modify rather than replace that architecture, and existing natural evidence defines which parts are biologically supported versus not yet identifiable.
