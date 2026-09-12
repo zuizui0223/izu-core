@@ -45,8 +45,9 @@ def _strip_repository_metadata(text: str) -> str:
 def render_submission_manuscript() -> str:
     """Return the submission-facing mechanism-mainline manuscript.
 
-    The active source owns the scientific narrative. This layer validates the
-    claim lock and strips repository/dissertation routing metadata before RTF or
+    The active source owns the scientific narrative. This layer validates stable
+    scientific propositions rather than preserving obsolete sentence-level
+    wording, then strips repository/dissertation routing metadata before RTF or
     anonymous-review rendering.
     """
     text = _strip_repository_metadata(render_base_manuscript())
@@ -56,8 +57,8 @@ def render_submission_manuscript() -> str:
 
     lower = text.lower()
     required = (
-        "ensemble-level regime shifts rather than deterministic lineage-level trait rules",
-        "same broad pollinator-community reorganization can generate a coherent ensemble tendency while individual plant lineages take opposing response branches",
+        "same broad pollinator-community reorganization can generate opposing plant-response branches",
+        "richness can position the ensemble regime without determining individual branch identity",
         "scale-dependent response architecture",
         "dominant source of response variation need not be fixed",
         "the syndrome is therefore the shifted response regime and its variance architecture",
@@ -81,6 +82,8 @@ def render_submission_manuscript() -> str:
         "28–42/96",
         "the numerical crossover is model-specific",
         "metadata confrontation supports biological ingredients while bounding attribution",
+        "wanshan–yongxing",
+        "anijima",
         "post-chapter-2 transport/falsification",
     )
     for token in required:
