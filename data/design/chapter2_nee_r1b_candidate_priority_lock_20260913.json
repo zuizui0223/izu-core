@@ -1,10 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "status": "candidate_priority_frozen_before_field_outcomes",
   "frozen_on": "2026-09-13",
   "purpose": "Prioritize R1b reconnaissance without using reproductive effect direction, while preserving the distinction between occurrence evidence and experimental admission.",
   "parents": {
-    "r1_architecture": "data/design/chapter2_nee_r1_architecture_lock_20260913.json",
+    "r1_architecture": "data/design/chapter2_nee_r1_scope_architecture_20260913.json",
     "candidate_registry": "data/design/chapter2_nee_r1_site_registry_candidates_20260913.csv",
     "r5_transport": "data/design/chapter2_nee_r5_transport_decision_20260912.json"
   },
