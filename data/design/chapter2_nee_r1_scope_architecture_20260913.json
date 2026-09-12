@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "status": "R1_architecture_frozen_exact_site_registry_open",
+  "frozen_on": "2026-09-13",
+  "purpose": "Advance R1 without inventing site-level feasibility: freeze the focal taxon, prospective transport taxon, independence logic and block-scale admission rules before a final site registry or focal reproductive outcomes exist.",
+  "parents": {
+    "stage1_readiness": "docs/CHAPTER2_NEE_STAGE1_READINESS_20260912.md",
+    "R5_transport": "data/design/chapter2_nee_r5_transport_decision_20260912.json",
+    "H5_stratification": "data/design/chapter2_nee_h5_correlation_stratification_lock_20260912.json",
+    "H5_prepilot_oc": "data/results/chapter2_nee_h5_prepilot_oc_20260912.json",
+    "field_chain": "data/design/izu_transition_linked_chain_freeze_20260909.json",
+    "pilot_priority": "data/design/effective_dependency_pilot_field_priority.json"
+  },
+  "focal_context": {
+    "taxon": "Campanula microdonta",
+    "role": "primary focal natural system",
+    "geographic_family": "Izu populations with source-resolved historical and contemporary context",
+    "primary_candidate_geographic_contrast": ["Oshima", "Kozushima"],
+    "candidate_pair_is_final_R1_site_registry": false,
+    "reason_for_candidate_pair": "The pair spans the source-defined Oshima versus post-Oshima ecological contrast and is already represented in the regional evidence architecture; final admission still requires prospective site-, plant-, SVD- and treatment-feasibility screening.",
+    "seasonal_window_role": "summer flowering window; exact dates remain a site-level R1 feasibility item and cannot be selected from reproductive outcomes"
+  },
+  "transport_context": {
+    "taxon": "Farfugium japonicum",
+    "role": "second prospective independent natural context for NEE breadth",
+    "selection_status": "prospectively_selected_before_focal_outcomes",
+    "selection_basis": "Source-defined pollen-success target membership plus high interaction breadth and broad source-site coverage; selection does not use focal Chapter-2 reproductive effect direction.",
+    "preferred_geographic_family": "geographically independent coastal populations outside the focal Campanula context, with the historical Hiraiwa-Ushimaru mainland site universe preferred for feasibility screening",
+    "preferred_candidate_sites": ["Hitachi", "Hitachinaka", "Tateyama"],
+    "same_archipelago_fallback_allowed": true,
+    "same_archipelago_fallback_rule": "Allowed only if the Farfugium context is biologically and sampling-wise independent enough to be a genuine transport challenge rather than another focal block.",
+    "seasonal_window_role": "autumn flowering window; exact dates remain a site-level R1 feasibility item",
+    "P6_primary_target": "transport the frozen H2 plant-state x effective-community mapping without retuning",
+    "H5_transport_role": "record and apply the same outcome-blind dependence coordinate and aggregation rules; independent decisive H5 power in the transport context is required only if R3 declares it feasible and necessary for the final Stage-1 claim set"
+  },
+  "block_architecture": {
+    "strict_unit": "block_id x plant_id",
+    "block_definition": "prespecified taxon x population/site x time window",
+    "focal_H5_design_lever": "independent repeated blocks, not flowers or visits",
+    "prepilot_screen_reference_only": {
+      "16_blocks_low_dependence_crossover_separation": 0.5425,
+      "32_blocks_low_dependence_crossover_separation": 0.835,
+      "48_blocks_low_dependence_crossover_separation": 0.9,
+      "note": "Synthetic order-of-magnitude screen only; not empirical power and not a final sample-size rule."
+    },
+    "R1_screening_floor": "A focal scope with materially fewer than 32 plausibly independent repeated blocks is not preferred for the NEE H5 lane unless R2/R3 later supply stronger empirical information; do not count within-plant flowers, visits or SVD repeats as independent blocks.",
+    "dependence_requirement": "R1 must create observable variation in outcome-blind shared-dependence/synchronization across repeated effective-community opportunities; low/high labels or a continuous interaction are frozen from exposure data before reproductive outcomes.",
+    "no_fixed_final_n": true
+  },
+  "exact_R1_closure_requirements": [
+    "name the actual focal Campanula population/site units rather than island labels alone",
+    "name the actual Farfugium transport population/site units",
+    "show each admitted site has enough eligible flowering plants for the pilot chain",
+    "predeclare time-window construction and demonstrate that nominal blocks are not simple pseudoreplicates",
+    "show SVD background controls and all three reproductive treatments are feasible in both contexts",
+    "show the planned block schedule can estimate the outcome-blind dependence coordinate before reproductive outcomes are opened",
+    "record access/permit/phenology exclusion reasons without using effect direction"
+  ],
+  "route_logic": {
+    "if_focal_scope_can_support_H5_and_transport_context_is_feasible": "continue NEE Stage-1 lane to R2",
+    "if_focal_scope_is_strong_but_transport_context_is_not_feasible": "single-system EL/Ecology lane; do not weaken H5 or back-promote old metadata to P6",
+    "if_focal_scope_cannot_supply_independent_blocks_for_H5": "do not close R1 for NEE; keep H1-H4 confirmatory and reserve full H5 for an expanded design",
+    "oikos_chapter2_effect": "none"
+  },
+  "forbidden": [
+    "declare Oshima and Kozushima final sites only because they are logistically convenient",
+    "call seasonal or within-site repeated rows independent geographic replication",
+    "choose Farfugium after seeing focal outcome direction",
+    "use synthetic rho values as natural dependence cutoffs",
+    "use the prepilot operating-characteristic screen as empirical power",
+    "reduce H5 requirements after pilot investment to preserve an NEE label"
+  ],
+  "claim_boundary": "R1 architecture is now frozen, but R1 is not closed until actual population/site units and time windows pass prospective feasibility. The architecture deliberately fixes what cannot be retrofitted later while refusing to invent field availability that has not yet been demonstrated."
+}
