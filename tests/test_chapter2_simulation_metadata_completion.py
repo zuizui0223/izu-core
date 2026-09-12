@@ -11,6 +11,8 @@ FIGURES = ROOT / "scripts/generate_chapter2_manuscript_figures_realized_richness
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
 WORLD = ROOT / "data/results/chapter2_global_master_manuscript_value_review_audit_20260906.json"
 IZU = ROOT / "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
+WANSHAN = ROOT / "data/results/wanshan_yongxing/effect_rows.json"
+OGASAWARA = ROOT / "data/results/ogasawara/context_analysis/effect_rows.json"
 
 
 def test_completion_lock_requires_no_new_focal_data() -> None:
@@ -48,6 +50,20 @@ def test_completion_lock_matches_frozen_world_and_izu_audits() -> None:
     assert m4["historical_signed_position_null_corrected_supported"] is izu["izu_current_evidence"]["signed_position"]["null_corrected_supported"]
 
 
+def test_source_native_external_composition_examples_match_manuscript_numbers() -> None:
+    wanshan = json.loads(WANSHAN.read_text(encoding="utf-8"))
+    ogasawara = json.loads(OGASAWARA.read_text(encoding="utf-8"))
+    w = {row["effect_id"]: row for row in wanshan["effects"]}
+    o = {row["effect_id"]: row for row in ogasawara["effects"]}
+
+    assert round(w["wanshan_yongxing_partner_turnover"]["estimate"], 3) == 0.980
+    assert round(w["wanshan_yongxing_pollinator_richness_lrr"]["estimate"], 3) == -0.105
+    assert w["wanshan_yongxing_partner_turnover"]["causal_claim_allowed"] is False
+    assert round(o["ogasawara_anijima_partner_turnover"]["estimate"], 3) == 0.682
+    assert round(o["ogasawara_anijima_pollinator_richness_lrr"]["estimate"], 3) == -0.315
+    assert o["ogasawara_anijima_partner_turnover"]["causal_claim_allowed"] is False
+
+
 def test_oikos_manifest_already_demotes_field_completion_gate() -> None:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert manifest["claim_ceiling"]["field_e3_e4_required_for_current_paper"] is False
@@ -72,6 +88,9 @@ def test_active_manuscript_contains_metadata_confrontation_not_missing_field_end
     lower = text.lower()
     assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
     assert "21/25" in text and "2/25" in text and "0/25" in text
+    assert "wanshan–yongxing" in lower and "0.980" in text and "−0.105" in text
+    assert "anijima" in lower and "0.682" in text and "−0.315" in text
+    assert "not independent geographic replication or causal island effects" in lower
     assert "+1.9426" in text and "+2.0590" in text
     assert "not leave-one-island sign stable" in lower
     assert "historical signed-position projection was not supported after null correction" in lower
