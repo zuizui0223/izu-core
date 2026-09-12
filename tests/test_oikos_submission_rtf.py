@@ -25,8 +25,11 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_mechanism_main
     assert "70/96" in text and "65.61%" in text
     assert "55.84%" in text and "12.72%" in text
     assert "deterministic mean-field kernel contrast was all-positive" in lower
+    assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
+    assert "21/25" in text and "2/25" in text and "0/25" in text
     assert "figure 1. conditional-response architecture and scale-dependent determinant hierarchy" in lower
-    assert "figure 4. empirical claim boundary and future validation" in lower
+    assert "figure 4. metadata confrontation and empirical claim ceiling" in lower
+    assert "post-chapter-2 transport/falsification" in lower
     assert "figure 1. three-result inference chain" not in lower
     assert "result 1—mechanistic prediction" not in lower
     assert "result 2—real-world exposure" not in lower
