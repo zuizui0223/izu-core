@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "R5_strategic_decision_closed_before_R1",
+  "frozen_on": "2026-09-12",
+  "purpose": "Fix the breadth requirement before R1/R2/R3 so field scope and precision are not redesigned after a focal pilot or outcome result.",
+  "current_secondary_evidence": {
+    "formal_full_transition_contracts": "0_of_25",
+    "role": "metadata confrontation and transport triage only",
+    "P6_admitted_from_existing_secondary_data": false,
+    "reason": "No current secondary system supplies the same frozen source-state, effective-community, functional bridge and reproductive endpoint contract required for a prospective P6 test."
+  },
+  "nee_route_decision": {
+    "independent_transport_required_for_NEE_stage1": true,
+    "required_form": "at least one second prospective independent natural context using the same frozen H2/H5 mapping and outcome-state logic without retuning",
+    "independent_context_may_be_same_archipelago": true,
+    "independence_requirement": "must be biologically and sampling-wise independent enough to constitute a prospective transport challenge rather than another block from the focal context",
+    "context_selection_deadline": "outcome-blind during R1 after this rule is frozen and before focal confirmatory reproductive outcomes are opened",
+    "no_rescue_role": "P6 does not rescue adverse H1-H5 results in the focal context and focal results do not authorize retuning P6."
+  },
+  "route_ceiling": {
+    "if_second_prospective_context_feasible": "NEE Registered Report lane remains eligible, subject to H5/R3 feasibility and Stage-1 fit.",
+    "if_second_prospective_context_not_feasible": "Do not weaken H5 or relabel existing secondary metadata as P6; route the strong single-system prospective study to Ecology Letters, Ecology, or another appropriate general-ecology venue.",
+    "if_H5_confirmatory_precision_infeasible_in_single_system": "Retain H1-H4 as confirmatory and H5 as descriptive/exploratory for the single-system study; reserve confirmatory H5 plus transport breadth for a later expanded NEE design.",
+    "oikos_chapter2_effect": "none"
+  },
+  "forbidden": [
+    "admit P6 because an external dataset happens to agree with the focal effect direction",
+    "select the second natural context after viewing focal reproductive outcomes",
+    "change visitor grouping, plant-state definition, endpoint family or aggregation rule to obtain transport agreement",
+    "weaken H5 after pilot investment merely to preserve an NEE label",
+    "treat current world/Izu metadata as a complete prospective transport contract"
+  ],
+  "dependency_order": [
+    "R5 breadth rule",
+    "H5 pre-pilot operating-characteristics screen",
+    "R1 focal and transport field-scope lock",
+    "R2 pilot dispersion/retention freeze",
+    "R3 confirmatory precision plan"
+  ],
+  "claim_boundary": "The second prospective context is a breadth criterion for the future NEE lane, not a missing Chapter 2 result and not evidence that any existing natural system already validates the synthetic mechanism."
+}
