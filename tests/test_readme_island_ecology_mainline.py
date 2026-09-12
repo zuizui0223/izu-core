@@ -8,10 +8,11 @@ def test_readme_declares_closed_science_and_current_active_surface():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert text.startswith("# Izu Core — conditional island plant response geometry")
-    assert "chapter 2 is scientifically closed" in lower
-    assert "synthetic gate is closed" in lower
+    assert "chapter 2 is scientifically closed without new focal field data" in lower
+    assert "simulation + source-audited metadata/secondary-data confrontation" in lower
     assert "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md" in text
     assert "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md" in text
+    assert "data/design/chapter2_simulation_metadata_completion_lock_20260912.json" in text
     assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in text
     assert "historical v2 manuscripts" in lower
     assert "must not be treated as the current manuscript surface" in lower
@@ -44,16 +45,17 @@ def test_readme_routes_implementation_detail_to_active_surfaces():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert "active scientific and submission surfaces" in lower
+    assert "docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md" in text
     assert "scripts/render_island_ecology_submission_manuscript.py" in text
     assert "scripts/build_island_ecology_review_archive.py" in text
 
 
-def test_readme_demotes_world_and_izu_to_bounded_empirical_role():
+def test_readme_preserves_bounded_metadata_role_and_post_chapter2_field_role():
     lower = README.read_text(encoding="utf-8").lower()
-    assert "biological plausibility, falsification context" in lower
-    assert "not required validation" in lower
+    assert "biological plausibility, adversarial stress testing and empirical identifiability" in lower
+    assert "not full validation" in lower
     assert "21/25" in lower and "2/25" in lower and "0/25" in lower
-    assert "optional future validation programme" in lower
+    assert "post-chapter-2 transport/falsification" in lower
     assert "not a submission gate or completion criterion" in lower
 
 
