@@ -1,21 +1,23 @@
 # Chapter 2 Oikos submission checklist
 
-Updated: 2026-09-11
+Updated: 2026-09-12
 
 ## Active route
 
 - Journal: **Oikos**
 - Article type: **Research Paper**
-- Scientific tier: **Tier B — synthetic conditional-response mechanism with bounded empirical claim ceiling**
-- Journal-facing story: **Conditional response geometry → exact realized-richness control → scale-dependent determinant ordering → downstream modifiers**
-- Empirical role: **biological plausibility, falsification context and historical claim boundary; not required validation**
-- Izu E3/E4: **future/optional validation, not a submission gate**
+- Scientific tier: **Tier B — synthetic conditional-response mechanism completed by source-audited metadata confrontation at a bounded empirical claim ceiling**
+- Journal-facing story: **Conditional response geometry → exact realized-richness control → scale-dependent determinant ordering → downstream modifiers → metadata confrontation / empirical claim ceiling**
+- Empirical role: **source-audited biological plausibility, adversarial secondary-data stress testing and identifiability boundary; not full natural validation**
+- Izu E3/E4: **post-Chapter-2 future transport/falsification, not a submission gate**
 - Fallback: **Journal of Ecology Research Article**
 
 Active narrative contract: `docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`.
+Chapter-completion contract: `data/design/chapter2_simulation_metadata_completion_lock_20260912.json`.
+Claim-by-claim evidence map: `docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`.
 Historical three-result and four-act narrative locks are provenance only.
 
-The scientific gate is closed. No additional simulation, world search, Izu same-block field measurement or Chapter 3 result is required to complete the current mechanism paper.
+The scientific gate is closed. No additional simulation, world search, Izu same-block field measurement, NEE Stage-1 work or Chapter 3 result is required to complete the current Chapter 2 paper.
 
 ## Oikos initial-submission requirements implemented
 
@@ -72,13 +74,16 @@ The machine-readable submission-closure preflight is `data/results/chapter2_subm
 - at filtering strength 0.40, negative→non-negative transitions are 42/268 (15.67%) and positive→non-positive transitions 337/596 (56.54%);
 - reproductive assurance attenuates magnitude but gives zero sign rescues among 580 eligible declines through 4× in the declared envelope.
 
-### 5. Empirical claim boundary
+### 5. Metadata confrontation and empirical claim ceiling
 
-- direct responses 21/25, direct partner arrival/replacement 2/25, full contracts 0/25;
+- formal source audit: direct responses 21/25, direct partner arrival/replacement 2/25, full outcome-independent contracts 0/25;
 - formal external prediction remains `not_evaluable`;
-- later world breadth and Izu analyses remain supporting evidence and provenance, not required validation of the synthetic determinant hierarchy;
+- broader source-verified descriptive evidence reaches 42 research entries / 37 exact geographic labels and the declared geography-first saturation rule;
+- Wanshan–Yongxing and Ogasawara provide large partner-turnover examples without licensing a pooled universal island effect;
+- existing Izu secondary analyses retain both support and failure: functional exposure → corrected matching is robust, matching → pollen is not leave-one-island sign stable, the historical signed-position projection is unsupported after null correction, and the Oshima bridge is not independently identified as causal;
+- these data constrain interpretation and biological plausibility but do **not** validate a universal synthetic determinant hierarchy or natural `k≈4` threshold;
 - Chapter 3 phenotype divergence is not Chapter 2 validation;
-- Izu visitor → effectiveness → dependency → mature-seed E3/E4 remains an optional prospective validation programme.
+- Izu visitor → effectiveness → dependency → mature-seed E3/E4 is a **post-Chapter-2** prospective transport/falsification programme.
 
 ## Author-supplied information still required
 
@@ -94,4 +99,4 @@ Run the metadata validator, `python scripts/audit_chapter2_submission_closure.py
 
 Expected bundle: `dist/chapter2_oikos_submission_bundle.zip`.
 
-Until the author-supplied fields, ethics confirmation and declarations are complete, the builder remains fail-closed by design. Any non-metadata failure is a packaging/renderer problem, not a scientific reason to reopen field E3/E4.
+Until the author-supplied fields, ethics confirmation and declarations are complete, the builder remains fail-closed by design. Any non-metadata failure is a packaging/renderer problem, not a scientific reason to reopen simulation, metadata searching or field E3/E4.
