@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "status": "candidate_priority_frozen_before_field_outcomes",
+  "frozen_on": "2026-09-13",
+  "purpose": "Prioritize R1b reconnaissance without using reproductive effect direction, while preserving the distinction between occurrence evidence and experimental admission.",
+  "parents": {
+    "r1_architecture": "data/design/chapter2_nee_r1_architecture_lock_20260913.json",
+    "candidate_registry": "data/design/chapter2_nee_r1_site_registry_candidates_20260913.csv",
+    "r5_transport": "data/design/chapter2_nee_r5_transport_decision_20260912.json"
+  },
+  "ranking_inputs_allowed": [
+    "source-backed current or historical occurrence locality",
+    "geographic independence from the focal context",
+    "whether an exact population/site can be resolved before outcomes",
+    "access and permit burden",
+    "phenological overlap with the planned measurement protocol",
+    "ability to instantiate independent site-time exposure blocks"
+  ],
+  "ranking_inputs_forbidden": [
+    "mature seed or fruit response direction",
+    "dependency effect direction",
+    "H1-H5 effect direction",
+    "choosing a site because it produces the expected crossover",
+    "retrofitting a transport site after focal outcomes are known"
+  ],
+  "focal_Campanula_priority": [
+    {
+      "rank": 1,
+      "geographic_unit": "Oshima",
+      "candidate_ids": [
+        "oshima-fudeshima",
+        "oshima-toshiki",
+        "oshima-mihara",
+        "oshima-senzu-coastal"
+      ],
+      "decision": "Use Oshima for first reconnaissance because multiple independent sources already resolve named localities; do not treat any locality as admitted until plant abundance, block independence, SVD/treatment feasibility, access, permits and phenology pass the R1b audit."
+    },
+    {
+      "rank": 2,
+      "geographic_unit": "Kozushima",
+      "candidate_ids": ["kozu-island-herbarium"],
+      "decision": "Resolve an exact current Campanula population before assigning confirmatory blocks; the current herbarium evidence is island-level and cannot close R1b by itself."
+    }
+  ],
+  "transport_Farfugium_priority": [
+    {
+      "rank": 1,
+      "geographic_unit": "Kozushima",
+      "candidate_ids": ["kozu-sainbara-lighthouse"],
+      "decision": "Primary transport reconnaissance candidate because it supplies a second geography and an official locality lead while remaining outcome-blind; experimental access, abundance, permit status and block structure remain pending."
+    },
+    {
+      "rank": 2,
+      "geographic_unit": "Oshima",
+      "candidate_ids": ["oshima-nihonmatsu-shiofuki", "oshima-senzu-coastal"],
+      "decision": "Backup transport candidates only. Same-island transport is biologically broader through taxon/season but geographically weaker than Kozushima and therefore should not displace the Kozushima candidate merely for convenience."
+    }
+  ],
+  "regulatory_triage": {
+    "oshima_senzu_coastal": {
+      "status": "high_friction_pending_confirmation",
+      "basis": "The Oshima coastal plant community is designated as a natural monument; occurrence evidence is valuable, but manipulative work must not be assumed permissible.",
+      "admission_rule": "permit_status must be confirmed or not_required under the competent authority before any row can be admitted"
+    },
+    "national_park_general": {
+      "status": "site_specific_review_required",
+      "basis": "National-park special areas can require permission for regulated plant-related actions; this lock does not infer that every candidate site or every planned manipulation is prohibited.",
+      "admission_rule": "resolve the exact protected-area category and planned actions during R1b before admission"
+    }
+  },
+  "current_decision": "R1b remains open. The next information gain is field/permit reconnaissance at named candidate localities, not additional literature hunting or outcome analysis.",
+  "claim_boundary": "This priority lock ranks reconnaissance candidates only. It is not proof of current abundance, experimental feasibility, legal permission, independent-block count, H5 power, or natural validation of the synthetic mechanism."
+}
