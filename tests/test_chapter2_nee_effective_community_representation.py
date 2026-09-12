@@ -51,6 +51,6 @@ def test_r4_forbids_outcome_informed_reencoding_and_literal_k_mapping() -> None:
 def test_readiness_marks_r4_closed_without_closing_pilot_or_precision() -> None:
     text = READINESS.read_text(encoding="utf-8")
     assert "effective-community primary encoding | **CLOSED**" in text
-    assert "pilot dispersion/attrition | OPEN" in text
-    assert "confirmatory precision/power | OPEN" in text
-    assert "R4 community representation lock preserved" in text
+    assert "pilot dispersion/attrition/dependence support | **OPEN**" in text
+    assert "confirmatory precision/power | **OPEN**" in text
+    assert "R4 representation preserved" in text
