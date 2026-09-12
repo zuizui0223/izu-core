@@ -53,13 +53,13 @@ def test_oikos_manifest_already_demotes_field_completion_gate() -> None:
     assert manifest["oikos_initial_submission_contract"]["field_validation_demoted_from_completion_gate"] is True
 
 
-def test_human_surfaces_state_simulation_metadata_completion() -> None:
+def test_human_surfaces_preserve_no_field_completion_rule() -> None:
     doc = DOC.read_text(encoding="utf-8")
     thesis = THESIS.read_text(encoding="utf-8")
     readme = README.read_text(encoding="utf-8")
     assert "Chapter 2 is complete without new focal field data" in doc
     assert "simulation + metadata" in doc
-    assert "simulation + source-audited metadata" in thesis
-    assert "simulation + source-audited metadata" in readme
-    assert "post-Chapter-2" in thesis
-    assert "post-Chapter-2" in readme
+    assert "does **not** require a same-block field chain" in thesis
+    assert "parallel/future validation" in thesis
+    assert "not a submission gate or completion criterion" in readme
+    assert "prospective Izu E3/E4 chain is required for Chapter 2 completion" in readme
