@@ -22,11 +22,15 @@ def test_current_manuscript_remains_current_paper_not_el_or_field_completion_sur
     assert "not a completion gate for the present manuscript" in lower
 
 
-def test_el_lane_keeps_explicit_admission_gate_before_title_promotion():
+def test_el_lane_keeps_explicit_nonlinear_reduction_boundary():
     text = _read(EL)
-    assert "## Admission gate before changing the manuscript title" in text
-    assert "The numerical crossover near `k=4` remains model-specific" in text
-    assert "correlated-community countercondition" in text
+    lower = text.lower()
+    assert "variance-equivalent coordinate" in lower
+    assert "not a sufficient statistic" in lower
+    assert "c-versus-i reversal" in lower
+    assert "interaction-dominated intermediate phase" in lower
+    assert "does not reopen or delay" in lower
+    assert "natural threshold" in lower
 
 
 def test_nee_lane_does_not_reopen_current_oikos_scientific_closure():
