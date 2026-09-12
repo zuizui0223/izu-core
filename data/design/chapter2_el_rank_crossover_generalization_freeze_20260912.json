@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_generic_audit_execution",
+  "frozen_on": "2026-09-12",
+  "purpose": "Test a pollination-independent sufficient-condition account of determinant-rank crossover before admitting any generic numerical result to the manuscript.",
+  "theory_targets": {
+    "smooth_response_asymptotic": "For Y_k=f(X,Zbar_k), with iid finite-variance community draws and f smooth near the mean community state, the starting-state main effect tends to a nonzero O(1) limit when Var_X[f(X,mu)]>0, whereas the community main effect is O(1/k). The state-by-community interaction is also O(1/k) to first order and may remain substantial at finite k.",
+    "exact_bilinear_special_case": "For centered independent X and Zbar_k and f(x,z)=a*x+b*z+c*x*z, S_k=a^2 Var(X), C_k=b^2 Var(Zbar_k), I_k=c^2 Var(X) Var(Zbar_k).",
+    "correlated_countercondition": "For exchangeable community copies with pairwise correlation rho, Var(Zbar_k)=sigma^2[rho+(1-rho)/k], creating a stochasticity floor. Rank crossover is not guaranteed when the asymptotic community floor is at least the starting-state component."
+  },
+  "generic_exact_audit": {
+    "x_variance": 1.0,
+    "z_variance": 1.0,
+    "a": 0.5,
+    "b": 1.0,
+    "c": 0.8,
+    "k_values": [1, 2, 4, 8, 16, 32],
+    "rho_values": [0.0, 0.1, 0.4]
+  },
+  "predeclared_checks": [
+    "For rho=0, community main effect decreases exactly as 1/k while starting-state main effect is constant.",
+    "For rho=0, starting-state main effect is smaller than community at k=1 and larger by sufficiently large k.",
+    "For rho=0, interaction remains positive at every finite k when c is nonzero.",
+    "For rho=0.4 with the frozen coefficients, the community variance floor exceeds the starting-state component, so no asymptotic rank crossover is predicted.",
+    "The generic audit must not use any Chapter 2 pollinator parameter, seed, trajectory, richness value or response matrix."
+  ],
+  "claim_boundary": [
+    "This generalization supplies sufficient conditions, not necessary conditions, for determinant-rank crossover.",
+    "The model-specific crossover near k=4 remains an internal numerical result and is not promoted to a natural threshold.",
+    "Finite-k interaction persistence does not imply that interaction remains nonzero in the independent-copy k-to-infinity limit.",
+    "Correlated or synchronously forced community realizations can prevent stochastic averaging and therefore prevent rank crossover."
+  ]
+}
