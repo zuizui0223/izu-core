@@ -1,0 +1,65 @@
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+LOCK = ROOT / "data/design/chapter2_simulation_metadata_completion_lock_20260912.json"
+DOC = ROOT / "docs/CHAPTER2_SIMULATION_METADATA_COMPLETION_20260912.md"
+THESIS = ROOT / "THESIS_CHAPTER_POSITIONING.md"
+README = ROOT / "README.md"
+MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
+WORLD = ROOT / "data/results/chapter2_global_master_manuscript_value_review_audit_20260906.json"
+IZU = ROOT / "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
+
+
+def test_completion_lock_requires_no_new_focal_data() -> None:
+    data = json.loads(LOCK.read_text(encoding="utf-8"))
+    assert data["status"] == "chapter2_complete_without_new_focal_data"
+    basis = data["completion_basis"]
+    assert basis["new_focal_field_data_required"] is False
+    assert basis["chapter3_phenotype_required"] is False
+    assert basis["nee_stage1_required"] is False
+    assert basis["additional_world_search_required"] is False
+
+
+def test_metadata_layer_is_constraint_not_full_validation() -> None:
+    data = json.loads(LOCK.read_text(encoding="utf-8"))
+    m1 = data["metadata_evidence_stack"]["M1_formal_source_audit"]
+    assert m1["full_outcome_independent_contracts"] == "0_of_25"
+    assert m1["formal_external_prediction"] == "not_evaluable"
+    assert data["claim_ceiling"]["metadata_counts_as_full_mechanism_validation"] is False
+
+
+def test_completion_lock_matches_frozen_world_and_izu_audits() -> None:
+    data = json.loads(LOCK.read_text(encoding="utf-8"))
+    world = json.loads(WORLD.read_text(encoding="utf-8"))
+    izu = json.loads(IZU.read_text(encoding="utf-8"))
+    m1 = data["metadata_evidence_stack"]["M1_formal_source_audit"]
+    m2 = data["metadata_evidence_stack"]["M2_descriptive_world_breadth"]
+    m4 = data["metadata_evidence_stack"]["M4_izu_existing_secondary_data"]
+
+    assert m1["research_entries"] == world["active_manuscript_boundary"]["formal_identifiability_research_entries"]
+    assert m1["full_outcome_independent_contracts"] == world["active_manuscript_boundary"]["formal_full_contracts"]
+    assert m2["research_entries"] == world["active_manuscript_boundary"]["descriptive_research_entries"]
+    assert m2["exact_geographic_labels"] == world["active_manuscript_boundary"]["exact_geographic_labels"]
+    assert m4["functional_exposure_to_corrected_matching_supported"] is izu["izu_current_evidence"]["current_functional_exposure_to_matching"]["supported"]
+    assert m4["matching_to_pollen_leave_one_island_sign_stable"] is izu["izu_current_evidence"]["matching_to_pollen"]["leave_one_island_sign_stable"]
+    assert m4["historical_signed_position_null_corrected_supported"] is izu["izu_current_evidence"]["signed_position"]["null_corrected_supported"]
+
+
+def test_oikos_manifest_already_demotes_field_completion_gate() -> None:
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    assert manifest["claim_ceiling"]["field_e3_e4_required_for_current_paper"] is False
+    assert manifest["world_saturation_and_izu_continuity"]["izu_e3_e4_status"] == "future_optional_validation_not_completion_gate"
+    assert manifest["oikos_initial_submission_contract"]["field_validation_demoted_from_completion_gate"] is True
+
+
+def test_human_surfaces_state_simulation_metadata_completion() -> None:
+    doc = DOC.read_text(encoding="utf-8")
+    thesis = THESIS.read_text(encoding="utf-8")
+    readme = README.read_text(encoding="utf-8")
+    assert "Chapter 2 is complete without new focal field data" in doc
+    assert "simulation + metadata" in doc
+    assert "simulation + source-audited metadata" in thesis
+    assert "simulation + source-audited metadata" in readme
+    assert "post-Chapter-2" in thesis
+    assert "post-Chapter-2" in readme
