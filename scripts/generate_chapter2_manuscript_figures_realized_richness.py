@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "figures/chapter2"
 DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_20260907.json"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
+WANSHAN = ROOT / "data/results/wanshan_yongxing/effect_rows.json"
+OGASAWARA = ROOT / "data/results/ogasawara/context_analysis/effect_rows.json"
 
 
 def _load(path: Path) -> dict:
@@ -31,6 +33,10 @@ def _load_decision() -> dict:
     if gate.get("hard_control_valid") is not True or gate.get("primary_mixed_geometry") is not False:
         raise RuntimeError("realized-richness decision no longer matches frozen reframe")
     return payload
+
+
+def _effect_map(path: Path) -> dict[str, dict]:
+    return {row["effect_id"]: row for row in _load(path)["effects"]}
 
 
 def _fig1(manifest: dict) -> None:
@@ -100,58 +106,68 @@ def _fig1(manifest: dict) -> None:
 
 
 def _fig4(manifest: dict) -> None:
-    claims = manifest["claim_ceiling"]
-    fig, axes = plt.subplots(1, 3, figsize=(17.5, 5.6), gridspec_kw={"width_ratios": [1.0, 1.15, 1.2]})
+    wanshan = _effect_map(WANSHAN)
+    ogasawara = _effect_map(OGASAWARA)
+    w_turn = wanshan["wanshan_yongxing_partner_turnover"]
+    w_rich = wanshan["wanshan_yongxing_pollinator_richness_lrr"]
+    o_turn = ogasawara["ogasawara_anijima_partner_turnover"]
+    o_rich = ogasawara["ogasawara_anijima_pollinator_richness_lrr"]
+
+    fig, axes = plt.subplots(2, 2, figsize=(14.2, 10.0))
+    ax_a, ax_b, ax_c, ax_d = axes.ravel()
 
     # A — empirical measurement ceiling.
     labels = ["Direct plant\nresponse", "Partner arrival /\nreplacement", "Full matched\ncontract"]
     counts = [21, 2, 0]
     x = np.arange(len(labels))
-    axes[0].bar(x, counts)
-    axes[0].set_xticks(x, labels)
-    axes[0].set_ylim(0, 25)
-    axes[0].set_ylabel("Research entries (formal n=25 audit)")
-    axes[0].set_title("A  Empirical measurement ceiling", loc="left")
+    ax_a.bar(x, counts)
+    ax_a.set_xticks(x, labels)
+    ax_a.set_ylim(0, 25)
+    ax_a.set_ylabel("Research entries (formal n=25 audit)")
+    ax_a.set_title("A  Empirical measurement ceiling", loc="left")
     for i, value in enumerate(counts):
-        axes[0].text(i, value + 0.7, f"{value}/25", ha="center", fontsize=9)
-    axes[0].text(
+        ax_a.text(i, value + 0.7, f"{value}/25", ha="center", fontsize=9)
+    ax_a.text(
         0.03,
         0.93,
         "Outcome-rich, transition-process-poor",
-        transform=axes[0].transAxes,
+        transform=ax_a.transAxes,
         va="top",
         fontsize=9,
     )
 
-    # B — what is and is not transferred to nature.
-    axes[1].set_axis_off()
-    axes[1].set_title("B  Claim boundary", loc="left")
-    boundary_text = (
-        "SUPPORTED IN THE SYNTHETIC MODEL\n"
-        "• conditional response geometry\n"
-        "• richness-sensitive coarse regime\n"
-        "• state × community branch contingency\n"
-        "• regime-dependent determinant ordering\n\n"
-        "NOT TRANSFERRED AS FIELD CALIBRATION\n"
-        "• k≈4 is not a natural threshold\n"
-        "• visitor richness ≠ synthetic k\n"
-        "• Hill diversity ≠ synthetic k\n"
-        "• current associations ≠ historical causation"
+    # B — source-native compositional confrontation.
+    ax_b.set_axis_off()
+    ax_b.set_title("B  Source-native composition ≠ richness", loc="left")
+    external_text = (
+        "WANSHAN–YONGXING  (7 matched plants)\n"
+        f"turnover  {w_turn['estimate']:.3f}  "
+        f"[{w_turn['uncertainty_value'][0]:.3f}, {w_turn['uncertainty_value'][1]:.3f}]\n"
+        f"richness LRR  {w_rich['estimate']:.3f}  "
+        f"[{w_rich['uncertainty_value'][0]:.3f}, {w_rich['uncertainty_value'][1]:.3f}]\n\n"
+        "ANIJIMA  (8 matched plants)\n"
+        f"turnover  {o_turn['estimate']:.3f}  "
+        f"[{o_turn['uncertainty_value'][0]:.3f}, {o_turn['uncertainty_value'][1]:.3f}]\n"
+        f"richness LRR  {o_rich['estimate']:.3f}  "
+        f"[{o_rich['uncertainty_value'][0]:.3f}, {o_rich['uncertainty_value'][1]:.3f}]\n\n"
+        "Plant-level bootstrap intervals; one geographic contrast per system.\n"
+        "No pooled universal island effect or causal replication."
     )
-    axes[1].text(
+    ax_b.text(
         0.02,
         0.92,
-        boundary_text,
-        transform=axes[1].transAxes,
+        external_text,
+        transform=ax_b.transAxes,
+        ha="left",
         va="top",
         fontsize=9.5,
         linespacing=1.35,
         bbox={"boxstyle": "round,pad=0.65", "facecolor": "white", "edgecolor": "0.45"},
     )
 
-    # C — existing-data stress test. This is the chapter endpoint, not future field work.
-    axes[2].set_axis_off()
-    axes[2].set_title("C  Existing-data stress test", loc="left")
+    # C — existing Izu secondary-data stress test.
+    ax_c.set_axis_off()
+    ax_c.set_title("C  Existing Izu stress test", loc="left")
     izu_text = (
         "IZU SECONDARY-DATA CONFRONTATION\n\n"
         "✓ functional exposure → corrected matching:\n"
@@ -163,34 +179,53 @@ def _fig4(manifest: dict) -> None:
         "✕ Oshima bridge as causal boundary:\n"
         "   not independently identified"
     )
-    axes[2].text(
+    ax_c.text(
         0.02,
         0.92,
         izu_text,
-        transform=axes[2].transAxes,
+        transform=ax_c.transAxes,
         ha="left",
         va="top",
         fontsize=9.4,
         linespacing=1.28,
         bbox={"boxstyle": "round,pad=0.60", "facecolor": "white", "edgecolor": "0.45"},
     )
-    axes[2].text(
+
+    # D — synthetic-to-natural claim boundary.
+    ax_d.set_axis_off()
+    ax_d.set_title("D  Claim boundary", loc="left")
+    boundary_text = (
+        "SUPPORTED IN THE SYNTHETIC MODEL\n"
+        "• conditional response geometry\n"
+        "• richness-sensitive coarse regime\n"
+        "• state × community branch contingency\n"
+        "• regime-dependent determinant ordering\n\n"
+        "NOT TRANSFERRED AS FIELD CALIBRATION\n"
+        "• k≈4 is not a natural threshold\n"
+        "• visitor richness ≠ synthetic k\n"
+        "• Hill diversity ≠ synthetic k\n"
+        "• current associations ≠ historical causation\n\n"
+        "Future visitor → SVD → dependency → seed work:\n"
+        "post-Chapter-2 transport/falsification only"
+    )
+    ax_d.text(
         0.02,
-        0.08,
-        "Prospective visitor → SVD → dependency → seed work is post-Chapter-2 transport/falsification, not a missing result.",
-        transform=axes[2].transAxes,
-        ha="left",
-        va="bottom",
-        fontsize=8.8,
+        0.92,
+        boundary_text,
+        transform=ax_d.transAxes,
+        va="top",
+        fontsize=9.5,
+        linespacing=1.32,
+        bbox={"boxstyle": "round,pad=0.65", "facecolor": "white", "edgecolor": "0.45"},
     )
 
     fig.suptitle(
-        "Metadata confrontation closes the chapter at an explicit empirical claim ceiling",
+        "Source-audited evidence confronts the mechanism while preserving an explicit claim ceiling",
         fontsize=14,
         x=0.01,
         ha="left",
     )
-    fig.tight_layout(rect=(0, 0, 1, 0.93))
+    fig.tight_layout(rect=(0, 0, 1, 0.95))
     path = OUT_DIR / "fig4_global_to_izu_resolution.svg"
     fig.savefig(path, bbox_inches="tight")
     fig.savefig(path.with_suffix(".png"), dpi=160, bbox_inches="tight")
@@ -257,6 +292,7 @@ def build_figures() -> dict:
         "realized_richness_headline": "mean_regime_richness_sensitive_branching_relational",
         "figure_narrative": "conditional_geometry_to_richness_control_to_rank_crossover_to_metadata_claim_boundary",
         "figure4_role": "metadata_confrontation_and_empirical_claim_ceiling",
+        "figure4_external_systems": ["wanshan_yongxing", "ogasawara_anijima"],
         "field_e3_e4_required": False,
         "system_size_rank_crossover": manifest["system_size_rank_crossover"],
         "figure_outputs": outputs,
