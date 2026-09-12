@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "chapter2_complete_without_new_focal_data",
+  "locked_on": "2026-09-12",
+  "purpose": "Define the dissertation Chapter 2 as scientifically complete using frozen simulation plus source-audited metadata/secondary-data confrontation, without requiring new focal field data.",
+  "canonical_question": "Why need not a common broad pollinator-interaction reorganization produce one post-establishment plant response, and when can the ordering of response determinants change?",
+  "completion_basis": {
+    "primary_inference": "frozen_synthetic_conditional_response_mechanism",
+    "secondary_empirical_layer": "source_audited_metadata_secondary_data_and_identifiability_boundary",
+    "new_focal_field_data_required": false,
+    "chapter3_phenotype_required": false,
+    "nee_stage1_required": false,
+    "additional_world_search_required": false
+  },
+  "synthetic_evidence_stack": {
+    "S1_conditional_geometry": "one broad reorganization generates mixed, positive and negative branches across starting states and realized communities",
+    "S2_realized_richness_control": "exact stepwise realized-richness matching changes the ensemble mean regime but preserves individual branching and state-by-community nonadditivity",
+    "S3_system_size": "pooling independent community trajectories reduces realization variance and changes the ordering of starting-state versus community-realization contributions under active plant adjustment",
+    "S4_limit": "the deterministic mean-field contrast is all-positive, so branching is finite-community asymptotically but not merely a rare-empty-community artefact over the audited finite range",
+    "S5_downstream_modifiers": "local filtering reallocates branches and reproductive assurance attenuates magnitude without replacing the upstream relational mechanism"
+  },
+  "metadata_evidence_stack": {
+    "M1_formal_source_audit": {
+      "research_entries": 25,
+      "exact_geographic_labels": 21,
+      "direct_comparable_plant_response": "21_of_25",
+      "direct_partner_arrival_or_replacement": "2_of_25",
+      "full_outcome_independent_contracts": "0_of_25",
+      "formal_external_prediction": "not_evaluable",
+      "role": "empirical measurement ceiling and anti-overclaim boundary"
+    },
+    "M2_descriptive_world_breadth": {
+      "research_entries": 42,
+      "exact_geographic_labels": 37,
+      "large_island_saturation_rule_met": true,
+      "small_island_supplement_complete": true,
+      "role": "biological plausibility, response-vocabulary saturation and alternative-mechanism coverage; not prevalence estimation"
+    },
+    "M3_external_compositional_examples": {
+      "wanshan_yongxing_partner_turnover": 0.979601473000006,
+      "ogasawara_anijima_partner_turnover": 0.6816731479429761,
+      "pooled_universal_island_effect_claimed": false,
+      "role": "demonstrate that large partner turnover can coexist with weak/uncertain richness change; not causal validation of the synthetic mechanism"
+    },
+    "M4_izu_existing_secondary_data": {
+      "functional_exposure_to_corrected_matching_supported": true,
+      "matching_to_pollen_average_direction_positive": true,
+      "matching_to_pollen_leave_one_island_sign_stable": false,
+      "shared_targets": 8,
+      "shared_targets_with_lower_corrected_matching": 8,
+      "tube_response_counts": {
+        "shorter": 3,
+        "longer": 4,
+        "equal": 1
+      },
+      "pollen_response_counts": {
+        "lower": 4,
+        "higher": 4
+      },
+      "historical_signed_position_null_corrected_supported": false,
+      "causal_oshima_post_boundary_identifiable": false,
+      "role": "existing-data stress test showing relational functional structure plus downstream response branching and explicit failed historical projections"
+    }
+  },
+  "chapter_claims": {
+    "C1": "realized richness can position a coarse response regime without determining individual branch identity",
+    "C2": "plant starting state and realized community composition jointly generate branch contingency",
+    "C3": "the relative ranking of starting-state and community-realization contributions can change across finite-community stochastic/system-size regimes",
+    "C4": "downstream modifiers can reallocate or attenuate responses without replacing the upstream conditional architecture",
+    "C5": "existing natural metadata establish plausibility and the present empirical identifiability ceiling but do not validate a universal natural threshold or historical causal chain"
+  },
+  "how_why_boundary": {
+    "HOW": "closed_with_synthetic_mechanism",
+    "proximal_WHY": "closed_with_conditional_geometry_and_regime_dependent_determinant_ordering",
+    "ultimate_WHY": "out_of_scope_colonization_assembly_history_and_evolutionary_origin"
+  },
+  "not_completion_requirements": [
+    "new_Izu_field_sampling",
+    "single_visit_deposition_to_dependency_to_mature_seed_chain",
+    "pilot_dispersion_or_confirmatory_power_for_NEE",
+    "Nature_Ecology_and_Evolution_Registered_Report_Stage1",
+    "Chapter3_phenotype_values",
+    "more_cross_sectional_island_systems_after_world_saturation",
+    "new_synthetic_parameter_tuning",
+    "natural_mapping_of_synthetic_k"
+  ],
+  "prospective_field_role": "post_chapter2_independent_falsification_and_transport_study_only",
+  "ecology_letters_theory_role": "optional_separate_general_theory_manuscript_not_required_for_chapter2_completion",
+  "paper_route": {
+    "current": "Oikos Research Paper",
+    "scientific_state": "closed",
+    "remaining_submission_blockers": "author_supplied_identity_and_declarations_only"
+  },
+  "claim_ceiling": {
+    "natural_prevalence_from_synthetic_frequencies": false,
+    "natural_threshold_near_k4": false,
+    "visitor_richness_or_hill_diversity_equals_synthetic_k": false,
+    "historical_Bombus_causation_identified": false,
+    "Oshima_boundary_causally_identified": false,
+    "metadata_counts_as_full_mechanism_validation": false,
+    "new_field_data_needed_to_call_chapter2_complete": false
+  }
+}
