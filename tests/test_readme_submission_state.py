@@ -12,10 +12,10 @@ def test_readme_exposes_closed_science_and_active_metadata_gate():
     lower = text.lower()
     submission = lower.split("## submission status", 1)[1].split("## claim boundary", 1)[0]
     assert "scientific gate is closed" in submission
-    assert "mechanism-mainline contract" in submission
-    assert "author-supplied identity and declaration fields" in submission
-    assert "fail-closed" in submission
+    assert "actual oikos submission remains fail-closed only on author-supplied identity and declaration fields" in submission
     assert "final metadata-driven bundle construction" in submission
+    assert "post-chapter-2 nee/field lane" in submission
+    assert "without changing chapter 2 scientific closure or oikos submission readiness" in submission
     assert "chapter 2 is scientifically closed" in lower
     assert "present-day izu associations do not identify historical *bombus* loss" in lower
 
