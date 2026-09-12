@@ -31,9 +31,10 @@ def test_el_lane_keeps_explicit_admission_gate_before_title_promotion():
 
 def test_nee_lane_does_not_reopen_current_oikos_scientific_closure():
     text = _read(NEE)
-    assert "current Oikos paper = submission-ready scientific fallback" in text
-    assert "NEE promotion lane = prospective future study" in text
-    assert "The correct action is **not** to reopen simulation" in text
+    assert "Current Oikos paper remains scientifically closed" in text
+    assert "The second prospective context is not optional for the NEE route" in text
+    assert "do not weaken H5" in text.lower()
+    assert "source mechanism | CLOSED" in text
 
 
 def test_route_firewall_names_three_distinct_submission_objects():
