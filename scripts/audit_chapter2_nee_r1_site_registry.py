@@ -54,8 +54,12 @@ PERMIT = {"not_required", "confirmed", "pending", "blocked"}
 PHENOLOGY = {"confirmed", "pending", "failed"}
 
 
-def _bool(value: str) -> bool | None:
-    x = value.strip().lower()
+def _cell(row: dict[str, str | None], field: str) -> str:
+    return (row.get(field) or "").strip()
+
+
+def _bool(value: str | None) -> bool | None:
+    x = (value or "").strip().lower()
     if x in {"true", "1", "yes"}:
         return True
     if x in {"false", "0", "no"}:
@@ -63,9 +67,9 @@ def _bool(value: str) -> bool | None:
     return None
 
 
-def _date(value: str) -> date | None:
+def _date(value: str | None) -> date | None:
     try:
-        return date.fromisoformat(value.strip())
+        return date.fromisoformat((value or "").strip())
     except ValueError:
         return None
 
@@ -92,15 +96,15 @@ def audit(path: Path) -> dict:
     excluded_counts = {"focal": 0, "transport": 0}
 
     for line_no, row in enumerate(rows, start=2):
-        context = row["context_id"].strip().lower()
         prefix = f"line {line_no}"
+        context = _cell(row, "context_id").lower()
         if context not in EXPECTED_TAXON:
             errors.append(f"{prefix}: context_id must be focal or transport")
             continue
-        if row["taxon"].strip() != EXPECTED_TAXON[context]:
+        if _cell(row, "taxon") != EXPECTED_TAXON[context]:
             errors.append(f"{prefix}: taxon does not match frozen {context} taxon")
 
-        block_id = row["planned_block_id"].strip()
+        block_id = _cell(row, "planned_block_id")
         if not block_id:
             errors.append(f"{prefix}: planned_block_id is required")
         elif block_id in seen_blocks:
@@ -109,46 +113,50 @@ def audit(path: Path) -> dict:
             seen_blocks.add(block_id)
 
         for field in ("geographic_unit", "population_site_id", "site_name", "block_independence_basis"):
-            if not row[field].strip():
+            if not _cell(row, field):
                 errors.append(f"{prefix}: {field} is required")
 
-        start = _date(row["planned_start_date"])
-        end = _date(row["planned_end_date"])
+        start = _date(row.get("planned_start_date"))
+        end = _date(row.get("planned_end_date"))
         if start is None or end is None:
             errors.append(f"{prefix}: planned dates must be ISO YYYY-MM-DD")
         elif end < start:
             errors.append(f"{prefix}: planned_end_date precedes planned_start_date")
 
         try:
-            eligible = int(row["eligible_flowering_plants_screen"])
+            eligible = int(_cell(row, "eligible_flowering_plants_screen"))
             if eligible < 0:
                 raise ValueError
-        except ValueError:
+        except (ValueError, TypeError):
             eligible = -1
             errors.append(f"{prefix}: eligible_flowering_plants_screen must be a non-negative integer")
 
-        if row["independence_review_status"].strip().lower() not in INDEPENDENCE:
+        independence = _cell(row, "independence_review_status").lower()
+        access = _cell(row, "access_status").lower()
+        permit_status = _cell(row, "permit_status").lower()
+        phenology = _cell(row, "phenology_status").lower()
+        if independence not in INDEPENDENCE:
             errors.append(f"{prefix}: invalid independence_review_status")
-        if row["access_status"].strip().lower() not in ACCESS:
+        if access not in ACCESS:
             errors.append(f"{prefix}: invalid access_status")
-        if row["permit_status"].strip().lower() not in PERMIT:
+        if permit_status not in PERMIT:
             errors.append(f"{prefix}: invalid permit_status")
-        if row["phenology_status"].strip().lower() not in PHENOLOGY:
+        if phenology not in PHENOLOGY:
             errors.append(f"{prefix}: invalid phenology_status")
 
-        bools = {field: _bool(row[field]) for field in BOOL_FIELDS}
+        bools = {field: _bool(row.get(field)) for field in BOOL_FIELDS}
         for field, value in bools.items():
             if value is None:
                 errors.append(f"{prefix}: {field} must be true/false")
 
-        status = row["admission_status"].strip().lower()
+        status = _cell(row, "admission_status").lower()
         if status not in ADMISSION:
             errors.append(f"{prefix}: invalid admission_status")
             continue
 
         if status == "excluded":
             excluded_counts[context] += 1
-            if not row["outcome_blind_exclusion_reason"].strip():
+            if not _cell(row, "outcome_blind_exclusion_reason"):
                 errors.append(f"{prefix}: excluded rows require an outcome-blind exclusion reason")
             continue
 
@@ -160,15 +168,15 @@ def audit(path: Path) -> dict:
         admitted_failures = []
         if eligible <= 0:
             admitted_failures.append("eligible flowering plants")
-        if row["independence_review_status"].strip().lower() != "pass":
+        if independence != "pass":
             admitted_failures.append("block independence")
         if not all(value is True for value in bools.values()):
             admitted_failures.append("SVD/treatment/dependence feasibility")
-        if row["access_status"].strip().lower() != "confirmed":
+        if access != "confirmed":
             admitted_failures.append("access")
-        if row["permit_status"].strip().lower() not in {"not_required", "confirmed"}:
+        if permit_status not in {"not_required", "confirmed"}:
             admitted_failures.append("permit")
-        if row["phenology_status"].strip().lower() != "confirmed":
+        if phenology != "confirmed":
             admitted_failures.append("phenology")
         if admitted_failures:
             errors.append(f"{prefix}: admitted row fails: {', '.join(admitted_failures)}")
