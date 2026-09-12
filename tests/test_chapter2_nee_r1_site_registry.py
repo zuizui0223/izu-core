@@ -22,6 +22,8 @@ def _base(context: str, block: int) -> dict[str, str]:
         "geographic_unit": "test-region",
         "population_site_id": f"site-{context}",
         "site_name": f"Test {context}",
+        "evidence_source": "https://example.org/source",
+        "evidence_basis": "pre-outcome occurrence and feasibility source",
         "planned_block_id": f"{context}-b{block:02d}",
         "planned_start_date": "2027-06-01" if context == "focal" else "2027-11-01",
         "planned_end_date": "2027-06-02" if context == "focal" else "2027-11-02",
@@ -79,15 +81,45 @@ def test_fewer_than_32_focal_blocks_is_not_ready_not_power_failure(tmp_path: Pat
     assert "not empirical power" in result["claim_boundary"]
 
 
+def test_candidate_can_preserve_pending_field_feasibility_without_schema_error(tmp_path: Path) -> None:
+    row = _base("focal", 1)
+    row.update(
+        {
+            "planned_start_date": "pending",
+            "planned_end_date": "pending",
+            "eligible_flowering_plants_screen": "pending",
+            "independence_review_status": "review",
+            "svd_background_feasible": "pending",
+            "open_pollination_feasible": "pending",
+            "bagged_autonomous_feasible": "pending",
+            "supplemental_outcross_feasible": "pending",
+            "dependence_coordinate_feasible": "pending",
+            "access_status": "pending",
+            "permit_status": "pending",
+            "phenology_status": "pending",
+            "admission_status": "candidate",
+        }
+    )
+    path = tmp_path / "registry.csv"
+    _write(path, [row])
+    result = r1audit.audit(path)
+    assert result["status"] == "NOT_READY"
+    assert result["registry_schema_valid"] is True
+    assert result["candidate_counts"]["focal"] == 1
+    assert result["errors"] == []
+
+
 def test_admitted_row_fails_closed_when_structural_gate_is_pending(tmp_path: Path) -> None:
     row = _base("focal", 1)
     row["permit_status"] = "pending"
+    row["svd_background_feasible"] = "pending"
     path = tmp_path / "registry.csv"
     _write(path, [row])
     result = r1audit.audit(path)
     assert result["status"] == "NOT_READY"
     assert result["admitted_focal_blocks"] == 0
     assert any("admitted row fails" in error and "permit" in error for error in result["errors"])
+    assert any("SVD/treatment/dependence feasibility" in error for error in result["errors"])
 
 
 def test_excluded_row_requires_outcome_blind_reason(tmp_path: Path) -> None:
