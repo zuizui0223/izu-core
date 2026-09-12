@@ -1,0 +1,101 @@
+from __future__ import annotations
+
+import csv
+import importlib.util
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPT = ROOT / "scripts" / "audit_chapter2_nee_r1_site_registry.py"
+TEMPLATE = ROOT / "templates" / "chapter2_nee_r1_site_registry_template.csv"
+
+spec = importlib.util.spec_from_file_location("r1audit", SCRIPT)
+assert spec and spec.loader
+r1audit = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(r1audit)
+
+
+def _base(context: str, block: int) -> dict[str, str]:
+    taxon = "Campanula microdonta" if context == "focal" else "Farfugium japonicum"
+    return {
+        "context_id": context,
+        "taxon": taxon,
+        "geographic_unit": "test-region",
+        "population_site_id": f"site-{context}",
+        "site_name": f"Test {context}",
+        "planned_block_id": f"{context}-b{block:02d}",
+        "planned_start_date": "2027-06-01" if context == "focal" else "2027-11-01",
+        "planned_end_date": "2027-06-02" if context == "focal" else "2027-11-02",
+        "eligible_flowering_plants_screen": "20",
+        "block_independence_basis": "predeclared non-overlapping site-time exposure opportunity",
+        "independence_review_status": "pass",
+        "svd_background_feasible": "true",
+        "open_pollination_feasible": "true",
+        "bagged_autonomous_feasible": "true",
+        "supplemental_outcross_feasible": "true",
+        "dependence_coordinate_feasible": "true",
+        "access_status": "confirmed",
+        "permit_status": "not_required",
+        "phenology_status": "confirmed",
+        "outcome_blind_exclusion_reason": "",
+        "admission_status": "admitted",
+    }
+
+
+def _write(path: Path, rows: list[dict[str, str]]) -> None:
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=r1audit.REQUIRED_COLUMNS)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def test_template_matches_audit_schema() -> None:
+    with TEMPLATE.open(newline="", encoding="utf-8") as handle:
+        columns = next(csv.reader(handle))
+    assert columns == r1audit.REQUIRED_COLUMNS
+
+
+def test_valid_structural_registry_passes_r1b_screen(tmp_path: Path) -> None:
+    rows = [_base("focal", i) for i in range(1, 33)]
+    rows.append(_base("transport", 1))
+    path = tmp_path / "registry.csv"
+    _write(path, rows)
+    result = r1audit.audit(path)
+    assert result["status"] == "R1B_READY_FOR_R2"
+    assert result["admitted_focal_blocks"] == 32
+    assert result["admitted_transport_blocks"] == 1
+    assert result["h5_r1_screen_pass"] is True
+    assert result["h5_r1_screen_is_empirical_power"] is False
+
+
+def test_fewer_than_32_focal_blocks_is_not_ready_not_power_failure(tmp_path: Path) -> None:
+    rows = [_base("focal", i) for i in range(1, 32)]
+    rows.append(_base("transport", 1))
+    path = tmp_path / "registry.csv"
+    _write(path, rows)
+    result = r1audit.audit(path)
+    assert result["status"] == "NOT_READY"
+    assert result["scope_complete"] is True
+    assert result["h5_r1_screen_pass"] is False
+    assert "not empirical power" in result["claim_boundary"]
+
+
+def test_admitted_row_fails_closed_when_structural_gate_is_pending(tmp_path: Path) -> None:
+    row = _base("focal", 1)
+    row["permit_status"] = "pending"
+    path = tmp_path / "registry.csv"
+    _write(path, [row])
+    result = r1audit.audit(path)
+    assert result["status"] == "NOT_READY"
+    assert result["admitted_focal_blocks"] == 0
+    assert any("admitted row fails" in error and "permit" in error for error in result["errors"])
+
+
+def test_excluded_row_requires_outcome_blind_reason(tmp_path: Path) -> None:
+    row = _base("transport", 1)
+    row["admission_status"] = "excluded"
+    row["outcome_blind_exclusion_reason"] = ""
+    path = tmp_path / "registry.csv"
+    _write(path, [row])
+    result = r1audit.audit(path)
+    assert result["status"] == "NOT_READY"
+    assert any("outcome-blind exclusion reason" in error for error in result["errors"])
