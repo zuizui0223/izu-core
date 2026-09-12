@@ -14,7 +14,9 @@ def test_world_program_is_preserved_as_bounded_claim_ceiling_not_main_result():
     text = MANUSCRIPT.read_text(encoding="utf-8").lower()
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
 
-    assert "world and izu evidence are retained only as biological plausibility" in text
+    assert "world and izu evidence" in text
+    assert "biological plausibility" in text
+    assert "calibration data for the synthetic model" in text
     assert "same-block visitor" in text and "future validation" in text
     assert manifest["world_breadth_extension"]["formal_identifiability_research_entries"] == 25
     assert manifest["claim_ceiling"]["external_full_contracts"] == "0_of_25"
@@ -42,7 +44,8 @@ def test_izu_empirical_assets_remain_boundary_evidence_not_completion_gate():
     izu = json.loads(IZU_FINAL.read_text(encoding="utf-8"))
     rationale = json.loads(IZU_RATIONALE.read_text(encoding="utf-8"))
 
-    assert "izu evidence are retained only as biological plausibility" in text
+    assert "izu remains a useful future high-continuity system" in text
+    assert "not required for the present paper" in text
     assert "not a completion gate" in text
     assert "parallel/future validation" in thesis
     assert izu["izu_current_evidence"]["current_functional_exposure_to_matching"]["supported"] is True
