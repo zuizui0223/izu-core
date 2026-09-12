@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "status": "prepilot_synthetic_order_of_magnitude_screen_complete",
+  "design": "data/design/chapter2_nee_h5_prepilot_oc_freeze_20260912.json",
+  "script": "scripts/simulate_chapter2_nee_h5_prepilot_oc.py",
+  "primary_retention": 0.7,
+  "primary_rows": [
+    {"rho_benchmark": 0.0, "blocks": 16, "plants_per_block": 16, "recruited": 256, "median_complete": 180, "crossover_separation_rate": 0.5425, "no_crossover_separation_rate": 0.0},
+    {"rho_benchmark": 0.0, "blocks": 24, "plants_per_block": 16, "recruited": 384, "median_complete": 268, "crossover_separation_rate": 0.69, "no_crossover_separation_rate": 0.0},
+    {"rho_benchmark": 0.0, "blocks": 32, "plants_per_block": 16, "recruited": 512, "median_complete": 358, "crossover_separation_rate": 0.835, "no_crossover_separation_rate": 0.0},
+    {"rho_benchmark": 0.0, "blocks": 48, "plants_per_block": 16, "recruited": 768, "median_complete": 538, "crossover_separation_rate": 0.9, "no_crossover_separation_rate": 0.0},
+    {"rho_benchmark": 0.0, "blocks": 64, "plants_per_block": 16, "recruited": 1024, "median_complete": 717, "crossover_separation_rate": 0.9575, "no_crossover_separation_rate": 0.0},
+    {"rho_benchmark": 0.0, "blocks": 64, "plants_per_block": 24, "recruited": 1536, "median_complete": 1075, "crossover_separation_rate": 0.975, "no_crossover_separation_rate": 0.0},
+
+    {"rho_benchmark": 0.1, "blocks": 16, "plants_per_block": 16, "recruited": 256, "median_complete": 180, "crossover_separation_rate": 0.17, "no_crossover_separation_rate": 0.0025},
+    {"rho_benchmark": 0.1, "blocks": 24, "plants_per_block": 16, "recruited": 384, "median_complete": 268, "crossover_separation_rate": 0.2225, "no_crossover_separation_rate": 0.0025},
+    {"rho_benchmark": 0.1, "blocks": 32, "plants_per_block": 16, "recruited": 512, "median_complete": 358, "crossover_separation_rate": 0.2475, "no_crossover_separation_rate": 0.005},
+    {"rho_benchmark": 0.1, "blocks": 48, "plants_per_block": 16, "recruited": 768, "median_complete": 538, "crossover_separation_rate": 0.3375, "no_crossover_separation_rate": 0.0},
+    {"rho_benchmark": 0.1, "blocks": 64, "plants_per_block": 16, "recruited": 1024, "median_complete": 716, "crossover_separation_rate": 0.36, "no_crossover_separation_rate": 0.0},
+    {"rho_benchmark": 0.1, "blocks": 64, "plants_per_block": 24, "recruited": 1536, "median_complete": 1075, "crossover_separation_rate": 0.42, "no_crossover_separation_rate": 0.0},
+
+    {"rho_benchmark": 0.4, "blocks": 16, "plants_per_block": 16, "recruited": 256, "median_complete": 179, "crossover_separation_rate": 0.0225, "no_crossover_separation_rate": 0.1325},
+    {"rho_benchmark": 0.4, "blocks": 24, "plants_per_block": 16, "recruited": 384, "median_complete": 270, "crossover_separation_rate": 0.01, "no_crossover_separation_rate": 0.2875},
+    {"rho_benchmark": 0.4, "blocks": 32, "plants_per_block": 16, "recruited": 512, "median_complete": 358, "crossover_separation_rate": 0.0125, "no_crossover_separation_rate": 0.3},
+    {"rho_benchmark": 0.4, "blocks": 48, "plants_per_block": 16, "recruited": 768, "median_complete": 537, "crossover_separation_rate": 0.0, "no_crossover_separation_rate": 0.465},
+    {"rho_benchmark": 0.4, "blocks": 64, "plants_per_block": 16, "recruited": 1024, "median_complete": 717, "crossover_separation_rate": 0.0, "no_crossover_separation_rate": 0.57},
+    {"rho_benchmark": 0.4, "blocks": 64, "plants_per_block": 24, "recruited": 1536, "median_complete": 1076, "crossover_separation_rate": 0.0025, "no_crossover_separation_rate": 0.62}
+  ],
+  "retention_sensitivity_at_64x24": [
+    {"retention": 0.55, "rho_benchmark": 0.0, "median_complete": 844, "crossover_separation_rate": 0.982},
+    {"retention": 0.55, "rho_benchmark": 0.1, "median_complete": 845, "crossover_separation_rate": 0.432},
+    {"retention": 0.55, "rho_benchmark": 0.4, "median_complete": 845, "no_crossover_separation_rate": 0.564},
+    {"retention": 0.70, "rho_benchmark": 0.0, "median_complete": 1077, "crossover_separation_rate": 0.992},
+    {"retention": 0.70, "rho_benchmark": 0.1, "median_complete": 1075, "crossover_separation_rate": 0.456},
+    {"retention": 0.70, "rho_benchmark": 0.4, "median_complete": 1075, "no_crossover_separation_rate": 0.65},
+    {"retention": 0.85, "rho_benchmark": 0.0, "median_complete": 1306, "crossover_separation_rate": 0.984},
+    {"retention": 0.85, "rho_benchmark": 0.1, "median_complete": 1306, "crossover_separation_rate": 0.476},
+    {"retention": 0.85, "rho_benchmark": 0.4, "median_complete": 1306, "no_crossover_separation_rate": 0.682}
+  ],
+  "decision": {
+    "H5_is_precision_bottleneck": true,
+    "independent_block_count_is_primary_design_lever": true,
+    "hundreds_of_recruits_can_be_insufficient": true,
+    "near_boundary_shared_dependence_is_hardest_region": true,
+    "even_1536_recruits_does_not_make_near_boundary_H5_decisive": true,
+    "single_fixed_sample_size_cannot_resolve_all_dependence_regimes": true,
+    "final_R3_requires_empirical_pilot": true,
+    "do_not_weaken_H5_if_R3_infeasible": true
+  },
+  "interpretation": "The pre-pilot benchmark supports the strategic claim that H5, not H1-H4, is likely to set the scale of a confirmatory NEE design. The key difficulty is the number of independent repeated blocks and the dependence regime, not simply the number of flowers or visits.",
+  "claim_boundary": "These rates are synthetic separation operating characteristics for order-of-magnitude triage only. They are not empirical power, the rho values are not natural cutoffs, and this file cannot replace pilot-frozen R3 precision planning."
+}
