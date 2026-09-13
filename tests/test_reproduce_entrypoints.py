@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REPRODUCE = ROOT / "REPRODUCE.md"
 SCIENTIFIC_GATE = ROOT / ".github/workflows/chapter2-scientific-gate.yml"
-MODULE_RE = re.compile(r"^python\s+-m\s+(scripts\.[A-Za-z0-9_.]+)\b", re.MULTILINE)
+MODULE_RE = re.compile(r"^\s*python\s+-m\s+(scripts\.[A-Za-z0-9_.]+)\b", re.MULTILINE)
 
 
 def test_documented_pytest_targets_exist() -> None:
