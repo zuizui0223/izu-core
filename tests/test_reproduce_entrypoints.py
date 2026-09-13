@@ -6,6 +6,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPRODUCE = ROOT / "REPRODUCE.md"
+SCIENTIFIC_GATE = ROOT / ".github/workflows/chapter2-scientific-gate.yml"
+MODULE_RE = re.compile(r"^python\s+-m\s+(scripts\.[A-Za-z0-9_.]+)\b", re.MULTILINE)
 
 
 def test_documented_pytest_targets_exist() -> None:
@@ -26,9 +28,25 @@ def test_documented_pytest_targets_exist() -> None:
 
 def test_documented_script_module_entrypoints_exist() -> None:
     text = REPRODUCE.read_text(encoding="utf-8")
-    modules = re.findall(r"^python\s+-m\s+(scripts\.[A-Za-z0-9_.]+)\b", text, flags=re.MULTILINE)
+    modules = MODULE_RE.findall(text)
     assert modules
 
     for module in modules:
         path = ROOT / (module.replace(".", "/") + ".py")
         assert path.is_file(), f"REPRODUCE.md points to missing module: {module}"
+
+
+def test_documented_full_gate_matches_workflow_modules() -> None:
+    text = REPRODUCE.read_text(encoding="utf-8")
+    section = re.search(
+        r"For the full current Chapter 2 scientific gate.*?```bash\n(.*?)\n```",
+        text,
+        flags=re.DOTALL,
+    )
+    assert section, "REPRODUCE.md is missing the full scientific-gate command block"
+
+    documented = MODULE_RE.findall(section.group(1))
+    workflow = MODULE_RE.findall(SCIENTIFIC_GATE.read_text(encoding="utf-8"))
+
+    assert documented == workflow
+    assert len(documented) == 6
