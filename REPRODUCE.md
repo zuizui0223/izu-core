@@ -1,26 +1,21 @@
-# Reproduce the Chapter 2 headline
+# Reproducing the Chapter 2 headline result
 
-The shortest reviewer path is deliberately small. From a clean checkout, run exactly these three commands:
+The shortest reviewer path is the frozen headline regression, not the historical acquisition workflow archive.
 
 ```bash
 python -m pip install -e '.[dev]'
-python scripts/reproduce_chapter2_headline.py
-python -m pytest -q tests/test_chapter2_frozen_headline_regression.py
+pytest -q tests/test_chapter2_headline_freeze_regression.py
+pytest -q tests/test_gaussian_matching_kernel_equivalence.py tests/test_workflow_trigger_policy.py
 ```
 
-The recomputation must recover the frozen matched-community baseline:
+The headline regression re-runs the 96 matched-community baseline from the frozen design and checks the committed result with floating-point tolerances rather than byte equality. It protects the state counts **41 mixed / 42 positive / 13 negative** and the normalized decomposition **S = 0.0218320837, C = 0.8017383395, I = 0.1764295768**.
 
-- realization classes: **41 mixed / 42 all-positive / 13 all-negative / 0 other** out of 96;
-- starting-position share: **0.021832083717572618**;
-- community-realization share: **0.8017383395125494**;
-- state-by-community non-additivity share: **0.17642957676987792**.
-
-The regression test compares recomputed floating-point quantities with `pytest.approx(rel=1e-9, abs=1e-12)` rather than byte identity, so harmless platform-level summation differences do not hide genuine model drift.
-
-For the current Ecology Letters figures, run:
+For the full current Chapter 2 scientific gate, run:
 
 ```bash
-python scripts/render_chapter2_el_main_figures.py --out-dir data/results/chapter2_el_figures
+python -m scripts.run_response_geometry_realization_stability --replicates 96 --seed 20260826 --out /tmp/response_geometry.json
+python -m scripts.audit_chapter2_interaction_kernel --out /tmp/interaction_kernel.json
+python -m scripts.audit_chapter2_el_rank_crossover_generalization
 ```
 
-This produces four SVG and four vector-PDF figures from the committed result objects.
+Historical acquisition and diagnostic workflows are retained for provenance but are manual-only. Pull requests automatically run only `.github/workflows/ci.yml` and `.github/workflows/chapter2-scientific-gate.yml`; `tests/test_workflow_trigger_policy.py` enforces that boundary.
