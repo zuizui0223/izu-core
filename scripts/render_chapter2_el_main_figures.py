@@ -17,13 +17,16 @@ ORDER_CODES = {"CIS": 0, "ICS": 1, "ISC": 2, "SIC": 3, "CSI": 4, "SCI": 5}
 ORDER_LABELS = ["CIS", "ICS", "ISC", "SIC", "CSI", "SCI"]
 
 
-def _save(fig, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, bbox_inches="tight")
+def _save(fig, svg_path: Path) -> tuple[Path, Path]:
+    svg_path.parent.mkdir(parents=True, exist_ok=True)
+    pdf_path = svg_path.with_suffix(".pdf")
+    fig.savefig(svg_path, bbox_inches="tight")
+    fig.savefig(pdf_path, bbox_inches="tight")
     plt.close(fig)
+    return svg_path, pdf_path
 
 
-def render_figure1(out: Path) -> None:
+def render_figure1(out: Path) -> tuple[Path, Path]:
     design = json.loads(GENERIC_DESIGN.read_text(encoding="utf-8"))["generic_exact_audit"]
     s = float(design["a"]) ** 2 * float(design["x_variance"])
     b2_sigma2 = float(design["b"]) ** 2 * float(design["z_variance"])
@@ -43,13 +46,7 @@ def render_figure1(out: Path) -> None:
             order[iy, ix] = ORDER_CODES[text]
 
     fig, ax = plt.subplots(figsize=(6.7, 4.9))
-    image = ax.imshow(
-        order,
-        origin="lower",
-        aspect="auto",
-        extent=[x.min(), x.max(), r.min(), r.max()],
-        interpolation="nearest",
-    )
+    image = ax.imshow(order, origin="lower", aspect="auto", extent=[x.min(), x.max(), r.min(), r.max()], interpolation="nearest")
     ax.axhline(1.0, linewidth=1.0, linestyle="--", label="C = I")
     x_sc = b2_sigma2 / s
     ax.axvline(x_sc, linewidth=1.0, linestyle=":", label="S = C")
@@ -63,10 +60,10 @@ def render_figure1(out: Path) -> None:
     colorbar.set_label("determinant order")
     ax.legend(frameon=False, fontsize=8)
     ax.set_title("Exact bilinear phase structure")
-    _save(fig, out / "figure1_exact_bilinear_phase.svg")
+    return _save(fig, out / "figure1_exact_bilinear_phase.svg")
 
 
-def render_figure2(out: Path) -> None:
+def render_figure2(out: Path) -> tuple[Path, Path]:
     data = json.loads(NONLINEAR.read_text(encoding="utf-8"))
     chapter = data["chapter2_abm_existing"]["rows"]
     consumer = data["adaptive_consumer_resource"]["illustrative_central_setting"]["rows"]
@@ -91,29 +88,19 @@ def render_figure2(out: Path) -> None:
     ax.set_ylabel("interaction/community ratio, $I/C$")
     ax.set_title("Nonlinear trajectories cross the bilinear C/I constraint")
     ax.legend(frameon=False, fontsize=8)
-    _save(fig, out / "figure2_nonlinear_ratio_trajectories.svg")
+    return _save(fig, out / "figure2_nonlinear_ratio_trajectories.svg")
 
 
-def render_figure3(out: Path) -> None:
+def render_figure3(out: Path) -> tuple[Path, Path]:
     data = json.loads(PHASE.read_text(encoding="utf-8"))
     rows = data["grid_rows"]
     ks = sorted({int(row["k"]) for row in rows})
     rhos = sorted({float(row["rho"]) for row in rows})
     lookup = {(int(row["k"]), float(row["rho"])): row for row in rows}
     matrix = np.asarray([[ORDER_CODES[lookup[(k, rho)]["order"]] for k in ks] for rho in rhos], dtype=float)
+    contour = sorted([row for row in data["exact_k_eff_contours"] if row["target_k_eff"] == 2.0], key=lambda row: int(row["k"]))
 
-    contour = sorted(
-        [row for row in data["exact_k_eff_contours"] if row["target_k_eff"] == 2.0],
-        key=lambda row: int(row["k"]),
-    )
-
-    fig, (ax_map, ax_contour) = plt.subplots(
-        1,
-        2,
-        figsize=(11.0, 4.8),
-        gridspec_kw={"width_ratios": [1.05, 1.0]},
-    )
-
+    fig, (ax_map, ax_contour) = plt.subplots(1, 2, figsize=(11.0, 4.8), gridspec_kw={"width_ratios": [1.05, 1.0]})
     image = ax_map.imshow(matrix, origin="lower", aspect="auto", interpolation="nearest")
     ax_map.set_xticks(np.arange(len(ks)), labels=ks)
     ax_map.set_yticks(np.arange(len(rhos)), labels=[f"{rho:.2g}" for rho in rhos])
@@ -135,21 +122,17 @@ def render_figure3(out: Path) -> None:
     x = np.arange(len(contour))
     for key, label in (("S", "state S"), ("C", "community C"), ("I", "interaction I")):
         ax_contour.plot(x, [row[key] for row in contour], marker="o", label=label)
-    ax_contour.set_xticks(
-        x,
-        labels=[f"k={int(row['k'])}\nD={row['support']:.2f}" for row in contour],
-    )
+    ax_contour.set_xticks(x, labels=[f"k={int(row['k'])}\nD={row['support']:.2f}" for row in contour])
     ax_contour.set_xlabel("same $k_{eff}=2$; nominal aggregation and support change")
     ax_contour.set_ylabel("variance share")
     ax_contour.set_ylim(0.0, 0.60)
     ax_contour.legend(frameon=False, fontsize=8)
     ax_contour.set_title("Same effective independence, different decomposition")
-
     fig.suptitle("Equal $k_{eff}$ does not preserve nonlinear response geometry", y=1.02)
-    _save(fig, out / "figure3_dense_keff_phase_map.svg")
+    return _save(fig, out / "figure3_dense_keff_phase_map.svg")
 
 
-def render_figure4(out: Path) -> None:
+def render_figure4(out: Path) -> tuple[Path, Path]:
     data = json.loads(NONLINEAR.read_text(encoding="utf-8"))
     chapter = data["chapter2_abm_existing"]["rows"]
     consumer = data["adaptive_consumer_resource"]["illustrative_central_setting"]["rows"]
@@ -158,11 +141,7 @@ def render_figure4(out: Path) -> None:
     fig, ax = plt.subplots(figsize=(6.6, 4.8))
     ax.plot([row["k"] for row in chapter], [row["I_over_C"] for row in chapter], marker="o", label="plant–pollinator: independent pooling")
     ax.plot([row["k"] for row in consumer], [row["median_I_over_C"] for row in consumer], marker="o", label="consumer–resource: independent pooling")
-    ax.plot(
-        [row["count_variance_equivalent_k_eff"] for row in corr],
-        [row["median_I_over_C"] for row in corr],
-        marker="s", linestyle="--", label="plant–pollinator: shared-event correlation",
-    )
+    ax.plot([row["count_variance_equivalent_k_eff"] for row in corr], [row["median_I_over_C"] for row in corr], marker="s", linestyle="--", label="plant–pollinator: shared-event correlation")
     design = json.loads(GENERIC_DESIGN.read_text(encoding="utf-8"))["generic_exact_audit"]
     bilinear_ratio = float(design["c"]) ** 2 * float(design["x_variance"]) / float(design["b"]) ** 2
     ax.axhline(bilinear_ratio, linewidth=1.0, linestyle=":", label="exact bilinear I/C")
@@ -171,20 +150,14 @@ def render_figure4(out: Path) -> None:
     ax.set_ylabel("interaction/community ratio, $I/C$")
     ax.set_title("I/C diagnoses departure from the linearized reduction")
     ax.legend(frameon=False, fontsize=7)
-    _save(fig, out / "figure4_interaction_community_diagnostic.svg")
+    return _save(fig, out / "figure4_interaction_community_diagnostic.svg")
 
 
 def render_all(out: Path = DEFAULT_OUT) -> list[Path]:
-    render_figure1(out)
-    render_figure2(out)
-    render_figure3(out)
-    render_figure4(out)
-    return [
-        out / "figure1_exact_bilinear_phase.svg",
-        out / "figure2_nonlinear_ratio_trajectories.svg",
-        out / "figure3_dense_keff_phase_map.svg",
-        out / "figure4_interaction_community_diagnostic.svg",
-    ]
+    paths: list[Path] = []
+    for render in (render_figure1, render_figure2, render_figure3, render_figure4):
+        paths.extend(render(out))
+    return paths
 
 
 def main() -> None:
