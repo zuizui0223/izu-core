@@ -101,33 +101,51 @@ def render_figure3(out: Path) -> None:
     rhos = sorted({float(row["rho"]) for row in rows})
     lookup = {(int(row["k"]), float(row["rho"])): row for row in rows}
     matrix = np.asarray([[ORDER_CODES[lookup[(k, rho)]["order"]] for k in ks] for rho in rhos], dtype=float)
-    xpos = np.arange(len(ks), dtype=float)
 
-    fig, ax = plt.subplots(figsize=(6.8, 4.9))
-    image = ax.imshow(matrix, origin="lower", aspect="auto", interpolation="nearest")
-    ax.set_xticks(xpos, labels=ks)
-    ax.set_yticks(np.arange(len(rhos)), labels=[f"{rho:.2g}" for rho in rhos])
-    ax.set_xlabel("pooled community copies, k")
-    ax.set_ylabel("pairwise copy correlation, rho")
+    contour = sorted(
+        [row for row in data["exact_k_eff_contours"] if row["target_k_eff"] == 2.0],
+        key=lambda row: int(row["k"]),
+    )
+
+    fig, (ax_map, ax_contour) = plt.subplots(
+        1,
+        2,
+        figsize=(11.0, 4.8),
+        gridspec_kw={"width_ratios": [1.05, 1.0]},
+    )
+
+    image = ax_map.imshow(matrix, origin="lower", aspect="auto", interpolation="nearest")
+    ax_map.set_xticks(np.arange(len(ks)), labels=ks)
+    ax_map.set_yticks(np.arange(len(rhos)), labels=[f"{rho:.2g}" for rho in rhos])
+    ax_map.set_xlabel("pooled community copies, k")
+    ax_map.set_ylabel("pairwise copy correlation, rho")
     for iy, rho in enumerate(rhos):
         for ix, k in enumerate(ks):
-            ax.text(ix, iy, lookup[(k, rho)]["order"], ha="center", va="center", fontsize=8)
+            ax_map.text(ix, iy, lookup[(k, rho)]["order"], ha="center", va="center", fontsize=7)
 
-    # Exact k_eff=2 contour, expressed in the categorical plotting coordinates.
-    contour = [row for row in data["exact_k_eff_contours"] if row["target_k_eff"] == 2.0]
     cx = [ks.index(int(row["k"])) for row in contour]
     cy = [np.interp(float(row["rho"]), rhos, np.arange(len(rhos))) for row in contour]
-    ax.plot(cx, cy, marker="o", linewidth=1.5, label="$k_{eff}=2$ exact contour")
-    for x, y, row in zip(cx, cy, contour):
-        ax.annotate(
-            f"D={row['support']:.2f}\n{row['order']}",
-            (x, y), xytext=(5, 5), textcoords="offset points", fontsize=7,
-        )
-    colorbar = fig.colorbar(image, ax=ax, ticks=range(len(ORDER_LABELS)))
+    ax_map.plot(cx, cy, marker="o", linewidth=1.5, label="$k_{eff}=2$ exact contour")
+    colorbar = fig.colorbar(image, ax=ax_map, ticks=range(len(ORDER_LABELS)), fraction=0.046, pad=0.04)
     colorbar.ax.set_yticklabels(ORDER_LABELS)
     colorbar.set_label("determinant order")
-    ax.legend(frameon=False, fontsize=8, loc="upper left")
-    ax.set_title("Equal $k_{eff}$ does not preserve nonlinear phase")
+    ax_map.legend(frameon=False, fontsize=8, loc="upper left")
+    ax_map.set_title("Phase map")
+
+    x = np.arange(len(contour))
+    for key, label in (("S", "state S"), ("C", "community C"), ("I", "interaction I")):
+        ax_contour.plot(x, [row[key] for row in contour], marker="o", label=label)
+    ax_contour.set_xticks(
+        x,
+        labels=[f"k={int(row['k'])}\nD={row['support']:.2f}" for row in contour],
+    )
+    ax_contour.set_xlabel("same $k_{eff}=2$; nominal aggregation and support change")
+    ax_contour.set_ylabel("variance share")
+    ax_contour.set_ylim(0.0, 0.60)
+    ax_contour.legend(frameon=False, fontsize=8)
+    ax_contour.set_title("Same effective independence, different decomposition")
+
+    fig.suptitle("Equal $k_{eff}$ does not preserve nonlinear response geometry", y=1.02)
     _save(fig, out / "figure3_dense_keff_phase_map.svg")
 
 
