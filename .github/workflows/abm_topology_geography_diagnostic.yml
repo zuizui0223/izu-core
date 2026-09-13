@@ -3,14 +3,6 @@ name: ABM topology geography diagnostic
 # Source-native structure CSVs are generated during CI and are not committed snapshots.
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_abm_v4_topology_geography_diagnostic.py'
-      - 'scripts/run_abm_v4_dore_structure_prediction.py'
-      - 'scripts/extract_dore2021_frozen_structure_targets.R'
-      - 'scripts/match_frozen_candidates_to_gift_geography.py'
-      - '.github/workflows/abm_topology_geography_diagnostic.yml'
-
 concurrency:
   group: abm-topology-geography-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

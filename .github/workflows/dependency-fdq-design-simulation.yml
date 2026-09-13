@@ -2,25 +2,6 @@ name: Dependency x FDQ design simulation
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "channel_id/dependency_fdq_design_simulation.py"
-      - "scripts/run_dependency_fdq_design_simulation.py"
-      - "data/design/dependency_fdq_design_scenarios.json"
-      - "data/results/dependency_fdq_design_simulation.json"
-      - "docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md"
-      - "tests/test_dependency_fdq_design_simulation.py"
-      - ".github/workflows/dependency-fdq-design-simulation.yml"
-  pull_request:
-    paths:
-      - "channel_id/dependency_fdq_design_simulation.py"
-      - "scripts/run_dependency_fdq_design_simulation.py"
-      - "data/design/dependency_fdq_design_scenarios.json"
-      - "data/results/dependency_fdq_design_simulation.json"
-      - "docs/DEPENDENCY_FDQ_DESIGN_SIMULATION.md"
-      - "tests/test_dependency_fdq_design_simulation.py"
-      - ".github/workflows/dependency-fdq-design-simulation.yml"
-
 jobs:
   design-simulation:
     runs-on: ubuntu-latest

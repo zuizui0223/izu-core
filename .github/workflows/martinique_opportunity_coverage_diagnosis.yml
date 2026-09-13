@@ -2,12 +2,6 @@ name: Martinique opportunity coverage diagnosis
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/diagnose_martinique_opportunity_coverage_block.py'
-      - 'tests/test_martinique_opportunity_coverage_block.py'
-      - '.github/workflows/martinique_opportunity_coverage_diagnosis.yml'
-
 jobs:
   diagnose:
     runs-on: ubuntu-latest

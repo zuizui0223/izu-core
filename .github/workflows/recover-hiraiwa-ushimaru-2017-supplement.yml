@@ -1,12 +1,6 @@
 name: Recover Hiraiwa-Ushimaru 2017 sources
 
 on:
-  push:
-    branches: [empirical-2017-proboscis-recovery]
-    paths:
-      - "scripts/recover_hiraiwa_ushimaru_2017_supplement.py"
-      - "scripts/recover_hiraiwa_ushimaru_2017_dryad_file.py"
-      - ".github/workflows/recover-hiraiwa-ushimaru-2017-supplement.yml"
   workflow_dispatch:
 
 permissions:

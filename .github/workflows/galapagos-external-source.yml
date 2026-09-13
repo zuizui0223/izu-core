@@ -2,29 +2,6 @@ name: Galapagos external source audit
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/galapagos_dryad_source.json"
-      - "scripts/acquire_dryad_external_dataset.py"
-      - "scripts/acquire_galapagos_dataone.py"
-      - "scripts/audit_galapagos_dryad_schema.py"
-      - "tests/test_dryad_external_acquisition.py"
-      - "tests/test_galapagos_dataone_acquisition.py"
-      - "tests/test_galapagos_dryad_schema.py"
-      - "docs/GALAPAGOS_DATAONE_RECOVERY.md"
-      - ".github/workflows/galapagos-external-source.yml"
-  pull_request:
-    paths:
-      - "config/galapagos_dryad_source.json"
-      - "scripts/acquire_dryad_external_dataset.py"
-      - "scripts/acquire_galapagos_dataone.py"
-      - "scripts/audit_galapagos_dryad_schema.py"
-      - "tests/test_dryad_external_acquisition.py"
-      - "tests/test_galapagos_dataone_acquisition.py"
-      - "tests/test_galapagos_dryad_schema.py"
-      - "docs/GALAPAGOS_DATAONE_RECOVERY.md"
-      - ".github/workflows/galapagos-external-source.yml"
-
 permissions:
   contents: write
 

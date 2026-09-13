@@ -2,18 +2,6 @@ name: Assurance buffering capability
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_assurance_buffering_capability_ablation.py'
-      - 'tests/test_assurance_buffering_capability_ablation.py'
-      - '.github/workflows/assurance_buffering_capability.yml'
-      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
-      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
-      - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
-      - 'scripts/run_constraint_mechanism_abm_v14_assurance_buffering.py'
-      - 'data/design/abm_v14_assurance_buffering_robustness_freeze.json'
-      - 'data/design/buffer_mechanism_abm_admission_interface.json'
-
 jobs:
   assurance-buffering-capability:
     runs-on: ubuntu-latest

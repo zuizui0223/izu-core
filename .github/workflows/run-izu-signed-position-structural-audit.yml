@@ -1,13 +1,6 @@
 name: Run Izu signed-position structural audit
 
 on:
-  push:
-    branches: [empirical-2017-proboscis-recovery-signed-test]
-    paths:
-      - "scripts/audit_izu_signed_position_structural_independence.py"
-      - "tests/test_izu_signed_position_structural_independence.py"
-      - ".github/workflows/run-izu-signed-position-structural-audit.yml"
-      - "data/design/izu_signed_position_source_gate_20260827.json"
   workflow_dispatch:
 
 permissions:

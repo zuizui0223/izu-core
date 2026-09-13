@@ -1,12 +1,6 @@
 name: Empirical Evidence Lock
 
 on:
-  pull_request:
-    paths:
-      - "channel_id/empirical_evidence_lock.py"
-      - "scripts/build_empirical_evidence_lock.py"
-      - "data/two_breakpoint_evidence/**"
-      - ".github/workflows/empirical-evidence-lock.yml"
   workflow_dispatch:
 
 permissions:

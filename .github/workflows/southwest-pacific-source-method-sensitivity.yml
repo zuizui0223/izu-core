@@ -2,31 +2,6 @@ name: Southwest Pacific source-method sensitivity
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "scripts/analyze_southwest_pacific_source_method_sensitivity.py"
-      - "scripts/analyze_southwest_pacific_source_method_overlap.py"
-      - "tests/test_southwest_pacific_source_method_sensitivity.py"
-      - "tests/test_southwest_pacific_source_method_overlap.py"
-      - "data/results/southwest_pacific_pairs/source_method_sensitivity.json"
-      - "data/results/southwest_pacific_pairs/source_method_geographic_overlap_sensitivity.json"
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - ".github/workflows/southwest-pacific-source-method-sensitivity.yml"
-  pull_request:
-    paths:
-      - "scripts/analyze_southwest_pacific_source_method_sensitivity.py"
-      - "scripts/analyze_southwest_pacific_source_method_overlap.py"
-      - "tests/test_southwest_pacific_source_method_sensitivity.py"
-      - "tests/test_southwest_pacific_source_method_overlap.py"
-      - "data/results/southwest_pacific_pairs/source_method_sensitivity.json"
-      - "data/results/southwest_pacific_pairs/source_method_geographic_overlap_sensitivity.json"
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - ".github/workflows/southwest-pacific-source-method-sensitivity.yml"
-
 jobs:
   sensitivity:
     runs-on: ubuntu-latest

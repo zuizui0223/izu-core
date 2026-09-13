@@ -2,25 +2,6 @@ name: Southwest Pacific pollination-mode contrast
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/analyze_southwest_pacific_mode_difference.py"
-      - "tests/test_southwest_pacific_mode_difference.py"
-      - "tests/test_southwest_pacific_pmc_acquisition.py"
-      - "data/results/southwest_pacific_pairs/source_lock.json"
-      - ".github/workflows/southwest-pacific-mode-difference.yml"
-  pull_request:
-    paths:
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/analyze_southwest_pacific_mode_difference.py"
-      - "tests/test_southwest_pacific_mode_difference.py"
-      - "tests/test_southwest_pacific_pmc_acquisition.py"
-      - "data/results/southwest_pacific_pairs/source_lock.json"
-      - ".github/workflows/southwest-pacific-mode-difference.yml"
-
 permissions:
   contents: write
 

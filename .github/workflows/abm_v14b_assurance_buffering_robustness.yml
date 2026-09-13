@@ -2,13 +2,6 @@ name: ABM v14b assurance buffering robustness
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - "data/design/abm_v14b_assurance_buffering_robustness_freeze.json"
-      - "scripts/run_constraint_mechanism_abm_v14b_assurance_buffering_robustness.py"
-      - "tests/test_abm_v14b_assurance_buffering_robustness.py"
-      - ".github/workflows/abm_v14b_assurance_buffering_robustness.yml"
-
 jobs:
   independent-v14b-run:
     runs-on: ubuntu-latest

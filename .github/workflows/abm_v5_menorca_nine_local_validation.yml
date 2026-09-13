@@ -2,18 +2,6 @@ name: ABM v5 Menorca nine-local validation
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v5_menorca_nine_local_validation_v1.json'
-      - 'data/results/abm_v4_distance_ecdf_reference_runlock.json'
-      - 'scripts/acquire_audit_menorca2023_figshare.py'
-      - 'scripts/match_menorca2023_to_gift_opportunity.py'
-      - 'scripts/run_abm_v5_menorca_nine_local_validation.py'
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
-      - 'tests/test_abm_v5_menorca_validation_freeze.py'
-      - '.github/workflows/abm_v5_menorca_nine_local_validation.yml'
-
 concurrency:
   group: abm-v5-menorca-nine-local-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

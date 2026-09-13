@@ -1,14 +1,6 @@
 name: Primary Source Holdout Registry
 
 on:
-  pull_request:
-    paths:
-      - "channel_id/primary_source_holdout.py"
-      - "paper/compile_primary_source_holdout.py"
-      - "data/predictive_meta/primary_source_native_evidence.csv"
-      - "data/predictive_meta/primary_source_extraction_queue.csv"
-      - "tests/test_primary_source_holdout.py"
-      - ".github/workflows/primary-source-holdout.yml"
   workflow_dispatch:
 
 permissions:

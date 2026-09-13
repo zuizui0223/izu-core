@@ -2,21 +2,6 @@ name: Acquire Izu public data
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - agent/consolidate-current-evidence-state
-    paths:
-      - "config/izu_public_data_source_lock.json"
-      - "scripts/acquire_izu_public_data.py"
-      - "tests/test_izu_public_data_acquisition.py"
-      - ".github/workflows/acquire-izu-public-data.yml"
-  pull_request:
-    paths:
-      - "config/izu_public_data_source_lock.json"
-      - "scripts/acquire_izu_public_data.py"
-      - "tests/test_izu_public_data_acquisition.py"
-      - ".github/workflows/acquire-izu-public-data.yml"
-
 permissions:
   contents: read
 

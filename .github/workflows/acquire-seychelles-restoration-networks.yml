@@ -2,16 +2,6 @@ name: Acquire Seychelles restoration networks
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - "config/seychelles_restoration_network_iwdb_source.json"
-      - "scripts/acquire_seychelles_restoration_iwdb.py"
-      - "scripts/extract_seychelles_restoration_empirical.R"
-      - "scripts/analyze_seychelles_restoration_networks.py"
-      - "data/results/seychelles_restoration_network_summary.json"
-      - "tests/test_seychelles_restoration_networks.py"
-      - ".github/workflows/acquire-seychelles-restoration-networks.yml"
-
 permissions:
   contents: read
 

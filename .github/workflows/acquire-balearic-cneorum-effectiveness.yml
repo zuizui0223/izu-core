@@ -2,16 +2,6 @@ name: Acquire Balearic Cneorum effectiveness data
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - "config/balearic_cneorum_effectiveness_dryad_source.json"
-      - "scripts/acquire_dryad_external_dataset.py"
-      - "scripts/acquire_balearic_cneorum_package.py"
-      - "scripts/analyze_balearic_cneorum_effectiveness.py"
-      - "data/results/balearic_cneorum_effectiveness_summary.json"
-      - "tests/test_balearic_cneorum_effectiveness.py"
-      - ".github/workflows/acquire-balearic-cneorum-effectiveness.yml"
-
 permissions:
   contents: read
 

@@ -2,15 +2,6 @@ name: Ogasawara within-island context sensitivity
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/results/ogasawara/context_analysis/context_metrics.csv'
-      - 'data/results/ogasawara/context_analysis/island_metrics.csv'
-      - 'data/results/ogasawara_raw_weighted_capacity_falsification_runlock.json'
-      - 'scripts/diagnose_ogasawara_within_island_context_sensitivity.py'
-      - 'tests/test_ogasawara_within_island_context_sensitivity.py'
-      - '.github/workflows/ogasawara_context_sensitivity_diagnostic.yml'
-
 concurrency:
   group: ogasawara-context-sensitivity-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

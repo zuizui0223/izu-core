@@ -1,17 +1,6 @@
 name: Ardens Step-Persistence Screen
 
 on:
-  pull_request:
-    paths:
-      - 'channel_id/ardens_step_persistence_smc.py'
-      - 'channel_id/source_level_ardens_step_persistence.py'
-      - 'channel_id/source_level_tempered_smc.py'
-      - 'data/ardens_step_persistence_stages.csv'
-      - 'data/inoue_literature_island_traits.csv'
-      - 'data/two_breakpoint_evidence/**'
-      - 'data/guide_direction_constraints.csv'
-      - 'scripts/run_ardens_step_persistence_smc.py'
-      - '.github/workflows/ardens-step-persistence-screen.yml'
   workflow_dispatch:
 
 jobs:

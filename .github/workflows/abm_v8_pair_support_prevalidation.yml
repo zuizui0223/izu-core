@@ -2,15 +2,6 @@ name: ABM v8 pair support prevalidation
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_constraint_mechanism_abm_v8_pair_support.py'
-      - 'scripts/prevalidate_abm_v8_pair_support.py'
-      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'tests/test_abm_v8_pair_support.py'
-      - '.github/workflows/abm_v8_pair_support_prevalidation.yml'
-
 jobs:
   prevalidate:
     runs-on: ubuntu-latest

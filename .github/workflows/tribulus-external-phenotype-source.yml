@@ -2,27 +2,6 @@ name: Tribulus external phenotype source
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/tribulus_zenodo_source.json"
-      - "scripts/acquire_ogasawara_zenodo.py"
-      - "scripts/analyze_tribulus_flower_context.py"
-      - "scripts/analyze_tribulus_flower_context_idaware.py"
-      - "tests/test_tribulus_source_config.py"
-      - "tests/test_tribulus_flower_context.py"
-      - "data/results/tribulus_island_continent/**"
-      - ".github/workflows/tribulus-external-phenotype-source.yml"
-  pull_request:
-    paths:
-      - "config/tribulus_zenodo_source.json"
-      - "scripts/acquire_ogasawara_zenodo.py"
-      - "scripts/analyze_tribulus_flower_context.py"
-      - "scripts/analyze_tribulus_flower_context_idaware.py"
-      - "tests/test_tribulus_source_config.py"
-      - "tests/test_tribulus_flower_context.py"
-      - "data/results/tribulus_island_continent/**"
-      - ".github/workflows/tribulus-external-phenotype-source.yml"
-
 permissions:
   contents: write
 

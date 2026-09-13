@@ -2,39 +2,6 @@ name: Southwest Pacific pair source audit
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/audit_southwest_pacific_pair_schema.py"
-      - "scripts/analyze_southwest_pacific_flower_size.py"
-      - "scripts/summarize_southwest_pacific_flower_size.py"
-      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
-      - "tests/test_oup_supplementary_acquisition.py"
-      - "tests/test_southwest_pacific_pmc_acquisition.py"
-      - "tests/test_southwest_pacific_pair_schema.py"
-      - "tests/test_southwest_pacific_flower_size_analysis.py"
-      - "tests/test_southwest_pacific_effect_admission_gate.py"
-      - "data/results/southwest_pacific_pairs/**"
-      - ".github/workflows/southwest-pacific-pair-source.yml"
-  pull_request:
-    paths:
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/audit_southwest_pacific_pair_schema.py"
-      - "scripts/analyze_southwest_pacific_flower_size.py"
-      - "scripts/summarize_southwest_pacific_flower_size.py"
-      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
-      - "tests/test_oup_supplementary_acquisition.py"
-      - "tests/test_southwest_pacific_pmc_acquisition.py"
-      - "tests/test_southwest_pacific_pair_schema.py"
-      - "tests/test_southwest_pacific_flower_size_analysis.py"
-      - "tests/test_southwest_pacific_effect_admission_gate.py"
-      - "data/results/southwest_pacific_pairs/**"
-      - ".github/workflows/southwest-pacific-pair-source.yml"
-
 permissions:
   contents: write
 

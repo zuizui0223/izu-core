@@ -1,15 +1,6 @@
 name: Izu threshold identifiability
 
 on:
-  pull_request:
-    paths:
-      - "channel_id/threshold_identifiability.py"
-      - "scripts/run_threshold_identifiability.py"
-      - "tests/test_threshold_identifiability.py"
-      - "data/design/izu_threshold_regimes.csv"
-      - "data/design/izu_threshold_hypotheses.json"
-      - "docs/IZU_THRESHOLD_ANALYSIS.md"
-      - ".github/workflows/izu-threshold-identifiability.yml"
   workflow_dispatch:
 
 permissions:

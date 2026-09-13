@@ -2,25 +2,6 @@ name: Campanula geography adversary
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "channel_id/campanula_geography_adversary.py"
-      - "paper/run_campanula_geography_adversary.py"
-      - "tests/test_campanula_geography_adversary.py"
-      - "data/inoue_literature_island_traits.csv"
-      - "data/design/izu_regime_scaffold.csv"
-      - "data/design/izu_geography_covariates.csv"
-      - ".github/workflows/campanula-geography-adversary.yml"
-  pull_request:
-    paths:
-      - "channel_id/campanula_geography_adversary.py"
-      - "paper/run_campanula_geography_adversary.py"
-      - "tests/test_campanula_geography_adversary.py"
-      - "data/inoue_literature_island_traits.csv"
-      - "data/design/izu_regime_scaffold.csv"
-      - "data/design/izu_geography_covariates.csv"
-      - ".github/workflows/campanula-geography-adversary.yml"
-
 jobs:
   audit:
     runs-on: ubuntu-latest

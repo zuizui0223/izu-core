@@ -2,25 +2,6 @@ name: Canary-Balearic selected-species seasonality
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "scripts/analyze_canary_balearic_plos_seasonality.py"
-      - "tests/test_canary_balearic_plos_seasonality.py"
-      - "data/results/canary_balearic/plos_derived_partner_traits.csv"
-      - "data/results/canary_balearic/plos_same_community_source.json"
-      - "data/results/canary_balearic/plos_selected_species_seasonality.csv"
-      - "data/results/canary_balearic/plos_selected_species_seasonality_summary.json"
-      - ".github/workflows/canary-balearic-selected-species-seasonality.yml"
-  pull_request:
-    paths:
-      - "scripts/analyze_canary_balearic_plos_seasonality.py"
-      - "tests/test_canary_balearic_plos_seasonality.py"
-      - "data/results/canary_balearic/plos_derived_partner_traits.csv"
-      - "data/results/canary_balearic/plos_same_community_source.json"
-      - "data/results/canary_balearic/plos_selected_species_seasonality.csv"
-      - "data/results/canary_balearic/plos_selected_species_seasonality_summary.json"
-      - ".github/workflows/canary-balearic-selected-species-seasonality.yml"
-
 permissions:
   contents: write
 

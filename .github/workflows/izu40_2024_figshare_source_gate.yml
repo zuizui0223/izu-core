@@ -2,13 +2,6 @@ name: Izu 40-network Figshare source gate
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v8_izu40_figshare_source_gate_v1.json'
-      - 'scripts/acquire_audit_izu40_2024_figshare.py'
-      - 'tests/test_izu40_2024_figshare_source_gate.py'
-      - '.github/workflows/izu40_2024_figshare_source_gate.yml'
-
 jobs:
   source-gate:
     runs-on: ubuntu-latest

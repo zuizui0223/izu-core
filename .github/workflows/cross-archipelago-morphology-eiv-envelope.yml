@@ -2,27 +2,6 @@ name: Cross-archipelago morphology EIV envelope
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "scripts/audit_cross_archipelago_morphology_eiv_envelope.py"
-      - "tests/test_cross_archipelago_morphology_eiv_envelope.py"
-      - "tests/test_cross_archipelago_morphology_reliability_identifiability.py"
-      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
-      - "data/results/cross_archipelago_morphology_eiv_envelope_summary.json"
-      - "data/results/cross_archipelago_morphology_eiv_envelope.csv"
-      - "data/results/cross_archipelago_morphology_reliability_identifiability.json"
-      - ".github/workflows/cross-archipelago-morphology-eiv-envelope.yml"
-  pull_request:
-    paths:
-      - "scripts/audit_cross_archipelago_morphology_eiv_envelope.py"
-      - "tests/test_cross_archipelago_morphology_eiv_envelope.py"
-      - "tests/test_cross_archipelago_morphology_reliability_identifiability.py"
-      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
-      - "data/results/cross_archipelago_morphology_eiv_envelope_summary.json"
-      - "data/results/cross_archipelago_morphology_eiv_envelope.csv"
-      - "data/results/cross_archipelago_morphology_reliability_identifiability.json"
-      - ".github/workflows/cross-archipelago-morphology-eiv-envelope.yml"
-
 permissions:
   contents: write
 

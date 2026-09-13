@@ -1,19 +1,6 @@
 name: Pre-field Known-data Closure
 
 on:
-  pull_request:
-    paths:
-      - 'data/known_data_phase_lock.json'
-      - 'data/inoue_literature_island_traits.csv'
-      - 'data/two_breakpoint_evidence/inoue1990_outcrossing.csv'
-      - 'data/two_breakpoint_evidence/inoue1988_bagging.csv'
-      - 'data/two_breakpoint_evidence/inoue1995_flower_length.csv'
-      - 'data/guide_direction_constraints.csv'
-      - 'data/guide_evidence_registry.csv'
-      - 'channel_id/known_data_phase_closure.py'
-      - 'scripts/build_known_data_phase_closure.py'
-      - 'docs/PRE_FIELD_KNOWN_DATA_CLOSEOUT.md'
-      - '.github/workflows/known-data-phase-closure.yml'
   workflow_dispatch:
 
 jobs:

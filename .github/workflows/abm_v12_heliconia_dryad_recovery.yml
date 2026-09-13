@@ -2,13 +2,6 @@ name: ABM v12 Heliconia Dryad recovery
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/recover_abm_v12_heliconia_dryad.py'
-      - 'tests/test_abm_v12_heliconia_dryad_recovery.py'
-      - '.github/workflows/abm_v12_heliconia_dryad_recovery.yml'
-      - 'data/design/abm_v12_heliconia_source_gate.json'
-
 jobs:
   source-recovery:
     runs-on: ubuntu-latest

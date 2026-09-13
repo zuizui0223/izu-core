@@ -1,13 +1,6 @@
 name: Joint Interval Channel Profile
 
 on:
-  pull_request:
-    paths:
-      - "channel_id/joint_interval_channel_profile.py"
-      - "paper/run_joint_interval_channel_profile.py"
-      - "data/inoue_literature_island_traits.csv"
-      - "tests/test_joint_interval_channel_profile.py"
-      - ".github/workflows/joint-interval-channel-profile.yml"
   workflow_dispatch:
 
 permissions:

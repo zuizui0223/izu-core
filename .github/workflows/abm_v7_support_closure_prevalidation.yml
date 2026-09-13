@@ -2,17 +2,6 @@ name: ABM v7 support closure prevalidation
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_constraint_mechanism_abm_v7_support_closure.py'
-      - 'scripts/prevalidate_abm_v7_support_closure.py'
-      - 'scripts/diagnose_abm_v4_dense_pair_support.py'
-      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'tests/test_abm_v7_support_closure.py'
-      - 'tests/test_abm_v4_dense_pair_support_diagnosis.py'
-      - '.github/workflows/abm_v7_support_closure_prevalidation.yml'
-
 jobs:
   prevalidate:
     runs-on: ubuntu-latest

@@ -2,16 +2,6 @@ name: ABM v13 Hawaii lobelioid source gate
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v13_hawaii_lobelioid_source_gate.json'
-      - 'data/results/abm_v13_hawaii_lobelioid_dryad_recovery_frozen.json'
-      - 'data/results/abm_v13_hawaii_lobelioid_dryad_package_recovery_frozen.json'
-      - 'scripts/recover_abm_v13_hawaii_lobelioid_dryad.py'
-      - 'scripts/recover_abm_v13_hawaii_lobelioid_dryad_package.py'
-      - 'tests/test_abm_v13_hawaii_lobelioid_source_gate.py'
-      - '.github/workflows/abm_v13_hawaii_lobelioid_source_gate.yml'
-
 jobs:
   source-gate:
     runs-on: ubuntu-latest

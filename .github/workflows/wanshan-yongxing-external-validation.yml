@@ -2,37 +2,6 @@ name: Wanshan-Yongxing external validation
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "channel_id/external_archipelago_network.py"
-      - "channel_id/paired_effect_uncertainty.py"
-      - "config/wanshan_yongxing_dryad_source.json"
-      - "data/design/cross_archipelago_external_validation.json"
-      - "data/results/wanshan_yongxing/effect_rows.json"
-      - "scripts/acquire_wanshan_yongxing_dryad.py"
-      - "scripts/analyze_wanshan_yongxing_networks.py"
-      - "scripts/summarize_wanshan_yongxing_effects.py"
-      - "tests/test_external_archipelago_network.py"
-      - "tests/test_cross_archipelago_external_validation.py"
-      - "tests/test_wanshan_dryad_acquisition.py"
-      - "tests/test_wanshan_yongxing_effects.py"
-      - ".github/workflows/wanshan-yongxing-external-validation.yml"
-  pull_request:
-    paths:
-      - "channel_id/external_archipelago_network.py"
-      - "channel_id/paired_effect_uncertainty.py"
-      - "config/wanshan_yongxing_dryad_source.json"
-      - "data/design/cross_archipelago_external_validation.json"
-      - "data/results/wanshan_yongxing/effect_rows.json"
-      - "scripts/acquire_wanshan_yongxing_dryad.py"
-      - "scripts/analyze_wanshan_yongxing_networks.py"
-      - "scripts/summarize_wanshan_yongxing_effects.py"
-      - "tests/test_external_archipelago_network.py"
-      - "tests/test_cross_archipelago_external_validation.py"
-      - "tests/test_wanshan_dryad_acquisition.py"
-      - "tests/test_wanshan_yongxing_effects.py"
-      - ".github/workflows/wanshan-yongxing-external-validation.yml"
-
 jobs:
   external-validation:
     runs-on: ubuntu-latest

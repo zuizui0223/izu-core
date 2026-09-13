@@ -2,16 +2,6 @@ name: Island evolutionary river
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'docs/island_evolutionary_river_v1.md'
-      - 'scripts/build_island_evolutionary_river.py'
-      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
-      - 'tests/test_island_evolutionary_river.py'
-      - '.github/workflows/island_evolutionary_river.yml'
-
 jobs:
   build:
     runs-on: ubuntu-latest

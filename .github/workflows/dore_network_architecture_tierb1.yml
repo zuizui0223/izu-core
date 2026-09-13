@@ -2,18 +2,6 @@ name: Dore network architecture Tier-B1
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/extract_dore2021_frozen_structure_targets.R'
-      - 'scripts/run_abm_v4_dore_structure_prediction.py'
-      - 'scripts/match_frozen_candidates_to_gift_geography.py'
-      - 'scripts/run_abm_v4_dore_named_system_prediction.py'
-      - 'scripts/run_abm_v4_global_continuous_isolation_gradient.py'
-      - 'data/results/frozen_dore_network_targets.csv'
-      - 'data/design/frozen_dore_candidate_network_locations.json'
-      - 'data/design/frozen_gift_entity_overrides_v1.json'
-      - '.github/workflows/dore_network_architecture_tierb1.yml'
-
 concurrency:
   group: dore-architecture-tierb1-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

@@ -2,37 +2,6 @@ name: Canary-Balearic external source audit
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/canary_balearic_oup_source.json"
-      - "config/canary_balearic_plos_source.json"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_canary_balearic_plos_support.py"
-      - "scripts/audit_canary_balearic_network_source.py"
-      - "scripts/audit_canary_balearic_plos_support.py"
-      - "scripts/parse_canary_balearic_plos_derived.py"
-      - "tests/test_oup_supplementary_acquisition.py"
-      - "tests/test_canary_balearic_network_source.py"
-      - "tests/test_canary_balearic_plos_support.py"
-      - "tests/test_canary_balearic_plos_derived.py"
-      - "data/results/canary_balearic/**"
-      - ".github/workflows/canary-balearic-external-source.yml"
-  pull_request:
-    paths:
-      - "config/canary_balearic_oup_source.json"
-      - "config/canary_balearic_plos_source.json"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_canary_balearic_plos_support.py"
-      - "scripts/audit_canary_balearic_network_source.py"
-      - "scripts/audit_canary_balearic_plos_support.py"
-      - "scripts/parse_canary_balearic_plos_derived.py"
-      - "tests/test_oup_supplementary_acquisition.py"
-      - "tests/test_canary_balearic_network_source.py"
-      - "tests/test_canary_balearic_plos_support.py"
-      - "tests/test_canary_balearic_plos_derived.py"
-      - "data/results/canary_balearic/**"
-      - ".github/workflows/canary-balearic-external-source.yml"
-
 permissions:
   contents: write
 

@@ -1,11 +1,6 @@
 name: Izu Environment Proxy Snapshot
 
 on:
-  pull_request:
-    paths:
-      - "configs/izu_island_proxy_points.json"
-      - "scripts/fetch_izu_environment_proxy.py"
-      - ".github/workflows/izu-environment-proxy-snapshot.yml"
   workflow_dispatch:
 
 permissions:

@@ -1,31 +1,7 @@
 name: Current evidence state
 
 on:
-  push:
-    paths:
-      - "channel_id/current_evidence_state.py"
-      - "scripts/report_current_evidence_state.py"
-      - "docs/CURRENT_EVIDENCE_STATE.md"
-      - "docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md"
-      - "data/predictive_meta/**"
-      - "paper/evidence_screening/quantitative_effects.csv"
-      - "paper/validate_regime_transition_registry.py"
-      - "tests/test_current_evidence_state.py"
-      - "tests/test_regime_transition_registry.py"
-      - ".github/workflows/current-evidence-state.yml"
-  pull_request:
-    paths:
-      - "channel_id/current_evidence_state.py"
-      - "scripts/report_current_evidence_state.py"
-      - "docs/CURRENT_EVIDENCE_STATE.md"
-      - "docs/REGIME_TRANSITION_COMPARATIVE_DESIGN.md"
-      - "data/predictive_meta/**"
-      - "paper/evidence_screening/quantitative_effects.csv"
-      - "paper/validate_regime_transition_registry.py"
-      - "tests/test_current_evidence_state.py"
-      - "tests/test_regime_transition_registry.py"
-      - ".github/workflows/current-evidence-state.yml"
-
+  workflow_dispatch:
 jobs:
   report:
     runs-on: ubuntu-latest

@@ -2,16 +2,6 @@ name: Acquire Balearic Malva effectiveness data
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - "config/balearic_malva_effectiveness_figshare_source.json"
-      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
-      - "scripts/inspect_balearic_malva_effectiveness.py"
-      - "scripts/analyze_balearic_malva_effectiveness.py"
-      - "data/results/balearic_malva_effectiveness_summary.json"
-      - "tests/test_balearic_malva_effectiveness.py"
-      - ".github/workflows/acquire-balearic-malva-effectiveness.yml"
-
 permissions:
   contents: read
 

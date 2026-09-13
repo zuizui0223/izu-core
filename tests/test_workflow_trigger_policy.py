@@ -3,12 +3,11 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-import pytest
 
-ROOT = Path(__file__).resolve().parents[1]
-WORKFLOWS = ROOT / ".github" / "workflows"
-KEEP_AUTOMATIC = {"ci.yml", "chapter2-scientific-gate.yml"}
-MIGRATION = WORKFLOWS / "workflow-trigger-migration.yml"
+WORKFLOW_DIR = Path(".github/workflows")
+AUTOMATIC_WORKFLOWS = {"ci.yml", "chapter2-scientific-gate.yml"}
+EVENT_RE = re.compile(r"\b(push|pull_request|workflow_dispatch|schedule|workflow_call|workflow_run)\b")
+TOP_LEVEL_EVENT_RE = re.compile(r"^  ([A-Za-z0-9_-]+)\s*:")
 
 
 def _trigger_block(path: Path) -> list[str]:
@@ -18,7 +17,7 @@ def _trigger_block(path: Path) -> list[str]:
             start = index
             break
     else:
-        raise AssertionError(f"{path}: missing top-level on: block")
+        raise AssertionError(f"{path}: missing top-level on block")
 
     if lines[start].split(":", 1)[1].strip():
         return [lines[start]]
@@ -32,33 +31,32 @@ def _trigger_block(path: Path) -> list[str]:
     return lines[start:end]
 
 
-def _events(block: list[str]) -> set[str]:
-    if len(block) == 1 and block[0].split(":", 1)[1].strip():
-        return set(
-            re.findall(
-                r"\b(?:push|pull_request|workflow_dispatch|schedule|workflow_call)\b",
-                block[0],
-            )
-        )
+def _events(path: Path) -> set[str]:
+    block = _trigger_block(path)
+    if len(block) == 1:
+        return set(EVENT_RE.findall(block[0]))
 
-    found: set[str] = set()
+    events: set[str] = set()
     for line in block[1:]:
-        match = re.match(r"^  ([A-Za-z0-9_-]+)\s*:", line)
+        match = TOP_LEVEL_EVENT_RE.match(line)
         if match:
-            found.add(match.group(1))
-    return found
+            events.add(match.group(1))
+    return events
 
 
-def test_only_current_chapter_checks_run_automatically() -> None:
-    if MIGRATION.exists():
-        pytest.skip("one-shot workflow trigger migration is still in progress")
+def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
+    workflows = sorted((*WORKFLOW_DIR.glob("*.yml"), *WORKFLOW_DIR.glob("*.yaml")))
+    assert workflows
+    assert not (WORKFLOW_DIR / "workflow-trigger-migration.yml").exists()
 
-    workflows = sorted([*WORKFLOWS.glob("*.yml"), *WORKFLOWS.glob("*.yaml")])
-    assert {path.name for path in workflows}.issuperset(KEEP_AUTOMATIC)
-
+    seen_automatic: set[str] = set()
     for path in workflows:
-        events = _events(_trigger_block(path))
-        if path.name in KEEP_AUTOMATIC:
+        events = _events(path)
+        if path.name in AUTOMATIC_WORKFLOWS:
             assert "pull_request" in events, (path.name, events)
+            assert "push" in events, (path.name, events)
+            seen_automatic.add(path.name)
         else:
             assert events == {"workflow_dispatch"}, (path.name, events)
+
+    assert seen_automatic == AUTOMATIC_WORKFLOWS

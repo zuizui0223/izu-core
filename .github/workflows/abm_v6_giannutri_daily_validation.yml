@@ -2,17 +2,6 @@ name: ABM v6 Giannutri daily validation
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v6_giannutri_daily_validation_v1.json'
-      - 'scripts/audit_giannutri2025_daily_reconstruction_structure.py'
-      - 'scripts/run_abm_v6_giannutri_daily_validation.py'
-      - 'scripts/run_constraint_mechanism_abm_v6_local_support.py'
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'tests/test_giannutri2025_validation_freeze.py'
-      - 'tests/test_abm_v6_giannutri_daily_validation.py'
-      - '.github/workflows/abm_v6_giannutri_daily_validation.yml'
-
 jobs:
   validate:
     runs-on: ubuntu-latest

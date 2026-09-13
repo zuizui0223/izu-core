@@ -1,11 +1,6 @@
 name: Izu Study Locality Geocoding Candidates
 
 on:
-  pull_request:
-    paths:
-      - "configs/izu_study_locality_geocoding_targets.json"
-      - "scripts/fetch_study_locality_geocoding_candidates.py"
-      - ".github/workflows/izu-study-locality-geocoding.yml"
   workflow_dispatch:
 
 permissions:

@@ -2,12 +2,6 @@ name: Ogasawara network context analysis
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "scripts/analyze_ogasawara_network_context.py"
-      - "tests/test_ogasawara_network_context.py"
-      - ".github/workflows/ogasawara-network-context-analysis.yml"
-
 permissions:
   contents: write
 

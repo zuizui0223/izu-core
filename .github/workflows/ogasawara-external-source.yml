@@ -2,37 +2,6 @@ name: Ogasawara external source audit
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "channel_id/external_archipelago_network.py"
-      - "channel_id/paired_effect_uncertainty.py"
-      - "channel_id/ogasawara_context_network.py"
-      - "config/ogasawara_zenodo_source.json"
-      - "scripts/acquire_ogasawara_zenodo.py"
-      - "scripts/audit_ogasawara_network_schema.py"
-      - "scripts/analyze_ogasawara_context_network.py"
-      - "scripts/summarize_ogasawara_context_analysis.py"
-      - "tests/test_ogasawara_network_schema.py"
-      - "tests/test_ogasawara_context_network.py"
-      - "data/results/ogasawara/context_analysis/effect_rows.json"
-      - "data/results/ogasawara/context_analysis/analysis_summary.json"
-      - ".github/workflows/ogasawara-external-source.yml"
-  pull_request:
-    paths:
-      - "channel_id/external_archipelago_network.py"
-      - "channel_id/paired_effect_uncertainty.py"
-      - "channel_id/ogasawara_context_network.py"
-      - "config/ogasawara_zenodo_source.json"
-      - "scripts/acquire_ogasawara_zenodo.py"
-      - "scripts/audit_ogasawara_network_schema.py"
-      - "scripts/analyze_ogasawara_context_network.py"
-      - "scripts/summarize_ogasawara_context_analysis.py"
-      - "tests/test_ogasawara_network_schema.py"
-      - "tests/test_ogasawara_context_network.py"
-      - "data/results/ogasawara/context_analysis/effect_rows.json"
-      - "data/results/ogasawara/context_analysis/analysis_summary.json"
-      - ".github/workflows/ogasawara-external-source.yml"
-
 permissions:
   contents: write
 

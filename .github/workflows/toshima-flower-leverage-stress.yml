@@ -1,10 +1,6 @@
 name: Toshima flower-row leverage stress
 
 on:
-  pull_request:
-    paths:
-      - 'scripts/run_flower_length_targeted_stress.py'
-      - '.github/workflows/toshima-flower-leverage-stress.yml'
   workflow_dispatch:
 
 permissions:

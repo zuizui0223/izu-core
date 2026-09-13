@@ -2,18 +2,6 @@ name: Ogasawara raw weighted capacity falsification
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/ogasawara_gift_capacity_targets_v1.json'
-      - 'data/results/ogasawara/context_analysis/island_metrics.csv'
-      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
-      - 'scripts/verify_ogasawara_gsi_area_lock.py'
-      - 'scripts/match_ogasawara_to_gift_capacity.py'
-      - 'scripts/run_ogasawara_raw_weighted_capacity_falsification.py'
-      - 'scripts/match_frozen_candidates_to_gift_geography.py'
-      - 'tests/test_ogasawara_raw_weighted_capacity_falsification.py'
-      - '.github/workflows/ogasawara_raw_capacity_falsification.yml'
-
 concurrency:
   group: ogasawara-raw-capacity-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

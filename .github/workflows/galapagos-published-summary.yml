@@ -2,25 +2,6 @@ name: Galapagos published-summary analysis
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "data/source_tables/galapagos_nnakenyi_2019_tables_1_2.csv"
-      - "data/source_tables/galapagos_nnakenyi_2019_tables_1_2_source.json"
-      - "scripts/analyze_galapagos_published_summary.py"
-      - "tests/test_galapagos_published_summary.py"
-      - "data/results/galapagos/published_summary/**"
-      - "docs/GALAPAGOS_PUBLISHED_SUMMARY_ANALYSIS.md"
-      - ".github/workflows/galapagos-published-summary.yml"
-  pull_request:
-    paths:
-      - "data/source_tables/galapagos_nnakenyi_2019_tables_1_2.csv"
-      - "data/source_tables/galapagos_nnakenyi_2019_tables_1_2_source.json"
-      - "scripts/analyze_galapagos_published_summary.py"
-      - "tests/test_galapagos_published_summary.py"
-      - "data/results/galapagos/published_summary/**"
-      - "docs/GALAPAGOS_PUBLISHED_SUMMARY_ANALYSIS.md"
-      - ".github/workflows/galapagos-published-summary.yml"
-
 permissions:
   contents: write
 

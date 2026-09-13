@@ -2,19 +2,6 @@ name: ABM v5 Aride seasonal validation
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v5_aride_seasonal_validation_v1.json'
-      - 'scripts/acquire_aride2026_dryad_matrices.py'
-      - 'scripts/match_aride2026_to_gift_opportunity.py'
-      - 'scripts/run_abm_v5_aride_seasonal_validation.py'
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
-      - 'data/results/frozen_candidate_gift_geography_match.json'
-      - 'data/results/frozen_dore_network_targets.csv'
-      - 'tests/test_abm_v5_aride_seasonal_validation.py'
-      - '.github/workflows/abm_v5_aride_seasonal_validation.yml'
-
 concurrency:
   group: abm-v5-aride-seasonal-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

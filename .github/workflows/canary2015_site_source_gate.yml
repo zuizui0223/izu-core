@@ -2,13 +2,6 @@ name: Canary 2015 site source gate
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v6_canary_site_source_gate_v1.json'
-      - 'scripts/acquire_audit_canary2015_dryad.py'
-      - 'tests/test_canary2015_source_gate.py'
-      - '.github/workflows/canary2015_site_source_gate.yml'
-
 jobs:
   source-gate:
     runs-on: ubuntu-latest

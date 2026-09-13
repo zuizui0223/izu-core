@@ -2,12 +2,6 @@ name: ABM v9 Martinique validation freeze
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v9_martinique_validation_v1.json'
-      - 'tests/test_abm_v9_martinique_validation_freeze.py'
-      - '.github/workflows/abm_v9_martinique_validation_freeze.yml'
-
 jobs:
   freeze:
     runs-on: ubuntu-latest

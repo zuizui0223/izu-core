@@ -2,28 +2,6 @@ name: Southwest Pacific archipelago heterogeneity
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/analyze_southwest_pacific_flower_size.py"
-      - "scripts/analyze_southwest_pacific_archipelago_heterogeneity.py"
-      - "tests/test_southwest_pacific_pmc_acquisition.py"
-      - "tests/test_southwest_pacific_archipelago_heterogeneity.py"
-      - "data/results/southwest_pacific_pairs/archipelago_heterogeneity.csv"
-      - "data/results/southwest_pacific_pairs/archipelago_heterogeneity_summary.json"
-      - ".github/workflows/southwest-pacific-archipelago-heterogeneity.yml"
-  pull_request:
-    paths:
-      - "config/southwest_pacific_aob_source.json"
-      - "scripts/acquire_oup_supplementary_data.py"
-      - "scripts/acquire_southwest_pacific_pmc_support.py"
-      - "scripts/analyze_southwest_pacific_archipelago_heterogeneity.py"
-      - "tests/test_southwest_pacific_pmc_acquisition.py"
-      - "tests/test_southwest_pacific_archipelago_heterogeneity.py"
-      - ".github/workflows/southwest-pacific-archipelago-heterogeneity.yml"
-
 permissions:
   contents: write
 

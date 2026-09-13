@@ -2,13 +2,6 @@ name: Cabrera 2025 v8 source gate
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v8_cabrera_source_gate_v1.json'
-      - 'scripts/acquire_audit_cabrera_2025_source.py'
-      - 'tests/test_cabrera_2025_source_gate.py'
-      - '.github/workflows/cabrera_2025_source_gate.yml'
-
 jobs:
   source-gate:
     runs-on: ubuntu-latest

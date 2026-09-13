@@ -2,25 +2,6 @@ name: Network-context rescue discriminator
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - "data/design/network_context_rescue_discriminator_freeze.json"
-      - "data/design/network_context_empirical_measurement_priority.json"
-      - "data/results/network_context_rescue_discriminator_frozen.json"
-      - "scripts/run_network_context_rescue_discriminator.py"
-      - "tests/test_network_context_rescue_discriminator.py"
-      - "tests/test_network_context_rescue_discriminator_frozen.py"
-      - ".github/workflows/network-context-rescue-discriminator.yml"
-  push:
-    paths:
-      - "data/design/network_context_rescue_discriminator_freeze.json"
-      - "data/design/network_context_empirical_measurement_priority.json"
-      - "data/results/network_context_rescue_discriminator_frozen.json"
-      - "scripts/run_network_context_rescue_discriminator.py"
-      - "tests/test_network_context_rescue_discriminator.py"
-      - "tests/test_network_context_rescue_discriminator_frozen.py"
-      - ".github/workflows/network-context-rescue-discriminator.yml"
-
 jobs:
   discriminator:
     runs-on: ubuntu-latest

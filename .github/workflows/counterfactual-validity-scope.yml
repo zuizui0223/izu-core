@@ -1,12 +1,6 @@
 name: Counterfactual Validity Scope
 
 on:
-  pull_request:
-    paths:
-      - data/counterfactual_validity_conditions.csv
-      - scripts/build_counterfactual_validity_report.py
-      - tests/test_counterfactual_validity_report.py
-      - .github/workflows/counterfactual-validity-scope.yml
   workflow_dispatch:
 
 permissions:

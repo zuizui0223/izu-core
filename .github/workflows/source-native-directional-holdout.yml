@@ -2,37 +2,6 @@ name: Source-native directional holdout
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "channel_id/source_native_directional_holdout.py"
-      - "channel_id/source_native_dependency.py"
-      - "scripts/run_source_native_directional_holdout.py"
-      - "scripts/run_source_native_dependency.py"
-      - "tests/test_source_native_directional_holdout.py"
-      - "tests/test_source_native_dependency.py"
-      - "tests/test_primary_source_holdout.py"
-      - "channel_id/primary_source_holdout.py"
-      - "data/predictive_meta/source_native_directional_holdout.csv"
-      - "data/predictive_meta/source_native_dependency_registry.csv"
-      - "data/predictive_meta/primary_source_native_evidence.csv"
-      - "docs/SOURCE_NATIVE_DIRECTIONAL_HOLDOUT.md"
-      - ".github/workflows/source-native-directional-holdout.yml"
-  pull_request:
-    paths:
-      - "channel_id/source_native_directional_holdout.py"
-      - "channel_id/source_native_dependency.py"
-      - "scripts/run_source_native_directional_holdout.py"
-      - "scripts/run_source_native_dependency.py"
-      - "tests/test_source_native_directional_holdout.py"
-      - "tests/test_source_native_dependency.py"
-      - "tests/test_primary_source_holdout.py"
-      - "channel_id/primary_source_holdout.py"
-      - "data/predictive_meta/source_native_directional_holdout.csv"
-      - "data/predictive_meta/source_native_dependency_registry.csv"
-      - "data/predictive_meta/primary_source_native_evidence.csv"
-      - "docs/SOURCE_NATIVE_DIRECTIONAL_HOLDOUT.md"
-      - ".github/workflows/source-native-directional-holdout.yml"
-
 jobs:
   audit:
     runs-on: ubuntu-latest

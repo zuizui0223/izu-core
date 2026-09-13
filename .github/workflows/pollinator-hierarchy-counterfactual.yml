@@ -1,19 +1,6 @@
 name: Pollinator Hierarchy Counterfactual
 
 on:
-  pull_request:
-    paths:
-      - "data/inoue_literature_island_traits.csv"
-      - "data/two_breakpoint_evidence/inoue1986_pollinator_rates.csv"
-      - "data/two_breakpoint_evidence/inoue1986_observation_effort.csv"
-      - "channel_id/pollinator_hierarchy_counterfactual.py"
-      - "channel_id/pollinator_regime_evidence_audit.py"
-      - "channel_id/ardens_nonreport_envelope.py"
-      - "scripts/score_pollinator_hierarchy_counterfactual.py"
-      - "scripts/score_ardens_nonreport_envelope.py"
-      - "tests/test_pollinator_hierarchy_counterfactual.py"
-      - "tests/test_ardens_nonreport_envelope.py"
-      - ".github/workflows/pollinator-hierarchy-counterfactual.yml"
   workflow_dispatch:
 
 permissions:

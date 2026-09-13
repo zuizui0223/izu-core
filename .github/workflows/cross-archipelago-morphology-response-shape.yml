@@ -2,25 +2,6 @@ name: Cross-archipelago morphology response-shape audit
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "scripts/audit_cross_archipelago_morphology_response_shape.py"
-      - "tests/test_cross_archipelago_morphology_response_shape.py"
-      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
-      - "data/results/southwest_pacific_pairs/analysis_summary.json"
-      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
-      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
-      - ".github/workflows/cross-archipelago-morphology-response-shape.yml"
-  pull_request:
-    paths:
-      - "scripts/audit_cross_archipelago_morphology_response_shape.py"
-      - "tests/test_cross_archipelago_morphology_response_shape.py"
-      - "data/results/cross_archipelago_morphology_response_shape_summary.json"
-      - "data/results/southwest_pacific_pairs/analysis_summary.json"
-      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
-      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
-      - ".github/workflows/cross-archipelago-morphology-response-shape.yml"
-
 permissions:
   contents: write
 

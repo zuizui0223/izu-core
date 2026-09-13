@@ -1,13 +1,6 @@
 name: Campanula Environmental Adversary Audit
 
 on:
-  pull_request:
-    paths:
-      - "channel_id/campanula_environmental_adversary.py"
-      - "paper/run_campanula_environmental_adversary.py"
-      - "data/inoue_literature_island_traits.csv"
-      - "tests/test_campanula_environmental_adversary.py"
-      - ".github/workflows/campanula-environmental-adversary.yml"
   workflow_dispatch:
 
 permissions:

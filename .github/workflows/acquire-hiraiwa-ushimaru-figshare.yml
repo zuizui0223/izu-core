@@ -2,41 +2,6 @@ name: Acquire Hiraiwa-Ushimaru Figshare data
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "config/hiraiwa_ushimaru_figshare_source.json"
-      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
-      - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
-      - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
-      - "scripts/analyze_hiraiwa_ushimaru_community_response.py"
-      - "scripts/analyze_hiraiwa_ushimaru_functional_moderation.py"
-      - "scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py"
-      - "scripts/audit_hiraiwa_ushimaru_fdq_full_covariates.py"
-      - "scripts/audit_hiraiwa_ushimaru_matching_to_pollen.py"
-      - "scripts/audit_hiraiwa_ushimaru_matching_to_pollen_cluster_inference.py"
-      - "scripts/audit_hiraiwa_ushimaru_cross_channel_concordance.py"
-      - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
-      - "scripts/audit_hiraiwa_ushimaru_island_baseline_specificity.py"
-      - "scripts/select_hiraiwa_ushimaru_functional_control.py"
-      - ".github/workflows/acquire-hiraiwa-ushimaru-figshare.yml"
-  pull_request:
-    paths:
-      - "config/hiraiwa_ushimaru_figshare_source.json"
-      - "scripts/acquire_hiraiwa_ushimaru_figshare.py"
-      - "scripts/analyze_hiraiwa_ushimaru_species_response.py"
-      - "scripts/analyze_hiraiwa_ushimaru_tube_morphology.py"
-      - "scripts/analyze_hiraiwa_ushimaru_community_response.py"
-      - "scripts/analyze_hiraiwa_ushimaru_functional_moderation.py"
-      - "scripts/audit_hiraiwa_ushimaru_continuous_functional_exposure.py"
-      - "scripts/audit_hiraiwa_ushimaru_fdq_full_covariates.py"
-      - "scripts/audit_hiraiwa_ushimaru_matching_to_pollen.py"
-      - "scripts/audit_hiraiwa_ushimaru_matching_to_pollen_cluster_inference.py"
-      - "scripts/audit_hiraiwa_ushimaru_cross_channel_concordance.py"
-      - "scripts/audit_hiraiwa_ushimaru_post_island_sensitivity.py"
-      - "scripts/audit_hiraiwa_ushimaru_island_baseline_specificity.py"
-      - "scripts/select_hiraiwa_ushimaru_functional_control.py"
-      - ".github/workflows/acquire-hiraiwa-ushimaru-figshare.yml"
-
 jobs:
   acquire:
     runs-on: ubuntu-latest

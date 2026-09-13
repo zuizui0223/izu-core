@@ -2,13 +2,6 @@ name: Martinique 2025 v9 source gate
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v9_martinique_2025_source_gate_v1.json'
-      - 'scripts/acquire_audit_martinique_2025_v9_source.py'
-      - 'tests/test_martinique_2025_v9_source_gate.py'
-      - '.github/workflows/martinique_2025_v9_source_gate.yml'
-
 jobs:
   source-gate:
     runs-on: ubuntu-latest

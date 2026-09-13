@@ -2,23 +2,6 @@ name: Campanula volcanic history adversary
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "channel_id/campanula_volcanic_history_adversary.py"
-      - "paper/run_campanula_volcanic_history_adversary.py"
-      - "tests/test_campanula_volcanic_history_adversary.py"
-      - "data/design/izu_volcanic_history_pre1986.csv"
-      - "data/inoue_literature_island_traits.csv"
-      - ".github/workflows/campanula-volcanic-history-adversary.yml"
-  pull_request:
-    paths:
-      - "channel_id/campanula_volcanic_history_adversary.py"
-      - "paper/run_campanula_volcanic_history_adversary.py"
-      - "tests/test_campanula_volcanic_history_adversary.py"
-      - "data/design/izu_volcanic_history_pre1986.csv"
-      - "data/inoue_literature_island_traits.csv"
-      - ".github/workflows/campanula-volcanic-history-adversary.yml"
-
 jobs:
   audit:
     runs-on: ubuntu-latest

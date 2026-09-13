@@ -2,22 +2,6 @@ name: Real-data scale registry
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - "scripts/build_real_data_scale_registry.py"
-      - "data/results/real_data_scale_registry.json"
-      - "data/results/seychelles_pollination_effectiveness_summary.json"
-      - "data/results/seychelles_restoration_network_summary.json"
-      - "data/results/galapagos_bird_insect_effectiveness_summary.json"
-      - "data/results/balearic_malva_effectiveness_summary.json"
-      - "data/results/canary_lotus_effectiveness_summary.json"
-      - "data/results/balearic_cneorum_effectiveness_summary.json"
-      - "data/results/hawaii_native_pollination_summary.json"
-      - "data/results/dominica_heliconia_selection_summary.json"
-      - "data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json"
-      - "tests/test_real_data_scale_registry.py"
-      - ".github/workflows/real-data-scale-registry.yml"
-
 permissions:
   contents: read
 

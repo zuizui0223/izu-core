@@ -2,14 +2,6 @@ name: Thousand Island Lake 2022 v9 source gate
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/abm_v9_thousand_island_lake_source_gate_v1.json'
-      - 'scripts/acquire_audit_thousand_island_lake_2022.py'
-      - 'scripts/summarize_thousand_island_lake_source_audit.py'
-      - 'tests/test_thousand_island_lake_2022_source_gate.py'
-      - '.github/workflows/thousand_island_lake_2022_source_gate.yml'
-
 jobs:
   source-gate:
     runs-on: ubuntu-latest

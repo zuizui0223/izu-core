@@ -2,15 +2,6 @@ name: ABM v5 hierarchical context prevalidation
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'scripts/prevalidate_abm_v5_hierarchical_context.py'
-      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
-      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
-      - 'tests/test_abm_v5_hierarchical_context.py'
-      - '.github/workflows/abm_v5_hierarchical_context_prevalidation.yml'
-
 concurrency:
   group: abm-v5-hierarchical-context-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

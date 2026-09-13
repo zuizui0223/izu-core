@@ -1,14 +1,6 @@
 name: Izu Comparative Taxon Screen
 
 on:
-  pull_request:
-    paths:
-      - 'data/izu_comparative_taxon_screen.csv'
-      - 'configs/izu_comparative_taxon_discovery_queries.csv'
-      - 'channel_id/izu_comparative_taxon_screen.py'
-      - 'scripts/build_izu_comparative_taxon_screen.py'
-      - 'docs/IZU_COMPARATIVE_TAXON_SCREEN.md'
-      - '.github/workflows/izu-comparative-taxon-screen.yml'
   workflow_dispatch:
 
 jobs:

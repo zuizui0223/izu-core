@@ -2,18 +2,6 @@ name: Martinique 2025 v9 reconstruction freeze
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/audit_martinique_2025_reconstruction_structure.py'
-      - 'scripts/audit_martinique_2025_author_r_reconstruction_semantics.py'
-      - 'tests/test_martinique_2025_reconstruction_structure.py'
-      - 'tests/test_martinique_2025_author_r_reconstruction_semantics.py'
-      - 'tests/test_martinique_2025_reconstruction_contract.py'
-      - 'data/design/abm_v9_martinique_2025_reconstruction_v1.json'
-      - '.github/workflows/martinique_2025_v9_reconstruction_freeze.yml'
-      - 'data/design/abm_v9_martinique_2025_source_gate_v1.json'
-      - 'scripts/acquire_audit_martinique_2025_v9_source.py'
-
 jobs:
   reconstruction-freeze:
     runs-on: ubuntu-latest

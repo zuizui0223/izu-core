@@ -2,15 +2,6 @@ name: Giannutri reconstruction and validation freeze
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/extract_giannutri2025_daily_network_reconstruction_spec.py'
-      - 'scripts/audit_giannutri2025_daily_reconstruction_structure.py'
-      - 'data/design/abm_v6_giannutri_daily_validation_v1.json'
-      - 'tests/test_giannutri2025_reconstruction_source_inspection.py'
-      - 'tests/test_giannutri2025_validation_freeze.py'
-      - '.github/workflows/giannutri2025_reconstruction_source_inspection.yml'
-
 jobs:
   inspect:
     runs-on: ubuntu-latest

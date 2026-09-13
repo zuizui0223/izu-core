@@ -1,16 +1,6 @@
 name: Prediction Contract Lock
 
 on:
-  pull_request:
-    paths:
-      - "channel_id/prediction_contract_lock.py"
-      - "scripts/validate_prediction_contract_v1.py"
-      - "data/predictive_meta/campanula_channel_shape_v1.csv"
-      - "data/predictive_meta/two_breakpoint_prediction_contract.csv"
-      - "data/predictive_meta/public_visual_signature_contract.csv"
-      - "tests/test_prediction_contract_lock.py"
-      - "docs/CAMPANULA_PREDICTION_CONTRACT_V1.md"
-      - ".github/workflows/prediction-contract-lock.yml"
   workflow_dispatch:
 
 permissions:

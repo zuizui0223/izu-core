@@ -2,17 +2,6 @@ name: ABM v9 local plant opportunity prevalidation
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
-      - 'scripts/prevalidate_abm_v9_local_plant_opportunity.py'
-      - 'tests/test_abm_v9_local_plant_opportunity.py'
-      - 'scripts/run_constraint_mechanism_abm_v8_pair_support.py'
-      - 'scripts/run_constraint_mechanism_abm_v5_hierarchical_context.py'
-      - 'scripts/run_abm_v4_weighted_architecture_emulator.py'
-      - 'data/results/abm_v4_global_continuous_isolation_gradient.json'
-      - '.github/workflows/abm_v9_local_plant_opportunity_prevalidation.yml'
-
 jobs:
   prevalidate:
     runs-on: ubuntu-latest

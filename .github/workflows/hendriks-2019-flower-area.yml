@@ -2,35 +2,6 @@ name: Hendriks 2019 flower-area reconstruction audit
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv"
-      - "data/source_tables/hendriks_2019_flower_area_island_mapping.csv"
-      - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
-      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
-      - "scripts/acquire_hendriks_vuw_figshare.py"
-      - "scripts/verify_hendriks_locked_pdf.py"
-      - "scripts/analyze_hendriks_2019_flower_area.py"
-      - "scripts/compare_json_numeric_tolerant.py"
-      - "tests/test_acquire_hendriks_vuw_figshare.py"
-      - "tests/test_verify_hendriks_locked_pdf.py"
-      - "tests/test_hendriks_2019_flower_area.py"
-      - ".github/workflows/hendriks-2019-flower-area.yml"
-  pull_request:
-    paths:
-      - "data/source_tables/hendriks_2019_flower_area_table_b9_reconstructed.csv"
-      - "data/source_tables/hendriks_2019_flower_area_island_mapping.csv"
-      - "data/source_tables/hendriks_2019_flower_area_table_b9_source.json"
-      - "data/results/hendriks_2019/flower_area_reconstruction_summary.json"
-      - "scripts/acquire_hendriks_vuw_figshare.py"
-      - "scripts/verify_hendriks_locked_pdf.py"
-      - "scripts/analyze_hendriks_2019_flower_area.py"
-      - "scripts/compare_json_numeric_tolerant.py"
-      - "tests/test_acquire_hendriks_vuw_figshare.py"
-      - "tests/test_verify_hendriks_locked_pdf.py"
-      - "tests/test_hendriks_2019_flower_area.py"
-      - ".github/workflows/hendriks-2019-flower-area.yml"
-
 jobs:
   reconstruction-audit:
     runs-on: ubuntu-latest

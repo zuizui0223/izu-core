@@ -2,20 +2,6 @@ name: Weigelt global island attributes
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/acquire_weigelt_global_island_attributes.py'
-      - 'scripts/audit_gift_common_geography_fallback.py'
-      - 'scripts/match_frozen_candidates_to_gift_geography.py'
-      - 'scripts/run_abm_v4_dore_named_system_prediction.py'
-      - 'data/design/frozen_dore_candidate_network_locations.json'
-      - 'data/design/frozen_gift_entity_overrides_v1.json'
-      - 'data/results/frozen_dore_network_targets.csv'
-      - 'data/design/global_abm_geography_to_constraint_mapping_v1.json'
-      - 'scripts/audit_global_oceanic_validation_release.py'
-      - 'data/results/global_oceanic_validation_release_gate_v1.json'
-      - '.github/workflows/weigelt_global_island_attributes.yml'
-
 concurrency:
   group: global-named-system-validation-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

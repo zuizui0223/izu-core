@@ -2,15 +2,6 @@ name: ABM v12 residual trait causes
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_constraint_mechanism_abm_v12_residual_trait_causes.py'
-      - 'tests/test_constraint_mechanism_abm_v12_residual_trait_causes.py'
-      - '.github/workflows/abm_v12_residual_trait_causes.yml'
-      - 'data/results/constraint_mechanism_abm_v11_factorial_summary_frozen.json'
-      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
-      - 'scripts/run_abm_v4_global_continuous_isolation_gradient.py'
-
 jobs:
   residual-source-ablation:
     runs-on: ubuntu-latest

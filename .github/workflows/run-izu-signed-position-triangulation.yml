@@ -1,14 +1,6 @@
 name: Run Izu signed-position triangulation
 
 on:
-  push:
-    branches: [empirical-2017-proboscis-recovery]
-    paths:
-      - "data/design/izu_signed_position_source_gate_20260827.json"
-      - "scripts/analyze_izu_signed_position_triangulation.py"
-      - "scripts/audit_izu_signed_position_table_s4_sensitivity.py"
-      - "tests/test_izu_signed_position_triangulation.py"
-      - ".github/workflows/run-izu-signed-position-triangulation.yml"
   workflow_dispatch:
 
 permissions:

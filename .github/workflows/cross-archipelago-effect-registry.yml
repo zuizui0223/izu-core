@@ -2,57 +2,6 @@ name: Cross-archipelago effect registry
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "channel_id/paired_effect_uncertainty.py"
-      - "scripts/compile_cross_archipelago_effect_registry.py"
-      - "scripts/augment_cross_archipelago_effect_registry.py"
-      - "scripts/summarize_wanshan_yongxing_effects.py"
-      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
-      - "tests/test_cross_archipelago_effect_registry.py"
-      - "tests/test_cross_archipelago_effect_registry_augmentation.py"
-      - "tests/test_wanshan_yongxing_effects.py"
-      - "tests/test_southwest_pacific_effect_admission_gate.py"
-      - "data/results/cross_archipelago_effect_registry.csv"
-      - "data/results/cross_archipelago_effect_registry_summary.json"
-      - "data/results/wanshan_yongxing/effect_rows.json"
-      - "data/results/ogasawara/context_analysis/effect_rows.json"
-      - "data/results/southwest_pacific_pairs/effect_rows.json"
-      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
-      - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
-      - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
-      - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
-      - "data/results/wanshan_yongxing/**"
-      - "data/results/ogasawara/**"
-      - "data/results/galapagos/**"
-      - "data/results/southwest_pacific_pairs/**"
-      - ".github/workflows/cross-archipelago-effect-registry.yml"
-  pull_request:
-    paths:
-      - "channel_id/paired_effect_uncertainty.py"
-      - "scripts/compile_cross_archipelago_effect_registry.py"
-      - "scripts/augment_cross_archipelago_effect_registry.py"
-      - "scripts/summarize_wanshan_yongxing_effects.py"
-      - "scripts/apply_southwest_pacific_effect_admission_gate.py"
-      - "tests/test_cross_archipelago_effect_registry.py"
-      - "tests/test_cross_archipelago_effect_registry_augmentation.py"
-      - "tests/test_wanshan_yongxing_effects.py"
-      - "tests/test_southwest_pacific_effect_admission_gate.py"
-      - "data/results/cross_archipelago_effect_registry.csv"
-      - "data/results/cross_archipelago_effect_registry_summary.json"
-      - "data/results/wanshan_yongxing/effect_rows.json"
-      - "data/results/ogasawara/context_analysis/effect_rows.json"
-      - "data/results/southwest_pacific_pairs/effect_rows.json"
-      - "data/results/southwest_pacific_pairs/measurement_error_coupling_sensitivity_summary.json"
-      - "docs/CROSS_ARCHIPELAGO_EFFECT_REGISTRY.md"
-      - "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json"
-      - "data/predictive_meta/hiraiwa_ushimaru_fdq_full_covariates.json"
-      - "data/results/wanshan_yongxing/**"
-      - "data/results/ogasawara/**"
-      - "data/results/galapagos/**"
-      - "data/results/southwest_pacific_pairs/**"
-      - ".github/workflows/cross-archipelago-effect-registry.yml"
-
 jobs:
   registry:
     runs-on: ubuntu-latest

@@ -2,16 +2,6 @@ name: ABM v11 factorial branching causes
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'scripts/run_constraint_mechanism_abm_v11_factorial_branching.py'
-      - 'scripts/summarize_abm_v11_factorial_effects.py'
-      - 'tests/test_constraint_mechanism_abm_v11_factorial_branching.py'
-      - '.github/workflows/abm_v11_factorial_branching.yml'
-      - 'scripts/run_constraint_mechanism_abm_v10_effective_service_dependency.py'
-      - 'scripts/run_constraint_mechanism_abm_v9_local_plant_opportunity.py'
-      - 'scripts/run_constraint_mechanism_abm_v4_fixed_visit_budget.py'
-
 jobs:
   factorial-ablation:
     runs-on: ubuntu-latest
