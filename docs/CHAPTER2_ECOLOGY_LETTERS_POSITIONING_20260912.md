@@ -1,30 +1,28 @@
-# Ecology Letters positioning — Lane B v2
+# Ecology Letters positioning — Lane B v3
 
 Updated: 2026-09-13
 
 ## Editorial object
 
-Do **not** center the Letter on the statement that community averaging can reverse a variance ranking. That result is useful, but by itself it is close to an `O(1)` versus `O(1/k)` law-of-large-numbers comparison.
+Do **not** center the Letter on the fact that community averaging can reverse a variance ranking. That result is useful setup, but by itself is close to an `O(1)` versus `O(1/k)` law-of-large-numbers comparison.
 
-Center the Letter on a stronger statement:
+Center the Letter on:
 
-> **Effective independence is a variance-equivalent coordinate in the linearized theory, but it is not generally a sufficient statistic for nonlinear ecological response. Aggregation and synchrony can act on different components of response variance, creating an interaction-dominated intermediate phase that is absent from both the small-system and asymptotic limits.**
+> **Effective independence is a variance-equivalent coordinate in the linearized theory, but it is not generally a sufficient statistic for nonlinear ecological response. Aggregation and synchrony can alter different components of response variance, so nonlinear systems can enter an interaction-dominated intermediate phase that a one-dimensional `k_eff` reduction cannot represent.**
 
-The original Chapter 2 pollination model is one nonlinear ecological demonstration. A structurally distinct adaptive consumer-resource response supplies a second nonlinear class. The exact bilinear case supplies the solvable baseline and shows exactly what nonlinear systems are allowed to violate.
+The Chapter 2 pollination model is one nonlinear ecological demonstration. A structurally distinct adaptive consumer-resource response supplies a second nonlinear class. The exact bilinear case is the solvable baseline. Lane A/Oikos remains a separate, scientifically closed submission object and Lane C remains paused.
 
-The current Oikos Lane A remains a separate, scientifically closed submission object. Lane B does not reopen or delay it.
+## 1. Exact baseline and the actual invariant
 
-## 1. Exact baseline: what the bilinear theory really predicts
-
-For centered independent state `X` and pooled community coordinate `Zbar_k`, let
+For centered independent state `X` and pooled community coordinate `Zbar_k`,
 
 `Y_k = a X + b Zbar_k + c X Zbar_k`
 
-and for exchangeable copies define
+and, for exchangeable copies,
 
 `tau_k = sigma^2 [rho + (1-rho)/k]`.
 
-Then the exact two-way variance components are
+The exact variance components are
 
 ```text
 S_k = a^2 Var(X)
@@ -34,14 +32,9 @@ I_k = c^2 Var(X) tau_k
 
 so
 
-`I_k / C_k = c^2 Var(X) / b^2`.
+`I_k/C_k = c^2 Var(X)/b^2`.
 
-Therefore the exact bilinear theory has two important invariances:
-
-1. `I/C` is independent of both `k` and `rho`;
-2. the relative ordering of `C` and `I` can never reverse as `k` or `rho` changes.
-
-A precision correction matters here. Fixed `C/I` ordering does **not** imply only two possible complete rank orders. As `tau_k` decreases, the constant `S` term can cross `I` and `C` separately, so as many as three order regions are possible, e.g. `CIS -> CSI -> SCI`. What is forbidden is a **C-versus-I reversal**.
+Therefore the bilinear model fixes the **relative C/I ordering** for every `k` and `rho`. It does not limit the full system to only two rank orders: the constant `S` component can cross `I` and `C` separately, so three complete orders are possible. The forbidden event is a **C-versus-I reversal**.
 
 For a general smooth response, first-order expansion gives
 
@@ -50,15 +43,13 @@ C_k = A_C tau_k + O(tau_k^2)
 I_k = A_I tau_k + O(tau_k^2)
 ```
 
-so `I/C -> A_I/A_C` as `tau_k -> 0`. This is a leading-order asymptotic prediction, not an exact finite-`k` invariance outside the bilinear model.
+so `I/C -> A_I/A_C` only asymptotically. Strong finite-scale `I/C` drift, especially C/I reversal, diagnoses structure outside the bilinear/first-order reduction.
 
-This gives a useful diagnostic: strong finite-`k` drift in `I/C`, and especially a reversal of the `C` versus `I` ordering, identifies higher-order or nonlinear structure that cannot be represented by the bilinear/first-order reduction alone.
+## 2. Chapter 2 violates the exact C/I constraint
 
-## 2. The Chapter 2 nonlinear model crosses a forbidden C/I boundary
+Frozen six-seed active-adjustment medians:
 
-The frozen six-seed active-adjustment result is:
-
-| k | S | C | I | I/C | median order |
+| k | S | C | I | I/C | order |
 |---:|---:|---:|---:|---:|---|
 | 1 | 0.026 | 0.730 | 0.247 | 0.34 | CIS |
 | 2 | 0.103 | 0.480 | 0.417 | 0.87 | CIS |
@@ -66,153 +57,129 @@ The frozen six-seed active-adjustment result is:
 | 8 | 0.425 | 0.183 | 0.401 | 2.19 | SIC |
 | 16 | 0.558 | 0.127 | 0.320 | 2.52 | SIC |
 
-The main nonlinear fact is therefore not merely `C -> S` rank crossover. The system passes from `C>I` to `I>C`, and `I` becomes the dominant variance component at an intermediate finite scale.
+The important nonlinear result is not merely that S overtakes C. The system changes from `C>I` to `I>C`, and I is the largest component at intermediate `k=4`. That is impossible in the exact bilinear model. The numerical `k=4` location is model-specific and is not a natural threshold.
 
-That `C/I` reversal is impossible in the exact bilinear model and excluded at leading order once the first-order regime is reached. It marks a finite-scale nonlinear phase rather than a restatement of asymptotic averaging.
+## 3. The intermediate interaction phase is not pollination-specific
 
-## 3. A second nonlinear response class reproduces the intermediate interaction phase
-
-To test whether the result is specific to the pollination model, Lane B uses a structurally separate adaptive consumer-resource response:
+The second nonlinear class is an adaptive consumer-resource response:
 
 1. resource traits are drawn from `Beta(2,2)`;
-2. a consumer with initial state `X` attacks resources with Gaussian trait-dependent weights;
-3. the consumer shifts toward the weighted resource-trait centroid for a fixed number of adaptation steps;
-4. final intake follows a Holling-II saturation.
+2. attack is Gaussian in consumer-resource trait mismatch;
+3. the consumer adapts toward the weighted resource centroid;
+4. final intake is Holling-II saturated.
 
-The exploratory structural-generalization audit reports the **entire** 54-setting grid:
+The full exploratory structural-generalization grid contains 54 parameter settings × the six pre-existing seeds = 324 setting-seed trajectories.
 
-- resources per copy: `2, 4`;
-- matching width: `0.12, 0.18, 0.25`;
-- handling: `1, 2, 4`;
-- adaptation rate: `0.05, 0.15, 0.30`;
-- `k={1,2,4,8,16}`;
-- the existing six-seed ensemble;
-- 256 realizations per seed.
+Results:
 
-Across the resulting 324 setting-by-seed trajectories:
+- interaction-dominated intermediate scale: **255/324**;
+- C/I ordering reversal: **111/324**;
+- full C-dominated → I-dominated → S-dominated sequence: **68/324**;
+- intermediate I winner in at least 4/6 seeds: **42/54** settings;
+- C/I reversal in at least 4/6 seeds: **18/54**;
+- full C→I→S in at least 4/6 seeds: **10/54**, including **9/54** in all six seeds.
 
-- **255/324** show an interaction-dominated intermediate scale;
-- **111/324** reverse the `C` versus `I` ordering;
-- **68/324** show the full `C`-dominated small-system -> `I`-dominated intermediate -> `S`-dominated large-system sequence.
+This is a post-hoc structural generalization, not a universality theorem, but it rejects the interpretation that the intermediate phase is unique to one pollination parameterization.
 
-At the setting level, an intermediate `I` winner appears in at least four of six seeds for **42/54** settings; `C/I` reversal for **18/54**; and the full `C -> I -> S` winner sequence for **10/54**, including **9/54** in all six seeds.
+## 4. Why `k_eff` fails: variance equivalence does not fix support
 
-This is not a universality theorem. It is enough to reject the interpretation that the intermediate interaction phase is a peculiarity of the original pollination parameterization.
+The historical reduction is
 
-## 4. `k_eff` is variance-equivalent, not sufficient
+`k_eff = k / [1 + (k-1) rho]`.
 
-The historical generic note used
+This is exact for the variance of an exchangeable mean. It is sufficient for the bilinear components because those components see the pooled community only through `tau_k`.
 
-`k_eff = k / [1 + (k-1) rho]`
+For the nonlinear phase-map audit, correlation is constructed by a trajectory-level common-clone mixture. Each copy uses a shared trajectory with probability
 
-as the scaling coordinate. That is exact for the variance of an exchangeable mean and is sufficient for the exact bilinear variance components because those components depend on the pooled community only through `tau_k`.
+`q = sqrt(rho)`
 
-The nonlinear claim must be weaker and more precise:
+and otherwise an independent trajectory from the same marginal distribution. Hence pairwise copy correlation is exactly `q^2 = rho` for any scalar copy-level statistic.
 
-> **`k_eff` is a variance-equivalent coordinate. It is not generally a sufficient statistic for the response decomposition.**
+But the expected number of **distinct trajectory supports** is
 
-A nonlinear response can depend on properties of the pooled community distribution that are not fixed by its variance: support, higher moments, identity composition, and the geometry on which adaptation or saturation acts.
+`D(k,rho) = k(1-sqrt(rho)) + 1 - (1-sqrt(rho))^k`
 
-### Identity-preserving correlation robustness
+for `rho>0` (and `D=k` at `rho=0`).
 
-To ensure that the failure is not an artefact of whole-community clone mixing, the second correlation implementation keeps pollinator identities and trait draws independent among copies. Only arrival/loss event shocks share Gaussian common components.
+Thus equal `k_eff` fixes variance equivalence but not the support presented to a nonlinear response operator.
 
-The realized pairwise correlation of final pollinator counts is then measured directly and converted to a variance-equivalent `k_eff`.
+### Exact same-`k_eff=2` contour
 
-Two comparisons are decisive:
+The Figure 3 audit uses 48 realizations per seed and the same six-seed ensemble. Along the exact same `k_eff=2` contour:
 
-- correlated `k=16` with realized-count `k_eff ~= 3.9` remains `SIC` in **6/6** seeds, whereas frozen independent `k=4` is `ISC`;
-- correlated `k=16` with realized-count `k_eff ~= 2.3` remains `SIC` in **6/6** seeds, whereas frozen independent `k=2` is `CIS`.
+```text
+(k,rho) = (2,0) -> (4,1/3) -> (8,3/7) -> (16,7/15)
+order   =   CIS  ->   ICS   ->   ICS   ->    ICS
+E[D]    =  2.00  ->  2.66   ->  3.76   ->   6.07
+```
 
-Thus equal or near-equal variance-equivalent effective independence does not recover the same determinant decomposition.
+The variance-equivalent coordinate is identical, but determinant order changes because support changes.
 
-This directly rules out the strongest historical field-mapping sentence — “effective stochastic independence is the relevant scaling coordinate” — as a general nonlinear claim.
+This is the direct counterexample needed for the Letter: **same `k_eff` does not imply the same nonlinear determinant decomposition.**
 
-## 5. What `I/C` can and cannot do
+### A contour that does preserve order
 
-`I/C` is valuable because its exact invariance in the bilinear model makes it a clean **departure diagnostic**.
+Along `k_eff=4`:
 
-The Chapter 2 model changes from about `0.34` at `k=1` to about `2.52` at `k=16`. The consumer-resource grid also contains broad regions with strong scale dependence in `I/C`.
+```text
+(k,rho) = (4,0) -> (8,1/7) -> (16,0.2)
+order   =   ISC  ->   ISC   ->   ISC
+```
 
-However, the identity-preserving correlation audit shows that nonlinear `I/C` is **not strictly invariant to correlation implementation**. It is often less responsive to shared-event correlation than the absolute `S/C/I` decomposition, but the current evidence does not justify a confirmatory rule that `I/C` must be rho-invariant.
+This is important. The claim is not that `k_eff` always fails. The claim is that it is **not sufficient**: one counterexample contour is enough to reject sufficiency, while other contours may preserve the reduction.
 
-Therefore:
+## 5. Correlation-implementation robustness
 
-- use `I/C` in Lane B as a diagnostic of failure of the first-order/bilinear reduction;
-- do **not** yet promote “I/C changes with aggregation but not synchrony” to a universal law;
-- do **not** add that rho-invariance criterion to Lane C unless a later dedicated theory/audit supports it.
+Whole-trajectory clone mixing is not the only correlation model.
+
+A second implementation keeps pollinator identities and trait draws independent among copies and correlates only arrival/loss event shocks through Gaussian common components. Realized final-count correlation is measured directly before computing variance-equivalent `k_eff`.
+
+Two frozen comparisons remain decisive:
+
+- correlated `k=16`, realized-count `k_eff≈3.9` → `SIC` in **6/6** seeds, whereas independent `k=4` is `ISC`;
+- correlated `k=16`, realized-count `k_eff≈2.3` → `SIC` in **6/6** seeds, whereas independent `k=2` is `CIS`.
+
+So the one-dimensional reduction failure is not dependent on whole-community cloning.
+
+## 6. Role of `I/C`
+
+`I/C` is an exact invariant of the bilinear model and therefore a useful **departure diagnostic**.
+
+It is not a universal invariant of nonlinear ecology. Under identity-preserving shared-event correlation it changes with correlation as well as aggregation. Therefore:
+
+- use `I/C` to show departure from the first-order/bilinear reduction;
+- do not claim that nonlinear `I/C` is rho-invariant;
+- do not add rho-invariance as a confirmatory criterion to Lane C.
 
 ## Revised strongest claim
 
-Preferred:
-
-> **Ecological aggregation and stochastic synchrony cannot generally be collapsed onto a single effective-independence axis. Linearized theory correctly predicts when averaging can reorder persistent state and realization effects, but nonlinear response geometry can decouple community and interaction variance, generating an interaction-dominated intermediate phase that a one-dimensional `k_eff` reduction cannot represent.**
+> **Ecological aggregation and stochastic synchrony cannot generally be collapsed onto a single effective-independence axis. Linearized theory correctly predicts variance-equivalent averaging, but nonlinear response geometry can distinguish systems with the same `k_eff` because aggregation changes the support on which the response operator acts. This creates interaction-dominated intermediate phases and determinant orders that a one-dimensional reduction cannot represent.**
 
 Short form:
 
 > **Effective independence is not a sufficient statistic for nonlinear ecological response.**
 
-## Ecology Letters fit
-
-The target is an **Ecology Letters Letter**, not a Perspective.
-
-The manuscript should be organized as original theory-plus-model research:
-
-1. exact solvable baseline and its invariants;
-2. nonlinear violation in the Chapter 2 system;
-3. structural replication in adaptive consumer-resource dynamics;
-4. failure of variance-equivalent `k_eff` under a second correlation implementation;
-5. ecological consequence: aggregation/breadth and synchrony/stability are distinct context axes.
-
-The crossover theorem becomes setup rather than headline.
-
 ## Four main figures
 
-### Figure 1 — exact phase structure
+### Figure 1 — exact solvable baseline
+Bilinear phase structure, exact `I/C` invariance, C/I ordering constraint, S-crossing boundaries, and correlated variance floors.
 
-Analytic bilinear phase map using `tau_k` (or variance-equivalent `k_eff`) and `c^2 Var(X)/b^2`.
+### Figure 2 — nonlinear trajectories cross the forbidden C/I boundary
+Chapter 2 trajectory plus a representative adaptive consumer-resource trajectory.
 
-Show:
+### Figure 3 — same variance-equivalent independence, different nonlinear phase
+`(k,rho)` determinant-order map with `k_eff` contours. Highlight the exact `k_eff=2` contour where order changes `CIS -> ICS` while expected distinct trajectory support increases `2.00 -> 6.07`.
 
-- exact `I/C` invariance;
-- fixed `C/I` ordering;
-- the one or two possible S-crossing boundaries;
-- correlated-variance floors.
+This figure is now a completed analysis object, not an admission gate.
 
-### Figure 2 — nonlinear trajectories break the exact ordering constraint
+### Figure 4 — `I/C` as reduction-departure diagnostic
+Bilinear constant, Chapter 2 scale trajectory, consumer-resource trajectory/grid, and correlation-sensitivity band. Label `I/C` as a diagnostic, not a nonlinear invariant.
 
-Overlay:
-
-- Chapter 2 `k` trajectory;
-- representative adaptive consumer-resource trajectory;
-- the exact-theory constraint that `C/I` ordering cannot flip.
-
-The visual point is the intermediate `I`-dominated region, not the numerical location of any `k` threshold.
-
-### Figure 3 — failure of one-dimensional effective independence
-
-Main panel: `(k, correlation)` order map for the nonlinear system, with variance-equivalent `k_eff` contours.
-
-The critical visual test is whether order and component shares are constant along a `k_eff` contour. They should not be if the reduction fails.
-
-The current identity-preserving event-correlation audit already establishes decisive matched-`k_eff` counterexamples; a dense grid is a figure-completion task rather than a conceptual admission gate.
-
-### Figure 4 — `I/C` as nonlinear-departure diagnostic
-
-Show:
-
-- bilinear exact constant;
-- Chapter 2 scale trajectory;
-- consumer-resource grid/representative trajectory;
-- correlation sensitivity band.
-
-Label `I/C` explicitly as a **diagnostic**, not an invariant of nonlinear ecology.
-
-## Lane C implication — parked, not reopened
+## Lane C implication — parked
 
 Lane C remains paused for resource/governance reasons.
 
-If it is ever reactivated, the Lane B result changes one design principle:
+If reactivated later, retain at least two separate pre-outcome axes:
 
 ```text
 aggregation / support breadth
@@ -220,25 +187,26 @@ aggregation / support breadth
 synchrony / shared stochasticity
 ```
 
-They must be retained as separate pre-outcome context axes. A single `k_eff`, “broader-and/or-more-stable” score, or any equivalent one-dimensional context modifier should not be preregistered as sufficient.
-
-No current Lane C site registry, permit plan, or Stage-1 design needs to be changed before the resource decision. In particular, do not reopen Lane C now merely to propagate this theoretical consequence.
+Do not preregister a single `k_eff` or “broader-and/or-more-stable” scalar as sufficient. Do not reopen the site registry or permit work now.
 
 ## Admission status for Lane B
 
 Closed:
 
-- exact bilinear phase identities;
-- exact `I/C` invariance in the bilinear case;
-- correction that fixed C/I ordering still allows up to three complete rank-order regions;
-- Chapter 2 nonlinear `C/I` reversal;
+- exact bilinear identities and C/I invariant;
+- correction that fixed C/I ordering still permits up to three complete rank orders;
+- Chapter 2 nonlinear C/I reversal;
 - second nonlinear adaptive consumer-resource class;
 - identity-preserving shared-event correlation robustness;
-- rejection of `k_eff` as a general sufficient statistic.
+- dense `(k,rho)` Figure 3 phase map;
+- exact same-`k_eff=2` order-changing counterexample;
+- analytic support mechanism for why variance equivalence can fail.
 
-Still open before an EL submission:
+Still open before an Ecology Letters submission:
 
-1. dense `(k, rho)` nonlinear map for Figure 3;
-2. final four figures and <5000-word Letter;
-3. literature placement of variance-equivalent reductions, ecological synchrony, and nonlinear context dependence;
-4. optional empirical magnitude example for natural synchrony, as Discussion support rather than a condition for the theoretical result.
+1. Figures 1, 2 and 4 rendered in final publication form;
+2. <5000-word Letter and <150-word abstract;
+3. literature placement for variance-equivalent reductions, ecological synchrony and nonlinear context dependence;
+4. empirical synchrony magnitude example in Discussion, with no numerical mapping from field synchrony metrics to theoretical `rho`.
+
+Lane A must be submitted independently; Lane B work does not reopen or delay it.

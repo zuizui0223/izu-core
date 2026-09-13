@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "status": "post_hoc_figure_completion_design_documented_before_manuscript_use",
+  "documented_on": "2026-09-13",
+  "purpose": "Complete Lane B Figure 3 by testing whether determinant order is preserved along variance-equivalent k_eff contours in the nonlinear Chapter 2 model.",
+  "parents": {
+    "lane_b_v2": "docs/CHAPTER2_ECOLOGY_LETTERS_POSITIONING_20260912.md",
+    "nonlinear_reduction_audit": "data/results/chapter2_el_nonlinear_reduction_audit_20260913.json",
+    "independent_rank_crossover": "data/results/chapter2_trait_adjustment_system_size_rank_crossover_summary_20260910.json"
+  },
+  "correlation_construction": {
+    "type": "trajectory_level_common_clone_mixture",
+    "common_clone_probability": "q=sqrt(rho)",
+    "reason": "If each copy uses a common trajectory with probability q and otherwise an independent trajectory from the same marginal distribution, pairwise copy correlation is q^2=rho for any scalar copy-level statistic.",
+    "k_eff": "k/(1+(k-1)*rho)",
+    "expected_distinct_trajectory_support": "k*(1-sqrt(rho)) + 1 - (1-sqrt(rho))^k for rho>0; k for rho=0",
+    "k_equals_1_rule": "rho is undefined/irrelevant for one copy, so all k=1 rows reuse the independent baseline."
+  },
+  "grid": {
+    "k_values": [1, 2, 4, 8, 16],
+    "rho_values": [0.0, 0.1, 0.25, 0.5, 0.75, 0.9],
+    "seed_ensemble": [20260826, 20250101, 20260833, 20260827, 999983, 12345],
+    "realizations_per_seed": 48,
+    "primary_display": "median S/C/I across the six pre-existing seeds",
+    "seed_robustness": "store determinant-order counts across all six seeds"
+  },
+  "exact_contour_challenges": [
+    {
+      "target_k_eff": 2.0,
+      "points": [[2, 0.0], [4, 0.3333333333333333], [8, 0.42857142857142855], [16, 0.4666666666666667]]
+    },
+    {
+      "target_k_eff": 4.0,
+      "points": [[4, 0.0], [8, 0.14285714285714285], [16, 0.2]]
+    }
+  ],
+  "decision_rule": "k_eff is not a sufficient statistic if at least one exact k_eff contour contains more than one median determinant order under the same nonlinear response operator.",
+  "claim_boundary": [
+    "This is a post-hoc structural/figure-completion analysis motivated by the already observed nonlinear reduction failure; it is not a preregistered confirmatory test.",
+    "rho is exact pairwise copy correlation in this clone-mixture construction, not an empirical field synchrony estimate.",
+    "Whole-trajectory clone mixing is paired with the separately frozen identity-preserving shared-event correlation robustness audit; neither implementation alone carries the general claim.",
+    "A contour that preserves order does not rescue k_eff as sufficient; sufficiency requires preservation across all states with the same k_eff.",
+    "I/C is a diagnostic of reduction failure, not a universal rho-invariant law."
+  ]
+}
