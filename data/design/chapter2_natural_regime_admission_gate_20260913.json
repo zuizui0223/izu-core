@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_breadth_synchrony_regime_placement",
+  "status": "frozen_before_candidate_extraction",
+  "frozen_on": "2026-09-13",
+  "hard_stop_date_asia_tokyo": "2026-09-27",
+  "purpose": "Test whether public repeated interaction data can place real island systems on separate outcome-independent breadth and synchrony axes required by the combined theory manuscript.",
+  "supersession": "docs/CHAPTER2_COMBINED_NEE_SUPERSESSION_20260913.md",
+  "nonnegotiable_boundaries": [
+    "Do not map natural partner richness or Hill diversity literally onto synthetic k.",
+    "Do not use reproductive or performance outcomes to admit, exclude, tune, or classify a system in the context plane.",
+    "Do not count data unavailability as a biological negative.",
+    "Do not retune the frozen synthetic model from natural placements.",
+    "Do not change the frozen 25-entry island identifiability denominator or its 0/25 full-contract result.",
+    "Do not select time bins, taxa, sites, or sources based on the observed breadth/synchrony location."
+  ],
+  "primary_system_unit": "site_or_source_native_local_community_with_repeated_aligned_interaction_sampling",
+  "source_scope": {
+    "primary": "island_or_archipelago_ecological_interaction_systems",
+    "context_only": "non_island_systems_may_be_used_to_validate_estimability_but_do_not_count_toward_NEE_promotion",
+    "public_before": "2026-09-13",
+    "allowed_repositories": [
+      "author_public_repository",
+      "Dryad",
+      "Zenodo",
+      "Figshare",
+      "Mangal",
+      "Web_of_Life",
+      "Interaction_Web_Database",
+      "journal_supplement"
+    ]
+  },
+  "hard_admission_requirements": {
+    "public_machine_readable_data": true,
+    "interaction_type": "biotic interaction counts or rates with identifiable partner taxa or interaction identities",
+    "stable_site_identity": true,
+    "stable_partner_identity_across_time": true,
+    "minimum_aligned_time_bins": 6,
+    "minimum_nonconstant_partner_series": 3,
+    "sampling_effort": "known, equal by design, or explicitly normalizable within system across time",
+    "reconstructible_time_by_partner_matrix": true,
+    "time_bin_selection_fixed_by_source_design": true,
+    "outcome_data_required": false
+  },
+  "exclusion_reasons": [
+    "single_aggregated_network_without_temporal_repetition",
+    "temporal_repetition_exists_but_partner_identities_cannot_be_aligned",
+    "fewer_than_6_aligned_time_bins",
+    "fewer_than_3_nonconstant_partner_series",
+    "sampling_effort_varies_and_cannot_be_normalized",
+    "only_derived_network_indices_are_public_without_reconstructible_interaction_data",
+    "data_not_publicly_retrievable_by_hard_stop"
+  ],
+  "coordinate_definition": {
+    "effort_standardized_matrix": "x[t,j] = interaction count or rate for partner j in time bin t after source-native effort normalization",
+    "partner_breadth_primary": "D1 = exp(-sum_j p_j log(p_j)), where p_j is the pooled effort-standardized interaction share of partner j",
+    "partner_breadth_secondary": [
+      "observed_partner_richness",
+      "D1_over_observed_partner_richness",
+      "median_time_bin_D1"
+    ],
+    "synchrony_primary": "Loreau-de Mazancourt style phi = Var_t(sum_j x[t,j]) / (sum_j SD_t(x[t,j]))^2 using nonconstant partner series",
+    "synchrony_secondary": "mean off-diagonal pairwise correlation among eligible standardized partner time series using Fisher-z averaging when defined",
+    "exchangeable_equivalent_bridge": "rho_eq = (m*phi - 1)/(m - 1), where m is the number of eligible partner series; rho_eq is descriptive only and is not treated as a literal natural pairwise correlation",
+    "primary_regime_plane": [
+      "log_D1",
+      "phi"
+    ]
+  },
+  "uncertainty": {
+    "bootstrap_unit": "source-native time bin",
+    "bootstrap_replicates": 1000,
+    "report": [
+      "point estimate",
+      "95% bootstrap interval for D1",
+      "95% bootstrap interval for phi"
+    ],
+    "small_sample_rule": "Systems passing the six-bin floor remain admissible but are flagged low_precision if either primary coordinate has a bootstrap interval spanning more than half of the observed cross-system range."
+  },
+  "source_dependence_controls": {
+    "record_source_study_id": true,
+    "record_island_or_archipelago_id": true,
+    "do_not_treat_sites_from_one_study_as_independent_studies": true,
+    "primary_dispersion_summary": "source-balanced; each study receives equal total weight",
+    "sensitivity": "leave-one-source-out dispersion and route classification"
+  },
+  "route_decision": {
+    "fallback_Oikos_plus_EL": {
+      "condition": "by hard stop, fewer than 8 admitted island systems OR fewer than 2 independent source studies OR fewer than 2 island/archipelago groups",
+      "action": "abandon combined submission route; restore closed island manuscript to Oikos and theory manuscript to Ecology Letters"
+    },
+    "NEE_candidate": {
+      "minimum_admitted_island_systems": 12,
+      "minimum_independent_source_studies": 3,
+      "minimum_island_or_archipelago_groups": 2,
+      "breadth_dispersion": "source-balanced 90th/10th percentile ratio of D1 >= 2.0",
+      "synchrony_dispersion": "source-balanced 90th-10th percentile span of phi >= 0.20",
+      "two_dimensionality": "absolute source-balanced Spearman correlation between log_D1 and phi <= 0.80",
+      "interior_occupancy": "at least 20% of admitted systems lie within the joint 25th-75th percentile rectangle of log_D1 and phi",
+      "source_robustness": "NEE numerical thresholds remain satisfied after leaving out the single largest source study, except that sample-count minima may decrease by that source's contribution",
+      "action": "promote combined manuscript to NEE Article/Analysis candidate"
+    },
+    "Ecology_Letters_combined": {
+      "condition": "public data pass fallback minima but one or more NEE_candidate dispersion/source-robustness criteria fail",
+      "action": "retain combined manuscript but target Ecology Letters; natural regime placement is supporting rather than ceiling-raising evidence"
+    }
+  },
+  "candidate_search_policy": {
+    "result_blind": true,
+    "search_order": [
+      "known public repeated island pollination datasets",
+      "Mangal datasets/networks with repeated dates and island locations",
+      "Dryad/Zenodo/Figshare repeated plant-pollinator datasets",
+      "Web of Life / IWDB sources only when repeated source-native matrices can be reconstructed"
+    ],
+    "candidate_hunting_hard_stop": true,
+    "stop_early_if": [
+      "NEE_candidate criteria are already satisfied and leave-one-source-out robustness is evaluable",
+      "all discoverable eligible source classes have been exhausted"
+    ]
+  }
+}
