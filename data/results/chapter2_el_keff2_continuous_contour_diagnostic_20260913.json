@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_el_keff2_continuous_contour_diagnostic",
+  "status": "post_hoc_reviewer_robustness_from_frozen_phase_map",
+  "updated_on": "2026-09-13",
+  "source": "data/results/chapter2_el_dense_phase_map_20260913.json",
+  "target_k_eff": 2.0,
+  "comparison": {
+    "first_point": {
+      "k": 2,
+      "rho": 0.0,
+      "S": 0.1086822462,
+      "C": 0.437263646416,
+      "I": 0.433966960033,
+      "I_minus_C": -0.003296686383,
+      "seed_order_counts": {"CIS": 3, "ICS": 3}
+    },
+    "last_point": {
+      "k": 16,
+      "rho": 0.4666666666666667,
+      "S": 0.177828770128,
+      "C": 0.286836256699,
+      "I": 0.521123689148,
+      "I_minus_C": 0.234287432449,
+      "seed_order_counts": {"ICS": 6}
+    },
+    "delta_last_minus_first": {
+      "S": 0.069146523928,
+      "C": -0.150427389717,
+      "I": 0.087156729115,
+      "I_minus_C": 0.237584118832
+    },
+    "L1_distance_SCI": 0.30673064276,
+    "L2_distance_SCI": 0.187098735374,
+    "max_abs_component_change": 0.150427389717
+  },
+  "interpretation": {
+    "primary": "Exact equal k_eff does not uniquely determine the nonlinear S/C/I decomposition; the continuous component vector changes substantially along the contour.",
+    "categorical_order_role": "The CIS-to-ICS median order change is illustrative only because the independent k=2 point is near a C/I tie.",
+    "support_mechanism": "Expected distinct trajectory support increases from 2.00 to 6.07 along the same k_eff=2 contour."
+  },
+  "claim_boundary": [
+    "This is a post-hoc reviewer-robustness diagnostic derived from the already frozen phase-map output; no new simulation or seed selection is used.",
+    "It does not replace the originally documented order-map criterion and is not presented as preregistered confirmation.",
+    "The exact numerical distances are synthetic-model diagnostics, not natural ecological thresholds."
+  ]
+}
