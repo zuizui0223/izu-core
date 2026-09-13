@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_el_higher_order_sufficiency",
+  "status": "fixed_before_setting_level_predictor_read",
+  "frozen_on": "2026-09-13",
+  "parent_main_commit": "7212a5cedf67399084ec634b51fa776470bf5c62",
+  "source_grid_result": {
+    "path": "data/results/chapter2_el_nonlinear_reduction_audit_20260913.json",
+    "blob_sha": "8a9560a4564f91ba89d3b6ae9ca008d81bdf2083",
+    "known_before_freeze": [
+      "The complete consumer-resource grid has 54 settings and 324 setting-by-seed trajectories.",
+      "A C/I reversal occurs in 111/324 trajectories and in at least four of six seeds for 18/54 settings.",
+      "The setting-level mapping of reversal counts to handling, width, adaptation rate and resource count is not used to choose the predictor or decision rule below."
+    ]
+  },
+  "analytic_claim": {
+    "scope": "smooth scalar response to an exchangeable pooled environmental/community coordinate",
+    "taylor_expansion": "E[f(mu+Z)] = f(mu) + f''(mu) kappa2/2 + f'''(mu) kappa3/6 + f''''(mu)(kappa4+3 kappa2^2)/24 + ...",
+    "equal_keff_implication": "Equal k_eff fixes kappa2 but does not generically fix kappa_m for m>=3; therefore variance-equivalent effective independence is sufficient through second order only, and the first nonzero higher-cumulant/response-derivative pair determines the first smooth failure order.",
+    "common_factor_model": "Z_i = sqrt(rho) U + sqrt(1-rho) W_i with independent centered U and W_i",
+    "variance_factor": "rho + (1-rho)/k",
+    "kappa3_factor": "rho^(3/2) + (1-rho)^(3/2)/k^2 when U and W share the same kappa3",
+    "kappa4_factor": "rho^2 + (1-rho)^2/k^3 when U and W share the same kappa4",
+    "equal_keff_rho": "rho = (k-K)/(K(k-1)) for fixed K=k_eff",
+    "generic_prediction": "For nonzero source skewness and nonzero third response derivative, equal-k_eff systems diverge at third order.",
+    "symmetry_exception": "If kappa3=0, the third-order term vanishes and the first smooth failure moves to the next nonzero higher cumulant, commonly fourth order."
+  },
+  "mechanism_separation": {
+    "support_effect": "The clone-mixture equal-k_eff construction changes expected distinct trajectory support D(k,rho)=k(1-sqrt(rho))+1-(1-sqrt(rho))^k. This is a discrete support mechanism and does not require a smooth Taylor expansion.",
+    "cumulant_effect": "The identity-preserving shared-event construction leaves identity generation independent and can still alter higher moments of pooled stochastic state at a fixed variance-equivalent coordinate. This is the smooth distributional mechanism targeted by the cumulant argument.",
+    "claim_rule": "Do not use clone-mixture evidence as proof of a cumulant mechanism; use it as a separate support counterexample."
+  },
+  "consumer_resource_prediction": {
+    "source_symmetry": "Resource traits are Beta(2,2), so the raw source-trait third cumulant is zero. The prespecified conservative source-level prediction is therefore fourth-order rather than third-order.",
+    "holling_response": "g(A)=A/(1+h A)",
+    "fourth_derivative": "g''''(A)=-24 h^3/(1+hA)^5",
+    "integrated_absolute_fourth_derivative": "H4(h)=integral_0^1 |g''''(A)| dA = 6 h^2 [1-(1+h)^(-4)]",
+    "primary_predictor": "H4(handling), which is strictly increasing for the tested handling values 1,2,4",
+    "primary_outcome": "seeds_CI_order_flip in {0,...,6} for each of the 54 frozen settings",
+    "matched_blocks": "18 blocks defined by identical resource_types_per_copy, match_width and adaptation_rate, differing only in handling h=1,2,4",
+    "primary_directional_test": "Within matched blocks, seeds_CI_order_flip at h=4 should exceed h=1 more often than the reverse, and the mean paired difference h4-h1 should be positive.",
+    "secondary_order_test": "Mean reversal count should be ordered h=1 <= h=2 <= h=4. Failure of this secondary monotone ordering does not override a positive primary h4-vs-h1 contrast.",
+    "interpretation": "This is a prospectively fixed predictor applied to an already-generated exploratory grid, not a preregistered experiment and not evidence of ecological prevalence."
+  },
+  "decision_rules": {
+    "analytic_theorem": "pass if algebraic tests verify equal variance along fixed K while at least one of the third- or fourth-cumulant factors varies with k for K>1",
+    "consumer_primary": "support if positive matched h4-h1 blocks outnumber negative blocks and mean(h4-h1)>0; otherwise not supported",
+    "consumer_secondary": "report descriptive means for h=1,2,4 and whether they are nondecreasing",
+    "no_retuning_after_setting_level_read": true
+  }
+}
