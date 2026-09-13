@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_el_higher_order_sufficiency",
+  "status": "complete",
+  "design_freezes": [
+    "data/design/chapter2_el_higher_order_sufficiency_freeze_20260913.json",
+    "data/design/chapter2_el_mixed_feedback_validation_freeze_20260913.json"
+  ],
+  "retuning_after_fresh_result": false,
+  "analytic": {
+    "common_factor_contours": [
+      {
+        "k_eff": 2.0,
+        "rows": [
+          {"k": 2, "rho": 0.0, "variance_factor": 0.5, "kappa3_factor": 0.25, "kappa4_factor": 0.125},
+          {"k": 4, "rho": 0.3333333333333333, "variance_factor": 0.5, "kappa3_factor": 0.22647078060186382, "kappa4_factor": 0.11805555555555555},
+          {"k": 8, "rho": 0.42857142857142855, "variance_factor": 0.5, "kappa3_factor": 0.2873152244642978, "kappa4_factor": 0.1843112244897959},
+          {"k": 16, "rho": 0.4666666666666667, "variance_factor": 0.5, "kappa3_factor": 0.32031547537847965, "kappa4_factor": 0.21784722222222225}
+        ],
+        "variance_fixed": true,
+        "kappa3_not_fixed": true,
+        "kappa4_not_fixed": true
+      },
+      {
+        "k_eff": 4.0,
+        "rows": [
+          {"k": 4, "rho": 0.0, "variance_factor": 0.25, "kappa3_factor": 0.0625, "kappa4_factor": 0.015625},
+          {"k": 8, "rho": 0.14285714285714285, "variance_factor": 0.25, "kappa3_factor": 0.06639430105184342, "kappa4_factor": 0.021843112244897957},
+          {"k": 16, "rho": 0.2, "variance_factor": 0.25, "kappa3_factor": 0.09223780407186634, "kappa4_factor": 0.040156250000000004},
+          {"k": 32, "rho": 0.22580645161290322, "variance_factor": 0.25, "kappa3_factor": 0.1079664191525909, "kappa4_factor": 0.05100684508324661}
+        ],
+        "variance_fixed": true,
+        "kappa3_not_fixed": true,
+        "kappa4_not_fixed": true
+      }
+    ],
+    "quadratic_mixed_response": {
+      "exact_C": "b^2 tau + b d mu3 + (d^2/4) Var(Z^2)",
+      "exact_I": "Var(X)[c^2 tau + c e mu3 + (e^2/4) Var(Z^2)]",
+      "Var_Z2": "kappa4 + 2 tau^2",
+      "symmetric_fixed_tau_derivative_sign": "sign(e^2 b^2 - c^2 d^2)",
+      "aligned_example_sign_numerator": 0.0,
+      "misaligned_example_sign_numerator": 3.0,
+      "sufficiency_condition_at_quadratic_order": "higher-moment changes do not alter I/C only when pure and mixed response curvatures are proportionally aligned (e^2 b^2 = c^2 d^2), or the relevant higher cumulants do not change"
+    },
+    "decision": "pass"
+  },
+  "prespecified_handling_only_prediction": {
+    "status": "prespecified_prediction_tested",
+    "predictor": "integrated absolute Holling-II fourth derivative H4(h)",
+    "by_handling": {
+      "1.0": {"settings": 18, "sum_seed_flips": 41, "mean_seed_flips": 2.2777777777777777, "settings_with_flip_in_at_least_4_of_6_seeds": 7, "H4": 5.625},
+      "2.0": {"settings": 18, "sum_seed_flips": 38, "mean_seed_flips": 2.111111111111111, "settings_with_flip_in_at_least_4_of_6_seeds": 6, "H4": 23.703703703703702},
+      "4.0": {"settings": 18, "sum_seed_flips": 32, "mean_seed_flips": 1.7777777777777777, "settings_with_flip_in_at_least_4_of_6_seeds": 5, "H4": 95.84639999999999}
+    },
+    "matched_h4_minus_h1": {"blocks": 18, "positive": 0, "zero": 16, "negative": 2, "mean_difference": -0.5, "median_difference": 0.0},
+    "secondary_means_nondecreasing": false,
+    "decision": "not_supported",
+    "interpretation": "Scalar Holling curvature alone does not predict the C/I phase reversal in the frozen 54-setting grid."
+  },
+  "fresh_mixed_feedback_validation": {
+    "status": "fresh_seed_validation_complete",
+    "fresh_seed_ensemble": [310001, 310019, 310043, 310049, 310081, 310111],
+    "paired_block_seed_comparisons": 108,
+    "primary": {
+      "alpha_0_flip_count": 0,
+      "alpha_0_15_flip_count": 52,
+      "positive_pairs": 52,
+      "zero_pairs": 56,
+      "negative_pairs": 0,
+      "sum_paired_difference": 52,
+      "decision": "supported"
+    },
+    "secondary": {
+      "alpha_0_intermediate_i_winner_count": 63,
+      "alpha_0_15_intermediate_i_winner_count": 108,
+      "alpha_0_full_c_i_s_count": 0,
+      "alpha_0_15_full_c_i_s_count": 52,
+      "component_medians": [
+        {"alpha": 0.0, "k": 1, "median_S": 0.3240901075760607, "median_C": 0.016102172112309014, "median_I": 0.6569255525259008, "C_gt_I_count": 0, "I_gt_C_count": 108},
+        {"alpha": 0.0, "k": 2, "median_S": 0.47719026928904174, "median_C": 0.009773670703976663, "median_I": 0.5143506812144063, "C_gt_I_count": 0, "I_gt_C_count": 108},
+        {"alpha": 0.0, "k": 4, "median_S": 0.649054428337568, "median_C": 0.005588937545712016, "median_I": 0.34856408797933724, "C_gt_I_count": 0, "I_gt_C_count": 108},
+        {"alpha": 0.0, "k": 8, "median_S": 0.7838915367842877, "median_C": 0.002634397285345174, "median_I": 0.21342017190075968, "C_gt_I_count": 0, "I_gt_C_count": 108},
+        {"alpha": 0.0, "k": 16, "median_S": 0.8768796935215577, "median_C": 0.0013631166356721089, "median_I": 0.12218007446306328, "C_gt_I_count": 0, "I_gt_C_count": 108},
+        {"alpha": 0.15, "k": 1, "median_S": 0.10122979867753759, "median_C": 0.41177376752550254, "median_I": 0.48741758226567156, "C_gt_I_count": 52, "I_gt_C_count": 56},
+        {"alpha": 0.15, "k": 2, "median_S": 0.17424619871060432, "median_C": 0.24591434561604103, "median_I": 0.5720696547045249, "C_gt_I_count": 16, "I_gt_C_count": 92},
+        {"alpha": 0.15, "k": 4, "median_S": 0.2938933193761578, "median_C": 0.13196656000257967, "median_I": 0.5454823197659591, "C_gt_I_count": 0, "I_gt_C_count": 108},
+        {"alpha": 0.15, "k": 8, "median_S": 0.45898664213769685, "median_C": 0.07427138250253681, "median_I": 0.41120699073267697, "C_gt_I_count": 0, "I_gt_C_count": 108},
+        {"alpha": 0.15, "k": 16, "median_S": 0.6163184133113633, "median_C": 0.05098160838422984, "median_I": 0.2811849615323869, "C_gt_I_count": 0, "I_gt_C_count": 108}
+      ]
+    },
+    "interpretation": "Fresh seeds support state-adjustment feedback as a phase-shaping condition: alpha=0.15 creates C-dominated small-system cases that cross to I dominance, whereas alpha=0 is I-dominated from k=1 throughout this validation. The intervention changes phase topology rather than simply amplifying I."
+  },
+  "claim_boundary": [
+    "The handling-only prediction was frozen before setting-level outcomes were read and is retained as a negative result.",
+    "The mixed-feedback prediction was formulated after that failure and tested only on six previously unused seeds across the complete frozen 18-block factorial intervention.",
+    "The fresh-seed result is synthetic mechanism validation, not an estimate of natural ecological prevalence.",
+    "Clone-mixture support effects and smooth higher-cumulant effects are treated as distinct mechanisms."
+  ]
+}
