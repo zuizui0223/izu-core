@@ -30,16 +30,17 @@ def test_el_v04_meets_letter_surface_and_contains_the_analytic_upgrade() -> None
         "third cumulant",
         "fourth cumulant",
         "mixed state–community",
-        "e^2 b^2-c^2 d^2",
         "scalar saturation curvature",
         "fresh seeds",
         "phase topology",
     ):
         assert concept.lower() in lower
+    assert re.search(r"e\^2\s*b\^2\s*-\s*c\^2\s*d\^2", lower)
 
-    assert "0 c/i reversals" in lower
-    assert "52" in text
-    assert "0 blocks" in lower and "16" in text and "2" in text
+    # Protect the scientific content while allowing Markdown emphasis to change.
+    assert re.search(r"alpha=0.{0,40}(?:produced\s+)?\*{0,2}0\*{0,2}.{0,20}c/i reversals", lower, re.S)
+    assert re.search(r"alpha=0\.15.{0,40}(?:produced\s+)?\*{0,2}52\*{0,2}", lower, re.S)
+    assert re.search(r"18 matched.{0,80}increased in\s+0 blocks.{0,40}unchanged in\s+16.{0,40}decreased in\s+2", lower, re.S)
     assert "effective population size" in lower
     assert "effective numbers of species" in lower
     assert "do **not** argue that effective numbers are generally misleading" in lower
@@ -72,4 +73,4 @@ def test_v04_does_not_erase_the_failed_prediction() -> None:
     cover = COVER.read_text(encoding="utf-8").lower()
     for text in (manuscript, cover):
         assert "failed" in text
-        assert "41" in text and "38" in text and "32" in text
+        assert re.search(r"41.{0,30}38.{0,30}32", text, re.S)
