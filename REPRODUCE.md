@@ -4,7 +4,7 @@ The shortest reviewer path is the frozen headline regression, not the historical
 
 ```bash
 python -m pip install -e '.[dev]'
-pytest -q tests/test_chapter2_headline_freeze_regression.py
+pytest -q tests/test_chapter2_frozen_headline_regression.py
 pytest -q tests/test_gaussian_matching_kernel_equivalence.py tests/test_workflow_trigger_policy.py
 ```
 
