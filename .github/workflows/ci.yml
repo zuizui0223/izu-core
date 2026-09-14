@@ -35,16 +35,20 @@ jobs:
       - name: One-off Aegean raw workbook schedule audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         run: python scripts/audit_petanidou_aegean_raw_workbook.py
+      - name: One-off Ireland Mullen source audit
+        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
+        run: python scripts/audit_ireland_mullen_natural_regime_source.py
       - name: Upload one-off natural source screens
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-sicily-euppollnet-aegean-source-screens
+          name: chapter2-sicily-euppollnet-aegean-ireland-source-screens
           path: |
             data/results/chapter2_sicily_bombus_natural_regime_source_audit_20260914.json
             data/results/chapter2_euppollnet_repeated_locality_screen_20260914.json
             data/results/chapter2_petanidou_aegean_natural_regime_source_audit_20260915.json
             data/results/chapter2_petanidou_aegean_raw_workbook_audit_20260915.json
+            data/results/chapter2_ireland_mullen_natural_regime_source_audit_20260915.json
           if-no-files-found: error
       - name: Run pytest
         run: |
