@@ -1,0 +1,24 @@
+name: Chapter 2 NEE presubmission bundle one-off
+
+on:
+  pull_request:
+
+jobs:
+  build-bundle:
+    if: github.head_ref == 'agent/el-higher-order-sufficiency'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Build presubmission bundle
+        run: python scripts/build_chapter2_nee_presubmission_bundle.py
+      - name: Upload presubmission bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-nee-presubmission-bundle
+          path: dist/chapter2_nee_presubmission_bundle.zip
+          if-no-files-found: error
