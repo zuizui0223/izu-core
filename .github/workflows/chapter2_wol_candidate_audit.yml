@@ -1,10 +1,7 @@
 name: Chapter 2 Mangal repeated-network screen
 
 on:
-  pull_request:
-    paths:
-      - 'scripts/audit_mangal_repeated_network_candidates.py'
-      - '.github/workflows/chapter2_wol_candidate_audit.yml'
+  workflow_dispatch:
 
 jobs:
   audit:
