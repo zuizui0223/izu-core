@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_tenerife_natural_regime_admission_amendment",
+  "status": "frozen_before_coordinate_computation",
+  "amended_on": "2026-09-14",
+  "parent_admission": "data/design/chapter2_tenerife_natural_regime_admission_20260914.json",
+  "parent_admission_commit": "6016605a6f0435ff0b5de1eaabbc5d316390d955",
+  "reason": "Adapter validation found one source-native Torre date with visitor observations but all census time values missing. Because effort is defined as the number of unique 15-minute locality x date x time x plant censuses, that date cannot be normalized under the frozen effort contract.",
+  "outcome_blindness": {
+    "D1_opened_before_amendment": false,
+    "phi_opened_before_amendment": false,
+    "route_classification_opened_before_amendment": false,
+    "exclusion_uses_only_source_structure_and_effort": true
+  },
+  "excluded_time_bins": [
+    {
+      "system_id": "torre_3500",
+      "date": "05/06/2015",
+      "reason": "all raw time fields are blank; source-native 15-minute census effort is unreconstructible"
+    }
+  ],
+  "post_amendment_system_structure": {
+    "blanca_2700": {"aligned_dates": 46, "unique_censuses": 355, "nonconstant_partner_series": 97},
+    "rajada_2400": {"aligned_dates": 42, "unique_censuses": 319, "nonconstant_partner_series": 68},
+    "refugio_3200": {"aligned_dates": 15, "unique_censuses": 127, "nonconstant_partner_series": 51},
+    "torre_3500": {"aligned_dates": 13, "unique_censuses": 65, "identified_partner_series": 16, "nonconstant_partner_series": 16, "zero_visit_dates_preserved": 3}
+  },
+  "admission_effect": "Torre remains admitted because 13 effort-normalizable source-native dates remain, exceeding the frozen six-bin floor, and 16 nonconstant partner series remain, exceeding the three-series floor.",
+  "claim_boundary": "This is a missing-effort correction made before natural coordinate computation. It is not a coordinate- or route-informed time-bin selection."
+}
