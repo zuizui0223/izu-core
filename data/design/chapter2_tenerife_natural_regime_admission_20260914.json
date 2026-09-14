@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_tenerife_natural_regime_admission",
+  "status": "admitted_before_coordinate_computation",
+  "admitted_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "source": {
+    "source_study_id": "lara_romero_etal_2019_tenerife_pollination",
+    "article_doi": "10.1111/jbi.13625",
+    "dataset_doi": "10.5061/dryad.b23v8nn",
+    "zenodo_record_id": 5008210,
+    "archipelago_id": "canary_islands",
+    "island": "Tenerife",
+    "archive_sha256": "ab91133e810efe6ba39b4dbe256a7583567b67eb4278042df9d011c409dcc551",
+    "readme_sha256": "446189492a2d8fcc8f5bb9a82a4ac8ea3606b2c0457fc0aca6b8e72234345092"
+  },
+  "source_native_design": {
+    "fixed_sites": 4,
+    "study_years": [2014, 2015],
+    "reported_observation_days": 57,
+    "reported_total_observation_hours": 868,
+    "census_minutes": 15,
+    "raw_columns": [
+      "locality",
+      "date",
+      "time",
+      "plant",
+      "flower_visits",
+      "family",
+      "genus",
+      "species"
+    ]
+  },
+  "system_unit": "source-native fixed locality",
+  "time_bin": "source-native calendar date within locality",
+  "partner_identity": "trimmed genus + species when either is present; family only when genus and species are both blank",
+  "interaction_value": "sum of nonnegative flower_visits for a partner within locality x date",
+  "effort": "number of unique locality x date x time x plant census units; each census is 15 minutes by source design",
+  "zero_day_rule": "If an admitted date contains no positive identified visitor row, preserve the date by emitting one zero-valued row for the lexicographically first partner observed elsewhere in that locality; this adds no interaction and only preserves the source-native time bin.",
+  "admitted_systems": [
+    {
+      "system_id": "blanca_2700",
+      "raw_file": "blanca_2730.txt",
+      "aligned_dates": 46,
+      "unique_censuses": 355,
+      "identified_partner_series": 97,
+      "nonconstant_effort_standardized_partner_series": 97
+    },
+    {
+      "system_id": "rajada_2400",
+      "raw_file": "rajada_2350.txt",
+      "aligned_dates": 42,
+      "unique_censuses": 319,
+      "identified_partner_series": 68,
+      "nonconstant_effort_standardized_partner_series": 68
+    },
+    {
+      "system_id": "refugio_3200",
+      "raw_file": "refugio_3300.txt",
+      "aligned_dates": 15,
+      "unique_censuses": 127,
+      "identified_partner_series": 51,
+      "nonconstant_effort_standardized_partner_series": 51
+    },
+    {
+      "system_id": "torre_3500",
+      "raw_file": "torre_3520.txt",
+      "aligned_dates": 14,
+      "unique_censuses": 65,
+      "identified_partner_series": 17,
+      "nonconstant_effort_standardized_partner_series": 16,
+      "zero_visit_dates_preserved": 3
+    }
+  ],
+  "gate_checks": {
+    "public_machine_readable_data": true,
+    "stable_site_identity": true,
+    "stable_partner_identity_across_time": true,
+    "minimum_aligned_time_bins_pass_all_systems": true,
+    "minimum_nonconstant_partner_series_pass_all_systems": true,
+    "sampling_effort_known_or_normalizable": true,
+    "reconstructible_time_by_partner_matrix": true,
+    "time_bin_selection_fixed_by_source_design": true,
+    "outcome_data_used_for_admission": false,
+    "coordinate_values_opened_before_admission": false
+  },
+  "claim_boundary": "These four localities count as four systems from one independent source study and one archipelago. They are not four independent studies. Admission uses only source structure and effort, not D1, phi, reproductive outcomes, synthetic-model results, or route classification."
+}
