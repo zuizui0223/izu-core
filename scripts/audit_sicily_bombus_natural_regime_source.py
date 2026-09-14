@@ -5,6 +5,8 @@ import io
 import json
 import re
 import urllib.request
+from collections import Counter, defaultdict
+from datetime import date, datetime
 from pathlib import Path
 
 import openpyxl
@@ -19,6 +21,10 @@ SOURCE_URLS = [
     "https://media.springernature.com/original/springer-static/esm/art:10.1007/s13592-025-01153-4/MediaObjects/" + FILENAME,
     "https://static-content.springer.com/esm/art%3A10.1007%2Fs13592-025-01153-4/MediaObjects/" + FILENAME,
 ]
+RAW_SITE_SHEETS = {
+    "FIUMEDINISI transects": "Fiumedinisi-NAT",
+    "BUTICARI transects": "Buticari-URB",
+}
 
 
 def fetch(url: str, timeout: int = 120) -> tuple[bytes, dict[str, str], str]:
@@ -34,13 +40,17 @@ def fetch(url: str, timeout: int = 120) -> tuple[bytes, dict[str, str], str]:
         return response.read(), {k.lower(): v for k, v in response.headers.items()}, response.geturl()
 
 
+def clean(value: object) -> str:
+    return " ".join(str(value or "").strip().split())
+
+
 def norm(value: object) -> str:
-    return re.sub(r"[^a-z0-9]+", "_", str(value or "").strip().casefold()).strip("_")
+    return re.sub(r"[^a-z0-9]+", "_", clean(value).casefold()).strip("_")
 
 
 def first_header(rows: list[tuple]) -> tuple[int | None, list[str], list[tuple]]:
     for i, row in enumerate(rows):
-        vals = [str(v or "").strip() for v in row]
+        vals = [clean(v) for v in row]
         if len([v for v in vals if v]) >= 3:
             return i + 1, vals, rows[i + 1 :]
     return None, [], []
@@ -67,22 +77,81 @@ def role_columns(headers: list[str]) -> dict[str, list[str]]:
     return roles
 
 
-def unique_values(headers: list[str], rows: list[tuple], column: str) -> list[str]:
-    try:
-        j = headers.index(column)
-    except ValueError:
-        return []
-    return sorted({
-        str(row[j]).strip()
-        for row in rows
-        if j < len(row) and row[j] not in (None, "") and str(row[j]).strip()
-    })
+def date_key(value: object) -> str:
+    if isinstance(value, datetime):
+        return value.date().isoformat()
+    if isinstance(value, date):
+        return value.isoformat()
+    text = clean(value)
+    return text[:10] if text else ""
+
+
+def site_structure(headers: list[str], body: list[tuple], system_id: str) -> dict[str, object]:
+    required = {"Date", "ID", "Bombus species", "Plant species"}
+    if not required.issubset(set(headers)):
+        return {"system_id": system_id, "status": "schema_fail", "missing": sorted(required - set(headers))}
+    idx = {name: headers.index(name) for name in required}
+    events: Counter[tuple[str, str]] = Counter()
+    dates: set[str] = set()
+    ids: set[str] = set()
+    plants: set[str] = set()
+    partners: set[str] = set()
+    for row in body:
+        raw_date = row[idx["Date"]] if idx["Date"] < len(row) else None
+        raw_id = row[idx["ID"]] if idx["ID"] < len(row) else None
+        raw_bee = row[idx["Bombus species"]] if idx["Bombus species"] < len(row) else None
+        raw_plant = row[idx["Plant species"]] if idx["Plant species"] < len(row) else None
+        d = date_key(raw_date)
+        bee = clean(raw_bee)
+        plant = clean(raw_plant)
+        specimen = clean(raw_id)
+        if not d or not bee or not plant:
+            continue
+        dates.add(d)
+        partners.add(bee)
+        plants.add(plant)
+        if specimen:
+            ids.add(specimen)
+        events[(d, bee)] += 1
+
+    ordered_dates = sorted(dates)
+    per_year: dict[str, int] = Counter(d[:4] for d in ordered_dates)
+    nonconstant = 0
+    for bee in sorted(partners):
+        series = [events.get((d, bee), 0) for d in ordered_dates]
+        if len(set(series)) > 1:
+            nonconstant += 1
+    duplicate_ids = 0
+    id_counts = Counter()
+    for row in body:
+        if idx["ID"] < len(row):
+            specimen = clean(row[idx["ID"]])
+            if specimen:
+                id_counts[specimen] += 1
+    duplicate_ids = sum(count > 1 for count in id_counts.values())
+    expected_rounds_match = bool(per_year) and set(per_year).issubset({"2018", "2019"}) and all(v in {13, 14} for v in per_year.values()) and set(per_year) == {"2018", "2019"}
+    return {
+        "system_id": system_id,
+        "status": "audited",
+        "source_native_dates": len(ordered_dates),
+        "dates_by_year": dict(sorted(per_year.items())),
+        "date_min": ordered_dates[0] if ordered_dates else None,
+        "date_max": ordered_dates[-1] if ordered_dates else None,
+        "partner_count": len(partners),
+        "plant_count": len(plants),
+        "specimen_id_count": len(ids),
+        "duplicate_specimen_ids": duplicate_ids,
+        "nonconstant_partner_series": nonconstant,
+        "published_13_to_14_rounds_per_site_year_matched": expected_rounds_match,
+        "minimum_time_bins_pass": len(ordered_dates) >= 6,
+        "minimum_nonconstant_partner_series_pass": nonconstant >= 3,
+    }
 
 
 def inspect_workbook(payload: bytes) -> dict[str, object]:
     wb = openpyxl.load_workbook(io.BytesIO(payload), read_only=True, data_only=True)
     sheets = []
-    raw_candidates = []
+    site_structures = []
     for ws in wb.worksheets:
         rows = list(ws.iter_rows(values_only=True))
         header_row, headers, body = first_header(rows)
@@ -96,29 +165,31 @@ def inspect_workbook(payload: bytes) -> dict[str, object]:
             "roles": roles,
             "preview": [[str(v) if v is not None else None for v in row[:12]] for row in rows[:6]],
         }
-        if roles["site"] and roles["date"] and roles["plant"] and roles["bombus"]:
-            site_col, date_col = roles["site"][0], roles["date"][0]
-            bee_col, plant_col = roles["bombus"][0], roles["plant"][0]
-            record["source_structure"] = {
-                "site_column": site_col,
-                "date_column": date_col,
-                "bombus_column": bee_col,
-                "plant_column": plant_col,
-                "site_values": unique_values(headers, body, site_col),
-                "site_count": len(unique_values(headers, body, site_col)),
-                "date_count": len(unique_values(headers, body, date_col)),
-                "bombus_label_count": len(unique_values(headers, body, bee_col)),
-                "plant_label_count": len(unique_values(headers, body, plant_col)),
-            }
-            raw_candidates.append(ws.title)
+        if ws.title in RAW_SITE_SHEETS:
+            structure = site_structure(headers, body, RAW_SITE_SHEETS[ws.title])
+            record["source_structure"] = structure
+            site_structures.append(structure)
         sheets.append(record)
     wb.close()
-    return {"sheet_count": len(sheets), "sheets": sheets, "raw_candidate_sheets": raw_candidates}
+    all_pass = bool(site_structures) and len(site_structures) == 2 and all(
+        row.get("status") == "audited"
+        and row.get("published_13_to_14_rounds_per_site_year_matched")
+        and row.get("minimum_time_bins_pass")
+        and row.get("minimum_nonconstant_partner_series_pass")
+        for row in site_structures
+    )
+    return {
+        "sheet_count": len(sheets),
+        "sheets": sheets,
+        "raw_site_sheets": list(RAW_SITE_SHEETS),
+        "site_structures": site_structures,
+        "all_structural_admission_checks_pass": all_pass,
+    }
 
 
 def main() -> None:
     state: dict[str, object] = {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "analysis": "chapter2_sicily_bombus_natural_regime_source_audit",
         "status": "source_structure_only_coordinates_not_opened",
         "source": {
@@ -146,7 +217,7 @@ def main() -> None:
     for url in SOURCE_URLS:
         try:
             payload, headers, resolved = fetch(url)
-            attempt = {
+            attempt: dict[str, object] = {
                 "url": url,
                 "resolved_url": resolved,
                 "bytes": len(payload),
@@ -155,7 +226,6 @@ def main() -> None:
                 "content_length_header": headers.get("content-length"),
                 "content_disposition": headers.get("content-disposition"),
                 "prefix_hex": payload[:32].hex(),
-                "prefix_text": payload[:300].decode("utf-8", errors="replace"),
                 "xlsx_signature": payload.startswith(b"PK\x03\x04"),
             }
             if payload.startswith(b"PK\x03\x04"):
@@ -164,6 +234,7 @@ def main() -> None:
                 accepted = payload
                 break
             attempt["status"] = "non_xlsx_payload"
+            attempt["prefix_text"] = payload[:300].decode("utf-8", errors="replace")
             attempts.append(attempt)
         except Exception as exc:
             attempts.append({"url": url, "status": "request_failed", "error": repr(exc)})
@@ -180,22 +251,22 @@ def main() -> None:
         workbook = inspect_workbook(accepted)
         state["workbook"] = workbook
         state["decision"] = (
-            "RAW_SITE_DATE_PARTNER_PLANT_SCHEMA_RECOVERED_NEXT_FREEZE_ADAPTER"
-            if workbook["raw_candidate_sheets"]
-            else "RAW_WORKBOOK_RECOVERED_BUT_SITE_DATE_PARTNER_SCHEMA_NOT_IDENTIFIED"
+            "SOURCE_STRUCTURE_PASS_READY_TO_FREEZE_ADAPTER"
+            if workbook["all_structural_admission_checks_pass"]
+            else "SOURCE_RECOVERED_BUT_STRUCTURAL_ADMISSION_CHECK_FAILED"
         )
 
     state["biological_negative"] = False
     state["claim_boundary"] = (
-        "This audit inspects only lawful source-equivalent Springer supplement transport, workbook schema, identifier cardinalities, and the published sampling design. "
-        "No interaction matrix, D1, phi, response, determinant, or route value is calculated. A non-XLSX transport response is unavailable evidence, not a biological negative."
+        "This audit uses only lawful source-equivalent Springer supplement transport, source-native site sheets, dates, specimen IDs, Bombus labels, plant labels, and the published equal two-hour transect design. "
+        "The published 13-14 rounds per site-year are checked before any natural-regime coordinate is opened. No D1, phi, response, determinant, or route value is calculated."
     )
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({
         "decision": state["decision"],
-        "transport_attempts": attempts,
-        "raw_candidate_sheets": (state.get("workbook") or {}).get("raw_candidate_sheets", []),
+        "download": state.get("download"),
+        "site_structures": (state.get("workbook") or {}).get("site_structures", []),
     }, indent=2, ensure_ascii=False))
 
 
