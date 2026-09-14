@@ -23,53 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: One-off Sicily Bombus source audit
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_sicily_bombus_natural_regime_source.py
-      - name: One-off EuPPollNet repeated-locality screen
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_euppollnet_repeated_locality_candidates.py
-      - name: One-off Aegean Petanidou source audit
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_petanidou_aegean_natural_regime_source.py
-      - name: One-off Aegean raw workbook schedule audit
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_petanidou_aegean_raw_workbook.py
-      - name: One-off Ireland Mullen source audit
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_ireland_mullen_natural_regime_source.py
-      - name: One-off England Roberts source audit
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_roberts_england_natural_regime_source.py
-      - name: Reconstruct frozen England STEP canonical matrix
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/adapt_roberts_england_natural_regime.py --out /tmp/roberts_england_natural_regime.csv
-      - name: Open England STEP coordinates under frozen common plan
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: >-
-          python scripts/analyze_chapter2_natural_regime_coordinates.py
-          /tmp/roberts_england_natural_regime.csv
-          --out data/results/chapter2_roberts_england_natural_regime_coordinates_20260915.json
-      - name: Evaluate frozen six-source NEE route
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: >-
-          python scripts/assemble_chapter2_natural_regime_route_six_source.py
-          --out data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json
-      - name: Upload one-off natural source screens and six-source route
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-six-source-route-and-source-screens
-          path: |
-            data/results/chapter2_sicily_bombus_natural_regime_source_audit_20260914.json
-            data/results/chapter2_euppollnet_repeated_locality_screen_20260914.json
-            data/results/chapter2_petanidou_aegean_natural_regime_source_audit_20260915.json
-            data/results/chapter2_petanidou_aegean_raw_workbook_audit_20260915.json
-            data/results/chapter2_ireland_mullen_natural_regime_source_audit_20260915.json
-            data/results/chapter2_roberts_england_natural_regime_source_audit_20260915.json
-            data/results/chapter2_roberts_england_natural_regime_coordinates_20260915.json
-            data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
@@ -91,7 +44,7 @@ jobs:
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-realized-richness-audit
+          name: chapter2-realized-richness-matching-audit
           path: data/results/chapter2_realized_richness_matching_frozen_20260907.json
           if-no-files-found: error
       - name: Run Chapter 2 finite-community system-size audit
