@@ -1,0 +1,79 @@
+{
+  "analysis": "chapter2_natural_regime_coordinates",
+  "input": "/tmp/roberts_england_natural_regime.csv",
+  "plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "route_decision": {
+    "leave_largest_source_out": null,
+    "route": "fallback_Oikos_plus_EL",
+    "summary": {
+      "D1_q10": 6.9703605005612195,
+      "D1_q90": 13.97243535665531,
+      "D1_q90_q10_ratio": 2.004549887416916,
+      "archipelago_groups": 1,
+      "interior_occupancy": 0.0,
+      "phi_q10": 0.4137355814847422,
+      "phi_q90": 0.6346005709671786,
+      "phi_q90_q10_span": 0.22086498948243638,
+      "source_studies": 1,
+      "systems": 3,
+      "weighted_spearman_logD1_phi": -0.5
+    }
+  },
+  "schema_version": "1.0",
+  "systems": [
+    {
+      "D1_over_observed_partner_richness": 0.3668610789769063,
+      "archipelago_id": "great_britain",
+      "bootstrap_valid_phi_replicates": 1000,
+      "breadth_D1": 6.9703605005612195,
+      "breadth_D1_ci95": [2.419832780563057, 14.898087224522207],
+      "eligible_synchrony_partners": 19,
+      "mean_pairwise_r": 0.9682163677345612,
+      "median_time_bin_D1": 2.523295687903528,
+      "observed_partner_richness": 19,
+      "partner_count": 19,
+      "phi": 0.4497067330327854,
+      "phi_ci95": [0.25959539820147964, 0.9007942220858602],
+      "rho_eq": 0.41913488486794015,
+      "source_study_id": "euppollnet_31_roberts_england_step",
+      "system_id": "Carlisle",
+      "time_bins": 8
+    },
+    {
+      "D1_over_observed_partner_richness": 0.31325584243059823,
+      "archipelago_id": "great_britain",
+      "bootstrap_valid_phi_replicates": 999,
+      "breadth_D1": 7.5181402183343575,
+      "breadth_D1_ci95": [5.272877058880525, 9.350842857428589],
+      "eligible_synchrony_partners": 24,
+      "mean_pairwise_r": 0.7260695040004606,
+      "median_time_bin_D1": 4.914515187056665,
+      "observed_partner_richness": 24,
+      "partner_count": 24,
+      "phi": 0.6346005709671786,
+      "phi_ci95": [0.49098989030183354, 0.9599254936413845],
+      "rho_eq": 0.6187136392700994,
+      "source_study_id": "euppollnet_31_roberts_england_step",
+      "system_id": "Livingstone_far",
+      "time_bins": 8
+    },
+    {
+      "D1_over_observed_partner_richness": 0.6074971894197961,
+      "archipelago_id": "great_britain",
+      "bootstrap_valid_phi_replicates": 1000,
+      "breadth_D1": 13.97243535665531,
+      "breadth_D1_ci95": [5.125372559358109, 15.59258685396115],
+      "eligible_synchrony_partners": 23,
+      "mean_pairwise_r": 0.8796421078012447,
+      "median_time_bin_D1": 4.181352503183166,
+      "observed_partner_richness": 23,
+      "partner_count": 23,
+      "phi": 0.4137355814847422,
+      "phi_ci95": [0.21059256421793393, 0.816701217693349],
+      "rho_eq": 0.38708719882495773,
+      "source_study_id": "euppollnet_31_roberts_england_step",
+      "system_id": "Livingstone_house",
+      "time_bins": 8
+    }
+  ]
+}
