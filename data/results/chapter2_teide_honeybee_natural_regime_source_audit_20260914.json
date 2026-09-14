@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_teide_honeybee_natural_regime_source_audit",
+  "status": "PUBLIC_MACHINE_READABLE_INTERACTION_DATA_NOT_FOUND_PENDING_HARD_STOP",
+  "audited_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "source": {
+    "source_study_id": "valido_rodriguez_jordano_2019_teide_honeybee_network",
+    "article_doi": "10.1038/s41598-019-41271-5",
+    "archipelago": "Canary Islands / Tenerife",
+    "article_title": "Honeybees disrupt the structure and functionality of plant-pollinator networks"
+  },
+  "source_reported_structure": {
+    "study_years": [2007, 2008, 2009],
+    "experimental_periods_per_year": ["pre", "apis"],
+    "pooled_network_count": 6,
+    "total_recorded_interactions": 23096,
+    "distinct_links": 545,
+    "pollinator_species": 99,
+    "plant_species": 17,
+    "raw_individual_censuses_used_by_original_analysis": true,
+    "published_network_representation": "weighted quantitative adjacency matrices using average visit rate"
+  },
+  "public_source_audit": {
+    "article_full_text_public": true,
+    "article_reports_raw_individual_census_data": true,
+    "supplementary_material_public": true,
+    "supplementary_material_format": "PDF",
+    "supplementary_pdf_size_reported_mb": 17.9,
+    "article_or_pmc_associated_machine_readable_interaction_file_found": false,
+    "public_Dryad_Figshare_Zenodo_or_Digital_CSIC_machine_readable_dataset_found_by_exact_title_or_DOI_search": false,
+    "data_availability_statement_exposing_raw_interaction_repository_found": false
+  },
+  "gate_checks": {
+    "public_machine_readable_data": false,
+    "stable_partner_identity_reported_in_article": true,
+    "at_least_six_published_period_year_networks": true,
+    "raw_quantitative_time_by_partner_matrix_publicly_reconstructible": false,
+    "source_native_effort_per_bin_publicly_reconstructible_from_machine_readable_bytes": false,
+    "coordinates_opened": false
+  },
+  "decision": "TRANSPORT_BLOCKED_PUBLIC_MACHINE_READABLE_NOT_FOUND_PENDING_HARD_STOP",
+  "biological_negative": false,
+  "next_gate": "Retain as a source-structure candidate until the 2026-09-27 hard stop. Admit only if lawful public or user-supplied machine-readable census/network bytes appear that preserve the six source-native period-year bins, partner identities, quantitative interactions and effort. Do not transcribe the supplementary PDF into pseudo-raw data and do not infer D1 or phi from published network summaries.",
+  "claim_boundary": "The article establishes that suitable raw individual-census data existed and that six weighted period-year networks were analysed, but the frozen natural-regime route requires public machine-readable reconstructible interaction data. Absence of a recovered public machine-readable file is an availability state, not evidence about biological breadth or synchrony."
+}
