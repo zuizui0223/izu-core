@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source_id": "lazaro_etal_2022_mallorca_stability",
   "article_title": "Portfolio effect and asynchrony as drivers of stability in plant-pollinator communities along a gradient of landscape heterogeneity",
   "article_doi": "10.1111/ecog.06112",
@@ -7,6 +7,9 @@
   "landing_page_url": "https://datadryad.org/dataset/doi:10.5061/dryad.m905qfv2p",
   "api_dataset_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.m905qfv2p",
   "api_versions_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.m905qfv2p/versions",
+  "legacy_version_id": 158321,
+  "version_package_url": "https://datadryad.org/api/v2/versions/158321/download",
+  "version_package_role": "transport fallback only after the public API listed the source version and both expected file rows but per-file stream routes failed; scientific admission still depends on the extracted source-native workbook structure",
   "expected_source_components": [
     "Dryad_dataStability.xlsx",
     "README.xlsx"
@@ -14,6 +17,7 @@
   "source_reported_scale": {
     "communities": 20,
     "source_native_sampling_days_per_community": 7,
+    "sampling_effort_per_site_day_hours": 1,
     "island": "Mallorca"
   },
   "raw_data_scope": "The source is screened only for reconstructible day-level quantitative plant-pollinator observations and their sampling effort. Precomputed stability, synchrony, diversity or network indices do not by themselves satisfy the natural-regime gate.",
