@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "analysis": "chapter2_natural_regime_candidate_dispositions",
-  "status": "source_structure_only_no_unopened_coordinates",
+  "status": "source_structure_and_admission_dispositions_with_coordinates_kept_separate",
   "updated_on": "2026-09-14",
   "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
   "candidates": [
@@ -67,7 +67,31 @@
         "0/4 checksum-locked source files were recovered in the current execution, so walking-transect effort was not inspected and no natural coordinate was opened"
       ],
       "gate_boundary": "Transport failure is retained as unavailable, not as a biological or source-structure negative. The 29-day coordinate is not reconstructed from historical derived metrics or source-paper summaries."
+    },
+    {
+      "source_id": "hervias_parejo_2023_menorca_spatiotemporal",
+      "archipelago": "Balearic Islands / Menorca",
+      "status": "FAIL_LT6_TIME_BINS_PER_SYSTEM",
+      "biological_negative": false,
+      "evidence": [
+        "the pre-existing source gate freezes 3 sites x 3 habitats and exactly 5 temporal layers per site for March-July 2021",
+        "the present natural-regime gate requires at least 6 aligned time bins within each stable local system"
+      ],
+      "gate_boundary": "All nine site-by-habitat local units fall one bin below the frozen six-bin minimum. No natural D1 or phi coordinate was computed for Menorca in this route audit."
+    },
+    {
+      "source_id": "serra_marin_etal_2025_cabrera_pollination",
+      "archipelago": "Balearic Islands / Cabrera",
+      "status": "ADMITTED_5_SYSTEMS_COORDINATES_OPENED_ONLY_AFTER_FREEZE",
+      "biological_negative": false,
+      "evidence": [
+        "the source-native obs method contains 55 locked COMMUNITY x visita contexts across six communities",
+        "context effort is reconstructible from unique census Delta_T_minutes values within each COMMUNITY x visita context",
+        "five communities pass the six-bin floor; Pine forest 1 has only five visits and is excluded before coordinate computation",
+        "admission record and adapter were committed before D1 or phi was opened"
+      ],
+      "gate_boundary": "Five Cabrera communities contribute systems to the natural regime plane; they remain one source study and one Balearic archipelago group. Coordinate values are stored separately in chapter2_cabrera_natural_regime_coordinates_20260914.json."
     }
   ],
-  "claim_boundary": "Candidate exclusion or transport blocking is determined from source structure, effort, and byte availability only. No candidate is included, excluded, rescued, or reprioritized using observed D1, phi, or route effects."
+  "claim_boundary": "Candidate exclusion, blocking, or admission is determined from source structure, effort, byte availability and the frozen six-bin/three-series rules. Coordinate values are stored separately and do not retroactively alter candidate disposition."
 }
