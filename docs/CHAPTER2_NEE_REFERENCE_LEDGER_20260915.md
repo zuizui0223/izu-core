@@ -1,12 +1,22 @@
 # Chapter 2 NEE reference ledger — 2026-09-15
 
-Status: source-verified bibliography ledger for `CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md` and later submission surfaces. This ledger does not alter any analysis or route decision.
+Status: source-verified bibliography ledger for the active NEE submission surfaces. This ledger does not alter any analysis or route decision.
 
 ## Analytical background already used in the manuscript
 
 1. Jost, L. (2006). Entropy and diversity. *Oikos* 113, 363–375. https://doi.org/10.1111/j.2006.0030-1299.14714.x
 2. Loreau, M. & de Mazancourt, C. (2008). Species synchrony and its drivers: neutral and nonneutral community dynamics in fluctuating environments. *The American Naturalist* 172, E48–E66. https://doi.org/10.1086/589746
 3. de Mazancourt, C. et al. (2013). Predicting ecosystem stability from community composition and biodiversity. *Ecology Letters* 16, 617–625. https://doi.org/10.1111/ele.12088
+
+## Closest prior work for the novelty boundary
+
+4. Schulz, T., Saastamoinen, M. & Vanhatalo, J. (2025). Model-based variance partitioning for statistical ecology. *Ecological Monographs* 95, e1646. https://doi.org/10.1002/ecm.1646
+
+Role in the manuscript: establishes that variance-partition contributions can be estimated within/between ecologically relevant subgroups to study environmental or ecological context dependence. It therefore prevents Chapter 2 from claiming that context dependence of relative importance is itself new.
+
+5. Guilbault, E. et al. (2025). Strong context dependence in the relative importance of climate and habitat on nation-wide macro-moth community changes. *Journal of Animal Ecology* 94, 1948–1961. https://doi.org/10.1111/1365-2656.70107
+
+Role in the manuscript: empirical example showing that relative driver importance can vary across environmental and functional contexts. Chapter 2's novelty must therefore be stated as the transportability/sufficiency question: when does a compressed context retain enough information for a determinant ranking to transport, and what response geometry makes it fail?
 
 ## Primary natural-regime sources
 
@@ -56,6 +66,8 @@ Pinned repository for Chapter 2 source audit: `JoseBSL/EuPPollNet`, tag `v1.3.0`
 
 ## Citation boundary
 
+- Cite Schulz et al. and Guilbault et al. when explicitly acknowledging that context dependence of relative importance is prior art.
+- State Chapter 2's novelty as a ranking-transportability / sufficiency boundary after context compression, not as discovery of context-dependent driver importance.
 - Cite the six primary natural-regime sources for provenance of the 42-system plane.
 - Cite EuPPollNet specifically for the harmonized England source and its pre-existing island-study classification.
 - The Martinique primary citation remains the dataset DOI unless a later peer-reviewed article is explicitly audited as the same deposited source object.
