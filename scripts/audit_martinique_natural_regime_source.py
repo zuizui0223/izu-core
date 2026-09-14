@@ -5,7 +5,6 @@ import json
 import math
 import re
 import urllib.request
-from collections import defaultdict
 from pathlib import Path
 
 import openpyxl
@@ -18,6 +17,8 @@ USER_AGENT = "izu-core-source-audit/1.0"
 FILES = {
     "Sampling_data.xlsx": "https://search-data.ubfc.fr/dl_data.php?file=601",
     "Plant_insect_interactions_former_names.xlsx": "https://search-data.ubfc.fr/dl_data.php?file=597",
+    "Interaction_turnover.R": "https://search-data.ubfc.fr/dl_data.php?file=589",
+    "Sampling_completeness.R": "https://search-data.ubfc.fr/dl_data.php?file=600",
     "README.docx": "https://search-data.ubfc.fr/dl_data.php?file=599",
 }
 
@@ -105,7 +106,6 @@ def inventory_workbook(path: Path) -> list[dict]:
             "headers": headers,
             "roles": roles,
         }
-        # Structural cardinalities only; no interaction totals or natural coordinates.
         for role in ("site", "time", "plant", "partner"):
             sheet[f"{role}_cardinalities"] = {
                 col: len(value_set(headers, rows, col)) for col in roles[role]
@@ -116,6 +116,25 @@ def inventory_workbook(path: Path) -> list[dict]:
         sheets.append(sheet)
     wb.close()
     return sheets
+
+
+def inventory_r_code(payload: bytes) -> dict:
+    text = payload.decode("utf-8-sig", errors="replace")
+    indicators = []
+    patterns = (
+        "sampling_data", "insects_plants", "insect_best_id", "plant_best_id",
+        "num_sp", "group_by", "summarise", "summarize", "count(", "n()",
+        "pivot_wider", "network", "interaction", "period", "site",
+    )
+    for line_no, line in enumerate(text.splitlines(), start=1):
+        lower = line.lower()
+        if any(pattern in lower for pattern in patterns):
+            indicators.append({"line": line_no, "text": line[:500]})
+    return {
+        "line_count": len(text.splitlines()),
+        "structural_indicator_lines": indicators[:300],
+        "coordinates_opened": False,
+    }
 
 
 def main() -> None:
@@ -135,6 +154,8 @@ def main() -> None:
             }
             if name.endswith(".xlsx"):
                 record["workbook"] = inventory_workbook(path)
+            elif name.endswith(".R"):
+                record["r_code"] = inventory_r_code(payload)
             files[name] = record
         except Exception as exc:
             files[name] = {"status": "failed", "url": url, "error": repr(exc)}
@@ -155,8 +176,12 @@ def main() -> None:
                     "interaction_numeric_presence": sheet["interaction_numeric_presence"],
                 })
 
+    r_code_recovered = [
+        name for name, record in files.items()
+        if name.endswith(".R") and record.get("status") == "recovered"
+    ]
     result = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "chapter2_martinique_natural_regime_source_audit",
         "status": "source_structure_only_coordinates_not_opened",
         "source": {
@@ -170,6 +195,7 @@ def main() -> None:
         },
         "files": files,
         "candidate_interaction_sheets": candidate_sheets,
+        "recovered_source_r_scripts": r_code_recovered,
         "gate_design_checks_from_public_metadata": {
             "public_before_frozen_cutoff": True,
             "stable_site_identity_expected": True,
@@ -179,12 +205,14 @@ def main() -> None:
             "coordinates_opened": False,
         },
         "decision": (
-            "RAW_SCHEMA_RECOVERED_NEXT_FREEZE_ADAPTER"
+            "RAW_SCHEMA_AND_SOURCE_CODE_RECOVERED_NEXT_FREEZE_ADAPTER"
+            if candidate_sheets and r_code_recovered
+            else "RAW_SCHEMA_RECOVERED_SOURCE_CODE_INCOMPLETE"
             if candidate_sheets
             else "BLOCKED_OR_SCHEMA_NOT_YET_IDENTIFIED"
         ),
         "claim_boundary": (
-            "This audit inspects only public file recovery, workbook headers and identifier cardinalities. "
+            "This audit inspects only public file recovery, workbook headers, identifier cardinalities and source-code structural operations. "
             "It does not aggregate interaction values or compute D1, phi, route thresholds, or outcome variables. "
             "Bird interactions are not promoted to the monthly weighted primary matrix because the source metadata says they were reduced to binary site-by-bi-period pairs."
         ),
