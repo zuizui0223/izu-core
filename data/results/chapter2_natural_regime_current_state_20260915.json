@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "analysis": "chapter2_natural_regime_current_state",
   "status": "canonical_post_search_closure_state",
   "updated_on": "2026-09-15",
@@ -9,8 +9,9 @@
   "search_closure_receipt": "data/results/chapter2_natural_regime_search_closure_20260915.json",
   "post_promotion_all_source_loo_diagnostic": "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json",
   "england_independent_reconstruction": "data/results/chapter2_roberts_england_coordinate_reconstruction_audit_20260915.json",
-  "active_manuscript": "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md",
-  "active_cover_letter": "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_2_20260915.md",
+  "active_manuscript": "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_3_SUBMISSION_20260915.md",
+  "active_cover_letter": "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_3_SUBMISSION_20260915.md",
+  "reference_ledger": "docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md",
   "current_admitted_natural_plane": {
     "systems": 42,
     "source_studies": 6,
