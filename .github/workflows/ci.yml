@@ -20,19 +20,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "${{ matrix.python-version }}"
+          python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Evaluate frozen four-source natural-regime route
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/assemble_chapter2_natural_regime_route.py --out /tmp/chapter2_natural_regime_four_source_checkpoint.json
-      - name: Upload four-source natural-regime route
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-natural-regime-four-source-route
-          path: /tmp/chapter2_natural_regime_four_source_checkpoint.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
