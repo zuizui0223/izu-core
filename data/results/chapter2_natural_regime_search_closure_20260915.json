@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_search_closure",
+  "status": "search_closed_by_predeclared_stop_early_rule",
+  "closed_on": "2026-09-15",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "route_checkpoint": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
+  "stop_rule": "Stop early when NEE_candidate criteria are already satisfied and leave-one-source-out robustness is evaluable.",
+  "stop_rule_satisfied": true,
+  "admitted_plane": {
+    "systems": 42,
+    "source_studies": 6,
+    "archipelago_groups": 5,
+    "source_system_counts": {
+      "aslan_etal_2019_hawaii_native_pollination": 1,
+      "lazaro_etal_2022_mallorca_stability": 19,
+      "lara_romero_etal_2019_tenerife_pollination": 4,
+      "serra_marin_etal_2025_cabrera_pollination": 5,
+      "cyrille_etal_2025_martinique_gardens": 10,
+      "euppollnet_31_roberts_england_step": 3
+    },
+    "archipelago_ids": [
+      "balearic_islands",
+      "canary_islands",
+      "great_britain",
+      "hawaiian_islands",
+      "lesser_antilles"
+    ]
+  },
+  "frozen_route_result": {
+    "route": "NEE_candidate",
+    "full_set": {
+      "D1_q90_q10_ratio": 4.521278646360941,
+      "phi_q90_q10_span": 0.3516179223304931,
+      "absolute_source_balanced_spearman_logD1_phi": 0.32526671599335794,
+      "interior_occupancy": 0.2619047619047619,
+      "all_nee_numerical_thresholds_pass": true
+    },
+    "leave_largest_source_out": {
+      "excluded_source": "lazaro_etal_2022_mallorca_stability",
+      "remaining_systems": 23,
+      "remaining_source_studies": 5,
+      "remaining_archipelago_groups": 5,
+      "D1_q90_q10_ratio": 5.494373230872861,
+      "phi_q90_q10_span": 0.3516179223304931,
+      "absolute_source_balanced_spearman_logD1_phi": 0.45385212539892705,
+      "interior_occupancy": 0.2608695652173913,
+      "dispersion_criteria_pass": true
+    }
+  },
+  "triggering_source": {
+    "source_study_id": "euppollnet_31_roberts_england_step",
+    "admission_record": "data/design/chapter2_roberts_england_natural_regime_admission_20260915.json",
+    "coordinate_result": "data/results/chapter2_roberts_england_natural_regime_coordinates_20260915.json",
+    "systems": ["Carlisle", "Livingstone_far", "Livingstone_house"],
+    "precoordinate_basis": "EuPPollNet pre-classified study 31_Roberts as an island study; the source design declares four rounds per year in 2012 and 2013, 30 minutes and 300 m2 per site-round. Only the three sites with complete 4+4 flower-count schedules were admitted before D1 or phi was opened.",
+    "coordinate_phi": {
+      "Carlisle": 0.4497067330327854,
+      "Livingstone_far": 0.6346005709671786,
+      "Livingstone_house": 0.4137355814847422
+    }
+  },
+  "unopened_candidates_at_closure": [
+    {
+      "candidate": "Petanidou Aegean / Cyclades",
+      "status": "not_admitted_sampling_frame_unresolved",
+      "boundary": "Raw interaction-positive dates can reach 6-8 at three sites and effort is 120 minutes / 4000 m2, but the complete outcome-independent sampling frame is not established; no D1 or phi was opened."
+    },
+    {
+      "candidate": "Ireland Mullen",
+      "status": "not_admitted_source_round_date_structure_failed_current_audit",
+      "boundary": "Round-like Site_id suffixes exist, but the pinned raw rows did not reconstruct six distinct dated rounds with one date and one effort record per round under the frozen audit; admitted_system_count_before_coordinates = 0. No D1 or phi was opened."
+    },
+    {
+      "candidate": "Sicily Bombus",
+      "status": "not_admitted_source_native_round_mapping_unresolved",
+      "boundary": "Recovered raw date structure does not yet reconcile with the published source-defined 13-14 rounds/site/year contract. No D1 or phi was opened."
+    },
+    {
+      "candidate": "Mahé and Giannutri transport-blocked sources",
+      "status": "remain_unavailable_not_negative",
+      "boundary": "They are not pursued further after stop-early closure and are not reclassified as biological negatives."
+    }
+  ],
+  "post_closure_prohibitions": [
+    "Do not continue candidate hunting to improve the already passing route metrics.",
+    "Do not add Aegean, Ireland, Sicily, Mahé, Giannutri or any later-discovered source to the primary natural-regime plane without reopening the search protocol prospectively for a different analysis.",
+    "Do not drop the high-synchrony Roberts systems because they change the route ceiling; their admission was frozen before their coordinates were opened.",
+    "Do not redefine Great Britain island status after inspecting its route effect; the source compilation's pre-existing island-study classification is retained.",
+    "Do not change any NEE threshold, source weight, time bin, effort rule or partner identity after this closure."
+  ],
+  "claim_boundary": "This closure promotes the combined manuscript to a Nature Ecology & Evolution candidate under the repository's predeclared routing rule. It does not guarantee journal acceptance, establish a universal ecological threshold, or convert natural D1 into synthetic k. The natural placement demonstrates that real island interaction systems occupy a sufficiently broad two-dimensional breadth-synchrony regime plane under the frozen measurement contract, robust to removal of the largest source study."
+}
