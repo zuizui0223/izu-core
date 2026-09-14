@@ -25,6 +25,16 @@ def get_bytes(url: str, timeout: int = 180) -> bytes:
         return response.read()
 
 
+def decode_text(payload: bytes) -> tuple[str, str]:
+    """Decode pinned source bytes losslessly; never replace undecodable bytes."""
+    for encoding in ("utf-8-sig", "cp1252", "latin-1"):
+        try:
+            return payload.decode(encoding, errors="strict"), encoding
+        except UnicodeDecodeError:
+            continue
+    raise RuntimeError("EuPPollNet source could not be decoded losslessly")
+
+
 def clean(value: object) -> str:
     return " ".join(str(value or "").strip().split())
 
@@ -48,7 +58,8 @@ def number(value: object) -> float | None:
 def main() -> None:
     payload = get_bytes(SOURCE_URL)
     source_sha256 = hashlib.sha256(payload).hexdigest()
-    text = gzip.decompress(payload).decode("utf-8-sig", errors="strict")
+    decompressed = gzip.decompress(payload)
+    text, interaction_encoding = decode_text(decompressed)
     reader = csv.DictReader(io.StringIO(text))
     fields = list(reader.fieldnames or [])
 
@@ -77,7 +88,8 @@ def main() -> None:
     if missing:
         raise RuntimeError(f"EuPPollNet schema drift; missing roles={missing}; fields={fields}")
 
-    metadata_text = get_bytes(METADATA_URL).decode("utf-8-sig", errors="strict")
+    metadata_payload = get_bytes(METADATA_URL)
+    metadata_text, metadata_encoding = decode_text(metadata_payload)
     metadata_rows = list(csv.DictReader(io.StringIO(metadata_text)))
     metadata_by_study = {clean(row.get("Study_id")): row for row in metadata_rows if clean(row.get("Study_id"))}
 
@@ -169,7 +181,7 @@ def main() -> None:
 
     candidates.sort(key=lambda row: (row["study_id"], row["country"], row["locality"], row["latitude"], row["longitude"]))
     result = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "chapter2_euppollnet_repeated_locality_screen",
         "status": "result_blind_source_structure_screen_coordinates_not_opened",
         "source": {
@@ -179,7 +191,11 @@ def main() -> None:
             "interaction_url": SOURCE_URL,
             "interaction_gzip_bytes": len(payload),
             "interaction_gzip_sha256": source_sha256,
+            "interaction_decoded_bytes": len(decompressed),
+            "interaction_text_encoding": interaction_encoding,
             "metadata_url": METADATA_URL,
+            "metadata_sha256": hashlib.sha256(metadata_payload).hexdigest(),
+            "metadata_text_encoding": metadata_encoding,
         },
         "schema_fields": fields,
         "resolved_roles": {
@@ -208,11 +224,12 @@ def main() -> None:
         "candidate_count": len(candidates),
         "candidate_studies": sorted({row["study_id"] for row in candidates}),
         "candidates": candidates,
-        "claim_boundary": "The screen is performed across the complete pinned EuPPollNet v1.3.0 interaction table before island or effort review. It uses only source identifiers, exact locality/coordinates, dates and partner identities to enforce the frozen >=6-bin and >=3-nonconstant-series requirements. No D1, phi, response, determinant or journal-route value is computed or used."
+        "claim_boundary": "The screen is performed across the complete pinned EuPPollNet v1.3.0 interaction table before island or effort review. It uses only source identifiers, exact locality/coordinates, dates and partner identities to enforce the frozen >=6-bin and >=3-nonconstant-series requirements. No D1, phi, response, determinant or journal-route value is computed or used. Source text is decoded losslessly using a deterministic encoding fallback; undecodable bytes are never replaced."
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({
+        "interaction_text_encoding": interaction_encoding,
         "total_interaction_rows": total_rows,
         "exact_locality_groups": len(groups),
         "candidate_count": len(candidates),
