@@ -1,85 +1,87 @@
 # Natural breadth–synchrony regime candidate screen — 2026-09-14
 
-Status: **source-structure screen under frozen admission gate; no natural `(D1, phi)` coordinates have been opened.**
+Status: **source-structure screen under the frozen admission gate; Hawaii admission is closed before any natural `(D1, phi)` coordinate is opened.**
 
-Governing gate: `data/design/chapter2_natural_regime_admission_gate_20260913.json`.
+Governing gate: `data/design/chapter2_natural_regime_admission_gate_20260913.json`.  
+Coordinate implementation: `data/design/chapter2_natural_regime_analysis_plan_20260913.json`.
 
-This screen records only whether public source structure can support the frozen outcome-independent breadth/synchrony analysis. Candidate status is decided without inspecting eventual coordinate values. A source is not admitted merely because a paper reports synchrony, richness, or a repeated design: the public bytes must reconstruct the frozen time × partner input and its effort normalization.
+A source is not admitted because a paper reports synchrony, richness or repeated sampling. The public bytes must reconstruct a quantitative time × partner matrix with source-native or explicitly normalizable effort. Candidate status is decided without inspecting eventual coordinate values.
 
 ## Priority extraction set
 
-| Source / system | Island scope | Source-native temporal replication | Effort / quantitative structure | Public/raw verification | Frozen-gate status | Role |
-|---|---|---:|---|---|---|---|
-| Kaiser-Bunbury et al. 2017, Mahé | Seychelles, 8 inselberg communities | 8 monthly networks/site (64 total) | IWDB advertises raw `no.visits` and standardized `visitfreq = visits/flower/hour × floral abundance` | source page and schema verified; partner-level workbook bytes not yet recovered in the present extraction lane | **SCHEMA_PASS__PRIMARY_RAW_TRANSPORT_PENDING** | primary source 1 candidate |
-| Lázaro et al. 2022, Mallorca | Mallorca, 20 communities | 7 source-native sampling days/site | repeated standardized sampling; synchrony is an original study quantity | Dryad workbook public; seven-day partner matrix has not yet been reconstructed from workbook bytes | **DESIGN_PASS__RAW_DAILY_MATRIX_STRUCTURE_PENDING** | primary source 2 candidate |
-| Aslan et al. 2019, Hawaii Island dryland | Hawaii Island | 240 raw observation sessions across 8 focal-plant sheets; dates retained | raw source has Site, Date, Start Time, Observer and visitor identity; article total = 576.36 h | source-native Dryad workbook was previously acquired and SHA256-locked in this repository | **RAW_TEMPORAL_SCHEMA_CONFIRMED__EFFORT_NORMALIZATION_PENDING** | high-priority independent source |
-| Lara-Romero et al. 2019, Tenerife | Tenerife, 4 fixed sites | 57 observation days across 2014–2015 | 15-min censuses; quantitative flower-visitor observations | public Dryad/Zenodo package exists; date-level raw structure inside package still to be demonstrated | **HIGH_PRIORITY_PENDING_RAW_DATE_STRUCTURE** | high-priority independent source |
-| Alameda et al. 2025, Lomas de Galindo | Cuba, one community | study generated 12 monthly matrices | interaction frequencies | surfaced public appendices are aggregated/global or seasonal; 12 reconstructible monthly matrices have not been recovered | **FAIL_ONLY_DERIVED_OR_AGGREGATED_PUBLIC** | excluded unless pre-hard-stop raw bytes are located |
-| Zackenberg 1996/1997 | Greenland | 24/26 observation days | public daily interaction material | available repeated matrices rely on link-presence/phenological reconstruction rather than a verified source-native quantitative count/rate series for this gate | **FAIL_NONQUANTITATIVE_OR_INFERRED_LINK_PRESENCE** | excluded |
+| Source / system | Temporal structure | Public/raw verification | Frozen-gate status | NEE counting role |
+|---|---:|---|---|---|
+| **Aslan et al. 2019, Hawaii Island** | 58 source dates reconstructed from 3,551 unique scan events across eight focal-plant sampling sheets | exact Dryad workbook re-acquired; SHA256 matches prior source lock; scan effort is directly reconstructible | **ADMITTED_ONE_SYSTEM_FOR_COORDINATES** | 1 source / 1 archipelago / **1 system** |
+| Kaiser-Bunbury et al. 2017, Mahé | 8 monthly networks at each of 8 communities | 64 site × month network rows verified; partner-level primary/source-equivalent matrix bytes still required | **SCHEMA_PASS__PRIMARY_RAW_TRANSPORT_PENDING** | up to 8 systems if raw partner matrices pass |
+| Lázaro et al. 2022, Mallorca | 7 source-native sampling days at each of 20 communities | Dryad workbook public; daily quantitative partner matrix still must be reconstructed from bytes | **DESIGN_PASS__RAW_DAILY_MATRIX_STRUCTURE_PENDING** | up to 20 systems if raw structure passes |
+| Lara-Romero et al. 2019, Tenerife | 57 observation days at 4 fixed sites | standardized 15-min censuses described; public package still must expose date-level visitor rows | **HIGH_PRIORITY_PENDING_RAW_DATE_STRUCTURE** | up to 4 systems if raw structure passes |
+| Alameda et al. 2025, Cuba | 12 monthly matrices described | reconstructible machine-readable monthly matrices not recovered | **FAIL_ONLY_DERIVED_OR_AGGREGATED_PUBLIC** | excluded unless pre-hard-stop raw bytes are located |
+| Zackenberg 1996/1997 | 24/26 observation days | surfaced repeated-network material does not establish the frozen quantitative count/rate + effort contract | **FAIL_NONQUANTITATIVE_OR_INFERRED_LINK_PRESENCE** | excluded |
+
+## Hawaii admission — corrected system unit
+
+The Hawaii workbook contains eight focal-plant sheets, but those sheets are **sampling strata within one Pohakuloa high-elevation dryland ecosystem**, not eight independent natural-regime systems. The raw `Site` column is a free-text within-ecosystem location descriptor with many spelling/location variants and is not converted post hoc into independent site identities.
+
+The admitted system is therefore:
+
+```text
+source_study_id = aslan_etal_2019_hawaii_native_pollination
+archipelago_id = hawaiian_islands
+system_id = pohakuloa_high_elevation_dryland_pollination_community
+admitted systems = 1
+```
+
+The exact source workbook is `579,979` bytes with SHA256 `2b0ff40226b2a6d511a111ead8a00660532de3d799aed217e4dc30f00c2b3c27`, matching the pre-existing source lock.
+
+The source-native adapter is frozen in `scripts/adapt_hawaii_native_pollination_regime.py` and its admission record in `data/design/chapter2_hawaii_natural_regime_admission_20260914.json`. It uses:
+
+- `Date` as the source-native time bin, without outcome-dependent merging or splitting;
+- `Scan visitor spp` as partner identity after whitespace/case normalization only;
+- `Scan # Inds` as the quantitative numerator;
+- unique scan events, keyed by focal sheet × raw Site × Date × Start Time × Observer × Scan block start, as effort;
+- structural zeros for partners absent from an observed date;
+- no imputation for the two rows with identifiable scan visitor but missing `Scan # Inds`; those numerator records are excluded while their scan events remain in effort.
+
+Before opening any regime coordinate, the resulting structure has **58 time bins**, **3,551 unique scan events**, **96 raw partner labels**, and **96 nonconstant effort-standardized partner series**. The frozen minimum is 6 time bins and 3 nonconstant partner series, so Hawaii passes the admission gate as one system.
+
+This corrects the earlier provisional idea that the eight focal-plant sheets could contribute eight systems. Counting them separately would violate the frozen `site_or_source_native_local_community` unit and inflate the NEE denominator.
+
+## Remaining priority sources
+
+### Mahé
+
+The source design is ideal: eight local communities measured over eight months, and the source advertises raw visits plus an effort-standardized visitation representation. The repository has already recovered the 64 network-level site × month summary, but that object does not contain the partner-level time × partner matrix required for `D1` and `phi`. Mahé remains pending until the primary or source-equivalent partner matrix bytes are recovered.
+
+### Mallorca
+
+The study directly targets temporal stability and synchrony across 20 communities and has seven standardized sampling days per community. This is the highest-value next extraction because one admitted source could supply twenty independently located systems. Admission requires the Dryad workbook to expose day-level quantitative partner observations rather than only derived stability summaries.
+
+### Tenerife
+
+Four fixed sites were sampled repeatedly across 57 observation days using standardized 15-minute censuses. The design comfortably exceeds the temporal floor. It remains pending only until the public package is shown to retain date/census and visitor identity in a reconstructible quantitative table.
 
 ## Additional candidates / exclusions
 
-| Source / system | Replication | Status | Reason |
-|---|---:|---|---|
-| Kent Island 2019/2022/2023 | date-resolved event rows | **PENDING_EFFORT_NORMALIZATION** | public event dates and partner IDs exist, but date-specific observation effort is not yet shown to be equal or normalizable |
-| Thousand Island Lake, China | 20 surveys/site over 3 years in study design | **PENDING_PUBLIC_RAW_TEMPORAL_RECONSTRUCTION** | field design is strong, but surfaced public packages do not yet establish reconstructible survey-level interaction matrices |
-| Aride Island, Seychelles | 3 temporal matrices | **FAIL_LT6_TIME_BINS** | frozen floor is six aligned time bins |
-| Ogasawara multi-island network | 3 seasonal bins | **FAIL_LT6_TIME_BINS** | frozen floor is six aligned time bins |
-| Yongxing / Paracel seasonal networks | 4 published seasonal networks | **PENDING_RAW_MONTHLY_RECONSTRUCTION** | two monthly samplings per season are described, but six or more public source-native quantitative matrices have not been established |
-| Aegean/Cycladic repeated network survey | 3 source-native rounds/site in the surfaced design | **FAIL_LT6_TIME_BINS** | spatial replication cannot substitute for the frozen within-system temporal floor |
-| CaraDonna Colorado subalpine network | weekly repeated networks | **CONTEXT_ONLY_NON_ISLAND** | useful processor validation, excluded from NEE island promotion count by frozen source scope |
-| Olito Canadian Rockies | 32 sampling days | **CONTEXT_ONLY_NON_ISLAND** | useful processor validation, excluded from NEE island promotion count |
-
-## Evidence notes
-
-### Mahé — biological/data schema passes; byte transport remains the gate
-
-The Interaction Web Database source describes 64 monthly networks from eight isolated Mahé inselbergs, sampled from September 2012 through April 2013. It advertises raw visit matrices, a standardized `visitfreq` representation, flowering plants with zero visitors, floral abundance, site and month identifiers. This is exactly the right source design for the frozen coordinate analysis.
-
-However, earlier work in this repository already encountered transport failure for the primary IWDB workbook. A secondary public mirror contains network-level Mahé summaries (`site`, `month`, nestedness, mean visits, mean visitation rate), but those summaries cannot replace the partner-level time × partner matrix. Therefore Mahé is not called admitted until the primary/source-equivalent partner matrix bytes are actually recovered and checked.
-
-Source: Kaiser-Bunbury et al. 2017, *Nature*, DOI `10.1038/nature21071`; Interaction Web Database source definition; repository source contract `config/seychelles_restoration_network_iwdb_source.json`.
-
-### Mallorca — design passes; raw daily reconstruction is the only remaining question
-
-The Mallorca study sampled 20 communities repeatedly within the same year and was explicitly designed around temporal stability, portfolio effects and synchrony. Related source documentation specifies seven standardized sampling days per site. Dryad provides the study workbook and README.
-
-That is sufficient to pass the design screen but not the extraction gate: the workbook still must expose partner identities and quantitative observations at the seven source-native days rather than only precomputed stability summaries. No coordinate is computed before that check.
-
-Source: Lázaro et al. 2022; Dryad `10.5061/dryad.m905qfv2p` and related raw network package.
-
-### Hawaii — source-native temporal schema is confirmed
-
-This repository previously acquired the Aslan et al. Dryad workbook and locked the exact source bytes (`579979` bytes; SHA256 `2b0ff40226b2a6d511a111ead8a00660532de3d799aed217e4dc30f00c2b3c27`). The existing parser reads eight focal-plant sheets and uses `Site`, `Date`, `Start Time`, and `Observer` to identify observation sessions. It recovered 4,499 raw rows, 240 sessions, 1,799 focal visitor-event rows and 197 source-native visitor labels.
-
-Thus public byte retrieval, dates, site identity and partner labels are not hypothetical: they were already demonstrated against the source-native workbook. The remaining admission question is narrower—whether session/time-bin exposure is equal by design or can be normalized from the workbook/README without using outcome information. Until that is proven, Hawaii remains pending rather than admitted.
-
-Source: Aslan et al. 2019, DOI `10.1002/ajb2.1233`; Dryad `10.5061/dryad.tm575v4`; repository result `data/results/hawaii_native_pollination_summary.json`.
-
-### Tenerife — newly promoted high-priority source
-
-The Tenerife study used four fixed sites on El Teide, sampled through the flowering season in 2014 and 2015 over 57 observation days and 868 h. Source methods describe standardized 15-minute censuses of flower visitors. The public data package is therefore unusually promising for this gate because both temporal replication and per-census effort are source-defined.
-
-Admission remains pending only because the current audit has not yet opened the public package to verify that date/census and visitor identity are retained in machine-readable raw form rather than collapsed to site-level matrices.
-
-Source: Lara-Romero et al. 2019, Dryad `10.5061/dryad.b23v8nn` (public archive also mirrored on Zenodo).
-
-### Cuba — excluded under the frozen public-data rule
-
-The paper states that two observation days per month were combined into 12 monthly matrices, so the field design itself exceeds the six-bin floor. But the surfaced public supplementary layer does not currently provide those 12 quantitative matrices in reconstructible machine-readable form. Under the frozen gate, a design described in Methods is not enough. The system is excluded unless the pre-existing raw public file is located before the hard stop.
-
-### Zackenberg — excluded from the quantitative coordinate analysis
-
-Daily repeated networks are public, but the surfaced repeated-network construction is based on phenological/link-presence reconstruction rather than a verified source-native quantitative count/rate series aligned with the frozen `value / effort` contract. Presence reconstruction is useful for temporal network topology but is not silently converted into interaction intensity here.
+| Source / system | Status | Reason |
+|---|---|---|
+| Kent Island 2019/2022/2023 | `PENDING_EFFORT_NORMALIZATION` | event dates and partner IDs exist; date-specific exposure still must be normalized |
+| Thousand Island Lake | `PENDING_PUBLIC_RAW_TEMPORAL_RECONSTRUCTION` | strong repeated design, but survey-level public matrix reconstruction is not yet established |
+| Aride Island | `FAIL_LT6_TIME_BINS` | only 3 temporal matrices |
+| Ogasawara | `FAIL_LT6_TIME_BINS` | only 3 seasonal bins |
+| Yongxing / Paracel | `PENDING_RAW_MONTHLY_RECONSTRUCTION` | four published seasonal networks do not yet establish ≥6 source-native quantitative bins |
+| Aegean/Cycladic repeated survey | `FAIL_LT6_TIME_BINS` | surfaced design has 3 rounds/site |
+| CaraDonna Colorado | `CONTEXT_ONLY_NON_ISLAND` | processor validation only; does not count toward NEE promotion |
+| Olito Canadian Rockies | `CONTEXT_ONLY_NON_ISLAND` | processor validation only; does not count toward NEE promotion |
 
 ## Feasibility checkpoint before coordinates open
 
-The public-data route remains substantially more feasible than the old historical transition-validation programme, but **no NEE promotion count is credited yet**. Current evidence supports the following extraction order:
+Current formally admitted natural-regime evidence is **1 island system from 1 independent source and 1 archipelago**. Nothing else is credited until its raw data pass the same gate.
 
-1. recover Mahé partner-level workbook bytes;
-2. open Mallorca workbook and verify seven-day quantitative partner rows;
-3. resolve Hawaii session effort from its already verified raw workbook/README;
-4. open Tenerife raw package and verify date-level visitor rows;
-5. use Kent Island / Thousand Island Lake only if one of the four priority sources fails.
+The next extraction order is now:
 
-The NEE route still requires at least 12 admitted island systems from at least 3 independent sources and 2 archipelago groups, plus the predeclared two-dimensional dispersion and leave-one-source-out criteria. No route criterion is considered met until the canonical processor produces the frozen coordinates.
+1. Mallorca — verify/reconstruct seven-day quantitative partner matrices;
+2. Mahé — recover source-equivalent partner-level monthly matrices;
+3. Tenerife — verify date-level visitor rows and census effort;
+4. Kent Island / Thousand Island Lake only if one of the above fails.
+
+The NEE route still requires at least 12 admitted systems from at least 3 independent sources and at least 2 archipelago groups, followed by the predeclared breadth dispersion, synchrony dispersion, two-dimensionality, interior occupancy and leave-one-source-out tests. No journal promotion decision is made from source counts alone.
