@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_martinique_natural_regime_admission",
+  "status": "adapter_and_admission_rule_frozen_before_coordinate_computation",
+  "frozen_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "source": {
+    "source_study_id": "cyrille_etal_2025_martinique_gardens",
+    "dataset_doi": "10.25666/DATAUBFC-2025-03-28",
+    "source_xlsx_url": "https://search-data.ubfc.fr/dl_data.php?file=601",
+    "source_xlsx_sha256": "e3f82dc81749d7c759dbb62fc2e40ceeff9382758a3114c63c57553d15c2327d",
+    "archipelago_id": "lesser_antilles",
+    "island": "Martinique"
+  },
+  "source_scope": {
+    "sheet": "Insects_Plants",
+    "systems": ["C1", "C2", "C3", "C4", "C5", "PG1", "PG2", "PG3", "PG4", "PG5"],
+    "time_bin": "source-native monthly Period P1 through P12 within each Site",
+    "partner_id": "source-native Insect_Best_ID after whitespace normalization only",
+    "interaction_value": "one quantitative interaction event per source row with nonmissing Plant_Best_ID and Insect_Best_ID; repeated rows count as repeated interaction events, matching the deposited R code table(Plant_Best_ID, Insect_Best_ID)",
+    "zero_rule": "partners absent from an observed Site x Period receive structural zeros in the common analyzer; no missing Site x Period is invented or split",
+    "bird_data": "excluded from the primary natural-regime matrix because the deposited analysis reduces birds to binary site-by-bi-period structure"
+  },
+  "effort_contract": {
+    "source_design": "each garden site was sampled monthly for 12 months by the same observer using a 150 m transect and 60 minutes of insect interaction observation per Site x Period",
+    "canonical_effort": 60.0,
+    "unit": "minutes_per_site_period",
+    "reason": "equal by source design; the common analyzer therefore uses interaction events per 60 minutes and no outcome-dependent normalization"
+  },
+  "structural_admission_rule": {
+    "minimum_time_bins": 6,
+    "minimum_nonconstant_partner_series": 3,
+    "candidate_systems": 10,
+    "decision_timing": "apply only after the frozen adapter reconstructs the canonical Site x Period x Insect_Best_ID event table and before any D1 or phi is computed",
+    "coordinate_values_opened": false
+  },
+  "prohibited_after_freeze": [
+    "replace monthly P1-P12 bins with six bi-periods for the primary analysis",
+    "drop or merge a site based on D1 or phi",
+    "change Insect_Best_ID to a coarser or finer taxonomic identity after coordinates are seen",
+    "use floral abundance or reproductive outcomes to admit, exclude or weight a system",
+    "include bird interactions in the monthly quantitative primary matrix",
+    "change the equal 60-minute effort contract after coordinate inspection",
+    "select only months or taxa that widen the natural regime plane"
+  ],
+  "claim_boundary": "Martinique is admitted, system by system, only from pre-coordinate source structure: stable Site identity, source-native monthly Periods, stable insect identities, event-count interactions and equal sampling effort. Coordinate computation is forbidden until this record and its adapter are committed."
+}
