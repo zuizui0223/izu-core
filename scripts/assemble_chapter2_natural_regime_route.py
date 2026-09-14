@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = ROOT / "data/design/chapter2_natural_regime_analysis_plan_20260913.json"
-DEFAULT_OUT = ROOT / "data/results/chapter2_natural_regime_four_source_checkpoint_20260914.json"
+DEFAULT_OUT = ROOT / "data/results/chapter2_natural_regime_five_source_checkpoint_20260914.json"
 ANALYZER = ROOT / "scripts/analyze_chapter2_natural_regime_coordinates.py"
 
 SOURCES = [
@@ -16,6 +16,7 @@ SOURCES = [
     ROOT / "data/results/chapter2_mallorca_natural_regime_coordinates_20260914.json",
     ROOT / "data/results/chapter2_tenerife_natural_regime_coordinates_20260914.json",
     ROOT / "data/results/chapter2_cabrera_natural_regime_coordinates_20260914.json",
+    ROOT / "data/results/chapter2_martinique_natural_regime_coordinates_20260914.json",
 ]
 
 
@@ -31,18 +32,22 @@ def load_classify_route():
 
 def rows_from_result(path: Path) -> list[dict]:
     payload = json.loads(path.read_text(encoding="utf-8"))
-    source = payload["source"]
-    source_id = source["source_study_id"]
-    archipelago_id = source["archipelago_id"]
     raw_rows = payload.get("systems")
     if raw_rows is None:
         raw_rows = [payload["coordinate"]]
+
+    source = payload.get("source")
     rows = []
     for raw in raw_rows:
         row = dict(raw)
-        row["source_study_id"] = source_id
-        row["archipelago_id"] = archipelago_id
+        if source is not None:
+            row["source_study_id"] = source["source_study_id"]
+            row["archipelago_id"] = source["archipelago_id"]
+        if not row.get("source_study_id") or not row.get("archipelago_id"):
+            raise RuntimeError(f"{path}: coordinate row lacks source/archipelago identity")
         rows.append(row)
+    if not rows:
+        raise RuntimeError(f"{path}: no coordinate rows")
     return rows
 
 
@@ -65,8 +70,8 @@ def main() -> None:
     route = classify_route(rows, plan)
     result = {
         "schema_version": "1.0",
-        "analysis": "chapter2_natural_regime_four_source_checkpoint",
-        "status": "frozen_route_evaluation_after_four_admitted_sources",
+        "analysis": "chapter2_natural_regime_five_source_checkpoint",
+        "status": "frozen_route_evaluation_after_five_admitted_sources",
         "evaluated_on": "2026-09-14",
         "analysis_plan": str(PLAN.relative_to(ROOT)),
         "source_result_files": source_files,
@@ -77,7 +82,7 @@ def main() -> None:
         "archipelago_ids": sorted({row["archipelago_id"] for row in rows}),
         "route_decision": route,
         "claim_boundary": (
-            "The route is computed mechanically from the frozen natural-regime plan. "
+            "The route is computed mechanically from the frozen natural-regime plan after Martinique source admission was fixed before coordinates. "
             "Mallorca and Cabrera are separate source studies but share the Balearic archipelago group. "
             "No source is reweighted, removed or added based on its D1 or phi values."
         ),
