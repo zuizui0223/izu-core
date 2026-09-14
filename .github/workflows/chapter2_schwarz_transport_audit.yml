@@ -1,0 +1,26 @@
+name: Chapter 2 Schwarz transport audit
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_seychelles_2017_temporal_compilation_fallback.py'
+      - 'data/design/seychelles_kaiser_bunbury2017_temporal_compilation_fallback.json'
+      - '.github/workflows/chapter2_schwarz_transport_audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Audit verified temporal compilation transports
+        run: python scripts/audit_seychelles_2017_temporal_compilation_fallback.py
+      - name: Upload transport audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-schwarz-transport-audit
+          path: data/results/seychelles_2017_temporal_compilation_fallback_audit.json
+          if-no-files-found: error
