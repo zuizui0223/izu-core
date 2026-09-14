@@ -23,23 +23,19 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Temporary Mallorca source-native regime inspection
+      - name: Temporary Tenerife source-native regime inspection
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        shell: bash
         run: |
-          python scripts/acquire_dryad_external_dataset.py \
-            --config config/mallorca_stability_dryad_source.json \
-            --output-dir artifacts/mallorca_stability || \
-          python scripts/acquire_dryad_version_package.py \
-            --config config/mallorca_stability_dryad_source.json \
-            --output-dir artifacts/mallorca_stability
-          python scripts/inspect_mallorca_natural_regime_source.py
-      - name: Upload temporary Mallorca natural-regime source audit
+          python scripts/acquire_ogasawara_zenodo.py \
+            --config config/tenerife_pollination_zenodo_source.json \
+            --output-dir artifacts/tenerife_pollination
+          python scripts/inspect_tenerife_natural_regime_source.py
+      - name: Upload temporary Tenerife natural-regime source audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: temporary-mallorca-natural-regime-source-audit
-          path: artifacts/mallorca_stability/
+          name: temporary-tenerife-natural-regime-source-audit
+          path: artifacts/tenerife_pollination/
           if-no-files-found: error
       - name: Run pytest
         run: |
