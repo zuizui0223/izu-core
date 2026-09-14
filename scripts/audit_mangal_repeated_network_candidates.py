@@ -48,6 +48,37 @@ def date_key(value: object) -> str:
     return text[:10] if text else ""
 
 
+def geom_key(value: object) -> str:
+    if not isinstance(value, dict):
+        return ""
+    return json.dumps(value, sort_keys=True, separators=(",", ":"))
+
+
+def stable_geom_groups(nets: list[dict]) -> list[dict]:
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for net in nets:
+        key = geom_key(net.get("geom"))
+        if key:
+            groups[key].append(net)
+    output = []
+    for key, members in groups.items():
+        dates = sorted({date_key(net.get("date")) for net in members if date_key(net.get("date"))})
+        if len(dates) < 6:
+            continue
+        ordered = sorted(members, key=lambda row: (date_key(row.get("date")), int(row.get("id") or 0)))
+        output.append({
+            "geom": ordered[0].get("geom"),
+            "network_count": len(members),
+            "distinct_dates": len(dates),
+            "date_min": dates[0],
+            "date_max": dates[-1],
+            "network_ids": [row.get("id") for row in ordered],
+            "names_preview": [row.get("name") for row in ordered[:12]],
+            "descriptions_preview": sorted({str(row.get("description") or "") for row in ordered})[:12],
+        })
+    return sorted(output, key=lambda row: (-int(row["distinct_dates"]), -int(row["network_count"]), json.dumps(row["geom"], sort_keys=True)))
+
+
 def main() -> None:
     datasets = fetch_all("dataset")
     networks = fetch_all("network")
@@ -74,9 +105,6 @@ def main() -> None:
         if len(distinct_dates) < 6:
             continue
 
-        # Inspect interaction semantics only on the first three networks. This is a
-        # source-structure screen: no ecological metric, diversity, synchrony or
-        # response value is calculated.
         probes = []
         quantitative_probe = False
         presence_only_probe = True
@@ -96,7 +124,6 @@ def main() -> None:
                     numeric_values.append(float(value))
                 except (TypeError, ValueError):
                     pass
-            names_lower = " ".join(names).casefold()
             is_presence = bool(names) and all(
                 any(token in name.casefold() for token in ("presence", "binary", "absence"))
                 for name in names
@@ -125,6 +152,7 @@ def main() -> None:
             "distinct_network_dates": len(distinct_dates),
             "date_min": distinct_dates[0] if distinct_dates else None,
             "date_max": distinct_dates[-1] if distinct_dates else None,
+            "stable_geom_groups_with_ge6_dates": stable_geom_groups(nets),
             "network_locations_preview": [
                 {"id": net.get("id"), "name": net.get("name"), "date": date_key(net.get("date")), "geom": net.get("geom"), "description": net.get("description")}
                 for net in sorted(nets, key=lambda row: int(row.get("id") or 0))[:12]
@@ -145,7 +173,7 @@ def main() -> None:
         })
 
     result = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "chapter2_mangal_repeated_network_candidate_screen",
         "status": "result_blind_source_structure_screen_coordinates_not_opened",
         "database_counts": {
@@ -156,6 +184,7 @@ def main() -> None:
         "screen_rule": {
             "minimum_networks_per_dataset": 6,
             "minimum_distinct_network_dates": 6,
+            "stable_unit_second_pass": "exact source-native network geometry; retain groups with >=6 distinct dates without island filtering",
             "interaction_probe": "first three network IDs only; inspect attribute semantics and whether quantitative nonbinary values exist",
             "island_filter_applied": False,
             "coordinates_or_ecological_metrics_calculated": False,
@@ -163,7 +192,7 @@ def main() -> None:
         "candidate_count": len(candidates),
         "quantitative_candidate_count": sum(bool(row["quantitative_probe_pass"]) for row in candidates),
         "candidates": candidates,
-        "claim_boundary": "This screen precedes island-status review and uses no D1, phi, determinant, response, diversity or journal-route values. Dataset inclusion is based only on repeated dated networks and interaction measurement semantics."
+        "claim_boundary": "This screen precedes island-status review and uses no D1, phi, determinant, response, diversity or journal-route values. Dataset inclusion is based only on repeated dated networks and interaction measurement semantics; stable-unit grouping uses exact source geometry only."
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -173,6 +202,7 @@ def main() -> None:
         "candidate_count": len(candidates),
         "quantitative_candidate_count": result["quantitative_candidate_count"],
         "candidate_names": [row["dataset_name"] for row in candidates],
+        "stable_geom_group_counts": {row["dataset_name"]: len(row["stable_geom_groups_with_ge6_dates"]) for row in candidates},
     }, indent=2, ensure_ascii=False))
 
 
