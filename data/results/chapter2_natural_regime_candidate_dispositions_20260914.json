@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_candidate_dispositions",
+  "status": "source_structure_only_no_unopened_coordinates",
+  "updated_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "candidates": [
+    {
+      "source_id": "kaiser_bunbury_2017_mahe",
+      "archipelago": "Seychelles",
+      "status": "TRANSPORT_BLOCKED_PENDING_HARD_STOP",
+      "biological_negative": false,
+      "evidence": [
+        "primary IWDB page/schema identifies 8 sites x 8 months and both no.visits and standardized visitfreq representations",
+        "primary workbook transport timed out or failed on current hosts",
+        "configured Zenodo source-equivalent fallback returned HTTP 504",
+        "independent temporal compilation transport also returned HTTP 504 in the current audit"
+      ],
+      "gate_boundary": "Raw no.visits are not substituted for visitfreq because the source explicitly states that no.visits do not account for differing observation time, observed flowers, or floral abundance. Candidate remains unavailable rather than biologically negative until the frozen hard stop."
+    },
+    {
+      "source_id": "jones_2025_kent_island",
+      "archipelago": "Kent Island / Grand Manan region",
+      "status": "FAIL_SAMPLING_EFFORT_NOT_NORMALIZABLE",
+      "biological_negative": false,
+      "evidence": [
+        "public network rows preserve year/month/day, insect identity, plant identity and coordinates",
+        "source methods describe one to two researchers collecting insects when observed visiting flowering plants",
+        "public network schema does not expose date-specific observation duration, transect effort, or other exposure scalar"
+      ],
+      "gate_boundary": "Date-resolved interaction events cannot be converted to comparable time-bin intensities under the frozen effort contract without inventing exposure."
+    },
+    {
+      "source_id": "ren_si_ding_2022_thousand_island_lake",
+      "archipelago": "Thousand Island Lake land-bridge fragments",
+      "status": "FAIL_NO_ALIGNED_SIX_BIN_WITHIN_SYSTEM_MATRIX",
+      "biological_negative": false,
+      "evidence": [
+        "public source preserves 42 spatial network columns aggregated over time",
+        "public temporal matrix preserves only three year totals aggregated over space",
+        "the two marginals do not establish source-native site x year networks"
+      ],
+      "gate_boundary": "Spatial replication cannot substitute for the frozen minimum of six aligned time bins within each system."
+    }
+  ],
+  "claim_boundary": "Candidate exclusion or transport blocking is determined from source structure and effort only. No candidate is included, excluded, rescued, or reprioritized using observed D1, phi, or route effects."
+}
