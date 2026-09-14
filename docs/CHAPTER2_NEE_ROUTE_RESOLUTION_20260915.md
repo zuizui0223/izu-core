@@ -8,6 +8,8 @@ The combined theory + nonlinear demonstration + natural-regime placement + ident
 
 The decision is mechanical, not editorially guaranteed. `NEE_candidate` means that the repository-defined promotion ceiling has been reached; it does not mean that *Nature Ecology & Evolution* will accept the manuscript.
 
+The active submission framing is now **ranking transportability / response sufficiency**, not the generic observation that relative driver importance can be context dependent. The latter is explicitly treated as prior art in the v0.4 manuscript.
+
 ## Frozen evidence for promotion
 
 The primary natural plane contains 42 systems from six independent source studies and five island/archipelago groups. The frozen six-source classifier returns `NEE_candidate`:
@@ -46,17 +48,17 @@ The three admitted England systems were fixed before their coordinates were open
 
 Submission-clean primary draft:
 
-`docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_3_SUBMISSION_20260915.md`
+`docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_4_SUBMISSION_20260915.md`
 
 Submission-clean cover letter:
 
-`docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_3_SUBMISSION_20260915.md`
+`docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_4_SUBMISSION_20260915.md`
 
 Source-verified reference ledger:
 
 `docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md`
 
-The v0.2 manuscript and earlier Ecology Letters/Oikos surfaces remain archived scientific provenance and internal routing history. They are not the active submission files while this resolution is in force.
+The v0.3 manuscript and earlier Ecology Letters/Oikos surfaces remain archived scientific provenance and internal routing history. They are not the active submission files while this resolution is in force.
 
 ## Retained claim boundaries
 
@@ -66,4 +68,5 @@ The v0.2 manuscript and earlier Ecology Letters/Oikos surfaces remain archived s
 - the internal NEE promotion thresholds are not biological thresholds;
 - the frozen 25-entry identifiability audit remains 21/25 direct comparable responses, 2/25 direct arrival/replacement and 0/25 full contracts;
 - unresolved/unavailable data remain unavailable evidence, not biological negatives;
-- Great Britain retains the source compilation's pre-existing island-study classification and is not reclassified from its route effect.
+- Great Britain retains the source compilation's pre-existing island-study classification and is not reclassified from its route effect;
+- context dependence of relative importance is prior art; the active novelty claim is the exact sufficiency/transportability boundary after context compression.
