@@ -4,7 +4,7 @@ from scripts.audit_chapter2_nee_submission_v01 import audit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_1_20260915.md"
+MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md"
 
 
 def test_nee_article_submission_limits():
