@@ -6,6 +6,7 @@ import io
 import json
 import re
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -89,67 +90,80 @@ def code_inventory(payload: bytes) -> dict:
     }
 
 
+def direct_file_url(record_id: int, name: str) -> str:
+    quoted = urllib.parse.quote(name, safe="")
+    return f"https://zenodo.org/api/records/{record_id}/files/{quoted}/content"
+
+
 def main() -> None:
     design = json.loads(DESIGN.read_text())
-    status, metadata_bytes, metadata_error = fetch_bytes(API)
-    if status != 200 or metadata_bytes is None:
-        result = {
-            "schema_version": "1.0",
-            "analysis": "giannutri2025_zenodo_source_audit",
-            "status": "blocked_zenodo_metadata_not_recovered",
-            "metadata_http_status": status,
-            "metadata_error": metadata_error,
-            "source_admission_succeeds": False,
-            "target_metrics_calculated": False,
-        }
-        OUT.parent.mkdir(parents=True, exist_ok=True)
-        OUT.write_text(json.dumps(result, indent=2) + "\n")
-        print(json.dumps(result, indent=2))
-        return
-
-    metadata = json.loads(metadata_bytes)
-    files = {row.get("key"): row for row in metadata.get("files", [])}
+    record_id = int(design["candidate_system"]["zenodo_record_id"])
     required = design["required_zenodo_files"]
-    missing = [name for name in required if name not in files]
+    status, metadata_bytes, metadata_error = fetch_bytes(API)
+
+    metadata: dict = {}
+    metadata_available = status == 200 and metadata_bytes is not None
+    if metadata_available:
+        metadata = json.loads(metadata_bytes)
+    files = {row.get("key"): row for row in metadata.get("files", [])} if metadata_available else {}
+
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     records = []
-    blocked = list(missing)
+    blocked: list[str] = []
 
     for name, expected_md5 in required.items():
-        row = files.get(name)
-        if row is None:
-            continue
+        row = files.get(name) or {}
         links = row.get("links") or {}
-        download_url = links.get("content") or links.get("self")
+        candidate_urls = []
+        for url in (links.get("content"), links.get("self"), direct_file_url(record_id, name)):
+            if url and url not in candidate_urls:
+                candidate_urls.append(str(url))
+
         record = {
             "name": name,
             "expected_md5": expected_md5,
             "metadata_checksum": row.get("checksum"),
             "metadata_size": row.get("size"),
-            "download_url": download_url,
+            "candidate_urls": candidate_urls,
+            "download_attempts": [],
         }
-        if not download_url:
-            record["error"] = "no download URL in Zenodo metadata"
-            blocked.append(name)
-            records.append(record)
-            continue
-        file_status, payload, error = fetch_bytes(download_url)
-        record["http_status"] = file_status
-        record["error"] = error
-        if file_status != 200 or payload is None:
-            blocked.append(name)
-            records.append(record)
-            continue
-        actual_md5 = hashlib.md5(payload).hexdigest()
-        actual_sha256 = hashlib.sha256(payload).hexdigest()
-        record.update({"bytes": len(payload), "md5": actual_md5, "sha256": actual_sha256})
-        metadata_md5 = str(row.get("checksum") or "").removeprefix("md5:")
-        if actual_md5 != expected_md5 or (metadata_md5 and actual_md5 != metadata_md5):
+
+        payload = None
+        successful_url = None
+        for url in candidate_urls:
+            file_status, candidate, error = fetch_bytes(url)
+            attempt = {"url": url, "http_status": file_status, "error": error}
+            if file_status == 200 and candidate is not None:
+                actual_md5 = hashlib.md5(candidate).hexdigest()
+                attempt["md5"] = actual_md5
+                attempt["checksum_match_expected"] = actual_md5 == expected_md5
+                if actual_md5 == expected_md5:
+                    payload = candidate
+                    successful_url = url
+                    record["download_attempts"].append(attempt)
+                    break
+            record["download_attempts"].append(attempt)
+
+        if payload is None or successful_url is None:
             record["checksum_match"] = False
             blocked.append(name)
             records.append(record)
             continue
-        record["checksum_match"] = True
+
+        actual_md5 = hashlib.md5(payload).hexdigest()
+        actual_sha256 = hashlib.sha256(payload).hexdigest()
+        metadata_md5 = str(row.get("checksum") or "").removeprefix("md5:")
+        metadata_checksum_match = None if not metadata_md5 else actual_md5 == metadata_md5
+        record.update(
+            {
+                "successful_download_url": successful_url,
+                "bytes": len(payload),
+                "md5": actual_md5,
+                "sha256": actual_sha256,
+                "checksum_match": True,
+                "metadata_checksum_match": metadata_checksum_match,
+            }
+        )
         (RAW_DIR / name).write_bytes(payload)
         if name.endswith(".txt") and name != "README.txt":
             record["schema_inventory"] = tabular_inventory(payload)
@@ -164,9 +178,7 @@ def main() -> None:
             }
         records.append(record)
 
-    raw_records = {
-        row["name"]: row for row in records if row.get("checksum_match") is True
-    }
+    raw_records = {row["name"]: row for row in records if row.get("checksum_match") is True}
     overlap = raw_records.get("transect_data_for_overlap_analysis.txt", {}).get("schema_inventory", {})
     walking = raw_records.get("walking_transects_dataset.txt", {}).get("schema_inventory", {})
     code = raw_records.get("Code for Resource use and overlap analysis.R", {}).get("code_inventory", {})
@@ -184,16 +196,20 @@ def main() -> None:
     admission = source_bytes_ok and daily_structure_visible and condition_structure_visible and code_structure_visible
 
     result = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "giannutri2025_zenodo_source_audit",
         "status": (
             "source_admitted_raw_daily_network_reconstruction_inputs"
             if admission else "blocked_giannutri_source_or_grouping_structure_incomplete"
         ),
-        "zenodo_record_id": design["candidate_system"]["zenodo_record_id"],
+        "zenodo_record_id": record_id,
         "zenodo_doi": design["candidate_system"]["zenodo_doi"],
-        "metadata_bytes": len(metadata_bytes),
-        "metadata_sha256": hashlib.sha256(metadata_bytes).hexdigest(),
+        "metadata_available": metadata_available,
+        "metadata_http_status": status,
+        "metadata_error": metadata_error,
+        "metadata_bytes": len(metadata_bytes) if metadata_bytes is not None else None,
+        "metadata_sha256": hashlib.sha256(metadata_bytes).hexdigest() if metadata_bytes is not None else None,
+        "direct_file_endpoint_fallback_allowed_only_with_expected_md5_match": True,
         "required_file_count": len(required),
         "recovered_checksum_locked_file_count": len(raw_records),
         "blocked_files": sorted(set(blocked)),
@@ -207,7 +223,7 @@ def main() -> None:
         "published_scope": design["candidate_system"]["published_network_scope"],
         "published_daily_network_count": design["candidate_system"]["published_daily_network_count"],
         "independence_boundary": design["independence_boundary"],
-        "claim_boundary": "Source admission only. No Shannon, plant niche overlap, empirical network range, or v6 predictive fit was calculated.",
+        "claim_boundary": "Source admission only. Direct file endpoints are accepted only when the bytes match the checksum locks frozen before this audit. No Shannon, plant niche overlap, empirical network range, natural D1/phi, or v6 predictive fit is calculated here.",
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
