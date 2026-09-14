@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_schwarz_temporal_compilation_transport_audit",
+  "status": "transport_blocked_all_audited_public_routes",
+  "audited_on": "2026-09-14",
+  "target_source": {
+    "title": "Temporal scale-dependence of plant-pollinator networks",
+    "dataset_doi": "10.5061/dryad.qz612jmbp",
+    "required_components": [
+      "OIK-07303_database.csv",
+      "OIK-07303_original_studies.xlsx"
+    ],
+    "frozen_md5": {
+      "OIK-07303_database.csv": "7a70c3e2356611b0871c163a2f9aed4a",
+      "OIK-07303_original_studies.xlsx": "5db9f1b31fc27820e08aeff2b737ef13"
+    }
+  },
+  "transport_results": {
+    "zenodo_api_and_direct": {
+      "status": "failed",
+      "database_csv": "HTTP_504_Gateway_Time_out",
+      "original_studies_xlsx": "HTTP_504_Gateway_Time_out"
+    },
+    "dryad_public_dataset_package": {
+      "status": "failed",
+      "endpoint": "dataset_latest_version_download",
+      "result": "HTTP_401_Unauthorized"
+    },
+    "dataone_cn_v2_doi_locked": {
+      "status": "dataone_doi_not_indexed_or_unreachable",
+      "query_errors": 0,
+      "initial_documents": 0,
+      "doi_locked_documents": 0,
+      "data_candidates": 0,
+      "downloads": 0
+    }
+  },
+  "decision": "KEEP_MAHE_AND_SCHWARZ_COMPILATION_TRANSPORT_BLOCKED_PENDING_HARD_STOP",
+  "biological_negative": false,
+  "coordinates_opened": false,
+  "next_gate": "Do not repeat the same failed public transports as candidate hunting. Continue the frozen result-blind search for independent repeated island interaction sources. Revisit this exact source only if a lawful author, institutional, repository mirror, authenticated Dryad, or user-supplied route exposes byte-identical source material before the hard stop.",
+  "claim_boundary": "Transport failure and DataONE non-indexing are source-availability outcomes only. They provide no evidence about biological breadth, synchrony, response regime, or the NEE route. No D1 or phi value was computed or inferred."
+}
