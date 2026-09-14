@@ -14,8 +14,8 @@ TAG = "v1.3.0"
 SOURCE_REPO = "JoseBSL/EuPPollNet"
 INTERACTION_URL = f"https://raw.githubusercontent.com/{SOURCE_REPO}/{TAG}/Data/1_Raw_data/29_30_31_STEP/Interaction_data.csv"
 FLOWER_URL = f"https://raw.githubusercontent.com/{SOURCE_REPO}/{TAG}/Data/1_Raw_data/29_30_31_STEP/Flower_count.csv"
-INTERACTION_SHA256 = "28222670de531fa3a0e46beed229576d66e61eaa95db5d066a72bad41bf24c34"
-FLOWER_SHA256 = "c06520d77dc39f4718e17a1504984b1d05ae7f3e19d6d9a6954468c98212cbc5"
+INTERACTION_SHA256 = "19af30ad6a0e2f9e8a1d129dfed9073592f331446251c6a1df6f91b39c7df099"
+FLOWER_SHA256 = "f23f3996229da48a279728a0fd8432a380d35c31e9f484f6e86cd49855adb9c3"
 ADMITTED = {"Carlisle", "Livingstone_far", "Livingstone_house"}
 EFFORT_MINUTES = 30.0
 OUTPUT_FIELDS = [
@@ -81,7 +81,6 @@ def adapt(interaction_payload: bytes, flower_payload: bytes) -> list[dict[str, o
 
     events: dict[tuple[str, str, str], float] = defaultdict(float)
     partners_by_site: dict[str, set[str]] = defaultdict(set)
-    observed_interaction_dates: dict[str, set[str]] = defaultdict(set)
     effort_values: dict[str, set[float]] = defaultdict(set)
     area_values: dict[str, set[float]] = defaultdict(set)
     for row in interactions:
@@ -97,7 +96,6 @@ def adapt(interaction_payload: bytes, flower_payload: bytes) -> list[dict[str, o
         day = date_key(row)
         if not day or not partner:
             continue
-        observed_interaction_dates[site].add(day)
         if day not in schedule.get(site, set()):
             raise RuntimeError(f"{site}: interaction date {day} is outside frozen flower-count schedule")
         value = number(row.get("Interaction"))
