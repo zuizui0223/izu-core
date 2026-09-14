@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "analysis": "chapter2_natural_regime_current_state",
   "status": "canonical_post_search_closure_state",
   "updated_on": "2026-09-15",
@@ -9,8 +9,8 @@
   "search_closure_receipt": "data/results/chapter2_natural_regime_search_closure_20260915.json",
   "post_promotion_all_source_loo_diagnostic": "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json",
   "england_independent_reconstruction": "data/results/chapter2_roberts_england_coordinate_reconstruction_audit_20260915.json",
-  "active_manuscript": "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_3_SUBMISSION_20260915.md",
-  "active_cover_letter": "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_3_SUBMISSION_20260915.md",
+  "active_manuscript": "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_4_SUBMISSION_20260915.md",
+  "active_cover_letter": "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_4_SUBMISSION_20260915.md",
   "reference_ledger": "docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md",
   "current_admitted_natural_plane": {
     "systems": 42,
@@ -74,5 +74,5 @@
     "candidate_hunting_after_closure_forbidden": true,
     "unopened_candidates_remain_unopened": true
   },
-  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed. The 2026-09-14 candidate-disposition ledger remains a historical source-structure audit and is not rewritten to erase the earlier 39-system Ecology Letters checkpoint. NEE_candidate is a routing ceiling under the frozen protocol, not a natural threshold, causal validation of the synthetic crossover, leave-any-source-out invariance, or guarantee of acceptance."
+  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed. The active submission surface now frames the scientific novelty as a determinant-ranking transportability / response-sufficiency boundary rather than discovery of context-dependent relative importance. The 2026-09-14 candidate-disposition ledger remains historical provenance. NEE_candidate is a routing ceiling under the frozen protocol, not a natural threshold, causal validation of the synthetic crossover, leave-any-source-out invariance, or guarantee of acceptance."
 }
