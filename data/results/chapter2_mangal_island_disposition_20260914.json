@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_mangal_island_candidate_disposition",
+  "status": "source_class_exhausted_no_admissible_island_system",
+  "evaluated_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "screen_script": "scripts/audit_mangal_repeated_network_candidates.py",
+  "workflow_run": 34831197286,
+  "artifact_id": 10341973491,
+  "artifact_sha256": "f5cce199351056023bf1b81135558ea3c319ececfc6888c765aee79ac1cf6973",
+  "database_counts": {
+    "datasets": 175,
+    "networks": 1487,
+    "references": 175
+  },
+  "result_blind_screen": {
+    "minimum_dataset_networks": 6,
+    "minimum_distinct_dates": 6,
+    "candidate_datasets": 4,
+    "quantitative_candidate_datasets": 4,
+    "stable_unit_rule": "exact source-native network geometry with at least 6 distinct dates",
+    "coordinates_opened": false
+  },
+  "candidate_dispositions": [
+    {
+      "dataset_id": 6,
+      "dataset_name": "kolpelke_et_al_2017",
+      "interaction_class": "willow galling sawfly-natural enemy food web",
+      "quantitative": true,
+      "stable_geom_groups_ge6_dates": 28,
+      "island_review": "Dataset contains Sardinia network records, but no Sardinia geometry occurs among the 28 exact-geometry groups with >=6 distinct dates. The repeatedly sampled groups are continental European locations.",
+      "status": "FAIL_NO_REPEATED_ISLAND_STABLE_SYSTEM"
+    },
+    {
+      "dataset_id": 76,
+      "dataset_name": "ponisio_2017",
+      "interaction_class": "plant-pollinator",
+      "quantitative": true,
+      "stable_geom_groups_ge6_dates": 0,
+      "island_review": "Source description identifies California agricultural restoration sites; no island system is present in the screened repeated program.",
+      "status": "FAIL_NON_ISLAND_SOURCE"
+    },
+    {
+      "dataset_id": 158,
+      "dataset_name": "tavares-cromar_williams_1996",
+      "interaction_class": "stream macroinvertebrate food web",
+      "quantitative_probe": true,
+      "stable_geom_groups_ge6_dates": 1,
+      "island_review": "The single repeated exact-geometry unit is Duffin Creek, Ontario, Canada.",
+      "status": "FAIL_NON_ISLAND_SOURCE"
+    },
+    {
+      "dataset_id": 181,
+      "dataset_name": "RMBL_pollination",
+      "interaction_class": "plant-pollinator",
+      "quantitative": true,
+      "stable_geom_groups_ge6_dates": 1,
+      "island_review": "The repeated program is the Rocky Mountain Biological Laboratory, Colorado, USA.",
+      "status": "FAIL_NON_ISLAND_SOURCE"
+    }
+  ],
+  "decision": "MANGAL_SOURCE_CLASS_EXHAUSTED_NO_ADMISSIBLE_ISLAND_SYSTEM",
+  "biological_negative": false,
+  "next_search_class": "Dryad_Zenodo_Figshare_repeated_plant_pollinator_datasets",
+  "claim_boundary": "Island review was performed only after the result-blind repeated-date and quantitative-interaction screen. No D1, phi, response, determinant or journal-route coordinate was computed or used to select a Mangal dataset or stable unit. Failure means that the current Mangal source class did not supply an admissible repeated island system under the frozen gate, not that island systems lack temporal interaction variation."
+}

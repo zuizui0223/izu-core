@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_hawaii_natural_regime_admission",
+  "status": "admitted_for_coordinate_computation",
+  "admitted_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "source": {
+    "source_study_id": "aslan_etal_2019_hawaii_native_pollination",
+    "article_doi": "10.1002/ajb2.1233",
+    "dataset_doi": "10.5061/dryad.tm575v4",
+    "archipelago_id": "hawaiian_islands",
+    "system_id": "pohakuloa_high_elevation_dryland_pollination_community",
+    "workbook_sha256": "2b0ff40226b2a6d511a111ead8a00660532de3d799aed217e4dc30f00c2b3c27",
+    "readme_sha256": "8a664206390b498618adc23d460d81d77022e70550c5c74e66bf87eeafe9b6cd"
+  },
+  "system_unit_decision": {
+    "admitted_systems": 1,
+    "unit": "the source-native Pohakuloa high-elevation dryland flower-visitation community",
+    "focal_plant_sheets": 8,
+    "focal_plant_sheets_role": "within-system sampling strata; they are not independent natural-regime systems",
+    "raw_site_field_role": "free-text within-ecosystem location descriptor used only to distinguish scan events, not to manufacture stable site replicates",
+    "correction_of_provisional_screening_note": "Earlier provisional screening treated the eight focal-plant sheets as eight candidate systems. That would violate the frozen primary_system_unit. The admitted count is one system."
+  },
+  "source_native_adapter": {
+    "script": "scripts/adapt_hawaii_native_pollination_regime.py",
+    "observation_sheets": [
+      "ARGGLA",
+      "BIDMEN",
+      "DUBLIN",
+      "HAPHAP",
+      "SIDFAL",
+      "SILLAN",
+      "STEANG",
+      "TETARE"
+    ],
+    "time_bin": "source Date, converted to ISO calendar date without merging or splitting",
+    "partner_id": "Scan visitor spp with whitespace collapsed and uppercase normalization only; no synonym, taxonomy or morphology-based alias merging is performed before coordinates open",
+    "value": "Scan # Inds summed over unique scan-event × partner records within date",
+    "effort": "number of unique source-native scan events within date",
+    "scan_event_key": [
+      "focal plant sheet",
+      "raw Site text",
+      "Date",
+      "Start Time",
+      "Observer",
+      "Scan block time start"
+    ],
+    "zero_rule": "dates are expanded to the union of observed raw partner labels; an unobserved partner in an observed date receives value 0 with that date's positive scan effort",
+    "missing_scan_visitor_labels": [
+      "",
+      "N",
+      "NONE",
+      "UNKNOWN",
+      "?",
+      "N/A",
+      "NA"
+    ],
+    "unquantified_positive_scan_rows": {
+      "count": 2,
+      "rule": "if Scan visitor spp is identifiable but Scan # Inds is missing, exclude that unquantified numerator record while retaining its scan event in the effort denominator; do not impute a count"
+    }
+  },
+  "structural_gate_evidence": {
+    "time_bins": 58,
+    "first_time_bin": "2015-03-16",
+    "last_time_bin": "2016-05-29",
+    "unique_scan_events": 3551,
+    "scan_events_per_time_bin_min": 15,
+    "scan_events_per_time_bin_max": 120,
+    "raw_partner_labels_after_missing_label_exclusion": 96,
+    "nonconstant_partner_series_after_source_native_effort_standardization": 96,
+    "time_bins_with_at_least_one_quantified_positive_scan": 47,
+    "minimum_time_bins_required": 6,
+    "minimum_nonconstant_partner_series_required": 3,
+    "sampling_effort_status": "explicitly normalizable from source-native scan events",
+    "reconstructible_time_by_partner_matrix": true,
+    "stable_partner_identity_policy_predeclared": true
+  },
+  "decision": {
+    "admit_for_coordinate_computation": true,
+    "reason": "One source-native island interaction community passes the frozen temporal, partner-identity, quantitative-interaction and effort-normalization requirements.",
+    "counts_toward_NEE_source_studies": 1,
+    "counts_toward_NEE_archipelago_groups": 1,
+    "counts_toward_NEE_systems": 1
+  },
+  "claim_boundaries": [
+    "Hawaii contributes one natural-regime system, not eight independent systems.",
+    "The eight focal-plant sheets remain sampling strata within one ecosystem.",
+    "Raw Site strings are not normalized into post-hoc independent sites.",
+    "No reproductive or performance outcome was used for admission.",
+    "No D1, phi, rho_eq or route-classification value was inspected to make this admission decision.",
+    "Natural breadth is not mapped literally onto synthetic k."
+  ],
+  "coordinate_values_opened": false
+}

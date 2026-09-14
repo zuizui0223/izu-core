@@ -1,0 +1,69 @@
+{
+  "analysis": "chapter2_natural_regime_six_source_checkpoint",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "archipelago_groups": 5,
+  "archipelago_ids": [
+    "balearic_islands",
+    "canary_islands",
+    "great_britain",
+    "hawaiian_islands",
+    "lesser_antilles"
+  ],
+  "claim_boundary": "The route is computed mechanically from the frozen natural-regime plan after the England STEP admission was committed before coordinates were opened. The England source is retained as a Great Britain continental-island group because EuPPollNet's manuscript pre-classified study 31_Roberts as an island study; this classification is not altered based on D1, phi or route effect. Mallorca and Cabrera remain separate source studies sharing the Balearic archipelago group. No threshold, source weight, site, time bin or taxon is changed after opening coordinates.",
+  "evaluated_on": "2026-09-15",
+  "route_decision": {
+    "leave_largest_source_out": {
+      "dispersion_criteria_pass": true,
+      "excluded_source": "lazaro_etal_2022_mallorca_stability",
+      "summary": {
+        "D1_q10": 3.496457467951386,
+        "D1_q90": 19.2108423147976,
+        "D1_q90_q10_ratio": 5.494373230872861,
+        "archipelago_groups": 5,
+        "interior_occupancy": 0.2608695652173913,
+        "phi_q10": 0.09808881070229232,
+        "phi_q90": 0.4497067330327854,
+        "phi_q90_q10_span": 0.3516179223304931,
+        "source_studies": 5,
+        "systems": 23,
+        "weighted_spearman_logD1_phi": -0.45385212539892705
+      }
+    },
+    "nee_count_criteria_pass": true,
+    "nee_dispersion_criteria_pass": true,
+    "route": "NEE_candidate",
+    "summary": {
+      "D1_q10": 4.79378869594486,
+      "D1_q90": 21.67405446614196,
+      "D1_q90_q10_ratio": 4.521278646360941,
+      "archipelago_groups": 5,
+      "interior_occupancy": 0.2619047619047619,
+      "phi_q10": 0.09808881070229232,
+      "phi_q90": 0.4497067330327854,
+      "phi_q90_q10_span": 0.3516179223304931,
+      "source_studies": 6,
+      "systems": 42,
+      "weighted_spearman_logD1_phi": -0.32526671599335794
+    }
+  },
+  "schema_version": "1.0",
+  "source_result_files": [
+    "data/results/chapter2_hawaii_natural_regime_coordinate_20260914.json",
+    "data/results/chapter2_mallorca_natural_regime_coordinates_20260914.json",
+    "data/results/chapter2_tenerife_natural_regime_coordinates_20260914.json",
+    "data/results/chapter2_cabrera_natural_regime_coordinates_20260914.json",
+    "data/results/chapter2_martinique_natural_regime_coordinates_20260914.json",
+    "data/results/chapter2_roberts_england_natural_regime_coordinates_20260915.json"
+  ],
+  "source_studies": 6,
+  "source_system_counts": {
+    "aslan_etal_2019_hawaii_native_pollination": 1,
+    "cyrille_etal_2025_martinique_gardens": 10,
+    "euppollnet_31_roberts_england_step": 3,
+    "lara_romero_etal_2019_tenerife_pollination": 4,
+    "lazaro_etal_2022_mallorca_stability": 19,
+    "serra_marin_etal_2025_cabrera_pollination": 5
+  },
+  "status": "frozen_route_evaluation_after_six_admitted_sources",
+  "systems": 42
+}

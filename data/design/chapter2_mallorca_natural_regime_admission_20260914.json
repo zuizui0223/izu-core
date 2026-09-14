@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_mallorca_natural_regime_admission",
+  "status": "admitted_for_coordinate_computation",
+  "admitted_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "source": {
+    "source_study_id": "lazaro_etal_2022_mallorca_stability",
+    "article_doi": "10.1111/ecog.06112",
+    "dataset_doi": "10.5061/dryad.m905qfv2p",
+    "dryad_version_id": 158321,
+    "archipelago_id": "balearic_islands",
+    "data_workbook_sha256": "86ea6ae76539cd525509096e49a00a15f9cd0b3faeb10019cb92109b7ae1b1f3",
+    "readme_workbook_sha256": "76bbcf664652f623311f071a336e50fd6407f941584d39acb2a4b25ceefc2ac5"
+  },
+  "source_native_structure": {
+    "localities_total": 20,
+    "interaction_pairs_total": 1264,
+    "interaction_rows_positive": 2957,
+    "time_bin_field": "Round",
+    "interaction_field": "InsectPlantPair",
+    "quantitative_field": "Abundance",
+    "effort": "one standardized observation hour per study site and sampling day, as source Methods define",
+    "pair_meaning": "README defines InsectPlantPair as one specific insect species interacting with one specific plant species and Abundance as the frequency observed in a study site and sampling day"
+  },
+  "partner_identity_reconstruction": {
+    "purpose": "recover the primary pollinator identity required by the frozen analysis plan while aggregating across plant partners",
+    "initial_insect_vocabulary": "all source-native InSpecies values from Insect_Abundance",
+    "initial_plant_vocabulary": "all source-native PlSpecies values from IndividualPlants_Abundance",
+    "algorithm": [
+      "For each unsplit InsectPlantPair in deterministic lexical order, first choose the unique longest currently known plant-name suffix when available; the preceding string is the insect identity.",
+      "If no plant suffix is available, choose the unique longest currently known insect-name prefix; the remaining string is the plant identity.",
+      "Add newly recovered insect or plant identities to the corresponding source-derived vocabulary and repeat passes until no unsplit pair remains.",
+      "Fail rather than guess if a longest match is not unique or any pair remains unresolved."
+    ],
+    "taxonomy_policy": "source strings are preserved after whitespace trimming only; no external taxonomy, fuzzy matching, synonymization or outcome-dependent alias merging is used",
+    "pairs_resolved_before_coordinates": 1264,
+    "pairs_unresolved_before_coordinates": 0
+  },
+  "admitted_systems": [
+    {"system_id": "AloeVera", "time_bins": 6, "pollinator_partners": 61, "nonconstant_partner_series": 61},
+    {"system_id": "CanRefila", "time_bins": 6, "pollinator_partners": 52, "nonconstant_partner_series": 52},
+    {"system_id": "CanVolaVola", "time_bins": 7, "pollinator_partners": 60, "nonconstant_partner_series": 60},
+    {"system_id": "CarrerBetlem", "time_bins": 7, "pollinator_partners": 78, "nonconstant_partner_series": 78},
+    {"system_id": "EsCapdella", "time_bins": 7, "pollinator_partners": 94, "nonconstant_partner_series": 94},
+    {"system_id": "Esporles", "time_bins": 7, "pollinator_partners": 44, "nonconstant_partner_series": 44},
+    {"system_id": "MontiSion", "time_bins": 6, "pollinator_partners": 49, "nonconstant_partner_series": 49},
+    {"system_id": "Muro", "time_bins": 7, "pollinator_partners": 98, "nonconstant_partner_series": 98},
+    {"system_id": "Puntiro", "time_bins": 7, "pollinator_partners": 67, "nonconstant_partner_series": 67},
+    {"system_id": "SaCanova", "time_bins": 7, "pollinator_partners": 58, "nonconstant_partner_series": 58},
+    {"system_id": "SaRitxola", "time_bins": 7, "pollinator_partners": 75, "nonconstant_partner_series": 75},
+    {"system_id": "SonBaco", "time_bins": 7, "pollinator_partners": 74, "nonconstant_partner_series": 74},
+    {"system_id": "SonDoblons", "time_bins": 6, "pollinator_partners": 48, "nonconstant_partner_series": 48},
+    {"system_id": "SonGinard", "time_bins": 7, "pollinator_partners": 86, "nonconstant_partner_series": 86},
+    {"system_id": "SonGual", "time_bins": 7, "pollinator_partners": 61, "nonconstant_partner_series": 61},
+    {"system_id": "SonMutNou", "time_bins": 7, "pollinator_partners": 69, "nonconstant_partner_series": 69},
+    {"system_id": "UIB", "time_bins": 7, "pollinator_partners": 74, "nonconstant_partner_series": 74},
+    {"system_id": "sAlzinar", "time_bins": 7, "pollinator_partners": 52, "nonconstant_partner_series": 52},
+    {"system_id": "sHeretat", "time_bins": 7, "pollinator_partners": 95, "nonconstant_partner_series": 95}
+  ],
+  "excluded_systems": [
+    {
+      "system_id": "EsCabanells",
+      "time_bins": 5,
+      "reason": "fewer_than_6_aligned_time_bins"
+    }
+  ],
+  "decision": {
+    "admit_for_coordinate_computation": true,
+    "counts_toward_NEE_source_studies": 1,
+    "counts_toward_NEE_archipelago_groups": 1,
+    "counts_toward_NEE_systems": 19,
+    "reason": "Nineteen stable Mallorca local communities meet the frozen temporal, identity, quantitative-interaction and effort requirements before any natural-regime coordinate is opened."
+  },
+  "claim_boundaries": [
+    "The 19 localities are systems within one independent source study, not 19 independent studies.",
+    "EsCabanells is excluded solely by the predeclared six-bin floor.",
+    "No source is selected or excluded using D1, phi, rho_eq or journal-route results.",
+    "No reproductive or performance outcome is used for admission.",
+    "Natural breadth is not mapped literally onto synthetic k."
+  ],
+  "coordinate_values_opened": false
+}

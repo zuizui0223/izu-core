@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_mallorca_natural_regime_coordinates",
+  "status": "coordinates_computed_under_frozen_admission",
+  "computed_on": "2026-09-14",
+  "admission_record": "data/design/chapter2_mallorca_natural_regime_admission_20260914.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "adapter": "scripts/adapt_mallorca_stability_regime.py",
+  "adapter_freeze_commit": "d4a89c27f32f1c8423e5998f0efebe24ab6bcc4f",
+  "source": {
+    "source_study_id": "lazaro_etal_2022_mallorca_stability",
+    "archipelago_id": "balearic_islands",
+    "canonical_long_csv_rows": 8855,
+    "canonical_long_csv_bytes": 867931,
+    "canonical_long_csv_sha256": "e83fbfe7d6c9f6877d5a3979ffcac9688073e98bb7b4318d72468659abcc25e3"
+  },
+  "systems": [
+    {"system_id":"AloeVera","time_bins":6,"partner_count":61,"eligible_synchrony_partners":61,"breadth_D1":21.73419834535697,"breadth_D1_ci95":[11.046847858463364,27.258213508263943],"phi":0.2848155218565852,"phi_ci95":[0.04313557977062169,0.6283205728417484],"rho_eq":0.27289578055419494,"bootstrap_valid_phi_replicates":999},
+    {"system_id":"CanRefila","time_bins":6,"partner_count":52,"eligible_synchrony_partners":52,"breadth_D1":19.343586642606414,"breadth_D1_ci95":[10.870367915600326,20.347497044810577],"phi":0.26000033682567547,"phi_ci95":[0.12056664226098683,0.7552660666641969],"rho_eq":0.24549053950853186,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"CanVolaVola","time_bins":7,"partner_count":60,"eligible_synchrony_partners":60,"breadth_D1":14.178122551624641,"breadth_D1_ci95":[7.700579342278623,16.08476360263234],"phi":0.15599034937731604,"phi_ci95":[0.054891491560940135,0.39984086820006354],"rho_eq":0.14168510106167734,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"CarrerBetlem","time_bins":7,"partner_count":78,"eligible_synchrony_partners":78,"breadth_D1":15.965649149339658,"breadth_D1_ci95":[5.129751986388972,24.288864142607853],"phi":0.24995328678425244,"phi_ci95":[0.11889826378973706,0.6601080311831394],"rho_eq":0.2402124203788531,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"EsCapdella","time_bins":7,"partner_count":94,"eligible_synchrony_partners":94,"breadth_D1":30.433440177855758,"breadth_D1_ci95":[15.684912701992006,38.86006294692238],"phi":0.2019679435500245,"phi_ci95":[0.09091422190972068,0.5870068596033838],"rho_eq":0.1933869536957237,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"Esporles","time_bins":7,"partner_count":44,"eligible_synchrony_partners":44,"breadth_D1":8.638772611912609,"breadth_D1_ci95":[5.231226017409008,13.676619365411165],"phi":0.4241650889949327,"phi_ci95":[0.06247291898616999,0.7426815531407313],"rho_eq":0.41077357943667536,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"MontiSion","time_bins":6,"partner_count":49,"eligible_synchrony_partners":49,"breadth_D1":14.842509210365483,"breadth_D1_ci95":[7.096079616967749,15.533992427715468],"phi":0.1585785033622262,"phi_ci95":[0.04036302338679756,0.4990530249789326],"rho_eq":0.14104888884893926,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"Muro","time_bins":7,"partner_count":98,"eligible_synchrony_partners":98,"breadth_D1":27.25918856964775,"breadth_D1_ci95":[14.684396605315442,30.372346215619487],"phi":0.20861590008529027,"phi_ci95":[0.10720746455922604,0.5803744483414521],"rho_eq":0.20045730111709736,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"Puntiro","time_bins":7,"partner_count":67,"eligible_synchrony_partners":67,"breadth_D1":21.786562870437205,"breadth_D1_ci95":[8.813424450078719,30.25099065337168],"phi":0.06573089725363851,"phi_ci95":[0.008716045400145199,0.20449480059436612],"rho_eq":0.05157530478778455,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"SaCanova","time_bins":7,"partner_count":58,"eligible_synchrony_partners":58,"breadth_D1":21.049506038959894,"breadth_D1_ci95":[8.86230150833628,26.049296674423324],"phi":0.14335620103221788,"phi_ci95":[0.07286535678291016,0.36990740459900834],"rho_eq":0.12832736245383575,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"SaRitxola","time_bins":7,"partner_count":75,"eligible_synchrony_partners":75,"breadth_D1":28.128596412544777,"breadth_D1_ci95":[13.828682388636098,28.92068222474844],"phi":0.2504068629878171,"phi_ci95":[0.1639241301031335,0.6479780992372305],"rho_eq":0.240277226001166,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"SonBaco","time_bins":7,"partner_count":74,"eligible_synchrony_partners":74,"breadth_D1":31.440434660438793,"breadth_D1_ci95":[15.506564628718744,31.38358678029401],"phi":0.20495362596809813,"phi_ci95":[0.12575455127195528,0.5931620959144531],"rho_eq":0.19406257974848304,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"SonDoblons","time_bins":6,"partner_count":48,"eligible_synchrony_partners":48,"breadth_D1":15.164370642632866,"breadth_D1_ci95":[4.776689240198709,18.396584127430145],"phi":0.21062461007803487,"phi_ci95":[0.1099485309388724,0.629628571375534],"rho_eq":0.19382938901586538,"bootstrap_valid_phi_replicates":999},
+    {"system_id":"SonGinard","time_bins":7,"partner_count":86,"eligible_synchrony_partners":86,"breadth_D1":28.77713438157237,"breadth_D1_ci95":[16.35662396705419,30.518931589972635],"phi":0.2354490015760965,"phi_ci95":[0.08750967232713747,0.7029040906287494],"rho_eq":0.22645428394757997,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"SonGual","time_bins":7,"partner_count":61,"eligible_synchrony_partners":61,"breadth_D1":20.721787974469866,"breadth_D1_ci95":[10.972101960342528,23.139344012686337],"phi":0.1308517859050433,"phi_ci95":[0.07137377582286612,0.2865563549835299],"rho_eq":0.116365982336794,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"SonMutNou","time_bins":7,"partner_count":69,"eligible_synchrony_partners":69,"breadth_D1":20.714769450034787,"breadth_D1_ci95":[11.269888720172135,22.16748837515162],"phi":0.2540711422582859,"phi_ci95":[0.11815738386391576,0.6325311296894025],"rho_eq":0.24310160023267247,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"UIB","time_bins":7,"partner_count":74,"eligible_synchrony_partners":74,"breadth_D1":17.809081123054987,"breadth_D1_ci95":[8.255923804160572,25.376176791949597],"phi":0.294708799664608,"phi_ci95":[0.13916819928357171,0.6675499555818284],"rho_eq":0.28504727637234234,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"sAlzinar","time_bins":7,"partner_count":52,"eligible_synchrony_partners":52,"breadth_D1":16.380180231232647,"breadth_D1_ci95":[7.959949108019205,21.98860749006591],"phi":0.19753342824032738,"phi_ci95":[0.1149569970381776,0.4631058935333022],"rho_eq":0.18179878957837303,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"sHeretat","time_bins":7,"partner_count":95,"eligible_synchrony_partners":95,"breadth_D1":29.46671154299248,"breadth_D1_ci95":[14.90249275684241,32.55266263274755],"phi":0.1404034185985999,"phi_ci95":[0.03378339287272435,0.46583674926542346],"rho_eq":0.13125877411560627,"bootstrap_valid_phi_replicates":1000}
+  ],
+  "claim_boundaries": [
+    "Nineteen localities are systems within one source study, not independent studies.",
+    "EsCabanells remains excluded by the predeclared six-bin floor.",
+    "Coordinates were opened only after admission and adapter freeze.",
+    "Natural breadth is not mapped literally onto synthetic k."
+  ]
+}

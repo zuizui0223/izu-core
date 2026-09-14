@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_two_source_checkpoint",
+  "status": "interim_before_predeclared_third_source_opening",
+  "computed_on": "2026-09-14",
+  "governing_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "sources": [
+    "aslan_etal_2019_hawaii_native_pollination",
+    "lazaro_etal_2022_mallorca_stability"
+  ],
+  "sample_counts": {
+    "admitted_island_systems": 20,
+    "independent_source_studies": 2,
+    "archipelago_groups": 2,
+    "hawaii_systems": 1,
+    "mallorca_systems": 19
+  },
+  "source_balanced_dispersion": {
+    "D1_q10": 12.872815875234112,
+    "D1_q90": 28.77713438157237,
+    "D1_q90_q10_ratio": 2.235496464836138,
+    "phi_q10": 0.14335620103221788,
+    "phi_q90": 0.26000033682567547,
+    "phi_q90_q10_span": 0.11664413579345759,
+    "weighted_spearman_logD1_phi": 0.17906991387850896,
+    "interior_occupancy": 0.15
+  },
+  "nee_threshold_audit": {
+    "minimum_systems_12": true,
+    "minimum_sources_3": false,
+    "minimum_archipelago_groups_2": true,
+    "D1_ratio_at_least_2": true,
+    "phi_span_at_least_0_20": false,
+    "abs_weighted_spearman_at_most_0_80": true,
+    "interior_occupancy_at_least_0_20": false,
+    "leave_largest_source_out_dispersion_evaluable": false
+  },
+  "interpretation": {
+    "if_candidate_search_stopped_here": "Ecology_Letters_combined",
+    "final_route_decided": false,
+    "reason_final_route_open": "The frozen search order requires opening the predeclared third independent source before the 2026-09-27 hard stop. Current evidence already supports breadth dispersion and two-dimensionality but not the synchrony-span or interior-occupancy promotion criteria."
+  },
+  "claim_boundaries": [
+    "This checkpoint does not choose the third source based on observed coordinates; Tenerife was already next in the frozen candidate order.",
+    "Hawaii and Mallorca receive equal total source weight despite 1 versus 19 admitted systems.",
+    "No natural coordinate is mapped literally to synthetic k.",
+    "The NEE route remains unresolved until the predeclared third-source and source-robustness criteria are evaluable."
+  ]
+}

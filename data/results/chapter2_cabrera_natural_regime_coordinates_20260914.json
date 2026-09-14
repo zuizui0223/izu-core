@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_cabrera_natural_regime_coordinates",
+  "status": "coordinates_computed_under_frozen_admission",
+  "computed_on": "2026-09-14",
+  "admission_record": "data/design/chapter2_cabrera_natural_regime_admission_20260914.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "adapter": "scripts/adapt_cabrera_natural_regime.py",
+  "adapter_freeze_commit": "61a5d3c1781ae1e2e6a826b056910fbf7416ebf2",
+  "source": {
+    "source_study_id": "serra_marin_etal_2025_cabrera_pollination",
+    "archipelago_id": "balearic_islands",
+    "source_csv_sha256": "399ec11ae6ce18c8e9ebb050857ca7c1da4cb4a7858e24382750a92ae5e16a07"
+  },
+  "systems": [
+    {"system_id":"Dune system 1","time_bins":9,"partner_count":40,"eligible_synchrony_partners":40,"breadth_D1":13.446358266387158,"breadth_D1_ci95":[6.392635021909809,14.911964161088004],"observed_partner_richness":40,"D1_over_observed_partner_richness":0.33615895665967893,"median_time_bin_D1":4.822059628763901,"phi":0.1399121949215432,"phi_ci95":[0.09120066239337075,0.3885175617173111],"mean_pairwise_r":0.5565141012529417,"rho_eq":0.11785866145799301,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"Dune system 2","time_bins":10,"partner_count":33,"eligible_synchrony_partners":33,"breadth_D1":10.228671281630653,"breadth_D1_ci95":[5.919923981731372,11.27571347266731],"observed_partner_richness":33,"D1_over_observed_partner_richness":0.3099597358069895,"median_time_bin_D1":3.342904216739755,"phi":0.1676243208363305,"phi_ci95":[0.09128127031037428,0.34930025851096386],"mean_pairwise_r":0.6501659720869302,"rho_eq":0.14161258086246584,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"Pine forest 2","time_bins":7,"partner_count":31,"eligible_synchrony_partners":31,"breadth_D1":13.18931953261768,"breadth_D1_ci95":[5.110223121635591,14.368061866507478],"observed_partner_richness":31,"D1_over_observed_partner_richness":0.42546192040702197,"median_time_bin_D1":3.709079297755367,"phi":0.15790039279210405,"phi_ci95":[0.08461971270991368,0.4605068414115828],"mean_pairwise_r":0.7457039528825492,"rho_eq":0.12983040588517417,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"Rocky coastal 1","time_bins":11,"partner_count":44,"eligible_synchrony_partners":44,"breadth_D1":10.363646657133893,"breadth_D1_ci95":[5.225015246475998,13.737884473951008],"observed_partner_richness":44,"D1_over_observed_partner_richness":0.2355374240257703,"median_time_bin_D1":3.523852670961697,"phi":0.15588545953512134,"phi_ci95":[0.06134162494956087,0.4012660972520585],"mean_pairwise_r":0.4995536508892101,"rho_eq":0.13625488882663578,"bootstrap_valid_phi_replicates":1000},
+    {"system_id":"Rocky coastal 2","time_bins":13,"partner_count":40,"eligible_synchrony_partners":40,"breadth_D1":17.391115179657753,"breadth_D1_ci95":[10.296704873414647,18.977770931656096],"observed_partner_richness":40,"D1_over_observed_partner_richness":0.4347778794914438,"median_time_bin_D1":6.018860624561677,"phi":0.08158847622743438,"phi_ci95":[0.044926077824678966,0.1615804502005187],"mean_pairwise_r":0.16283094077995783,"rho_eq":0.058039462797368595,"bootstrap_valid_phi_replicates":1000}
+  ],
+  "claim_boundaries": [
+    "Five Cabrera communities are repeated local systems within one source study and one Balearic archipelago group.",
+    "Pine forest 1 remains excluded by the frozen six-bin floor.",
+    "All interaction intensities use source-native observation duration reconstructed before coordinates were opened.",
+    "Natural breadth is not mapped literally onto synthetic k."
+  ]
+}

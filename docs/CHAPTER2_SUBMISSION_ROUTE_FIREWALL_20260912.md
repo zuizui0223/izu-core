@@ -1,6 +1,6 @@
 # Chapter 2 submission-route firewall — 2026-09-12
 
-Status: **three lanes separated; current Oikos paper remains closed except author metadata/confirmations.**
+Status: **three lanes separated; current Oikos paper remains closed except author metadata/confirmations. Lane B has reached an EL-ready analytical candidate state but remains downstream of Lane A submission/disclosure.**
 
 ## Purpose
 
@@ -42,21 +42,51 @@ submission surface = CLOSED
 remaining blockers = author-supplied metadata / confirmations only
 ```
 
+Canonical Lane A manuscript: `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`.
+
 Do not reopen synthetic calibration, add retrospective significance hunting, or require prospective field data for Lane A.
 
 ## Lane B — Ecology Letters candidate
 
 This is a separate general-theory manuscript object, not the island-syndrome paper with a more ambitious title.
 
+Active Lane B surfaces:
+
+- manuscript: `docs/CHAPTER2_EL_LETTER_DRAFT_V0_4_20260913.md`;
+- cover letter / overlap disclosure: `docs/CHAPTER2_EL_COVER_LETTER_DRAFT_V0_4_20260913.md`;
+- first higher-order freeze: `data/design/chapter2_el_higher_order_sufficiency_freeze_20260913.json`;
+- fresh mixed-feedback freeze: `data/design/chapter2_el_mixed_feedback_validation_freeze_20260913.json`;
+- result receipt: `data/results/chapter2_el_higher_order_sufficiency_20260913.json`.
+
 Primary statement:
 
-> Community averaging can reverse the ranking of ecological response determinants when realization-driven variance decays faster than persistent state-dependent differences, while finite-system interaction structure can remain substantial through the crossover.
+> Variance-equivalent effective independence is an exact second-order coordinate, but it is not generally a sufficient ecological state descriptor. Equal `k_eff` leaves higher cumulants and discrete support unconstrained; those omitted dimensions change community versus state-by-community response whenever pure and mixed response geometry are not proportionally aligned.
 
-The correlated-community countercondition is essential: shared stochastic forcing can leave a realization-variance floor and block rank reversal.
+The analytical spine is now explicit rather than simulation-only:
 
-Generic smooth-response derivation, exact bilinear sufficient condition, the correlated/synchronous-community countercondition and general determinant-rank interpretation belong to Lane B. Chapter 2 pollination results are its nonlinear ecological demonstration, not the full proof of generality.
+```text
+bilinear exact null
+→ equal k_eff fixes κ2 but not κ3/κ4
+→ exact quadratic functional-ANOVA condition for C/I sensitivity
+→ failed scalar-curvature prediction retained
+→ fresh full-factorial feedback intervention on previously unused seeds
+→ support and higher-order distributional failure routes kept distinct
+```
 
-Do not rename/restructure Lane A merely because Lane B exists. Promote Lane B only when the generic theory audit remains green and a separate manuscript surface can carry both the general condition and the failure condition as its primary contribution.
+The exact quadratic extension identifies the finite-order condition. For centered independent state `X` and community coordinate `Z`,
+
+```text
+C = b²τ + bd μ3 + (d²/4) Var(Z²)
+I = Var(X)[c²τ + ce μ3 + (e²/4) Var(Z²)]
+```
+
+and, for symmetric `Z` at fixed `τ`, the sign of the higher-moment effect on `I/C` is controlled by `e²b² − c²d²`. Thus the bilinear invariant is a special aligned case, not a generic nonlinear law.
+
+The first prespecified setting-level predictor—larger Holling fourth-order curvature should produce more C/I reversal—was **not supported** and remains visible in the audit trail. A revised mixed-feedback prediction was then frozen before six previously unused seeds were executed across all 18 parameter blocks. Feedback knockout produced `0/108` C/I reversals; active adjustment produced `52/108`, with 52 positive paired differences and zero negative pairs. This is fresh synthetic mechanism validation, not empirical ecological prevalence.
+
+Chapter 2 plant–pollinator results remain one nonlinear motivating system in Lane B. The shared six-seed `k` scaling is not a new EL result and must be disclosed as shared with Lane A. Lane B's new contribution is the sufficiency question, higher-order derivation, mixed-response condition, structurally separate consumer–resource model, failed predictor, fresh feedback intervention, and equal-`k_eff` challenge.
+
+Do not rename/restructure Lane A merely because Lane B is stronger. Lane B may proceed to EL only with explicit companion-manuscript disclosure. If Lane A has not yet been submitted, the cover letter must state its exact status; preferred routing remains **Lane A first, Lane B second**.
 
 ## Lane C — prospective natural validation / NEE lane
 
@@ -85,12 +115,15 @@ Forbidden:
 - synthetic `k≈4` being presented as a natural threshold;
 - Oikos R2/R3 being presented as the matched transition chain required by Lane C;
 - current Izu patterns being presented as empirical proof of the generic EL theorem;
+- shared Lane A scaling output being presented as newly generated EL evidence;
+- erasing the failed Lane B scalar-curvature prediction after the fresh feedback result;
 - weakening Lane A merely because stronger future lanes exist;
 - author metadata incompleteness being treated as scientific non-closure.
 
 Allowed:
 
-- use Lane A as the motivating nonlinear example in Lane B;
+- use Lane A as the motivating nonlinear example in Lane B while explicitly disclosing shared provenance;
+- add genuinely separate analytical and synthetic-validation objects to Lane B without modifying Lane A inference;
 - derive Lane C predictions from frozen Lane A/B theory before outcomes open;
 - let null/adverse Lane C results limit transport without rewriting the original mechanism;
 - keep all three lanes in one repository while their submission surfaces and claim contracts remain distinct.
@@ -99,7 +132,7 @@ Allowed:
 
 ```text
 NOW: finish/submit Lane A once author metadata are supplied
-PARALLEL THEORY: develop Lane B as a separate EL manuscript under its admission gate
+PARALLEL THEORY: complete Lane B V0.4 CI/reviewer audit, but submit it after Lane A or with explicit Lane A status disclosure
 PROSPECTIVE FIELD: develop Lane C as a separate pre-data/Stage-1 object; do not make it a blocker for Lane A
 ```
 

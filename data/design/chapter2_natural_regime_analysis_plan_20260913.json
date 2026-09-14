@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_coordinate_implementation",
+  "status": "frozen_before_natural_coordinate_computation",
+  "frozen_on": "2026-09-13",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "canonical_input": {
+    "format": "long_csv",
+    "required_columns": [
+      "source_study_id",
+      "archipelago_id",
+      "system_id",
+      "time_bin",
+      "partner_id",
+      "value",
+      "effort"
+    ],
+    "meaning": {
+      "value": "nonnegative interaction count or source-native quantitative interaction strength before effort standardization",
+      "effort": "positive exposure scalar for the row/time-bin scale; use 1 only when value is already effort-standardized or sampling effort is equal by design",
+      "partner_id": "primary pollination analysis uses stable pollinator/visitor identity aggregated across plant partners within system × time_bin; adapters may additionally emit a link-identity sensitivity dataset when stable plant and visitor identities are both available"
+    }
+  },
+  "preprocessing": {
+    "time_bins": "use source-native bins exactly; do not merge/split bins after seeing coordinate values",
+    "standardized_value": "value / effort",
+    "duplicate_rows": "sum standardized values within source_study_id × archipelago_id × system_id × time_bin × partner_id",
+    "missing_partner_in_observed_time_bin": "structural zero after unioning stable partner IDs across admitted bins",
+    "negative_values": "invalid",
+    "nonpositive_effort": "invalid",
+    "minimum_time_bins": 6,
+    "minimum_nonconstant_partner_series": 3
+  },
+  "coordinate_estimation": {
+    "breadth_D1": "pool standardized values across time for all partner IDs; p_j = partner_j_total / grand_total; D1 = exp(-sum p_j log p_j)",
+    "observed_partner_richness": "number of partners with positive pooled standardized value",
+    "median_time_bin_D1": "median Hill D1 across nonempty source-native time bins",
+    "eligible_synchrony_partners": "partners with positive temporal standard deviation across the admitted time bins",
+    "phi": "sample variance across time of total standardized interaction strength divided by square of sum of sample SDs of eligible partner time series",
+    "mean_pairwise_r": "Fisher-z mean of finite Pearson correlations among eligible partner series; correlations clipped to ±(1-1e-12) only for atanh numerical stability",
+    "rho_eq": "(m * phi - 1) / (m - 1), m = number of eligible synchrony partners; descriptive bridge only"
+  },
+  "bootstrap": {
+    "seed": 20260913,
+    "replicates": 1000,
+    "unit": "source-native time bin",
+    "method": "resample complete time-bin vectors with replacement within each system and recompute D1 and phi",
+    "minimum_valid_phi_replicates": 800,
+    "interval": "2.5th and 97.5th empirical percentiles over finite replicates"
+  },
+  "source_balancing": {
+    "system_weight": "for S source studies, each study receives total weight 1/S; each system within a study receives equal share of that study weight",
+    "weighted_quantile": "empirical inverse CDF: smallest sorted value whose cumulative normalized source-balanced weight is >= q",
+    "weighted_spearman": "compute ordinary midranks of log_D1 and phi across admitted systems, then compute weighted Pearson correlation of those ranks using source-balanced system weights",
+    "nee_breadth_ratio": "weighted_q90(D1) / weighted_q10(D1)",
+    "nee_synchrony_span": "weighted_q90(phi) - weighted_q10(phi)",
+    "interior_rectangle": "unweighted 25th-75th percentiles of log_D1 and phi; occupancy is the unweighted fraction of systems lying inside both intervals",
+    "leave_one_source_out": "drop the source study with the largest admitted-system count; ties broken lexicographically by source_study_id; recompute all dispersion/correlation/interior criteria; sample-count minima are not applied to this sensitivity"
+  },
+  "route_thresholds": {
+    "fallback_minimum": {
+      "systems": 8,
+      "source_studies": 2,
+      "archipelago_groups": 2
+    },
+    "nee_candidate": {
+      "systems": 12,
+      "source_studies": 3,
+      "archipelago_groups": 2,
+      "D1_q90_q10_ratio_min": 2.0,
+      "phi_q90_q10_span_min": 0.20,
+      "abs_weighted_spearman_max": 0.80,
+      "interior_occupancy_min": 0.20,
+      "leave_largest_source_out_dispersion_criteria_must_pass": true
+    }
+  },
+  "route_labels": [
+    "fallback_Oikos_plus_EL",
+    "Ecology_Letters_combined",
+    "NEE_candidate"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_roberts_england_natural_regime_admission",
+  "status": "frozen_before_coordinate_computation",
+  "frozen_on": "2026-09-15",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "source": {
+    "source_study_id": "euppollnet_31_roberts_england_step",
+    "article_doi": "10.1111/ele.12657",
+    "source_repository": "JoseBSL/EuPPollNet",
+    "source_tag": "v1.3.0",
+    "source_dataset_id": "31_Roberts",
+    "interaction_git_blob_sha": "32604e7aac1b704112eae1afbb9b7de1849a1a27",
+    "flower_git_blob_sha": "c9225e56b6e20441ba92fad442dc6ce8e3cd3af2",
+    "processing_script_git_blob_sha": "f30479d6fb8dfdfc5af61676bed21f3d43ba9573",
+    "archipelago_id": "great_britain",
+    "island_class": "continental_island",
+    "island_status_source": "EuPPollNet manuscript pre-existing island_studies vector includes 31_Roberts"
+  },
+  "source_native_design": {
+    "country": "England",
+    "sampling_years": [2012, 2013],
+    "sampling_rounds_per_year": 4,
+    "sampling_method": "Transect",
+    "transects_per_site": 2,
+    "transect_dimensions_m": [150, 1],
+    "minutes_per_transect": 15,
+    "site_round_effort_minutes": 30,
+    "site_round_area_m2": 300,
+    "outcome_independent_schedule_source": "source-native Flower_count.csv dates by Site_id",
+    "interaction_schedule_rule": "all interaction dates must be a subset of the eight flower-count schedule dates; flower-only dates are retained as zero-interaction bins"
+  },
+  "system_unit": "source-native Site_id",
+  "time_bin": "source-native flower-count calendar date within Site_id",
+  "partner_identity": "source-native Pollinator_species after whitespace normalization; source processing exclusions for unknown pollinators are retained",
+  "interaction_value": "sum of nonnegative source-native Interaction counts by Site_id x date x Pollinator_species",
+  "effort": "30 minutes per Site_id x source-native round; 300 m2 sampled area is constant and retained as a structural cross-check",
+  "admitted_systems": [
+    {
+      "system_id": "Carlisle",
+      "aligned_time_bins": 8,
+      "bins_by_year": {"2012": 4, "2013": 4},
+      "positive_interaction_dates": 6,
+      "partner_count": 19,
+      "nonconstant_effort_standardized_partner_series": 19
+    },
+    {
+      "system_id": "Livingstone_far",
+      "aligned_time_bins": 8,
+      "bins_by_year": {"2012": 4, "2013": 4},
+      "positive_interaction_dates": 7,
+      "partner_count": 24,
+      "nonconstant_effort_standardized_partner_series": 24
+    },
+    {
+      "system_id": "Livingstone_house",
+      "aligned_time_bins": 8,
+      "bins_by_year": {"2012": 4, "2013": 4},
+      "positive_interaction_dates": 6,
+      "partner_count": 23,
+      "nonconstant_effort_standardized_partner_series": 23
+    }
+  ],
+  "excluded_system_rule": "All remaining UK Site_id values are excluded before coordinate computation because the public flower-count schedule does not preserve all four rounds in each of both source-declared years; no missing round is imputed from interaction-positive dates.",
+  "gate_checks": {
+    "public_machine_readable_data": true,
+    "source_defined_island_status": true,
+    "stable_site_identity": true,
+    "stable_partner_identity_across_time": true,
+    "minimum_aligned_time_bins_pass_all_admitted_systems": true,
+    "minimum_nonconstant_partner_series_pass_all_admitted_systems": true,
+    "sampling_effort_known_equal_by_design_and_raw_rows": true,
+    "reconstructible_time_by_partner_matrix": true,
+    "time_bin_selection_fixed_by_source_design": true,
+    "outcome_data_used_for_admission": false,
+    "coordinate_values_opened_before_admission": false
+  },
+  "coordinate_values_opened": false,
+  "prohibited_after_freeze": [
+    "add any of the other UK sites by using interaction-positive dates in place of missing source-native rounds",
+    "drop Carlisle, Livingstone_far, or Livingstone_house based on D1 or phi",
+    "split the eight source-native rounds into finer bins",
+    "merge the eight source-native rounds after seeing coordinates",
+    "change the interaction value away from source-native Interaction counts",
+    "change partner identity based on downstream synchrony",
+    "reclassify the source as island or mainland based on its route effect"
+  ],
+  "claim_boundary": "Three England STEP sites are admitted as three systems from one independent source study and one Great Britain continental-island group. EuPPollNet's own manuscript classified 31_Roberts as an island study before this Chapter 2 search. Admission is based only on source design, complete eight-round flower-count schedules, raw equal effort, time-bin count and nonconstant partner-series count. No D1, phi or route value was opened before this freeze."
+}

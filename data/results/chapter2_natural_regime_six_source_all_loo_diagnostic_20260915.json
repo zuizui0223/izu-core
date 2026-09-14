@@ -1,0 +1,145 @@
+{
+  "all_source_leave_one_out": [
+    {
+      "archipelago_groups_remaining": 4,
+      "excluded_source": "aslan_etal_2019_hawaii_native_pollination",
+      "nee_dispersion_criteria_pass": true,
+      "source_studies_remaining": 5,
+      "summary": {
+        "D1_q10": 3.2539740432501705,
+        "D1_q90": 21.67405446614196,
+        "D1_q90_q10_ratio": 6.660795131756258,
+        "archipelago_groups": 4,
+        "interior_occupancy": 0.2682926829268293,
+        "phi_q10": 0.09808881070229232,
+        "phi_q90": 0.4497067330327854,
+        "phi_q90_q10_span": 0.3516179223304931,
+        "source_studies": 5,
+        "systems": 41,
+        "weighted_spearman_logD1_phi": -0.3428998826855565
+      },
+      "systems_remaining": 41
+    },
+    {
+      "archipelago_groups_remaining": 4,
+      "excluded_source": "cyrille_etal_2025_martinique_gardens",
+      "nee_dispersion_criteria_pass": false,
+      "source_studies_remaining": 5,
+      "summary": {
+        "D1_q10": 7.5181402183343575,
+        "D1_q90": 21.67405446614196,
+        "D1_q90_q10_ratio": 2.8829010681771834,
+        "archipelago_groups": 4,
+        "interior_occupancy": 0.1875,
+        "phi_q10": 0.09808881070229232,
+        "phi_q90": 0.4497067330327854,
+        "phi_q90_q10_span": 0.3516179223304931,
+        "source_studies": 5,
+        "systems": 32,
+        "weighted_spearman_logD1_phi": -0.3579299478340598
+      },
+      "systems_remaining": 32
+    },
+    {
+      "archipelago_groups_remaining": 4,
+      "excluded_source": "euppollnet_31_roberts_england_step",
+      "nee_dispersion_criteria_pass": false,
+      "source_studies_remaining": 5,
+      "summary": {
+        "D1_q10": 3.496457467951386,
+        "D1_q90": 21.67405446614196,
+        "D1_q90_q10_ratio": 6.19886118015359,
+        "archipelago_groups": 4,
+        "interior_occupancy": 0.23076923076923078,
+        "phi_q10": 0.09808881070229232,
+        "phi_q90": 0.26000033682567547,
+        "phi_q90_q10_span": 0.16191152612338316,
+        "source_studies": 5,
+        "systems": 39,
+        "weighted_spearman_logD1_phi": -0.19316026968441938
+      },
+      "systems_remaining": 39
+    },
+    {
+      "archipelago_groups_remaining": 4,
+      "excluded_source": "lara_romero_etal_2019_tenerife_pollination",
+      "nee_dispersion_criteria_pass": true,
+      "source_studies_remaining": 5,
+      "summary": {
+        "D1_q10": 3.496457467951386,
+        "D1_q90": 20.721787974469866,
+        "D1_q90_q10_ratio": 5.926509378251066,
+        "archipelago_groups": 4,
+        "interior_occupancy": 0.23684210526315788,
+        "phi_q10": 0.1308517859050433,
+        "phi_q90": 0.4497067330327854,
+        "phi_q90_q10_span": 0.3188549471277421,
+        "source_studies": 5,
+        "systems": 38,
+        "weighted_spearman_logD1_phi": -0.24544022805068075
+      },
+      "systems_remaining": 38
+    },
+    {
+      "archipelago_groups_remaining": 5,
+      "excluded_source": "lazaro_etal_2022_mallorca_stability",
+      "nee_dispersion_criteria_pass": true,
+      "source_studies_remaining": 5,
+      "summary": {
+        "D1_q10": 3.496457467951386,
+        "D1_q90": 19.2108423147976,
+        "D1_q90_q10_ratio": 5.494373230872861,
+        "archipelago_groups": 5,
+        "interior_occupancy": 0.2608695652173913,
+        "phi_q10": 0.09808881070229232,
+        "phi_q90": 0.4497067330327854,
+        "phi_q90_q10_span": 0.3516179223304931,
+        "source_studies": 5,
+        "systems": 23,
+        "weighted_spearman_logD1_phi": -0.45385212539892705
+      },
+      "systems_remaining": 23
+    },
+    {
+      "archipelago_groups_remaining": 5,
+      "excluded_source": "serra_marin_etal_2025_cabrera_pollination",
+      "nee_dispersion_criteria_pass": true,
+      "source_studies_remaining": 5,
+      "summary": {
+        "D1_q10": 3.496457467951386,
+        "D1_q90": 21.67405446614196,
+        "D1_q90_q10_ratio": 6.19886118015359,
+        "archipelago_groups": 5,
+        "interior_occupancy": 0.2702702702702703,
+        "phi_q10": 0.11260918951167591,
+        "phi_q90": 0.4497067330327854,
+        "phi_q90_q10_span": 0.3370975435211095,
+        "source_studies": 5,
+        "systems": 37,
+        "weighted_spearman_logD1_phi": -0.3261180276600776
+      },
+      "systems_remaining": 37
+    }
+  ],
+  "analysis": "chapter2_natural_regime_six_source_all_leave_one_source_out_diagnostic",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "claim_boundary": "No source, system, threshold, time bin, partner or coordinate is modified. This diagnostic only recomputes the frozen dispersion summary after deleting each already-admitted source in turn.",
+  "evaluated_on": "2026-09-15",
+  "frozen_route_checkpoint": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
+  "full_summary": {
+    "D1_q10": 4.79378869594486,
+    "D1_q90": 21.67405446614196,
+    "D1_q90_q10_ratio": 4.521278646360941,
+    "archipelago_groups": 5,
+    "interior_occupancy": 0.2619047619047619,
+    "phi_q10": 0.09808881070229232,
+    "phi_q90": 0.4497067330327854,
+    "phi_q90_q10_span": 0.3516179223304931,
+    "source_studies": 6,
+    "systems": 42,
+    "weighted_spearman_logD1_phi": -0.32526671599335794
+  },
+  "interpretation_rule": "The preregistered NEE promotion rule requires robustness after leaving out the single largest source study, not every source. This all-source leave-one-out table is an additional transparency diagnostic and cannot retroactively change the frozen promotion criterion or trigger candidate hunting after the early-stop condition has been met.",
+  "schema_version": "1.0",
+  "status": "post_promotion_diagnostic_not_route_redefinition"
+}

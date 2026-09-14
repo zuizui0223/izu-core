@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_tenerife_bibliographic_correction",
+  "recorded_on": "2026-09-15",
+  "status": "bibliographic_metadata_correction_only",
+  "source_study_id": "lara_romero_etal_2019_tenerife_pollination",
+  "dataset_doi": "10.5061/dryad.b23v8nn",
+  "incorrect_value_in_frozen_admission_record": "10.1111/jbi.13625",
+  "correct_article_doi": "10.1111/jbi.13615",
+  "article_title": "Beta diversity and specialization in plant-pollinator networks along an elevational gradient",
+  "verification": "Wiley Journal of Biogeography article page and its Data Availability Statement identify DOI 10.1111/jbi.13615 and Dryad DOI 10.5061/dryad.b23v8nn for the same Lara-Romero et al. 2019 source.",
+  "scientific_effect": "none",
+  "frozen_analysis_effect": "none",
+  "claim_boundary": "This receipt corrects only an article-DOI transcription error. The admitted source was already locked by the same Dryad dataset DOI, Zenodo record, archive checksum, source-native design and adapter. No system, time bin, taxon, effort rule, coordinate, route threshold or result is changed, and the original frozen admission record is retained as provenance rather than silently rewritten."
+}

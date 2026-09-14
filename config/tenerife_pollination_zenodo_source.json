@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "source_id": "lara_romero_etal_2019_tenerife_pollination",
+  "record_id": "zenodo_5008210",
+  "dataset_doi": "10.5061/dryad.b23v8nn",
+  "article_doi": "10.1111/jbi.13615",
+  "api_url": "https://zenodo.org/api/records/5008210",
+  "expected_design_context": {
+    "island": "Tenerife",
+    "archipelago": "Canary Islands",
+    "fixed_sites": 4,
+    "study_years": [2014, 2015],
+    "reported_observation_days": 57,
+    "reported_total_observation_hours": 868,
+    "census_minutes": 15
+  },
+  "claim_boundary": "The archive is opened only to determine whether source-native date/census, site and pollinator identities remain reconstructible with quantitative interaction frequency and effort. Aggregated site networks alone do not pass the frozen six-bin natural-regime gate. No D1, phi, rho_eq or journal-route result is computed during source inspection."
+}

@@ -2,9 +2,12 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import io
 import json
 import re
+import urllib.parse
 import urllib.request
+import zipfile
 from collections import Counter
 from pathlib import Path
 
@@ -12,12 +15,27 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "data/design/seychelles_kaiser_bunbury2017_temporal_compilation_fallback.json"
 RAW_DIR = ROOT / "data/external/seychelles_temporal_compilation"
 OUT = ROOT / "data/results/seychelles_2017_temporal_compilation_fallback_audit.json"
+DRYAD_PACKAGE_URL = "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.qz612jmbp/download"
 
 
 def get_bytes(url: str, timeout: int = 120) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": "izu-core-source-audit/1.0", "Accept": "*/*"})
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return response.read()
+
+
+def candidate_urls(spec: dict[str, object]) -> list[str]:
+    """Return byte-identical transport candidates without changing source identity."""
+    original = str(spec["url"])
+    filename = str(spec["filename"])
+    candidates: list[str] = []
+    match = re.search(r"zenodo\.org/records/(\d+)/files/", original)
+    if match:
+        record_id = match.group(1)
+        key = urllib.parse.quote(filename, safe="")
+        candidates.append(f"https://zenodo.org/api/records/{record_id}/files/{key}/content")
+    candidates.append(original)
+    return candidates
 
 
 def md5_bytes(data: bytes) -> str:
@@ -32,6 +50,76 @@ def normalize(value: object) -> str:
     return re.sub(r"\s+", " ", str(value or "").strip()).lower()
 
 
+def recover_missing_from_dryad_package(
+    specs: list[dict[str, object]],
+    recovered: dict[str, Path],
+    file_states: dict[str, dict],
+) -> dict:
+    """Try the official Dryad full-dataset package only for still-missing frozen files.
+
+    This is transport redundancy for the same published compilation, not a new
+    scientific source. Files are accepted only when their frozen published MD5
+    matches, so a package-layout or version change cannot silently alter evidence.
+    """
+    missing_specs = [spec for spec in specs if str(spec["filename"]) not in recovered]
+    state: dict[str, object] = {
+        "url": DRYAD_PACKAGE_URL,
+        "attempted": bool(missing_specs),
+        "status": "not_needed" if not missing_specs else "pending",
+        "accepted_files": [],
+    }
+    if not missing_specs:
+        return state
+    try:
+        package = get_bytes(DRYAD_PACKAGE_URL, timeout=180)
+        state["bytes"] = len(package)
+        state["sha256"] = sha256_bytes(package)
+        with zipfile.ZipFile(io.BytesIO(package)) as archive:
+            members_by_basename: dict[str, list[str]] = {}
+            for member in archive.namelist():
+                members_by_basename.setdefault(Path(member).name, []).append(member)
+            state["member_count"] = len(archive.namelist())
+            for spec in missing_specs:
+                filename = str(spec["filename"])
+                expected_md5 = str(spec["published_md5"]).lower()
+                matches = members_by_basename.get(filename, [])
+                record = file_states[filename]
+                record.setdefault("attempts", []).append({
+                    "url": DRYAD_PACKAGE_URL,
+                    "status": "package_member_missing" if not matches else "package_member_found",
+                    "members": matches,
+                })
+                if len(matches) != 1:
+                    continue
+                data = archive.read(matches[0])
+                actual = md5_bytes(data)
+                if actual.lower() != expected_md5:
+                    record["attempts"].append({
+                        "url": f"{DRYAD_PACKAGE_URL}#{matches[0]}",
+                        "status": "md5_mismatch",
+                        "observed_md5": actual,
+                    })
+                    continue
+                path = RAW_DIR / filename
+                path.write_bytes(data)
+                recovered[filename] = path
+                record.update({
+                    "status": "recovered_md5_verified",
+                    "transport_url": f"{DRYAD_PACKAGE_URL}#{matches[0]}",
+                    "bytes": len(data),
+                    "md5": actual,
+                    "sha256": sha256_bytes(data),
+                })
+                cast_list = state["accepted_files"]
+                assert isinstance(cast_list, list)
+                cast_list.append(filename)
+        state["status"] = "package_recovered_and_checked"
+    except Exception as exc:
+        state["status"] = "transport_failed"
+        state["error"] = repr(exc)
+    return state
+
+
 def main() -> None:
     import openpyxl
 
@@ -39,7 +127,7 @@ def main() -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     state = {
-        "schema_version": "1.0",
+        "schema_version": "1.2",
         "analysis": "seychelles_2017_temporal_compilation_fallback_audit",
         "target_doi": cfg["target_doi"],
         "compilation_doi": cfg["compilation_doi"],
@@ -48,24 +136,43 @@ def main() -> None:
         "status": "not_recovered",
     }
 
-    recovered = {}
+    recovered: dict[str, Path] = {}
     for spec in cfg["files"]:
-        try:
-            data = get_bytes(spec["url"])
-            actual = md5_bytes(data)
-            if actual.lower() != spec["published_md5"].lower():
-                raise RuntimeError(f"MD5 mismatch for {spec['filename']}: {actual}")
-            path = RAW_DIR / spec["filename"]
-            path.write_bytes(data)
-            recovered[spec["filename"]] = path
-            state["files"][spec["filename"]] = {
-                "status": "recovered_md5_verified",
-                "bytes": len(data),
-                "md5": actual,
-                "sha256": sha256_bytes(data),
-            }
-        except Exception as exc:
-            state["files"][spec["filename"]] = {"status": "failed", "error": repr(exc)}
+        filename = str(spec["filename"])
+        attempts = []
+        data = None
+        successful_url = None
+        for url in candidate_urls(spec):
+            try:
+                candidate = get_bytes(url, timeout=90)
+                actual = md5_bytes(candidate)
+                if actual.lower() != str(spec["published_md5"]).lower():
+                    attempts.append({"url": url, "status": "md5_mismatch", "observed_md5": actual})
+                    continue
+                data = candidate
+                successful_url = url
+                attempts.append({"url": url, "status": "recovered_md5_verified", "bytes": len(candidate)})
+                break
+            except Exception as exc:
+                attempts.append({"url": url, "status": "failed", "error": repr(exc)})
+        if data is None:
+            state["files"][filename] = {"status": "failed", "attempts": attempts}
+            continue
+        path = RAW_DIR / filename
+        path.write_bytes(data)
+        recovered[filename] = path
+        state["files"][filename] = {
+            "status": "recovered_md5_verified",
+            "transport_url": successful_url,
+            "attempts": attempts,
+            "bytes": len(data),
+            "md5": md5_bytes(data),
+            "sha256": sha256_bytes(data),
+        }
+
+    state["dryad_package_fallback"] = recover_missing_from_dryad_package(
+        list(cfg["files"]), recovered, state["files"]
+    )
 
     db_path = recovered.get("OIK-07303_database.csv")
     refs_path = recovered.get("OIK-07303_original_studies.xlsx")
@@ -73,7 +180,11 @@ def main() -> None:
         state.update({
             "status": "fallback_bytes_incomplete",
             "decision": "seychelles_compilation_fallback_not_ready",
-            "claim_boundary": cfg["claim_boundary"],
+            "claim_boundary": (
+                cfg["claim_boundary"]
+                + " Zenodo and official Dryad package transport are treated only as redundant byte routes; "
+                  "failure of either route is unavailability, not a biological negative."
+            ),
         })
         OUT.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n")
         print(json.dumps(state, indent=2, ensure_ascii=False))

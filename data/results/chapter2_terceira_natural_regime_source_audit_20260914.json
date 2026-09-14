@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_terceira_natural_regime_source_audit",
+  "status": "source_structure_fail_coordinates_not_opened",
+  "audited_on": "2026-09-14",
+  "source": {
+    "dataset": "Unveiling Azorean Pollinators: A Critical Step for Biodiversity and Conservation",
+    "gbif_uuid": "db765f95-20f4-49ef-8fe4-b57228200a2e",
+    "version": "1.2",
+    "archive_bytes": 56682,
+    "archive_sha256": "887f8ca24585c216ed11c561ca3dcdcc0882aa0aa8e7c99d064a3c9d2370ae8a",
+    "archive_members": ["eml.xml", "event.txt", "meta.xml", "occurrence.txt"]
+  },
+  "raw_structure": {
+    "event_rows": 137,
+    "occurrence_rows": 1139,
+    "interaction_linked_occurrence_rows": 329,
+    "unresolved_event_links": 0,
+    "positive_quantity_interaction_rows": 329,
+    "sites_with_linked_transect_interactions": 26,
+    "sites_passing_frozen_structure_floor": 0,
+    "aligned_event_dates_per_site_distribution": {"1": 26},
+    "transect_effort": {"sampleSizeValue": "50", "sampleSizeUnit": "meters", "constant_across_linked_sites": true},
+    "sites_with_at_least_three_partner_series": 25,
+    "sites_with_fewer_than_three_partner_series": 1
+  },
+  "decision": "FAIL_NO_SITE_REACHES_FROZEN_TEMPORAL_FLOOR",
+  "failed_gate": "minimum_aligned_time_bins >= 6 within a stable system",
+  "coordinate_values_opened": false,
+  "claim_boundary": "The Terceira archive is high-quality equal-effort spatial sampling, but each interaction-linked location has only one source-native transect date. Spatial replication across 26 sites cannot substitute for the frozen within-system temporal floor."
+}

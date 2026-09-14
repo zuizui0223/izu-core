@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.5",
+  "analysis": "chapter2_natural_regime_candidate_dispositions",
+  "status": "source_structure_and_admission_dispositions_with_coordinates_kept_separate",
+  "updated_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "candidates": [
+    {
+      "source_id": "kaiser_bunbury_2017_mahe",
+      "archipelago": "Seychelles",
+      "status": "TRANSPORT_BLOCKED_PENDING_HARD_STOP",
+      "biological_negative": false,
+      "evidence": [
+        "primary IWDB page/schema identifies 8 sites x 8 months and both no.visits and standardized visitfreq representations",
+        "primary workbook transport timed out or failed on current hosts",
+        "configured Zenodo source-equivalent fallback returned HTTP 504",
+        "Dryad full-package fallback returned HTTP 401",
+        "DOI-locked DataONE audit returned zero matching records without query errors"
+      ],
+      "gate_boundary": "Raw no.visits are not substituted for visitfreq because the source explicitly states that no.visits do not account for differing observation time, observed flowers, or floral abundance. Candidate remains unavailable rather than biologically negative until the frozen hard stop."
+    },
+    {
+      "source_id": "jones_2025_kent_island",
+      "archipelago": "Kent Island / Grand Manan region",
+      "status": "FAIL_SAMPLING_EFFORT_NOT_NORMALIZABLE",
+      "biological_negative": false,
+      "evidence": [
+        "public network rows preserve year/month/day, insect identity, plant identity and coordinates",
+        "source methods describe one to two researchers collecting insects when observed visiting flowering plants",
+        "public network schema does not expose date-specific observation duration, transect effort, or other exposure scalar"
+      ],
+      "gate_boundary": "Date-resolved interaction events cannot be converted to comparable time-bin intensities under the frozen effort contract without inventing exposure."
+    },
+    {
+      "source_id": "ren_si_ding_2022_thousand_island_lake",
+      "archipelago": "Thousand Island Lake land-bridge fragments",
+      "status": "FAIL_NO_ALIGNED_SIX_BIN_WITHIN_SYSTEM_MATRIX",
+      "biological_negative": false,
+      "evidence": [
+        "public source preserves 42 spatial network columns aggregated over time",
+        "public temporal matrix preserves only three year totals aggregated over space",
+        "the two marginals do not establish source-native site x year networks"
+      ],
+      "gate_boundary": "Spatial replication cannot substitute for the frozen minimum of six aligned time bins within each system."
+    },
+    {
+      "source_id": "boieiro_2024_terceira_pollinators_v1_2",
+      "archipelago": "Azores / Terceira",
+      "status": "FAIL_LT6_TIME_BINS_PER_SYSTEM",
+      "biological_negative": false,
+      "evidence": [
+        "checksum-locked v1.2 DwC-A was recovered exactly",
+        "329 positive interaction-linked transect occurrence rows resolve to 26 stable location IDs",
+        "transect effort is constant at 50 meters",
+        "each of all 26 interaction-linked locations has exactly one source-native eventDate"
+      ],
+      "gate_boundary": "Equal-effort spatial replication across 26 sites cannot substitute for the frozen minimum of six aligned time bins within each stable system. No D1 or phi coordinate was computed."
+    },
+    {
+      "source_id": "pasquali_2025_giannutri_three_bee_daily_networks",
+      "archipelago": "Tuscan Archipelago / Giannutri",
+      "status": "TRANSPORT_BLOCKED_PENDING_HARD_STOP",
+      "biological_negative": false,
+      "evidence": [
+        "the repository already freezes exactly 29 source-native daily networks and three focal bee identities before the natural-regime analysis",
+        "the four required source/code files have pre-existing MD5 locks",
+        "Zenodo metadata API, checksum-locked direct API file endpoints, and public record download endpoints all returned HTTP 504 in the current GitHub Actions environment",
+        "0/4 checksum-locked source files were recovered in the current execution, so walking-transect effort was not inspected and no natural coordinate was opened"
+      ],
+      "gate_boundary": "Transport failure is retained as unavailable, not as a biological or source-structure negative. The 29-day coordinate is not reconstructed from historical derived metrics or source-paper summaries."
+    },
+    {
+      "source_id": "hervias_parejo_2023_menorca_spatiotemporal",
+      "archipelago": "Balearic Islands / Menorca",
+      "status": "FAIL_LT6_TIME_BINS_PER_SYSTEM",
+      "biological_negative": false,
+      "evidence": [
+        "the pre-existing source gate freezes 3 sites x 3 habitats and exactly 5 temporal layers per site for March-July 2021",
+        "the present natural-regime gate requires at least 6 aligned time bins within each stable local system"
+      ],
+      "gate_boundary": "All nine site-by-habitat local units fall one bin below the frozen six-bin minimum. No natural D1 or phi coordinate was computed for Menorca in this route audit."
+    },
+    {
+      "source_id": "quitian_tian_2026_ogasawara_coinvasion_networks",
+      "archipelago": "Ogasawara Islands",
+      "status": "FAIL_LT6_TIME_BINS_PER_SYSTEM",
+      "biological_negative": false,
+      "evidence": [
+        "the checksum-verified public workbook preserves Island, Invasional Context, Season, Forest_Status, Anole, Plant_sp, Poll_sp and N.Int",
+        "the frozen source inventory identifies only three source-native sampling seasons: May, July and September",
+        "the deposited interaction sheet does not expose an additional repeated date field that could expand those three seasons into six aligned bins"
+      ],
+      "gate_boundary": "Three source-native seasons cannot be split or interpolated into the frozen minimum of six aligned time bins. No natural D1 or phi coordinate was computed."
+    },
+    {
+      "source_id": "wang_etal_2025_wanshan_yongxing",
+      "archipelago": "Wanshan and Yongxing island pair",
+      "status": "FAIL_NO_ALIGNED_SIX_BIN_WITHIN_SYSTEM_MATRIX",
+      "biological_negative": false,
+      "evidence": [
+        "the Dryad workbook is frozen as whole-community Wanshan and Yongxing matrices plus the matched seven-shared-plant subnetworks",
+        "the source reports July-August sampling windows but the deposited matrices are aggregated visitation-rate networks rather than source-native repeated temporal matrices",
+        "the matrix values are already standardized visitation rates, but no six-bin within-island partner time series can be reconstructed without inventing temporal allocation"
+      ],
+      "gate_boundary": "A two-month sampling window is not treated as multiple time bins when the public deposited interaction matrices are temporally aggregated. No natural D1 or phi coordinate was computed."
+    },
+    {
+      "source_id": "serra_marin_etal_2025_cabrera_pollination",
+      "archipelago": "Balearic Islands / Cabrera",
+      "status": "ADMITTED_5_SYSTEMS_COORDINATES_OPENED_ONLY_AFTER_FREEZE",
+      "biological_negative": false,
+      "evidence": [
+        "the source-native obs method contains 55 locked COMMUNITY x visita contexts across six communities",
+        "context effort is reconstructible from unique census Delta_T_minutes values within each COMMUNITY x visita context",
+        "five communities pass the six-bin floor; Pine forest 1 has only five visits and is excluded before coordinate computation",
+        "admission record and adapter were committed before D1 or phi was opened"
+      ],
+      "gate_boundary": "Five Cabrera communities contribute systems to the natural regime plane; they remain one source study and one Balearic archipelago group. Coordinate values are stored separately."
+    },
+    {
+      "source_id": "cyrille_etal_2025_martinique_gardens",
+      "archipelago": "Lesser Antilles / Martinique",
+      "status": "ADMITTED_10_SYSTEMS_COORDINATES_OPENED_ONLY_AFTER_FREEZE",
+      "biological_negative": false,
+      "evidence": [
+        "public raw Sampling_data.xlsx and source R code were recovered before coordinate opening",
+        "the source preserves 10 stable garden Site IDs and 12 source-native monthly Periods P1-P12",
+        "insect sampling effort is equal by design at 60 minutes along 150 m per Site x Period by the same observer",
+        "the deposited R code defines quantitative monthly plant-insect matrices from table(Plant_Best_ID, Insect_Best_ID)",
+        "all 10 sites pass the frozen >=6 positive-bin and >=3 nonconstant-partner-series structural gate",
+        "adapter/admission rules were committed before D1 or phi was opened"
+      ],
+      "gate_boundary": "Ten Martinique garden sites contribute systems under one source study and one Lesser Antilles archipelago group. Bird interactions remain excluded from the monthly quantitative primary matrix under the frozen scope."
+    },
+    {
+      "source_id": "kaiser_bunbury_2010_mauritius_temporal",
+      "archipelago": "Mascarene Islands / Mauritius",
+      "status": "FAIL_SOURCE_NATIVE_SITE_TIME_MAPPING_NOT_PUBLICLY_RECOVERED",
+      "biological_negative": false,
+      "evidence": [
+        "Web of Life exposes 24/24 quantitative matrices M_PL_060_01 through M_PL_060_24 for the correct source",
+        "the published design is two sites x 12 consecutive two-week snapshots",
+        "stable partner labels are reconstructible across matrices",
+        "the public Web of Life metadata does not preserve which matrix ID belongs to which source-native site and chronological snapshot",
+        "the original Appendix S6 workbook remains HTTP 403 from the available transport routes"
+      ],
+      "gate_boundary": "The 24 matrices are not partitioned or ordered from ecological values, dimensions, diversity or synchrony. No D1 or phi is opened without a source-native site x chronology map."
+    },
+    {
+      "source_id": "valido_etal_2019_teide_honeybee_network",
+      "archipelago": "Canary Islands / Tenerife",
+      "status": "FAIL_PUBLIC_MACHINE_READABLE_TEMPORAL_INTERACTION_MATRIX_NOT_RECOVERED",
+      "biological_negative": false,
+      "evidence": [
+        "the paper describes individual censuses and six period-by-year quantitative networks",
+        "the publicly recoverable supplement is document/PDF material rather than a machine-readable interaction x effort table satisfying the frozen gate",
+        "no coordinate was reconstructed from figures or derived network summaries"
+      ],
+      "gate_boundary": "Published evidence of temporal replication is not substituted for public reconstructible raw interaction data."
+    },
+    {
+      "source_id": "kaiser_bunbury_2014_mahe_temporal",
+      "archipelago": "Seychelles / Mahe",
+      "status": "FAIL_EXACT_TIME_BIN_EFFORT_NORMALIZATION_NOT_RECONSTRUCTIBLE_FROM_PUBLIC_WOL_MATRICES",
+      "biological_negative": false,
+      "evidence": [
+        "Web of Life exposes all 48 weighted matrices matching the published six-site x eight-month design",
+        "the public Appendix B table exposes source-native site x month identity fingerprints and network summaries",
+        "Web of Life connection_strength values are raw visit counts rather than the paper's flower- and observation-time-standardized interaction frequencies",
+        "network observation effort varied among source networks and the exact partner-level normalization denominators are not preserved in the public Web of Life matrices",
+        "site-month identity could be audited independently of D1/phi, but that does not solve the frozen effort contract"
+      ],
+      "gate_boundary": "Raw visit counts are not promoted as comparable time-bin intensities when source observation effort and floral opportunity vary. No D1 or phi coordinate is computed from the unnormalized Web of Life matrices."
+    }
+  ],
+  "current_admitted_natural_plane": {
+    "systems": 39,
+    "source_studies": 5,
+    "archipelago_groups": 4,
+    "route": "Ecology_Letters_combined",
+    "remaining_nee_blocker": "source-balanced synchrony dispersion: phi q90-q10 span 0.16191152612338316 < 0.20; leave-Mallorca-out span 0.12013274090957592 < 0.20"
+  },
+  "claim_boundary": "Candidate exclusion, blocking, or admission is determined from source structure, effort, byte availability and the frozen six-bin/three-series rules. Coordinate values are stored separately and do not retroactively alter candidate disposition; no candidate is rescued or reprioritized from observed D1, phi or route effects."
+}
