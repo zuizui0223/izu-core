@@ -23,15 +23,21 @@ jobs:
           python-version: "${{ matrix.python-version }}"
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Temporary Cabrera natural-regime source audit
+      - name: Compute frozen Cabrera natural-regime coordinates
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_cabrera_natural_regime_source.py
-      - name: Upload temporary Cabrera natural-regime source audit
+        run: |
+          python scripts/adapt_cabrera_natural_regime.py --out /tmp/cabrera_natural_regime.csv
+          python scripts/analyze_chapter2_natural_regime_coordinates.py \
+            /tmp/cabrera_natural_regime.csv \
+            --out /tmp/cabrera_natural_regime_coordinates.json
+      - name: Upload Cabrera natural-regime coordinate audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: temporary-cabrera-natural-regime-source-audit
-          path: data/results/chapter2_cabrera_natural_regime_source_audit_20260914.json
+          name: cabrera-natural-regime-coordinate-audit
+          path: |
+            /tmp/cabrera_natural_regime.csv
+            /tmp/cabrera_natural_regime_coordinates.json
           if-no-files-found: error
       - name: Run pytest
         run: |
