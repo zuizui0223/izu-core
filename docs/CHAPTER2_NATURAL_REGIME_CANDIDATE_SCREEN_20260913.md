@@ -1,62 +1,85 @@
-# Natural breadth–synchrony regime candidate screen — 2026-09-13
+# Natural breadth–synchrony regime candidate screen — 2026-09-14
 
-Status: **source-structure screen under frozen admission gate; no natural `(D1, phi)` coordinates have been computed.**
+Status: **source-structure screen under frozen admission gate; no natural `(D1, phi)` coordinates have been opened.**
 
 Governing gate: `data/design/chapter2_natural_regime_admission_gate_20260913.json`.
 
-This screen records only whether public source structure can support the frozen outcome-independent breadth/synchrony analysis. It does not inspect or rank candidates by their eventual coordinate values.
+This screen records only whether public source structure can support the frozen outcome-independent breadth/synchrony analysis. Candidate status is decided without inspecting eventual coordinate values. A source is not admitted merely because a paper reports synchrony, richness, or a repeated design: the public bytes must reconstruct the frozen time × partner input and its effort normalization.
 
 ## Priority extraction set
 
-| Source / system | Island scope | Source-native temporal replication | Effort / quantitative structure | Public raw status | Frozen-gate status | Role |
+| Source / system | Island scope | Source-native temporal replication | Effort / quantitative structure | Public/raw verification | Frozen-gate status | Role |
 |---|---|---:|---|---|---|---|
-| Kaiser-Bunbury et al. 2017, Mahé | Seychelles, 8 inselberg communities | 8 monthly networks/site (64 total) | Public `visitfreq` matrix is standardized as visits/flower/hour × floral abundance | Interaction Web Database Excel files | **ADMIT_FOR_EXTRACTION** | primary source 1 |
-| Lázaro et al. 2022, Mallorca | Mallorca, 20 communities | 7 sampling days/site (5 spring + 2 autumn) | source protocol uses repeated standardized sampling; synchrony was an original study quantity | Dryad `10.5061/dryad.m905qfv2p` | **PENDING_FILE_STRUCTURE_CONFIRMATION** | primary source 2 |
-| Alameda et al. 2025, Lomas de Galindo | Cuba, one community | 12 monthly matrices, each pooling two consecutive sampling days | cell = interaction frequency; source-native monthly bins | journal article states 12 matrices are the basic dataset; machine-readable appendix retrieval not yet verified | **PENDING_MONTHLY_MATRIX_RETRIEVAL** | candidate source 3 |
-| Aslan et al. 2019, Hawaii Island dryland | Hawaii Island | observations Mar 2015–May 2016 | 576.36 h systematic flower observations; raw workbook public | Dryad `10.5061/dryad.tm575v4` | **PENDING_DATE_AND_EFFORT_COLUMNS** | backup source 3+ |
-| Zackenberg 1996/1997 | Greenland | 24/26 observed days; daily matrices public | daily plant–pollinator matrices; quantitative/count interpretation and tentative-date handling require source check | Dryad `10.5061/dryad.3pk73`, plus repeated-network archive `10.5061/dryad.mh0qs` | **PENDING_MEASUREMENT_INTERPRETATION** | backup source 3+ |
+| Kaiser-Bunbury et al. 2017, Mahé | Seychelles, 8 inselberg communities | 8 monthly networks/site (64 total) | IWDB advertises raw `no.visits` and standardized `visitfreq = visits/flower/hour × floral abundance` | source page and schema verified; partner-level workbook bytes not yet recovered in the present extraction lane | **SCHEMA_PASS__PRIMARY_RAW_TRANSPORT_PENDING** | primary source 1 candidate |
+| Lázaro et al. 2022, Mallorca | Mallorca, 20 communities | 7 source-native sampling days/site | repeated standardized sampling; synchrony is an original study quantity | Dryad workbook public; seven-day partner matrix has not yet been reconstructed from workbook bytes | **DESIGN_PASS__RAW_DAILY_MATRIX_STRUCTURE_PENDING** | primary source 2 candidate |
+| Aslan et al. 2019, Hawaii Island dryland | Hawaii Island | 240 raw observation sessions across 8 focal-plant sheets; dates retained | raw source has Site, Date, Start Time, Observer and visitor identity; article total = 576.36 h | source-native Dryad workbook was previously acquired and SHA256-locked in this repository | **RAW_TEMPORAL_SCHEMA_CONFIRMED__EFFORT_NORMALIZATION_PENDING** | high-priority independent source |
+| Lara-Romero et al. 2019, Tenerife | Tenerife, 4 fixed sites | 57 observation days across 2014–2015 | 15-min censuses; quantitative flower-visitor observations | public Dryad/Zenodo package exists; date-level raw structure inside package still to be demonstrated | **HIGH_PRIORITY_PENDING_RAW_DATE_STRUCTURE** | high-priority independent source |
+| Alameda et al. 2025, Lomas de Galindo | Cuba, one community | study generated 12 monthly matrices | interaction frequencies | surfaced public appendices are aggregated/global or seasonal; 12 reconstructible monthly matrices have not been recovered | **FAIL_ONLY_DERIVED_OR_AGGREGATED_PUBLIC** | excluded unless pre-hard-stop raw bytes are located |
+| Zackenberg 1996/1997 | Greenland | 24/26 observation days | public daily interaction material | available repeated matrices rely on link-presence/phenological reconstruction rather than a verified source-native quantitative count/rate series for this gate | **FAIL_NONQUANTITATIVE_OR_INFERRED_LINK_PRESENCE** | excluded |
 
 ## Additional candidates / exclusions
 
 | Source / system | Replication | Status | Reason |
 |---|---:|---|---|
 | Kent Island 2019/2022/2023 | date-resolved event rows | **PENDING_EFFORT_NORMALIZATION** | public event dates and partner IDs exist, but date-specific observation effort is not yet shown to be equal or normalizable |
-| Thousand Island Lake, China | 20 surveys/site over 3 years in study design | **PENDING_PUBLIC_RAW_TEMPORAL_RECONSTRUCTION** | field design is excellent, but surfaced public packages do not yet establish reconstructible survey-level interaction matrices |
+| Thousand Island Lake, China | 20 surveys/site over 3 years in study design | **PENDING_PUBLIC_RAW_TEMPORAL_RECONSTRUCTION** | field design is strong, but surfaced public packages do not yet establish reconstructible survey-level interaction matrices |
 | Aride Island, Seychelles | 3 temporal matrices | **FAIL_LT6_TIME_BINS** | frozen floor is six aligned time bins |
 | Ogasawara multi-island network | 3 seasonal bins | **FAIL_LT6_TIME_BINS** | frozen floor is six aligned time bins |
-| Yongxing / Paracel seasonal networks | 4 published seasonal networks | **PENDING_RAW_MONTHLY_RECONSTRUCTION** | two monthly samplings per season are described, but six or more public source-native matrices have not yet been established |
-| Cycladic/Aegean static network surveys | multiple sites/islands but no verified ≥6 bins/site | **FAIL_UNLESS_TEMPORAL_RAW_FOUND** | spatial replication cannot substitute for temporal replication within a system |
+| Yongxing / Paracel seasonal networks | 4 published seasonal networks | **PENDING_RAW_MONTHLY_RECONSTRUCTION** | two monthly samplings per season are described, but six or more public source-native quantitative matrices have not been established |
+| Aegean/Cycladic repeated network survey | 3 source-native rounds/site in the surfaced design | **FAIL_LT6_TIME_BINS** | spatial replication cannot substitute for the frozen within-system temporal floor |
 | CaraDonna Colorado subalpine network | weekly repeated networks | **CONTEXT_ONLY_NON_ISLAND** | useful processor validation, excluded from NEE island promotion count by frozen source scope |
 | Olito Canadian Rockies | 32 sampling days | **CONTEXT_ONLY_NON_ISLAND** | useful processor validation, excluded from NEE island promotion count |
 
 ## Evidence notes
 
-### Mahé — admitted for extraction
+### Mahé — biological/data schema passes; byte transport remains the gate
 
-The Interaction Web Database describes 64 monthly networks from eight isolated Mahé inselbergs, sampled from September 2012 through April 2013. Its public tables include treatment, site, month, network ID, floral abundance and plant/pollinator matrices. The `64 networks_visitfreq` sheet contains a fully quantified standardized visitation measure (`visits / flower / hour × floral abundance`). This meets the frozen requirements for stable system identity, ≥6 aligned bins, reconstructible partner matrices and effort-normalizable quantitative interactions.
+The Interaction Web Database source describes 64 monthly networks from eight isolated Mahé inselbergs, sampled from September 2012 through April 2013. It advertises raw visit matrices, a standardized `visitfreq` representation, flowering plants with zero visitors, floral abundance, site and month identifiers. This is exactly the right source design for the frozen coordinate analysis.
 
-Source: Kaiser-Bunbury et al. 2017, *Nature*, DOI `10.1038/nature21071`; Interaction Web Database dataset page.
+However, earlier work in this repository already encountered transport failure for the primary IWDB workbook. A secondary public mirror contains network-level Mahé summaries (`site`, `month`, nestedness, mean visits, mean visitation rate), but those summaries cannot replace the partner-level time × partner matrix. Therefore Mahé is not called admitted until the primary/source-equivalent partner matrix bytes are actually recovered and checked.
 
-### Mallorca — strong pending
+Source: Kaiser-Bunbury et al. 2017, *Nature*, DOI `10.1038/nature21071`; Interaction Web Database source definition; repository source contract `config/seychelles_restoration_network_iwdb_source.json`.
 
-Dryad DOI `10.5061/dryad.m905qfv2p` publicly provides `Dryad_dataStability.xlsx` and a README for 20 Mallorca communities. The associated study was explicitly about within-year stability, portfolio effects and temporal synchrony of plants, pollinators and interactions. Source methods use repeated days within each site. Admission remains pending only until the public workbook is checked to confirm that the seven source-native days can be reconstructed as the time × partner matrix required by the frozen gate, rather than only as precomputed stability summaries.
+### Mallorca — design passes; raw daily reconstruction is the only remaining question
 
-### Cuba — strong third-source candidate
+The Mallorca study sampled 20 communities repeatedly within the same year and was explicitly designed around temporal stability, portfolio effects and synchrony. Related source documentation specifies seven standardized sampling days per site. Dryad provides the study workbook and README.
 
-The Lomas de Galindo study monitored interactions for two days each month through one year. Its methods state that the two days of each month were combined into one monthly adjacency matrix, that cells contain interaction frequency and that **12 matrices compose the basic dataset**. The sampling design therefore passes the temporal floor. Admission is pending because machine-readable recovery of those 12 matrices from the public article/appendix surface has not yet been demonstrated.
+That is sufficient to pass the design screen but not the extraction gate: the workbook still must expose partner identities and quantitative observations at the seven source-native days rather than only precomputed stability summaries. No coordinate is computed before that check.
 
-Source: Alameda, Martínez-Adriano & Barro Cañamero 2025, *Journal of Pollination Ecology*, DOI `10.26786/1920-7603(2025)835`.
+Source: Lázaro et al. 2022; Dryad `10.5061/dryad.m905qfv2p` and related raw network package.
 
-### Zackenberg — useful but not automatically admitted
+### Hawaii — source-native temporal schema is confirmed
 
-Dryad DOI `10.5061/dryad.3pk73` explicitly provides daily matrices for 1996 and 1997. A second Dryad archive (`10.5061/dryad.mh0qs`) contains temporally replicated 1996, 1997, 2010 and 2011 interaction material. The source is not admitted yet because the analysis requires quantitative count/rate series and must avoid treating tentatively dated or interpolated link presence as observed interaction intensity.
+This repository previously acquired the Aslan et al. Dryad workbook and locked the exact source bytes (`579979` bytes; SHA256 `2b0ff40226b2a6d511a111ead8a00660532de3d799aed217e4dc30f00c2b3c27`). The existing parser reads eight focal-plant sheets and uses `Site`, `Date`, `Start Time`, and `Observer` to identify observation sessions. It recovered 4,499 raw rows, 240 sessions, 1,799 focal visitor-event rows and 197 source-native visitor labels.
+
+Thus public byte retrieval, dates, site identity and partner labels are not hypothetical: they were already demonstrated against the source-native workbook. The remaining admission question is narrower—whether session/time-bin exposure is equal by design or can be normalized from the workbook/README without using outcome information. Until that is proven, Hawaii remains pending rather than admitted.
+
+Source: Aslan et al. 2019, DOI `10.1002/ajb2.1233`; Dryad `10.5061/dryad.tm575v4`; repository result `data/results/hawaii_native_pollination_summary.json`.
+
+### Tenerife — newly promoted high-priority source
+
+The Tenerife study used four fixed sites on El Teide, sampled through the flowering season in 2014 and 2015 over 57 observation days and 868 h. Source methods describe standardized 15-minute censuses of flower visitors. The public data package is therefore unusually promising for this gate because both temporal replication and per-census effort are source-defined.
+
+Admission remains pending only because the current audit has not yet opened the public package to verify that date/census and visitor identity are retained in machine-readable raw form rather than collapsed to site-level matrices.
+
+Source: Lara-Romero et al. 2019, Dryad `10.5061/dryad.b23v8nn` (public archive also mirrored on Zenodo).
+
+### Cuba — excluded under the frozen public-data rule
+
+The paper states that two observation days per month were combined into 12 monthly matrices, so the field design itself exceeds the six-bin floor. But the surfaced public supplementary layer does not currently provide those 12 quantitative matrices in reconstructible machine-readable form. Under the frozen gate, a design described in Methods is not enough. The system is excluded unless the pre-existing raw public file is located before the hard stop.
+
+### Zackenberg — excluded from the quantitative coordinate analysis
+
+Daily repeated networks are public, but the surfaced repeated-network construction is based on phenological/link-presence reconstruction rather than a verified source-native quantitative count/rate series aligned with the frozen `value / effort` contract. Presence reconstruction is useful for temporal network topology but is not silently converted into interaction intensity here.
 
 ## Feasibility checkpoint before coordinates open
 
-The public-data route is already materially more feasible than the failed historical transition-validation programme because it asks only for repeated outcome-independent interaction context.
+The public-data route remains substantially more feasible than the old historical transition-validation programme, but **no NEE promotion count is credited yet**. Current evidence supports the following extraction order:
 
-- Mahé alone contributes 8 admitted systems from one independent source.
-- Mallorca can contribute up to 20 additional systems if its public workbook exposes the source-native daily matrices.
-- The NEE promotion rule still requires a **third independent source study**; Cuba is currently the cleanest candidate, with Hawaii and Zackenberg as backups pending raw-structure checks.
+1. recover Mahé partner-level workbook bytes;
+2. open Mallorca workbook and verify seven-day quantitative partner rows;
+3. resolve Hawaii session effort from its already verified raw workbook/README;
+4. open Tenerife raw package and verify date-level visitor rows;
+5. use Kent Island / Thousand Island Lake only if one of the four priority sources fails.
 
-No NEE promotion criterion is considered met until the canonical processor has generated the frozen coordinates and the source-balanced dispersion / leave-one-source-out rules have been evaluated.
+The NEE route still requires at least 12 admitted island systems from at least 3 independent sources and 2 archipelago groups, plus the predeclared two-dimensional dispersion and leave-one-source-out criteria. No route criterion is considered met until the canonical processor produces the frozen coordinates.
