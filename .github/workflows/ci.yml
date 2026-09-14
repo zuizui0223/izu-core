@@ -23,20 +23,17 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Temporary Mahe verified-compilation inspection
+      - name: Temporary Terceira natural-regime source audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: |
-          python scripts/audit_seychelles_2017_temporal_compilation_fallback.py
-          python scripts/audit_seychelles_2017_raw_visit_preservation.py
-      - name: Upload temporary Mahe verified-compilation audit
+        run: python scripts/audit_terceira_natural_regime_source.py
+      - name: Upload temporary Terceira natural-regime source audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: temporary-mahe-verified-compilation-audit
+          name: temporary-terceira-natural-regime-source-audit
           path: |
-            data/external/seychelles_temporal_compilation/
-            data/results/seychelles_2017_temporal_compilation_fallback_audit.json
-            data/results/seychelles_2017_raw_visit_preservation.json
+            data/external/terceira_pollinators_v1_2.zip
+            data/results/chapter2_terceira_natural_regime_source_audit_20260914.json
           if-no-files-found: error
       - name: Run pytest
         run: |
