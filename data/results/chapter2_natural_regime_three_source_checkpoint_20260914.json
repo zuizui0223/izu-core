@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_three_source_checkpoint",
+  "status": "interim_route_checkpoint_before_candidate_search_hard_stop",
+  "computed_on": "2026-09-14",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "sources": [
+    "aslan_etal_2019_hawaii_native_pollination",
+    "lazaro_etal_2022_mallorca_stability",
+    "lara_romero_etal_2019_tenerife_pollination"
+  ],
+  "summary": {
+    "systems": 24,
+    "source_studies": 3,
+    "archipelago_groups": 3,
+    "D1_q10": 9.70904553201071,
+    "D1_q90": 27.25918856964775,
+    "D1_q90_q10_ratio": 2.8076074501632773,
+    "phi_q10": 0.09808881070229232,
+    "phi_q90": 0.2504068629878171,
+    "phi_q90_q10_span": 0.1523180522855248,
+    "weighted_spearman_logD1_phi": -0.026234434288466724,
+    "interior_occupancy": 0.125
+  },
+  "nee_threshold_checks": {
+    "minimum_systems_12": true,
+    "minimum_source_studies_3": true,
+    "minimum_archipelago_groups_2": true,
+    "D1_q90_q10_ratio_at_least_2": true,
+    "phi_q90_q10_span_at_least_0_20": false,
+    "abs_weighted_spearman_at_most_0_80": true,
+    "interior_occupancy_at_least_0_20": false
+  },
+  "leave_largest_source_out": {
+    "excluded_source": "lazaro_etal_2022_mallorca_stability",
+    "summary": {
+      "systems": 5,
+      "source_studies": 2,
+      "archipelago_groups": 2,
+      "D1_q10": 9.70904553201071,
+      "D1_q90": 21.67405446614196,
+      "D1_q90_q10_ratio": 2.2323568670764424,
+      "phi_q10": 0.09808881070229232,
+      "phi_q90": 0.21822155161186824,
+      "phi_q90_q10_span": 0.12013274090957592,
+      "weighted_spearman_logD1_phi": -0.5789473684210527,
+      "interior_occupancy": 0.2
+    },
+    "dispersion_criteria_pass": false,
+    "failing_criterion": "phi_q90_q10_span_at_least_0_20"
+  },
+  "route_if_search_stopped_here": "Ecology_Letters_combined",
+  "final_route_status": "not_final",
+  "reason_not_final": "The frozen candidate-search policy has not reached its hard stop and predeclared public island source candidates remain unexhausted, including Mahé. Candidate search therefore continues without changing thresholds or prioritizing sources from observed coordinate values.",
+  "claim_boundary": "The current three-source evidence supports substantial breadth dispersion and weak coupling between breadth and synchrony, but it does not satisfy the predeclared NEE synchrony-dispersion or interior-occupancy criteria. This checkpoint cannot be rewritten after later candidate recovery."
+}
