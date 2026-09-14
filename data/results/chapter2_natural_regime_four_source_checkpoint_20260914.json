@@ -1,0 +1,63 @@
+{
+  "analysis": "chapter2_natural_regime_four_source_checkpoint",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "archipelago_groups": 3,
+  "archipelago_ids": [
+    "balearic_islands",
+    "canary_islands",
+    "hawaiian_islands"
+  ],
+  "claim_boundary": "The route is computed mechanically from the frozen natural-regime plan. Mallorca and Cabrera are separate source studies but share the Balearic archipelago group. No source is reweighted, removed or added based on its D1 or phi values.",
+  "evaluated_on": "2026-09-14",
+  "route_decision": {
+    "leave_largest_source_out": {
+      "dispersion_criteria_pass": false,
+      "excluded_source": "lazaro_etal_2022_mallorca_stability",
+      "summary": {
+        "D1_q10": 10.228671281630653,
+        "D1_q90": 19.2108423147976,
+        "D1_q90_q10_ratio": 1.878136640220098,
+        "archipelago_groups": 3,
+        "interior_occupancy": 0.2,
+        "phi_q10": 0.09808881070229232,
+        "phi_q90": 0.1676243208363305,
+        "phi_q90_q10_span": 0.06953551013403818,
+        "source_studies": 3,
+        "systems": 10,
+        "weighted_spearman_logD1_phi": -0.5596185272618761
+      }
+    },
+    "nee_count_criteria_pass": true,
+    "nee_dispersion_criteria_pass": false,
+    "route": "Ecology_Letters_combined",
+    "summary": {
+      "D1_q10": 10.228671281630653,
+      "D1_q90": 21.73419834535697,
+      "D1_q90_q10_ratio": 2.1248310505772854,
+      "archipelago_groups": 3,
+      "interior_occupancy": 0.20689655172413793,
+      "phi_q10": 0.09808881070229232,
+      "phi_q90": 0.2354490015760965,
+      "phi_q90_q10_span": 0.1373601908738042,
+      "source_studies": 4,
+      "systems": 29,
+      "weighted_spearman_logD1_phi": -0.03228393495860116
+    }
+  },
+  "schema_version": "1.0",
+  "source_result_files": [
+    "data/results/chapter2_hawaii_natural_regime_coordinate_20260914.json",
+    "data/results/chapter2_mallorca_natural_regime_coordinates_20260914.json",
+    "data/results/chapter2_tenerife_natural_regime_coordinates_20260914.json",
+    "data/results/chapter2_cabrera_natural_regime_coordinates_20260914.json"
+  ],
+  "source_studies": 4,
+  "source_system_counts": {
+    "aslan_etal_2019_hawaii_native_pollination": 1,
+    "lara_romero_etal_2019_tenerife_pollination": 4,
+    "lazaro_etal_2022_mallorca_stability": 19,
+    "serra_marin_etal_2025_cabrera_pollination": 5
+  },
+  "status": "frozen_route_evaluation_after_four_admitted_sources",
+  "systems": 29
+}
