@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "source_id": "schwarz_etal_2020_temporal_pollination_compilation",
+  "dataset_doi": "10.5061/dryad.qz612jmbp",
+  "expected_source_components": [
+    "OIK-07303_database.csv",
+    "OIK-07303_original_studies.xlsx"
+  ],
+  "role": "doi_locked_alternate_transport_only",
+  "claim_boundary": "DataONE is used only as a DOI-locked alternate transport/index route for the same Schwarz et al. temporal compilation after Zenodo returned HTTP 504 and anonymous Dryad package download returned HTTP 401. A recovered object is usable only after source checksums or internal file identity are verified. Failed indexing or transport is unavailability, never a biological negative, and no natural D1/phi coordinate is opened by this acquisition step."
+}
