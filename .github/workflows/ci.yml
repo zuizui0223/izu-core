@@ -20,20 +20,18 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "${{ matrix.python-version }}"
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Temporary Terceira natural-regime source audit
+      - name: Temporary Giannutri natural-regime source audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_terceira_natural_regime_source.py
-      - name: Upload temporary Terceira natural-regime source audit
+        run: python scripts/audit_giannutri_natural_regime_source.py
+      - name: Upload temporary Giannutri natural-regime source audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: temporary-terceira-natural-regime-source-audit
-          path: |
-            data/external/terceira_pollinators_v1_2.zip
-            data/results/chapter2_terceira_natural_regime_source_audit_20260914.json
+          name: temporary-giannutri-natural-regime-source-audit
+          path: data/results/chapter2_giannutri_natural_regime_source_audit_20260914.json
           if-no-files-found: error
       - name: Run pytest
         run: |
