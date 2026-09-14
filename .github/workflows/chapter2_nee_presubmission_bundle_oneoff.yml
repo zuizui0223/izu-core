@@ -15,7 +15,7 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
       - name: Build presubmission bundle
-        run: python scripts/build_chapter2_nee_presubmission_bundle.py
+        run: python -m scripts.build_chapter2_nee_presubmission_bundle
       - name: Upload presubmission bundle
         uses: actions/upload-artifact@v4
         with:
