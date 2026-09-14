@@ -42,7 +42,7 @@ def test_nee_v02_matches_article_surface_and_current_route() -> None:
 
     assert "do not test a universal island-syndrome effect" in lower
     assert "natural hill `d1` is not synthetic `k`" in lower
-    assert "does not validate the synthetic `c/i` crossover in nature" in lower
+    assert "do not validate the synthetic `c/i` crossover" in lower
     assert "not as evidence that each part of that space is source-invariant" in lower
     assert "reopening candidate hunting" in lower
 
