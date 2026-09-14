@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_1_20260915.md"
+DEFAULT_MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md"
 WORD_RE = re.compile(r"\b[\w’'\-]+\b", re.UNICODE)
 
 
@@ -31,9 +31,18 @@ def word_count(text: str) -> int:
 
 def audit(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
-    abstract = section(text, "Abstract", "Introduction")
-    main_text = section(text, "Introduction", "Methods")
-    abstract_words = word_count(abstract)
+    abstract = section(text, "Abstract", "Results")
+    # The working markdown keeps the unheaded NEE introduction between
+    # Abstract and Results, so main text is everything after Abstract through
+    # immediately before Methods. Remove only the abstract body itself.
+    after_abstract = text.split("## Abstract", 1)[1]
+    if "## Methods" not in after_abstract:
+        raise RuntimeError("missing section: ## Methods")
+    abstract_and_main = after_abstract.split("## Methods", 1)[0]
+    abstract_body = abstract
+    main_text = abstract_and_main.replace(abstract_body, "", 1)
+
+    abstract_words = word_count(abstract_body)
     main_text_words = word_count(main_text)
     result = {
         "manuscript": str(path),
@@ -46,7 +55,7 @@ def audit(path: Path) -> dict:
         "display_items_planned": 4,
         "display_items_limit": 6,
         "display_items_pass": 4 <= 6,
-        "counting_rule": "regex word count; Introduction through immediately before Methods; formulas/headings counted conservatively",
+        "counting_rule": "regex word count; text after Abstract through immediately before Methods, with abstract body removed; formulas/headings counted conservatively",
     }
     result["pass"] = all(
         (result["abstract_pass"], result["main_text_pass"], result["display_items_pass"])
