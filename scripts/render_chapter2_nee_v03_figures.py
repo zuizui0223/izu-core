@@ -156,30 +156,40 @@ def render_figure3(out: Path) -> tuple[Path, Path]:
         xhi = np.asarray([float(row["breadth_D1_ci95"][1]) for row in current])
         ylo = np.asarray([float(row["phi_ci95"][0]) for row in current])
         yhi = np.asarray([float(row["phi_ci95"][1]) for row in current])
-        ax.errorbar(
+
+        if not all(np.all(np.isfinite(values)) for values in (x, y, xlo, xhi, ylo, yhi)):
+            raise RuntimeError(f"{source}: non-finite coordinate or bootstrap interval")
+        if np.any(xlo <= 0.0) or np.any(xlo > xhi) or np.any(ylo > yhi):
+            raise RuntimeError(f"{source}: invalid bootstrap interval endpoints")
+
+        # Percentile bootstrap intervals need not contain the plug-in estimate.
+        # Draw the frozen interval endpoints directly instead of converting them
+        # into +/- error widths, which would be negative in that legitimate case.
+        (points,) = ax.plot(
             x,
             y,
-            xerr=np.vstack([x - xlo, xhi - x]),
-            yerr=np.vstack([y - ylo, yhi - y]),
-            fmt=marker,
+            linestyle="none",
+            marker=marker,
             markersize=5.5,
-            capsize=0,
-            elinewidth=0.55,
             alpha=0.72,
             label=f"{SOURCE_LABELS[source]} (n={len(current)})",
+            zorder=2,
         )
+        color = points.get_color()
+        ax.hlines(y, xlo, xhi, colors=color, linewidth=0.55, alpha=0.45, zorder=1)
+        ax.vlines(x, ylo, yhi, colors=color, linewidth=0.55, alpha=0.45, zorder=1)
 
     ax.set_xscale("log")
     ax.set_xlabel("partner breadth, Hill $D_1$")
-    ax.set_ylabel("temporal synchrony, $\phi$")
+    ax.set_ylabel(r"temporal synchrony, $\phi$")
     ax.set_title("Natural island interaction systems occupy a two-dimensional regime plane")
     ax.legend(frameon=False, fontsize=8, ncol=2)
 
     summary = (
         "42 systems · 6 studies · 5 island groups\n"
-        "$D_1$ q90/q10 = 4.52 · $\phi$ span = 0.352\n"
+        "$D_1$ q90/q10 = 4.52 · $\\phi$ span = 0.352\n"
         "source-balanced |Spearman| = 0.325\n"
-        "largest-source removal: $D_1$ ratio = 5.49, $\phi$ span = 0.352"
+        "largest-source removal: $D_1$ ratio = 5.49, $\\phi$ span = 0.352"
     )
     ax.text(0.02, 0.98, summary, transform=ax.transAxes, va="top", ha="left", fontsize=8,
             bbox={"boxstyle": "round,pad=0.35", "facecolor": "white", "alpha": 0.82, "edgecolor": "0.7"})
