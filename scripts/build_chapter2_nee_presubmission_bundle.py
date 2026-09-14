@@ -16,15 +16,15 @@ REFERENCE_LEDGER = ROOT / "docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md"
 AUTHOR_PROVENANCE = ROOT / "docs/CHAPTER2_AUTHOR_METADATA_PROVENANCE_20260912.md"
 DEFAULT_OUT = ROOT / "dist/chapter2_nee_presubmission"
 
-UNRESOLVED_AUTHOR_CONTROLLED = [
+INITIAL_SUBMISSION_BLOCKERS = [
     "final author list and order",
     "corresponding-author designation",
-    "ORCID(s)",
     "all-author approval",
     "funding / acknowledgements / competing interests / submission declarations",
 ]
-UNRESOLVED_ARCHIVE = [
-    "permanent archived code/data release DOI",
+PREPUBLICATION_PENDING = [
+    "corresponding-author ORCID linkage before final acceptance",
+    "permanent archived code/data release DOI before publication",
 ]
 
 
@@ -57,19 +57,20 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         raise RuntimeError(f"expected four PDF and four SVG figures, got {len(pdfs)} PDF / {len(svgs)} SVG")
 
     manifest = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "PRESUBMISSION_NOT_FINAL",
         "active_manuscript": str(MANUSCRIPT.relative_to(ROOT)),
         "active_cover_letter": str(COVER.relative_to(ROOT)),
         "reference_ledger": str(REFERENCE_LEDGER.relative_to(ROOT)),
         "author_metadata_provenance": str(AUTHOR_PROVENANCE.relative_to(ROOT)),
         "files": {},
-        "blocking_author_controlled_fields": UNRESOLVED_AUTHOR_CONTROLLED,
-        "blocking_archive_field": UNRESOLVED_ARCHIVE,
+        "initial_submission_blockers": INITIAL_SUBMISSION_BLOCKERS,
+        "prepublication_pending_not_initial_submission_blockers": PREPUBLICATION_PENDING,
         "finalization_rule": (
-            "Do not relabel this archive as a final journal submission bundle until the author-controlled fields "
-            "and permanent archive DOI are explicitly supplied and validated. Scientific analyses, route metrics, "
-            "natural-source membership and candidate search remain frozen."
+            "Do not relabel this archive as an initial-submission-ready journal bundle until the author-controlled "
+            "submission blockers are explicitly supplied and validated. ORCID linkage and a permanent archive DOI "
+            "remain tracked prepublication tasks but do not block initial editorial submission under the current NEE guidelines. "
+            "Scientific analyses, route metrics, natural-source membership and candidate search remain frozen."
         ),
     }
     for path in sorted(p for p in out_dir.rglob("*") if p.is_file()):
