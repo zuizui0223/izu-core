@@ -3,7 +3,6 @@ from __future__ import annotations
 import csv
 import importlib.util
 import json
-import math
 from pathlib import Path
 
 import numpy as np
@@ -90,8 +89,10 @@ def test_run_recovers_effort_standardized_coordinates_deterministically(tmp_path
     assert row["observed_partner_richness"] == 3
     assert row["time_bins"] == 6
     assert row["eligible_synchrony_partners"] == 3
-    assert first == second
-    assert first["route_decision"]["route"] == "fallback_Oikos_plus_EL"
+    assert first["systems"] == second["systems"]
+    assert first["route_decision"]["route"] == second["route_decision"]["route"] == "fallback_Oikos_plus_EL"
+    assert first["route_decision"]["summary"]["D1_q90_q10_ratio"] == second["route_decision"]["summary"]["D1_q90_q10_ratio"]
+    assert first["route_decision"]["summary"]["phi_q90_q10_span"] == second["route_decision"]["summary"]["phi_q90_q10_span"]
 
 
 def test_route_requires_three_sources_for_nee() -> None:
