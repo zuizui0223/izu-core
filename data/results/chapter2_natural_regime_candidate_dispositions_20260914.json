@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "analysis": "chapter2_natural_regime_candidate_dispositions",
   "status": "source_structure_only_no_unopened_coordinates",
   "updated_on": "2026-09-14",
@@ -54,7 +54,20 @@
         "each of all 26 interaction-linked locations has exactly one source-native eventDate"
       ],
       "gate_boundary": "Equal-effort spatial replication across 26 sites cannot substitute for the frozen minimum of six aligned time bins within each stable system. No D1 or phi coordinate was computed."
+    },
+    {
+      "source_id": "pasquali_2025_giannutri_three_bee_daily_networks",
+      "archipelago": "Tuscan Archipelago / Giannutri",
+      "status": "TRANSPORT_BLOCKED_PENDING_HARD_STOP",
+      "biological_negative": false,
+      "evidence": [
+        "the repository already freezes exactly 29 source-native daily networks and three focal bee identities before the natural-regime analysis",
+        "the four required source/code files have pre-existing MD5 locks",
+        "Zenodo metadata API, checksum-locked direct API file endpoints, and public record download endpoints all returned HTTP 504 in the current GitHub Actions environment",
+        "0/4 checksum-locked source files were recovered in the current execution, so walking-transect effort was not inspected and no natural coordinate was opened"
+      ],
+      "gate_boundary": "Transport failure is retained as unavailable, not as a biological or source-structure negative. The 29-day coordinate is not reconstructed from historical derived metrics or source-paper summaries."
     }
   ],
-  "claim_boundary": "Candidate exclusion or transport blocking is determined from source structure and effort only. No candidate is included, excluded, rescued, or reprioritized using observed D1, phi, or route effects."
+  "claim_boundary": "Candidate exclusion or transport blocking is determined from source structure, effort, and byte availability only. No candidate is included, excluded, rescued, or reprioritized using observed D1, phi, or route effects."
 }
