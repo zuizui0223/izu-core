@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "analysis": "chapter2_natural_regime_current_state",
   "status": "canonical_post_search_closure_state",
   "updated_on": "2026-09-15",
@@ -7,6 +7,10 @@
   "historical_candidate_ledger_retained": true,
   "primary_route_receipt": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
   "search_closure_receipt": "data/results/chapter2_natural_regime_search_closure_20260915.json",
+  "post_promotion_all_source_loo_diagnostic": "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json",
+  "england_independent_reconstruction": "data/results/chapter2_roberts_england_coordinate_reconstruction_audit_20260915.json",
+  "active_manuscript": "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md",
+  "active_cover_letter": "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_2_20260915.md",
   "current_admitted_natural_plane": {
     "systems": 42,
     "source_studies": 6,
@@ -46,6 +50,22 @@
     "abs_weighted_spearman_logD1_phi": 0.45385212539892705,
     "all_frozen_dispersion_criteria_pass": true
   },
+  "post_promotion_source_complementarity": {
+    "status": "diagnostic_not_route_redefinition",
+    "leave_any_source_out_invariant": false,
+    "four_of_six_source_deletions_pass_all_dispersion_criteria": true,
+    "england_step_deletion": {
+      "phi_q90_q10_span": 0.16191152612338316,
+      "dispersion_criteria_pass": false,
+      "interpretation": "England STEP supplies much of the currently sampled high-synchrony edge."
+    },
+    "martinique_deletion": {
+      "interior_occupancy": 0.1875,
+      "dispersion_criteria_pass": false,
+      "interpretation": "Martinique materially supplies joint-interior coverage."
+    },
+    "interpretation": "The natural plane is source-complementary rather than leave-any-source-out invariant. The frozen promotion rule required largest-source leave-out robustness only."
+  },
   "search": {
     "status": "closed_early_after_predeclared_nee_stop_rule",
     "closed_on": "2026-09-15",
@@ -53,5 +73,5 @@
     "candidate_hunting_after_closure_forbidden": true,
     "unopened_candidates_remain_unopened": true
   },
-  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed. The 2026-09-14 candidate-disposition ledger remains a historical source-structure audit and is not rewritten to erase the earlier 39-system Ecology Letters checkpoint. NEE_candidate is a routing ceiling under the frozen protocol, not a natural threshold, causal validation of the synthetic crossover, or guarantee of acceptance."
+  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed. The 2026-09-14 candidate-disposition ledger remains a historical source-structure audit and is not rewritten to erase the earlier 39-system Ecology Letters checkpoint. NEE_candidate is a routing ceiling under the frozen protocol, not a natural threshold, causal validation of the synthetic crossover, leave-any-source-out invariance, or guarantee of acceptance."
 }
