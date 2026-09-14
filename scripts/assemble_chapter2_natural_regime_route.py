@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
+import sys
 from pathlib import Path
-
-from scripts.analyze_chapter2_natural_regime_coordinates import classify_route
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = ROOT / "data/design/chapter2_natural_regime_analysis_plan_20260913.json"
 DEFAULT_OUT = ROOT / "data/results/chapter2_natural_regime_four_source_checkpoint_20260914.json"
+ANALYZER = ROOT / "scripts/analyze_chapter2_natural_regime_coordinates.py"
 
 SOURCES = [
     ROOT / "data/results/chapter2_hawaii_natural_regime_coordinate_20260914.json",
@@ -16,6 +17,16 @@ SOURCES = [
     ROOT / "data/results/chapter2_tenerife_natural_regime_coordinates_20260914.json",
     ROOT / "data/results/chapter2_cabrera_natural_regime_coordinates_20260914.json",
 ]
+
+
+def load_classify_route():
+    spec = importlib.util.spec_from_file_location("chapter2_natural_regime_analyzer", ANALYZER)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"could not load analyzer module from {ANALYZER}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module.classify_route
 
 
 def rows_from_result(path: Path) -> list[dict]:
@@ -50,6 +61,7 @@ def main() -> None:
         source_counts[current[0]["source_study_id"]] = len(current)
         source_files.append(str(path.relative_to(ROOT)))
 
+    classify_route = load_classify_route()
     route = classify_route(rows, plan)
     result = {
         "schema_version": "1.0",
