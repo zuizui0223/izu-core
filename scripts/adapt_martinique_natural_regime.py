@@ -18,6 +18,8 @@ SHEET = "Insects_Plants"
 SYSTEMS = ("C1", "C2", "C3", "C4", "C5", "PG1", "PG2", "PG3", "PG4", "PG5")
 PERIODS = tuple(f"P{i}" for i in range(1, 13))
 EFFORT_MINUTES = 60.0
+MIN_POSITIVE_BINS = 6
+MIN_NONCONSTANT_SERIES = 3
 OUTPUT_FIELDS = [
     "source_study_id",
     "archipelago_id",
@@ -64,7 +66,7 @@ def source_rows(payload: bytes) -> list[dict[str, object]]:
     return rows
 
 
-def reconstruct(payload: bytes) -> tuple[list[dict[str, object]], dict[str, dict[str, int]]]:
+def reconstruct(payload: bytes) -> tuple[list[dict[str, object]], dict[str, dict[str, object]]]:
     events: dict[tuple[str, str, str], int] = defaultdict(int)
     observed_contexts: set[tuple[str, str]] = set()
     for row in source_rows(payload):
@@ -75,8 +77,7 @@ def reconstruct(payload: bytes) -> tuple[list[dict[str, object]], dict[str, dict
         observed_contexts.add((system, period))
         partner = clean(row.get("Insect_Best_ID"))
         plant = clean(row.get("Plant_Best_ID"))
-        # The deposited source R code constructs table(Plant_Best_ID, Insect_Best_ID),
-        # so only rows with both identifiers contribute quantitative interactions.
+        # Mirrors the deposited source R code table(Plant_Best_ID, Insect_Best_ID).
         if not partner or not plant or partner.lower() in {"nan", "na"} or plant.lower() in {"nan", "na"}:
             continue
         events[(system, period, partner)] += 1
@@ -86,23 +87,54 @@ def reconstruct(payload: bytes) -> tuple[list[dict[str, object]], dict[str, dict
     if missing:
         raise RuntimeError(f"Martinique source-native Site x Period coverage incomplete: {missing}")
 
-    output: list[dict[str, object]] = []
-    structure: dict[str, dict[str, int]] = {}
+    structure: dict[str, dict[str, object]] = {}
+    system_series: dict[str, tuple[list[str], dict[str, list[int]]]] = {}
     for system in SYSTEMS:
         partners = sorted({partner for (s, _, partner) in events if s == system})
         if not partners:
-            raise RuntimeError(f"Martinique {system}: no identified insect partners")
-        nonconstant = 0
-        positive_bins = 0
-        for period in PERIODS:
-            total = sum(events.get((system, period, partner), 0) for partner in partners)
-            if total > 0:
-                positive_bins += 1
+            structure[system] = {
+                "source_native_time_bins": len(PERIODS),
+                "positive_interaction_bins": 0,
+                "partner_count": 0,
+                "nonconstant_partner_series": 0,
+                "admitted": False,
+                "reason": "FAIL_NO_IDENTIFIED_PARTNERS",
+            }
+            continue
+        series_by_partner = {
+            partner: [events.get((system, period, partner), 0) for period in PERIODS]
+            for partner in partners
+        }
+        positive_bins = sum(
+            any(series_by_partner[partner][i] > 0 for partner in partners)
+            for i in range(len(PERIODS))
+        )
+        nonconstant = sum(len(set(series)) > 1 for series in series_by_partner.values())
+        admitted = positive_bins >= MIN_POSITIVE_BINS and nonconstant >= MIN_NONCONSTANT_SERIES
+        if positive_bins < MIN_POSITIVE_BINS:
+            reason = "FAIL_LT6_POSITIVE_INTERACTION_BINS"
+        elif nonconstant < MIN_NONCONSTANT_SERIES:
+            reason = "FAIL_LT3_NONCONSTANT_PARTNER_SERIES"
+        else:
+            reason = "ADMIT_BEFORE_COORDINATES"
+        structure[system] = {
+            "source_native_time_bins": len(PERIODS),
+            "positive_interaction_bins": positive_bins,
+            "partner_count": len(partners),
+            "nonconstant_partner_series": nonconstant,
+            "admitted": admitted,
+            "reason": reason,
+        }
+        if admitted:
+            system_series[system] = (partners, series_by_partner)
+
+    output: list[dict[str, object]] = []
+    for system in SYSTEMS:
+        if system not in system_series:
+            continue
+        partners, series_by_partner = system_series[system]
         for partner in partners:
-            series = [events.get((system, period, partner), 0) for period in PERIODS]
-            if len(set(series)) > 1:
-                nonconstant += 1
-            for period, count in zip(PERIODS, series):
+            for period, count in zip(PERIODS, series_by_partner[partner]):
                 if count <= 0:
                     continue
                 output.append({
@@ -114,12 +146,8 @@ def reconstruct(payload: bytes) -> tuple[list[dict[str, object]], dict[str, dict
                     "value": float(count),
                     "effort": EFFORT_MINUTES,
                 })
-        structure[system] = {
-            "source_native_time_bins": len(PERIODS),
-            "positive_interaction_bins": positive_bins,
-            "partner_count": len(partners),
-            "nonconstant_partner_series": nonconstant,
-        }
+    if not output:
+        raise RuntimeError("Martinique frozen structural gate admitted no systems")
     return output, structure
 
 
