@@ -23,6 +23,18 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      - name: Temporary Martinique natural-regime source audit
+        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
+        run: python scripts/audit_martinique_natural_regime_source.py
+      - name: Upload temporary Martinique natural-regime source audit
+        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: temporary-martinique-natural-regime-source-audit
+          path: |
+            data/results/chapter2_martinique_natural_regime_source_audit_20260914.json
+            data/external/martinique_natural_regime/
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
@@ -44,7 +56,7 @@ jobs:
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-realized-richness-matching-audit
+          name: chapter2-realized-richness-audit
           path: data/results/chapter2_realized_richness_matching_frozen_20260907.json
           if-no-files-found: error
       - name: Run Chapter 2 finite-community system-size audit
