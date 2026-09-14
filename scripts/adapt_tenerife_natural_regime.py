@@ -15,6 +15,13 @@ SYSTEM_FILES = {
     "torre_3500": "torre_3520.txt",
 }
 
+# Frozen before any Tenerife D1/phi computation. This source-native date contains
+# visitor rows but no census time values, so 15-minute census effort cannot be
+# reconstructed under the frozen effort contract.
+EXCLUDED_UNRECONSTRUCTIBLE_EFFORT_BINS = {
+    ("torre_3500", "05/06/2015"),
+}
+
 OUTPUT_FIELDS = [
     "source_study_id",
     "archipelago_id",
@@ -45,7 +52,7 @@ def read_rows(path: Path) -> list[dict[str, str]]:
 
 def adapt_system(path: Path, system_id: str) -> list[dict[str, object]]:
     rows = read_rows(path)
-    dates = sorted({clean(row.get("date")) for row in rows if clean(row.get("date"))})
+    all_dates = sorted({clean(row.get("date")) for row in rows if clean(row.get("date"))})
     censuses = {
         (
             clean(row.get("locality")),
@@ -58,11 +65,22 @@ def adapt_system(path: Path, system_id: str) -> list[dict[str, object]]:
     }
     effort_by_date = Counter(date for _, date, _, _ in censuses)
 
+    unreconstructible = [date for date in all_dates if effort_by_date[date] <= 0]
+    expected_unreconstructible = sorted(
+        date for candidate_system, date in EXCLUDED_UNRECONSTRUCTIBLE_EFFORT_BINS if candidate_system == system_id
+    )
+    if sorted(unreconstructible) != expected_unreconstructible:
+        raise ValueError(
+            f"{system_id}: effort-unreconstructible bins changed; "
+            f"observed={sorted(unreconstructible)} expected={expected_unreconstructible}"
+        )
+    dates = [date for date in all_dates if (system_id, date) not in EXCLUDED_UNRECONSTRUCTIBLE_EFFORT_BINS]
+
     values: dict[tuple[str, str], float] = defaultdict(float)
     observed_partners: set[str] = set()
     for row in rows:
         date = clean(row.get("date"))
-        if not date:
+        if not date or (system_id, date) in EXCLUDED_UNRECONSTRUCTIBLE_EFFORT_BINS:
             continue
         partner = partner_id(row)
         raw_value = clean(row.get("flower_visits"))
