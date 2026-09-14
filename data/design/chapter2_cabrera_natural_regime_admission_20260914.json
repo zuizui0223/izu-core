@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_cabrera_natural_regime_admission",
+  "status": "frozen_before_coordinate_computation",
+  "frozen_on": "2026-09-14",
+  "parent_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "source": {
+    "source_study_id": "serra_marin_etal_2025_cabrera_pollination",
+    "article_doi": "10.1111/2041-210X.70165",
+    "dataset_doi": "10.5281/zenodo.17130777",
+    "source_csv_url": "https://digital.csic.es/bitstream/10261/420466/1/cabrera_22_23_habitat.csv",
+    "source_csv_sha256": "399ec11ae6ce18c8e9ebb050857ca7c1da4cb4a7858e24382750a92ae5e16a07",
+    "archipelago_id": "balearic_islands",
+    "island": "Cabrera"
+  },
+  "source_scope": {
+    "primary_method": "obs",
+    "network_unit": ["COMMUNITY", "visita"],
+    "value": "sum of positive source-native N ind by COMMUNITY x visita x Pollinator, pooled across plant rows",
+    "partner_id": "source-native Pollinator label after whitespace normalization only",
+    "time_bin": "source-native visita within COMMUNITY",
+    "zero_rule": "blank Pollinator rows with N ind=0 establish sampled flowering-plant census effort but create no pollinator value; missing COMMUNITY x visita combinations are not imputed"
+  },
+  "effort_contract": {
+    "definition": "Within each observed obs COMMUNITY x visita, identify each source-native censo once and sum its unique positive Delta_T_minutes. Duplicate interaction rows within a censo do not multiply effort.",
+    "all_55_observed_contexts_reconstructible": true,
+    "source_structure_audit": "scripts/audit_cabrera_natural_regime_source.py",
+    "source_structure_audit_run": 34803831776,
+    "source_structure_audit_artifact_id": 10332286970
+  },
+  "admitted_systems": [
+    {"system_id": "Dune system 1", "time_bins": 9, "nonconstant_partner_series": 40},
+    {"system_id": "Dune system 2", "time_bins": 10, "nonconstant_partner_series": 33},
+    {"system_id": "Pine forest 2", "time_bins": 7, "nonconstant_partner_series": 31},
+    {"system_id": "Rocky coastal 1", "time_bins": 11, "nonconstant_partner_series": 44},
+    {"system_id": "Rocky coastal 2", "time_bins": 13, "nonconstant_partner_series": 40}
+  ],
+  "excluded_systems": [
+    {
+      "system_id": "Pine forest 1",
+      "reason": "FAIL_LT6_TIME_BINS",
+      "time_bins": 5
+    }
+  ],
+  "frozen_counts": {
+    "admitted_systems": 5,
+    "source_studies": 1,
+    "archipelago_groups": 1
+  },
+  "coordinate_values_opened": false,
+  "prohibited_after_freeze": [
+    "change primary method away from obs",
+    "change COMMUNITY as the stable system identifier",
+    "merge or split source-native visita bins after seeing D1 or phi",
+    "include Pine forest 1 despite the six-bin floor",
+    "drop an admitted community based on its coordinate",
+    "change interaction value away from N ind",
+    "count duplicated interaction rows as additional observation effort",
+    "replace the frozen censo-duration effort with an outcome-dependent normalization"
+  ],
+  "claim_boundary": "Five Cabrera communities are repeated local systems within one source study and one archipelago group. Their admission is based only on source structure, reconstructible observation duration, time-bin count and nonconstant partner-series count. No D1, phi, rho_eq or route result was opened before this freeze."
+}
