@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_current_state",
+  "status": "canonical_post_search_closure_state",
+  "updated_on": "2026-09-15",
+  "supersedes_current_state_fields_in": "data/results/chapter2_natural_regime_candidate_dispositions_20260914.json",
+  "historical_candidate_ledger_retained": true,
+  "primary_route_receipt": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
+  "search_closure_receipt": "data/results/chapter2_natural_regime_search_closure_20260915.json",
+  "current_admitted_natural_plane": {
+    "systems": 42,
+    "source_studies": 6,
+    "archipelago_groups": 5,
+    "archipelago_ids": [
+      "balearic_islands",
+      "canary_islands",
+      "great_britain",
+      "hawaiian_islands",
+      "lesser_antilles"
+    ],
+    "source_system_counts": {
+      "aslan_etal_2019_hawaii_native_pollination": 1,
+      "lazaro_etal_2022_mallorca_stability": 19,
+      "lara_romero_etal_2019_tenerife_pollination": 4,
+      "serra_marin_etal_2025_cabrera_pollination": 5,
+      "cyrille_etal_2025_martinique_gardens": 10,
+      "euppollnet_31_roberts_england_step": 3
+    }
+  },
+  "route": "NEE_candidate",
+  "full_source_balanced_summary": {
+    "D1_q90_q10_ratio": 4.521278646360941,
+    "phi_q90_q10_span": 0.3516179223304931,
+    "interior_occupancy": 0.2619047619047619,
+    "abs_weighted_spearman_logD1_phi": 0.32526671599335794,
+    "all_frozen_count_and_dispersion_criteria_pass": true
+  },
+  "leave_largest_source_out": {
+    "excluded_source": "lazaro_etal_2022_mallorca_stability",
+    "systems": 23,
+    "source_studies": 5,
+    "archipelago_groups": 5,
+    "D1_q90_q10_ratio": 5.494373230872861,
+    "phi_q90_q10_span": 0.3516179223304931,
+    "interior_occupancy": 0.2608695652173913,
+    "abs_weighted_spearman_logD1_phi": 0.45385212539892705,
+    "all_frozen_dispersion_criteria_pass": true
+  },
+  "search": {
+    "status": "closed_early_after_predeclared_nee_stop_rule",
+    "closed_on": "2026-09-15",
+    "original_hard_stop": "2026-09-27 Asia/Tokyo",
+    "candidate_hunting_after_closure_forbidden": true,
+    "unopened_candidates_remain_unopened": true
+  },
+  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed. The 2026-09-14 candidate-disposition ledger remains a historical source-structure audit and is not rewritten to erase the earlier 39-system Ecology Letters checkpoint. NEE_candidate is a routing ceiling under the frozen protocol, not a natural threshold, causal validation of the synthetic crossover, or guarantee of acceptance."
+}
