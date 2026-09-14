@@ -1,11 +1,12 @@
-name: Chapter 2 Web of Life candidate audit
+name: Chapter 2 Martinique frozen regime audit
 
 on:
   pull_request:
     paths:
-      - 'scripts/build_preregistered_global_network_candidate_pool.py'
-      - 'scripts/audit_mauritius_temporal_natural_regime_source.py'
-      - 'scripts/audit_martinique_natural_regime_source.py'
+      - 'scripts/adapt_martinique_natural_regime.py'
+      - 'scripts/analyze_chapter2_natural_regime_coordinates.py'
+      - 'scripts/assemble_chapter2_natural_regime_route.py'
+      - 'data/design/chapter2_martinique_natural_regime_admission_20260914.json'
       - '.github/workflows/chapter2_wol_candidate_audit.yml'
 
 jobs:
@@ -17,19 +18,26 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
-      - name: Build frozen outcome-blind candidate pool
-        run: python scripts/build_preregistered_global_network_candidate_pool.py --out data/results/preregistered_global_network_candidate_pool.json
-      - name: Audit Mauritius temporal source before coordinates
-        run: python scripts/audit_mauritius_temporal_natural_regime_source.py
-      - name: Audit Martinique monthly source before coordinates
-        run: python scripts/audit_martinique_natural_regime_source.py
-      - name: Upload source-only audits
-        if: always()
+      - name: Reconstruct frozen Martinique canonical matrix and structural admission
+        run: >-
+          python scripts/adapt_martinique_natural_regime.py
+          --out /tmp/martinique_natural_regime.csv
+          --structure-out /tmp/martinique_structure.json
+      - name: Open Martinique coordinates under frozen common plan
+        run: >-
+          python scripts/analyze_chapter2_natural_regime_coordinates.py
+          /tmp/martinique_natural_regime.csv
+          --out data/results/chapter2_martinique_natural_regime_coordinates_20260914.json
+      - name: Evaluate frozen five-source NEE route
+        run: >-
+          python scripts/assemble_chapter2_natural_regime_route.py
+          --out data/results/chapter2_natural_regime_five_source_checkpoint_20260914.json
+      - name: Upload frozen Martinique and route results
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-wol-mauritius-martinique-source-audit
+          name: chapter2-martinique-five-source-route
           path: |
-            data/results/preregistered_global_network_candidate_pool.json
-            data/results/chapter2_mauritius_temporal_natural_regime_source_audit_20260914.json
-            data/results/chapter2_martinique_natural_regime_source_audit_20260914.json
+            /tmp/martinique_structure.json
+            data/results/chapter2_martinique_natural_regime_coordinates_20260914.json
+            data/results/chapter2_natural_regime_five_source_checkpoint_20260914.json
           if-no-files-found: error
