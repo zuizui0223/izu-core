@@ -23,6 +23,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      - name: Validate frozen six-source route by all-source LOO
+        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
+        run: python scripts/audit_chapter2_six_source_leave_one_source_out.py
+      - name: Independently reconstruct England STEP coordinates
+        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
+        run: python scripts/audit_roberts_england_coordinate_reconstruction.py
+      - name: Upload post-promotion validation diagnostics
+        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-nee-post-promotion-validation
+          path: |
+            data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json
+            data/results/chapter2_roberts_england_coordinate_reconstruction_audit_20260915.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
