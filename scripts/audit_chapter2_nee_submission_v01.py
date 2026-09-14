@@ -10,39 +10,33 @@ DEFAULT_MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md"
 WORD_RE = re.compile(r"\b[\w’'\-]+\b", re.UNICODE)
 
 
-def section(text: str, start: str, end: str | None) -> str:
-    marker = f"## {start}"
-    if marker not in text:
-        raise RuntimeError(f"missing section: {marker}")
-    body = text.split(marker, 1)[1]
-    if end is not None:
-        end_marker = f"## {end}"
-        if end_marker not in body:
-            raise RuntimeError(f"missing section: {end_marker}")
-        body = body.split(end_marker, 1)[0]
-    return body.strip()
-
-
 def word_count(text: str) -> int:
     # Conservative Markdown count: formulas and headings inside the selected
     # section remain countable tokens rather than being silently excluded.
     return len(WORD_RE.findall(text))
 
 
+def split_abstract_and_main(text: str) -> tuple[str, str]:
+    marker = "## Abstract"
+    if marker not in text:
+        raise RuntimeError(f"missing section: {marker}")
+    after = text.split(marker, 1)[1].lstrip()
+    if "## Methods" not in after:
+        raise RuntimeError("missing section: ## Methods")
+    pre_methods = after.split("## Methods", 1)[0].rstrip()
+    # NEE Articles use an unheaded introduction. In the working markdown the
+    # abstract is therefore exactly the first paragraph after ## Abstract.
+    parts = re.split(r"\n\s*\n", pre_methods, maxsplit=1)
+    if len(parts) != 2:
+        raise RuntimeError("could not separate abstract paragraph from unheaded main text")
+    abstract, main_text = parts[0].strip(), parts[1].strip()
+    return abstract, main_text
+
+
 def audit(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
-    abstract = section(text, "Abstract", "Results")
-    # The working markdown keeps the unheaded NEE introduction between
-    # Abstract and Results, so main text is everything after Abstract through
-    # immediately before Methods. Remove only the abstract body itself.
-    after_abstract = text.split("## Abstract", 1)[1]
-    if "## Methods" not in after_abstract:
-        raise RuntimeError("missing section: ## Methods")
-    abstract_and_main = after_abstract.split("## Methods", 1)[0]
-    abstract_body = abstract
-    main_text = abstract_and_main.replace(abstract_body, "", 1)
-
-    abstract_words = word_count(abstract_body)
+    abstract, main_text = split_abstract_and_main(text)
+    abstract_words = word_count(abstract)
     main_text_words = word_count(main_text)
     result = {
         "manuscript": str(path),
@@ -55,7 +49,7 @@ def audit(path: Path) -> dict:
         "display_items_planned": 4,
         "display_items_limit": 6,
         "display_items_pass": 4 <= 6,
-        "counting_rule": "regex word count; text after Abstract through immediately before Methods, with abstract body removed; formulas/headings counted conservatively",
+        "counting_rule": "regex word count; abstract is first paragraph after ## Abstract; main text is all following text through immediately before ## Methods; formulas/headings counted conservatively",
     }
     result["pass"] = all(
         (result["abstract_pass"], result["main_text_pass"], result["display_items_pass"])
