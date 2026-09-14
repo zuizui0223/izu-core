@@ -44,11 +44,19 @@ The three admitted England systems were fixed before their coordinates were open
 
 ## Active manuscript surface
 
-Primary submission draft:
+Submission-clean primary draft:
 
-`docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md`
+`docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_3_SUBMISSION_20260915.md`
 
-The earlier Ecology Letters and Oikos surfaces remain archived scientific fallbacks and provenance. They are not the active primary submission route while this resolution is in force.
+Submission-clean cover letter:
+
+`docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_3_SUBMISSION_20260915.md`
+
+Source-verified reference ledger:
+
+`docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md`
+
+The v0.2 manuscript and earlier Ecology Letters/Oikos surfaces remain archived scientific provenance and internal routing history. They are not the active submission files while this resolution is in force.
 
 ## Retained claim boundaries
 
