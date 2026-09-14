@@ -1,0 +1,24 @@
+name: Chapter 2 Web of Life candidate audit
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/build_preregistered_global_network_candidate_pool.py'
+      - '.github/workflows/chapter2_wol_candidate_audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build frozen outcome-blind candidate pool
+        run: python scripts/build_preregistered_global_network_candidate_pool.py --out data/results/preregistered_global_network_candidate_pool.json
+      - name: Upload candidate pool
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-wol-candidate-pool
+          path: data/results/preregistered_global_network_candidate_pool.json
+          if-no-files-found: error
