@@ -26,12 +26,17 @@ jobs:
       - name: One-off Sicily Bombus source audit
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         run: python scripts/audit_sicily_bombus_natural_regime_source.py
-      - name: Upload one-off Sicily Bombus source audit
+      - name: One-off EuPPollNet repeated-locality screen
+        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
+        run: python scripts/audit_euppollnet_repeated_locality_candidates.py
+      - name: Upload one-off natural source screens
         if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-sicily-bombus-source-audit
-          path: data/results/chapter2_sicily_bombus_natural_regime_source_audit_20260914.json
+          name: chapter2-sicily-euppollnet-source-screens
+          path: |
+            data/results/chapter2_sicily_bombus_natural_regime_source_audit_20260914.json
+            data/results/chapter2_euppollnet_repeated_locality_screen_20260914.json
           if-no-files-found: error
       - name: Run pytest
         run: |
