@@ -23,16 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: One-off Mangal repeated-network screen
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        run: python scripts/audit_mangal_repeated_network_candidates.py
-      - name: Upload one-off Mangal repeated-network screen
-        if: github.head_ref == 'agent/el-higher-order-sufficiency' && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-mangal-repeated-network-screen
-          path: data/results/chapter2_mangal_repeated_network_candidate_screen_20260914.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
