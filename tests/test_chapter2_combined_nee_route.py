@@ -41,4 +41,6 @@ def test_route_decision_has_predeclared_failure_and_promotion_paths() -> None:
     assert nee["minimum_admitted_island_systems"] == 12
     assert nee["minimum_independent_source_studies"] == 3
     assert nee["minimum_island_or_archipelago_groups"] == 2
-    assert "leave" in nee["source_robustness"].lower()
+    robustness = nee["source_robustness"].lower()
+    assert "largest source study" in robustness
+    assert "leav" in robustness
