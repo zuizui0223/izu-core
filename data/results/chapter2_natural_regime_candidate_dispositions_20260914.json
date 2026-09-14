@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "analysis": "chapter2_natural_regime_candidate_dispositions",
   "status": "source_structure_only_no_unopened_coordinates",
   "updated_on": "2026-09-14",
@@ -41,6 +41,19 @@
         "the two marginals do not establish source-native site x year networks"
       ],
       "gate_boundary": "Spatial replication cannot substitute for the frozen minimum of six aligned time bins within each system."
+    },
+    {
+      "source_id": "boieiro_2024_terceira_pollinators_v1_2",
+      "archipelago": "Azores / Terceira",
+      "status": "FAIL_LT6_TIME_BINS_PER_SYSTEM",
+      "biological_negative": false,
+      "evidence": [
+        "checksum-locked v1.2 DwC-A was recovered exactly (56682 bytes; SHA256 887f8ca24585c216ed11c561ca3dcdcc0882aa0aa8e7c99d064a3c9d2370ae8a)",
+        "329 positive interaction-linked transect occurrence rows resolve to 26 stable location IDs",
+        "transect effort is constant at 50 meters",
+        "each of all 26 interaction-linked locations has exactly one source-native eventDate"
+      ],
+      "gate_boundary": "Equal-effort spatial replication across 26 sites cannot substitute for the frozen minimum of six aligned time bins within each stable system. No D1 or phi coordinate was computed."
     }
   ],
   "claim_boundary": "Candidate exclusion or transport blocking is determined from source structure and effort only. No candidate is included, excluded, rescued, or reprioritized using observed D1, phi, or route effects."
