@@ -5,6 +5,7 @@ on:
     paths:
       - 'scripts/build_preregistered_global_network_candidate_pool.py'
       - 'scripts/audit_mauritius_temporal_natural_regime_source.py'
+      - 'scripts/audit_martinique_natural_regime_source.py'
       - '.github/workflows/chapter2_wol_candidate_audit.yml'
 
 jobs:
@@ -20,12 +21,15 @@ jobs:
         run: python scripts/build_preregistered_global_network_candidate_pool.py --out data/results/preregistered_global_network_candidate_pool.json
       - name: Audit Mauritius temporal source before coordinates
         run: python scripts/audit_mauritius_temporal_natural_regime_source.py
+      - name: Audit Martinique monthly source before coordinates
+        run: python scripts/audit_martinique_natural_regime_source.py
       - name: Upload source-only audits
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-wol-mauritius-source-audit
+          name: chapter2-wol-mauritius-martinique-source-audit
           path: |
             data/results/preregistered_global_network_candidate_pool.json
             data/results/chapter2_mauritius_temporal_natural_regime_source_audit_20260914.json
+            data/results/chapter2_martinique_natural_regime_source_audit_20260914.json
           if-no-files-found: error
