@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import re
+import urllib.parse
 import urllib.request
 from collections import Counter
 from pathlib import Path
@@ -18,6 +19,20 @@ def get_bytes(url: str, timeout: int = 120) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": "izu-core-source-audit/1.0", "Accept": "*/*"})
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return response.read()
+
+
+def candidate_urls(spec: dict[str, object]) -> list[str]:
+    """Return byte-identical transport candidates without changing source identity."""
+    original = str(spec["url"])
+    filename = str(spec["filename"])
+    candidates: list[str] = []
+    match = re.search(r"zenodo\.org/records/(\d+)/files/", original)
+    if match:
+        record_id = match.group(1)
+        key = urllib.parse.quote(filename, safe="")
+        candidates.append(f"https://zenodo.org/api/records/{record_id}/files/{key}/content")
+    candidates.append(original)
+    return candidates
 
 
 def md5_bytes(data: bytes) -> str:
@@ -39,7 +54,7 @@ def main() -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     state = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "analysis": "seychelles_2017_temporal_compilation_fallback_audit",
         "target_doi": cfg["target_doi"],
         "compilation_doi": cfg["compilation_doi"],
@@ -50,22 +65,36 @@ def main() -> None:
 
     recovered = {}
     for spec in cfg["files"]:
-        try:
-            data = get_bytes(spec["url"])
-            actual = md5_bytes(data)
-            if actual.lower() != spec["published_md5"].lower():
-                raise RuntimeError(f"MD5 mismatch for {spec['filename']}: {actual}")
-            path = RAW_DIR / spec["filename"]
-            path.write_bytes(data)
-            recovered[spec["filename"]] = path
-            state["files"][spec["filename"]] = {
-                "status": "recovered_md5_verified",
-                "bytes": len(data),
-                "md5": actual,
-                "sha256": sha256_bytes(data),
-            }
-        except Exception as exc:
-            state["files"][spec["filename"]] = {"status": "failed", "error": repr(exc)}
+        attempts = []
+        data = None
+        successful_url = None
+        for url in candidate_urls(spec):
+            try:
+                candidate = get_bytes(url, timeout=90)
+                actual = md5_bytes(candidate)
+                if actual.lower() != str(spec["published_md5"]).lower():
+                    attempts.append({"url": url, "status": "md5_mismatch", "observed_md5": actual})
+                    continue
+                data = candidate
+                successful_url = url
+                attempts.append({"url": url, "status": "recovered_md5_verified", "bytes": len(candidate)})
+                break
+            except Exception as exc:
+                attempts.append({"url": url, "status": "failed", "error": repr(exc)})
+        if data is None:
+            state["files"][spec["filename"]] = {"status": "failed", "attempts": attempts}
+            continue
+        path = RAW_DIR / spec["filename"]
+        path.write_bytes(data)
+        recovered[spec["filename"]] = path
+        state["files"][spec["filename"]] = {
+            "status": "recovered_md5_verified",
+            "transport_url": successful_url,
+            "attempts": attempts,
+            "bytes": len(data),
+            "md5": md5_bytes(data),
+            "sha256": sha256_bytes(data),
+        }
 
     db_path = recovered.get("OIK-07303_database.csv")
     refs_path = recovered.get("OIK-07303_original_studies.xlsx")
