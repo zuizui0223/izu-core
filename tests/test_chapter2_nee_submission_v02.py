@@ -3,6 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DRAFT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_2_20260915.md"
+COVER = ROOT / "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_2_20260915.md"
 RESOLUTION = ROOT / "docs/CHAPTER2_NEE_ROUTE_RESOLUTION_20260915.md"
 
 
@@ -44,6 +45,20 @@ def test_nee_v02_matches_article_surface_and_current_route() -> None:
     assert "does not validate the synthetic `c/i` crossover in nature" in lower
     assert "not as evidence that each part of that space is source-invariant" in lower
     assert "reopening candidate hunting" in lower
+
+
+def test_nee_v02_cover_letter_discloses_scope_and_post_promotion_sensitivity() -> None:
+    text = COVER.read_text(encoding="utf-8")
+    lower = text.lower()
+
+    assert "nature ecology & evolution" in lower
+    assert "42 island interaction systems from six studies and five island or archipelago groups" in lower
+    assert "removing the england step source reduces synchrony dispersion" in lower
+    assert "removing martinique reduces interior occupancy" in lower
+    assert "do not claim that the synthetic determinant crossover has already been observed in nature" in lower
+    assert "internal nee promotion thresholds are routing rules rather than biological boundaries" in lower
+    assert "great britain retains a source compilation’s pre-existing island-study classification" in lower
+    assert "earlier ecology letters and oikos manuscript surfaces remain archived" in lower
 
 
 def test_nee_route_resolution_preserves_promotion_and_sensitivity_boundaries() -> None:
