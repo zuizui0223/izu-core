@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_hawaii_natural_regime_coordinate",
+  "status": "coordinate_computed_under_frozen_admission",
+  "computed_on": "2026-09-14",
+  "admission_record": "data/design/chapter2_hawaii_natural_regime_admission_20260914.json",
+  "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "adapter": "scripts/adapt_hawaii_native_pollination_regime.py",
+  "adapter_freeze_commit": "0bd78d5e7719ffce3b661c7b63c1a79461824b5b",
+  "source": {
+    "source_study_id": "aslan_etal_2019_hawaii_native_pollination",
+    "archipelago_id": "hawaiian_islands",
+    "system_id": "pohakuloa_high_elevation_dryland_pollination_community",
+    "workbook_sha256": "2b0ff40226b2a6d511a111ead8a00660532de3d799aed217e4dc30f00c2b3c27",
+    "canonical_long_csv_rows": 5568,
+    "canonical_long_csv_bytes": 821591,
+    "canonical_long_csv_sha256": "52ab750a3cad8920e8283c5d08b7eef4b873ab79913fd36d12d5c8bb6ea6f3cd"
+  },
+  "coordinate": {
+    "time_bins": 58,
+    "partner_count": 96,
+    "eligible_synchrony_partners": 96,
+    "breadth_D1": 12.872815875234112,
+    "breadth_D1_ci95": [
+      6.481592271388559,
+      15.908436782995715
+    ],
+    "observed_partner_richness": 96,
+    "D1_over_observed_partner_richness": 0.13409183203368866,
+    "median_time_bin_D1": 1.8189685116531735,
+    "phi": 0.1652854098177366,
+    "phi_ci95": [
+      0.13516084596371414,
+      0.32010112612142355
+    ],
+    "mean_pairwise_r": 0.29284773556890054,
+    "rho_eq": 0.15649894044739698
+  },
+  "bootstrap": {
+    "replicates": 1000,
+    "valid_phi_replicates": 1000,
+    "seed": 725219772,
+    "unit": "source-native date"
+  },
+  "route_status_after_this_source_only": {
+    "admitted_island_systems": 1,
+    "independent_source_studies": 1,
+    "archipelago_groups": 1,
+    "route_classification": "not_evaluable_from_Hawaii_alone",
+    "reason": "The combined route requires additional independent admitted systems before source-balanced two-dimensional dispersion or leave-one-source-out promotion criteria are meaningful."
+  },
+  "claim_boundaries": [
+    "This is one natural island-system coordinate, not eight plant-level replicates.",
+    "The coordinate does not identify a synthetic k or a natural threshold.",
+    "One point cannot establish breadth or synchrony dispersion, two-dimensional occupancy, or NEE promotion.",
+    "The admission and adapter were frozen before D1, phi and rho_eq were opened."
+  ]
+}
