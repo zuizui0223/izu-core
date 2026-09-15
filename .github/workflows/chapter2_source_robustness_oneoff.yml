@@ -18,6 +18,8 @@ jobs:
         run: python scripts/audit_seychelles_2017_temporal_compilation_fallback.py
       - name: Verify preserved raw visit/site/month structure
         run: python scripts/audit_seychelles_2017_raw_visit_preservation.py
+      - name: Audit predeclared IWDB mirrors for primary visitfreq workbook
+        run: python scripts/audit_mahe_visitfreq_known_mirror.py
       - name: Upload Mahe source audits
         uses: actions/upload-artifact@v4
         with:
@@ -25,4 +27,5 @@ jobs:
           path: |
             data/results/seychelles_2017_temporal_compilation_fallback_audit.json
             data/results/seychelles_2017_raw_visit_preservation.json
+            data/results/chapter2_mahe_visitfreq_known_mirror_audit_20260915.json
           if-no-files-found: error
