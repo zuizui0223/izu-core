@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "analysis": "chapter2_natural_regime_current_state",
   "status": "canonical_post_search_closure_state",
   "updated_on": "2026-09-15",
@@ -8,6 +8,7 @@
   "primary_route_receipt": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
   "search_closure_receipt": "data/results/chapter2_natural_regime_search_closure_20260915.json",
   "post_promotion_all_source_loo_diagnostic": "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json",
+  "post_promotion_source_robustness_challenge": "data/results/chapter2_natural_regime_source_robustness_challenge_closure_20260915.json",
   "england_independent_reconstruction": "data/results/chapter2_roberts_england_coordinate_reconstruction_audit_20260915.json",
   "active_manuscript": "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_4_SUBMISSION_20260915.md",
   "active_cover_letter": "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_4_SUBMISSION_20260915.md",
@@ -61,18 +62,40 @@
       "interpretation": "England STEP supplies much of the currently sampled high-synchrony edge."
     },
     "martinique_deletion": {
+      "D1_q90_q10_ratio": 2.8829010681771834,
       "interior_occupancy": 0.1875,
       "dispersion_criteria_pass": false,
-      "interpretation": "Martinique materially supplies joint-interior coverage."
+      "interpretation": "Martinique materially supplies joint-interior coverage; breadth dispersion also shrinks but remains above the frozen minimum."
     },
     "interpretation": "The natural plane is source-complementary rather than leave-any-source-out invariant. The frozen promotion rule required largest-source leave-out robustness only."
+  },
+  "post_promotion_source_robustness_extension": {
+    "status": "closed_unsuccessful_no_additional_source_coordinates_opened",
+    "trigger": "England and Martinique were individually load-bearing in the later all-source leave-one-study-out diagnostic.",
+    "candidate_universe_frozen_before_reopened_coordinates": [
+      "Petanidou Aegean / Cyclades",
+      "Sicily Bombus",
+      "Mahe restoration networks",
+      "Giannutri daily networks"
+    ],
+    "candidate_dispositions": [
+      "Aegean: complete outcome-independent site-date sampling frame not reconstructible",
+      "Sicily: raw dates do not reconstruct published 13-14 rounds per site-year",
+      "Mahe: primary standardized visitfreq workbook unavailable; raw-count fallback only",
+      "Giannutri: technical 29-day reconstruction passes but violates the stricter reopened outcome-independent time-bin rule"
+    ],
+    "additional_coordinates_opened": 0,
+    "england_dependence_removed": false,
+    "search_extended_beyond_frozen_four": false,
+    "decision": "retain source-complementarity limitation and do not continue rescue-oriented source hunting"
   },
   "search": {
     "status": "closed_early_after_predeclared_nee_stop_rule",
     "closed_on": "2026-09-15",
     "original_hard_stop": "2026-09-27 Asia/Tokyo",
     "candidate_hunting_after_closure_forbidden": true,
-    "unopened_candidates_remain_unopened": true
+    "unopened_candidates_remain_unopened": true,
+    "post_promotion_robustness_exception": "A separate four-candidate challenge was prospectively frozen after the all-source LOO diagnostic, opened zero candidate coordinates, and is now closed. No additional rescue search is permitted under that challenge."
   },
-  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed. The active submission surface now frames the scientific novelty as a determinant-ranking transportability / response-sufficiency boundary rather than discovery of context-dependent relative importance. The 2026-09-14 candidate-disposition ledger remains historical provenance. NEE_candidate is a routing ceiling under the frozen protocol, not a natural threshold, causal validation of the synthetic crossover, leave-any-source-out invariance, or guarantee of acceptance."
+  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed and after a separate post-promotion source-robustness challenge closed unsuccessfully without opening any additional natural coordinates. The active submission frames novelty as determinant-ranking transportability / response sufficiency. NEE_candidate remains the output of the original frozen routing rule; the natural plane remains source-complementary and is not leave-any-source-out invariant. Natural Hill D1 is not synthetic k or k_eff, and no natural k≈4 threshold is claimed."
 }

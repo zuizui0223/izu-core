@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_post_promotion_source_robustness_candidate_disposition",
+  "candidate_rank": 2,
+  "candidate": "Sicily Bombus",
+  "status": "STRUCTURAL_FAIL_RAW_DATES_DO_NOT_RECONSTRUCT_PUBLISHED_ROUNDS",
+  "evaluated_on": "2026-09-15",
+  "parent_reopening_freeze": "data/design/chapter2_natural_regime_source_robustness_reopen_20260915.json",
+  "source": {
+    "article_doi": "10.1007/s13592-025-01153-4",
+    "official_supplement_filename": "13592_2025_1153_MOESM1_ESM.xlsx",
+    "recovered_bytes": 35167,
+    "sha256": "191c813bb1eddc73d5cb95e29cadae6a68fdb8800cb67d5cc895759863c287cc",
+    "published_design": "2 fixed sites, 2018-2019, April-July, 13-14 rounds per site per year, 1-km two-hour transects, same collector"
+  },
+  "source_structure": [
+    {
+      "system_id": "Fiumedinisi-NAT",
+      "raw_source_native_dates": 26,
+      "dates_by_year": {"2018": 9, "2019": 17},
+      "partner_count": 8,
+      "nonconstant_partner_series": 8,
+      "published_13_to_14_rounds_per_site_year_matched": false
+    },
+    {
+      "system_id": "Buticari-URB",
+      "raw_source_native_dates": 27,
+      "dates_by_year": {"2018": 10, "2019": 17},
+      "partner_count": 8,
+      "nonconstant_partner_series": 8,
+      "published_13_to_14_rounds_per_site_year_matched": false
+    }
+  ],
+  "gate_reason": "The supplement is valid and contains dated individual Bombus-plant records, but the observed unique-date structure does not match the source-defined 13-14 sampling rounds per site-year. Treating capture-positive dates as the sampling frame would condition time-bin inclusion on observing Bombus. The original admission gate therefore fails before coordinate extraction.",
+  "coordinates_opened": false,
+  "D1_opened": false,
+  "phi_opened": false,
+  "biological_negative": false,
+  "robustness_challenge_effect": "No source is added. Continue to candidate rank 3, Mahe restoration networks, under the frozen order.",
+  "claim_boundary": "This is a sampling-frame identification failure, not evidence about Sicily breadth, synchrony, Bombus ecology or the primary NEE route."
+}

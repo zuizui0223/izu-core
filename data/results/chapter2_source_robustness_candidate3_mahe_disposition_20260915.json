@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_post_promotion_source_robustness_candidate_disposition",
+  "candidate_rank": 3,
+  "candidate": "Mahe restoration networks",
+  "status": "TRANSPORT_BLOCKED_PRIMARY_STANDARDIZED_VISITFREQ_UNRECOVERED",
+  "evaluated_on": "2026-09-15",
+  "parent_reopening_freeze": "data/design/chapter2_natural_regime_source_robustness_reopen_20260915.json",
+  "target_study": "Kaiser-Bunbury et al. 2017 Ecosystem restoration strengthens pollination network resilience and function",
+  "target_doi": "10.1038/nature21071",
+  "verified_secondary_compilation": {
+    "doi": "10.5061/dryad.qz612jmbp",
+    "database_md5": "7a70c3e2356611b0871c163a2f9aed4a",
+    "references_md5": "5db9f1b31fc27820e08aeff2b737ef13",
+    "target_rows": 12235,
+    "sites": 8,
+    "month_grain_ids": 8,
+    "site_month_networks": 64,
+    "unique_species_pairs": 581,
+    "one_row_per_visit": true,
+    "secondary_raw_no_visits_preserved": true,
+    "primary_standardized_visitfreq_preserved": false
+  },
+  "known_primary_mirror_audit": {
+    "verified_page": "https://iwdb.nceas.ucsb.edu/html/kaiser-bunbury_et_al_2017.html",
+    "page_bytes": 74683,
+    "page_sha256": "842fd2f3e0f6b2cf104e220d38a85fc5202a5efada0d22052340f243b0a07e3f",
+    "page_exposed_excel_url": "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/excel/Kaiser_Bunbury_et_al_2017.xlsx",
+    "excel_transport_result": "HTTP 404 Not Found",
+    "alternate_recorded_nceas_page": "https://www.nceas.ucsb.edu/interactionweb/html/kaiser-bunbury_et_al_2017.html",
+    "alternate_page_transport_result": "HTTP 404 Not Found"
+  },
+  "gate_reason": "The original IWDB source defines primary interaction strength as standardized visitation frequency (visits/flower/hour multiplied by floral abundance). The verified temporal compilation preserves raw visit counts and the full 8-site x 8-month identity structure but not standardized visitfreq. The only spreadsheet URL exposed by the predeclared live IWDB mirror returns 404. Raw counts cannot substitute because observation time/flower exposure varies and the frozen primary natural-regime gate requires equal or source-native normalizable effort.",
+  "coordinates_opened": false,
+  "D1_opened": false,
+  "phi_opened": false,
+  "biological_negative": false,
+  "robustness_challenge_effect": "No source is added. Continue to candidate rank 4, Giannutri daily networks, under the frozen order.",
+  "claim_boundary": "This is source-byte unavailability for the primary standardized layer, not evidence about Mahe breadth, synchrony, restoration biology or the original NEE route."
+}

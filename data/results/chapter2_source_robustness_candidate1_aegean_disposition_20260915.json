@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_post_promotion_source_robustness_candidate_disposition",
+  "candidate_rank": 1,
+  "candidate": "Petanidou Aegean / Cyclades",
+  "status": "STRUCTURAL_FAIL_COMPLETE_OUTCOME_INDEPENDENT_SAMPLING_FRAME_NOT_RECONSTRUCTIBLE",
+  "evaluated_on": "2026-09-15",
+  "parent_reopening_freeze": "data/design/chapter2_natural_regime_source_robustness_reopen_20260915.json",
+  "source": {
+    "repository": "JoseBSL/EuPPollNet",
+    "tag": "v1.3.0",
+    "dataset_id": "51_Petanidou",
+    "processing_script": "Scripts/1_Processing_networks/51_Petanidou.R",
+    "processing_script_git_blob_sha": "f3cc40599892705996979beb27f0b12e4e3d9d98",
+    "interaction_git_blob_sha": "a068f2ffa63505a20d5bfed3abec3dab540bc622",
+    "flower_git_blob_sha": "8b564cdd7d2f706469fb4a746a96bae016172353"
+  },
+  "source_structure_findings": [
+    "Raw interaction rows contain date, partner identity, Interaction value, Sampling_effort_minutes and Sampling_area_square_meters; the previously audited interaction-positive dates can reach the six-bin floor at three island sites and positive-row effort is 120 minutes / 4000 m2.",
+    "The EuPPollNet processing script treats flower counts as a separate table and explicitly states that there is no unique ID to merge them to interaction observations. Flower counts are grouped to site x plant x month means and Day is then set to NA.",
+    "The EuPPollNet study metadata leaves Sampling_rounds, Sampling_method and Sampling_area_details blank for 51_Petanidou, so the processed metadata does not provide a complete site-date field-visit schedule.",
+    "The final EuPPollNet metadata reports study-level sampling days by year, but it does not identify outcome-independent sampling days for each stable Site_id. Therefore zero-interaction site-days cannot be reconstructed without conditioning time-bin inclusion on observing at least one interaction."
+  ],
+  "gate_reason": "The frozen natural-regime gate requires aligned source-native time bins whose inclusion is outcome independent. Using only dates present in positive interaction rows would select bins on the outcome itself. Flower-count dates cannot repair this because source processing removes day identity before merging. The complete site-date interaction sampling frame is therefore not reconstructible from the pinned public source.",
+  "coordinates_opened": false,
+  "D1_opened": false,
+  "phi_opened": false,
+  "biological_negative": false,
+  "robustness_challenge_effect": "No source is added. Continue to candidate rank 2, Sicily Bombus, under the frozen order.",
+  "claim_boundary": "This is a source-structure failure, not evidence about Aegean interaction breadth, synchrony, biology or the NEE route. No natural coordinate was calculated."
+}
