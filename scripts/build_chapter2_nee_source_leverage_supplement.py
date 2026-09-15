@@ -33,7 +33,7 @@ def build() -> str:
     lines.append("")
     lines.append("## Supplementary Table 1 | Leave-one-study-out source leverage")
     lines.append("")
-    lines.append("| Excluded source study | Systems remaining | D1 q90/q10 | phi q90-q10 | Interior occupancy | |Spearman(log D1, phi)| | All frozen dispersion criteria pass? |")
+    lines.append("| Excluded source study | Systems remaining | D1 q90/q10 | phi q90-q10 | Interior occupancy | Absolute Spearman(log D1, phi) | All frozen dispersion criteria pass? |")
     lines.append("|---|---:|---:|---:|---:|---:|:---:|")
     for row in loo["all_source_leave_one_out"]:
         s = row["summary"]
@@ -48,7 +48,7 @@ def build() -> str:
     lines.append(
         "The full six-source plane contains 42 systems. Source-balanced D1 q90/q10 = "
         f"{fmt(full['D1_q90_q10_ratio'])}, phi span = {fmt(full['phi_q90_q10_span'])}, "
-        f"interior occupancy = {fmt(full['interior_occupancy'])}, and |Spearman| = "
+        f"interior occupancy = {fmt(full['interior_occupancy'])}, and absolute Spearman = "
         f"{fmt(abs(full['weighted_spearman_logD1_phi']))}."
     )
     lines.append("")
