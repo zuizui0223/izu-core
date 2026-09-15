@@ -37,7 +37,9 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
         "chapter2_natural_regime_source_robustness_challenge_closure_20260915.json"
     )
     assert loo["status"] == "post_promotion_diagnostic_not_route_redefinition"
-    assert challenge["status"] == "challenge_closed_no_new_source_admitted"
+    assert challenge["status"] == "CLOSED_UNSUCCESSFUL_NO_ADDITIONAL_SOURCE_COORDINATES_OPENED"
+    assert challenge["coordinates_opened_for_reopened_candidates"] == 0
+    assert challenge["england_dependence_removed"] is False
 
     blockers = manifest["initial_submission_blockers"]
     assert "final author list and order" in blockers
