@@ -47,11 +47,6 @@ Current journal sources:
 8. **Peer-review identity mode**
    - Confirm standard or double-anonymized peer review before generating the final upload files, because this changes where author identities and affiliations appear.
 
-9. **AI/LLM-use disclosure**
-   - Nature Ecology & Evolution states that use of an LLM should be documented in the Methods (or another suitable section if Methods are absent).
-   - This project used OpenAI ChatGPT as an assistive tool during development, including code drafting/review, workflow organization and manuscript editing. The active manuscript therefore still needs a concise factual Methods disclosure before submission.
-   - The disclosure must not credit an LLM as an author and must not imply that LLM output was accepted as empirical evidence without source/code verification.
-
 ## Not initial-submission blockers under the current guidance
 
 - Corresponding-author ORCID linkage: requested before final acceptance, not required to start editorial submission.
@@ -68,6 +63,7 @@ Current journal sources:
 - Source-complementarity is disclosed: England is load-bearing for sampled synchrony dispersion and Martinique for joint-interior occupancy.
 - A prospectively frozen four-candidate source-robustness challenge closed without opening any new natural coordinates or adding a source.
 - Candidate hunting is closed.
+- **AI/LLM-use disclosure is present in Methods.** It identifies OpenAI ChatGPT as an assistive tool for code drafting/review, workflow and source-provenance organization, and language editing; states that LLM output was not treated as empirical evidence or source authority; retains human responsibility for design, analysis, interpretation and the final manuscript; and does not list an LLM as an author.
 
 ## Minimal author reply needed to unlock finalization
 
