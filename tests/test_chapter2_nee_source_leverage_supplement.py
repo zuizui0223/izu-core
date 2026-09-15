@@ -16,9 +16,9 @@ def test_source_leverage_supplement_matches_frozen_diagnostics() -> None:
         "no numerical d1-to-k or d1-to-k_eff mapping is estimated or used",
         "source-complementary rather than leave-any-source-out invariant",
         "great britain retains the pre-existing euppollnet island-study classification",
+        "no candidate values were available for selection",
     ):
         assert required in lower
 
     assert lower.count("| no |") >= 6  # 2 failed LOO rows + 4 unopened candidates
-    assert "candidate values were available for selection" not in lower
     assert Path(OUT).name == "CHAPTER2_NEE_SUPPLEMENTARY_SOURCE_LEVERAGE_20260915.md"
