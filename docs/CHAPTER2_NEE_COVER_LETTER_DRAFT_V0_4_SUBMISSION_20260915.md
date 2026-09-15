@@ -22,7 +22,9 @@ We believe the manuscript is suited to *Nature Ecology & Evolution* because it l
 
 The manuscript does not equate natural Hill diversity with the synthetic effective-number parameter, infer a universal natural threshold, use natural data to retune the models, or claim a natural `C/I` crossover. Great Britain retains EuPPollNet’s pre-existing island-study classification; it was not reclassified after inspecting its location in the regime plane. Source-admission decisions, effort normalization and natural coordinates are versioned with source locks and checksums.
 
-This work is original and is not under consideration elsewhere. Earlier manuscript surfaces developed during the project remain archived provenance and are not simultaneously submitted versions of this manuscript. Any future companion submission reusing frozen model or island-evidence material will disclose overlap explicitly.
+[AUTHOR CONFIRMATION REQUIRED — RELATED MANUSCRIPTS: confirm that this manuscript is not under consideration elsewhere and either confirm that no related manuscripts by any author are under consideration or in press, or list and explain them. Earlier internal manuscript surfaces in this repository are archived provenance and are not simultaneously submitted versions.]
+
+[AUTHOR CONFIRMATION REQUIRED — EDITOR CONTACT: state whether this work has previously been discussed with a *Nature Ecology & Evolution* editor; if yes, identify the editor and summarize the discussion; if no, confirm that no prior discussion occurred.]
 
 Thank you for considering our manuscript.
 
