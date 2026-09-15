@@ -14,13 +14,17 @@ MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_4_SUBMISSION_20260915.md
 COVER = ROOT / "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_4_SUBMISSION_20260915.md"
 REFERENCE_LEDGER = ROOT / "docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md"
 AUTHOR_PROVENANCE = ROOT / "docs/CHAPTER2_AUTHOR_METADATA_PROVENANCE_20260912.md"
+AUTHOR_INTAKE = ROOT / "data/design/chapter2_nee_initial_submission_metadata.json"
 DEFAULT_OUT = ROOT / "dist/chapter2_nee_presubmission"
 
 INITIAL_SUBMISSION_BLOCKERS = [
-    "final author list and order",
-    "corresponding-author designation",
+    "peer-review model selection (single-anonymized or double-anonymized)",
+    "final author list, order, affiliations and exactly one corresponding-author designation",
+    "related-manuscript disclosure and prior Nature Ecology & Evolution editor discussion disclosure",
     "all-author approval",
-    "funding / acknowledgements / competing interests / submission declarations",
+    "acknowledgements / relevant funding / competing interests / submission declarations",
+    "author confirmation of the manuscript-specific ethics statement",
+    "author-reviewed LLM-use statement consistent with Nature Ecology & Evolution policy",
 ]
 PREPUBLICATION_PENDING = [
     "corresponding-author ORCID linkage before final acceptance",
@@ -46,9 +50,11 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
     manuscript_dst = out_dir / "manuscript.md"
     cover_dst = out_dir / "cover_letter.md"
     refs_dst = out_dir / "reference_provenance.md"
+    intake_dst = out_dir / "author_intake.json"
     shutil.copy2(MANUSCRIPT, manuscript_dst)
     shutil.copy2(COVER, cover_dst)
     shutil.copy2(REFERENCE_LEDGER, refs_dst)
+    shutil.copy2(AUTHOR_INTAKE, intake_dst)
 
     rendered = render_all(fig_dir)
     pdfs = sorted(path for path in rendered if path.suffix == ".pdf")
@@ -57,20 +63,21 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         raise RuntimeError(f"expected four PDF and four SVG figures, got {len(pdfs)} PDF / {len(svgs)} SVG")
 
     manifest = {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "status": "PRESUBMISSION_NOT_FINAL",
         "active_manuscript": str(MANUSCRIPT.relative_to(ROOT)),
         "active_cover_letter": str(COVER.relative_to(ROOT)),
         "reference_ledger": str(REFERENCE_LEDGER.relative_to(ROOT)),
         "author_metadata_provenance": str(AUTHOR_PROVENANCE.relative_to(ROOT)),
+        "author_intake": str(AUTHOR_INTAKE.relative_to(ROOT)),
         "files": {},
         "initial_submission_blockers": INITIAL_SUBMISSION_BLOCKERS,
         "prepublication_pending_not_initial_submission_blockers": PREPUBLICATION_PENDING,
         "finalization_rule": (
-            "Do not relabel this archive as an initial-submission-ready journal bundle until the author-controlled "
-            "submission blockers are explicitly supplied and validated. ORCID linkage and a permanent archive DOI "
-            "remain tracked prepublication tasks but do not block initial editorial submission under the current NEE guidelines. "
-            "Scientific analyses, route metrics, natural-source membership and candidate search remain frozen."
+            "Do not relabel this archive as an initial-submission-ready journal bundle until the NEE author-intake "
+            "metadata validates without errors. ORCID linkage and a permanent archive DOI remain tracked prepublication "
+            "tasks but do not block initial editorial submission under the current NEE guidance. Scientific analyses, route "
+            "metrics, natural-source membership and candidate-search closures remain frozen."
         ),
     }
     for path in sorted(p for p in out_dir.rglob("*") if p.is_file()):
