@@ -148,6 +148,8 @@ Systems from one study were retained as systems but not counted as independent s
 
 ### Natural breadth and synchrony
 
+Natural `D1` was not treated as an estimator, calibration or proxy for synthetic `k` or `k_eff`. In the theory, `k` is the nominal number of exchangeable synthetic community components and `k_eff` is a variance-equivalent effective independence determined jointly by `k` and correlation. In the natural analysis, `D1` is the effective diversity of the pooled effort-standardized partner interaction-share distribution. Its role is only to provide an outcome-independent coordinate for realized partner breadth. We estimated no numerical mapping between `D1` and `k` or `k_eff`, and used no natural threshold corresponding to synthetic `k≈4`. The theory-to-data connection is therefore structural: the nonlinear transport argument requires breadth and synchrony to remain separately measured context dimensions; it does not place natural breadth on the synthetic aggregation scale.
+
 Within each system, interaction values were standardized by the source-native effort scalar fixed at admission. Pooled partner shares `p_j` defined breadth as
 
 `D1 = exp[-sum_j p_j log(p_j)]`.
