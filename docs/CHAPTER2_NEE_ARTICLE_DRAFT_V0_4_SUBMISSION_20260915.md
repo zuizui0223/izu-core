@@ -170,6 +170,10 @@ The formal island audit retained the original denominator of 25 research entries
 
 Admission records, source hashes, adapters, analysis plans, regime coordinates, search closure and post-analysis sensitivity diagnostics are versioned in the repository. England STEP was admitted and its adapter frozen before coordinates were opened; an independent implementation later reconstructed its `D1` and `phi` values exactly. The all-source leave-one-study-out analysis was performed only after the primary coverage decision and is reported as a transparency diagnostic, not a retroactive selection rule. A separate four-candidate robustness challenge was prospectively frozen only after that diagnostic and opened no candidate coordinates; its failure is retained as a robustness record rather than a route redefinition.
 
+### AI-assisted development and writing
+
+OpenAI ChatGPT was used as an assistive tool during project development for code drafting and review, workflow and source-provenance organization, and language editing. Large-language-model output was not treated as empirical evidence or as an authority for source qualification. All LLM-assisted code and text were subject to human review and to the versioned tests and provenance checks described above; responsibility for study design, analysis choices, interpretation and the final manuscript remains with the authors. No large language model is listed as an author.
+
 ## Data availability
 
 Natural-regime analyses use the public source datasets cited below. Source locks, checksums and access provenance are recorded in the repository. Source data retain their original licences and repository records.
