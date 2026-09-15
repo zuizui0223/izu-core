@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_post_promotion_source_robustness_challenge",
+  "status": "frozen_before_reopened_source_resolution_or_coordinate_extraction",
+  "frozen_on": "2026-09-15",
+  "parent_primary_route": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
+  "parent_search_closure": "data/results/chapter2_natural_regime_search_closure_20260915.json",
+  "parent_all_source_loo_diagnostic": "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json",
+  "reason_for_prospective_reopening": "The frozen primary NEE route remains valid under its preregistered largest-source leave-out rule, but the later all-source leave-one-study-out diagnostic shows that England STEP is individually load-bearing for synchrony dispersion and Martinique is individually load-bearing for joint-interior occupancy. England STEP is also the most classification-sensitive source because its Great Britain island-study status is inherited from the source compilation. This separate post-promotion robustness analysis is opened prospectively to test whether the England dependence can be removed without altering the primary route, source classifications, thresholds, or existing coordinates.",
+  "primary_route_is_immutable": true,
+  "primary_plane_remains": {
+    "systems": 42,
+    "source_studies": 6,
+    "archipelago_groups": 5,
+    "route": "NEE_candidate"
+  },
+  "target_question": "Can one additional independently admitted island interaction source, drawn from the candidate universe already named at the 2026-09-15 closure, make the natural regime coverage satisfy the frozen dispersion criteria after England STEP is removed?",
+  "candidate_universe_and_order": [
+    {
+      "rank": 1,
+      "candidate": "Petanidou Aegean / Cyclades",
+      "closure_status": "not_admitted_sampling_frame_unresolved",
+      "allowed_work": "Resolve the complete outcome-independent sampling frame from source-native public material only. Do not open D1 or phi unless the original admission gate is satisfied."
+    },
+    {
+      "rank": 2,
+      "candidate": "Sicily Bombus",
+      "closure_status": "not_admitted_source_native_round_mapping_unresolved",
+      "allowed_work": "Resolve the source-native round/date mapping from pinned public material only. Do not open D1 or phi unless the original admission gate is satisfied."
+    },
+    {
+      "rank": 3,
+      "candidate": "Mahe restoration networks",
+      "closure_status": "transport_blocked_not_negative",
+      "allowed_work": "Recover the partner-level effort-standardized temporal network object from the already identified public source or source-equivalent mirror. Do not substitute network-level summaries."
+    },
+    {
+      "rank": 4,
+      "candidate": "Giannutri daily networks",
+      "closure_status": "transport_blocked_not_negative",
+      "allowed_work": "Recover checksum-locked interaction and walking-transect source files and reconstruct the already frozen daily network schedule and effort."
+    }
+  ],
+  "excluded_from_reopened_universe": [
+    {
+      "candidate": "Ireland Mullen",
+      "reason": "The closure audit already returned admitted_system_count_before_coordinates = 0 because six distinct dated rounds with one date and one effort record per round were not reconstructed. It is a structural failure under the current public source, not an unresolved coordinate result."
+    },
+    {
+      "candidate": "newly discovered sources after closure",
+      "reason": "Open-ended candidate hunting is not permitted in this robustness challenge. If the four pre-existing unresolved/unavailable candidates fail, the challenge ends unsuccessful rather than expanding the search universe."
+    }
+  ],
+  "unchanged_admission_and_coordinate_contract": {
+    "admission_gate": "data/design/chapter2_natural_regime_admission_gate_20260913.json",
+    "analysis_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+    "time_bin_rule": "source-native and outcome-independent",
+    "partner_identity_rule": "source-native and frozen before coordinates",
+    "effort_rule": "known, equal, or source-native normalizable before coordinates",
+    "breadth": "pooled effort-standardized Hill D1",
+    "synchrony": "Loreau-de Mazancourt phi",
+    "source_balancing": "unchanged",
+    "thresholds": "unchanged"
+  },
+  "per_candidate_sequence": [
+    "Resolve source structure without computing D1 or phi.",
+    "If the original admission gate fails, record a structural or availability disposition and continue to the next frozen candidate.",
+    "If the gate passes, freeze an admission record and deterministic adapter before computing coordinates.",
+    "Open coordinates only after admission and adapter are committed.",
+    "Add the admitted source only to the post-promotion robustness-challenge plane; do not rewrite the frozen 42-system primary plane.",
+    "Recompute the frozen dispersion summary after removing England STEP and including the candidate source."
+  ],
+  "primary_success_rule": {
+    "evaluation_set": "original 42-system plane minus England STEP plus the newly admitted candidate source",
+    "D1_q90_q10_ratio_min": 2.0,
+    "phi_q90_q10_span_min": 0.20,
+    "absolute_source_balanced_spearman_logD1_phi_max": 0.80,
+    "interior_occupancy_min": 0.20,
+    "decision": "PASS only if all four dispersion criteria pass under the unchanged source-balanced calculation."
+  },
+  "secondary_diagnostics_not_used_for_candidate_selection": [
+    "Full leave-one-source-out table after adding the candidate source.",
+    "Whether Martinique removal also becomes non-load-bearing.",
+    "Candidate coordinate location and confidence intervals beyond their role in the prespecified England-removal challenge."
+  ],
+  "stop_rule": "Stop immediately after the first candidate in the frozen order that is admitted under the original gate and makes the England-removal challenge pass. If an admitted candidate fails the challenge, retain that result and continue to the next frozen candidate. If all four candidates fail admission, remain unavailable, or fail the challenge, stop and retain the existing source-complementarity limitation.",
+  "prohibitions": [
+    "Do not change the original six-source NEE route decision or its stop-early record.",
+    "Do not remove or reclassify England STEP based on its route effect.",
+    "Do not select candidates based on observed D1, phi, or route improvement.",
+    "Do not change thresholds, source weights, time bins, partner identities, or effort rules after coordinates are opened.",
+    "Do not search for newly discovered sources if the frozen four-candidate universe is exhausted.",
+    "Do not describe a robustness-challenge PASS as prospective validation of the synthetic C/I crossover."
+  ],
+  "reporting_rule": "The manuscript must continue to report the original six-source all-LOO diagnostic. If this challenge passes, report it explicitly as a post-promotion robustness extension opened because England was load-bearing, not as part of the original route-selection protocol. If it fails, retain the England source-dependence limitation unchanged."
+}
