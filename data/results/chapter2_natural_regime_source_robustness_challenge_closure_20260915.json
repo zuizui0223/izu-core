@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_natural_regime_post_promotion_source_robustness_challenge_closure",
+  "status": "CLOSED_UNSUCCESSFUL_NO_ADDITIONAL_SOURCE_COORDINATES_OPENED",
+  "closed_on": "2026-09-15",
+  "freeze": "data/design/chapter2_natural_regime_source_robustness_reopen_20260915.json",
+  "primary_route_unchanged": {
+    "route": "NEE_candidate",
+    "systems": 42,
+    "source_studies": 6,
+    "archipelago_groups": 5,
+    "receipt": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
+    "reason": "The post-promotion challenge was a separate robustness extension and never redefined the preregistered largest-source leave-out route rule."
+  },
+  "trigger": {
+    "diagnostic": "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json",
+    "england_step_deletion_phi_span": 0.16191152612338316,
+    "martinique_deletion_interior_occupancy": 0.1875,
+    "interpretation": "The natural regime plane is source-complementary rather than leave-any-source-out invariant."
+  },
+  "candidate_sequence": [
+    {
+      "rank": 1,
+      "candidate": "Petanidou Aegean / Cyclades",
+      "disposition": "STRUCTURAL_FAIL_COMPLETE_OUTCOME_INDEPENDENT_SAMPLING_FRAME_NOT_RECONSTRUCTIBLE",
+      "coordinate_opened": false,
+      "receipt": "data/results/chapter2_source_robustness_candidate1_aegean_disposition_20260915.json"
+    },
+    {
+      "rank": 2,
+      "candidate": "Sicily Bombus",
+      "disposition": "STRUCTURAL_FAIL_RAW_DATES_DO_NOT_RECONSTRUCT_PUBLISHED_ROUNDS",
+      "coordinate_opened": false,
+      "receipt": "data/results/chapter2_source_robustness_candidate2_sicily_disposition_20260915.json"
+    },
+    {
+      "rank": 3,
+      "candidate": "Mahe restoration networks",
+      "disposition": "TRANSPORT_BLOCKED_PRIMARY_STANDARDIZED_VISITFREQ_UNRECOVERED",
+      "coordinate_opened": false,
+      "receipt": "data/results/chapter2_source_robustness_candidate3_mahe_disposition_20260915.json"
+    },
+    {
+      "rank": 4,
+      "candidate": "Giannutri daily networks",
+      "disposition": "FAIL_REOPENED_CHALLENGE_OUTCOME_INDEPENDENT_TIME_BIN_RULE",
+      "coordinate_opened": false,
+      "receipt": "data/results/chapter2_source_robustness_candidate4_giannutri_disposition_20260915.json"
+    }
+  ],
+  "coordinates_opened_for_reopened_candidates": 0,
+  "candidate_values_used_for_selection": false,
+  "england_dependence_removed": false,
+  "decision": "RETAIN_ORIGINAL_NEE_CANDIDATE_AND_REPORT_SOURCE_COMPLEMENTARITY_EXPLICITLY",
+  "search_rule_after_closure": "Do not search additional sources to rescue the England deletion diagnostic. The prospectively frozen four-candidate universe is exhausted. A future new source may be evaluated only under a new scientifically motivated prospective study, not as continuation of this rescue challenge.",
+  "manuscript_consequence": [
+    "Keep the original six-source all-source leave-one-study-out diagnostic visible: England is load-bearing for synchrony dispersion and Martinique for joint-interior occupancy.",
+    "Do not claim leave-any-source-out invariance.",
+    "Retain Great Britain's pre-existing EuPPollNet island-study classification and do not reclassify it from its route effect.",
+    "Retain the NEE route as the result of the original frozen rule, not as a result of this unsuccessful extension.",
+    "Move the natural D1 versus synthetic k/k_eff distinction into Methods before the natural coordinate formula."
+  ],
+  "claim_boundary": "This closure documents an unsuccessful attempt to remove a known source-dependence after promotion. It is evidence about robustness and data availability only. It neither strengthens nor invalidates the original route decision and it does not provide new natural D1 or phi values."
+}
