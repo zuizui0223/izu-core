@@ -1,0 +1,24 @@
+name: Chapter 2 source robustness one-off
+
+on:
+  pull_request:
+
+jobs:
+  audit-sicily-source-structure:
+    if: github.head_ref == 'agent/ch2-nee-source-robustness'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Audit Sicily source structure only
+        run: python scripts/audit_sicily_bombus_natural_regime_source.py
+      - name: Upload Sicily source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-source-robustness-sicily
+          path: data/results/chapter2_sicily_bombus_natural_regime_source_audit_20260914.json
+          if-no-files-found: error
