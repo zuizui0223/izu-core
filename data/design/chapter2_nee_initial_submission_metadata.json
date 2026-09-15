@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "journal": "Nature Ecology & Evolution",
+  "article_type": "Article",
+  "status": "AUTHOR_INPUT_REQUIRED",
+  "peer_review_model": "",
+  "authors": [
+    {
+      "name": "ZHANG RUIQI",
+      "affiliations": [
+        "Division of Forest and Biomaterials Science, Graduate School of Agriculture, Kyoto University, Kitashirakawa Oiwake-cho, Sakyo-ku, Kyoto 606-8502, Japan"
+      ],
+      "email": "zhang.ruiqi.77h@st.kyoto-u.ac.jp",
+      "postal_address": "Kitashirakawa Oiwake-cho, Sakyo-ku, Kyoto 606-8502, Japan",
+      "corresponding_author": null,
+      "orcid": ""
+    }
+  ],
+  "related_manuscripts_under_consideration_or_in_press": "",
+  "prior_discussions_with_nee_editor": "",
+  "acknowledgements": "None",
+  "funding_statement": "None",
+  "competing_interests": "",
+  "ethics_statement": "This manuscript reports simulations, source-audited synthesis of published literature and secondary analysis of public plant-pollinator datasets. It contains no new research involving human participants, live vertebrate animals or newly collected specimens requiring new ethical approval.",
+  "ethics_statement_confirmed": false,
+  "llm_use_statement": "OpenAI ChatGPT was used to assist with language editing, code/workflow review and manuscript organization. All scientific decisions, analyses, source verification and final text were reviewed and approved by the authors.",
+  "llm_use_statement_confirmed": false,
+  "submission_declarations": {
+    "not_published_or_under_consideration_elsewhere_except_disclosed_related_work": false,
+    "all_authors_approve_submission": false,
+    "all_entitled_authors_included": false,
+    "necessary_acknowledgements_made": false,
+    "legal_and_policy_requirements_met": false,
+    "third_party_data_reuse_is_permitted": false
+  },
+  "prepublication_pending_not_initial_submission_blockers": [
+    "corresponding-author ORCID linkage before final acceptance",
+    "permanent archived code/data release DOI before publication"
+  ],
+  "claim_boundary": "This file is author-controlled submission metadata only. It must not alter scientific analyses, natural-source membership, route metrics, candidate-search closure or manuscript claim boundaries."
+}
