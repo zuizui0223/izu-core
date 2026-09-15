@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  audit-sicily-source-structure:
+  audit-mahe-source-structure:
     if: github.head_ref == 'agent/ch2-nee-source-robustness'
     runs-on: ubuntu-latest
     steps:
@@ -14,11 +14,15 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Audit Sicily source structure only
-        run: python scripts/audit_sicily_bombus_natural_regime_source.py
-      - name: Upload Sicily source audit
+      - name: Recover verified temporal compilation and identify Kaiser-Bunbury 2017
+        run: python scripts/audit_seychelles_2017_temporal_compilation_fallback.py
+      - name: Verify preserved raw visit/site/month structure
+        run: python scripts/audit_seychelles_2017_raw_visit_preservation.py
+      - name: Upload Mahe source audits
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-source-robustness-sicily
-          path: data/results/chapter2_sicily_bombus_natural_regime_source_audit_20260914.json
+          name: chapter2-source-robustness-mahe
+          path: |
+            data/results/seychelles_2017_temporal_compilation_fallback_audit.json
+            data/results/seychelles_2017_raw_visit_preservation.json
           if-no-files-found: error
