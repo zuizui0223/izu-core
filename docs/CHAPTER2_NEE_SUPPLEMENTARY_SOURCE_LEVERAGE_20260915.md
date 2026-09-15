@@ -4,7 +4,7 @@ This supplement reports diagnostics that are deliberately stricter than the froz
 
 ## Supplementary Table 1 | Leave-one-study-out source leverage
 
-| Excluded source study | Systems remaining | D1 q90/q10 | phi q90-q10 | Interior occupancy | |Spearman(log D1, phi)| | All frozen dispersion criteria pass? |
+| Excluded source study | Systems remaining | D1 q90/q10 | phi q90-q10 | Interior occupancy | Absolute Spearman(log D1, phi) | All frozen dispersion criteria pass? |
 |---|---:|---:|---:|---:|---:|:---:|
 | Hawaii (Aslan et al. 2019) | 41 | 6.661 | 0.352 | 0.268 | 0.343 | yes |
 | Martinique (Cyrille 2025) | 32 | 2.883 | 0.352 | 0.188 | 0.358 | no |
@@ -13,7 +13,7 @@ This supplement reports diagnostics that are deliberately stricter than the froz
 | Mallorca (Lázaro et al. 2022) | 23 | 5.494 | 0.352 | 0.261 | 0.454 | yes |
 | Cabrera (Serra-Marin et al. 2025) | 37 | 6.199 | 0.337 | 0.270 | 0.326 | yes |
 
-The full six-source plane contains 42 systems. Source-balanced D1 q90/q10 = 4.521, phi span = 0.352, interior occupancy = 0.262, and |Spearman| = 0.325.
+The full six-source plane contains 42 systems. Source-balanced D1 q90/q10 = 4.521, phi span = 0.352, interior occupancy = 0.262, and absolute Spearman = 0.325.
 
 Two exclusions are load-bearing under the stricter all-source diagnostic. Removing England STEP reduces synchrony dispersion below the frozen numerical floor (phi span = 0.162). Removing Martinique reduces joint-interior occupancy below the frozen numerical floor (0.188), although breadth dispersion remains >2. These diagnostics were calculated after the primary route decision and do not redefine that decision.
 
