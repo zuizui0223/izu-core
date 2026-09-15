@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_post_promotion_source_robustness_candidate_disposition",
+  "candidate_rank": 4,
+  "candidate": "Giannutri daily networks",
+  "status": "FAIL_REOPENED_CHALLENGE_OUTCOME_INDEPENDENT_TIME_BIN_RULE",
+  "evaluated_on": "2026-09-15",
+  "parent_reopening_freeze": "data/design/chapter2_natural_regime_source_robustness_reopen_20260915.json",
+  "source": {
+    "article_doi": "10.1016/j.cub.2025.02.048",
+    "zenodo_doi": "10.5281/zenodo.14855496",
+    "published_network_scope": "daily flower-visit networks using Apis mellifera, Anthophora dispar and Bombus terrestris",
+    "published_daily_network_count": 29
+  },
+  "source_recovery": {
+    "checksum_locked_required_files_recovered": 4,
+    "checksum_locked_required_files_expected": 4,
+    "all_checksums_match": true,
+    "flower_visit_source_sha256": "d28233d4a95e7dfe0f8048f917b424eabaffa97c9d37bb270b17d947a07f33ca",
+    "walking_transect_source_sha256": "952ec0c8bf28d9c38cdd1dc1c0014a11764040129c874f9b17a8ccfc0d03b84d",
+    "resource_use_code_sha256": "a8b6a0acaa7a5082264d93f5ab01067d6fc79ab1a202d8ff06fd3b76eed79a39"
+  },
+  "technical_structure_audit": {
+    "locked_date_count": 29,
+    "reconstructed_date_count": 29,
+    "exact_locked_date_match": true,
+    "all_locked_dates_have_positive_walking_transect_effort": true,
+    "focal_partner_count": 3,
+    "all_three_partner_series_nonconstant_after_effort_standardization": true,
+    "technical_audit_decision_before_reopened_rule_check": "ADMIT_BEFORE_COORDINATES"
+  },
+  "reopened_rule_conflict": {
+    "frozen_rule": "source-native and outcome-independent time bins",
+    "source_selection_rule": "After source-native pooling, remove a date if either Anthophora dispar or Bombus terrestris has fewer than 10 non-volo observations.",
+    "source_selection_depends_on_interaction_outcome": true,
+    "reason": "The retained 29 daily networks are conditioned on focal-bee interaction counts. This is a legitimate source-defined network subset for the original paper, but it is not outcome-independent under the stricter post-promotion robustness-challenge freeze. Admitting it after applying the same stricter rule to Aegean would be inconsistent."
+  },
+  "coordinates_opened": false,
+  "D1_opened": false,
+  "phi_opened": false,
+  "biological_negative": false,
+  "robustness_challenge_effect": "No source is added. The four-candidate prospectively frozen robustness challenge is exhausted without an admissible additional source.",
+  "claim_boundary": "This failure is specific to the stricter post-promotion robustness challenge. It does not invalidate the Giannutri source paper, the checksum-locked source reconstruction, the original six-source NEE route, or the source-defined 29-network analysis for other purposes."
+}
