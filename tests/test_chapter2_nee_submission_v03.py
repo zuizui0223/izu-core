@@ -24,6 +24,7 @@ def test_submission_clean_nee_article_format_claims_and_novelty_boundary() -> No
     text = MANUSCRIPT.read_text(encoding="utf-8")
     lower = text.lower()
     abstract, main, discussion = manuscript_sections(text)
+    methods = text.split("## Methods", 1)[1].split("## Data availability", 1)[0].lower()
 
     assert wc(abstract) <= 200, wc(abstract)
     assert wc(main) <= 3500, wc(main)
@@ -55,6 +56,14 @@ def test_submission_clean_nee_article_format_claims_and_novelty_boundary() -> No
         "analysis-design safeguards, not biological thresholds",
     ):
         assert required in lower
+
+    # The natural breadth coordinate must be separated from the synthetic
+    # aggregation scale in Methods, before any natural-coordinate formula is used.
+    assert "natural `d1` was not treated as an estimator, calibration or proxy for synthetic `k` or `k_eff`" in methods
+    assert "outcome-independent coordinate for realized partner breadth" in methods
+    assert "estimated no numerical mapping between `d1` and `k` or `k_eff`" in methods
+    assert "used no natural threshold corresponding to synthetic `k≈4`" in methods
+    assert methods.index("natural `d1` was not treated") < methods.index("`d1 = exp[-sum_j p_j log(p_j)]`")
 
     # Context-dependent importance is prior art; novelty is the sufficiency /
     # transportability boundary after context compression.
