@@ -54,6 +54,9 @@ def test_submission_clean_nee_article_format_claims_and_novelty_boundary() -> No
         "do not validate the synthetic `c/i` crossover",
         "natural hill `d1` is not synthetic `k`",
         "analysis-design safeguards, not biological thresholds",
+        "separate four-candidate robustness challenge",
+        "no additional `d1` or `phi` values were opened",
+        "no source was added",
     ):
         assert required in lower
 
@@ -64,6 +67,8 @@ def test_submission_clean_nee_article_format_claims_and_novelty_boundary() -> No
     assert "estimated no numerical mapping between `d1` and `k` or `k_eff`" in methods
     assert "used no natural threshold corresponding to synthetic `k≈4`" in methods
     assert methods.index("natural `d1` was not treated") < methods.index("`d1 = exp[-sum_j p_j log(p_j)]`")
+    assert "post-promotion robustness challenge prospectively froze four previously unresolved candidates" in methods
+    assert "none passed to coordinate extraction" in methods
 
     # Context-dependent importance is prior art; novelty is the sufficiency /
     # transportability boundary after context compression.
@@ -97,6 +102,9 @@ def test_submission_clean_cover_letter_matches_transportability_ceiling() -> Non
     assert "42 island interaction systems from six studies and five island or archipelago groups" in lower
     assert "removing england step reduces synchrony dispersion" in lower
     assert "removing martinique reduces interior occupancy" in lower
+    assert "prospectively froze a separate four-candidate robustness challenge" in lower
+    assert "no new natural coordinates were opened" in lower
+    assert "source-complementarity limitation remains" in lower
     assert "0/25** with the complete outcome-independent determinant–response contract" in lower
     assert "do not claim that the synthetic determinant crossover has already been observed in nature" in lower
     assert "great britain retains euppollnet’s pre-existing island-study classification" in lower
