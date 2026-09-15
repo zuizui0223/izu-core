@@ -16,6 +16,7 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
             "manuscript.md",
             "cover_letter.md",
             "reference_provenance.md",
+            "supplementary_source_leverage.md",
             "author_intake.json",
             "PRESUBMISSION_MANIFEST.json",
         } <= names
@@ -25,11 +26,15 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
         assert len(figure_svgs) == 4
         manifest = json.loads(zf.read("PRESUBMISSION_MANIFEST.json"))
         intake = json.loads(zf.read("author_intake.json"))
+        supplement = zf.read("supplementary_source_leverage.md").decode("utf-8")
 
-    assert manifest["schema_version"] == "1.2"
+    assert manifest["schema_version"] == "1.3"
     assert manifest["status"] == "PRESUBMISSION_NOT_FINAL"
     assert manifest["author_intake"] == "data/design/chapter2_nee_initial_submission_metadata.json"
+    assert manifest["source_leverage_supplement"] == "docs/CHAPTER2_NEE_SUPPLEMENTARY_SOURCE_LEVERAGE_20260915.md"
     assert intake["status"] == "AUTHOR_INPUT_REQUIRED"
+    assert "england step reduces synchrony dispersion" in supplement.lower()
+    assert "all four candidates closed before d1 or phi extraction" in supplement.lower()
 
     blockers = "\n".join(manifest["initial_submission_blockers"])
     assert "peer-review model selection" in blockers
