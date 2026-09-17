@@ -1,6 +1,11 @@
 from pathlib import Path
 
+from scripts import build_chapter2_nee_presubmission_bundle as bundle
 from scripts.render_chapter2_nee_v04_submission_figures import render_all
+
+
+def test_presubmission_bundle_uses_v04_submission_renderer() -> None:
+    assert bundle.render_all.__module__ == "scripts.render_chapter2_nee_v04_submission_figures"
 
 
 def test_nee_v04_submission_figures_render_from_frozen_results(tmp_path: Path) -> None:
