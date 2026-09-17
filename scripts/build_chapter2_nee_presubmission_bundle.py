@@ -13,7 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_4_SUBMISSION_20260915.md"
 COVER = ROOT / "docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_4_SUBMISSION_20260915.md"
 REFERENCE_LEDGER = ROOT / "docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md"
-SOURCE_LEVERAGE_SUPPLEMENT = ROOT / "docs/CHAPTER2_NEE_SUPPLEMENTARY_SOURCE_LEVERAGE_20260915.md"
+SUPPLEMENTARY_TABLES = ROOT / "docs/CHAPTER2_NEE_SUPPLEMENTARY_TABLES_20260917.md"
+FIGURE_TABLE_RESULT_MAP = ROOT / "docs/CHAPTER2_NEE_FIGURE_TABLE_RESULT_MAP_20260917.md"
 AUTHOR_PROVENANCE = ROOT / "docs/CHAPTER2_AUTHOR_METADATA_PROVENANCE_20260912.md"
 AUTHOR_INTAKE = ROOT / "data/design/chapter2_nee_initial_submission_metadata.json"
 ALL_SOURCE_LOO = ROOT / "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json"
@@ -55,14 +56,17 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
     manuscript_dst = out_dir / "manuscript.md"
     cover_dst = out_dir / "cover_letter.md"
     refs_dst = out_dir / "reference_provenance.md"
-    supplement_dst = out_dir / "supplementary_source_leverage.md"
+    tables_dst = out_dir / "supplementary_tables.md"
+    map_dst = out_dir / "figure_table_result_map.md"
     intake_dst = out_dir / "author_intake.json"
     loo_dst = provenance_dir / "all_source_leave_one_out.json"
     challenge_dst = provenance_dir / "source_robustness_challenge_closure.json"
+
     shutil.copy2(MANUSCRIPT, manuscript_dst)
     shutil.copy2(COVER, cover_dst)
     shutil.copy2(REFERENCE_LEDGER, refs_dst)
-    shutil.copy2(SOURCE_LEVERAGE_SUPPLEMENT, supplement_dst)
+    shutil.copy2(SUPPLEMENTARY_TABLES, tables_dst)
+    shutil.copy2(FIGURE_TABLE_RESULT_MAP, map_dst)
     shutil.copy2(AUTHOR_INTAKE, intake_dst)
     shutil.copy2(ALL_SOURCE_LOO, loo_dst)
     shutil.copy2(SOURCE_ROBUSTNESS_CLOSURE, challenge_dst)
@@ -74,12 +78,13 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         raise RuntimeError(f"expected four PDF and four SVG figures, got {len(pdfs)} PDF / {len(svgs)} SVG")
 
     manifest = {
-        "schema_version": "1.4",
+        "schema_version": "1.5",
         "status": "PRESUBMISSION_NOT_FINAL",
         "active_manuscript": str(MANUSCRIPT.relative_to(ROOT)),
         "active_cover_letter": str(COVER.relative_to(ROOT)),
         "reference_ledger": str(REFERENCE_LEDGER.relative_to(ROOT)),
-        "source_leverage_supplement": str(SOURCE_LEVERAGE_SUPPLEMENT.relative_to(ROOT)),
+        "supplementary_tables": str(SUPPLEMENTARY_TABLES.relative_to(ROOT)),
+        "figure_table_result_map": str(FIGURE_TABLE_RESULT_MAP.relative_to(ROOT)),
         "author_metadata_provenance": str(AUTHOR_PROVENANCE.relative_to(ROOT)),
         "author_intake": str(AUTHOR_INTAKE.relative_to(ROOT)),
         "analysis_provenance": {
