@@ -1,15 +1,15 @@
 from pathlib import Path
 
 from scripts import build_chapter2_nee_presubmission_bundle as bundle
-from scripts.render_chapter2_nee_v04_submission_figures import render_all
+from scripts.render_chapter2_nee_submission_figures import render_all
 
 ROOT = Path(__file__).resolve().parents[1]
 SUPPLEMENTARY_TABLES = ROOT / "docs/CHAPTER2_NEE_SUPPLEMENTARY_TABLES_20260917.md"
 FIGURE_TABLE_MAP = ROOT / "docs/CHAPTER2_NEE_FIGURE_TABLE_RESULT_MAP_20260917.md"
 
 
-def test_presubmission_bundle_uses_v04_submission_renderer() -> None:
-    assert bundle.render_all.__module__ == "scripts.render_chapter2_nee_v04_submission_figures"
+def test_presubmission_bundle_uses_submission_renderer() -> None:
+    assert bundle.render_all.__module__ == "scripts.render_chapter2_nee_submission_figures"
 
 
 def test_nee_v04_submission_figures_render_from_frozen_results(tmp_path: Path) -> None:
