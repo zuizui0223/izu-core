@@ -83,7 +83,7 @@ Under active plant adjustment, pooling independent community trajectories across
 
 Starting state exceeds community realization from `k=4` onward in **6/6** prespecified seeds, while non-additivity is the largest component at `k=4`.
 
-The numerical crossover near `k=4` is model-specific and is not transferred to nature.
+**The numerical synthetic crossover is not transferred to nature.** The crossover near `k=4` is a model-specific coordinate, not a natural ecological threshold.
 
 ### 5. Branching is finite-community, not a deterministic mean-field property
 
@@ -104,7 +104,7 @@ This connects directly to Chapter 1: assurance can recur globally as insurance w
 | Level | Question | Current Chapter 2 answer | Claim ceiling |
 |---|---|---|---|
 | **HOW** | Through what response architecture does pollinator reorganization propagate? | Starting functional state and realized pollinator community jointly determine response branch through trait matching; richness and turnover influence the realized regime but do not uniquely determine branch direction. | Directly represented and audited within the declared synthetic model. |
-| **Proximal WHY** | Why can the same broad perturbation yield different responses? | Because response is conditional on starting state × realized community, with strong non-additivity; the relative importance of state, community and interaction changes across finite-community regimes. | Mechanistic existence argument within the frozen synthetic design. The synthetic crossover is not a natural threshold. |
+| **Proximal WHY** | Why can the same broad perturbation yield different responses? | Because response is conditional on starting state × realized community, with strong non-additivity; the relative importance of state, community and interaction changes across finite-community regimes. | Mechanistic existence argument within the frozen synthetic design. The numerical synthetic crossover is not transferred to nature. |
 | **Ultimate WHY** | Why did an island acquire its biota, starting states or interaction architecture? | Not tested. | Assembly, colonization, persistence, historical partner loss and evolutionary history remain upstream explanations. |
 
 ## Relationship to Chapter 1
