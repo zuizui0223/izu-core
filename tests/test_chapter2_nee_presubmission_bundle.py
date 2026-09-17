@@ -12,6 +12,7 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
 
     with zipfile.ZipFile(zip_path) as zf:
         names = set(zf.namelist())
+        # Keep both the readable supplement and its exact frozen analysis receipts in the submission archive.
         assert {
             "manuscript.md",
             "cover_letter.md",
