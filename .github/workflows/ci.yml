@@ -28,6 +28,18 @@ jobs:
           pytest -q \
             tests/test_chapter2_nee_v04_submission_figures.py \
             tests/test_chapter2_nee_presubmission_bundle.py
+      - name: Build NEE presubmission paper assets
+        if: matrix.python-version == '3.11'
+        run: python -m scripts.build_chapter2_nee_presubmission_bundle --out-dir dist/chapter2_nee_presubmission
+      - name: Upload NEE presubmission paper assets
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-nee-presubmission-paper-assets
+          path: |
+            dist/chapter2_nee_presubmission/**
+            dist/chapter2_nee_presubmission_bundle.zip
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
