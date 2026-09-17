@@ -16,6 +16,8 @@ REFERENCE_LEDGER = ROOT / "docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md"
 SOURCE_LEVERAGE_SUPPLEMENT = ROOT / "docs/CHAPTER2_NEE_SUPPLEMENTARY_SOURCE_LEVERAGE_20260915.md"
 AUTHOR_PROVENANCE = ROOT / "docs/CHAPTER2_AUTHOR_METADATA_PROVENANCE_20260912.md"
 AUTHOR_INTAKE = ROOT / "data/design/chapter2_nee_initial_submission_metadata.json"
+ALL_SOURCE_LOO = ROOT / "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json"
+SOURCE_ROBUSTNESS_CLOSURE = ROOT / "data/results/chapter2_natural_regime_source_robustness_challenge_closure_20260915.json"
 DEFAULT_OUT = ROOT / "dist/chapter2_nee_presubmission"
 
 INITIAL_SUBMISSION_BLOCKERS = [
@@ -47,17 +49,23 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     fig_dir = out_dir / "figures"
     fig_dir.mkdir(parents=True, exist_ok=True)
+    provenance_dir = out_dir / "provenance"
+    provenance_dir.mkdir(parents=True, exist_ok=True)
 
     manuscript_dst = out_dir / "manuscript.md"
     cover_dst = out_dir / "cover_letter.md"
     refs_dst = out_dir / "reference_provenance.md"
     supplement_dst = out_dir / "supplementary_source_leverage.md"
     intake_dst = out_dir / "author_intake.json"
+    loo_dst = provenance_dir / "all_source_leave_one_out.json"
+    challenge_dst = provenance_dir / "source_robustness_challenge_closure.json"
     shutil.copy2(MANUSCRIPT, manuscript_dst)
     shutil.copy2(COVER, cover_dst)
     shutil.copy2(REFERENCE_LEDGER, refs_dst)
     shutil.copy2(SOURCE_LEVERAGE_SUPPLEMENT, supplement_dst)
     shutil.copy2(AUTHOR_INTAKE, intake_dst)
+    shutil.copy2(ALL_SOURCE_LOO, loo_dst)
+    shutil.copy2(SOURCE_ROBUSTNESS_CLOSURE, challenge_dst)
 
     rendered = render_all(fig_dir)
     pdfs = sorted(path for path in rendered if path.suffix == ".pdf")
@@ -66,7 +74,7 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         raise RuntimeError(f"expected four PDF and four SVG figures, got {len(pdfs)} PDF / {len(svgs)} SVG")
 
     manifest = {
-        "schema_version": "1.3",
+        "schema_version": "1.4",
         "status": "PRESUBMISSION_NOT_FINAL",
         "active_manuscript": str(MANUSCRIPT.relative_to(ROOT)),
         "active_cover_letter": str(COVER.relative_to(ROOT)),
@@ -74,6 +82,10 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         "source_leverage_supplement": str(SOURCE_LEVERAGE_SUPPLEMENT.relative_to(ROOT)),
         "author_metadata_provenance": str(AUTHOR_PROVENANCE.relative_to(ROOT)),
         "author_intake": str(AUTHOR_INTAKE.relative_to(ROOT)),
+        "analysis_provenance": {
+            "all_source_leave_one_out": str(ALL_SOURCE_LOO.relative_to(ROOT)),
+            "source_robustness_challenge_closure": str(SOURCE_ROBUSTNESS_CLOSURE.relative_to(ROOT)),
+        },
         "files": {},
         "initial_submission_blockers": INITIAL_SUBMISSION_BLOCKERS,
         "prepublication_pending_not_initial_submission_blockers": PREPUBLICATION_PENDING,
