@@ -7,7 +7,7 @@ import shutil
 import zipfile
 from pathlib import Path
 
-from scripts.render_chapter2_nee_v03_figures import render_all
+from scripts.render_chapter2_nee_v04_submission_figures import render_all
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_4_SUBMISSION_20260915.md"
