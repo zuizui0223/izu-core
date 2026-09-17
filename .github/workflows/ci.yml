@@ -24,7 +24,10 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
       - name: Run NEE paper asset contract
-        run: pytest -q tests/test_chapter2_nee_v04_submission_figures.py
+        run: |
+          pytest -q \
+            tests/test_chapter2_nee_v04_submission_figures.py \
+            tests/test_chapter2_nee_presubmission_bundle.py
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
@@ -87,4 +90,4 @@ jobs:
           path: |
             pytest-${{ matrix.python-version }}.xml
             pytest-${{ matrix.python-version }}.log
-          if-no-files-found: error
+          if-no-files-found: ignore
