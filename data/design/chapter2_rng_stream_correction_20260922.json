@@ -42,5 +42,9 @@
   },
   "reporting_rule": "Use the six-seed ensemble median and range for paper-facing baseline magnitudes. Retain the historical 20260826 draw only as provenance and deterministic implementation regression, not as the robustness headline.",
   "rank_crossover_rule": "Retain the existing decision rule: median starting-position share must increase monotonically, median community-realization share must decrease monotonically, and starting-position share must exceed community-realization share at k=16 in at least 5 of 6 seeds.",
-  "provenance_boundary": "This correction changes random-stream construction only. It does not retune biological parameters, select favorable master seeds, or alter the declared trait grid, replicate count, or k sequence."
+  "provenance_boundary": "This correction changes random-stream construction only. It does not retune biological parameters, select favorable master seeds, or alter the declared trait grid, replicate count, or k sequence.",
+  "corrected_source_identity": {
+    "scripts/run_response_geometry_parameter_robustness.py": "blob:50488f438ecc75aab4668b384c6d35aaa342251d",
+    "scripts/run_chapter2_conditional_why_diagnostics.py": "blob:5cc4f0000b266c83191e1a3e8f0ba649287581bc"
+  }
 }
