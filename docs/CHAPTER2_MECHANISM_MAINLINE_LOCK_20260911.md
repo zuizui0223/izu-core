@@ -49,7 +49,7 @@ At zero trait adjustment, increasing `k` reduces finite-community sampling varia
 
 The exact moment analysis shows that the deterministic mean-field kernel contrast is all-positive. Branching is therefore finite-community asymptotically, but not a rare-extinction or tiny-N artifact.
 
-With active plant adjustment, median starting-position share rises from 2.55% at `k=1` to 55.84% at `k=16`, while median community-realization share falls from 72.98% to 12.72%. Starting position exceeds community realization in 0/6 seeds at `k=1` and `k=2`, then 6/6 seeds at `k=4`, `k=8` and `k=16`. Mixed branching persists at `k=16` in 28–42/96 realizations.
+With active plant adjustment under the collision-free RNG correction, median starting-position share rises from 3.11% at `k=1` to 53.53% at `k=16`, while median community-realization share falls from 74.27% to 14.05%. Starting position exceeds community realization in 0/6 seeds at `k=1` and `k=2`, 4/6 at `k=4`, then 6/6 at `k=8` and `k=16`. Mixed branching persists at `k=16` in 26–36/96 realizations.
 
 Interpretation: **the ordering of response determinants is itself regime dependent.** The numerical crossover is model-specific and must not be transferred to nature.
 
