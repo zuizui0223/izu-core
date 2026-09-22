@@ -47,19 +47,20 @@ def verify_design(design: dict) -> None:
         payload = json.loads(correction.read_text(encoding="utf-8"))
         if payload.get("status") != "implementation_correction_protocol":
             raise RuntimeError("RNG correction protocol is not valid")
+        identities = payload["corrected_source_identity"]
     else:
         identities = design["source_identity"]
-        observed = {
-            "scripts/run_response_geometry_parameter_robustness.py": git_blob_sha(MODEL),
-            "scripts/run_chapter2_conditional_why_diagnostics.py": git_blob_sha(DIAGNOSTICS),
-        }
-        failed = [
-            path
-            for path, blob in observed.items()
-            if blob != _expected_blob(identities[path])
-        ]
-        if failed:
-            raise RuntimeError(f"source identity changed after sensitivity freeze: {failed}")
+    observed = {
+        "scripts/run_response_geometry_parameter_robustness.py": git_blob_sha(MODEL),
+        "scripts/run_chapter2_conditional_why_diagnostics.py": git_blob_sha(DIAGNOSTICS),
+    }
+    failed = [
+        path
+        for path, blob in observed.items()
+        if blob != _expected_blob(identities[path])
+    ]
+    if failed:
+        raise RuntimeError(f"source identity changed after declared analysis freeze: {failed}")
     baseline = design["baseline"]
     if int(baseline["steps"]) != BASE.steps:
         raise RuntimeError("frozen step count does not match BASE")
