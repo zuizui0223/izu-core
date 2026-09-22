@@ -4,7 +4,7 @@ import json
 from dataclasses import replace
 from pathlib import Path
 
-from scripts.audit_chapter2_relational_robustness import summarize_matrix
+from scripts.audit_chapter2_relational_robustness import summarize_matrix_legacy
 from scripts.run_response_geometry_parameter_robustness import BASE
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +14,7 @@ REPLICATES = 96
 
 
 def build() -> dict:
-    baseline = summarize_matrix(BASE, seed=SEED, replicates=REPLICATES)
+    baseline = summarize_matrix_legacy(BASE, seed=SEED, replicates=REPLICATES)
     cfg = replace(
         BASE,
         island=replace(
@@ -23,7 +23,7 @@ def build() -> dict:
             partner_loss=BASE.mainland.partner_loss,
         ),
     )
-    controlled = summarize_matrix(cfg, seed=SEED, replicates=REPLICATES)
+    controlled = summarize_matrix_legacy(cfg, seed=SEED, replicates=REPLICATES)
     return {
         "schema_version": "1.0",
         "analysis": "chapter2_equal_turnover_control",
