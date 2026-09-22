@@ -8,6 +8,8 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 from statistics import mean
 
+from scripts.chapter2_seed_streams import paired_seeds
+
 OUT = Path("data/results/response_geometry_parameter_robustness.json")
 EPS = 1e-9
 TRAIT_GRID = tuple(i / 20 for i in range(21))
@@ -126,9 +128,9 @@ def sign(x: float) -> int:
 def geometry(cfg: GeometryConfig, replicates: int, seed: int) -> dict:
     per_trait = {t: {"service": [], "trait": []} for t in TRAIT_GRID}
     for rep in range(replicates):
-        run_seed = seed + rep * 10_000
-        mainland_trajectory = pollinator_trajectory(cfg.mainland, run_seed + 100_000, cfg)
-        island_trajectory = pollinator_trajectory(cfg.island, run_seed + 200_000, cfg)
+        mainland_seed, island_seed = paired_seeds(seed, rep)
+        mainland_trajectory = pollinator_trajectory(cfg.mainland, mainland_seed, cfg)
+        island_trajectory = pollinator_trajectory(cfg.island, island_seed, cfg)
         for initial_trait in TRAIT_GRID:
             mt, ms = endpoint_on_trajectory(initial_trait, mainland_trajectory, cfg)
             it, iserv = endpoint_on_trajectory(initial_trait, island_trajectory, cfg)
