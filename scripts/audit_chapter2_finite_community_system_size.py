@@ -7,6 +7,7 @@ import random
 from pathlib import Path
 from statistics import mean, pstdev
 
+from scripts.chapter2_seed_streams import paired_copy_seeds
 from scripts.run_chapter2_conditional_why_diagnostics import realization_class_counts, two_way_decomposition
 from scripts.run_response_geometry_parameter_robustness import BASE, TRAIT_GRID, make_pollinator, service
 
@@ -26,10 +27,10 @@ def terminal_pollinators(scenario, seed: int, cfg):
     return tuple(pollinators)
 
 
-def pooled_terminal_pollinators(scenario, seed: int, cfg, copies: int):
+def pooled_terminal_pollinators(scenario, seeds: list[int], cfg):
     pooled = []
-    for copy_index in range(copies):
-        pooled.extend(terminal_pollinators(scenario, seed + copy_index * COPY_SEED_STRIDE, cfg))
+    for seed in seeds:
+        pooled.extend(terminal_pollinators(scenario, seed, cfg))
     return tuple(pooled)
 
 
@@ -61,9 +62,9 @@ def response_matrix_for_scale(*, copies: int, seed: int, replicates: int):
     mainland_sizes = []
     island_sizes = []
     for rep in range(replicates):
-        run_seed = seed + rep * 10_000
-        mainland = pooled_terminal_pollinators(cfg.mainland, run_seed + 100_000, cfg, copies)
-        island = pooled_terminal_pollinators(cfg.island, run_seed + 200_000, cfg, copies)
+        mainland_seeds, island_seeds = paired_copy_seeds(seed, rep, copies)
+        mainland = pooled_terminal_pollinators(cfg.mainland, mainland_seeds, cfg)
+        island = pooled_terminal_pollinators(cfg.island, island_seeds, cfg)
         mainland_sizes.append(len(mainland))
         island_sizes.append(len(island))
         for index, trait in enumerate(TRAIT_GRID):
