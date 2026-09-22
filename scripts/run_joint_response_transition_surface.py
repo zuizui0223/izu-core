@@ -82,12 +82,23 @@ def pearson(xs: list[float], ys: list[float]) -> float | None:
     return sum(x * y for x, y in zip(dx, dy)) / denom
 
 
-def build(points: int = 48, replicates: int = 12, seed: int = 20260826) -> dict:
+def build(
+    points: int = 48,
+    replicates: int = 12,
+    seed: int = 20260826,
+    *,
+    legacy_streams: bool = False,
+) -> dict:
     design = latin_hypercube(points, seed + 70_000_000)
     rows = []
     for index, point in enumerate(design):
         cfg = config_from_point(point)
-        result = realization_stability(cfg, replicates, seed + 80_000_000)
+        result = realization_stability(
+            cfg,
+            replicates,
+            seed + 80_000_000,
+            legacy_streams=legacy_streams,
+        )
         rows.append({
             "point_index": index,
             "parameters": point,
@@ -129,6 +140,11 @@ def build(points: int = 48, replicates: int = 12, seed: int = 20260826) -> dict:
         "failure_rule": "If mixed geometry is rare or confined to a narrow parameter corner, do not retune toward it; demote the branching result and retain the three-layer conceptual decomposition as the stronger product.",
         "claim_boundary": "This is a synthetic joint robustness design with no empirical calibration. Latin-hypercube frequencies describe the declared design volume only and must not be interpreted as natural ecological prevalence.",
     }
+
+
+def build_legacy(points: int = 48, replicates: int = 12, seed: int = 20260826) -> dict:
+    """Reproduce the archived pre-correction joint surface exactly."""
+    return build(points, replicates, seed, legacy_streams=True)
 
 
 def main() -> None:
