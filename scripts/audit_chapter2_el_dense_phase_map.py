@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 
 from scripts.audit_chapter2_el_nonlinear_reduction import endpoint_vectorized, order_label, two_way_fractions
-from scripts.audit_chapter2_finite_community_system_size import COPY_SEED_STRIDE
+from scripts.chapter2_rng import scenario_copy_seeds
 from scripts.run_response_geometry_parameter_robustness import BASE, pollinator_trajectory
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -86,31 +86,22 @@ def _seed_grid(args) -> tuple[int, dict[str, list[float]]]:
     matrices = {point: np.empty((21, realizations), dtype=float) for point in points}
 
     for rep in range(realizations):
-        run_seed = int(seed) + rep * 10_000
         cache = {}
-        for name, scenario, offset in (
-            ("mainland", BASE.mainland, 100_000),
-            ("island", BASE.island, 200_000),
-        ):
-            base_seed = run_seed + offset
-            common = _as_arrays(
-                pollinator_trajectory(
-                    scenario,
-                    base_seed + (max_k + 17) * COPY_SEED_STRIDE,
-                    BASE,
-                )
+        for scenario_index, (name, scenario) in enumerate((
+            ("mainland", BASE.mainland),
+            ("island", BASE.island),
+        )):
+            child_seeds = scenario_copy_seeds(
+                int(seed), rep, scenario_index, max_k + 2
             )
             independent = [
-                _as_arrays(
-                    pollinator_trajectory(
-                        scenario,
-                        base_seed + copy_index * COPY_SEED_STRIDE,
-                        BASE,
-                    )
-                )
-                for copy_index in range(max_k)
+                _as_arrays(pollinator_trajectory(scenario, child_seed, BASE))
+                for child_seed in child_seeds[:max_k]
             ]
-            selector = random.Random(base_seed + 444_444)
+            common = _as_arrays(
+                pollinator_trajectory(scenario, child_seeds[max_k], BASE)
+            )
+            selector = random.Random(child_seeds[max_k + 1])
             uniforms = np.asarray([selector.random() for _ in range(max_k)], dtype=float)
             cache[name] = (common, independent, uniforms)
 
