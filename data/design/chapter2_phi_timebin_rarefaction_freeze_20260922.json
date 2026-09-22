@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-22",
+  "question": "Does the natural breadth-synchrony regime plane and its predeclared dispersion criterion survive equalizing temporal sampling depth across all admitted systems?",
+  "parent_plan": "data/design/chapter2_natural_regime_analysis_plan_20260913.json",
+  "admitted_sources": [
+    "aslan_etal_2019_hawaii_native_pollination",
+    "lazaro_etal_2022_mallorca_stability",
+    "lara_romero_etal_2019_tenerife_pollination",
+    "serra_marin_etal_2025_cabrera_pollination",
+    "cyrille_etal_2025_martinique_gardens",
+    "euppollnet_31_roberts_england_step"
+  ],
+  "expected_systems": 42,
+  "target_time_bins": 6,
+  "rarefaction_replicates": 1000,
+  "seed": 20260922,
+  "sampling": {
+    "within_system": "sample target_time_bins distinct source-native bins without replacement",
+    "across_systems": "independent deterministic streams keyed by source_study_id|archipelago_id|system_id",
+    "partner_rule": "retain the original partner columns; re-evaluate nonconstant-series eligibility after rarefaction",
+    "invalid_iteration_rule": "an iteration is invalid if any admitted system has fewer than three nonconstant partner series after rarefaction"
+  },
+  "primary_sensitivity": {
+    "name": "phi_only",
+    "breadth": "retain full-data pooled effort-standardized Hill D1",
+    "synchrony": "recompute Loreau-de Mazancourt phi from the six-bin rarefaction",
+    "rationale": "isolates finite-time-bin sensitivity of the synchrony axis"
+  },
+  "secondary_sensitivity": {
+    "name": "joint_coordinate",
+    "breadth": "recompute pooled Hill D1 from the same six selected bins",
+    "synchrony": "recompute phi from the same six selected bins",
+    "rationale": "tests the stronger common-window perturbation of both natural coordinates"
+  },
+  "prespecified_outputs": [
+    "full-data Spearman(phi,time_bins)",
+    "full-data Spearman(rho_eq,time_bins)",
+    "per-system rarefied phi median and 95% interval",
+    "full-plane NEE dispersion-criterion pass fraction",
+    "leave-one-source-out dispersion-criterion pass fraction for every admitted source",
+    "England-excluded synchrony-span pass fraction",
+    "valid rarefaction replicate count"
+  ],
+  "interpretation_boundary": "This is a sampling-depth sensitivity analysis of the already admitted natural regime plane. It does not reopen source admission, select systems by their coordinate values, change source-native partner identities, or create a natural analogue of synthetic k. Passing supports robustness to unequal temporal depth; failure narrows the natural claim to the observed sampling schedules."
+}
