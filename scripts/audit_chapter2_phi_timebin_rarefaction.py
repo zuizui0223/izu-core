@@ -163,6 +163,7 @@ def run(
     for _ in range(replicates):
         phi_only_rows: list[dict] = []
         joint_rows: list[dict] = []
+        iteration_phi: dict[tuple[str, str, str], float] = {}
         iteration_valid = True
         for key in sorted(matrices):
             matrix = matrices[key]
@@ -173,17 +174,17 @@ def run(
             joint_row = _coordinate_from_matrix(key, sample)
             if phi_row is None or joint_row is None:
                 iteration_valid = False
-                break
-            per_system_phi[key].append(float(phi_row["phi"]))
+                continue
+            iteration_phi[key] = float(phi_row["phi"])
             phi_only_rows.append(phi_row)
             joint_rows.append(joint_row)
 
-        if not iteration_valid:
+        if not iteration_valid or len(iteration_phi) != len(matrices):
             invalid_iterations += 1
-            for key in per_system_phi:
-                if len(per_system_phi[key]) > len(phi_only_pass):
-                    per_system_phi[key].pop()
             continue
+
+        for key, value in iteration_phi.items():
+            per_system_phi[key].append(value)
 
         phi_summary = _dispersion_summary(phi_only_rows)
         joint_summary = _dispersion_summary(joint_rows)
