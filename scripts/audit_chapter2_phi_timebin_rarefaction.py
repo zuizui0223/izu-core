@@ -25,12 +25,13 @@ FREEZE = ROOT / "data/design/chapter2_phi_timebin_rarefaction_freeze_20260922.js
 DEFAULT_OUT = ROOT / "data/results/chapter2_phi_timebin_rarefaction_20260922.json"
 
 
-def _spearman(x: list[float], y: list[float]) -> float:
+def _spearman(x: list[float], y: list[float]) -> float | None:
     xa = np.asarray(x, dtype=float)
     ya = np.asarray(y, dtype=float)
     if len(xa) < 2 or np.std(xa) == 0 or np.std(ya) == 0:
-        return float("nan")
-    return float(np.corrcoef(_midranks(xa), _midranks(ya))[0, 1])
+        return None
+    value = float(np.corrcoef(_midranks(xa), _midranks(ya))[0, 1])
+    return value if math.isfinite(value) else None
 
 
 def _coordinate_from_matrix(
