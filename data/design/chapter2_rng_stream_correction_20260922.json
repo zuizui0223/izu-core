@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "status": "implementation_correction_protocol",
+  "documented_on": "2026-09-22",
+  "defect": "The historical run_seed + scenario-offset arithmetic re-used identical integer seeds for island replicate r and mainland replicate r+10, violating the intended independence of scenario-by-replicate Monte Carlo streams.",
+  "correction": {
+    "rng": "numpy.random.SeedSequence",
+    "hierarchy": [
+      "master_seed",
+      "replicate_index",
+      "scenario_index",
+      "copy_index"
+    ],
+    "scenario_indices": {
+      "mainland": 0,
+      "island": 1
+    },
+    "prefix_stability_across_k": true,
+    "common_random_numbers_across_system_size_k": true,
+    "mainland_island_streams_separated": true
+  },
+  "preserved": {
+    "master_seed_ensemble": [
+      20260826,
+      20250101,
+      20260833,
+      20260827,
+      999983,
+      12345
+    ],
+    "realizations_per_seed": 96,
+    "trait_grid": "scripts/run_response_geometry_parameter_robustness.py:TRAIT_GRID",
+    "baseline_config": "scripts/run_response_geometry_parameter_robustness.py:BASE",
+    "trait_adjustment": 0.03,
+    "system_size_multipliers": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ]
+  },
+  "reporting_rule": "Use the six-seed ensemble median and range for paper-facing baseline magnitudes. Retain the historical 20260826 draw only as provenance and deterministic implementation regression, not as the robustness headline.",
+  "rank_crossover_rule": "Retain the existing decision rule: median starting-position share must increase monotonically, median community-realization share must decrease monotonically, and starting-position share must exceed community-realization share at k=16 in at least 5 of 6 seeds.",
+  "provenance_boundary": "This correction changes random-stream construction only. It does not retune biological parameters, select favorable master seeds, or alter the declared trait grid, replicate count, or k sequence."
+}
