@@ -77,6 +77,20 @@ jobs:
           name: chapter2-trait-adjustment-system-size-rank-crossover-rng-corrected
           path: data/results/chapter2_trait_adjustment_system_size_rank_crossover_rng_corrected_20260922.json
           if-no-files-found: error
+      - name: Run six-bin natural synchrony sensitivity
+        if: matrix.python-version == '3.11'
+        continue-on-error: true
+        run: |
+          python -m scripts.run_chapter2_phi_timebin_rarefaction_from_locked_sources \
+            --work-dir /tmp/chapter2-phi-rarefaction \
+            --out data/results/chapter2_phi_timebin_rarefaction_20260922.json
+      - name: Upload six-bin natural synchrony sensitivity
+        if: matrix.python-version == '3.11' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-phi-timebin-rarefaction
+          path: data/results/chapter2_phi_timebin_rarefaction_20260922.json
+          if-no-files-found: warn
       - name: Upload pytest reports on failure
         if: failure()
         uses: actions/upload-artifact@v4
