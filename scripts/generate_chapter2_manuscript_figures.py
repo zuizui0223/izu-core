@@ -16,9 +16,9 @@ from matplotlib.colors import BoundaryNorm, ListedColormap
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from scripts.run_joint_response_transition_surface import build as build_joint_surface
+from scripts.run_joint_response_transition_surface import build_legacy as build_joint_surface
 from scripts.run_response_geometry_parameter_robustness import BASE, TRAIT_GRID
-from scripts.run_response_geometry_realization_stability import realization_stability
+from scripts.run_response_geometry_realization_stability import legacy_realization_stability
 
 PHASE12 = ROOT / "data/results/chapter2_phase12_fixed_gate_summary_20260827.json"
 PHASE3 = ROOT / "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json"
@@ -577,7 +577,7 @@ def build_figures() -> dict:
     izu = _load(IZU_STRUCTURAL)
     if not all(why["frozen_identity_checks"].values()):
         raise RuntimeError("conditional-WHY diagnostics did not pass frozen identity checks")
-    baseline = realization_stability(BASE, replicates=96, seed=SEED)
+    baseline = legacy_realization_stability(BASE, replicates=96, seed=SEED)
     joint = build_joint_surface(points=48, replicates=24, seed=SEED)
     _assert_frozen_identity(baseline, joint, phase12)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
