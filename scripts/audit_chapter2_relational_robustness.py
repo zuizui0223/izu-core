@@ -8,6 +8,7 @@ from dataclasses import replace
 from pathlib import Path
 
 from scripts.run_chapter2_conditional_why_diagnostics import (
+    legacy_response_matrix,
     response_matrix,
     realization_class_counts,
     two_way_decomposition,
@@ -24,8 +25,7 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def summarize_matrix(cfg, *, seed: int, replicates: int = 96) -> dict:
-    matrix = response_matrix(cfg, replicates, seed)
+def _summarize_response_matrix(matrix) -> dict:
     decomposition = two_way_decomposition(matrix)
     fractions = decomposition["sum_of_squares_fraction"]
     ranked = sorted(
@@ -53,6 +53,16 @@ def summarize_matrix(cfg, *, seed: int, replicates: int = 96) -> dict:
             "finite synthetic ensemble, so numerical variance shares are ensemble-specific design diagnostics rather than population parameters."
         ),
     }
+
+
+def summarize_matrix(cfg, *, seed: int, replicates: int = 96) -> dict:
+    """Active collision-free summary used by corrected inference."""
+    return _summarize_response_matrix(response_matrix(cfg, replicates, seed))
+
+
+def summarize_matrix_legacy(cfg, *, seed: int, replicates: int = 96) -> dict:
+    """Exact pre-2026-09-22 summary retained only for frozen provenance."""
+    return _summarize_response_matrix(legacy_response_matrix(cfg, replicates, seed))
 
 
 def direct_measurement_counts() -> dict[str, int]:
