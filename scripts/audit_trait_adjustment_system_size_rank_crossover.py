@@ -6,6 +6,7 @@ from pathlib import Path
 from statistics import median
 
 from scripts.audit_chapter2_finite_community_system_size import COPY_SEED_STRIDE
+from scripts.chapter2_rng import scenario_copy_seeds
 from scripts.run_chapter2_conditional_why_diagnostics import realization_class_counts, two_way_decomposition
 from scripts.run_response_geometry_parameter_robustness import (
     BASE,
@@ -20,10 +21,19 @@ OUT = ROOT / "data/results/chapter2_trait_adjustment_system_size_rank_crossover_
 
 
 def pooled_trajectory(scenario, seed: int, cfg, copies: int):
+    """Historical stride-based helper retained for archived provenance only."""
     trajectories = [
         pollinator_trajectory(scenario, seed + copy_index * COPY_SEED_STRIDE, cfg)
         for copy_index in range(copies)
     ]
+    return tuple(
+        tuple(pollinator for trajectory in trajectories for pollinator in trajectory[step])
+        for step in range(cfg.steps)
+    )
+
+
+def pooled_trajectory_from_seeds(scenario, seeds: tuple[int, ...], cfg):
+    trajectories = [pollinator_trajectory(scenario, child_seed, cfg) for child_seed in seeds]
     return tuple(
         tuple(pollinator for trajectory in trajectories for pollinator in trajectory[step])
         for step in range(cfg.steps)
@@ -35,9 +45,10 @@ def response_matrix_for_scale(*, copies: int, seed: int, replicates: int):
         raise ValueError("headline BASE.trait_adjustment is no longer 0.03")
     matrix = [[] for _ in TRAIT_GRID]
     for rep in range(replicates):
-        run_seed = seed + rep * 10_000
-        mainland = pooled_trajectory(BASE.mainland, run_seed + 100_000, BASE, copies)
-        island = pooled_trajectory(BASE.island, run_seed + 200_000, BASE, copies)
+        mainland_seeds = scenario_copy_seeds(seed, rep, 0, copies)
+        island_seeds = scenario_copy_seeds(seed, rep, 1, copies)
+        mainland = pooled_trajectory_from_seeds(BASE.mainland, mainland_seeds, BASE)
+        island = pooled_trajectory_from_seeds(BASE.island, island_seeds, BASE)
         for index, trait in enumerate(TRAIT_GRID):
             _, mainland_service = endpoint_on_trajectory(trait, mainland, BASE)
             _, island_service = endpoint_on_trajectory(trait, island, BASE)
