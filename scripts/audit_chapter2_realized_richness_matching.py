@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/chapter2_realized_richness_matching_freeze_20260907.json"
 MODEL = ROOT / "scripts/run_response_geometry_parameter_robustness.py"
 DIAGNOSTICS = ROOT / "scripts/run_chapter2_conditional_why_diagnostics.py"
-OUT = ROOT / "data/results/chapter2_realized_richness_matching_frozen_20260907.json"
+OUT = ROOT / "data/results/chapter2_realized_richness_matching_rng_corrected_20260922.json"
 
 
 def git_blob_sha(path: Path) -> str:
