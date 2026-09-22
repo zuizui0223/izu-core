@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from statistics import mean
 
+from scripts.chapter2_rng import paired_scenario_seeds
 from scripts.run_response_geometry_parameter_robustness import (
     BASE,
     SWEEPS,
@@ -29,9 +30,9 @@ def realization_stability(cfg, replicates: int, seed: int) -> dict:
     trait_deltas = {trait: [] for trait in TRAIT_GRID}
 
     for rep in range(replicates):
-        run_seed = seed + rep * 10_000
-        mainland = pollinator_trajectory(cfg.mainland, run_seed + 100_000, cfg)
-        island = pollinator_trajectory(cfg.island, run_seed + 200_000, cfg)
+        mainland_seed, island_seed = paired_scenario_seeds(seed, rep)
+        mainland = pollinator_trajectory(cfg.mainland, mainland_seed, cfg)
+        island = pollinator_trajectory(cfg.island, island_seed, cfg)
         signs = []
         for trait in TRAIT_GRID:
             _, mainland_service = endpoint_on_trajectory(trait, mainland, cfg)
