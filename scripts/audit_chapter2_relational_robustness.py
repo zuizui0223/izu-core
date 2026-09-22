@@ -117,6 +117,9 @@ def build() -> dict:
     ordered_direct_counts = sorted(direct_counts.items(), key=lambda item: (-item[1], item[0]))
 
     baseline = next(row for row in seed_rows if row["seed"] == baseline_seed)
+    historical_baseline = summarize_matrix_legacy(
+        BASE, seed=baseline_seed, replicates=replicates
+    )
     seed_community_values = [float(row["sum_of_squares_fraction"]["community_realization"]) for row in seed_rows]
     seed_starting_values = [float(row["sum_of_squares_fraction"]["starting_position"]) for row in seed_rows]
     seed_nonadd_values = [
@@ -130,7 +133,7 @@ def build() -> dict:
     return {
         "schema_version": "1.0",
         "analysis": "chapter2_relational_robustness_audit",
-        "status": "frozen_complete_20260831",
+        "status": "rng_corrected_reassessment_complete_20260922",
         "input_identity": {
             "design_sha256": sha256(DESIGN),
             "audit_script_sha256": sha256(Path(__file__)),
@@ -140,8 +143,17 @@ def build() -> dict:
             "seed": baseline_seed,
             "steps": BASE.steps,
             "trait_adjustment": BASE.trait_adjustment,
+            "sum_of_squares_fraction": historical_baseline["sum_of_squares_fraction"],
+            "realization_class_counts": historical_baseline["realization_class_counts"],
+            "role": "archived_pre_correction_provenance_only",
+        },
+        "baseline_corrected_reference": {
+            "seed": baseline_seed,
+            "steps": BASE.steps,
+            "trait_adjustment": BASE.trait_adjustment,
             "sum_of_squares_fraction": baseline["sum_of_squares_fraction"],
             "realization_class_counts": baseline["realization_class_counts"],
+            "role": "deterministic_corrected_primary_draw_not_robustness_headline",
         },
         "structural_horizon": horizon_rows,
         "trait_adjustment_context": adjustment_rows,
@@ -210,7 +222,8 @@ def main() -> None:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
-        "baseline": payload["baseline_frozen_reference"],
+        "historical_baseline": payload["baseline_frozen_reference"],
+        "corrected_baseline": payload["baseline_corrected_reference"],
         "structural_horizon": [
             {
                 "steps": row["steps"],
