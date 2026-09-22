@@ -8,7 +8,7 @@ pytest -q tests/test_chapter2_frozen_headline_regression.py
 pytest -q tests/test_gaussian_matching_kernel_equivalence.py tests/test_workflow_trigger_policy.py
 ```
 
-The headline regression re-runs the 96 matched-community baseline from the frozen design and checks the committed result with floating-point tolerances rather than byte equality. It protects the state counts **41 mixed / 42 positive / 13 negative** and the normalized decomposition **S = 0.0218320837, C = 0.8017383395, I = 0.1764295768**.
+The headline regression re-runs the 96 matched-community corrected primary draw using collision-free hierarchical RNG streams and checks the committed result with floating-point tolerances rather than byte equality. It protects the corrected primary-draw state counts **43 mixed / 45 positive / 8 negative** and decomposition **S = 0.0408685179, C = 0.6978123459, I = 0.2613191363**. A separate ensemble regression protects the six-seed baseline summary (**mixed median 45.5 [43–59], C median 0.7427 [0.6978–0.7873], I median 0.2282 [0.1864–0.2676]**) and the rank-crossover boundary (**4/6 seeds at k=4; 6/6 at k=8 and k=16**). The legacy offset-stream values remain archived for provenance but are superseded for active inference.
 
 For the full current Chapter 2 scientific gate, run the same six analysis steps as `.github/workflows/chapter2-scientific-gate.yml`:
 
