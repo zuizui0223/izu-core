@@ -9,6 +9,7 @@ from pathlib import Path
 import numpy as np
 from scipy.special import ndtr
 
+from scripts.chapter2_rng import paired_scenario_seeds
 from scripts.run_response_geometry_parameter_robustness import BASE, TRAIT_GRID, make_pollinator
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -207,9 +208,13 @@ def identity_preserving_correlated_trajectory(scenario, *, seed: int, copies: in
 def correlated_response_fractions(*, copies: int, rho_event: float, seed: int, realizations: int) -> np.ndarray:
     matrix = np.empty((len(TRAIT_GRID), realizations), dtype=float)
     for rep in range(realizations):
-        run_seed = seed + rep * 10_000
-        mainland, _ = identity_preserving_correlated_trajectory(BASE.mainland, seed=run_seed + 100_000, copies=copies, rho_event=rho_event)
-        island, _ = identity_preserving_correlated_trajectory(BASE.island, seed=run_seed + 200_000, copies=copies, rho_event=rho_event)
+        mainland_seed, island_seed = paired_scenario_seeds(seed, rep)
+        mainland, _ = identity_preserving_correlated_trajectory(
+            BASE.mainland, seed=mainland_seed, copies=copies, rho_event=rho_event
+        )
+        island, _ = identity_preserving_correlated_trajectory(
+            BASE.island, seed=island_seed, copies=copies, rho_event=rho_event
+        )
         matrix[:, rep] = endpoint_vectorized(island) - endpoint_vectorized(mainland)
     return two_way_fractions(matrix)
 
@@ -226,11 +231,17 @@ def mean_off_diagonal_correlation(matrix: np.ndarray) -> float:
 
 
 def independent_summary() -> dict[int, tuple[float, float, float]]:
-    source = json.loads(INDEPENDENT.read_text(encoding="utf-8"))
+    corrected = ROOT / "data/results/chapter2_rng_stream_correction_20260922.json"
+    if corrected.exists():
+        source = json.loads(corrected.read_text(encoding="utf-8"))
+        rows = source["rank_crossover"]["scale_summary"]
+    else:
+        source = json.loads(INDEPENDENT.read_text(encoding="utf-8"))
+        rows = source["scale_summary"]
     return {int(row["k"]): (float(row["median_starting_position_fraction"]),
                               float(row["median_community_realization_fraction"]),
                               float(row["median_nonadditivity_fraction"]))
-            for row in source["scale_summary"]}
+            for row in rows}
 
 
 def run_correlation_robustness(design: dict) -> dict:
