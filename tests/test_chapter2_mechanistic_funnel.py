@@ -97,5 +97,5 @@ def test_main_supp_material_map_matches_current_paper():
     assert "post-chapter-2" in lower
     assert "replace(base, steps=240, trait_adjustment=0.0)" in lower
     assert "75/96" in material
-    assert "55.84%" in material and "12.72%" in material
+    assert "53.53%" in material and "14.05%" in material
     assert "raw visitor richness or hill diversity is synthetic `k`" in lower
