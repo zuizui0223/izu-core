@@ -100,23 +100,77 @@ def _zenodo_tenerife(config_path: Path, root: Path) -> Path:
         for row in files
     }
     needed = set(SYSTEM_FILES.values())
-    missing = sorted(needed - set(by_name))
-    if missing:
-        raise RuntimeError(f"Tenerife Zenodo record missing files: {missing}")
     root.mkdir(parents=True, exist_ok=True)
-    for name in sorted(needed):
-        row = by_name[name]
-        links = row.get("links") or {}
-        url = links.get("content") or links.get("self")
-        if not url:
-            raise RuntimeError(f"Tenerife file has no download link: {name}")
-        data = _request(str(url), "application/octet-stream, text/plain, */*;q=0.8")
-        checksum = str(row.get("checksum") or "")
-        if checksum.startswith("md5:"):
-            observed = hashlib.md5(data).hexdigest()
-            if observed != checksum.split(":", 1)[1]:
-                raise RuntimeError(f"Tenerife checksum mismatch: {name}")
-        (root / name).write_bytes(data)
+
+    # Some Zenodo records expose the source-native text files directly, while
+    # record 5008210 currently exposes them inside one deposited ZIP. Support
+    # both layouts without changing the frozen source-native file names.
+    if needed.issubset(set(by_name)):
+        for name in sorted(needed):
+            row = by_name[name]
+            links = row.get("links") or {}
+            url = links.get("content") or links.get("self")
+            if not url:
+                raise RuntimeError(f"Tenerife file has no download link: {name}")
+            data = _request(str(url), "application/octet-stream, text/plain, */*;q=0.8")
+            checksum = str(row.get("checksum") or "")
+            if checksum.startswith("md5:"):
+                observed = hashlib.md5(data).hexdigest()
+                if observed != checksum.split(":", 1)[1]:
+                    raise RuntimeError(f"Tenerife checksum mismatch: {name}")
+            (root / name).write_bytes(data)
+        return root
+
+    zip_rows = [
+        row
+        for row in files
+        if PurePosixPath(str(row.get("key") or row.get("filename") or "")).suffix.lower() == ".zip"
+    ]
+    if len(zip_rows) != 1:
+        missing = sorted(needed - set(by_name))
+        raise RuntimeError(
+            f"Tenerife Zenodo record missing direct files {missing} and "
+            f"has {len(zip_rows)} ZIP candidates"
+        )
+
+    zip_row = zip_rows[0]
+    links = zip_row.get("links") or {}
+    zip_url = links.get("content") or links.get("self")
+    if not zip_url:
+        raise RuntimeError("Tenerife ZIP has no download link")
+    payload = _request(str(zip_url), "application/zip, application/octet-stream, */*;q=0.8")
+
+    checksum = str(zip_row.get("checksum") or "")
+    if checksum.startswith("md5:"):
+        observed_md5 = hashlib.md5(payload).hexdigest()
+        if observed_md5 != checksum.split(":", 1)[1]:
+            raise RuntimeError(
+                f"Tenerife ZIP MD5 mismatch: observed={observed_md5}"
+            )
+
+    admission = json.loads(
+        (ROOT / "data/design/chapter2_tenerife_natural_regime_admission_20260914.json")
+        .read_text(encoding="utf-8")
+    )
+    expected_sha256 = str(admission["source"]["archive_sha256"])
+    observed_sha256 = hashlib.sha256(payload).hexdigest()
+    if observed_sha256 != expected_sha256:
+        raise RuntimeError(
+            "Tenerife ZIP SHA256 differs from frozen admission: "
+            f"observed={observed_sha256} expected={expected_sha256}"
+        )
+
+    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+        members = {
+            PurePosixPath(info.filename).name: info
+            for info in archive.infolist()
+            if not info.is_dir()
+        }
+        missing = sorted(needed - set(members))
+        if missing:
+            raise RuntimeError(f"Tenerife ZIP missing source-native files: {missing}")
+        for name in sorted(needed):
+            (root / name).write_bytes(archive.read(members[name]))
     return root
 
 
