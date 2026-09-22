@@ -17,7 +17,7 @@ def test_readme_routes_to_current_chapter2_closure():
     assert "exact realized-richness control" in lower
     assert "finite-community / system-size determinant hierarchy" in lower
     assert "metadata confrontation" in lower
-    assert "55.84%" in text and "12.72%" in text
+    assert "53.53%" in text and "14.05%" in text
     assert "25 research entries across 21 exact geographic labels" in text
     assert "42 research entries across 37 exact geographic labels" in text
     assert "not full validation" in lower
