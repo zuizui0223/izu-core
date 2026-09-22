@@ -5,7 +5,7 @@ import json
 from dataclasses import replace
 from pathlib import Path
 
-from scripts.audit_chapter2_relational_robustness import summarize_matrix
+from scripts.audit_chapter2_relational_robustness import summarize_matrix_legacy
 from scripts.run_response_geometry_parameter_robustness import BASE
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +16,7 @@ def build() -> dict:
     # Deliberately reuse values already present in the frozen one-factor audits.
     # No new parameter values or model components are introduced here.
     cfg = replace(BASE, steps=240, trait_adjustment=0.0)
-    result = summarize_matrix(cfg, seed=20260826, replicates=96)
+    result = summarize_matrix_legacy(cfg, seed=20260826, replicates=96)
     return {
         "schema_version": "1.0",
         "analysis": "chapter2_joint_structural_crosscheck",
