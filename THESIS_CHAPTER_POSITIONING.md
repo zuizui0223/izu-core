@@ -77,11 +77,11 @@ Thus branch heterogeneity is not generated solely by a difference in turnover ra
 
 Under active plant adjustment, pooling independent community trajectories across `k={1,2,4,8,16}` changes the response decomposition:
 
-- `k=1`: starting state 2.55%, community realization 72.98%, non-additivity 24.71%;
-- `k=4`: starting state 27.33%, community realization 23.52%, non-additivity 49.47%;
-- `k=16`: starting state 55.84%, community realization 12.72%, non-additivity 31.99%.
+- `k=1`: starting state 3.11%, community realization 74.27%, non-additivity 22.82%;
+- `k=4`: starting state 24.70%, community realization 23.23%, non-additivity 50.82%;
+- `k=16`: starting state 53.53%, community realization 14.05%, non-additivity 32.03%.
 
-Starting state exceeds community realization from `k=4` onward in **6/6** prespecified seeds, while non-additivity is the largest component at `k=4`.
+Starting state exceeds community realization in **4/6** prespecified seeds at `k=4` and **6/6** at `k=8` and `k=16`, while non-additivity is the largest component at `k=4`. The earlier 6/6-at-`k=4` statement came from the superseded offset-stream implementation.
 
 **The numerical synthetic crossover is not transferred to nature.** The crossover near `k=4` is a model-specific coordinate, not a natural ecological threshold.
 
