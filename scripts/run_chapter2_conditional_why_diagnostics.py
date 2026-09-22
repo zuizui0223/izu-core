@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from scripts.chapter2_rng import paired_scenario_seeds
 from scripts.run_context_assurance_threshold_maps import (
     SATURATIONS,
     SUPPORT_STRENGTHS,
@@ -92,9 +93,9 @@ def response_matrix(cfg, replicates: int, seed: int) -> list[list[float]]:
     """Return trait x matched-community island-minus-mainland service deltas."""
     matrix = [[] for _ in TRAIT_GRID]
     for rep in range(replicates):
-        run_seed = seed + rep * 10_000
-        mainland = pollinator_trajectory(cfg.mainland, run_seed + 100_000, cfg)
-        island = pollinator_trajectory(cfg.island, run_seed + 200_000, cfg)
+        mainland_seed, island_seed = paired_scenario_seeds(seed, rep)
+        mainland = pollinator_trajectory(cfg.mainland, mainland_seed, cfg)
+        island = pollinator_trajectory(cfg.island, island_seed, cfg)
         for index, trait in enumerate(TRAIT_GRID):
             _, mainland_service = endpoint_on_trajectory(trait, mainland, cfg)
             _, island_service = endpoint_on_trajectory(trait, island, cfg)
