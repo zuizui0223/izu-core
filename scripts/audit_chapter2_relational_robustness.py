@@ -18,7 +18,7 @@ from scripts.run_response_geometry_parameter_robustness import BASE
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/chapter2_relational_robustness_audit_freeze_20260831.json"
 LEDGER = ROOT / "data/design/chapter2_external_prediction_admission_ledger_20260828.csv"
-OUT = ROOT / "data/results/chapter2_relational_robustness_audit_frozen_20260831.json"
+OUT = ROOT / "data/results/chapter2_relational_robustness_rng_corrected_20260922.json"
 
 
 def sha256(path: Path) -> str:
