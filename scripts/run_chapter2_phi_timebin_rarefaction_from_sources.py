@@ -115,7 +115,7 @@ def _tenerife(workdir: Path) -> tuple[Path, dict]:
     for filename in tenerife.SYSTEM_FILES.values():
         item = available.get(filename)
         if item is None:
-            raise RuntimeError(f"Tenerife Zenodo record lacks {filename}")
+            raise RuntimeError(f"Tenerife Zenodo record lacks {filename}; available={sorted(available)}")
         links = item.get("links", {})
         url = links.get("content") or links.get("self")
         if not url:
