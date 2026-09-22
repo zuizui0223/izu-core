@@ -1,0 +1,698 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_rng_stream_correction",
+  "status": "corrected_stream_recalculation_complete",
+  "computed_on": "2026-09-22",
+  "design": "data/design/chapter2_rng_stream_correction_20260922.json",
+  "historical_defect": {
+    "distinct_streams_expected": 192,
+    "distinct_integer_streams_under_legacy_offset_scheme": 106,
+    "collision_pairs": 86
+  },
+  "stream_audit": {
+    "declared_k16_child_streams": 18432,
+    "unique_child_streams": 18432,
+    "collisions": 0
+  },
+  "baseline_ensemble": {
+    "rows": [
+      {
+        "k": 1,
+        "seed": 20260826,
+        "realization_class_counts": {
+          "mixed_sign": 43,
+          "all_positive": 45,
+          "all_negative": 8,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.04086851786580687,
+          "community_realization": 0.6978123458814378,
+          "starting_position_by_community_nonadditivity": 0.2613191362527555
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 20250101,
+        "realization_class_counts": {
+          "mixed_sign": 44,
+          "all_positive": 40,
+          "all_negative": 12,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.034326765601649885,
+          "community_realization": 0.7434060301999995,
+          "starting_position_by_community_nonadditivity": 0.22226720419835072
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 20260833,
+        "realization_class_counts": {
+          "mixed_sign": 47,
+          "all_positive": 37,
+          "all_negative": 12,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.020077557966297382,
+          "community_realization": 0.750655214124834,
+          "starting_position_by_community_nonadditivity": 0.22926722790886866
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 20260827,
+        "realization_class_counts": {
+          "mixed_sign": 44,
+          "all_positive": 43,
+          "all_negative": 9,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.030953037344132052,
+          "community_realization": 0.7419766934779761,
+          "starting_position_by_community_nonadditivity": 0.22707026917789144
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 999983,
+        "realization_class_counts": {
+          "mixed_sign": 47,
+          "all_positive": 36,
+          "all_negative": 13,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.026292300905306026,
+          "community_realization": 0.7873101023824957,
+          "starting_position_by_community_nonadditivity": 0.1863975967121983
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 12345,
+        "realization_class_counts": {
+          "mixed_sign": 59,
+          "all_positive": 25,
+          "all_negative": 12,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.031296895843435445,
+          "community_realization": 0.7011058576487275,
+          "starting_position_by_community_nonadditivity": 0.26759724650783706
+        },
+        "starting_exceeds_community": false
+      }
+    ],
+    "median_mixed_sign_count": 45.5,
+    "mixed_sign_count_range": [
+      43,
+      59
+    ],
+    "median_sum_of_squares_fraction": {
+      "starting_position": 0.03112496659378375,
+      "community_realization": 0.7426913618389879,
+      "starting_position_by_community_nonadditivity": 0.22816874854338004
+    },
+    "range_sum_of_squares_fraction": {
+      "starting_position": [
+        0.020077557966297382,
+        0.04086851786580687
+      ],
+      "community_realization": [
+        0.6978123458814378,
+        0.7873101023824957
+      ],
+      "starting_position_by_community_nonadditivity": [
+        0.1863975967121983,
+        0.26759724650783706
+      ]
+    },
+    "historical_primary_seed_role": "provenance_and_deterministic_regression_only"
+  },
+  "rank_crossover": {
+    "rows": [
+      {
+        "k": 1,
+        "seed": 20260826,
+        "realization_class_counts": {
+          "mixed_sign": 43,
+          "all_positive": 45,
+          "all_negative": 8,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.04086851786580687,
+          "community_realization": 0.6978123458814378,
+          "starting_position_by_community_nonadditivity": 0.2613191362527555
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 20250101,
+        "realization_class_counts": {
+          "mixed_sign": 44,
+          "all_positive": 40,
+          "all_negative": 12,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.034326765601649885,
+          "community_realization": 0.7434060301999995,
+          "starting_position_by_community_nonadditivity": 0.22226720419835072
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 20260833,
+        "realization_class_counts": {
+          "mixed_sign": 47,
+          "all_positive": 37,
+          "all_negative": 12,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.020077557966297382,
+          "community_realization": 0.750655214124834,
+          "starting_position_by_community_nonadditivity": 0.22926722790886866
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 20260827,
+        "realization_class_counts": {
+          "mixed_sign": 44,
+          "all_positive": 43,
+          "all_negative": 9,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.030953037344132052,
+          "community_realization": 0.7419766934779761,
+          "starting_position_by_community_nonadditivity": 0.22707026917789144
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 999983,
+        "realization_class_counts": {
+          "mixed_sign": 47,
+          "all_positive": 36,
+          "all_negative": 13,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.026292300905306026,
+          "community_realization": 0.7873101023824957,
+          "starting_position_by_community_nonadditivity": 0.1863975967121983
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 1,
+        "seed": 12345,
+        "realization_class_counts": {
+          "mixed_sign": 59,
+          "all_positive": 25,
+          "all_negative": 12,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.031296895843435445,
+          "community_realization": 0.7011058576487275,
+          "starting_position_by_community_nonadditivity": 0.26759724650783706
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 2,
+        "seed": 20260826,
+        "realization_class_counts": {
+          "mixed_sign": 50,
+          "all_positive": 46,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.16165664782226394,
+          "community_realization": 0.250233552718844,
+          "starting_position_by_community_nonadditivity": 0.588109799458892
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 2,
+        "seed": 20250101,
+        "realization_class_counts": {
+          "mixed_sign": 58,
+          "all_positive": 38,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.14928394537639433,
+          "community_realization": 0.26148106592163134,
+          "starting_position_by_community_nonadditivity": 0.5892349887019742
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 2,
+        "seed": 20260833,
+        "realization_class_counts": {
+          "mixed_sign": 51,
+          "all_positive": 43,
+          "all_negative": 2,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.08241795685490678,
+          "community_realization": 0.5523081285973407,
+          "starting_position_by_community_nonadditivity": 0.3652739145477526
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 2,
+        "seed": 20260827,
+        "realization_class_counts": {
+          "mixed_sign": 50,
+          "all_positive": 46,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.11219167289802695,
+          "community_realization": 0.33424156120167753,
+          "starting_position_by_community_nonadditivity": 0.5535667659002954
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 2,
+        "seed": 999983,
+        "realization_class_counts": {
+          "mixed_sign": 58,
+          "all_positive": 37,
+          "all_negative": 1,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.14528576015488984,
+          "community_realization": 0.3990519929044553,
+          "starting_position_by_community_nonadditivity": 0.4556622469406548
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 2,
+        "seed": 12345,
+        "realization_class_counts": {
+          "mixed_sign": 57,
+          "all_positive": 38,
+          "all_negative": 1,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.079015601487331,
+          "community_realization": 0.3831503556112451,
+          "starting_position_by_community_nonadditivity": 0.5378340429014238
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 4,
+        "seed": 20260826,
+        "realization_class_counts": {
+          "mixed_sign": 44,
+          "all_positive": 52,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.2612476042916976,
+          "community_realization": 0.19794372749100053,
+          "starting_position_by_community_nonadditivity": 0.5408086682173018
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 4,
+        "seed": 20250101,
+        "realization_class_counts": {
+          "mixed_sign": 54,
+          "all_positive": 42,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.2389690491977474,
+          "community_realization": 0.26110499132051973,
+          "starting_position_by_community_nonadditivity": 0.4999259594817329
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 4,
+        "seed": 20260833,
+        "realization_class_counts": {
+          "mixed_sign": 56,
+          "all_positive": 40,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.24632838705334106,
+          "community_realization": 0.23718250688558234,
+          "starting_position_by_community_nonadditivity": 0.5164891060610767
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 4,
+        "seed": 20260827,
+        "realization_class_counts": {
+          "mixed_sign": 48,
+          "all_positive": 48,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.24762522294913275,
+          "community_realization": 0.20324303047773884,
+          "starting_position_by_community_nonadditivity": 0.5491317465731285
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 4,
+        "seed": 999983,
+        "realization_class_counts": {
+          "mixed_sign": 47,
+          "all_positive": 49,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.2907404754330788,
+          "community_realization": 0.22737800012483603,
+          "starting_position_by_community_nonadditivity": 0.481881524442085
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 4,
+        "seed": 12345,
+        "realization_class_counts": {
+          "mixed_sign": 41,
+          "all_positive": 55,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.23478060939247028,
+          "community_realization": 0.2783368026473161,
+          "starting_position_by_community_nonadditivity": 0.4868825879602137
+        },
+        "starting_exceeds_community": false
+      },
+      {
+        "k": 8,
+        "seed": 20260826,
+        "realization_class_counts": {
+          "mixed_sign": 36,
+          "all_positive": 60,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.39423719598035445,
+          "community_realization": 0.17327607034364342,
+          "starting_position_by_community_nonadditivity": 0.43248673367600227
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 8,
+        "seed": 20250101,
+        "realization_class_counts": {
+          "mixed_sign": 41,
+          "all_positive": 55,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.42688218000813766,
+          "community_realization": 0.16295401340953586,
+          "starting_position_by_community_nonadditivity": 0.4101638065823262
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 8,
+        "seed": 20260833,
+        "realization_class_counts": {
+          "mixed_sign": 44,
+          "all_positive": 52,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.3963037722608323,
+          "community_realization": 0.17438578377713917,
+          "starting_position_by_community_nonadditivity": 0.4293104439620285
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 8,
+        "seed": 20260827,
+        "realization_class_counts": {
+          "mixed_sign": 48,
+          "all_positive": 48,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.40645330672668745,
+          "community_realization": 0.15578086443991887,
+          "starting_position_by_community_nonadditivity": 0.4377658288333938
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 8,
+        "seed": 999983,
+        "realization_class_counts": {
+          "mixed_sign": 39,
+          "all_positive": 57,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.4605567201933826,
+          "community_realization": 0.17715225085888275,
+          "starting_position_by_community_nonadditivity": 0.3622910289477346
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 8,
+        "seed": 12345,
+        "realization_class_counts": {
+          "mixed_sign": 36,
+          "all_positive": 59,
+          "all_negative": 1,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.3664152801904225,
+          "community_realization": 0.23828998201169063,
+          "starting_position_by_community_nonadditivity": 0.3952947377978868
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 16,
+        "seed": 20260826,
+        "realization_class_counts": {
+          "mixed_sign": 36,
+          "all_positive": 60,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.5248584588846089,
+          "community_realization": 0.1251020705870783,
+          "starting_position_by_community_nonadditivity": 0.35003947052831275
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 16,
+        "seed": 20250101,
+        "realization_class_counts": {
+          "mixed_sign": 31,
+          "all_positive": 65,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.5331217969885282,
+          "community_realization": 0.16260913049200132,
+          "starting_position_by_community_nonadditivity": 0.30426907251947066
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 16,
+        "seed": 20260833,
+        "realization_class_counts": {
+          "mixed_sign": 34,
+          "all_positive": 62,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.5641730202126336,
+          "community_realization": 0.11785230235955253,
+          "starting_position_by_community_nonadditivity": 0.317974677427814
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 16,
+        "seed": 20260827,
+        "realization_class_counts": {
+          "mixed_sign": 29,
+          "all_positive": 67,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.5374897179110067,
+          "community_realization": 0.13982548751516055,
+          "starting_position_by_community_nonadditivity": 0.32268479457383276
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 16,
+        "seed": 999983,
+        "realization_class_counts": {
+          "mixed_sign": 34,
+          "all_positive": 62,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.5409360874450948,
+          "community_realization": 0.15183129617247473,
+          "starting_position_by_community_nonadditivity": 0.30723261638243043
+        },
+        "starting_exceeds_community": true
+      },
+      {
+        "k": 16,
+        "seed": 12345,
+        "realization_class_counts": {
+          "mixed_sign": 26,
+          "all_positive": 70,
+          "all_negative": 0,
+          "other": 0
+        },
+        "sum_of_squares_fraction": {
+          "starting_position": 0.5248721142616262,
+          "community_realization": 0.141199381513672,
+          "starting_position_by_community_nonadditivity": 0.3339285042247021
+        },
+        "starting_exceeds_community": true
+      }
+    ],
+    "scale_summary": [
+      {
+        "k": 1,
+        "mixed_sign_count_range": [
+          43,
+          59
+        ],
+        "median_mixed_sign_count": 45.5,
+        "median_starting_position_fraction": 0.03112496659378375,
+        "median_community_realization_fraction": 0.7426913618389879,
+        "median_nonadditivity_fraction": 0.22816874854338004,
+        "seeds_starting_exceeds_community": 0
+      },
+      {
+        "k": 2,
+        "mixed_sign_count_range": [
+          50,
+          58
+        ],
+        "median_mixed_sign_count": 54,
+        "median_starting_position_fraction": 0.1287387165264584,
+        "median_community_realization_fraction": 0.3586959584064613,
+        "median_nonadditivity_fraction": 0.5457004044008595,
+        "seeds_starting_exceeds_community": 0
+      },
+      {
+        "k": 4,
+        "mixed_sign_count_range": [
+          41,
+          56
+        ],
+        "median_mixed_sign_count": 47.5,
+        "median_starting_position_fraction": 0.24697680500123692,
+        "median_community_realization_fraction": 0.2322802535052092,
+        "median_nonadditivity_fraction": 0.5082075327714048,
+        "seeds_starting_exceeds_community": 4
+      },
+      {
+        "k": 8,
+        "mixed_sign_count_range": [
+          36,
+          48
+        ],
+        "median_mixed_sign_count": 40,
+        "median_starting_position_fraction": 0.4013785394937599,
+        "median_community_realization_fraction": 0.1738309270603913,
+        "median_nonadditivity_fraction": 0.4197371252721773,
+        "seeds_starting_exceeds_community": 6
+      },
+      {
+        "k": 16,
+        "mixed_sign_count_range": [
+          26,
+          36
+        ],
+        "median_mixed_sign_count": 32.5,
+        "median_starting_position_fraction": 0.5353057574497675,
+        "median_community_realization_fraction": 0.14051243451441628,
+        "median_nonadditivity_fraction": 0.3203297360008234,
+        "seeds_starting_exceeds_community": 6
+      }
+    ],
+    "decision": {
+      "seed_stable_rank_crossover": true,
+      "kmax": 16,
+      "kmax_seeds_starting_exceeds_community": 6,
+      "required_kmax_seed_count": 5,
+      "median_starting_share_strictly_increases": true,
+      "median_community_share_strictly_decreases": true
+    },
+    "corrected_boundary": "At k=4, starting-position share exceeds community-realization share in 4/6 seeds, not 6/6. The crossover is unanimous at k=8 and k=16."
+  },
+  "claim_boundary": "The qualitative regime-dependent determinant-ordering conclusion survives collision-free random streams. Numerical magnitudes and the exact k at which all six seeds agree are Monte Carlo/design-specific."
+}
