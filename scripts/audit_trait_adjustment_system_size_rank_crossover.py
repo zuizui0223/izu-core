@@ -17,7 +17,7 @@ from scripts.run_response_geometry_parameter_robustness import (
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/chapter2_trait_adjustment_system_size_rank_crossover_freeze_v2_20260910.json"
-OUT = ROOT / "data/results/chapter2_trait_adjustment_system_size_rank_crossover_v2_20260910.json"
+OUT = ROOT / "data/results/chapter2_trait_adjustment_system_size_rank_crossover_rng_corrected_20260922.json"
 
 
 def pooled_trajectory(scenario, seed: int, cfg, copies: int):
