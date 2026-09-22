@@ -13,7 +13,7 @@ from scripts.run_response_geometry_parameter_robustness import BASE, TRAIT_GRID,
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/chapter2_finite_community_system_size_freeze_20260908.json"
-OUT = ROOT / "data/results/chapter2_finite_community_system_size_20260908.json"
+OUT = ROOT / "data/results/chapter2_finite_community_system_size_rng_corrected_20260922.json"
 COPY_SEED_STRIDE = 1_000_003
 
 
