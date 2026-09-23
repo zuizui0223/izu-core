@@ -15,7 +15,22 @@ This supplement reports diagnostics that are deliberately stricter than the froz
 
 The full six-source plane contains 42 systems. Source-balanced D1 q90/q10 = 4.521, phi span = 0.352, interior occupancy = 0.262, and absolute Spearman = 0.325.
 
-Two exclusions are load-bearing under the stricter all-source diagnostic. Removing England STEP reduces synchrony dispersion below the frozen numerical floor (phi span = 0.162). Removing Martinique reduces joint-interior occupancy below the frozen numerical floor (0.188), although breadth dispersion remains >2. These diagnostics were calculated after the primary route decision and do not redefine that decision.
+Two exclusions are load-bearing under the stricter all-source diagnostic using the original source-native schedules. Removing England STEP reduces synchrony dispersion below the frozen numerical floor (phi span = 0.162). Removing Martinique reduces joint-interior occupancy below the frozen numerical floor (0.188), although breadth dispersion remains >2. These diagnostics were calculated after the primary route decision and do not redefine that decision.
+
+## Supplementary Table 1b | Equal-depth six-bin synchrony sensitivity
+
+A later code review identified a sampling-depth concern: across the 42 admitted systems, full-data `phi` correlated negatively with time-bin count (`rho_s=-0.273`; for `rho_eq`, `rho_s=-0.372`). Before executing the sensitivity, all systems were frozen to repeated rarefaction to six distinct source-native bins, with 1,000 requested iterations and the original partner identities, source weights and NEE dispersion thresholds retained. Of 1,000 iterations, 999 were valid.
+
+| Sensitivity quantity | Result |
+|---|---:|
+| All-source phi-only dispersion criteria pass | 90.8% |
+| England-excluded all four dispersion criteria pass | 89.1% |
+| England-excluded phi-span criterion pass | 93.3% |
+| Six-bin phi-span median | 0.470 |
+| Six-bin phi-span 95% interval | 0.284–0.774 |
+| Joint-coordinate all-source criteria pass | 61.1% |
+
+England itself remained highly synchronous after rarefaction: Carlisle median `phi=0.446` (full 0.450), Livingstone_far 0.680 (full 0.635), and Livingstone_house 0.475 (full 0.414). Thus England's high values are not explained by having only eight source-native rounds. At the same time, the failure of the original England-deletion span is not robust to equal temporal depth: other sources move upward when reduced to six bins, so the apparent uniqueness of the England high-synchrony edge is partly a sampling-depth property. Because this small-T perturbation itself shifts `phi`, the rarefied plane is retained strictly as a sensitivity analysis and does not replace the full-data primary coordinates.
 
 ## Supplementary Table 2 | Prospectively frozen source-redundancy challenge
 
@@ -34,4 +49,4 @@ Synthetic k is the nominal number of exchangeable model components, and syntheti
 
 ## Interpretation boundary
 
-These diagnostics support a deliberately narrow inference. The current natural plane demonstrates a broad, empirically occupied two-dimensional context space under the frozen measurement contract, but that coverage is source-complementary rather than leave-any-source-out invariant. Great Britain retains the pre-existing EuPPollNet island-study classification; it is not reclassified from its effect on the route. Failed or unavailable candidate sources are data-eligibility outcomes, not biological negatives.
+These diagnostics support a deliberately narrow inference. The full-data natural plane demonstrates a broad, empirically occupied two-dimensional context space under the frozen measurement contract. Under the original schedules, that coverage is source-complementary rather than leave-any-source-out invariant; under equal six-bin depth, England-excluded synchrony coverage is usually restored, showing that source leverage and temporal sampling depth are partially confounded. Great Britain retains the pre-existing EuPPollNet island-study classification; it is not reclassified from its effect on the route. Failed or unavailable candidate sources are data-eligibility outcomes, not biological negatives.

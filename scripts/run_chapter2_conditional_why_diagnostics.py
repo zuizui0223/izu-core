@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from scripts.chapter2_rng import paired_scenario_seeds
 from scripts.run_context_assurance_threshold_maps import (
     SATURATIONS,
     SUPPORT_STRENGTHS,
@@ -74,27 +75,56 @@ def frozen_input_sha256(path: Path) -> str:
 
 def verify_inputs(design: dict) -> dict[str, dict[str, str | bool]]:
     checks: dict[str, dict[str, str | bool]] = {}
+    correction_path = ROOT / "data/design/chapter2_rng_stream_correction_20260922.json"
+    correction = (
+        json.loads(correction_path.read_text(encoding="utf-8"))
+        if correction_path.exists()
+        else None
+    )
+    corrected = set((correction or {}).get("corrected_source_identity", {}))
     for relative, expected_with_prefix in design["input_identity"].items():
         expected = expected_with_prefix.removeprefix("sha256:")
         observed = frozen_input_sha256(ROOT / relative)
+        current_match = observed == expected
+        documented_correction = (
+            correction is not None
+            and correction.get("status") == "implementation_correction_protocol"
+            and relative in corrected
+        )
         checks[relative] = {
             "expected_sha256": expected,
             "observed_sha256": observed,
-            "match": observed == expected,
+            "current_match": current_match,
+            "documented_rng_correction": documented_correction,
+            "match": current_match or documented_correction,
         }
     failed = [name for name, row in checks.items() if not row["match"]]
     if failed:
-        raise RuntimeError(f"frozen input identity mismatch: {failed}")
+        raise RuntimeError(f"frozen input identity mismatch without documented correction: {failed}")
     return checks
 
 
-def response_matrix(cfg, replicates: int, seed: int) -> list[list[float]]:
-    """Return trait x matched-community island-minus-mainland service deltas."""
+def legacy_response_matrix(cfg, replicates: int, seed: int) -> list[list[float]]:
+    """Reproduce the archived pre-correction matrix exactly for provenance."""
     matrix = [[] for _ in TRAIT_GRID]
     for rep in range(replicates):
         run_seed = seed + rep * 10_000
         mainland = pollinator_trajectory(cfg.mainland, run_seed + 100_000, cfg)
         island = pollinator_trajectory(cfg.island, run_seed + 200_000, cfg)
+        for index, trait in enumerate(TRAIT_GRID):
+            _, mainland_service = endpoint_on_trajectory(trait, mainland, cfg)
+            _, island_service = endpoint_on_trajectory(trait, island, cfg)
+            matrix[index].append(island_service - mainland_service)
+    return matrix
+
+
+def response_matrix(cfg, replicates: int, seed: int) -> list[list[float]]:
+    """Return the corrected collision-free trait x community response matrix."""
+    matrix = [[] for _ in TRAIT_GRID]
+    for rep in range(replicates):
+        mainland_seed, island_seed = paired_scenario_seeds(seed, rep)
+        mainland = pollinator_trajectory(cfg.mainland, mainland_seed, cfg)
+        island = pollinator_trajectory(cfg.island, island_seed, cfg)
         for index, trait in enumerate(TRAIT_GRID):
             _, mainland_service = endpoint_on_trajectory(trait, mainland, cfg)
             _, island_service = endpoint_on_trajectory(trait, island, cfg)
@@ -498,14 +528,14 @@ def build() -> dict:
     phase3 = json.loads(PHASE3.read_text(encoding="utf-8"))
     input_checks = verify_inputs(design)
 
-    baseline_matrix = response_matrix(BASE, BASELINE_REPLICATES, SEED)
+    baseline_matrix = legacy_response_matrix(BASE, BASELINE_REPLICATES, SEED)
     baseline_counts = realization_class_counts(baseline_matrix)
     baseline_decomposition = two_way_decomposition(baseline_matrix)
 
     design_points = latin_hypercube(JOINT_POINTS, SEED + 70_000_000)
     joint_rows = []
     for point_index, point in enumerate(design_points):
-        matrix = response_matrix(config_from_point(point), JOINT_REPLICATES, SEED + 80_000_000)
+        matrix = legacy_response_matrix(config_from_point(point), JOINT_REPLICATES, SEED + 80_000_000)
         joint_rows.append({
             "point_index": point_index,
             "parameters": point,

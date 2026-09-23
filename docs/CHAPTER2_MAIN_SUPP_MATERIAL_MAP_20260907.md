@@ -38,11 +38,11 @@ Do not show Wanshan/Ogasawara/Izu as a three-step empirical validation chain.
 ### Main Figure 2 — response geometry and structural controls
 
 Retain:
-- baseline 21-point response geometry and 41/96 mixed realizations;
-- exact realized-richness hard control: mean all-positive in 6/6 seeds while 51–65/96 individual realizations remain mixed;
-- equal-turnover control: 70/96 mixed and 65.61% state × community non-additivity;
-- zero-adjustment finite-community size audit: count CV 0.575–0.691 at `k=1` to 0.134–0.172 at `k=16`, while 44–60/96 remain mixed;
-- active-adjustment rank crossover: median starting/community shares 2.55%/72.98% at `k=1` to 55.84%/12.72% at `k=16`, with starting > community in 6/6 seeds from `k=4` onward.
+- historical offset-stream baseline: 41/96 mixed realizations (provenance only); corrected six-seed baseline: median 45.5 [43–59]/96 mixed realizations;
+- exact realized-richness hard control after RNG correction: mean all-positive in 6/6 seeds while 55–64/96 individual realizations remain mixed;
+- historical equal-turnover control (legacy offset streams): 70/96 mixed and 65.61% state × community non-additivity; retained as provenance, not current Monte Carlo inference;
+- zero-adjustment finite-community size audit after RNG correction: island-like count CV 0.634–0.730 at `k=1` to 0.140–0.179 at `k=16`, while 50–62/96 remain mixed;
+- active-adjustment rank crossover after RNG correction: median starting/community shares 3.11%/74.27% at `k=1` to 53.53%/14.05% at `k=16`, with starting > community in 4/6 seeds at `k=4` and 6/6 at `k=8` and `k=16`.
 
 The older joint existing-harness cross-check `replace(BASE, steps=240, trait_adjustment=0.0)` retains 75/96 mixed realizations. It remains Supporting Information / Table S4 evidence and is not required in the main narrative.
 
@@ -75,26 +75,26 @@ Detailed Wanshan–Yongxing, Ogasawara, historical signed-position, contemporary
 The core paper should be able to carry the mechanism with the following compact set.
 
 ### Conditional geometry
-- baseline mixed response: 41/96;
+- corrected baseline mixed response: median 45.5 [43–59]/96 across six master seeds; historical 41/96 retained as provenance only;
 - joint-design regime classes: 16/48 mixed, 22/48 all-positive, 10/48 all-negative;
 - partner-loss association +0.634; partner-arrival association −0.626;
-- baseline decomposition: starting 2.18%, community 80.17%, non-additive 17.64%;
+- corrected baseline median decomposition: starting 3.11%, community 74.27%, non-additive 22.82%; historical 2.18/80.17/17.64% retained as provenance only;
 - additive-sign mismatch 271/2016.
 
 ### Realized-richness and structural controls
 - equal-initial-richness diagnostic: 53/96 mixed, explicitly initial-richness only;
-- exact realized-richness hard control: mean all-positive 6/6; individual mixed 51–65/96;
-- hard-control decomposition: starting 0.94–2.21%, community 50.04–55.92%, non-additive 42.72–48.51%;
-- equal-turnover control: 70/96 mixed; non-additive 65.61%.
+- exact realized-richness hard control after RNG correction: mean all-positive 6/6; individual mixed 55–64/96;
+- corrected hard-control decomposition: starting 1.03–1.66%, community 54.70–70.22%, non-additive 28.48–43.64%;
+- historical equal-turnover control (legacy offset streams): 70/96 mixed; non-additive 65.61%.
 
 ### System-size hierarchy
-- zero-adjustment `k=1→16`: island-like count CV 0.575–0.691 → 0.134–0.172; empty final communities → 0%; mixed at `k=16` 44–60/96;
+- zero-adjustment `k=1→16` after RNG correction: island-like count CV 0.634–0.730 → 0.140–0.179; empty final communities → 0%; mixed at `k=16` 50–62/96;
 - deterministic mean-field kernel contrast all-positive, minimum 0.0208;
 - Gaussian mixed-fraction absolute error 0.0689 → 0.00654 from `k=1→16`;
-- active adjustment median starting shares: 2.55, 10.33, 27.33, 42.52, 55.84%;
-- active adjustment median community shares: 72.98, 48.03, 23.52, 18.26, 12.72%;
-- starting > community: 0/6, 0/6, 6/6, 6/6, 6/6 seeds across `k={1,2,4,8,16}`;
-- mixed at `k=16`: 28–42/96.
+- active adjustment median starting shares: 3.11, 12.87, 24.70, 40.14, 53.53%;
+- active adjustment median community shares: 74.27, 35.87, 23.23, 17.38, 14.05%;
+- starting > community: 0/6, 0/6, 4/6, 6/6, 6/6 seeds across `k={1,2,4,8,16}`;
+- mixed at `k=16`: 26–36/96.
 
 ### Downstream modifiers
 - filtering strength 0.40: 15.67% negative→non-negative versus 56.54% positive→non-positive;
@@ -128,7 +128,7 @@ Preserve FDQ-to-matching, leave-one-island checks, matching-to-pollen sensitivit
 
 ### S19 — exact realized-richness matching hard control
 
-Preserve the response-blind stepwise matching rule, exact equality audit, all-positive mean geometry in 6/6 seeds, 51–65/96 mixed individual range and decomposition ranges.
+Preserve the response-blind stepwise matching rule, exact equality audit, all-positive mean geometry in 6/6 seeds, corrected 55–64/96 mixed individual range and corrected decomposition ranges.
 
 ### S20 — finite-community system-size audit
 

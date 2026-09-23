@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 from scripts.run_chapter2_conditional_why_diagnostics import (
     BASE,
@@ -11,6 +12,8 @@ from scripts.run_chapter2_conditional_why_diagnostics import (
     response_matrix,
     two_way_decomposition,
 )
+
+CORRECTED_RECEIPT = Path("data/results/chapter2_rng_stream_correction_20260922.json")
 
 
 def recompute_headline() -> dict:
@@ -23,6 +26,21 @@ def recompute_headline() -> dict:
 
 
 def frozen_headline() -> dict:
+    """Return the corrected deterministic primary draw used for regression tests."""
+    payload = json.loads(CORRECTED_RECEIPT.read_text(encoding="utf-8"))
+    row = next(
+        row
+        for row in payload["baseline_ensemble"]["rows"]
+        if int(row["seed"]) == int(SEED)
+    )
+    return {
+        "baseline_realization_class_counts": row["realization_class_counts"],
+        "baseline_sum_of_squares_fraction": row["sum_of_squares_fraction"],
+    }
+
+
+def historical_headline() -> dict:
+    """Return the superseded offset-stream draw for provenance only."""
     payload = json.loads(OUT.read_text(encoding="utf-8"))
     block = payload["starting_position_by_community_realization"]
     return {

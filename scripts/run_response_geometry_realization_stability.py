@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from statistics import mean
 
+from scripts.chapter2_rng import paired_scenario_seeds
 from scripts.run_response_geometry_parameter_robustness import (
     BASE,
     SWEEPS,
@@ -18,7 +19,13 @@ from scripts.run_response_geometry_parameter_robustness import (
 OUT = Path("data/results/response_geometry_realization_stability.json")
 
 
-def realization_stability(cfg, replicates: int, seed: int) -> dict:
+def realization_stability(
+    cfg,
+    replicates: int,
+    seed: int,
+    *,
+    legacy_streams: bool = False,
+) -> dict:
     mixed = 0
     all_positive = 0
     all_negative = 0
@@ -29,9 +36,14 @@ def realization_stability(cfg, replicates: int, seed: int) -> dict:
     trait_deltas = {trait: [] for trait in TRAIT_GRID}
 
     for rep in range(replicates):
-        run_seed = seed + rep * 10_000
-        mainland = pollinator_trajectory(cfg.mainland, run_seed + 100_000, cfg)
-        island = pollinator_trajectory(cfg.island, run_seed + 200_000, cfg)
+        if legacy_streams:
+            run_seed = seed + rep * 10_000
+            mainland_seed = run_seed + 100_000
+            island_seed = run_seed + 200_000
+        else:
+            mainland_seed, island_seed = paired_scenario_seeds(seed, rep)
+        mainland = pollinator_trajectory(cfg.mainland, mainland_seed, cfg)
+        island = pollinator_trajectory(cfg.island, island_seed, cfg)
         signs = []
         for trait in TRAIT_GRID:
             _, mainland_service = endpoint_on_trajectory(trait, mainland, cfg)
@@ -81,6 +93,13 @@ def realization_stability(cfg, replicates: int, seed: int) -> dict:
         "mean_geometry_all_negative": all(value <= 0 for value in mean_signs) and -1 in mean_signs,
         "trait_rows": trait_rows,
     }
+
+
+def legacy_realization_stability(cfg, replicates: int, seed: int) -> dict:
+    """Reproduce the archived offset-stream realization stability exactly."""
+    return realization_stability(
+        cfg, replicates, seed, legacy_streams=True
+    )
 
 
 def build(replicates: int = 24, seed: int = 20260826) -> dict:

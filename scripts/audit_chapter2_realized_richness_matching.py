@@ -7,6 +7,7 @@ import random
 from pathlib import Path
 from statistics import mean
 
+from scripts.chapter2_rng import paired_scenario_seeds
 from scripts.run_chapter2_conditional_why_diagnostics import (
     classify_matrix,
     realization_class_counts,
@@ -23,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/chapter2_realized_richness_matching_freeze_20260907.json"
 MODEL = ROOT / "scripts/run_response_geometry_parameter_robustness.py"
 DIAGNOSTICS = ROOT / "scripts/run_chapter2_conditional_why_diagnostics.py"
-OUT = ROOT / "data/results/chapter2_realized_richness_matching_frozen_20260907.json"
+OUT = ROOT / "data/results/chapter2_realized_richness_matching_rng_corrected_20260922.json"
 
 
 def git_blob_sha(path: Path) -> str:
@@ -41,7 +42,14 @@ def _expected_blob(value: str) -> str:
 def verify_design(design: dict) -> None:
     if design.get("status") != "fixed_before_execution":
         raise ValueError("realized-richness sensitivity was not frozen before execution")
-    identities = design["source_identity"]
+    correction = ROOT / "data/design/chapter2_rng_stream_correction_20260922.json"
+    if correction.exists():
+        payload = json.loads(correction.read_text(encoding="utf-8"))
+        if payload.get("status") != "implementation_correction_protocol":
+            raise RuntimeError("RNG correction protocol is not valid")
+        identities = payload["corrected_source_identity"]
+    else:
+        identities = design["source_identity"]
     observed = {
         "scripts/run_response_geometry_parameter_robustness.py": git_blob_sha(MODEL),
         "scripts/run_chapter2_conditional_why_diagnostics.py": git_blob_sha(DIAGNOSTICS),
@@ -52,7 +60,7 @@ def verify_design(design: dict) -> None:
         if blob != _expected_blob(identities[path])
     ]
     if failed:
-        raise RuntimeError(f"source identity changed after sensitivity freeze: {failed}")
+        raise RuntimeError(f"source identity changed after declared analysis freeze: {failed}")
     baseline = design["baseline"]
     if int(baseline["steps"]) != BASE.steps:
         raise RuntimeError("frozen step count does not match BASE")
@@ -140,9 +148,9 @@ def matched_response_matrix(*, matching_seed: int, design: dict) -> tuple[list[l
     unequal_after = 0
 
     for rep in range(replicates):
-        run_seed = community_seed + rep * 10_000
-        mainland = pollinator_trajectory(BASE.mainland, run_seed + 100_000, BASE)
-        island = pollinator_trajectory(BASE.island, run_seed + 200_000, BASE)
+        mainland_seed, island_seed = paired_scenario_seeds(community_seed, rep)
+        mainland = pollinator_trajectory(BASE.mainland, mainland_seed, BASE)
+        island = pollinator_trajectory(BASE.island, island_seed, BASE)
         matched_mainland, matched_island, audit = match_trajectories(
             mainland,
             island,

@@ -27,35 +27,35 @@ jobs:
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
           test ${PIPESTATUS[0]} -eq 0
-      - name: Run Chapter 2 relational robustness audit
+      - name: Run RNG-corrected Chapter 2 relational robustness audit
         if: matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_relational_robustness --out data/results/chapter2_relational_robustness_audit_frozen_20260831.json
-      - name: Upload Chapter 2 relational robustness audit
+        run: python -m scripts.audit_chapter2_relational_robustness --out data/results/chapter2_relational_robustness_rng_corrected_20260922.json
+      - name: Upload RNG-corrected Chapter 2 relational robustness audit
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-relational-robustness-audit
-          path: data/results/chapter2_relational_robustness_audit_frozen_20260831.json
+          name: chapter2-relational-robustness-rng-corrected
+          path: data/results/chapter2_relational_robustness_rng_corrected_20260922.json
           if-no-files-found: error
-      - name: Run Chapter 2 realized-richness matching audit
+      - name: Run RNG-corrected Chapter 2 realized-richness matching audit
         if: matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_realized_richness_matching --out data/results/chapter2_realized_richness_matching_frozen_20260907.json
-      - name: Upload Chapter 2 realized-richness matching audit
+        run: python -m scripts.audit_chapter2_realized_richness_matching --out data/results/chapter2_realized_richness_matching_rng_corrected_20260922.json
+      - name: Upload RNG-corrected Chapter 2 realized-richness matching audit
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-realized-richness-matching-audit
-          path: data/results/chapter2_realized_richness_matching_frozen_20260907.json
+          name: chapter2-realized-richness-matching-rng-corrected
+          path: data/results/chapter2_realized_richness_matching_rng_corrected_20260922.json
           if-no-files-found: error
       - name: Run Chapter 2 finite-community system-size audit
         if: matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_finite_community_system_size --out data/results/chapter2_finite_community_system_size_20260908.json
+        run: python -m scripts.audit_chapter2_finite_community_system_size --out data/results/chapter2_finite_community_system_size_rng_corrected_20260922.json
       - name: Upload Chapter 2 finite-community system-size audit
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-finite-community-system-size-audit
-          path: data/results/chapter2_finite_community_system_size_20260908.json
+          name: chapter2-finite-community-system-size-rng-corrected
+          path: data/results/chapter2_finite_community_system_size_rng_corrected_20260922.json
           if-no-files-found: error
       - name: Run finite-N Gaussian mean-field audit
         if: matrix.python-version == '3.11'
@@ -69,13 +69,26 @@ jobs:
           if-no-files-found: error
       - name: Run active-adjustment system-size rank crossover audit
         if: matrix.python-version == '3.11'
-        run: python -m scripts.audit_trait_adjustment_system_size_rank_crossover --out data/results/chapter2_trait_adjustment_system_size_rank_crossover_v2_20260910.json
+        run: python -m scripts.audit_trait_adjustment_system_size_rank_crossover --out data/results/chapter2_trait_adjustment_system_size_rank_crossover_rng_corrected_20260922.json
       - name: Upload active-adjustment system-size rank crossover audit
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-trait-adjustment-system-size-rank-crossover-audit-v2
-          path: data/results/chapter2_trait_adjustment_system_size_rank_crossover_v2_20260910.json
+          name: chapter2-trait-adjustment-system-size-rank-crossover-rng-corrected
+          path: data/results/chapter2_trait_adjustment_system_size_rank_crossover_rng_corrected_20260922.json
+          if-no-files-found: error
+      - name: Run six-bin natural synchrony sensitivity
+        if: matrix.python-version == '3.11' && always()
+        run: |
+          python -m scripts.run_chapter2_phi_timebin_rarefaction_from_locked_sources \
+            --work-dir /tmp/chapter2-phi-rarefaction \
+            --out data/results/chapter2_phi_timebin_rarefaction_20260922.json
+      - name: Upload six-bin natural synchrony sensitivity
+        if: matrix.python-version == '3.11' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-phi-timebin-rarefaction
+          path: data/results/chapter2_phi_timebin_rarefaction_20260922.json
           if-no-files-found: error
       - name: Upload pytest reports on failure
         if: failure()

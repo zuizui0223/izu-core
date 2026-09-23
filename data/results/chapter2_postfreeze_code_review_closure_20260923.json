@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0",
+  "analysis": "chapter2_postfreeze_code_review_closure",
+  "status": "closed_by_corrected_ci_and_sampling_depth_sensitivity",
+  "closed_on": "2026-09-23",
+  "pr": 361,
+  "head_sha": "75a7f5c8d95270915fb41c63024505b05febafcd",
+  "ci": {
+    "run_id": 35825113354,
+    "conclusion": "success",
+    "scientific_gate_run_id": 35825113281,
+    "scientific_gate_conclusion": "success",
+    "artifacts": {
+      "relational_robustness": {
+        "id": 10735018552,
+        "digest": "sha256:7eb638a0b10802f5908099d833014800448e67be422b366ca3027b0c18e66140"
+      },
+      "realized_richness": {
+        "id": 10734617745,
+        "digest": "sha256:438cd083d5d0ef370fe2871997fd2866eae0df46e76b1ea91a800e506f9f324e"
+      },
+      "finite_community": {
+        "id": 10735042236,
+        "digest": "sha256:26f462bb2e8a3ab2e224c72abd2d28cd408d54c6acd39ca671837ca091f07dbd"
+      },
+      "rank_crossover": {
+        "id": 10735580648,
+        "digest": "sha256:c8affa8ca9d9eaf2fc1368358fa83b210a0a2b9372d7287341061aba3c718863"
+      },
+      "phi_rarefaction": {
+        "id": 10735316295,
+        "digest": "sha256:562371834f6448fabe6a9b09ce2dac6bc52324c71dd329f698e44276961f0803"
+      }
+    }
+  },
+  "rng_stream_correction": {
+    "historical_expected_scenario_replicate_streams": 192,
+    "historical_distinct_integer_streams": 106,
+    "historical_collision_pairs": 86,
+    "corrected_k16_declared_child_streams": 18432,
+    "corrected_unique_child_streams": 18432,
+    "corrected_collisions": 0,
+    "method": "numpy.random.SeedSequence hierarchy: master seed -> replicate -> scenario -> copy",
+    "preserved": [
+      "six master seeds",
+      "96 realizations per seed",
+      "trait grid",
+      "biological parameters",
+      "k={1,2,4,8,16}",
+      "common-random-number prefix across k"
+    ]
+  },
+  "corrected_baseline_ensemble": {
+    "mixed_sign_count": {
+      "median": 45.5,
+      "range": [
+        43,
+        59
+      ]
+    },
+    "starting_position_fraction": {
+      "median": 0.031124966593783745,
+      "range": [
+        0.02007755796629738,
+        0.04086851786580688
+      ]
+    },
+    "community_realization_fraction": {
+      "median": 0.7426913618389877,
+      "range": [
+        0.6978123458814378,
+        0.7873101023824955
+      ]
+    },
+    "nonadditivity_fraction": {
+      "median": 0.22816874854338004,
+      "range": [
+        0.1863975967121983,
+        0.26759724650783706
+      ]
+    },
+    "primary_seed_20260826": {
+      "mixed_sign": 43,
+      "all_positive": 45,
+      "all_negative": 8,
+      "starting_position": 0.04086851786580688,
+      "community_realization": 0.6978123458814378,
+      "nonadditivity": 0.26131913625275544
+    },
+    "reporting_rule": "paper-facing magnitudes use six-seed median/range; the corrected primary draw remains a deterministic regression target only"
+  },
+  "corrected_rank_crossover": {
+    "k4": {
+      "starting_exceeds_community_seeds": 4,
+      "seed_count": 6,
+      "median_starting": 0.24697680500123687,
+      "median_community": 0.23228025350520923,
+      "median_nonadditivity": 0.5082075327714048,
+      "mixed_range": [
+        41,
+        56
+      ]
+    },
+    "k8": {
+      "starting_exceeds_community_seeds": 6,
+      "seed_count": 6
+    },
+    "k16": {
+      "starting_exceeds_community_seeds": 6,
+      "seed_count": 6,
+      "median_starting": 0.5353057574497674,
+      "median_community": 0.14051243451441625,
+      "median_nonadditivity": 0.3203297360008234,
+      "mixed_range": [
+        26,
+        36
+      ]
+    },
+    "prespecified_decision_rule_pass": true,
+    "interpretation": "determinant ordering remains regime dependent, but unanimity begins at k=8 rather than k=4; exact k is model-specific"
+  },
+  "corrected_realized_richness_control": {
+    "mean_geometry_all_positive_seeds": 6,
+    "seed_count": 6,
+    "mixed_realization_count_range": [
+      55,
+      64
+    ],
+    "starting_position_fraction_range": [
+      0.010269325105661664,
+      0.01657256350043847
+    ],
+    "community_realization_fraction_range": [
+      0.5470223756458136,
+      0.7022169080808742
+    ],
+    "nonadditivity_fraction_range": [
+      0.28483677908237925,
+      0.4364050608537478
+    ],
+    "interpretation": "exact realized-richness matching moves the coarse mean regime but does not eliminate individual state-by-community branching"
+  },
+  "phi_timebin_sensitivity": {
+    "requested_iterations": 1000,
+    "valid_iterations": 999,
+    "invalid_iterations": 1,
+    "full_data": {
+      "spearman_phi_vs_time_bins": -0.2733710456566799,
+      "spearman_rho_eq_vs_time_bins": -0.37233573274443926,
+      "dispersion_criteria_pass": true
+    },
+    "six_bin_phi_only_primary": {
+      "all_source_dispersion_pass_fraction": 0.9079079079079079,
+      "england_removed_all_criteria_pass_fraction": 0.8908908908908909,
+      "england_removed_phi_span_pass_fraction": 0.9329329329329329,
+      "phi_span_median": 0.46950507047504264,
+      "phi_span_95_interval": [
+        0.2843799651901631,
+        0.7739442981375526
+      ]
+    },
+    "six_bin_joint_coordinate_secondary": {
+      "all_source_dispersion_pass_fraction": 0.6106106106106106
+    },
+    "england_systems": [
+      {
+        "system_id": "Carlisle",
+        "original_phi": 0.4497067330327854,
+        "rarefied_phi_median": 0.44563441403330684
+      },
+      {
+        "system_id": "Livingstone_far",
+        "original_phi": 0.6346005709671786,
+        "rarefied_phi_median": 0.6796275427989477
+      },
+      {
+        "system_id": "Livingstone_house",
+        "original_phi": 0.4137355814847422,
+        "rarefied_phi_median": 0.4752217785412965
+      }
+    ],
+    "interpretation": [
+      "negative phi/time-bin association confirms temporal-depth sensitivity of the estimator",
+      "England high synchrony is not explained by its eight-bin schedule: its three systems remain high after six-bin rarefaction",
+      "the observed-data claim that England uniquely supplies the high-synchrony edge is sampling-schedule contingent, because England-excluded synchrony span passes in 93.3% of equal-depth rarefactions",
+      "six-bin rarefaction is a sensitivity analysis, not a replacement estimator; the stronger joint-coordinate perturbation is less stable"
+    ]
+  },
+  "closure": {
+    "issue_1_single_seed_headline": "closed: corrected six-seed ensemble is the paper-facing baseline and deterministic primary-draw regression is separate",
+    "issue_2_rng_collision": "closed: disjoint hierarchical streams with zero collisions in the declared k16 stream set",
+    "issue_3_phi_sampling_depth": "closed_as_sensitivity: small-T dependence exists, but England remains high and equal-depth source leverage is substantially less England-specific",
+    "remaining_boundary": "do not treat rarefied six-bin coordinates as unbiased natural synchrony estimates or as a replacement for the full-data primary plane"
+  }
+}

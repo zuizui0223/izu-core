@@ -24,7 +24,8 @@ The supported route is:
 
 ### Conditional geometry
 
-- baseline: 41/96 mixed-sign, 42/96 all-positive, 13/96 all-negative;
+- historical offset-stream baseline: 41/96 mixed-sign, 42/96 all-positive, 13/96 all-negative (provenance only);
+- corrected six-seed baseline: mixed-sign median 45.5/96 [43–59], with paper-facing decomposition reported from the corrected ensemble;
 - joint design: 16/48 mixed, 22/48 all-positive, 10/48 all-negative;
 - partner loss and arrival are the strongest sign-stable regime associations.
 
@@ -32,24 +33,24 @@ The supported route is:
 
 - exact realized richness matched at every simulated step in 6 prespecified matching seeds;
 - ensemble mean geometry becomes all-positive in 6/6 seeds;
-- 51–65/96 individual realizations remain mixed-sign;
-- community-realization share remains 50.04–55.92%;
-- starting-position share remains 0.94–2.21%;
-- state × community non-additivity remains 42.72–48.51%.
+- 55–64/96 individual realizations remain mixed-sign;
+- community-realization share remains 54.70–70.22%;
+- starting-position share remains 1.03–1.66%;
+- state × community non-additivity remains 28.48–43.64%.
 
 Interpretation: realized richness helps place the coarse mean regime, but branch identity cannot be reduced to richness.
 
 ### Equal-turnover control
 
-Equalizing the baseline mainland–island partner-arrival and partner-loss rates yields 70/96 mixed realizations and 65.61% state × community non-additivity. The baseline turnover-rate asymmetry is therefore not required for branching. Other scenario differences remain, so the control does not make the environments identical.
+The historical offset-stream equal-turnover control yielded 70/96 mixed realizations and 65.61% state × community non-additivity. It is retained as provenance only and is not used as corrected Monte Carlo inference until rerun under the collision-free stream contract. Other scenario differences remained, so even the historical control did not make the environments identical.
 
 ### System-size audit
 
-At zero trait adjustment, increasing `k` reduces finite-community sampling variation strongly while preserving mixed response geometry over the audited finite range. At `k=16`, 44–60/96 realizations remain mixed, even though empty island-like communities fall to 0% and count CV falls to 0.134–0.172.
+At zero trait adjustment under the collision-free RNG correction, increasing `k` reduces finite-community sampling variation strongly while preserving mixed response geometry over the audited finite range. At `k=16`, 50–62/96 realizations remain mixed, even though empty island-like communities fall to 0% and island-like count CV falls to 0.140–0.179.
 
 The exact moment analysis shows that the deterministic mean-field kernel contrast is all-positive. Branching is therefore finite-community asymptotically, but not a rare-extinction or tiny-N artifact.
 
-With active plant adjustment, median starting-position share rises from 2.55% at `k=1` to 55.84% at `k=16`, while median community-realization share falls from 72.98% to 12.72%. Starting position exceeds community realization in 0/6 seeds at `k=1` and `k=2`, then 6/6 seeds at `k=4`, `k=8` and `k=16`. Mixed branching persists at `k=16` in 28–42/96 realizations.
+With active plant adjustment under the collision-free RNG correction, median starting-position share rises from 3.11% at `k=1` to 53.53% at `k=16`, while median community-realization share falls from 74.27% to 14.05%. Starting position exceeds community realization in 0/6 seeds at `k=1` and `k=2`, 4/6 at `k=4`, then 6/6 at `k=8` and `k=16`. Mixed branching persists at `k=16` in 26–36/96 realizations.
 
 Interpretation: **the ordering of response determinants is itself regime dependent.** The numerical crossover is model-specific and must not be transferred to nature.
 

@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LOO = ROOT / "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json"
 CHALLENGE = ROOT / "data/results/chapter2_natural_regime_source_robustness_challenge_closure_20260915.json"
+REVIEW_CLOSURE = ROOT / "data/results/chapter2_postfreeze_code_review_closure_20260923.json"
 OUT = ROOT / "docs/CHAPTER2_NEE_SUPPLEMENTARY_SOURCE_LEVERAGE_20260915.md"
 
 SOURCE_LABELS = {
@@ -25,6 +26,8 @@ def fmt(x: float) -> str:
 def build() -> str:
     loo = json.loads(LOO.read_text(encoding="utf-8"))
     challenge = json.loads(CHALLENGE.read_text(encoding="utf-8"))
+    review = json.loads(REVIEW_CLOSURE.read_text(encoding="utf-8"))
+    phi = review["phi_timebin_sensitivity"]
 
     lines: list[str] = []
     lines.append("# Supplementary source-leverage and redundancy diagnostics")
@@ -53,7 +56,38 @@ def build() -> str:
     )
     lines.append("")
     lines.append(
-        "Two exclusions are load-bearing under the stricter all-source diagnostic. Removing England STEP reduces synchrony dispersion below the frozen numerical floor (phi span = 0.162). Removing Martinique reduces joint-interior occupancy below the frozen numerical floor (0.188), although breadth dispersion remains >2. These diagnostics were calculated after the primary route decision and do not redefine that decision."
+        "Two exclusions are load-bearing under the stricter all-source diagnostic using the original source-native schedules. Removing England STEP reduces synchrony dispersion below the frozen numerical floor (phi span = 0.162). Removing Martinique reduces joint-interior occupancy below the frozen numerical floor (0.188), although breadth dispersion remains >2. These diagnostics were calculated after the primary route decision and do not redefine that decision."
+    )
+    lines.append("")
+    lines.append("## Supplementary Table 1b | Equal-depth six-bin synchrony sensitivity")
+    lines.append("")
+    full_diag = phi["full_data"]
+    primary = phi["six_bin_phi_only_primary"]
+    joint = phi["six_bin_joint_coordinate_secondary"]
+    lines.append(
+        "A later code review identified a sampling-depth concern: across the 42 admitted systems, full-data `phi` correlated negatively with time-bin count "
+        f"(`rho_s={full_diag['spearman_phi_vs_time_bins']:.3f}`; for `rho_eq`, `rho_s={full_diag['spearman_rho_eq_vs_time_bins']:.3f}`). "
+        "Before executing the sensitivity, all systems were frozen to repeated rarefaction to six distinct source-native bins, with 1,000 requested iterations and the original partner identities, source weights and NEE dispersion thresholds retained. "
+        f"Of 1,000 iterations, {phi['valid_iterations']} were valid."
+    )
+    lines.append("")
+    lines.append("| Sensitivity quantity | Result |")
+    lines.append("|---|---:|")
+    lines.append(f"| All-source phi-only dispersion criteria pass | {100*primary['all_source_dispersion_pass_fraction']:.1f}% |")
+    lines.append(f"| England-excluded all four dispersion criteria pass | {100*primary['england_removed_all_criteria_pass_fraction']:.1f}% |")
+    lines.append(f"| England-excluded phi-span criterion pass | {100*primary['england_removed_phi_span_pass_fraction']:.1f}% |")
+    lines.append(f"| Six-bin phi-span median | {primary['phi_span_median']:.3f} |")
+    lo, hi = primary["phi_span_95_interval"]
+    lines.append(f"| Six-bin phi-span 95% interval | {lo:.3f}–{hi:.3f} |")
+    lines.append(f"| Joint-coordinate all-source criteria pass | {100*joint['all_source_dispersion_pass_fraction']:.1f}% |")
+    lines.append("")
+    england = {row["system_id"]: row for row in phi["england_systems"]}
+    lines.append(
+        "England itself remained highly synchronous after rarefaction: "
+        f"Carlisle median `phi={england['Carlisle']['rarefied_phi_median']:.3f}` (full {england['Carlisle']['original_phi']:.3f}), "
+        f"Livingstone_far {england['Livingstone_far']['rarefied_phi_median']:.3f} (full {england['Livingstone_far']['original_phi']:.3f}), "
+        f"and Livingstone_house {england['Livingstone_house']['rarefied_phi_median']:.3f} (full {england['Livingstone_house']['original_phi']:.3f}). "
+        "Thus England's high values are not explained by having only eight source-native rounds. At the same time, the failure of the original England-deletion span is not robust to equal temporal depth: other sources move upward when reduced to six bins, so the apparent uniqueness of the England high-synchrony edge is partly a sampling-depth property. Because this small-T perturbation itself shifts `phi`, the rarefied plane is retained strictly as a sensitivity analysis and does not replace the full-data primary coordinates."
     )
     lines.append("")
     lines.append("## Supplementary Table 2 | Prospectively frozen source-redundancy challenge")
@@ -79,7 +113,7 @@ def build() -> str:
     lines.append("## Interpretation boundary")
     lines.append("")
     lines.append(
-        "These diagnostics support a deliberately narrow inference. The current natural plane demonstrates a broad, empirically occupied two-dimensional context space under the frozen measurement contract, but that coverage is source-complementary rather than leave-any-source-out invariant. Great Britain retains the pre-existing EuPPollNet island-study classification; it is not reclassified from its effect on the route. Failed or unavailable candidate sources are data-eligibility outcomes, not biological negatives."
+        "These diagnostics support a deliberately narrow inference. The full-data natural plane demonstrates a broad, empirically occupied two-dimensional context space under the frozen measurement contract. Under the original schedules, that coverage is source-complementary rather than leave-any-source-out invariant; under equal six-bin depth, England-excluded synchrony coverage is usually restored, showing that source leverage and temporal sampling depth are partially confounded. Great Britain retains the pre-existing EuPPollNet island-study classification; it is not reclassified from its effect on the route. Failed or unavailable candidate sources are data-eligibility outcomes, not biological negatives."
     )
     lines.append("")
     return "\n".join(lines)

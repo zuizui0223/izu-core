@@ -34,8 +34,8 @@ def test_readme_records_rank_crossover_without_universal_community_dominance():
     lower = text.lower()
     assert "conditional response geometry" in lower
     assert "hierarchy of response determinants is **not fixed**" in lower
-    assert "55.84%" in text and "12.72%" in text
-    assert "28–42/96" in text
+    assert "53.53%" in text and "14.05%" in text
+    assert "26–36/96" in text
     assert "numerical crossover is model-specific" in lower
     assert "not natural frequencies or calibrated ecological thresholds" in lower
     assert "formal external prediction: **`not_evaluable`**" in text

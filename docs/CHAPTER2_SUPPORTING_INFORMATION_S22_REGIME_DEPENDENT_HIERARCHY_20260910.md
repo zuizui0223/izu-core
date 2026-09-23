@@ -10,15 +10,15 @@ The original v1 freeze accidentally listed ad-hoc seed IDs and was not admitted.
 
 ## S22.2 Result
 
-The rank crossover was seed-stable. Across the six prespecified seeds, median starting-position share increased from `2.55%` at `k=1` to `10.33%`, `27.33%`, `42.52%`, and `55.84%` at `k=2,4,8,16`, respectively. Median community-realization share declined over the same sequence from `72.98%` to `48.03%`, `23.52%`, `18.26%`, and `12.72%`. Starting-position share exceeded community-realization share in `0/6` seeds at `k=1`, `0/6` at `k=2`, and `6/6` at each of `k=4`, `k=8`, and `k=16`.
+The rank crossover was seed-stable. After correcting the historical mainland/island random-stream collision without changing the six master seeds or any biological parameter, median starting-position share increased from `3.11%` at `k=1` to `12.87%`, `24.70%`, `40.14%`, and `53.53%` at `k=2,4,8,16`, respectively. Median community-realization share declined over the same sequence from `74.27%` to `35.87%`, `23.23%`, `17.38%`, and `14.05%`. Starting-position share exceeded community-realization share in `0/6` seeds at `k=1`, `0/6` at `k=2`, `4/6` at `k=4`, and `6/6` at `k=8` and `k=16`.
 
-Mixed-sign realized communities did not vanish at the crossover. Their six-seed ranges were `41–51/96` at `k=1`, `48–54/96` at `k=2`, `41–58/96` at `k=4`, `34–46/96` at `k=8`, and `28–42/96` at `k=16`. Median state × community non-additivity was `24.71%`, `41.71%`, `49.47%`, `40.07%`, and `31.99%`, respectively.
+Mixed-sign realized communities did not vanish at the crossover. Their corrected six-seed ranges were `43–59/96` at `k=1`, `50–58/96` at `k=2`, `41–56/96` at `k=4`, `36–48/96` at `k=8`, and `26–36/96` at `k=16`. Median state × community non-additivity was `22.82%`, `54.57%`, `50.82%`, `41.97%`, and `32.03%`, respectively.
 
 ## S22.3 Interpretation
 
 The variance hierarchy is therefore not globally rank-stable. In the small stochastic-community regime, variation among realized communities dominates. As independent community realizations are pooled while plant adjustment remains active, that additive community component shrinks and plant starting state becomes the larger additive source of response variation. The crossover does not mean that state and community become separable: non-additivity remains substantial, and mixed-sign branch realizations persist at `k=16`.
 
-Together with the separate deterministic mean-field audit, this suggests three model regimes: a small finite-community regime dominated by realized-community variation; an intermediate larger-community regime in which starting state becomes the larger additive component while branching remains; and an asymptotic deterministic limit in which stochastic branch heterogeneity disappears. The numeric crossover near `k=4` is a property of this declared synthetic model and is not interpreted as a universal ecological threshold.
+Together with the separate deterministic mean-field audit, this suggests three model regimes: a small finite-community regime dominated by realized-community variation; an intermediate larger-community regime in which starting state becomes the larger additive component while branching remains; and an asymptotic deterministic limit in which stochastic branch heterogeneity disappears. The median crossover occurs near `k=4`, but seed-level unanimity begins only at `k=8`; neither coordinate is interpreted as a universal ecological threshold.
 
 ## S22.4 Claim boundary
 
