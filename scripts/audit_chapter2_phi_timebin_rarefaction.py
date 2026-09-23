@@ -93,6 +93,23 @@ def _loo_dispersion_pass(rows: list[dict], thresholds: dict) -> dict[str, bool]:
     }
 
 
+def _loo_phi_span(rows: list[dict], thresholds: dict) -> dict[str, dict]:
+    sources = sorted({row["source_study_id"] for row in rows})
+    output = {}
+    minimum = float(thresholds["phi_q90_q10_span_min"])
+    for source in sources:
+        summary = _dispersion_summary(
+            [row for row in rows if row["source_study_id"] != source]
+        )
+        span = summary.get("phi_q90_q10_span")
+        valid = span is not None and math.isfinite(float(span))
+        output[source] = {
+            "span": float(span) if valid else None,
+            "pass": bool(valid and float(span) >= minimum),
+        }
+    return output
+
+
 def run(
     inputs: list[Path],
     *,
@@ -156,6 +173,10 @@ def run(
     joint_pass: list[bool] = []
     phi_only_loo: dict[str, list[bool]] = defaultdict(list)
     joint_loo: dict[str, list[bool]] = defaultdict(list)
+    phi_only_loo_span_pass: dict[str, list[bool]] = defaultdict(list)
+    joint_loo_span_pass: dict[str, list[bool]] = defaultdict(list)
+    phi_only_loo_spans: dict[str, list[float]] = defaultdict(list)
+    joint_loo_spans: dict[str, list[float]] = defaultdict(list)
     phi_only_span: list[float] = []
     joint_span: list[float] = []
     invalid_iterations = 0
@@ -197,6 +218,15 @@ def run(
             phi_only_loo[source].append(passed)
         for source, passed in _loo_dispersion_pass(joint_rows, thresholds).items():
             joint_loo[source].append(passed)
+
+        for source, row in _loo_phi_span(phi_only_rows, thresholds).items():
+            phi_only_loo_span_pass[source].append(bool(row["pass"]))
+            if row["span"] is not None:
+                phi_only_loo_spans[source].append(float(row["span"]))
+        for source, row in _loo_phi_span(joint_rows, thresholds).items():
+            joint_loo_span_pass[source].append(bool(row["pass"]))
+            if row["span"] is not None:
+                joint_loo_spans[source].append(float(row["span"]))
 
     valid = len(phi_only_pass)
     if valid == 0:
@@ -259,6 +289,14 @@ def run(
                 source: float(np.mean(values))
                 for source, values in sorted(phi_only_loo.items())
             },
+            "leave_one_source_out_phi_span_pass_fraction": {
+                source: float(np.mean(values))
+                for source, values in sorted(phi_only_loo_span_pass.items())
+            },
+            "leave_one_source_out_phi_span": {
+                source: _quantiles(values)
+                for source, values in sorted(phi_only_loo_spans.items())
+            },
         },
         "joint_coordinate_secondary": {
             "dispersion_criteria_pass_fraction": float(np.mean(joint_pass)),
@@ -266,6 +304,14 @@ def run(
             "leave_one_source_out_pass_fraction": {
                 source: float(np.mean(values))
                 for source, values in sorted(joint_loo.items())
+            },
+            "leave_one_source_out_phi_span_pass_fraction": {
+                source: float(np.mean(values))
+                for source, values in sorted(joint_loo_span_pass.items())
+            },
+            "leave_one_source_out_phi_span": {
+                source: _quantiles(values)
+                for source, values in sorted(joint_loo_spans.items())
             },
         },
         "per_system": per_system,
