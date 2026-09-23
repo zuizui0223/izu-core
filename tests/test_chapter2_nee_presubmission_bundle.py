@@ -43,6 +43,10 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
     assert manifest["analysis_provenance"]["source_robustness_challenge_closure"].endswith(
         "chapter2_natural_regime_source_robustness_challenge_closure_20260915.json"
     )
+    assert manifest["analysis_provenance"]["postfreeze_code_review_closure"].endswith(
+        "chapter2_postfreeze_code_review_closure_20260923.json"
+    )
+    assert (bundle_dir / "provenance/postfreeze_code_review_closure.json").exists()
     assert loo["status"] == "post_promotion_diagnostic_not_route_redefinition"
     assert challenge["status"] == "CLOSED_UNSUCCESSFUL_NO_ADDITIONAL_SOURCE_COORDINATES_OPENED"
     assert challenge["coordinates_opened_for_reopened_candidates"] == 0
