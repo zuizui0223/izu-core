@@ -694,5 +694,74 @@
     },
     "corrected_boundary": "At k=4, starting-position share exceeds community-realization share in 4/6 seeds, not 6/6. The crossover is unanimous at k=8 and k=16."
   },
-  "claim_boundary": "The qualitative regime-dependent determinant-ordering conclusion survives collision-free random streams. Numerical magnitudes and the exact k at which all six seeds agree are Monte Carlo/design-specific."
+  "claim_boundary": "The qualitative regime-dependent determinant-ordering conclusion survives collision-free random streams. Numerical magnitudes and the exact k at which all six seeds agree are Monte Carlo/design-specific.",
+  "realized_richness_corrected_summary": {
+    "analysis": "chapter2_realized_richness_matching_sensitivity",
+    "matching_seeds": [
+      20260907,
+      20260908,
+      20260909,
+      20260910,
+      20260911,
+      20260912
+    ],
+    "mean_geometry_classification": "all_positive_in_6_of_6_matching_seeds",
+    "mixed_realization_count_range": [
+      55,
+      64
+    ],
+    "starting_position_fraction_range": [
+      0.010269325105661664,
+      0.01657256350043847
+    ],
+    "community_realization_fraction_range": [
+      0.5470223756458136,
+      0.7022169080808742
+    ],
+    "nonadditivity_fraction_range": [
+      0.28483677908237925,
+      0.4364050608537478
+    ],
+    "zero_target_snapshot_fraction": 0.0734375,
+    "original_20260907_decision_gate": {
+      "hard_control_valid": true,
+      "primary_mixed_geometry": false,
+      "ensemble_mixed_geometry": false,
+      "individual_mixed_realizations": true,
+      "relational_nonadditivity": true,
+      "decision": "blocker_failed_reframe_before_author_metadata"
+    },
+    "supported_claim_after_correction": "Exact stepwise richness matching does not preserve mixed mean geometry, so the original richness-independent mean-geometry gate fails. It does preserve frequent mixed individual realizations and substantial state-by-community nonadditivity. The admissible claim is therefore that richness helps set the coarse mean regime while composition and starting state retain branch contingency within that regime."
+  },
+  "zero_adjustment_finite_community_corrected_summary": {
+    "k1": {
+      "mixed_sign_count_range": [
+        66,
+        76
+      ],
+      "island_final_count_cv_range": [
+        0.633856227186269,
+        0.7301501230392657
+      ],
+      "island_empty_fraction_range": [
+        0.07291666666666667,
+        0.13541666666666666
+      ]
+    },
+    "k16": {
+      "mixed_sign_count_range": [
+        50,
+        62
+      ],
+      "island_final_count_cv_range": [
+        0.14048376403933577,
+        0.1793978038228476
+      ],
+      "island_empty_fraction_range": [
+        0,
+        0
+      ]
+    },
+    "supported_claim": "Reducing finite-community count variation by pooling preserves mixed individual response geometry throughout the audited finite range, while the deterministic mean-field limit remains all-positive."
+  }
 }
