@@ -41,7 +41,7 @@ Retain:
 - historical offset-stream baseline: 41/96 mixed realizations (provenance only); corrected six-seed baseline: median 45.5 [43–59]/96 mixed realizations;
 - exact realized-richness hard control after RNG correction: mean all-positive in 6/6 seeds while 55–64/96 individual realizations remain mixed;
 - historical equal-turnover control (legacy offset streams): 70/96 mixed and 65.61% state × community non-additivity; retained as provenance, not current Monte Carlo inference;
-- zero-adjustment finite-community size audit: count CV 0.575–0.691 at `k=1` to 0.134–0.172 at `k=16`, while 44–60/96 remain mixed;
+- zero-adjustment finite-community size audit after RNG correction: island-like count CV 0.634–0.730 at `k=1` to 0.140–0.179 at `k=16`, while 50–62/96 remain mixed;
 - active-adjustment rank crossover after RNG correction: median starting/community shares 3.11%/74.27% at `k=1` to 53.53%/14.05% at `k=16`, with starting > community in 4/6 seeds at `k=4` and 6/6 at `k=8` and `k=16`.
 
 The older joint existing-harness cross-check `replace(BASE, steps=240, trait_adjustment=0.0)` retains 75/96 mixed realizations. It remains Supporting Information / Table S4 evidence and is not required in the main narrative.
@@ -88,7 +88,7 @@ The core paper should be able to carry the mechanism with the following compact 
 - historical equal-turnover control (legacy offset streams): 70/96 mixed; non-additive 65.61%.
 
 ### System-size hierarchy
-- zero-adjustment `k=1→16`: island-like count CV 0.575–0.691 → 0.134–0.172; empty final communities → 0%; mixed at `k=16` 44–60/96;
+- zero-adjustment `k=1→16` after RNG correction: island-like count CV 0.634–0.730 → 0.140–0.179; empty final communities → 0%; mixed at `k=16` 50–62/96;
 - deterministic mean-field kernel contrast all-positive, minimum 0.0208;
 - Gaussian mixed-fraction absolute error 0.0689 → 0.00654 from `k=1→16`;
 - active adjustment median starting shares: 3.11, 12.87, 24.70, 40.14, 53.53%;
