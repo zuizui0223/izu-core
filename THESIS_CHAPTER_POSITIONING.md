@@ -57,13 +57,13 @@ This is the mechanistic bridge from Chapter 1's recurrent functional core to its
 
 ### 1. Mixed responses under the same broad island-like change
 
-In the baseline matched design, **41/96** stochastic community histories contain both positive and negative plant responses across the starting-state grid.
+The historical offset-stream baseline contained **41/96** mixed-sign community histories, but that draw is provenance only. Under the collision-free six-seed correction, mixed-sign histories have median **45.5/96** with range **43–59/96**.
 
 Thus response direction is relational rather than an intrinsic property of one plant state.
 
 ### 2. Richness changes the mean but does not eliminate branching
 
-Exact stepwise realized-richness matching makes the ensemble mean all-positive in **6/6** prespecified matching seeds, yet **51–65/96** realized community histories remain mixed-sign and state × community non-additivity remains **42.72–48.51%**.
+Under the collision-free RNG correction, exact stepwise realized-richness matching makes the ensemble mean all-positive in **6/6** prespecified matching seeds, yet **55–64/96** realized community histories remain mixed-sign and state × community non-additivity remains **28.48–43.64%**.
 
 Therefore realized richness matters for coarse regime placement, but richness alone is insufficient to explain branch heterogeneity.
 
