@@ -78,7 +78,7 @@ jobs:
           path: data/results/chapter2_trait_adjustment_system_size_rank_crossover_rng_corrected_20260922.json
           if-no-files-found: error
       - name: Run six-bin natural synchrony sensitivity
-        if: matrix.python-version == '3.11'
+        if: matrix.python-version == '3.11' && always()
         run: |
           python -m scripts.run_chapter2_phi_timebin_rarefaction_from_locked_sources \
             --work-dir /tmp/chapter2-phi-rarefaction \
