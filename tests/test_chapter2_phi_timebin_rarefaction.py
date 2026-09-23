@@ -93,3 +93,9 @@ def test_phi_only_keeps_full_breadth_definition(tmp_path: Path) -> None:
     assert set(result["phi_only_primary"]["leave_one_source_out_pass_fraction"]) == {
         "s1", "s2", "s3"
     }
+    assert set(result["phi_only_primary"]["leave_one_source_out_phi_span_pass_fraction"]) == {
+        "s1", "s2", "s3"
+    }
+    assert set(result["phi_only_primary"]["leave_one_source_out_phi_span"]) == {
+        "s1", "s2", "s3"
+    }
