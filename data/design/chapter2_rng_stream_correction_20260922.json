@@ -45,8 +45,7 @@
   "provenance_boundary": "This correction changes random-stream construction only. It does not retune biological parameters, select favorable master seeds, or alter the declared trait grid, replicate count, or k sequence.",
   "corrected_source_identity": {
     "scripts/run_response_geometry_parameter_robustness.py": "blob:50488f438ecc75aab4668b384c6d35aaa342251d",
-    "scripts/run_response_geometry_realization_stability.py": "blob:aee151edecd6da96d2be2f91410c3caf5f0dcdb6",
     "scripts/run_chapter2_conditional_why_diagnostics.py": "blob:a961a4491ee025c5d6a2ea2410a4b7e2d913c4e7",
-    "scripts/run_joint_response_transition_surface.py": "blob:881a34e8c5267d8a74baa32ec506591a321fe69a"
+    "scripts/run_response_geometry_realization_stability.py": "documented_rng_correction"
   }
 }
