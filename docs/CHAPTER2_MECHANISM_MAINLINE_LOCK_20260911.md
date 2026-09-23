@@ -24,7 +24,8 @@ The supported route is:
 
 ### Conditional geometry
 
-- baseline: 41/96 mixed-sign, 42/96 all-positive, 13/96 all-negative;
+- historical offset-stream baseline: 41/96 mixed-sign, 42/96 all-positive, 13/96 all-negative (provenance only);
+- corrected six-seed baseline: mixed-sign median 45.5/96 [43–59], with paper-facing decomposition reported from the corrected ensemble;
 - joint design: 16/48 mixed, 22/48 all-positive, 10/48 all-negative;
 - partner loss and arrival are the strongest sign-stable regime associations.
 
@@ -32,16 +33,16 @@ The supported route is:
 
 - exact realized richness matched at every simulated step in 6 prespecified matching seeds;
 - ensemble mean geometry becomes all-positive in 6/6 seeds;
-- 51–65/96 individual realizations remain mixed-sign;
-- community-realization share remains 50.04–55.92%;
-- starting-position share remains 0.94–2.21%;
-- state × community non-additivity remains 42.72–48.51%.
+- 55–64/96 individual realizations remain mixed-sign;
+- community-realization share remains 54.70–70.22%;
+- starting-position share remains 1.03–1.66%;
+- state × community non-additivity remains 28.48–43.64%.
 
 Interpretation: realized richness helps place the coarse mean regime, but branch identity cannot be reduced to richness.
 
 ### Equal-turnover control
 
-Equalizing the baseline mainland–island partner-arrival and partner-loss rates yields 70/96 mixed realizations and 65.61% state × community non-additivity. The baseline turnover-rate asymmetry is therefore not required for branching. Other scenario differences remain, so the control does not make the environments identical.
+The historical offset-stream equal-turnover control yielded 70/96 mixed realizations and 65.61% state × community non-additivity. It is retained as provenance only and is not used as corrected Monte Carlo inference until rerun under the collision-free stream contract. Other scenario differences remained, so even the historical control did not make the environments identical.
 
 ### System-size audit
 
