@@ -46,7 +46,7 @@ The historical offset-stream equal-turnover control yielded 70/96 mixed realizat
 
 ### System-size audit
 
-At zero trait adjustment, increasing `k` reduces finite-community sampling variation strongly while preserving mixed response geometry over the audited finite range. At `k=16`, 44–60/96 realizations remain mixed, even though empty island-like communities fall to 0% and count CV falls to 0.134–0.172.
+At zero trait adjustment under the collision-free RNG correction, increasing `k` reduces finite-community sampling variation strongly while preserving mixed response geometry over the audited finite range. At `k=16`, 50–62/96 realizations remain mixed, even though empty island-like communities fall to 0% and island-like count CV falls to 0.140–0.179.
 
 The exact moment analysis shows that the deterministic mean-field kernel contrast is all-positive. Branching is therefore finite-community asymptotically, but not a rare-extinction or tiny-N artifact.
 
