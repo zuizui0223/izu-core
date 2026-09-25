@@ -19,6 +19,7 @@ AUTHOR_INTAKE = ROOT / "data/design/chapter2_nee_initial_submission_metadata.jso
 ALL_SOURCE_LOO = ROOT / "data/results/chapter2_natural_regime_six_source_all_loo_diagnostic_20260915.json"
 SOURCE_ROBUSTNESS_CLOSURE = ROOT / "data/results/chapter2_natural_regime_source_robustness_challenge_closure_20260915.json"
 POSTFREEZE_CODE_REVIEW_CLOSURE = ROOT / "data/results/chapter2_postfreeze_code_review_closure_20260923.json"
+POSTFREEZE_STRUCTURAL_CHALLENGE = ROOT / "data/results/chapter2_postfreeze_grid_update_rule_challenge_receipt_20260925.json"
 DEFAULT_OUT = ROOT / "dist/chapter2_nee_presubmission"
 
 INITIAL_SUBMISSION_BLOCKERS = [
@@ -61,6 +62,7 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
     loo_dst = provenance_dir / "all_source_leave_one_out.json"
     challenge_dst = provenance_dir / "source_robustness_challenge_closure.json"
     code_review_dst = provenance_dir / "postfreeze_code_review_closure.json"
+    structural_challenge_dst = provenance_dir / "postfreeze_structural_challenge.json"
     shutil.copy2(MANUSCRIPT, manuscript_dst)
     shutil.copy2(COVER, cover_dst)
     shutil.copy2(REFERENCE_LEDGER, refs_dst)
@@ -69,6 +71,7 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
     shutil.copy2(ALL_SOURCE_LOO, loo_dst)
     shutil.copy2(SOURCE_ROBUSTNESS_CLOSURE, challenge_dst)
     shutil.copy2(POSTFREEZE_CODE_REVIEW_CLOSURE, code_review_dst)
+    shutil.copy2(POSTFREEZE_STRUCTURAL_CHALLENGE, structural_challenge_dst)
 
     rendered = render_all(fig_dir)
     pdfs = sorted(path for path in rendered if path.suffix == ".pdf")
@@ -77,7 +80,7 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         raise RuntimeError(f"expected four PDF and four SVG figures, got {len(pdfs)} PDF / {len(svgs)} SVG")
 
     manifest = {
-        "schema_version": "1.4",
+        "schema_version": "1.5",
         "status": "PRESUBMISSION_NOT_FINAL",
         "active_manuscript": str(MANUSCRIPT.relative_to(ROOT)),
         "active_cover_letter": str(COVER.relative_to(ROOT)),
@@ -89,6 +92,7 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
             "all_source_leave_one_out": str(ALL_SOURCE_LOO.relative_to(ROOT)),
             "source_robustness_challenge_closure": str(SOURCE_ROBUSTNESS_CLOSURE.relative_to(ROOT)),
             "postfreeze_code_review_closure": str(POSTFREEZE_CODE_REVIEW_CLOSURE.relative_to(ROOT)),
+            "postfreeze_structural_challenge": str(POSTFREEZE_STRUCTURAL_CHALLENGE.relative_to(ROOT)),
         },
         "files": {},
         "initial_submission_blockers": INITIAL_SUBMISSION_BLOCKERS,
