@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "analysis": "chapter2_natural_regime_current_state",
   "status": "canonical_post_search_closure_state",
-  "updated_on": "2026-09-15",
+  "updated_on": "2026-09-25",
   "supersedes_current_state_fields_in": "data/results/chapter2_natural_regime_candidate_dispositions_20260914.json",
   "historical_candidate_ledger_retained": true,
   "primary_route_receipt": "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json",
@@ -97,5 +97,27 @@
     "unopened_candidates_remain_unopened": true,
     "post_promotion_robustness_exception": "A separate four-candidate challenge was prospectively frozen after the all-source LOO diagnostic, opened zero candidate coordinates, and is now closed. No additional rescue search is permitted under that challenge."
   },
-  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate passed and after a separate post-promotion source-robustness challenge closed unsuccessfully without opening any additional natural coordinates. The active submission frames novelty as determinant-ranking transportability / response sufficiency. NEE_candidate remains the output of the original frozen routing rule; the natural plane remains source-complementary and is not leave-any-source-out invariant. Natural Hill D1 is not synthetic k or k_eff, and no natural k≈4 threshold is claimed."
+  "claim_boundary": "This file is the canonical current-state pointer after the frozen six-source NEE routing gate, the post-promotion source-robustness challenge, the RNG/code-review correction, and the 2026-09-25 post-freeze grid/update-rule structural challenge. The active submission frames novelty as determinant-ranking transportability / response sufficiency. The strongest synthetic mechanism claim is differential contraction of additive community versus non-additive variance, producing a finite-scale C/I rank inversion that survives 21/41/81 grids and a smooth update-rule challenge. The later I-to-S takeover is update-operator dependent. NEE_candidate remains the output of the original frozen routing rule; the natural plane remains source-complementary and is not leave-any-source-out invariant. Natural Hill D1 is not synthetic k or k_eff, and no natural k≈4 threshold is claimed.",
+  "postfreeze_code_review_closure": "data/results/chapter2_postfreeze_code_review_closure_20260923.json",
+  "postfreeze_structural_challenge": "data/results/chapter2_postfreeze_grid_update_rule_challenge_receipt_20260925.json",
+  "active_submission_checklist": "docs/CHAPTER2_NEE_SUBMISSION_CHECKLIST_20260915.md",
+  "presubmission_bundle_builder": "scripts/build_chapter2_nee_presubmission_bundle.py",
+  "postfreeze_structural_result": {
+    "grid_resolution_topology_pass": true,
+    "grid_points": [
+      21,
+      41,
+      81
+    ],
+    "smooth_weighted_ci_crossover_pass": true,
+    "smooth_weighted_passing_seeds": 6,
+    "smooth_weighted_required_seeds": 4,
+    "frozen_rule_per_cell_ss_log2_slopes": {
+      "starting_position": 0.10565604639860085,
+      "community_realization": -1.513478204676042,
+      "nonadditivity": -0.8392706648884293
+    },
+    "robust_mechanism": "additive community variance contracts faster with aggregation than state-by-community nonadditivity, allowing finite-scale C/I rank inversion",
+    "narrowed_boundary": "the later I-to-S takeover is update-rule dependent and is not a universal nonlinear-averaging law"
+  }
 }
