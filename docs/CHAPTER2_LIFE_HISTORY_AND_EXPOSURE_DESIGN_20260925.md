@@ -2,6 +2,8 @@
 
 Status: design only, before model-3 simulation. Requested on 2026-09-25. It does not reinterpret the archived model's k as lifespan, patch count or generations, and does not postpone closure of the bounded Chapter 2 response-regime analysis.
 
+Implementation update: the first calculation unit is now implemented in `scripts/model3_reproduction.py` and `scripts/model3_exposure.py`: delayed-selfing reproductive accounting, declared survival/flowering schedules and the scalar variance-equivalent exposure diagnostic. `scripts/verify_model3_reproduction_exposure.py` emits the source-matched mathematical receipt. This does not implement visitor-transfer generation, inheritance or an evolutionary population simulation. See `MODEL3_IMPLEMENTATION_LEDGER_20260925.md` for tests and review.
+
 ## Ecological question
 
 Does life history change how a plant integrates fluctuating pollinator communities, and therefore the distribution of reproductive outcomes and selection on floral traits?

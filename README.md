@@ -150,3 +150,15 @@ The retained contribution is a **synthetic conditional-response mechanism comple
 
 - [Simulation novelty and primary-source comparison](docs/CHAPTER2_SIMULATION_NOVELTY_AUDIT_20260925.md)
 - [Q1 four-region discussion and Q2 connection](docs/CHAPTER1_FOUR_REGION_TO_CHAPTER2_DISCUSSION_20260925.md)
+
+### Model 3 calculation foundation
+
+The separately declared third model now has delayed-selfing offspring accounting
+and a life-history exposure diagnostic. These are deterministic mathematical
+building blocks, not a completed evolutionary simulation or natural calibration.
+
+Run `python -m scripts.verify_model3_reproduction_exposure --out <new-receipt.json>`
+to verify the source-matched analytic examples. Existing output paths are refused.
+The [implementation ledger](docs/MODEL3_IMPLEMENTATION_LEDGER_20260925.md) records
+tests, numerical boundary fixes and scope. The existing manual structural-challenge
+workflow also tests these modules and uploads a separate verification receipt.

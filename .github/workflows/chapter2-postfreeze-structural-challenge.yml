@@ -17,6 +17,11 @@ jobs:
         run: pytest -q tests/test_chapter2_postfreeze_grid_update_rule.py tests/test_simulation_integrity_factorial.py tests/test_update_factorial_artifact_validation.py tests/test_chapter2_rng_streams.py
       - name: Reconstruct complete factorial artifact from terminal cells
         run: python -m scripts.validate_chapter2_update_factorial data/results/update_factorial_20260925
+      - name: Verify model 3 reproduction and exposure foundation
+        run: |
+          pytest -q tests/test_model3_reproduction.py tests/test_model3_exposure.py tests/test_model3_receipt.py
+          python -m scripts.verify_model3_reproduction_exposure --out "${RUNNER_TEMP}/model3-verification.json"
+          python -c "import json, os; from pathlib import Path; a=json.loads(Path(os.environ['RUNNER_TEMP'],'model3-verification.json').read_text()); b=json.loads(Path('data/results/model3_reproduction_exposure_verification_20260925.json').read_text()); assert a['source_sha256']==b['source_sha256']; assert a['status']==b['status']=='mathematical_verification_only'; assert not a['evolutionary_simulation_run']; assert all(c['passed'] for c in a['checks'])"
       - name: Run post-freeze grid/update-rule challenge
         run: |
           python -m scripts.audit_chapter2_postfreeze_grid_update_rule \
@@ -26,4 +31,10 @@ jobs:
         with:
           name: chapter2-postfreeze-grid-update-rule-challenge
           path: data/results/chapter2_postfreeze_grid_update_rule_challenge_20260925.json
+          if-no-files-found: error
+      - name: Upload model 3 verification receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-reproduction-exposure-verification
+          path: ${{ runner.temp }}/model3-verification.json
           if-no-files-found: error
