@@ -392,6 +392,8 @@ def decisions(rows: list[dict], summary: list[dict], design: dict) -> dict:
 
 
 def build() -> dict:
+    from scripts.chapter2_simulation_integrity import verify_model
+    provenance = verify_model(BASE)
     design = json.loads(DESIGN.read_text(encoding="utf-8"))
     if design.get("status") != "frozen_before_execution":
         raise ValueError("post-freeze challenge design is not frozen before execution")
@@ -410,6 +412,7 @@ def build() -> dict:
     decision = decisions(rows, summary, design)
     return {
         "schema_version": "1.0",
+        "replay_integrity": provenance,
         "analysis": design["analysis"],
         "status": "complete_postfreeze_structural_challenge",
         "design": DESIGN.relative_to(ROOT).as_posix(),

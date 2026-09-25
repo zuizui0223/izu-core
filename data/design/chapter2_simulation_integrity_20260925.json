@@ -1,0 +1,43 @@
+{
+  "status": "frozen_integrity_and_factorial_contract",
+  "parent_commit": "c788c740e9e103972ddc8d790829af595c4aa3ec",
+  "reason": "Prospective factorial plus integrity-only maintenance; core biological equations and parameters unchanged.",
+  "configuration": {
+    "mainland": {
+      "n_pollinator_types": 9,
+      "partner_arrival": 0.28,
+      "partner_loss": 0.015,
+      "trait_dispersion": 0.22,
+      "generalist_fraction": 0.35,
+      "replacement_fraction": 0.05
+    },
+    "island": {
+      "n_pollinator_types": 4,
+      "partner_arrival": 0.12,
+      "partner_loss": 0.055,
+      "trait_dispersion": 0.16,
+      "generalist_fraction": 0.58,
+      "replacement_fraction": 0.22
+    },
+    "generalist_breadth": 0.42,
+    "specialist_breadth": 0.16,
+    "replacement_penalty": 0.82,
+    "saturation": 2.0,
+    "trait_adjustment": 0.03,
+    "steps": 120
+  },
+  "source_sha256": {
+    "scripts/run_response_geometry_parameter_robustness.py": "c9d0909bebd722a0ad4fd4dc72ae81f81eadec658f01ef1170e1bcc9870d0626",
+    "scripts/chapter2_rng.py": "df076c8d964f47944266088a47bba309b0f99bff7e30b7a741c64ec81791839c",
+    "scripts/run_chapter2_conditional_why_diagnostics.py": "5b59f735926a79e92552f4bcb9a31bf2394bdac394c6461734d63b90aa26fc8e",
+    "scripts/audit_trait_adjustment_system_size_rank_crossover.py": "1af769951f90f1639b3375142f2595b18f0ce7912d90bcbf631277d1f146920a",
+    "scripts/audit_chapter2_postfreeze_grid_update_rule.py": "8eeca23c19e82c557594dd2d7a8e7e117423cfeac7c01bd54266572aaba2acb3",
+    "scripts/chapter2_simulation_integrity.py": "3fa9a6a1c891f667a3207ae7ddee0f915fba974e3bf044fc4dff33fcb87a06c8",
+    "scripts/audit_chapter2_update_factorial.py": "4eb67490e1cbe05f2a456b2c649a67170e261c7c6c6782e51688c649edb39865",
+    "data/design/chapter2_update_factorial_20260925.json": "371679964ffa0799b1031f54a35e7f53b6065cecabaa3a9e8267a0d31a14edf1",
+    "data/design/chapter2_postfreeze_grid_update_rule_challenge_20260925.json": "cbe566e51196d31f50cc10b961c9d08622ace10bc48db557d74211d695cbd4c9"
+  },
+  "integrity_only_source_identity": {
+    "scripts/run_chapter2_conditional_why_diagnostics.py": "blob:6e011b1b5f95a103e7a15a78574ff5e7f01971d8"
+  }
+}

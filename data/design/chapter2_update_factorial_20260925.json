@@ -1,0 +1,48 @@
+{
+  "status": "frozen_before_execution",
+  "analysis": "response_rule_factorial_attribution",
+  "parent_commit": "c788c740e9e103972ddc8d790829af595c4aa3ec",
+  "grid_points": 21,
+  "realizations": 96,
+  "seeds": [
+    20260826,
+    20250101,
+    20260833,
+    20260827,
+    999983,
+    12345
+  ],
+  "k": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "factors": {
+    "threshold": [
+      false,
+      true
+    ],
+    "target": [
+      "best",
+      "centroid"
+    ],
+    "damping": [
+      false,
+      true
+    ]
+  },
+  "control": "fixed state",
+  "inference": "Descriptive paired factorial contrasts conditional on other factors; report all seeds, k and rules. No universal success threshold or adaptive fitness claim.",
+  "diagnostics": [
+    "S/C/I fractions and per-cell SS",
+    "terminal state displacement, variance across starts, initial-terminal slope for each scenario"
+  ],
+  "cell_array_layers": [
+    "island_minus_mainland_final_service",
+    "mainland_final_trait",
+    "island_final_trait"
+  ],
+  "claim_boundary": "Additional mechanism audit; does not replace frozen headline. Steps and k uncalibrated. State update is heuristic, not genetics or demonstrated plasticity."
+}

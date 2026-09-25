@@ -81,7 +81,11 @@ def verify_inputs(design: dict) -> dict[str, dict[str, str | bool]]:
         if correction_path.exists()
         else None
     )
-    corrected = set((correction or {}).get("corrected_source_identity", {}))
+    from scripts.chapter2_simulation_integrity import git_blob
+    corrected = (correction or {}).get("corrected_source_identity", {})
+    maintenance_path = ROOT / "data/design/chapter2_simulation_integrity_20260925.json"
+    maintenance = json.loads(maintenance_path.read_text(encoding="utf-8")) if maintenance_path.exists() else {}
+    authorized = maintenance.get("integrity_only_source_identity", {})
     for relative, expected_with_prefix in design["input_identity"].items():
         expected = expected_with_prefix.removeprefix("sha256:")
         observed = frozen_input_sha256(ROOT / relative)
@@ -89,14 +93,19 @@ def verify_inputs(design: dict) -> dict[str, dict[str, str | bool]]:
         documented_correction = (
             correction is not None
             and correction.get("status") == "implementation_correction_protocol"
-            and relative in corrected
+            and corrected.get(relative) == "blob:" + git_blob(ROOT / relative)
+        )
+        documented_maintenance = (
+            maintenance.get("status") == "frozen_integrity_and_factorial_contract"
+            and authorized.get(relative) == "blob:" + git_blob(ROOT / relative)
         )
         checks[relative] = {
             "expected_sha256": expected,
             "observed_sha256": observed,
             "current_match": current_match,
             "documented_rng_correction": documented_correction,
-            "match": current_match or documented_correction,
+            "documented_integrity_maintenance": documented_maintenance,
+            "match": current_match or documented_correction or documented_maintenance,
         }
     failed = [name for name, row in checks.items() if not row["match"]]
     if failed:
