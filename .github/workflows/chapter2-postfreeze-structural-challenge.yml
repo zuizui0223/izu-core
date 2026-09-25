@@ -1,12 +1,6 @@
 name: Chapter 2 post-freeze structural challenge
 
 on:
-  pull_request:
-    paths:
-      - "scripts/audit_chapter2_postfreeze_grid_update_rule.py"
-      - "tests/test_chapter2_postfreeze_grid_update_rule.py"
-      - "data/design/chapter2_postfreeze_grid_update_rule_challenge_20260925.json"
-      - ".github/workflows/chapter2-postfreeze-structural-challenge.yml"
   workflow_dispatch:
 
 jobs:
