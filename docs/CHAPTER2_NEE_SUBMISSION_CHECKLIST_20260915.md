@@ -1,6 +1,6 @@
 # Chapter 2 — Nature Ecology & Evolution submission checklist
 
-Updated: 2026-09-15
+Updated: 2026-09-25
 
 ## Scientific package — closed
 
@@ -9,6 +9,10 @@ Updated: 2026-09-15
 - [x] second nonlinear ecological model class
 - [x] failed prespecified Holling-curvature prediction retained
 - [x] fresh-seed feedback intervention: 52/108 versus 0/108 C/I reversals
+- [x] post-freeze structural challenge: 21/41/81 grids preserve the frozen rank topology
+- [x] smooth weighted update preserves a later C/I reversal in 6/6 frozen seeds
+- [x] absolute SS challenge shows faster contraction of community than non-additive variance
+- [x] later I→S takeover explicitly retained as update-operator dependent
 - [x] frozen public-data natural-regime gate
 - [x] 42 systems / 6 studies / 5 island groups
 - [x] largest-source removal preserves prespecified natural-plane coverage criteria
@@ -19,8 +23,8 @@ Updated: 2026-09-15
 
 ## Active submission surfaces
 
-- [x] submission-clean Article draft: `docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_3_SUBMISSION_20260915.md`
-- [x] submission-clean cover letter: `docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_3_SUBMISSION_20260915.md`
+- [x] submission-clean Article draft: `docs/CHAPTER2_NEE_ARTICLE_DRAFT_V0_4_SUBMISSION_20260915.md`
+- [x] submission-clean cover letter: `docs/CHAPTER2_NEE_COVER_LETTER_DRAFT_V0_4_SUBMISSION_20260915.md`
 - [x] source-verified reference ledger: `docs/CHAPTER2_NEE_REFERENCE_LEDGER_20260915.md`
 - [x] route-resolution provenance retained separately from the submission manuscript
 - [x] Tenerife DOI transcription error recorded as a bibliographic-only correction
@@ -40,14 +44,14 @@ Updated: 2026-09-15
 
 ## Automated submission guards
 
-- [x] v0.3 abstract <=200-word guard
-- [x] v0.3 main-text <=3,500-word guard excluding Methods/references/legends
+- [x] v0.4 abstract <=200-word guard
+- [x] v0.4 main-text <=3,500-word guard excluding Methods/references/legends
 - [x] Discussion no-subheading guard
 - [x] four-display-item guard
 - [x] internal-routing-language exclusion guard
 - [x] core numerical and limitation claims guarded
 - [x] source-verified DOI presence guard, including corrected Tenerife `10.1111/jbi.13615`
-- [ ] final Python 3.10 / 3.11 / 3.12 CI green on the v0.3 figure/test head
+- [ ] final Python 3.10 / 3.11 / 3.12 CI green on the current v0.4 submission head
 
 ## Repository / archival completion
 
@@ -77,4 +81,4 @@ No one of these fields may be inferred from repository ownership, commit authors
 
 ## Submission ceiling
 
-The manuscript may claim that determinant order is regime dependent in the frozen nonlinear systems and that admitted natural island interaction systems broadly occupy separate breadth and synchrony axes. It may not claim a universal natural determinant ranking, a biological threshold at natural `D1`/`phi`/synthetic `k`, natural validation of the synthetic C/I crossover, or leave-any-source-out invariance.
+The manuscript may claim that determinant order is regime dependent in the frozen nonlinear systems, that the plant-model C/I reversal survives grid refinement and a smooth update-rule challenge, and that admitted natural island interaction systems broadly occupy separate breadth and synchrony axes. It may not claim that the later I→S takeover is update-rule invariant, a universal natural determinant ranking, a biological threshold at natural `D1`/`phi`/synthetic `k`, natural validation of the synthetic C/I crossover, or leave-any-source-out invariance.

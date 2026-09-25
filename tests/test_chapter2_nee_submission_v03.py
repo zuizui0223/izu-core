@@ -99,6 +99,10 @@ def test_submission_clean_cover_letter_matches_transportability_ceiling() -> Non
 
     assert "nature ecology & evolution" in lower
     assert "52 community-to-interaction rank reversals in 108 paired comparisons" in lower
+    assert "smooth weighted feedback preserved a later community-to-interaction reversal in **6/6 frozen seeds**" in lower
+    assert "log2 slope **−1.51**" in lower
+    assert "non-additive variance (**−0.84**)" in lower
+    assert "not as a universal three-phase sequence" in lower
     assert "42 island interaction systems from six studies and five island or archipelago groups" in lower
     assert "removing england step reduces synchrony dispersion" in lower
     assert "removing martinique reduces interior occupancy" in lower
