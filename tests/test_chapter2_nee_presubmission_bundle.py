@@ -21,6 +21,8 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
             "author_intake.json",
             "provenance/all_source_leave_one_out.json",
             "provenance/source_robustness_challenge_closure.json",
+            "provenance/postfreeze_code_review_closure.json",
+            "provenance/postfreeze_structural_challenge.json",
             "PRESUBMISSION_MANIFEST.json",
         } <= names
         figure_pdfs = sorted(name for name in names if name.startswith("figures/") and name.endswith(".pdf"))
@@ -32,8 +34,9 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
         supplement = zf.read("supplementary_source_leverage.md").decode("utf-8")
         loo = json.loads(zf.read("provenance/all_source_leave_one_out.json"))
         challenge = json.loads(zf.read("provenance/source_robustness_challenge_closure.json"))
+        structural = json.loads(zf.read("provenance/postfreeze_structural_challenge.json"))
 
-    assert manifest["schema_version"] == "1.4"
+    assert manifest["schema_version"] == "1.5"
     assert manifest["status"] == "PRESUBMISSION_NOT_FINAL"
     assert manifest["author_intake"] == "data/design/chapter2_nee_initial_submission_metadata.json"
     assert manifest["source_leverage_supplement"] == "docs/CHAPTER2_NEE_SUPPLEMENTARY_SOURCE_LEVERAGE_20260915.md"
@@ -47,6 +50,14 @@ def test_nee_presubmission_bundle_is_complete_but_fail_closed(tmp_path: Path) ->
         "chapter2_postfreeze_code_review_closure_20260923.json"
     )
     assert (out_dir / "provenance/postfreeze_code_review_closure.json").exists()
+    assert manifest["analysis_provenance"]["postfreeze_structural_challenge"].endswith(
+        "chapter2_postfreeze_grid_update_rule_challenge_receipt_20260925.json"
+    )
+    assert (out_dir / "provenance/postfreeze_structural_challenge.json").exists()
+    assert structural["status"] == "complete_postfreeze_structural_challenge"
+    assert structural["prespecified_decisions"]["grid_resolution_topology"]["passes"] is True
+    assert structural["prespecified_decisions"]["smooth_weighted_ci_crossover"]["passes"] is True
+    assert "differential contraction" in structural["scientific_interpretation"]["mechanism_refinement"].lower()
     assert loo["status"] == "post_promotion_diagnostic_not_route_redefinition"
     assert challenge["status"] == "CLOSED_UNSUCCESSFUL_NO_ADDITIONAL_SOURCE_COORDINATES_OPENED"
     assert challenge["coordinates_opened_for_reopened_candidates"] == 0
