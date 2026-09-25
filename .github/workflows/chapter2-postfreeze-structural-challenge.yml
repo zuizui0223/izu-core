@@ -19,7 +19,7 @@ jobs:
         run: python -m scripts.validate_chapter2_update_factorial data/results/update_factorial_20260925
       - name: Verify model 3 reproduction and exposure foundation
         run: |
-          pytest -q tests/test_model3_reproduction.py tests/test_model3_exposure.py tests/test_model3_receipt.py
+          pytest -q tests/test_model3_reproduction.py tests/test_model3_exposure.py tests/test_model3_receipt.py tests/test_chapter2_nee_submission_v03.py
           python -m scripts.verify_model3_reproduction_exposure --out "${RUNNER_TEMP}/model3-verification.json"
           python -c "import json, os; from pathlib import Path; a=json.loads(Path(os.environ['RUNNER_TEMP'],'model3-verification.json').read_text()); b=json.loads(Path('data/results/model3_reproduction_exposure_verification_20260925.json').read_text()); assert a['source_sha256']==b['source_sha256']; assert a['status']==b['status']=='mathematical_verification_only'; assert not a['evolutionary_simulation_run']; assert all(c['passed'] for c in a['checks'])"
       - name: Run post-freeze grid/update-rule challenge
