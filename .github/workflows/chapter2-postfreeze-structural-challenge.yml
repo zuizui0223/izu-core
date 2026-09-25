@@ -27,7 +27,7 @@ jobs:
           python -m scripts.audit_chapter2_postfreeze_grid_update_rule \
             --out data/results/chapter2_postfreeze_grid_update_rule_challenge_20260925.json
       - name: Verify individual floral evolution model
-        run: pytest -q tests/test_model3_evolution.py tests/test_model3_campaign.py tests/test_model3_distribution.py tests/test_model3_result_validation.py tests/test_model3_summary.py
+        run: pytest -q tests/test_model3_evolution.py tests/test_model3_campaign.py tests/test_model3_distribution.py tests/test_model3_result_validation.py tests/test_model3_summary.py tests/test_model3_meanfield.py tests/test_model3_pollen_limitation.py
       - name: Upload challenge result
         uses: actions/upload-artifact@v4
         with:
