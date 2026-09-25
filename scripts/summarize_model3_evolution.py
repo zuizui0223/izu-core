@@ -18,6 +18,13 @@ def group_columns(frame):
     return GROUP+[key for key in ('variant','depression','ovule_effort','pollen_effort') if key in frame.columns]
 
 
+def demographic_totals(established,potential,survivors):
+    """Counts summed over reproductive seasons; adult survivals can repeat a plant."""
+    return dict(cumulative_established=int(np.sum(established)),
+                cumulative_potential_recruits=int(np.sum(potential)),
+                cumulative_adult_survivals=int(np.sum(survivors)))
+
+
 def reproductive_totals(ovules,outcross,selfed,raw_selfed):
     """Pool reproductive opportunities, not annual ratios; zero supply is undefined."""
     supply=float(np.sum(ovules))
@@ -48,6 +55,63 @@ def mcse(values):
     values=np.asarray(values,dtype=float)
     values=values[np.isfinite(values)]
     return float(values.std(ddof=1)/np.sqrt(len(values))) if len(values)>1 else np.nan
+
+
+def direction_summary(change,population):
+    """Joint survival/direction probabilities over every stochastic replicate."""
+    change=np.asarray(change,dtype=float)
+    population=np.asarray(population)
+    alive=population>0
+    if change.shape!=population.shape or not len(change) or not np.isfinite(change[alive]).all():
+        raise ValueError('finite change required for every survivor')
+    states=dict(increasing=alive&(change>.02),decreasing=alive&(change<-.02),
+                small_change=alive&(np.abs(change)<=.02),extinction=~alive)
+    result={}
+    for name,mask in states.items():
+        count=int(mask.sum())
+        low,high=wilson(count,len(change))
+        result.update({name+'_fraction':count/len(change),name+'_low':low,name+'_high':high})
+    return result
+
+
+def intervention_summary(frame):
+    """Prospective within-seed contrasts; keep extinctions in the joint endpoint."""
+    if 'depression' not in frame:
+        return pd.DataFrame()
+    keys=['environment','survival','selfing','start','control','year']
+    settings=['campaign','variant','depression','ovule_effort','pollen_effort']
+    rows=[]
+    for identity,target in frame.groupby(settings):
+        setting=dict(zip(settings,identity))
+        if setting['campaign']=='assurance' and setting['depression']>0:
+            reference=frame[(frame.campaign=='assurance')&(frame.depression==0)
+                &(frame.ovule_effort==setting['ovule_effort'])
+                &(frame.pollen_effort==setting['pollen_effort'])]
+            comparison='depression_vs_zero'
+        elif setting['campaign']=='effort_separation':
+            reference=frame[(frame.campaign=='assurance')&(frame.depression==setting['depression'])
+                &(frame.ovule_effort=='lifetime')&(frame.pollen_effort=='lifetime')]
+            comparison='effort_vs_lifetime'
+        else:
+            continue
+        paired=target.merge(reference,on=keys+['seed'],suffixes=('_target','_reference'),
+                            how='left',validate='one_to_one',indicator=True)
+        if not (paired['_merge']=='both').all():
+            raise ValueError('missing intervention reference cases')
+        for group_id,group in paired.groupby(keys):
+            alive=(group.population_target>0)&(group.population_reference>0)
+            row=dict(zip(keys,group_id))
+            row.update(setting,comparison=comparison,all_pairs=len(group),paired_survivors=int(alive.sum()),
+                target_extinctions=int((group.population_target==0).sum()),
+                reference_extinctions=int((group.population_reference==0).sum()))
+            for trait in ('access','investment'):
+                diff=(group.loc[alive,trait+'_target']-group.loc[alive,trait+'_reference']).to_numpy()
+                row[trait+'_difference']=float(diff.mean()) if len(diff) else np.nan
+                row[trait+'_mcse']=mcse(diff)
+            diff=(group.population_target==0).astype(int)-(group.population_reference==0).astype(int)
+            row.update(extinction_difference=float(diff.mean()),extinction_difference_mcse=mcse(diff))
+            rows.append(row)
+    return pd.DataFrame(rows)
 
 
 def paired_summary(frame):
@@ -81,6 +145,9 @@ def summarize(output,destination):
     if receipt['status']!='verified' or receipt['manifest_sha256']!=hashlib.sha256(manifest_bytes).hexdigest():
         raise ValueError('verified terminal artifacts required')
     manifest=json.loads(manifest_bytes)
+    if (not manifest['artifacts'] or receipt.get('replayed_cases')!=len(manifest['artifacts'])
+            or receipt.get('artifacts')!=len(manifest['artifacts'])):
+        raise ValueError('complete exact replay coverage required')
     rows=[]
     for artifact in manifest['artifacts']:
         path=output/artifact['path']
@@ -92,11 +159,12 @@ def summarize(output,destination):
                 for year in CHECKPOINTS:
                     initial=data['trait_mean'][i,0]
                     current=data['trait_mean'][i,year]
-                    diagnostics={}
+                    diagnostics=demographic_totals(data['established'][i,:year],
+                        data['potential_recruits'][i,:year],data['survivors'][i,:year])
                     if 'ovule_supply' in data:
-                        diagnostics=reproductive_totals(data['ovule_supply'][i,:year],
+                        diagnostics.update(reproductive_totals(data['ovule_supply'][i,:year],
                             data['expected_outcross'][i,:year],data['expected_selfed'][i,:year],
-                            data['selfed_raw'][i,:year])
+                            data['selfed_raw'][i,:year]))
                     rows.append(dict(**case,year=year,population=int(data['population'][i,year]),
                                      access=current[0],investment=current[1],
                                      initial_access=initial[0],initial_investment=initial[1],
@@ -121,6 +189,8 @@ def summarize(output,destination):
                    visitor_types_mean=float(group.mean_visitor_types.mean()))
         for trait in ('access','investment'):
             values=group[trait+'_change'].dropna()
+            row.update({trait+'_'+key:value for key,value in
+                        direction_summary(group[trait+'_change'],group.population).items()})
             row[trait+'_change_mean']=values.mean()
             row[trait+'_change_mcse']=mcse(values)
             row[trait+'_decreasing']=int((values<-.02).sum())
@@ -149,6 +219,8 @@ def summarize(output,destination):
     frame.to_csv(destination/'endpoints.csv',index=False)
     pd.DataFrame(grouped).to_csv(destination/'condition_summary.csv',index=False)
     paired_summary(frame).to_csv(destination/'selected_vs_neutral.csv',index=False)
+    if 'depression' in frame:
+        intervention_summary(frame).to_csv(destination/'assurance_effort_contrasts.csv',index=False)
     pd.DataFrame(convergence).to_csv(destination/'between_start_distance.csv',index=False)
     provenance=dict(design_sha256=receipt['design_sha256'],
                     verification_sha256=hashlib.sha256((output/'verification.json').read_bytes()).hexdigest(),
