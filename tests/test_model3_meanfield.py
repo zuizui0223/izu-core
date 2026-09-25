@@ -5,6 +5,31 @@ from scripts.model3_evolution import pollen_transfer
 from scripts.model3_reproduction import reproductive_ledger
 
 
+def test_rounded_uniform_founder_law_has_correct_heterozygote_multiplicity():
+    from scripts.model3_meanfield import founder_density
+    genotypes,_=genotype_grid(.3,3)
+    density=founder_density(.3,3)
+    # Nearest-node projection of Uniform: allele masses 1/4,1/2,1/4.
+    # Each locus has heterozygote multiplicity two, not equal genotype weights.
+    np.testing.assert_allclose(density.sum(),1)
+    homo=np.flatnonzero(np.all(np.isclose(genotypes,[[.2,.2],[.4,.4]]),axis=(1,2)))[0]
+    hetero=np.flatnonzero(np.all(np.isclose(genotypes,[[.2,.4],[.4,.6]]),axis=(1,2)))[0]
+    assert np.isclose(density[homo],1/256)
+    assert np.isclose(density[hetero],1/64)
+    np.testing.assert_allclose(density @ genotypes.mean(axis=2),[.3,.5])
+
+
+def test_founder_projection_preserves_grid_support_and_empirical_mass():
+    from scripts.model3_meanfield import project_founders
+    founders=np.array([[[.21,.39],[.42,.58]],[[.29,.31],[.49,.51]]])
+    projected,density=project_founders(founders,.3,3)
+    np.testing.assert_allclose(projected,[[[.2,.4],[.4,.6]],[[.3,.3],[.5,.5]]])
+    assert np.count_nonzero(density)==2
+    np.testing.assert_allclose(density[density>0],[.5,.5])
+    grid,_=genotype_grid(.3,3)
+    np.testing.assert_allclose(density @ grid.mean(axis=2),projected.mean(axis=(0,2)))
+
+
 def test_mendelian_kernel_preserves_probability_and_parental_mean():
     genotypes,kernel=genotype_grid(.3,3)
     assert genotypes.shape==(36,2,2)

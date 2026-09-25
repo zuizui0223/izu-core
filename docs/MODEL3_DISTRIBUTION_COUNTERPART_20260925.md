@@ -39,3 +39,22 @@ Use the same inheritance kernel, initial genotype support, visitor histories and
 Check population mass, Mendelian moments, positivity, zero-reproduction extinction, self/outcross accounting and numerical discretization error. Compare response time, standing-variation loss, endpoints and extinction; a deterministic path that remains positive is not evidence that finite populations persist. Common-mean paths can conceal opposing individual histories. Report runtime only after measurement; a high-dimensional inherited-genotype distribution can cost more than an individual model.
 
 The current implementation and campaign therefore cannot yet claim an ABM-versus-PDE result. The primary campaign tests individual population and time-scale sensitivity; this mathematical comparator is a separately auditable extension.
+
+## Matched initial conditions for the next comparison
+
+`founder_density` supplies the law obtained by projecting independent uniform
+founder alleles onto equally spaced nodes. Endpoint nodes have half the
+probability of interior nodes; an unordered heterozygote has multiplicity two
+at each locus. Equal weights over all unordered genotypes are incorrect.
+`project_founders` also returns the exact empirical frequencies of a particular
+projected finite founding population. A within-history finite-versus-density
+comparison must initialize BOTH models from those same projected founders.
+
+Projection is an explicit numerical change relative to the continuous founder
+law in the archived campaigns. The archived continuous ABM cannot be relabeled
+as the matched discrete-grid ABM. Use a separately declared projected-founder
+ABM and document grid refinement, preferably retaining the same continuous
+draws before projection. The theoretical founder law is useful for grid-error
+diagnostics; it must not replace empirical founders on only one comparison arm.
+The projection has measure-zero nearest-node ties resolved by NumPy rounding.
+No campaign numerical design or long-term outcome is asserted by these helpers.

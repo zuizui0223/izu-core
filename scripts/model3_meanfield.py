@@ -39,6 +39,39 @@ def genotype_grid(start, points=3):
     return genotypes,kernel
 
 
+def founder_density(start,points=3):
+    """Law of four independent uniform founder alleles rounded to grid nodes.
+
+    Endpoint Voronoi cells have half the interior width. Unordered heterozygous
+    genotypes have multiplicity two per locus. This is not uniform genotype mass.
+    """
+    genotype_grid(start,points)
+    weights=np.ones(points)/(points-1)
+    weights[[0,-1]]*=.5
+    pairs=list(combinations_with_replacement(range(points),2))
+    locus=np.array([weights[a]*weights[b]*(1 if a==b else 2) for a,b in pairs])
+    return np.outer(locus,locus).ravel()
+
+
+def project_founders(founders,start,points=3):
+    """Nearest-node projection and its exact empirical genotype frequencies."""
+    grid,_=genotype_grid(start,points)
+    founders=np.asarray(founders,dtype=float)
+    low=np.array([start-.1,.4])[None,:,None]
+    if (founders.ndim!=3 or founders.shape[1:]!=(2,2) or not len(founders)
+            or not np.isfinite(founders).all() or (founders<low-1e-12).any()
+            or (founders>low+.2+1e-12).any()):
+        raise ValueError('founders must lie within declared allele supports')
+    indices=np.rint((founders-low)/.2*(points-1)).astype(int)
+    indices=np.clip(indices,0,points-1)
+    indices.sort(axis=2)
+    projected=low+indices*.2/(points-1)
+    pairs=list(combinations_with_replacement(range(points),2))
+    lookup={state:i for i,state in enumerate(product(pairs,pairs))}
+    ids=[lookup[(tuple(row[0]),tuple(row[1]))] for row in indices]
+    return projected,np.bincount(ids,minlength=len(grid))/len(ids)
+
+
 def meanfield_step(density,genotypes,kernel,visitors,*,activity,survival,selfing,
                    depression=.5,control='selected'):
     """Density-dependent reproductive map with exact finite-grid inheritance.
