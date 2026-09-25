@@ -1,0 +1,33 @@
+name: Chapter 2 post-freeze structural challenge
+
+on:
+  pull_request:
+    paths:
+      - "scripts/audit_chapter2_postfreeze_grid_update_rule.py"
+      - "tests/test_chapter2_postfreeze_grid_update_rule.py"
+      - "data/design/chapter2_postfreeze_grid_update_rule_challenge_20260925.json"
+      - ".github/workflows/chapter2-postfreeze-structural-challenge.yml"
+  workflow_dispatch:
+
+jobs:
+  challenge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run focused unit tests
+        run: pytest -q tests/test_chapter2_postfreeze_grid_update_rule.py
+      - name: Run post-freeze grid/update-rule challenge
+        run: |
+          python -m scripts.audit_chapter2_postfreeze_grid_update_rule \
+            --out data/results/chapter2_postfreeze_grid_update_rule_challenge_20260925.json
+      - name: Upload challenge result
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-postfreeze-grid-update-rule-challenge
+          path: data/results/chapter2_postfreeze_grid_update_rule_challenge_20260925.json
+          if-no-files-found: error
