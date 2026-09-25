@@ -108,12 +108,33 @@ def check_run(result,case):
             np.testing.assert_allclose(values[positive],1-numerator[positive]/ovules[positive],atol=1e-12,rtol=1e-12)
 
 
+    if 'points' in case:
+        from scripts.model3_meanfield import genotype_grid,project_founders
+        grid,_=genotype_grid(case['start'],case['points'])
+        density=result['density']
+        if (density.shape!=(years+1,len(grid)) or not np.isfinite(density).all()
+                or (density<0).any() or (density.sum(axis=1)>1+1e-10).any()):
+            raise ValueError('invalid density trajectory')
+        projected,initial=project_founders(result['initial_genotype'],case['start'],case['points'])
+        np.testing.assert_array_equal(projected,result['initial_genotype'])
+        np.testing.assert_array_equal(density[0],initial)
+        for key in ('density_outcross','density_selfed','density_established'):
+            values=result[key]
+            if values.shape!=(years,) or not np.isfinite(values).all() or (values<0).any():
+                raise ValueError('invalid density reproduction ledger')
+        np.testing.assert_allclose(density[1:].sum(axis=1),
+            case['survival']*density[:-1].sum(axis=1)+result['density_established'],atol=1e-12)
+
+
 def validate(design_path,output,replay=False,model='baseline'):
     verify_design=verify_freeze
     simulator=simulate
     if model=='robustness':
         from scripts.run_model3_robustness import verify_freeze as verify_design
         from scripts.model3_robustness import simulate_scenario as simulator
+    elif model=='grid':
+        from scripts.run_model3_grid_comparison import verify_freeze as verify_design
+        from scripts.model3_grid_comparison import simulate_grid_pair as simulator
     elif model!='baseline':
         raise ValueError('unknown model family')
     design = verify_design(design_path)
@@ -173,6 +194,6 @@ if __name__ == '__main__':
     parser.add_argument('--design',type=Path,required=True)
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--replay',action='store_true')
-    parser.add_argument('--model',choices=['baseline','robustness'],default='baseline')
+    parser.add_argument('--model',choices=['baseline','robustness','grid'],default='baseline')
     args=parser.parse_args()
     print(json.dumps(validate(args.design,args.out,args.replay,args.model)))

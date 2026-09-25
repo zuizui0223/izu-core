@@ -65,11 +65,10 @@ def project_founders(founders,start,points=3):
     indices=np.rint((founders-low)/.2*(points-1)).astype(int)
     indices=np.clip(indices,0,points-1)
     indices.sort(axis=2)
-    projected=low+indices*.2/(points-1)
     pairs=list(combinations_with_replacement(range(points),2))
     lookup={state:i for i,state in enumerate(product(pairs,pairs))}
     ids=[lookup[(tuple(row[0]),tuple(row[1]))] for row in indices]
-    return projected,np.bincount(ids,minlength=len(grid))/len(ids)
+    return grid[ids].copy(),np.bincount(ids,minlength=len(grid))/len(ids)
 
 
 def meanfield_step(density,genotypes,kernel,visitors,*,activity,survival,selfing,

@@ -30,6 +30,17 @@ def test_founder_projection_preserves_grid_support_and_empirical_mass():
     np.testing.assert_allclose(density @ grid.mean(axis=2),projected.mean(axis=(0,2)))
 
 
+def test_projected_alleles_are_bit_identical_to_distribution_grid():
+    from scripts.model3_meanfield import project_founders
+    for start in (.3,.7):
+        for points in (3,4):
+            founders=np.array([[[start-.1,start+.1],[.4,.6]]])
+            projected,_=project_founders(founders,start,points)
+            grid,_=genotype_grid(start,points)
+            for locus in (0,1):
+                assert np.isin(projected[:,locus],grid[:,locus]).all()
+
+
 def test_mendelian_kernel_preserves_probability_and_parental_mean():
     genotypes,kernel=genotype_grid(.3,3)
     assert genotypes.shape==(36,2,2)
