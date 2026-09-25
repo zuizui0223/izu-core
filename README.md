@@ -145,3 +145,8 @@ This repository does **not** claim that:
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
 The retained contribution is a **synthetic conditional-response mechanism completed by source-audited metadata confrontation at a bounded empirical claim ceiling**: richness influences coarse regime placement, state × realized composition retains branch contingency, determinant ordering changes across finite-community regimes, downstream processes modify rather than replace that architecture, and existing natural evidence defines which parts are biologically supported versus not yet identifiable.
+
+### Interpretation updates (2026-09-25)
+
+- [Simulation novelty and primary-source comparison](docs/CHAPTER2_SIMULATION_NOVELTY_AUDIT_20260925.md)
+- [Q1 four-region discussion and Q2 connection](docs/CHAPTER1_FOUR_REGION_TO_CHAPTER2_DISCUSSION_20260925.md)
