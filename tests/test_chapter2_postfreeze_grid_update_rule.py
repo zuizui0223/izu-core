@@ -4,6 +4,7 @@ import pytest
 
 from scripts.audit_chapter2_postfreeze_grid_update_rule import (
     endpoint_with_rule,
+    services_for_grid,
     trait_grid,
 )
 from scripts.run_response_geometry_parameter_robustness import (
@@ -51,3 +52,15 @@ def test_smooth_weighted_rule_moves_toward_weighted_partner_centroid() -> None:
     final_trait, _ = endpoint_with_rule(initial, trajectory, BASE, "smooth_weighted")
     assert final_trait > initial
     assert final_trait < 0.9
+
+
+@pytest.mark.parametrize("rule", ["threshold_best", "smooth_weighted", "fixed"])
+def test_vectorized_grid_services_match_scalar_rule(rule: str) -> None:
+    trajectory = pollinator_trajectory(BASE.island, 987654321, BASE)
+    grid = (0.0, 0.2, 0.5, 0.85, 1.0)
+    vectorized = services_for_grid(grid, trajectory, BASE, rule)
+    scalar = [
+        endpoint_with_rule(initial_trait, trajectory, BASE, rule)[1]
+        for initial_trait in grid
+    ]
+    assert vectorized.tolist() == pytest.approx(scalar, rel=1e-12, abs=1e-14)
