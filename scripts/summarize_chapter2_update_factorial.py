@@ -9,6 +9,8 @@ DIRECTORY = ROOT / 'data/results/update_factorial_20260925'
 
 
 def build():
+    from scripts.validate_chapter2_update_factorial import validate
+    validation = validate(DIRECTORY, require_manifest=False)
     p = json.loads((DIRECTORY / 'results.json').read_text())
     rows = p['rows']
     if len(rows) != 270 or len(p['paired_effects']) != 360:
@@ -53,11 +55,12 @@ def build():
               'The integrity maintenance modifies no biological equations; prior source correction identifiers remain archived. Changed files require explicit revised locks, never name-only exemptions.',
               'Terminal arrays: layer 0 service difference, layer 1 mainland final trait, layer 2 island final trait; axes layers × starts × histories.']
     (ROOT / 'docs/CHAPTER2_UPDATE_FACTORIAL_RESULTS_20260925.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
-    files = sorted(DIRECTORY.glob('*.npz')) + [DIRECTORY/'results.json', DIRECTORY/'execution_contract.json']
     manifest = {'status':'complete', 'batches':30, 'rule_rows':270, 'conditional_contrasts':360,
                 'max_reference_median_error':max(errors),
-                'sha256':{f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in files}}
-    (DIRECTORY/'verification.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+                'sha256':validation['sha256']}
+    if not (DIRECTORY/'verification.json').exists():
+        with (DIRECTORY/'verification.json').open('x', encoding='utf-8') as handle:
+            handle.write(json.dumps(manifest,indent=2)+'\n')
     print(json.dumps({k:v for k,v in manifest.items() if k!='sha256'}))
 
 

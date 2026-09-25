@@ -15,7 +15,7 @@ def _load() -> dict:
 def test_permit_plan_is_precontact_not_permission() -> None:
     data = _load()
     assert data["status"] == "precontact_plan_frozen_before_field_outcomes"
-    assert data["parents"]["candidate_registry"] == str(CANDIDATES.relative_to(ROOT))
+    assert data["parents"]["candidate_registry"] == CANDIDATES.relative_to(ROOT).as_posix()
     assert "does not grant permission" in data["claim_boundary"].lower()
     forbidden = "\n".join(data["forbidden"])
     assert "permit_status confirmed" in forbidden

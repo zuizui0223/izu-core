@@ -14,7 +14,9 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
       - name: Run focused unit tests
-        run: pytest -q tests/test_chapter2_postfreeze_grid_update_rule.py
+        run: pytest -q tests/test_chapter2_postfreeze_grid_update_rule.py tests/test_simulation_integrity_factorial.py tests/test_update_factorial_artifact_validation.py tests/test_chapter2_rng_streams.py
+      - name: Reconstruct complete factorial artifact from terminal cells
+        run: python -m scripts.validate_chapter2_update_factorial data/results/update_factorial_20260925
       - name: Run post-freeze grid/update-rule challenge
         run: |
           python -m scripts.audit_chapter2_postfreeze_grid_update_rule \

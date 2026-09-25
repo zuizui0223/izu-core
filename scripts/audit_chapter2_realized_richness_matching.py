@@ -28,7 +28,7 @@ OUT = ROOT / "data/results/chapter2_realized_richness_matching_rng_corrected_202
 
 
 def git_blob_sha(path: Path) -> str:
-    payload = path.read_bytes()
+    payload = path.read_text(encoding="utf-8").encode("utf-8")
     header = f"blob {len(payload)}\0".encode("ascii")
     return hashlib.sha1(header + payload).hexdigest()
 
@@ -54,6 +54,12 @@ def verify_design(design: dict) -> None:
         "scripts/run_response_geometry_parameter_robustness.py": git_blob_sha(MODEL),
         "scripts/run_chapter2_conditional_why_diagnostics.py": git_blob_sha(DIAGNOSTICS),
     }
+    maintenance = ROOT / "data/design/chapter2_simulation_integrity_20260925.json"
+    if maintenance.exists():
+        from scripts.chapter2_simulation_integrity import verify_model
+        verify_model(BASE)
+        identities = dict(identities)
+        identities.update(json.loads(maintenance.read_text(encoding="utf-8"))["integrity_only_source_identity"])
     failed = [
         path
         for path, blob in observed.items()

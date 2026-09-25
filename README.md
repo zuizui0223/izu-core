@@ -4,6 +4,8 @@
 
 ## Current state
 
+**Additional simulation closure (2026-09-25):** the [response-rule factorial](docs/CHAPTER2_UPDATE_FACTORIAL_RESULTS_20260925.md) preserves the primary numerical result but shows that neither C/I reversal nor C→I→S is universal across update rules. The [final scope and field projection](docs/CHAPTER2_SIMULATION_FINAL_SCOPE_AND_FIELD_PROJECTION_20260925.md) defines the bounded mechanistic claim, the role of 42 natural systems, and the linked Izu measurements. Run `python -m scripts.validate_chapter2_update_factorial data/results/update_factorial_20260925` to verify all archived cells and contrasts. This addendum does not replace historical frozen receipts.
+
 **Chapter 2 is scientifically closed without new focal field data.** Its canonical completion state is **simulation + source-audited metadata/secondary-data confrontation**.
 
 ```text
