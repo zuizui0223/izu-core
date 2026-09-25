@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_execution",
+  "documented_on": "2026-09-25",
+  "analysis": "chapter2_postfreeze_grid_update_rule_challenge",
+  "question": "Does the finite-aggregation determinant-order transition survive finer starting-state grids and removal of the hard service threshold / best-partner update rule?",
+  "parent_inference": "data/results/chapter2_postfreeze_code_review_closure_20260923.json",
+  "primary_model": "scripts/run_response_geometry_parameter_robustness.py",
+  "preserved": {
+    "master_seeds": [20260826, 20250101, 20260833, 20260827, 999983, 12345],
+    "realizations_per_seed": 96,
+    "system_size_multipliers": [1, 2, 4, 8, 16],
+    "trait_adjustment": 0.03,
+    "biological_parameters": "unchanged BASE configuration",
+    "rng": "collision-free SeedSequence hierarchy already fixed on 2026-09-22"
+  },
+  "grid_resolution_challenge": {
+    "update_rule": "threshold_best",
+    "grid_points": [21, 41, 81],
+    "decision_rule": "For every grid resolution, the winner by median component must be community at k=1, interaction at k=4, and starting state at k=16.",
+    "rationale": "Tests whether the reported C -> I -> S ordering is an artefact of the frozen 0.05 starting-state spacing."
+  },
+  "update_rule_challenge": {
+    "grid_points": 21,
+    "rules": {
+      "threshold_best": "Frozen rule: if service < 0.45, move alpha toward the best-matching extant partner.",
+      "smooth_weighted": "No hard threshold and no best-partner switch: at every nonempty step move alpha*(1-service) toward the encounter-weighted centroid of extant partner traits.",
+      "fixed": "No plant-state movement; plant state remains at its initial value."
+    },
+    "primary_smooth_rule_decision": "At least 4 of 6 seeds must have C>I at k=1 and I>C at one or more later k values under smooth_weighted feedback.",
+    "fixed_rule_role": "Negative-control description only; it is not required to pass or fail a directional criterion."
+  },
+  "absolute_variance_reporting": {
+    "required": [
+      "raw sum of squares for S, C and I at every rule/grid/k/seed",
+      "per-cell sum of squares for resolution-comparable magnitude",
+      "median raw and per-cell trajectories across seeds",
+      "log2 scaling slope of median per-cell SS against k"
+    ],
+    "interpretation": "Normalized shares are not reported alone; the audit must reveal whether transient dominance accompanies growth, persistence or slower contraction of I relative to C."
+  },
+  "claim_boundary": "This is a post-freeze structural challenge. It may narrow the mechanistic interpretation if it fails, but it does not redefine the frozen Chapter 2 primary design, retune parameters, replace the collision-free headline receipt, or turn synthetic k into a calibrated natural quantity."
+}
