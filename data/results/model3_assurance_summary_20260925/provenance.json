@@ -1,0 +1,7 @@
+{
+  "design_sha256": "4c1225e765bb12c0254da04a9f7101ad3d61ebda2ba1665254b58e3032f06c00",
+  "verification_sha256": "f634881833d1d132671ad35531b3aa190b23c83752b646b6d84ecf97d3b7aad5",
+  "script_sha256": "22df875d404078731aca0b97334c03897cfea4a9c4d406a00020fd2881984ecf",
+  "endpoints": 184320,
+  "note": "Nested checkpoints are not independent replicates. Trait contrasts condition on paired survival. Access distance is not a shared-attractor test."
+}

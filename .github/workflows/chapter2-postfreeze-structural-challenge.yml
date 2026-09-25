@@ -31,7 +31,7 @@ jobs:
       - name: Verify pollen limitation and inbreeding robustness
         run: pytest -q tests/test_model3_robustness.py tests/test_model3_robustness_campaign.py
       - name: Verify matched individual and density comparison
-        run: pytest -q tests/test_model3_grid_comparison.py
+        run: pytest -q tests/test_model3_grid_comparison.py tests/test_model3_grid_summary.py
       - name: Upload challenge result
         uses: actions/upload-artifact@v4
         with:

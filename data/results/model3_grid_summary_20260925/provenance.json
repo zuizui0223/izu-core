@@ -1,0 +1,7 @@
+{
+  "design_sha256": "ffd3121ac7d45111f479ff49ebba535c913e789496404781a5f8e4d1e658d3c1",
+  "verification_sha256": "4570ec03a5647a2ba3c02fe0fde50bfaadfe6ecefc5ea241010d1e6c8d1266fd",
+  "script_sha256": "76943a6630ace9b1fa5e0cf0799cb74b52769bccec787b076546b42295c1faf8",
+  "endpoints": 15360,
+  "note": "Finite-population contrast includes demographic sampling and individual pollen self-exclusion. Positive density is not finite-population persistence. Traits condition on paired positivity."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "model": "grid",
+  "cases": 2560,
+  "artifacts": 64,
+  "replayed_cases": 64,
+  "design_sha256": "ffd3121ac7d45111f479ff49ebba535c913e789496404781a5f8e4d1e658d3c1",
+  "manifest_sha256": "f9ca3b75fcac08c306457e53e53d5556cab6333db7e8286dab8583d8d29e17f2",
+  "validator_sha256": "461ea31202ab448c5fcc9da47ef2cc9aa9228a3486737b5eade9d47ae726b614"
+}

@@ -1,0 +1,2 @@
+# Scientific receipts refer to exact artifact bytes, including line endings.
+data/results/model3_*_20260925/* -text whitespace=cr-at-eol
