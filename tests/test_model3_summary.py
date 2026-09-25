@@ -24,3 +24,24 @@ def test_pairing_does_not_subtract_different_survivor_groups():
     assert out.iloc[0]['all_pairs']==3
     assert np.isclose(out.iloc[0]['access_selected_minus_neutral'],.1)
     assert np.isnan(out.iloc[0]['access_mcse'])
+
+
+def test_variants_remain_separate_in_paired_summaries():
+    common=dict(campaign='assurance',environment='both',survival=0.,selfing=.5,start=.3,year=100,seed=47,population=48)
+    rows=[]
+    for variant,depression in [('low',0.),('high',.9)]:
+        for control,value in [('selected',.4),('neutral',.3)]:
+            rows.append(dict(**common,variant=variant,depression=depression,
+                             ovule_effort='lifetime',pollen_effort='lifetime',
+                             control=control,access=value,investment=value))
+    result=paired_summary(pd.DataFrame(rows))
+    assert len(result)==2
+    assert set(result.variant)=={'low','high'}
+
+
+def test_pooled_limitation_uses_ovule_weighting_not_mean_annual_ratio():
+    from scripts.summarize_model3_evolution import reproductive_totals
+    result=reproductive_totals(np.array([1.,9.]),np.array([0.,9.]),np.array([.5,0.]),np.array([1.,0.]))
+    assert np.isclose(result['cumulative_pollen_limitation'],.1)
+    assert np.isclose(result['cumulative_viable_seed_limitation'],.05)
+    assert result['cumulative_inbreeding_loss']==.5

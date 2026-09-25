@@ -44,3 +44,13 @@ def test_extinct_population_cannot_produce_expected_offspring():
     result['expected_outcross'][1]=1
     with pytest.raises(ValueError):
         check_run(result,dict(years=3,capacity=48,control='selected'))
+
+
+def test_robustness_inbreeding_loss_is_conserved():
+    from scripts.model3_robustness import simulate_scenario
+    result=simulate_scenario(seed=17,years=3,selfing=.5,depression=.9)
+    case=dict(years=3,capacity=48,control='selected',selfing=.5,depression=.9)
+    check_run(result,case)
+    result['inbreeding_loss'][0]+=1
+    with pytest.raises((ValueError,AssertionError)):
+        check_run(result,case)

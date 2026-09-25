@@ -88,10 +88,35 @@ def check_run(result,case):
     if case['control']=='fixed':
         np.testing.assert_allclose(result['trait_mean'][~extinct],
                                    np.tile(result['trait_mean'][0],((~extinct).sum(),1)),atol=1e-13)
+    if 'depression' in case:
+        for key in ('ovule_supply','selfed_raw','inbreeding_loss'):
+            values=result[key]
+            if values.shape!=(years,) or not np.isfinite(values).all() or (values<0).any():
+                raise ValueError(f'invalid reproductive series {key}')
+            if (values[pop[:-1]==0]!=0).any():
+                raise ValueError('reproductive budget after extinction')
+        ovules=result['ovule_supply']
+        np.testing.assert_allclose(result['selfed_raw'],case['selfing']*(ovules-result['expected_outcross']),atol=1e-10,rtol=1e-12)
+        np.testing.assert_allclose(result['expected_selfed'],result['selfed_raw']*(1-case['depression']),atol=1e-10,rtol=1e-12)
+        np.testing.assert_allclose(result['inbreeding_loss'],result['selfed_raw']-result['expected_selfed'],atol=1e-10,rtol=1e-12)
+        positive=ovules>0
+        for key,numerator in [('pollen_limitation_before_selfing',result['expected_outcross']),
+                              ('viable_seed_limitation',result['expected_outcross']+result['expected_selfed'])]:
+            values=result[key]
+            if values.shape!=(years,) or not np.isnan(values[~positive]).all():
+                raise ValueError('limitation with zero ovules must be undefined')
+            np.testing.assert_allclose(values[positive],1-numerator[positive]/ovules[positive],atol=1e-12,rtol=1e-12)
 
 
-def validate(design_path,output,replay=False):
-    design = verify_freeze(design_path)
+def validate(design_path,output,replay=False,model='baseline'):
+    verify_design=verify_freeze
+    simulator=simulate
+    if model=='robustness':
+        from scripts.run_model3_robustness import verify_freeze as verify_design
+        from scripts.model3_robustness import simulate_scenario as simulator
+    elif model!='baseline':
+        raise ValueError('unknown model family')
+    design = verify_design(design_path)
     output = Path(output)
     manifest = json.loads((output/'manifest.json').read_text(encoding='utf8'))
     if (manifest['completed_cases'] != len(design['cases'])
@@ -122,8 +147,8 @@ def validate(design_path,output,replay=False):
                 check_run(result,case)
                 seen.add(identity)
                 if replay and index==0:
-                    args = {k:v for k,v in case.items() if k not in ('case_id','campaign','environment','replicate')}
-                    actual = simulate(**args)
+                    args = {k:v for k,v in case.items() if k not in ('case_id','campaign','environment','replicate','variant')}
+                    actual = simulator(**args)
                     for key,value in actual.items():
                         stored = result[key]
                         if key=='extinction_year':
@@ -134,7 +159,7 @@ def validate(design_path,output,replay=False):
                     replayed += 1
     if seen!=set(expected):
         raise ValueError('case coverage incomplete')
-    receipt = dict(status='verified',cases=len(seen),artifacts=len(files),replayed_cases=replayed,
+    receipt = dict(status='verified',model=model,cases=len(seen),artifacts=len(files),replayed_cases=replayed,
                    design_sha256=design['design_sha256'],
                    manifest_sha256=hashlib.sha256((output/'manifest.json').read_bytes()).hexdigest(),
                    validator_sha256=hashlib.sha256(Path(__file__).read_text(encoding='utf8').replace('\r\n','\n').encode()).hexdigest())
@@ -148,5 +173,6 @@ if __name__ == '__main__':
     parser.add_argument('--design',type=Path,required=True)
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--replay',action='store_true')
+    parser.add_argument('--model',choices=['baseline','robustness'],default='baseline')
     args=parser.parse_args()
-    print(json.dumps(validate(args.design,args.out,args.replay)))
+    print(json.dumps(validate(args.design,args.out,args.replay,args.model)))

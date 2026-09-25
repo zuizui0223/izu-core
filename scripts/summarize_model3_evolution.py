@@ -14,6 +14,22 @@ GROUP = ['campaign','environment','survival','selfing','start','control','year']
 CHECKPOINTS = [10,40,50,100,200,400]
 
 
+def group_columns(frame):
+    return GROUP+[key for key in ('variant','depression','ovule_effort','pollen_effort') if key in frame.columns]
+
+
+def reproductive_totals(ovules,outcross,selfed,raw_selfed):
+    """Pool reproductive opportunities, not annual ratios; zero supply is undefined."""
+    supply=float(np.sum(ovules))
+    out=float(np.sum(outcross))
+    viable=float(np.sum(selfed))
+    raw=float(np.sum(raw_selfed))
+    return dict(cumulative_ovules=supply,cumulative_selfed_raw=raw,
+                cumulative_inbreeding_loss=raw-viable,
+                cumulative_pollen_limitation=1-out/supply if supply else np.nan,
+                cumulative_viable_seed_limitation=1-(out+viable)/supply if supply else np.nan)
+
+
 def wilson(successes,n):
     if n==0:
         return np.nan,np.nan
@@ -35,7 +51,7 @@ def mcse(values):
 
 
 def paired_summary(frame):
-    keys=[key for key in GROUP if key!='control']
+    keys=[key for key in group_columns(frame) if key!='control']
     selected=frame[frame.control=='selected']
     neutral=frame[frame.control=='neutral']
     paired=selected.merge(neutral,on=keys+['seed'],suffixes=('_selected','_neutral'),validate='one_to_one')
@@ -76,6 +92,11 @@ def summarize(output,destination):
                 for year in CHECKPOINTS:
                     initial=data['trait_mean'][i,0]
                     current=data['trait_mean'][i,year]
+                    diagnostics={}
+                    if 'ovule_supply' in data:
+                        diagnostics=reproductive_totals(data['ovule_supply'][i,:year],
+                            data['expected_outcross'][i,:year],data['expected_selfed'][i,:year],
+                            data['selfed_raw'][i,:year])
                     rows.append(dict(**case,year=year,population=int(data['population'][i,year]),
                                      access=current[0],investment=current[1],
                                      initial_access=initial[0],initial_investment=initial[1],
@@ -86,11 +107,12 @@ def summarize(output,destination):
                                      investment_alleles=int(data['allele_count'][i,year,1]),
                                      mean_visitor_types=float(data['visitor_count'][i,:year].mean()),
                                      cumulative_outcross=float(data['expected_outcross'][i,:year].sum()),
-                                     cumulative_selfed=float(data['expected_selfed'][i,:year].sum())))
+                                     cumulative_selfed=float(data['expected_selfed'][i,:year].sum()),**diagnostics))
     frame=pd.DataFrame(rows)
     grouped=[]
-    for identity,group in frame.groupby(GROUP):
-        row=dict(zip(GROUP,identity))
+    groups=group_columns(frame)
+    for identity,group in frame.groupby(groups):
+        row=dict(zip(groups,identity))
         extinct=int((group.population==0).sum())
         row.update(replicates=len(group),survivors=len(group)-extinct,
                    extinction_fraction=extinct/len(group),
@@ -106,7 +128,7 @@ def summarize(output,destination):
             row[trait+'_increasing']=int((values>.02).sum())
         grouped.append(row)
     # Compare starts on the SAME seed histories, separately for each control.
-    keys=[key for key in GROUP if key!='start']
+    keys=[key for key in groups if key!='start']
     starts=frame[frame.start==.3].merge(frame[frame.start==.7],on=keys+['seed'],suffixes=('_low','_high'),validate='one_to_one')
     convergence=[]
     for identity,group in starts.groupby(keys):
