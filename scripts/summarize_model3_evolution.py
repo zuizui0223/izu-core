@@ -153,7 +153,9 @@ def summarize(output,destination):
         path=output/artifact['path']
         if hashlib.sha256(path.read_bytes()).hexdigest()!=artifact['sha256']:
             raise ValueError('artifact changed after verification')
-        with np.load(path,allow_pickle=False) as data:
+        with np.load(path,allow_pickle=False) as archive:
+            # NPZ indexing decompresses on every access; cache each array once.
+            data={key:archive[key] for key in archive.files}
             for i,encoded in enumerate(data['case_json']):
                 case=json.loads(str(encoded))
                 for year in CHECKPOINTS:
