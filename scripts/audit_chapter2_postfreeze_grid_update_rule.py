@@ -73,6 +73,77 @@ def endpoint_with_rule(initial_trait, trajectory, cfg, rule: str):
     return trait, service(trait, final_pollinators, cfg)
 
 
+def _encounter_matrix(traits: np.ndarray, pollinators, cfg) -> np.ndarray:
+    if not pollinators:
+        return np.empty((traits.size, 0), dtype=float)
+    partner_traits = np.asarray([p.trait for p in pollinators], dtype=float)
+    breadths = np.asarray([max(p.breadth, 1e-6) for p in pollinators], dtype=float)
+    penalties = np.asarray(
+        [cfg.replacement_penalty if p.introduced else 1.0 for p in pollinators],
+        dtype=float,
+    )
+    mismatch = np.abs(traits[:, None] - partner_traits[None, :])
+    matches = np.exp(-np.square(mismatch / breadths[None, :]))
+    return np.clip(matches * penalties[None, :], 0.0, 1.0)
+
+
+def _service_from_encounters(encounters: np.ndarray, cfg) -> np.ndarray:
+    if encounters.shape[1] == 0:
+        return np.zeros(encounters.shape[0], dtype=float)
+    mean_match = encounters.mean(axis=1)
+    return np.clip(1.0 - np.exp(-cfg.saturation * mean_match), 0.0, 1.0)
+
+
+def services_for_grid(grid: tuple[float, ...], trajectory, cfg, rule: str) -> np.ndarray:
+    traits = np.asarray(grid, dtype=float).copy()
+
+    if rule == "fixed":
+        final_pollinators = trajectory[-1] if trajectory else ()
+        return _service_from_encounters(
+            _encounter_matrix(traits, final_pollinators, cfg), cfg
+        )
+
+    if rule not in {"threshold_best", "smooth_weighted"}:
+        raise ValueError(f"unknown update rule: {rule}")
+
+    for pollinators in trajectory:
+        if not pollinators or cfg.trait_adjustment <= 0.0:
+            continue
+        encounters = _encounter_matrix(traits, pollinators, cfg)
+        current_service = _service_from_encounters(encounters, cfg)
+        partner_traits = np.asarray([p.trait for p in pollinators], dtype=float)
+
+        if rule == "threshold_best":
+            mask = current_service < 0.45
+            if np.any(mask):
+                best_index = np.argmax(encounters, axis=1)
+                targets = partner_traits[best_index]
+                traits[mask] = (
+                    traits[mask]
+                    + cfg.trait_adjustment * (targets[mask] - traits[mask])
+                )
+        else:
+            total_weight = encounters.sum(axis=1)
+            mask = total_weight > EPS
+            if np.any(mask):
+                centroids = np.zeros_like(traits)
+                centroids[mask] = (
+                    encounters[mask] @ partner_traits
+                ) / total_weight[mask]
+                traits[mask] = (
+                    traits[mask]
+                    + cfg.trait_adjustment
+                    * (1.0 - current_service[mask])
+                    * (centroids[mask] - traits[mask])
+                )
+        traits = np.clip(traits, 0.0, 1.0)
+
+    final_pollinators = trajectory[-1] if trajectory else ()
+    return _service_from_encounters(
+        _encounter_matrix(traits, final_pollinators, cfg), cfg
+    )
+
+
 def variants_from_design(design: dict) -> list[tuple[str, int]]:
     variants = [
         ("threshold_best", int(points))
@@ -136,14 +207,11 @@ def rows_for_seed_and_scale(*, design: dict, seed: int, copies: int) -> list[dic
         for rule, grid_points in variants:
             grid = trait_grid(grid_points)
             matrix = matrices[(rule, grid_points)]
-            for index, initial_trait in enumerate(grid):
-                _, mainland_service = endpoint_with_rule(
-                    initial_trait, mainland, BASE, rule
-                )
-                _, island_service = endpoint_with_rule(
-                    initial_trait, island, BASE, rule
-                )
-                matrix[index].append(island_service - mainland_service)
+            mainland_service = services_for_grid(grid, mainland, BASE, rule)
+            island_service = services_for_grid(grid, island, BASE, rule)
+            delta = island_service - mainland_service
+            for index, value in enumerate(delta):
+                matrix[index].append(float(value))
 
     return [
         summarize_matrix(
