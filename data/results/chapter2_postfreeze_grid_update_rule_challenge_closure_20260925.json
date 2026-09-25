@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "status": "closed_successfully_with_narrowed_mechanistic_claim",
+  "closed_on": "2026-09-25",
+  "analysis": "chapter2_postfreeze_grid_update_rule_challenge",
+  "design": "data/design/chapter2_postfreeze_grid_update_rule_challenge_20260925.json",
+  "source_workflow": {
+    "run_id": 36101465237,
+    "artifact_id": 10849298297,
+    "artifact_name": "chapter2-postfreeze-grid-update-rule-challenge",
+    "artifact_sha256": "c395bee8d3e6f9c20196c12186073936cc1152744fbee5d1f5328c3594ff8e64",
+    "head_sha": "4eaac29b1aa1a93c20ba6846a7117e9a250e7f7b"
+  },
+  "grid_resolution_topology": {
+    "passes": true,
+    "observed": {
+      "21": {"k1": "community_realization", "k4": "starting_position_by_community_nonadditivity", "k16": "starting_position"},
+      "41": {"k1": "community_realization", "k4": "starting_position_by_community_nonadditivity", "k16": "starting_position"},
+      "81": {"k1": "community_realization", "k4": "starting_position_by_community_nonadditivity", "k16": "starting_position"}
+    },
+    "interpretation": "The frozen threshold/best-partner C -> I -> S median winner sequence is not an artefact of the 21-point (0.05-spaced) starting-state grid."
+  },
+  "smooth_weighted_feedback": {
+    "prespecified_gate_passes": true,
+    "passing_seeds": 6,
+    "required_passing_seeds": 4,
+    "first_k_with_I_gt_C_by_seed": {"20260826": 16, "20250101": 2, "20260833": 16, "20260827": 4, "999983": 4, "12345": 4},
+    "median_fraction_winners_by_k": {
+      "1": "community_realization",
+      "2": "community_realization",
+      "4": "starting_position_by_community_nonadditivity",
+      "8": "community_realization",
+      "16": "community_realization"
+    },
+    "median_fractions": {
+      "k1": {"S": 0.003634623049716088, "C": 0.868111353904553, "I": 0.12785347851593992},
+      "k4": {"S": 0.015452177611484718, "C": 0.47074830588631034, "I": 0.5118401006193332},
+      "k16": {"S": 0.04088807192865507, "C": 0.489347520075326, "I": 0.4682826830827961}
+    },
+    "interpretation": "Removing both the hard service threshold and the best-partner switch preserves a C/I boundary crossing in every seed, but does not reproduce the large-k starting-state takeover. The robust mechanistic claim is transient C-to-I rank reversal under nonlinear feedback, not a universal C-to-I-to-S three-regime sequence."
+  },
+  "fixed_state_negative_control": {
+    "winner_sequence": {
+      "1": "community_realization",
+      "2": "starting_position_by_community_nonadditivity",
+      "4": "starting_position_by_community_nonadditivity",
+      "8": "starting_position_by_community_nonadditivity",
+      "16": "starting_position_by_community_nonadditivity"
+    },
+    "interpretation": "Without plant-state movement, interaction nonadditivity can still overtake community variance, but starting-state dominance does not emerge."
+  },
+  "absolute_ss_scaling": {
+    "threshold_best_grid21_log2_slope_vs_k": {"S": 0.10565604639860085, "C": -1.513478204676042, "I": -0.8392706648884293},
+    "threshold_best_grid41_log2_slope_vs_k": {"S": 0.06323186502116569, "C": -1.525437828795057, "I": -0.8390033539830749},
+    "threshold_best_grid81_log2_slope_vs_k": {"S": 0.03903563994171723, "C": -1.5301300022129192, "I": -0.8369028528085336},
+    "smooth_weighted_grid21_log2_slope_vs_k": {"S": -0.5521406903798619, "C": -1.6540667489200762, "I": -1.0061009360897795},
+    "interpretation": "The normalized crossover is not only denominator arithmetic. Under the frozen rule, C contracts much faster than I while S is approximately flat over the audited finite range; under smooth feedback C again contracts faster than I, allowing transient I dominance."
+  },
+  "paper_facing_boundary": [
+    "Grid resolution concern is closed for 21/41/81 points.",
+    "C-to-I rank reversal is robust to removal of the hard threshold and best-partner switch across all six frozen seeds.",
+    "The later S-dominant regime is not update-rule invariant and must not be presented as a general nonlinear-averaging law.",
+    "Synthetic k remains uncalibrated to any natural richness/diversity coordinate."
+  ]
+}
