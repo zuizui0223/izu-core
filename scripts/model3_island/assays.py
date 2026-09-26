@@ -3,6 +3,29 @@ from dataclasses import replace
 import numpy as np
 
 from .reproduction import reproduce
+from .types import PlantState
+
+
+def reference_service(visitors,config):
+    """Outcross fertilization on an invariant 21-plant access panel.
+
+    Fixed investment .5, assurance disabled, capacity/background scaled to 21.
+    This describes external visitor history, never the evolved focal phenotype.
+    """
+    n=21
+    alleles=np.full((n,3,2),.5)
+    alleles[:,0,:]=np.linspace(0,1,n)[:,None]
+    p=PlantState(alleles,np.arange(n*6).reshape(n,3,2),np.zeros((n,3,2),bool),
+                 np.arange(n),np.zeros(n,dtype=int))
+    c=replace(config,capacity=n,assurance_mode='fixed',fixed_assurance=0.)
+    cache={}; result=[]
+    for v in visitors:
+        key=(v.optima.tobytes(),v.breadths.tobytes(),v.effectiveness.tobytes())
+        if key not in cache:
+            ledger=reproduce(p,v,c); ovules=ledger.ovules.sum()
+            cache[key]=float(ledger.outcross.sum()/ovules) if ovules else np.nan
+        result.append(cache[key])
+    return np.asarray(result)
 
 
 def investment_assay(state, visitors, config, *, step: float) -> dict:

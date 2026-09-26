@@ -17,7 +17,7 @@ from .history import make_history,reflect_unit
 from .randomness import stream
 from .density import make_grid
 from .simulate import simulate
-from .assays import investment_assay
+from .assays import investment_assay,reference_service
 
 
 def atomic_json(path,value):
@@ -64,7 +64,11 @@ def execute_case(case,document,check_budget=None):
     if cell['kind']=='assay':
         return investment_assay(founders,history.visitors[0],config,step=.001)
     demographic_seed=int(np.random.SeedSequence([case['history_seed'],case['demographic_seed']]).generate_state(1)[0])
-    return simulate(config,history,founders,replicate=demographic_seed,grid=make_grid(cell['grid_axes']),check_budget=check_budget)
+    result=simulate(config,history,founders,replicate=demographic_seed,grid=make_grid(cell['grid_axes']),check_budget=check_budget)
+    result['reference_service']=reference_service(history.visitors,config)
+    # Expected opportunity weights for one initially adult plant, not lineage age.
+    result['lifetime_exposure_weights']=config.survival**np.arange(config.years)
+    return result
 
 
 def run_campaign(document,output,*,mode,case_limit=None):
