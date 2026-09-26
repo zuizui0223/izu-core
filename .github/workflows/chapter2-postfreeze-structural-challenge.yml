@@ -32,6 +32,15 @@ jobs:
         run: pytest -q tests/test_model3_robustness.py tests/test_model3_robustness_campaign.py
       - name: Verify matched individual and density comparison
         run: pytest -q tests/test_model3_grid_comparison.py tests/test_model3_grid_summary.py
+      - name: Verify island ecology operators and reporting
+        run: pytest -q tests/test_model3_island_*.py --junitxml="${RUNNER_TEMP}/model3-island-tests.xml"
+      - name: Upload island ecology test receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-island-test-receipt
+          path: ${{ runner.temp }}/model3-island-tests.xml
+          if-no-files-found: warn
       - name: Upload challenge result
         uses: actions/upload-artifact@v4
         with:
