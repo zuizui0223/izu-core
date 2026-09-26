@@ -52,7 +52,8 @@ def _survives(record):
 
 
 def _defined(record):
-    return not np.any(record['result'].get('resident_control_undefined',False))
+    return not (np.any(record['result'].get('resident_control_undefined',False)) or
+                np.any(record['result'].get('density_control_undefined',False)))
 
 
 def paired_contrast(a,b):
@@ -72,13 +73,14 @@ def paired_contrast(a,b):
     pairs=[(aa[k],bb[k]) for k in sorted(aa)]
     if any(x['weight']!=y['weight'] for x,y in pairs):
         raise ValueError('factor weights differ between paired arms')
-    eligible=[]; differences=[]; histories=[]
+    eligible=[]; differences=[]; histories=[]; joint=0
     for x,y in pairs:
-        ok=_survives(x) and _survives(y)
+        occupied=_survives(x) and _survives(y); joint+=int(occupied)
+        ok=occupied and np.isfinite(_investment_change(x)) and np.isfinite(_investment_change(y))
         differences.append(_investment_change(y)-_investment_change(x) if ok else np.nan)
         histories.append(x['history_seed'])
         if ok: eligible.append([x['case_id'],y['case_id']])
-    return dict(n_pairs=len(pairs),n_joint_survivors=len(eligible),eligible_pairs=eligible,
+    return dict(n_pairs=len(pairs),n_joint_survivors=joint,n_trait_change_eligible=len(eligible),eligible_pairs=eligible,
         occupancy_a=_mean([_survives(x) for x,y in pairs]),occupancy_b=_mean([_survives(y) for x,y in pairs]),
         conditional_mean_b_minus_a=_mean(differences),conditional_ci=_cluster_ci(differences,histories),
         interpretation='joint-survivor-selected descriptive contrast, not unconditional mediation')
@@ -207,24 +209,33 @@ def summarize(records,design):
         changes=np.array([_investment_change(r) if ok else np.nan for r,ok in zip(rows,occupied)])
         density_change=np.array([_investment_change(r,True) for r in rows])
         errors=changes-density_change
-        ancestry=[r['result']['founder_ancestry'][-1] for r in rows]
-        persistence=[bool(np.all(np.asarray(r['result']['founder_ancestry'])>0)) for r in rows]
-        generation=[]
+        baseline=[bool(r['result']['population'][0]>0) for r in rows]
+        ancestry=[r['result']['founder_ancestry'][-1] if ok else np.nan for r,ok in zip(rows,baseline)]
+        persistence=[bool(np.all(np.asarray(r['result']['founder_ancestry'])>0)) if ok else np.nan
+                     for r,ok in zip(rows,baseline)]
+        generation=[]; realized_selfing=[]
         for r in rows:
             a=r['result']['demographic']; keys=r['result']['demographic_keys'].tolist()
             total=a[:,keys.index('parent_contributions')].sum()
             generation.append(float(a[:,keys.index('parent_age_sum')].sum()/total) if total else np.nan)
+            recruits=a[:,keys.index('resident_recruits')].sum()
+            realized_selfing.append(float(a[:,keys.index('resident_selfed_recruits')].sum()/recruits)
+                if recruits and 'resident_selfed_recruits' in keys else np.nan)
         ci=_cluster_ci(changes,histories)
         target=design.get('numerical_tolerances',{}).get('trait')
         cells.append(dict(**base,kind='trajectory',n_survivors=n,occupancy=float(occupied.mean()),
+            n_trait_change_eligible=int(np.isfinite(changes).sum()),n_initial_lineage_baselines=sum(baseline),
             occupancy_ci=_cluster_ci(occupied,histories,bounded=True),
             mean_investment_change=_mean(changes),investment_change_ci=ci,
             conditional_precision_met=None if target is None or ci is None else (ci[1]-ci[0])/2<=target,
             individual_density_bias=_mean(errors),individual_density_mae=_mean(np.abs(errors)),
             bias_ci=_cluster_ci(errors,histories),
-            sign_disagreement=_mean(np.where(occupied,np.sign(changes)!=np.sign(density_change),np.nan)),
+            sign_disagreement=_mean(np.where(np.isfinite(changes)&np.isfinite(density_change),
+                np.sign(changes)!=np.sign(density_change),np.nan)),
             mean_density_change=_mean(density_change),mean_founder_ancestry=_mean(ancestry),
-            founder_lineage_persistence=float(np.mean(persistence)),
+            founder_lineage_persistence=_mean(persistence),
+            mean_realized_selfing_fraction=_mean(realized_selfing),
+            realized_selfing_scope='retained viable resident recruits, excluding immigrants',
             first_extinction_count=sum(int(r['result']['extinction_year'])>=0 for r in rows),
             recolonization_count=sum(int(r['result']['recolonizations']) for r in rows),
             mean_generation_interval=_mean(generation),
@@ -268,7 +279,7 @@ def load_records(design,results,*,mode='production',require_complete=True):
                   'state_ids','state_birth_years','final_genotypes','final_allele_origin','final_ids',
                   'final_birth_years','final_mutation_flags','final_density_counts','initial_genotypes',
                   'density_checkpoints','density_counts','density_checkpoint_years','density_counts_shape',
-                  'density_counts_sha256'}
+                  'density_counts_sha256','parentage','parentage_offsets','parentage_keys'}
         with np.load(arrays,allow_pickle=False) as data:
             result={k:data[k].copy() for k in data.files if k not in excluded}
         cell=case['cell']

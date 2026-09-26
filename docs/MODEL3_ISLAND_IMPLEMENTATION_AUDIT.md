@@ -66,9 +66,9 @@ abstract access/matching, investment and assurance; no colour or shape syndrome
 is directly simulated. A fixed cost coefficient does not increase when visitors
 decline. Low visitation need not lower marginal attraction benefits.
 
-The candidate production design specifies 73 cells, 128 independent histories
+The revised production design specifies 80 cells, 128 independent histories
 per main cell, two demographic/inheritance repeats, and 128 separate held-out
-histories for each transport cell: 18,176 total cases, including assays. Assays
+histories for each transport cell: 19,968 total cases, including assays. Assays
 are not duplicated across demographic seeds. Half-width .125 is the prospective
 unconditional occupancy precision target; 128 independent bounded history means
 give a conservative 95% Hoeffding half-width about .120. Conditional trait
@@ -130,7 +130,52 @@ The initial source-bound production manifest is `data/design/model3_island_v1.js
 No production run has begun. If review requires code repairs, rebind the identical
 scientific design to a new source-bound version before production.
 
-Pending: fresh whole-branch review and fixes, complete
+Whole-branch review and repairs are complete. Pending: complete
 production receipts, all-case validation, numerical/precision decisions, ecological
 report and figures. No chosen S/C/I ordering, irreversible history effect, drift-only
 cause, regional reproduction or deterministic optimum is an acceptance criterion.
+
+
+## Independent review and pre-production repairs
+
+A fresh read-only whole-branch review compared baseline 4c4347e with c8fcc43.
+All five findings were accepted and repaired in one review pass before production:
+
+1. Save actual child/mother/father IDs and retained selfed/outcross recruit counts,
+   distinct from expected reproductive allocations. Audit their census membership
+   and exact count consistency. These measure viable retained resident recruits,
+   not all fertilizations or immigrant parentage.
+2. Separate initial visitor RNG from future arrivals; matched founding/separation
+   controls now share every subsequent visitor state and identity, not just year 0.
+3. Add seven explicitly linked uninterrupted recovery counterfactuals with matched
+   horizons, mutation settings, seed windows, initial states and numerical grids.
+4. Make resident-matched density immigration depend on its own density composition,
+   never sampled ABM genotypes. Flag empty-resident controls as undefined.
+5. An initially empty island has no founder-lineage or initial-trait baseline.
+   Occupancy, joint survivors and eligible trait-change pairs are separate counts;
+   undefined changes cannot be counted as sign disagreements.
+
+The five regression failures were observed before repair; a sixth test checks
+corrupted parentage. The final package run passes 168 tests. The full review run
+passes 1,948 tests with one skip; the final rerun after the missing-baseline sign
+summary correction also passes 1,948 tests with one skip (1949 total). No review finding was downgraded or deferred.
+
+The reviewer appropriately withheld scientific judgments until complete production,
+numerical/precision checks and effect interpretation. Historical pilot manifests
+precede the expanded schema and require their archived source snapshots; they are
+not silently repaired or promoted to current production evidence.
+
+Resource pilot v3 used independent history seed 71004 and one demographic seed in
+all 80 cells at their full horizons. All 80 receipts and state audits passed, and
+all 80 cases replayed exactly. Only runtime, size and structural validity were
+inspected. The projection is 30,696 seconds (8.53 hours) and 4,693,172,352 bytes for
+19,968 cases / 5,683,200 annual trajectory steps. Parentage and the seven controls
+explain the increase over the earlier estimate. Current free disk was 126 GiB.
+The output ceiling is prospectively raised to 8 GiB; the 12-hour runtime, 3-GiB
+process-memory and 4-GiB free-disk limits stay unchanged. Scientific arms and
+replication are not reduced. Pilot timing overlapped testing and is an estimate.
+
+The superseding production manifest is data/design/model3_island_v2.json. The v1
+candidate was never run and remains an immutable historical pre-review snapshot.
+Production and scientific completion remain pending; code completion is not a
+biological result.

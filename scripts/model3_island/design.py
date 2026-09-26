@@ -19,7 +19,7 @@ REQUIRED={'schema_version','frozen','model','base_config','units','parameter_ran
           'effect_thresholds','horizons','precision','resource_limits','source_hashes',
           'claim_exclusions','families','storage'}
 CELL_FIELDS={'id','kind','config_patch','grid_axes','founders','history','cohorts',
-             'weight','start_id','pair_group','projection_mode','immigration_mode'}
+             'weight','start_id','pair_group','projection_mode','immigration_mode','counterfactual'}
 
 
 def canonical(value):
@@ -189,6 +189,10 @@ def validate_design(document):
             _validate_history(cell['history'],config)
     if len(set(names))!=len(names) or len(set(cell_ids))!=len(cell_ids):
         raise ValueError('repeated family or cell IDs')
+    for family in d['families']:
+        for cell in family['cells']:
+            if cell['counterfactual'] is not None and (cell['counterfactual'] not in cell_ids or cell['counterfactual']==cell['id']):
+                raise ValueError('invalid counterfactual link')
     if d['frozen'] and set(names)!=FAMILIES:
         raise ValueError('frozen production must include every declared experiment family')
 

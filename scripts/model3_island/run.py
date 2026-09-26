@@ -65,8 +65,8 @@ def founders_from_spec(spec,seed):
 def history_from_spec(config,recipe,seed):
     inherited=None
     if config.island_history=='separation':
-        rng=stream(seed,'visitor_arrivals',0); n=config.initial_visitors
-        inherited=VisitorState(np.arange(n,dtype=np.int64),rng.uniform(size=n),
+        rng=stream(seed,'visitor_initial',0); n=config.initial_visitors
+        inherited=VisitorState(np.arange(n,dtype=np.int64)+(seed+1)*2**32,rng.uniform(size=n),
             np.full(n,config.visitor_breadth),np.full(n,config.visitor_effectiveness))
     h=make_history(config,seed=seed,inherited_visitors=inherited)
     if 'seed_window' in recipe:

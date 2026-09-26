@@ -35,7 +35,7 @@ def build_design(*,pilot=False):
         effect_thresholds={'investment':.05,'occupancy':.10,'heterozygosity':.10},horizons=[200,400,2000],
         precision={'proportion_half_width':.125,'confidence':.95,'max_histories':128,
             'conditional_rule':'fixed_R_report_interval_and_eligible_n','rare_event_rule':'report_upper_bound'},
-        resource_limits={'runtime_seconds':43200.,'memory_mb':3072.,'output_mb':4096.,'min_free_mb':4096.},source_hashes=source_hashes(),
+        resource_limits={'runtime_seconds':43200.,'memory_mb':3072.,'output_mb':8192.,'min_free_mb':4096.},source_hashes=source_hashes(),
         claim_exclusions=['PDE','Q1_fit','drift_only','continuous_trait_convergence','purging',
             'named_island_calibration','natural_direct_indirect_effect','evolutionary_optimum'],families=[])
 
@@ -55,7 +55,7 @@ def build_design(*,pilot=False):
             founders=dict(count=count,draw_count=min(count,48),means=[.5,start,.5],sd=sd,birth_year=0),
             history=recipe or history(),cohorts=cohorts or ['production'],weight=1.,
             start_id=f'investment_{start}',pair_group=group or family,
-            projection_mode=projection,immigration_mode=immigration))
+            projection_mode=projection,immigration_mode=immigration,counterfactual=None))
 
     # Fixed-state assays: census and genotypes identical in every intervention.
     for activity in (.05,.4):
@@ -139,6 +139,16 @@ def build_design(*,pilot=False):
                 f'transport_d{int(distance)}_s{int(start*10)}',start=start,
                 recipe={'kind':'assembly'},patch={'visitor_arrival':{'distance':distance}},
                 cohorts=['production','heldout'],group=f'transport_d{int(distance)}')
+    # Recovery means response relative to an otherwise identical uninterrupted
+    # environment, including the same mutation regime and seed arrival window.
+    recovery=next(f for f in d['families'] if f['name']=='recovery')
+    for treatment in list(recovery['cells']):
+        control=deepcopy(treatment)
+        control['id']=treatment['id']+'_uninterrupted'
+        years=treatment['config_patch'].get('years',config.years)
+        control['history']['segments']=[segment(years)]
+        treatment['counterfactual']=control['id']
+        recovery['cells'].append(control)
     if pilot:
         d['horizons']=[6]; d['demographic_seeds']=[17]; d['resource_limits']['runtime_seconds']=1800.
         for family in d['families']:

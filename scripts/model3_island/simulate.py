@@ -33,11 +33,14 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
     states=[]
     reproductive=np.zeros((t,6))
     density_reproductive=np.zeros((t,6))
-    demographic=np.zeros((t,8),dtype=np.int64)
+    demographic=np.zeros((t,10),dtype=np.int64)
     undefined=np.zeros(t,dtype=bool)
+    density_undefined=np.zeros(t,dtype=bool)
+    parentage=[]
     control_rng=stream(replicate,'source_genotypes',0)
     demographic_keys=('survivors','resident_potential','immigrant_candidates','immigrant_settled',
-                      'resident_recruits','immigrant_recruits','parent_age_sum','parent_contributions')
+                      'resident_recruits','immigrant_recruits','parent_age_sum','parent_contributions',
+                      'resident_selfed_recruits','resident_outcross_recruits')
     def record(year):
         states.append(state)
         density_counts[year]=counts
@@ -48,7 +51,8 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
             trait_variance[year]=traits.var(axis=0)
             allele_count[year]=[len(np.unique(state.alleles[:,k])) for k in range(3)]
             heterozygosity[year]=(state.alleles[:,:,0]!=state.alleles[:,:,1]).mean(axis=0)
-            ancestry[year]=np.isin(state.allele_origin,initial_origins).mean()
+            if len(initial_origins):
+                ancestry[year]=np.isin(state.allele_origin,initial_origins).mean()
         density_mass[year]=counts.sum()
         if counts.sum()>0:
             density_traits[year]=counts @ grid.genotypes.mean(axis=2)/counts.sum()
@@ -76,13 +80,16 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
         if projection_mode=='grid':
             immigrants,_=project_state(immigrants,grid)
         ledger=reproduce(state,history.visitors[year],config)
-        counts,density_ledger=density_step(counts,grid,history.visitors[year],immigrants,config)
+        counts,density_ledger=density_step(counts,grid,history.visitors[year],history.seed_candidates[year],config,
+                                           immigration_mode=immigration_mode)
+        density_undefined[year]=density_ledger.control_undefined
         reproductive[year]=totals(ledger)
         density_reproductive[year]=totals(density_ledger)
         state,info=advance(state,ledger,immigrants,config,streams,year=year)
         if projection_mode=='grid':
             state,_=project_state(state,grid)
         demographic[year]=[info[key] for key in demographic_keys]
+        parentage.append(info['parentage'])
         if old_n and not len(state.ids) and first_extinction<0:
             first_extinction=year+1
         if not old_n and len(state.ids):
@@ -96,6 +103,9 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
         density_reproductive=density_reproductive,demographic=demographic,
         projection_mode=projection_mode,immigration_mode=immigration_mode,
         resident_control_undefined=undefined,
+        density_control_undefined=density_undefined,
+        parentage=np.concatenate(parentage),parentage_offsets=np.r_[0,np.cumsum([len(p) for p in parentage])],
+        parentage_keys=np.array(['child_id','mother_id','father_id']),
         visitor_count=np.array([len(v.ids) for v in history.visitors]),
         initial_genotypes=initial,final_genotypes=state.alleles,final_allele_origin=state.allele_origin,
         final_ids=state.ids,final_birth_years=state.birth_years,final_density_counts=counts,

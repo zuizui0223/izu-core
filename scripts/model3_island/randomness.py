@@ -3,7 +3,7 @@ import numpy as np
 
 STREAM_IDS={'founders':1,'visitor_arrivals':2,'visitor_loss':3,'seed_arrivals':4,
             'seed_settlement':5,'survival':6,'parents':7,'segregation':8,'mutation':9,
-            'recruitment':10,'visitor_settlement':11,'source_genotypes':12}
+            'recruitment':10,'visitor_settlement':11,'source_genotypes':12,'visitor_initial':13}
 
 
 def stream(master: int, component: str, replicate: int) -> np.random.Generator:

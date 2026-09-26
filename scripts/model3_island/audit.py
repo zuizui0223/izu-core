@@ -43,6 +43,21 @@ def validate_arrays(a,case):
             raise ValueError('saved trait summary differs from individual state')
     if not np.array_equal(alleles[offsets[-2]:],a['final_genotypes']):
         raise ValueError('final state differs from trajectory')
+    pedigree=a['parentage']; event_offsets=a['parentage_offsets']; demo=a['demographic']
+    keys=a['demographic_keys'].tolist()
+    if event_offsets.shape!=(t+1,) or event_offsets[0]!=0 or event_offsets[-1]!=len(pedigree) or pedigree.shape!=(len(pedigree),3):
+        raise ValueError('invalid parentage offsets')
+    if not np.array_equal(np.diff(event_offsets),demo[:,keys.index('resident_recruits')]):
+        raise ValueError('parentage count differs from recruitment')
+    for year in range(t):
+        events=pedigree[event_offsets[year]:event_offsets[year+1]]
+        parents=ids[offsets[year]:offsets[year+1]]
+        children=ids[offsets[year+1]:offsets[year+2]]
+        if not np.isin(events[:,1:],parents).all() or not np.isin(events[:,0],children).all() or len(np.unique(events[:,0]))!=len(events):
+            raise ValueError('parentage points outside the saved census')
+        selfed=int((events[:,1]==events[:,2]).sum())
+        if demo[year,keys.index('resident_selfed_recruits')]!=selfed or demo[year,keys.index('resident_outcross_recruits')]!=len(events)-selfed:
+            raise ValueError('realized selfing differs from parentage')
     mass=a['density_mass']; checkpoints=a['density_checkpoints']; years=a['density_checkpoint_years']
     if mass.shape!=(t+1,) or not np.isfinite(mass).all() or (mass<0).any() or (mass>capacity+1e-8).any():
         raise ValueError('invalid density mass')

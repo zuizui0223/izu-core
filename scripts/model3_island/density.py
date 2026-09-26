@@ -138,9 +138,12 @@ class DensityLedger:
     paternal: np.ndarray
     resident_recruits: float
     immigrant_recruits: float
+    control_undefined: bool = False
 
 
-def density_step(counts, grid, visitors, immigrants, config):
+def density_step(counts, grid, visitors, immigrants, config, *, immigration_mode='source'):
+    if immigration_mode not in ('source','resident_matched'):
+        raise ValueError('unknown density immigration intervention')
     counts=np.asarray(counts,dtype=float)
     if (counts.shape!=(len(grid.genotypes),) or not np.isfinite(counts).all()
             or (counts<0).any() or counts.sum()>config.capacity+1e-9):
@@ -173,8 +176,16 @@ def density_step(counts, grid, visitors, immigrants, config):
     child_gametes=(gametes.T@outcross.donors)@(outcross.recipients.T@gametes)
     child_gametes+=gametes.T@(self_viable[:,None]*gametes)
     births=np.bincount(grid.child_lookup.ravel(),weights=child_gametes.ravel(),minlength=len(counts))
-    _,incoming=project_state(immigrants,grid)
-    incoming*=config.seed_arrival.establishment
+    undefined=False
+    if immigration_mode=='resident_matched':
+        # Expected immigrant genotype counts under this model's own residents.
+        # Never import the finite model's demographic/genetic realization here.
+        undefined=bool(len(immigrants.ids) and counts.sum()==0)
+        incoming=(counts/counts.sum()*len(immigrants.ids)*config.seed_arrival.establishment
+                  if counts.sum()>0 else np.zeros_like(counts))
+    else:
+        _,incoming=project_state(immigrants,grid)
+        incoming*=config.seed_arrival.establishment
     total=float(births.sum()+incoming.sum())
     space=max(0.,config.capacity-config.survival*counts.sum())
     retention=min(1.,space/total) if total>0 else 0.
@@ -185,4 +196,4 @@ def density_step(counts, grid, visitors, immigrants, config):
         raise ArithmeticError('invalid density arithmetic')
     return result,DensityLedger(outcross,self_viable,self_raw,counts*ovules,exported,delivered,
         np.maximum(0,lost),counts*female+self_viable,outcross.sum(axis=1)+self_viable,
-        retention*births.sum(),retention*incoming.sum())
+        retention*births.sum(),retention*incoming.sum(),undefined)

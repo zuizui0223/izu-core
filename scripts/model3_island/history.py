@@ -36,6 +36,7 @@ def make_history(config: Config, *, seed: int, inherited_visitors=None) -> Histo
             config.visitor_arrival.supply*config.visitor_arrival.establishment>0):
         raise ValueError('visitor establishment requires declared background resources')
     visitor_rng=stream(seed,'visitor_arrivals',0)
+    initial_rng=stream(seed,'visitor_initial',0)
     loss_rng=stream(seed,'visitor_loss',0)
     settlement_rng=stream(seed,'visitor_settlement',0)
     seed_rng=stream(seed,'seed_arrivals',0)
@@ -51,7 +52,7 @@ def make_history(config: Config, *, seed: int, inherited_visitors=None) -> Histo
             raise ValueError('founding cannot silently inherit a separation community')
         count=config.initial_visitors
         visitors=VisitorState(ids=np.arange(visitors_next,visitors_next+count,dtype=np.int64),
-            optima=visitor_rng.uniform(size=count),breadths=np.full(count,config.visitor_breadth),
+            optima=initial_rng.uniform(size=count),breadths=np.full(count,config.visitor_breadth),
             effectiveness=np.full(count,config.visitor_effectiveness))
         visitors_next+=count
     seed_rate=config.seed_arrival.supply*reach_probability(config.seed_arrival.distance,

@@ -29,7 +29,7 @@ def document():
             'grid_axes':[[0.,.5,1.]]*3,'founders':{'count':4,'means':[.5,.5,.5],'sd':.1,'birth_year':0},
             'history':{'kind':'segments','segments':[{'years':2,'pool':0,'count':2,'optimum':.5,'sd':.1}]},
             'cohorts':['pilot','production','heldout'],'weight':1.,'start_id':'s1','pair_group':'order',
-            'projection_mode':'grid','immigration_mode':'source'}]}])
+            'projection_mode':'grid','immigration_mode':'source','counterfactual':None}]}])
 
 
 def test_exact_cases_and_validation():

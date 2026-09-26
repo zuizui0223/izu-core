@@ -90,7 +90,10 @@ def advance(state, ledger, seed_candidates, config, streams, *, year: int):
     info=dict(survivors=len(adults.ids),resident_potential=resident_potential,
               immigrant_candidates=len(seed_candidates.ids),immigrant_settled=immigrant_potential,
               resident_recruits=resident_count,immigrant_recruits=immigrant_count,
-              parent_age_sum=int(ages.sum()),parent_contributions=int(ages.size))
+              parent_age_sum=int(ages.sum()),parent_contributions=int(ages.size),
+              resident_selfed_recruits=int(np.sum(mothers==fathers)),
+              resident_outcross_recruits=int(np.sum(mothers!=fathers)),
+              parentage=np.stack([children.ids,state.ids[mothers],state.ids[fathers]],axis=1))
     return result,info
 
 
