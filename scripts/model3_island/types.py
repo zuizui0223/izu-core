@@ -189,3 +189,15 @@ class Ledger:
     lost: np.ndarray
     maternal: np.ndarray
     paternal: np.ndarray
+
+    def __post_init__(self):
+        ovules=np.asarray(self.ovules)
+        if ovules.ndim!=1:
+            raise ValueError('ovules must be a vector')
+        n=len(ovules)
+        for field in fields(self):
+            shape=(n,n) if field.name in ('outcross','delivered') else (n,)
+            object.__setattr__(self,field.name,_array(getattr(self,field.name),field.name,
+                             shape=shape,kind='fiu',low=0))
+        if np.any(np.diag(self.outcross)!=0) or np.any(np.diag(self.delivered)!=0):
+            raise ValueError('selfing must be separate from outcross pollen')
