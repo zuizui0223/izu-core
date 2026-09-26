@@ -7,7 +7,7 @@ from .population import advance
 from .randomness import stream, STREAM_IDS
 
 
-def simulate(config, history, founders, *, replicate: int, grid) -> dict:
+def simulate(config, history, founders, *, replicate: int, grid, check_budget=None) -> dict:
     if len(history.visitors)!=config.years or history.event_order!=config.event_order:
         raise ValueError('history length or order differs from configuration')
     if len(founders.ids)>config.capacity or (founders.birth_years>0).any():
@@ -55,6 +55,8 @@ def simulate(config, history, founders, *, replicate: int, grid) -> dict:
     first_extinction=-1
     recolonizations=0
     for year in range(t):
+        if check_budget is not None:
+            check_budget()
         old_n=len(state.ids)
         immigrants,_=project_state(history.seed_candidates[year],grid)
         ledger=reproduce(state,history.visitors[year],config)
