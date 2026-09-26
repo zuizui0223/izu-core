@@ -104,3 +104,11 @@ def test_reference_service_is_fixed_panel_not_evolved_population():
     assert values[0]==0 and 0<values[1]<1
     other=reference_service((visitors(0),visitors(4)),replace(c,capacity=192,fixed_assurance=.9))
     np.testing.assert_array_equal(values,other)
+
+def test_undefined_resident_control_cannot_become_extinction_effect():
+    r=record('1',.0,.2,False)
+    r['result']['resident_control_undefined']=np.array([True])
+    out=summarize([r],{})['cells'][0]
+    assert out['status']=='not_evaluable' and out['n_undefined']==1
+    assert 'occupancy' not in out
+    assert paired_contrast([r],[record('2',.2,.3)])['status']=='not_evaluable'

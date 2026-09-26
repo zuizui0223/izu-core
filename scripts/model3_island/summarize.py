@@ -51,7 +51,14 @@ def _survives(record):
     return bool(record['result']['population'][-1]>0)
 
 
+def _defined(record):
+    return not np.any(record['result'].get('resident_control_undefined',False))
+
+
 def paired_contrast(a,b):
+    if not all(_defined(r) for r in a+b):
+        return dict(status='not_evaluable',reason='resident_genotype_control_undefined',
+                    undefined_cases=[r['case_id'] for r in a+b if not _defined(r)])
     def keyed(rows):
         out={}
         for r in rows:
@@ -146,6 +153,8 @@ def crossed_campaign(records):
         if r['family']=='transport': grouped[(r['cohort'],r['pair_group'])].append(r)
     tensors={}; partitions=[]
     for key,rows in sorted(grouped.items()):
+        if not all(_defined(r) for r in rows):
+            raise ValueError('undefined controls cannot enter a crossed decomposition')
         starts=sorted({r['start_id'] for r in rows}); histories=sorted({r['history_seed'] for r in rows})
         demos=sorted({r['demographic_seed'] for r in rows})
         shape=(len(starts),len(histories),len(demos))
@@ -184,6 +193,10 @@ def summarize(records,design):
     for (cohort,cell_id),rows in sorted(groups.items()):
         histories=[r['history_seed'] for r in rows]
         base=dict(cohort=cohort,cell_id=cell_id,family=rows[0]['family'],n_total=len(rows),n_histories=len(set(histories)))
+        if not all(_defined(r) for r in rows):
+            cells.append(dict(**base,kind='trajectory',status='not_evaluable',
+                reason='resident_genotype_control_undefined',n_undefined=sum(not _defined(r) for r in rows)))
+            continue
         if 'outcross_gradient' in rows[0]['result']:
             cross=[_mean(r['result']['outcross_gradient']) for r in rows]
             total=[_mean(r['result']['total_gradient']) for r in rows]
@@ -231,7 +244,9 @@ def summarize(records,design):
 
 
 def load_records(design,results,*,mode='production',require_complete=True):
+    from .run import verify_snapshot
     results=Path(results); expected=[c for c in compile_design(design) if (c['cohort']=='pilot')==(mode=='pilot')]
+    verify_snapshot(results,design)
     saved=json.loads((results/'manifest.json').read_text())
     identity={'manifest_hash':digest(design),'mode':mode}
     if saved['identity']!=identity or canonical(saved['design'])!=canonical(design):
@@ -247,8 +262,15 @@ def load_records(design,results,*,mode='production',require_complete=True):
             raise ValueError('invalid result receipt')
         if canonical(json.loads((folder/'input.json').read_text()))!=canonical(case):
             raise ValueError('case input mismatch')
+        # The full state audit streams one case at a time. Reporting retains only
+        # yearly endpoints, never every individual/genotype state in RAM at once.
+        excluded={'state_offsets','state_alleles','state_allele_origin','state_mutation_flags',
+                  'state_ids','state_birth_years','final_genotypes','final_allele_origin','final_ids',
+                  'final_birth_years','final_mutation_flags','final_density_counts','initial_genotypes',
+                  'density_checkpoints','density_counts','density_checkpoint_years','density_counts_shape',
+                  'density_counts_sha256'}
         with np.load(arrays,allow_pickle=False) as data:
-            result={k:data[k].copy() for k in data.files}
+            result={k:data[k].copy() for k in data.files if k not in excluded}
         cell=case['cell']
         rows.append(dict(case_id=case['case_id'],cell_id=cell['id'],cohort=case['cohort'],
             history_seed=case['history_seed'],demographic_seed=case['demographic_seed'],

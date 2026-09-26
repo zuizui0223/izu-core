@@ -3,11 +3,14 @@ import numpy as np
 
 from .density import density_step, project_state
 from .reproduction import reproduce
-from .population import advance
+from .population import advance,resident_seed_control,subset
 from .randomness import stream, STREAM_IDS
 
 
-def simulate(config, history, founders, *, replicate: int, grid, check_budget=None) -> dict:
+def simulate(config, history, founders, *, replicate: int, grid, check_budget=None,
+             projection_mode='grid',immigration_mode='source') -> dict:
+    if projection_mode not in ('grid','continuous') or immigration_mode not in ('source','resident_matched'):
+        raise ValueError('unknown numerical or immigration intervention')
     if len(history.visitors)!=config.years or history.event_order!=config.event_order:
         raise ValueError('history length or order differs from configuration')
     if len(founders.ids)>config.capacity or (founders.birth_years>0).any():
@@ -31,6 +34,8 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
     reproductive=np.zeros((t,6))
     density_reproductive=np.zeros((t,6))
     demographic=np.zeros((t,8),dtype=np.int64)
+    undefined=np.zeros(t,dtype=bool)
+    control_rng=stream(replicate,'source_genotypes',0)
     demographic_keys=('survivors','resident_potential','immigrant_candidates','immigrant_settled',
                       'resident_recruits','immigrant_recruits','parent_age_sum','parent_contributions')
     def record(year):
@@ -58,13 +63,25 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
         if check_budget is not None:
             check_budget()
         old_n=len(state.ids)
-        immigrants,_=project_state(history.seed_candidates[year],grid)
+        immigrants=history.seed_candidates[year]
+        if immigration_mode=='resident_matched' and len(immigrants.ids):
+            matched,reason=resident_seed_control(state,immigrants,control_rng)
+            if reason is not None:
+                # No invented resident genotype after extinction. The contrast is
+                # non-evaluable from this point, flagged and retained for auditing.
+                undefined[year]=True
+                immigrants=subset(immigrants,np.empty(0,dtype=int))
+            else:
+                immigrants=matched
+        if projection_mode=='grid':
+            immigrants,_=project_state(immigrants,grid)
         ledger=reproduce(state,history.visitors[year],config)
         counts,density_ledger=density_step(counts,grid,history.visitors[year],immigrants,config)
         reproductive[year]=totals(ledger)
         density_reproductive[year]=totals(density_ledger)
         state,info=advance(state,ledger,immigrants,config,streams,year=year)
-        state,_=project_state(state,grid)
+        if projection_mode=='grid':
+            state,_=project_state(state,grid)
         demographic[year]=[info[key] for key in demographic_keys]
         if old_n and not len(state.ids) and first_extinction<0:
             first_extinction=year+1
@@ -77,6 +94,8 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
         density_mass=density_mass,density_traits=density_traits,reproductive=reproductive,
         density_counts=density_counts,density_trait_variance=density_trait_variance,
         density_reproductive=density_reproductive,demographic=demographic,
+        projection_mode=projection_mode,immigration_mode=immigration_mode,
+        resident_control_undefined=undefined,
         visitor_count=np.array([len(v.ids) for v in history.visitors]),
         initial_genotypes=initial,final_genotypes=state.alleles,final_allele_origin=state.allele_origin,
         final_ids=state.ids,final_birth_years=state.birth_years,final_density_counts=counts,

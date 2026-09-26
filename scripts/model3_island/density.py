@@ -35,7 +35,7 @@ def make_grid(axes) -> GeneticGrid:
     return _make_grid(tuple(tuple(float(x) for x in a) for a in axes))
 
 
-@lru_cache(maxsize=8)
+@lru_cache(maxsize=3)
 def _make_grid(axes):
     pairs=[list(combinations_with_replacement(range(len(a)),2)) for a in axes]
     states=list(product(*pairs))
@@ -84,7 +84,7 @@ def mutation_matrix(nodes, rate, sd):
     return (1-rate)*np.eye(len(nodes))+rate*raw
 
 
-@lru_cache(maxsize=24)
+@lru_cache(maxsize=3)
 def _mutated_gametes(axes,rate,sd,mode):
     grid=_make_grid(axes)
     kernels=[mutation_matrix(a,0 if k==2 and mode=='fixed' else rate,sd) for k,a in enumerate(axes)]
@@ -104,13 +104,35 @@ def project_state(state, grid):
 
 
 @dataclass(frozen=True)
+class FactorizedMatrix:
+    """Exact donor x recipient matrix, stored through visitor-channel factors."""
+    donors: np.ndarray
+    recipients: np.ndarray
+
+    @property
+    def shape(self):
+        return (len(self.donors),len(self.recipients))
+
+    def sum(self,axis=None):
+        if axis is None: return float(self.donors.sum(axis=0)@self.recipients.sum(axis=0))
+        if axis==0: return self.recipients@self.donors.sum(axis=0)
+        if axis==1: return self.donors@self.recipients.sum(axis=0)
+        raise ValueError('matrix axis must be 0, 1 or None')
+
+    def __array__(self,dtype=None):
+        if self.shape[0]*self.shape[1]>10000000:
+            raise MemoryError('use factorized sums instead of materializing a large mating matrix')
+        return np.asarray(self.donors@self.recipients.T,dtype=dtype)
+
+
+@dataclass(frozen=True)
 class DensityLedger:
-    outcross: np.ndarray
+    outcross: FactorizedMatrix
     self_viable: np.ndarray
     self_raw: np.ndarray
     ovules: np.ndarray
     exported: np.ndarray
-    delivered: np.ndarray
+    delivered: FactorizedMatrix
     lost: np.ndarray
     maternal: np.ndarray
     paternal: np.ndarray
@@ -126,7 +148,8 @@ def density_step(counts, grid, visitors, immigrants, config):
     traits=grid.genotypes.mean(axis=2)
     a=traits[:,2] if config.assurance_mode=='evolving' else np.full(len(counts),config.fixed_assurance)
     ovules=config.ovule_budget*np.exp(-config.investment_cost*traits[:,1]**2-config.assurance_cost*a*a)
-    transfer=np.zeros((len(counts),len(counts)))
+    donors=np.zeros((len(counts),0))
+    recipient=np.zeros((len(counts),0))
     exported=np.zeros(len(counts))
     if len(visitors.ids) and config.activity:
         affinity=(.1+traits[:,1,None])*np.exp(-((traits[:,0,None]-visitors.optima)/visitors.breadths)**2)
@@ -136,19 +159,19 @@ def density_step(counts, grid, visitors, immigrants, config):
         removed=config.pollen_budget*np.exp(-config.pollen_discount*a)*(-np.expm1(-activity*affinity.mean(axis=1)))
         recipient=affinity/((counts[:,None]*affinity).sum(axis=0)+config.capacity*config.background_ratio)
         # Dose received by one recipient of each genotype class.
-        transfer=(counts[:,None]*removed[:,None]*channels*visitors.effectiveness) @ recipient.T
+        donors=counts[:,None]*removed[:,None]*channels*visitors.effectiveness
         exported=counts*removed
-    receipt=transfer.sum(axis=0)
+    receipt=recipient@donors.sum(axis=0)
     available=ovules*(1-a) if config.assurance_timing=='prior' else ovules
     female=available*(-np.expm1(-receipt/(2*config.pollen_scale)))
     conversion=np.divide(counts*female,receipt,out=np.zeros_like(counts),where=receipt>0)
-    outcross=transfer*conversion[None,:]
+    outcross=FactorizedMatrix(donors,recipient*conversion[:,None])
     self_raw=counts*(ovules*a if config.assurance_timing=='prior' else a*(ovules-female))
     self_viable=self_raw*(1-config.depression)
-    parents=outcross.copy(); parents[np.diag_indices(len(counts))]+=self_viable
     axes=tuple(tuple(a) for a in grid.axes)
     gametes=_mutated_gametes(axes,config.mutation_rate,config.mutation_sd,config.assurance_mode)
-    child_gametes=gametes.T @ parents @ gametes
+    child_gametes=(gametes.T@outcross.donors)@(outcross.recipients.T@gametes)
+    child_gametes+=gametes.T@(self_viable[:,None]*gametes)
     births=np.bincount(grid.child_lookup.ravel(),weights=child_gametes.ravel(),minlength=len(counts))
     _,incoming=project_state(immigrants,grid)
     incoming*=config.seed_arrival.establishment
@@ -156,7 +179,7 @@ def density_step(counts, grid, visitors, immigrants, config):
     space=max(0.,config.capacity-config.survival*counts.sum())
     retention=min(1.,space/total) if total>0 else 0.
     result=config.survival*counts+retention*(births+incoming)
-    delivered=transfer*counts[None,:]
+    delivered=FactorizedMatrix(donors,recipient*counts[:,None])
     lost=exported-delivered.sum(axis=1)
     if not np.isfinite(result).all() or (lost< -1e-10).any():
         raise ArithmeticError('invalid density arithmetic')

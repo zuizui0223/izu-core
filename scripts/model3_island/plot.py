@@ -20,6 +20,8 @@ def plot_records(records,summary,output):
     cells={(c['cohort'],c['cell_id']):c for c in summary['cells']}
     written=[]
     for key,rows in groups.items():
+        if cells[key].get('status')=='not_evaluable':
+            continue
         fig,axes=plt.subplots(1,3,figsize=(12,3.7),layout='constrained')
         years=np.arange(len(rows[0]['result']['population']))
         for r in rows:

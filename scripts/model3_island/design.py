@@ -17,9 +17,9 @@ FAMILIES={'assays','chronology','connectivity','initialization','assurance',
 REQUIRED={'schema_version','frozen','model','base_config','units','parameter_ranges',
           'mechanism_flags','cohorts','demographic_seeds','founder_seed','numerical_tolerances',
           'effect_thresholds','horizons','precision','resource_limits','source_hashes',
-          'claim_exclusions','families'}
+          'claim_exclusions','families','storage'}
 CELL_FIELDS={'id','kind','config_patch','grid_axes','founders','history','cohorts',
-             'weight','start_id','pair_group'}
+             'weight','start_id','pair_group','projection_mode','immigration_mode'}
 
 
 def canonical(value):
@@ -53,11 +53,16 @@ def _positive(x):
 
 
 def _validate_history(recipe, config):
+    if 'seed_window' in recipe:
+        w=recipe['seed_window']
+        if not isinstance(w,list) or len(w)!=2 or not all(_integer(x) for x in w) or not 0<=w[0]<=w[1]<=config.years:
+            raise ValueError('invalid seed arrival window')
+    fields=set(recipe)-{'seed_window'}
     if recipe.get('kind')=='assembly':
-        if set(recipe)!={'kind'}:
+        if fields!={'kind'}:
             raise ValueError('unknown assembly settings')
         return
-    if recipe.get('kind')!='segments' or set(recipe)!={'kind','segments'}:
+    if recipe.get('kind')!='segments' or fields!={'kind','segments'}:
         raise ValueError('unknown history recipe')
     total=0; pools={}
     for s in recipe['segments']:
@@ -83,6 +88,10 @@ def validate_design(document):
     if not isinstance(d,dict) or set(d)!=REQUIRED:
         raise ValueError('manifest must contain exactly the required scientific fields')
     canonical(d)  # Reject nonfinite numbers before coercion.
+    if (set(d['storage'])!={'density_counts','checkpoint_every'}
+            or d['storage']['density_counts']!='checkpoints_and_replay_digest'
+            or not _integer(d['storage']['checkpoint_every'],1)):
+        raise ValueError('invalid storage/replay contract')
     if d['schema_version']!=1 or not isinstance(d['frozen'],bool) or d['model']!='discrete_genotype_density':
         raise ValueError('unsupported schema or model label')
     if d['units']!={'time':'reproductive_year','distance':'dispersal_scale','traits':'unit_interval'}:
@@ -126,7 +135,7 @@ def validate_design(document):
     if p['conditional_rule']!='fixed_R_report_interval_and_eligible_n' or p['rare_event_rule']!='report_upper_bound':
         raise ValueError('only fixed sample size, no outcome-based stopping, supported')
     limits=d['resource_limits']
-    if set(limits)!={'runtime_seconds','memory_mb'} or not all(_positive(x) for x in limits.values()):
+    if set(limits)!={'runtime_seconds','memory_mb','output_mb','min_free_mb'} or not all(_positive(x) for x in limits.values()):
         raise ValueError('invalid resource limits')
     if not d['source_hashes'] or any(not re.fullmatch(r'[0-9a-f]{64}',v) for v in d['source_hashes'].values()):
         raise ValueError('invalid source hashes')
@@ -142,6 +151,8 @@ def validate_design(document):
             if set(cell)!=CELL_FIELDS or not re.fullmatch(r'[a-z0-9_-]+',cell['id']):
                 raise ValueError('cell fields or ID invalid')
             cell_ids.append(cell['id'])
+            if cell['projection_mode'] not in ('grid','continuous') or cell['immigration_mode'] not in ('source','resident_matched'):
+                raise ValueError('unknown numerical or immigration mode')
             if cell['kind'] not in ('trajectory','assay') or not _positive(cell['weight']) or not cell['start_id'] or not cell['pair_group']:
                 raise ValueError('invalid cell type, estimand labels or weight')
             if not cell['cohorts'] or len(set(cell['cohorts']))!=len(cell['cohorts']) or not set(cell['cohorts'])<=set(d['cohorts']):
@@ -157,8 +168,9 @@ def validate_design(document):
             if len(axes)!=3 or any(not len(a) for a in axes):
                 raise ValueError('three nonempty allele axes required')
             classes=math.prod(len(a)*(len(a)+1)//2 for a in axes)
-            # Working pair matrices plus individual transfer; preflight before allocation.
-            working_bytes=64*(classes**2+config.capacity**2)
+            # Visitor-factorized density operator: no genotype-pair dense matrix.
+            gametes=math.prod(len(a) for a in axes)
+            working_bytes=64*(classes*gametes+gametes**2+config.capacity**2)+8*(config.years+1)*classes
             if working_bytes>limits['memory_mb']*1024**2:
                 raise ValueError('grid or capacity exceeds declared memory budget')
             make_grid(axes)
@@ -167,8 +179,11 @@ def validate_design(document):
                     if (k<2 or config.assurance_mode=='evolving') and (axis[0]!=0 or axis[-1]!=1):
                         raise ValueError('mutating grid does not span the unit interval')
             founder=cell['founders']
-            if set(founder)!={'count','means','sd','birth_year'} or not _integer(founder['count']) or founder['count']>config.capacity:
+            if set(founder)-{'draw_count'}!={'count','means','sd','birth_year'} or not _integer(founder['count']) or founder['count']>config.capacity:
                 raise ValueError('invalid founding census')
+            draws=founder.get('draw_count',founder['count'])
+            if not _integer(draws) or (founder['count'] and (not draws or founder['count']%draws)) or (not founder['count'] and draws):
+                raise ValueError('underlying founder draw cannot match the declared census')
             if len(founder['means'])!=3 or not all(0<=x<=1 for x in founder['means']) or founder['sd']<0 or not isinstance(founder['birth_year'],int) or founder['birth_year']>0:
                 raise ValueError('invalid founding trait state')
             _validate_history(cell['history'],config)

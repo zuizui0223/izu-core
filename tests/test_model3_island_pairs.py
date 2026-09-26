@@ -110,3 +110,34 @@ def test_yearly_states_and_density_variance_are_auditable():
     assert r['state_mutation_flags'].shape==r['state_alleles'].shape
     assert r['density_trait_variance'].shape==(3,3)
     np.testing.assert_array_equal(r['final_mutation_flags'],r['state_mutation_flags'][r['state_offsets'][-2]:])
+
+def test_continuous_individual_and_resident_matched_migration_diagnostics():
+    grid=make_grid((np.array([0.,.5,1.]),)*3)
+    c=replace(config_fixture(),years=2,mutation_rate=1.,mutation_sd=.03,
+        seed_arrival=replace(config_fixture().seed_arrival,establishment=1.))
+    p=plant_fixture(4)
+    incoming=replace(plant_fixture(1),ids=np.array([2**32]),alleles=np.ones((1,3,2)),
+        allele_origin=np.full((1,3,2),2**32),birth_years=np.array([1]))
+    h=History((visitors(),)*2,(incoming,plant_fixture(0)),c.event_order)
+    r=simulate(c,h,p,replicate=27,grid=grid,projection_mode='continuous',immigration_mode='resident_matched')
+    assert r['projection_mode']=='continuous' and r['immigration_mode']=='resident_matched'
+    assert np.any(np.min(abs(r['state_alleles'][:,:2,:,None]-np.array([0.,.5,1.])),axis=-1)>1e-8)
+    assert r['resident_control_undefined'].sum()==0
+    empty=plant_fixture(0)
+    c=replace(c,years=1,fixed_assurance=0.)
+    h=History((visitors(0),),(incoming,),c.event_order)
+    r=simulate(c,h,empty,replicate=27,grid=grid,immigration_mode='resident_matched')
+    assert r['resident_control_undefined'].tolist()==[True]
+    assert r['population'][-1]==0
+
+def test_density_factorized_mating_totals_equal_dense_enumeration():
+    from scripts.model3_island.density import FactorizedMatrix
+    a=np.array([[1.,2.],[3.,4.],[0.,1.]])
+    b=np.array([[2.,0.],[1.,3.],[2.,1.]])
+    m=FactorizedMatrix(a,b)
+    dense=a@b.T
+    np.testing.assert_allclose(m.sum(axis=0),dense.sum(axis=0))
+    np.testing.assert_allclose(m.sum(axis=1),dense.sum(axis=1))
+    assert m.sum()==pytest.approx(dense.sum())
+    np.testing.assert_allclose(np.asarray(m),dense)
+    assert m.shape==(3,3)
