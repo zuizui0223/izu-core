@@ -167,6 +167,8 @@ class History:
     visitors: tuple[VisitorState,...]
     seed_candidates: tuple[PlantState,...]
     event_order: str
+    initialization: str = 'controlled'
+    event_time: int = 0
 
     def __post_init__(self):
         object.__setattr__(self,'visitors',tuple(self.visitors))
@@ -175,6 +177,9 @@ class History:
                 or not all(isinstance(v,VisitorState) for v in self.visitors)
                 or not all(isinstance(p,PlantState) for p in self.seed_candidates)):
             raise ValueError('inconsistent history')
+        _integer(self.event_time,'event_time')
+        if self.initialization not in ('controlled','founding','separation'):
+            raise ValueError('unknown history initialization')
 
 
 @dataclass(frozen=True)
