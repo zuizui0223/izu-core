@@ -29,6 +29,19 @@ The Chapter 1 handoff is therefore:
 
 > **A common broad functional response recurs globally, but detailed pollinator-facing phenotype organization is not identical. Why can the same broad ecological constraint generate different response trajectories?**
 
+## Chapter 1 unresolved-problem handoff
+
+Chapter 1 leaves four problems that Chapter 2 must address without retroactive causal overreach:
+
+1. **recurrent function versus non-recurrent phenotype** — assurance/accessibility recur, but detailed display does not;
+2. **selfing is not the whole explanation** — some colour/architecture associations remain after selfing adjustment;
+3. **stress versus compensation** — isolation is associated with stronger pollen limitation, yet some island-associated functional traits are associated with lower realized limitation;
+4. **cross-sectional identifiability** — present regional states do not identify whether the route was selection, founding, immigration, buffering or demographic sorting.
+
+Unified Model 3 resolves the first three mechanistically: state × visitor composition can reverse reproductive selection before demography; deterministic inheritance retains the branch; assurance can buffer/preserve populations without forcing one floral direction. It narrows the fourth by separating founding, immigration, chronology and finite realization, but the natural inherited longitudinal B layer remains unobserved.
+
+Canonical resolution matrix: `docs/CHAPTER1_UNRESOLVED_TO_CHAPTER2_RESOLUTION_20260927.md`.
+
 ## Canonical Chapter 2 question
 
 > **Why can a recurrent island functional syndrome coexist with non-uniform floral trajectories, and under what reproductive and demographic conditions are those trajectories realized?**
