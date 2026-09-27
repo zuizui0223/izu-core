@@ -1,19 +1,15 @@
 name: Model 3 Chapter 2 bridge production
 
 on:
+  # Frozen prospective result already exists; manual dispatch is reproduction only.
   workflow_dispatch:
-  push:
-    branches:
-      - codex/integrate-model3-into-ch2
-    paths:
-      - '.github/workflows/model3_ch2_bridge_production.yml'
 
 permissions:
   contents: read
 
 concurrency:
-  group: model3-ch2-bridge-production
-  cancel-in-progress: false
+  group: model3-ch2-bridge-production-final-20260927
+  cancel-in-progress: true
 
 jobs:
   shard:
