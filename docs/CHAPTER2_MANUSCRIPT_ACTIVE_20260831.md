@@ -27,9 +27,9 @@ Island plant–pollinator systems provide a useful setting for this problem beca
 
 We treat this as one nested post-establishment problem. Model 3 first asks how visitor composition and starting floral state determine reproductive return before demographic updating, then propagates the same reproductive and inheritance rules deterministically, and finally restores finite individuals and demographic stochasticity. Assurance, connectivity, chronology and recovery are interventions within that same model family. The model does not reconstruct the deep-time origin of an island biota or identify the historical cause of a named natural transition. This distinction separates our question from the full assembly problem emphasized by Baker's law and island-colonization theory (Pannell et al., 2015; Grossenbacher et al., 2017; Zell et al., 2025).
 
-The model represents each pollinator by a matching function over a standardized plant functional coordinate. The realized pollinator community defines a community interaction kernel. Partner turnover changes that kernel, plant starting state determines where the kernel is evaluated, and active plant adjustment can move the evaluation point through time. Local filtering and reproductive assurance operate downstream. The resulting response is therefore relational: it depends not only on the plant state or the community in isolation, but on where that state lies relative to the realized interaction kernel.
+Model 3 represents plant access/matching, costly floral investment and reproductive assurance as inherited traits. Visitor functional types determine finite pollen transfer through trait matching; outcross and selfed offspring contribute through explicit viability and Mendelian inheritance; density regulation, adult survival, immigration and finite recruitment determine which inherited responses persist. The same biological operator can therefore be examined before inheritance, after deterministic inheritance, and after finite-population realization.
 
-The key unresolved issue is not simply whether responses are heterogeneous. It is whether the *source* of that heterogeneity has a fixed ecological rank. Realized richness can alter the opportunity regime, but exact richness control need not eliminate compositional contingency. Likewise, a community-realization component that dominates in a small stochastic system need not remain dominant when independent community sampling is pooled. This formulation predicts a scale-dependent response architecture in which the dominant source of response variation need not be fixed: realized community composition should matter most when communities are small and stochastic, whereas starting state should gain relative importance as community sampling stabilizes.
+The key unresolved issue is where non-uniform island response first appears. If opposite trajectories emerge only in the finite ABM, demographic stochasticity could be their primary generator. If the fixed-state reproductive operator already gives opposite selection directions and the deterministic genotype-density counterpart retains them, then ecological matching creates the branch upstream and finite demography modifies its realization. This nested comparison is the central inferential design.
 
 We therefore ask five linked questions within one model. First, can the same visitor composition favour opposite reproductive responses depending on starting floral state? Second, does changing composition at fixed visitor count alter those responses when count itself is neutralized by a fixed-total-activity control? Third, does non-uniformity persist when demographic sampling is removed in the deterministic genotype-density counterpart? Fourth, how does the finite ABM depart from that deterministic trajectory? Fifth, how do assurance, chronology, connectivity, life history and recovery condition which inherited endpoint is realized?
 
@@ -39,65 +39,13 @@ The paper is deliberately synthetic in its primary inference but not isolated fr
 
 ## Inference architecture and claim boundary
 
-The primary analysis is a frozen synthetic plant–pollinator model. No empirical island outcome was used to tune seeds, synthetic thresholds or the system-size crossover. All synthetic frequencies, variance shares and coordinates are design diagnostics rather than natural prevalence estimates or calibrated field thresholds.
+The primary analysis is a frozen synthetic plant–pollinator eco-evolutionary model examined at nested fixed-state, deterministic genotype-density and finite-population levels. No empirical island outcome was used to tune the unified reduction audit or the full island campaign. Synthetic trait values, time, distance and demographic frequencies are design coordinates rather than calibrated natural estimates.
 
 Natural evidence enters only after the synthetic objects and claim boundaries are defined. The confrontation layer combines a formal source audit of 25 research entries across 21 exact geographic labels, a broader source-verified descriptive programme that reached its geography-first stopping rule, source-native secondary reanalyses of compositional change, and existing Izu functional-network / pollen secondary analyses. The formal audit records whether each system directly observes comparable plant response, partner loss or arrival/replacement, realized community change and other mechanism-relevant coordinates without imputing missing axes from outcomes. The broader programme is used to assess biological vocabulary and search saturation, not to estimate natural prevalence.
 
 The Izu secondary-data stress test is likewise deliberately asymmetric. We retain support when functional exposure predicts corrected trait matching, but also retain instability or failure when matching-to-pollen effects are not leave-one-island sign stable, historical signed-position projections fail null correction, or a bridge-state geographic contrast is not independently identified. The natural layer therefore constrains interpretation rather than selecting synthetic parameters.
 
 No conclusion in the current paper requires field confirmation of the synthetic model. The legacy synthetic rank crossover is retained only as Supporting Information robustness. A future same-unit transition-linked study could test transport of the unified Model 3 architecture, but it cannot retrospectively define the present mechanism.
-
-## Legacy reduced response-geometry robustness methods (Supporting Information)
-
-### Synthetic pollinator environments and matching
-
-The baseline mainland-like scenario contained nine pollinator types, partner arrival probability 0.28, partner loss probability 0.015, trait dispersion 0.22, generalist fraction 0.35 and replacement fraction 0.05. The island-like scenario contained four pollinator types, partner arrival probability 0.12, partner loss probability 0.055, trait dispersion 0.16, generalist fraction 0.58 and replacement fraction 0.22. Generalist breadth was 0.42 and specialist breadth 0.16. Replacement partners received a multiplicative effectiveness penalty of 0.82.
-
-For plant position `x` and pollinator position `p`, matching was
-
-`match = exp(-(|x-p| / breadth)^2)`.
-
-Under a fixed visitation budget, total service depended on mean extant-partner match rather than increasing automatically with richness:
-
-`service = 1 - exp(-saturation × mean_match)`.
-
-### Community interaction kernel and response coordinate
-
-For environment `E`, plant state `x` and extant pollinator `j`, the match contribution is
-
-`k_Ej(x) = a_Ej exp(-((x - p_Ej) / b_Ej)^2)`,
-
-where `p_Ej` and `b_Ej` are pollinator position and breadth and `a_Ej` is the replacement penalty or 1. The community interaction kernel is `K_E(x)=mean_j k_Ej(x)`, with zero for an empty community, and service is a strictly increasing saturation of `K_E(x)`.
-
-With active trait adjustment, the final plant state depends on the realized pollinator trajectory. The response coordinate is therefore relational: it compares the endpoint island-like and mainland-like kernels at their trajectory-conditioned plant states. Conditional on a realized pollinator trajectory, plant-state motion is deterministic.
-
-### Matched response geometry
-
-Starting positions were evaluated on a 21-point grid from 0 to 1. Within each realization, all starting positions experienced the same mainland-like and island-like pollinator trajectories. We generated 96 matched community realizations. A realization was mixed-sign when at least one starting position had a positive response and at least one had a negative response.
-
-A fixed 48-point Latin-hypercube design varied ten perturbation and matching dimensions. The fraction of starting positions with negative mean response was regressed on all ten centered and range-scaled parameters in one prespecified additive model. No post-hoc model selection was used.
-
-### Starting-state × community-realization decomposition
-
-For each 21 × 96 response matrix, total sum of squares was partitioned exactly into a starting-position additive component, a community-realization additive component and a starting-position × community non-additive remainder. Because each trajectory is generated once and shared across all starting positions, the non-additive remainder is not within-cell Monte Carlo noise.
-
-### Realized-richness controls
-
-Two controls were used. First, initial richness was equalized while retaining subsequent differences in loss and arrival. Second, a stronger hard control matched realized richness at every simulated step by uniformly subsampling only the larger of each mainland-like/island-like community pair to the smaller realized richness. Subsampling was response-blind and independent of plant state and pollinator traits. Six matching seeds were prespecified.
-
-A separate equal-turnover control set island-like partner-arrival and partner-loss rates to the frozen mainland baseline while retaining all other scenario differences. Equalizing the baseline mainland–island partner-arrival and partner-loss rates therefore tests the necessity of the turnover-rate asymmetry specifically; it does not make the two scenarios identical.
-
-### Finite-community system-size audit
-
-The finite-community stochastic formulation was retained because among-realization community variation is itself a focal component. A deterministic mean-field reduction would average over community-realization variation by construction.
-
-We pooled `k={1,2,4,8,16}` independent copies of mainland-like and island-like community trajectories before evaluating the same service function. One audit used zero trait adjustment to isolate finite-community sampling and permit exact finite-k moment calculations. A second prespecified audit retained the headline active plant-adjustment operator (`trait_adjustment=0.03`) and the existing six-seed ensemble to test whether the ordering of starting-position and community-realization variance components changes with system size.
-
-For the zero-adjustment submodel, exact terminal count and kernel moments were computed and branch-class probability was approximated with a multivariate Gaussian. This is not presented as an exact Fokker–Planck or full linear-noise solution.
-
-### Downstream modifiers
-
-Local context was represented as availability and interaction filtering. Filtering strengths were 0, 0.10, 0.25, 0.40, 0.50, 0.60 and 0.75. Autonomous reproductive assurance was varied independently from 0× to 4×. Upstream effective service was required to remain invariant across assurance multipliers before interpreting downstream reproductive changes.
 
 ## Unified Model 3: nested reproductive, deterministic and finite-population levels
 
@@ -127,43 +75,6 @@ Composition mattered at fixed count. The maximum left-versus-right difference in
 The deterministic genotype-density counterpart retained mixed positive and negative inherited investment changes in all three four-type visitor contexts, with a maximum left-versus-right endpoint difference of `0.1891`. Demographic stochasticity is therefore not necessary for response branching in this model.
 
 The finite-population ABM also retained mixed signs in all three contexts. In this deliberately simple reduction audit, deterministic-density and mean-ABM response signs agreed in all evaluable cells. The larger island campaign nevertheless shows substantial ABM–density sign disagreement under chronology, assurance, life-history and recovery manipulations, indicating that finite demography modifies rather than creates the upstream branch.
-
-### Legacy reduced response-geometry analyses
-
-The following sections retain the earlier abstract response-geometry results for robustness and provenance. They use a different synthetic reduction with heuristic plant adjustment and, in its deterministic mean-field limit, average external community realization. These analyses are not a second required biological mechanism and are candidates for Supporting Information in the journal version.
-### Legacy conditional response geometry is mixed rather than universally directional
-
-Across 96 baseline matched community realizations, 41 were mixed-sign across starting positions, 42 were all-positive and 13 were all-negative. Mean response was approximately U-shaped across the starting-position axis. Across the fixed 48-point joint design, 16 points had mixed mean geometry, 22 were all-positive and 10 all-negative.
-
-Partner loss and arrival were the strongest sign-stable full-range regime associations in the declared additive diagnostic: +0.634 for partner loss and −0.626 for partner arrival. The ten-parameter model explained `R²=0.611` of the negative-fraction surface. These coefficients diagnose movement inside the synthetic design; they are not field causal effect sizes.
-
-For the baseline 21 × 96 matrix, starting position explained 2.18% of total sum of squares, community realization 80.17%, and the starting-position × community remainder 17.64%. Observed sign differed from the fitted additive sign in 271/2016 cells. The baseline therefore shows a relational response geometry: starting state organizes the mean boundary, but branch identity depends strongly on the realized community.
-
-### Legacy realized-richness control
-
-Equalizing initial richness alone retained 53/96 mixed-sign realizations, showing that the historical initial-richness difference was not necessary for individual branching. This control did not equalize subsequent realized richness.
-
-The exact stepwise realized-richness control changed the ensemble mean result more strongly. Realized richness was matched at every simulated step in all six prespecified matching seeds, and the mean geometry became all-positive in 6/6 seeds. Individual response branches nevertheless persisted: 51–65 of 96 remained mixed-sign. Community-realization share remained 50.04–55.92%, starting-position share only 0.94–2.21%, and state × community non-additivity 42.72–48.51%.
-
-Realized richness differences therefore help position the ensemble mean regime, but they do not explain away response branching across realized community compositions.
-
-The equal-turnover control strengthened rather than erased branching. Equalizing the baseline mainland–island partner-arrival and partner-loss rates produced 70/96 mixed individual realizations and 65.61% state × community non-additivity. The baseline turnover-rate asymmetry is therefore not required for branching, although other scenario differences remain.
-
-### Legacy synthetic system-size and response-geometry limit
-
-At zero trait adjustment, pooling independent communities sharply reduced finite-community sampling variation without immediately eliminating branching. Across six prespecified seeds, island-like final-community coefficient of variation fell from 0.575–0.691 at `k=1` to 0.134–0.172 at `k=16`, and empty final island-like communities fell from 7.3–13.5% to 0%. The additive community-realization share declined from 51.4–67.3% to 20.3–34.5%. Mixed individual response geometry nevertheless remained in 44–60/96 realizations at `k=16`, with state × community non-additivity still 50.6–65.4%. Finite-community sampling contributes materially to realization variance but does not by itself generate response branching over the audited finite range.
-
-The exact finite-k moment analysis resolved the asymptote. The deterministic mean-field kernel contrast was all-positive across all 21 starting states, with minimum contrast 0.0208. A multivariate Gaussian approximation based on the exact finite-k kernel mean and covariance increasingly matched the pooled six-seed mixed fraction: absolute error fell from 0.0689 at `k=1` to 0.00654 at `k=16`. Branching is therefore finite-community in the asymptotic sense but is not a rare-extinction or N≈2 artifact.
-
-With active plant adjustment retained, the variance hierarchy itself reversed. Median starting-position share increased monotonically from 2.55% at `k=1` to 10.33%, 27.33%, 42.52% and 55.84% at `k=2,4,8,16`. Median community-realization share fell from 72.98% to 48.03%, 23.52%, 18.26% and 12.72%. Starting position exceeded community realization in 0/6 seeds at `k=1`, 0/6 at `k=2`, and 6/6 seeds at `k=4`, `k=8` and `k=16`. Mixed branching still persisted at `k=16` in 28–42/96 realizations.
-
-The ordering of response determinants is itself regime dependent. Community realization dominates in small stochastic communities; starting state becomes dominant in a larger finite-community regime while branching persists; and the deterministic mean-field limit removes branching. The numerical crossover is model-specific and is not proposed as a natural threshold.
-
-### Legacy downstream response-geometry modifiers
-
-Across the fixed filtering design, 737 lineage contrasts changed sign at least once. Filtering was bidirectional but asymmetric. At filtering strength 0.40, negative → non-negative transitions occurred in 42/268 contrasts (15.67%), whereas positive → non-positive transitions occurred in 337/596 (56.54%). Local filtering therefore acts as a branch allocator rather than as uniformly beneficial support.
-
-Among 580 eligible baseline reproductive declines, assurance multipliers from 0.5× through 4× produced zero sign rescues while upstream effective service remained unchanged. Assurance attenuated decline magnitude but did not create a second sign-changing branch in the tested envelope.
 
 ## Model 3 shows historical contingency and assurance-dependent realization
 
@@ -205,9 +116,6 @@ In the simple reduction audit, mean ABM and deterministic-density response signs
 
 This nested comparison changes the interpretation of 'context dependence'. Starting state × visitor composition determines a pre-demographic selective direction; deterministic inheritance shows its expected evolutionary propagation; and finite demography determines which of those trajectories remain observable and with what magnitude. These are successive reductions of one model, not separate explanations.
 
-### Legacy response-geometry robustness
-
-Exact realized-richness matching, synthetic `k` pooling, S/C/I decompositions and heuristic response-rule factorials remain useful robustness analyses for the earlier abstract response geometry. They are retained as Supporting Information because they probe a different community-averaging question, not because Chapter 2 requires a second mechanistic model.
 ## Demography turns functional branching into historical contingency
 
 The unified reduction audit establishes that one Model 3 operator already creates multiple functional/reproductive branches before demographic updating, and that these branches persist under deterministic inheritance. The finite ABM adds a distinct statement: even after the same branch enters reproduction and inheritance, the endpoint is not determined by the current pollination environment alone. Timing of visitor loss, reproductive assurance, life history, connectivity and finite demographic sampling alter persistence and inherited investment trajectories.
@@ -238,7 +146,7 @@ That perspective changes what comparative studies should try to measure. Reporti
 
 Pollinator-community reorganization produces conditional rather than fixed plant responses within one nested Model 3. Starting floral state × visitor composition already changes reproductive-selection direction before demography; deterministic inheritance retains the non-uniformity; and finite population dynamics, assurance, connectivity and history determine whether populations persist and how inherited floral investment changes.
 
-The central contribution is therefore not a new universal island phenotype, but an explanation for how a recurrent functional island syndrome can coexist with phenotypic non-uniformity. A shared broad pressure can generate recurrent insurance or accessibility functions while lineage-level direction remains conditional at both the interaction and demographic/evolutionary stages.
+The central contribution is therefore not a new universal island phenotype, but an explanation for how a recurrent functional island syndrome can coexist with phenotypic non-uniformity. A shared broad pressure can generate recurrent insurance or accessibility functions while lineage-level direction remains conditional from reproductive selection through deterministic inheritance and finite-population realization.
 
 The model does not supply calibrated natural rates or a historical reconstruction of a named island. Source-locked real-island evidence shows that propagation, branching, buffering, counterdirectional responses and direct-history effects all occur, while retaining the `0/25` full-contract boundary and the failed Dominica projection. The strongest missing natural test is the B layer linking measured selection to inherited longitudinal change; same-block Izu E3/E4 measurements remain a future A/C falsification route rather than a prerequisite for the present Chapter 2 claim.
 
