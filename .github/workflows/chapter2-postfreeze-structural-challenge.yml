@@ -33,7 +33,7 @@ jobs:
       - name: Verify matched individual and density comparison
         run: pytest -q tests/test_model3_grid_comparison.py tests/test_model3_grid_summary.py
       - name: Verify island ecology operators and reporting
-        run: pytest -q tests/test_model3_island_*.py tests/test_model3_ch2_bridge.py tests/test_model3_ch2_bridge_runner.py tests/test_model3_ch2_bridge_summary.py --junitxml="${RUNNER_TEMP}/model3-island-tests.xml"
+        run: pytest -q tests/test_model3_island_*.py tests/test_model3_ch2_bridge.py tests/test_model3_ch2_bridge_runner.py tests/test_model3_ch2_bridge_summary.py tests/test_model3_ch2_bridge_figures.py --junitxml="${RUNNER_TEMP}/model3-island-tests.xml"
       - name: Upload island ecology test receipt
         if: always()
         uses: actions/upload-artifact@v4

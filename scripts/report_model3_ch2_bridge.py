@@ -21,6 +21,7 @@ VARIANTS=('', '_grid5','_grid11','_nested')
 PAIRS=(('natural','near','far'),('richness_matched','matched_near','matched_far'),('visitor_pool','pool_near','pool_far'),('large_plants','large_near','large_far'))
 
 
+@threadpool_limits.wrap(limits=1)
 def audit_campaign(d,root,*,replay=True):
     root=Path(root);mh=digest(d)
     status=json.loads((root/'campaign_status.json').read_text())

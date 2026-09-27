@@ -39,11 +39,18 @@ def test_intervention_differences_keep_deadbands_and_pairing():
     assert len(r['mixed_fraction_differences'])==3
     assert r['mixed_fraction_differences'][0]['mean_difference']==0
 
-def test_all_case_audit_requires_terminal_and_detects_corruption(tmp_path):
+def test_all_case_audit_requires_terminal_and_detects_corruption(tmp_path,monkeypatch):
     import json
     from pathlib import Path
     from scripts.run_model3_ch2_bridge import run_campaign,sources
     from scripts.report_model3_ch2_bridge import audit_campaign
+    import scripts.report_model3_ch2_bridge as reporting
+    from threadpoolctl import threadpool_info
+    original=reporting.simulate
+    def checked_simulate(*args,**kwargs):
+        assert all(p['num_threads']==1 for p in threadpool_info())
+        return original(*args,**kwargs)
+    monkeypatch.setattr(reporting,'simulate',checked_simulate)
     d=json.loads(Path('data/design/model3_ch2_bridge_candidate_20260927.json').read_text())
     d.update(status='frozen',history_seeds=[74909],demographic_seeds=[101],starts=[.5],arms=['near','far'],cases=2,source_hashes=sources())
     d['years']=d['base_config']['years']=2
