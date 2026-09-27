@@ -154,6 +154,18 @@ Together the nested levels of Model 3 explain how assurance can recur globally a
 | **Proximal WHY** | Why can the same broad perturbation yield different responses? | Because functional matching already makes selection state-dependent, while assurance, life history, connectivity and disturbance history condition which deterministic or finite-population trajectory is realized. | One nested synthetic mechanism, not two independent models. Numerical thresholds and rates are not transferred to nature. |
 | **Ultimate WHY** | Why did an island acquire its biota, starting states or interaction architecture? | Not identified. | Deep-time assembly, colonization history and the historical causes of any named natural-island transition remain outside the claim ceiling. |
 
+## Chapter 1 unresolved problems now carried explicitly into Chapter 2
+
+The active cross-chapter bridge is `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md`, with a problem-by-problem ledger in `docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md`.
+
+The key shift is that Chapter 2 no longer merely demonstrates that heterogeneous responses are possible. It now identifies the stage at which Chapter 1's non-uniformity can arise:
+
+- **before demography:** starting floral state × visitor composition reverses reproductive-selection direction;
+- **after deterministic inheritance:** mixed inherited trajectories remain when demographic sampling is removed;
+- **during finite realization:** assurance, chronology, connectivity and life history change which trajectories persist.
+
+This addresses the central Chapter 1 tension — recurrent assurance/accessibility but non-uniform detailed display — without assigning any Chapter 1 region to a Model 3 parameter cell.
+
 ## Relationship to Chapter 1
 
 The dissertation-level interpretation is:
