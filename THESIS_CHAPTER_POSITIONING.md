@@ -38,7 +38,7 @@ Chapter 1 leaves four problems that Chapter 2 must address without retroactive c
 3. **stress versus compensation** — isolation is associated with stronger pollen limitation, yet some island-associated functional traits are associated with lower realized limitation;
 4. **cross-sectional identifiability** — present regional states do not identify whether the route was selection, founding, immigration, buffering or demographic sorting.
 
-Unified Model 3 resolves the first three mechanistically: state × visitor composition can reverse reproductive selection before demography; deterministic inheritance retains the branch; assurance can buffer/preserve populations without forcing one floral direction. It narrows the fourth by separating founding, immigration, chronology and finite realization, but the natural inherited longitudinal B layer remains unobserved.
+Unified Model 3 resolves the first three at the level of mechanistic possibility: controlled state × visitor composition can reverse reproductive selection before demography, and controlled deterministic inheritance can retain those branches; assurance can buffer/preserve populations without forcing one floral direction. The actual isolation-driven near-versus-far density contrast is one-directional while finite ABM histories can be mixed, so branch realization is regime dependent. It narrows the fourth by separating founding, immigration, chronology and finite realization, but the natural inherited longitudinal B layer remains unobserved.
 
 Canonical resolution matrix: `docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md`.
 
@@ -73,7 +73,7 @@ assurance + chronology + connectivity + recovery + life history
 conditional realization
 ```
 
-The former Model 2 is retained only as a historical reduced response-geometry analysis and optional Supporting Information. Its exact-richness, synthetic-`k` and heuristic response-rule results are no longer required as a separate biological mechanism.
+The former Model 2 is not retained as a separate biological mechanism. Its heuristic response-rule and S/C/I results are Supporting Information/provenance, while its exact realized-richness and finite visitor-community controls remain active benchmarks until the prospective Model 3 bridge campaign reproduces or rejects those two original controls.
 
 The key biological interpretation is:
 
@@ -137,7 +137,7 @@ Four results now define the Chapter 2 handoff:
 
 1. **History matters even under a common final environment.** Early visitor loss produced mean investment change `-0.1603`, late loss `+0.0322`, and uninterrupted histories `+0.2115` over the declared horizon.
 2. **Assurance controls whether an evolutionary endpoint exists.** Under the scheduled long visitor absence, fixed zero assurance yielded `0/256` terminal survivors, whereas fixed/evolving assurance treatments retained `256/256` in the corresponding declared cells.
-3. **The branch does not require demographic stochasticity.** In the prospective unified reduction audit, fixed-state selection gradients and deterministic genotype-density trajectories both retain positive and negative responses across starting access states under the same visitor compositions.
+3. **Branch capacity does not require demographic stochasticity, but isolation-driven realization can.** Controlled fixed compositions retain positive and negative responses in deterministic genotype density, whereas the stored near-versus-far isolation effect is mixed in finite ABM histories but 0/128 mixed in deterministic density in both cohorts.
 4. **Current environment does not uniquely identify trajectory.** Transported S/C/I ordering can remain similar while marginal trait predictions degrade sharply across disturbance regimes; source-state, history and demographic context remain necessary.
 
 These are model-conditional results and not calibrated natural-island rates. Several magnitude comparisons remain numerically resolution-sensitive, so Chapter 2 uses Model 3 primarily for directional and mechanistic contrasts rather than universal quantitative forecasts.
@@ -149,7 +149,7 @@ Together the nested levels of Model 3 explain how assurance can recur globally a
 | Level | Question | Current Chapter 2 answer | Claim ceiling |
 |---|---|---|---|
 | **HOW — ecological selection** | Where does non-uniformity first arise? | Within Model 3's fixed-state reproductive operator, starting floral state × visitor composition changes the sign of the reproductive-selection gradient even before inheritance or demographic updating. | Directly represented in the unified reduction audit. |
-| **HOW — deterministic evolution** | Does branching require demographic noise? | No. The same reproduction and Mendelian operator propagated as genotype density retains mixed inherited responses when demographic sampling is removed. | Deterministic discrete-genotype closure; not a diffusion PDE. |
+| **HOW — deterministic evolution** | Does branching require demographic noise? | Not universally. Controlled compositions branch without demographic sampling, but the stored isolation-driven deterministic contrast is one-directional while finite ABM histories can be mixed. | Deterministic discrete-genotype closure; regime-specific answer; not a diffusion PDE. |
 | **HOW — finite realization** | What changes in finite populations? | Finite demography, extinction, standing-variation loss, ancestry and stochastic recruitment can further shift magnitude and sometimes direction relative to the deterministic counterpart. | Directly represented in the full Model 3 island campaign; quantitative natural calibration is absent. |
 | **Proximal WHY** | Why can the same broad perturbation yield different responses? | Because functional matching already makes selection state-dependent, while assurance, life history, connectivity and disturbance history condition which deterministic or finite-population trajectory is realized. | One nested synthetic mechanism, not two independent models. Numerical thresholds and rates are not transferred to nature. |
 | **Ultimate WHY** | Why did an island acquire its biota, starting states or interaction architecture? | Not identified. | Deep-time assembly, colonization history and the historical causes of any named natural-island transition remain outside the claim ceiling. |
@@ -161,7 +161,7 @@ The active cross-chapter bridge is `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_2026
 The key shift is that Chapter 2 no longer merely demonstrates that heterogeneous responses are possible. It now identifies the stage at which Chapter 1's non-uniformity can arise:
 
 - **before demography:** starting floral state × visitor composition reverses reproductive-selection direction;
-- **after deterministic inheritance:** mixed inherited trajectories remain when demographic sampling is removed;
+- **under controlled deterministic inheritance:** mixed inherited trajectories can remain when demographic sampling is removed; in the isolation-driven transport contrast they do not;
 - **during finite realization:** assurance, chronology, connectivity and life history change which trajectories persist.
 
 This addresses the central Chapter 1 tension — recurrent assurance/accessibility but non-uniform detailed display — without assigning any Chapter 1 region to a Model 3 parameter cell.
@@ -186,7 +186,7 @@ WHY NEED RESPONSES NOT BE IDENTICAL?
       fixed-state matching/selection
         → positive / negative branches
       deterministic inheritance
-        → branching without demographic sampling
+        → branch capacity can persist, but isolation may compress direction
       finite ABM + history
         → persistence / extinction
         → inherited floral-investment trajectories
@@ -244,7 +244,7 @@ The Chapter 2 → Chapter 3 handoff is a change in inferential scale:
 Chapter 2
 Unified Model 3
     → fixed-state selection branching
-    → deterministic inherited branching
+    → deterministic branch capacity, regime-dependent under isolation
     → finite-population/history-dependent realization
         ↓
 Chapter 3
