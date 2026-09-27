@@ -168,7 +168,7 @@ This does **not** reopen the Chapter 1 observation. It limits how strongly Chapt
 | isolation conflates biological processes | seed and pollinator connectivity have distinct effects | **answered mechanistically within model** |
 | oceanic vs continental labels may conflate history | label-only matched founding/separation control gives no difference | **answered as control** |
 | colour and access channels reorganize separately | abstract matching/investment permits conditional directions but does not identify colour-specific mechanisms | **partially answered** |
-| old Chapter 2 richness / finite visitor-community mechanism | frozen Model 3 bridge design exists but production is not complete | **not yet resolved inside Model 3** |
+| old Chapter 2 richness / finite visitor-community mechanism | prospective 24,576-case bridge separates richness matching, visitor pooling and plant capacity | **resolved inside Model 3; legacy Model 2 demoted to SI/provenance** |
 | historical cause of named regional patterns | no direct region-to-parameter calibration or longitudinal A → B → C chain | **not identified** |
 
 ## Dissertation-level result
@@ -187,9 +187,10 @@ isolation -> stronger pollination constraint
              v
 CH2 unified Model 3
 functional matching makes selection state-dependent
-       -> branching exists before demographic stochasticity
-       -> deterministic inheritance preserves it
-       -> assurance/history/connectivity/finite demography alter realization
+       -> controlled functional matching has deterministic branch capacity
+       -> isolation-driven visitor amount sets a coarse deterministic regime
+       -> finite visitor histories + finite plant demography realize/suppress branching
+       -> assurance/history/connectivity alter persistence and final outcome
              |
              v
 recurrent function + non-convergent phenotype
