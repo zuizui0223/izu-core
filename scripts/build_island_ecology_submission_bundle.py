@@ -134,11 +134,12 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             if control not in main_rtf:
                 raise ValueError(f"Oikos manuscript formatting control missing: {control}")
         required_story = (
-            "conditional response geometry",
-            "realized richness differences therefore help position the ensemble mean regime",
-            "ordering of response determinants is itself regime dependent",
-            "deterministic mean-field kernel contrast was all-positive",
-            "optional future validation programme",
+            "fixed-state reproductive assay",
+            "deterministic genotype-density counterpart",
+            "finite-population abm",
+            "real islands occupy different stages of the same response architecture",
+            "all eight shared oshima-to-post targets",
+            "the main natural-data gap",
         )
         missing_story = [token for token in required_story if token not in lower_main]
         if missing_story:
@@ -156,8 +157,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         bundle_manifest = {
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
-            "scientific_state": "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering",
-            "manuscript_state": "active_20260911_mechanism_mainline_rendered_to_oikos_rtf_submission",
+            "scientific_state": "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation",
+            "manuscript_state": "active_20260927_unified_model3_rendered_to_oikos_rtf_submission",
             "mechanism_mainline_narrative": True,
             "three_result_narrative": False,
             "identifiability_coequal_study_objective": False,
@@ -181,7 +182,9 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "world_descriptive_exact_geographic_labels": 37,
             "formal_identifiability_research_entries": 25,
             "formal_full_contracts": "0_of_25",
-            "realized_richness_reframe_complete": True,
+            "unified_model3_reduction_audit_complete": True,
+            "real_island_abc_projection_included": True,
+            "legacy_realized_richness_reframe_retained_in_si": True,
             "realized_richness_mean_geometry": "all_positive_in_6_of_6_matching_seeds",
             "realized_richness_mixed_individual_realizations": "51_to_65_of_96",
             "realized_richness_nonadditivity_fraction": "0.4272_to_0.4851",
@@ -193,7 +196,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "mixed_at_k16": "28_to_42_of_96",
                 "natural_threshold_claimed": False,
             },
-            "izu_e3_e4_status": "future_optional_validation_not_completion_gate",
+            "izu_e3_e4_status": "future_optional_A_C_falsification_not_completion_gate",
             "chapter3_direct_phenotype_used_as_validation": False,
             "corresponding_author_orcid_required": True,
             "planned_public_repository_named": True,
@@ -203,7 +206,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "oikos_significance_statement_included": True,
             "oikos_submission_statements_included": True,
             "oikos_data_code_ready_for_first_submission": True,
-            "figures_regenerated_from_frozen_gate": True,
+            "figures_regenerated_from_frozen_gate": False,
             "model_gate": gate.get("status"),
             "files": [
                 SUBMISSION_MANUSCRIPT_NAME,
@@ -218,12 +221,11 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "anonymous_review_archive.zip",
             ],
             "boundary": (
-                "The submission is organized around synthetic conditional response geometry, exact realized-richness control, and a prespecified system-size determinant-rank crossover. "
-                "Exact realized-richness matching shifts the ensemble mean geometry to all-positive in all six matching seeds while individual branching and state-by-community nonadditivity remain. "
-                "Under active plant adjustment the additive determinant ordering reverses across the declared k sequence, but the numerical crossover is model-specific and is not transferred to nature. "
-                "World and Izu evidence bound biological plausibility and historical identifiability; field E3/E4 remains optional future validation rather than a submission gate."
-            ),
-        }
+                "The submission is organized around one nested Model 3: fixed-state reproductive selection, deterministic genotype-density inheritance, finite-population ABM realization, and history/context interventions. "
+                "The prospective reduction audit shows that composition x starting-state branching precedes demographic stochasticity and persists without demographic sampling. "
+                "Real-island evidence is confronted by A/B/C layer rather than fitted to synthetic parameter cells; A and C have multiple source-locked examples, while inherited longitudinal B remains the main gap. "
+                "Legacy exact-richness, synthetic-k and response-rule analyses are retained as Supporting Information robustness, and no synthetic coordinate is transferred to nature."
+            ),        }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             for generated in (manuscript, supporting_information, title_page, cover_letter, significance, statements, review_archive):
