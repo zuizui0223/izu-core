@@ -17,12 +17,13 @@ def render_submission_manuscript() -> str:
     """
     text = SOURCE.read_text(encoding="utf-8")
     required = (
-        "Realized richness differences therefore help position the ensemble mean regime",
-        "The ordering of response determinants is itself regime dependent",
-        "Metadata confrontation supports biological ingredients while bounding attribution",
-        "post-Chapter-2 transport/falsification",
-    )
-    lower = text.lower()
+        "fixed-state reproductive assay",
+        "deterministic genotype-density counterpart",
+        "finite-population ABM",
+        "Real islands occupy different stages of the same response architecture",
+        "all eight shared Oshima-to-post targets",
+        "functional-and-historical interpretation of island syndromes",
+    )    lower = text.lower()
     for token in required:
         if token.lower() not in lower:
             raise ValueError(f"canonical Chapter 2 manuscript missing required claim: {token}")
