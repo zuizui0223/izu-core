@@ -121,7 +121,7 @@
       "paired_isolation_effect_across_starting_states"
     ],
     "resource_pilot": "passed",
-    "production_status": "running_github_actions",
+    "production_status": "complete_prospective_24576_case_campaign",
     "no_outcome_success_criterion": true,
     "workflow_run_id": 36311030639,
     "execution_design": "data/design/model3_ch2_bridge_execution_20260927.json",
@@ -129,7 +129,9 @@
     "execution_partition": "16_history_seed_shards_x_1536_cases_compact_hash_verified_exports",
     "total_cases": 24576,
     "production_partial_outcomes_inspected": false,
-    "inspect_scientific_outcomes_only_after": "16_shards_complete_and_128_history_aggregate_artifact_exists"
+    "inspect_scientific_outcomes_only_after": "satisfied_16_shards_complete_and_128_history_aggregate_artifact",
+    "frozen_result": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "interpretation": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md"
   },
   "prospective_bridge": {
     "design": "data/design/model3_ch2_bridge_execution_20260927.json",
