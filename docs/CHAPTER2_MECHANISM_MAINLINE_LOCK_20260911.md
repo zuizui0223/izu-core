@@ -1,24 +1,25 @@
 # Chapter 2 mechanism-mainline narrative lock
 
-Updated: 2026-09-12
+Updated: 2026-09-27
 Status: active journal-facing narrative contract
 
 ## One-sentence paper
 
-Pollinator-community reorganization generates conditional plant-response geometry in which realized richness helps position the coarse regime, plant starting state evaluated against realized composition retains branch contingency, and the ordering of starting-state versus community-realization contributions changes as finite-community stochasticity is reduced.
+Pollinator-community reorganization generates conditional plant-response geometry, and explicit reproduction and finite demography then determine whether those conditional responses persist and how inherited floral investment changes; a recurrent island functional syndrome therefore need not imply one phenotypic endpoint.
 
 ## Main inferential spine
 
-The paper is one synthetic mechanism argument, not a three-result empirical cascade.
+The paper is one two-layer synthetic mechanism argument, not a three-result empirical cascade.
 
 1. **Conditional geometry.** One broad interaction perturbation can generate mixed, positive and negative response branches.
 2. **Richness versus composition.** Exact realized-richness matching moves the ensemble mean regime but does not remove individual branching or state × community non-additivity.
 3. **Scale-dependent determinant hierarchy.** Pooling independent community trajectories reduces realization variance and reverses the ordering of starting-state versus community-realization additive contributions under active plant adjustment.
-4. **Downstream modifiers.** Local filtering reallocates branches; autonomous assurance changes magnitude without sign rescue in the tested envelope.
+4. **Downstream modifiers in Model 2.** Local filtering reallocates branches; autonomous assurance changes magnitude without sign rescue in the tested envelope.
+5. **Model 3 realization.** Explicit pollen delivery, selfing/outcrossing, offspring viability, Mendelian inheritance, density regulation, survival, connectivity and history determine persistence and inherited floral-investment trajectories.
 
 The supported route is:
 
-**coarse regime placement → relational branch identity → determinant-rank crossover → downstream modification**
+**Model 2: coarse regime placement → relational branch identity → determinant-rank / response-rule dependence → Model 3: reproductive-demographic realization → persistence and inherited trajectory**
 
 ## Frozen headline results
 
@@ -54,6 +55,13 @@ With active plant adjustment under the collision-free RNG correction, median sta
 
 Interpretation: **the ordering of response determinants is itself regime dependent.** The numerical crossover is model-specific and must not be transferred to nature.
 
+## Model 3 Chapter 2 role
+
+Model 3 is part of the Chapter 2 inferential spine, not a post-Chapter-2 extension. The completed frozen island campaign contains 19,968 audited cases. Its chapter-level purpose is to test whether conditional functional responses collapse to one inherited endpoint once reproduction and finite demography are made explicit.
+
+The retained Model 3 results are: (1) early versus late visitor loss can yield different inherited investment endpoints under a common final environment; (2) reproductive assurance can determine whether a terminal evolutionary endpoint exists; (3) seed and pollinator connectivity act through different routes; and (4) similar S/C/I ordering can coexist with poor quantitative transport across disturbance regimes.
+
+Claim ceiling: these are model-conditional mechanistic contrasts. They are not calibrated evolutionary rates, extinction probabilities, natural-island timescales, or identification of a specific floral trait. Numerical-resolution caveats remain active for exact magnitudes.
 ## Role of world evidence
 
 World evidence is not a coequal Results act. It has three supporting roles only:
@@ -90,17 +98,19 @@ The Discussion should mirror the mechanism:
 2. realized richness matters, but does not exhaust branch contingency;
 3. the dominant source of variation can change rank across finite-community regimes;
 4. finite-community branching disappears only in the deterministic mean-field limit;
-5. local filtering and assurance occupy downstream positions;
-6. source-audited metadata show which biological ingredients and heterogeneous responses are already observed, while simultaneously defining the natural identifiability ceiling.
+5. local filtering and assurance occupy downstream positions in Model 2;
+6. Model 3 shows how reproduction, demography, connectivity and history condition persistence and inherited trajectories;
+7. source-audited metadata show which biological ingredients and heterogeneous responses are already observed, while simultaneously defining the natural identifiability ceiling.
 
 ## Figure contract
 
 - **Figure 1:** conditional-response architecture + scale-dependent determinant hierarchy.
 - **Figure 2:** baseline geometry + exact richness control + equal-turnover control + system-size rank crossover.
 - **Figure 3:** partner-turnover regime movement + variance decomposition + filtering + assurance.
-- **Figure 4:** metadata confrontation + empirical claim ceiling: external partner-turnover examples, source-audit measurement coverage, Izu existing-data support/failure, and the explicit `0/25` full-contract boundary.
+- **Figure 4:** Model 3 demographic/evolutionary realization: chronology, assurance-dependent persistence, connectivity and transport.
+- **Figure 5:** metadata confrontation + empirical claim ceiling: external partner-turnover examples, source-audit measurement coverage, Izu existing-data support/failure, and the explicit `0/25` full-contract boundary.
 
-Figure 4 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
+Figure 5 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
 
 ## Claim ceiling
 
@@ -112,6 +122,7 @@ Allowed:
 - regime-dependent ordering of starting-state and community-realization contributions;
 - finite-community branching over the audited finite range with deterministic mean-field disappearance;
 - downstream branch reallocation by filtering and magnitude attenuation by assurance;
+- Model 3 historical contingency, assurance-dependent persistence, distinct seed/pollinator connectivity routes and bounded inherited-investment trajectories;
 - biological plausibility, adversarial natural examples and empirical identifiability limits from source-audited metadata and secondary data.
 
 Not allowed:
@@ -123,12 +134,13 @@ Not allowed:
 - historical *Bombus* causation;
 - metadata as full validation of the synthetic mechanism;
 - current Izu E3/E4 as required validation;
+- Model 3 numerical outputs as calibrated natural rates, extinction probabilities or trait-specific forecasts;
 - Chapter 3 phenotype divergence as proof of Chapter 2 mechanism.
 
 ## Completion rule
 
-Chapter 2 is scientifically closed when the manuscript, figures, robustness checks and metadata confrontation consistently support the conditional-response geometry and regime-dependent determinant-ordering claims above while preserving the declared natural claim ceiling.
+Chapter 2 is scientifically closed when the manuscript, figures, robustness checks, Model 3 realization results and metadata confrontation consistently support the two-layer conditional-response argument while preserving the declared natural claim ceiling.
 
-The canonical completion state is **simulation + source-audited metadata/secondary-data confrontation**. No new focal field data are required.
+The canonical completion state is **Model 2 response geometry + Model 3 demographic/evolutionary realization + source-audited metadata/secondary-data confrontation**. No new focal field data are required.
 
 **Field E3/E4 remains post-Chapter-2 future validation, not a remaining empirical gate.**
