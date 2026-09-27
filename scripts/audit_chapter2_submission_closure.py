@@ -15,8 +15,8 @@ from scripts.build_island_ecology_submission_metadata import load_metadata, vali
 from scripts.render_oikos_submission_rtf import render_manuscript_rtf, render_supporting_information_rtf
 
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
-DEFAULT_OUTPUT = ROOT / "data/results/chapter2_submission_closure_audit_20260906.json"
-COMPLETION_LOCK = ROOT / "data/design/chapter2_simulation_metadata_completion_lock_20260912.json"
+DEFAULT_OUTPUT = ROOT / "data/results/chapter2_submission_closure_audit_20260927.json"
+UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 
 REQUIRED_HUMAN_INPUT_CATEGORIES = [
     "final_ordered_author_list_and_affiliations",
@@ -53,29 +53,26 @@ def _rtf_preflight(text: str, *, main_text: bool) -> list[str]:
             if control not in text:
                 errors.append(f"main-text RTF formatting control missing: {control}")
         lower = text.lower()
-        # Keep these checks ASCII-safe because the RTF renderer escapes Unicode
-        # punctuation (for example an en dash) to \uN? control sequences.
         for token in (
-            "conditional response geometry",
-            "realized richness differences therefore help position the ensemble mean regime",
-            "ordering of response determinants is itself regime dependent",
-            "deterministic mean-field kernel contrast was all-positive",
-            "metadata confrontation supports biological ingredients while bounding attribution",
-            "wanshan",
-            "yongxing",
-            "anijima",
+            "fixed-state reproductive assay",
+            "deterministic genotype-density counterpart",
+            "finite-population abm",
+            "real islands occupy different stages of the same response architecture",
+            "all eight shared oshima-to-post targets",
+            "same-direction propagation case",
+            "counterdirectional case",
+            "the main natural-data gap",
             "21/25",
             "2/25",
             "0/25",
-            "post-chapter-2 transport/falsification",
         ):
             if token not in lower:
-                errors.append(f"main-text mechanism/metadata completion token missing: {token}")
+                errors.append(f"main-text unified-Model-3 token missing: {token}")
         for stale in (
+            "figure 1. three-result inference chain",
             "result 1—mechanistic prediction",
             "result 2—real-world exposure",
             "result 3—biological consequence",
-            "figure 1. three-result inference chain",
         ):
             if stale in lower:
                 errors.append(f"historical three-result token leaked into main text: {stale}")
@@ -98,18 +95,18 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
     nonmetadata_errors.extend(f"missing required submission surface: {rel}" for rel in missing_paths)
 
     try:
-        completion = json.loads(COMPLETION_LOCK.read_text(encoding="utf-8"))
+        lock = json.loads(UNIFIED_LOCK.read_text(encoding="utf-8"))
     except Exception as exc:
-        completion = {}
-        nonmetadata_errors.append(f"simulation-metadata completion lock: {exc}")
-    if completion:
-        if completion.get("status") != "chapter2_complete_without_new_focal_data":
-            nonmetadata_errors.append("Chapter 2 no-new-focal-data completion lock is not closed")
-        basis = completion.get("completion_basis", {})
-        if basis.get("new_focal_field_data_required") is not False:
-            nonmetadata_errors.append("completion lock incorrectly restores new focal field data as required")
-        if completion.get("claim_ceiling", {}).get("metadata_counts_as_full_mechanism_validation") is not False:
-            nonmetadata_errors.append("completion lock incorrectly promotes metadata to full mechanism validation")
+        lock = {}
+        nonmetadata_errors.append(f"unified Model 3 lock: {exc}")
+
+    if lock:
+        if lock.get("status") != "active_chapter2_unified_model3":
+            nonmetadata_errors.append("unified Model 3 lock is not active")
+        if lock.get("submission_state", {}).get("new_field_data_required") is not False:
+            nonmetadata_errors.append("unified lock incorrectly restores new focal field data as required")
+        if lock.get("unification_audit", {}).get("decision") != "model2_not_required_as_independent_mechanistic_model":
+            nonmetadata_errors.append("unified lock lost the Model 2 disposition")
 
     manifest_path = ROOT / ACTIVE_SUBMISSION_MANIFEST
     try:
@@ -118,23 +115,32 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         manifest = {}
         nonmetadata_errors.append(f"active submission manifest: {exc}")
 
+    package_blockers: list[str] = []
     if manifest:
         if manifest.get("active_manuscript") != SOURCE_MANUSCRIPT:
             nonmetadata_errors.append("active manifest manuscript does not match bundle source manuscript")
         if manifest.get("submission_ready") is not False:
-            nonmetadata_errors.append("active manifest must remain submission_ready=false before author metadata is supplied")
-        if manifest.get("scientific_state") != "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering":
-            nonmetadata_errors.append("active manifest lost the mechanism-mainline scientific state")
+            nonmetadata_errors.append("active manifest must remain submission_ready=false before final QA and author metadata")
+        if manifest.get("scientific_state") != "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation":
+            nonmetadata_errors.append("active manifest lost the unified Model 3 scientific state")
         if manifest.get("narrative_lock") != "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md":
             nonmetadata_errors.append("active manifest lost the mechanism-mainline narrative lock")
-        if manifest.get("claim_ceiling", {}).get("external_full_contracts") != "0_of_25":
-            nonmetadata_errors.append("active manifest lost the frozen 0/25 full-contract claim boundary")
-        if manifest.get("claim_ceiling", {}).get("field_e3_e4_required_for_current_paper") is not False:
-            nonmetadata_errors.append("active manifest incorrectly restored field E3/E4 as a completion gate")
-        if manifest.get("claim_ceiling", {}).get("system_size_numeric_crossover_is_natural_threshold") is not False:
-            nonmetadata_errors.append("active manifest incorrectly promotes the synthetic crossover to a natural threshold")
-        if manifest.get("world_saturation_and_izu_continuity", {}).get("izu_e3_e4_status") != "future_optional_validation_not_completion_gate":
-            nonmetadata_errors.append("active manifest lost the machine-compatible non-completion status of Izu E3/E4")
+        if manifest.get("real_island_confrontation", {}).get("principal_gap") != "B_inherited_longitudinal_response_under_measured_visitor_regime":
+            nonmetadata_errors.append("active manifest lost the inherited-longitudinal B-layer gap")
+        boundary = manifest.get("formal_natural_evidence_boundary", {})
+        if boundary.get("complete_A_to_B_to_C_contracts") != "0_of_25":
+            nonmetadata_errors.append("active manifest lost the frozen 0/25 A-to-B-to-C boundary")
+        state = manifest.get("current_submission_state", {})
+        if state.get("scientific_question_closed") is not True:
+            nonmetadata_errors.append("active manifest no longer closes the scientific question")
+        if state.get("new_field_data_required") is not False:
+            nonmetadata_errors.append("active manifest incorrectly restores new focal field data")
+        if state.get("figures_need_regeneration") is True:
+            package_blockers.append("regenerate unified Model 3 main figures")
+        if state.get("supporting_information_rewrite_in_progress") is True:
+            package_blockers.append("finish and validate unified Supporting Information")
+        if state.get("renderers_and_fail_closed_audits_need_final_pass") is True:
+            package_blockers.append("pass unified renderers and fail-closed submission audits")
 
     try:
         manuscript_rtf = render_manuscript_rtf()
@@ -148,21 +154,31 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
     except Exception as exc:
         nonmetadata_errors.append(f"supporting-information renderer: {exc}")
 
-    unexpected_metadata_errors = [error for error in metadata_errors if not error.startswith(ALLOWED_METADATA_ERROR_PREFIXES)]
-    only_human_blockers = bool(metadata_errors) and not nonmetadata_errors and not unexpected_metadata_errors
+    unexpected_metadata_errors = [
+        error for error in metadata_errors
+        if not error.startswith(ALLOWED_METADATA_ERROR_PREFIXES)
+    ]
+    scientific_gate_complete = (
+        gate.get("status") == "active_chapter2_unified_model3"
+        and gate.get("unification_audit", {}).get("conclusion") == "success"
+    )
+    nonmetadata_ready = not nonmetadata_errors and not package_blockers
+    only_human_blockers = bool(metadata_errors) and nonmetadata_ready and not unexpected_metadata_errors
 
     return {
-        "schema_version": "1.1",
-        "audited_on": "2026-09-12",
+        "schema_version": "2.0",
+        "audited_on": "2026-09-27",
         "journal": metadata.get("journal"),
         "article_type": metadata.get("article_type"),
         "scientific_state": manifest.get("scientific_state") if manifest else None,
-        "simulation_metadata_completion_locked": completion.get("status") == "chapter2_complete_without_new_focal_data" if completion else False,
-        "scientific_gate_complete": gate.get("scientific_model_gate_complete") is True,
-        "mechanism_mainline_locked": manifest.get("narrative_lock") == "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md" if manifest else False,
-        "field_e3_e4_required": manifest.get("claim_ceiling", {}).get("field_e3_e4_required_for_current_paper") if manifest else None,
-        "nonmetadata_submission_preflight_ready": not nonmetadata_errors,
+        "scientific_question_closed": manifest.get("current_submission_state", {}).get("scientific_question_closed") if manifest else None,
+        "scientific_gate_complete": scientific_gate_complete,
+        "unified_model3_locked": lock.get("status") == "active_chapter2_unified_model3" if lock else False,
+        "real_island_abc_confrontation_locked": bool(manifest.get("real_island_confrontation")) if manifest else False,
+        "field_e3_e4_required": False,
+        "nonmetadata_submission_preflight_ready": nonmetadata_ready,
         "nonmetadata_submission_errors": nonmetadata_errors,
+        "active_nonmetadata_package_blockers": package_blockers,
         "metadata_template_validation_errors": metadata_errors,
         "metadata_template_validation_error_count": len(metadata_errors),
         "unexpected_metadata_errors": unexpected_metadata_errors,
@@ -172,8 +188,12 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         "planned_public_repository_already_fixed": metadata.get("planned_public_repository"),
         "ethics_statement_prefilled": bool(str(metadata.get("ethics_statement") or "").strip()),
         "ethics_statement_author_confirmation_required": True,
-        "submission_ready": not metadata_errors and not nonmetadata_errors,
-        "next_transition": "author supplies the nine required metadata/confirmation categories; then run the fail-closed metadata and bundle builders",
+        "submission_ready": not metadata_errors and nonmetadata_ready,
+        "next_transition": (
+            "regenerate unified figures and finish submission QA; then author metadata/confirmations"
+            if package_blockers or nonmetadata_errors
+            else "author supplies the required metadata/confirmation categories; then build the fail-closed bundle"
+        ),
     }
 
 
@@ -186,8 +206,12 @@ def main() -> None:
 
     audit = build_audit(args.metadata)
     if args.check:
-        if not audit["nonmetadata_submission_preflight_ready"]:
-            raise SystemExit("non-metadata submission preflight is not ready")
+        if not audit["scientific_gate_complete"]:
+            raise SystemExit("unified Model 3 scientific gate is not complete")
+        if audit["nonmetadata_submission_errors"]:
+            raise SystemExit("non-metadata submission surface has errors")
+        if audit["active_nonmetadata_package_blockers"]:
+            raise SystemExit("unified submission package still has declared QA blockers")
         if not audit["only_author_supplied_metadata_and_confirmations_remain"]:
             raise SystemExit("submission closure is not restricted to author-supplied metadata/confirmations")
         print("chapter2 submission closure preflight: author metadata/confirmations only")
