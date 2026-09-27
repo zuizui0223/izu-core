@@ -1,0 +1,128 @@
+name: Model 3 Chapter 2 bridge production
+
+on:
+  push:
+    branches:
+      - codex/integrate-model3-into-ch2
+    paths:
+      - '.github/workflows/model3_ch2_bridge_production.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: model3-ch2-bridge-production-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install repository
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e '.[dev]'
+
+      - name: Verify prospective bridge contracts
+        run: |
+          python -m pytest -q \
+            tests/test_model3_ch2_bridge.py \
+            tests/test_model3_ch2_bridge_runner.py \
+            tests/test_model3_island_bridge_ops.py \
+            tests/test_model3_ch2_bridge_production_summary.py
+
+      - name: Record runner environment and disk
+        run: |
+          python - <<'PY'
+          import json, os, platform
+          import numpy, scipy
+          payload = {
+              "python": platform.python_version(),
+              "platform": platform.platform(),
+              "numpy": numpy.__version__,
+              "scipy": scipy.__version__,
+              "sha": os.environ.get("GITHUB_SHA"),
+          }
+          open("bridge_environment.json","w").write(json.dumps(payload,indent=2)+"\n")
+          PY
+          df -h
+
+      - name: Run frozen 24,576-case bridge campaign
+        id: campaign
+        shell: bash
+        run: |
+          set +e
+          CAMPAIGN_DIR="${RUNNER_TEMP}/model3_ch2_bridge_production"
+          python -m scripts.run_model3_ch2_bridge \
+            --design data/design/model3_ch2_bridge_20260927.json \
+            --output "${CAMPAIGN_DIR}" | tee bridge_run_stdout.txt
+          code=${PIPESTATUS[0]}
+          echo "${code}" > bridge_campaign_exit_code.txt
+          set -e
+
+          mkdir -p bridge_artifact
+          cp bridge_environment.json bridge_artifact/
+          cp bridge_run_stdout.txt bridge_artifact/
+          cp bridge_campaign_exit_code.txt bridge_artifact/
+          if [ -f "${CAMPAIGN_DIR}/campaign_status.json" ]; then cp "${CAMPAIGN_DIR}/campaign_status.json" bridge_artifact/; fi
+          if [ -f "${CAMPAIGN_DIR}/progress.json" ]; then cp "${CAMPAIGN_DIR}/progress.json" bridge_artifact/; fi
+          if [ -f "${CAMPAIGN_DIR}/manifest.json" ]; then cp "${CAMPAIGN_DIR}/manifest.json" bridge_artifact/; fi
+          if [ -f "${CAMPAIGN_DIR}/runtime.json" ]; then cp "${CAMPAIGN_DIR}/runtime.json" bridge_artifact/; fi
+          if [ -f "${CAMPAIGN_DIR}/sources.zip" ]; then cp "${CAMPAIGN_DIR}/sources.zip" bridge_artifact/; fi
+          if [ -f "${CAMPAIGN_DIR}.attempts.json" ]; then cp "${CAMPAIGN_DIR}.attempts.json" bridge_artifact/attempts.json; fi
+
+          if [ "${code}" -ne 0 ]; then
+            exit "${code}"
+          fi
+
+      - name: Verify all cases and summarize prospective contrasts
+        if: success()
+        run: |
+          CAMPAIGN_DIR="${RUNNER_TEMP}/model3_ch2_bridge_production"
+          python -m scripts.summarize_model3_ch2_bridge_production \
+            --design data/design/model3_ch2_bridge_20260927.json \
+            --campaign "${CAMPAIGN_DIR}" \
+            --output bridge_artifact/model3_ch2_bridge_production_summary.json \
+            | tee bridge_artifact/bridge_summary_stdout.txt
+
+      - name: Record compact file inventory
+        if: success()
+        run: |
+          CAMPAIGN_DIR="${RUNNER_TEMP}/model3_ch2_bridge_production"
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, os
+          root = Path(os.environ["RUNNER_TEMP"]) / "model3_ch2_bridge_production"
+          rows = []
+          for receipt in sorted(root.glob("*/receipt.json")):
+              case = receipt.parent.name
+              arrays = receipt.parent / "arrays.npz"
+              rows.append({
+                  "case_id": case,
+                  "receipt_sha256": hashlib.sha256(receipt.read_bytes()).hexdigest(),
+                  "arrays_sha256": hashlib.sha256(arrays.read_bytes()).hexdigest(),
+              })
+          payload = {
+              "cases": len(rows),
+              "inventory_sha256": hashlib.sha256(
+                  "\n".join(f"{r['case_id']} {r['receipt_sha256']} {r['arrays_sha256']}" for r in rows).encode()
+              ).hexdigest(),
+          }
+          Path("bridge_artifact/bridge_inventory_digest.json").write_text(json.dumps(payload,indent=2)+"\n")
+          PY
+
+      - name: Upload compact bridge result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-ch2-bridge-production-summary
+          path: bridge_artifact/
+          if-no-files-found: error
+          retention-days: 30
