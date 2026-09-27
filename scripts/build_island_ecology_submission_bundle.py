@@ -84,7 +84,7 @@ def validate_scientific_gate() -> dict:
         raise ValueError("Frozen reduction result no longer matches its original controlled-composition decision")
     if gate.get("submission_state", {}).get("new_field_data_required") is not False:
         raise ValueError("Chapter 2 field-data completion boundary changed")
-    if gate.get("submission_state", {}).get("model3_bridge_campaign_required_for_original_control_equivalence") is not True:
+    if gate.get("submission_state", {}).get("model3_bridge_campaign_required_for_full_original_ch2_equivalence") is not True:
         raise ValueError("Chapter 2 original-control bridge gate changed")
     return gate
 
@@ -97,6 +97,8 @@ def _write_rtf(path: Path, text: str) -> None:
 
 def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     gate = validate_scientific_gate()
+    if gate.get("submission_state", {}).get("model3_bridge_campaign_required_for_full_original_ch2_equivalence") is True:
+        raise ValueError("original-Chapter-2 bridge controls are not complete")
 
     metadata = load_metadata(metadata_path)
     errors = validate_metadata(metadata)
