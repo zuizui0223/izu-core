@@ -72,9 +72,9 @@ The prospective reduction audit crossed starting access states `0.20, 0.35, 0.50
 
 Composition mattered at fixed count. The maximum left-versus-right difference in fixed-state total gradient was `2.3768`. By contrast, duplicating each `left4` functional type to produce eight visitor entries changed the fixed-state, deterministic and ABM operators by at most `1.78e-15` under fixed total activity. This is an operator control, not a claim that field species richness is irrelevant.
 
-The deterministic genotype-density counterpart retained mixed positive and negative inherited investment changes in all three four-type visitor contexts, with a maximum left-versus-right endpoint difference of `0.1891`. Demographic stochasticity is therefore not necessary for response branching in this model.
+The deterministic genotype-density counterpart retained mixed positive and negative inherited investment changes in all three four-type visitor contexts, with a maximum left-versus-right endpoint difference of `0.1891`. Demographic stochasticity is therefore not necessary for response branching under these controlled visitor compositions.
 
-The finite-population ABM also retained mixed signs in all three contexts. In this deliberately simple reduction audit, deterministic-density and mean-ABM response signs agreed in all evaluable cells. The larger island campaign nevertheless shows substantial ABM–density sign disagreement under chronology, assurance, life-history and recovery manipulations, indicating that finite demography modifies rather than creates the upstream branch.
+The finite-population ABM also retained mixed signs in all three contexts. In this deliberately simple reduction audit, deterministic-density and mean-ABM response signs agreed in all evaluable cells. The larger island campaign nevertheless shows substantial ABM–density sign disagreement under chronology, assurance, life-history and recovery manipulations, showing that finite demography can strongly alter the realized response.
 
 ## Isolation-driven assembly separates branch capacity from realized branching
 
