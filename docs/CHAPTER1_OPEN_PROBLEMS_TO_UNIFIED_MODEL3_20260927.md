@@ -147,15 +147,21 @@ This Chapter 1 problem is only **partially** resolved. Chapter 2 supplies the ge
 
 ### Current status
 
-Not yet fully answered.
+Answered prospectively inside Model 3.
 
-The retrospective Model 3 isolation audit shows mixed finite-ABM responses but 0/128 mixed deterministic-density isolation effects in both cohorts. Near and isolated histories also differ strongly in visitor number, so richness and composition are confounded in that contrast.
+The 24,576-case bridge separates three quantities that the old Chapter 2 response-geometry model partly conflated:
 
-A frozen prospective bridge design now includes response-blind annual richness matching, pooled visitor environments and larger plant capacity as separate interventions.
+1. **visitor amount/richness:** annual response-blind richness matching reverses the mean far-minus-near inherited-investment effect from negative to positive in both finite ABM (`-0.1446 → +0.0333`) and deterministic density (`-0.4510 → +0.0338`);
+2. **finite visitor-environment realization:** pooling eight independent visitor histories removes mixed history-level branches in both model forms;
+3. **finite plant demography:** increasing plant capacity from 48 to 192 reduces finite-ABM mixed histories from `12/128` to `1/128` at epsilon 0 and moves the mean toward the deterministic result.
+
+Richness matching does not eliminate realized heterogeneity: finite-ABM mixed histories rise to `68/128` at epsilon 0. Deterministic mixed branching after matching is much weaker (`16/128` at epsilon 0, `1/128` at 0.01, `0/128` at 0.05).
 
 ### Cross-chapter interpretation
 
-This does **not** reopen the Chapter 1 observation. It limits how strongly Chapter 2 can attribute the Chapter 1 non-uniformity to deterministic interaction geometry versus finite ecological/demographic realization under island assembly.
+The old Chapter 2 claim is therefore refined rather than simply reproduced. **Visitor amount strongly positions the coarse island-response regime, while finite visitor composition/history and finite plant demography are distinct mechanisms controlling how much directional heterogeneity is realized.** This directly explains how Chapter 1 can show a recurrent broad functional pressure without one detailed phenotypic response.
+
+Legacy Model 2 is no longer needed as an active control gate; its exact-richness, synthetic-`k`, response-rule and S/C/I analyses remain Supporting Information/provenance.
 
 ## Problem-to-answer matrix
 
