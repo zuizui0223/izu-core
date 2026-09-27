@@ -12,9 +12,10 @@ Scientific object:
 
 Main claims:
 
-- starting floral state × visitor functional composition can reverse reproductive-selection direction before demographic stochasticity;
-- deterministic genotype-density inheritance retains non-uniform trajectories when demographic sampling is removed;
-- finite-population dynamics and history modify which trajectories persist or change direction;
+- controlled visitor compositions establish pre-demographic state-dependent branch capacity;
+- natural isolation-driven deterministic response is directional and visitor amount/richness strongly shifts the coarse mean regime;
+- finite visitor-environment sampling and finite plant demography separately determine how much directional branching is realized;
+- assurance, connectivity and history further modify which trajectories persist;
 - source-locked island systems show same-direction propagation, branching, buffering, counterdirectional response and direct-history effects;
 - the inherited longitudinal **B layer** remains the main natural-data gap.
 
@@ -25,12 +26,12 @@ Chapter 1 bridge:
 Status:
 
 - core biological mechanism: **DEFINED at the declared model-conditional claim ceiling**;
-- original-Chapter-2 control equivalence: **OPEN for realized-richness and finite-visitor-community bridge gates**;
+- original-Chapter-2 control equivalence: **CLOSED by the 24,576-case prospective Model 3 bridge**;
 - new focal field data required: **NO**;
 - submission package: **OPEN for unified figures, SI and fail-closed QA**;
 - author metadata: follows package QA.
 
-Legacy S/C/I and response-rule analyses are Supporting Information/provenance. Exact realized-richness and synthetic-`k` finite-visitor-community analyses remain active benchmark controls until their Model 3 bridge counterparts are resolved.
+Legacy exact-richness, synthetic-`k`, S/C/I and response-rule analyses are Supporting Information/provenance only. Their previously unique control questions are now evaluated directly inside Model 3.
 
 ## Lane B — analytical / Ecology Letters companion
 
