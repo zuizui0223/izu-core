@@ -33,29 +33,34 @@ The Chapter 1 handoff is therefore:
 
 > **Why can a recurrent island functional syndrome coexist with non-uniform floral trajectories, and under what reproductive and demographic conditions are those trajectories realized?**
 
-The current answer has **two linked mechanistic layers**:
+The current answer is one **nested Model 3** examined at successive levels:
 
 ```text
-Model 2 — conditional interaction response
-broad pollinator-interaction reorganization
+A. fixed-state reproductive assay
+visitor composition × starting floral state
         ↓
-coarse response regime
-        ×
-plant starting functional state
-        ×
-realized pollinator community
-        ↓
-response branch
+selection / reproductive-return branch
 
-Model 3 — demographic/evolutionary realization
-response branch + pollen delivery
-        ×
-reproductive assurance / inbreeding depression
-        ×
-life history / connectivity / demographic history
+B. deterministic genotype-density propagation
+same reproduction + Mendelian inheritance
+without demographic sampling
         ↓
-persistence + inherited floral-investment trajectory
+expected inherited trajectory
+
+C. finite-population ABM
+same operator + finite demography
+        ↓
+persistence / extinction
++ standing-variation loss
++ realized inherited trajectory
+
+D. context interventions
+assurance + chronology + connectivity + recovery + life history
+        ↓
+conditional realization
 ```
+
+The former Model 2 is retained only as a historical reduced response-geometry analysis and optional Supporting Information. Its exact-richness, synthetic-`k` and heuristic response-rule results are no longer required as a separate biological mechanism.
 
 The key biological interpretation is:
 
@@ -101,21 +106,22 @@ Mixed branching persists at finite community size, including large pooled finite
 
 Branching is therefore finite-community in the asymptotic sense. Its persistence well beyond rare empty-community events means it is not merely a tiny-N extinction artefact.
 
-### 6. Reproductive assurance buffers magnitude, not direction in Model 2
+### 6. Reproductive assurance first modifies reproductive return, then persistence
 
 Across **580** eligible baseline declines, increasing autonomous assurance through the declared envelope yields **0 sign rescues through 4×** assurance, while many declines become smaller in magnitude.
 
-Reproductive assurance is therefore a downstream attenuator rather than a universal branch-flipping mechanism in the response-geometry layer.
+At the reduced response layer, reproductive assurance is therefore an attenuator rather than a universal branch-flipping mechanism. In the full Model 3 trajectories, assurance can additionally determine whether a population persists long enough for an inherited endpoint to exist.
 
-### 7. Model 3 carries the argument through reproduction, demography and inheritance
+### 7. The unified Model 3 carries the same branch through deterministic and finite-population realization
 
 The completed island campaign contains **19,968 audited cases** across 80 predeclared design cells plus six held-out rows. It adds explicit offspring accounting, delayed selfing, inbreeding depression, Mendelian inheritance, density regulation, adult survival, connectivity, disturbance timing and source-versus-resident immigration.
 
-Three results are the Chapter 2 handoff rather than a separate project:
+Four results now define the Chapter 2 handoff:
 
 1. **History matters even under a common final environment.** Early visitor loss produced mean investment change `-0.1603`, late loss `+0.0322`, and uninterrupted histories `+0.2115` over the declared horizon.
 2. **Assurance controls whether an evolutionary endpoint exists.** Under the scheduled long visitor absence, fixed zero assurance yielded `0/256` terminal survivors, whereas fixed/evolving assurance treatments retained `256/256` in the corresponding declared cells.
-3. **Current environment does not uniquely identify trajectory.** Transported S/C/I ordering can remain similar while marginal trait predictions degrade sharply across disturbance regimes; source-state, history and demographic context remain necessary.
+3. **The branch does not require demographic stochasticity.** In the prospective unified reduction audit, fixed-state selection gradients and deterministic genotype-density trajectories both retain positive and negative responses across starting access states under the same visitor compositions.
+4. **Current environment does not uniquely identify trajectory.** Transported S/C/I ordering can remain similar while marginal trait predictions degrade sharply across disturbance regimes; source-state, history and demographic context remain necessary.
 
 These are model-conditional results and not calibrated natural-island rates. Several magnitude comparisons remain numerically resolution-sensitive, so Chapter 2 uses Model 3 primarily for directional and mechanistic contrasts rather than universal quantitative forecasts.
 
@@ -125,9 +131,10 @@ Together Models 2 and 3 explain how assurance can recur globally as insurance wh
 
 | Level | Question | Current Chapter 2 answer | Claim ceiling |
 |---|---|---|---|
-| **HOW — interaction layer** | Through what response architecture does pollinator reorganization propagate? | Starting functional state and realized pollinator community jointly determine response branch through trait matching; richness and turnover influence the realized regime but do not uniquely determine branch direction. | Directly represented and audited in Model 2. |
-| **HOW — realization layer** | How can a conditional branch become an inherited island trajectory? | Model 3 propagates pollen delivery through selfing/outcrossing, viability, inheritance, density regulation, survival, connectivity and history to persistence and floral-investment change. | Directly represented within the declared Model 3 scenarios; quantitative natural calibration is absent. |
-| **Proximal WHY** | Why can the same broad perturbation yield different responses? | Because response is conditional on starting state × realized community, and because reproductive assurance, life history, connectivity and disturbance history change whether and how those responses persist. | Mechanistic existence argument across the two linked synthetic layers. Numerical thresholds and rates are not transferred to nature. |
+| **HOW — ecological selection** | Where does non-uniformity first arise? | Within Model 3's fixed-state reproductive operator, starting floral state × visitor composition changes the sign of the reproductive-selection gradient even before inheritance or demographic updating. | Directly represented in the unified reduction audit. |
+| **HOW — deterministic evolution** | Does branching require demographic noise? | No. The same reproduction and Mendelian operator propagated as genotype density retains mixed inherited responses when demographic sampling is removed. | Deterministic discrete-genotype closure; not a diffusion PDE. |
+| **HOW — finite realization** | What changes in finite populations? | Finite demography, extinction, standing-variation loss, ancestry and stochastic recruitment can further shift magnitude and sometimes direction relative to the deterministic counterpart. | Directly represented in the full Model 3 island campaign; quantitative natural calibration is absent. |
+| **Proximal WHY** | Why can the same broad perturbation yield different responses? | Because functional matching already makes selection state-dependent, while assurance, life history, connectivity and disturbance history condition which deterministic or finite-population trajectory is realized. | One nested synthetic mechanism, not two independent models. Numerical thresholds and rates are not transferred to nature. |
 | **Ultimate WHY** | Why did an island acquire its biota, starting states or interaction architecture? | Not identified. | Deep-time assembly, colonization history and the historical causes of any named natural-island transition remain outside the claim ceiling. |
 
 ## Relationship to Chapter 1
@@ -146,12 +153,14 @@ WHAT RECURS?
                 ↓
 Chapter 2
 WHY NEED RESPONSES NOT BE IDENTICAL?
-    Model 2: starting state × realized partner community
-      → positive / negative response branches
-      → regime-dependent determinant ordering
-    Model 3: branch × reproduction × demography × history
-      → persistence / extinction
-      → inherited floral-investment trajectories
+    Unified Model 3:
+      fixed-state matching/selection
+        → positive / negative branches
+      deterministic inheritance
+        → branching without demographic sampling
+      finite ABM + history
+        → persistence / extinction
+        → inherited floral-investment trajectories
 ```
 
 The strongest cross-chapter statement is:
@@ -204,11 +213,10 @@ The Chapter 2 → Chapter 3 handoff is a change in inferential scale:
 
 ```text
 Chapter 2
-Model 2: conditional response mechanism
-    → branch heterogeneity
-    → regime-dependent determinant ordering
-Model 3: reproductive/demographic realization
-    → persistence + inherited floral-investment trajectories
+Unified Model 3
+    → fixed-state selection branching
+    → deterministic inherited branching
+    → finite-population/history-dependent realization
         ↓
 Chapter 3
 realized multivariate phenotype in the focal lineage
@@ -246,10 +254,10 @@ WHAT recurs globally?
         ↓
 Chapter 2
 WHY need responses not be uniform?
-    Model 2: starting state × realized community
-      → conditional functional branches
-    Model 3: reproduction × demography × history
-      → persistence and inherited floral trajectories
+    one nested Model 3
+      → starting state × visitor composition changes selection
+      → deterministic inheritance retains branching
+      → finite demography/history modifies realization
         ↓
 Chapter 3
 WHAT multivariate phenotype is realized in the focal lineage?
