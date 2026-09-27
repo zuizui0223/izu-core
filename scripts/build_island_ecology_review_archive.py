@@ -141,13 +141,13 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             raise ValueError("realized-richness hard control missing from anonymous Supporting Information")
 
         required_story = (
-            "conditional response geometry",
-            "realized richness differences therefore help position the ensemble mean regime",
-            "ordering of response determinants is itself regime dependent",
-            "deterministic mean-field kernel contrast was all-positive",
-            "70/96",
-            "65.61%",
-            "optional future validation programme",
+            "fixed-state reproductive assay",
+            "deterministic genotype-density counterpart",
+            "finite-population abm",
+            "real islands occupy different stages of the same response architecture",
+            "all eight shared oshima-to-post targets",
+            "counterdirectional case",
+            "the main natural-data gap",
         )
         missing_story = [token for token in required_story if token not in manuscript_lower]
         if missing_story:
@@ -170,7 +170,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         }
         si_record = {
             "path": ANONYMOUS_SI_NAME,
-            "source": "base SI + relational correction + realized-richness S19 + Supporting Tables S1-S9 + equal-turnover/system-size generality material",
+            "source": "base SI + unified real-island S18A + legacy realized-richness S19-S22 + Supporting Tables + robustness material",
             "sha256": sha256(supporting_information),
             "size_bytes": supporting_information.stat().st_size,
         }
@@ -191,24 +191,32 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "equal_turnover_generality_control_included_fail_closed": True,
             "mechanism_mainline_included_fail_closed": True,
             "three_result_reframe_active": False,
-            "scientific_state": "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering",
+            "scientific_state": "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation",
             "relational_robustness_audit_included": True,
             "realized_richness_hard_control_included": True,
             "equal_turnover_control_included": True,
             "interaction_kernel_identity_audit_included": True,
-            "izu_empirical_material_role": "future_validation_context_and_claim_boundary",
+            "izu_empirical_material_role": "A_layer_branching_confrontation_and_future_AC_falsification_context",
             "field_e3_e4_required_for_current_paper": False,
             "external_prediction_readiness_audit_included": True,
             "oikos_data_code_review_ready": True,
             "deny_tokens_checked": list(deny_tokens),
             "files": records,
             "claim_boundary": (
-                "The archive presents Chapter 2 as a synthetic mechanism paper. Exact realized-richness matching shifts the ensemble mean geometry while preserving individual branching and state-by-community nonadditivity. "
-                "The prespecified system-size audit shows that the ordering of starting-state and community-realization contributions changes across the declared finite-community regime, with no natural threshold claim. "
-                "World and Izu materials are retained for plausibility, falsification and reviewer audit, not as required validation or as a coequal three-result empirical cascade."
-            ),
-        }
-        readme = """# Anonymous review archive\n\nThis archive supports Oikos double-anonymous review of the Chapter 2 mechanism paper.\n\nThe active manuscript is organized around **conditional response geometry -> exact realized-richness control -> scale-dependent determinant ordering -> downstream modifiers**. World and Izu materials remain available for reviewer inspection, but they define biological plausibility and the historical claim ceiling rather than a required empirical validation chain.\n\nExact realized-richness matching shifts the ensemble mean geometry to all-positive in all six matching seeds while 51-65/96 individual realizations remain mixed and state-by-community nonadditivity remains 42.72-48.51%. A separate equal-turnover control retains 70/96 mixed realizations and 65.61% nonadditivity. Under active plant adjustment, the additive determinant ordering reverses across the declared k sequence: median starting-position share rises from 2.55% to 55.84% while median community-realization share falls from 72.98% to 12.72%. The numerical crossover is model-specific and is not transferred to nature.\n\nThe formal source audit remains available for reviewer inspection: no entry meets the full joint outcome-independent historical transition contract. Izu same-block E3/E4 measurements remain an optional future validation programme, not a current manuscript completion gate.\n"""
+                "The archive presents Chapter 2 as one nested Model 3 mechanism paper. Fixed-state assays show pre-demographic branching, deterministic genotype-density propagation retains that non-uniformity, and the finite ABM plus history/context interventions alter realized trajectories. "
+                "Source-locked island systems are confronted by layer rather than fitted to synthetic parameter cells: A is partly observed, C has direct-history anchors, and the inherited longitudinal B layer remains the clearest empirical gap. "
+                "Legacy exact-richness, synthetic-k and response-rule analyses are Supporting Information robustness rather than the paper's main biological mechanism."
+            ),        }
+        readme = """# Anonymous review archive
+
+This archive supports Oikos double-anonymous review of the Chapter 2 mechanism paper.
+
+The active manuscript is organized around one nested Model 3: **fixed-state reproductive selection -> deterministic genotype-density inheritance -> finite-population ABM -> history/context-dependent realization**. The prospective reduction audit shows that response branching exists before demographic stochasticity, persists when demographic sampling is removed, and is retained in the finite ABM. The full island campaign then tests assurance, chronology, connectivity, life history, founding and recovery.
+
+Natural systems are confronted by layer rather than assigned to synthetic model cells. The source-locked 14-system-layer matrix includes same-direction propagation, branching, buffering and a counterdirectional falsifier. Izu is the strongest current A-layer branching example; Surtsey, Tiritiri Matangi and direct partner-loss systems provide C-layer history anchors. The inherited longitudinal B layer remains the main empirical gap. The formal source audit remains 0/25 complete A -> B -> C contracts.
+
+Legacy exact realized-richness, synthetic-k, S/C/I and response-rule analyses remain in Supporting Information as robustness/provenance and do not define a second mechanism.
+"""
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.write(manuscript, arcname=ANONYMOUS_MANUSCRIPT_NAME)
