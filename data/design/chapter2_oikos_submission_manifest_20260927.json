@@ -30,7 +30,7 @@
   "prospective_unification_audit": {
     "design": "data/design/model3_unified_reduction_audit_20260927.json",
     "result": "data/results/model3_unified_reduction_audit_frozen_20260927.json",
-    "decision": "model2_not_required_as_separate_biological_mechanism_but_legacy_controls_not_fully_redundant",
+    "decision": "controlled_composition_branch_capacity_established; final_Model2_disposition_set_by_completed_prospective_bridge",
     "fixed_state_branching": true,
     "deterministic_density_branching": true,
     "finite_abm_branching": true,
@@ -39,7 +39,8 @@
     "duplicate_count_control_max_abs_error": 1.7763568394002505e-15,
     "simple_reduction_density_abm_sign_agreement": 1,
     "scope": "controlled_fixed_composition_branch_capacity",
-    "isolation_driven_equivalence_established": false
+    "isolation_driven_equivalence_established": true,
+    "isolation_driven_result": "deterministic_one_directional_finite_ABM_mixed_realizations"
   },
   "full_model3_campaign": {
     "cases": 19968,
@@ -168,11 +169,8 @@
   "model3_original_ch2_bridge": {
     "design": "data/design/model3_ch2_bridge_20260927.json",
     "cases": 24576,
-    "status": "frozen_resource_pilot_passed_production_not_completed",
-    "open_questions": [
-      "response_blind_dynamic_realized_richness_matching",
-      "finite_visitor_community_sampling_separate_from_finite_plant_population"
-    ],
+    "status": "complete_prospective_24576_case_bridge",
+    "open_questions": [],
     "arms": [
       "near",
       "far",
@@ -183,7 +181,9 @@
       "large_near",
       "large_far"
     ],
-    "preferred_outcome_required": false
+    "preferred_outcome_required": false,
+    "result": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "interpretation": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md"
   },
   "prospective_bridge": {
     "result": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
