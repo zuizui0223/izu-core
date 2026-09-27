@@ -1,6 +1,6 @@
 # Chapter 1 → Chapter 2 bridge — recurrent core, non-uniform response
 
-Updated: 2026-09-18
+Updated: 2026-09-27
 
 ## Purpose
 
@@ -69,102 +69,80 @@ It is not a claim that one realized pollinator guild replaces another everywhere
 
 ---
 
-# Q2 — Why need responses not be uniform?
+# Q2 — Which Chapter 1 problems does the unified Model 3 resolve?
 
-Chapter 2 answers this with one model examined at nested mechanistic levels:
+Chapter 1 leaves a specific combination to explain:
 
-> **Why can the same broad island-like reorganization of pollinator interactions generate different plant responses?**
+1. isolation is associated with stronger pollen limitation;
+2. reproductive assurance and accessibility/generalization recur across geographic strata;
+3. detailed pollinator-facing colour/architecture does **not** recur in one direction;
+4. several display associations remain after selfing adjustment;
+5. the regional analysis is cross-sectional and cannot distinguish current ecological state from historical trajectory.
 
-The answer is a conditional response geometry. A broad shift in pollinator community structure does not map one-to-one onto plant response because response depends on the relation between:
+Chapter 2 asks whether those observations can be mutually coherent without requiring one universal island phenotype.
 
-1. the plant's **starting functional position**;
-2. the **pollinator community actually realized** after stochastic arrival, loss and replacement; and
-3. their **trait-matching interaction**.
+## Resolution 1 — common functional pressure need not imply common selection direction
 
-## Model logic
+The prospective unified Model 3 reduction audit shows that one fixed visitor composition can favour opposite floral-investment responses depending on starting access state. The branch therefore exists before demographic stochasticity.
 
-Plants and pollinators occupy a common standardized trait axis. Each pollinator has a trait position and interaction breadth. Plant–pollinator matching declines with trait mismatch. Community-level matching is converted into pollination service with a saturating response.
+For the symmetric extreme comparison:
 
-The response for each plant starting position is:
+- start access 0.20: left4 `+1.5048`, right4 `-0.8720`;
+- start access 0.80: left4 `-0.8720`, right4 `+1.5048`.
+
+This supplies a mechanistic explanation for the Chapter 1 combination **recurrent functional core + region-specific display**: the pressure can recur while selection direction remains state dependent.
+
+## Resolution 2 — selfing/assurance can recur without explaining every display response
+
+Chapter 1 shows that some display associations remain after `selfing_core` adjustment. Model 3 is consistent with that separation. Reproductive assurance changes reproductive return and, in severe visitor-loss conditions, can determine whether a population persists, but the initial response branch already exists in the functional matching/reproductive-selection operator.
+
+Thus assurance can be a recurrent insurance function without being the sole generator of floral divergence.
+
+## Resolution 3 — Chapter 1 H3 and H4 are not contradictory
+
+Chapter 1 H3 associates greater isolation with stronger pollen limitation, whereas H4 identifies traits associated with lower current pollen limitation within the island environment. Model 3 shows the conceptual distinction:
 
 ```text
-island-like service − mainland-like service
+harsher pollination environment
+        ↓
+reproductive / functional compensation
+        ↓
+reduced realized cost or greater persistence
 ```
 
-The mainland-like regime has more initial pollinator types, higher arrival and lower loss; the island-like regime has fewer initial types, higher loss, more generalists and more replacement. These are synthetic response-geometry settings, not fitted estimates of a universal island community.
+A compensatory trait can improve performance within a stressful environment without implying that the underlying isolation-associated constraint disappeared.
 
-## Result 1 — the same island-like change can help and harm different plants
+## Resolution 4 — demographic stochasticity is not required to create non-uniformity
 
-In the baseline matched design, **41/96** stochastic community histories contain mixed-sign responses: within one realized mainland→island community contrast, some plant starting positions gain service while others lose it.
+The deterministic genotype-density counterpart retains positive and negative inherited trajectories across starting states while demographic sampling is removed. Finite population processes can strongly modify later realization, but they are not necessary to create the first branch.
 
-Therefore the island effect is relational rather than intrinsic to one plant trait state.
+This narrows the interpretation of Chapter 1 regional heterogeneity: a purely drift-based explanation is not required by the model.
 
-## Result 2 — realized richness shifts the mean, but does not remove branching
+## Resolution 5 — present environment cannot uniquely identify historical phenotype
 
-Exact stepwise realized-richness matching removes the coarse richness difference between mainland-like and island-like communities.
+With the same final 120-year environment, Model 3 retains different inherited investment outcomes after early visitor loss, late visitor loss and uninterrupted histories (`-0.1603`, `+0.0322`, `+0.2115`).
 
-- the ensemble mean becomes all-positive in **6/6** prespecified matching seeds;
-- nevertheless **51–65/96** individual realized community histories remain mixed-sign;
-- state × community non-additivity remains **42.72–48.51%**.
+Therefore Chapter 1's cross-sectional regional patterns cannot safely be inverted into a unique current-pollinator causal story. Historical sequence, standing variation, immigration and demography can matter even when final environments resemble one another.
 
-Interpretation:
+## Resolution 6 — colonization filtering and in-situ evolution remain distinct
 
-> **richness helps determine the coarse mean regime, but which partners remain and how they match the plant determine individual response branches.**
+Model 3 includes founding/separation controls, source-versus-resident immigration and ancestry tracking. These show how colonization, replacement and resident evolutionary response can be represented as separate mechanisms.
 
-It is therefore too strong to say that richness is irrelevant; the control shows that richness is insufficient to explain branch heterogeneity.
+However, Chapter 1 does not contain the longitudinal information needed to identify which of these generated each regional pattern. Chapter 2 therefore **decomposes the alternatives without claiming that it has selected the historical cause in nature**.
 
-## Result 3 — arrival/loss-rate differences are also insufficient
+## Real-island bridge
 
-Equalizing the baseline partner-arrival and partner-loss rates between mainland-like and island-like regimes still leaves:
+The source-locked real-island projection provides natural examples of the same response vocabulary:
 
-- **70/96** mixed realizations;
-- **65.61%** state × community non-additivity.
+- Izu: common matching decline followed by floral and pollen branching;
+- Ogasawara / Xisha: access or effectiveness can propagate toward reproduction;
+- Hawaii / Puerto Rico–Mona: altered interaction context can be buffered;
+- Dominica: a frozen signed-position projection can fail;
+- Surtsey / Tiritiri / direct partner-loss systems: founding and history alter realization.
 
-Thus branch heterogeneity is not generated solely by a difference in turnover rate.
+The principal missing natural link is the inherited longitudinal **B layer**: measured starting state + measured visitor regime + inherited trait/genotype change through time while demography is also tracked.
 
-## Result 4 — the dominant determinant changes with finite-community regime
-
-With active plant adjustment and independent community trajectories pooled across `k={1,2,4,8,16}`, the normalized response decomposition changes:
-
-| `k` | starting state `S` | community realization `C` | non-additivity `I` | dominant component |
-| ---: | ---: | ---: | ---: | --- |
-| 1 | 0.0255 | 0.7298 | 0.2471 | community |
-| 2 | 0.1033 | 0.4803 | 0.4171 | community |
-| 4 | 0.2733 | 0.2352 | 0.4947 | interaction |
-| 8 | 0.4252 | 0.1826 | 0.4007 | starting state |
-| 16 | 0.5584 | 0.1272 | 0.3199 | starting state |
-
-Starting state exceeds community realization from `k=4` onward in **6/6** prespecified seeds, while the interaction component is largest at `k=4`.
-
-The biological reading is:
-
-> **small stochastic communities are strongly contingent on which partners remain; intermediate regimes emphasize plant × community interaction; larger pooled regimes reduce community-realization variance and expose the plant's starting functional position.**
-
-The numerical crossover near `k=4` is model-specific and is not a natural threshold.
-
-## Result 5 — branching is a finite-community phenomenon, but not merely a tiny-N artefact
-
-A finite-community limit analysis shows:
-
-- community stochasticity declines as independent community copies are pooled;
-- mixed responses persist at finite `k`, including `k=16`;
-- the deterministic mean-field kernel contrast is all-positive.
-
-Thus branching disappears only in the deterministic mean-field limit. It is finite-community in the asymptotic sense, but its persistence well beyond rare empty-community events means it is not merely a tiny-community extinction artefact.
-
-## Result 6 — reproductive assurance buffers magnitude, not direction
-
-The downstream assurance audit contains **580** eligible baseline declines. Increasing autonomous assurance through the declared envelope produces:
-
-- many magnitude improvements;
-- **0/580 sign rescues** through `4×` assurance.
-
-Therefore reproductive assurance is a downstream buffer in this model: it can reduce the cost of poor pollination service, but it does not erase the upstream state × community geometry or convert every losing branch into a winning branch.
-
-This connects naturally to Chapter 1: reproductive assurance can be globally recurrent as insurance while detailed pollinator-facing responses remain contingent.
-
----
-
+Full chapter-by-chapter resolution matrix: `docs/CHAPTER1_UNRESOLVED_TO_CHAPTER2_RESOLUTION_20260927.md`.
 # Integrated dissertation interpretation
 
 The strongest cross-chapter statement is:
