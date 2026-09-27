@@ -1,20 +1,23 @@
-# Izu Core — conditional island plant response geometry
+# Izu Core — conditional island plant response and evolutionary realization
 
-`izu-core` is the Chapter 2 repository for asking why the same broad plant–pollinator reorganization can produce different post-establishment plant responses rather than one universal island trajectory.
+`izu-core` is the Chapter 2 repository for asking why the same broad plant–pollinator reorganization can produce different plant responses rather than one universal island trajectory, and how those conditional responses propagate through reproduction, demography and inheritance.
 
 ## Current state
 
-**Additional simulation closure (2026-09-25):** the [response-rule factorial](docs/CHAPTER2_UPDATE_FACTORIAL_RESULTS_20260925.md) preserves the primary numerical result but shows that neither C/I reversal nor C→I→S is universal across update rules. The [final scope and field projection](docs/CHAPTER2_SIMULATION_FINAL_SCOPE_AND_FIELD_PROJECTION_20260925.md) defines the bounded mechanistic claim, the role of 42 natural systems, and the linked Izu measurements. Run `python -m scripts.validate_chapter2_update_factorial data/results/update_factorial_20260925` to verify all archived cells and contrasts. This addendum does not replace historical frozen receipts.
+**Chapter 2 two-model closure (2026-09-27):** the [response-rule factorial](docs/CHAPTER2_UPDATE_FACTORIAL_RESULTS_20260925.md) shows that neither C/I reversal nor C→I→S is universal across update rules. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) then carries conditional responses through offspring production, selfing/outcrossing, inheritance, finite demography, connectivity and history. Its 19,968 audited cases show model-conditional historical contingency, assurance-dependent persistence and non-universal inherited floral-investment trajectories. The [final scope and field projection](docs/CHAPTER2_SIMULATION_FINAL_SCOPE_AND_FIELD_PROJECTION_20260925.md) now defines both linked layers and their natural claim ceiling.
 
 **Chapter 2 is scientifically closed without new focal field data.** Its canonical completion state is **simulation + source-audited metadata/secondary-data confrontation**.
 
 ```text
-conditional response geometry
+Model 2: conditional response geometry
     -> exact realized-richness control
         -> finite-community / system-size determinant hierarchy
             -> downstream filtering and assurance
-                -> source-audited metadata confrontation
-                    -> bounded empirical claim ceiling
+Model 3: demographic/evolutionary realization
+    -> offspring + selfing/outcrossing + inheritance
+        -> persistence / extinction + inherited floral investment
+            -> history / connectivity / life-history contrasts
+                -> source-audited natural claim ceiling
 ```
 
 The completion contract is [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json), and the claim-by-claim map is [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md).
@@ -31,7 +34,7 @@ Island syndromes can conflate three distinct processes:
 2. **In-situ evolutionary change** — how established island lineages diverge from source populations;
 3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and local interaction context change.
 
-Chapter 2 isolates the third layer. Its central result is a **conditional response geometry**: realized richness helps place the coarse ensemble regime, while plant starting state evaluated against realized community composition retains branch contingency.
+Chapter 2 now links two synthetic layers. **Model 2** isolates post-establishment interaction response and shows a **conditional response geometry**: realized richness helps place the coarse ensemble regime, while plant starting state evaluated against realized community composition retains branch contingency. **Model 3** asks what happens after that functional response reaches reproduction: pollen delivery, reproductive assurance, offspring viability, Mendelian inheritance, density regulation, survival, connectivity and disturbance history jointly determine whether a population persists and how inherited floral investment changes.
 
 The hierarchy of response determinants is **not fixed**. Under the historical small finite-community regime, community realization is the largest additive component. Under the collision-free hierarchical RNG correction, pooling independent community trajectories under active plant adjustment raises the median starting-position share from **3.11% at `k=1` to 53.53% at `k=16`**, while the median community-realization share falls from **74.27% to 14.05%**. Starting position exceeds community realization in **4/6** prespecified seeds at `k=4` and **6/6** at `k=8` and `k=16`; mixed branching remains at `k=16` in **26–36/96** realizations. Historical offset-stream values remain archived as provenance only. The numerical crossover is model-specific and is not a natural threshold.
 
@@ -40,6 +43,19 @@ Exact stepwise realized-richness matching provides the key structural control. U
 A finite-community limit analysis then shows that the deterministic mean-field kernel contrast is all-positive. Branch heterogeneity is therefore finite-community in the asymptotic sense, but its persistence well beyond rare empty-community events means it is not merely a tiny-N extinction artefact.
 
 These are synthetic mechanism and robustness results, **not natural frequencies or calibrated ecological thresholds**.
+
+## Model 3: demographic and evolutionary realization
+
+The completed island campaign is part of Chapter 2 rather than a post-Chapter-2 side project. It contains **19,968 audited cases** across the frozen island design and six held-out transport rows.
+
+The current chapter-level reading is deliberately qualitative and mechanistic:
+
+- identical final environments can retain different inherited investment endpoints after different visitor-loss histories;
+- reproductive assurance can determine whether a terminal evolutionary comparison exists at all;
+- seed connectivity and pollinator connectivity act through different routes and should not be collapsed into one isolation coordinate;
+- similar S/C/I ordering does not guarantee transport of marginal trait predictions across disturbance regimes.
+
+Model 3 does **not** calibrate natural evolutionary rates, extinction probabilities or a specific flower trait, and numerical refinement remains incomplete for some magnitudes. Those limits are retained in the Chapter 2 claim ceiling.
 
 ## Metadata confrontation layer
 
@@ -102,11 +118,13 @@ Any later pilot/precision work belongs to this post-Chapter-2 study. It is not n
 
 Chapter 2 closes with:
 
-1. conditional response geometry;
+1. **Model 2:** conditional response geometry;
 2. exact realized-richness separation of coarse regime placement from branch contingency;
-3. a finite-community/system-size result showing regime-dependent determinant ordering;
-4. downstream modifiers; and
-5. source-audited metadata / secondary-data confrontation that fixes the empirical claim ceiling.
+3. finite-community/system-size and response-rule results showing regime-dependent determinant ordering;
+4. local filtering and assurance as downstream functional modifiers;
+5. **Model 3:** explicit reproduction, inheritance and finite-demographic realization of conditional island responses;
+6. history, connectivity, life-history and recovery contrasts showing that one current environment need not imply one inherited endpoint; and
+7. source-audited metadata / secondary-data confrontation that fixes the natural empirical claim ceiling.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.
 
@@ -116,7 +134,9 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 - [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md) — active narrative contract.
 - [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) — no-new-focal-data completion lock.
 - [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) — simulation ↔ metadata ↔ claim-ceiling map.
-- [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level HOW / proximal-WHY / ultimate-WHY boundary.
+- [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level two-model Chapter 2 architecture and HOW / proximal-WHY / ultimate-WHY boundary.
+- [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
+- [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) — complete numerical readout and qualification.
 - [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — current Oikos submission contract.
 - `scripts/render_island_ecology_submission_manuscript.py` — compatibility renderer delegating to the canonical mechanism-mainline render.
 - `scripts/render_oikos_submission_rtf.py` — Oikos RTF renderer.
@@ -144,21 +164,13 @@ This repository does **not** claim that:
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
-The retained contribution is a **synthetic conditional-response mechanism completed by source-audited metadata confrontation at a bounded empirical claim ceiling**: richness influences coarse regime placement, state × realized composition retains branch contingency, determinant ordering changes across finite-community regimes, downstream processes modify rather than replace that architecture, and existing natural evidence defines which parts are biologically supported versus not yet identifiable.
+The retained contribution is a **two-layer synthetic explanation of a recurrent-but-nonuniform island syndrome, completed by source-audited natural confrontation at a bounded claim ceiling**: Model 2 explains conditional functional branching; Model 3 shows how reproduction, assurance, demography, connectivity and history condition persistence and inherited floral trajectories. Existing natural evidence defines which ingredients are biologically supported versus not yet identifiable.
 
 ### Interpretation updates (2026-09-25)
 
 - [Simulation novelty and primary-source comparison](docs/CHAPTER2_SIMULATION_NOVELTY_AUDIT_20260925.md)
 - [Q1 four-region discussion and Q2 connection](docs/CHAPTER1_FOUR_REGION_TO_CHAPTER2_DISCUSSION_20260925.md)
 
-### Model 3 calculation foundation
+### Model 3 implementation and completed island campaign
 
-The separately declared third model now has delayed-selfing offspring accounting
-and a life-history exposure diagnostic. These are deterministic mathematical
-building blocks, not a completed evolutionary simulation or natural calibration.
-
-Run `python -m scripts.verify_model3_reproduction_exposure --out <new-receipt.json>`
-to verify the source-matched analytic examples. Existing output paths are refused.
-The [implementation ledger](docs/MODEL3_IMPLEMENTATION_LEDGER_20260925.md) records
-tests, numerical boundary fixes and scope. The existing manual structural-challenge
-workflow also tests these modules and uploads a separate verification receipt.
+Model 3 is now integrated into Chapter 2. The original calculation foundation remains reproducible with `python -m scripts.verify_model3_reproduction_exposure --out <new-receipt.json>`, while the completed island campaign and its numerical qualifications are documented in [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md), [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) and [`docs/MODEL3_ISLAND_NUMERICAL_REVIEW_20260927.md`](docs/MODEL3_ISLAND_NUMERICAL_REVIEW_20260927.md). The model remains synthetic and is not a calibrated reconstruction of natural islands.
