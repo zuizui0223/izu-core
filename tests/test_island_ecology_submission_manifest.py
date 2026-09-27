@@ -7,29 +7,28 @@ JECOLOGY_FALLBACK = ROOT / "data/design/island_ecology_jecology_submission_manif
 DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 
-def test_oikos_manifest_is_active_bridge_gated_unified_model3_contract():
+def test_oikos_manifest_is_active_bridge_complete_unified_model3_contract():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
     assert manifest["schema_version"] == "2.1"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
-    assert manifest["routing_status"] == "active_scientific_route_bridge_controls_open_submission_package_reopened"
+    assert manifest["routing_status"] == "active_scientific_route_bridge_complete_package_rebuild"
     assert manifest["fallback_route"] == "Journal of Ecology Research Article"
-    assert manifest["scientific_state"] == "unified_model3_core_mechanism_with_open_original_ch2_bridge_controls"
-    assert manifest["story"] == "controlled_branch_capacity_to_isolation_realization_to_history_plus_real_island_ABC_confrontation"
+    assert manifest["scientific_state"] == "unified_model3_bridge_complete_with_real_island_layer_confrontation"
+    assert manifest["story"] == "coarse_isolation_regime_to_finite_visitor_and_plant_realization_to_real_island_ABC_confrontation"
     assert manifest["active_manuscript"] == "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
     assert manifest["canonical_story"] == "docs/CHAPTER2_CANONICAL_STORY_20260927.md"
     assert manifest["chapter1_bridge"] == "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md"
     assert manifest["submission_route_firewall"] == "docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md"
     assert manifest["submission_ready"] is False
 
-    audit = manifest["prospective_unification_audit"]
-    assert audit["decision"] == "model2_not_required_as_separate_biological_mechanism_but_legacy_controls_not_fully_redundant"
-    assert audit["fixed_state_branching"] is True
-    assert audit["deterministic_density_branching"] is True
-    assert audit["finite_abm_branching"] is True
-    assert audit["isolation_driven_equivalence_established"] is False
-    assert audit["fixed_count_composition_effect_max"] == 2.376790538658976
-    assert audit["deterministic_composition_effect_max"] == 0.1891238981505859
+    bridge = manifest["prospective_bridge"]
+    assert bridge["status"] == "complete"
+    assert bridge["cases_verified"] == 24576
+    assert bridge["natural_mixed_individual_eps0"] == "12_of_128"
+    assert bridge["richness_matched_mixed_individual_eps0"] == "68_of_128"
+    assert bridge["pooled_mixed_eps0"] == "0_of_128_both_models"
+    assert bridge["large_plant_mixed_individual_eps0"] == "1_of_128"
 
     real = manifest["real_island_confrontation"]
     assert real["evidence_rich_system_layers"] == 14
@@ -37,11 +36,8 @@ def test_oikos_manifest_is_active_bridge_gated_unified_model3_contract():
     assert real["principal_gap"] == "B_inherited_longitudinal_response_under_measured_visitor_regime"
 
     legacy = manifest["legacy_model2"]
-    assert legacy["status"] == "not_separate_biological_mechanism_but_two_controls_remain_active_benchmarks"
-    assert set(legacy["active_benchmarks"]) == {
-        "exact_realized_richness_matching",
-        "synthetic_k_finite_visitor_community_pooling",
-    }
+    assert legacy["status"] == "supporting_information_and_provenance_only"
+    assert legacy["active_benchmarks"] == []
 
     natural = manifest["formal_natural_evidence_boundary"]
     assert natural["direct_comparable_responses"] == "21_of_25"
@@ -49,11 +45,9 @@ def test_oikos_manifest_is_active_bridge_gated_unified_model3_contract():
     assert natural["complete_A_to_B_to_C_contracts"] == "0_of_25"
 
     state = manifest["current_submission_state"]
-    assert state["scientific_question_closed"] is False
-    assert state["core_mechanism_defined"] is True
-    assert state["original_ch2_control_equivalence_closed"] is False
+    assert state["scientific_question_closed"] is True
+    assert state["original_chapter2_controls_closed"] is True
     assert state["new_field_data_required"] is False
-    assert state["model3_bridge_campaign_required_for_original_control_equivalence"] is True
 
 def test_journal_of_ecology_manifest_is_retained_as_fallback_provenance():
     manifest = json.loads(JECOLOGY_FALLBACK.read_text(encoding="utf-8"))
