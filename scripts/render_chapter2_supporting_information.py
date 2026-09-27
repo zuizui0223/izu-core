@@ -139,7 +139,7 @@ APPENDIX_S18A = """
 
 # Appendix S18A. Unified Model 3 projection onto real-island evidence
 
-The current manuscript no longer assigns natural island systems to synthetic \`k\`, S/C/I regimes or response-geometry classes. Instead, source-locked systems are evaluated against three nested Model 3 layers:
+The current manuscript no longer assigns natural island systems to synthetic `k`, S/C/I regimes or response-geometry classes. Instead, source-locked systems are evaluated against three nested Model 3 layers:
 
 - **A — ecological/selection:** starting plant state × visitor functional composition/access/effectiveness and immediate reproductive return;
 - **B — deterministic inheritance:** inherited longitudinal response under a measured visitor regime, with demographic sampling conceptually separated;
@@ -147,13 +147,13 @@ The current manuscript no longer assigns natural island systems to synthetic \`k
 
 The existing propagation matrix contains 14 biological system layers across 12 geographic clusters. Their descriptive states are: same-direction propagation 1, downstream branching 2, buffered/resilient 3, counterdirectional 1, adjacent links only 4 and unresolved missing link 3. These counts are not prevalence estimates because the rows are heterogeneous and not independent geographic replicates.
 
-Izu is the clearest current branching example. Corrected matching is lower in all eight shared Oshima-to-post targets, whereas pollen response is \`4 lower / 4 higher\` and tube response is \`3 shorter / 4 longer / 1 unchanged\`. Ogasawara *Psychotria homalosperma* provides a stronger same-direction A-layer chain from morph-specific access through directional pollen flow to reproductive asymmetry. Xisha *Cordia subcordata* is a near-complete A-to-reproduction example but has asymmetric measurement across the two islands. Hawaii lobelioids and Puerto Rico–Mona *Guaiacum* provide buffering examples, whereas the frozen Dominica *Heliconia* signed-position prediction is retained as a counterdirectional falsifier.
+Izu is the clearest current branching example. Corrected matching is lower in all eight shared Oshima-to-post targets, whereas pollen response is `4 lower / 4 higher` and tube response is `3 shorter / 4 longer / 1 unchanged`. Ogasawara *Psychotria homalosperma* provides a stronger same-direction A-layer chain from morph-specific access through directional pollen flow to reproductive asymmetry. Xisha *Cordia subcordata* is a near-complete A-to-reproduction example but has asymmetric measurement across the two islands. Hawaii lobelioids and Puerto Rico–Mona *Guaiacum* provide buffering examples, whereas the frozen Dominica *Heliconia* signed-position prediction is retained as a counterdirectional falsifier.
 
 For the C layer, Surtsey supplies dated empty-start founding chronology, Tiritiri Matangi supplies documented pollinator reintroduction with compensatory function, and New Zealand *Rhabdothamnus* and Mariana bird-loss systems link direct partner loss to reproductive or recruitment consequences.
 
 The principal natural-data gap is B. The current archive does not contain a clean longitudinal system with measured starting genetic/common-garden trait state, measured visitor regime, inherited trait/genotype change through time and enough demographic information to distinguish expected selection from finite-population realization.
 
-The broader \`42 research entries across 37 exact geographic labels\` remains a breadth and falsification layer, not 42 Model 3 fits. The formal source audit remains \`21/25\` direct comparable plant responses, \`2/25\` direct partner arrival/replacement measurements and \`0/25\` complete A -> B -> C contracts.
+The broader `42 research entries across 37 exact geographic labels` remains a breadth and falsification layer, not 42 Model 3 fits. The formal source audit remains `21/25` direct comparable plant responses, `2/25` direct partner arrival/replacement measurements and `0/25` complete A -> B -> C contracts.
 
 This re-projection is descriptive and source-locked. It does not calibrate Model 3, estimate branch prevalence, identify historical *Bombus* causation or turn cross-sectional morphology into an inherited evolutionary trajectory.
 """
