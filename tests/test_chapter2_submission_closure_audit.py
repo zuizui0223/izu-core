@@ -11,17 +11,14 @@ def test_submission_closure_tracks_bridge_complete_science_and_open_package_qa()
     assert audit["submission_ready"] is False
 
 
-def test_submission_closure_has_only_package_qa_blockers_before_author_metadata():
+def test_submission_closure_has_only_author_metadata_after_scientific_package_pass():
     audit = build_audit()
     assert audit["nonmetadata_submission_errors"] == []
-    assert audit["nonmetadata_submission_preflight_ready"] is False
-    assert set(audit["active_nonmetadata_package_blockers"]) == {
-        "regenerate unified Model 3 main figures",
-        "finish and validate unified Supporting Information",
-        "pass unified renderers and fail-closed submission audits",
-    }
-    assert audit["only_author_supplied_metadata_and_confirmations_remain"] is False
-    assert audit["next_transition"].startswith("regenerate unified bridge figures/SI")
+    assert audit["nonmetadata_submission_preflight_ready"] is True
+    assert audit["active_nonmetadata_package_blockers"] == []
+    assert audit["only_author_supplied_metadata_and_confirmations_remain"] is True
+    assert audit["submission_ready"] is False
+    assert audit["next_transition"].startswith("author supplies the required metadata/confirmation categories")
 
 
 def test_submission_closure_preserves_author_metadata_requirements():
