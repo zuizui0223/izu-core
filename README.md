@@ -145,7 +145,8 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 - [`data/results/chapter2_unified_model3_real_island_projection_20260927.json`](data/results/chapter2_unified_model3_real_island_projection_20260927.json) — machine-readable projection summary.
 - [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
 - [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) — complete numerical readout and qualification.
-- [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — current Oikos submission contract.
+- [`data/design/chapter2_oikos_submission_manifest_20260927.json`](data/design/chapter2_oikos_submission_manifest_20260927.json) — active bridge-gated Oikos submission contract.
+- [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — historical pre-unification submission contract.
 - `scripts/render_island_ecology_submission_manuscript.py` — compatibility renderer delegating to the canonical mechanism-mainline render.
 - `scripts/render_oikos_submission_rtf.py` — Oikos RTF renderer.
 - `scripts/build_island_ecology_submission_bundle.py` — fail-closed submission bundle builder.
@@ -155,7 +156,7 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 The core biological mechanism is resolved at the declared unified-model claim ceiling, but the **original Chapter 2 control-equivalence and Oikos submission package are not yet closed**. The active manuscript and chapter narrative are now unified around Model 3; figures, Supporting Information, renderer output and fail-closed submission audits still need regeneration before returning to author-only metadata blockers. No new focal field data are required.
 
-The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure.
+The post-Chapter-2 NEE/field lane remains optional for the present core mechanism, but the separate Model 3 bridge simulation gates must be resolved before full original-Chapter-2 closure or submission readiness.
 
 ## Claim boundary
 
