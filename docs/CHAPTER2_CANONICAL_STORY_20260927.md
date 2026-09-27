@@ -127,9 +127,16 @@ Its deterministic community-mean limit is not the same as Model 3's deterministi
 
 ## Chapter 1 bridge
 
-Chapter 1 establishes a recurrent but non-uniform floral island syndrome: reproductive assurance and accessibility/generalization recur more consistently than detailed pollinator-facing phenotype.
+Chapter 1 leaves a specific paradox rather than a generic request for mechanism: reproductive assurance and accessibility/generalization recur, isolation is associated with stronger pollen limitation, yet detailed colour/architecture remains region-specific and some display associations survive selfing adjustment.
 
-Chapter 2 explains how that pattern can arise:
+Unified Model 3 resolves that combination at the mechanism level:
+
+- **recurrent function + divergent display:** starting floral state × visitor composition can reverse reproductive-selection direction before demography;
+- **selfing is not the sole branch generator:** assurance changes reproductive return and persistence, while branching already exists upstream;
+- **H3 stress + H4 compensation:** a harsher pollination environment can coexist with traits that buffer its realized reproductive cost;
+- **cross-sectional history problem:** identical final environments can retain different inherited endpoints after different histories.
+
+The remaining natural gap is not whether branching is possible. It is the inherited longitudinal **B layer** needed to connect measured selection to inherited change in real populations.
 
 > **functional recurrence does not require phenotypic convergence.**
 
