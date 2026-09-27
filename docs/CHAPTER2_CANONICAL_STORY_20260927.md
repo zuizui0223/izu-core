@@ -50,7 +50,7 @@ Thus drift, extinction and demographic sampling are not necessary to create the 
 
 Duplicating the same left4 types to eight entries under fixed total activity changes the operator by at most `1.78e-15`. This is an operator control, not a field claim that species richness is irrelevant.
 
-### 3. Deterministic inheritance retains branching
+### 3. Controlled deterministic inheritance retains branch capacity
 
 The deterministic genotype-density counterpart retains mixed positive and negative inherited investment change across starting states in all three four-type contexts. The maximum declared composition effect is `0.1891` investment units.
 
