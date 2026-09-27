@@ -135,16 +135,14 @@
     "original_chapter2_controls_closed": true,
     "new_field_data_required": false,
     "manuscript_rewritten": true,
-    "supporting_information_rewrite_in_progress": true,
-    "figures_need_regeneration": true,
-    "renderers_and_fail_closed_audits_need_final_pass": true,
-    "author_metadata_after_scientific_package_pass": true
+    "supporting_information_rewrite_complete": true,
+    "figures_regenerated_and_tested": true,
+    "renderers_and_fail_closed_audits_passed": true,
+    "ci_head_verified": "efde285b9eb28e9166dd89541b74185857e39a6b",
+    "author_metadata_is_only_remaining_submission_blocker": true
   },
   "submission_ready": false,
   "remaining_before_actual_submission": [
-    "regenerate_unified_model3_bridge_figures",
-    "regenerate_and_validate_supporting_information",
-    "pass_full_CI_and_fail_closed_submission_audits",
     "final_author_order_and_affiliations",
     "corresponding_author_email_postal_address_and_orcid",
     "significance_prior_work_context",
@@ -152,7 +150,8 @@
     "inclusion_statement",
     "conflict_of_interest",
     "review_ethics_statement_for_accuracy",
-    "explicit_submission_declarations"
+    "explicit_submission_declarations",
+    "successful_fail_closed_bundle_build_with_completed_author_metadata"
   ],
   "submission_route_firewall": "docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md",
   "model3_transport_reaudit": {
