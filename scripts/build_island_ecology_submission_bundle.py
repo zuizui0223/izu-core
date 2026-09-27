@@ -105,6 +105,13 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     if metadata.get("journal") != "Oikos" or metadata.get("article_type") != "Research Paper":
         raise ValueError("active submission metadata must route to Oikos Research Paper")
 
+    bridge = gate.get("bridge_campaign", {})
+    if bridge.get("production_status") != "complete":
+        raise ValueError(
+            "Model 3 original-Chapter-2 bridge controls are not complete; "
+            "refuse to build a submission bundle"
+        )
+
     if not (ROOT / SOURCE_MANUSCRIPT).exists():
         raise FileNotFoundError(SOURCE_MANUSCRIPT)
     for rel in STATIC_SUBMISSION_FILES:
