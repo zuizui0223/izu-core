@@ -22,7 +22,7 @@ NEW_HEADER = """# Supporting Information — Response geometry under community r
 
 This Supporting Information exposes the complete model rules required to reproduce the response-geometry, local-context, assurance and relational-robustness analyses. Numerical values are synthetic design or sensitivity quantities unless explicitly identified as published empirical measurements; they are not estimates of natural prevalence or calibrated island thresholds.
 
-Appendices S1–S14 preserve the original frozen model, source-readiness and interaction-kernel analyses. Appendix S15 separates the roles of simulation, comparative evidence and Izu. Appendix S16 records the prespecified relational-robustness audit. Appendix S17 records the geography-first world-saturation audit without reopening the frozen formal denominator. Appendix S18 reports contemporary Izu functional-chain sensitivities that distinguish a robust FDQ-to-matching association from weaker downstream matching-to-pollen propagation.
+Appendices S1–S14 preserve the original frozen model, source-readiness and interaction-kernel analyses. Appendix S15 separates the roles of simulation, comparative evidence and Izu. Appendix S16 records the prespecified relational-robustness audit. Appendix S17 records the geography-first world-saturation audit without reopening the frozen formal denominator. Appendix S18 reports contemporary Izu functional-chain sensitivities. Appendix S19 reprojects the source-locked real-island evidence onto the unified Model 3 A/B/C layers without fitting model parameters.
 """
 
 OLD_NONADD = """For the baseline `21 × 96` matrix, the shares were `2.18%`, `80.17%` and `17.64%`, respectively. The observed and additive-fitted response signs differed in `271/2016 = 13.44%` of cells. The same decomposition was applied separately to every `21 × 24` joint-design matrix. Median additive-sign mismatch was `13.59%` for all-positive, `18.06%` for mixed and `11.61%` for all-negative points.
@@ -134,6 +134,31 @@ The contemporary evidence therefore has a hierarchy. `FDQ -> corrected matching`
 """
 
 
+
+APPENDIX_S19 = """
+
+# Appendix S19. Unified Model 3 projection onto real-island evidence
+
+The current manuscript no longer assigns natural island systems to synthetic \`k\`, S/C/I regimes or response-geometry classes. Instead, source-locked systems are evaluated against three nested Model 3 layers:
+
+- **A — ecological/selection:** starting plant state × visitor functional composition/access/effectiveness and immediate reproductive return;
+- **B — deterministic inheritance:** inherited longitudinal response under a measured visitor regime, with demographic sampling conceptually separated;
+- **C — finite/history realization:** assurance, chronology, connectivity, founding, recovery and demographic persistence.
+
+The existing propagation matrix contains 14 biological system layers across 12 geographic clusters. Their descriptive states are: same-direction propagation 1, downstream branching 2, buffered/resilient 3, counterdirectional 1, adjacent links only 4 and unresolved missing link 3. These counts are not prevalence estimates because the rows are heterogeneous and not independent geographic replicates.
+
+Izu is the clearest current branching example. Corrected matching is lower in all eight shared Oshima-to-post targets, whereas pollen response is \`4 lower / 4 higher\` and tube response is \`3 shorter / 4 longer / 1 unchanged\`. Ogasawara *Psychotria homalosperma* provides a stronger same-direction A-layer chain from morph-specific access through directional pollen flow to reproductive asymmetry. Xisha *Cordia subcordata* is a near-complete A-to-reproduction example but has asymmetric measurement across the two islands. Hawaii lobelioids and Puerto Rico–Mona *Guaiacum* provide buffering examples, whereas the frozen Dominica *Heliconia* signed-position prediction is retained as a counterdirectional falsifier.
+
+For the C layer, Surtsey supplies dated empty-start founding chronology, Tiritiri Matangi supplies documented pollinator reintroduction with compensatory function, and New Zealand *Rhabdothamnus* and Mariana bird-loss systems link direct partner loss to reproductive or recruitment consequences.
+
+The principal natural-data gap is B. The current archive does not contain a clean longitudinal system with measured starting genetic/common-garden trait state, measured visitor regime, inherited trait/genotype change through time and enough demographic information to distinguish expected selection from finite-population realization.
+
+The broader \`42 research entries across 37 exact geographic labels\` remains a breadth and falsification layer, not 42 Model 3 fits. The formal source audit remains \`21/25\` direct comparable plant responses, \`2/25\` direct partner arrival/replacement measurements and \`0/25\` complete A -> B -> C contracts.
+
+This re-projection is descriptive and source-locked. It does not calibrate Model 3, estimate branch prevalence, identify historical *Bombus* causation or turn cross-sectional morphology into an inherited evolutionary trajectory.
+"""
+
+
 def render_supporting_information(source: Path = SOURCE) -> str:
     text = source.read_text(encoding="utf-8")
     for old, new, label in (
@@ -145,7 +170,7 @@ def render_supporting_information(source: Path = SOURCE) -> str:
         if old not in text:
             raise ValueError(f"supporting-information {label} changed; refuse silent rendering")
         text = text.replace(old, new, 1)
-    text = text.rstrip() + APPENDIX_S16 + APPENDIX_S17 + APPENDIX_S18 + "\n"
+    text = text.rstrip() + APPENDIX_S16 + APPENDIX_S17 + APPENDIX_S18 + APPENDIX_S19 + "\n"
     lower = text.lower()
     if "cell-level simulation variation" in lower:
         raise ValueError("superseded within-cell-noise wording survived supporting-information render")
@@ -164,6 +189,9 @@ def render_supporting_information(source: Path = SOURCE) -> str:
         "+2.0590",
         "+0.0353",
         "3 shorter / 4 longer / 1 unchanged",
+        "# Appendix S19. Unified Model 3 projection onto real-island evidence",
+        "same-direction propagation 1",
+        "0/25` complete A -> B -> C contracts",
     )
     for token in required:
         if token not in text:
