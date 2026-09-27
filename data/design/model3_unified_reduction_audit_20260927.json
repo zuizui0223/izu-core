@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "frozen": true,
+  "frozen_on": "2026-09-27",
+  "analysis": "model3_unified_reduction_audit",
+  "purpose": "Test whether Model 3 alone can absorb the core scientific roles previously assigned to Model 2 by comparing a fixed-state ecological assay, the deterministic genotype-density counterpart, and the finite-population ABM under the same starting-state x visitor-composition design.",
+  "biological_question": "At what layer does a common pollinator-community perturbation cease to imply one plant response?",
+  "config": {
+    "years": 60,
+    "capacity": 48,
+    "survival": 0,
+    "activity": 0.4,
+    "activity_mode": "fixed",
+    "fixed_assurance": 0.5,
+    "depression": 0.5,
+    "investment_cost": 0.5,
+    "mutation_rate": 0,
+    "seed_immigration": 0
+  },
+  "starting_access_states": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+  ],
+  "initial_investment_genotypes": [
+    [
+      0.4,
+      0.4
+    ],
+    [
+      0.4,
+      0.6
+    ],
+    [
+      0.6,
+      0.6
+    ]
+  ],
+  "communities": {
+    "reference8": [
+      0.15,
+      0.25,
+      0.35,
+      0.45,
+      0.55,
+      0.65,
+      0.75,
+      0.85
+    ],
+    "left4": [
+      0.15,
+      0.25,
+      0.35,
+      0.45
+    ],
+    "right4": [
+      0.55,
+      0.65,
+      0.75,
+      0.85
+    ],
+    "center4": [
+      0.35,
+      0.45,
+      0.55,
+      0.65
+    ],
+    "leftdup8": [
+      0.15,
+      0.15,
+      0.25,
+      0.25,
+      0.35,
+      0.35,
+      0.45,
+      0.45
+    ]
+  },
+  "demographic_replicates": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112
+  ],
+  "comparisons": {
+    "starting_state_branching": "within each fixed community, test whether the investment-selection gradient and long-run investment response contain both signs across starting access states",
+    "composition_at_fixed_richness": "compare left4 versus right4 and center4 at the same visitor count",
+    "count_control": "compare left4 to leftdup8 under fixed total activity; duplicated functional types must not change the operator except floating-point roundoff",
+    "deterministic_vs_finite": "compare density and ABM signs and magnitudes under exactly the same founders and visitor histories",
+    "reference_contrast": "for each starting state compare each island composition with reference8"
+  },
+  "scientific_decision_rule": {
+    "model2_independent_role_not_required_if": [
+      "fixed_state_starting_state_branching_present_in_Model3_operator",
+      "same_richness_composition_changes_response",
+      "deterministic_density_retains_nonuniform_response_without_demographic_sampling",
+      "finite_ABM_can_be_interpreted_as_realization_layer_relative_to_that_same_operator"
+    ],
+    "otherwise": "retain Model 2 only for the unresolved role(s), not by default"
+  },
+  "claim_boundary": [
+    "synthetic operator audit, not natural prevalence",
+    "duplicate-type count control is an operator control, not a field richness manipulation",
+    "deterministic density is a discrete genotype distribution closure, not a diffusion PDE",
+    "no natural evolutionary rate or extinction probability",
+    "no Chapter 1 regional parameter fitting"
+  ]
+}
