@@ -69,7 +69,7 @@ The prospective unified reduction audit (`data/results/model3_unified_reduction_
 
 The full 19,968-case island campaign then supplies the finite-population and historical layers: assurance-dependent persistence, chronology, separate seed and pollinator connectivity, recovery/immigration, life history, founding and scale.
 
-The legacy Model 2 response-geometry stack remains historical/SI robustness only. Its exact-richness matching, synthetic `k`, community-mean limit and heuristic response-operator factorial can be cited when useful, but they are not a second required biological mechanism.
+The legacy Model 2 response-geometry stack is not a second biological mechanism. Its heuristic response-rule, S/C/I and community-mean analyses are SI/provenance. Its exact realized-richness matching and synthetic `k` finite-visitor-community controls remain active benchmarks until the frozen Model 3 bridge campaign resolves those two original Chapter 2 questions.
 
 Important mathematical distinction: the old Model 2 deterministic mean-field averaged external community realization, whereas Model 3's deterministic genotype-density counterpart retains the declared visitor composition/history and removes demographic sampling. Their different branching results therefore answer different limiting questions and are not contradictory.
 ## Role of real-island evidence
@@ -120,7 +120,7 @@ The Discussion should mirror the mechanism:
 - **Figure 2:** prospective reduction audit: starting-state branching, fixed-count composition effect and duplicate-count control.
 - **Figure 3:** full finite-population campaign: ABM versus deterministic density, assurance, chronology, connectivity and recovery.
 - **Figure 4:** real-island A/B/C confrontation: Izu branching, Ogasawara/Xisha propagation, buffering/falsifier cases, C-layer history anchors and the missing B layer.
-- Legacy Model 2 exact-richness / synthetic-`k` / response-rule figures move to Supporting Information.
+- Legacy Model 2 response-rule/S/C/I figures move to Supporting Information; exact-richness and finite-visitor-community figures remain benchmark controls until the Model 3 bridge gates close.
 
 Figure 4 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
 
@@ -150,8 +150,8 @@ Not allowed:
 
 ## Completion rule
 
-Chapter 2 is scientifically closed when the manuscript, figures, unified-reduction audit, full Model 3 island campaign and A/B/C real-island confrontation consistently support the nested eco-evolutionary argument while preserving the declared natural claim ceiling.
+Chapter 2 core mechanism is defined when the manuscript, unified-reduction audit, full Model 3 island campaign and A/B/C real-island confrontation support the nested eco-evolutionary argument within the declared claim ceiling. **Full original-Chapter-2 closure additionally requires resolution of the frozen Model 3 realized-richness and finite-visitor-community bridge gates.**
 
-The canonical completion state is **one nested Model 3 + layer-specific real-island confrontation**. Legacy Model 2 is Supporting Information/provenance only. No new focal field data are required.
+The canonical current state is **one nested Model 3 + layer-specific real-island confrontation + two open bridge controls**. No new focal field data are required.
 
 **Field E3/E4 remains post-Chapter-2 future validation, not a remaining empirical gate.**
