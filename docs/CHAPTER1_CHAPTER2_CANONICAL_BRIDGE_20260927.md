@@ -56,6 +56,7 @@ conditional phenotypic realization
 | Are selfing-adjusted display differences still just a mating-system consequence? | branching persists with assurance held fixed | assurance is not required to create the floral-selection branch |
 | Why can assurance recur while morphology does not converge? | assurance can determine persistence but not impose one floral direction | recurrent insurance function does not imply recurrent phenotype |
 | Why can present pollinator state fail to explain present phenotype? | early/late visitor loss yields different endpoints under the same final environment | historical contingency persists after environmental convergence |
+| How can isolation increase pollen limitation while assurance/accessibility are associated with lower realized limitation? | assurance can buffer reproductive consequences or preserve persistence without removing the upstream pollination problem | stress and compensation can coexist at different stages of the same response chain |
 | What does geographic isolation actually combine? | seed and pollinator connectivity act through distinct routes | one distance coordinate can compress multiple mechanisms |
 | Does island type itself generate the response? | matched founding/separation labels do not differ without biological state/history differences | oceanic/continental labels are not mechanisms by themselves |
 | Why can colour and architecture decouple? | matching/investment selection is conditional, but literal colour is not represented | general mechanism partly answered; colour-specific mechanism remains open |
@@ -69,7 +70,7 @@ Within the declared Model 3, Chapter 2 can now identify the **stage at which non
 - finite demography can subsequently change sign, persistence and magnitude;
 - historical sequence can leave different inherited endpoints even after current environments become the same.
 
-This is stronger than saying only that responses are context dependent.
+This is stronger than saying only that responses are context dependent. It also resolves the apparent H3/H4 tension: a harsher isolation-associated pollination environment and traits that reduce its realized reproductive cost are not contradictory because they occupy different stages of the causal chain.
 
 ## What remains unsolved
 
