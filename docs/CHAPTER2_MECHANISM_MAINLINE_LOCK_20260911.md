@@ -69,9 +69,21 @@ The prospective unified reduction audit (`data/results/model3_unified_reduction_
 
 The full 19,968-case island campaign then supplies the finite-population and historical layers: assurance-dependent persistence, chronology, separate seed and pollinator connectivity, recovery/immigration, life history, founding and scale.
 
-The legacy Model 2 response-geometry stack is not a second biological mechanism. Its heuristic response-rule, S/C/I and community-mean analyses are SI/provenance. Its exact realized-richness matching and synthetic `k` finite-visitor-community controls remain active benchmarks until the frozen Model 3 bridge campaign resolves those two original Chapter 2 questions.
+The legacy Model 2 response-geometry stack is not a second biological mechanism. Its heuristic response-rule, S/C/I, exact-richness, synthetic-`k` and community-mean analyses are now SI/provenance only because the previously unique richness and finite-visitor controls have been evaluated prospectively inside Model 3.
 
 Important mathematical distinction: the old Model 2 deterministic mean-field averaged external community realization, whereas Model 3's deterministic genotype-density counterpart retains the declared visitor composition/history and removes demographic sampling. Their different branching results therefore answer different limiting questions and are not contradictory.
+## Prospective bridge closure
+
+The frozen 24,576-case bridge directly evaluates the two controls that had remained unique to legacy Model 2.
+
+- Annual response-blind richness matching reverses the mean far-minus-near inherited-investment effect from negative to positive in both finite ABM and deterministic density.
+- Finite-ABM mixed histories increase strongly after count matching; deterministic mixed branching is weak and deadband-sensitive.
+- Pooling eight visitor histories removes mixed branches in both model forms.
+- Increasing plant capacity from 48 to 192 nearly removes mixed finite-ABM branches under the same visitor histories.
+- A large S/C/I interaction share can coexist with zero mixed-sign histories, so variance decomposition is not a proxy for directional branching.
+
+Canonical result: `docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md`.
+
 ## Role of real-island evidence
 
 Real-island evidence is a **layer-specific confrontation**, not a set of fitted Model 3 parameterizations. Existing systems are classified by which part of the nested model they can address:
@@ -108,19 +120,19 @@ The Discussion should mirror the mechanism:
 
 1. a recurrent island syndrome need not imply a universal phenotype;
 2. Model 3 branching already exists at the fixed-state ecological/reproductive layer;
-3. controlled-composition branching can persist under deterministic inheritance, but the stored isolation-driven deterministic effect is one-directional;
-4. finite ABM dynamics can change magnitude, sign, persistence and variation and can be decisive for heterogeneous realized responses under some isolation regimes;
-5. assurance, chronology, connectivity, recovery and life history explain conditional realization;
-6. legacy Model 2 community-mean and response-rule analyses are robustness limits, not the main mechanism;
+3. natural isolation-driven deterministic response is one-directional, while annual richness matching reverses the coarse mean regime;
+4. finite visitor-environment sampling and finite plant demography separately determine how much directional branching is realized;
+5. assurance, chronology, connectivity, recovery and life history explain conditional persistence and realization;
+6. legacy Model 2 analyses are Supporting Information/provenance only;
 7. real islands populate A and C with propagation, branching, buffering and falsification cases, while the inherited longitudinal B layer remains the main natural-data gap.
 
 ## Figure contract
 
 - **Figure 1:** unified Model 3 hierarchy: fixed-state assay → deterministic genotype distribution → finite ABM.
-- **Figure 2:** branch-capacity and isolation-realization audit: fixed-composition branching, duplicate-count control, and the finite-ABM versus one-directional density isolation contrast.
+- **Figure 2:** prospective isolation bridge: natural near/far response, annual richness matching, eight-history visitor pooling and fourfold plant-capacity control, shown for finite ABM and deterministic density.
 - **Figure 3:** full finite-population campaign: ABM versus deterministic density, assurance, chronology, connectivity and recovery.
 - **Figure 4:** real-island A/B/C confrontation: Izu branching, Ogasawara/Xisha propagation, buffering/falsifier cases, C-layer history anchors and the missing B layer.
-- Legacy Model 2 response-rule/S/C/I figures move to Supporting Information; exact-richness and finite-visitor-community figures remain benchmark controls until the Model 3 bridge gates close.
+- Legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I figures remain Supporting Information/provenance only.
 
 Figure 4 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
 
@@ -133,7 +145,7 @@ Allowed:
 - deterministic branch capacity under controlled compositions, together with one-directional density response in the stored isolation contrast;
 - finite-ABM departures from deterministic trajectories in the full island campaign;
 - historical contingency, assurance-dependent persistence, distinct seed/pollinator connectivity routes and bounded inherited-investment trajectories;
-- legacy Model 2 response-rule/S/C/I results as model-specific robustness, with exact-richness and finite-visitor-community results retained as active benchmarks until bridge closure;
+- legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I results as model-specific robustness/provenance only;
 - layer-specific real-island confrontation showing propagation, branching, buffering, counterdirectional response, direct-history anchors and the missing B layer.
 
 Not allowed:
@@ -150,8 +162,8 @@ Not allowed:
 
 ## Completion rule
 
-Chapter 2 core mechanism is defined when the manuscript, unified-reduction audit, full Model 3 island campaign and A/B/C real-island confrontation support the nested eco-evolutionary argument within the declared claim ceiling. **Full original-Chapter-2 closure additionally requires resolution of the frozen Model 3 realized-richness and finite-visitor-community bridge gates.**
+Chapter 2 is scientifically closed when the manuscript, unified-reduction audit, full Model 3 island campaign, completed 24,576-case prospective bridge and A/B/C real-island confrontation support the nested eco-evolutionary argument within the declared claim ceiling.
 
-The canonical current state is **one nested Model 3 + layer-specific real-island confrontation + two open bridge controls**. No new focal field data are required.
+The canonical current state is **one nested Model 3 + completed isolation bridge + layer-specific real-island confrontation**. No new focal field data are required.
 
 **Field E3/E4 remains post-Chapter-2 future validation, not a remaining empirical gate.**
