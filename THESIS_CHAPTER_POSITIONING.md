@@ -131,7 +131,7 @@ Under active plant adjustment, pooling independent community trajectories across
 
 Starting state exceeds community realization in **4/6** prespecified seeds at `k=4` and **6/6** at `k=8` and `k=16`, while non-additivity is the largest component at `k=4`. The earlier 6/6-at-`k=4` statement came from the superseded offset-stream implementation.
 
-**The numerical synthetic crossover is not transferred to nature.** The crossover near `k=4` is a model-specific coordinate, not a natural ecological threshold.
+**The numerical synthetic crossover is not transferred to nature.** The crossover near `k=4` is a model-specific coordinate, not a natural ecological threshold. In short, the legacy `k` crossover is **not a natural threshold**.
 
 #### 5. Legacy community-mean limit removes response-geometry branching
 
