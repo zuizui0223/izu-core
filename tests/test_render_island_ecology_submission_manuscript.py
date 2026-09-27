@@ -18,7 +18,10 @@ def test_renderer_delegates_to_canonical_mechanism_mainline():
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density counterpart" in lower
     assert "real islands occupy different stages of the same response architecture" in lower
-    assert "2.3768" in text and "0.1891" in text
+    assert "annual response-blind richness matching" in lower
+    assert "pooling eight independent visitor histories" in lower
+    assert "increasing plant capacity from 48 to 192" in lower
+    assert "68/128" in text and "41.5%" in text
     for token in FORBIDDEN_SUBMISSION_TOKENS:
         assert token.lower() not in lower
 
