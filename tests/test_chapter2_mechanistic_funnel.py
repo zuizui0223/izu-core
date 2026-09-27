@@ -101,4 +101,4 @@ def test_legacy_main_supp_material_map_remains_provenance():
     assert "replace(base, steps=240, trait_adjustment=0.0)" in lower
     assert "75/96" in material
     assert "53.53%" in material and "14.05%" in material
-    assert "raw visitor richness or hill diversity is synthetic `k`" in lower
+    assert "raw visitor richness or hill diversity is **not** synthetic `k`" in lower
