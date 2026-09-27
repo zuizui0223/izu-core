@@ -8,7 +8,7 @@ This document fixes the dissertation-level bridge after the September 2026 Chapt
 
 The programme-level story is:
 
-> **Chapter 1 establishes a recurrent global functional floral/reproductive island-syndrome core and an independent global pollination constraint, while pollinator-facing floral display is reorganized non-uniformly among contexts. Chapter 2 asks why a common broad constraint need not produce one detailed plant response.**
+> **Chapter 1 establishes a recurrent global functional floral/reproductive island-syndrome core and an independent global pollination constraint, while pollinator-facing floral display is reorganized non-uniformly among contexts. Chapter 2 asks why a common broad constraint need not produce one detailed plant response, then asks which conditional responses persist through reproduction, demography and inheritance.**
 
 The four-step narrative is:
 
@@ -19,7 +19,8 @@ The four-step narrative is:
        ↓
 3. pollinator-facing display is reorganized differently among contexts
        ↓
-4. Chapter 2: starting state × realized pollinator community can generate divergent branches
+4. Chapter 2 / Model 2: starting state × realized pollinator community can generate divergent branches
+5. Chapter 2 / Model 3: reproductive assurance, history, connectivity and finite demography determine whether those branches persist and how inherited floral investment changes
 ```
 
 ## Q1 — What recurs globally?
@@ -70,7 +71,7 @@ It is not a claim that one realized pollinator guild replaces another everywhere
 
 # Q2 — Why need responses not be uniform?
 
-Chapter 2 answers a narrower mechanistic question:
+Chapter 2 answers this with two linked mechanistic questions:
 
 > **Why can the same broad island-like reorganization of pollinator interactions generate different plant responses?**
 
@@ -168,7 +169,7 @@ This connects naturally to Chapter 1: reproductive assurance can be globally rec
 
 The strongest cross-chapter statement is:
 
-> **Island isolation is associated globally with a recurrent functional shift toward reproductive assurance and floral accessibility, but this common functional syndrome does not require identical detailed floral responses. Chapter 2 provides a mechanistic existence argument: under the same broad pollinator-community reorganization, response direction can branch because plants begin at different functional positions and encounter different realized partner compositions.**
+> **Island isolation is associated globally with a recurrent functional shift toward reproductive assurance and floral accessibility, but this common functional syndrome does not require identical detailed floral responses. Chapter 2 provides a two-stage mechanistic existence argument: Model 2 shows that response direction can branch because plants begin at different functional positions and encounter different realized partner compositions; Model 3 shows that reproduction, assurance, demographic history and connectivity further determine which conditional responses persist and how inherited floral investment changes.**
 
 A concise version is:
 
@@ -176,11 +177,11 @@ A concise version is:
 
 Or, in Chapter language:
 
-> **Chapter 1 asks what recurs; Chapter 2 asks why recurrence need not imply uniform response.**
+> **Chapter 1 asks what recurs; Chapter 2 asks why recurrence need not imply uniform response, and how that non-uniformity is carried through reproduction and demography.**
 
 ## What Chapter 2 does and does not explain
 
-Chapter 2 supports the mechanistic possibility that Chapter 1-like non-uniformity can emerge from conditional plant × community response geometry.
+Chapter 2 supports the mechanistic possibility that Chapter 1-like non-uniformity can emerge in two steps: conditional plant × community response geometry (Model 2), followed by conditional reproductive/demographic realization (Model 3). The completed Model 3 island campaign contains 19,968 audited cases; under its declared scenarios, early versus late visitor loss can leave different inherited investment endpoints despite a common final environment, and reproductive assurance can determine whether an endpoint exists at all. These are synthetic, model-conditional results rather than reconstructions of the four Chapter 1 regions.
 
 It does **not** show that:
 
@@ -200,6 +201,7 @@ For a thesis talk or poster, the recommended four-step order is:
 1. **Global recurrent functional core** — reproductive assurance and accessibility/generalization recur across all four geographic strata.
 2. **Independent pressure** — experimental pollen limitation increases with isolation globally.
 3. **Non-uniform realization** — pollinator-facing colour/architecture is reorganized differently among contexts.
-4. **Mechanistic explanation** — starting functional position × realized pollinator community generates branch heterogeneity; richness and turnover alone are insufficient, determinant importance changes across finite-community regimes, and assurance buffers magnitude without erasing direction.
+4. **Mechanistic explanation I** — starting functional position × realized pollinator community generates branch heterogeneity; richness and turnover alone are insufficient and determinant importance changes across finite-community regimes.
+5. **Mechanistic explanation II** — reproduction, assurance, connectivity, life history and disturbance history condition persistence and inherited floral-investment change, so a recurrent functional syndrome need not collapse to one phenotypic endpoint.
 
 This is the current Chapter 1 → Chapter 2 dissertation bridge.
