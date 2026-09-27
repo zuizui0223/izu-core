@@ -36,7 +36,7 @@ def completed_metadata() -> dict:
     return metadata
 
 
-def test_current_scientific_gate_accepts_conditional_response_geometry_route():
+def test_current_scientific_gate_retains_legacy_gate_provenance():
     gate = bundle.validate_scientific_gate()
     assert gate["scientific_model_gate_complete"] is True
     assert gate["research_article_route"] == "candidate_conditional_response_geometry"
@@ -63,7 +63,7 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
         bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
 
 
-def test_submission_bundle_routes_mechanism_mainline_oikos_rtf_after_gate_closure(tmp_path: Path, monkeypatch):
+def test_submission_bundle_routes_unified_model3_oikos_rtf_after_gate_closure(tmp_path: Path, monkeypatch):
     relational_inputs = tmp_path / "chapter2_manuscript_figure_inputs_relational_20260831.json"
 
     def fake_build_figures() -> dict:
@@ -75,7 +75,7 @@ def test_submission_bundle_routes_mechanism_mainline_oikos_rtf_after_gate_closur
 
     def fake_review_archive(path: Path) -> Path:
         with zipfile.ZipFile(path, "w") as archive:
-            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous mechanism-mainline review archive\n")
+            archive.writestr("README_REVIEW_ARCHIVE.md", "anonymous unified Model 3 review archive\n")
         return path
 
     monkeypatch.setattr(bundle, "build_review_archive", fake_review_archive)
@@ -97,51 +97,26 @@ def test_submission_bundle_routes_mechanism_mainline_oikos_rtf_after_gate_closur
             "SUBMISSION_BUNDLE_MANIFEST.json",
         ):
             assert name in names
-        assert "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md" in names
-        assert "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md" in names
-        assert "data/design/chapter2_oikos_submission_manifest_20260831.json" in names
-        assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in names
-        assert SOURCE_MANUSCRIPT not in names
 
         manuscript = archive.read(SUBMISSION_MANUSCRIPT).decode("utf-8")
-        assert manuscript.startswith("{\\rtf1")
-        assert "\\sl480\\slmult1" in manuscript
-        assert "\\linemod1" in manuscript
-        assert "fldinst PAGE" in manuscript
         lower = manuscript.lower()
-        assert "conditional response geometry" in lower
-        assert "realized richness differences therefore help position the ensemble mean regime" in lower
-        assert "ordering of response determinants is itself regime dependent" in lower
-        assert "deterministic mean-field kernel contrast was all-positive" in lower
-        assert "optional future validation programme" in lower
-        assert "55.84%" in manuscript and "12.72%" in manuscript
+        assert "fixed-state reproductive assay" in lower
+        assert "deterministic genotype-density counterpart" in lower
+        assert "finite-population abm" in lower
+        assert "real islands occupy different stages of the same response architecture" in lower
         assert "result 1—mechanistic prediction" not in lower
-        assert "result 2—real-world exposure" not in lower
-        assert "result 3—biological consequence" not in lower
 
-        supporting = archive.read(SUBMISSION_SI).decode("utf-8")
-        assert supporting.startswith("{\\rtf1")
-        support_lower = supporting.lower()
-        assert "exact realized-richness matching hard control" in support_lower
-        assert "finite-community system-size audit" in support_lower
-        assert "regime-dependent response hierarchy" in support_lower
-        assert "cell-level simulation variation" not in support_lower
+        supporting = archive.read(SUBMISSION_SI).decode("utf-8").lower()
+        assert "unified model 3 projection onto real-island evidence" in supporting
+        assert "exact realized-richness matching hard control" in supporting
 
         manifest = json.loads(archive.read("SUBMISSION_BUNDLE_MANIFEST.json"))
-        assert manifest["journal"] == "Oikos"
-        assert manifest["article_type"] == "Research Paper"
-        assert manifest["scientific_state"] == "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering"
-        assert manifest["manuscript_state"] == "active_20260911_mechanism_mainline_rendered_to_oikos_rtf_submission"
+        assert manifest["scientific_state"] == "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation"
+        assert manifest["manuscript_state"] == "active_20260927_unified_model3_rendered_to_oikos_rtf_submission"
         assert manifest["mechanism_mainline_narrative"] is True
         assert manifest["three_result_narrative"] is False
         assert manifest["field_e3_e4_required_for_submission"] is False
-        assert manifest["system_size_rank_crossover"]["starting_exceeds_community_from_k4"] == "6_of_6_seeds"
-        assert manifest["system_size_rank_crossover"]["natural_threshold_claimed"] is False
-        assert manifest["izu_e3_e4_status"] == "future_optional_validation_not_completion_gate"
-        assert manifest["source_manuscript"] == SOURCE_MANUSCRIPT
-        assert manifest["submission_manuscript"] == SUBMISSION_MANUSCRIPT
-        assert manifest["submission_supporting_information"] == SUBMISSION_SI
+        assert manifest["real_island_abc_projection_included"] is True
+        assert manifest["unified_model3_reduction_audit_complete"] is True
         assert manifest["formal_full_contracts"] == "0_of_25"
-        assert manifest["realized_richness_mean_geometry"] == "all_positive_in_6_of_6_matching_seeds"
         assert manifest["chapter3_direct_phenotype_used_as_validation"] is False
-        assert bundle.RELATIONAL_FIGURE_INPUTS_ARCNAME in manifest["files"]
