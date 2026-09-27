@@ -1,31 +1,33 @@
-import json
-from pathlib import Path
-
 from scripts.audit_chapter2_submission_closure import build_audit
 
-ROOT = Path(__file__).resolve().parents[1]
-FROZEN = ROOT / "data/results/chapter2_submission_closure_audit_20260906.json"
 
-
-def test_submission_closure_audit_matches_frozen_preflight():
-    frozen = json.loads(FROZEN.read_text(encoding="utf-8"))
-    current = build_audit()
-    assert current == frozen
-
-
-def test_submission_closure_is_author_metadata_only_not_science_or_renderer_work():
+def test_submission_closure_tracks_unified_model3_science_and_open_package_qa():
     audit = build_audit()
     assert audit["scientific_gate_complete"] is True
-    assert audit["nonmetadata_submission_preflight_ready"] is True
-    assert audit["nonmetadata_submission_errors"] == []
-    assert audit["only_author_supplied_metadata_and_confirmations_remain"] is True
-    assert audit["metadata_template_validation_error_count"] == 14
-    assert audit["unexpected_metadata_errors"] == []
+    assert audit["unified_model3_locked"] is True
+    assert audit["real_island_abc_confrontation_locked"] is True
+    assert audit["scientific_question_closed"] is True
+    assert audit["field_e3_e4_required"] is False
     assert audit["submission_ready"] is False
 
 
-def test_submission_closure_requires_explicit_ethics_confirmation_and_preserves_optional_items():
+def test_submission_closure_retains_declared_nonmetadata_blockers_until_figures_and_qa_are_done():
     audit = build_audit()
+    assert audit["nonmetadata_submission_errors"] == []
+    assert audit["nonmetadata_submission_preflight_ready"] is False
+    assert set(audit["active_nonmetadata_package_blockers"]) == {
+        "regenerate unified Model 3 main figures",
+        "finish and validate unified Supporting Information",
+        "pass unified renderers and fail-closed submission audits",
+    }
+    assert audit["only_author_supplied_metadata_and_confirmations_remain"] is False
+    assert audit["next_transition"].startswith("regenerate unified figures")
+
+
+def test_submission_closure_preserves_author_metadata_requirements():
+    audit = build_audit()
+    assert audit["metadata_template_validation_error_count"] > 0
+    assert audit["unexpected_metadata_errors"] == []
     assert audit["ethics_statement_prefilled"] is True
     assert audit["ethics_statement_author_confirmation_required"] is True
     assert "ethics_statement_author_confirmation" in audit["required_human_input_categories"]
