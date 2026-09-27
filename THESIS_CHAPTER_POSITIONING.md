@@ -85,9 +85,23 @@ This is the mechanistic bridge from Chapter 1's recurrent functional core to its
 
 ### Primary unified Model 3 result
 
-The prospective reduction audit and completed finite-population campaign are the current mechanistic spine. The older response-geometry analyses below are retained as model-specific robustness and provenance rather than a second required model.
+The current mechanistic spine is the **fixed-state branch-capacity audit + 19,968-case island campaign + prospective 24,576-case isolation bridge**.
 
-### Legacy reduced response-geometry robustness
+The final prospective bridge resolves the two original Chapter 2 controls that had remained unique to Model 2:
+
+- **natural isolation-driven assembly:** finite ABM mean far-minus-near inherited-investment effect `-0.1446`, deterministic density `-0.4510`; mixed histories `12/128` versus `0/128` at epsilon 0;
+- **annual response-blind richness matching:** means reverse to `+0.0333` and `+0.0338`; finite-ABM mixed histories rise to `68/128` at epsilon 0;
+- **eight-history visitor pooling:** mixed histories fall to `0/128` in both finite ABM and deterministic density;
+- **plant capacity 48 → 192:** finite-ABM mixed histories fall `12/128 → 1/128` at epsilon 0 and the mean moves 41.5% of the way toward deterministic density;
+- **S/C/I is not directional branching:** pooled finite ABM has `I=0.542` but `0/128` mixed histories.
+
+The biological hierarchy is therefore:
+
+> **visitor amount/richness sets the coarse mean regime; finite visitor composition/history and finite plant demography are separate mechanisms controlling how much directional heterogeneity is realized.**
+
+Legacy response-geometry analyses remain useful Supporting Information/provenance, but no longer carry an active scientific gate.
+
+### Legacy reduced response-geometry robustness — Supporting Information only
 
 #### 1. Mixed responses under the same broad island-like change
 
