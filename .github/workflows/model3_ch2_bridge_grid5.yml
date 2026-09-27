@@ -1,0 +1,49 @@
+name: Model 3 Chapter 2 bridge grid5
+
+on:
+  push:
+    branches:
+      - codex/integrate-model3-into-ch2
+    paths:
+      - '.github/workflows/model3_ch2_bridge_grid5.yml'
+
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Verify bridge implementation
+        run: |
+          python -m pytest -q \
+            tests/test_model3_island_bridge_ops.py \
+            tests/test_model3_ch2_bridge.py \
+            tests/test_model3_ch2_bridge_runner.py \
+            tests/test_model3_ch2_bridge_prospective_summary.py
+      - name: Run frozen grid5 bridge
+        run: |
+          python -m scripts.run_model3_ch2_bridge \
+            --design data/design/model3_ch2_bridge_grid5_20260927.json \
+            --output "$RUNNER_TEMP/model3_ch2_grid5"
+      - name: Summarize frozen grid5 bridge
+        run: |
+          python -m scripts.summarize_model3_ch2_bridge_prospective \
+            --design data/design/model3_ch2_bridge_grid5_20260927.json \
+            --results "$RUNNER_TEMP/model3_ch2_grid5" \
+            --output model3_ch2_bridge_grid5_summary.json
+      - name: Preserve compact prospective receipt
+        run: |
+          cp "$RUNNER_TEMP/model3_ch2_grid5/campaign_status.json" model3_ch2_bridge_grid5_campaign_status.json
+          cp data/design/model3_ch2_bridge_grid5_20260927.json model3_ch2_bridge_grid5_design.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model3-ch2-bridge-grid5
+          path: |
+            model3_ch2_bridge_grid5_summary.json
+            model3_ch2_bridge_grid5_campaign_status.json
+            model3_ch2_bridge_grid5_design.json
