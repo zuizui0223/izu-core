@@ -1,0 +1,41 @@
+name: Model 3 unified reduction audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'data/design/model3_unified_reduction_audit_20260927.json'
+      - 'scripts/audit_model3_unified_reduction.py'
+      - 'tests/test_model3_unified_reduction.py'
+      - 'scripts/model3_island/**'
+      - '.github/workflows/model3_unified_reduction.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e '.[dev]'
+      - name: Focused regression tests
+        run: python -m pytest -q tests/test_model3_unified_reduction.py
+      - name: Run frozen full audit
+        run: |
+          python -m scripts.audit_model3_unified_reduction \
+            --design data/design/model3_unified_reduction_audit_20260927.json \
+            --out model3_unified_reduction_result.json
+      - name: Print scientific decision
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('model3_unified_reduction_result.json'))
+          print('decision:',x['decision'])
+          print(json.dumps(x['diagnostics'],indent=2,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model3-unified-reduction-audit
+          path: model3_unified_reduction_result.json
