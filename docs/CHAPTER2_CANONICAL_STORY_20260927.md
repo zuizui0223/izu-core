@@ -1,168 +1,143 @@
 # Chapter 2 canonical story — unified Model 3
 
 Updated: 2026-09-27
-Status: active scientific narrative
+Status: active scientific narrative — prospective bridge complete
 
 ## One-sentence claim
 
-> **A recurrent island pollination problem need not produce one floral phenotype because plant state × visitor functional composition can reverse reproductive selection before demographic stochasticity, the non-uniformity persists under deterministic inheritance, and finite demography plus ecological history further modify which trajectories are realized.**
+> **Island isolation can impose a recurrent functional problem and a directional deterministic backbone, while realized visitor amount, finite visitor-community sampling and finite plant demography jointly determine whether lineages diverge into different inherited trajectories.**
 
 ## Main inferential spine
 
 ```text
-recurrent island pollination pressure
+isolation-driven visitor assembly
         ↓
-A. fixed-state Model 3 assay
-plant state × visitor composition
+coarse pollination opportunity / visitor amount
         ↓
-positive / negative reproductive-selection branches
+deterministic expected inherited response
         ↓
-B. deterministic genotype-density Model 3
-same reproduction + Mendelian inheritance
-demographic sampling removed
+finite visitor composition/history
+        ×
+finite plant demography
         ↓
-non-uniform inherited trajectories persist
-        ↓
-C. finite-population Model 3 ABM
-stochastic recruitment + extinction + variation loss + ancestry
-        ↓
-realized trajectory
+realized lineage-specific trajectory
         ×
 assurance / chronology / connectivity / founding / recovery / life history
 ```
 
+Controlled fixed visitor compositions remain a reduced diagnostic showing that the reproductive operator itself has state-dependent branch capacity. The prospective isolation bridge determines how much of that capacity is expressed under dynamic island assembly.
+
 ## Primary evidence
 
-### 1. Non-uniformity precedes demographic stochasticity
+### 1. Functional matching has pre-demographic branch capacity
 
-The prospectively frozen unified reduction audit crosses five starting access states with fixed visitor compositions. Each tested four-type visitor community contains both positive and negative fixed-state investment gradients across starting states.
+The fixed-state audit crosses five starting access states with controlled visitor compositions. Under `left4`, start access `0.20` has investment gradient `+1.5048` whereas `0.80` has `-0.8720`; the signs reverse under `right4`.
 
-For the symmetric extreme comparison:
+Thus the Model 3 reproductive operator can generate opposite selection directions without drift or extinction.
 
-- start access 0.20: left4 `+1.5048`, right4 `-0.8720`;
-- start access 0.80: left4 `-0.8720`, right4 `+1.5048`.
+### 2. Natural isolation-driven deterministic response is directional
 
-Thus drift, extinction and demographic sampling are not necessary to create the first response branch.
+In the prospective 24,576-case near-versus-far bridge:
 
-### 2. Composition matters at fixed functional-type count
+- finite ABM mean effect: `-0.1446` (`95% CI -0.1588 to -0.1306`);
+- deterministic density mean effect: `-0.4510` (`-0.4716 to -0.4301`);
+- deterministic density mixed histories: `0/128` at epsilon `0`, `0.01` and `0.05`;
+- finite ABM mixed histories: `12/128`, `8/128`, `1/128`.
 
-`left4`, `center4` and `right4` each contain four functional types but generate different responses. The maximum left-versus-right fixed-state gradient difference is `2.3768`.
+Therefore fixed-composition branch capacity does not imply that isolation-driven deterministic response itself is branched.
 
-Duplicating the same left4 types to eight entries under fixed total activity changes the operator by at most `1.78e-15`. This is an operator control, not a field claim that species richness is irrelevant.
+### 3. Annual richness matching reverses the coarse mean regime
 
-### 3. Controlled deterministic inheritance retains branch capacity
+Response-blind annual visitor-count matching makes near and far annual counts identical. The mean far-minus-near inherited-investment effect changes:
 
-The deterministic genotype-density counterpart retains mixed positive and negative inherited investment change across starting states in all three four-type contexts. The maximum declared composition effect is `0.1891` investment units.
+- finite ABM: `-0.1446` → `+0.0333`;
+- deterministic density: `-0.4510` → `+0.0338`.
 
-Therefore population stochasticity is not required for non-uniform evolutionary direction.
+Finite-ABM mixed histories increase to `68/128`, `59/128`, `18/128` at epsilon `0`, `0.01`, `0.05`. Deterministic density shows `16/128`, `1/128`, `0/128`.
 
-### 3A. Isolation-driven assembly is not the same as a fixed-composition branch test
+The supported interpretation is that visitor amount/richness strongly positions the coarse mean regime, while identity/composition and finite realization govern much of the residual branch heterogeneity.
 
-The original-Chapter-2 answer audit reanalyzed all 3,072 stored Model 3 transport cases. In the paired far-minus-near isolation effect, the deterministic genotype-density model was one-directional in both cohorts: mixed in `0/128` production histories and `0/128` held-out histories at epsilon 0. The finite ABM, however, was mixed in `22/128` and `30/128`, with demographic-repeat branch labels disagreeing in `41/128` and `48/128`.
+Annual thinning also changes identity persistence, so this is not a pure field species-richness causal effect.
 
-Thus the controlled-composition result establishes **branch capacity**, not that every isolation-driven community trajectory branches deterministically. Under some isolation regimes, finite demography can be decisive for whether heterogeneous realized responses appear.
+### 4. Finite visitor-environment sampling matters independently
 
-This also means two old Chapter 2 controls are not yet fully internalized by Model 3: response-blind realized-richness matching and finite visitor-community averaging independent of plant population size.
+Pooling eight independent visitor histories removes mixed history-level branches completely in both finite ABM and deterministic density at all three deadbands.
 
-### 4. Finite populations modify realized trajectories
+Visitor pooling changes environmental averaging and functional composition under a nonlinear reproductive operator. It is not island number or lifespan.
 
-In the simple reduction audit, deterministic-density and mean-ABM signs agree in every evaluable cell. In the full 19,968-case campaign, however, ABM–density sign disagreement becomes large under chronology, assurance, life history and recovery. Finite demography therefore modifies or removes upstream branches rather than being their sole generator.
+### 5. Finite plant demography matters independently
 
-### 5. Present environment does not uniquely identify phenotype
+Increasing plant capacity from `48` to `192` under the same natural visitor histories reduces finite-ABM mixed histories:
 
-With a common final 120-year environment:
+- epsilon 0: `12` → `1`;
+- epsilon 0.01: `8` → `1`;
+- epsilon 0.05: `1` → `0`.
 
-- uninterrupted investment change: `+0.2115`;
-- early visitor loss: `-0.1603`;
-- late visitor loss: `+0.0322`.
+The finite-ABM mean moves from `-0.1446` to `-0.2716`, closing about `41.5%` of the distance toward the deterministic mean `-0.4510`.
 
-History remains informative after current environment converges.
+Finite visitor sampling and finite plant sampling are therefore separable mechanisms.
 
-### 6. Reproductive assurance is a persistence gate, not a universal floral endpoint
+### 6. S/C/I magnitude structure is not directional branching
 
-In the declared complete visitor-absence schedule, fixed zero assurance yields `0/256` terminal survivors, whereas corresponding assurance-present treatments retain `256/256`. Assurance can therefore recur functionally without forcing one floral phenotype.
+The pooled-visitor finite ABM has `I = 0.542` but `0/128` mixed histories at every deadband. A large non-additive component can therefore describe magnitude structure without implying opposite evolutionary directions.
+
+### 7. History and assurance further filter realization
+
+With a common final 120-year environment, inherited investment differs among uninterrupted (`+0.2115`), early-loss (`-0.1603`) and late-loss (`+0.0322`) histories.
+
+Under complete visitor absence, fixed zero assurance yields `0/256` terminal survivors whereas corresponding assurance-present treatments retain `256/256`.
+
+Thus current environment is not sufficient to identify current phenotype, and recurrent assurance can act as insurance without imposing one floral endpoint.
+
+## Original Chapter 2 questions — final status
+
+| question | final Model 3 answer |
+|---|---|
+| Can the same pollinator context favour opposite responses? | Yes in controlled compositions; branch capacity exists before demography. |
+| Is natural isolation-driven deterministic response itself branched? | No in the prospective bridge; density is one-directional across 128 histories. |
+| Does richness/visitor amount matter for the mean? | Strongly yes; annual matching reverses the mean isolation effect. |
+| Does count matching remove realized heterogeneity? | No in finite ABM; mixed histories increase strongly. Deterministic mixed branching is weak and deadband-sensitive. |
+| Does finite visitor-community sampling matter? | Yes; eight-history pooling removes mixed branches. |
+| Does finite plant-population sampling matter? | Yes; fourfold larger capacity nearly removes mixed branches. |
+| Are those two finite effects equivalent? | No; they are independent ecological and demographic axes. |
+| Does S/C/I rank equal directional branching? | No. High `I` can coexist with zero mixed-sign histories. |
+| Does present environment uniquely determine phenotype? | No; chronology retains different endpoints under the same final environment. |
+
+## Model 2 disposition
+
+The two controls that previously kept Model 2 scientifically active have now been evaluated prospectively inside Model 3:
+
+1. dynamic response-blind realized-richness matching;
+2. finite visitor-environment averaging separated from finite plant-population size.
+
+Therefore:
+
+> **Model 2 is no longer required as an active biological model or Chapter 2 control gate.**
+
+It remains Supporting Information/provenance for the historical service endpoint, exact-richness comparison, synthetic-`k` sequence, response-rule sensitivity, S/C/I decomposition and community-mean limit.
 
 ## Real-island confrontation
 
-Natural systems are not fitted to synthetic parameter cells. They are confronted by layer:
+Natural systems are confronted by layer rather than fitted to synthetic cells:
 
-- **A — ecological/selection**: functional composition, plant state, access/effectiveness and reproductive response;
-- **B — inherited deterministic response**: longitudinal inherited change under a measured visitor regime;
-- **C — finite/history realization**: assurance, chronology, connectivity, founding, recovery and persistence.
+- **A — ecological/selection:** partly observed in Izu, Ogasawara, Xisha, Hawaii and other systems;
+- **B — inherited longitudinal response:** still the principal natural-data gap;
+- **C — finite/history realization:** partly observed through Surtsey, Tiritiri Matangi and direct partner-loss systems.
 
-The source-locked 14-system-layer matrix across 12 geographic clusters contains:
-
-- same-direction propagation: 1;
-- downstream branching: 2;
-- buffered/resilient: 3;
-- counterdirectional: 1;
-- adjacent links only: 4;
-- unresolved missing link: 3.
-
-These counts are descriptive response modes, not natural prevalence.
-
-### Strongest A-layer examples
-
-- **Izu**: corrected matching lower in `8/8` shared targets, while pollen is `4 lower / 4 higher` and tube response is `3 shorter / 4 longer / 1 unchanged`.
-- **Ogasawara Psychotria**: morph-specific physical access → directional pollen flow → reproductive asymmetry.
-- **Xisha Cordia**: morph-state loss + low visitation + lower natural fruit set, with effectiveness/dependency measured asymmetrically across islands.
-- **Hawaii / Puerto Rico–Mona**: buffering between altered interaction environment and reproductive outcome.
-- **Dominica Heliconia**: frozen signed-position prediction fails in the declared direction and remains a falsifier.
-
-### Strongest C-layer examples
-
-- **Surtsey**: dated empty-start founding chronology;
-- **Tiritiri Matangi**: documented pollinator reintroduction plus compensatory function;
-- **New Zealand Rhabdothamnus** and **Mariana bird-loss**: direct partner loss linked to reproductive/recruitment responses.
-
-### Main empirical gap
-
-The current archive does not directly observe a clean **B layer**: starting genetic/common-garden state + measured visitor regime + inherited longitudinal trait/genotype change + enough demography to distinguish expected selection from finite-population realization.
-
-The formal audit remains `0/25` complete A → B → C contracts.
-
-## Role of legacy Model 2
-
-Legacy Model 2 is not a separate biological mechanism, but two of its controls remain scientifically active until the prospective Model 3 bridge campaign is completed:
-
-- exact response-blind realized-richness matching;
-- synthetic `k` finite visitor-community pooling.
-
-The following are Supporting Information/provenance only:
-
-- heuristic response-rule sensitivity;
-- historical S/C/I decomposition;
-- the old community-mean limit that averages external community realization.
-
-Its deterministic community-mean limit is not the same as Model 3's deterministic genotype-density counterpart. The former averages ecological community realization; the latter retains visitor history/composition and removes demographic sampling.
+The source-locked 14-system-layer matrix contains propagation, downstream branching, buffering/resilience, counterdirectional response, adjacent links and unresolved cases. These are descriptive response modes, not prevalence estimates.
 
 ## Chapter 1 bridge
 
-Chapter 1 leaves four linked problems that the unified Model 3 now addresses directly:
+Chapter 1 shows stronger pollen limitation with isolation, recurrent assurance/accessibility, but non-uniform detailed floral display. Chapter 2 now resolves the apparent tension at multiple levels:
 
-1. **Recurrent functional core, divergent detailed display.** Model 3 shows that starting floral state × visitor composition can reverse reproductive-selection direction before demography.
-2. **Selfing does not explain every residual display association.** The unified reduction audit keeps assurance fixed and still produces selection branching; assurance is therefore not required to generate the branch.
-3. **Stronger pollen limitation can coexist with recurrent assurance.** Model 3 separates the upstream pollination problem from a downstream persistence gate: assurance can preserve populations without forcing one floral direction.
-4. **Cross-sectional current environments do not identify historical phenotype formation.** Chronology produces different inherited endpoints under a common final environment, and seed versus pollinator connectivity act through distinct routes.
-
-A fifth Chapter 1 issue is only partly resolved: colour and floral access can reorganize separately, but Model 3 does not explicitly model named colour channels. It explains conditional selection on functional access/investment, not why one geographic stratum specifically gains or loses a named colour class.
-
-The canonical dissertation bridge is `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md`.
+1. **broad pressure:** isolation-driven visitor rarity creates a recurrent directional backbone;
+2. **coarse regime:** visitor amount/richness strongly shifts the mean response;
+3. **branch realization:** finite visitor histories and finite plant demography determine how much directional heterogeneity is realized;
+4. **buffering/history:** assurance, connectivity and chronology further filter persistence and inherited outcomes.
 
 The strongest cross-chapter statement is:
 
-> **Island syndromes can be recurrent at the level of function without being recurrent at the level of detailed phenotype.**
-
-## Remaining original-Chapter-2 bridge gates
-
-A frozen 24,576-case prospective Model 3 bridge design now separates:
-
-- natural near versus far visitor histories;
-- response-blind annually richness-matched near/far histories;
-- pooled eight-history visitor environments with activity normalization;
-- larger plant capacity as a separate finite-population control.
-
-No preferred sign, mixed fraction or S/C/I ranking is a success criterion. Until this campaign is executed, Chapter 2 should not claim that Model 3 has reproduced the legacy exact-richness or finite-visitor-community conclusions.
+> **Island syndromes can be recurrent at the level of ecological problem and functional insurance while remaining non-convergent at the level of realized phenotype.**
 
 ## Claim ceiling
 
@@ -170,17 +145,18 @@ Do not claim:
 
 - calibrated natural evolutionary rates or extinction probabilities;
 - a natural value for synthetic `k`;
-- that functional-type count is generally irrelevant in nature;
-- that the deterministic genotype-density object is a continuous diffusion PDE;
+- a pure field species-richness causal effect from annual thinning;
+- that visitor pooling is island number or lifespan;
+- that deterministic genotype density is a continuous diffusion PDE;
 - historical *Bombus* causation;
-- assignment of Chapter 1 regions or the 42/37 evidence universe to Model 3 parameter cells;
-- natural branch prevalence from the 14-system propagation-state counts;
-- that cross-sectional morphology directly measures the B-layer inherited trajectory.
+- assignment of Chapter 1 regions to Model 3 cells;
+- natural branch prevalence from synthetic mixed fractions;
+- that cross-sectional morphology directly measures the natural B-layer inherited trajectory.
 
 ## Completion state
 
-The scientific argument is:
+The scientific argument is now complete at the declared synthetic claim ceiling:
 
-**unified Model 3 + prospective reduction audit + full finite-population campaign + A/B/C real-island confrontation**.
+**unified Model 3 + fixed-state branch-capacity audit + 19,968-case island campaign + 24,576-case prospective bridge + A/B/C real-island confrontation**.
 
-New focal field data are not required for Chapter 2 completion. The most informative future falsification would measure A → B → C through the same transition units.
+New focal field data are not required for Chapter 2 completion. The strongest remaining test is empirical: a same-unit natural A → B → C transition.
