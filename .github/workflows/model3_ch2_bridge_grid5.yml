@@ -26,6 +26,19 @@ jobs:
           python-version: '3.12'
       - name: Install frozen repository
         run: python -m pip install -e 'frozen[dev]'
+      - name: Diagnose frozen source identity
+        working-directory: frozen
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.run_model3_ch2_bridge import sources
+          d=json.loads(Path('data/design/model3_ch2_bridge_grid5_20260927.json').read_text())
+          actual=sources()
+          keys=sorted(set(d['source_hashes']) | set(actual))
+          bad=[(k,d['source_hashes'].get(k),actual.get(k)) for k in keys if d['source_hashes'].get(k)!=actual.get(k)]
+          print(json.dumps({'mismatch_count':len(bad),'mismatches':bad},indent=2))
+          PY
       - name: Verify frozen bridge implementation
         working-directory: frozen
         run: |
