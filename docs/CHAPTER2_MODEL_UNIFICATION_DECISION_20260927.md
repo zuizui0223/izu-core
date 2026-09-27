@@ -76,6 +76,21 @@ The finite ABM also showed mixed signs in all three fixed-richness contexts. In 
 
 This does not imply that finite demography is unimportant. In the full 19,968-case island campaign, ABM–density sign disagreement is nonzero in nearly every trajectory family and is large in chronology, life-history, assurance and recovery conditions. The reduction audit identifies the upstream branch; the full campaign shows how finite demography can subsequently alter realized trajectories.
 
+Across the frozen full-campaign summary, mean ABM–density sign-disagreement fractions by family are:
+
+| family | mean sign disagreement | maximum |
+|---|---:|---:|
+| scaling | 0.053 | 0.195 |
+| connectivity | 0.258 | 0.340 |
+| transport | 0.274 | 0.445 |
+| initialization | 0.293 | 0.293 |
+| chronology | 0.453 | 0.945 |
+| assurance | 0.468 | 1.000 |
+| life history | 0.487 | 0.996 |
+| recovery | 0.499 | 1.000 |
+
+These fractions are descriptive cell-level diagnostics from the frozen synthetic campaign, not natural frequencies. They show that the deterministic distribution is a genuine mechanistic comparator rather than a trivial smoothing of the ABM.
+
 ## What the unified model now answers
 
 | Chapter 2 question | Model 3 level | Current answer |
