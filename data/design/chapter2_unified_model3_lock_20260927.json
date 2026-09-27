@@ -32,19 +32,19 @@
     "result": "data/results/model3_unified_reduction_audit_frozen_20260927.json",
     "workflow_run_id": 36294376577,
     "conclusion": "success",
-    "decision": "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls",
+    "decision": "model2_not_required_as_active_scientific_model_or_control_gate",
     "scope": {
       "answered": [
         "branching_can_exist_before_demographic_stochasticity_under_fixed_visitor_composition",
         "visitor_composition_changes_response_at_fixed_functional_type_count",
         "deterministic_genotype_density_can_retain_branching_under_controlled_compositions",
+        "natural_isolation_density_is_directional_while_finite_abm_can_be_mixed",
+        "response_blind_dynamic_realized_richness_matching_inside_Model3",
+        "finite_visitor_community_effect_separated_from_finite_plant_population_inside_Model3",
         "finite_demography_modifies_realized_trajectories",
         "history_assurance_connectivity_and_recovery_modify_realization"
       ],
-      "not_answered": [
-        "response_blind_dynamic_realized_richness_matching_inside_Model3",
-        "finite_visitor_community_effect_separated_from_finite_plant_population_inside_Model3"
-      ]
+      "not_answered": []
     }
   },
   "legacy_model2_disposition": {
