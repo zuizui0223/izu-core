@@ -97,7 +97,7 @@ The final prospective bridge resolves the two original Chapter 2 controls that h
 
 The biological hierarchy is therefore:
 
-> **visitor amount/richness sets the coarse mean regime; finite visitor composition/history and finite plant demography are separate mechanisms controlling how much directional heterogeneity is realized.**
+> **visitor amount/richness sets the coarse mean regime; finite visitor composition/history and finite plant demography are separate mechanisms controlling how much directional heterogeneity is realized.** Finite-ABM history labels are themselves stochastic: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0, so they are not interpreted as stable latent lineage classes.
 
 Legacy response-geometry analyses remain useful Supporting Information/provenance, but no longer carry an active scientific gate.
 
