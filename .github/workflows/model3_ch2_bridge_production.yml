@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: model3-ch2-bridge-production
+  group: model3-ch2-bridge-production-final-20260927
   cancel-in-progress: false
 
 jobs:
