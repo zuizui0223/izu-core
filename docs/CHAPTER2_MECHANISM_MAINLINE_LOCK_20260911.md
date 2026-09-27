@@ -5,7 +5,7 @@ Status: active journal-facing narrative contract
 
 ## One-sentence paper
 
-A single nested eco-evolutionary Model 3 shows that pollinator-community composition and starting floral state can generate opposite reproductive-selection branches before demography, that those branches persist under deterministic inheritance, and that finite demography and ecological history further modify which inherited island trajectories are realized.
+A single nested eco-evolutionary Model 3 shows that pollinator-community composition and starting floral state can generate opposite reproductive-selection branches before demography. Those branches can persist under deterministic inheritance in controlled visitor compositions, whereas the stored isolation-driven near-versus-far density contrast is one-directional and finite ABM histories can be mixed. Finite demography and ecological history therefore have regime-dependent roles in which island trajectories are realized.
 
 ## Main inferential spine
 
@@ -13,8 +13,8 @@ The paper is one nested-model argument, not a Model-2-plus-Model-3 comparison an
 
 1. **Pre-demographic branching.** Model 3's fixed-state reproductive assay generates positive and negative selection gradients across starting floral states under the same visitor composition.
 2. **Composition at fixed count.** Different four-type visitor compositions generate different responses, while duplicating the same functional types under fixed total activity is identical to machine precision.
-3. **Deterministic inheritance.** The same reproduction and Mendelian operator propagated as genotype density retains non-uniform inherited trajectories after demographic sampling is removed.
-4. **Finite-population realization.** The ABM retains branching and adds extinction, demographic sampling, ancestry and standing-variation loss; the full campaign shows large ABM–density departures in several ecological families.
+3. **Deterministic inheritance is regime dependent.** Controlled visitor compositions retain non-uniform genotype-density trajectories after demographic sampling is removed, but the stored isolation-driven far-minus-near density effect is one-directional in both cohorts.
+4. **Finite-population realization.** The ABM can retain or re-open heterogeneous realized responses where the corresponding isolation-driven density contrast is one-directional, while also adding extinction, demographic sampling, ancestry and standing-variation loss; repeat-label instability prevents treating mixed fractions as latent branching probabilities.
 5. **Historical/context dependence.** Assurance, chronology, connectivity, recovery, life history and founding conditions determine whether and how conditional responses persist.
 
 The supported route is:
@@ -108,8 +108,8 @@ The Discussion should mirror the mechanism:
 
 1. a recurrent island syndrome need not imply a universal phenotype;
 2. Model 3 branching already exists at the fixed-state ecological/reproductive layer;
-3. the same branching persists under deterministic inheritance, so demographic sampling is not necessary;
-4. finite ABM dynamics can nevertheless change magnitude, sign, persistence and variation relative to the deterministic counterpart;
+3. controlled-composition branching can persist under deterministic inheritance, but the stored isolation-driven deterministic effect is one-directional;
+4. finite ABM dynamics can change magnitude, sign, persistence and variation and can be decisive for heterogeneous realized responses under some isolation regimes;
 5. assurance, chronology, connectivity, recovery and life history explain conditional realization;
 6. legacy Model 2 community-mean and response-rule analyses are robustness limits, not the main mechanism;
 7. real islands populate A and C with propagation, branching, buffering and falsification cases, while the inherited longitudinal B layer remains the main natural-data gap.
@@ -117,7 +117,7 @@ The Discussion should mirror the mechanism:
 ## Figure contract
 
 - **Figure 1:** unified Model 3 hierarchy: fixed-state assay → deterministic genotype distribution → finite ABM.
-- **Figure 2:** prospective reduction audit: starting-state branching, fixed-count composition effect and duplicate-count control.
+- **Figure 2:** branch-capacity and isolation-realization audit: fixed-composition branching, duplicate-count control, and the finite-ABM versus one-directional density isolation contrast.
 - **Figure 3:** full finite-population campaign: ABM versus deterministic density, assurance, chronology, connectivity and recovery.
 - **Figure 4:** real-island A/B/C confrontation: Izu branching, Ogasawara/Xisha propagation, buffering/falsifier cases, C-layer history anchors and the missing B layer.
 - Legacy Model 2 response-rule/S/C/I figures move to Supporting Information; exact-richness and finite-visitor-community figures remain benchmark controls until the Model 3 bridge gates close.
@@ -130,10 +130,10 @@ Allowed:
 
 - pre-demographic starting-state × visitor-composition branching inside Model 3;
 - fixed-count composition dependence and the fixed-total-activity duplicate-type control;
-- persistence of branching in the deterministic genotype-density counterpart;
+- deterministic branch capacity under controlled compositions, together with one-directional density response in the stored isolation contrast;
 - finite-ABM departures from deterministic trajectories in the full island campaign;
 - historical contingency, assurance-dependent persistence, distinct seed/pollinator connectivity routes and bounded inherited-investment trajectories;
-- legacy Model 2 richness/`k`/response-rule results only as model-specific robustness;
+- legacy Model 2 response-rule/S/C/I results as model-specific robustness, with exact-richness and finite-visitor-community results retained as active benchmarks until bridge closure;
 - layer-specific real-island confrontation showing propagation, branching, buffering, counterdirectional response, direct-history anchors and the missing B layer.
 
 Not allowed:
