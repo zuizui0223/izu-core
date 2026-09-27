@@ -33,6 +33,6 @@ def test_renderer_writes_current_canonical_file(tmp_path: Path):
 def test_renderer_fails_closed_for_noncanonical_override(tmp_path: Path):
     broken = tmp_path / "broken.md"
     source = SOURCE.read_text(encoding="utf-8")
-    broken.write_text(source.replace("deterministic genotype-density counterpart", "deterministic comparator", 1), encoding="utf-8")
+    broken.write_text(source.replace(FINAL_TITLE, "Broken title", 1), encoding="utf-8")
     with pytest.raises(ValueError, match="canonical mechanism-mainline contract changed"):
         render_submission_manuscript(broken)
