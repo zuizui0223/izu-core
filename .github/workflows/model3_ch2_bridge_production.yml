@@ -6,7 +6,7 @@ on:
       - codex/integrate-model3-into-ch2
     paths:
       - '.github/workflows/model3_ch2_bridge_production.yml'
-      - 'data/design/model3_ch2_bridge_20260927.json'
+      - 'data/design/model3_ch2_bridge_execution_20260927.json'
       - 'scripts/run_model3_ch2_bridge.py'
       - 'scripts/model3_island_bridge_ops.py'
       - 'scripts/summarize_model3_ch2_bridge_production.py'
@@ -33,56 +33,41 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install repository
+      - name: Restore exact outcome-blind pilot source snapshot
+        run: |
+          unzip -o data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip -d .
+
+      - name: Install restored repository
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e '.[dev]'
 
-      - name: Materialize frozen source bytes cross-platform
+      - name: Verify restored source identity and execution amendment
         run: |
           mkdir -p bridge_artifact
           python - <<'PY'
-          import hashlib, json
+          import json
           from pathlib import Path
-
-          design = json.loads(Path("data/design/model3_ch2_bridge_20260927.json").read_text())
-          report = []
-          for rel, expected in design["source_hashes"].items():
-              path = Path(rel)
-              raw = path.read_bytes()
-              lf = raw.replace(b"\r\n", b"\n")
-              crlf = lf.replace(b"\n", b"\r\n")
-              candidates = {
-                  "raw": raw,
-                  "lf": lf,
-                  "crlf": crlf,
-              }
-              hits = [name for name, data in candidates.items()
-                      if hashlib.sha256(data).hexdigest() == expected]
-              if not hits:
-                  raise SystemExit(f"{rel}: frozen hash cannot be materialized from raw/LF/CRLF")
-              chosen = "raw" if "raw" in hits else hits[0]
-              if raw != candidates[chosen]:
-                  path.write_bytes(candidates[chosen])
-              report.append({
-                  "path": rel,
-                  "expected_sha256": expected,
-                  "materialization": chosen,
-                  "raw_sha256": hashlib.sha256(raw).hexdigest(),
-              })
-
-          Path("source_line_ending_materialization.json").write_text(
-              json.dumps(report, indent=2) + "\n"
-          )
-
           from scripts.run_model3_ch2_bridge import sources
+
+          d = json.loads(Path("data/design/model3_ch2_bridge_execution_20260927.json").read_text())
           actual = sources()
-          if actual != design["source_hashes"]:
-              bad = {k: [design["source_hashes"].get(k), actual.get(k)]
-                     for k in sorted(set(design["source_hashes"]) | set(actual))
-                     if design["source_hashes"].get(k) != actual.get(k)}
-              raise SystemExit(f"source identity still differs after materialization: {bad}")
-          print(json.dumps(report, indent=2))
+          bad = {k: [d["source_hashes"].get(k), actual.get(k)]
+                 for k in sorted(set(d["source_hashes"]) | set(actual))
+                 if d["source_hashes"].get(k) != actual.get(k)}
+          if bad:
+              raise SystemExit(f"restored frozen source identity differs: {bad}")
+          a = d["execution_integrity_amendment"]
+          assert a["biological_parameters_changed"] is False
+          assert a["intervention_definition_changed"] is False
+          assert a["seeds_changed"] is False
+          assert a["thresholds_changed"] is False
+          assert a["analysis_contract_changed"] is False
+          assert a["scientific_outcomes_inspected_before_amendment"] is False
+          Path("bridge_artifact/execution_integrity_amendment.json").write_text(
+              json.dumps(a, indent=2) + "\n"
+          )
+          print(json.dumps(a, indent=2))
           PY
 
       - name: Verify prospective bridge contracts
@@ -116,7 +101,7 @@ jobs:
           set +e
           CAMPAIGN_DIR="${RUNNER_TEMP}/model3_ch2_bridge_production"
           python -m scripts.run_model3_ch2_bridge \
-            --design data/design/model3_ch2_bridge_20260927.json \
+            --design data/design/model3_ch2_bridge_execution_20260927.json \
             --output "${CAMPAIGN_DIR}" | tee bridge_run_stdout.txt
           code=${PIPESTATUS[0]}
           echo "${code}" > bridge_campaign_exit_code.txt
@@ -124,7 +109,6 @@ jobs:
 
           mkdir -p bridge_artifact
           cp bridge_environment.json bridge_artifact/
-          cp source_line_ending_materialization.json bridge_artifact/
           cp bridge_run_stdout.txt bridge_artifact/
           cp bridge_campaign_exit_code.txt bridge_artifact/
           if [ -f "${CAMPAIGN_DIR}/campaign_status.json" ]; then cp "${CAMPAIGN_DIR}/campaign_status.json" bridge_artifact/; fi
@@ -143,7 +127,7 @@ jobs:
         run: |
           CAMPAIGN_DIR="${RUNNER_TEMP}/model3_ch2_bridge_production"
           python -m scripts.summarize_model3_ch2_bridge_production \
-            --design data/design/model3_ch2_bridge_20260927.json \
+            --design data/design/model3_ch2_bridge_execution_20260927.json \
             --campaign "${CAMPAIGN_DIR}" \
             --output bridge_artifact/model3_ch2_bridge_production_summary.json \
             | tee bridge_artifact/bridge_summary_stdout.txt
