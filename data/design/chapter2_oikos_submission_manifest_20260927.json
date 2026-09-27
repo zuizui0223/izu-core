@@ -83,11 +83,10 @@
   },
   "legacy_model2": {
     "status": "supporting_information_and_provenance_only",
-    "active_benchmarks": [
-      "exact_realized_richness_matching",
-      "synthetic_k_finite_visitor_community_pooling"
-    ],
+    "active_benchmarks": [],
     "supporting_only": [
+      "exact_realized_richness_matching",
+      "synthetic_k_finite_visitor_community_pooling",
       "heuristic_response_rule_factorial",
       "historical_SCI_decomposition",
       "community_mean_limit"
@@ -124,7 +123,7 @@
     "deterministic_branching": "demonstrated_under_controlled_compositions_not_under_stored_isolation_effect",
     "isolation_finite_abm_branching": "descriptive_with_repeat_instability_not_latent_probability",
     "dynamic_richness_control_reproduced_in_model3": true,
-    "finite_visitor_community_control_reproduced_in_model3": false,
+    "finite_visitor_community_control_reproduced_in_model3": true,
     "finite_visitor_control_reproduced_in_model3": true,
     "finite_plant_control_reproduced_in_model3": true,
     "model2_active_gate": false,
@@ -143,8 +142,6 @@
   "submission_ready": false,
   "remaining_before_actual_submission": [
     "regenerate_unified_model3_bridge_figures",
-    "execute_or_explicitly_defer_the_frozen_Model3_original_Ch2_bridge_campaign",
-    "regenerate_unified_model3_figures",
     "regenerate_and_validate_supporting_information",
     "pass_full_CI_and_fail_closed_submission_audits",
     "final_author_order_and_affiliations",
