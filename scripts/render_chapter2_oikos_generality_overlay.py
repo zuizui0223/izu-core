@@ -63,7 +63,7 @@ def render_submission_manuscript() -> str:
         "same visitor composition favour opposite reproductive responses",
         "maximum left-versus-right difference in fixed-state total gradient was `2.3768`",
         "1.78e-15",
-        "demographic stochasticity is therefore not necessary for response branching",
+        "demographic stochasticity is therefore not necessary for response branching under these controlled visitor compositions",
         "early visitor absence",
         "reproductive assurance changed whether an endpoint existed",
         "seed immigration modifies demographic and genetic input",
