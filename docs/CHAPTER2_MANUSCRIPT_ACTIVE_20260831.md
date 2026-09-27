@@ -45,9 +45,11 @@ Natural evidence enters only after the synthetic objects and claim boundaries ar
 
 The Izu secondary-data stress test is likewise deliberately asymmetric. We retain support when functional exposure predicts corrected trait matching, but also retain instability or failure when matching-to-pollen effects are not leave-one-island sign stable, historical signed-position projections fail null correction, or a bridge-state geographic contrast is not independently identified. The natural layer therefore constrains interpretation rather than selecting synthetic parameters.
 
-No conclusion in the current paper requires field confirmation of the synthetic rank crossover. A future same-unit transition-linked study could test transport of the frozen architecture, but it cannot retrospectively define the present mechanism.
+No conclusion in the current paper requires field confirmation of the synthetic model. The legacy synthetic rank crossover is retained only as Supporting Information robustness. A future same-unit transition-linked study could test transport of the unified Model 3 architecture, but it cannot retrospectively define the present mechanism.
 
-## Synthetic pollinator environments and matching
+## Legacy reduced response-geometry robustness methods (Supporting Information)
+
+### Synthetic pollinator environments and matching
 
 The baseline mainland-like scenario contained nine pollinator types, partner arrival probability 0.28, partner loss probability 0.015, trait dispersion 0.22, generalist fraction 0.35 and replacement fraction 0.05. The island-like scenario contained four pollinator types, partner arrival probability 0.12, partner loss probability 0.055, trait dispersion 0.16, generalist fraction 0.58 and replacement fraction 0.22. Generalist breadth was 0.42 and specialist breadth 0.16. Replacement partners received a multiplicative effectiveness penalty of 0.82.
 
@@ -59,7 +61,7 @@ Under a fixed visitation budget, total service depended on mean extant-partner m
 
 `service = 1 - exp(-saturation × mean_match)`.
 
-## Community interaction kernel and response coordinate
+### Community interaction kernel and response coordinate
 
 For environment `E`, plant state `x` and extant pollinator `j`, the match contribution is
 
@@ -69,23 +71,23 @@ where `p_Ej` and `b_Ej` are pollinator position and breadth and `a_Ej` is the re
 
 With active trait adjustment, the final plant state depends on the realized pollinator trajectory. The response coordinate is therefore relational: it compares the endpoint island-like and mainland-like kernels at their trajectory-conditioned plant states. Conditional on a realized pollinator trajectory, plant-state motion is deterministic.
 
-## Matched response geometry
+### Matched response geometry
 
 Starting positions were evaluated on a 21-point grid from 0 to 1. Within each realization, all starting positions experienced the same mainland-like and island-like pollinator trajectories. We generated 96 matched community realizations. A realization was mixed-sign when at least one starting position had a positive response and at least one had a negative response.
 
 A fixed 48-point Latin-hypercube design varied ten perturbation and matching dimensions. The fraction of starting positions with negative mean response was regressed on all ten centered and range-scaled parameters in one prespecified additive model. No post-hoc model selection was used.
 
-## Starting-state × community-realization decomposition
+### Starting-state × community-realization decomposition
 
 For each 21 × 96 response matrix, total sum of squares was partitioned exactly into a starting-position additive component, a community-realization additive component and a starting-position × community non-additive remainder. Because each trajectory is generated once and shared across all starting positions, the non-additive remainder is not within-cell Monte Carlo noise.
 
-## Realized-richness controls
+### Realized-richness controls
 
 Two controls were used. First, initial richness was equalized while retaining subsequent differences in loss and arrival. Second, a stronger hard control matched realized richness at every simulated step by uniformly subsampling only the larger of each mainland-like/island-like community pair to the smaller realized richness. Subsampling was response-blind and independent of plant state and pollinator traits. Six matching seeds were prespecified.
 
 A separate equal-turnover control set island-like partner-arrival and partner-loss rates to the frozen mainland baseline while retaining all other scenario differences. Equalizing the baseline mainland–island partner-arrival and partner-loss rates therefore tests the necessity of the turnover-rate asymmetry specifically; it does not make the two scenarios identical.
 
-## Finite-community system-size audit
+### Finite-community system-size audit
 
 The finite-community stochastic formulation was retained because among-realization community variation is itself a focal component. A deterministic mean-field reduction would average over community-realization variation by construction.
 
@@ -93,7 +95,7 @@ We pooled `k={1,2,4,8,16}` independent copies of mainland-like and island-like c
 
 For the zero-adjustment submodel, exact terminal count and kernel moments were computed and branch-class probability was approximated with a multivariate Gaussian. This is not presented as an exact Fokker–Planck or full linear-noise solution.
 
-## Downstream modifiers
+### Downstream modifiers
 
 Local context was represented as availability and interaction filtering. Filtering strengths were 0, 0.10, 0.25, 0.40, 0.50, 0.60 and 0.75. Autonomous reproductive assurance was varied independently from 0× to 4×. Upstream effective service was required to remain invariant across assurance multipliers before interpreting downstream reproductive changes.
 
@@ -182,30 +184,27 @@ The confrontation therefore establishes two things simultaneously. First, intera
 
 # Discussion
 
-## Community reorganization has two separable consequences
+## Non-uniformity begins before demographic stochasticity
 
-The first result is a separation of ensemble displacement from lineage-level branch identity. Exact realized-richness matching moved the ensemble mean geometry decisively, demonstrating that richness can control the coarse opportunity regime. Yet mixed responses and large state × community non-additivity persisted after realized richness was equalized. Richness therefore changes where the response distribution sits without uniquely determining which side of that distribution an individual lineage occupies.
+The prospective unified reduction audit places the first branch upstream of demography. Under one fixed visitor composition, different starting access states can have opposite reproductive-selection gradients. This is strongest in the symmetric `left4`/`right4` comparison: the sign at access 0.20 is reversed at access 0.80. Because inheritance and population updating are absent from this assay, neither drift nor extinction can be the source of this initial non-uniformity.
 
-This distinction matters for interpreting island syndromes. Comparative island ecology often asks whether insularity shifts a trait or reproductive strategy on average, and such mean shifts can be real (Grossenbacher et al., 2017; Hetherington-Rauth & Johnson, 2020). Our result identifies a different inferential level: an ensemble tendency does not imply a deterministic lineage-level rule. The same island-like community reorganization can produce opposing responses because plant state is evaluated against a realized interaction environment rather than against richness alone.
+Composition rather than functional-type count is sufficient for this branch under the declared fixed-total-activity operator. `left4`, `right4` and `center4` each contain four functional types but generate different selection gradients. Duplicating the `left4` types to eight entries leaves the operator unchanged to machine precision. This control should not be generalized into a claim that field richness is irrelevant; it shows only that the branch does not require count differences in the unified model.
 
-The result is also not that richness is irrelevant. Realized richness helps position the ensemble mean regime, whereas realized composition and starting state determine much of the within-regime response geometry. Treating these as separate operations avoids forcing richness, composition and lineage state into one undifferentiated explanation.
+## Deterministic inheritance retains the branch
 
-## The rank of ecological determinants is itself conditional
+Removing demographic sampling does not restore one island trajectory. The discrete genotype-density counterpart uses the same pollen-transfer, selfing/outcrossing, offspring-viability and Mendelian inheritance rules as the ABM, conditional on the same visitor composition. Mixed positive and negative inherited investment changes persist across starting states in all three four-type contexts.
 
-The strongest new result is that the hierarchy of determinants changes as community stochasticity is reduced. In the baseline finite-community regime, community realization dominates much of the additive variance. Under active-adjustment system-size pooling, starting-state share rises and community-realization share falls until their ordering reverses in every prespecified seed from `k=4` onward.
+This deterministic object is not the same limit as the legacy response-geometry mean-field. The legacy limit averages external community realization and therefore removes one source of ecological heterogeneity; the Model 3 density counterpart instead retains the declared visitor composition/history and removes only demographic sampling. Their different branching behavior is therefore expected and clarifies which source of stochasticity is being removed.
 
-This does not identify a universal threshold at `k=4`. Synthetic `k` pools independent pollinator trajectories; it is not visitor richness, Hill diversity or a directly observable island-system coordinate. What is transferable is the qualitative statement that the dominant source of response variation need not be fixed. A factor that appears primary in one ecological regime can become secondary in another without changing the underlying response operator.
+## Finite demography modifies rather than creates branching
 
-That point is broader than the particular island contrast used here. Variance partitioning is often read as if the largest component identifies a stable property of the system. Our system-size audit shows why that interpretation can fail when one component is generated by finite sampling of an interaction community. As stochastic compositional variation contracts, previously masked differences among starting states become increasingly important. The ecological question is therefore not only *which factor matters most?* but *under what sampling regime does each factor become dominant?*
+In the simple reduction audit, mean ABM and deterministic-density response signs agree in every evaluable cell, showing that finite demography is not needed to create the branch. The full island campaign, however, shows substantial ABM–density sign disagreement in chronology, life-history, assurance, connectivity and recovery conditions. Finite populations therefore change how an upstream branch is realized through stochastic recruitment, extinction, standing-variation loss, self-exclusion and nonlinear density regulation.
 
-The zero-adjustment asymptotic analysis adds a second boundary. Finite-community branching persists well beyond the disappearance of empty-community events and remains closely reproduced by second-order Gaussian structure at `k=16`, but the deterministic mean-field contrast is all-positive. Thus branching is genuinely finite-community in the asymptotic sense while remaining ecologically broad across intermediate finite regimes. This separates a finite-community mechanism from a trivial rare-extinction artefact.
+This nested comparison changes the interpretation of 'context dependence'. Starting state × visitor composition determines a pre-demographic selective direction; deterministic inheritance shows its expected evolutionary propagation; and finite demography determines which of those trajectories remain observable and with what magnitude. These are successive reductions of one model, not separate explanations.
 
-## Downstream modifiers occupy different causal positions
+### Legacy response-geometry robustness
 
-Local filtering and reproductive assurance do not simply add more context to the same mechanism. They operate at different positions in the response chain. Filtering changes which interaction opportunities remain locally available and can therefore reallocate response branches. Assurance acts after effective service and changes reproductive magnitude without sign rescue in the tested envelope.
-
-This ordering matters because otherwise several biologically distinct processes can be collapsed into the phrase “context dependence.” In the present architecture, turnover and richness help move the coarse geometry, realized composition and starting state allocate branches within it, local filtering can reallocate those branches, and assurance changes downstream magnitude. The distinction parallels empirical island systems in which pollinator-network restructuring, functional compensation and mating-system responses can occur together but need not represent the same causal step (Inoue & Amano, 1986; Hiraiwa & Ushimaru, 2017, 2024; Andrews et al., 2022).
-
+Exact realized-richness matching, synthetic `k` pooling, S/C/I decompositions and heuristic response-rule factorials remain useful robustness analyses for the earlier abstract response geometry. They are retained as Supporting Information because they probe a different community-averaging question, not because Chapter 2 requires a second mechanistic model.
 ## Demography turns functional branching into historical contingency
 
 The unified reduction audit establishes that one Model 3 operator already creates multiple functional/reproductive branches before demographic updating, and that these branches persist under deterministic inheritance. The finite ABM adds a distinct statement: even after the same branch enters reproduction and inheritance, the endpoint is not determined by the current pollination environment alone. Timing of visitor loss, reproductive assurance, life history, connectivity and finite demographic sampling alter persistence and inherited investment trajectories.
@@ -227,7 +226,7 @@ A future same-block visitor exposure → single-visit effectiveness → reproduc
 
 ## Island syndrome as a shifted response distribution
 
-Together, the two model layers support a functional-and-historical interpretation of island syndromes. Insularity can shift the distribution of functional responses without imposing one phenotype on every lineage, and reproduction plus demography can preserve different inherited trajectories even when final environments converge. The syndrome is therefore better treated as a recurrent functional regime with conditional phenotypic realization than as one universal island phenotype.
+Together, the nested Model 3 levels support a functional-and-historical interpretation of island syndromes. Insularity can impose a recurrent functional pressure without one phenotype because matching generates state-dependent selection before demography, deterministic inheritance preserves that non-uniformity, and finite demography/history can further separate realized trajectories. The syndrome is therefore better treated as a recurrent functional regime with conditional phenotypic realization than as one universal island phenotype.
 
 The more general implication is that ecological heterogeneity has structure. When communities are small and stochastic, among-lineage variation may be dominated by which partners happen to be realized. As community sampling stabilizes, differences among starting states can become more important while relational non-additivity remains substantial. The source of among-lineage variation is therefore itself a biological quantity that can change across regimes.
 
