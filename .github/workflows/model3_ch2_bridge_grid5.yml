@@ -1,11 +1,7 @@
 name: Model 3 Chapter 2 bridge grid5
 
 on:
-  push:
-    branches:
-      - codex/integrate-model3-into-ch2
-    paths:
-      - '.github/workflows/model3_ch2_bridge_grid5.yml'
+  workflow_dispatch:
 
 jobs:
   bridge:
