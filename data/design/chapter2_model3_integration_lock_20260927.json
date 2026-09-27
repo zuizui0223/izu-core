@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "locked_on": "2026-09-27",
+  "status": "active_superseding_chapter2_two_model_integration",
+  "purpose": "Integrate Model 3 into dissertation Chapter 2 and the active Chapter 2 manuscript without rewriting historical frozen simulation results.",
+  "supersession": {
+    "chapter_architecture": [
+      "data/design/chapter2_simulation_metadata_completion_lock_20260912.json",
+      "data/design/chapter2_active_manuscript_mainline_20260827.json"
+    ],
+    "rule": "Historical files remain provenance. This lock supersedes them only for current Chapter 2 architecture, manuscript scope, and completion/submission-state interpretation."
+  },
+  "canonical_question": "Why can a recurrent island functional syndrome coexist with non-uniform floral trajectories, and under what reproductive and demographic conditions are those trajectories realized?",
+  "chapter2_models": {
+    "model2": {
+      "role": "conditional_interaction_response_geometry",
+      "core": "starting_state_x_realized_community_with_richness_and_response_rule_dependence",
+      "retained_boundary": "synthetic_response_geometry_not_natural_threshold"
+    },
+    "model3": {
+      "role": "demographic_evolutionary_realization",
+      "completed_cases": 19968,
+      "design_cells": 80,
+      "heldout_rows": 6,
+      "evidence": [
+        "history_can_change_inherited_investment_under_common_final_environment",
+        "reproductive_assurance_can_determine_whether_terminal_evolutionary_endpoint_exists",
+        "seed_and_pollinator_connectivity_are_distinct_routes",
+        "shared_component_ordering_does_not_guarantee_marginal_trait_transport"
+      ],
+      "retained_boundary": "model_conditional_not_calibrated_natural_rates_extinction_probabilities_or_trait_specific_forecasts"
+    }
+  },
+  "chapter_claim": "A recurrent island functional syndrome can coexist with non-uniform phenotypic outcomes because conditional interaction responses are further filtered by reproduction, assurance, connectivity, demographic history and finite-population dynamics.",
+  "chapter1_bridge": "Chapter 1 identifies recurrent functional core plus context-dependent display; Chapter 2 explains conditional branching and its demographic/evolutionary realization.",
+  "chapter3_boundary": "Chapter 3 retains direct focal Campanula phenotype ownership; Chapter 3 values do not tune, rescue or retrospectively validate Models 2 or 3.",
+  "field_gate": {
+    "new_focal_field_data_required_for_chapter2": false,
+    "izu_e3_e4_role": "future_independent_falsification_and_transport"
+  },
+  "publication_state": {
+    "thesis_chapter_scope": "integrated",
+    "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+    "submission_gate": "reopened_for_model3_integration_assets",
+    "required_before_submission": [
+      "reconcile_Model3_text_with_current_numerical_qualification",
+      "add_or_select_Model3_figure_4_and_renumber_metadata_figure",
+      "update_supporting_information_and_renderers",
+      "rerun_manuscript_and_submission audits",
+      "then_resolve_author_metadata_and_declarations"
+    ]
+  },
+  "primary_sources": [
+    "docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md",
+    "docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md",
+    "docs/MODEL3_ISLAND_NUMERICAL_REVIEW_20260927.md",
+    "data/results/model3_island_v2_completion.json",
+    "data/results/model3_island_v2_summary/review_compact.json"
+  ],
+  "prohibited": [
+    "single_universal_island_phenotype",
+    "natural_calibration_of_model2_k_or_model3_time",
+    "model3_extinction_frequency_as_natural_extinction_probability",
+    "model3_investment_coordinate_as_an_identified_specific_field_trait",
+    "historical_bombus_causation",
+    "chapter1_regions_assigned_to_model_parameter_cells",
+    "chapter3_phenotype_used_as_model_validation"
+  ]
+}
