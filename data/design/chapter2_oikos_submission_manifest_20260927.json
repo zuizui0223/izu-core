@@ -1,9 +1,9 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "updated_on": "2026-09-27",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
-  "routing_status": "active_scientific_route_submission_package_reopened",
+  "routing_status": "active_scientific_route_bridge_controls_open_submission_package_reopened",
   "fallback_route": "Journal of Ecology Research Article",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
@@ -11,8 +11,8 @@
   "chapter1_bridge": "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md",
   "model_unification_decision": "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
   "real_island_projection": "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
-  "scientific_state": "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation",
-  "story": "fixed_state_selection_to_deterministic_inheritance_to_finite_realization_to_real_island_ABC_confrontation",
+  "scientific_state": "unified_model3_core_mechanism_with_open_original_ch2_bridge_controls",
+  "story": "controlled_branch_capacity_to_isolation_realization_to_history_plus_real_island_ABC_confrontation",
   "unified_model3": {
     "fixed_state_assay": "pre_demographic_selection_branching",
     "deterministic_density": "same_reproduction_and_mendelian_inheritance_without_demographic_sampling",
@@ -30,14 +30,16 @@
   "prospective_unification_audit": {
     "design": "data/design/model3_unified_reduction_audit_20260927.json",
     "result": "data/results/model3_unified_reduction_audit_frozen_20260927.json",
-    "decision": "model2_not_required_as_independent_mechanistic_model",
+    "decision": "model2_not_required_as_separate_biological_mechanism_but_legacy_controls_not_fully_redundant",
     "fixed_state_branching": true,
     "deterministic_density_branching": true,
     "finite_abm_branching": true,
     "fixed_count_composition_effect_max": 2.376790538658976,
     "deterministic_composition_effect_max": 0.1891238981505859,
     "duplicate_count_control_max_abs_error": 1.7763568394002505e-15,
-    "simple_reduction_density_abm_sign_agreement": 1
+    "simple_reduction_density_abm_sign_agreement": 1,
+    "scope": "controlled_fixed_composition_branch_capacity",
+    "isolation_driven_equivalence_established": false
   },
   "full_model3_campaign": {
     "cases": 19968,
@@ -80,10 +82,12 @@
     "interpretation": "recurrent_function_does_not_require_phenotypic_convergence"
   },
   "legacy_model2": {
-    "status": "supporting_information_and_provenance_only",
-    "retained": [
+    "status": "not_separate_biological_mechanism_but_two_controls_remain_active_benchmarks",
+    "active_benchmarks": [
       "exact_realized_richness_matching",
-      "synthetic_k_pooling",
+      "synthetic_k_finite_visitor_community_pooling"
+    ],
+    "supporting_only": [
       "heuristic_response_rule_factorial",
       "historical_SCI_decomposition",
       "community_mean_limit"
@@ -116,19 +120,27 @@
     "natural_branch_prevalence_estimated": false,
     "chapter1_regions_assigned_to_model_cells": false,
     "historical_bombus_causation_identified": false,
-    "cross_sectional_morphology_treated_as_B_layer": false
+    "cross_sectional_morphology_treated_as_B_layer": false,
+    "deterministic_branching": "demonstrated_under_controlled_compositions_not_under_stored_isolation_effect",
+    "isolation_finite_abm_branching": "descriptive_with_repeat_instability_not_latent_probability",
+    "dynamic_richness_control_reproduced_in_model3": false,
+    "finite_visitor_community_control_reproduced_in_model3": false
   },
   "current_submission_state": {
-    "scientific_question_closed": true,
+    "scientific_question_closed": false,
+    "core_mechanism_defined": true,
+    "original_ch2_control_equivalence_closed": false,
     "new_field_data_required": false,
-    "manuscript_rewritten": true,
-    "supporting_information_rewrite_in_progress": true,
+    "model3_bridge_campaign_required_for_original_control_equivalence": true,
+    "manuscript_rewrite_in_progress": true,
     "figures_need_regeneration": true,
     "renderers_and_fail_closed_audits_need_final_pass": true,
     "author_metadata_after_scientific_package_pass": true
   },
   "submission_ready": false,
   "remaining_before_actual_submission": [
+    "execute_or_explicitly_defer_the_frozen_Model3_original_Ch2_bridge_campaign",
+    "resolve_dynamic_realized_richness_and_finite_visitor_community_controls",
     "regenerate_unified_model3_figures",
     "regenerate_and_validate_supporting_information",
     "pass_full_CI_and_fail_closed_submission_audits",
@@ -141,5 +153,36 @@
     "review_ethics_statement_for_accuracy",
     "explicit_submission_declarations"
   ],
-  "submission_route_firewall": "docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md"
+  "submission_route_firewall": "docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md",
+  "model3_transport_reaudit": {
+    "source": "data/results/model3_ch2_bridge_20260927.json",
+    "cases_checked": 3072,
+    "production_individual_isolation_mixed_eps0": "22_of_128",
+    "heldout_individual_isolation_mixed_eps0": "30_of_128",
+    "production_density_isolation_mixed_eps0": "0_of_128",
+    "heldout_density_isolation_mixed_eps0": "0_of_128",
+    "production_repeat_label_disagreement_eps0": "41_of_128",
+    "heldout_repeat_label_disagreement_eps0": "48_of_128",
+    "interpretation": "controlled deterministic branch capacity does not imply deterministic branching under isolation-driven visitor assembly"
+  },
+  "model3_original_ch2_bridge": {
+    "design": "data/design/model3_ch2_bridge_20260927.json",
+    "cases": 24576,
+    "status": "frozen_resource_pilot_passed_production_not_completed",
+    "open_questions": [
+      "response_blind_dynamic_realized_richness_matching",
+      "finite_visitor_community_sampling_separate_from_finite_plant_population"
+    ],
+    "arms": [
+      "near",
+      "far",
+      "matched_near",
+      "matched_far",
+      "pool_near",
+      "pool_far",
+      "large_near",
+      "large_far"
+    ],
+    "preferred_outcome_required": false
+  }
 }
