@@ -7,15 +7,15 @@ DOC = ROOT / "docs/CHAPTER2_SIMULATION_METADATA_COMPLETION_20260912.md"
 THESIS = ROOT / "THESIS_CHAPTER_POSITIONING.md"
 README = ROOT / "README.md"
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
-FIGURES = ROOT / "scripts/generate_chapter2_manuscript_figures_realized_richness.py"
-MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
+LEGACY_FIGURES = ROOT / "scripts/generate_chapter2_manuscript_figures_realized_richness.py"
+MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260927.json"
 WORLD = ROOT / "data/results/chapter2_global_master_manuscript_value_review_audit_20260906.json"
 IZU = ROOT / "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
 WANSHAN = ROOT / "data/results/wanshan_yongxing/effect_rows.json"
 OGASAWARA = ROOT / "data/results/ogasawara/context_analysis/effect_rows.json"
 
 
-def test_completion_lock_requires_no_new_focal_data() -> None:
+def test_historical_completion_lock_requires_no_new_focal_data() -> None:
     data = json.loads(LOCK.read_text(encoding="utf-8"))
     assert data["status"] == "chapter2_complete_without_new_focal_data"
     basis = data["completion_basis"]
@@ -25,7 +25,7 @@ def test_completion_lock_requires_no_new_focal_data() -> None:
     assert basis["additional_world_search_required"] is False
 
 
-def test_metadata_layer_is_constraint_not_full_validation() -> None:
+def test_historical_metadata_layer_is_constraint_not_full_validation() -> None:
     data = json.loads(LOCK.read_text(encoding="utf-8"))
     m1 = data["metadata_evidence_stack"]["M1_formal_source_audit"]
     assert m1["full_outcome_independent_contracts"] == "0_of_25"
@@ -33,7 +33,7 @@ def test_metadata_layer_is_constraint_not_full_validation() -> None:
     assert data["claim_ceiling"]["metadata_counts_as_full_mechanism_validation"] is False
 
 
-def test_completion_lock_matches_frozen_world_and_izu_audits() -> None:
+def test_historical_completion_lock_matches_world_and_izu_audits() -> None:
     data = json.loads(LOCK.read_text(encoding="utf-8"))
     world = json.loads(WORLD.read_text(encoding="utf-8"))
     izu = json.loads(IZU.read_text(encoding="utf-8"))
@@ -50,7 +50,7 @@ def test_completion_lock_matches_frozen_world_and_izu_audits() -> None:
     assert m4["historical_signed_position_null_corrected_supported"] is izu["izu_current_evidence"]["signed_position"]["null_corrected_supported"]
 
 
-def test_source_native_external_composition_examples_match_manuscript_numbers() -> None:
+def test_source_native_external_composition_examples_remain_frozen_provenance() -> None:
     wanshan = json.loads(WANSHAN.read_text(encoding="utf-8"))
     ogasawara = json.loads(OGASAWARA.read_text(encoding="utf-8"))
     w = {row["effect_id"]: row for row in wanshan["effects"]}
@@ -64,46 +64,45 @@ def test_source_native_external_composition_examples_match_manuscript_numbers() 
     assert o["ogasawara_anijima_partner_turnover"]["causal_claim_allowed"] is False
 
 
-def test_oikos_manifest_already_demotes_field_completion_gate() -> None:
+def test_active_oikos_manifest_uses_unified_model3_and_no_field_completion_gate() -> None:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["claim_ceiling"]["field_e3_e4_required_for_current_paper"] is False
-    assert manifest["world_saturation_and_izu_continuity"]["izu_e3_e4_status"] == "future_optional_validation_not_completion_gate"
-    assert manifest["oikos_initial_submission_contract"]["field_validation_demoted_from_completion_gate"] is True
+    assert manifest["scientific_state"] == "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation"
+    assert manifest["prospective_unification_audit"]["decision"] == "model2_not_required_as_independent_mechanistic_model"
+    assert manifest["real_island_confrontation"]["principal_gap"] == "B_inherited_longitudinal_response_under_measured_visitor_regime"
+    assert manifest["current_submission_state"]["new_field_data_required"] is False
+    assert manifest["formal_natural_evidence_boundary"]["complete_A_to_B_to_C_contracts"] == "0_of_25"
 
 
-def test_human_surfaces_preserve_no_field_completion_rule() -> None:
+def test_human_surfaces_preserve_no_field_completion_rule_and_chapter1_bridge() -> None:
     doc = DOC.read_text(encoding="utf-8")
     thesis = THESIS.read_text(encoding="utf-8")
     readme = README.read_text(encoding="utf-8")
     assert "Chapter 2 is complete without new focal field data" in doc
-    assert "simulation + metadata" in doc
     assert "does **not** require a same-block field chain" in thesis
-    assert "parallel/future validation" in thesis
+    assert "Chapter 1 unresolved-problem handoff" in thesis
+    assert "CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md" in thesis
     assert "not a submission gate or completion criterion" in readme
-    assert "prospective Izu E3/E4 chain is required for Chapter 2 completion" in readme
+    assert "inherited longitudinal layer mostly missing" in readme
 
 
-def test_active_manuscript_contains_metadata_confrontation_not_missing_field_endpoint() -> None:
+def test_active_manuscript_contains_layer_specific_real_island_confrontation() -> None:
     text = MANUSCRIPT.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "## source-audited empirical confrontation" in lower
-    assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
+    assert "## layer-specific confrontation with real island systems" in lower
+    assert "## real islands occupy different stages of the same response architecture" in lower
     assert "21/25" in text and "2/25" in text and "0/25" in text
-    assert "wanshan–yongxing" in lower and "0.980" in text and "−0.105" in text
-    assert "anijima" in lower and "0.682" in text and "−0.315" in text
-    assert "not independent geographic replication or causal island effects" in lower
-    assert "+1.9426" in text and "+2.0590" in text
-    assert "not leave-one-island sign stable" in lower
-    assert "historical signed-position projection was not supported after null correction" in lower
-    assert "post-chapter-2 transport/falsification" in lower
-    assert "not a completion gate" in lower
+    assert "all eight shared oshima-to-post targets" in lower
+    assert "four lower and four higher" in lower
+    assert "three shorter, four longer and one unchanged" in lower
+    assert "same-direction propagation case" in lower
+    assert "counterdirectional case" in lower
+    assert "the main natural-data gap" in lower
+    assert "inherited longitudinal" in lower
 
 
-def test_figure4_ends_on_existing_metadata_not_missing_field_work() -> None:
-    text = FIGURES.read_text(encoding="utf-8")
+def test_legacy_figure4_generator_remains_provenance_until_unified_figures_are_regenerated() -> None:
+    text = LEGACY_FIGURES.read_text(encoding="utf-8")
     assert "Source-native composition ≠ richness" in text
     assert "Existing Izu stress test" in text
     assert '"figure4_external_systems": ["wanshan_yongxing", "ogasawara_anijima"]' in text
     assert "metadata_confrontation_and_empirical_claim_ceiling" in text
-    assert "post-Chapter-2 transport/falsification" in text
-    assert "future_optional_validation" not in text
