@@ -82,6 +82,20 @@ Two old Chapter 2 questions are still open inside Model 3:
 
 A frozen prospective bridge design addresses these with richness-matched, visitor-pooled and larger-capacity controls. Until it is executed, the legacy Model 2 exact-richness and synthetic-`k` analyses remain active benchmark evidence, not merely historical decoration.
 
+## Direct decomposition of the Chapter 1 isolation axis
+
+The frozen Model 3 connectivity factorial makes the Chapter 1 macroecological isolation axis mechanistically more explicit.
+
+Across all three seed-distance backgrounds, increasing visitor distance from 0 to 3 shifts inherited floral investment downward by `-0.21145`, `-0.20065` and `-0.17282`, while realized selfing rises by approximately `+0.44` in every case.
+
+By contrast, increasing seed distance from 0 to 3 shifts investment upward / makes its decline weaker at every visitor-distance level (`+0.01685`, `+0.01885`, `+0.05548`) and strongly increases retained founder ancestry.
+
+Thus one geographic-isolation coordinate can combine at least two biologically distinct channels with different phenotypic consequences:
+
+> **pollinator isolation repeatedly strengthens reproductive assurance in the frozen model, while seed connectivity, starting state, community composition and history can prevent one detailed floral endpoint.**
+
+This is a post-hoc interpretation of the already frozen connectivity factorial, not a calibrated distance effect. Full details are in `docs/CHAPTER1_MODEL3_ISOLATION_CHANNEL_BRIDGE_20260927.md`.
+
 ## What remains unsolved
 
 Chapter 2 does not reconstruct which exact Model 3 trajectory generated the northern-midlatitude, northern-high-latitude, tropical or southern-extratropical Chapter 1 pattern.
