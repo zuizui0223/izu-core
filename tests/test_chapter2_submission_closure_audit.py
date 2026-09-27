@@ -1,27 +1,27 @@
 from scripts.audit_chapter2_submission_closure import build_audit
 
 
-def test_submission_closure_tracks_unified_model3_science_and_open_package_qa():
+def test_submission_closure_tracks_bridge_complete_science_and_open_package_qa():
     audit = build_audit()
     assert audit["scientific_gate_complete"] is True
     assert audit["unified_model3_locked"] is True
     assert audit["real_island_abc_confrontation_locked"] is True
-    assert audit["scientific_question_closed"] is False
+    assert audit["scientific_question_closed"] is True
     assert audit["field_e3_e4_required"] is False
     assert audit["submission_ready"] is False
 
 
-def test_submission_closure_retains_declared_nonmetadata_blockers_until_figures_and_qa_are_done():
+def test_submission_closure_has_only_package_qa_blockers_before_author_metadata():
     audit = build_audit()
     assert audit["nonmetadata_submission_errors"] == []
     assert audit["nonmetadata_submission_preflight_ready"] is False
     assert set(audit["active_nonmetadata_package_blockers"]) == {
-        "complete frozen Model 3 original-Chapter-2 bridge campaign",
         "regenerate unified Model 3 main figures",
+        "finish and validate unified Supporting Information",
         "pass unified renderers and fail-closed submission audits",
     }
     assert audit["only_author_supplied_metadata_and_confirmations_remain"] is False
-    assert audit["next_transition"].startswith("complete frozen Model 3 original-Chapter-2 bridge campaign")
+    assert audit["next_transition"].startswith("regenerate unified bridge figures/SI")
 
 
 def test_submission_closure_preserves_author_metadata_requirements():
