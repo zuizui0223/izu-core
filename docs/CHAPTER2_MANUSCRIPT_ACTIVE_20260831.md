@@ -97,6 +97,13 @@ For the zero-adjustment submodel, exact terminal count and kernel moments were c
 
 Local context was represented as availability and interaction filtering. Filtering strengths were 0, 0.10, 0.25, 0.40, 0.50, 0.60 and 0.75. Autonomous reproductive assurance was varied independently from 0× to 4×. Upstream effective service was required to remain invariant across assurance multipliers before interpreting downstream reproductive changes.
 
+## Model 3: reproductive and demographic realization
+
+Model 3 was declared prospectively as a separate computational layer and is integrated here without using natural-island outcomes to tune its parameters. Plants carry additive diploid loci for an abstract access/matching trait and floral investment. Finite compatible pollen delivery generates outcross offspring; delayed selfing can fertilize remaining ovules; inbreeding depression reduces viable selfed offspring; maternal and paternal contributions enter Mendelian inheritance before Poisson recruitment, density regulation and adult survival. No rule explicitly moves a floral trait toward the best visitor.
+
+The island campaign crossed predeclared families for visitor-history transport, fixed-state reproductive assays, reproductive assurance, seed and pollinator connectivity, founding state, trait-grid representation, population scaling, life history, disturbance chronology and recovery. The completed campaign contains 19,968 audited cases across 80 production cells plus six held-out transport rows. All cases passed state/receipt audit and 80 predeclared deterministic replay checks. Extinct endpoints remained undefined rather than coded as zero.
+
+Model 3 is interpreted at a bounded level. Its time step is a reproductive year, distances are standardized dispersal coordinates rather than kilometres, visitor types are functional agents rather than insect counts, and the floral-investment coordinate is not calibrated to colour, size or nectar-guide strength. Several numerical refinement contrasts remain outside the narrow prespecified tolerance, so qualitative directional contrasts and explicit survival outcomes receive greater inferential weight than exact effect magnitudes.
 ## Source-audited empirical confrontation
 
 The empirical confrontation was frozen as a secondary evidence layer rather than used to tune the synthetic model. For the formal source audit, the research entry was the bookkeeping unit. Each entry was scored separately for directly observed plant response, partner loss or arrival/replacement, realized community change and downstream filtering or reproductive-assurance information. Unavailable coordinates remained unavailable; they were not imputed from reported outcomes, floral syndromes or narrative interpretation. Geography-first expansion used the separately declared stopping rule and did not alter the frozen 25-entry denominator.
@@ -141,6 +148,15 @@ Across the fixed filtering design, 737 lineage contrasts changed sign at least o
 
 Among 580 eligible baseline reproductive declines, assurance multipliers from 0.5× through 4× produced zero sign rescues while upstream effective service remained unchanged. Assurance attenuated decline magnitude but did not create a second sign-changing branch in the tested envelope.
 
+## Model 3 shows historical contingency and assurance-dependent realization
+
+Model 3 did not collapse conditional response into one inherited island phenotype. Under the declared chronology experiment, all compared populations experienced the same final 120-year environment, yet terminal investment differed by history: uninterrupted trajectories changed by +0.2115, early visitor absence by -0.1603, and late visitor absence by +0.0322. All 256 populations survived in each of these three arms. The result therefore demonstrates model-conditional historical contingency rather than a simple mapping from current environment to current trait.
+
+Reproductive assurance changed whether an endpoint existed. Under the declared long visitor-absence schedule, fixed zero assurance yielded 0/256 terminal survivors, whereas fixed 0.5, fixed 0.9 and the corresponding evolving-assurance treatments retained 256/256. This survival contrast is conditional on the model's complete visitor absence, adult replacement schedule and lack of external seed rescue; it is not an empirical extinction probability.
+
+Connectivity also separated into different routes. Increasing pollinator-distance while seed-distance was fixed could reverse the direction of investment change, whereas increasing seed-distance under a fixed pollinator regime altered the response differently. Seed immigration modifies demographic and genetic input; pollinator connectivity modifies the reproductive environment. A single geographic-isolation axis therefore need not represent both processes inside the model.
+
+Transport tests further separated structural ordering from quantitative prediction. The descriptive S/C/I ordering C > I > S was retained in held-out transport cells, but same-regime marginal predictions had mean absolute error 0.0150 and 0.0106, whereas transport across disturbance regimes increased errors to 0.1581 and 0.1417. Similar determinant ordering therefore does not guarantee transport of the trait response itself.
 ## Metadata confrontation supports biological ingredients while bounding attribution
 
 The frozen formal source audit was outcome-rich but process-poor: direct comparable plant responses were available in 21/25 research entries, direct partner arrival/replacement in only 2/25, and no entry supplied the full matched source-state → transition → realized-community → plant-response contract. Geography-first expansion later reached its outcome-independent stopping rule without closing that longitudinal contract; the broader descriptive programme reached 42 research entries across 37 exact geographic labels without reopening the formal prediction gate.
