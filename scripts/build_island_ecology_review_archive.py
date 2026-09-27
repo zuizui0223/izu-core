@@ -150,6 +150,8 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             raise ValueError("superseded nonadditivity wording survived anonymous Supporting Information")
         if "appendix s19. exact realized-richness matching hard control" not in supporting_lower:
             raise ValueError("realized-richness hard control missing from anonymous Supporting Information")
+        if "appendix s18b. prospective model 3 isolation bridge" not in supporting_lower:
+            raise ValueError("prospective Model 3 bridge missing from anonymous Supporting Information")
 
         required_story = (
             "fixed-state reproductive assay",
@@ -198,11 +200,12 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "review_supporting_information": ANONYMOUS_SI_NAME,
             "review_manuscript_internal_thesis_language_removed_fail_closed": True,
             "supporting_information_superseded_nonadditivity_wording_removed_fail_closed": True,
-            "realized_richness_reframe_included_fail_closed": True,
-            "equal_turnover_generality_control_included_fail_closed": True,
+            "prospective_model3_bridge_included_fail_closed": True,
+            "legacy_realized_richness_reframe_included_fail_closed": True,
+            "legacy_equal_turnover_generality_control_included_fail_closed": True,
             "mechanism_mainline_included_fail_closed": True,
             "three_result_reframe_active": False,
-            "scientific_state": "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation",
+            "scientific_state": "unified_model3_bridge_complete_with_real_island_layer_confrontation",
             "relational_robustness_audit_included": True,
             "realized_richness_hard_control_included": True,
             "equal_turnover_control_included": True,
@@ -214,19 +217,19 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "deny_tokens_checked": list(deny_tokens),
             "files": records,
             "claim_boundary": (
-                "The archive presents Chapter 2 as one nested Model 3 mechanism paper. Fixed-state assays show pre-demographic branching, deterministic genotype-density propagation retains that non-uniformity, and the finite ABM plus history/context interventions alter realized trajectories. "
+                "The archive presents Chapter 2 as one nested Model 3 mechanism paper with a completed prospective isolation bridge. Controlled compositions establish branch capacity; annual visitor-count matching shifts the coarse mean regime; finite visitor-environment pooling and plant-capacity controls separate ecological from demographic realization. "
                 "Source-locked island systems are confronted by layer rather than fitted to synthetic parameter cells: A is partly observed, C has direct-history anchors, and the inherited longitudinal B layer remains the clearest empirical gap. "
-                "Legacy exact-richness, synthetic-k and response-rule analyses are Supporting Information robustness rather than the paper's main biological mechanism."
+                "Legacy Model 2 exact-richness, synthetic-k, response-rule and S/C/I analyses are Supporting Information provenance rather than a second biological mechanism."
             ),        }
         readme = """# Anonymous review archive
 
 This archive supports Oikos double-anonymous review of the Chapter 2 mechanism paper.
 
-The active manuscript is organized around one nested Model 3: **fixed-state reproductive selection -> deterministic genotype-density inheritance -> finite-population ABM -> history/context-dependent realization**. The prospective reduction audit shows that response branching exists before demographic stochasticity, persists when demographic sampling is removed, and is retained in the finite ABM. The full island campaign then tests assurance, chronology, connectivity, life history, founding and recovery.
+The active manuscript is organized around one nested Model 3: **controlled branch capacity -> isolation-driven deterministic response -> finite visitor and plant-population realization -> history/context-dependent outcome**. The prospective 24,576-case bridge shows that annual visitor-count matching reverses the coarse mean response, eight-history visitor pooling removes mixed branches, and fourfold larger plant capacity nearly removes finite-ABM mixed branches.
 
 Natural systems are confronted by layer rather than assigned to synthetic model cells. The source-locked 14-system-layer matrix includes same-direction propagation, branching, buffering and a counterdirectional falsifier. Izu is the strongest current A-layer branching example; Surtsey, Tiritiri Matangi and direct partner-loss systems provide C-layer history anchors. The inherited longitudinal B layer remains the main empirical gap. The formal source audit remains 0/25 complete A -> B -> C contracts.
 
-Legacy exact realized-richness, synthetic-k, S/C/I and response-rule analyses remain in Supporting Information as robustness/provenance and do not define a second mechanism.
+Legacy Model 2 exact realized-richness, synthetic-k, S/C/I and response-rule analyses remain in Supporting Information as provenance and do not define a second mechanism or active control gate.
 """
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
