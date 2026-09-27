@@ -26,7 +26,8 @@ def render_submission_manuscript() -> str:
         "Real islands occupy different stages of the same response architecture",
         "all eight shared Oshima-to-post targets",
         "principal natural-data gap",
-    )    lower = text.lower()
+    )
+    lower = text.lower()
     for token in required:
         if token.lower() not in lower:
             raise ValueError(f"canonical Chapter 2 manuscript missing required claim: {token}")
