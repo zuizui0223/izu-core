@@ -72,25 +72,27 @@ The full 19,968-case island campaign then supplies the finite-population and his
 The legacy Model 2 response-geometry stack remains historical/SI robustness only. Its exact-richness matching, synthetic `k`, community-mean limit and heuristic response-operator factorial can be cited when useful, but they are not a second required biological mechanism.
 
 Important mathematical distinction: the old Model 2 deterministic mean-field averaged external community realization, whereas Model 3's deterministic genotype-density counterpart retains the declared visitor composition/history and removes demographic sampling. Their different branching results therefore answer different limiting questions and are not contradictory.
-## Role of world evidence
+## Role of real-island evidence
 
-World evidence is not a coequal Results act. It has three supporting roles only:
+Real-island evidence is a **layer-specific confrontation**, not a set of fitted Model 3 parameterizations. Existing systems are classified by which part of the nested model they can address:
 
-1. establish that branching, turnover, buffering and axis decoupling are biologically plausible;
-2. define the empirical measurement ceiling;
-3. prevent synthetic results from being narrated as an already demonstrated historical natural causal chain.
+1. **A — ecological/selection:** functional composition, plant state, access/effectiveness and immediate reproductive response;
+2. **B — deterministic inheritance:** inherited longitudinal response under a measured visitor regime;
+3. **C — finite/history realization:** assurance, chronology, connectivity, founding, recovery and persistence.
 
-The frozen 25-entry audit and later geography-first saturation work remain valid evidence. Together with source-native secondary reanalyses and the existing Izu secondary-data stress tests, they form the chapter's **metadata confrontation layer**: an explicit external constraint on interpretation, not a substitute for a full natural transition experiment.
+The source-locked 14-system-layer propagation matrix already contains one same-direction case, two downstream-branching cases, three buffered/resilient cases, one counterdirectional case, four adjacent-link cases and three unresolved cases. These are descriptive response modes, not prevalence estimates.
 
-The metadata layer is part of Chapter 2 completion because it closes the biological-plausibility and identifiability questions that can be answered from existing evidence. It does **not** count as validation of the complete synthetic mechanism.
+Izu is the strongest current A-layer branching example: corrected matching is lower in all eight shared targets while pollen response splits 4 lower/4 higher and tube response splits 3 shorter/4 longer/1 unchanged. Ogasawara and Xisha provide stronger access/effectiveness-to-reproduction chains; Hawaii and Puerto Rico–Mona provide buffering; Dominica remains a frozen counterdirectional falsifier. Surtsey, Tiritiri Matangi, New Zealand *Rhabdothamnus* and Mariana bird-loss systems anchor C-layer founding, recovery/compensation and partner-loss histories.
 
-Canonical mapping: `docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`.
+The principal natural-data gap is **B**. No current source closes starting genetic/common-garden state → measured visitor regime → inherited longitudinal response while separating finite demography. The formal 25-entry audit therefore remains 0/25 complete A → B → C contracts, and the 42/37 geography layer remains breadth/falsification evidence rather than 42 attempted model fits.
+
+Canonical projection: `docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md`.
 
 ## Role of Izu
 
-Existing Izu secondary data contribute to the metadata confrontation layer because they include both support and failure: functional exposure predicts corrected matching, translation to pollen is weaker and not leave-one-island sign stable, shared targets branch in floral and pollen responses, and the null-corrected historical signed-position projection is unsupported.
+Izu contributes directly to the A-layer confrontation and partially to downstream realization because it combines functional exposure, matching, pollen response and branching floral outcomes. The null-corrected historical signed-position projection remains unsupported, so Izu is not used to infer historical *Bombus* causation.
 
-Izu is not the current paper endpoint. The same-block visitor → effectiveness → dependency → mature-seed E3/E4 programme remains a high-value **post-Chapter-2** validation design.
+Izu is not the current paper endpoint. The same-block visitor → effectiveness → dependency → mature-seed E3/E4 programme remains a high-value future A/C falsification design.
 
 It is explicitly not:
 
@@ -110,17 +112,17 @@ The Discussion should mirror the mechanism:
 4. finite ABM dynamics can nevertheless change magnitude, sign, persistence and variation relative to the deterministic counterpart;
 5. assurance, chronology, connectivity, recovery and life history explain conditional realization;
 6. legacy Model 2 community-mean and response-rule analyses are robustness limits, not the main mechanism;
-7. source-audited metadata show which biological ingredients and heterogeneous responses are already observed, while defining the natural identifiability ceiling.
+7. real islands populate A and C with propagation, branching, buffering and falsification cases, while the inherited longitudinal B layer remains the main natural-data gap.
 
 ## Figure contract
 
 - **Figure 1:** unified Model 3 hierarchy: fixed-state assay → deterministic genotype distribution → finite ABM.
 - **Figure 2:** prospective reduction audit: starting-state branching, fixed-count composition effect and duplicate-count control.
 - **Figure 3:** full finite-population campaign: ABM versus deterministic density, assurance, chronology, connectivity and recovery.
-- **Figure 4:** source-audited metadata confrontation + empirical claim ceiling.
+- **Figure 4:** real-island A/B/C confrontation: Izu branching, Ogasawara/Xisha propagation, buffering/falsifier cases, C-layer history anchors and the missing B layer.
 - Legacy Model 2 exact-richness / synthetic-`k` / response-rule figures move to Supporting Information.
 
-Figure 5 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
+Figure 4 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
 
 ## Claim ceiling
 
@@ -132,7 +134,7 @@ Allowed:
 - finite-ABM departures from deterministic trajectories in the full island campaign;
 - historical contingency, assurance-dependent persistence, distinct seed/pollinator connectivity routes and bounded inherited-investment trajectories;
 - legacy Model 2 richness/`k`/response-rule results only as model-specific robustness;
-- biological plausibility, adversarial natural examples and empirical identifiability limits from source-audited metadata and secondary data.
+- layer-specific real-island confrontation showing propagation, branching, buffering, counterdirectional response, direct-history anchors and the missing B layer.
 
 Not allowed:
 
@@ -148,8 +150,8 @@ Not allowed:
 
 ## Completion rule
 
-Chapter 2 is scientifically closed when the manuscript, figures, unified-reduction audit, full Model 3 island campaign and metadata confrontation consistently support the nested eco-evolutionary argument while preserving the declared natural claim ceiling.
+Chapter 2 is scientifically closed when the manuscript, figures, unified-reduction audit, full Model 3 island campaign and A/B/C real-island confrontation consistently support the nested eco-evolutionary argument while preserving the declared natural claim ceiling.
 
-The canonical completion state is **one nested Model 3 + source-audited metadata/secondary-data confrontation**. Legacy Model 2 is Supporting Information/provenance only. No new focal field data are required.
+The canonical completion state is **one nested Model 3 + layer-specific real-island confrontation**. Legacy Model 2 is Supporting Information/provenance only. No new focal field data are required.
 
 **Field E3/E4 remains post-Chapter-2 future validation, not a remaining empirical gate.**
