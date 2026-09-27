@@ -75,7 +75,8 @@ def render_submission_manuscript() -> str:
         "0/25 full source-state",
         "functional-and-historical interpretation of island syndromes",
         "recurrent functional regime with conditional phenotypic realization",
-    )    for token in required:
+    )
+    for token in required:
         if token.lower() not in lower:
             raise ValueError(f"Oikos canonical manuscript missing claim-lock token: {token}")
 
