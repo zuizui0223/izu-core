@@ -4,12 +4,12 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 
 
-def test_readme_declares_bridge_gated_science_and_current_surface():
+def test_readme_declares_bridge_complete_science_and_current_surface():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     assert text.startswith("# Izu Core — conditional island plant response and evolutionary realization")
-    assert "core chapter 2 mechanism is now defined" in lower
-    assert "full equivalence to the original chapter 2 control suite is still open" in lower
+    assert "chapter 2 is scientifically closed at the declared synthetic claim ceiling" in lower
+    assert "completed 24,576-case isolation bridge" in lower
     assert "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md" in text
     assert "docs/CHAPTER2_CANONICAL_STORY_20260927.md" in text
     assert "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md" in text
@@ -30,14 +30,15 @@ def test_readme_preserves_three_distinct_island_processes():
     assert "three distinct processes" in text.lower()
 
 
-def test_readme_centers_unified_model3_and_keeps_two_legacy_controls_active():
+def test_readme_centers_unified_model3_and_demotes_legacy_controls():
     lower = README.read_text(encoding="utf-8").lower()
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density propagation" in lower
     assert "finite-population abm" in lower
     assert "branch capacity" in lower
     assert "isolation-driven" in lower
-    assert "exact-richness and synthetic-`k` remain active benchmarks" in lower
+    assert "active benchmarks until the model 3 bridge gates close" not in lower
+    assert "supporting information and provenance only" in lower
 
 
 def test_readme_routes_real_island_confrontation_and_chapter1_bridge():
