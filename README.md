@@ -6,18 +6,19 @@
 
 **Chapter 2 unified-model reassessment (2026-09-27):** the prospective [Model 3 unified reduction audit](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) shows deterministic branch capacity under controlled visitor compositions. A stricter audit of the actual isolation-driven near-versus-far transport contrast gives mixed finite-ABM responses in 22/128 production and 30/128 held-out histories, but 0/128 mixed deterministic-density histories in both cohorts. Thus branch generation and branch realization must be separated. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) shows how assurance, chronology, connectivity, life history and finite demography alter persistence and inherited trajectories.
 
-**The core Chapter 2 mechanism is now defined without requiring new focal field data, but full equivalence to the original Chapter 2 control suite is still open.** Its canonical state is **one nested Model 3 + layer-specific real-island confrontation + two prospective bridge gates** (dynamic realized-richness matching and finite visitor-community sampling).
+**Chapter 2 is scientifically closed at the declared synthetic claim ceiling without new focal field data.** Its canonical state is **one nested Model 3 + completed 24,576-case isolation bridge + layer-specific real-island confrontation**.
 
 ```text
 Unified Model 3
     A. fixed-state reproductive assay
         -> starting floral state × visitor composition
         -> selection-gradient branching
-    B. deterministic genotype-density propagation
-        -> same reproduction + inheritance, demographic sampling removed
-        -> branch capacity can persist; isolation-driven contrast may be one-directional
-    C. finite-population ABM
-        -> extinction / ancestry / standing-variation loss
+    B. isolation-driven deterministic genotype-density propagation
+        -> visitor amount/richness strongly positions coarse mean regime
+        -> natural near/far response is one-directional
+    C. finite visitor environment + finite-population ABM
+        -> visitor-history pooling can suppress branching
+        -> larger plant populations can suppress branching
         -> realized inherited trajectory
     D. assurance / chronology / connectivity / recovery / life history
         -> conditional realization
@@ -122,7 +123,7 @@ Chapter 2 closes with:
 2. **deterministic genotype-density Model 3:** controlled compositions can retain branching after demographic sampling is removed, while the stored isolation-driven contrast is one-directional;
 3. **finite-population Model 3 ABM:** demographic stochasticity, extinction and variation loss modify realized trajectories;
 4. assurance, chronology, connectivity, life-history, founding and recovery interventions explaining conditional realization;
-5. legacy Model 2 response-rule/S/C/I analyses retained as Supporting Information, while exact-richness and synthetic-`k` remain active benchmarks until the Model 3 bridge gates close; and
+5. legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I analyses retained as Supporting Information and provenance only; and
 6. layer-specific real-island confrontation showing A-layer propagation/branching, C-layer history effects and the missing inherited longitudinal B layer.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.
@@ -141,6 +142,8 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 - [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) — simulation ↔ metadata ↔ claim-ceiling map.
 - [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level unified Model 3 architecture and HOW / proximal-WHY / ultimate-WHY boundary.
 - [`docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md`](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) — prospective audit and Model 2 disposition.
+- [`docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md`](docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md) — final 24,576-case richness / visitor-finiteness / plant-finiteness bridge result.
+- [`data/results/model3_ch2_bridge_prospective_frozen_20260927.json`](data/results/model3_ch2_bridge_prospective_frozen_20260927.json) — frozen compact prospective bridge receipt.
 - [`docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md`](docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md) — A/B/C projection of source-locked real-island evidence.
 - [`data/results/chapter2_unified_model3_real_island_projection_20260927.json`](data/results/chapter2_unified_model3_real_island_projection_20260927.json) — machine-readable projection summary.
 - [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
@@ -154,9 +157,9 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The core biological mechanism is resolved at the declared unified-model claim ceiling, but the **original Chapter 2 control-equivalence and Oikos submission package are not yet closed**. The active manuscript and chapter narrative are now unified around Model 3; figures, Supporting Information, renderer output and fail-closed submission audits still need regeneration before returning to author-only metadata blockers. No new focal field data are required.
+The biological mechanism and the original Chapter 2 control suite are now resolved inside Model 3. The **Oikos package is still not submission-ready only because figures, Supporting Information, renderer output and fail-closed submission audits must be regenerated against the final bridge result** before returning to author-only metadata blockers. No new focal field data are required.
 
-The post-Chapter-2 NEE/field lane remains optional for the present core mechanism, but the separate Model 3 bridge simulation gates must be resolved before full original-Chapter-2 closure or submission readiness.
+The post-Chapter-2 NEE/field lane remains optional and does not affect Chapter 2 scientific closure.
 
 ## Claim boundary
 
@@ -174,7 +177,7 @@ This repository does **not** claim that:
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
-The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, confronted against real islands by mechanistic layer**: functional matching has pre-demographic branch capacity, isolation-driven assembly can compress the deterministic response, and finite demography plus ecological history can alter or re-open heterogeneous realized trajectories. Real systems already show propagation, branching, buffering, counterdirectional responses and direct-history effects; the inherited longitudinal B layer is the clearest remaining empirical gap.
+The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, confronted against real islands by mechanistic layer**: functional matching has pre-demographic branch capacity, visitor amount/richness strongly shifts the coarse deterministic regime, and finite visitor plus plant-population sampling determine how much heterogeneous realized response appears. Assurance and history further filter persistence. Real systems already show propagation, branching, buffering, counterdirectional responses and direct-history effects; the inherited longitudinal B layer is the clearest remaining empirical gap.
 
 ### Interpretation updates (2026-09-25)
 
