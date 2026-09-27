@@ -3,7 +3,7 @@
 **Status:** active Chapter 2 scientific manuscript — unified Model 3 + source-audited natural confrontation
 **Updated:** 2026-09-27
 **Inference architecture:** fixed-state reproductive assay → deterministic genotype-density propagation → finite-population ABM → history/context interventions → source-audited natural confrontation / bounded empirical claim ceiling
-**Controlling state:** `docs/CHAPTER2_CANONICAL_STORY_20260827.md`, `docs/CHAPTER2_CLOSURE_20260906.md`, `THESIS_CHAPTER_POSITIONING.md`
+**Controlling state:** `docs/CHAPTER2_CANONICAL_STORY_20260927.md`, `docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`, `THESIS_CHAPTER_POSITIONING.md`
 
 ## Abstract
 
