@@ -3,27 +3,26 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
-MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260831.json"
+MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260927.json"
 WORLD_VALUE = ROOT / "data/results/chapter2_global_master_manuscript_value_review_audit_20260906.json"
 IZU_FINAL = ROOT / "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
 IZU_RATIONALE = ROOT / "data/design/chapter2_izu_focal_system_rationale_20260906.json"
 THESIS = ROOT / "THESIS_CHAPTER_POSITIONING.md"
 
 
-def test_world_program_is_preserved_as_bounded_claim_ceiling_not_main_result():
+def test_world_program_is_preserved_as_layer_specific_claim_ceiling_not_model_fit():
     text = MANUSCRIPT.read_text(encoding="utf-8").lower()
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
 
-    assert "source-audited world evidence and existing izu secondary data" in text
-    assert "metadata confrontation layer" in text
-    assert "do not calibrate synthetic `k`, branch frequencies or the crossover" in text
+    assert "layer-specific confrontation with real island systems" in text
+    assert "no system was assigned a synthetic `k`, s/c/i regime, trait coordinate or model 3 parameter cell" in text
     assert "post-chapter-2 transport/falsification" in text
     assert "not a completion gate" in text
-    assert manifest["world_breadth_extension"]["formal_identifiability_research_entries"] == 25
-    assert manifest["claim_ceiling"]["external_full_contracts"] == "0_of_25"
-    assert manifest["claim_ceiling"]["formal_external_prediction"] == "not_evaluable"
-    assert manifest["claim_ceiling"]["field_e3_e4_required_for_current_paper"] is False
-
+    natural = manifest["formal_natural_evidence_boundary"]
+    assert natural["research_entries"] == 25
+    assert natural["complete_A_to_B_to_C_contracts"] == "0_of_25"
+    assert natural["breadth_entries"] == 42
+    assert manifest["current_submission_state"]["new_field_data_required"] is False
 
 def test_world_saturation_assets_remain_frozen_for_reviewer_audit():
     value = json.loads(WORLD_VALUE.read_text(encoding="utf-8"))
@@ -33,11 +32,10 @@ def test_world_saturation_assets_remain_frozen_for_reviewer_audit():
         "tiritiri_hihi_2022",
     }
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    saturation = manifest["world_saturation_and_izu_continuity"]
-    assert saturation["large_island_saturation_rule_met"] is True
-    assert saturation["consecutive_zero_novelty_tranches"] == 2
-    assert saturation["small_island_full_contracts"] == "0_of_8"
-
+    natural = manifest["formal_natural_evidence_boundary"]
+    assert natural["breadth_entries"] == 42
+    assert natural["breadth_geographic_labels"] == 37
+    assert natural["complete_A_to_B_to_C_contracts"] == "0_of_25"
 
 def test_izu_empirical_assets_remain_boundary_evidence_not_completion_gate():
     text = MANUSCRIPT.read_text(encoding="utf-8").lower()
@@ -45,7 +43,7 @@ def test_izu_empirical_assets_remain_boundary_evidence_not_completion_gate():
     izu = json.loads(IZU_FINAL.read_text(encoding="utf-8"))
     rationale = json.loads(IZU_RATIONALE.read_text(encoding="utf-8"))
 
-    assert "existing izu secondary analyses similarly combined support with failure" in text
+    assert "izu supplies the most resolved a-layer branching contrast" in text
     assert "no conclusion in the current paper requires field confirmation" in text
     assert "post-chapter-2 transport/falsification" in text
     assert "not a completion gate" in text
@@ -60,4 +58,4 @@ def test_chapter2_to_chapter3_handoff_does_not_use_chapter3_as_validation():
     thesis = THESIS.read_text(encoding="utf-8")
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert "Chapter 3 phenotype values are not used to tune, rescue or validate Chapter 2" in thesis
-    assert manifest["claim_ceiling"]["chapter3_used_as_validation"] is False
+    assert manifest["claim_ceiling"]["cross_sectional_morphology_treated_as_B_layer"] is False
