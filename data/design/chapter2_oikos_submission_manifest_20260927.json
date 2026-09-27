@@ -140,5 +140,6 @@
     "conflict_of_interest",
     "review_ethics_statement_for_accuracy",
     "explicit_submission_declarations"
-  ]
+  ],
+  "submission_route_firewall": "docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md"
 }
