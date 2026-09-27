@@ -12,7 +12,7 @@ The current dissertation sequence is:
 - `izu-core` — **Chapter 2:** why a recurrent broad constraint need not generate one detailed plant response, and how conditional interaction responses propagate through reproduction, demography and inherited floral change;
 - `zuizui0223/shimahotarubukuro` — **Chapter 3:** what multivariate phenotype is actually realized in the focal Izu lineage.
 
-The detailed cross-chapter bridge is fixed in [`docs/CHAPTER1_CHAPTER2_ISLAND_SYNDROME_BRIDGE_20260918.md`](docs/CHAPTER1_CHAPTER2_ISLAND_SYNDROME_BRIDGE_20260918.md).
+The active cross-chapter bridge is fixed in [`docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md`](docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md). The 2026-09-18 bridge remains historical provenance.
 
 ## Chapter 1 handoff
 
