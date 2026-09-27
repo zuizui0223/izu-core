@@ -157,7 +157,7 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The biological mechanism and the original Chapter 2 control suite are now resolved inside Model 3. The **Oikos package is still not submission-ready only because figures, Supporting Information, renderer output and fail-closed submission audits must be regenerated against the final bridge result** before returning to author-only metadata blockers. No new focal field data are required.
+The biological mechanism and the original Chapter 2 control suite are now resolved inside Model 3. The **scientific Oikos package is closed**: the final bridge manuscript, Unified Model 3 Figures 1–4, Supporting Information, renderers and fail-closed CI all pass. Actual submission is now blocked only by author-supplied identity, prior-work context and declarations. No new focal field data are required.
 
 The post-Chapter-2 NEE/field lane remains optional and does not affect Chapter 2 scientific closure.
 
