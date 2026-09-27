@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   shard:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     name: bridge shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
