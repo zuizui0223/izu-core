@@ -170,10 +170,10 @@ def summarize(design: dict, campaign: Path) -> dict:
                     if sha256(raw).hexdigest() != receipt["arrays_sha256"]:
                         raise ValueError(f"array hash mismatch: {case_id}")
                     inp = json.loads((folder / "input.json").read_text())
-                    if canonical(inp) != canonical({
-                        **inp,
-                    }):
-                        raise AssertionError("canonical input failed self identity")
+                    if inp.get("id") != case_id or inp.get("manifest_hash") != manifest_hash:
+                        raise ValueError(f"input identity mismatch: {case_id}")
+                    if digest(inp) != receipt["case_hash"]:
+                        raise ValueError(f"case hash mismatch: {case_id}")
                     receipt_root.update(case_id.encode())
                     receipt_root.update(receipt["arrays_sha256"].encode())
 
@@ -212,7 +212,10 @@ def summarize(design: dict, campaign: Path) -> dict:
                 "intervention": intervention,
                 "model": mode,
                 "paired_far_minus_near": _bootstrap_mean(tensor, resamples),
-                "mean_by_start": np.nanmean(tensor, axis=(1, 2)).tolist(),
+                "mean_by_start": [
+                    None if not np.isfinite(tensor[i]).any() else float(np.nanmean(tensor[i]))
+                    for i in range(len(starts))
+                ],
                 "finite_cells": int(np.isfinite(tensor).sum()),
                 "total_cells": int(tensor.size),
                 "classification": [_history_labels(tensor, eps) for eps in design["thresholds"]],
@@ -234,9 +237,14 @@ def summarize(design: dict, campaign: Path) -> dict:
         visitor_summary[arm] = {
             "mean_count": float(np.mean([x.mean() for x in xs])),
             "empty_year_fraction": float(np.mean([np.mean(x == 0) for x in xs])),
-            "mean_history_cv": float(np.mean([
-                np.std(x) / np.mean(x) if np.mean(x) > 0 else np.nan for x in xs
-            ])),
+            "mean_history_cv": (
+                None if not np.isfinite(np.asarray([
+                    np.std(x) / np.mean(x) if np.mean(x) > 0 else np.nan for x in xs
+                ], float)).any()
+                else float(np.nanmean([
+                    np.std(x) / np.mean(x) if np.mean(x) > 0 else np.nan for x in xs
+                ]))
+            ),
         }
 
     comparisons = {}
