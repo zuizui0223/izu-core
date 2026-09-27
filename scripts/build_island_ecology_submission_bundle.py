@@ -25,8 +25,8 @@ from scripts.render_oikos_submission_rtf import (
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_submission_bundle.zip"
-REASSESSMENT_GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
-REALIZED_RICHNESS_DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_20260907.json"
+UNIFIED_MODEL3_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
+UNIFICATION_RESULT = ROOT / "data/results/model3_unified_reduction_audit_frozen_20260927.json"
 SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.rtf"
 SUBMISSION_SI_NAME = "SUPPORTING_INFORMATION.rtf"
@@ -34,7 +34,7 @@ TITLE_PAGE_NAME = "TITLE_PAGE.rtf"
 COVER_LETTER_NAME = "COVER_LETTER.rtf"
 SIGNIFICANCE_NAME = "SIGNIFICANCE_STATEMENT.rtf"
 STATEMENTS_NAME = "SUBMISSION_STATEMENTS.rtf"
-ACTIVE_SUBMISSION_MANIFEST = "data/design/chapter2_oikos_submission_manifest_20260831.json"
+ACTIVE_SUBMISSION_MANIFEST = "data/design/chapter2_oikos_submission_manifest_20260927.json"
 RELATIONAL_FIGURE_INPUTS_ARCNAME = "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
 RELATIONAL_FIGURE_INPUTS = ROOT / RELATIONAL_FIGURE_INPUTS_ARCNAME
 
@@ -42,9 +42,17 @@ STATIC_SUBMISSION_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
+    "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
     "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
+    "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
+    "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
+    "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md",
     "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
     "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
+    "data/design/chapter2_unified_model3_lock_20260927.json",
+    "data/design/model3_unified_reduction_audit_20260927.json",
+    "data/results/model3_unified_reduction_audit_frozen_20260927.json",
+    "data/results/chapter2_unified_model3_real_island_projection_20260927.json",
     "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md",
     "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md",
     "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
@@ -56,27 +64,27 @@ STATIC_SUBMISSION_FILES = (
 
 
 def validate_scientific_gate() -> dict:
-    if not REASSESSMENT_GATE.exists():
-        raise ValueError("scientific reassessment gate is missing; refuse to build a submission bundle")
+    if not UNIFIED_MODEL3_LOCK.exists():
+        raise ValueError("unified Model 3 scientific lock is missing; refuse to build a submission bundle")
     try:
-        gate = json.loads(REASSESSMENT_GATE.read_text(encoding="utf-8"))
+        gate = json.loads(UNIFIED_MODEL3_LOCK.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        raise ValueError("scientific reassessment gate is unreadable; refuse to build a submission bundle") from exc
-    if gate.get("scientific_model_gate_complete") is not True:
-        raise ValueError("Chapter 2 scientific model gate is not complete")
-    if gate.get("research_article_route") != "candidate_conditional_response_geometry":
-        raise ValueError("Chapter 2 is not currently routed to the conditional-response-geometry Research Article candidate")
-    if gate.get("realized_richness_reframe_complete") is not True:
-        raise ValueError("Chapter 2 realized-richness reframe is not complete")
-    if not REALIZED_RICHNESS_DECISION.exists():
-        raise ValueError("realized-richness decision is missing")
-    decision = json.loads(REALIZED_RICHNESS_DECISION.read_text(encoding="utf-8"))
-    if decision.get("prespecified_gate", {}).get("decision") != "blocker_failed_reframe_before_author_metadata":
-        raise ValueError("realized-richness decision no longer matches the frozen reframe")
-    if gate.get("realized_richness_decision") != REALIZED_RICHNESS_DECISION.relative_to(ROOT).as_posix():
-        raise ValueError("scientific gate is not linked to the frozen realized-richness decision")
+        raise ValueError("unified Model 3 scientific lock is unreadable; refuse to build a submission bundle") from exc
+    if gate.get("status") != "active_chapter2_unified_model3":
+        raise ValueError("Chapter 2 unified Model 3 lock is not active")
+    audit = gate.get("unification_audit", {})
+    if audit.get("conclusion") != "success":
+        raise ValueError("Model 3 unification audit is not successful")
+    if audit.get("decision") != "model2_not_required_as_independent_mechanistic_model":
+        raise ValueError("Chapter 2 model-unification decision is not locked")
+    if not UNIFICATION_RESULT.exists():
+        raise ValueError("Model 3 unification result is missing")
+    result = json.loads(UNIFICATION_RESULT.read_text(encoding="utf-8"))
+    if result.get("decision") != "model2_not_required_as_independent_mechanistic_model":
+        raise ValueError("Model 3 unification result no longer matches the active lock")
+    if gate.get("submission_state", {}).get("new_field_data_required") is not False:
+        raise ValueError("Chapter 2 field-data completion boundary changed")
     return gate
-
 
 def _write_rtf(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
