@@ -36,16 +36,17 @@ def completed_metadata() -> dict:
     return metadata
 
 
-def test_current_scientific_gate_retains_legacy_gate_provenance():
+def test_current_scientific_gate_uses_unified_model3_lock():
     gate = bundle.validate_scientific_gate()
-    assert gate["scientific_model_gate_complete"] is True
-    assert gate["research_article_route"] == "candidate_conditional_response_geometry"
-    assert gate["realized_richness_reframe_complete"] is True
+    assert gate["status"] == "active_chapter2_unified_model3"
+    assert gate["unification_audit"]["conclusion"] == "success"
+    assert gate["unification_audit"]["decision"] == "model2_not_required_as_independent_mechanistic_model"
+    assert gate["submission_state"]["new_field_data_required"] is False
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
-    monkeypatch.setattr(bundle, "REASSESSMENT_GATE", tmp_path / "missing-gate.json")
-    with pytest.raises(ValueError, match="scientific reassessment gate is missing"):
+    monkeypatch.setattr(bundle, "UNIFIED_MODEL3_LOCK", tmp_path / "missing-gate.json")
+    with pytest.raises(ValueError, match="unified Model 3 scientific lock is missing"):
         bundle.validate_scientific_gate()
 
 
