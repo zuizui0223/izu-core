@@ -2,9 +2,9 @@
 
 ## Final-form decision
 
-Chapter 2 now contains **two linked bounded mechanistic models**. Model 2 is the reproducible conditional-response geometry with explicit response-rule sensitivity. Model 3 is the prospectively declared reproductive/demographic realization layer that propagates pollen delivery through selfing/outcrossing, viability, inheritance, density regulation, survival, connectivity and history to persistence and inherited floral-investment change. Neither layer is a calibrated forecast of a named natural island, and Model 3 does not retroactively validate Model 2.
+Chapter 2 now contains **one nested bounded mechanistic model**. Model 3 is examined as a fixed-state reproductive assay, a deterministic genotype-density propagation of the same reproduction/inheritance operator, and a finite-population ABM with demographic sampling, extinction and variation loss. Assurance, chronology, connectivity, life history and recovery are interventions within that same model family. None is a calibrated forecast of a named natural island.
 
-The retained two-layer claim is: **within the declared model family, determinant rankings can change with community aggregation and with how plant state responds to the community; downstream reproduction and demography then determine whether conditional responses persist and what inherited floral trajectory is realized.** Neither C→I→S nor C/I reversal is universal across response operators, and Model 3 does not produce one universal island-flower direction.
+The retained claim is: **non-uniform island response appears inside Model 3 before demographic stochasticity, persists under deterministic inheritance, and is further modified by finite demography and ecological history.** Fixed visitor count does not eliminate composition dependence, while exact functional-type duplication under fixed total activity leaves the operator unchanged to machine precision. Model 3 therefore does not produce one universal island-flower direction.
 
 The source/configuration contract, complete cell arrays, reconstructed statistics and all conditional contrasts are in `data/results/update_factorial_20260925/`. The artifact validator checks exact inventory, unique design cells, source/config identity, historical hashes, all terminal-cell statistics and paired contrasts. It never refreshes a mismatching manifest to make a run pass. LF/CRLF text representations alone are equivalent.
 
@@ -14,9 +14,11 @@ Each cell compares final service after separate mainland-like and island-like vi
 
 S measures variation among initial positions in expected service contrasts. It is not retention of ancestral traits. C measures an additive history-pair effect. I is the non-additive remainder in the crossed deterministic design. Natural residuals cannot be equated with I because measurement error and unobserved environmental variables also contribute. Pollinators are functional-type agents, with no explicit abundance or lineage identity. Steps are uncalibrated updates. k concatenates independent visitor histories at each step and weights them through their current numbers of types; it is not an equal-weight temporal average.
 
-## Model 3 integration into Chapter 2
+## Unified Model 3 closure
 
-Model 3 is no longer treated as a post-Chapter-2 project. Its completed island campaign contains **19,968 audited cases** across 80 predeclared production cells plus six held-out transport rows, with 80 deterministic replay checks. It extends the response-geometry question from immediate functional consequence to demographic/evolutionary realization.
+Model 3 is the Chapter 2 mechanistic model. The prospective reduction audit first isolates its pre-demographic and deterministic limits, and the completed island campaign contains **19,968 audited cases** across 80 predeclared production cells plus six held-out transport rows, with 80 deterministic replay checks.
+
+The prospective unified reduction audit shows that all three tested four-type visitor compositions generate both positive and negative fixed-state investment gradients across starting access states; the deterministic genotype-density counterpart retains mixed inherited responses in all three contexts; and the finite ABM also retains mixed signs. Changing composition at fixed count produces a maximum fixed-state gradient difference of 2.3768 and deterministic endpoint difference of 0.1891, whereas duplicating the same functional types under fixed total activity changes the operator by at most 1.78e-15. This removes the need for the former Model 2 as an independent mechanistic layer.
 
 The strongest current qualitative contrasts are:
 
@@ -63,7 +65,7 @@ This is already aligned with `data/design/effective_pollinator_dependency_field_
 
 ## Stop rule and publication wording
 
-Close Chapter 2 once both model layers pass identity checks, reference replay, artifact reconstruction, relevant tests and independent review, and publish all operator-dependent, demographic and negative results. Model 3 already supplies the declared population-genetic/demographic realization layer; do not add further mechanisms or fitted parameters merely to restore a desired ranking or evolutionary direction.
+Close Chapter 2 once the unified Model 3 reductions and full finite-population campaign pass identity checks, replay, artifact reconstruction, relevant tests and independent review, and publish all operator-dependent, demographic and negative results. The former Model 2 remains provenance/SI robustness only; do not add further mechanisms or fitted parameters merely to restore a desired ranking or evolutionary direction.
 
 Suggested statement: **Community change does not map uniquely onto plant response. In this model family, community aggregation and the plant response rule determine conditional functional branches, while reproductive assurance, history, connectivity and finite demography determine which branches persist and how inherited floral investment changes. Natural rates, prevalence and historical causes remain to be tested.**
 
