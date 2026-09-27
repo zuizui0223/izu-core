@@ -34,19 +34,21 @@ def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
     assert "fixed-state assay" in lower
     assert "deterministic genotype-density counterpart" in lower
     assert "finite-population abm" in lower
-    assert "source-locked island evidence" in lower
-    assert "19,968-case" in abstract
-    assert "1.78×10^-15" in abstract
+    assert "source-locked island systems" in lower
+    assert "22/128" in abstract and "30/128" in abstract
+    assert "0/128" in abstract
+    assert "prospective bridge campaign" in lower
 
 
 def test_scientific_gate_requires_active_unified_model3_lock():
     legacy = json.loads(LEGACY_DECISION.read_text(encoding="utf-8"))
     assert legacy["prespecified_gate"]["decision"] == "blocker_failed_reframe_before_author_metadata"
     lock = json.loads(UNIFIED_LOCK.read_text(encoding="utf-8"))
-    assert lock["status"] == "active_chapter2_unified_model3"
+    assert lock["status"] == "active_chapter2_unified_model3_with_bridge_gates"
     validated = validate_scientific_gate()
-    assert validated["unification_audit"]["decision"] == "model2_not_required_as_independent_mechanistic_model"
+    assert validated["unification_audit"]["decision"] == "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls"
     assert validated["submission_state"]["new_field_data_required"] is False
+    assert validated["submission_state"]["model3_bridge_campaign_required_for_full_original_ch2_equivalence"] is True
 
 
 def test_frozen_legacy_figure_generation_remains_reproducible_supporting_evidence():
