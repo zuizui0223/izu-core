@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-28",
+  "status": "passed_actual_png_visual_review",
+  "reviewed_png_hashes": {
+    "isolation_distributions_individual.png": "d2134c485ea708238a2e7f03650b23b7b1365828ebd98592a85498181d54aa66",
+    "isolation_distributions_density.png": "1b5bb65afbb0a0e12c57c25562441065e5eb98f8892dc6d088414b9b6e99eee2",
+    "mixed_sign_fractions.png": "f14ff0f076edb36831590fc7490f39de74694ebfab8c48daf9e03904578bd2af",
+    "occupancy_and_decomposition.png": "648b51d049f36286332e0d38416f164dfc3546ae70f9a43705f83ce1f55ccf8d"
+  },
+  "checks": [
+    "All four actual-data sheets inspected",
+    "Legible axes, captions and denominators; no observed clipping",
+    "Common distribution scales; three sign thresholds shown",
+    "Decomposition descriptive; noise and unresolved latent branching explicitly discussed in ecological report"
+  ],
+  "source_figure_provenance_sha256": "447352f30326a4d054424402bfdbd3c17bf4ee529cbf6b08b8ef5f86803111e1"
+}

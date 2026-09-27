@@ -1,5 +1,7 @@
 # Original Ch2 questions versus inherited Model 3: answer audit
 
+Update 2026-09-28: The prospective campaign is complete. See [the final ecological answer map](MODEL3_CH2_BRIDGE_ECOLOGICAL_RESULTS_20260928.md). The following is the preserved pre-experiment audit, not current pending-work status.
+
 Date: 2026-09-27. Source: frozen v2, plus retrospective `model3_ch2_bridge_20260927.json` (all 3,072 transport cases and array hashes verified). This is not a new confirmation cohort.
 
 ## What changed in disciplinary emphasis

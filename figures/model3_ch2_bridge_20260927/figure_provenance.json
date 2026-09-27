@@ -1,0 +1,21 @@
+{
+  "audited_input": "data/results/model3_ch2_bridge_summary_20260927",
+  "summary_sha256": "0ff4da34b671b2652228a8814fbdc96cfdb5872d4f8978c6dcc612ca1c4975f7",
+  "plot_source_sha256": "76cf89e8bc164bb16ea63df9d45a9d8660f98486fd6d0ee86dc2128d303c1c10",
+  "files": {
+    "isolation_distributions_individual.png": "d2134c485ea708238a2e7f03650b23b7b1365828ebd98592a85498181d54aa66",
+    "isolation_distributions_individual.pdf": "174f75f5e5e5f6c0592a161bd336fdc98e08d99ec3a56e3388e92775cd57902b",
+    "isolation_distributions_individual.svg": "8db18530adc2746dfcecaa82e03603da728fd1dddd5ff1296d57a4416a3fd60f",
+    "isolation_distributions_density.png": "1b5bb65afbb0a0e12c57c25562441065e5eb98f8892dc6d088414b9b6e99eee2",
+    "isolation_distributions_density.pdf": "63805f847898596baa42d2e8d6b36c429bb18204f420ab0896e8725e687c88f4",
+    "isolation_distributions_density.svg": "cf056917a223ca52dc7de332f296114ba81ce5c5e02b080f544f4d75ce8f6409",
+    "mixed_sign_fractions.png": "f14ff0f076edb36831590fc7490f39de74694ebfab8c48daf9e03904578bd2af",
+    "mixed_sign_fractions.pdf": "ea94a95d04c4b6d2dfe641e583ab013b8d7af137ea7cee67a24b9f3ecbef7d68",
+    "mixed_sign_fractions.svg": "f63bb27b819e6f07311f0fe073556bae0e7e93744ec504e3a3810ad48bc19541",
+    "occupancy_and_decomposition.png": "648b51d049f36286332e0d38416f164dfc3546ae70f9a43705f83ce1f55ccf8d",
+    "occupancy_and_decomposition.pdf": "22e2f0dbc597e02e920aef70abd8461975e96cd492513aebdf2d5dc37beb972c",
+    "occupancy_and_decomposition.svg": "147888973d840fb9fb50d356651a01c0ca17d5c81f407bcbd8ce5bd2e8f3adde",
+    "plotted_history_points.csv": "d60cf6e3c075ec7ddcae396e8caa800178011289758d2880869e604ffe91472d"
+  },
+  "visual_review": "pending"
+}
