@@ -53,7 +53,7 @@ conditional phenotypic realization
 | Chapter 1 leaves unresolved | Chapter 2 result | Interpretation |
 |---|---|---|
 | Why does a common pollination constraint not give one detailed phenotype? | controlled visitor compositions can reverse selection gradient with starting floral state | functional matching has deterministic branch capacity; whether isolation-driven assembly preserves it is regime dependent |
-| Are selfing-adjusted display differences still just a mating-system consequence? | branching persists with assurance held fixed | assurance is not required to create the floral-selection branch |
+| Are selfing-adjusted display differences still just a mating-system consequence? | controlled-composition branching persists with assurance held fixed | assurance is not required to create that floral-selection branch |
 | Why can assurance recur while morphology does not converge? | assurance can determine persistence but not impose one floral direction | recurrent insurance function does not imply recurrent phenotype |
 | Why can present pollinator state fail to explain present phenotype? | early/late visitor loss yields different endpoints under the same final environment | historical contingency persists after environmental convergence |
 | How can isolation increase pollen limitation while assurance/accessibility are associated with lower realized limitation? | assurance can buffer reproductive consequences or preserve persistence without removing the upstream pollination problem | stress and compensation can coexist at different stages of the same response chain |
