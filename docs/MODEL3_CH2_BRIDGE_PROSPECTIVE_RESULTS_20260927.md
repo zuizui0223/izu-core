@@ -35,6 +35,8 @@ The deterministic inherited response is therefore one-directional under this iso
 
 This corrects an over-broad earlier interpretation. Model 3 can produce deterministic state-dependent branching under controlled visitor compositions, but that does **not** mean the natural isolation-assembly contrast is deterministically branched.
 
+The finite-history labels are themselves demographic realizations rather than stable latent branch identities. At epsilon 0, at least two of the eight repeat-specific labels disagree within **97/128** natural histories. This is why the finite result is interpreted as realized stochastic heterogeneity, not as 12 histories possessing a fixed deterministic branch state.
+
 ## 2. Dynamic richness matching changes the coarse regime and exposes strong finite branching
 
 Response-blind annual matching thinned near and far visitor histories to identical annual counts. Mean count became `0.6603` in both arms, with matched empty years retained.
@@ -47,6 +49,8 @@ Response-blind annual matching thinned near and far visitor histories to identic
 Thus annual richness matching does **not** merely leave the same mean response with residual noise. It reverses the mean isolation effect from negative to positive in both model realizations.
 
 At the same time, the finite ABM becomes much more heterogeneous: `53.1%` of histories are mixed at epsilon 0 and `14.1%` remain mixed even at epsilon 0.05. Deterministic density shows only weak near-zero mixed branching (`16/128` at epsilon 0, `1/128` at 0.01 and `0/128` at 0.05).
+
+This heterogeneity is especially stochastic at the finite-population level: **128/128** richness-matched histories show at least one disagreement among their eight repeat-specific labels at all three deadbands. The mean-over-eight classification is therefore a descriptive distribution of realized outcomes, not evidence for a stable hidden branch assigned to each visitor history.
 
 The supported interpretation is therefore:
 
@@ -76,7 +80,7 @@ Plant capacity was increased from `48` to `192` while the natural visitor histor
 - and from `1` to `0` at epsilon 0.05;
 - the finite-ABM mean moved from `-0.1446` to `-0.2716`, closing about `41.5%` of the gap toward the deterministic mean `-0.4510`.
 
-Therefore finite plant demography is not interchangeable with finite visitor-community sampling. Both matter, through different routes.
+Therefore finite plant demography is not interchangeable with finite visitor-community sampling. Both matter, through different routes. Repeat-label disagreement also falls with larger plant capacity (from 97/128 to 31/128 histories at epsilon 0), consistent with reduced demographic sampling variability.
 
 ## 5. S/C/I magnitude decomposition is not equivalent to directional branching
 
