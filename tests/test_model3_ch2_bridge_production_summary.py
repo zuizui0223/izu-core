@@ -7,7 +7,7 @@ def test_history_labels_keep_mixed_and_repeat_instability_separate():
     x = np.array([
         [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]],
         [[-0.2, -0.2, -0.2, -0.2, 0.2, 0.2, 0.2, 0.2]],
-        [[0.1, 0.1, 0.1, 0.1, -0.1, -0.1, -0.1, -0.1]],
+        [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]],
     ])
     r = _history_labels(x, 0.05)
     assert r["mean8_counts"]["positive"] == 1
