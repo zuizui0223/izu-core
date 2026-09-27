@@ -56,11 +56,13 @@ def test_review_archive_builds_with_unified_model3_claim_boundary(tmp_path: Path
         supporting = archive.read(ANONYMOUS_SI_NAME).decode("utf-8")
         support_lower = supporting.lower()
         assert "unified model 3 projection onto real-island evidence" in support_lower
+        assert "prospective model 3 isolation bridge" in support_lower
+        assert "68/128" in supporting and "41.5%" in supporting
         assert "exact realized-richness matching hard control" in support_lower
         assert "cell-level simulation variation" not in support_lower
 
         manifest = json.loads(archive.read("REVIEW_ARCHIVE_MANIFEST.json"))
-        assert manifest["scientific_state"] == "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation"
+        assert manifest["scientific_state"] == "unified_model3_bridge_complete_with_real_island_layer_confrontation"
         assert manifest["mechanism_mainline_included_fail_closed"] is True
         assert manifest["three_result_reframe_active"] is False
         assert manifest["field_e3_e4_required_for_current_paper"] is False
@@ -69,8 +71,8 @@ def test_review_archive_builds_with_unified_model3_claim_boundary(tmp_path: Path
         assert "inherited longitudinal b layer" in boundary
 
         readme = archive.read("README_REVIEW_ARCHIVE.md").decode("utf-8").lower()
-        assert "fixed-state reproductive selection" in readme
-        assert "deterministic genotype-density inheritance" in readme
+        assert "24,576-case bridge" in readme
+        assert "eight-history visitor pooling removes mixed branches" in readme
         assert "inherited longitudinal b layer" in readme
 
 def test_identity_scan_detects_explicit_token(tmp_path: Path):
