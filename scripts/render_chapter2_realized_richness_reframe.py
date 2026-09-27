@@ -20,11 +20,13 @@ def render_submission_manuscript() -> str:
         "fixed-state reproductive assay",
         "deterministic genotype-density counterpart",
         "finite-population ABM",
+        "annual response-blind richness matching",
+        "Pooling eight independent visitor histories",
+        "increasing plant capacity from 48 to 192",
         "Real islands occupy different stages of the same response architecture",
         "all eight shared Oshima-to-post targets",
-        "functional-and-historical interpretation of island syndromes",
-    )
-    lower = text.lower()
+        "principal natural-data gap",
+    )    lower = text.lower()
     for token in required:
         if token.lower() not in lower:
             raise ValueError(f"canonical Chapter 2 manuscript missing required claim: {token}")
