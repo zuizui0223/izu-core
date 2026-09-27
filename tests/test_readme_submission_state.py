@@ -12,7 +12,8 @@ def test_readme_exposes_bridge_complete_model3_and_package_qa_state():
     lower = text.lower()
     submission = lower.split("## submission status", 1)[1].split("## claim boundary", 1)[0]
     assert "biological mechanism and the original chapter 2 control suite are now resolved inside model 3" in submission
-    assert "oikos package is still not submission-ready only because figures" in submission
+    assert "scientific oikos package is closed" in submission
+    assert "actual submission is now blocked only by author-supplied identity" in submission
     assert "no new focal field data are required" in submission
     assert "post-chapter-2 nee/field lane remains optional" in submission
     assert "present-day izu associations do not identify historical *bombus* loss" in lower
