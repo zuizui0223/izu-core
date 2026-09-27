@@ -6,7 +6,7 @@
 
 **Chapter 2 two-model closure (2026-09-27):** the [response-rule factorial](docs/CHAPTER2_UPDATE_FACTORIAL_RESULTS_20260925.md) shows that neither C/I reversal nor C→I→S is universal across update rules. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) then carries conditional responses through offspring production, selfing/outcrossing, inheritance, finite demography, connectivity and history. Its 19,968 audited cases show model-conditional historical contingency, assurance-dependent persistence and non-universal inherited floral-investment trajectories. The [final scope and field projection](docs/CHAPTER2_SIMULATION_FINAL_SCOPE_AND_FIELD_PROJECTION_20260925.md) now defines both linked layers and their natural claim ceiling.
 
-**Chapter 2 is scientifically closed without new focal field data.** Its canonical completion state is **simulation + source-audited metadata/secondary-data confrontation**.
+**Chapter 2 is scientifically closed without new focal field data, but the journal package is reopened for Model 3 integration.** Its canonical scientific state is **Model 2 response geometry + Model 3 demographic/evolutionary realization + source-audited metadata/secondary-data confrontation**.
 
 ```text
 Model 2: conditional response geometry
@@ -20,7 +20,7 @@ Model 3: demographic/evolutionary realization
                 -> source-audited natural claim ceiling
 ```
 
-The completion contract is [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json), and the claim-by-claim map is [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md).
+The active integration contract is [`data/design/chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json). The older [`chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) remains historical provenance for the pre-Model-3 chapter state, and the existing claim-by-claim map remains [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) until the submission evidence matrix is regenerated.
 
 The active manuscript is [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md). The active narrative lock is [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md), and the Oikos route is controlled by [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json).
 
@@ -92,7 +92,7 @@ For the current paper, however, Izu visitor → effectiveness → dependency →
 
 ## Post-Chapter-2 prospective transport / NEE lane
 
-The previously built NEE Registered Report materials are retained because they provide a rigorous outcome-independent future transport design. They do **not** define an unfinished Chapter 2 task and do not reopen the closed Oikos manuscript.
+The previously built NEE Registered Report materials are retained because they provide a rigorous outcome-independent future transport design. They do **not** define an unfinished field-data task for Chapter 2. The Oikos manuscript is currently reopened only to integrate Model 3 text, figures, Supporting Information and render/audit surfaces; this does not create a new empirical completion gate.
 
 Reusable prospective surfaces:
 
@@ -132,7 +132,8 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 - [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md) — active manuscript.
 - [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md) — active narrative contract.
-- [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) — no-new-focal-data completion lock.
+- [`data/design/chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) — active superseding two-model Chapter 2 integration lock.
+- [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) — historical pre-Model-3 completion lock.
 - [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) — simulation ↔ metadata ↔ claim-ceiling map.
 - [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level two-model Chapter 2 architecture and HOW / proximal-WHY / ultimate-WHY boundary.
 - [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
@@ -145,9 +146,9 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The scientific gate is closed. Actual Oikos submission remains fail-closed only on author-supplied identity and declaration fields such as author order/affiliations, corresponding-author details and ORCID, prior-work context, acknowledgements/funding, inclusion/conflict declarations, ethics confirmation and final metadata-driven bundle construction.
+The scientific question is closed at the declared two-model claim ceiling, but the **Oikos submission package is not currently submission-ready** because Model 3 has just been promoted into the active manuscript. Before returning to author-only metadata blockers, the Model 3 figure, Supporting Information, renderer output and fail-closed submission audits must be regenerated and checked. No new focal field data are required.
 
-The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure or Oikos submission readiness.
+The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure.
 
 ## Claim boundary
 
@@ -160,6 +161,7 @@ This repository does **not** claim that:
 - the frozen 25 systems validate one universal mechanism;
 - metadata constitute full natural validation of the synthetic determinant hierarchy;
 - a synthetic [0,1] coordinate is calibrated to a named field trait;
+- Model 3 time, dispersal distance, extinction frequency or investment magnitude are calibrated natural rates;
 - present functional structure identifies the historical cause of focal-lineage divergence;
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
