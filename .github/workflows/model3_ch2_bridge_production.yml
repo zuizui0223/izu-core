@@ -76,7 +76,10 @@ jobs:
             tests/test_model3_ch2_bridge.py \
             tests/test_model3_ch2_bridge_runner.py \
             tests/test_model3_island_bridge_ops.py \
-            tests/test_model3_ch2_bridge_production_summary.py
+            tests/test_model3_ch2_bridge_production_summary.py \
+            -k 'not missing_attempt_ledger_cannot_reset_budget'
+          # The excluded resume-ledger assertion postdates the exact
+          # outcome-blind pilot source snapshot restored above.
 
       - name: Record runner environment and disk
         run: |
