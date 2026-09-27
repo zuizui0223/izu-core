@@ -6,7 +6,7 @@ def test_submission_closure_tracks_unified_model3_science_and_open_package_qa():
     assert audit["scientific_gate_complete"] is True
     assert audit["unified_model3_locked"] is True
     assert audit["real_island_abc_confrontation_locked"] is True
-    assert audit["scientific_question_closed"] is True
+    assert audit["scientific_question_closed"] is False
     assert audit["field_e3_e4_required"] is False
     assert audit["submission_ready"] is False
 
@@ -16,12 +16,12 @@ def test_submission_closure_retains_declared_nonmetadata_blockers_until_figures_
     assert audit["nonmetadata_submission_errors"] == []
     assert audit["nonmetadata_submission_preflight_ready"] is False
     assert set(audit["active_nonmetadata_package_blockers"]) == {
+        "complete frozen Model 3 original-Chapter-2 bridge campaign",
         "regenerate unified Model 3 main figures",
-        "finish and validate unified Supporting Information",
         "pass unified renderers and fail-closed submission audits",
     }
     assert audit["only_author_supplied_metadata_and_confirmations_remain"] is False
-    assert audit["next_transition"].startswith("regenerate unified figures")
+    assert audit["next_transition"].startswith("complete frozen Model 3 original-Chapter-2 bridge campaign")
 
 
 def test_submission_closure_preserves_author_metadata_requirements():
