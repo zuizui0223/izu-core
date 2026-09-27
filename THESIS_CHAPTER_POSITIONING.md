@@ -68,27 +68,33 @@ The key biological interpretation is:
 
 This is the mechanistic bridge from Chapter 1's recurrent functional core to its non-uniform detailed realization.
 
-## Frozen Q2 evidence
+## Current Chapter 2 evidence
 
-### 1. Mixed responses under the same broad island-like change
+### Primary unified Model 3 result
+
+The prospective reduction audit and completed finite-population campaign are the current mechanistic spine. The older response-geometry analyses below are retained as model-specific robustness and provenance rather than a second required model.
+
+### Legacy reduced response-geometry robustness
+
+#### 1. Mixed responses under the same broad island-like change
 
 The historical offset-stream baseline contained **41/96** mixed-sign community histories, but that draw is provenance only. Under the collision-free six-seed correction, mixed-sign histories have median **45.5/96** with range **43–59/96**.
 
 Thus response direction is relational rather than an intrinsic property of one plant state.
 
-### 2. Richness changes the mean but does not eliminate branching
+#### 2. Richness changes the mean but does not eliminate branching
 
 Under the collision-free RNG correction, exact stepwise realized-richness matching makes the ensemble mean all-positive in **6/6** prespecified matching seeds, yet **55–64/96** realized community histories remain mixed-sign and state × community non-additivity remains **28.48–43.64%**.
 
 Therefore realized richness matters for coarse regime placement, but richness alone is insufficient to explain branch heterogeneity.
 
-### 3. Arrival/loss-rate differences are also insufficient
+#### 3. Arrival/loss-rate differences are also insufficient
 
 Equalizing the baseline partner-arrival and partner-loss rates between mainland-like and island-like regimes still leaves **70/96** mixed realizations and **65.61%** non-additivity.
 
 Thus branch heterogeneity is not generated solely by a difference in turnover rate.
 
-### 4. The dominant determinant changes across finite-community regimes
+#### 4. The dominant determinant changes across finite-community regimes
 
 Under active plant adjustment, pooling independent community trajectories across `k={1,2,4,8,16}` changes the response decomposition:
 
@@ -100,13 +106,11 @@ Starting state exceeds community realization in **4/6** prespecified seeds at `k
 
 **The numerical synthetic crossover is not transferred to nature.** The crossover near `k=4` is a model-specific coordinate, not a natural ecological threshold.
 
-### 5. Branching is finite-community, not a deterministic mean-field property
+#### 5. Legacy community-mean limit removes response-geometry branching
 
-Mixed branching persists at finite community size, including large pooled finite systems, but the deterministic mean-field kernel contrast is all-positive.
+In the legacy response-geometry reduction, mixed branching persists at finite community size, including large pooled finite systems, but averaging external community realization into the deterministic community-mean kernel yields an all-positive contrast. This is a different limit from the unified Model 3 genotype-density counterpart, which retains visitor composition/history while removing demographic sampling and therefore can retain branching.
 
-Branching is therefore finite-community in the asymptotic sense. Its persistence well beyond rare empty-community events means it is not merely a tiny-N extinction artefact.
-
-### 6. Reproductive assurance first modifies reproductive return, then persistence
+### Unified Model 3: reproductive return, deterministic inheritance and finite realization
 
 Across **580** eligible baseline declines, increasing autonomous assurance through the declared envelope yields **0 sign rescues through 4×** assurance, while many declines become smaller in magnitude.
 
@@ -125,7 +129,7 @@ Four results now define the Chapter 2 handoff:
 
 These are model-conditional results and not calibrated natural-island rates. Several magnitude comparisons remain numerically resolution-sensitive, so Chapter 2 uses Model 3 primarily for directional and mechanistic contrasts rather than universal quantitative forecasts.
 
-Together Models 2 and 3 explain how assurance can recur globally as insurance while detailed pollinator-facing and inherited floral responses remain contingent.
+Together the nested levels of Model 3 explain how assurance can recur globally as insurance while detailed pollinator-facing and inherited floral responses remain contingent. Legacy Model 2 results are robustness/provenance only.
 
 ## HOW, proximal WHY and ultimate WHY
 
