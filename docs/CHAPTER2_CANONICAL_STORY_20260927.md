@@ -55,7 +55,7 @@ Response-blind annual visitor-count matching makes near and far annual counts id
 
 Finite-ABM mixed histories increase to `68/128`, `59/128`, `18/128` at epsilon `0`, `0.01`, `0.05`. Deterministic density shows `16/128`, `1/128`, `0/128`.
 
-The supported interpretation is that visitor amount/richness strongly positions the coarse mean regime, while identity/composition and finite realization govern much of the residual branch heterogeneity.
+The supported interpretation is that visitor amount/richness strongly positions the coarse mean regime, while identity/composition and finite realization govern much of the residual branch heterogeneity. These finite-history labels are stochastic realizations rather than stable latent branches: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0.
 
 Annual thinning also changes identity persistence, so this is not a pure field species-richness causal effect.
 
@@ -75,7 +75,7 @@ Increasing plant capacity from `48` to `192` under the same natural visitor hist
 
 The finite-ABM mean moves from `-0.1446` to `-0.2716`, closing about `41.5%` of the distance toward the deterministic mean `-0.4510`.
 
-Finite visitor sampling and finite plant sampling are therefore separable mechanisms.
+Finite visitor sampling and finite plant sampling are therefore separable mechanisms. Increasing plant capacity also reduces repeat-label disagreement from 97/128 to 31/128 histories at epsilon 0, consistent with weaker demographic sampling variability.
 
 ### 6. S/C/I magnitude structure is not directional branching
 
