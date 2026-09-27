@@ -33,13 +33,15 @@ A. fixed-state reproductive assay
    plant state × visitor functional composition
    -> opposite reproductive-selection directions
 
-B. deterministic genotype-density inheritance
-   -> non-uniform inherited trajectories persist
-      without demographic sampling
+B. isolation-driven deterministic genotype-density response
+   -> recurrent coarse directional backbone
+   -> visitor amount strongly shifts the mean regime
 
-C. finite-population ABM + history
+C. finite visitor environment + finite-population ABM
+   -> visitor composition/history + plant demography
+      determine how much directional heterogeneity is realized
    -> assurance / chronology / connectivity / life history
-      determine persistence and realized inherited trajectory
+      further filter persistence and inherited trajectory
 
                     ↓
 
@@ -58,6 +60,8 @@ conditional phenotypic realization
 | Why can present pollinator state fail to explain present phenotype? | early/late visitor loss yields different endpoints under the same final environment | historical contingency persists after environmental convergence |
 | How can isolation increase pollen limitation while assurance/accessibility are associated with lower realized limitation? | assurance can buffer reproductive consequences or preserve persistence without removing the upstream pollination problem | stress and compensation can coexist at different stages of the same response chain |
 | What does geographic isolation actually combine? | seed and pollinator connectivity act through distinct routes | one distance coordinate can compress multiple mechanisms |
+| Does visitor amount alone explain the island response? | annual response-blind richness matching reverses the mean far-minus-near effect from negative to positive, but finite-ABM mixed histories rise to 68/128 at epsilon 0 | visitor amount strongly sets the coarse regime, but does not determine every realized direction |
+| Is "finite community" one mechanism? | eight-history visitor pooling removes mixed branches, while 4× plant capacity independently reduces finite-ABM mixed histories from 12/128 to 1/128 | finite visitor-environment sampling and finite plant demography are separable axes |
 | Does island type itself generate the response? | matched founding/separation labels do not differ without biological state/history differences | oceanic/continental labels are not mechanisms by themselves |
 | Why can colour and architecture decouple? | matching/investment selection is conditional, but literal colour is not represented | general mechanism partly answered; colour-specific mechanism remains open |
 
@@ -73,14 +77,16 @@ Within the declared Model 3, Chapter 2 now separates **branch capacity** from **
 
 This is stronger than saying only that responses are context dependent, but narrower than claiming that isolation always generates deterministic branching. It also resolves the apparent H3/H4 tension: a harsher isolation-associated pollination environment and traits that reduce its realized reproductive cost are not contradictory because they occupy different stages of the causal chain.
 
-## What remains unresolved within the original Chapter 2 controls
+## Original Chapter 2 controls are now resolved inside Model 3
 
-Two old Chapter 2 questions are still open inside Model 3:
+The prospectively frozen 24,576-case bridge closes the two controls that had previously remained unique to Model 2.
 
-- whether heterogeneous inherited responses remain after **response-blind annual realized-richness matching** of near and isolated visitor histories;
-- whether the relevant finite-community effect is specifically **finite visitor-community sampling**, separately from finite plant-population sampling.
+1. **Dynamic realized-richness matching.** Annual response-blind matching reverses the mean far-minus-near inherited-investment effect from negative to positive in both finite ABM (`-0.1446 → +0.0333`) and deterministic density (`-0.4510 → +0.0338`). Yet finite-ABM mixed histories increase to `68/128` at epsilon 0 (`59/128` at 0.01; `18/128` at 0.05). Visitor amount therefore strongly positions the coarse regime without uniquely fixing realized direction.
+2. **Finite visitor versus finite plant sampling.** Pooling eight independent visitor histories eliminates mixed history-level branches in both model forms, whereas increasing plant capacity from 48 to 192 independently reduces finite-ABM mixed histories from `12/128` to `1/128` at epsilon 0. The two finite axes are therefore separable and both matter.
 
-A frozen prospective bridge design addresses these with richness-matched, visitor-pooled and larger-capacity controls. Until it is executed, the legacy Model 2 exact-richness and synthetic-`k` analyses remain active benchmark evidence, not merely historical decoration.
+A large S/C/I interaction share is not equivalent to directional branching: the visitor-pooled finite ABM has `I=0.542` but `0/128` mixed histories.
+
+These results remove Model 2's last active control-gate role. Legacy exact-richness, synthetic-`k`, response-rule and S/C/I analyses remain Supporting Information/provenance only.
 
 ## Direct decomposition of the Chapter 1 isolation axis
 
