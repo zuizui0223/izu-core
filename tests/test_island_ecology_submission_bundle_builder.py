@@ -42,7 +42,7 @@ def test_current_scientific_gate_uses_unified_model3_lock():
     assert gate["unification_audit"]["conclusion"] == "success"
     assert gate["unification_audit"]["decision"] == "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls"
     assert gate["submission_state"]["new_field_data_required"] is False
-    assert gate["submission_state"]["model3_bridge_campaign_required_for_original_control_equivalence"] is True
+    assert gate["submission_state"]["model3_bridge_campaign_required_for_full_original_ch2_equivalence"] is True
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
@@ -51,8 +51,8 @@ def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path
         bundle.validate_scientific_gate()
 
 
-def test_submission_bundle_still_fails_closed_on_unresolved_metadata(tmp_path: Path):
-    with pytest.raises(ValueError, match="submission metadata incomplete"):
+def test_submission_bundle_prioritizes_open_bridge_gate_before_metadata(tmp_path: Path):
+    with pytest.raises(ValueError, match="original-Chapter-2 bridge controls are not complete"):
         bundle.build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
 
 
@@ -61,7 +61,7 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
     metadata["journal"] = "Journal of Ecology"
     metadata_path = tmp_path / "metadata.json"
     metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
-    with pytest.raises(ValueError, match="Oikos Research Paper"):
+    with pytest.raises(ValueError, match="original-Chapter-2 bridge controls are not complete"):
         bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
 
 
