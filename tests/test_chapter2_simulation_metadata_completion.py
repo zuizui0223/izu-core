@@ -64,12 +64,14 @@ def test_source_native_external_composition_examples_remain_frozen_provenance() 
     assert o["ogasawara_anijima_partner_turnover"]["causal_claim_allowed"] is False
 
 
-def test_active_oikos_manifest_uses_unified_model3_and_no_field_completion_gate() -> None:
+def test_active_oikos_manifest_uses_bridge_gated_unified_model3_and_no_field_completion_gate() -> None:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["scientific_state"] == "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation"
-    assert manifest["prospective_unification_audit"]["decision"] == "model2_not_required_as_independent_mechanistic_model"
+    assert manifest["scientific_state"] == "unified_model3_core_mechanism_with_open_original_ch2_bridge_controls"
+    assert manifest["prospective_unification_audit"]["decision"] == "model2_not_required_as_separate_biological_mechanism_but_legacy_controls_not_fully_redundant"
     assert manifest["real_island_confrontation"]["principal_gap"] == "B_inherited_longitudinal_response_under_measured_visitor_regime"
     assert manifest["current_submission_state"]["new_field_data_required"] is False
+    assert manifest["current_submission_state"]["scientific_question_closed"] is False
+    assert manifest["current_submission_state"]["model3_bridge_campaign_required_for_original_control_equivalence"] is True
     assert manifest["formal_natural_evidence_boundary"]["complete_A_to_B_to_C_contracts"] == "0_of_25"
 
 
