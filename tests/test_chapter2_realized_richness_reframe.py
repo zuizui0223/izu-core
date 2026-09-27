@@ -16,8 +16,9 @@ def test_final_submission_promotes_unified_model3_and_demotes_legacy_richness_re
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density counterpart" in lower
     assert "finite-population abm" in lower
-    assert "2.3768" in text
-    assert "0.1891" in text
+    assert "annual response-blind richness matching" in lower
+    assert "68/128" in text
+    assert "41.5%" in text
     assert "real islands occupy different stages of the same response architecture" in lower
     assert "legacy reduced response-geometry analyses" not in lower
     assert "result 1—mechanistic prediction" not in lower
@@ -35,20 +36,22 @@ def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
     assert "deterministic genotype-density counterpart" in lower
     assert "finite-population abm" in lower
     assert "source-locked island systems" in lower
-    assert "22/128" in abstract and "30/128" in abstract
-    assert "0/128" in abstract
-    assert "prospective bridge campaign" in lower
+    assert "24,576-case bridge" in lower
+    assert "68/128" in abstract
+    assert "pooling visitor histories eliminated mixed branches entirely" in lower
 
 
 def test_scientific_gate_requires_active_unified_model3_lock():
     legacy = json.loads(LEGACY_DECISION.read_text(encoding="utf-8"))
     assert legacy["prespecified_gate"]["decision"] == "blocker_failed_reframe_before_author_metadata"
     lock = json.loads(UNIFIED_LOCK.read_text(encoding="utf-8"))
-    assert lock["status"] == "active_chapter2_unified_model3_with_bridge_gates"
+    assert lock["status"] == "active_chapter2_unified_model3_bridge_complete"
     validated = validate_scientific_gate()
-    assert validated["unification_audit"]["decision"] == "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls"
+    assert validated["unification_audit"]["decision"] == "model2_not_required_as_active_scientific_model_or_control_gate"
+    assert validated["prospective_bridge"]["status"] == "complete"
+    assert validated["prospective_bridge"]["cases_verified"] == 24576
     assert validated["submission_state"]["new_field_data_required"] is False
-    assert validated["submission_state"]["model3_bridge_campaign_required_for_full_original_ch2_equivalence"] is True
+    assert validated["submission_state"]["original_chapter2_controls_closed"] is True
 
 
 def test_frozen_legacy_figure_generation_remains_reproducible_supporting_evidence():
