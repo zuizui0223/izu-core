@@ -55,7 +55,7 @@ Response-blind annual visitor-count matching makes near and far annual counts id
 
 Finite-ABM mixed histories increase to `68/128`, `59/128`, `18/128` at epsilon `0`, `0.01`, `0.05`. Deterministic density shows `16/128`, `1/128`, `0/128`.
 
-The supported interpretation is that visitor amount/richness strongly positions the coarse mean regime, while identity/composition and finite realization govern much of the residual branch heterogeneity. These finite-history labels are stochastic realizations rather than stable latent branches: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0.
+The supported interpretation is that visitor amount/richness strongly shifts the coarse mean response and strongly positions the coarse mean regime, while identity/composition and finite realization govern much of the residual branch heterogeneity. These finite-history labels are stochastic realizations rather than stable latent branches: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0.
 
 Annual thinning also changes identity persistence, so this is not a pure field species-richness causal effect.
 
