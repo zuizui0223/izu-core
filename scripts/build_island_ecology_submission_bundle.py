@@ -70,20 +70,22 @@ def validate_scientific_gate() -> dict:
         gate = json.loads(UNIFIED_MODEL3_LOCK.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise ValueError("unified Model 3 scientific lock is unreadable; refuse to build a submission bundle") from exc
-    if gate.get("status") != "active_chapter2_unified_model3":
-        raise ValueError("Chapter 2 unified Model 3 lock is not active")
+    if gate.get("status") != "active_chapter2_unified_model3_with_bridge_gates":
+        raise ValueError("Chapter 2 unified Model 3 bridge-gated lock is not active")
     audit = gate.get("unification_audit", {})
     if audit.get("conclusion") != "success":
         raise ValueError("Model 3 unification audit is not successful")
-    if audit.get("decision") != "model2_not_required_as_independent_mechanistic_model":
-        raise ValueError("Chapter 2 model-unification decision is not locked")
+    if audit.get("decision") != "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls":
+        raise ValueError("Chapter 2 model-unification bridge decision is not locked")
     if not UNIFICATION_RESULT.exists():
         raise ValueError("Model 3 unification result is missing")
     result = json.loads(UNIFICATION_RESULT.read_text(encoding="utf-8"))
     if result.get("decision") != "model2_not_required_as_independent_mechanistic_model":
-        raise ValueError("Model 3 unification result no longer matches the active lock")
+        raise ValueError("Frozen reduction result no longer matches its original controlled-composition decision")
     if gate.get("submission_state", {}).get("new_field_data_required") is not False:
         raise ValueError("Chapter 2 field-data completion boundary changed")
+    if gate.get("submission_state", {}).get("model3_bridge_campaign_required_for_original_control_equivalence") is not True:
+        raise ValueError("Chapter 2 original-control bridge gate changed")
     return gate
 
 def _write_rtf(path: Path, text: str) -> None:
