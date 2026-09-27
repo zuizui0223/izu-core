@@ -24,12 +24,13 @@ Chapter 1 bridge:
 
 Status:
 
-- scientific analysis: **CLOSED at the declared model-conditional claim ceiling**;
+- core biological mechanism: **DEFINED at the declared model-conditional claim ceiling**;
+- original-Chapter-2 control equivalence: **OPEN for realized-richness and finite-visitor-community bridge gates**;
 - new focal field data required: **NO**;
 - submission package: **OPEN for unified figures, SI and fail-closed QA**;
 - author metadata: follows package QA.
 
-Legacy exact-richness, synthetic `k`, S/C/I and response-rule analyses are Supporting Information/provenance only.
+Legacy S/C/I and response-rule analyses are Supporting Information/provenance. Exact realized-richness and synthetic-`k` finite-visitor-community analyses remain active benchmark controls until their Model 3 bridge counterparts are resolved.
 
 ## Lane B — analytical / Ecology Letters companion
 
