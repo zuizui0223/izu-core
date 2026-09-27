@@ -101,11 +101,11 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         nonmetadata_errors.append(f"unified Model 3 lock: {exc}")
 
     if lock:
-        if lock.get("status") != "active_chapter2_unified_model3":
+        if lock.get("status") != "active_chapter2_unified_model3_with_bridge_gates":
             nonmetadata_errors.append("unified Model 3 lock is not active")
         if lock.get("submission_state", {}).get("new_field_data_required") is not False:
             nonmetadata_errors.append("unified lock incorrectly restores new focal field data as required")
-        if lock.get("unification_audit", {}).get("decision") != "model2_not_required_as_independent_mechanistic_model":
+        if lock.get("unification_audit", {}).get("decision") != "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls":
             nonmetadata_errors.append("unified lock lost the Model 2 disposition")
 
     manifest_path = ROOT / ACTIVE_SUBMISSION_MANIFEST
@@ -121,7 +121,7 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
             nonmetadata_errors.append("active manifest manuscript does not match bundle source manuscript")
         if manifest.get("submission_ready") is not False:
             nonmetadata_errors.append("active manifest must remain submission_ready=false before final QA and author metadata")
-        if manifest.get("scientific_state") != "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation":
+        if manifest.get("scientific_state") != "unified_model3_core_mechanism_with_open_original_ch2_bridge_controls":
             nonmetadata_errors.append("active manifest lost the unified Model 3 scientific state")
         if manifest.get("narrative_lock") != "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md":
             nonmetadata_errors.append("active manifest lost the mechanism-mainline narrative lock")
@@ -131,8 +131,14 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         if boundary.get("complete_A_to_B_to_C_contracts") != "0_of_25":
             nonmetadata_errors.append("active manifest lost the frozen 0/25 A-to-B-to-C boundary")
         state = manifest.get("current_submission_state", {})
-        if state.get("scientific_question_closed") is not True:
-            nonmetadata_errors.append("active manifest no longer closes the scientific question")
+        if state.get("core_mechanism_defined") is not True:
+            nonmetadata_errors.append("active manifest lost the defined core mechanism")
+        if state.get("scientific_question_closed") is not False:
+            nonmetadata_errors.append("active manifest must keep original-Chapter-2 closure open until bridge controls finish")
+        if state.get("model3_bridge_campaign_required_for_original_control_equivalence") is not True:
+            nonmetadata_errors.append("active manifest lost the required Model 3 bridge campaign")
+        else:
+            package_blockers.append("complete frozen Model 3 original-Chapter-2 bridge campaign")
         if state.get("new_field_data_required") is not False:
             nonmetadata_errors.append("active manifest incorrectly restores new focal field data")
         if state.get("figures_need_regeneration") is True:
@@ -159,7 +165,7 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         if not error.startswith(ALLOWED_METADATA_ERROR_PREFIXES)
     ]
     scientific_gate_complete = (
-        gate.get("status") == "active_chapter2_unified_model3"
+        gate.get("status") == "active_chapter2_unified_model3_with_bridge_gates"
         and gate.get("unification_audit", {}).get("conclusion") == "success"
     )
     nonmetadata_ready = not nonmetadata_errors and not package_blockers
@@ -173,7 +179,7 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         "scientific_state": manifest.get("scientific_state") if manifest else None,
         "scientific_question_closed": manifest.get("current_submission_state", {}).get("scientific_question_closed") if manifest else None,
         "scientific_gate_complete": scientific_gate_complete,
-        "unified_model3_locked": lock.get("status") == "active_chapter2_unified_model3" if lock else False,
+        "unified_model3_locked": lock.get("status") == "active_chapter2_unified_model3_with_bridge_gates" if lock else False,
         "real_island_abc_confrontation_locked": bool(manifest.get("real_island_confrontation")) if manifest else False,
         "field_e3_e4_required": False,
         "nonmetadata_submission_preflight_ready": nonmetadata_ready,
@@ -190,7 +196,9 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
         "ethics_statement_author_confirmation_required": True,
         "submission_ready": not metadata_errors and nonmetadata_ready,
         "next_transition": (
-            "regenerate unified figures and finish submission QA; then author metadata/confirmations"
+            "complete frozen Model 3 original-Chapter-2 bridge campaign; then regenerate unified figures and finish submission QA"
+            if "complete frozen Model 3 original-Chapter-2 bridge campaign" in package_blockers
+            else "regenerate unified figures and finish submission QA; then author metadata/confirmations"
             if package_blockers or nonmetadata_errors
             else "author supplies the required metadata/confirmation categories; then build the fail-closed bundle"
         ),
