@@ -150,3 +150,5 @@ jobs:
           path: |
             model3_ch2_bridge_prospective_summary_20260927.json
             model3_ch2_bridge_prospective_summary_console.txt
+
+# execution-trigger: 2026-09-27
