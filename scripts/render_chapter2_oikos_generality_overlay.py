@@ -71,7 +71,8 @@ def render_submission_manuscript() -> str:
         "the main natural-data gap",
         "0/25 full source-state",
         "recurrent functional island syndrome",
-    )    for token in required:
+    )
+    for token in required:
         if token.lower() not in lower:
             raise ValueError(f"Oikos canonical manuscript missing claim-lock token: {token}")
 
