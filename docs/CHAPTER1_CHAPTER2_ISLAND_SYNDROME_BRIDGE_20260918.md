@@ -142,7 +142,7 @@ The source-locked real-island projection provides natural examples of the same r
 
 The principal missing natural link is the inherited longitudinal **B layer**: measured starting state + measured visitor regime + inherited trait/genotype change through time while demography is also tracked.
 
-Full chapter-by-chapter resolution matrix: `docs/CHAPTER1_UNRESOLVED_TO_CHAPTER2_RESOLUTION_20260927.md`.
+Full chapter-by-chapter resolution matrix: `docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md`.
 # Integrated dissertation interpretation
 
 The strongest cross-chapter statement is:
