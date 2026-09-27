@@ -50,7 +50,8 @@ def test_route_firewall_names_three_distinct_submission_objects_and_current_bloc
         "## Lane B — analytical / Ecology Letters companion",
         "## Lane C — prospective natural A → B → C transport/falsification",
         "one nested Model 3 + layer-specific real-island confrontation",
-        "scientific analysis: **CLOSED",
+        "core biological mechanism: **DEFINED",
+        "original-Chapter-2 control equivalence: **OPEN",
         "submission package: **OPEN for unified figures, SI and fail-closed QA",
         "old Model 2 as a second required biological mechanism",
     ):
