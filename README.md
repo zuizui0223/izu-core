@@ -4,23 +4,27 @@
 
 ## Current state
 
-**Chapter 2 two-model closure (2026-09-27):** the [response-rule factorial](docs/CHAPTER2_UPDATE_FACTORIAL_RESULTS_20260925.md) shows that neither C/I reversal nor C→I→S is universal across update rules. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) then carries conditional responses through offspring production, selfing/outcrossing, inheritance, finite demography, connectivity and history. Its 19,968 audited cases show model-conditional historical contingency, assurance-dependent persistence and non-universal inherited floral-investment trajectories. The [final scope and field projection](docs/CHAPTER2_SIMULATION_FINAL_SCOPE_AND_FIELD_PROJECTION_20260925.md) now defines both linked layers and their natural claim ceiling.
+**Chapter 2 unified-model closure (2026-09-27):** the prospective [Model 3 unified reduction audit](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) shows that non-uniform response already appears in the fixed-state reproductive operator, persists in the deterministic genotype-density counterpart, and remains in the finite-population ABM. Fixed visitor count with changed composition changes response, whereas exact duplication of the same functional types under fixed total activity is identical to machine precision. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) then shows how assurance, chronology, connectivity, life history and finite demography alter persistence and inherited trajectories.
 
-**Chapter 2 is scientifically closed without new focal field data, but the journal package is reopened for Model 3 integration.** Its canonical scientific state is **Model 2 response geometry + Model 3 demographic/evolutionary realization + source-audited metadata/secondary-data confrontation**.
+**Chapter 2 is scientifically closed without new focal field data, but the journal package is reopened for unified-model rewriting.** Its canonical scientific state is **one nested Model 3 + source-audited metadata/secondary-data confrontation**.
 
 ```text
-Model 2: conditional response geometry
-    -> exact realized-richness control
-        -> finite-community / system-size determinant hierarchy
-            -> downstream filtering and assurance
-Model 3: demographic/evolutionary realization
-    -> offspring + selfing/outcrossing + inheritance
-        -> persistence / extinction + inherited floral investment
-            -> history / connectivity / life-history contrasts
-                -> source-audited natural claim ceiling
+Unified Model 3
+    A. fixed-state reproductive assay
+        -> starting floral state × visitor composition
+        -> selection-gradient branching
+    B. deterministic genotype-density propagation
+        -> same reproduction + inheritance, demographic sampling removed
+        -> inherited branching persists
+    C. finite-population ABM
+        -> extinction / ancestry / standing-variation loss
+        -> realized inherited trajectory
+    D. assurance / chronology / connectivity / recovery / life history
+        -> conditional realization
+    -> source-audited natural claim ceiling
 ```
 
-The active integration contract is [`data/design/chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json). The older [`chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) remains historical provenance for the pre-Model-3 chapter state, and the existing claim-by-claim map remains [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) until the submission evidence matrix is regenerated.
+The active architecture contract is [`data/design/chapter2_unified_model3_lock_20260927.json`](data/design/chapter2_unified_model3_lock_20260927.json). The transitional [`chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) and older completion locks remain historical provenance. The existing claim-by-claim map remains [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) until the submission evidence matrix is regenerated.
 
 The active manuscript is [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md). The active narrative lock is [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md). The existing Oikos manifest [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) remains the pre-Model-3 submission contract and must be regenerated before submission; current chapter/submission-state supersession is recorded in the 2026-09-27 integration lock.
 
@@ -34,7 +38,7 @@ Island syndromes can conflate three distinct processes:
 2. **In-situ evolutionary change** — how established island lineages diverge from source populations;
 3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and local interaction context change.
 
-Chapter 2 now links two synthetic layers. **Model 2** isolates post-establishment interaction response and shows a **conditional response geometry**: realized richness helps place the coarse ensemble regime, while plant starting state evaluated against realized community composition retains branch contingency. **Model 3** asks what happens after that functional response reaches reproduction: pollen delivery, reproductive assurance, offspring viability, Mendelian inheritance, density regulation, survival, connectivity and disturbance history jointly determine whether a population persists and how inherited floral investment changes.
+Chapter 2 now uses **one nested Model 3**. Its fixed-state assay shows that starting floral state × visitor composition already changes the sign of reproductive selection before inheritance or demography. The deterministic genotype-density counterpart propagates the same reproduction and Mendelian operator without demographic sampling and still retains non-uniform inherited trajectories. The finite-population ABM then adds extinction, stochastic recruitment, ancestry and standing-variation loss, while assurance, connectivity, chronology, recovery and life history condition realized outcomes.
 
 The hierarchy of response determinants is **not fixed**. Under the historical small finite-community regime, community realization is the largest additive component. Under the collision-free hierarchical RNG correction, pooling independent community trajectories under active plant adjustment raises the median starting-position share from **3.11% at `k=1` to 53.53% at `k=16`**, while the median community-realization share falls from **74.27% to 14.05%**. Starting position exceeds community realization in **4/6** prespecified seeds at `k=4` and **6/6** at `k=8` and `k=16`; mixed branching remains at `k=16` in **26–36/96** realizations. Historical offset-stream values remain archived as provenance only. The numerical crossover is model-specific and is not a natural threshold.
 
@@ -44,9 +48,9 @@ A finite-community limit analysis then shows that the deterministic mean-field k
 
 These are synthetic mechanism and robustness results, **not natural frequencies or calibrated ecological thresholds**.
 
-## Model 3: demographic and evolutionary realization
+## Unified Model 3: ecological selection to finite-population realization
 
-The completed island campaign is part of Chapter 2 rather than a post-Chapter-2 side project. It contains **19,968 audited cases** across the frozen island design and six held-out transport rows.
+The completed island campaign is the full finite-population layer of Chapter 2 and contains **19,968 audited cases** across the frozen island design and six held-out transport rows. The prospective unified reduction audit adds matched fixed-state and deterministic-density reductions of the same biological operator.
 
 The current chapter-level reading is deliberately qualitative and mechanistic:
 
@@ -118,13 +122,12 @@ Any later pilot/precision work belongs to this post-Chapter-2 study. It is not n
 
 Chapter 2 closes with:
 
-1. **Model 2:** conditional response geometry;
-2. exact realized-richness separation of coarse regime placement from branch contingency;
-3. finite-community/system-size and response-rule results showing regime-dependent determinant ordering;
-4. local filtering and assurance as downstream functional modifiers;
-5. **Model 3:** explicit reproduction, inheritance and finite-demographic realization of conditional island responses;
-6. history, connectivity, life-history and recovery contrasts showing that one current environment need not imply one inherited endpoint; and
-7. source-audited metadata / secondary-data confrontation that fixes the natural empirical claim ceiling.
+1. **fixed-state Model 3 assay:** selection direction depends on starting floral state × visitor composition;
+2. **deterministic genotype-density Model 3:** branching persists after demographic sampling is removed;
+3. **finite-population Model 3 ABM:** demographic stochasticity, extinction and variation loss modify realized trajectories;
+4. assurance, chronology, connectivity, life-history, founding and recovery interventions explaining conditional realization;
+5. legacy Model 2 exact-richness / synthetic-`k` / response-rule analyses retained only as Supporting Information robustness; and
+6. source-audited metadata / secondary-data confrontation that fixes the natural empirical claim ceiling.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.
 
@@ -132,10 +135,12 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 - [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md) — active manuscript.
 - [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md) — active narrative contract.
-- [`data/design/chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) — active superseding two-model Chapter 2 integration lock.
+- [`data/design/chapter2_unified_model3_lock_20260927.json`](data/design/chapter2_unified_model3_lock_20260927.json) — active unified Model 3 Chapter 2 lock.
+- [`data/design/chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) — transitional two-model integration provenance.
 - [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) — historical pre-Model-3 completion lock.
 - [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) — simulation ↔ metadata ↔ claim-ceiling map.
-- [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level two-model Chapter 2 architecture and HOW / proximal-WHY / ultimate-WHY boundary.
+- [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level unified Model 3 architecture and HOW / proximal-WHY / ultimate-WHY boundary.
+- [`docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md`](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) — prospective audit and Model 2 disposition.
 - [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
 - [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) — complete numerical readout and qualification.
 - [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — current Oikos submission contract.
@@ -146,7 +151,7 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The scientific question is closed at the declared two-model claim ceiling, but the **Oikos submission package is not currently submission-ready** because Model 3 has just been promoted into the active manuscript. Before returning to author-only metadata blockers, the Model 3 figure, Supporting Information, renderer output and fail-closed submission audits must be regenerated and checked. No new focal field data are required.
+The scientific question is closed at the declared unified-model claim ceiling, but the **Oikos submission package is not currently submission-ready** because the manuscript still needs to be rewritten from the transitional two-model structure to the unified Model 3 structure. Before returning to author-only metadata blockers, figures, Supporting Information, renderer output and fail-closed submission audits must be regenerated and checked. No new focal field data are required.
 
 The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure.
 
@@ -166,7 +171,7 @@ This repository does **not** claim that:
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
-The retained contribution is a **two-layer synthetic explanation of a recurrent-but-nonuniform island syndrome, completed by source-audited natural confrontation at a bounded claim ceiling**: Model 2 explains conditional functional branching; Model 3 shows how reproduction, assurance, demography, connectivity and history condition persistence and inherited floral trajectories. Existing natural evidence defines which ingredients are biologically supported versus not yet identifiable.
+The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, completed by source-audited natural confrontation at a bounded claim ceiling**: non-uniformity appears before demography in the Model 3 reproductive operator, persists under deterministic inheritance, and is further modified by finite demography and ecological history. Existing natural evidence defines which ingredients are biologically supported versus not yet identifiable.
 
 ### Interpretation updates (2026-09-25)
 
