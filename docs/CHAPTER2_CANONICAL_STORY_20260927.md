@@ -56,6 +56,14 @@ The deterministic genotype-density counterpart retains mixed positive and negati
 
 Therefore population stochasticity is not required for non-uniform evolutionary direction.
 
+### 3A. Isolation-driven assembly is not the same as a fixed-composition branch test
+
+The original-Chapter-2 answer audit reanalyzed all 3,072 stored Model 3 transport cases. In the paired far-minus-near isolation effect, the deterministic genotype-density model was one-directional in both cohorts: mixed in `0/128` production histories and `0/128` held-out histories at epsilon 0. The finite ABM, however, was mixed in `22/128` and `30/128`, with demographic-repeat branch labels disagreeing in `41/128` and `48/128`.
+
+Thus the controlled-composition result establishes **branch capacity**, not that every isolation-driven community trajectory branches deterministically. Under some isolation regimes, finite demography can be decisive for whether heterogeneous realized responses appear.
+
+This also means two old Chapter 2 controls are not yet fully internalized by Model 3: response-blind realized-richness matching and finite visitor-community averaging independent of plant population size.
+
 ### 4. Finite populations modify realized trajectories
 
 In the simple reduction audit, deterministic-density and mean-ABM signs agree in every evaluable cell. In the full 19,968-case campaign, however, ABM–density sign disagreement becomes large under chronology, assurance, life history and recovery. Finite demography therefore modifies or removes upstream branches rather than being their sole generator.
@@ -115,13 +123,16 @@ The formal audit remains `0/25` complete A → B → C contracts.
 
 ## Role of legacy Model 2
 
-Legacy Model 2 is Supporting Information/provenance only. It retains useful robustness questions:
+Legacy Model 2 is not a separate biological mechanism, but two of its controls remain scientifically active until the prospective Model 3 bridge campaign is completed:
 
-- exact realized-richness matching;
-- synthetic `k` community pooling;
+- exact response-blind realized-richness matching;
+- synthetic `k` finite visitor-community pooling.
+
+The following are Supporting Information/provenance only:
+
 - heuristic response-rule sensitivity;
 - historical S/C/I decomposition;
-- a community-mean limit that averages external community realization.
+- the old community-mean limit that averages external community realization.
 
 Its deterministic community-mean limit is not the same as Model 3's deterministic genotype-density counterpart. The former averages ecological community realization; the latter retains visitor history/composition and removes demographic sampling.
 
@@ -141,6 +152,17 @@ The canonical dissertation bridge is `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20
 The strongest cross-chapter statement is:
 
 > **Island syndromes can be recurrent at the level of function without being recurrent at the level of detailed phenotype.**
+
+## Remaining original-Chapter-2 bridge gates
+
+A frozen 24,576-case prospective Model 3 bridge design now separates:
+
+- natural near versus far visitor histories;
+- response-blind annually richness-matched near/far histories;
+- pooled eight-history visitor environments with activity normalization;
+- larger plant capacity as a separate finite-population control.
+
+No preferred sign, mixed fraction or S/C/I ranking is a success criterion. Until this campaign is executed, Chapter 2 should not claim that Model 3 has reproduced the legacy exact-richness or finite-visitor-community conclusions.
 
 ## Claim ceiling
 
