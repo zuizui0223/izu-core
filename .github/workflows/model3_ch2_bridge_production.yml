@@ -6,6 +6,14 @@ on:
       - codex/integrate-model3-into-ch2
     paths:
       - '.github/workflows/model3_ch2_bridge_production.yml'
+      - 'data/design/model3_ch2_bridge_20260927.json'
+      - 'scripts/run_model3_ch2_bridge.py'
+      - 'scripts/model3_island_bridge_ops.py'
+      - 'scripts/summarize_model3_ch2_bridge_production.py'
+      - 'tests/test_model3_ch2_bridge.py'
+      - 'tests/test_model3_ch2_bridge_runner.py'
+      - 'tests/test_model3_island_bridge_ops.py'
+      - 'tests/test_model3_ch2_bridge_production_summary.py'
   workflow_dispatch:
 
 concurrency:
