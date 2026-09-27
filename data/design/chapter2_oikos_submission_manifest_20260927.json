@@ -3,7 +3,7 @@
   "updated_on": "2026-09-27",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
-  "routing_status": "active_scientific_route_bridge_controls_open_submission_package_reopened",
+  "routing_status": "active_scientific_route_bridge_complete_package_rebuild",
   "fallback_route": "Journal of Ecology Research Article",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
@@ -11,8 +11,8 @@
   "chapter1_bridge": "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md",
   "model_unification_decision": "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
   "real_island_projection": "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
-  "scientific_state": "unified_model3_core_mechanism_with_open_original_ch2_bridge_controls",
-  "story": "controlled_branch_capacity_to_isolation_realization_to_history_plus_real_island_ABC_confrontation",
+  "scientific_state": "unified_model3_bridge_complete_with_real_island_layer_confrontation",
+  "story": "coarse_isolation_regime_to_finite_visitor_and_plant_realization_to_real_island_ABC_confrontation",
   "unified_model3": {
     "fixed_state_assay": "pre_demographic_selection_branching",
     "deterministic_density": "same_reproduction_and_mendelian_inheritance_without_demographic_sampling",
@@ -82,7 +82,7 @@
     "interpretation": "recurrent_function_does_not_require_phenotypic_convergence"
   },
   "legacy_model2": {
-    "status": "not_separate_biological_mechanism_but_two_controls_remain_active_benchmarks",
+    "status": "supporting_information_and_provenance_only",
     "active_benchmarks": [
       "exact_realized_richness_matching",
       "synthetic_k_finite_visitor_community_pooling"
@@ -92,7 +92,7 @@
       "historical_SCI_decomposition",
       "community_mean_limit"
     ],
-    "prohibited_role": "independent_required_biological_mechanism"
+    "prohibited_role": "active biological mechanism or unresolved submission gate"
   },
   "formal_natural_evidence_boundary": {
     "research_entries": 25,
@@ -123,24 +123,27 @@
     "cross_sectional_morphology_treated_as_B_layer": false,
     "deterministic_branching": "demonstrated_under_controlled_compositions_not_under_stored_isolation_effect",
     "isolation_finite_abm_branching": "descriptive_with_repeat_instability_not_latent_probability",
-    "dynamic_richness_control_reproduced_in_model3": false,
-    "finite_visitor_community_control_reproduced_in_model3": false
+    "dynamic_richness_control_reproduced_in_model3": true,
+    "finite_visitor_community_control_reproduced_in_model3": false,
+    "finite_visitor_control_reproduced_in_model3": true,
+    "finite_plant_control_reproduced_in_model3": true,
+    "model2_active_gate": false,
+    "S_C_I_directional_branching_equivalence": false
   },
   "current_submission_state": {
-    "scientific_question_closed": false,
-    "core_mechanism_defined": true,
-    "original_ch2_control_equivalence_closed": false,
+    "scientific_question_closed": true,
+    "original_chapter2_controls_closed": true,
     "new_field_data_required": false,
-    "model3_bridge_campaign_required_for_original_control_equivalence": true,
-    "manuscript_rewrite_in_progress": true,
+    "manuscript_rewritten": true,
+    "supporting_information_rewrite_in_progress": true,
     "figures_need_regeneration": true,
     "renderers_and_fail_closed_audits_need_final_pass": true,
     "author_metadata_after_scientific_package_pass": true
   },
   "submission_ready": false,
   "remaining_before_actual_submission": [
+    "regenerate_unified_model3_bridge_figures",
     "execute_or_explicitly_defer_the_frozen_Model3_original_Ch2_bridge_campaign",
-    "resolve_dynamic_realized_richness_and_finite_visitor_community_controls",
     "regenerate_unified_model3_figures",
     "regenerate_and_validate_supporting_information",
     "pass_full_CI_and_fail_closed_submission_audits",
@@ -184,5 +187,20 @@
       "large_far"
     ],
     "preferred_outcome_required": false
+  },
+  "prospective_bridge": {
+    "result": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "interpretation": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md",
+    "workflow_run_id": 36311030639,
+    "cases_verified": 24576,
+    "status": "complete",
+    "natural_individual_mean": -0.1446356879340278,
+    "natural_density_mean": -0.45098306258395304,
+    "richness_matched_individual_mean": 0.0333226521809896,
+    "richness_matched_density_mean": 0.03375734077068991,
+    "natural_mixed_individual_eps0": "12_of_128",
+    "richness_matched_mixed_individual_eps0": "68_of_128",
+    "pooled_mixed_eps0": "0_of_128_both_models",
+    "large_plant_mixed_individual_eps0": "1_of_128"
   }
 }
