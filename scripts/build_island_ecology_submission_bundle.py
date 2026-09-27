@@ -27,6 +27,7 @@ DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_templa
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_submission_bundle.zip"
 UNIFIED_MODEL3_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 UNIFICATION_RESULT = ROOT / "data/results/model3_unified_reduction_audit_frozen_20260927.json"
+PROSPECTIVE_BRIDGE_RESULT = ROOT / "data/results/model3_ch2_bridge_prospective_frozen_20260927.json"
 SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 SUBMISSION_MANUSCRIPT_NAME = "MANUSCRIPT.rtf"
 SUBMISSION_SI_NAME = "SUPPORTING_INFORMATION.rtf"
@@ -70,22 +71,40 @@ def validate_scientific_gate() -> dict:
         gate = json.loads(UNIFIED_MODEL3_LOCK.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise ValueError("unified Model 3 scientific lock is unreadable; refuse to build a submission bundle") from exc
-    if gate.get("status") != "active_chapter2_unified_model3_with_bridge_gates":
-        raise ValueError("Chapter 2 unified Model 3 bridge-gated lock is not active")
+
+    if gate.get("status") != "active_chapter2_unified_model3_bridge_complete":
+        raise ValueError("Chapter 2 unified Model 3 bridge-complete lock is not active")
+
     audit = gate.get("unification_audit", {})
     if audit.get("conclusion") != "success":
         raise ValueError("Model 3 unification audit is not successful")
-    if audit.get("decision") != "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls":
-        raise ValueError("Chapter 2 model-unification bridge decision is not locked")
+    if audit.get("decision") != "model2_not_required_as_active_scientific_model_or_control_gate":
+        raise ValueError("Chapter 2 final model-unification decision is not locked")
+    if audit.get("scope", {}).get("not_answered"):
+        raise ValueError("Chapter 2 unification audit still has unanswered internal control gates")
+
     if not UNIFICATION_RESULT.exists():
         raise ValueError("Model 3 unification result is missing")
-    result = json.loads(UNIFICATION_RESULT.read_text(encoding="utf-8"))
-    if result.get("decision") != "model2_not_required_as_independent_mechanistic_model":
-        raise ValueError("Frozen reduction result no longer matches its original controlled-composition decision")
-    if gate.get("submission_state", {}).get("new_field_data_required") is not False:
+    reduction = json.loads(UNIFICATION_RESULT.read_text(encoding="utf-8"))
+    if reduction.get("decision") != "model2_not_required_as_independent_mechanistic_model":
+        raise ValueError("Frozen controlled-composition reduction result changed")
+
+    bridge = gate.get("prospective_bridge", {})
+    if bridge.get("status") != "complete" or bridge.get("cases_verified") != 24576:
+        raise ValueError("Model 3 prospective bridge is not complete")
+    if not PROSPECTIVE_BRIDGE_RESULT.exists():
+        raise ValueError("Model 3 prospective bridge result is missing")
+    bridge_result = json.loads(PROSPECTIVE_BRIDGE_RESULT.read_text(encoding="utf-8"))
+    if bridge_result.get("status") != "frozen_complete_prospective_model3_ch2_bridge":
+        raise ValueError("Model 3 prospective bridge result is not frozen complete")
+    if bridge_result.get("provenance", {}).get("cases_verified") != 24576:
+        raise ValueError("Model 3 prospective bridge denominator changed")
+
+    state = gate.get("submission_state", {})
+    if state.get("original_chapter2_controls_closed") is not True:
+        raise ValueError("original Chapter 2 controls are not closed")
+    if state.get("new_field_data_required") is not False:
         raise ValueError("Chapter 2 field-data completion boundary changed")
-    if gate.get("submission_state", {}).get("model3_bridge_campaign_required_for_full_original_ch2_equivalence") is not True:
-        raise ValueError("Chapter 2 original-control bridge gate changed")
     return gate
 
 def _write_rtf(path: Path, text: str) -> None:
@@ -97,8 +116,6 @@ def _write_rtf(path: Path, text: str) -> None:
 
 def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     gate = validate_scientific_gate()
-    if gate.get("submission_state", {}).get("model3_bridge_campaign_required_for_full_original_ch2_equivalence") is True:
-        raise ValueError("original-Chapter-2 bridge controls are not complete")
 
     metadata = load_metadata(metadata_path)
     errors = validate_metadata(metadata)
@@ -106,13 +123,6 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
         raise ValueError("submission metadata incomplete:\n- " + "\n- ".join(errors))
     if metadata.get("journal") != "Oikos" or metadata.get("article_type") != "Research Paper":
         raise ValueError("active submission metadata must route to Oikos Research Paper")
-
-    bridge = gate.get("bridge_campaign", {})
-    if bridge.get("production_status") != "complete":
-        raise ValueError(
-            "Model 3 original-Chapter-2 bridge controls are not complete; "
-            "refuse to build a submission bundle"
-        )
 
     if not (ROOT / SOURCE_MANUSCRIPT).exists():
         raise FileNotFoundError(SOURCE_MANUSCRIPT)
