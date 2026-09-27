@@ -38,7 +38,7 @@ def test_active_submission_uses_unified_model3_and_preserves_history():
 
     assert "one nested model 3 + layer-specific real-island confrontation" in narrative.lower()
     assert "field e3/e4 remains post-chapter-2 future validation" in narrative.lower()
-    assert "functional recurrence does not require phenotypic convergence" in canonical.lower()
+    assert "functional matching can create state-dependent selection before demography" in canonical.lower()
     assert "same island problem, recurrent functions, different evolutionary solutions" in bridge.lower()
 
     # Historical contracts remain readable provenance but are no longer active routing.
@@ -65,16 +65,18 @@ def test_relational_audit_remains_frozen_supporting_information_not_mainline():
     assert "prespecified relational-robustness audit" in supporting
 
 
-def test_manifest_routes_unified_model3_and_real_island_confrontation():
+def test_manifest_routes_bridge_gated_unified_model3_and_real_island_confrontation():
     manifest = _load(MANIFEST)
     assert manifest["journal_target"] == "Oikos"
     assert manifest["fallback_route"] == "Journal of Ecology Research Article"
-    assert manifest["scientific_state"] == "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation"
-    assert manifest["story"] == "fixed_state_selection_to_deterministic_inheritance_to_finite_realization_to_real_island_ABC_confrontation"
-    assert manifest["prospective_unification_audit"]["decision"] == "model2_not_required_as_independent_mechanistic_model"
+    assert manifest["scientific_state"] == "unified_model3_core_mechanism_with_open_original_ch2_bridge_controls"
+    assert manifest["story"] == "controlled_branch_capacity_to_isolation_realization_to_history_plus_real_island_ABC_confrontation"
+    assert manifest["prospective_unification_audit"]["decision"] == "model2_not_required_as_separate_biological_mechanism_but_legacy_controls_not_fully_redundant"
     assert manifest["real_island_confrontation"]["principal_gap"] == "B_inherited_longitudinal_response_under_measured_visitor_regime"
-    assert manifest["legacy_model2"]["status"] == "supporting_information_and_provenance_only"
+    assert manifest["legacy_model2"]["status"] == "not_separate_biological_mechanism_but_two_controls_remain_active_benchmarks"
     assert manifest["current_submission_state"]["new_field_data_required"] is False
+    assert manifest["current_submission_state"]["scientific_question_closed"] is False
+    assert manifest["current_submission_state"]["model3_bridge_campaign_required_for_original_control_equivalence"] is True
 
 
 def test_supporting_information_retains_real_island_and_legacy_layers():
