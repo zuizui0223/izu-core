@@ -280,6 +280,9 @@ def summarize(design: dict, campaign: Path) -> dict:
     return {
         "schema_version": "1.0",
         "status": "complete_prospective_bridge_summary",
+        "summary_source_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
+        "runner_source_sha256": sha256(Path("scripts/run_model3_ch2_bridge.py").read_bytes()).hexdigest(),
+        "bridge_ops_source_sha256": sha256(Path("scripts/model3_island_bridge_ops.py").read_bytes()).hexdigest(),
         "design_manifest_hash": manifest_hash,
         "cases_verified": int(design["cases"]),
         "receipt_arrays_hash_root": receipt_root.hexdigest(),
