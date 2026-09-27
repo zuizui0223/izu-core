@@ -3,7 +3,7 @@ from __future__ import annotations
 from scripts.generate_chapter2_manuscript_tables import build as build_base_tables
 from scripts.render_chapter2_realized_richness_reframe import render_submission_manuscript as render_base_manuscript
 
-NEW_TITLE = "Response geometry under community reorganization: richness-sensitive regimes and state-dependent branching"
+NEW_TITLE = "Conditional island responses: from functional matching to finite-population evolutionary realization"
 
 TABLE_ROW_ANCHOR = (
     "| Joint 240-step + trait adjustment = 0 mixed count | 75/96 | branching persists when the two existing structural sensitivities are imposed simultaneously; no new parameter values |"
@@ -57,37 +57,25 @@ def render_submission_manuscript() -> str:
 
     lower = text.lower()
     required = (
-        "same broad pollinator-community reorganization can generate opposing plant-response branches",
-        "realized richness differences therefore help position the ensemble mean regime",
-        "do not explain away response branching across realized community compositions",
-        "scale-dependent response architecture",
-        "dominant source of response variation need not be fixed",
-        "the syndrome is therefore the shifted response regime and its variance architecture",
-        "equalizing the baseline mainland–island partner-arrival and partner-loss rates",
-        "does not make the two scenarios identical",
-        "finite-community stochastic formulation",
-        "deterministic mean-field reduction would average over community-realization variation",
-        "44–60/96",
-        "0.575–0.691",
-        "0.134–0.172",
-        "deterministic mean-field kernel contrast was all-positive",
-        "minimum contrast 0.0208",
-        "absolute error fell from 0.0689 at `k=1` to 0.00654 at `k=16`",
-        "not presented as an exact fokker–planck or full linear-noise solution",
-        "the ordering of response determinants is itself regime dependent",
-        "2.55% at `k=1`",
-        "55.84% at `k=16`",
-        "72.98%",
-        "12.72%",
-        "6/6 seeds at `k=4`",
-        "28–42/96",
-        "the numerical crossover is model-specific",
-        "metadata confrontation supports biological ingredients while bounding attribution",
-        "wanshan–yongxing",
-        "anijima",
-        "post-chapter-2 transport/falsification",
-    )
-    for token in required:
+        "fixed-state reproductive assay",
+        "deterministic genotype-density counterpart",
+        "finite-population abm",
+        "same visitor composition favour opposite reproductive responses",
+        "maximum left-versus-right difference in fixed-state total gradient was `2.3768`",
+        "1.78e-15",
+        "demographic stochasticity is therefore not necessary for response branching",
+        "early visitor absence",
+        "reproductive assurance changed whether an endpoint existed",
+        "seed immigration modifies demographic and genetic input",
+        "real islands occupy different stages of the same response architecture",
+        "all eight shared oshima-to-post targets",
+        "same-direction propagation case",
+        "counterdirectional case",
+        "the main natural-data gap",
+        "0/25 full source-state",
+        "functional-and-historical interpretation of island syndromes",
+        "recurrent functional regime with conditional phenotypic realization",
+    )    for token in required:
         if token.lower() not in lower:
             raise ValueError(f"Oikos canonical manuscript missing claim-lock token: {token}")
 
