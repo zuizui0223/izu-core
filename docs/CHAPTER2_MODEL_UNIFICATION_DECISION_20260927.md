@@ -2,7 +2,7 @@
 
 ## Decision
 
-**Model 2 is no longer required as an independent mechanistic model for the Chapter 2 central question.**
+**Model 2 is no longer required as a separate biological mechanism for the Chapter 2 core branching question, but it is not yet redundant for every original Chapter 2 control.**
 
 Chapter 2 should use one nested eco-evolutionary Model 3 with three analytical levels:
 
@@ -10,7 +10,7 @@ Chapter 2 should use one nested eco-evolutionary Model 3 with three analytical l
 2. **deterministic genotype-density propagation** — the same reproduction/inheritance operator without demographic sampling;
 3. **finite-population ABM** — the same operator with finite individuals, demographic sampling, extinction, ancestry and standing-variation loss.
 
-The former Model 2 is retained as historical provenance and optional Supporting Information for exact-richness and heuristic response-rule sensitivity. Its results must not define a second biological mechanism in the current Chapter 2 narrative.
+The former Model 2 is retained as control evidence and Supporting Information for exact realized-richness matching, finite-visitor-community pooling and response-rule sensitivity until those two original controls are reproduced prospectively inside Model 3. It must not be narrated as a second biological mechanism.
 
 ## Why the decision changed
 
@@ -91,13 +91,48 @@ Across the frozen full-campaign summary, mean ABM–density sign-disagreement fr
 
 These fractions are descriptive cell-level diagnostics from the frozen synthetic campaign, not natural frequencies. They show that the deterministic distribution is a genuine mechanistic comparator rather than a trivial smoothing of the ABM.
 
+## Correction from the original-Chapter-2 answer audit
+
+A subsequent audit of all 3,072 stored Model 3 transport cases asked a stricter question: does the **actual isolation-driven near-versus-far visitor assembly contrast** show the same deterministic branching?
+
+The answer is not yet yes.
+
+For the paired far-minus-near inherited-investment effect:
+
+- production finite ABM: mixed in `22/128` histories at epsilon 0;
+- held-out finite ABM: mixed in `30/128`;
+- production deterministic density: mixed in `0/128`;
+- held-out deterministic density: mixed in `0/128`.
+
+The two finite demographic repeats also disagreed in their zero-threshold branch classification in `41/128` production and `48/128` held-out histories.
+
+This means the fixed-composition unification audit and the isolation-driven transport audit answer different questions:
+
+```text
+fixed visitor composition
+    -> Model 3 can generate deterministic state-dependent branching
+
+isolation-driven dynamic visitor assembly
+    -> deterministic density is one-directional in the stored transport contrast
+    -> finite ABM can show mixed realized outcomes
+```
+
+Therefore **demographic stochasticity is not a necessary condition for branching in the Model 3 operator, but it may be decisive for realized branching under some island-assembly regimes**.
+
+Two original Chapter 2 questions remain open inside Model 3:
+
+1. whether response branching persists after **response-blind annual realized-richness matching** of near and isolated visitor histories;
+2. whether the relevant finite-community effect is specifically **finite visitor-community sampling**, independently of finite plant-population sampling.
+
+A frozen prospective bridge design now targets these questions with matched, pooled and large-capacity arms. Until that campaign is complete, the legacy Model 2 exact-richness and synthetic-`k` results remain useful controls rather than disposable history.
+
 ## What the unified model now answers
 
 | Chapter 2 question | Model 3 level | Current answer |
 |---|---|---|
 | Can one pollinator context favour opposite floral responses? | fixed-state assay | Yes; starting access state changes the sign of the reproductive gradient. |
-| Is richness/count alone sufficient? | fixed-state count/composition controls | No under the fixed-total-activity operator; composition changes responses while exact type duplication does not. |
-| Does branching require demographic stochasticity? | deterministic density | No; mixed trajectories persist without demographic sampling. |
+| Is richness/count alone sufficient? | fixed-state count/composition controls | Type count alone is insufficient under the fixed-total-activity operator, but dynamic response-blind realized-richness matching inside Model 3 remains prospectively unresolved. |
+| Does branching require demographic stochasticity? | fixed-composition deterministic density + isolation transport audit | Not universally: controlled compositions branch deterministically, but the stored isolation-driven density contrast is one-directional while finite ABM histories can be mixed. |
 | Does finite population structure matter after branching exists? | ABM vs density | Yes; full-campaign sign disagreement and magnitude bias can be large. |
 | Does current environment uniquely determine phenotype? | chronology | No; early vs late visitor loss yields different endpoints under a common final environment. |
 | Why can reproductive assurance recur without one floral phenotype? | assay + assurance trajectories | Assurance changes reproductive trade-offs and can determine persistence, without imposing one floral direction. |
@@ -114,7 +149,7 @@ The following are retained, but **not as a second mechanistic model**:
 - alternative heuristic response operators;
 - historical S/C/I decomposition and provenance.
 
-These answer robustness questions about an earlier abstract response geometry. They are useful in Supporting Information if clearly labelled as model-specific. They are not required to establish the present biological mechanism because Model 3 now contains a mechanistic reproductive update and its deterministic and finite-population reductions.
+These answer controls that are partly historical and partly still scientifically active. They are not needed as a separate biological mechanism, but exact dynamic richness matching and finite visitor-community averaging remain the only evidence for two original Chapter 2 questions until the prospective Model 3 bridge campaign closes those gates.
 
 ## New Chapter 2 architecture
 
