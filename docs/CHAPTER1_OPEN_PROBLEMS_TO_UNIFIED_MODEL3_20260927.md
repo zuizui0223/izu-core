@@ -27,7 +27,7 @@ Chapter 1 shows `same functional core + different regional display`, but its com
 
 ### Chapter 2 answer
 
-The unified Model 3 fixed-state assay shows that the same visitor composition can favour opposite floral-investment directions depending on starting functional position. In the prospective reduction audit:
+The unified Model 3 fixed-state assay shows that the same controlled visitor composition can favour opposite floral-investment directions depending on starting functional position. In the prospective reduction audit:
 
 - start access 0.20 under left4: gradient `+1.5048`;
 - start access 0.80 under left4: gradient `-0.8720`;
@@ -37,7 +37,7 @@ The first branch therefore appears before inheritance or demographic stochastici
 
 ### Cross-chapter interpretation
 
-> **A recurrent pressure need not imply recurrent phenotype because selection itself is state dependent.**
+> **A recurrent pressure need not imply recurrent phenotype because functional matching has the capacity to make selection state dependent. Whether isolation-driven assembly preserves that branching is a separate, regime-dependent question.**
 
 This is the direct mechanistic answer to Chapter 1's recurrent-core / non-uniform-display tension.
 
@@ -51,7 +51,7 @@ Chapter 1 conditions regional display associations on the measured selfing core,
 
 The unified reduction audit holds reproductive assurance fixed while starting floral state and visitor composition are crossed, yet reproductive-selection direction still changes sign. The separate Model 3 reproductive assays also show that investment return depends on matching and activity at fixed assurance.
 
-Thus evolution of assurance is **not required** to generate non-uniform floral selection in the model.
+Thus evolution of assurance is **not required** to generate non-uniform floral selection under the controlled-composition operator.
 
 At the same time, the full Model 3 shows that assurance can determine whether a population persists under severe visitor loss.
 
@@ -143,17 +143,32 @@ Model 3 directly represents a functional access/matching coordinate and costly f
 
 This Chapter 1 problem is only **partially** resolved. Chapter 2 supplies the general reason that distinct floral coordinates need not share one selection direction, but trait-specific colour/access mapping remains outside the current model.
 
+## Open problem 8 — Does the old Chapter 2 richness/finite-community result survive inside Model 3?
+
+### Current status
+
+Not yet fully answered.
+
+The retrospective Model 3 isolation audit shows mixed finite-ABM responses but 0/128 mixed deterministic-density isolation effects in both cohorts. Near and isolated histories also differ strongly in visitor number, so richness and composition are confounded in that contrast.
+
+A frozen prospective bridge design now includes response-blind annual richness matching, pooled visitor environments and larger plant capacity as separate interventions.
+
+### Cross-chapter interpretation
+
+This does **not** reopen the Chapter 1 observation. It limits how strongly Chapter 2 can attribute the Chapter 1 non-uniformity to deterministic interaction geometry versus finite ecological/demographic realization under island assembly.
+
 ## Problem-to-answer matrix
 
 | Chapter 1 unresolved problem | Unified Model 3 result | Status |
 |---|---|---|
-| recurrent functional core but divergent display | starting state × visitor composition reverses selection direction before demography | **answered mechanistically within model** |
+| recurrent functional core but divergent display | controlled starting state × visitor composition can reverse selection direction before demography | **mechanistic possibility established; isolation-driven realization remains regime dependent** |
 | selfing-adjusted floral residuals | branching persists with assurance fixed; assurance not required to create selection branch | **answered mechanistically within model** |
 | stronger pollen limitation but recurrent assurance | assurance changes downstream persistence/realization rather than necessarily removing upstream mismatch | **answered as staged mechanism** |
 | current environment does not explain all regional phenotype | common-final-environment chronology retains different inherited endpoints | **answered mechanistically within model** |
 | isolation conflates biological processes | seed and pollinator connectivity have distinct effects | **answered mechanistically within model** |
 | oceanic vs continental labels may conflate history | label-only matched founding/separation control gives no difference | **answered as control** |
 | colour and access channels reorganize separately | abstract matching/investment permits conditional directions but does not identify colour-specific mechanisms | **partially answered** |
+| old Chapter 2 richness / finite visitor-community mechanism | frozen Model 3 bridge design exists but production is not complete | **not yet resolved inside Model 3** |
 | historical cause of named regional patterns | no direct region-to-parameter calibration or longitudinal A → B → C chain | **not identified** |
 
 ## Dissertation-level result
@@ -182,7 +197,7 @@ recurrent function + non-convergent phenotype
 
 The strongest thesis statement is:
 
-> **Island isolation can generate recurrent functional solutions without recurrent phenotypic solutions because ecological matching determines alternative selection directions, while reproductive insurance and demographic history determine which alternatives persist.**
+> **Island isolation can generate recurrent functional solutions without recurrent phenotypic solutions because ecological matching permits alternative selection directions, while community assembly, reproductive insurance and finite demographic history determine whether those alternatives remain distinct and which persist.**
 
 ## Remaining dissertation-scale gap
 
