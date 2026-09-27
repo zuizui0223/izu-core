@@ -60,23 +60,18 @@ def render_submission_manuscript() -> str:
         "fixed-state reproductive assay",
         "deterministic genotype-density counterpart",
         "finite-population abm",
-        "same visitor composition favour opposite reproductive responses",
-        "maximum left-versus-right difference in fixed-state total gradient was `2.3768`",
-        "1.78e-15",
-        "demographic stochasticity is therefore not necessary for response branching under these controlled visitor compositions",
-        "early visitor absence",
-        "reproductive assurance changed whether an endpoint existed",
-        "seed immigration modifies demographic and genetic input",
+        "annual response-blind richness matching",
+        "mean effect became positive in both finite abm",
+        "68/128",
+        "pooling eight independent visitor histories eliminated mixed histories",
+        "increasing plant capacity from 48 to 192",
+        "approximately 41.5%",
         "real islands occupy different stages of the same response architecture",
         "all eight shared oshima-to-post targets",
-        "same-direction propagation case",
-        "counterdirectional case",
         "the main natural-data gap",
         "0/25 full source-state",
-        "functional-and-historical interpretation of island syndromes",
-        "recurrent functional regime with conditional phenotypic realization",
-    )
-    for token in required:
+        "recurrent functional island syndrome",
+    )    for token in required:
         if token.lower() not in lower:
             raise ValueError(f"Oikos canonical manuscript missing claim-lock token: {token}")
 
