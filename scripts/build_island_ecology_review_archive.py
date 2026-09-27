@@ -7,7 +7,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from scripts.generate_chapter2_manuscript_figures_realized_richness import build_figures
+from scripts.generate_chapter2_unified_model3_figures import build_figures
 from scripts.render_chapter2_oikos_generality_overlay import render_submission_manuscript
 from scripts.render_oikos_submission_rtf import render_supporting_information_markdown
 
@@ -24,6 +24,8 @@ CORE_REVIEW_FILES = (
     "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
     "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
     "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
+    "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md",
+    "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
     "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
     "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md",
     "docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md",
@@ -126,8 +128,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
     figure_payload = build_figures()
     figure_files = tuple(figure_payload["figure_outputs"])
     generated_files = figure_files + (
-        "data/results/chapter2_manuscript_figure_inputs_20260827.json",
-        "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json",
+        "data/results/chapter2_unified_model3_figure_inputs_20260927.json",
     )
     generated_records = validate_files(generated_files, deny_tokens)
 
