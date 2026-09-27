@@ -40,6 +40,7 @@ jobs:
 
       - name: Materialize frozen source bytes cross-platform
         run: |
+          mkdir -p bridge_artifact
           python - <<'PY'
           import hashlib, json
           from pathlib import Path
@@ -58,9 +59,9 @@ jobs:
               }
               hits = [name for name, data in candidates.items()
                       if hashlib.sha256(data).hexdigest() == expected]
-              if len(hits) != 1:
-                  raise SystemExit(f"{rel}: frozen hash cannot be materialized uniquely from raw/LF/CRLF; hits={hits}")
-              chosen = hits[0]
+              if not hits:
+                  raise SystemExit(f"{rel}: frozen hash cannot be materialized from raw/LF/CRLF")
+              chosen = "raw" if "raw" in hits else hits[0]
               if raw != candidates[chosen]:
                   path.write_bytes(candidates[chosen])
               report.append({
