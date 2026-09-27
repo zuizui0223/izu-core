@@ -15,7 +15,7 @@ from scripts.build_island_ecology_submission_metadata import (
     render_title_page,
     validate_metadata,
 )
-from scripts.generate_chapter2_manuscript_figures_realized_richness import build_figures
+from scripts.generate_chapter2_unified_model3_figures import build_figures
 from scripts.render_oikos_submission_rtf import (
     render_manuscript_rtf,
     render_plain_text_rtf,
@@ -36,7 +36,7 @@ COVER_LETTER_NAME = "COVER_LETTER.rtf"
 SIGNIFICANCE_NAME = "SIGNIFICANCE_STATEMENT.rtf"
 STATEMENTS_NAME = "SUBMISSION_STATEMENTS.rtf"
 ACTIVE_SUBMISSION_MANIFEST = "data/design/chapter2_oikos_submission_manifest_20260927.json"
-RELATIONAL_FIGURE_INPUTS_ARCNAME = "data/results/chapter2_manuscript_figure_inputs_relational_20260831.json"
+RELATIONAL_FIGURE_INPUTS_ARCNAME = "data/results/chapter2_unified_model3_figure_inputs_20260927.json"
 RELATIONAL_FIGURE_INPUTS = ROOT / RELATIONAL_FIGURE_INPUTS_ARCNAME
 
 STATIC_SUBMISSION_FILES = (
@@ -46,6 +46,8 @@ STATIC_SUBMISSION_FILES = (
     "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
     "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
     "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
+    "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md",
+    "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
     "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
     "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md",
     "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
