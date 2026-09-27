@@ -7,15 +7,14 @@ GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 AUDIT = ROOT / "docs/SCIENTIFIC_REASSESSMENT_AFTER_CRITIQUE_20260826.md"
 
 
-def test_readme_exposes_core_mechanism_and_open_original_ch2_bridge_gate():
+def test_readme_exposes_bridge_complete_model3_and_package_qa_state():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
     submission = lower.split("## submission status", 1)[1].split("## claim boundary", 1)[0]
-    assert "core biological mechanism is resolved" in submission
-    assert "original chapter 2 control-equivalence" in submission
-    assert "not yet closed" in submission
+    assert "biological mechanism and the original chapter 2 control suite are now resolved inside model 3" in submission
+    assert "oikos package is still not submission-ready only because figures" in submission
     assert "no new focal field data are required" in submission
-    assert "model 3 bridge simulation gates must be resolved" in submission
+    assert "post-chapter-2 nee/field lane remains optional" in submission
     assert "present-day izu associations do not identify historical *bombus* loss" in lower
 
 def test_submission_state_closes_science_and_blocks_on_metadata():
