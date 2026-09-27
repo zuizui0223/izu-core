@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: model3-ch2-bridge-production-final-20260927
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   shard:
