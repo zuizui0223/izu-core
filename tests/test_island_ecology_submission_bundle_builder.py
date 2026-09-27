@@ -1,5 +1,4 @@
 import json
-import zipfile
 from pathlib import Path
 
 import pytest
@@ -8,9 +7,6 @@ import scripts.build_island_ecology_submission_bundle as bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "data/design/island_ecology_submission_metadata_template.json"
-SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
-SUBMISSION_MANUSCRIPT = "MANUSCRIPT.rtf"
-SUBMISSION_SI = "SUPPORTING_INFORMATION.rtf"
 
 
 def completed_metadata() -> dict:
@@ -36,13 +32,15 @@ def completed_metadata() -> dict:
     return metadata
 
 
-def test_current_scientific_gate_uses_unified_model3_lock():
+def test_current_scientific_gate_uses_bridge_complete_unified_model3_lock():
     gate = bundle.validate_scientific_gate()
-    assert gate["status"] == "active_chapter2_unified_model3_with_bridge_gates"
+    assert gate["status"] == "active_chapter2_unified_model3_bridge_complete"
     assert gate["unification_audit"]["conclusion"] == "success"
-    assert gate["unification_audit"]["decision"] == "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls"
+    assert gate["unification_audit"]["decision"] == "model2_not_required_as_active_scientific_model_or_control_gate"
+    assert gate["prospective_bridge"]["status"] == "complete"
+    assert gate["prospective_bridge"]["cases_verified"] == 24576
+    assert gate["submission_state"]["original_chapter2_controls_closed"] is True
     assert gate["submission_state"]["new_field_data_required"] is False
-    assert gate["submission_state"]["model3_bridge_campaign_required_for_full_original_ch2_equivalence"] is True
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
@@ -51,8 +49,8 @@ def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path
         bundle.validate_scientific_gate()
 
 
-def test_submission_bundle_prioritizes_open_bridge_gate_before_metadata(tmp_path: Path):
-    with pytest.raises(ValueError, match="original-Chapter-2 bridge controls are not complete"):
+def test_submission_bundle_still_fails_closed_on_unresolved_metadata(tmp_path: Path):
+    with pytest.raises(ValueError, match="submission metadata incomplete"):
         bundle.build_submission_bundle(TEMPLATE, tmp_path / "bundle.zip")
 
 
@@ -61,12 +59,5 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
     metadata["journal"] = "Journal of Ecology"
     metadata_path = tmp_path / "metadata.json"
     metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
-    with pytest.raises(ValueError, match="original-Chapter-2 bridge controls are not complete"):
-        bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
-
-
-def test_submission_bundle_refuses_while_original_ch2_bridge_controls_are_open(tmp_path: Path):
-    metadata_path = tmp_path / "metadata.json"
-    metadata_path.write_text(json.dumps(completed_metadata()), encoding="utf-8")
-    with pytest.raises(ValueError, match="original-Chapter-2 bridge controls are not complete"):
+    with pytest.raises(ValueError, match="Oikos Research Paper"):
         bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
