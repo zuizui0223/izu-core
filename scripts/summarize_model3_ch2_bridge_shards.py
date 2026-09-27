@@ -14,12 +14,123 @@ import numpy as np
 
 from scripts.model3_island.design import canonical, digest
 from scripts.model3_island.summarize import decompose_crossed
-from scripts.summarize_model3_ch2_bridge_production import (
-    INTERVENTIONS,
-    MODES,
-    _bootstrap_mean,
-    _history_labels,
-)
+
+INTERVENTIONS = {
+    "natural": ("near", "far"),
+    "richness_matched": ("matched_near", "matched_far"),
+    "visitor_pooled": ("pool_near", "pool_far"),
+    "large_plant_capacity": ("large_near", "large_far"),
+}
+MODES = {
+    "individual": ("trait_mean", "population"),
+    "density": ("density_traits", "density_mass"),
+}
+
+
+def _sign_label(v: np.ndarray, eps: float) -> str:
+    if not np.isfinite(v).all():
+        return "undefined"
+    pos = bool(np.any(v > eps))
+    neg = bool(np.any(v < -eps))
+    return "mixed" if pos and neg else "positive" if pos else "negative" if neg else "neutral"
+
+
+def _history_labels(x: np.ndarray, eps: float) -> dict:
+    """Classify starts x histories x repeats without hiding repeat instability."""
+    x = np.asarray(x, float)
+    if x.ndim != 3 or x.shape[0] < 2 or x.shape[1] < 1 or x.shape[2] < 2:
+        raise ValueError("need starts x histories x repeats")
+    if not np.isfinite(eps) or eps < 0:
+        raise ValueError("epsilon must be nonnegative")
+
+    mean_labels = []
+    first_labels = []
+    last_labels = []
+    repeat_labels = [[] for _ in range(x.shape[2])]
+    any_repeat_disagreement = 0
+    first_last_disagreement = 0
+    split = x.shape[2] // 2
+
+    for h in range(x.shape[1]):
+        block = x[:, h, :]
+        mean_labels.append(
+            _sign_label(block.mean(axis=1), eps) if np.isfinite(block).all() else "undefined"
+        )
+        first = block[:, :split]
+        last = block[:, split:]
+        fl = _sign_label(first.mean(axis=1), eps) if np.isfinite(first).all() else "undefined"
+        ll = _sign_label(last.mean(axis=1), eps) if np.isfinite(last).all() else "undefined"
+        first_labels.append(fl)
+        last_labels.append(ll)
+        if fl != "undefined" and ll != "undefined" and fl != ll:
+            first_last_disagreement += 1
+
+        labels_h = []
+        for d in range(x.shape[2]):
+            lab = _sign_label(block[:, d], eps)
+            repeat_labels[d].append(lab)
+            labels_h.append(lab)
+        if len({z for z in labels_h if z != "undefined"}) > 1:
+            any_repeat_disagreement += 1
+
+    def counts(labels):
+        return {k: labels.count(k) for k in ("mixed", "positive", "negative", "neutral", "undefined")}
+
+    mean_counts = counts(mean_labels)
+    eligible = len(mean_labels) - mean_counts["undefined"]
+    frac = None if eligible == 0 else mean_counts["mixed"] / eligible
+    half = None if eligible == 0 else float(np.sqrt(np.log(40.0) / (2.0 * eligible)))
+    return {
+        "epsilon": float(eps),
+        "mean8_counts": mean_counts,
+        "mean8_mixed_fraction": frac,
+        "mean8_mixed_fraction_hoeffding95": None if frac is None else [
+            max(0.0, frac - half),
+            min(1.0, frac + half),
+        ],
+        "repeat_specific_counts": [counts(z) for z in repeat_labels],
+        "first4_counts": counts(first_labels),
+        "last4_counts": counts(last_labels),
+        "first4_last4_label_disagreements": first_last_disagreement,
+        "any_repeat_label_disagreements": any_repeat_disagreement,
+        "scope": (
+            "three starting populations within each independent history; descriptive "
+            "demographic-repeat labels, not latent branching probabilities"
+        ),
+    }
+
+
+def _bootstrap_mean(x: np.ndarray, resamples: np.ndarray) -> dict:
+    """History-cluster bootstrap using the predeclared shared resample indices."""
+    x = np.asarray(x, float)
+    history_means = np.array([
+        np.nanmean(x[:, i, :]) if np.isfinite(x[:, i, :]).any() else np.nan
+        for i in range(x.shape[1])
+    ])
+    finite = np.isfinite(history_means)
+    if not finite.any():
+        return {"status": "not_evaluable", "n_histories": int(len(history_means))}
+    observed = float(np.nanmean(history_means))
+    vals = np.array([
+        float(np.nanmean(history_means[ix])) if np.isfinite(history_means[ix]).any() else np.nan
+        for ix in resamples
+    ])
+    vals = vals[np.isfinite(vals)]
+    if len(vals) == 0:
+        return {"status": "not_evaluable", "n_histories": int(len(history_means))}
+    lo, hi = np.quantile(vals, [0.025, 0.975])
+    return {
+        "status": "evaluated",
+        "mean": observed,
+        "interval95": [float(lo), float(hi)],
+        "half_width": float((hi - lo) / 2),
+        "n_histories": int(len(history_means)),
+        "n_finite_history_means": int(finite.sum()),
+        "interpretation": (
+            "1999 bootstrap resamples of independent histories; same resample indices "
+            "used for all starts/interventions/modes"
+        ),
+    }
 
 
 def _float_array(x):
