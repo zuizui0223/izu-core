@@ -142,7 +142,7 @@ Four results now define the Chapter 2 handoff:
 
 These are model-conditional results and not calibrated natural-island rates. Several magnitude comparisons remain numerically resolution-sensitive, so Chapter 2 uses Model 3 primarily for directional and mechanistic contrasts rather than universal quantitative forecasts.
 
-Together the nested levels of Model 3 explain how assurance can recur globally as insurance while detailed pollinator-facing and inherited floral responses remain contingent. Legacy Model 2 results are robustness/provenance only.
+Together the nested levels of Model 3 explain how assurance can recur globally as insurance while detailed pollinator-facing and inherited floral responses remain contingent. Legacy Model 2 response-rule/S/C/I results are robustness/provenance; exact-richness and finite-visitor-community results remain active benchmarks until the Model 3 bridge gates close.
 
 ## HOW, proximal WHY and ultimate WHY
 
@@ -285,7 +285,7 @@ Chapter 2
 WHY need responses not be uniform?
     one nested Model 3
       → starting state × visitor composition changes selection
-      → deterministic inheritance retains branching
+      → controlled deterministic inheritance can retain branching; isolation may compress it
       → finite demography/history modifies realization
         ↓
 Chapter 3
