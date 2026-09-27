@@ -120,6 +120,8 @@
     "execution_design": "data/design/model3_ch2_bridge_execution_20260927.json",
     "interpretation_contract": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_INTERPRETATION_20260927.md",
     "execution_partition": "16_history_seed_shards_x_1536_cases_compact_hash_verified_exports",
-    "total_cases": 24576
+    "total_cases": 24576,
+    "production_partial_outcomes_inspected": false,
+    "inspect_scientific_outcomes_only_after": "16_shards_complete_and_128_history_aggregate_artifact_exists"
   }
 }
