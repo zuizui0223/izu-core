@@ -19,8 +19,9 @@ def test_current_manuscript_remains_unified_model3_not_el_or_field_completion_su
     assert "Effective independence is a second-order coordinate" not in text
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density counterpart" in lower
+    assert "annual response-blind richness matching" in lower
+    assert "pooling eight independent visitor histories" in lower
     assert "real islands occupy different stages of the same response architecture" in lower
-    assert "the main natural-data gap" in lower
 
 
 def test_el_lane_keeps_explicit_nonlinear_reduction_boundary():
@@ -42,7 +43,7 @@ def test_nee_lane_does_not_reopen_current_oikos_scientific_closure():
     assert "source mechanism | CLOSED" in text
 
 
-def test_route_firewall_names_three_distinct_submission_objects_and_current_blocker():
+def test_route_firewall_names_three_distinct_submission_objects_and_closed_bridge():
     text = _read(FIREWALL)
     lower = text.lower()
     for token in (
@@ -51,7 +52,7 @@ def test_route_firewall_names_three_distinct_submission_objects_and_current_bloc
         "## Lane C — prospective natural A → B → C transport/falsification",
         "one nested Model 3 + layer-specific real-island confrontation",
         "core biological mechanism: **DEFINED",
-        "original-Chapter-2 control equivalence: **OPEN",
+        "original-Chapter-2 control equivalence: **CLOSED",
         "submission package: **OPEN for unified figures, SI and fail-closed QA",
         "old Model 2 as a second required biological mechanism",
     ):
