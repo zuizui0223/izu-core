@@ -20,7 +20,7 @@ def test_unified_model3_mainline_is_explicit():
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density counterpart" in lower
     assert "finite-population abm" in lower
-    assert "demographic stochasticity is therefore not necessary for response branching" in lower
+    assert "demographic stochasticity is therefore not necessary for response branching under these controlled visitor compositions" in lower
     assert "real islands occupy different stages of the same response architecture" in lower
     assert "the main natural-data gap" in lower
 
