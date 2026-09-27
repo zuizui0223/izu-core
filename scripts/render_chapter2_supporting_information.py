@@ -191,7 +191,7 @@ def render_supporting_information(source: Path = SOURCE) -> str:
         "3 shorter / 4 longer / 1 unchanged",
         "# Appendix S18A. Unified Model 3 projection onto real-island evidence",
         "same-direction propagation 1",
-        "0/25` complete A -> B -> C contracts",
+        "`0/25` complete A -> B -> C contracts",
     )
     for token in required:
         if token not in text:
