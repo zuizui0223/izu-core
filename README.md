@@ -4,9 +4,9 @@
 
 ## Current state
 
-**Chapter 2 unified-model closure (2026-09-27):** the prospective [Model 3 unified reduction audit](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) shows that non-uniform response already appears in the fixed-state reproductive operator, persists in the deterministic genotype-density counterpart, and remains in the finite-population ABM. Fixed visitor count with changed composition changes response, whereas exact duplication of the same functional types under fixed total activity is identical to machine precision. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) then shows how assurance, chronology, connectivity, life history and finite demography alter persistence and inherited trajectories.
+**Chapter 2 unified-model reassessment (2026-09-27):** the prospective [Model 3 unified reduction audit](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) shows deterministic branch capacity under controlled visitor compositions. A stricter audit of the actual isolation-driven near-versus-far transport contrast gives mixed finite-ABM responses in 22/128 production and 30/128 held-out histories, but 0/128 mixed deterministic-density histories in both cohorts. Thus branch generation and branch realization must be separated. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) shows how assurance, chronology, connectivity, life history and finite demography alter persistence and inherited trajectories.
 
-**Chapter 2 is scientifically closed without new focal field data, but the journal package is reopened for unified-model rewriting.** Its canonical scientific state is **one nested Model 3 + layer-specific real-island confrontation**.
+**The core Chapter 2 mechanism is now defined without requiring new focal field data, but full equivalence to the original Chapter 2 control suite is still open.** Its canonical state is **one nested Model 3 + layer-specific real-island confrontation + two prospective bridge gates** (dynamic realized-richness matching and finite visitor-community sampling).
 
 ```text
 Unified Model 3
@@ -15,7 +15,7 @@ Unified Model 3
         -> selection-gradient branching
     B. deterministic genotype-density propagation
         -> same reproduction + inheritance, demographic sampling removed
-        -> inherited branching persists
+        -> branch capacity can persist; isolation-driven contrast may be one-directional
     C. finite-population ABM
         -> extinction / ancestry / standing-variation loss
         -> realized inherited trajectory
@@ -41,7 +41,7 @@ Island syndromes can conflate three distinct processes:
 2. **In-situ evolutionary change** — how established island lineages diverge from source populations;
 3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and local interaction context change.
 
-Chapter 2 now uses **one nested Model 3**. Its fixed-state assay shows that starting floral state × visitor composition already changes the sign of reproductive selection before inheritance or demography. The deterministic genotype-density counterpart propagates the same reproduction and Mendelian operator without demographic sampling and still retains non-uniform inherited trajectories. The finite-population ABM then adds extinction, stochastic recruitment, ancestry and standing-variation loss, while assurance, connectivity, chronology, recovery and life history condition realized outcomes.
+Chapter 2 now uses **one nested Model 3** as the biological mechanism. Controlled fixed-state and genotype-density reductions show that functional matching can create deterministic branch capacity before finite demography. In contrast, the stored isolation-driven near-versus-far density effect is one-directional, while finite ABM histories can be mixed. The finite-population ABM therefore does more than add noise in some regimes: it can determine whether heterogeneous realized trajectories appear. Assurance, connectivity, chronology, recovery and life history further condition outcomes.
 
 The hierarchy of response determinants is **not fixed**. Under the historical small finite-community regime, community realization is the largest additive component. Under the collision-free hierarchical RNG correction, pooling independent community trajectories under active plant adjustment raises the median starting-position share from **3.11% at `k=1` to 53.53% at `k=16`**, while the median community-realization share falls from **74.27% to 14.05%**. Starting position exceeds community realization in **4/6** prespecified seeds at `k=4` and **6/6** at `k=8` and `k=16`; mixed branching remains at `k=16` in **26–36/96** realizations. Historical offset-stream values remain archived as provenance only. The numerical crossover is model-specific and is not a natural threshold.
 
@@ -122,7 +122,7 @@ Chapter 2 closes with:
 2. **deterministic genotype-density Model 3:** branching persists after demographic sampling is removed;
 3. **finite-population Model 3 ABM:** demographic stochasticity, extinction and variation loss modify realized trajectories;
 4. assurance, chronology, connectivity, life-history, founding and recovery interventions explaining conditional realization;
-5. legacy Model 2 exact-richness / synthetic-`k` / response-rule analyses retained only as Supporting Information robustness; and
+5. legacy Model 2 response-rule/S/C/I analyses retained as Supporting Information, while exact-richness and synthetic-`k` remain active benchmarks until the Model 3 bridge gates close; and
 6. layer-specific real-island confrontation showing A-layer propagation/branching, C-layer history effects and the missing inherited longitudinal B layer.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.
@@ -153,7 +153,7 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The scientific question is closed at the declared unified-model claim ceiling, but the **Oikos submission package is not currently submission-ready**. The active manuscript and chapter narrative are now unified around Model 3; figures, Supporting Information, renderer output and fail-closed submission audits still need regeneration before returning to author-only metadata blockers. No new focal field data are required.
+The core biological mechanism is resolved at the declared unified-model claim ceiling, but the **original Chapter 2 control-equivalence and Oikos submission package are not yet closed**. The active manuscript and chapter narrative are now unified around Model 3; figures, Supporting Information, renderer output and fail-closed submission audits still need regeneration before returning to author-only metadata blockers. No new focal field data are required.
 
 The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure.
 
@@ -173,7 +173,7 @@ This repository does **not** claim that:
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
-The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, confronted against real islands by mechanistic layer**: non-uniformity appears before demography in the Model 3 reproductive operator, persists under deterministic inheritance, and is further modified by finite demography and ecological history. Real systems already show propagation, branching, buffering, counterdirectional responses and direct-history effects; the inherited longitudinal B layer is the clearest remaining empirical gap.
+The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, confronted against real islands by mechanistic layer**: functional matching has pre-demographic branch capacity, isolation-driven assembly can compress the deterministic response, and finite demography plus ecological history can alter or re-open heterogeneous realized trajectories. Real systems already show propagation, branching, buffering, counterdirectional responses and direct-history effects; the inherited longitudinal B layer is the clearest remaining empirical gap.
 
 ### Interpretation updates (2026-09-25)
 
