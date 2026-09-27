@@ -2,11 +2,6 @@ name: Model 3 Chapter 2 bridge production
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - codex/integrate-model3-into-ch2
-    paths:
-      - '.github/workflows/model3_ch2_bridge_production.yml'
 
 permissions:
   contents: read
@@ -17,7 +12,6 @@ concurrency:
 
 jobs:
   shard:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
     name: bridge shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
@@ -152,4 +146,3 @@ jobs:
             model3_ch2_bridge_prospective_summary_20260927.json
             model3_ch2_bridge_prospective_summary_console.txt
 
-# execution-trigger: 2026-09-27
