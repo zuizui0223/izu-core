@@ -6,7 +6,7 @@
 
 **Chapter 2 unified-model closure (2026-09-27):** the prospective [Model 3 unified reduction audit](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) shows that non-uniform response already appears in the fixed-state reproductive operator, persists in the deterministic genotype-density counterpart, and remains in the finite-population ABM. Fixed visitor count with changed composition changes response, whereas exact duplication of the same functional types under fixed total activity is identical to machine precision. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) then shows how assurance, chronology, connectivity, life history and finite demography alter persistence and inherited trajectories.
 
-**Chapter 2 is scientifically closed without new focal field data, but the journal package is reopened for unified-model rewriting.** Its canonical scientific state is **one nested Model 3 + source-audited metadata/secondary-data confrontation**.
+**Chapter 2 is scientifically closed without new focal field data, but the journal package is reopened for unified-model rewriting.** Its canonical scientific state is **one nested Model 3 + layer-specific real-island confrontation**.
 
 ```text
 Unified Model 3
@@ -21,7 +21,10 @@ Unified Model 3
         -> realized inherited trajectory
     D. assurance / chronology / connectivity / recovery / life history
         -> conditional realization
-    -> source-audited natural claim ceiling
+    -> A/B/C real-island confrontation
+        -> A partly observed
+        -> B inherited longitudinal layer mostly missing
+        -> C history/finite realization partly observed
 ```
 
 The active architecture contract is [`data/design/chapter2_unified_model3_lock_20260927.json`](data/design/chapter2_unified_model3_lock_20260927.json). The transitional [`chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) and older completion locks remain historical provenance. The existing claim-by-claim map remains [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) until the submission evidence matrix is regenerated.
@@ -61,28 +64,21 @@ The current chapter-level reading is deliberately qualitative and mechanistic:
 
 Model 3 does **not** calibrate natural evolutionary rates, extinction probabilities or a specific flower trait, and numerical refinement remains incomplete for some magnitudes. Those limits are retained in the Chapter 2 claim ceiling.
 
-## Metadata confrontation layer
+## Real-island A/B/C confrontation
 
-The source-audited natural layer is part of Chapter 2 completion, but it has a bounded role: **biological plausibility, adversarial stress testing and empirical identifiability**, not full validation of the synthetic mechanism.
+The natural layer is now organized by which part of the unified Model 3 it can confront, not by assigning systems to synthetic parameter cells.
 
-The formal source audit remains frozen at **25 research entries across 21 exact geographic labels**:
+- **A — ecological/selection:** functional composition, plant state, access/effectiveness and immediate reproductive response.
+- **B — deterministic inheritance:** inherited longitudinal change under a measured visitor regime.
+- **C — finite/history realization:** assurance, chronology, connectivity, founding, recovery and persistence.
 
-- direct comparable plant response: **21/25**;
-- direct partner arrival/replacement: **2/25**;
-- full outcome-independent contracts: **0/25**;
-- formal external prediction: **`not_evaluable`**.
+The source-locked 14-system-layer matrix across 12 geographic clusters already contains one same-direction propagation case, two downstream-branching cases, three buffered/resilient cases, one counterdirectional case, four adjacent-link cases and three unresolved cases. These are descriptive response modes, not prevalence estimates.
 
-A later descriptive layer reached **42 research entries across 37 exact geographic labels**, and the geography-first world programme reached its declared saturation rule. Further cross-sectional searching is therefore not a Chapter 2 completion requirement.
+Izu is the strongest A-layer branching example: corrected matching is lower in all eight shared targets, while tube response is 3 shorter / 4 longer / 1 unchanged and pollen response is 4 lower / 4 higher. Ogasawara and Xisha provide stronger access/effectiveness-to-reproduction chains; Hawaii and Puerto Rico–Mona provide buffering; Dominica remains a frozen counterdirectional falsifier. Surtsey, Tiritiri Matangi, New Zealand *Rhabdothamnus* and Mariana bird-loss systems anchor C-layer founding, recovery/compensation and partner-loss histories.
 
-Existing Izu secondary analyses contribute both support and failure:
+The principal natural-data gap is **B**. The current archive lacks a clean same-unit series linking starting genetic/common-garden state, measured visitor regime and inherited longitudinal change while separating finite demography.
 
-- functional exposure → corrected matching: supported and leave-one-island sign robust;
-- matching → pollen: positive on average but not leave-one-island sign stable;
-- eight lower-matching shared targets: tube shorter 3 / longer 4 / equal 1; pollen lower 4 / higher 4;
-- historical signed-position projection after null correction: unsupported;
-- Oshima bridge as a causal geographic boundary: not independently identified.
-
-That mixture is intentional. The natural evidence makes the modeled ingredients biologically non-vacuous while preventing the simulation from being narrated as already validated historical causation.
+The broader evidence base remains **42 research entries / 37 exact geographic labels**, while the formal audit remains **25 entries / 21 labels**, direct comparable response **21/25**, direct partner arrival/replacement **2/25**, and complete A → B → C contracts **0/25**. The 42/37 layer is breadth/falsification evidence, not 42 Model 3 fits.
 
 ## Downstream modifiers
 
@@ -127,7 +123,7 @@ Chapter 2 closes with:
 3. **finite-population Model 3 ABM:** demographic stochasticity, extinction and variation loss modify realized trajectories;
 4. assurance, chronology, connectivity, life-history, founding and recovery interventions explaining conditional realization;
 5. legacy Model 2 exact-richness / synthetic-`k` / response-rule analyses retained only as Supporting Information robustness; and
-6. source-audited metadata / secondary-data confrontation that fixes the natural empirical claim ceiling.
+6. layer-specific real-island confrontation showing A-layer propagation/branching, C-layer history effects and the missing inherited longitudinal B layer.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.
 
@@ -141,6 +137,8 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 - [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) — simulation ↔ metadata ↔ claim-ceiling map.
 - [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level unified Model 3 architecture and HOW / proximal-WHY / ultimate-WHY boundary.
 - [`docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md`](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) — prospective audit and Model 2 disposition.
+- [`docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md`](docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md) — A/B/C projection of source-locked real-island evidence.
+- [`data/results/chapter2_unified_model3_real_island_projection_20260927.json`](data/results/chapter2_unified_model3_real_island_projection_20260927.json) — machine-readable projection summary.
 - [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
 - [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) — complete numerical readout and qualification.
 - [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — current Oikos submission contract.
@@ -171,7 +169,7 @@ This repository does **not** claim that:
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
-The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, completed by source-audited natural confrontation at a bounded claim ceiling**: non-uniformity appears before demography in the Model 3 reproductive operator, persists under deterministic inheritance, and is further modified by finite demography and ecological history. Existing natural evidence defines which ingredients are biologically supported versus not yet identifiable.
+The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, confronted against real islands by mechanistic layer**: non-uniformity appears before demography in the Model 3 reproductive operator, persists under deterministic inheritance, and is further modified by finite demography and ecological history. Real systems already show propagation, branching, buffering, counterdirectional responses and direct-history effects; the inherited longitudinal B layer is the clearest remaining empirical gap.
 
 ### Interpretation updates (2026-09-25)
 
