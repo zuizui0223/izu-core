@@ -1,9 +1,9 @@
 {
-  "schema_version": "1.13",
-  "updated_on": "2026-09-11",
+  "schema_version": "1.14",
+  "updated_on": "2026-09-27",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
-  "routing_status": "active_first_submission_route",
+  "routing_status": "active_rewrite_before_first_submission",
   "fallback_route": "Journal of Ecology Research Article",
   "journal_fit_audit": "docs/CHAPTER2_JOURNAL_FIT_AUDIT_20260828.md",
   "submission_checklist": "docs/CHAPTER2_OIKOS_SUBMISSION_CHECKLIST_20260831.md",
@@ -16,19 +16,19 @@
   "journal_clean_renderer": "scripts/render_chapter2_oikos_generality_overlay.py",
   "pre_richness_renderer": "scripts/render_island_ecology_submission_manuscript.py",
   "oikos_rtf_renderer": "scripts/render_oikos_submission_rtf.py",
-  "supporting_information_renderer": "scripts/render_chapter2_supporting_information.py + Appendix S19 overlay",
+  "supporting_information_renderer": "scripts/render_chapter2_supporting_information.py + Appendix S18A + legacy S19-S22 overlays",
   "submission_metadata": "data/design/island_ecology_submission_metadata_template.json",
   "submission_builder": "scripts/build_island_ecology_submission_bundle.py",
   "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
-  "scientific_state": "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering",
+  "scientific_state": "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation",
   "project_tier": "Tier_B",
-  "story": "conditional_geometry_to_richness_control_to_determinant_rank_crossover_to_bounded_empirical_claim_ceiling",
+  "story": "fixed_state_selection_to_deterministic_inheritance_to_finite_realization_to_real_island_abc_confrontation",
   "mechanism_mainline_roles": {
-    "conditional_geometry": "common_broad_reorganization_can_generate_mixed_positive_and_negative_branches",
-    "richness_control": "realized_richness_positions_coarse_mean_regime_but_does_not_eliminate_individual_branching",
-    "rank_crossover": "starting_state_and_community_realization_ordering_changes_with_finite_community_system_size_under_active_adjustment",
-    "downstream_modifiers": "local_filtering_reallocates_branches_and_assurance_changes_magnitude_without_sign_rescue",
-    "empirical_role": "biological_plausibility_and_claim_boundary_not_required_validation"
+    "fixed_state_selection": "starting_floral_state_x_visitor_functional_composition_can_reverse_reproductive_selection_before_demography",
+    "deterministic_inheritance": "same_reproduction_and_mendelian_operator_retains_nonuniform_inherited_trajectories_without_demographic_sampling",
+    "finite_realization": "finite_abm_modifies_magnitude_sign_persistence_ancestry_and_variation_after_branching_exists",
+    "context_history": "assurance_chronology_connectivity_founding_recovery_and_life_history_condition_realized_trajectory",
+    "empirical_role": "real_islands_confront_A_and_C_layers_with_B_inherited_longitudinal_layer_as_primary_gap"
   },
   "world_breadth_extension": {
     "formal_identifiability_research_entries": 25,
@@ -81,9 +81,18 @@
     "audit_script": "scripts/audit_chapter2_relational_robustness.py",
     "historical_freeze_rewritten": false,
     "baseline_percentages_role": "historical_reproducible_example_not_stable_headline",
-    "seed_community_fraction_range": [0.6933825278526522, 0.8017383395125494],
-    "seed_starting_position_fraction_range": [0.021691380526058714, 0.0313738285406023],
-    "seed_nonadditive_fraction_range": [0.17642957676987792, 0.27913675615068034],
+    "seed_community_fraction_range": [
+      0.6933825278526522,
+      0.8017383395125494
+    ],
+    "seed_starting_position_fraction_range": [
+      0.021691380526058714,
+      0.0313738285406023
+    ],
+    "seed_nonadditive_fraction_range": [
+      0.17642957676987792,
+      0.27913675615068034
+    ],
     "community_largest_across_prespecified_seeds": true,
     "community_largest_across_steps_30_60_120_240": true,
     "mixed_at_zero_trait_adjustment": "64_of_96",
@@ -99,9 +108,18 @@
     "matching_seeds": 6,
     "mean_geometry": "all_positive_in_6_of_6_matching_seeds",
     "mixed_individual_realizations_range": "51_to_65_of_96",
-    "starting_position_fraction_range": [0.009359098313020316, 0.02209561674670002],
-    "community_realization_fraction_range": [0.5003942039547032, 0.5592221633209156],
-    "state_by_community_nonadditivity_range": [0.4272397924506457, 0.4850701049302678],
+    "starting_position_fraction_range": [
+      0.009359098313020316,
+      0.02209561674670002
+    ],
+    "community_realization_fraction_range": [
+      0.5003942039547032,
+      0.5592221633209156
+    ],
+    "state_by_community_nonadditivity_range": [
+      0.4272397924506457,
+      0.4850701049302678
+    ],
     "prespecified_gate_decision": "blocker_failed_reframe_before_author_metadata",
     "reframe_integrated": true,
     "supported_headline": "mean_regime_placement_is_richness_sensitive_while_branch_identity_remains_relational",
@@ -112,27 +130,63 @@
     "independent_context_examples": 2,
     "wanshan_yongxing": {
       "partner_turnover": 0.979601473000006,
-      "partner_turnover_interval": [0.9442575309081302, 1.0],
+      "partner_turnover_interval": [
+        0.9442575309081302,
+        1
+      ],
       "pollinator_richness_lrr": -0.10536051565782628,
-      "pollinator_richness_lrr_interval": [-1.3217558399823195, 0.28768207245178085],
+      "pollinator_richness_lrr_interval": [
+        -1.3217558399823195,
+        0.28768207245178085
+      ],
       "causal_claim_allowed": false
     },
     "ogasawara_anijima_context": {
       "partner_turnover": 0.6816731479429761,
-      "partner_turnover_interval": [0.49749331369503497, 0.9652568511362428],
+      "partner_turnover_interval": [
+        0.49749331369503497,
+        0.9652568511362428
+      ],
       "pollinator_richness_lrr": -0.31461524740250146,
-      "pollinator_richness_lrr_interval": [-0.8754687373538999, 0.4054651081081644],
+      "pollinator_richness_lrr_interval": [
+        -0.8754687373538999,
+        0.4054651081081644
+      ],
       "causal_claim_allowed": false
     },
     "pooled_universal_island_effect_claimed": false
   },
   "system_size_rank_crossover": {
-    "k_values": [1, 2, 4, 8, 16],
+    "k_values": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
     "prespecified_seeds": 6,
     "active_trait_adjustment": 0.03,
-    "median_starting_position_share_percent": [2.55, 10.33, 27.33, 42.52, 55.84],
-    "median_community_realization_share_percent": [72.98, 48.03, 23.52, 18.26, 12.72],
-    "starting_position_exceeds_community_seed_counts": [0, 0, 6, 6, 6],
+    "median_starting_position_share_percent": [
+      2.55,
+      10.33,
+      27.33,
+      42.52,
+      55.84
+    ],
+    "median_community_realization_share_percent": [
+      72.98,
+      48.03,
+      23.52,
+      18.26,
+      12.72
+    ],
+    "starting_position_exceeds_community_seed_counts": [
+      0,
+      0,
+      6,
+      6,
+      6
+    ],
     "mixed_at_k16_range": "28_to_42_of_96",
     "interpretation": "determinant_ordering_is_regime_dependent",
     "natural_threshold_claimed": false,
@@ -164,7 +218,14 @@
     "izu_focal_selection_based_on_positive_model_fit": false,
     "chapter3_used_as_validation": false,
     "synthetic_design_frequencies_interpreted_as_natural_prevalence": false,
-    "realized_richness_hard_control_interpreted_as_empirical_causal_estimate": false
+    "realized_richness_hard_control_interpreted_as_empirical_causal_estimate": false,
+    "central_mechanism": "state_x_visitor_composition_branching_precedes_demographic_stochasticity_and_persists_under_deterministic_inheritance",
+    "deterministic_counterpart": "discrete_genotype_density_not_diffusion_PDE",
+    "finite_abm_role": "conditional_realization_not_sole_branch_generator",
+    "real_island_projection": "layer_specific_confrontation_not_parameter_fit",
+    "natural_B_layer": "not_directly_observed_in_current_archive",
+    "legacy_model2": "SI_robustness_only",
+    "chapter1_bridge": "functional_recurrence_can_coexist_with_phenotypic_nonconvergence"
   },
   "oikos_initial_submission_contract": {
     "double_blind": true,
@@ -208,11 +269,20 @@
     "system_size_rank_crossover_integrated": true,
     "field_validation_demoted_from_completion_gate": true,
     "supporting_appendix_s19_included": true,
-    "supporting_table_s9_included": true
+    "supporting_table_s9_included": true,
+    "unified_model3_required": true,
+    "real_island_abc_projection_required": true,
+    "legacy_response_geometry_main_text_required": false,
+    "legacy_response_geometry_retained_in_supporting_information": true,
+    "figures_regenerated_for_unified_model3": false,
+    "submission_surfaces_reaudit_required": true
   },
   "submission_ready": false,
-  "remaining_blocker": "author_supplied_identity_prior_work_context_ethics_confirmation_and_submission_declarations",
+  "remaining_blocker": "unified_model3_submission_surfaces_and_figures_must_be_regenerated_before_author_metadata_is_the_only_blocker",
   "remaining_before_actual_submission": [
+    "regenerate unified Model 3 Figures 1-4",
+    "regenerate Supporting Information and anonymous review archive",
+    "rerun fail-closed manuscript/submission audits",
     "final_author_order_and_affiliations",
     "corresponding_author_email_postal_address_and_orcid",
     "coauthor_orcids_if_supplied",
@@ -223,5 +293,24 @@
     "review_ethics_statement_for_accuracy",
     "explicit_submission_declarations",
     "successful_fail_closed_rtf_bundle_build"
-  ]
+  ],
+  "unified_model3": {
+    "reduction_design": "data/design/model3_unified_reduction_audit_20260927.json",
+    "reduction_result": "data/results/model3_unified_reduction_audit_frozen_20260927.json",
+    "unification_decision": "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
+    "full_campaign_design": "data/design/model3_island_v2.json",
+    "full_campaign_cases": 19968,
+    "legacy_model2_role": "supporting_information_and_provenance_only"
+  },
+  "real_island_projection": {
+    "narrative": "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
+    "result": "data/results/chapter2_unified_model3_real_island_projection_20260927.json",
+    "evidence_rich_system_layers": 14,
+    "geographic_clusters": 12,
+    "A_layer": "partly_testable_now",
+    "B_layer": "principal_inherited_longitudinal_gap",
+    "C_layer": "partly_testable_with_history_anchors",
+    "natural_parameter_fitting": false,
+    "prevalence_estimation": false
+  }
 }
