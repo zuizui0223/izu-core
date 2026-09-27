@@ -162,7 +162,7 @@ This does **not** reopen the Chapter 1 observation. It limits how strongly Chapt
 | Chapter 1 unresolved problem | Unified Model 3 result | Status |
 |---|---|---|
 | recurrent functional core but divergent display | controlled starting state × visitor composition can reverse selection direction before demography | **mechanistic possibility established; isolation-driven realization remains regime dependent** |
-| selfing-adjusted floral residuals | branching persists with assurance fixed; assurance not required to create selection branch | **answered mechanistically within model** |
+| selfing-adjusted floral residuals | controlled-composition branching persists with assurance fixed; assurance not required to create that selection branch | **mechanistic possibility established within model** |
 | stronger pollen limitation but recurrent assurance | assurance changes downstream persistence/realization rather than necessarily removing upstream mismatch | **answered as staged mechanism** |
 | current environment does not explain all regional phenotype | common-final-environment chronology retains different inherited endpoints | **answered mechanistically within model** |
 | isolation conflates biological processes | seed and pollinator connectivity have distinct effects | **answered mechanistically within model** |
