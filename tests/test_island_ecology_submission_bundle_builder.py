@@ -38,10 +38,11 @@ def completed_metadata() -> dict:
 
 def test_current_scientific_gate_uses_unified_model3_lock():
     gate = bundle.validate_scientific_gate()
-    assert gate["status"] == "active_chapter2_unified_model3"
+    assert gate["status"] == "active_chapter2_unified_model3_with_bridge_gates"
     assert gate["unification_audit"]["conclusion"] == "success"
-    assert gate["unification_audit"]["decision"] == "model2_not_required_as_independent_mechanistic_model"
+    assert gate["unification_audit"]["decision"] == "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls"
     assert gate["submission_state"]["new_field_data_required"] is False
+    assert gate["submission_state"]["model3_bridge_campaign_required_for_original_control_equivalence"] is True
 
 
 def test_submission_bundle_fails_closed_when_scientific_gate_is_missing(tmp_path: Path, monkeypatch):
