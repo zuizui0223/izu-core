@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "locked_on": "2026-09-27",
-  "status": "active_chapter2_unified_model3",
-  "purpose": "Replace the transitional Model-2-plus-Model-3 chapter architecture with one nested Model 3 whose fixed-state assay, deterministic genotype-density counterpart and finite-population ABM answer the Chapter 2 mechanistic question at successive levels.",
+  "status": "active_chapter2_unified_model3_with_bridge_gates",
+  "purpose": "Use one nested Model 3 for the core ecological-selection, deterministic-inheritance and finite-population mechanism while retaining legacy Model 2 controls until two unreproduced original Chapter 2 questions are tested prospectively inside Model 3.",
   "supersedes_for_current_chapter_architecture": [
     "data/design/chapter2_model3_integration_lock_20260927.json",
     "data/design/chapter2_simulation_metadata_completion_lock_20260912.json",
@@ -32,19 +32,33 @@
     "result": "data/results/model3_unified_reduction_audit_frozen_20260927.json",
     "workflow_run_id": 36294376577,
     "conclusion": "success",
-    "decision": "model2_not_required_as_independent_mechanistic_model"
+    "decision": "model2_not_required_as_independent_biological_mechanism_but_not_yet_redundant_for_all_original_controls",
+    "scope": {
+      "answered": [
+        "branching_can_exist_before_demographic_stochasticity_under_fixed_visitor_composition",
+        "visitor_composition_changes_response_at_fixed_functional_type_count",
+        "deterministic_genotype_density_can_retain_branching_under_controlled_compositions",
+        "finite_demography_modifies_realized_trajectories",
+        "history_assurance_connectivity_and_recovery_modify_realization"
+      ],
+      "not_answered": [
+        "response_blind_dynamic_realized_richness_matching_inside_Model3",
+        "finite_visitor_community_effect_separated_from_finite_plant_population_inside_Model3"
+      ]
+    }
   },
   "legacy_model2_disposition": {
-    "scientific_role": "supplementary_historical_reduced_response_geometry_only",
+    "scientific_role": "legacy_control_evidence_and_supporting_information_until_Model3_bridge_gates_close",
     "retained_assets": [
       "exact stepwise realized-richness matching",
-      "synthetic k community-pooling sensitivity",
+      "synthetic k finite-visitor-community pooling sensitivity",
       "alternative heuristic response-operator sensitivity",
       "historical S/C/I decomposition and provenance"
     ],
-    "prohibited_role": "must not be narrated as a second independent biological mechanism required by Chapter 2"
+    "prohibited_role": "must not be narrated as a separate required biological mechanism",
+    "current_reason_to_retain": "two original Chapter 2 controls have not yet been prospectively reproduced inside Model 3"
   },
-  "chapter1_bridge": "Chapter 1 establishes a recurrent functional core with context-dependent phenotype; unified Model 3 shows that non-uniformity begins at functional matching/selection, persists without demographic sampling, and is further reshaped by finite demography and history.",
+  "chapter1_bridge": "Chapter 1's recurrent-function/non-uniform-phenotype tension is mechanistically addressed by fixed-composition Model 3 selection branching and history-dependent realization. This does not yet prove that isolation-driven dynamic visitor assembly retains deterministic branching after realized-richness matching.",
   "chapter3_boundary": "Chapter 3 owns direct focal Campanula phenotype; Chapter 3 values do not tune, rescue or retrospectively validate the unified Model 3.",
   "claim_ceiling": {
     "deterministic_counterpart_is_diffusion_PDE": false,
@@ -55,8 +69,52 @@
     "chapter1_region_parameter_assignment": false
   },
   "submission_state": {
-    "scientific_question": "closed_at_unified_model_claim_ceiling",
+    "scientific_question": "core_mechanism_answered_original_ch2_control_suite_partly_open",
     "new_field_data_required": false,
-    "journal_package": "reopened_until_unified_model_text_figures_si_renderers_and_audits_are_regenerated"
+    "model3_bridge_campaign_required_for_full_original_ch2_equivalence": true,
+    "journal_package": "reopened_until_bridge_gate_decision_and_unified_model_text_figures_si_renderers_and_audits_are_regenerated"
+  },
+  "model3_transport_reaudit": {
+    "source": "data/results/model3_ch2_bridge_20260927.json",
+    "cases_checked": 3072,
+    "visitor_counts": {
+      "production_near": 4.9140625,
+      "production_far": 0.6195703125,
+      "heldout_near": 4.84921875,
+      "heldout_far": 0.6440234375
+    },
+    "isolation_effect": {
+      "production_individual_mixed_eps0": "22_of_128",
+      "heldout_individual_mixed_eps0": "30_of_128",
+      "production_density_mixed_eps0": "0_of_128",
+      "heldout_density_mixed_eps0": "0_of_128",
+      "production_repeat_disagreement_eps0": "41_of_128",
+      "heldout_repeat_disagreement_eps0": "48_of_128"
+    },
+    "interpretation": "The natural isolation-driven near-versus-far visitor assembly contrast does not yet show deterministic branching; individual mixed labels may include finite-demographic realization and are unstable across two demographic repeats."
+  },
+  "bridge_campaign": {
+    "design": "data/design/model3_ch2_bridge_20260927.json",
+    "design_status": "frozen",
+    "cases": 24576,
+    "arms": [
+      "near",
+      "far",
+      "matched_near",
+      "matched_far",
+      "pool_near",
+      "pool_far",
+      "large_near",
+      "large_far"
+    ],
+    "purpose": [
+      "response_blind_annual_richness_matching",
+      "visitor_environment_pooling_separate_from_plant_capacity",
+      "larger_plant_capacity_control",
+      "paired_isolation_effect_across_starting_states"
+    ],
+    "resource_pilot": "passed",
+    "production_status": "not_run_in_current_branch",
+    "no_outcome_success_criterion": true
   }
 }
