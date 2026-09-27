@@ -131,6 +131,8 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 - [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md) — active manuscript.
 - [`docs/CHAPTER2_CANONICAL_STORY_20260927.md`](docs/CHAPTER2_CANONICAL_STORY_20260927.md) — active unified Model 3 scientific story.
+- [`docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md`](docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md) — active dissertation bridge from Chapter 1's unresolved syndrome pattern to Model 3.
+- [`docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md`](docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md) — problem-by-problem Chapter 1 → Chapter 2 resolution ledger.
 - [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md) — active narrative contract.
 - [`data/design/chapter2_unified_model3_lock_20260927.json`](data/design/chapter2_unified_model3_lock_20260927.json) — active unified Model 3 Chapter 2 lock.
 - [`data/design/chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) — transitional two-model integration provenance.
