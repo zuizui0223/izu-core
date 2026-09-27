@@ -40,7 +40,7 @@ Chapter 1 leaves four problems that Chapter 2 must address without retroactive c
 
 Unified Model 3 resolves the first three mechanistically: state × visitor composition can reverse reproductive selection before demography; deterministic inheritance retains the branch; assurance can buffer/preserve populations without forcing one floral direction. It narrows the fourth by separating founding, immigration, chronology and finite realization, but the natural inherited longitudinal B layer remains unobserved.
 
-Canonical resolution matrix: `docs/CHAPTER1_UNRESOLVED_TO_CHAPTER2_RESOLUTION_20260927.md`.
+Canonical resolution matrix: `docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md`.
 
 ## Canonical Chapter 2 question
 
