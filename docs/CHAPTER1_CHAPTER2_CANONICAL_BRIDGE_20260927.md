@@ -123,11 +123,11 @@ Thus natural islands already occupy multiple response modes predicted to be poss
 
 ## Thesis-level conclusion
 
-> **Chapter 1 shows that island syndromes are more repeatable at the level of ecological function than detailed phenotype. Chapter 2 shows why this is mechanistically possible: functional matching can create alternative selection directions, while isolation-driven assembly, reproductive insurance and finite demographic history determine whether those alternatives remain distinct and which are realized.**
+> **Chapter 1 shows that island syndromes are more repeatable at the level of ecological function than detailed phenotype. Chapter 2 shows why: isolation can create a recurrent coarse directional pressure, visitor amount shifts the mean regime, and finite visitor plus plant-population realization determines how much phenotypic divergence is expressed.**
 
 Short version:
 
-> **Same island problem, recurrent functions, different evolutionary solutions.**
+> **Same island problem, recurrent functions, different realized evolutionary solutions.**
 
 ## Claim boundary
 
