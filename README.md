@@ -119,7 +119,7 @@ Any later pilot/precision work belongs to this post-Chapter-2 study. It is not n
 Chapter 2 closes with:
 
 1. **fixed-state Model 3 assay:** selection direction depends on starting floral state × visitor composition;
-2. **deterministic genotype-density Model 3:** branching persists after demographic sampling is removed;
+2. **deterministic genotype-density Model 3:** controlled compositions can retain branching after demographic sampling is removed, while the stored isolation-driven contrast is one-directional;
 3. **finite-population Model 3 ABM:** demographic stochasticity, extinction and variation loss modify realized trajectories;
 4. assurance, chronology, connectivity, life-history, founding and recovery interventions explaining conditional realization;
 5. legacy Model 2 response-rule/S/C/I analyses retained as Supporting Information, while exact-richness and synthetic-`k` remain active benchmarks until the Model 3 bridge gates close; and
