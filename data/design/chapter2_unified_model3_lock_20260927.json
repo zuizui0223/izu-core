@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "locked_on": "2026-09-27",
+  "status": "active_chapter2_unified_model3",
+  "purpose": "Replace the transitional Model-2-plus-Model-3 chapter architecture with one nested Model 3 whose fixed-state assay, deterministic genotype-density counterpart and finite-population ABM answer the Chapter 2 mechanistic question at successive levels.",
+  "supersedes_for_current_chapter_architecture": [
+    "data/design/chapter2_model3_integration_lock_20260927.json",
+    "data/design/chapter2_simulation_metadata_completion_lock_20260912.json",
+    "data/design/chapter2_active_manuscript_mainline_20260827.json"
+  ],
+  "historical_files_remain_provenance": true,
+  "canonical_question": "Why can a recurrent island functional syndrome coexist with non-uniform floral trajectories, and at which ecological, deterministic evolutionary, and finite-demographic layers does that non-uniformity arise?",
+  "unified_model": {
+    "name": "Model 3",
+    "layers": {
+      "A_fixed_state_assay": "visitor composition x starting floral state -> reproductive selection gradient; no inheritance or demographic updating",
+      "B_deterministic_distribution": "same reproductive and Mendelian operator propagated as genotype density; demographic sampling removed",
+      "C_finite_abm": "same operator with finite individuals, demographic sampling, extinction, ancestry and standing-variation loss",
+      "D_context_interventions": "assurance, chronology, connectivity, recovery, life history, founding and scaling condition realized trajectories"
+    },
+    "shared_biology": [
+      "functional matching",
+      "finite pollen delivery",
+      "outcrossing",
+      "autonomous_or_delayed_selfing",
+      "offspring viability",
+      "Mendelian inheritance"
+    ]
+  },
+  "unification_audit": {
+    "design": "data/design/model3_unified_reduction_audit_20260927.json",
+    "result": "data/results/model3_unified_reduction_audit_frozen_20260927.json",
+    "workflow_run_id": 36294376577,
+    "conclusion": "success",
+    "decision": "model2_not_required_as_independent_mechanistic_model"
+  },
+  "legacy_model2_disposition": {
+    "scientific_role": "supplementary_historical_reduced_response_geometry_only",
+    "retained_assets": [
+      "exact stepwise realized-richness matching",
+      "synthetic k community-pooling sensitivity",
+      "alternative heuristic response-operator sensitivity",
+      "historical S/C/I decomposition and provenance"
+    ],
+    "prohibited_role": "must not be narrated as a second independent biological mechanism required by Chapter 2"
+  },
+  "chapter1_bridge": "Chapter 1 establishes a recurrent functional core with context-dependent phenotype; unified Model 3 shows that non-uniformity begins at functional matching/selection, persists without demographic sampling, and is further reshaped by finite demography and history.",
+  "chapter3_boundary": "Chapter 3 owns direct focal Campanula phenotype; Chapter 3 values do not tune, rescue or retrospectively validate the unified Model 3.",
+  "claim_ceiling": {
+    "deterministic_counterpart_is_diffusion_PDE": false,
+    "natural_rate_calibration": false,
+    "natural_extinction_probability": false,
+    "named_trait_calibration": false,
+    "historical_bombus_causation": false,
+    "chapter1_region_parameter_assignment": false
+  },
+  "submission_state": {
+    "scientific_question": "closed_at_unified_model_claim_ceiling",
+    "new_field_data_required": false,
+    "journal_package": "reopened_until_unified_model_text_figures_si_renderers_and_audits_are_regenerated"
+  }
+}
