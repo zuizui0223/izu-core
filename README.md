@@ -151,7 +151,7 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The scientific question is closed at the declared unified-model claim ceiling, but the **Oikos submission package is not currently submission-ready** because the manuscript still needs to be rewritten from the transitional two-model structure to the unified Model 3 structure. Before returning to author-only metadata blockers, figures, Supporting Information, renderer output and fail-closed submission audits must be regenerated and checked. No new focal field data are required.
+The scientific question is closed at the declared unified-model claim ceiling, but the **Oikos submission package is not currently submission-ready**. The active manuscript and chapter narrative are now unified around Model 3; figures, Supporting Information, renderer output and fail-closed submission audits still need regeneration before returning to author-only metadata blockers. No new focal field data are required.
 
 The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure.
 
