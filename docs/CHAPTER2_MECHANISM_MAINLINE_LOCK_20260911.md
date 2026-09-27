@@ -5,21 +5,21 @@ Status: active journal-facing narrative contract
 
 ## One-sentence paper
 
-Pollinator-community reorganization generates conditional plant-response geometry, and explicit reproduction and finite demography then determine whether those conditional responses persist and how inherited floral investment changes; a recurrent island functional syndrome therefore need not imply one phenotypic endpoint.
+A single nested eco-evolutionary Model 3 shows that pollinator-community composition and starting floral state can generate opposite reproductive-selection branches before demography, that those branches persist under deterministic inheritance, and that finite demography and ecological history further modify which inherited island trajectories are realized.
 
 ## Main inferential spine
 
-The paper is one two-layer synthetic mechanism argument, not a three-result empirical cascade.
+The paper is one nested-model argument, not a Model-2-plus-Model-3 comparison and not a three-result empirical cascade.
 
-1. **Conditional geometry.** One broad interaction perturbation can generate mixed, positive and negative response branches.
-2. **Richness versus composition.** Exact realized-richness matching moves the ensemble mean regime but does not remove individual branching or state × community non-additivity.
-3. **Scale-dependent determinant hierarchy.** Pooling independent community trajectories reduces realization variance and reverses the ordering of starting-state versus community-realization additive contributions under active plant adjustment.
-4. **Downstream modifiers in Model 2.** Local filtering reallocates branches; autonomous assurance changes magnitude without sign rescue in the tested envelope.
-5. **Model 3 realization.** Explicit pollen delivery, selfing/outcrossing, offspring viability, Mendelian inheritance, density regulation, survival, connectivity and history determine persistence and inherited floral-investment trajectories.
+1. **Pre-demographic branching.** Model 3's fixed-state reproductive assay generates positive and negative selection gradients across starting floral states under the same visitor composition.
+2. **Composition at fixed count.** Different four-type visitor compositions generate different responses, while duplicating the same functional types under fixed total activity is identical to machine precision.
+3. **Deterministic inheritance.** The same reproduction and Mendelian operator propagated as genotype density retains non-uniform inherited trajectories after demographic sampling is removed.
+4. **Finite-population realization.** The ABM retains branching and adds extinction, demographic sampling, ancestry and standing-variation loss; the full campaign shows large ABM–density departures in several ecological families.
+5. **Historical/context dependence.** Assurance, chronology, connectivity, recovery, life history and founding conditions determine whether and how conditional responses persist.
 
 The supported route is:
 
-**Model 2: coarse regime placement → relational branch identity → determinant-rank / response-rule dependence → Model 3: reproductive-demographic realization → persistence and inherited trajectory**
+**fixed-state selection → deterministic genotype distribution → finite-population ABM → history/context-dependent inherited trajectory**
 
 ## Frozen headline results
 
@@ -55,13 +55,23 @@ With active plant adjustment under the collision-free RNG correction, median sta
 
 Interpretation: **the ordering of response determinants is itself regime dependent.** The numerical crossover is model-specific and must not be transferred to nature.
 
-## Model 3 Chapter 2 role
+## Unified Model 3 Chapter 2 role
 
-Model 3 is part of the Chapter 2 inferential spine, not a post-Chapter-2 extension. The completed frozen island campaign contains 19,968 audited cases. Its chapter-level purpose is to test whether conditional functional responses collapse to one inherited endpoint once reproduction and finite demography are made explicit.
+Model 3 is the single Chapter 2 mechanistic model. Its nested reductions separate where non-uniformity first appears from how finite populations realize it.
 
-The retained Model 3 results are: (1) early versus late visitor loss can yield different inherited investment endpoints under a common final environment; (2) reproductive assurance can determine whether a terminal evolutionary endpoint exists; (3) seed and pollinator connectivity act through different routes; and (4) similar S/C/I ordering can coexist with poor quantitative transport across disturbance regimes.
+The prospective unified reduction audit (`data/results/model3_unified_reduction_audit_frozen_20260927.json`) establishes:
 
-Claim ceiling: these are model-conditional mechanistic contrasts. They are not calibrated evolutionary rates, extinction probabilities, natural-island timescales, or identification of a specific floral trait. Numerical-resolution caveats remain active for exact magnitudes.
+- fixed-state selection branching in all three tested four-type communities;
+- a strong composition effect at fixed visitor count;
+- machine-precision equality when identical functional types are duplicated under fixed total activity;
+- mixed deterministic genotype-density trajectories without demographic sampling;
+- mixed finite-ABM trajectories under the same simple design.
+
+The full 19,968-case island campaign then supplies the finite-population and historical layers: assurance-dependent persistence, chronology, separate seed and pollinator connectivity, recovery/immigration, life history, founding and scale.
+
+The legacy Model 2 response-geometry stack remains historical/SI robustness only. Its exact-richness matching, synthetic `k`, community-mean limit and heuristic response-operator factorial can be cited when useful, but they are not a second required biological mechanism.
+
+Important mathematical distinction: the old Model 2 deterministic mean-field averaged external community realization, whereas Model 3's deterministic genotype-density counterpart retains the declared visitor composition/history and removes demographic sampling. Their different branching results therefore answer different limiting questions and are not contradictory.
 ## Role of world evidence
 
 World evidence is not a coequal Results act. It has three supporting roles only:
@@ -94,21 +104,21 @@ It is explicitly not:
 
 The Discussion should mirror the mechanism:
 
-1. a single island syndrome collapses coarse regime placement and branch allocation;
-2. realized richness matters, but does not exhaust branch contingency;
-3. the dominant source of variation can change rank across finite-community regimes;
-4. finite-community branching disappears only in the deterministic mean-field limit;
-5. local filtering and assurance occupy downstream positions in Model 2;
-6. Model 3 shows how reproduction, demography, connectivity and history condition persistence and inherited trajectories;
-7. source-audited metadata show which biological ingredients and heterogeneous responses are already observed, while simultaneously defining the natural identifiability ceiling.
+1. a recurrent island syndrome need not imply a universal phenotype;
+2. Model 3 branching already exists at the fixed-state ecological/reproductive layer;
+3. the same branching persists under deterministic inheritance, so demographic sampling is not necessary;
+4. finite ABM dynamics can nevertheless change magnitude, sign, persistence and variation relative to the deterministic counterpart;
+5. assurance, chronology, connectivity, recovery and life history explain conditional realization;
+6. legacy Model 2 community-mean and response-rule analyses are robustness limits, not the main mechanism;
+7. source-audited metadata show which biological ingredients and heterogeneous responses are already observed, while defining the natural identifiability ceiling.
 
 ## Figure contract
 
-- **Figure 1:** conditional-response architecture + scale-dependent determinant hierarchy.
-- **Figure 2:** baseline geometry + exact richness control + equal-turnover control + system-size rank crossover.
-- **Figure 3:** partner-turnover regime movement + variance decomposition + filtering + assurance.
-- **Figure 4:** Model 3 demographic/evolutionary realization: chronology, assurance-dependent persistence, connectivity and transport.
-- **Figure 5:** metadata confrontation + empirical claim ceiling: external partner-turnover examples, source-audit measurement coverage, Izu existing-data support/failure, and the explicit `0/25` full-contract boundary.
+- **Figure 1:** unified Model 3 hierarchy: fixed-state assay → deterministic genotype distribution → finite ABM.
+- **Figure 2:** prospective reduction audit: starting-state branching, fixed-count composition effect and duplicate-count control.
+- **Figure 3:** full finite-population campaign: ABM versus deterministic density, assurance, chronology, connectivity and recovery.
+- **Figure 4:** source-audited metadata confrontation + empirical claim ceiling.
+- Legacy Model 2 exact-richness / synthetic-`k` / response-rule figures move to Supporting Information.
 
 Figure 5 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
 
@@ -116,13 +126,12 @@ Figure 5 closes the chapter at the existing-data claim ceiling. A prospective Iz
 
 Allowed:
 
-- conditional response geometry in the declared synthetic model;
-- richness-sensitive coarse regime placement;
-- persistent state × realized-community branch contingency after richness control;
-- regime-dependent ordering of starting-state and community-realization contributions;
-- finite-community branching over the audited finite range with deterministic mean-field disappearance;
-- downstream branch reallocation by filtering and magnitude attenuation by assurance;
-- Model 3 historical contingency, assurance-dependent persistence, distinct seed/pollinator connectivity routes and bounded inherited-investment trajectories;
+- pre-demographic starting-state × visitor-composition branching inside Model 3;
+- fixed-count composition dependence and the fixed-total-activity duplicate-type control;
+- persistence of branching in the deterministic genotype-density counterpart;
+- finite-ABM departures from deterministic trajectories in the full island campaign;
+- historical contingency, assurance-dependent persistence, distinct seed/pollinator connectivity routes and bounded inherited-investment trajectories;
+- legacy Model 2 richness/`k`/response-rule results only as model-specific robustness;
 - biological plausibility, adversarial natural examples and empirical identifiability limits from source-audited metadata and secondary data.
 
 Not allowed:
@@ -139,8 +148,8 @@ Not allowed:
 
 ## Completion rule
 
-Chapter 2 is scientifically closed when the manuscript, figures, robustness checks, Model 3 realization results and metadata confrontation consistently support the two-layer conditional-response argument while preserving the declared natural claim ceiling.
+Chapter 2 is scientifically closed when the manuscript, figures, unified-reduction audit, full Model 3 island campaign and metadata confrontation consistently support the nested eco-evolutionary argument while preserving the declared natural claim ceiling.
 
-The canonical completion state is **Model 2 response geometry + Model 3 demographic/evolutionary realization + source-audited metadata/secondary-data confrontation**. No new focal field data are required.
+The canonical completion state is **one nested Model 3 + source-audited metadata/secondary-data confrontation**. Legacy Model 2 is Supporting Information/provenance only. No new focal field data are required.
 
 **Field E3/E4 remains post-Chapter-2 future validation, not a remaining empirical gate.**
