@@ -10,37 +10,29 @@ DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_202
 GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
 
 
-def test_final_submission_integrates_richness_control_rank_crossover_and_metadata_endpoint():
+def test_final_submission_integrates_unified_model3_and_real_island_endpoint():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "realized richness differences therefore help position the ensemble mean regime" in lower
-    assert "all six prespecified matching seeds" in lower
-    assert "51–65/96 individual realizations remained mixed" in lower or "51–65 of 96 remained mixed" in lower
-    assert "42.72–48.51%" in text
-    assert "0.94–2.21%" in text
-    assert "ordering of response determinants is itself regime dependent" in lower
-    assert "55.84%" in text and "12.72%" in text
-    assert "6/6 seeds at `k=4`" in text
-    assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
-    assert "post-chapter-2 transport/falsification" in lower
+    assert "fixed-state reproductive assay" in lower
+    assert "deterministic genotype-density counterpart" in lower
+    assert "finite-population abm" in lower
+    assert "real islands occupy different stages of the same response architecture" in lower
+    assert "all eight shared oshima-to-post targets" in lower
+    assert "the main natural-data gap" in lower
     assert "result 1—mechanistic prediction" not in lower
     assert "result 2—real-world exposure" not in lower
     assert "result 3—biological consequence" not in lower
 
-
-def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
+def test_unified_abstract_stays_within_oikos_300_word_ceiling():
     text = render_submission_manuscript()
     abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     words = abstract.split()
     assert 180 <= len(words) <= 300
     lower = abstract.lower()
-    assert "response variation" in lower
-    assert "realized-richness" in lower
-    assert "pooled independent community trajectories" in lower
-    assert "55.84%" in abstract
-    assert "12.72%" in abstract
-    assert "21/25" in abstract and "2/25" in abstract and "0/25" in abstract
-
+    assert "fixed-state assay" in lower
+    assert "deterministic genotype-density counterpart" in lower
+    assert "finite-population abm" in lower
+    assert "real-island" in lower or "island evidence" in lower
 
 def test_scientific_gate_requires_frozen_realized_richness_reframe():
     decision = json.loads(DECISION.read_text(encoding="utf-8"))
@@ -52,7 +44,7 @@ def test_scientific_gate_requires_frozen_realized_richness_reframe():
     assert validated["realized_richness_hard_control"]["mean_geometry"] == "all_positive_in_6_of_6_matching_seeds"
 
 
-def test_frozen_figure_generation_still_regenerates_review_evidence():
+def test_legacy_frozen_figure_generation_still_regenerates_supporting_evidence():
     payload = build_figures()
     assert payload["status"] == "realized_richness_reframe_after_relational_regeneration"
     assert payload["realized_richness_headline"] == "mean_regime_richness_sensitive_branching_relational"
