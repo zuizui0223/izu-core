@@ -1,21 +1,21 @@
 {
-  "schema_version": "1.8",
+  "schema_version": "1.9",
   "journal": "Oikos",
   "article_type": "Research Paper",
-  "manuscript_title": "Response geometry under community reorganization: richness-sensitive regimes and state-dependent branching",
-  "running_title": "Response geometry under community reorganization",
+  "manuscript_title": "Conditional island responses: from functional matching to finite-population evolutionary realization",
+  "running_title": "Conditional island responses",
   "keywords": [
-    "community reorganization",
+    "island syndrome",
     "plant–pollinator interactions",
-    "response geometry",
-    "finite communities",
-    "realized richness",
-    "realized community",
-    "state-by-community interaction",
-    "non-additivity",
-    "island syndrome"
+    "functional matching",
+    "reproductive assurance",
+    "eco-evolutionary dynamics",
+    "finite populations",
+    "demographic stochasticity",
+    "historical contingency",
+    "floral evolution"
   ],
-  "significance_statement": "Ecological syndromes are often summarized as directional average responses, but that summary can conceal the mechanism that determines which branch an individual lineage realizes. In a frozen plant–pollinator model, exact control of realized richness shifts the ensemble mean response while substantial lineage-level branching persists, showing that coarse regime placement and branch identity are distinct operations. A prespecified finite-community audit then shows that the relative importance of plant starting state and realized community is itself scale dependent: realized community dominates in small stochastic systems, starting state becomes increasingly important as community sampling stabilizes, and branching disappears only in the deterministic mean-field limit. The numerical crossover is model-specific; world and Izu evidence bound biological plausibility and historical identifiability rather than calibrating it to nature.",
+  "significance_statement": "Island syndromes can recur functionally without converging on one phenotype. In one nested plant–pollinator eco-evolutionary model, starting floral state × visitor functional composition changes reproductive-selection direction before demographic updating; the same non-uniformity persists under deterministic Mendelian inheritance; and finite-population dynamics, reproductive assurance and ecological history further change which trajectories persist. Fixed visitor count does not remove composition dependence, while exact duplication of identical functional types under fixed total activity leaves the operator unchanged to machine precision. Source-locked real-island systems independently show propagation, branching, buffering, counterdirectional responses and historical effects, while the inherited longitudinal B layer remains the main empirical gap. Model coordinates are not calibrated natural thresholds or prevalence estimates.",
   "significance_prior_work_context": null,
   "authors": [],
   "corresponding_author_index": null,
@@ -27,7 +27,7 @@
   "ethics_statement": "Not applicable to new data collection in this manuscript. The study reports simulations, a source-audited synthesis of published literature, and secondary analysis of published plant–pollinator data; it includes no new field sampling, specimen collection or experimental work requiring new approvals, licences or permissions.",
   "ethics_statement_confirmed": null,
   "planned_public_repository": "Dryad Digital Repository",
-  "data_availability": "Primary numerical results derive from frozen synthetic simulation outputs, exact realized-richness controls, finite-community system-size audits, exact finite-k moment calculations, a prespecified relational-robustness audit, a frozen 25-entry source-readiness audit and secondary analyses of published island plant–pollinator data. The anonymous reviewer archive contains the journal-facing manuscript, Supporting Information, interaction-kernel audit, response-geometry and threshold results, realized-richness and system-size robustness materials, deterministic figure inputs, source-readiness records and analysis scripts needed to inspect the reported claim boundaries. Data and custom code supporting review are prepared for first submission in the anonymous reviewer archive; before final publication, accepted code and frozen analysis materials will be deposited in the Dryad Digital Repository with a persistent DOI.",
+  "data_availability": "Primary numerical results derive from the frozen unified Model 3 reduction audit, the 19,968-case island campaign, deterministic genotype-density comparisons, finite-population ABM outputs, and source-locked real-island evidence reprojected by mechanistic layer. Historical response-geometry, realized-richness, synthetic-k and response-rule analyses are retained as Supporting Information robustness. The anonymous reviewer archive is intended to contain the journal-facing manuscript, Supporting Information, frozen designs/results, source-readiness records and analysis scripts needed to inspect the reported claim boundaries. Before final publication, accepted code and frozen analysis materials will be deposited in the Dryad Digital Repository with a persistent DOI.",
   "submission_declarations": {
     "not_published_or_under_consideration_elsewhere": null,
     "all_authors_approve_submission": null,
@@ -44,9 +44,10 @@
     "significance_prior_work_context must state how the manuscript builds on relevant work by the submitting authors/coauthors cited in the manuscript and on other published work; this cannot be inferred safely until the final author list is supplied.",
     "ethics_statement_confirmed must be set to true only after an author has checked that the prefilled ethics statement accurately describes the submitted manuscript.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
-    "Synthetic k is a pooled-community model coordinate. The numerical rank crossover must not be presented as a natural field threshold, visitor richness or Hill diversity.",
+    "Legacy synthetic k is a pooled-community robustness coordinate and must not be presented as a natural field threshold, visitor richness or Hill diversity.",
     "Izu E3/E4 is future optional validation and is not a current-paper completion or submission gate.",
-    "The historical 80.17/17.64/2.18% baseline remains one finite-community design instance; later system-size results show that determinant ordering is not globally fixed.",
-    "Journal of Ecology remains the documented fallback route."
+    "Legacy response-geometry variance shares remain Supporting Information diagnostics and do not define the unified Model 3 mechanism.",
+    "Journal of Ecology remains the documented fallback route.",
+    "Natural island systems are confronted by Model 3 layer (A ecological/selection, B inherited longitudinal response, C finite/history realization) and are not assigned to synthetic parameter cells."
   ]
 }
