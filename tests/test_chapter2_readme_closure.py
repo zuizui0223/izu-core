@@ -4,13 +4,12 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 
 
-def test_readme_routes_to_current_bridge_gated_unified_model3_state():
+def test_readme_routes_to_bridge_complete_unified_model3_state():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
 
-    assert "core chapter 2 mechanism is now defined" in lower
-    assert "full equivalence to the original chapter 2 control suite is still open" in lower
-    assert "two prospective bridge gates" in lower
+    assert "chapter 2 is scientifically closed at the declared synthetic claim ceiling" in lower
+    assert "completed 24,576-case isolation bridge" in lower
     assert "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md" in text
     assert "docs/CHAPTER2_CANONICAL_STORY_20260927.md" in text
     assert "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md" in text
@@ -25,10 +24,10 @@ def test_readme_routes_to_current_bridge_gated_unified_model3_state():
     assert "complete A → B → C contracts **0/25**" in text
 
 
-def test_readme_keeps_legacy_model2_controls_without_restoring_second_mechanism():
+def test_readme_demotes_legacy_model2_after_bridge_completion():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "exact-richness and synthetic-`k` remain active benchmarks until the model 3 bridge gates close" in lower
+    assert "legacy model 2 exact-richness / synthetic-`k` / response-rule / s/c/i analyses retained as supporting information and provenance only" in lower
     assert "supporting information" in lower
     assert "transitional two-model integration provenance" in lower
-    assert "separate biological mechanism" not in lower or "not a separate biological mechanism" in lower
+    assert "active benchmarks until the model 3 bridge gates close" not in lower
