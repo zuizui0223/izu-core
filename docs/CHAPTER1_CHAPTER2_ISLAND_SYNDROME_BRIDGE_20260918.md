@@ -19,8 +19,8 @@ The four-step narrative is:
        ↓
 3. pollinator-facing display is reorganized differently among contexts
        ↓
-4. Chapter 2 / Model 2: starting state × realized pollinator community can generate divergent branches
-5. Chapter 2 / Model 3: reproductive assurance, history, connectivity and finite demography determine whether those branches persist and how inherited floral investment changes
+4. Chapter 2 / unified Model 3: starting state × visitor composition generates divergent reproductive-selection branches before demography
+5. The same Model 3 retains branching under deterministic inheritance, while assurance, history, connectivity and finite demography condition realized inherited trajectories
 ```
 
 ## Q1 — What recurs globally?
@@ -71,7 +71,7 @@ It is not a claim that one realized pollinator guild replaces another everywhere
 
 # Q2 — Why need responses not be uniform?
 
-Chapter 2 answers this with two linked mechanistic questions:
+Chapter 2 answers this with one model examined at nested mechanistic levels:
 
 > **Why can the same broad island-like reorganization of pollinator interactions generate different plant responses?**
 
@@ -169,7 +169,7 @@ This connects naturally to Chapter 1: reproductive assurance can be globally rec
 
 The strongest cross-chapter statement is:
 
-> **Island isolation is associated globally with a recurrent functional shift toward reproductive assurance and floral accessibility, but this common functional syndrome does not require identical detailed floral responses. Chapter 2 provides a two-stage mechanistic existence argument: Model 2 shows that response direction can branch because plants begin at different functional positions and encounter different realized partner compositions; Model 3 shows that reproduction, assurance, demographic history and connectivity further determine which conditional responses persist and how inherited floral investment changes.**
+> **Island isolation is associated globally with a recurrent functional shift toward reproductive assurance and floral accessibility, but this common functional syndrome does not require identical detailed floral responses. Chapter 2 provides one nested mechanistic argument: in Model 3, starting floral state × visitor composition already changes reproductive-selection direction before demography; the branch persists under deterministic inheritance; and finite demography, assurance, history and connectivity further condition which inherited trajectory is realized.**
 
 A concise version is:
 
@@ -181,7 +181,7 @@ Or, in Chapter language:
 
 ## What Chapter 2 does and does not explain
 
-Chapter 2 supports the mechanistic possibility that Chapter 1-like non-uniformity can emerge in two steps: conditional plant × community response geometry (Model 2), followed by conditional reproductive/demographic realization (Model 3). The completed Model 3 island campaign contains 19,968 audited cases; under its declared scenarios, early versus late visitor loss can leave different inherited investment endpoints despite a common final environment, and reproductive assurance can determine whether an endpoint exists at all. These are synthetic, model-conditional results rather than reconstructions of the four Chapter 1 regions.
+Chapter 2 supports the mechanistic possibility that Chapter 1-like non-uniformity emerges within one Model 3 at multiple nested levels. The prospective unified reduction audit shows that branching already occurs in fixed-state reproductive gradients and persists in the deterministic genotype-density counterpart, so demographic sampling is not required to create it. The completed 19,968-case finite-population campaign then shows that early versus late visitor loss can leave different inherited endpoints despite a common final environment, and that reproductive assurance can determine whether an endpoint exists at all. These are synthetic, model-conditional results rather than reconstructions of the four Chapter 1 regions.
 
 It does **not** show that:
 
