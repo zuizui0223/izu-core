@@ -2,13 +2,6 @@ name: Model 3 unified reduction audit
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'data/design/model3_unified_reduction_audit_20260927.json'
-      - 'scripts/audit_model3_unified_reduction.py'
-      - 'tests/test_model3_unified_reduction.py'
-      - 'scripts/model3_island/**'
-      - '.github/workflows/model3_unified_reduction.yml'
 
 jobs:
   audit:
