@@ -179,3 +179,6 @@ The superseding production manifest is data/design/model3_island_v2.json. The v1
 candidate was never run and remains an immutable historical pre-review snapshot.
 Production and scientific completion remain pending; code completion is not a
 biological result.
+
+## Production follow-up (2026-09-27)
+The historical pending status above is superseded by MODEL3_ISLAND_COMPLETION_MATRIX_20260926.md. All 19,968 cases and 80 replay checks completed; numerical convergence remains unestablished. See the ecological and numerical reports for the result-specific claim boundaries.
