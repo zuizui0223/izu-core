@@ -127,18 +127,20 @@ Its deterministic community-mean limit is not the same as Model 3's deterministi
 
 ## Chapter 1 bridge
 
-Chapter 1 leaves a specific paradox rather than a generic request for mechanism: reproductive assurance and accessibility/generalization recur, isolation is associated with stronger pollen limitation, yet detailed colour/architecture remains region-specific and some display associations survive selfing adjustment.
+Chapter 1 leaves four linked problems that the unified Model 3 now addresses directly:
 
-Unified Model 3 resolves that combination at the mechanism level:
+1. **Recurrent functional core, divergent detailed display.** Model 3 shows that starting floral state × visitor composition can reverse reproductive-selection direction before demography.
+2. **Selfing does not explain every residual display association.** The unified reduction audit keeps assurance fixed and still produces selection branching; assurance is therefore not required to generate the branch.
+3. **Stronger pollen limitation can coexist with recurrent assurance.** Model 3 separates the upstream pollination problem from a downstream persistence gate: assurance can preserve populations without forcing one floral direction.
+4. **Cross-sectional current environments do not identify historical phenotype formation.** Chronology produces different inherited endpoints under a common final environment, and seed versus pollinator connectivity act through distinct routes.
 
-- **recurrent function + divergent display:** starting floral state × visitor composition can reverse reproductive-selection direction before demography;
-- **selfing is not the sole branch generator:** assurance changes reproductive return and persistence, while branching already exists upstream;
-- **H3 stress + H4 compensation:** a harsher pollination environment can coexist with traits that buffer its realized reproductive cost;
-- **cross-sectional history problem:** identical final environments can retain different inherited endpoints after different histories.
+A fifth Chapter 1 issue is only partly resolved: colour and floral access can reorganize separately, but Model 3 does not explicitly model named colour channels. It explains conditional selection on functional access/investment, not why one geographic stratum specifically gains or loses a named colour class.
 
-The remaining natural gap is not whether branching is possible. It is the inherited longitudinal **B layer** needed to connect measured selection to inherited change in real populations.
+The canonical dissertation bridge is `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md`.
 
-> **functional recurrence does not require phenotypic convergence.**
+The strongest cross-chapter statement is:
+
+> **Island syndromes can be recurrent at the level of function without being recurrent at the level of detailed phenotype.**
 
 ## Claim ceiling
 
