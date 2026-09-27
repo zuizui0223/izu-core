@@ -237,7 +237,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "oikos_significance_statement_included": True,
             "oikos_submission_statements_included": True,
             "oikos_data_code_ready_for_first_submission": True,
-            "figures_regenerated_from_frozen_gate": False,
+            "figures_regenerated_from_frozen_gate": True,
             "model_gate": gate.get("status"),
             "files": [
                 SUBMISSION_MANUSCRIPT_NAME,
