@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 DEFAULT_OUTPUT = ROOT / "dist/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUBMISSION_CLEAN.md"
 
-FINAL_TITLE = "Conditional island responses: from functional matching to finite-population evolutionary realization"
+FINAL_TITLE = "From pollination ecology to realized floral evolution in finite island populations"
 
 # Retained for downstream imports. The active submission path is now owned by
 # render_chapter2_oikos_generality_overlay.py; this compatibility layer must not
