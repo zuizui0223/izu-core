@@ -28,7 +28,7 @@ def test_active_submission_uses_unified_model3_and_preserves_history():
     submission = render_submission_manuscript()
     lower = submission.lower()
 
-    assert manuscript.startswith("# Conditional island responses:")
+    assert manuscript.startswith("# From pollination ecology to realized floral evolution")
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density counterpart" in lower
     assert "finite-population abm" in lower
