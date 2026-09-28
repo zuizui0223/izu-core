@@ -53,7 +53,7 @@ def test_route_firewall_names_three_distinct_submission_objects_and_closed_bridg
         "one nested Model 3 + layer-specific real-island confrontation",
         "core biological mechanism: **DEFINED",
         "original-Chapter-2 control equivalence: **CLOSED",
-        "submission package: **OPEN for unified figures, SI and fail-closed QA",
+        "scientific submission package: **CLOSED**",
         "old Model 2 as a second required biological mechanism",
     ):
         assert token.lower() in lower
