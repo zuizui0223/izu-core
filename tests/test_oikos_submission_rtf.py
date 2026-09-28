@@ -31,7 +31,7 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_mechanism_main
     assert "same-direction propagation case" in lower
     assert "counterdirectional case" in lower
     assert "21/25" in text and "2/25" in text and "0/25" in text
-    assert "figure 1. one model 3, three nested levels" in lower
+    assert "figure 1. from pollination ecology to realized floral evolution" in lower
     assert "figure 4. real-island layer confrontation and empirical claim ceiling" in lower
     assert "figure 1. three-result inference chain" not in lower
     assert "result 1—mechanistic prediction" not in lower
