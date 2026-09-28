@@ -1,0 +1,213 @@
+{
+  "status": "frozen",
+  "base_manifest": "data/design/model3_island_v2.json",
+  "base_config": {
+    "activity": 0.4,
+    "activity_mode": "count_scaled",
+    "assurance_cost": 0.0,
+    "assurance_mode": "fixed",
+    "assurance_timing": "delayed",
+    "background_ratio": 1.0,
+    "background_resources": 1.0,
+    "capacity": 48,
+    "depression": 0.5,
+    "event_order": "reproduce-survive-arrive-recruit-v1",
+    "fixed_assurance": 0.5,
+    "initial_visitors": 4,
+    "investment_cost": 0.5,
+    "island_history": "founding",
+    "mutation_rate": 0.0,
+    "mutation_sd": 0.025,
+    "ovule_budget": 8.0,
+    "pollen_budget": 20.0,
+    "pollen_discount": 0.0,
+    "pollen_scale": 1.0,
+    "reference_visitor_count": 4.0,
+    "schema_version": 1,
+    "seed_arrival": {
+      "distance": 1.0,
+      "establishment": 0.5,
+      "kernel": "exponential",
+      "loss_hazard": 0.0,
+      "scale": 1.0,
+      "supply": 0.0
+    },
+    "source_allele_means": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "source_allele_sd": 0.15,
+    "survival": 0.0,
+    "time_unit": "reproductive_year",
+    "visitor_arrival": {
+      "distance": 1.0,
+      "establishment": 0.8,
+      "kernel": "exponential",
+      "loss_hazard": 0.05,
+      "scale": 1.0,
+      "supply": 0.3
+    },
+    "visitor_breadth": 0.2,
+    "visitor_effectiveness": 1.0,
+    "years": 200
+  },
+  "founder_seed": 74001,
+  "years": 200,
+  "starts": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "arms": [
+    "near",
+    "far",
+    "matched_near",
+    "matched_far",
+    "pool_near",
+    "pool_far",
+    "large_near",
+    "large_far"
+  ],
+  "pool_size": 8,
+  "capacities": [
+    48,
+    192
+  ],
+  "history_seeds": [
+    74001,
+    74002,
+    74003,
+    74004
+  ],
+  "pilot_seed": 74903,
+  "demographic_seeds": [
+    101
+  ],
+  "grid_axes": [
+    [
+      0.0,
+      0.125,
+      0.25,
+      0.325,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.675,
+      0.75,
+      0.875,
+      1.0
+    ],
+    [
+      0.0,
+      0.125,
+      0.25,
+      0.325,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.675,
+      0.75,
+      0.875,
+      1.0
+    ],
+    [
+      0.5
+    ]
+  ],
+  "projection_mode": "continuous",
+  "cases": 96,
+  "resource_limits": {
+    "runtime_seconds": 43200,
+    "memory_mb": 3072,
+    "output_mb": 12288,
+    "min_free_mb": 4096
+  },
+  "thresholds": [
+    0.0,
+    0.01,
+    0.05
+  ],
+  "analysis": "all histories and arms; paired far-minus-near change; cluster uncertainty and demographic label instability; no target ranking",
+  "numerical_gate": "same finite founder alleles under nested grid must agree; standing-variation discretization assessed separately, never called continuous convergence",
+  "claim_exclusions": [
+    "Q1_fit",
+    "universal_rank_reversal",
+    "pool_size_is_lifespan",
+    "pure_count_effect_of_thinning",
+    "finite_plants_equal_finite_visitors",
+    "field_calibrated_distances"
+  ],
+  "analysis_contract": {
+    "endpoint": "paired far-minus-near inherited investment change, separately by intervention",
+    "eligibility": "trait contrasts require both arms occupied at baseline and terminal; sign histories require all starts and repeats; occupancy always unconditional",
+    "mean_interval": "1999 bootstrap resamples of independent histories; same resample indices across starts and interventions; RNG 927032",
+    "mixed_interval": "95% Hoeffding bound over eligible independent histories; descriptive eight-repeat labels, not latent signs",
+    "precision_targets": {
+      "mean_contrast_half_width": 0.025,
+      "mixed_fraction_half_width": 0.125
+    },
+    "numerical_tolerances": {
+      "trait": 0.01,
+      "occupancy": 0.02
+    },
+    "classification_thresholds": [
+      0.0,
+      0.01,
+      0.05
+    ],
+    "demographic_stability": "repeat-specific labels plus first-four versus last-four average labels; report all",
+    "S_C_I": "balanced descriptive initial state x paired-history effect, within-cell variance separately",
+    "stopping": "fixed cohorts; no significance/precision/outcome stopping; limits can produce inconclusive outcomes",
+    "initial_discretization": "separate founder-support sensitivity, not solver error or continuous convergence"
+  },
+  "initial_projection_axes": [
+    [
+      0.0,
+      0.25,
+      0.4,
+      0.5,
+      0.6,
+      0.75,
+      1.0
+    ],
+    [
+      0.0,
+      0.25,
+      0.4,
+      0.5,
+      0.6,
+      0.75,
+      1.0
+    ],
+    [
+      0.5
+    ]
+  ],
+  "source_hashes": {
+    "scripts/model3_island/__init__.py": "f7e55e36abb6fbc720e3413505a2a2ea8ff784e9e5715fb097058a1b24956b16",
+    "scripts/model3_island/assays.py": "3dbfee24a4473b220e463dc6dd0e7699f0a7de98771eeee9666c94d75700338d",
+    "scripts/model3_island/audit.py": "7503b738281a0d648d7a536dfa508efada80b2e85d26538ceab413fcaedc9925",
+    "scripts/model3_island/campaign.py": "b2a4d2acc785f1b4707353a74ce3684c347e84df2915dcb5c02fa1d407eb033b",
+    "scripts/model3_island/density.py": "48adf38999132ab7f8aeb03fca754822fcacb8909aa92628c26b201fe4e78087",
+    "scripts/model3_island/design.py": "9184fba6fbdfed617d109eedc268103a49cfaf7c7eb1d51457ab03c5bee9cfbe",
+    "scripts/model3_island/expectation.py": "422de5b82fa80b293b9173735c8d50bd4aec5bd61450ea233d27ecd9169db943",
+    "scripts/model3_island/finite_audit.py": "47c567a7a450a81afa4d91c29ce91512702d7b066d289f60214a3cd543b5a49d",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "scripts/model3_island/plot.py": "f0323311ccf55c0fe677d4afe35defcbc660ce98bc3705eacb5e8e80600d8b1a",
+    "scripts/model3_island/population.py": "5a713f4a4eedfc2ca8dae55b5d72c606416a7fcf351bf58971f278fcb7a909ea",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743",
+    "scripts/model3_island/simulate.py": "a8747a67f962f36078d6c1930b32f3e79b4b21ad0cf962b136b4364a59c75dd8",
+    "scripts/model3_island/storage.py": "c987b56139f7782e35749bda5f378f3cd60d0463b2de5a15c034f2c2a4c73647",
+    "scripts/model3_island/summarize.py": "9e1b9a1c432e16cc35ca7e7a6075c044999faaa5b2aea84e0dec2cf1fee1b435",
+    "scripts/model3_island/types.py": "d0302072fd30e33eab1d25bea5c4ffd4b6735a0a853a16616dd7a050d72b06ce",
+    "scripts/model3_island_bridge_ops.py": "a87bd8863ece979e7cc464bae1251a1d184f4f80901e2f91e01fdfb3e6149c8c",
+    "scripts/run_model3_ch2_bridge.py": "d50eefe02c087f90e7288e639bc842535a594aa2aac5901d35f24fbb61ac6e67"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "status": "prospective_candidate_not_production_frozen",
+  "base_manifest": "data/design/model3_island_v2.json",
+  "base_config": {
+    "activity": 0.4,
+    "activity_mode": "count_scaled",
+    "assurance_cost": 0.0,
+    "assurance_mode": "fixed",
+    "assurance_timing": "delayed",
+    "background_ratio": 1.0,
+    "background_resources": 1.0,
+    "capacity": 48,
+    "depression": 0.5,
+    "event_order": "reproduce-survive-arrive-recruit-v1",
+    "fixed_assurance": 0.5,
+    "initial_visitors": 4,
+    "investment_cost": 0.5,
+    "island_history": "founding",
+    "mutation_rate": 0.0,
+    "mutation_sd": 0.025,
+    "ovule_budget": 8.0,
+    "pollen_budget": 20.0,
+    "pollen_discount": 0.0,
+    "pollen_scale": 1.0,
+    "reference_visitor_count": 4.0,
+    "schema_version": 1,
+    "seed_arrival": {
+      "distance": 1.0,
+      "establishment": 0.5,
+      "kernel": "exponential",
+      "loss_hazard": 0.0,
+      "scale": 1.0,
+      "supply": 0.0
+    },
+    "source_allele_means": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "source_allele_sd": 0.15,
+    "survival": 0.0,
+    "time_unit": "reproductive_year",
+    "visitor_arrival": {
+      "distance": 1.0,
+      "establishment": 0.8,
+      "kernel": "exponential",
+      "loss_hazard": 0.05,
+      "scale": 1.0,
+      "supply": 0.3
+    },
+    "visitor_breadth": 0.2,
+    "visitor_effectiveness": 1.0,
+    "years": 200
+  },
+  "founder_seed": 74001,
+  "years": 200,
+  "starts": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "arms": [
+    "near",
+    "far",
+    "matched_near",
+    "matched_far",
+    "pool_near",
+    "pool_far",
+    "large_near",
+    "large_far"
+  ],
+  "pool_size": 8,
+  "capacities": [
+    48,
+    192
+  ],
+  "history_seeds": [
+    74001,
+    74002,
+    74003,
+    74004,
+    74005,
+    74006,
+    74007,
+    74008,
+    74009,
+    74010,
+    74011,
+    74012,
+    74013,
+    74014,
+    74015,
+    74016,
+    74017,
+    74018,
+    74019,
+    74020,
+    74021,
+    74022,
+    74023,
+    74024,
+    74025,
+    74026,
+    74027,
+    74028,
+    74029,
+    74030,
+    74031,
+    74032
+  ],
+  "pilot_seed": 74902,
+  "demographic_seeds": [
+    101,
+    102,
+    103,
+    104
+  ],
+  "grid_axes": [
+    [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    [
+      0.5
+    ]
+  ],
+  "projection_mode": "continuous",
+  "cases": 3072,
+  "resource_limits": {
+    "runtime_seconds": 43200,
+    "memory_mb": 3072,
+    "output_mb": 12288,
+    "min_free_mb": 4096
+  },
+  "thresholds": [
+    0.0,
+    0.01,
+    0.05
+  ],
+  "analysis": "all histories and arms; paired far-minus-near change; cluster uncertainty and demographic label instability; no target ranking",
+  "numerical_gate": "same finite founder alleles under nested grid must agree; standing-variation discretization assessed separately, never called continuous convergence",
+  "claim_exclusions": [
+    "Q1_fit",
+    "universal_rank_reversal",
+    "pool_size_is_lifespan",
+    "pure_count_effect_of_thinning",
+    "finite_plants_equal_finite_visitors",
+    "field_calibrated_distances"
+  ],
+  "analysis_contract": {
+    "endpoint": "paired far-minus-near inherited investment change, separately by intervention",
+    "eligibility": "trait contrasts require both arms occupied at baseline and terminal; sign histories require all starts and repeats; occupancy always unconditional",
+    "mean_interval": "1999 bootstrap resamples of independent histories; same resample indices across starts and interventions; RNG 927032",
+    "mixed_interval": "95% Hoeffding bound over eligible independent histories; descriptive eight-repeat labels, not latent signs",
+    "precision_targets": {
+      "mean_contrast_half_width": 0.025,
+      "mixed_fraction_half_width": 0.125
+    },
+    "numerical_tolerances": {
+      "trait": 0.01,
+      "occupancy": 0.02
+    },
+    "classification_thresholds": [
+      0.0,
+      0.01,
+      0.05
+    ],
+    "demographic_stability": "repeat-specific labels plus first-four versus last-four average labels; report all",
+    "S_C_I": "balanced descriptive initial state x paired-history effect, within-cell variance separately",
+    "stopping": "fixed cohorts; no significance/precision/outcome stopping; limits can produce inconclusive outcomes",
+    "initial_discretization": "separate founder-support sensitivity, not solver error or continuous convergence"
+  }
+}

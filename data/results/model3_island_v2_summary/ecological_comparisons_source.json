@@ -1,0 +1,13 @@
+{
+  "summary_sha256": "c744a4890b90be7721d12e376afcc1902fe0600619b278b6cef95c0d24f52a4d",
+  "script": "scripts/plot_model3_island_ecology.py",
+  "audit": {
+    "cases_checked": 19968,
+    "ceiling": "receipt/state conservation and selected deterministic replays; not independent ecological validation",
+    "manifest_hash": "0dcf6190c27f5fc9c50b07a270826932691f8c21886ff4b148c6fe299bf3135e",
+    "replay_rule": "first compiled case per cell, never selected by outcome",
+    "replayed": 80,
+    "status": "passed"
+  },
+  "scope": "Existing complete summaries; no new estimation"
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.1",
+  "locked_on": "2026-09-27",
+  "status": "active_chapter2_unified_model3_bridge_complete",
+  "purpose": "Use one nested Model 3 for ecological selection, deterministic expectation and finite-population realization; the former Model 2 richness and finite-community controls are now prospectively evaluated inside Model 3.",
+  "supersedes_for_current_chapter_architecture": [
+    "data/design/chapter2_model3_integration_lock_20260927.json",
+    "data/design/chapter2_simulation_metadata_completion_lock_20260912.json",
+    "data/design/chapter2_active_manuscript_mainline_20260827.json"
+  ],
+  "historical_files_remain_provenance": true,
+  "canonical_question": "Why can a recurrent island functional syndrome coexist with non-uniform floral trajectories, and at which ecological, deterministic evolutionary, and finite-demographic layers does that non-uniformity arise?",
+  "unified_model": {
+    "name": "Model 3",
+    "layers": {
+      "A_fixed_state_assay": "visitor composition x starting floral state -> reproductive selection gradient; no inheritance or demographic updating",
+      "B_deterministic_distribution": "same reproductive and Mendelian operator propagated as genotype density; demographic sampling removed",
+      "C_finite_abm": "same operator with finite individuals, demographic sampling, extinction, ancestry and standing-variation loss",
+      "D_context_interventions": "assurance, chronology, connectivity, recovery, life history, founding and scaling condition realized trajectories"
+    },
+    "shared_biology": [
+      "functional matching",
+      "finite pollen delivery",
+      "outcrossing",
+      "autonomous_or_delayed_selfing",
+      "offspring viability",
+      "Mendelian inheritance"
+    ]
+  },
+  "unification_audit": {
+    "design": "data/design/model3_unified_reduction_audit_20260927.json",
+    "result": "data/results/model3_unified_reduction_audit_frozen_20260927.json",
+    "workflow_run_id": 36294376577,
+    "conclusion": "success",
+    "decision": "model2_not_required_as_active_scientific_model_or_control_gate",
+    "scope": {
+      "answered": [
+        "branching_can_exist_before_demographic_stochasticity_under_fixed_visitor_composition",
+        "visitor_composition_changes_response_at_fixed_functional_type_count",
+        "deterministic_genotype_density_can_retain_branching_under_controlled_compositions",
+        "natural_isolation_density_is_directional_while_finite_abm_can_be_mixed",
+        "response_blind_dynamic_realized_richness_matching_inside_Model3",
+        "finite_visitor_community_effect_separated_from_finite_plant_population_inside_Model3",
+        "finite_demography_modifies_realized_trajectories",
+        "history_assurance_connectivity_and_recovery_modify_realization"
+      ],
+      "not_answered": []
+    }
+  },
+  "legacy_model2_disposition": {
+    "scientific_role": "supporting_information_and_historical_provenance_only",
+    "active_control_gate": false,
+    "retained_assets": [
+      "historical service endpoint",
+      "exact realized-richness comparison",
+      "synthetic k pooling sensitivity",
+      "heuristic response-rule sensitivity",
+      "historical S/C/I decomposition",
+      "community-mean asymptotic limit"
+    ],
+    "prohibited_role": "must not be narrated as a second required biological mechanism or unresolved Chapter 2 gate"
+  },
+  "chapter1_bridge": "Chapter 1's recurrent-function/non-uniform-phenotype tension is resolved mechanistically by separating coarse isolation pressure from finite ecological and demographic realization: visitor amount/richness shifts the mean regime, while finite visitor histories and finite plant demography control realized branching; assurance and history further filter persistence.",
+  "chapter3_boundary": "Chapter 3 owns direct focal Campanula phenotype; Chapter 3 values do not tune, rescue or retrospectively validate the unified Model 3.",
+  "claim_ceiling": {
+    "deterministic_counterpart_is_diffusion_PDE": false,
+    "natural_rate_calibration": false,
+    "natural_extinction_probability": false,
+    "named_trait_calibration": false,
+    "historical_bombus_causation": false,
+    "chapter1_region_parameter_assignment": false,
+    "deterministic_branching": "branch_capacity_under_controlled_compositions_not_universal_under_isolation_assembly",
+    "dynamic_richness_matching": "prospectively_evaluated_in_Model3",
+    "finite_visitor_sampling": "prospectively_evaluated_in_Model3",
+    "finite_plant_sampling": "prospectively_evaluated_in_Model3",
+    "S_C_I_directional_branching_equivalence": false
+  },
+  "submission_state": {
+    "scientific_question": "closed_at_unified_model_and_bridge_claim_ceiling",
+    "original_chapter2_controls_closed": true,
+    "new_field_data_required": false,
+    "journal_package": "reopened_only_for_final_figures_SI_renderers_and_fail_closed_audits"
+  },
+  "model3_transport_reaudit": {
+    "source": "data/results/model3_ch2_bridge_20260927.json",
+    "cases_checked": 3072,
+    "visitor_counts": {
+      "production_near": 4.9140625,
+      "production_far": 0.6195703125,
+      "heldout_near": 4.84921875,
+      "heldout_far": 0.6440234375
+    },
+    "isolation_effect": {
+      "production_individual_mixed_eps0": "22_of_128",
+      "heldout_individual_mixed_eps0": "30_of_128",
+      "production_density_mixed_eps0": "0_of_128",
+      "heldout_density_mixed_eps0": "0_of_128",
+      "production_repeat_disagreement_eps0": "41_of_128",
+      "heldout_repeat_disagreement_eps0": "48_of_128"
+    },
+    "interpretation": "The natural isolation-driven near-versus-far visitor assembly contrast does not yet show deterministic branching; individual mixed labels may include finite-demographic realization and are unstable across two demographic repeats."
+  },
+  "bridge_campaign": {
+    "design": "data/design/model3_ch2_bridge_20260927.json",
+    "design_status": "frozen",
+    "cases": 24576,
+    "arms": [
+      "near",
+      "far",
+      "matched_near",
+      "matched_far",
+      "pool_near",
+      "pool_far",
+      "large_near",
+      "large_far"
+    ],
+    "purpose": [
+      "response_blind_annual_richness_matching",
+      "visitor_environment_pooling_separate_from_plant_capacity",
+      "larger_plant_capacity_control",
+      "paired_isolation_effect_across_starting_states"
+    ],
+    "resource_pilot": "passed",
+    "production_status": "complete_prospective_24576_case_campaign",
+    "no_outcome_success_criterion": true,
+    "workflow_run_id": 36311030639,
+    "execution_design": "data/design/model3_ch2_bridge_execution_20260927.json",
+    "interpretation_contract": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_INTERPRETATION_20260927.md",
+    "execution_partition": "16_history_seed_shards_x_1536_cases_compact_hash_verified_exports",
+    "total_cases": 24576,
+    "production_partial_outcomes_inspected": false,
+    "inspect_scientific_outcomes_only_after": "satisfied_16_shards_complete_and_128_history_aggregate_artifact",
+    "frozen_result": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "interpretation": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md"
+  },
+  "prospective_bridge": {
+    "design": "data/design/model3_ch2_bridge_execution_20260927.json",
+    "frozen_result": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "interpretation": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md",
+    "workflow_run_id": 36311030639,
+    "cases_verified": 24576,
+    "histories_verified": 128,
+    "status": "complete",
+    "answers": {
+      "dynamic_realized_richness_matching": "evaluated_mean_reversal_and_finite_branching",
+      "finite_visitor_environment": "evaluated_pooling_removes_mixed_branches",
+      "finite_plant_population": "evaluated_larger_capacity_nearly_removes_mixed_branches"
+    }
+  }
+}

@@ -1,0 +1,405 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_complete_prospective_model3_ch2_bridge",
+  "date": "2026-09-27",
+  "provenance": {
+    "workflow_run_id": 36311030639,
+    "workflow_head_sha": "b59b39cbf13a6313d9005f54e7a23c0b5703573c",
+    "artifact_id": 10929715247,
+    "artifact_name": "model3-ch2-bridge-prospective-summary",
+    "artifact_digest_sha256": "63215332a97f3140ea8cc4b7d380384023f5b25284713b3486f21ac47c3fb253",
+    "parent_manifest_hash": "2be5566e0036f4a20ab8663a6fe0c8be263e4e9836dfbfdac5f9fedbf9bbff91",
+    "cases_verified": 24576,
+    "histories_verified": 128,
+    "shards_verified": 16
+  },
+  "endpoint": "paired far-minus-near terminal-minus-initial inherited investment change",
+  "thresholds": [
+    0,
+    0.01,
+    0.05
+  ],
+  "reports": [
+    {
+      "intervention": "natural",
+      "model": "individual",
+      "mean": -0.1446356879340278,
+      "interval95": [
+        -0.15876483493381083,
+        -0.13057427300347224
+      ],
+      "mixed_counts": [
+        12,
+        8,
+        1
+      ],
+      "mixed_fractions": [
+        0.09375,
+        0.0625,
+        0.0078125
+      ],
+      "repeat_disagreements": [
+        97,
+        97,
+        94
+      ],
+      "S": 0.008549868368804905,
+      "C": 0.7497526285416962,
+      "I": 0.24169750308949892,
+      "mean_by_start": [
+        -0.13974812825520844,
+        -0.15672760009765632,
+        -0.13743133544921873
+      ]
+    },
+    {
+      "intervention": "natural",
+      "model": "density",
+      "mean": -0.45098306258395304,
+      "interval95": [
+        -0.4716455734102321,
+        -0.43006622588610993
+      ],
+      "mixed_counts": [
+        0,
+        0,
+        0
+      ],
+      "mixed_fractions": [
+        0,
+        0,
+        0
+      ],
+      "repeat_disagreements": [
+        0,
+        0,
+        0
+      ],
+      "S": 0.01680344758151203,
+      "C": 0.8460576413882386,
+      "I": 0.13713891103024933,
+      "mean_by_start": [
+        -0.4523157091143324,
+        -0.4709595099490026,
+        -0.42967396868852425
+      ]
+    },
+    {
+      "intervention": "richness_matched",
+      "model": "individual",
+      "mean": 0.0333226521809896,
+      "interval95": [
+        0.024520373874240456,
+        0.04247136433919274
+      ],
+      "mixed_counts": [
+        68,
+        59,
+        18
+      ],
+      "mixed_fractions": [
+        0.53125,
+        0.4609375,
+        0.140625
+      ],
+      "repeat_disagreements": [
+        128,
+        128,
+        128
+      ],
+      "S": 0.009173834152655855,
+      "C": 0.5305607796687333,
+      "I": 0.4602653861786109,
+      "mean_by_start": [
+        0.03587392171223959,
+        0.040128580729166696,
+        0.023965454101562512
+      ]
+    },
+    {
+      "intervention": "richness_matched",
+      "model": "density",
+      "mean": 0.03375734077068991,
+      "interval95": [
+        0.023621347002837897,
+        0.04441338502594362
+      ],
+      "mixed_counts": [
+        16,
+        1,
+        0
+      ],
+      "mixed_fractions": [
+        0.125,
+        0.0078125,
+        0
+      ],
+      "repeat_disagreements": [
+        0,
+        0,
+        0
+      ],
+      "S": 0.03283411033810567,
+      "C": 0.6478573479980752,
+      "I": 0.3193085416638192,
+      "mean_by_start": [
+        0.048705916495782986,
+        0.036846390693186085,
+        0.015719715123100664
+      ]
+    },
+    {
+      "intervention": "visitor_pooled",
+      "model": "individual",
+      "mean": -0.22594960530598965,
+      "interval95": [
+        -0.23303606669108076,
+        -0.21923663669162333
+      ],
+      "mixed_counts": [
+        0,
+        0,
+        0
+      ],
+      "mixed_fractions": [
+        0,
+        0,
+        0
+      ],
+      "repeat_disagreements": [
+        77,
+        75,
+        69
+      ],
+      "S": 0.09112273099219721,
+      "C": 0.3672188794472904,
+      "I": 0.5416583895605124,
+      "mean_by_start": [
+        -0.20054372151692718,
+        -0.24885864257812515,
+        -0.22844645182291662
+      ]
+    },
+    {
+      "intervention": "visitor_pooled",
+      "model": "density",
+      "mean": -0.5560421532675062,
+      "interval95": [
+        -0.5643575457882776,
+        -0.5481512597999493
+      ],
+      "mixed_counts": [
+        0,
+        0,
+        0
+      ],
+      "mixed_fractions": [
+        0,
+        0,
+        0
+      ],
+      "repeat_disagreements": [
+        0,
+        0,
+        0
+      ],
+      "S": 0.019995410741143364,
+      "C": 0.6359191541133474,
+      "I": 0.34408543514550927,
+      "mean_by_start": [
+        -0.5641104802675834,
+        -0.5586728813536307,
+        -0.5453430981813048
+      ]
+    },
+    {
+      "intervention": "large_plant_capacity",
+      "model": "individual",
+      "mean": -0.27164972093370177,
+      "interval95": [
+        -0.287906547122531,
+        -0.25496766620212075
+      ],
+      "mixed_counts": [
+        1,
+        1,
+        0
+      ],
+      "mixed_fractions": [
+        0.0078125,
+        0.0078125,
+        0
+      ],
+      "repeat_disagreements": [
+        31,
+        28,
+        24
+      ],
+      "S": 0.05772837174448687,
+      "C": 0.7878557583588719,
+      "I": 0.15441586989664133,
+      "mean_by_start": [
+        -0.2884181976318353,
+        -0.290778732299804,
+        -0.23575223286946592
+      ]
+    },
+    {
+      "intervention": "large_plant_capacity",
+      "model": "density",
+      "mean": -0.45098306258395304,
+      "interval95": [
+        -0.4716455734102321,
+        -0.43006622588610993
+      ],
+      "mixed_counts": [
+        0,
+        0,
+        0
+      ],
+      "mixed_fractions": [
+        0,
+        0,
+        0
+      ],
+      "repeat_disagreements": [
+        0,
+        0,
+        0
+      ],
+      "S": 0.01680344758151203,
+      "C": 0.8460576413882386,
+      "I": 0.13713891103024933,
+      "mean_by_start": [
+        -0.4523157091143324,
+        -0.4709595099490026,
+        -0.42967396868852425
+      ]
+    }
+  ],
+  "visitor_summary": {
+    "near": {
+      "mean_count": 4.8734765625,
+      "empty_year_fraction": 0.007109375000000001,
+      "mean_history_cv": 0.40280214354626315
+    },
+    "far": {
+      "mean_count": 0.6634765625,
+      "empty_year_fraction": 0.6095703125,
+      "mean_history_cv": 1.7074665250492713
+    },
+    "matched_near": {
+      "mean_count": 0.6603125,
+      "empty_year_fraction": 0.6103906250000001,
+      "mean_history_cv": 1.7134328703204078
+    },
+    "matched_far": {
+      "mean_count": 0.6603125,
+      "empty_year_fraction": 0.6103906250000001,
+      "mean_history_cv": 1.7134328703204078
+    },
+    "pool_near": {
+      "mean_count": 38.8253125,
+      "empty_year_fraction": 0,
+      "mean_history_cv": 0.14253410589046792
+    },
+    "pool_far": {
+      "mean_count": 5.0653125,
+      "empty_year_fraction": 0.0886328125,
+      "mean_history_cv": 1.2883604029372426
+    }
+  },
+  "prospective_answers": {
+    "dynamic_realized_richness_matching": {
+      "status": "answered",
+      "finding": "Annual response-blind richness matching reverses the coarse mean isolation effect from negative to positive in both finite ABM and deterministic density while finite ABM branching increases strongly.",
+      "individual_mean_change_from_natural_to_matched": [
+        -0.1446356879340278,
+        0.0333226521809896
+      ],
+      "density_mean_change_from_natural_to_matched": [
+        -0.45098306258395304,
+        0.03375734077068991
+      ],
+      "mixed_fraction_at_eps_0_individual": [
+        0.09375,
+        0.53125
+      ],
+      "mixed_fraction_at_eps_0_density": [
+        0,
+        0.125
+      ],
+      "qualification": "Annual thinning equalizes counts but also changes identity persistence; it is not a pure field species-richness causal effect."
+    },
+    "finite_visitor_environment": {
+      "status": "answered",
+      "finding": "Pooling eight independent visitor histories eliminates mixed history-level branches in both finite ABM and deterministic density at all three deadbands.",
+      "mixed_counts_individual": [
+        0,
+        0,
+        0
+      ],
+      "mixed_counts_density": [
+        0,
+        0,
+        0
+      ],
+      "qualification": "Pooling averages environmental composition under a nonlinear reproductive operator; it is not island count or lifespan."
+    },
+    "finite_plant_population": {
+      "status": "answered",
+      "finding": "Increasing plant capacity from 48 to 192 nearly eliminates finite-ABM mixed branches and moves the mean isolation effect toward the deterministic density result.",
+      "natural_to_large_mixed_counts_eps_0": [
+        12,
+        1
+      ],
+      "natural_to_large_mixed_counts_eps_0_01": [
+        8,
+        1
+      ],
+      "natural_to_large_mixed_counts_eps_0_05": [
+        1,
+        0
+      ],
+      "individual_mean": [
+        -0.1446356879340278,
+        -0.27164972093370177
+      ],
+      "deterministic_mean": -0.45098306258395304,
+      "fraction_of_individual_to_density_mean_gap_closed": 0.41460787168428553,
+      "qualification": "Large capacity changes plant demographic stochasticity while retaining the natural visitor history; it is not a visitor-community control."
+    },
+    "deterministic_vs_realized_branching": {
+      "status": "answered",
+      "finding": "Under natural isolation-driven assembly the deterministic density effect is uniformly negative across all 128 histories, while finite ABM produces mixed realized outcomes; deterministic branching is therefore possible in controlled compositions but is not the natural-assembly result.",
+      "natural_density_mixed_counts": [
+        0,
+        0,
+        0
+      ],
+      "natural_individual_mixed_counts": [
+        12,
+        8,
+        1
+      ]
+    }
+  },
+  "chapter2_resolution": {
+    "richness_sets_coarse_regime": "supported: natural negative mean becomes positive after annual richness matching",
+    "visitor_realization_contributes_to_branching": "supported: eight-history pooling removes mixed branches",
+    "finite_plant_demography_contributes_to_branching": "supported: 4x capacity nearly removes mixed branches",
+    "composition_state_dependence": "supported at operator level and weakly in richness-matched density near zero; practical branching after matching is much stronger in finite ABM",
+    "S_C_I_not_equivalent_to_directional_branching": "supported: visitor-pooled individual has I=0.542 but zero mixed sign histories",
+    "model2_independent_biological_mechanism_needed": false,
+    "model2_remaining_role": "historical/SI robustness and comparison only; the two previously unique controls are now directly evaluated in Model 3"
+  },
+  "claim_boundary": [
+    "synthetic prospective bridge, not natural prevalence",
+    "annual richness matching changes identity persistence as well as count",
+    "pooled visitor histories change environmental averaging and functional composition",
+    "large plant capacity changes plant demographic stochasticity and is not a visitor-community control",
+    "mixed fractions are descriptive independent-history labels, not latent natural branching probabilities",
+    "deterministic genotype-density model is not a continuous diffusion PDE",
+    "no natural rate, threshold or historical cause is calibrated"
+  ]
+}

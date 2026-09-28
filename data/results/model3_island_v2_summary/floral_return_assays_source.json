@@ -1,0 +1,23 @@
+{
+  "summary_sha256": "c744a4890b90be7721d12e376afcc1902fe0600619b278b6cef95c0d24f52a4d",
+  "script": "scripts/plot_model3_island_assays.py",
+  "conditions": [
+    "assay_a0p05_m0p5_s0p0_c0p0",
+    "assay_a0p05_m0p5_s0p0_c0p5",
+    "assay_a0p05_m0p5_s0p5_c0p0",
+    "assay_a0p05_m0p5_s0p5_c0p5",
+    "assay_a0p05_m0p9_s0p0_c0p0",
+    "assay_a0p05_m0p9_s0p0_c0p5",
+    "assay_a0p05_m0p9_s0p5_c0p0",
+    "assay_a0p05_m0p9_s0p5_c0p5",
+    "assay_a0p4_m0p5_s0p0_c0p0",
+    "assay_a0p4_m0p5_s0p0_c0p5",
+    "assay_a0p4_m0p5_s0p5_c0p0",
+    "assay_a0p4_m0p5_s0p5_c0p5",
+    "assay_a0p4_m0p9_s0p0_c0p0",
+    "assay_a0p4_m0p9_s0p0_c0p5",
+    "assay_a0p4_m0p9_s0p5_c0p0",
+    "assay_a0p4_m0p9_s0p5_c0p5"
+  ],
+  "scope": "All frozen assays; existing summary intervals; no re-estimation"
+}

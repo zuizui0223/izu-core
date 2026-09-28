@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "data\\results\\model3_evolution_20260925\\verification.json": "6dcfed5b28e979d52317a8f4f6029641fd97185c1da0217732b314934abfa872",
+    "data\\results\\model3_assurance_robustness_20260925\\verification.json": "f634881833d1d132671ad35531b3aa190b23c83752b646b6d84ecf97d3b7aad5",
+    "data\\results\\model3_grid_comparison_20260925\\verification.json": "4570ec03a5647a2ba3c02fe0fde50bfaadfe6ecefc5ea241010d1e6c8d1266fd",
+    "data\\results\\model3_evolution_summary_20260925\\endpoints.csv": "5770878d0ab08fc92092f803fc429be32d182f47911c29f0464337528ee20c18",
+    "data\\results\\model3_assurance_summary_20260925\\condition_summary.csv": "a5048d4f5873a25626c384ba3f57be917b7cfb8fe732a13edb4ce78798a1d23d",
+    "data\\results\\model3_assurance_summary_20260925\\endpoints.csv": "2084c52d861ca8d5346244b6a4452b3732bbd739e6eeac23f5f7ccb7b3036b1b",
+    "data\\results\\model3_grid_summary_20260925\\endpoints.csv": "d28850a8bc068e1a482e6afbf02f68edef45a710ddb6095250409fc88a705220",
+    "data\\results\\model3_evolution_20260925\\cell_006.npz": "5559b779b96f37d74ca9c0db6e504ae90e770ad355d8f234b71480e6e797b891",
+    "data\\results\\model3_evolution_20260925\\cell_078.npz": "017e26db08506a999ecb9c7ee22c7a72b69120c162b031fdbbca3906d11b2fe0"
+  },
+  "script_sha256": "11aae484cf4892dd407ae0f7ee01abc8e2f1a9b08c4a0f3be8705379e4b23a59"
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-09-27",
+  "status": "source_locked_reprojection_no_refitting",
+  "model": "unified_model3",
+  "source_matrix": "data/results/island_system_propagation_matrix_v1.json",
+  "breadth_context": {
+    "descriptive_research_entries": 42,
+    "exact_geographic_labels": 37,
+    "formal_audit_entries": 25,
+    "formal_full_contracts": "0_of_25",
+    "role": "breadth_and_falsification_not_model_fitting"
+  },
+  "model_layers": {
+    "A": "functional composition / plant state / access / effectiveness -> reproductive-selection or immediate response",
+    "B": "deterministic inherited trajectory under measured visitor regime",
+    "C": "finite-population and historical realization: assurance, chronology, connectivity, founding, recovery, persistence"
+  },
+  "propagation_state_counts": {
+    "propagates_same_direction": 1,
+    "branches_downstream": 2,
+    "buffered_or_resilient": 3,
+    "counterdirectional": 1,
+    "adjacent_links_only": 4,
+    "undetermined_missing_link": 3
+  },
+  "strongest_systems": [
+    {
+      "system": "izu_hiraiwa_cross_channel",
+      "cluster": "izu",
+      "layers": [
+        "A",
+        "C_partial"
+      ],
+      "role": "branching",
+      "evidence": "corrected matching lower in 8/8 shared targets; pollen 4 lower/4 higher; tube 3 shorter/4 longer/1 unchanged",
+      "boundary": "direct dependency and historical partner-loss trajectory missing"
+    },
+    {
+      "system": "ogasawara_psychotria_homalosperma_pollinator_replacement",
+      "cluster": "ogasawara",
+      "layers": [
+        "A"
+      ],
+      "role": "same_direction_propagation",
+      "evidence": "morph-specific access -> directional pollen transfer -> strong open-fruit-set asymmetry",
+      "boundary": "historical replacement causation inferred; standardized single-visit/dependency chain incomplete"
+    },
+    {
+      "system": "xisha_cordia_subcordata_two_island_system",
+      "cluster": "xisha",
+      "layers": [
+        "A",
+        "C_partial"
+      ],
+      "role": "near_complete_bridge",
+      "evidence": "morph-state loss, very low visitation and lower natural fruit set on Dong; effectiveness/dependency directly measured at Yongxing",
+      "boundary": "key measurements asymmetric between islands"
+    },
+    {
+      "system": "hawaii_lobelioid_post_extinction_pollination_2026",
+      "cluster": "hawaii",
+      "layers": [
+        "A",
+        "C_partial"
+      ],
+      "role": "buffering",
+      "evidence": "bill-minus-flower position predicts contact/robbing while reproductive performance remains relatively high",
+      "boundary": "overlapping studies rather than one tagged longitudinal chain"
+    },
+    {
+      "system": "california_channel_islands_nicotiana_glauca",
+      "cluster": "california_channel_islands",
+      "layers": [
+        "C"
+      ],
+      "role": "history_current_state_mismatch",
+      "evidence": "greater autonomous selfing capacity and longer corollas on islands despite current visitation/pollen transfer not lower",
+      "boundary": "cross-sectional current contrasts do not identify historical selection"
+    },
+    {
+      "system": "caribbean_gesneriaceae_island_mainland",
+      "cluster": "caribbean_gesneriaceae",
+      "layers": [
+        "A",
+        "C_partial"
+      ],
+      "role": "branching",
+      "evidence": "lower island hummingbird visitation does not map to universally greater autofertility; assurance and floral/pollination transitions occur in different combinations",
+      "boundary": "assembled across studies/clades"
+    },
+    {
+      "system": "dominica_heliconia_signed_position_projection",
+      "cluster": "lesser_antilles",
+      "layers": [
+        "A_falsifier"
+      ],
+      "role": "counterdirectional",
+      "evidence": "frozen signed-position prediction ran opposite to declared direction",
+      "boundary": "rejects exact projection, not state dependence in general"
+    }
+  ],
+  "history_anchors": [
+    {
+      "system": "Surtsey",
+      "layer": "C",
+      "role": "founding_chronology",
+      "boundary": "no complete focal pollinator transition chain"
+    },
+    {
+      "system": "Tiritiri Matangi",
+      "layer": "C",
+      "role": "reintroduction_and_compensation",
+      "boundary": "no matched pre-reintroduction plant state/outcome"
+    },
+    {
+      "system": "New Zealand Rhabdothamnus",
+      "layer": "C",
+      "role": "direct_partner_loss_plus_reproductive_demographic_response",
+      "boundary": "source floral state/full matching chain incomplete"
+    },
+    {
+      "system": "Mariana bird-loss",
+      "layer": "C",
+      "role": "direct_partner_loss_plus_reproductive_response",
+      "boundary": "source floral state unavailable"
+    }
+  ],
+  "layer_assessment": {
+    "A": "partly_testable_now_and_supported_by_multiple_systems",
+    "B": "not_directly_tested_by_current_archive",
+    "C": "strongly_motivated_and_partly_testable_with_history_systems"
+  },
+  "central_interpretation": "Natural island systems already show propagation, branching, buffering, counterdirectional response and history dependence. Unified Model 3 provides a single staged mechanism for those different outcomes without assigning natural systems to synthetic parameter cells.",
+  "falsification_targets": [
+    "strong functional mismatch with invariant reproductive return across well-sampled plant states",
+    "longitudinal inherited change consistently unrelated to measured selection before severe demographic decline",
+    "history/assurance/demography add no predictive information beyond current visitor environment in direct transition systems",
+    "visitor count outpredicts composition/matching after effort control across independent systems"
+  ],
+  "prohibited": [
+    "fit Model 3 parameters to the 42 research entries",
+    "estimate natural branch prevalence from propagation-state counts",
+    "assign Chapter 1 regions to Model 3 cells",
+    "claim historical Bombus causation",
+    "treat cross-sectional morphology as a deterministic inherited trajectory"
+  ]
+}

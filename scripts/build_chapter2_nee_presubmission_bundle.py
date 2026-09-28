@@ -82,17 +82,17 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
     manifest = {
         "schema_version": "1.5",
         "status": "PRESUBMISSION_NOT_FINAL",
-        "active_manuscript": str(MANUSCRIPT.relative_to(ROOT)),
-        "active_cover_letter": str(COVER.relative_to(ROOT)),
-        "reference_ledger": str(REFERENCE_LEDGER.relative_to(ROOT)),
-        "source_leverage_supplement": str(SOURCE_LEVERAGE_SUPPLEMENT.relative_to(ROOT)),
-        "author_metadata_provenance": str(AUTHOR_PROVENANCE.relative_to(ROOT)),
-        "author_intake": str(AUTHOR_INTAKE.relative_to(ROOT)),
+        "active_manuscript": MANUSCRIPT.relative_to(ROOT).as_posix(),
+        "active_cover_letter": COVER.relative_to(ROOT).as_posix(),
+        "reference_ledger": REFERENCE_LEDGER.relative_to(ROOT).as_posix(),
+        "source_leverage_supplement": SOURCE_LEVERAGE_SUPPLEMENT.relative_to(ROOT).as_posix(),
+        "author_metadata_provenance": AUTHOR_PROVENANCE.relative_to(ROOT).as_posix(),
+        "author_intake": AUTHOR_INTAKE.relative_to(ROOT).as_posix(),
         "analysis_provenance": {
-            "all_source_leave_one_out": str(ALL_SOURCE_LOO.relative_to(ROOT)),
-            "source_robustness_challenge_closure": str(SOURCE_ROBUSTNESS_CLOSURE.relative_to(ROOT)),
-            "postfreeze_code_review_closure": str(POSTFREEZE_CODE_REVIEW_CLOSURE.relative_to(ROOT)),
-            "postfreeze_structural_challenge": str(POSTFREEZE_STRUCTURAL_CHALLENGE.relative_to(ROOT)),
+            "all_source_leave_one_out": ALL_SOURCE_LOO.relative_to(ROOT).as_posix(),
+            "source_robustness_challenge_closure": SOURCE_ROBUSTNESS_CLOSURE.relative_to(ROOT).as_posix(),
+            "postfreeze_code_review_closure": POSTFREEZE_CODE_REVIEW_CLOSURE.relative_to(ROOT).as_posix(),
+            "postfreeze_structural_challenge": POSTFREEZE_STRUCTURAL_CHALLENGE.relative_to(ROOT).as_posix(),
         },
         "files": {},
         "initial_submission_blockers": INITIAL_SUBMISSION_BLOCKERS,
@@ -105,7 +105,7 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         ),
     }
     for path in sorted(p for p in out_dir.rglob("*") if p.is_file()):
-        rel = str(path.relative_to(out_dir))
+        rel = path.relative_to(out_dir).as_posix()
         manifest["files"][rel] = {"sha256": sha256(path), "bytes": path.stat().st_size}
 
     manifest_path = out_dir / "PRESUBMISSION_MANIFEST.json"
@@ -116,7 +116,7 @@ def build(out_dir: Path = DEFAULT_OUT) -> Path:
         zip_path.unlink()
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         for path in sorted(p for p in out_dir.rglob("*") if p.is_file()):
-            zf.write(path, arcname=str(path.relative_to(out_dir)))
+            zf.write(path, arcname=path.relative_to(out_dir).as_posix())
     return zip_path
 
 

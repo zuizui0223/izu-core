@@ -1,0 +1,103 @@
+{
+  "status": "mathematical_verification_only",
+  "evolutionary_simulation_run": false,
+  "source_sha256": {
+    "scripts/model3_reproduction.py": "0f0decaec33ded3b92f88b7f45c3d80bccd0128bab90bd2d1f9995c3c9b34e1c",
+    "scripts/model3_exposure.py": "0d6390fbe5fc388a1a5f854cb26689f1027936c33f7a33426ff53cdaff3a704c",
+    "scripts/verify_model3_reproduction_exposure.py": "da49a84183abe74e8571cfc5da238709e7b1779c6928f323127c98f007786184",
+    "docs/superpowers/specs/2026-09-25-model3-reproduction-exposure.md": "7e9f051d89dfc1d879c23338e71de0140bd6d5e4cd9facbd27d307458fca13e4"
+  },
+  "checks": [
+    {
+      "name": "female_outcross_hand_calculation",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "male_siring_hand_calculation",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "male_female_outcross_balance",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "genome_offspring_balance",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "selfing_before_viability",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "selfing_after_viability",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "selfing_not_double_counted",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "no_pollination_no_assurance_no_rescue",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "survival_schedule",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "survival_weight_sum",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "independent_two_episodes",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "correlated_two_episodes",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "concentrated_effort",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "negative_correlation_not_capped",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "zero_schedule",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "zero_exposure",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "zero_variance",
+      "absolute_error": 0.0,
+      "passed": true
+    }
+  ],
+  "boundaries": [
+    "delayed-selfing expected counts only",
+    "compatible pollen transfer is input, not predicted here",
+    "no inheritance, drift or population trajectory",
+    "effective exposure is a scalar variance diagnostic, not natural k calibration"
+  ]
+}

@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 DEFAULT_OUTPUT = ROOT / "dist/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUBMISSION_CLEAN.md"
 
-FINAL_TITLE = "Response geometry under community reorganization: richness-sensitive regimes and state-dependent branching"
+FINAL_TITLE = "Conditional island responses: from functional matching to finite-population evolutionary realization"
 
 # Retained for downstream imports. The active submission path is now owned by
 # render_chapter2_oikos_generality_overlay.py; this compatibility layer must not
@@ -27,8 +27,9 @@ def render_submission_manuscript(source: Path = SOURCE) -> str:
         text = source.read_text(encoding="utf-8")
         required = (
             FINAL_TITLE,
-            "Realized richness differences therefore help position the ensemble mean regime",
-            "The ordering of response determinants is itself regime dependent",
+            "fixed-state reproductive assay",
+            "deterministic genotype-density counterpart",
+            "Real islands occupy different stages of the same response architecture",
         )
         missing = [token for token in required if token.lower() not in text.lower()]
         if missing:

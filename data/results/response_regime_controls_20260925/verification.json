@@ -1,0 +1,10 @@
+{
+  "verified_rows": 108,
+  "verified_npz_batches": 12,
+  "independent_numpy_ss_max_error": 1.1102230246251565e-16,
+  "original_scalar_endpoint_replay_cells": 63,
+  "original_scalar_endpoint_max_error": 0,
+  "richness_snapshot_pairs": 69120,
+  "richness_mismatches": 0,
+  "sign_epsilon": 1e-09
+}

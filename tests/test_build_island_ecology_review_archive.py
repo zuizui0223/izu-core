@@ -31,7 +31,7 @@ def test_review_archive_source_files_pass_default_identity_scan():
     assert all(len(record["sha256"]) == 64 for record in records)
 
 
-def test_review_archive_builds_with_mechanism_mainline_claim_boundary(tmp_path: Path):
+def test_review_archive_builds_with_unified_model3_claim_boundary(tmp_path: Path):
     output = tmp_path / "review.zip"
     path = build_archive(output)
     assert path == output and output.exists()
@@ -46,32 +46,34 @@ def test_review_archive_builds_with_mechanism_mainline_claim_boundary(tmp_path: 
 
         manuscript = archive.read(ANONYMOUS_MANUSCRIPT_NAME).decode("utf-8")
         lower = manuscript.lower()
-        assert "conditional response geometry" in lower
-        assert "realized richness differences therefore help position the ensemble mean regime" in lower
-        assert "ordering of response determinants is itself regime dependent" in lower
-        assert "deterministic mean-field kernel contrast was all-positive" in lower
-        assert "55.84%" in manuscript and "12.72%" in manuscript
-        assert "optional future validation programme" in lower
+        assert "fixed-state reproductive assay" in lower
+        assert "deterministic genotype-density counterpart" in lower
+        assert "finite-population abm" in lower
+        assert "real islands occupy different stages of the same response architecture" in lower
+        assert "the main natural-data gap" in lower
         assert "result 1—mechanistic prediction" not in lower
 
         supporting = archive.read(ANONYMOUS_SI_NAME).decode("utf-8")
-        assert "exact realized-richness matching hard control" in supporting.lower()
-        assert "cell-level simulation variation" not in supporting.lower()
+        support_lower = supporting.lower()
+        assert "unified model 3 projection onto real-island evidence" in support_lower
+        assert "prospective model 3 isolation bridge" in support_lower
+        assert "68/128" in supporting and "41.5%" in supporting
+        assert "exact realized-richness matching hard control" in support_lower
+        assert "cell-level simulation variation" not in support_lower
 
         manifest = json.loads(archive.read("REVIEW_ARCHIVE_MANIFEST.json"))
-        assert manifest["scientific_state"] == "synthetic_conditional_response_geometry_with_regime_dependent_determinant_ordering"
+        assert manifest["scientific_state"] == "unified_model3_bridge_complete_with_real_island_layer_confrontation"
         assert manifest["mechanism_mainline_included_fail_closed"] is True
         assert manifest["three_result_reframe_active"] is False
         assert manifest["field_e3_e4_required_for_current_paper"] is False
         boundary = manifest["claim_boundary"].lower()
-        assert "system-size" in boundary
-        assert "not as required validation" in boundary
+        assert "nested model 3" in boundary
+        assert "inherited longitudinal b layer" in boundary
 
         readme = archive.read("README_REVIEW_ARCHIVE.md").decode("utf-8").lower()
-        assert "conditional response geometry" in readme
-        assert "scale-dependent determinant ordering" in readme
-        assert "optional future validation programme" in readme
-
+        assert "24,576-case bridge" in readme
+        assert "eight-history visitor pooling removes mixed branches" in readme
+        assert "inherited longitudinal b layer" in readme
 
 def test_identity_scan_detects_explicit_token(tmp_path: Path):
     path = tmp_path / "identity.txt"

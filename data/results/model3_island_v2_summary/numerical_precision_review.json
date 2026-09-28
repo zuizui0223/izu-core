@@ -1,0 +1,239 @@
+{
+  "source_summary_sha256": "c744a4890b90be7721d12e376afcc1902fe0600619b278b6cef95c0d24f52a4d",
+  "trait_tolerance": 0.01,
+  "occupancy_tolerance": 0.02,
+  "comparisons": [
+    {
+      "a": "grid_5_grid",
+      "b": "grid_5_continuous",
+      "individual_difference": -0.005514166171073966,
+      "ci": [
+        -0.014726114239838318,
+        0.00406376146301904
+      ],
+      "absolute_mean_within_tolerance": true,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": 0.0,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_grid",
+      "b": "grid_7_grid",
+      "individual_difference": -0.034407552083333036,
+      "ci": [
+        -0.052107238769530946,
+        -0.015789388020833052
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "interval_outside_tolerance",
+      "density_mean_difference": 0.023055205311567573,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_grid",
+      "b": "grid_7_continuous",
+      "individual_difference": -0.04498883473284952,
+      "ci": [
+        -0.06292571135475912,
+        -0.026836644219682296
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "interval_outside_tolerance",
+      "density_mean_difference": 0.023055205311567573,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_grid",
+      "b": "grid_11_grid",
+      "individual_difference": -0.03100992838541662,
+      "ci": [
+        -0.04878570556640618,
+        -0.012112630208333293
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "interval_outside_tolerance",
+      "density_mean_difference": 0.022963110649296015,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_grid",
+      "b": "grid_11_continuous",
+      "individual_difference": -0.02910899470050813,
+      "ci": [
+        -0.04610298926800814,
+        -0.011343629075308092
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "interval_outside_tolerance",
+      "density_mean_difference": 0.022963110649296015,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_continuous",
+      "b": "grid_7_grid",
+      "individual_difference": -0.028893385912259067,
+      "ci": [
+        -0.04636383220415248,
+        -0.011313057903242994
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "interval_outside_tolerance",
+      "density_mean_difference": 0.023055205311567573,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_continuous",
+      "b": "grid_7_continuous",
+      "individual_difference": -0.039474668561775554,
+      "ci": [
+        -0.05681501675184826,
+        -0.0227055936888637
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "interval_outside_tolerance",
+      "density_mean_difference": 0.023055205311567573,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_continuous",
+      "b": "grid_11_grid",
+      "individual_difference": -0.025495762214342653,
+      "ci": [
+        -0.04224423585708669,
+        -0.009620506853240396
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": 0.022963110649296015,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_5_continuous",
+      "b": "grid_11_continuous",
+      "individual_difference": -0.02359482852943417,
+      "ci": [
+        -0.03955015041016427,
+        -0.0076841789241441395
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": 0.022963110649296015,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_7_grid",
+      "b": "grid_7_continuous",
+      "individual_difference": -0.010581282649516483,
+      "ci": [
+        -0.02190610283188939,
+        0.00016991446611860613
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": 0.0,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_7_grid",
+      "b": "grid_11_grid",
+      "individual_difference": 0.0033976236979164193,
+      "ci": [
+        -0.01719238281250022,
+        0.02352366129557265
+      ],
+      "absolute_mean_within_tolerance": true,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": -9.209466227155794e-05,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_7_grid",
+      "b": "grid_11_continuous",
+      "individual_difference": 0.0052985573828249035,
+      "ci": [
+        -0.014977124859286298,
+        0.024077939713867617
+      ],
+      "absolute_mean_within_tolerance": true,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": -9.209466227155794e-05,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_7_continuous",
+      "b": "grid_11_grid",
+      "individual_difference": 0.013978906347432901,
+      "ci": [
+        -0.005057976604869807,
+        0.03281017053884341
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": -9.209466227155794e-05,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_7_continuous",
+      "b": "grid_11_continuous",
+      "individual_difference": 0.015879840032341386,
+      "ci": [
+        -0.0038453307212352635,
+        0.03411107339363116
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": -9.209466227155794e-05,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_11_grid",
+      "b": "grid_11_continuous",
+      "individual_difference": 0.0019009336849084848,
+      "ci": [
+        -0.00794337902279602,
+        0.010792856944699884
+      ],
+      "absolute_mean_within_tolerance": true,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": 0.0,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    },
+    {
+      "a": "grid_evolving_coarse",
+      "b": "grid_evolving_fine",
+      "individual_difference": -0.025478108723957997,
+      "ci": [
+        -0.042492268880207976,
+        -0.008952534993489256
+      ],
+      "absolute_mean_within_tolerance": false,
+      "interval_assessment": "unresolved_at_declared_precision",
+      "density_mean_difference": 0.0036682088953594594,
+      "eligible_pairs": 256,
+      "observed_occupancy_difference": 0.0
+    }
+  ],
+  "scope": "Descriptive comparison of existing paired 95% cluster intervals against frozen tolerance; no multiplicity-adjusted equivalence test and no new simulations.",
+  "initialization_caveat": "Every mode projects founder alleles onto its grid at time zero (simulate.py project_state). Cross-grid differences therefore include initial-state discretization; continuous means no later projection, not continuous initial founders.",
+  "occupancy_caveat": "All numerical-control populations survive; observed occupancy differences are zero. Existing marginal uncertainty bounds do not establish a population difference smaller than 0.02.",
+  "precision_counts": {
+    "True": 4,
+    "False": 64,
+    "None": 2
+  }
+}

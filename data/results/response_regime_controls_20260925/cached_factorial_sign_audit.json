@@ -1,0 +1,3516 @@
+{
+  "status": "posthoc_read_only_reconstruction",
+  "source_commit": "6fb6439",
+  "rows": [
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 27,
+        "all_positive": 60,
+        "all_negative": 9,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11950275744686781
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 28,
+        "all_positive": 60,
+        "all_negative": 8,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11196911414384483
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 14,
+        "all_positive": 65,
+        "all_negative": 17,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.027238417102224903
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 27,
+        "all_positive": 59,
+        "all_negative": 10,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.04250164623995829
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 43,
+        "all_positive": 45,
+        "all_negative": 8,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08378343117712876
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 42,
+        "all_negative": 7,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08106591280018843
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 48,
+        "all_positive": 40,
+        "all_negative": 8,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05073290125967438
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 38,
+        "all_negative": 8,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.051119531634431566
+    },
+    {
+      "seed": 20260826,
+      "k": 1,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 73,
+        "all_positive": 16,
+        "all_negative": 7,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.008030891547771478
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 67,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.18441951912893956
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 33,
+        "all_positive": 63,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.16310615800673636
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 11,
+        "all_positive": 80,
+        "all_negative": 5,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08402363176223283
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 66,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09159198981462241
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 46,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13016291132963762
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 52,
+        "all_positive": 44,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.12502960834092072
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 57,
+        "all_positive": 39,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09511086949116171
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 55,
+        "all_positive": 41,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09099446297524033
+    },
+    {
+      "seed": 20260826,
+      "k": 2,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 84,
+        "all_positive": 12,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05017918623808971
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 28,
+        "all_positive": 68,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.18071371637500125
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 66,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.15128537339048717
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 7,
+        "all_positive": 85,
+        "all_negative": 4,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0833489873046664
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 23,
+        "all_positive": 72,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0879071365987453
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 52,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11860260425631691
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 45,
+        "all_positive": 51,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11111746207454355
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 49,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08286886739953656
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 48,
+        "all_positive": 48,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07658430907991175
+    },
+    {
+      "seed": 20260826,
+      "k": 4,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 75,
+        "all_positive": 21,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.05180572235402258
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 27,
+        "all_positive": 69,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.16322941212477257
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 26,
+        "all_positive": 70,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13662914580473323
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 1,
+        "all_positive": 93,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08508437432964645
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 10,
+        "all_positive": 86,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08885622898986499
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 36,
+        "all_positive": 60,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1093304094111889
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 38,
+        "all_positive": 58,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10322123751682229
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 40,
+        "all_positive": 56,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07392776032371913
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 45,
+        "all_positive": 51,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0689173892751064
+    },
+    {
+      "seed": 20260826,
+      "k": 8,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 63,
+        "all_positive": 33,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05569491602543187
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 22,
+        "all_positive": 74,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13766581837793207
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 23,
+        "all_positive": 73,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11685709081048314
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 1,
+        "all_positive": 94,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08640150502758921
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 4,
+        "all_positive": 92,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08834782573708322
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 36,
+        "all_positive": 60,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0999137441830685
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 34,
+        "all_positive": 62,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09460127920579138
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 49,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06362745163853994
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 49,
+        "all_positive": 47,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06132852658344675
+    },
+    {
+      "seed": 20260826,
+      "k": 16,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 62,
+        "all_positive": 34,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05509231270652416
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 22,
+        "all_positive": 61,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.08434367063817484
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 34,
+        "all_positive": 50,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.07117283553813582
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 18,
+        "all_positive": 59,
+        "all_negative": 19,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.01502193083284984
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 39,
+        "all_positive": 44,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.004015558026015115
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 40,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.04089058056041306
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 45,
+        "all_positive": 39,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.03903311943345171
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 45,
+        "all_positive": 39,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.012151297219808893
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 45,
+        "all_positive": 39,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.011392412012437042
+    },
+    {
+      "seed": 20250101,
+      "k": 1,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 69,
+        "all_positive": 15,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "all_negative_mean_geometry",
+      "grand_mean": -0.038857844017351754
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 67,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.18374719277451157
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 39,
+        "all_positive": 57,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.15918287550977187
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 11,
+        "all_positive": 76,
+        "all_negative": 9,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07606309160864291
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 35,
+        "all_positive": 60,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07885836617488041
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 58,
+        "all_positive": 38,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1256635409390501
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 59,
+        "all_positive": 37,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11871315234176522
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 61,
+        "all_positive": 35,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08919658328951535
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 63,
+        "all_positive": 33,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08342103541640801
+    },
+    {
+      "seed": 20250101,
+      "k": 2,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 75,
+        "all_positive": 20,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.038521038209810406
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 28,
+        "all_positive": 68,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.17892521106820458
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 67,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.15119320129181518
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 5,
+        "all_positive": 88,
+        "all_negative": 3,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08015112599434773
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 22,
+        "all_positive": 74,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08216878057319463
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 54,
+        "all_positive": 42,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.118553272798568
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 54,
+        "all_positive": 42,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11170088100390581
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 56,
+        "all_positive": 40,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08116424293770755
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 57,
+        "all_positive": 39,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07563086667403342
+    },
+    {
+      "seed": 20250101,
+      "k": 4,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 73,
+        "all_positive": 23,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.04983543308878862
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 26,
+        "all_positive": 70,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.16666710733777854
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 25,
+        "all_positive": 71,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1399056619471245
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 7,
+        "all_positive": 89,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08138227942652404
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 18,
+        "all_positive": 78,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08532958332797515
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 41,
+        "all_positive": 55,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11412999360592742
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 43,
+        "all_positive": 53,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10764717017022184
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 52,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07772386373417824
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 49,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0729686917216251
+    },
+    {
+      "seed": 20250101,
+      "k": 8,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 66,
+        "all_positive": 30,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0553615956598124
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 15,
+        "all_positive": 81,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.14273241456735825
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 18,
+        "all_positive": 78,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.12255980863967432
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 2,
+        "all_positive": 94,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08541358807208983
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 3,
+        "all_positive": 93,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.088822083558537
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 31,
+        "all_positive": 65,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10602853377254702
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 66,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10096567945961309
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 33,
+        "all_positive": 63,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07176263204961637
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 37,
+        "all_positive": 59,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0688859746318792
+    },
+    {
+      "seed": 20250101,
+      "k": 16,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 46,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0598939633804664
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 21,
+        "all_positive": 62,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.07748785250804151
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 53,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.06264851565625738
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 10,
+        "all_positive": 66,
+        "all_negative": 20,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.007966624543767307
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 32,
+        "all_positive": 50,
+        "all_negative": 14,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.003461665981090264
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 37,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.030573695101264297
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 46,
+        "all_positive": 38,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.025439459106708025
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 34,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.0010149602560397585
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 52,
+        "all_positive": 32,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.0029820633594687647
+    },
+    {
+      "seed": 20260833,
+      "k": 1,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 66,
+        "all_positive": 18,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "all_negative_mean_geometry",
+      "grand_mean": -0.054589785332750794
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 22,
+        "all_positive": 71,
+        "all_negative": 3,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.16852582512111547
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 31,
+        "all_positive": 63,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.140847646660023
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 7,
+        "all_positive": 79,
+        "all_negative": 10,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06870207153382987
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 64,
+        "all_negative": 3,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07064700868767057
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 51,
+        "all_positive": 43,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10519926587940749
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 44,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09866894430356662
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 52,
+        "all_positive": 42,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0741070641225964
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 53,
+        "all_positive": 40,
+        "all_negative": 3,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0680725781853022
+    },
+    {
+      "seed": 20260833,
+      "k": 2,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 74,
+        "all_positive": 20,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.02157679778741118
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 32,
+        "all_positive": 64,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1829301735444872
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 38,
+        "all_positive": 58,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.14924523174836624
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 11,
+        "all_positive": 82,
+        "all_negative": 3,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08656112169279406
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 67,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08680165550235942
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 56,
+        "all_positive": 40,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11513085055163898
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 57,
+        "all_positive": 39,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10770381948846137
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 59,
+        "all_positive": 37,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07932993857137212
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 60,
+        "all_positive": 36,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07378434930225054
+    },
+    {
+      "seed": 20260833,
+      "k": 4,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 75,
+        "all_positive": 21,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.04569398064918965
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 28,
+        "all_positive": 68,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.16231331597740936
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 25,
+        "all_positive": 71,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1349882327009734
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 4,
+        "all_positive": 90,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08610306013262381
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 14,
+        "all_positive": 82,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08758386122920202
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 52,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10963162211552084
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 52,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10355656190739758
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 54,
+        "all_positive": 42,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07377121732153716
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 55,
+        "all_positive": 41,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06939476080647823
+    },
+    {
+      "seed": 20260833,
+      "k": 8,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 71,
+        "all_positive": 25,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.053781602359398925
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 25,
+        "all_positive": 71,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1391561780212558
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 22,
+        "all_positive": 74,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11753099248039071
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 0,
+        "all_positive": 96,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08643919015754578
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 3,
+        "all_positive": 93,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0871566402264381
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 34,
+        "all_positive": 62,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10144945251564637
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 35,
+        "all_positive": 61,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09604705023690945
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 40,
+        "all_positive": 56,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06498843491640575
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 42,
+        "all_positive": 54,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06255180927595379
+    },
+    {
+      "seed": 20260833,
+      "k": 16,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 56,
+        "all_positive": 40,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05502886548241836
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 25,
+        "all_positive": 61,
+        "all_negative": 10,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11209060139451925
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 31,
+        "all_positive": 56,
+        "all_negative": 9,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0962109610590896
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 15,
+        "all_positive": 64,
+        "all_negative": 17,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.032423944200018304
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 36,
+        "all_positive": 49,
+        "all_negative": 11,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0332249790058072
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 43,
+        "all_negative": 9,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0661015853296448
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 46,
+        "all_positive": 41,
+        "all_negative": 9,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06358841320436062
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 39,
+        "all_negative": 10,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.03903536159598259
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 48,
+        "all_positive": 38,
+        "all_negative": 10,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.038617326671680684
+    },
+    {
+      "seed": 20260827,
+      "k": 1,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 67,
+        "all_positive": 21,
+        "all_negative": 8,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.007109326055027288
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 26,
+        "all_positive": 68,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.17050272454999701
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 38,
+        "all_positive": 58,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.15122967034549675
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 10,
+        "all_positive": 76,
+        "all_negative": 10,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0685035624138362
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 31,
+        "all_positive": 62,
+        "all_negative": 3,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07620099927170312
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 46,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11763711968298168
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 52,
+        "all_positive": 44,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11189018584950203
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 56,
+        "all_positive": 40,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08376043989349864
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 59,
+        "all_positive": 37,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07888821009109188
+    },
+    {
+      "seed": 20260827,
+      "k": 2,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 78,
+        "all_positive": 18,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.035052675218883673
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 27,
+        "all_positive": 69,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.18117524438260924
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 66,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.151053743991583
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 9,
+        "all_positive": 86,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09369759396890295
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 21,
+        "all_positive": 74,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09118736424801398
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 48,
+        "all_positive": 48,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1159256636647427
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 52,
+        "all_positive": 44,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10812807557448273
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 52,
+        "all_positive": 44,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08107611535686826
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 54,
+        "all_positive": 42,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0748107946998953
+    },
+    {
+      "seed": 20260827,
+      "k": 4,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 73,
+        "all_positive": 23,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.046000277261320804
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 25,
+        "all_positive": 71,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1619822699791336
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 66,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13465988904556123
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 6,
+        "all_positive": 90,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0881816274689866
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 14,
+        "all_positive": 82,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0876375235886331
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 48,
+        "all_positive": 48,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10787117013072937
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 46,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1010511942144571
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 51,
+        "all_positive": 45,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07201709699417118
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 53,
+        "all_positive": 43,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0679617281094875
+    },
+    {
+      "seed": 20260827,
+      "k": 8,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 67,
+        "all_positive": 29,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05081873715463887
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 22,
+        "all_positive": 74,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13534946284993882
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 25,
+        "all_positive": 71,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11568745509694363
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 1,
+        "all_positive": 94,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08614958959521656
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 6,
+        "all_positive": 90,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08714292563887681
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 67,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10012573204307211
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 66,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09427081910429463
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 34,
+        "all_positive": 62,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06453250259837012
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 38,
+        "all_positive": 58,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.062105282693441274
+    },
+    {
+      "seed": 20260827,
+      "k": 16,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 60,
+        "all_positive": 36,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05321445472725686
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 51,
+        "all_negative": 15,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.059199714449290466
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 37,
+        "all_positive": 46,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.04739846421173039
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 15,
+        "all_positive": 58,
+        "all_negative": 23,
+        "other": 0
+      },
+      "mean_geometry": "all_negative_mean_geometry",
+      "grand_mean": -0.026644278560146603
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 37,
+        "all_positive": 43,
+        "all_negative": 16,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.022315367014247914
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 36,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.021755664795108112
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 49,
+        "all_positive": 34,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.018325983349184408
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 32,
+        "all_negative": 14,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.008435713892816072
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 51,
+        "all_positive": 31,
+        "all_negative": 14,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.009643021474305657
+    },
+    {
+      "seed": 999983,
+      "k": 1,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 71,
+        "all_positive": 12,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "all_negative_mean_geometry",
+      "grand_mean": -0.05092965277917088
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 37,
+        "all_positive": 58,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.17206300297240731
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 51,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1470832760439372
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 15,
+        "all_positive": 73,
+        "all_negative": 8,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06702412236573418
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 41,
+        "all_positive": 54,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0697320019442801
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 58,
+        "all_positive": 37,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11260838170302036
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 58,
+        "all_positive": 37,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10629387148336517
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 59,
+        "all_positive": 36,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07384448279000423
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 64,
+        "all_positive": 31,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06891256307285472
+    },
+    {
+      "seed": 999983,
+      "k": 2,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 84,
+        "all_positive": 11,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.028628918415499322
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 28,
+        "all_positive": 68,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1813848395295095
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 66,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.15138704435078895
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 5,
+        "all_positive": 90,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08548892651262578
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 20,
+        "all_positive": 76,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08649006693775091
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 47,
+        "all_positive": 49,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11816021875999952
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 49,
+        "all_positive": 47,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11052548785994501
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 46,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07880368122226483
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 54,
+        "all_positive": 42,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0728782530009179
+    },
+    {
+      "seed": 999983,
+      "k": 4,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 74,
+        "all_positive": 22,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.04979443545015597
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 30,
+        "all_positive": 66,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.16157225438785572
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 32,
+        "all_positive": 64,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13599302541373012
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 1,
+        "all_positive": 94,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0871527831568791
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 8,
+        "all_positive": 88,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08743492805523188
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 39,
+        "all_positive": 57,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11174512168075643
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 40,
+        "all_positive": 56,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10535782493739462
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 46,
+        "all_positive": 50,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07227091723813237
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 46,
+        "all_positive": 50,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06876241760733413
+    },
+    {
+      "seed": 999983,
+      "k": 8,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 66,
+        "all_positive": 30,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05494142553682735
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 24,
+        "all_positive": 72,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1359033502500329
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 23,
+        "all_positive": 73,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11546598891194598
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 1,
+        "all_positive": 94,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08700916564417292
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 4,
+        "all_positive": 92,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08692402631413455
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 34,
+        "all_positive": 62,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09980005107014314
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 33,
+        "all_positive": 63,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09464062298238551
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 40,
+        "all_positive": 56,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06420377196768043
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 40,
+        "all_positive": 56,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.061549302651839534
+    },
+    {
+      "seed": 999983,
+      "k": 16,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 56,
+        "all_positive": 40,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.05449501478754384
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 26,
+        "all_positive": 57,
+        "all_negative": 13,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.07217207769107035
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 43,
+        "all_positive": 41,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.05129296621072833
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 11,
+        "all_positive": 64,
+        "all_negative": 21,
+        "other": 0
+      },
+      "mean_geometry": "all_negative_mean_geometry",
+      "grand_mean": -0.01345710620184081
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 41,
+        "all_positive": 39,
+        "all_negative": 16,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.014175720621719822
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 59,
+        "all_positive": 25,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.028090318152697295
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 61,
+        "all_positive": 24,
+        "all_negative": 11,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.026261976209447428
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 62,
+        "all_positive": 22,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.0003520579028304087
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 62,
+        "all_positive": 22,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": -0.0003381375092106862
+    },
+    {
+      "seed": 12345,
+      "k": 1,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 76,
+        "all_positive": 8,
+        "all_negative": 12,
+        "other": 0
+      },
+      "mean_geometry": "all_negative_mean_geometry",
+      "grand_mean": -0.050783033058146555
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 31,
+        "all_positive": 64,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.17526867477701688
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 38,
+        "all_positive": 57,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.14381210780012452
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 12,
+        "all_positive": 77,
+        "all_negative": 7,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07903471982140305
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 35,
+        "all_positive": 60,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07203981146304422
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 57,
+        "all_positive": 38,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10883557249955471
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 60,
+        "all_positive": 35,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10202211975293927
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 62,
+        "all_positive": 33,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07397735987769198
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 63,
+        "all_positive": 32,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06814136215060178
+    },
+    {
+      "seed": 12345,
+      "k": 2,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 74,
+        "all_positive": 21,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "mixed_mean_geometry",
+      "grand_mean": 0.021604337804735696
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 28,
+        "all_positive": 68,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.183494558027422
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 29,
+        "all_positive": 67,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.1508479138069968
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 7,
+        "all_positive": 87,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08766261934623894
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 23,
+        "all_positive": 73,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08764004131722747
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 41,
+        "all_positive": 55,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11674545314542291
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 43,
+        "all_positive": 53,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10885009869988095
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 45,
+        "all_positive": 51,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08062625325688308
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 50,
+        "all_positive": 46,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0744211395683878
+    },
+    {
+      "seed": 12345,
+      "k": 4,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 67,
+        "all_positive": 29,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.04990856567615746
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 21,
+        "all_positive": 75,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.16596092689681016
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 24,
+        "all_positive": 72,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13684708321514097
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 3,
+        "all_positive": 91,
+        "all_negative": 2,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.0878752561987458
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 9,
+        "all_positive": 86,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09016116417744521
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 36,
+        "all_positive": 59,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10978396307648329
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 36,
+        "all_positive": 59,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10334485184021278
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 44,
+        "all_positive": 51,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.07247445236185653
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 49,
+        "all_positive": 46,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06833423955728501
+    },
+    {
+      "seed": 12345,
+      "k": 8,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 64,
+        "all_positive": 31,
+        "all_negative": 1,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.056228472480864336
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t0_best_d0",
+      "counts": {
+        "mixed_sign": 21,
+        "all_positive": 75,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.13798439607009838
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t0_best_d1",
+      "counts": {
+        "mixed_sign": 17,
+        "all_positive": 79,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.11773072011943866
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t0_centroid_d0",
+      "counts": {
+        "mixed_sign": 1,
+        "all_positive": 95,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08774621381744967
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t0_centroid_d1",
+      "counts": {
+        "mixed_sign": 2,
+        "all_positive": 94,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.08948788650088729
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t1_best_d0",
+      "counts": {
+        "mixed_sign": 26,
+        "all_positive": 70,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.10187554213275393
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t1_best_d1",
+      "counts": {
+        "mixed_sign": 25,
+        "all_positive": 71,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.09644445199775208
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t1_centroid_d0",
+      "counts": {
+        "mixed_sign": 35,
+        "all_positive": 61,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06680403394000797
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "t1_centroid_d1",
+      "counts": {
+        "mixed_sign": 37,
+        "all_positive": 59,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.06434057492123445
+    },
+    {
+      "seed": 12345,
+      "k": 16,
+      "rule": "fixed",
+      "counts": {
+        "mixed_sign": 54,
+        "all_positive": 42,
+        "all_negative": 0,
+        "other": 0
+      },
+      "mean_geometry": "all_positive_mean_geometry",
+      "grand_mean": 0.057684198004010055
+    }
+  ]
+}

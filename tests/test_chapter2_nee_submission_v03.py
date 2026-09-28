@@ -70,11 +70,14 @@ def test_submission_clean_nee_article_format_claims_and_novelty_boundary() -> No
     assert "post-promotion robustness challenge prospectively froze four previously unresolved candidates" in methods
     assert "none passed to coordinate extraction" in methods
 
-    # Context-dependent importance is prior art; novelty is the sufficiency /
-    # transportability boundary after context compression.
+    # The audited claim is a sufficient class and counterexamples, not an
+    # exhaustive necessary-and-sufficient boundary for all response operators.
     assert "context dependence itself is therefore not the unresolved point" in lower
     assert "the unresolved point is **transportability**" in lower
-    assert "exact sufficiency boundary for determinant-rank transport" in lower
+    assert "a sufficient bilinear class for invariant community–interaction ordering" in lower
+    assert "bilinearity is sufficient but not necessary" in lower
+    assert "an actual rank reversal requires" in lower
+    assert "exact sufficiency boundary for determinant-rank transport" not in lower
     assert "what has to be preserved for a ranking to be transportable across contexts" in lower
 
     # Source-verified bibliography, prior-art boundary, and corrected Tenerife DOI.

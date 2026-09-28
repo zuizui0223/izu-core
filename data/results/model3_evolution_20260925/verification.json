@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "model": "baseline",
+  "cases": 28672,
+  "artifacts": 160,
+  "replayed_cases": 160,
+  "design_sha256": "57c0e52f87cb1b7d6db003f8acd93a6b2ec2670e6c23d724083893101c5f5324",
+  "manifest_sha256": "061f8a9af02170c311f226cc5972a84a106d6224b92762af7b3196f5953b7977",
+  "validator_sha256": "461ea31202ab448c5fcc9da47ef2cc9aa9228a3486737b5eade9d47ae726b614"
+}

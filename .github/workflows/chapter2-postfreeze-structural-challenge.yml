@@ -14,14 +14,42 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
       - name: Run focused unit tests
-        run: pytest -q tests/test_chapter2_postfreeze_grid_update_rule.py
+        run: pytest -q tests/test_chapter2_postfreeze_grid_update_rule.py tests/test_simulation_integrity_factorial.py tests/test_update_factorial_artifact_validation.py tests/test_chapter2_rng_streams.py
+      - name: Reconstruct complete factorial artifact from terminal cells
+        run: python -m scripts.validate_chapter2_update_factorial data/results/update_factorial_20260925
+      - name: Verify model 3 reproduction and exposure foundation
+        run: |
+          pytest -q tests/test_model3_reproduction.py tests/test_model3_exposure.py tests/test_model3_receipt.py tests/test_chapter2_nee_submission_v03.py
+          python -m scripts.verify_model3_reproduction_exposure --out "${RUNNER_TEMP}/model3-verification.json"
+          python -c "import json, os; from pathlib import Path; a=json.loads(Path(os.environ['RUNNER_TEMP'],'model3-verification.json').read_text()); b=json.loads(Path('data/results/model3_reproduction_exposure_verification_20260925.json').read_text()); assert a['source_sha256']==b['source_sha256']; assert a['status']==b['status']=='mathematical_verification_only'; assert not a['evolutionary_simulation_run']; assert all(c['passed'] for c in a['checks'])"
       - name: Run post-freeze grid/update-rule challenge
         run: |
           python -m scripts.audit_chapter2_postfreeze_grid_update_rule \
             --out data/results/chapter2_postfreeze_grid_update_rule_challenge_20260925.json
+      - name: Verify individual floral evolution model
+        run: pytest -q tests/test_model3_evolution.py tests/test_model3_campaign.py tests/test_model3_distribution.py tests/test_model3_result_validation.py tests/test_model3_summary.py tests/test_model3_meanfield.py tests/test_model3_pollen_limitation.py
+      - name: Verify pollen limitation and inbreeding robustness
+        run: pytest -q tests/test_model3_robustness.py tests/test_model3_robustness_campaign.py
+      - name: Verify matched individual and density comparison
+        run: pytest -q tests/test_model3_grid_comparison.py tests/test_model3_grid_summary.py
+      - name: Verify island ecology operators and reporting
+        run: pytest -q tests/test_model3_island_*.py tests/test_model3_ch2_bridge.py tests/test_model3_ch2_bridge_runner.py tests/test_model3_ch2_bridge_summary.py tests/test_model3_ch2_bridge_figures.py --junitxml="${RUNNER_TEMP}/model3-island-tests.xml"
+      - name: Upload island ecology test receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-island-test-receipt
+          path: ${{ runner.temp }}/model3-island-tests.xml
+          if-no-files-found: warn
       - name: Upload challenge result
         uses: actions/upload-artifact@v4
         with:
           name: chapter2-postfreeze-grid-update-rule-challenge
           path: data/results/chapter2_postfreeze_grid_update_rule_challenge_20260925.json
+          if-no-files-found: error
+      - name: Upload model 3 verification receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-reproduction-exposure-verification
+          path: ${{ runner.temp }}/model3-verification.json
           if-no-files-found: error

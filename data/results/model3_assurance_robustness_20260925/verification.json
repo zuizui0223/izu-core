@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "model": "robustness",
+  "cases": 30720,
+  "artifacts": 120,
+  "replayed_cases": 120,
+  "design_sha256": "4c1225e765bb12c0254da04a9f7101ad3d61ebda2ba1665254b58e3032f06c00",
+  "manifest_sha256": "b2c78cd8df0d22796dedfc8d64e08a9f4512b0b30e7127f98f34dc4a019099ab",
+  "validator_sha256": "461ea31202ab448c5fcc9da47ef2cc9aa9228a3486737b5eade9d47ae726b614"
+}
