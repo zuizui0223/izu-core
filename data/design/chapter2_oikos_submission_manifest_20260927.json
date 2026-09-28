@@ -139,7 +139,8 @@
     "figures_regenerated_and_tested": true,
     "renderers_and_fail_closed_audits_passed": true,
     "ci_head_verified": "efde285b9eb28e9166dd89541b74185857e39a6b",
-    "author_metadata_is_only_remaining_submission_blocker": true
+    "author_metadata_is_only_remaining_submission_blocker": true,
+    "scientific_package_closed": true
   },
   "submission_ready": false,
   "remaining_before_actual_submission": [
@@ -198,5 +199,6 @@
     "richness_matched_mixed_individual_eps0": "68_of_128",
     "pooled_mixed_eps0": "0_of_128_both_models",
     "large_plant_mixed_individual_eps0": "1_of_128"
-  }
+  },
+  "submission_closure_audit": "data/results/chapter2_submission_closure_audit_20260928.json"
 }
