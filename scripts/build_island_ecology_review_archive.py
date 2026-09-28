@@ -20,7 +20,6 @@ ANONYMOUS_SI_NAME = "SUPPORTING_INFORMATION.md"
 CORE_REVIEW_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
-    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
     "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
     "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
@@ -29,19 +28,6 @@ CORE_REVIEW_FILES = (
     "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
     "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md",
     "docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md",
-    "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
-    "docs/CHAPTER2_MODEL_SPEC_FOR_MANUSCRIPT_20260827.md",
-    "docs/CHAPTER2_INTERACTION_KERNEL_DERIVATION_20260828.md",
-    "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
-    "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md",
-    "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md",
-    "docs/CHAPTER2_SCIENTIFIC_GATE_RUN_20260827.md",
-    "docs/CHAPTER2_CONDITIONAL_WHY_DIAGNOSTICS_20260827.md",
-    "docs/CHAPTER2_EXTERNAL_PREDICTION_SOURCE_AUDIT_20260828.md",
-    "docs/CHAPTER2_EXTERNAL_PREDICTION_UPGRADE_AUDIT_20260828.md",
-    "docs/IZU_POLLINATOR_PROBOSCIS_RECOVERY.md",
-    "docs/IZU_SIGNED_POSITION_TRIANGULATION_20260827.md",
-    "docs/IZU_SIGNED_POSITION_STRUCTURAL_AUDIT_20260827.md",
     "data/design/chapter2_oikos_submission_manifest_20260927.json",
     "data/design/chapter2_unified_model3_lock_20260927.json",
     "data/design/model3_unified_reduction_audit_20260927.json",
@@ -56,45 +42,10 @@ CORE_REVIEW_FILES = (
     "scripts/generate_chapter2_unified_model3_figures.py",
     "data/results/model3_unified_reduction_audit_frozen_20260927.json",
     "data/results/chapter2_unified_model3_real_island_projection_20260927.json",
-    "data/design/chapter2_oikos_submission_manifest_20260831.json",
-    "data/design/chapter2_active_manuscript_mainline_20260827.json",
-    "data/design/chapter2_conditional_why_diagnostics_freeze_20260827.json",
-    "data/design/chapter2_external_prediction_challenge_freeze_20260828.json",
-    "data/design/chapter2_external_prediction_admission_ledger_20260828.csv",
-    "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
-    "data/design/chapter2_realized_richness_matching_freeze_20260907.json",
-    "data/design/manuscript_reassessment_gate_20260826.json",
-    "data/design/island_syndrome_literature_claim_matrix_20260824.json",
-    "data/design/izu_pollinator_proboscis_recovery_status.json",
-    "data/design/izu_signed_position_source_gate_20260827.json",
-    "data/results/izu_signed_position_structural_audit_frozen_20260827.json",
-    "data/results/chapter2_phase12_fixed_gate_summary_20260827.json",
-    "data/results/context_assurance_threshold_maps_gate_frozen_20260827.json",
-    "data/results/chapter2_scientific_gate_decision_frozen_20260827.json",
-    "data/results/chapter2_conditional_why_diagnostics_frozen_20260827.json",
-    "data/results/chapter2_external_prediction_readiness_frozen_20260828.json",
-    "data/results/chapter2_interaction_kernel_audit_frozen_20260828.json",
-    "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
-    "data/results/chapter2_realized_richness_matching_decision_20260907.json",
-    "data/results/chapter2_equal_turnover_control_20260908.json",
-    "data/results/wanshan_yongxing/effect_rows.json",
-    "data/results/ogasawara/context_analysis/effect_rows.json",
-    "scripts/audit_chapter2_interaction_kernel.py",
-    "scripts/audit_chapter2_relational_robustness.py",
-    "scripts/audit_chapter2_realized_richness_matching.py",
-    "scripts/audit_chapter2_equal_turnover_control.py",
-    "scripts/generate_chapter2_manuscript_figures.py",
-    "scripts/generate_chapter2_manuscript_figures_relational.py",
-    "scripts/generate_chapter2_manuscript_figures_realized_richness.py",
-    "scripts/generate_chapter2_manuscript_tables.py",
-    "scripts/run_response_geometry_realization_stability.py",
-    "scripts/run_joint_response_transition_surface.py",
-    "scripts/run_chapter2_conditional_why_diagnostics.py",
-    "scripts/run_chapter2_external_prediction_readiness.py",
-    "scripts/analyze_izu_signed_position_triangulation.py",
-    "scripts/audit_izu_signed_position_table_s4_sensitivity.py",
-    "scripts/audit_izu_signed_position_structural_independence.py",
 )
+
+
+
 
 DEFAULT_DENY_TOKENS = ("zuizui0223", "github.com/zuizui0223")
 TEXT_SUFFIXES = {".md", ".py", ".json", ".txt", ".csv", ".toml", ".yaml", ".yml", ".svg"}
@@ -157,10 +108,16 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         manuscript_lower = manuscript.read_text(encoding="utf-8").lower()
         if "cell-level simulation variation" in supporting_lower:
             raise ValueError("superseded nonadditivity wording survived anonymous Supporting Information")
-        if "appendix s19. exact realized-richness matching hard control" not in supporting_lower:
-            raise ValueError("realized-richness hard control missing from anonymous Supporting Information")
-        if "appendix s18b. prospective model 3 isolation bridge" not in supporting_lower:
+        if "appendix s4. prospective model 3 isolation bridge" not in supporting_lower:
             raise ValueError("prospective Model 3 bridge missing from anonymous Supporting Information")
+        for legacy in (
+            "appendix s19",
+            "finite-community system-size audit",
+            "gaussian mean-field limit",
+            "regime-dependent response hierarchy under active plant adjustment",
+        ):
+            if legacy in supporting_lower:
+                raise ValueError(f"legacy Model 2 material leaked into anonymous Supporting Information: {legacy}")
 
         required_story = (
             "fixed-state reproductive assay",
@@ -192,7 +149,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
         }
         si_record = {
             "path": ANONYMOUS_SI_NAME,
-            "source": "base SI + unified real-island S18A + legacy realized-richness S19-S22 + Supporting Tables + robustness material",
+            "source": "current Model 3 / natural-confrontation SI only; legacy Model 2 excluded",
             "sha256": sha256(supporting_information),
             "size_bytes": supporting_information.stat().st_size,
         }
@@ -228,7 +185,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "claim_boundary": (
                 "The archive presents Chapter 2 as one nested Model 3 mechanism paper with a completed prospective isolation bridge. Controlled compositions establish branch capacity; annual visitor-count matching shifts the coarse mean regime; finite visitor-environment pooling and plant-capacity controls separate ecological from demographic realization. "
                 "Source-locked island systems are confronted by layer rather than fitted to synthetic parameter cells: A is partly observed, C has direct-history anchors, and the inherited longitudinal B layer remains the clearest empirical gap. "
-                "Legacy Model 2 exact-richness, synthetic-k, response-rule and S/C/I analyses are Supporting Information provenance rather than a second biological mechanism."
+                "Legacy Model 2 exact-richness, synthetic-k, response-rule and S/C/I analyses are repository legacy provenance under legacy/model2/ and are excluded from the anonymous review archive."
             ),        }
         readme = """# Anonymous review archive
 
@@ -238,7 +195,7 @@ The active manuscript is organized around one nested Model 3: **controlled branc
 
 Natural systems are confronted by layer rather than assigned to synthetic model cells. The source-locked 14-system-layer matrix includes same-direction propagation, branching, buffering and a counterdirectional falsifier. Izu is the strongest current A-layer branching example; Surtsey, Tiritiri Matangi and direct partner-loss systems provide C-layer history anchors. The inherited longitudinal B layer remains the main empirical gap. The formal source audit remains 0/25 complete A -> B -> C contracts.
 
-Legacy Model 2 exact realized-richness, synthetic-k, S/C/I and response-rule analyses remain in Supporting Information as provenance and do not define a second mechanism or active control gate.
+Legacy Model 2 exact realized-richness, synthetic-k, S/C/I and response-rule analyses remain only in the repository legacy archive and do not define a second mechanism, active control gate or current Supporting Information component.
 """
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
