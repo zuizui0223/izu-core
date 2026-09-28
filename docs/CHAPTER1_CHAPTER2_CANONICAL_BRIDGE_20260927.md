@@ -39,7 +39,7 @@ B. isolation-driven deterministic genotype-density response
 
 C. finite visitor environment + finite-population ABM
    -> visitor composition/history + plant demography
-      determine how much directional heterogeneity is realized
+      strongly modify observed directional heterogeneity; latent branch prevalence remains unresolved
    -> assurance / chronology / connectivity / life history
       further filter persistence and inherited trajectory
 
