@@ -17,10 +17,15 @@ def render_submission_manuscript() -> str:
     """
     text = SOURCE.read_text(encoding="utf-8")
     required = (
-        "Realized richness differences therefore help position the ensemble mean regime",
-        "The ordering of response determinants is itself regime dependent",
-        "Metadata confrontation supports biological ingredients while bounding attribution",
-        "post-Chapter-2 transport/falsification",
+        "fixed-state reproductive assay",
+        "deterministic genotype-density counterpart",
+        "finite-population ABM",
+        "annual response-blind richness matching",
+        "Pooling eight independent visitor histories",
+        "increasing plant capacity from 48 to 192",
+        "Real islands occupy different stages of the same response architecture",
+        "all eight shared Oshima-to-post targets",
+        "principal natural-data gap",
     )
     lower = text.lower()
     for token in required:

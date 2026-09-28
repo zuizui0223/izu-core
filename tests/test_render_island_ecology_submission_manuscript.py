@@ -15,10 +15,13 @@ def test_renderer_delegates_to_canonical_mechanism_mainline():
     text = render_submission_manuscript()
     lower = text.lower()
     assert text.startswith(f"# {FINAL_TITLE}")
-    assert "realized richness differences therefore help position the ensemble mean regime" in lower
-    assert "ordering of response determinants is itself regime dependent" in lower
-    assert "optional future validation programme" in lower
-    assert "55.84%" in text and "12.72%" in text
+    assert "fixed-state reproductive assay" in lower
+    assert "deterministic genotype-density counterpart" in lower
+    assert "real islands occupy different stages of the same response architecture" in lower
+    assert "annual response-blind richness matching" in lower
+    assert "pooling eight independent visitor histories" in lower
+    assert "increasing plant capacity from 48 to 192" in lower
+    assert "68/128" in text and "41.5%" in text
     for token in FORBIDDEN_SUBMISSION_TOKENS:
         assert token.lower() not in lower
 
@@ -33,6 +36,6 @@ def test_renderer_writes_current_canonical_file(tmp_path: Path):
 def test_renderer_fails_closed_for_noncanonical_override(tmp_path: Path):
     broken = tmp_path / "broken.md"
     source = SOURCE.read_text(encoding="utf-8")
-    broken.write_text(source.replace("The ordering of response determinants is itself regime dependent", "determinants vary", 1), encoding="utf-8")
+    broken.write_text(source.replace(FINAL_TITLE, "Broken title", 1), encoding="utf-8")
     with pytest.raises(ValueError, match="canonical mechanism-mainline contract changed"):
         render_submission_manuscript(broken)

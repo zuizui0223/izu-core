@@ -6,23 +6,21 @@ from scripts.generate_chapter2_manuscript_figures_realized_richness import build
 from scripts.render_chapter2_realized_richness_reframe import render_submission_manuscript
 
 ROOT = Path(__file__).resolve().parents[1]
-DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_20260907.json"
-GATE = ROOT / "data/design/manuscript_reassessment_gate_20260826.json"
+LEGACY_DECISION = ROOT / "data/results/chapter2_realized_richness_matching_decision_20260907.json"
+UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 
 
-def test_final_submission_integrates_richness_control_rank_crossover_and_metadata_endpoint():
+def test_final_submission_promotes_unified_model3_and_demotes_legacy_richness_result():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "realized richness differences therefore help position the ensemble mean regime" in lower
-    assert "all six prespecified matching seeds" in lower
-    assert "51–65/96 individual realizations remained mixed" in lower or "51–65 of 96 remained mixed" in lower
-    assert "42.72–48.51%" in text
-    assert "0.94–2.21%" in text
-    assert "ordering of response determinants is itself regime dependent" in lower
-    assert "55.84%" in text and "12.72%" in text
-    assert "6/6 seeds at `k=4`" in text
-    assert "metadata confrontation supports biological ingredients while bounding attribution" in lower
-    assert "post-chapter-2 transport/falsification" in lower
+    assert "fixed-state reproductive assay" in lower
+    assert "deterministic genotype-density counterpart" in lower
+    assert "finite-population abm" in lower
+    assert "annual response-blind richness matching" in lower
+    assert "68/128" in text
+    assert "41.5%" in text
+    assert "real islands occupy different stages of the same response architecture" in lower
+    assert "legacy reduced response-geometry analyses" not in lower
     assert "result 1—mechanistic prediction" not in lower
     assert "result 2—real-world exposure" not in lower
     assert "result 3—biological consequence" not in lower
@@ -34,25 +32,29 @@ def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
     words = abstract.split()
     assert 180 <= len(words) <= 300
     lower = abstract.lower()
-    assert "response variation" in lower
-    assert "realized-richness" in lower
-    assert "pooled independent community trajectories" in lower
-    assert "55.84%" in abstract
-    assert "12.72%" in abstract
-    assert "21/25" in abstract and "2/25" in abstract and "0/25" in abstract
+    assert "fixed-state assay" in lower
+    assert "deterministic genotype-density inheritance" in lower
+    assert "finite-population abm" in lower
+    assert "source-locked island systems" in lower
+    assert "24,576-case bridge" in lower
+    assert "68/128" in abstract
+    assert "pooling visitor histories eliminated mixed branches entirely" in lower
 
 
-def test_scientific_gate_requires_frozen_realized_richness_reframe():
-    decision = json.loads(DECISION.read_text(encoding="utf-8"))
-    gate = json.loads(GATE.read_text(encoding="utf-8"))
-    assert decision["prespecified_gate"]["decision"] == "blocker_failed_reframe_before_author_metadata"
-    assert gate["scientific_model_gate_complete"] is True
-    assert gate["realized_richness_reframe_complete"] is True
+def test_scientific_gate_requires_active_unified_model3_lock():
+    legacy = json.loads(LEGACY_DECISION.read_text(encoding="utf-8"))
+    assert legacy["prespecified_gate"]["decision"] == "blocker_failed_reframe_before_author_metadata"
+    lock = json.loads(UNIFIED_LOCK.read_text(encoding="utf-8"))
+    assert lock["status"] == "active_chapter2_unified_model3_bridge_complete"
     validated = validate_scientific_gate()
-    assert validated["realized_richness_hard_control"]["mean_geometry"] == "all_positive_in_6_of_6_matching_seeds"
+    assert validated["unification_audit"]["decision"] == "model2_not_required_as_active_scientific_model_or_control_gate"
+    assert validated["prospective_bridge"]["status"] == "complete"
+    assert validated["prospective_bridge"]["cases_verified"] == 24576
+    assert validated["submission_state"]["new_field_data_required"] is False
+    assert validated["submission_state"]["original_chapter2_controls_closed"] is True
 
 
-def test_frozen_figure_generation_still_regenerates_review_evidence():
+def test_frozen_legacy_figure_generation_remains_reproducible_supporting_evidence():
     payload = build_figures()
     assert payload["status"] == "realized_richness_reframe_after_relational_regeneration"
     assert payload["realized_richness_headline"] == "mean_regime_richness_sensitive_branching_relational"

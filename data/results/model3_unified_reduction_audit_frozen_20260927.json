@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_result",
+  "run_date": "2026-09-27",
+  "analysis": "model3_unified_reduction_audit",
+  "design": "data/design/model3_unified_reduction_audit_20260927.json",
+  "script": "scripts/audit_model3_unified_reduction.py",
+  "workflow": {
+    "run_id": 36294376577,
+    "artifact_id": 10922968228,
+    "artifact_sha256": "0b3be1083a2dbc5c54cab762ef18effea0555da665a0259c47af86ea6aded290",
+    "head_sha": "bf47228509c91af3ecf52c62dfcd24134c0b881e",
+    "conclusion": "success"
+  },
+  "diagnostics": {
+    "fixed_state_branching_present": true,
+    "fixed_state_mixed_by_context": {
+      "left4": true,
+      "right4": true,
+      "center4": true
+    },
+    "deterministic_density_branching_present": true,
+    "density_mixed_by_context": {
+      "left4": true,
+      "right4": true,
+      "center4": true
+    },
+    "finite_abm_branching_present": true,
+    "abm_mixed_by_context": {
+      "left4": true,
+      "right4": true,
+      "center4": true
+    },
+    "reference_contrast_mixed_by_layer": {
+      "fixed": {
+        "left4": true,
+        "right4": true,
+        "center4": true
+      },
+      "density": {
+        "left4": true,
+        "right4": true,
+        "center4": true
+      },
+      "abm": {
+        "left4": true,
+        "right4": true,
+        "center4": true
+      }
+    },
+    "fixed_richness_composition_effect_max": 2.376790538658976,
+    "deterministic_composition_effect_max": 0.1891238981505859,
+    "duplicate_count_control_max_abs_error": 1.7763568394002505e-15,
+    "duplicate_count_control_pass": true,
+    "deterministic_vs_abm_sign_agreement_fraction": 1
+  },
+  "illustrative_rows": [
+    {
+      "start_access": 0.2,
+      "context": "left4",
+      "fixed_total_gradient": 1.5047805942577446,
+      "density_investment_change": 0.0896619162599484,
+      "abm_mean_investment_change": 0.06371527777777829
+    },
+    {
+      "start_access": 0.2,
+      "context": "right4",
+      "fixed_total_gradient": -0.8720099444012313,
+      "density_investment_change": -0.09946198189063737,
+      "abm_mean_investment_change": -0.07465277777777762
+    },
+    {
+      "start_access": 0.8,
+      "context": "left4",
+      "fixed_total_gradient": -0.8720099444012313,
+      "density_investment_change": -0.09946198189063737,
+      "abm_mean_investment_change": -0.07465277777777762
+    },
+    {
+      "start_access": 0.8,
+      "context": "right4",
+      "fixed_total_gradient": 1.5047805942577395,
+      "density_investment_change": 0.08966191625994852,
+      "abm_mean_investment_change": 0.06371527777777829
+    }
+  ],
+  "existing_full_campaign_context": {
+    "cases": 19968,
+    "note": "Across the existing full island campaign, finite-ABM versus deterministic-density sign disagreement is nonzero in nearly every trajectory family and can be large; the unified reduction audit isolates the simpler operator-level result where mean ABM and density signs agree while both retain branching."
+  },
+  "decision": "model2_not_required_as_independent_mechanistic_model",
+  "retained_role_for_legacy_model2": [
+    "historical provenance",
+    "supplementary exact-richness and response-operator sensitivity",
+    "diagnostic comparison where its synthetic k and heuristic update rules are explicitly labeled model-specific"
+  ],
+  "scientific_interpretation": "The core Chapter 2 branching result is already present inside the Model 3 reproductive operator before demographic sampling, survives deterministic genotype-density propagation, and remains in the finite ABM. Fixed visitor count with changed composition changes response, while duplicating identical functional types under fixed total activity leaves the operator unchanged to machine precision. Model 2 therefore adds no necessary independent mechanism for the Chapter 2 central question.",
+  "claim_boundary": [
+    "synthetic operator audit, not natural prevalence",
+    "duplicate-type count control is an operator control, not a field richness manipulation",
+    "deterministic density is a discrete genotype distribution closure, not a diffusion PDE",
+    "no natural evolutionary rate or extinction probability",
+    "no Chapter 1 regional parameter fitting"
+  ]
+}

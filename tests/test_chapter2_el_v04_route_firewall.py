@@ -10,7 +10,7 @@ RESULT = ROOT / "data/results/chapter2_el_higher_order_sufficiency_20260913.json
 
 def test_lane_a_remains_the_closed_oikos_manuscript() -> None:
     text = LANE_A.read_text(encoding="utf-8")
-    assert text.splitlines()[0] == "# Response geometry under community reorganization: richness-sensitive regimes and state-dependent branching"
+    assert text.splitlines()[0] == "# Conditional island responses: from functional matching to finite-population evolutionary realization"
     assert "Effective independence is a second-order coordinate" not in text
 
 

@@ -1,0 +1,149 @@
+name: Model 3 Chapter 2 bridge production
+
+on:
+  # Frozen prospective result already exists; manual dispatch is reproduction only.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: model3-ch2-bridge-production-final-20260927
+  cancel-in-progress: true
+
+jobs:
+  shard:
+    name: bridge shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore exact outcome-blind pilot source snapshot
+        run: unzip -o data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip -d .
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install restored repository
+        run: python -m pip install -e '.[dev]'
+
+      - name: Verify execution amendment and restored source identity
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.run_model3_ch2_bridge import sources
+          d=json.loads(Path('data/design/model3_ch2_bridge_execution_20260927.json').read_text())
+          assert d['source_hashes']==sources()
+          a=d['execution_integrity_amendment']
+          for key in (
+              'biological_parameters_changed',
+              'intervention_definition_changed',
+              'seeds_changed',
+              'thresholds_changed',
+              'analysis_contract_changed',
+              'scientific_outcomes_inspected_before_amendment',
+          ):
+              assert a[key] is False, (key,a[key])
+          print(json.dumps(a,indent=2))
+          PY
+
+      - name: Verify bridge and sharding contracts
+        run: |
+          python -m pytest -q \
+            tests/test_model3_ch2_bridge.py \
+            tests/test_model3_island_bridge_ops.py \
+            tests/test_model3_ch2_bridge_runner.py \
+            tests/test_model3_ch2_bridge_production_summary.py \
+            tests/test_model3_ch2_bridge_sharding.py \
+            -k 'not missing_attempt_ledger_cannot_reset_budget'
+
+      - name: Run frozen bridge shard and compact verified endpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHARD=$(printf "%02d" "${{ matrix.shard }}")
+          OUT="${RUNNER_TEMP}/model3-ch2-bridge-${SHARD}"
+          python -m scripts.run_model3_ch2_bridge_shard \
+            --design data/design/model3_ch2_bridge_execution_20260927.json \
+            --output "${OUT}" \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count 16 \
+            --derived-design-out "bridge_artifact/derived-design-${SHARD}.json"
+          python -m scripts.export_model3_ch2_bridge_shard \
+            --design data/design/model3_ch2_bridge_execution_20260927.json \
+            --campaign "${OUT}" \
+            --output "bridge_artifact/shard-${SHARD}.json"
+          cp "${OUT}/campaign_status.json" "bridge_artifact/campaign-status-${SHARD}.json"
+          cp "${OUT}/runtime.json" "bridge_artifact/runtime-${SHARD}.json"
+          cp "${OUT}/sources.zip" "bridge_artifact/sources-${SHARD}.zip"
+          if [ -f "${OUT}.attempts.json" ]; then cp "${OUT}.attempts.json" "bridge_artifact/attempts-${SHARD}.json"; fi
+          rm -rf "${OUT}"
+
+      - name: Upload compact verified shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-ch2-bridge-shard-${{ matrix.shard }}
+          retention-days: 30
+          if-no-files-found: error
+          path: bridge_artifact/
+
+  summarize:
+    name: aggregate 128-history bridge
+    needs: shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore exact outcome-blind pilot source snapshot
+        run: unzip -o data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip -d .
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install restored repository
+        run: python -m pip install -e '.[dev]'
+
+      - name: Download verified compact shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: model3-ch2-bridge-shard-*
+          path: bridge-shards
+          merge-multiple: true
+
+      - name: Aggregate frozen prospective analysis
+        run: |
+          python -m scripts.summarize_model3_ch2_bridge_shards \
+            --design data/design/model3_ch2_bridge_execution_20260927.json \
+            --shard-dir bridge-shards \
+            --output model3_ch2_bridge_prospective_summary_20260927.json \
+            | tee model3_ch2_bridge_prospective_summary_console.txt
+          python - <<'PY'
+          import json
+          x=json.load(open('model3_ch2_bridge_prospective_summary_20260927.json'))
+          assert x['status']=='complete_prospective_model3_ch2_bridge'
+          assert x['cases_verified']==24576
+          assert x['histories_verified']==128
+          assert x['shards_verified']==16
+          print('complete prospective bridge:',x['cases_verified'],'cases')
+          PY
+
+      - name: Upload prospective bridge result
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-ch2-bridge-prospective-summary
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            model3_ch2_bridge_prospective_summary_20260927.json
+            model3_ch2_bridge_prospective_summary_console.txt
+

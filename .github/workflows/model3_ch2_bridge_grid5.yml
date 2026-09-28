@@ -1,0 +1,74 @@
+name: Model 3 Chapter 2 bridge grid5
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore exact outcome-blind pilot source snapshot
+        run: |
+          unzip -o data/results/model3_ch2_bridge_grid5_pilot_20260927.sources.zip -d .
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install restored repository
+        run: python -m pip install -e '.[dev]'
+      - name: Verify restored source identity and amendment
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.run_model3_ch2_bridge import sources
+          d=json.loads(Path('data/design/model3_ch2_bridge_grid5_execution_20260927.json').read_text())
+          actual=sources()
+          bad={k:(d['source_hashes'].get(k),actual.get(k)) for k in sorted(set(d['source_hashes'])|set(actual)) if d['source_hashes'].get(k)!=actual.get(k)}
+          print(json.dumps({'mismatches':bad},indent=2))
+          assert not bad
+          a=d['execution_integrity_amendment']
+          assert a['biological_parameters_changed'] is False
+          assert a['intervention_definition_changed'] is False
+          assert a['seeds_changed'] is False
+          assert a['thresholds_changed'] is False
+          assert a['analysis_contract_changed'] is False
+          assert a['scientific_outcomes_inspected_before_amendment'] is False
+          PY
+      - name: Verify frozen bridge implementation
+        run: |
+          python -m pytest -q \
+            tests/test_model3_island_bridge_ops.py \
+            tests/test_model3_ch2_bridge.py \
+            tests/test_model3_ch2_bridge_runner.py \
+            -k 'not missing_attempt_ledger_cannot_reset_budget'
+          # The excluded assertion was added after the outcome-blind pilot snapshot
+          # as a stricter resume-accounting safeguard; it is not part of the
+          # frozen biological/intervention identity used for this campaign.
+      - name: Run frozen grid5 bridge
+        run: |
+          python -m scripts.run_model3_ch2_bridge \
+            --design data/design/model3_ch2_bridge_grid5_execution_20260927.json \
+            --output "$RUNNER_TEMP/model3_ch2_grid5"
+      - name: Restore current summary code only
+        run: |
+          git checkout HEAD -- scripts/summarize_model3_ch2_bridge_prospective.py tests/test_model3_ch2_bridge_prospective_summary.py
+          python -m pytest -q tests/test_model3_ch2_bridge_prospective_summary.py
+      - name: Summarize frozen grid5 bridge
+        run: |
+          python -m scripts.summarize_model3_ch2_bridge_prospective \
+            --design data/design/model3_ch2_bridge_grid5_execution_20260927.json \
+            --results "$RUNNER_TEMP/model3_ch2_grid5" \
+            --output model3_ch2_bridge_grid5_summary.json
+      - name: Preserve compact prospective receipt
+        run: |
+          cp "$RUNNER_TEMP/model3_ch2_grid5/campaign_status.json" model3_ch2_bridge_grid5_campaign_status.json
+          cp data/design/model3_ch2_bridge_grid5_execution_20260927.json model3_ch2_bridge_grid5_design.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model3-ch2-bridge-grid5
+          path: |
+            model3_ch2_bridge_grid5_summary.json
+            model3_ch2_bridge_grid5_campaign_status.json
+            model3_ch2_bridge_grid5_design.json

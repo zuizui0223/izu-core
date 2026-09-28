@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "frozen_on": "2026-09-27",
+  "status": "posthoc_bridge_audit_of_frozen_model3_connectivity_factorial",
+  "source": "data/results/model3_island_v2_summary/review_compact.json",
+  "question": "How does the broad Chapter 1 isolation coordinate decompose into pollinator-connectivity and seed-connectivity channels inside the frozen Model 3 factorial?",
+  "rows": [
+    {
+      "p": 0,
+      "v": 0,
+      "inv": 0.08026993448437608,
+      "self": 0.4508665185505749,
+      "anc": 0.7877739800347222
+    },
+    {
+      "p": 0,
+      "v": 1,
+      "inv": -0.041858612550740915,
+      "self": 0.712178380761368,
+      "anc": 0.6853162977430555
+    },
+    {
+      "p": 0,
+      "v": 3,
+      "inv": -0.13118463383357437,
+      "self": 0.8957074744677695,
+      "anc": 0.6332465277777778
+    },
+    {
+      "p": 1,
+      "v": 0,
+      "inv": 0.08995974317117904,
+      "self": 0.45064052997222415,
+      "anc": 0.9080132378472223
+    },
+    {
+      "p": 1,
+      "v": 1,
+      "inv": -0.03399132960390874,
+      "self": 0.7138563181681556,
+      "anc": 0.8613552517361112
+    },
+    {
+      "p": 1,
+      "v": 3,
+      "inv": -0.1106905276925712,
+      "self": 0.8954368921491203,
+      "anc": 0.8226047092013888
+    },
+    {
+      "p": 3,
+      "v": 0,
+      "inv": 0.09712282179273768,
+      "self": 0.4513196325716682,
+      "anc": 0.9837239583333334
+    },
+    {
+      "p": 3,
+      "v": 1,
+      "inv": -0.023005985238841252,
+      "self": 0.7170549846424417,
+      "anc": 0.9765353732638888
+    },
+    {
+      "p": 3,
+      "v": 3,
+      "inv": -0.07569964845445813,
+      "self": 0.8916184932795174,
+      "anc": 0.9849446614583334
+    }
+  ],
+  "visitor_distance_0_to_3_contrasts": [
+    {
+      "seed_distance": 0,
+      "investment_v3_minus_v0": -0.21145456831795045,
+      "selfing_v3_minus_v0": 0.44484095591719464,
+      "founder_ancestry_v3_minus_v0": -0.15452745225694442
+    },
+    {
+      "seed_distance": 1,
+      "investment_v3_minus_v0": -0.20065027086375026,
+      "selfing_v3_minus_v0": 0.4447963621768961,
+      "founder_ancestry_v3_minus_v0": -0.08540852864583348
+    },
+    {
+      "seed_distance": 3,
+      "investment_v3_minus_v0": -0.17282247024719583,
+      "selfing_v3_minus_v0": 0.4402988607078492,
+      "founder_ancestry_v3_minus_v0": 0.001220703125
+    }
+  ],
+  "seed_distance_0_to_3_contrasts": [
+    {
+      "visitor_distance": 0,
+      "investment_p3_minus_p0": 0.016852887308361597,
+      "selfing_p3_minus_p0": 0.0004531140210932705,
+      "founder_ancestry_p3_minus_p0": 0.19594997829861116
+    },
+    {
+      "visitor_distance": 1,
+      "investment_p3_minus_p0": 0.018852627311899663,
+      "selfing_p3_minus_p0": 0.004876603881073693,
+      "founder_ancestry_p3_minus_p0": 0.29121907552083337
+    },
+    {
+      "visitor_distance": 3,
+      "investment_p3_minus_p0": 0.05548498537911624,
+      "selfing_p3_minus_p0": -0.004088981188252183,
+      "founder_ancestry_p3_minus_p0": 0.3516981336805556
+    }
+  ],
+  "invariants": {
+    "investment_declines_with_visitor_distance_at_all_seed_distances": true,
+    "realized_selfing_increases_with_visitor_distance_at_all_seed_distances": true,
+    "investment_increases_with_seed_distance_at_all_visitor_distances": true,
+    "founder_ancestry_increases_with_seed_distance_at_all_visitor_distances": true
+  },
+  "ranges": {
+    "visitor_isolation_investment_change": [
+      -0.21145456831795045,
+      -0.17282247024719583
+    ],
+    "visitor_isolation_selfing_change": [
+      0.4402988607078492,
+      0.44484095591719464
+    ],
+    "seed_isolation_investment_change": [
+      0.016852887308361597,
+      0.05548498537911624
+    ],
+    "seed_isolation_founder_ancestry_change": [
+      0.19594997829861116,
+      0.3516981336805556
+    ]
+  },
+  "interpretation": "Within the frozen synthetic factorial, increasing pollinator distance consistently shifts floral investment downward and realized selfing upward, whereas increasing seed distance consistently shifts investment upward/less negative and increases founder ancestry. A single geographic isolation coordinate can therefore combine biologically distinct channels with different and partly opposing phenotypic consequences.",
+  "claim_boundary": [
+    "post hoc synthesis of a prospectively declared connectivity factorial, not a new preregistered test",
+    "distance is measured in model dispersal scales, not kilometres",
+    "seed-distance effects are not identified as gene-flow causation alone",
+    "the pattern is model-conditional and not a natural effect size",
+    "does not map Chapter 1 regional strata to Model 3 cells"
+  ]
+}

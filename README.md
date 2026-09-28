@@ -1,25 +1,36 @@
-# Izu Core — conditional island plant response geometry
+# Izu Core — conditional island plant response and evolutionary realization
 
-`izu-core` is the Chapter 2 repository for asking why the same broad plant–pollinator reorganization can produce different post-establishment plant responses rather than one universal island trajectory.
+`izu-core` is the Chapter 2 repository for asking why the same broad plant–pollinator reorganization can produce different plant responses rather than one universal island trajectory, and how those conditional responses propagate through reproduction, demography and inheritance.
 
 ## Current state
 
-**Additional simulation closure (2026-09-25):** the [response-rule factorial](docs/CHAPTER2_UPDATE_FACTORIAL_RESULTS_20260925.md) preserves the primary numerical result but shows that neither C/I reversal nor C→I→S is universal across update rules. The [final scope and field projection](docs/CHAPTER2_SIMULATION_FINAL_SCOPE_AND_FIELD_PROJECTION_20260925.md) defines the bounded mechanistic claim, the role of 42 natural systems, and the linked Izu measurements. Run `python -m scripts.validate_chapter2_update_factorial data/results/update_factorial_20260925` to verify all archived cells and contrasts. This addendum does not replace historical frozen receipts.
+**Chapter 2 unified-model reassessment (2026-09-27):** the prospective [Model 3 unified reduction audit](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) shows deterministic branch capacity under controlled visitor compositions. A stricter audit of the actual isolation-driven near-versus-far transport contrast gives mixed finite-ABM responses in 22/128 production and 30/128 held-out histories, but 0/128 mixed deterministic-density histories in both cohorts. Thus branch generation and branch realization must be separated. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) shows how assurance, chronology, connectivity, life history and finite demography alter persistence and inherited trajectories.
 
-**Chapter 2 is scientifically closed without new focal field data.** Its canonical completion state is **simulation + source-audited metadata/secondary-data confrontation**.
+**Chapter 2 is scientifically closed at the declared synthetic claim ceiling without new focal field data.** Its canonical state is **one nested Model 3 + completed 24,576-case isolation bridge + layer-specific real-island confrontation**.
 
 ```text
-conditional response geometry
-    -> exact realized-richness control
-        -> finite-community / system-size determinant hierarchy
-            -> downstream filtering and assurance
-                -> source-audited metadata confrontation
-                    -> bounded empirical claim ceiling
+Unified Model 3
+    A. fixed-state reproductive assay
+        -> starting floral state × visitor composition
+        -> selection-gradient branching
+    B. isolation-driven deterministic genotype-density propagation
+        -> visitor amount/richness strongly positions coarse mean regime
+        -> natural near/far response is one-directional
+    C. finite visitor environment + finite-population ABM
+        -> visitor-history pooling can suppress branching
+        -> larger plant populations can suppress branching
+        -> realized inherited trajectory
+    D. assurance / chronology / connectivity / recovery / life history
+        -> conditional realization
+    -> A/B/C real-island confrontation
+        -> A partly observed
+        -> B inherited longitudinal layer mostly missing
+        -> C history/finite realization partly observed
 ```
 
-The completion contract is [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json), and the claim-by-claim map is [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md).
+The active architecture contract is [`data/design/chapter2_unified_model3_lock_20260927.json`](data/design/chapter2_unified_model3_lock_20260927.json). The transitional [`chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) and older completion locks remain historical provenance. The existing claim-by-claim map remains [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) until the submission evidence matrix is regenerated.
 
-The active manuscript is [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md). The active narrative lock is [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md), and the Oikos route is controlled by [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json).
+The active manuscript is [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md). The active narrative lock is [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md). The active Oikos contract is [`data/design/chapter2_oikos_submission_manifest_20260927.json`](data/design/chapter2_oikos_submission_manifest_20260927.json); the 2026-08-31 manifest remains pre-Model-3 provenance.
 
 Historical V2 manuscripts, the former three-result/four-act narrative locks, literature screens and frozen empirical audits remain provenance. They must not be treated as the current manuscript surface.
 
@@ -31,7 +42,7 @@ Island syndromes can conflate three distinct processes:
 2. **In-situ evolutionary change** — how established island lineages diverge from source populations;
 3. **Post-establishment interaction response** — how established lineages respond when pollinator functional composition and local interaction context change.
 
-Chapter 2 isolates the third layer. Its central result is a **conditional response geometry**: realized richness helps place the coarse ensemble regime, while plant starting state evaluated against realized community composition retains branch contingency.
+Chapter 2 now uses **one nested Model 3** as the biological mechanism. Controlled fixed-state and genotype-density reductions show that functional matching can create deterministic branch capacity before finite demography. In contrast, the stored isolation-driven near-versus-far density effect is one-directional, while finite ABM histories can be mixed. The finite-population ABM therefore does more than add noise in some regimes: it can determine whether heterogeneous realized trajectories appear. Assurance, connectivity, chronology, recovery and life history further condition outcomes.
 
 The hierarchy of response determinants is **not fixed**. Under the historical small finite-community regime, community realization is the largest additive component. Under the collision-free hierarchical RNG correction, pooling independent community trajectories under active plant adjustment raises the median starting-position share from **3.11% at `k=1` to 53.53% at `k=16`**, while the median community-realization share falls from **74.27% to 14.05%**. Starting position exceeds community realization in **4/6** prespecified seeds at `k=4` and **6/6** at `k=8` and `k=16`; mixed branching remains at `k=16` in **26–36/96** realizations. Historical offset-stream values remain archived as provenance only. The numerical crossover is model-specific and is not a natural threshold.
 
@@ -41,28 +52,34 @@ A finite-community limit analysis then shows that the deterministic mean-field k
 
 These are synthetic mechanism and robustness results, **not natural frequencies or calibrated ecological thresholds**.
 
-## Metadata confrontation layer
+## Unified Model 3: ecological selection to finite-population realization
 
-The source-audited natural layer is part of Chapter 2 completion, but it has a bounded role: **biological plausibility, adversarial stress testing and empirical identifiability**, not full validation of the synthetic mechanism.
+The completed island campaign is the full finite-population layer of Chapter 2 and contains **19,968 audited cases** across the frozen island design and six held-out transport rows. The prospective unified reduction audit adds matched fixed-state and deterministic-density reductions of the same biological operator.
 
-The formal source audit remains frozen at **25 research entries across 21 exact geographic labels**:
+The current chapter-level reading is deliberately qualitative and mechanistic:
 
-- direct comparable plant response: **21/25**;
-- direct partner arrival/replacement: **2/25**;
-- full outcome-independent contracts: **0/25**;
-- formal external prediction: **`not_evaluable`**.
+- identical final environments can retain different inherited investment endpoints after different visitor-loss histories;
+- reproductive assurance can determine whether a terminal evolutionary comparison exists at all;
+- seed connectivity and pollinator connectivity act through different routes and should not be collapsed into one isolation coordinate;
+- similar S/C/I ordering does not guarantee transport of marginal trait predictions across disturbance regimes.
 
-A later descriptive layer reached **42 research entries across 37 exact geographic labels**, and the geography-first world programme reached its declared saturation rule. Further cross-sectional searching is therefore not a Chapter 2 completion requirement.
+Model 3 does **not** calibrate natural evolutionary rates, extinction probabilities or a specific flower trait, and numerical refinement remains incomplete for some magnitudes. Those limits are retained in the Chapter 2 claim ceiling.
 
-Existing Izu secondary analyses contribute both support and failure:
+## Real-island A/B/C confrontation
 
-- functional exposure → corrected matching: supported and leave-one-island sign robust;
-- matching → pollen: positive on average but not leave-one-island sign stable;
-- eight lower-matching shared targets: tube shorter 3 / longer 4 / equal 1; pollen lower 4 / higher 4;
-- historical signed-position projection after null correction: unsupported;
-- Oshima bridge as a causal geographic boundary: not independently identified.
+The natural layer is now organized by which part of the unified Model 3 it can confront, not by assigning systems to synthetic parameter cells.
 
-That mixture is intentional. The natural evidence makes the modeled ingredients biologically non-vacuous while preventing the simulation from being narrated as already validated historical causation.
+- **A — ecological/selection:** functional composition, plant state, access/effectiveness and immediate reproductive response.
+- **B — deterministic inheritance:** inherited longitudinal change under a measured visitor regime.
+- **C — finite/history realization:** assurance, chronology, connectivity, founding, recovery and persistence.
+
+The source-locked 14-system-layer matrix across 12 geographic clusters already contains one same-direction propagation case, two downstream-branching cases, three buffered/resilient cases, one counterdirectional case, four adjacent-link cases and three unresolved cases. These are descriptive response modes, not prevalence estimates.
+
+Izu is the strongest A-layer branching example: corrected matching is lower in all eight shared targets, while tube response is 3 shorter / 4 longer / 1 unchanged and pollen response is 4 lower / 4 higher. Ogasawara and Xisha provide stronger access/effectiveness-to-reproduction chains; Hawaii and Puerto Rico–Mona provide buffering; Dominica remains a frozen counterdirectional falsifier. Surtsey, Tiritiri Matangi, New Zealand *Rhabdothamnus* and Mariana bird-loss systems anchor C-layer founding, recovery/compensation and partner-loss histories.
+
+The principal natural-data gap is **B**. The current archive lacks a clean same-unit series linking starting genetic/common-garden state, measured visitor regime and inherited longitudinal change while separating finite demography.
+
+The broader evidence base remains **42 research entries / 37 exact geographic labels**, while the formal audit remains **25 entries / 21 labels**, direct comparable response **21/25**, direct partner arrival/replacement **2/25**, and complete A → B → C contracts **0/25**. The 42/37 layer is breadth/falsification evidence, not 42 Model 3 fits.
 
 ## Downstream modifiers
 
@@ -76,7 +93,7 @@ For the current paper, however, Izu visitor → effectiveness → dependency →
 
 ## Post-Chapter-2 prospective transport / NEE lane
 
-The previously built NEE Registered Report materials are retained because they provide a rigorous outcome-independent future transport design. They do **not** define an unfinished Chapter 2 task and do not reopen the closed Oikos manuscript.
+The previously built NEE Registered Report materials are retained because they provide a rigorous outcome-independent future transport design. They do **not** define an unfinished field-data task for Chapter 2. The Oikos manuscript is currently reopened only to integrate Model 3 text, figures, Supporting Information and render/audit surfaces; this does not create a new empirical completion gate.
 
 Reusable prospective surfaces:
 
@@ -102,22 +119,38 @@ Any later pilot/precision work belongs to this post-Chapter-2 study. It is not n
 
 Chapter 2 closes with:
 
-1. conditional response geometry;
-2. exact realized-richness separation of coarse regime placement from branch contingency;
-3. a finite-community/system-size result showing regime-dependent determinant ordering;
-4. downstream modifiers; and
-5. source-audited metadata / secondary-data confrontation that fixes the empirical claim ceiling.
+1. **fixed-state Model 3 assay:** selection direction depends on starting floral state × visitor composition;
+2. **deterministic genotype-density Model 3:** controlled compositions can retain branching after demographic sampling is removed, while the stored isolation-driven contrast is one-directional;
+3. **finite-population Model 3 ABM:** demographic stochasticity, extinction and variation loss modify realized trajectories;
+4. assurance, chronology, connectivity, life-history, founding and recovery interventions explaining conditional realization;
+5. legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I analyses retained as Supporting Information and provenance only; and
+6. layer-specific real-island confrontation showing A-layer propagation/branching, C-layer history effects and the missing inherited longitudinal B layer.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.
 
 ## Active scientific and submission surfaces
 
 - [`docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`](docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md) — active manuscript.
+- [`docs/CHAPTER2_CANONICAL_STORY_20260927.md`](docs/CHAPTER2_CANONICAL_STORY_20260927.md) — active unified Model 3 scientific story.
+- [`docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md`](docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md) — active Oikos / analytical companion / future A→B→C route firewall.
+- [`docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md`](docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md) — active dissertation bridge from Chapter 1's unresolved syndrome pattern to Model 3.
+- [`docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md`](docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md) — problem-by-problem Chapter 1 → Chapter 2 resolution ledger.
 - [`docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`](docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md) — active narrative contract.
-- [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) — no-new-focal-data completion lock.
+- [`data/design/chapter2_unified_model3_lock_20260927.json`](data/design/chapter2_unified_model3_lock_20260927.json) — active unified Model 3 Chapter 2 lock.
+- [`data/design/chapter2_model3_integration_lock_20260927.json`](data/design/chapter2_model3_integration_lock_20260927.json) — transitional two-model integration provenance.
+- [`data/design/chapter2_simulation_metadata_completion_lock_20260912.json`](data/design/chapter2_simulation_metadata_completion_lock_20260912.json) — historical pre-Model-3 completion lock.
 - [`docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md`](docs/CHAPTER2_SIM_META_EVIDENCE_MATRIX_20260912.md) — simulation ↔ metadata ↔ claim-ceiling map.
-- [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level HOW / proximal-WHY / ultimate-WHY boundary.
-- [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — current Oikos submission contract.
+- [`THESIS_CHAPTER_POSITIONING.md`](THESIS_CHAPTER_POSITIONING.md) — dissertation-level unified Model 3 architecture and HOW / proximal-WHY / ultimate-WHY boundary.
+- [`docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md`](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) — prospective audit and Model 2 disposition.
+- [`docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md`](docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md) — final 24,576-case richness / visitor-finiteness / plant-finiteness bridge result.
+- [`data/results/model3_ch2_bridge_prospective_frozen_20260927.json`](data/results/model3_ch2_bridge_prospective_frozen_20260927.json) — frozen compact prospective bridge receipt.
+- [`docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md`](docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md) — A/B/C projection of source-locked real-island evidence.
+- [`data/results/chapter2_unified_model3_real_island_projection_20260927.json`](data/results/chapter2_unified_model3_real_island_projection_20260927.json) — machine-readable projection summary.
+- [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
+- [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) — complete numerical readout and qualification.
+- [`data/design/chapter2_oikos_submission_manifest_20260927.json`](data/design/chapter2_oikos_submission_manifest_20260927.json) — active bridge-gated Oikos submission contract.
+- [`data/results/chapter2_submission_closure_audit_20260928.json`](data/results/chapter2_submission_closure_audit_20260928.json) — final scientific-package closure audit; only author-supplied metadata/confirmations remain.
+- [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — historical pre-unification submission contract.
 - `scripts/render_island_ecology_submission_manuscript.py` — compatibility renderer delegating to the canonical mechanism-mainline render.
 - `scripts/render_oikos_submission_rtf.py` — Oikos RTF renderer.
 - `scripts/build_island_ecology_submission_bundle.py` — fail-closed submission bundle builder.
@@ -125,9 +158,9 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 
 ## Submission status
 
-The scientific gate is closed. Actual Oikos submission remains fail-closed only on author-supplied identity and declaration fields such as author order/affiliations, corresponding-author details and ORCID, prior-work context, acknowledgements/funding, inclusion/conflict declarations, ethics confirmation and final metadata-driven bundle construction.
+The biological mechanism and the original Chapter 2 control suite are now resolved inside Model 3. The **scientific Oikos package is closed**: the final bridge manuscript, Unified Model 3 Figures 1–4, Supporting Information, renderers and fail-closed CI all pass. Actual submission is now blocked only by author-supplied identity, prior-work context and declarations. No new focal field data are required.
 
-The post-Chapter-2 NEE/field lane may remain pre-data indefinitely without changing Chapter 2 scientific closure or Oikos submission readiness.
+The post-Chapter-2 NEE/field lane remains optional and does not affect Chapter 2 scientific closure.
 
 ## Claim boundary
 
@@ -140,25 +173,18 @@ This repository does **not** claim that:
 - the frozen 25 systems validate one universal mechanism;
 - metadata constitute full natural validation of the synthetic determinant hierarchy;
 - a synthetic [0,1] coordinate is calibrated to a named field trait;
+- Model 3 time, dispersal distance, extinction frequency or investment magnitude are calibrated natural rates;
 - present functional structure identifies the historical cause of focal-lineage divergence;
 - Chapter 3 phenotype validates Chapter 2; or
 - the prospective Izu E3/E4 chain is required for Chapter 2 completion.
 
-The retained contribution is a **synthetic conditional-response mechanism completed by source-audited metadata confrontation at a bounded empirical claim ceiling**: richness influences coarse regime placement, state × realized composition retains branch contingency, determinant ordering changes across finite-community regimes, downstream processes modify rather than replace that architecture, and existing natural evidence defines which parts are biologically supported versus not yet identifiable.
+The retained contribution is a **single nested eco-evolutionary explanation of a recurrent-but-nonuniform island syndrome, confronted against real islands by mechanistic layer**: functional matching has pre-demographic branch capacity, visitor amount/richness strongly shifts the coarse deterministic regime, and finite visitor plus plant-population sampling determine how much heterogeneous realized response appears. Assurance and history further filter persistence. Real systems already show propagation, branching, buffering, counterdirectional responses and direct-history effects; the inherited longitudinal B layer is the clearest remaining empirical gap.
 
 ### Interpretation updates (2026-09-25)
 
 - [Simulation novelty and primary-source comparison](docs/CHAPTER2_SIMULATION_NOVELTY_AUDIT_20260925.md)
 - [Q1 four-region discussion and Q2 connection](docs/CHAPTER1_FOUR_REGION_TO_CHAPTER2_DISCUSSION_20260925.md)
 
-### Model 3 calculation foundation
+### Model 3 implementation and completed island campaign
 
-The separately declared third model now has delayed-selfing offspring accounting
-and a life-history exposure diagnostic. These are deterministic mathematical
-building blocks, not a completed evolutionary simulation or natural calibration.
-
-Run `python -m scripts.verify_model3_reproduction_exposure --out <new-receipt.json>`
-to verify the source-matched analytic examples. Existing output paths are refused.
-The [implementation ledger](docs/MODEL3_IMPLEMENTATION_LEDGER_20260925.md) records
-tests, numerical boundary fixes and scope. The existing manual structural-challenge
-workflow also tests these modules and uploads a separate verification receipt.
+Model 3 is now integrated into Chapter 2. The original calculation foundation remains reproducible with `python -m scripts.verify_model3_reproduction_exposure --out <new-receipt.json>`, while the completed island campaign and its numerical qualifications are documented in [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md), [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) and [`docs/MODEL3_ISLAND_NUMERICAL_REVIEW_20260927.md`](docs/MODEL3_ISLAND_NUMERICAL_REVIEW_20260927.md). The model remains synthetic and is not a calibrated reconstruction of natural islands.

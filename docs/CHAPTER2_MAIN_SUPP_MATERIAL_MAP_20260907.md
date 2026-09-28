@@ -1,171 +1,169 @@
 # Chapter 2 main-text / Supporting Information material map
 
-Updated: 2026-09-12
+Updated: 2026-09-27
 
 ## Paper-facing rule
 
-The main paper carries the synthetic results that change the ecological argument plus one compact **metadata confrontation / claim-ceiling endpoint**. Supporting Information carries full parameterization, sensitivity surfaces, historical empirical analyses, source-readiness matrices, search-tranche provenance, row-level secondary analyses and structural attacks.
+The main paper carries the current Unified Model 3 mechanism and the evidence that changes its ecological interpretation. Legacy Model 2 response-geometry analyses remain reproducible but move to Supporting Information/provenance.
 
-The active mechanism mainline is:
+The active mainline is:
 
-`conditional response geometry`
+`controlled branch capacity`
 
-`→ exact realized-richness control`
+`→ isolation-driven deterministic backbone`
 
-`→ scale-dependent determinant ordering`
+`→ annual richness matching / visitor pooling / plant-capacity bridge`
 
-`→ downstream filtering / assurance`
+`→ assurance / chronology / connectivity / recovery`
 
-`→ source-audited metadata confrontation and empirical claim ceiling`
+`→ real-island A/B/C confrontation and empirical claim ceiling`
 
-World and Izu materials bound biological plausibility and historical identifiability. They do not provide full validation of the synthetic crossover, but the audited positive and adverse secondary evidence is part of Chapter 2 completion because it establishes what is biologically non-vacuous and what remains unidentified.
-
-The prospective visitor-effectiveness / reproductive-dependency / mature-output E3/E4 experiment is **post-Chapter-2 transport/falsification**, not a prerequisite for the present paper.
+The paper must distinguish **branch capacity** from **branch realization**. Controlled visitor compositions can branch deterministically, whereas the natural isolation-driven density response is one-directional in the prospective bridge. Finite visitor histories and finite plant demography separately determine how much directional heterogeneity is realized.
 
 ## Main text
 
-### Main Figure 1 — conditional-response architecture and determinant hierarchy
+### Main Figure 1 — one Model 3, nested levels
 
 Retain:
-- the separation between coarse regime placement and within-regime branch identity;
-- realized richness as a determinant of ensemble mean-regime placement;
-- starting state × realized composition as the relational branch layer;
-- system-size scaling as the test of whether determinant ordering remains fixed;
-- deterministic mean-field as the asymptotic boundary where finite-community branching disappears.
+- fixed-state reproductive selection;
+- deterministic genotype-density inheritance with demographic sampling removed;
+- finite-population ABM realization;
+- the distinction between controlled deterministic branch capacity and regime-dependent isolation realization.
 
-Do not show Wanshan/Ogasawara/Izu as a three-step empirical validation chain.
+Do not use the old S/C/I funnel as Figure 1.
 
-### Main Figure 2 — response geometry and structural controls
+### Main Figure 2 — prospective 24,576-case isolation bridge
 
-Retain:
-- historical offset-stream baseline: 41/96 mixed realizations (provenance only); corrected six-seed baseline: median 45.5 [43–59]/96 mixed realizations;
-- exact realized-richness hard control after RNG correction: mean all-positive in 6/6 seeds while 55–64/96 individual realizations remain mixed;
-- historical equal-turnover control (legacy offset streams): 70/96 mixed and 65.61% state × community non-additivity; retained as provenance, not current Monte Carlo inference;
-- zero-adjustment finite-community size audit after RNG correction: island-like count CV 0.634–0.730 at `k=1` to 0.140–0.179 at `k=16`, while 50–62/96 remain mixed;
-- active-adjustment rank crossover after RNG correction: median starting/community shares 3.11%/74.27% at `k=1` to 53.53%/14.05% at `k=16`, with starting > community in 4/6 seeds at `k=4` and 6/6 at `k=8` and `k=16`.
+Retain the four paired near/far interventions, each for finite ABM and deterministic density:
 
-The older joint existing-harness cross-check `replace(BASE, steps=240, trait_adjustment=0.0)` retains 75/96 mixed realizations. It remains Supporting Information / Table S4 evidence and is not required in the main narrative.
+1. **Natural assembly:** ABM mean `-0.1446`, density mean `-0.4510`; mixed histories at epsilon 0 are `12/128` versus `0/128`.
+2. **Annual response-blind richness matching:** means reverse to `+0.0333` and `+0.0338`; ABM mixed histories increase to `68/128`, density to `16/128` at epsilon 0.
+3. **Eight-history visitor pooling:** mixed histories become `0/128` in both model forms.
+4. **Plant capacity 48 → 192:** ABM mixed histories fall `12/128 → 1/128`; the mean closes about `41.5%` of the ABM–density gap.
 
-### Main Figure 3 — proximal mechanism and downstream modifiers
+Interpretation:
 
-Retain four compact panels:
-- fixed-surface partner-loss and partner-arrival associations;
-- starting-position / community-realization / non-additive decomposition;
-- representative local-filtering directionality contrast;
-- assurance magnitude improvement versus sign rescue.
+> **Visitor amount/richness sets the coarse mean regime; finite visitor realization and finite plant demography are separate mechanisms controlling realized directional heterogeneity.**
 
-Filtering and assurance must remain downstream modifiers rather than alternative explanations of the upstream response geometry.
+Annual thinning changes identity persistence and pooled histories alter environmental composition under a nonlinear operator. Do not label either as a pure field richness effect.
 
-### Main Figure 4 — metadata confrontation and empirical claim ceiling
+### Main Figure 3 — history, assurance and connectivity
 
-This figure is the **existing-data endpoint** of Chapter 2, not a fourth synthetic mechanism result and not a placeholder for future fieldwork.
+Retain compact examples from the 19,968-case full campaign:
 
-Retain three compact functions:
+- common final environment, different chronology: early visitor loss `-0.1603`, late loss `+0.0322`, uninterrupted `+0.2115` finite-ABM investment change;
+- assurance disabled: `0/256` terminal survivors versus complete survival in declared assurance-present comparison cells;
+- pollinator and seed connectivity as distinct channels; visitor distance changes investment and selfing differently from seed distance;
+- optional recovery/founding panel only if it remains readable.
 
-1. **Measurement ceiling.** The formal audit remains outcome-rich but transition-process-poor: `21/25` direct comparable responses, `2/25` direct partner arrival/replacement, `0/25` full outcome-independent contracts and formal external prediction `not_evaluable`.
-2. **Synthetic-to-natural claim boundary.** Synthetic `k≈4` is not a natural threshold; visitor richness and Hill diversity are not synthetic `k`; current associations are not historical causation.
-3. **Existing Izu stress test.** Functional exposure → corrected matching is supported and leave-one-island sign robust; matching → pollen is positive on average but not leave-one-island sign stable; the null-corrected historical signed-position projection is unsupported; the Oshima bridge is not independently identified as a causal boundary.
+### Main Figure 4 — real-island A/B/C confrontation
 
-The prospective same-block visitor → effectiveness → dependency → mature-seed chain may be noted as a **post-Chapter-2 transport/falsification study** only. It is not the visual or inferential endpoint of this chapter.
+Natural systems are not fitted to Model 3 parameter cells.
 
-Detailed Wanshan–Yongxing, Ogasawara, historical signed-position, contemporary Izu FDQ/matching/pollen, omission diagnostics and row-level target results remain in Supporting Information / provenance, with only the claim-critical contrasts surfaced in Figure 4 and the compact metadata Results section.
+- **A ecological/selection:** Izu branching; Ogasawara/Xisha propagation; Hawaii/Puerto Rico–Mona buffering; Dominica counterdirectional falsifier.
+- **B inherited longitudinal response:** principal empirical gap.
+- **C finite/history realization:** Surtsey founding, Tiritiri reintroduction/compensation, New Zealand *Rhabdothamnus* and Mariana bird-loss consequences.
+
+The source-locked 14-system-layer matrix contains:
+- same-direction propagation 1;
+- downstream branching 2;
+- buffered/resilient 3;
+- counterdirectional 1;
+- adjacent links only 4;
+- unresolved 3.
+
+These are descriptive response modes, not prevalence estimates. Formal evidence remains `21/25` direct responses, `2/25` direct partner arrival/replacement and `0/25` complete A → B → C contracts.
 
 ## Main-text numerical ceiling
 
-The core paper should be able to carry the mechanism with the following compact set.
+The manuscript should carry only numbers needed for the staged argument.
 
-### Conditional geometry
-- corrected baseline mixed response: median 45.5 [43–59]/96 across six master seeds; historical 41/96 retained as provenance only;
-- joint-design regime classes: 16/48 mixed, 22/48 all-positive, 10/48 all-negative;
-- partner-loss association +0.634; partner-arrival association −0.626;
-- corrected baseline median decomposition: starting 3.11%, community 74.27%, non-additive 22.82%; historical 2.18/80.17/17.64% retained as provenance only;
-- additive-sign mismatch 271/2016.
+### Branch capacity
+- controlled left/right compositions: start access 0.20 gives `+1.5048 / -0.8720`; start access 0.80 reverses those signs;
+- maximum fixed-count composition effect `2.3768`;
+- deterministic inherited composition contrast maximum `0.1891`;
+- duplicated functional-type count control error `1.78e-15`.
 
-### Realized-richness and structural controls
-- equal-initial-richness diagnostic: 53/96 mixed, explicitly initial-richness only;
-- exact realized-richness hard control after RNG correction: mean all-positive 6/6; individual mixed 55–64/96;
-- corrected hard-control decomposition: starting 1.03–1.66%, community 54.70–70.22%, non-additive 28.48–43.64%;
-- historical equal-turnover control (legacy offset streams): 70/96 mixed; non-additive 65.61%.
+### Prospective isolation bridge
+- natural ABM / density means: `-0.1446 / -0.4510`;
+- natural mixed at epsilon 0: `12/128 / 0/128`;
+- richness-matched means: `+0.0333 / +0.0338`;
+- richness-matched mixed at epsilon 0: `68/128 / 16/128`;
+- pooled visitor mixed: `0/128` in both;
+- large-capacity ABM mixed: `1/128`;
+- pooled finite ABM `I=0.542` with `0/128` mixed histories, demonstrating that S/C/I magnitude decomposition is not directional branching.
 
-### System-size hierarchy
-- zero-adjustment `k=1→16` after RNG correction: island-like count CV 0.634–0.730 → 0.140–0.179; empty final communities → 0%; mixed at `k=16` 50–62/96;
-- deterministic mean-field kernel contrast all-positive, minimum 0.0208;
-- Gaussian mixed-fraction absolute error 0.0689 → 0.00654 from `k=1→16`;
-- active adjustment median starting shares: 3.11, 12.87, 24.70, 40.14, 53.53%;
-- active adjustment median community shares: 74.27, 35.87, 23.23, 17.38, 14.05%;
-- starting > community: 0/6, 0/6, 4/6, 6/6, 6/6 seeds across `k={1,2,4,8,16}`;
-- mixed at `k=16`: 26–36/96.
+### Full realization
+- chronology: `-0.1603`, `+0.0322`, `+0.2115` for early loss, late loss and uninterrupted;
+- assurance disabled: `0/256` terminal survivors in the declared severe visitor-loss schedule;
+- current environment is not a sufficient statistic for inherited endpoint.
 
-### Downstream modifiers
-- filtering strength 0.40: 15.67% negative→non-negative versus 56.54% positive→non-positive;
-- assurance: 0 sign rescues among 580 eligible declines through 4×.
-
-### Metadata confrontation
-- formal external audit: response 21/25, arrival/replacement 2/25, full contracts 0/25, prediction `not_evaluable`;
-- descriptive world breadth: 42 research entries / 37 exact labels, separate from the formal denominator;
-- Wanshan–Yongxing partner turnover: 0.9796; Ogasawara Anijima context: 0.6817; no pooled universal island effect is claimed;
-- Izu functional exposure → corrected matching: positive and leave-one-island sign robust;
-- Izu matching → pollen: positive on average but not leave-one-island sign stable;
-- eight shared lower-matching targets: tube shorter 3, longer 4, equal 1; pollen lower 4, higher 4;
-- null-corrected historical signed-position projection: unsupported;
-- causal Oshima/post-Oshima boundary: not identified.
+### Real-island boundary
+- Izu: matching lower `8/8`; pollen `4 lower / 4 higher`; tube `3 shorter / 4 longer / 1 unchanged`;
+- formal audit `21/25`, `2/25`, `0/25`;
+- broader breadth `42 research entries / 37 exact geographic labels`, not 42 model fits.
 
 ## Supporting Information structure
 
-### S1–S16 — model, mechanism, historical robustness and source audits
+### S1–S16 — historical model / robustness / source-audit provenance
 
-Preserve equations, parameterization, local-filtering/assurance designs, response decomposition, source-readiness audit, world evidence and historical Izu analyses. These remain auditable but are not the active mechanism spine.
+Preserve original Model 2 equations, parameterization, response geometry, local filtering, assurance audit, S/C/I decomposition, source-readiness records and historical Izu analyses. They are no longer the active biological mechanism.
 
-The derived joint `steps=240` / `trait_adjustment=0.0` cross-check remains in Table S4 as a one-row structural generality check because it introduces no new parameter value. It retains 75/96 mixed realizations.
+### S17 — geography-first saturation
 
-### S17 — geography-first saturation and world-source boundary
-
-Preserve the 4,663-island candidate frame, saturation stopping rule, small-island supplement and measurement-readiness provenance. Its active role is to bound historical inference and document why more cross-sectional searching is not a Chapter 2 completion requirement.
+Preserve the 4,663-island candidate frame, stopping rule, small-island supplement and search provenance.
 
 ### S18 — contemporary Izu functional-chain context
 
-Preserve FDQ-to-matching, leave-one-island checks, matching-to-pollen sensitivities and eight-target branching details as the existing-data stress test. These analyses constrain the natural interpretation of the synthetic mechanism; they do not validate the full mechanism or historical causation. Any new same-block E3/E4 study is post-Chapter-2 transport/falsification.
+Preserve FDQ→matching, matching→pollen, omission diagnostics and the eight-target branching stress test.
 
-### S19 — exact realized-richness matching hard control
+### S18A — Unified Model 3 real-island projection
 
-Preserve the response-blind stepwise matching rule, exact equality audit, all-positive mean geometry in 6/6 seeds, corrected 55–64/96 mixed individual range and corrected decomposition ranges.
+Preserve the 14 system layers, A/B/C assignment, adverse Dominica result and the missing B layer.
 
-### S20 — finite-community system-size audit
+### S18B — prospective Model 3 isolation bridge
 
-Preserve the zero-adjustment pooled-copy audit, count-variation decline, disappearance of empty communities and persistence of mixed geometry through `k=16`.
+Preserve production provenance, 24,576-case denominator, 128 histories, 16 shards, thresholds `0 / 0.01 / 0.05`, repeat-instability diagnostics, visitor counts, all ABM/density intervention results and claim exclusions.
 
-### S21 — exact finite-community moments and Gaussian mean-field limit
+### S19–S22 — legacy Model 2 structural controls
 
-Preserve exact finite-k moments, Gaussian approximation and all-positive deterministic mean-field boundary.
+Keep exact realized-richness matching, finite-community synthetic-`k`, Gaussian/community-mean limit and active-adjustment determinant-rank analysis. These are historical/SI comparisons only.
 
-### S22 — regime-dependent response hierarchy under active plant adjustment
+Important retained distinction:
 
-Preserve the six-seed active-adjustment rank-crossover audit and explicit prohibition on treating `k≈4` as a natural field threshold.
+- legacy Model 2 mean-field averages external community realization;
+- Model 3 density retains the declared visitor history/composition and removes plant demographic sampling.
 
-## Supporting tables
+They are different limits and should not be narrated as contradictory estimates of one object.
 
-Tables S1–S9 remain part of the reproducibility surface. Table S4 contains structural generality rows, including the 75/96 joint historical cross-check and system-size controls. Table S9 contains the exact realized-richness hard-control design and result.
+## Legacy provenance anchors
 
-## Supplementary figures
+These values remain searchable because they are frozen historical robustness results, not because they define the current mainline:
 
-Keep the existing detailed diagnostic figures, including the realized-richness hard-control figure. Historical and contemporary empirical figures remain auditable support for the metadata confrontation layer but must not be narrated as a matched validation chain.
+- joint historical cross-check: `replace(BASE, steps=240, trait_adjustment=0.0)` → `75/96` mixed realizations;
+- historical active-adjustment synthetic-`k` endpoint: starting/community shares reach `53.53%` / `14.05%` at `k=16` in the current corrected record;
+- raw visitor richness or Hill diversity is **not** synthetic `k`, and no natural threshold is inferred from the crossover.
+
+## Supporting tables and figures
+
+Legacy Tables S1–S9 and old response-geometry figures remain reproducibility surfaces. The main submission figures are generated by `scripts/generate_chapter2_unified_model3_figures.py`.
 
 ## Claim boundary
 
 The material split must not imply that:
-- the 75/96 joint cross-check is a calibrated natural scenario;
-- equal initial richness removes realized-richness effects;
-- realized richness is irrelevant;
-- richness alone explains branching;
-- synthetic branch frequencies estimate natural prevalence;
-- the active rank crossover defines a natural threshold near `k=4`;
-- raw visitor richness or Hill diversity is synthetic `k`;
-- Wanshan–Yongxing or Ogasawara validates the synthetic determinant hierarchy;
-- Izu contemporary associations identify historical *Bombus* loss;
-- metadata constitute full natural validation of the synthetic mechanism;
-- Chapter 3 phenotype divergence validates this mechanism;
-- the prospective tagged-plant E3/E4 experiment is already completed or required for current-paper closure.
+- Model 3's natural isolation-driven deterministic response is generally branched;
+- richness is irrelevant;
+- annual matching is a pure species-richness causal intervention;
+- pooled visitor histories are literal island number or lifespan;
+- larger plant capacity is a visitor-community control;
+- mixed-history fractions estimate natural prevalence or stable latent lineage classes;
+- S/C/I rank identifies directional branching;
+- synthetic trait, time or distance coordinates are calibrated natural quantities;
+- the deterministic genotype-density model is a diffusion PDE;
+- Chapter 1 regional patterns are assigned to Model 3 cells;
+- present-day Izu data identify historical *Bombus* causation;
+- Chapter 3 phenotype validates Chapter 2.
 
-The supported headline is:
+## Supported headline
 
-**pollinator-community reorganization produces conditional response geometry; richness helps place the coarse regime, starting state evaluated against realized composition retains branch contingency, the ordering of response determinants changes across the declared finite-community regimes, and source-audited metadata define the biological plausibility and empirical claim ceiling without requiring new focal data.**
+> **Island isolation can impose a recurrent functional problem and a coarse directional pressure, while realized visitor amount, finite visitor-community sampling and finite plant demography determine how much phenotypic non-convergence is realized.**

@@ -40,33 +40,33 @@ def complete_metadata() -> dict:
     return metadata
 
 
-def test_template_is_synchronized_to_oikos_mechanism_surface():
+def test_template_is_synchronized_to_oikos_unified_model3_surface():
     metadata = load_metadata(TEMPLATE)
     assert metadata["journal"] == "Oikos"
     assert metadata["article_type"] == "Research Paper"
-    assert metadata["schema_version"] == "1.8"
+    assert metadata["schema_version"] == "1.9"
     assert metadata["manuscript_title"] == NEW_TITLE
     keywords = {value.lower() for value in metadata["keywords"]}
-    assert "response geometry" in keywords
-    assert "finite communities" in keywords
-    assert "realized richness" in keywords
-    assert "realized community" in keywords
-    assert "non-additivity" in keywords
+    assert "island syndrome" in keywords
+    assert "functional matching" in keywords
+    assert "reproductive assurance" in keywords
+    assert "finite populations" in keywords
+    assert "historical contingency" in keywords
     significance = metadata["significance_statement"].lower()
-    assert "exact control of realized richness" in significance
-    assert "scale dependent" in significance
-    assert "deterministic mean-field limit" in significance
-    assert "numerical crossover is model-specific" in significance
+    assert "before demographic updating" in significance
+    assert "deterministic mendelian inheritance" in significance
+    assert "finite-population dynamics" in significance
+    assert "real-island systems" in significance
     assert metadata["significance_prior_work_context"] is None
     assert metadata["planned_public_repository"] == "Dryad Digital Repository"
     assert "no new field sampling" in metadata["ethics_statement"].lower()
     assert metadata["ethics_statement_confirmed"] is None
     data_availability = metadata["data_availability"].lower()
-    assert "exact realized-richness controls" in data_availability
-    assert "finite-community system-size audits" in data_availability
+    assert "unified model 3 reduction audit" in data_availability
+    assert "19,968-case island campaign" in data_availability
+    assert "real-island evidence" in data_availability
     assert "anonymous reviewer archive" in data_availability
     assert "dryad digital repository" in data_availability
-
 
 def test_template_fails_closed_on_initial_submission_inputs_only():
     metadata = load_metadata(TEMPLATE)
@@ -96,12 +96,12 @@ def test_complete_metadata_renders_oikos_identity_significance_and_statement_fil
     assert NEW_TITLE in cover_letter
     assert "publication in *Oikos*" in cover_letter
     lower_cover = cover_letter.lower()
-    assert "coarse placement of the ensemble response regime" in lower_cover
-    assert "exact stepwise control of realized pollinator richness" in lower_cover
-    assert "dominant source of response variation is not fixed" in lower_cover
-    assert "deterministic mean-field limit" in lower_cover
-    assert "numerical crossover is explicitly model-specific" in lower_cover
-    assert "optional future falsification" in lower_cover
+    assert "non-uniformity appears before demographic stochasticity" in lower_cover
+    assert "deterministic genotype-density counterpart" in lower_cover
+    assert "finite-population abm" in lower_cover
+    assert "source-locked island evidence by mechanistic layer" in lower_cover
+    assert "inherited longitudinal layer" in lower_cover
+    assert "discrete genotype-density model rather than a demonstrated diffusion pde" in lower_cover
     assert "dryad digital repository" in lower_cover
     assert "Significance statement — Oikos" in significance
     assert metadata["significance_statement"] in significance
@@ -110,7 +110,6 @@ def test_complete_metadata_renders_oikos_identity_significance_and_statement_fil
     assert "## Ethics statement" in statements
     assert "## Data archiving statement" in statements
     assert "CRediT roles will be supplied if a revised submission is invited" in statements
-
 
 def test_author_contributions_are_optional_at_initial_submission():
     metadata = complete_metadata()
@@ -166,22 +165,9 @@ def test_checklist_places_author_metadata_after_closed_scientific_gate():
     assert "final bundle" in lower
 
 
-def test_oikos_checklist_uses_mechanism_mainline_and_current_submission_contract():
-    text = OIKOS_CHECKLIST.read_text(encoding="utf-8")
-    lower = text.lower()
-    assert "conditional response geometry → exact realized-richness control → scale-dependent determinant ordering → downstream modifiers → metadata confrontation / empirical claim ceiling" in lower
-    assert "post-chapter-2 future transport/falsification, not a submission gate" in lower
-    assert "mean all-positive in **6/6**" in lower
-    assert "51–65/96" in text
-    assert "70/96" in text and "65.61%" in text
-    assert "55.84%" in text and "12.72%" in text
-    assert "numerical crossover near `k=4` is model-specific" in lower
-    assert "21/25" in text and "2/25" in text and "0/25" in text
-    assert "manuscript.rtf" in lower
-    assert "continuous line numbering" in lower
-    assert "introduction forced to begin on page two" in lower
-    assert "orcid" in lower
-    assert "dryad digital repository" in lower
-    assert "significance prior-work context" in lower
-    assert "ethics_statement_confirmed" in text
-    assert "credit / author-contribution roles are not an initial-submission blocker" in lower
+def test_oikos_metadata_template_uses_current_unified_contract():
+    metadata = load_metadata(TEMPLATE)
+    assert metadata["schema_version"] == "1.9"
+    assert metadata["manuscript_title"] == NEW_TITLE
+    assert any("Natural island systems are confronted by Model 3 layer" in note for note in metadata["notes"])
+    assert metadata["planned_public_repository"] == "Dryad Digital Repository"

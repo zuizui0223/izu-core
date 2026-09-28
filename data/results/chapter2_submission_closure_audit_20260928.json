@@ -1,0 +1,57 @@
+{
+  "schema_version": "2.0",
+  "audited_on": "2026-09-28",
+  "journal": "Oikos",
+  "article_type": "Research Paper",
+  "active_branch": "codex/integrate-model3-into-ch2",
+  "scientific_state": "unified_model3_bridge_complete_with_real_island_layer_confrontation",
+  "scientific_question_closed": true,
+  "original_chapter2_controls_closed": true,
+  "model2_active_gate": false,
+  "prospective_bridge": {
+    "status": "frozen_complete_prospective_model3_ch2_bridge",
+    "cases_verified": 24576,
+    "histories_verified": 128,
+    "shards_verified": 16,
+    "result": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "interpretation": "docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md"
+  },
+  "package_state": {
+    "active_manuscript_rewritten": true,
+    "unified_figures_1_to_4_regenerated_and_tested": true,
+    "supporting_information_complete": true,
+    "renderers_pass": true,
+    "anonymous_review_archive_contract_pass": true,
+    "fail_closed_ci_pass": true,
+    "new_field_data_required": false
+  },
+  "natural_claim_boundary": {
+    "real_island_confrontation": "A_and_C_partly_observed_B_inherited_longitudinal_layer_missing",
+    "complete_A_to_B_to_C_contracts": "0_of_25",
+    "natural_rates_calibrated": false,
+    "natural_branch_prevalence_estimated": false,
+    "historical_bombus_causation_identified": false
+  },
+  "legacy_model2": {
+    "active_scientific_role": false,
+    "retained_role": "supporting_information_and_provenance_only"
+  },
+  "submission_ready": false,
+  "only_author_supplied_metadata_and_confirmations_remain": true,
+  "required_human_input_categories": [
+    "final_ordered_author_list_and_affiliations",
+    "corresponding_author_selection_email_postal_address_and_orcid",
+    "significance_prior_work_context",
+    "acknowledgements",
+    "funding",
+    "inclusion_statement",
+    "conflict_of_interest",
+    "ethics_statement_author_confirmation",
+    "explicit_submission_declarations"
+  ],
+  "optional_not_initial_submission_blockers": [
+    "coauthor_orcids",
+    "author_contributions_credit_roles"
+  ],
+  "next_transition": "complete author-supplied metadata and confirmations, then run the fail-closed metadata and bundle builders"
+}

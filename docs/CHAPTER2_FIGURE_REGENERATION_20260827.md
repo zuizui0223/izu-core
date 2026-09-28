@@ -1,50 +1,88 @@
 # Chapter 2 figure regeneration
 
-Updated: 2026-08-28
+Updated: 2026-09-27
 
-## Command
+## Active command
 
 Install the repository development environment and run:
 
 ```bash
 python -m pip install -e '.[dev]'
-python scripts/generate_chapter2_manuscript_figures.py
+python scripts/generate_chapter2_unified_model3_figures.py
 ```
 
-The generator fails closed if deterministic recomputation no longer matches the frozen Chapter 2 gate summary.
+The generator fails closed unless all four current source objects are available and valid:
 
-## Outputs
+- `data/results/model3_unified_reduction_audit_frozen_20260927.json`;
+- `data/results/model3_ch2_bridge_prospective_frozen_20260927.json`;
+- `data/results/model3_island_v2_summary/review_compact.json`;
+- `data/results/chapter2_unified_model3_real_island_projection_20260927.json`.
 
-The script generates four main SVG figures and five detailed supporting SVG figures under `figures/chapter2/`:
+It writes a regenerated figure-input receipt to:
 
-- `fig1_mechanistic_resolution_funnel.svg` — model possibilities → world response diversity → zero-contract identifiability gate → Izu resolution → Chapter 3 measurement handoff;
-- `fig2_response_geometry.svg` — mean island-minus-mainland service across the 21-point starting-position grid;
-- `fig3_proximal_why_hierarchy.svg` — fixed-surface drivers, response-matrix decomposition, directional filtering and downstream assurance;
-- `fig4_global_to_izu_resolution.svg` — external admission/identifiability state beside raw and null-corrected Izu estimates;
-- `figS2_conditional_why_diagnostics.svg` — fixed-surface parameter associations, baseline response decomposition and direction-specific local-filtering transitions.
-- `figS3_external_prediction_readiness.svg` — source-native field availability across all 25 entries;
-- `figS4_joint_regime_map.svg` — 48 joint Latin-hypercube points × 21 starting positions, displaying the mean response sign after sorting points by response regime;
-- `figS5_local_context_threshold.svg` — total and directional response-sign changes across the local filtering-strength envelope;
-- `figS6_assurance_sensitivity.svg` — magnitude improvement versus sign rescue across the 0–4× assurance envelope.
+`data/results/chapter2_unified_model3_figure_inputs_20260927.json`.
 
-For local visual QA, the generator also writes PNG copies of the new Fig. 1, Fig. 3 and Fig. 4 plus Figs. S2 and S3; the review/submission archive uses the SVG.
+## Main figures
 
-It also writes the fully regenerated figure input payload to:
+The active journal-facing figure set is:
 
-`data/results/chapter2_manuscript_figure_inputs_20260827.json`.
+1. **Figure 1 — unified Model 3 nested levels**  
+   `fig1_unified_model3_nested_levels.svg/png`  
+   Fixed-state reproductive selection → deterministic genotype-density inheritance → finite-population ABM. The left panel shows controlled branch capacity before demography.
 
-## Local verification during implementation
+2. **Figure 2 — prospective 24,576-case isolation bridge**  
+   `fig2_model3_prospective_isolation_bridge.svg/png`  
+   Compares natural near/far assembly, annual response-blind richness matching, eight-history visitor pooling and fourfold plant-capacity increase for finite ABM and deterministic density. This figure carries the final old-Chapter-2 control closure.
 
-The same deterministic calculations were executed while implementing the generator and reproduced the frozen results:
+3. **Figure 3 — history, assurance and connectivity**  
+   `fig3_model3_history_assurance_connectivity.svg/png`  
+   Shows chronology under a common final environment, assurance-dependent persistence, and distinct seed versus pollinator connectivity routes.
 
-- response geometry: 41 mixed-sign, 42 all-positive and 13 all-negative realizations among 96;
-- joint 48-point design: 16 mixed, 22 all-positive and 10 all-negative mean geometries;
-- mixed-sign realization fraction across joint points ranged from 1/24 to 22/24, with mean 0.4852430556;
-- Fig. 2 reproduced the U-shaped mean geometry with positive responses through starting position 0.30, negative responses from 0.35 through 0.65, and positive responses from 0.70 through 1.00;
-- Fig. 3 uses the committed conditional-WHY and context/assurance results directly rather than a separate tuned run;
-- Fig. 4 uses the committed external-readiness and Izu structural-audit results directly;
-- Fig. S2 reads the frozen conditional-WHY result only after all parent-result identity checks pass.
+4. **Figure 4 — real-island A/B/C confrontation**  
+   `fig4_real_island_abc_confrontation.svg/png`  
+   Summarizes source-locked propagation, branching, buffering, counterdirectional and unresolved natural response modes, and identifies the inherited longitudinal B layer as the main empirical gap.
+
+## Frozen values that must be reproduced
+
+The current main-figure generator is tied to the following frozen results:
+
+- controlled fixed-composition branch capacity: starting state can reverse reproductive-selection direction;
+- prospective bridge verified denominator: **24,576 cases / 128 histories / 16 execution shards**;
+- natural far-minus-near inherited-investment mean:
+  - finite ABM **-0.1446**;
+  - deterministic density **-0.4510**;
+- annual richness matching reverses the mean:
+  - finite ABM **+0.0333**;
+  - deterministic density **+0.0338**;
+- finite-ABM mixed histories after richness matching: **68/128, 59/128, 18/128** at deadbands 0, 0.01 and 0.05;
+- eight-history visitor pooling: **0/128 mixed** in both model forms at all declared deadbands;
+- plant capacity 48 → 192: finite-ABM mixed histories **12/128 → 1/128** at deadband 0;
+- common-final-environment chronology: early visitor loss, late visitor loss and uninterrupted histories retain different inherited-investment endpoints;
+- real-island confrontation: 14 evidence-rich system layers across 12 geographic clusters, used as structural confrontation rather than prevalence estimation.
+
+## Supporting-information role of legacy figures
+
+The former response-geometry figure stack remains provenance / Supporting Information only:
+
+- exact realized-richness matching;
+- synthetic `k` pooling;
+- response-rule sensitivity;
+- historical S/C/I decomposition;
+- community-mean asymptotic calculation;
+- old metadata-readiness and Izu structural-audit visualizations.
+
+Those figures must not be routed back into the main manuscript as a second biological mechanism.
 
 ## Inference boundary
 
-The figures visualize frozen synthetic model response geometry and sensitivity, external source readiness and focal Izu structural results. The sign-switch positions, filtering threshold, design-space frequencies, driver coefficients, variance shares, directional transition rates and assurance multiplier envelope are not empirical ecological estimates or causal field effects. The 25-entry panel is not predictive validation, and the Izu raw slope is not beyond-composition sorting or causal floral evolution.
+The main figures are synthetic mechanistic summaries plus a source-locked natural confrontation. They do **not** imply:
+
+- natural calibration of Model 3 time, distance, investment or extinction frequency;
+- a field species-richness effect equal to the annual thinning intervention;
+- that pooled visitor histories represent island number or lifespan;
+- that deterministic genotype density is a continuous diffusion PDE;
+- natural prevalence from the 14-system response-mode counts;
+- assignment of Chapter 1 regions to Model 3 parameter cells;
+- historical *Bombus* causation.
+
+The active manuscript captions are authoritative if this documentation and the manuscript ever diverge.

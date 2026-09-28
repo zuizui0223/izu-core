@@ -69,11 +69,11 @@ def test_frozen_result_passes_identity_and_claim_boundaries():
 
 def test_thesis_positioning_preserves_how_proximal_why_ultimate_why_boundary():
     positioning = THESIS_POSITIONING.read_text(encoding="utf-8")
-    assert "**HOW**" in positioning
+    assert "| **HOW — ecological selection**" in positioning
     assert "**Proximal WHY**" in positioning
     assert "**Ultimate WHY**" in positioning
-    assert "Not tested." in positioning
-    assert "The numerical synthetic crossover is not transferred to nature" in positioning
+    assert "Not identified." in positioning
+    assert "not a natural threshold" in positioning.lower()
 
 
 def test_generated_tables_include_current_supporting_material_contract():
