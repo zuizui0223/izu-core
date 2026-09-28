@@ -27,7 +27,7 @@ def test_readme_routes_to_bridge_complete_unified_model3_state():
 def test_readme_demotes_legacy_model2_after_bridge_completion():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "legacy model 2 exact-richness / synthetic-`k` / response-rule / s/c/i analyses retained as supporting information and provenance only" in lower
-    assert "supporting information" in lower
+    assert "legacy model 2 exact-richness / synthetic-`k` / response-rule / s/c/i analyses retained as historical provenance only" in lower
+    assert "legacy/model2" in lower
     assert "transitional two-model integration provenance" in lower
     assert "active benchmarks until the model 3 bridge gates close" not in lower
