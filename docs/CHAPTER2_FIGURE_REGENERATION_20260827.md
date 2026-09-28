@@ -26,9 +26,9 @@ It writes a regenerated figure-input receipt to:
 
 The active journal-facing figure set is:
 
-1. **Figure 1 — unified Model 3 nested levels**  
+1. **Figure 1 — from pollination ecology to realized floral evolution**  
    `fig1_unified_model3_nested_levels.svg/png`  
-   Fixed-state reproductive selection → deterministic genotype-density inheritance → finite-population ABM. The left panel shows controlled branch capacity before demography.
+   Functional matching and finite pollen transfer → reproductive selection → Mendelian inherited expectation → finite-population realization. The left panel shows how starting plant state changes the reproductive return to floral investment.
 
 2. **Figure 2 — prospective 24,576-case isolation bridge**  
    `fig2_model3_prospective_isolation_bridge.svg/png`  
