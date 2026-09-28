@@ -163,7 +163,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "finite-population abm",
             "real islands occupy different stages of the same response architecture",
             "all eight shared oshima-to-post targets",
-            "the main natural-data gap",
+            "principal natural-data gap",
         )
         missing_story = [token for token in required_story if token not in lower_main]
         if missing_story:
@@ -182,7 +182,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "journal": metadata["journal"],
             "article_type": metadata["article_type"],
             "scientific_state": "unified_model3_nested_ecoevolutionary_response_with_real_island_layer_confrontation",
-            "manuscript_state": "active_20260927_unified_model3_rendered_to_oikos_rtf_submission",
+            "manuscript_state": "active_20260928_model3_ecological_mainline_rendered_to_oikos_rtf_submission",
             "mechanism_mainline_narrative": True,
             "three_result_narrative": False,
             "identifiability_coequal_study_objective": False,
