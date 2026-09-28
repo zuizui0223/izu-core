@@ -22,14 +22,14 @@ def test_unified_model3_mainline_is_explicit():
     assert "finite-population abm" in lower
     assert "demographic stochasticity is therefore not necessary for response branching under these controlled visitor compositions" in lower
     assert "real islands occupy different stages of the same response architecture" in lower
-    assert "the main natural-data gap" in lower
+    assert "principal natural-data gap" in lower
 
 
 def test_chapter1_bridge_logic_is_compatible_with_island_syndrome_interpretation():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "functional-and-historical interpretation of island syndromes" in lower
-    assert "recurrent functional regime with conditional phenotypic realization" in lower
+    assert "repeated ecological function to variable phenotypic realization" in lower
+    assert "ecological function can be more repeatable than phenotypic form" in lower
 
 
 def test_legacy_structural_generality_rows_remain_in_supporting_table_s4():
