@@ -78,9 +78,9 @@ def _fig1(unification: dict, outputs: list[str]) -> None:
             label=context,
         )
     ax.axhline(0, linewidth=0.9)
-    ax.set_xlabel("Starting floral access state")
-    ax.set_ylabel("Fixed-state investment gradient")
-    ax.set_title("A  Branch capacity before demography", loc="left")
+    ax.set_xlabel("Starting plant access / matching state")
+    ax.set_ylabel("Marginal reproductive return to floral investment")
+    ax.set_title("A  Functional matching changes reproductive selection", loc="left")
     ax.legend(frameon=False)
     ax.text(
         0.03, 0.04,
@@ -93,9 +93,9 @@ def _fig1(unification: dict, outputs: list[str]) -> None:
     ax = axes[1]
     ax.set_axis_off()
     steps = [
-        ("FIXED STATE", "matching + pollen + reproduction\nno inheritance / demography"),
-        ("DETERMINISTIC DENSITY", "same reproduction + Mendelian inheritance\ndemographic sampling removed"),
-        ("FINITE ABM", "finite individuals + stochastic recruitment\nextinction + ancestry + variation loss"),
+        ("POLLINATION & REPRODUCTION", "functional matching → finite pollen transfer\noutcross + selfing → viable offspring"),
+        ("EXPECTED INHERITED CHANGE", "same reproduction + Mendelian inheritance\ndemographic sampling removed"),
+        ("FINITE-POPULATION REALIZATION", "survival + recruitment + extinction\nancestry + standing-variation loss"),
     ]
     ys = [0.79, 0.50, 0.21]
     for i, ((title, body), y) in enumerate(zip(steps, ys)):
@@ -110,10 +110,10 @@ def _fig1(unification: dict, outputs: list[str]) -> None:
                 "", xy=(0.20, ys[i+1] + 0.08), xytext=(0.20, y - 0.08),
                 xycoords="axes fraction", arrowprops={"arrowstyle": "->", "lw": 1.4},
             )
-    ax.set_title("B  One biological operator, nested reductions", loc="left")
+    ax.set_title("B  One ecological pathway, three biological stages", loc="left")
 
     fig.suptitle(
-        "Unified Model 3 separates branch capacity from finite-population realization",
+        "From pollination ecology to realized floral evolution",
         x=0.01, ha="left", fontsize=14,
     )
     fig.tight_layout(rect=(0, 0, 1, 0.94))
@@ -312,7 +312,7 @@ def build_figures() -> dict:
         "full_model3_compact_review": MODEL3.relative_to(ROOT).as_posix(),
         "real_island_projection": REAL.relative_to(ROOT).as_posix(),
         "figure_roles": {
-            "figure1": "controlled branch capacity and nested Model 3 levels",
+            "figure1": "pollination-to-evolution pathway across reproductive selection, inherited expectation and finite-population realization",
             "figure2": "prospective isolation bridge separating visitor amount, visitor finiteness and plant finiteness",
             "figure3": "history, assurance and connectivity as realization filters",
             "figure4": "real-island A/B/C confrontation and empirical gap",
