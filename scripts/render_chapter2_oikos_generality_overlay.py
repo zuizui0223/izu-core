@@ -70,7 +70,7 @@ def render_submission_manuscript() -> str:
         "all eight shared oshima-to-post targets",
         "the main natural-data gap",
         "0/25 full source-state",
-        "recurrent functional island syndrome",
+        "ecologically explicit but system-uncalibrated",
     )
     for token in required:
         if token.lower() not in lower:
