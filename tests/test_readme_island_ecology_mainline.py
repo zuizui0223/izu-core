@@ -4,58 +4,50 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 
 
-def test_readme_declares_bridge_complete_science_and_current_surface():
+def test_readme_is_model3_first():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert text.startswith("# Izu Core — conditional island plant response and evolutionary realization")
+    assert text.startswith("# Izu Core — Model 3 island pollination-to-evolution")
     assert "chapter 2 is scientifically closed at the declared synthetic claim ceiling" in lower
-    assert "completed 24,576-case isolation bridge" in lower
-    assert "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md" in text
-    assert "docs/CHAPTER2_CANONICAL_STORY_20260927.md" in text
-    assert "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md" in text
-    assert "data/design/chapter2_unified_model3_lock_20260927.json" in text
-    assert "data/design/chapter2_oikos_submission_manifest_20260927.json" in text
-    assert "historical v2 manuscripts" in lower
-    assert "must not be treated as the current manuscript surface" in lower
+    assert "pollinator functional environment" in lower
+    assert "reproductive selection" in lower
+    assert "expected inherited evolution" in lower
+    assert "finite-population realization" in lower
 
 
-def test_readme_preserves_three_distinct_island_processes():
+def test_readme_routes_to_current_submission_surface():
     text = README.read_text(encoding="utf-8")
-    for token in [
-        "Colonization / assembly filtering",
-        "In-situ evolutionary change",
-        "Post-establishment interaction response",
-    ]:
+    for token in (
+        "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+        "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
+        "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
+        "data/design/chapter2_unified_model3_lock_20260927.json",
+        "data/design/chapter2_oikos_submission_manifest_20260927.json",
+        "scripts/model3_island/",
+        "scripts/render_chapter2_oikos_generality_overlay.py",
+    ):
         assert token in text
-    assert "three distinct processes" in text.lower()
 
 
-def test_readme_centers_unified_model3_and_demotes_legacy_controls():
-    lower = README.read_text(encoding="utf-8").lower()
-    assert "fixed-state reproductive assay" in lower
-    assert "deterministic genotype-density propagation" in lower
-    assert "finite-population abm" in lower
-    assert "branch capacity" in lower
-    assert "isolation-driven" in lower
-    assert "active benchmarks until the model 3 bridge gates close" not in lower
-    assert "historical provenance only under `legacy/model2/`" in lower
-    assert "excluded from current supporting information" in lower
-
-
-def test_readme_routes_real_island_confrontation_and_chapter1_bridge():
+def test_readme_preserves_claim_ceiling_and_natural_gap():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert "real-island a/b/c confrontation" in lower
-    assert "same-direction propagation case" in lower
-    assert "counterdirectional case" in lower
-    assert "principal natural-data gap is **b**" in lower
-    assert "chapter1_chapter2_canonical_bridge_20260927.md" in lower
+    assert "128 independent visitor histories" in lower
+    assert "stable latent branch prevalence" in lower
+    assert "principal natural-data gap" in lower
     assert "42 research entries / 37 exact geographic labels" in text
-    assert "complete A → B → C contracts **0/25**" in text
-
-
-def test_readme_blocks_retroactive_chapter3_validation():
-    lower = README.read_text(encoding="utf-8").lower()
+    assert "0/25 complete A → B → C contracts" in text
     assert "chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove" in lower
-    assert "chapter 3 phenotype validates chapter 2" in lower
-    assert "prospective izu e3/e4 chain is required for chapter 2 completion" in lower
+
+
+def test_readme_routes_retired_work_to_legacy():
+    text = README.read_text(encoding="utf-8")
+    for path in (
+        "legacy/model2/",
+        "legacy/routes/nee/",
+        "legacy/routes/ecology-letters/",
+        "legacy/submission-history/",
+        "legacy/model3-development/",
+        "legacy/pre-model3/",
+    ):
+        assert path in text
