@@ -89,7 +89,7 @@ Annual thinning also changes visitor identity persistence, so it is not a pure f
 
 Therefore the current biological reading is:
 
-> **visitor amount sets the coarse regime; finite visitor composition/history and finite plant demography separately control how much directional heterogeneity is realized.**
+> **visitor amount sets the coarse regime; visitor composition/history and finite plant demography separately modify realized directional heterogeneity, while exact latent branch prevalence remains unresolved.**
 
 ### 4. S/C/I is descriptive magnitude structure, not directional branching
 
@@ -122,7 +122,7 @@ Chapter 2 explains how those results can coexist without fitting Chapter 1 regio
 
 - controlled functional matching supplies branch capacity;
 - isolation-driven visitor amount produces a coarse deterministic response;
-- finite visitor histories and finite plant demography determine how much heterogeneous response is realized;
+- visitor histories and finite plant demography strongly modify heterogeneous realized responses without estimating a stable latent branch prevalence;
 - assurance and ecological history further filter persistence.
 
 The H3/H4 combination is therefore not contradictory: a stressful isolation-associated pollination environment can coexist with traits that buffer its realized reproductive cost.
