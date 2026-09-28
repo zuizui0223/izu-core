@@ -3,18 +3,12 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from scripts.render_chapter2_oikos_generality_overlay import build_supporting_tables, render_submission_manuscript
+from scripts.render_chapter2_oikos_generality_overlay import render_submission_manuscript
 from scripts.render_chapter2_supporting_information import render_supporting_information
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANUSCRIPT = ROOT / "dist/MANUSCRIPT.rtf"
 DEFAULT_SUPPORTING_INFORMATION = ROOT / "dist/SUPPORTING_INFORMATION.rtf"
-REALIZED_RICHNESS_S19 = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md"
-FINITE_COMMUNITY_S20 = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_S20_FINITE_COMMUNITY_20260908.md"
-FINITE_N_GAUSSIAN_S21 = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_S21_FINITE_N_GAUSSIAN_LIMIT_20260908.md"
-REGIME_HIERARCHY_S22 = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_S22_REGIME_DEPENDENT_HIERARCHY_20260910.md"
-REALIZED_RICHNESS_TABLE_S9 = ROOT / "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md"
-
 
 def _rtf_escape(text: str) -> str:
     out: list[str] = []
@@ -107,50 +101,27 @@ def render_manuscript_rtf() -> str:
 
 
 def render_supporting_information_markdown() -> str:
-    appendices = render_supporting_information().rstrip()
-    if not REALIZED_RICHNESS_S19.exists():
-        raise FileNotFoundError(REALIZED_RICHNESS_S19)
-    s19 = REALIZED_RICHNESS_S19.read_text(encoding="utf-8").strip()
-    if not FINITE_COMMUNITY_S20.exists():
-        raise FileNotFoundError(FINITE_COMMUNITY_S20)
-    s20 = FINITE_COMMUNITY_S20.read_text(encoding="utf-8").strip()
-    if not FINITE_N_GAUSSIAN_S21.exists():
-        raise FileNotFoundError(FINITE_N_GAUSSIAN_S21)
-    s21 = FINITE_N_GAUSSIAN_S21.read_text(encoding="utf-8").strip()
-    if not REGIME_HIERARCHY_S22.exists():
-        raise FileNotFoundError(REGIME_HIERARCHY_S22)
-    s22 = REGIME_HIERARCHY_S22.read_text(encoding="utf-8").strip()
-    tables = build_supporting_tables().replace("# Chapter 2 Supporting Tables", "# Supporting Tables", 1).rstrip()
-    if not REALIZED_RICHNESS_TABLE_S9.exists():
-        raise FileNotFoundError(REALIZED_RICHNESS_TABLE_S9)
-    table_s9 = REALIZED_RICHNESS_TABLE_S9.read_text(encoding="utf-8").strip()
-    text = appendices + "\n\n" + s19 + "\n\n" + s20 + "\n\n" + s21 + "\n\n" + s22 + "\n\n" + tables + "\n\n" + table_s9 + "\n"
+    text = render_supporting_information().rstrip() + "\n"
     lower = text.lower()
     for token in (
-        "appendix s19. exact realized-richness matching hard control",
-        "appendix s20. finite-community system-size audit",
-        "appendix s21. exact finite-community moments and gaussian mean-field limit",
-        "appendix s22. regime-dependent response hierarchy under active plant adjustment",
-        "supporting table s9. exact realized-richness matching sensitivity",
-        "51–65/96",
-        "42.72–48.51%",
-        "mean regime is richness-sensitive",
-        "70/96",
-        "65.61%",
-        "equal turnover rates",
-        "44–60",
-        "0.134–0.172",
-        "finite-community sampling therefore contributes materially",
-        "0.00654",
-        "deterministic mean-field",
-        "gaussian finite-size approximation",
-        "55.84%",
-        "72.98%",
-        "28–42/96",
-        "ordering of response determinants itself can depend",
+        "# appendix s1. geography-first saturation and final world synthesis",
+        "# appendix s2. contemporary izu functional-chain sensitivity",
+        "# appendix s3. unified model 3 projection onto real-island evidence",
+        "# appendix s4. prospective model 3 isolation bridge",
+        "68/128",
+        "41.5%",
     ):
         if token not in lower:
-            raise ValueError(f"realized-richness / generality supporting material missing from Oikos SI: {token}")
+            raise ValueError(f"current Model 3 supporting material missing from Oikos SI: {token}")
+    for legacy in (
+        "appendix s19",
+        "finite-community system-size audit",
+        "gaussian mean-field limit",
+        "regime-dependent response hierarchy under active plant adjustment",
+        "supporting table s9. exact realized-richness matching sensitivity",
+    ):
+        if legacy in lower:
+            raise ValueError(f"legacy Model 2 material leaked into Oikos SI: {legacy}")
     return text
 
 

@@ -41,21 +41,23 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_mechanism_main
     assert "fig. s" not in lower
 
 
-def test_supporting_information_rtf_preserves_relational_world_izu_and_generality_material():
+def test_supporting_information_rtf_contains_only_current_model3_and_natural_confrontation():
     markdown = render_supporting_information_markdown()
-    assert "# Appendix S17. Geography-first saturation and final world synthesis" in markdown
-    assert "# Appendix S18. Contemporary Izu functional-chain sensitivity" in markdown
-    assert "# Appendix S18A. Unified Model 3 projection onto real-island evidence" in markdown
-    assert "# Appendix S18B. Prospective Model 3 isolation bridge" in markdown
-    assert "# Appendix S19. Exact realized-richness matching hard control" in markdown
-    assert "# Appendix S20. Finite-community system-size audit" in markdown
-    assert "# Appendix S21. Exact finite-community moments and Gaussian mean-field limit" in markdown
-    assert "# Appendix S22. Regime-dependent response hierarchy under active plant adjustment" in markdown
-    assert "# Supporting Tables" in markdown
-    assert "# Supporting Table S9. Exact realized-richness matching sensitivity" in markdown
-    assert "70/96 / 65.61%" in markdown
-    assert "Active-adjustment system-size rank crossover" in markdown
-    assert "55.84%/12.72%" in markdown
+    assert "# Appendix S1. Geography-first saturation and final world synthesis" in markdown
+    assert "# Appendix S2. Contemporary Izu functional-chain sensitivity" in markdown
+    assert "# Appendix S3. Unified Model 3 projection onto real-island evidence" in markdown
+    assert "# Appendix S4. Prospective Model 3 isolation bridge" in markdown
+    assert "68/128" in markdown and "41.5%" in markdown
+    assert "partner arrival/replacement" in markdown
+    assert "2/25" in markdown
+    for legacy in (
+        "Appendix S19",
+        "Finite-community system-size audit",
+        "Gaussian mean-field limit",
+        "Regime-dependent response hierarchy under active plant adjustment",
+        "Supporting Table S9. Exact realized-richness matching sensitivity",
+    ):
+        assert legacy not in markdown
 
     text = render_supporting_information_rtf()
     assert text.startswith("{\\rtf1")
@@ -64,15 +66,8 @@ def test_supporting_information_rtf_preserves_relational_world_izu_and_generalit
     assert "unified model 3 projection onto real-island evidence" in lower
     assert "prospective model 3 isolation bridge" in lower
     assert "68/128" in text and "41.5%" in text
-    assert "exact realized-richness matching hard control" in lower
-    assert "finite-community system-size audit" in lower
-    assert "gaussian mean-field limit" in lower
-    assert "regime-dependent response hierarchy" in lower
-    assert "70/96" in text and "65.61%" in text
-    assert "55.84%" in text and "72.98%" in text
-    assert "partner arrival/replacement" in lower
-    assert "2/25" in text
-    assert "cell-level simulation variation" not in lower
+    assert "finite-community system-size audit" not in lower
+    assert "gaussian mean-field limit" not in lower
 
 
 def test_plain_text_rtf_escapes_unicode_and_uses_same_submission_spacing():

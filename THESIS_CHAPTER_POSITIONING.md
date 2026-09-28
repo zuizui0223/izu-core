@@ -73,7 +73,7 @@ assurance + chronology + connectivity + recovery + life history
 conditional realization
 ```
 
-The former Model 2 is not retained as a separate biological mechanism or active control gate. Its exact-richness, synthetic-`k`, response-rule, S/C/I and community-mean results are Supporting Information/provenance because the previously unique richness and finite-visitor controls have now been evaluated prospectively inside Model 3.
+The former Model 2 is not retained as a separate biological mechanism, active control gate or current Supporting Information component. Its exact-richness, synthetic-`k`, response-rule, S/C/I and community-mean results are historical legacy provenance under `legacy/model2/` because the previously unique richness and finite-visitor controls have now been evaluated prospectively inside Model 3.
 
 The key biological interpretation is:
 

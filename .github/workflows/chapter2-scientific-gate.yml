@@ -21,6 +21,8 @@ on:
       - 'tests/test_island_ecology_submission_bundle_builder.py'
       - 'tests/test_repository_artifact_budget.py'
       - 'tests/test_current_ci_surface.py'
+      - 'tests/test_model2_legacy_firewall.py'
+      - 'legacy/model2/**'
       - 'REPRODUCE.md'
       - '.gitignore'
       - '.github/workflows/chapter2-scientific-gate.yml'
@@ -54,4 +56,5 @@ jobs:
             tests/test_island_ecology_submission_bundle_builder.py \
             tests/test_repository_artifact_budget.py \
             tests/test_current_ci_surface.py \
+            tests/test_model2_legacy_firewall.py \
             tests/test_workflow_trigger_policy.py

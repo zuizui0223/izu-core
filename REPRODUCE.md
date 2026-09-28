@@ -1,6 +1,6 @@
 # Reproducing the current Chapter 2 submission state
 
-The active Chapter 2 paper uses **one nested Model 3**. The older response-geometry / synthetic-`k` analyses remain readable provenance and Supporting Information, but they are no longer the reviewer entry point.
+The active Chapter 2 paper uses **one nested Model 3**. Older response-geometry / synthetic-`k` analyses are historical legacy provenance under `legacy/model2/`; they are excluded from the current manuscript, Supporting Information and reviewer archive.
 
 ## Independent unit and denominator
 
@@ -22,10 +22,11 @@ pytest -q \
   tests/test_chapter2_unified_model3_figures.py \
   tests/test_repository_artifact_budget.py \
   tests/test_current_ci_surface.py \
+  tests/test_model2_legacy_firewall.py \
   tests/test_workflow_trigger_policy.py
 ```
 
-These checks verify the active Model 3 manuscript/manifest route, the frozen 24,576-case bridge receipt, the 128-history inference boundary, current figure regeneration, submission closure, workflow policy, and repository-size guard.
+These checks verify the active Model 3 manuscript/manifest route, the frozen 24,576-case bridge receipt, the 128-history inference boundary, current figure regeneration, submission closure, workflow policy, repository-size guard, and the firewall that keeps Model 2 out of the current Supporting Information and reviewer archive.
 
 For the complete test suite:
 

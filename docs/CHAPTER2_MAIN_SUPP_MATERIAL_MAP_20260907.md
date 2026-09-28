@@ -4,7 +4,7 @@ Updated: 2026-09-27
 
 ## Paper-facing rule
 
-The main paper carries the current Unified Model 3 mechanism and the evidence that changes its ecological interpretation. Legacy Model 2 response-geometry analyses remain reproducible but move to Supporting Information/provenance.
+The main paper and current Supporting Information carry only the Unified Model 3 mechanism and its source-audited natural confrontation. Legacy Model 2 response-geometry analyses remain reproducible as historical archive provenance under `legacy/model2/` and are excluded from the current Supporting Information and reviewer archive.
 
 The active mainline is:
 
@@ -103,31 +103,31 @@ The manuscript should carry only numbers needed for the staged argument.
 - formal audit `21/25`, `2/25`, `0/25`;
 - broader breadth `42 research entries / 37 exact geographic labels`, not 42 model fits.
 
-## Supporting Information structure
+## Current Supporting Information structure
 
-### S1–S16 — historical model / robustness / source-audit provenance
+The current journal SI is Model 3-facing and is renumbered independently of the historical Model 2 appendices.
 
-Preserve original Model 2 equations, parameterization, response geometry, local filtering, assurance audit, S/C/I decomposition, source-readiness records and historical Izu analyses. They are no longer the active biological mechanism.
-
-### S17 — geography-first saturation
+### S1 — geography-first saturation
 
 Preserve the 4,663-island candidate frame, stopping rule, small-island supplement and search provenance.
 
-### S18 — contemporary Izu functional-chain context
+### S2 — contemporary Izu functional-chain context
 
 Preserve FDQ→matching, matching→pollen, omission diagnostics and the eight-target branching stress test.
 
-### S18A — Unified Model 3 real-island projection
+### S3 — Unified Model 3 real-island projection
 
 Preserve the 14 system layers, A/B/C assignment, adverse Dominica result and the missing B layer.
 
-### S18B — prospective Model 3 isolation bridge
+### S4 — prospective Model 3 isolation bridge
 
-Preserve production provenance, 24,576-case denominator, 128 histories, 16 shards, thresholds `0 / 0.01 / 0.05`, repeat-instability diagnostics, visitor counts, all ABM/density intervention results and claim exclusions.
+Preserve production provenance, 24,576 computational cases, 128 independent visitor histories, 16 shards, deadbands `0 / 0.01 / 0.05`, repeat-instability diagnostics, visitor counts, all ABM/density intervention results and claim exclusions.
 
-### S19–S22 — legacy Model 2 structural controls
+## Legacy Model 2 archive
 
-Keep exact realized-richness matching, finite-community synthetic-`k`, Gaussian/community-mean limit and active-adjustment determinant-rank analysis. These are historical/SI comparisons only.
+Historical Model 2 materials are not current SI. The former S1–S16 and S19–S22 response-geometry material, legacy Tables S1–S9, synthetic-`k` system-size analyses, Gaussian/community-mean limit, response-rule factorial and historical S/C/I decomposition are indexed under `legacy/model2/`.
+
+The historical filenames are preserved to keep provenance and links stable. Their old “Supporting Information” labels describe their former role and must not be interpreted as inclusion in the current submission.
 
 Important retained distinction:
 

@@ -9,7 +9,7 @@ DATA_CODE = ROOT / "docs/ISLAND_ECOLOGY_DATA_CODE_AVAILABILITY_20260824.md"
 
 def test_oikos_manifest_is_active_bridge_complete_unified_model3_contract():
     manifest = json.loads(OIKOS_MANIFEST.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == "2.1"
+    assert manifest["schema_version"] == "2.2"
     assert manifest["journal_target"] == "Oikos"
     assert manifest["article_type"] == "Research Paper"
     assert manifest["routing_status"] == "active_scientific_route_bridge_complete_package_rebuild"
@@ -36,7 +36,10 @@ def test_oikos_manifest_is_active_bridge_complete_unified_model3_contract():
     assert real["principal_gap"] == "B_inherited_longitudinal_response_under_measured_visitor_regime"
 
     legacy = manifest["legacy_model2"]
-    assert legacy["status"] == "supporting_information_and_provenance_only"
+    assert legacy["status"] == "historical_archive_provenance_only"
+    assert legacy["archive_index"] == "legacy/model2/README.md"
+    assert legacy["included_in_current_supporting_information"] is False
+    assert legacy["included_in_current_review_archive"] is False
     assert legacy["active_benchmarks"] == []
 
     natural = manifest["formal_natural_evidence_boundary"]

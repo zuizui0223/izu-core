@@ -86,7 +86,7 @@ The prospectively frozen 24,576-case bridge closes the two controls that had pre
 
 A large S/C/I interaction share is not equivalent to directional branching: the visitor-pooled finite ABM has `I=0.542` but `0/128` mixed histories.
 
-These results remove Model 2's last active control-gate role. Legacy exact-richness, synthetic-`k`, response-rule and S/C/I analyses remain Supporting Information/provenance only.
+These results remove Model 2's last active control-gate role. Legacy exact-richness, synthetic-`k`, response-rule and S/C/I analyses remain historical provenance only under `legacy/model2/` and are not part of the current Supporting Information.
 
 ## Direct decomposition of the Chapter 1 isolation axis
 

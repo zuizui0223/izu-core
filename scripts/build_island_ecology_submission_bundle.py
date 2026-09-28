@@ -42,7 +42,6 @@ RELATIONAL_FIGURE_INPUTS = ROOT / RELATIONAL_FIGURE_INPUTS_ARCNAME
 STATIC_SUBMISSION_FILES = (
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_IZU_EMPIRICAL_APPENDIX_20260827.md",
     "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_REFERENCE_LEDGER_20260827.md",
-    "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_TABLES_20260827.md",
     "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
     "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md",
     "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
@@ -50,20 +49,14 @@ STATIC_SUBMISSION_FILES = (
     "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
     "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
     "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md",
-    "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md",
-    "docs/CHAPTER2_RELATIONAL_ROBUSTNESS_CORRECTION_20260831.md",
     "data/design/chapter2_unified_model3_lock_20260927.json",
     "data/design/model3_unified_reduction_audit_20260927.json",
     "data/results/model3_unified_reduction_audit_frozen_20260927.json",
     "data/results/chapter2_unified_model3_real_island_projection_20260927.json",
-    "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md",
-    "docs/CHAPTER2_SUPPORTING_TABLE_S9_REALIZED_RICHNESS_20260907.md",
-    "data/design/chapter2_relational_robustness_audit_freeze_20260831.json",
-    "data/design/chapter2_realized_richness_matching_freeze_20260907.json",
-    "data/results/chapter2_relational_robustness_audit_frozen_20260831.json",
-    "data/results/chapter2_realized_richness_matching_decision_20260907.json",
     ACTIVE_SUBMISSION_MANIFEST,
 )
+
+
 
 
 def validate_scientific_gate() -> dict:
@@ -215,18 +208,9 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             "formal_full_contracts": "0_of_25",
             "unified_model3_reduction_audit_complete": True,
             "real_island_abc_projection_included": True,
-            "legacy_realized_richness_reframe_retained_in_si": True,
-            "realized_richness_mean_geometry": "all_positive_in_6_of_6_matching_seeds",
-            "realized_richness_mixed_individual_realizations": "51_to_65_of_96",
-            "realized_richness_nonadditivity_fraction": "0.4272_to_0.4851",
-            "system_size_rank_crossover": {
-                "k_values": [1, 2, 4, 8, 16],
-                "median_starting_share_percent": [2.55, 10.33, 27.33, 42.52, 55.84],
-                "median_community_share_percent": [72.98, 48.03, 23.52, 18.26, 12.72],
-                "starting_exceeds_community_from_k4": "6_of_6_seeds",
-                "mixed_at_k16": "28_to_42_of_96",
-                "natural_threshold_claimed": False,
-            },
+            "legacy_model2_in_current_si": False,
+            "legacy_model2_in_review_archive": False,
+            "legacy_model2_archive": "legacy/model2/README.md",
             "izu_e3_e4_status": "future_optional_A_C_falsification_not_completion_gate",
             "chapter3_direct_phenotype_used_as_validation": False,
             "corresponding_author_orcid_required": True,
@@ -256,7 +240,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 "The prospective reduction audit shows that composition x starting-state branch capacity precedes demographic stochasticity and can persist without demographic sampling under controlled compositions. "
                 "Finite-history mixed labels in the isolation bridge are descriptive, repeat/threshold/numerical-representation sensitive, and are not estimates of stable latent branch prevalence. "
                 "Real-island evidence is confronted by A/B/C layer rather than fitted to synthetic parameter cells; A and C have multiple source-locked examples, while inherited longitudinal B remains the main gap. "
-                "Legacy exact-richness, synthetic-k and response-rule analyses are retained as Supporting Information robustness, and no synthetic coordinate is transferred to nature."
+                "Legacy Model 2 exact-richness, synthetic-k, response-rule and historical S/C/I analyses are retained only as repository legacy provenance under legacy/model2/; they are excluded from the current Supporting Information and reviewer archive."
             ),        }
 
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:

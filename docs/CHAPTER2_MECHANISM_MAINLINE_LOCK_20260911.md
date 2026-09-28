@@ -69,7 +69,7 @@ The prospective unified reduction audit (`data/results/model3_unified_reduction_
 
 The full 19,968-case island campaign then supplies the finite-population and historical layers: assurance-dependent persistence, chronology, separate seed and pollinator connectivity, recovery/immigration, life history, founding and scale.
 
-The legacy Model 2 response-geometry stack is not a second biological mechanism. Its heuristic response-rule, S/C/I, exact-richness, synthetic-`k` and community-mean analyses are now SI/provenance only because the previously unique richness and finite-visitor controls have been evaluated prospectively inside Model 3.
+The legacy Model 2 response-geometry stack is not a second biological mechanism. Its heuristic response-rule, S/C/I, exact-richness, synthetic-`k` and community-mean analyses are historical provenance only under `legacy/model2/`; they are excluded from the current Supporting Information because the previously unique richness and finite-visitor controls have been evaluated prospectively inside Model 3.
 
 Important mathematical distinction: the old Model 2 deterministic mean-field averaged external community realization, whereas Model 3's deterministic genotype-density counterpart retains the declared visitor composition/history and removes demographic sampling. Their different branching results therefore answer different limiting questions and are not contradictory.
 ## Prospective bridge closure
@@ -123,7 +123,7 @@ The Discussion should mirror the mechanism:
 3. natural isolation-driven deterministic response is one-directional, while annual richness matching reverses the coarse mean regime;
 4. visitor-environment realization and finite plant demography separately modify descriptive directional heterogeneity, while repeat instability prevents treating mixed fractions as latent branch probabilities;
 5. assurance, chronology, connectivity, recovery and life history explain conditional persistence and realization;
-6. legacy Model 2 analyses are Supporting Information/provenance only;
+6. legacy Model 2 analyses are historical archive provenance only and are excluded from current Supporting Information;
 7. real islands populate A and C with propagation, branching, buffering and falsification cases, while the inherited longitudinal B layer remains the main natural-data gap.
 
 ## Figure contract
@@ -132,7 +132,7 @@ The Discussion should mirror the mechanism:
 - **Figure 2:** prospective isolation bridge: natural near/far response, annual richness matching, eight-history visitor pooling and fourfold plant-capacity control, shown for finite ABM and deterministic density.
 - **Figure 3:** full finite-population campaign: ABM versus deterministic density, assurance, chronology, connectivity and recovery.
 - **Figure 4:** real-island A/B/C confrontation: Izu branching, Ogasawara/Xisha propagation, buffering/falsifier cases, C-layer history anchors and the missing B layer.
-- Legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I figures remain Supporting Information/provenance only.
+- Legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I figures remain in `legacy/model2/` only and are not current Supporting Information.
 
 Figure 4 closes the chapter at the existing-data claim ceiling. A prospective Izu validation protocol may be mentioned in Discussion or Supporting Information, but it is not the visual endpoint of Chapter 2 and must not make the chapter appear unfinished.
 
@@ -145,7 +145,7 @@ Allowed:
 - deterministic branch capacity under controlled compositions, together with one-directional density response in the stored isolation contrast;
 - finite-ABM departures from deterministic trajectories in the full island campaign;
 - historical contingency, assurance-dependent persistence, distinct seed/pollinator connectivity routes and bounded inherited-investment trajectories;
-- legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I results as model-specific robustness/provenance only;
+- legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I results as historical archive provenance only;
 - layer-specific real-island confrontation showing propagation, branching, buffering, counterdirectional response, direct-history anchors and the missing B layer.
 
 Not allowed:

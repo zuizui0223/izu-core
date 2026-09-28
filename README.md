@@ -123,7 +123,7 @@ Chapter 2 closes with:
 2. **deterministic genotype-density Model 3:** controlled compositions can retain branching after demographic sampling is removed, while the stored isolation-driven contrast is one-directional;
 3. **finite-population Model 3 ABM:** demographic stochasticity, extinction and variation loss modify realized trajectories;
 4. assurance, chronology, connectivity, life-history, founding and recovery interventions explaining conditional realization;
-5. legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I analyses retained as Supporting Information and provenance only; and
+5. legacy Model 2 exact-richness / synthetic-`k` / response-rule / S/C/I analyses retained as historical provenance only under `legacy/model2/` and excluded from current Supporting Information; and
 6. layer-specific real-island confrontation showing A-layer propagation/branching, C-layer history effects and the missing inherited longitudinal B layer.
 
 Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phenotype. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the Chapter 2 mechanism.

@@ -9,6 +9,6 @@ def test_review_archive_uses_final_oikos_generality_manuscript():
     assert "real islands occupy different stages of the same response architecture" in text.lower()
 
 
-def test_review_archive_includes_equal_turnover_provenance():
-    assert "data/results/chapter2_equal_turnover_control_20260908.json" in CORE_REVIEW_FILES
-    assert "scripts/audit_chapter2_equal_turnover_control.py" in CORE_REVIEW_FILES
+def test_review_archive_excludes_equal_turnover_model2_provenance():
+    assert "data/results/chapter2_equal_turnover_control_20260908.json" not in CORE_REVIEW_FILES
+    assert "scripts/audit_chapter2_equal_turnover_control.py" not in CORE_REVIEW_FILES

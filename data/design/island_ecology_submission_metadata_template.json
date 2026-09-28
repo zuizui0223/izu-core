@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.9",
+  "schema_version": "2.0",
   "journal": "Oikos",
   "article_type": "Research Paper",
   "manuscript_title": "Conditional island responses: from functional matching to finite-population evolutionary realization",
@@ -27,7 +27,7 @@
   "ethics_statement": "Not applicable to new data collection in this manuscript. The study reports simulations, a source-audited synthesis of published literature, and secondary analysis of published plant–pollinator data; it includes no new field sampling, specimen collection or experimental work requiring new approvals, licences or permissions.",
   "ethics_statement_confirmed": null,
   "planned_public_repository": "Dryad Digital Repository",
-  "data_availability": "Primary numerical results derive from the frozen unified Model 3 reduction audit, the 19,968-case island campaign, deterministic genotype-density comparisons, finite-population ABM outputs, and source-locked real-island evidence reprojected by mechanistic layer. Historical response-geometry, realized-richness, synthetic-k and response-rule analyses are retained as Supporting Information robustness. The anonymous reviewer archive is intended to contain the journal-facing manuscript, Supporting Information, frozen designs/results, source-readiness records and analysis scripts needed to inspect the reported claim boundaries. Before final publication, accepted code and frozen analysis materials will be deposited in the Dryad Digital Repository with a persistent DOI.",
+  "data_availability": "Primary numerical results derive from the frozen unified Model 3 reduction audit, the 19,968-case island campaign, deterministic genotype-density comparisons, finite-population ABM outputs, and source-locked real-island evidence reprojected by mechanistic layer. Historical Model 2 response-geometry, realized-richness, synthetic-k, response-rule, S/C/I and Gaussian/community-mean analyses are retained only as repository legacy provenance under legacy/model2/ and are excluded from the current Supporting Information and anonymous reviewer archive. The reviewer archive contains only the journal-facing manuscript, current Model 3 Supporting Information, current frozen Model 3 designs/results, source-readiness records needed for the active claim boundary, and current analysis scripts. Before final publication, accepted code and frozen analysis materials will be deposited in the Dryad Digital Repository with a persistent DOI.",
   "submission_declarations": {
     "not_published_or_under_consideration_elsewhere": null,
     "all_authors_approve_submission": null,
@@ -44,9 +44,9 @@
     "significance_prior_work_context must state how the manuscript builds on relevant work by the submitting authors/coauthors cited in the manuscript and on other published work; this cannot be inferred safely until the final author list is supplied.",
     "ethics_statement_confirmed must be set to true only after an author has checked that the prefilled ethics statement accurately describes the submitted manuscript.",
     "The anonymous manuscript and reviewer archive must remain free of author-identifying metadata.",
-    "Legacy synthetic k is a pooled-community robustness coordinate and must not be presented as a natural field threshold, visitor richness or Hill diversity.",
+    "Legacy synthetic k remains a historical pooled-community robustness coordinate under legacy/model2/ and must not be presented as a current-paper result, natural field threshold, visitor richness or Hill diversity.",
     "Izu E3/E4 is future optional validation and is not a current-paper completion or submission gate.",
-    "Legacy response-geometry variance shares remain Supporting Information diagnostics and do not define the unified Model 3 mechanism.",
+    "Legacy Model 2 response-geometry and synthetic-k materials are historical repository provenance only and must not be packaged as current Supporting Information.",
     "Journal of Ecology remains the documented fallback route.",
     "Natural island systems are confronted by Model 3 layer (A ecological/selection, B inherited longitudinal response, C finite/history realization) and are not assigned to synthetic parameter cells."
   ]

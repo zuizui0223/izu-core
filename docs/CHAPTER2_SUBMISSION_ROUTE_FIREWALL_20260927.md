@@ -31,7 +31,7 @@ Status:
 - scientific submission package: **CLOSED** — unified Figures 1–4, Supporting Information, renderers and fail-closed CI pass;
 - actual journal submission: **BLOCKED only by author-supplied identity, prior-work context and declarations**.
 
-Legacy exact-richness, synthetic-`k`, S/C/I and response-rule analyses are Supporting Information/provenance only. Their previously unique control questions are now evaluated directly inside Model 3.
+Legacy exact-richness, synthetic-`k`, S/C/I and response-rule analyses are historical provenance only under `legacy/model2/`. They are excluded from the current Supporting Information and reviewer archive because their previously unique control questions are now evaluated directly inside Model 3.
 
 ## Lane B — analytical / Ecology Letters companion
 

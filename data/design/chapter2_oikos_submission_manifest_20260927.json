@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "updated_on": "2026-09-27",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
@@ -83,16 +83,19 @@
     "interpretation": "recurrent_function_does_not_require_phenotypic_convergence"
   },
   "legacy_model2": {
-    "status": "supporting_information_and_provenance_only",
+    "status": "historical_archive_provenance_only",
+    "archive_index": "legacy/model2/README.md",
     "active_benchmarks": [],
-    "supporting_only": [
+    "included_in_current_supporting_information": false,
+    "included_in_current_review_archive": false,
+    "retained_assets": [
       "exact_realized_richness_matching",
       "synthetic_k_finite_visitor_community_pooling",
       "heuristic_response_rule_factorial",
       "historical_SCI_decomposition",
       "community_mean_limit"
     ],
-    "prohibited_role": "active biological mechanism or unresolved submission gate"
+    "prohibited_role": "current Supporting Information, active biological mechanism, or unresolved submission gate"
   },
   "formal_natural_evidence_boundary": {
     "research_entries": 25,
