@@ -37,7 +37,7 @@ This corrects an over-broad earlier interpretation. Model 3 can produce determin
 
 The finite-history labels are themselves demographic realizations rather than stable latent branch identities. At epsilon 0, at least two of the eight repeat-specific labels disagree within **97/128** natural histories. This is why the finite result is interpreted as realized stochastic heterogeneity, not as 12 histories possessing a fixed deterministic branch state.
 
-## 2. Dynamic richness matching changes the coarse regime and exposes strong finite branching
+## 2. Dynamic richness matching changes the coarse regime and exposes strong finite realized-sign heterogeneity
 
 Response-blind annual matching thinned near and far visitor histories to identical annual counts. Mean count became `0.6603` in both arms, with matched empty years retained.
 
@@ -54,7 +54,7 @@ This heterogeneity is especially stochastic at the finite-population level: **12
 
 The supported interpretation is therefore:
 
-> **Visitor amount/richness strongly controls the coarse mean regime, while identity/composition plus finite population realization govern much of the remaining branch heterogeneity.**
+> **Visitor amount/richness strongly controls the coarse mean regime, while identity/composition plus finite-population realization govern much of the remaining realized-sign heterogeneity.**
 
 Annual thinning also changes visitor identity persistence, so this is not a pure field species-richness causal effect.
 
@@ -71,7 +71,7 @@ Pooling visitor histories eliminates mixed history-level labels in both model fo
 
 This shows that **finite visitor-environment sampling matters independently of finite plant population size**. The pooling operation changes environmental averaging and functional composition under a nonlinear reproductive operator; it is not an island-count or lifespan manipulation.
 
-## 4. Finite plant demography is also a separate source of branching
+## 4. Finite plant demography is a separate source of mixed-label sensitivity
 
 Plant capacity was increased from `48` to `192` while the natural visitor history was kept unchanged.
 
@@ -98,7 +98,7 @@ Thus a large non-additive `I` component can describe response-magnitude structur
 
 | original question | prospective Model 3 answer |
 |---|---|
-| Can the same isolation problem generate different realized directions? | **Yes in finite populations**, but the natural deterministic density contrast is one-directional. |
+| Do finite populations show different realized signs across starting states? | **Descriptively yes**, but the mixed-history labels are deadband- and repeat-sensitive; the natural deterministic density contrast is one-directional and stable latent branch prevalence is not identified. |
 | Does richness/visitor amount explain the mean? | **Strongly yes in this design.** Annual richness matching reverses the mean far-minus-near effect from negative to positive. |
 | Does richness matching eliminate branch heterogeneity? | **No in the finite ABM.** Mixed histories increase strongly after matching. Deterministic mixed branching is weak and disappears at the 0.05 deadband. |
 | Does visitor-environment realization alter descriptive mixed labels? | **Yes.** Pooling eight visitor histories removes mixed labels completely, but the compound intervention does not identify a pure latent-branch effect. |

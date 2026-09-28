@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "status": "active_submission_artifact_budget",
+  "baseline_commit": "8d145da1e312e9767b056fd81f3c4b6c3448d552",
+  "rationale": "Prevent further repository growth while preserving frozen legacy provenance until a permanent external archive is fixed.",
+  "thresholds_bytes": {
+    "max_tracked_data_tree": 177682678,
+    "max_unlisted_design_file": 1048576,
+    "max_unlisted_result_file": 2097152,
+    "max_unlisted_generated_svg": 1048576
+  },
+  "baseline_tracked_data_bytes": 176634102,
+  "grandfathered_max_bytes": {
+    "data/design/model3_assurance_robustness_20260925.json": 14791554,
+    "data/design/model3_evolution_20260925.json": 10181145,
+    "data/design/model3_grid_comparison_20260925.json": 1096302,
+    "data/results/model3_assurance_summary_20260925/endpoints.csv.gz": 18715386,
+    "data/results/model3_ch2_bridge_summary_20260927/case_receipts.csv": 6957008,
+    "data/results/model3_evolution_summary_20260925/endpoints.csv.gz": 9488521,
+    "data/results/model3_island_v2_summary/case_receipts.csv": 5057905,
+    "data/results/model3_island_v2_summary/summary.json": 3822335,
+    "data/results/model3_island_v2_summary/production-life_perennial10_annual.svg": 2116623,
+    "data/results/model3_island_v2_summary/production-life_perennial10_lifetime.svg": 1914676,
+    "data/results/model3_island_v2_summary/production-life_perennial4_annual.svg": 1223302,
+    "data/results/model3_island_v2_summary/production-life_perennial4_lifetime.svg": 1237339,
+    "data/results/model3_island_v2_summary/production-scale_fixed_total_192.svg": 1132029,
+    "data/results/model3_island_v2_summary/production-scale_fixed_total_768.svg": 1216189,
+    "data/results/model3_island_v2_summary/production-scale_per_capita_192.svg": 1167859,
+    "data/results/model3_island_v2_summary/production-scale_per_capita_768.svg": 1215017
+  },
+  "rules": [
+    "New design declarations must remain compact; exhaustive enumerations belong in workflow artifacts or the permanent archive.",
+    "New result files above the unlisted result threshold are rejected unless the policy is explicitly revised.",
+    "Generated SVG diagnostics above the SVG threshold are rejected unless explicitly grandfathered.",
+    "Grandfathered files may not grow beyond their baseline byte size.",
+    "The tracked data tree may grow by at most 1 MiB beyond the baseline without an explicit archive-policy revision.",
+    "History rewriting is a separate destructive release operation and is not authorized by this policy."
+  ]
+}
