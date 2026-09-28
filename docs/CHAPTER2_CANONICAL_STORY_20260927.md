@@ -118,7 +118,7 @@ Therefore:
 
 > **Model 2 is no longer required as an active biological model or Chapter 2 control gate.**
 
-It remains Supporting Information/provenance for the historical service endpoint, exact-richness comparison, synthetic-`k` sequence, response-rule sensitivity, S/C/I decomposition and community-mean limit.
+It remains historical legacy provenance only for the earlier service endpoint, exact-richness comparison, synthetic-`k` sequence, response-rule sensitivity, S/C/I decomposition and community-mean limit. These materials are excluded from the current Supporting Information and reviewer archive and are indexed under `legacy/model2/`.
 
 ## Real-island confrontation
 
