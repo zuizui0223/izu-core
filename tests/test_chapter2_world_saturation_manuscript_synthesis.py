@@ -16,8 +16,8 @@ def test_world_program_is_preserved_as_layer_specific_claim_ceiling_not_model_fi
 
     assert "layer-specific confrontation with real island systems" in text
     assert "no system was assigned a synthetic `k`, s/c/i regime, trait coordinate or model 3 parameter cell" in text
-    assert "post-chapter-2 transport/falsification" in text
-    assert "not a completion gate" in text
+    assert "natural evidence is therefore a confrontation layer rather than a calibration layer" in text
+    assert "future same-unit transition-linked study" in text
     natural = manifest["formal_natural_evidence_boundary"]
     assert natural["research_entries"] == 25
     assert natural["complete_A_to_B_to_C_contracts"] == "0_of_25"
@@ -44,9 +44,9 @@ def test_izu_empirical_assets_remain_boundary_evidence_not_completion_gate():
     rationale = json.loads(IZU_RATIONALE.read_text(encoding="utf-8"))
 
     assert "izu supplies the most resolved a-layer branching contrast" in text
-    assert "no conclusion in the current paper requires field confirmation" in text
-    assert "post-chapter-2 transport/falsification" in text
-    assert "not a completion gate" in text
+    assert "natural evidence is therefore a confrontation layer rather than a calibration layer" in text
+    assert "future same-unit transition-linked study" in text
+    assert "current cross-sectional evidence cannot retrospectively identify" in text
     assert "parallel/future validation" in thesis
     assert izu["izu_current_evidence"]["current_functional_exposure_to_matching"]["supported"] is True
     assert izu["izu_current_evidence"]["matching_to_pollen"]["leave_one_island_sign_stable"] is False
