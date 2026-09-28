@@ -18,7 +18,7 @@ The active mainline is:
 
 `→ real-island A/B/C confrontation and empirical claim ceiling`
 
-The paper must distinguish **branch capacity** from **branch realization**. Controlled visitor compositions can branch deterministically, whereas the natural isolation-driven density response is one-directional in the prospective bridge. Finite visitor histories and finite plant demography separately determine how much directional heterogeneity is realized.
+The paper must distinguish **branch capacity** from **descriptive branch labels**. Controlled visitor compositions can branch deterministically, whereas the natural isolation-driven density response is one-directional in the prospective bridge. Visitor histories and finite plant demography separately modify realized directional heterogeneity, but finite-repeat labels do not identify stable latent branch prevalence.
 
 ## Main text
 
@@ -43,7 +43,7 @@ Retain the four paired near/far interventions, each for finite ABM and determini
 
 Interpretation:
 
-> **Visitor amount/richness sets the coarse mean regime; finite visitor realization and finite plant demography are separate mechanisms controlling realized directional heterogeneity.**
+> **Visitor amount/richness sets the coarse mean regime; visitor realization and finite plant demography are separate manipulated axes modifying realized directional heterogeneity, without identifying stable latent branch prevalence.**
 
 Annual thinning changes identity persistence and pooled histories alter environmental composition under a nonlinear operator. Do not label either as a pure field richness effect.
 
@@ -166,4 +166,4 @@ The material split must not imply that:
 
 ## Supported headline
 
-> **Island isolation can impose a recurrent functional problem and a coarse directional pressure, while realized visitor amount, finite visitor-community sampling and finite plant demography determine how much phenotypic non-convergence is realized.**
+> **Island isolation can impose a recurrent functional problem and a coarse directional pressure, while realized visitor amount, visitor-community sampling and finite plant demography strongly modify phenotypic outcome distributions; exact latent branch prevalence is not identified.**

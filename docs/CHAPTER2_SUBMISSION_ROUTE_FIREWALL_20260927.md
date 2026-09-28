@@ -14,7 +14,7 @@ Main claims:
 
 - controlled visitor compositions establish pre-demographic state-dependent branch capacity;
 - natural isolation-driven deterministic response is directional and visitor amount/richness strongly shifts the coarse mean regime;
-- finite visitor-environment sampling and finite plant demography separately determine how much directional branching is realized;
+- visitor-environment realization and finite plant demography separately modify observed directional heterogeneity; repeat instability and numerical sensitivity prevent interpreting mixed fractions as stable latent branch prevalence;
 - assurance, connectivity and history further modify which trajectories persist;
 - source-locked island systems show same-direction propagation, branching, buffering, counterdirectional response and direct-history effects;
 - the inherited longitudinal **B layer** remains the main natural-data gap.

@@ -57,7 +57,7 @@ The correct statement is not:
 
 It is:
 
-> **Model 3 has deterministic state-dependent branch capacity, but isolation-driven assembly can produce a common deterministic direction; finite visitor and plant sampling determine how much heterogeneous realized response appears.**
+> **Model 3 has deterministic state-dependent branch capacity, but isolation-driven assembly can produce a common deterministic direction; visitor-environment and plant-demographic sampling strongly modify heterogeneous realized responses, while stable latent branch prevalence remains unresolved.**
 
 ## S/C/I status
 
@@ -86,7 +86,7 @@ visitor amount/richness
 
 finite visitor composition/history
 + finite plant demography
-      -> realize or suppress directional branching
+      -> modify observed directional heterogeneity; latent branch prevalence remains unresolved
 
 assurance / connectivity / chronology
       -> filter persistence and inherited outcome

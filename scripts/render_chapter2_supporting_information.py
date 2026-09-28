@@ -187,7 +187,7 @@ Pooling changes environmental averaging and functional composition under a nonli
 
 Increasing plant capacity from `48` to `192` while retaining the natural visitor history reduces finite-ABM mixed histories from `12` to `1` at deadband 0, from `8` to `1` at 0.01 and from `1` to `0` at 0.05. The mean effect moves from `-0.1446` to `-0.2716`, closing approximately `41.5%` of the difference toward the deterministic mean.
 
-Thus finite visitor-environment sampling and finite plant demography are separable contributors to realized branching.
+Thus visitor-environment realization and finite plant demography are separable manipulated axes that modify observed directional heterogeneity; these finite-repeat labels do not identify stable latent branch prevalence.
 
 ## S18B.5 S/C/I is not directional branching
 

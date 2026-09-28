@@ -38,7 +38,7 @@ Chapter 1 leaves four problems that Chapter 2 must address without retroactive c
 3. **stress versus compensation** — isolation is associated with stronger pollen limitation, yet some island-associated functional traits are associated with lower realized limitation;
 4. **cross-sectional identifiability** — present regional states do not identify whether the route was selection, founding, immigration, buffering or demographic sorting.
 
-Unified Model 3 now resolves the first three at a stronger level. Controlled state × visitor composition establishes branch capacity before demography; the prospective isolation bridge shows that realized visitor amount/richness strongly shifts the coarse mean response, while finite visitor-environment sampling and finite plant demography separately control how much directional heterogeneity is realized. Assurance can buffer or preserve populations without forcing one floral direction. Chapter 2 narrows the fourth by separating founding, immigration, chronology and finite realization, but the natural inherited longitudinal B layer remains unobserved.
+Unified Model 3 now resolves the first three at a stronger level. Controlled state × visitor composition establishes branch capacity before demography; the prospective isolation bridge shows that realized visitor amount/richness strongly shifts the coarse mean response, while visitor-environment realization and finite plant demography separately modify the distribution of observed directional outcomes. Assurance can buffer or preserve populations without forcing one floral direction. Chapter 2 narrows the fourth by separating founding, immigration, chronology and finite realization, but the natural inherited longitudinal B layer remains unobserved.
 
 Canonical resolution matrix: `docs/CHAPTER1_OPEN_PROBLEMS_TO_UNIFIED_MODEL3_20260927.md`.
 
@@ -97,7 +97,7 @@ The final prospective bridge resolves the two original Chapter 2 controls that h
 
 The biological hierarchy is therefore:
 
-> **visitor amount/richness sets the coarse mean regime; finite visitor composition/history and finite plant demography are separate mechanisms controlling how much directional heterogeneity is realized.** Finite-ABM history labels are themselves stochastic: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0, so they are not interpreted as stable latent lineage classes.
+> **visitor amount/richness sets the coarse mean regime; visitor composition/history and finite plant demography are separate axes that strongly modify realized outcomes.** Finite-ABM history labels are stochastic and numerically sensitive: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0, so they are not interpreted as stable latent lineage classes or prevalence estimates.
 
 Legacy response-geometry analyses remain useful Supporting Information/provenance, but no longer carry an active scientific gate.
 
@@ -156,7 +156,7 @@ Four results now define the Chapter 2 handoff:
 
 These are model-conditional results and not calibrated natural-island rates. Several magnitude comparisons remain numerically resolution-sensitive, so Chapter 2 uses Model 3 primarily for directional and mechanistic contrasts rather than universal quantitative forecasts.
 
-Together the nested levels of Model 3 explain how assurance can recur globally as insurance while detailed pollinator-facing and inherited floral responses remain contingent. The prospective bridge closes the old richness and finite-community controls: visitor amount shifts the mean regime, while finite visitor and plant sampling determine realized branching. Legacy Model 2 is now robustness/provenance only.
+Together the nested levels of Model 3 explain how assurance can recur globally as insurance while detailed pollinator-facing and inherited floral responses remain contingent. The prospective bridge closes the old richness and finite-community controls: visitor amount shifts the mean regime, while visitor-environment and plant-demographic manipulations strongly modify descriptive heterogeneity without identifying a stable latent branch prevalence. Legacy Model 2 is now robustness/provenance only.
 
 ## HOW, proximal WHY and ultimate WHY
 
@@ -177,7 +177,7 @@ The key shift is that Chapter 2 no longer merely demonstrates that heterogeneous
 - **before demography:** starting floral state × visitor composition reverses reproductive-selection direction;
 - **under controlled deterministic inheritance:** branch capacity can remain when demographic sampling is removed;
 - **under isolation-driven assembly:** annual visitor amount/richness strongly shifts the mean deterministic regime;
-- **during finite realization:** finite visitor histories and finite plant demography separately determine how much branch heterogeneity is expressed, while assurance, chronology, connectivity and life history change which trajectories persist.
+- **during finite realization:** visitor histories and finite plant demography separately modify observed heterogeneity, while assurance, chronology, connectivity and life history change which trajectories persist; exact branch prevalence remains unresolved.
 
 This addresses the central Chapter 1 tension — recurrent assurance/accessibility but non-uniform detailed display — without assigning any Chapter 1 region to a Model 3 parameter cell.
 

@@ -93,6 +93,8 @@ def test_supporting_information_retains_real_island_and_legacy_layers():
     assert "partner arrival/replacement `2/25`" in supporting
     assert "+1.9426" in supporting and "+2.0590" in supporting
     assert "cell-level simulation variation" not in lower
+    assert "stable latent branch prevalence" in lower
+    assert "separable contributors to realized branching" not in lower
 
 
 def test_legacy_main_supp_material_map_remains_provenance():

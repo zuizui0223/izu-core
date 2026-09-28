@@ -20,7 +20,7 @@ The production analysis followed the pre-outcome interpretation rules in `docs/M
 
 The old Chapter 2 controls can now be answered inside Model 3, but the answer is more structured than a simple replication of legacy Model 2.
 
-> **Richness/visitor amount strongly sets the coarse isolation response, whereas finite visitor-community realization and finite plant demography jointly determine how much lineage-level directional branching is realized.**
+> **Richness/visitor amount strongly sets the coarse isolation response, whereas visitor-community realization and finite plant demography jointly modify the distribution of realized directional outcomes; exact latent branch prevalence is not identified.**
 
 ## 1. Natural isolation-driven assembly has a directional deterministic backbone
 
@@ -58,7 +58,7 @@ The supported interpretation is therefore:
 
 Annual thinning also changes visitor identity persistence, so this is not a pure field species-richness causal effect.
 
-## 3. Finite visitor-community realization is a separate source of branching
+## 3. Finite visitor-community realization is a separate axis of realized heterogeneity
 
 The pooled-visitor intervention combines eight independent visitor histories with count-scaled activity normalization.
 
@@ -67,7 +67,7 @@ The pooled-visitor intervention combines eight independent visitor histories wit
 | finite ABM | `-0.2259` | `0 / 0 / 0` |
 | deterministic density | `-0.5560` | `0 / 0 / 0` |
 
-Pooling visitor histories eliminates mixed history-level branches in both model forms.
+Pooling visitor histories eliminates mixed history-level labels in both model forms.
 
 This shows that **finite visitor-environment sampling matters independently of finite plant population size**. The pooling operation changes environmental averaging and functional composition under a nonlinear reproductive operator; it is not an island-count or lifespan manipulation.
 
@@ -80,7 +80,7 @@ Plant capacity was increased from `48` to `192` while the natural visitor histor
 - and from `1` to `0` at epsilon 0.05;
 - the finite-ABM mean moved from `-0.1446` to `-0.2716`, closing about `41.5%` of the gap toward the deterministic mean `-0.4510`.
 
-Therefore finite plant demography is not interchangeable with finite visitor-community sampling. Both matter, through different routes. Repeat-label disagreement also falls with larger plant capacity (from 97/128 to 31/128 histories at epsilon 0), consistent with reduced demographic sampling variability.
+Therefore finite plant demography is not interchangeable with finite visitor-community sampling. Both interventions alter realized outcomes through different routes, but neither identifies a stable latent branching probability. Repeat-label disagreement also falls with larger plant capacity (from 97/128 to 31/128 histories at epsilon 0), consistent with reduced demographic sampling variability.
 
 ## 5. S/C/I magnitude decomposition is not equivalent to directional branching
 
@@ -101,8 +101,8 @@ Thus a large non-additive `I` component can describe response-magnitude structur
 | Can the same isolation problem generate different realized directions? | **Yes in finite populations**, but the natural deterministic density contrast is one-directional. |
 | Does richness/visitor amount explain the mean? | **Strongly yes in this design.** Annual richness matching reverses the mean far-minus-near effect from negative to positive. |
 | Does richness matching eliminate branch heterogeneity? | **No in the finite ABM.** Mixed histories increase strongly after matching. Deterministic mixed branching is weak and disappears at the 0.05 deadband. |
-| Are branches specifically a finite visitor-community effect? | **Partly.** Pooling eight visitor histories removes mixed branches completely. |
-| Are branches specifically a finite plant-population effect? | **Partly.** Fourfold larger plant capacity nearly removes mixed branches. |
+| Does visitor-environment realization alter descriptive mixed labels? | **Yes.** Pooling eight visitor histories removes mixed labels completely, but the compound intervention does not identify a pure latent-branch effect. |
+| Does finite plant-population size alter descriptive mixed labels? | **Yes.** Fourfold larger plant capacity nearly removes mixed labels, but the manipulation changes several finite-demographic processes and does not identify latent branch prevalence. |
 | Are visitor finiteness and plant finiteness the same mechanism? | **No.** They are separable axes and both contribute. |
 | Does S/C/I ranking identify directional branching? | **No.** High interaction share can coexist with zero mixed-sign histories. |
 | Does present environment uniquely determine phenotype? | **No.** The existing chronology experiment still retains different inherited endpoints under a common final environment. |

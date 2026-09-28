@@ -5,7 +5,7 @@ Status: active scientific narrative — prospective bridge complete
 
 ## One-sentence claim
 
-> **Island isolation can impose a recurrent functional problem and a directional deterministic backbone, while realized visitor amount, finite visitor-community sampling and finite plant demography jointly determine whether lineages diverge into different inherited trajectories.**
+> **Island isolation can impose a recurrent functional problem and a directional deterministic backbone; realized visitor amount can reverse the coarse mean response, while finite visitor-environment sampling and finite plant demography strongly modify the distribution of realized inherited trajectories. Stable latent branch frequencies are not identified.**
 
 ## Main inferential spine
 
@@ -55,13 +55,13 @@ Response-blind annual visitor-count matching makes near and far annual counts id
 
 Finite-ABM mixed histories increase to `68/128`, `59/128`, `18/128` at epsilon `0`, `0.01`, `0.05`. Deterministic density shows `16/128`, `1/128`, `0/128`.
 
-The supported interpretation is that visitor amount/richness strongly shifts the coarse mean response and strongly positions the coarse mean regime, while identity/composition and finite realization govern much of the residual branch heterogeneity. These finite-history labels are stochastic realizations rather than stable latent branches: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0.
+The supported interpretation is that visitor amount/richness strongly shifts the coarse mean response and positions the coarse mean regime. Identity/composition and finite realization strongly modify the distribution of observed signs, but the mixed-history labels are not stable latent branches: repeat-specific classifications disagree within 97/128 natural histories and 128/128 richness-matched histories at epsilon 0.
 
 Annual thinning also changes identity persistence, so this is not a pure field species-richness causal effect.
 
 ### 4. Finite visitor-environment sampling matters independently
 
-Pooling eight independent visitor histories removes mixed history-level branches completely in both finite ABM and deterministic density at all three deadbands.
+Pooling eight independent visitor histories removes mixed history-level labels completely in both finite ABM and deterministic density at all three deadbands.
 
 Visitor pooling changes environmental averaging and functional composition under a nonlinear reproductive operator. It is not island number or lifespan.
 
@@ -75,7 +75,7 @@ Increasing plant capacity from `48` to `192` under the same natural visitor hist
 
 The finite-ABM mean moves from `-0.1446` to `-0.2716`, closing about `41.5%` of the distance toward the deterministic mean `-0.4510`.
 
-Finite visitor sampling and finite plant sampling are therefore separable mechanisms. Increasing plant capacity also reduces repeat-label disagreement from 97/128 to 31/128 histories at epsilon 0, consistent with weaker demographic sampling variability.
+Finite visitor-environment averaging and finite plant-population size are therefore separable manipulated axes. Both alter observed directional heterogeneity, but neither intervention by itself identifies a stable latent branching process. Increasing plant capacity also reduces repeat-label disagreement from 97/128 to 31/128 histories at epsilon 0, consistent with weaker demographic sampling variability.
 
 ### 6. S/C/I magnitude structure is not directional branching
 
@@ -97,11 +97,15 @@ Thus current environment is not sufficient to identify current phenotype, and re
 | Is natural isolation-driven deterministic response itself branched? | No in the prospective bridge; density is one-directional across 128 histories. |
 | Does richness/visitor amount matter for the mean? | Strongly yes; annual matching reverses the mean isolation effect. |
 | Does count matching remove realized heterogeneity? | No in finite ABM; mixed histories increase strongly. Deterministic mixed branching is weak and deadband-sensitive. |
-| Does finite visitor-community sampling matter? | Yes; eight-history pooling removes mixed branches. |
-| Does finite plant-population sampling matter? | Yes; fourfold larger capacity nearly removes mixed branches. |
+| Does finite visitor-community sampling matter? | Environmental pooling removes mixed labels, showing strong sensitivity to visitor-environment realization; pooling also changes composition and averaging, so no pure latent-branch effect is identified. |
+| Does finite plant-population sampling matter? | Fourfold larger capacity nearly removes mixed labels and moves the mean toward density; the manipulation changes several finite-demographic processes, not drift alone. |
 | Are those two finite effects equivalent? | No; they are independent ecological and demographic axes. |
 | Does S/C/I rank equal directional branching? | No. High `I` can coexist with zero mixed-sign histories. |
 | Does present environment uniquely determine phenotype? | No; chronology retains different endpoints under the same final environment. |
+
+## Numerical and branch-identifiability boundary
+
+The completed numerical audit strengthens the mean-response results but limits exact branching claims. The same-support nested-grid test passed, and the signs of the main mean contrasts were preserved in the frozen grid-sensitivity designs. However, all 16 founder-grid equivalence comparisons at the prespecified ±0.01 tolerance remained unresolved, and exact mixed-history counts varied across grid/seed subsets. Therefore the chapter claims robust **directional mean contrasts and intervention effects**, not grid-invariant effect magnitudes, continuous-trait convergence, or a latent biological branch prevalence.
 
 ## Model 2 disposition
 
@@ -132,7 +136,7 @@ Chapter 1 shows stronger pollen limitation with isolation, recurrent assurance/a
 
 1. **broad pressure:** isolation-driven visitor rarity creates a recurrent directional backbone;
 2. **coarse regime:** visitor amount/richness strongly shifts the mean response;
-3. **branch realization:** finite visitor histories and finite plant demography determine how much directional heterogeneity is realized;
+3. **realization:** finite visitor histories and finite plant demography strongly modify observed directional heterogeneity, while stable latent branch frequencies remain unresolved;
 4. **buffering/history:** assurance, connectivity and chronology further filter persistence and inherited outcomes.
 
 The strongest cross-chapter statement is:
