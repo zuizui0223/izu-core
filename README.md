@@ -149,6 +149,7 @@ Chapter 3 (`zuizui0223/shimahotarubukuro`) owns the directly measured focal phen
 - [`docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) — completed Model 3 island ecological readout.
 - [`docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md`](docs/MODEL3_ISLAND_COMPLETE_READOUT_20260927.md) — complete numerical readout and qualification.
 - [`data/design/chapter2_oikos_submission_manifest_20260927.json`](data/design/chapter2_oikos_submission_manifest_20260927.json) — active bridge-gated Oikos submission contract.
+- [`data/results/chapter2_submission_closure_audit_20260928.json`](data/results/chapter2_submission_closure_audit_20260928.json) — final scientific-package closure audit; only author-supplied metadata/confirmations remain.
 - [`data/design/chapter2_oikos_submission_manifest_20260831.json`](data/design/chapter2_oikos_submission_manifest_20260831.json) — historical pre-unification submission contract.
 - `scripts/render_island_ecology_submission_manuscript.py` — compatibility renderer delegating to the canonical mechanism-mainline render.
 - `scripts/render_oikos_submission_rtf.py` — Oikos RTF renderer.
