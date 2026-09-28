@@ -196,50 +196,54 @@ The visitor-pooled finite ABM has a descriptive interaction share `I = 0.542` wh
 These are synthetic model-conditional results. Mixed fractions are descriptive history labels, not natural prevalence; model time, distance and trait coordinates are not calibrated field quantities.
 """
 
-def render_supporting_information(source: Path = SOURCE) -> str:
-    text = source.read_text(encoding="utf-8")
-    for old, new, label in (
-        (OLD_HEADER, NEW_HEADER, "header"),
-        (OLD_NONADD, NEW_NONADD, "nonadditivity interpretation"),
-        (OLD_S13_CH3, NEW_S13_CH3, "prospective-data boundary"),
-        (OLD_S15, NEW_S15, "evidence-role appendix"),
-    ):
-        if old not in text:
-            raise ValueError(f"supporting-information {label} changed; refuse silent rendering")
-        text = text.replace(old, new, 1)
-    text = text.rstrip() + APPENDIX_S16 + APPENDIX_S17 + APPENDIX_S18 + APPENDIX_S18A + APPENDIX_S18B + "\n"
+def render_supporting_information(source: Path | None = None) -> str:
+    """Render only the current Unified Model 3 / natural-confrontation SI.
+
+    Historical Model 2 response-geometry material is preserved in the repository
+    legacy archive and is intentionally excluded from the current journal SI.
+    """
+    header = """# Supporting Information — Unified Model 3 island-response mechanism
+
+The current Supporting Information contains only material that supports the active Unified Model 3 paper and its source-audited natural confrontation. Historical Model 2 response-geometry, synthetic-k, S/C/I, Gaussian-limit and response-rule analyses are legacy provenance and are not part of the current Supporting Information.
+
+"""
+    s1 = APPENDIX_S17.replace("# Appendix S17.", "# Appendix S1.", 1)
+    s2 = APPENDIX_S18.replace("# Appendix S18.", "# Appendix S2.", 1).replace("## S18.", "## S2.")
+    s3 = APPENDIX_S18A.replace("# Appendix S18A.", "# Appendix S3.", 1)
+    s4 = APPENDIX_S18B.replace("# Appendix S18B.", "# Appendix S4.", 1).replace("## S18B.", "## S4.")
+    text = header + s1 + s2 + s3 + s4 + "\n"
     lower = text.lower()
-    if "cell-level simulation variation" in lower:
-        raise ValueError("superseded within-cell-noise wording survived supporting-information render")
-    if "chapter 3" in lower:
-        raise ValueError("dissertation-specific Chapter 3 wording survived supporting-information render")
     required = (
-        "69.34–80.17%",
-        "64/96",
-        "53/96",
-        "partner arrival/replacement `2/25`",
-        "# Appendix S17. Geography-first saturation and final world synthesis",
+        "# appendix s1. geography-first saturation and final world synthesis",
         "4,663",
         "42 research entries across 37 exact geographic labels",
-        "# Appendix S18. Contemporary Izu functional-chain sensitivity",
+        "# appendix s2. contemporary izu functional-chain sensitivity",
         "+1.9426",
-        "+2.0590",
         "+0.0353",
         "3 shorter / 4 longer / 1 unchanged",
-        "# Appendix S18A. Unified Model 3 projection onto real-island evidence",
+        "# appendix s3. unified model 3 projection onto real-island evidence",
         "same-direction propagation 1",
-        "`0/25` complete A -> B -> C contracts",
-        "# Appendix S18B. Prospective Model 3 isolation bridge",
+        "`0/25` complete a -> b -> c contracts",
+        "# appendix s4. prospective model 3 isolation bridge",
         "24,576",
         "68/128",
-        "Pooling eight independent visitor histories",
+        "pooling eight independent visitor histories",
         "41.5%",
     )
     for token in required:
-        if token not in text:
-            raise ValueError(f"required supporting-information token missing: {token}")
+        if token.lower() not in lower:
+            raise ValueError(f"required current-SI token missing: {token}")
+    forbidden = (
+        "appendix s19",
+        "finite-community system-size audit",
+        "gaussian mean-field limit",
+        "regime-dependent response hierarchy under active plant adjustment",
+        "synthetic-k finite-community pooling",
+    )
+    for token in forbidden:
+        if token in lower:
+            raise ValueError(f"legacy Model 2 material leaked into current SI: {token}")
     return text
-
 
 def render_to_path(output: Path = DEFAULT_OUTPUT) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)
