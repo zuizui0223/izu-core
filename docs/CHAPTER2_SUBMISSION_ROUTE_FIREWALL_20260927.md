@@ -37,6 +37,20 @@ Legacy exact-richness, synthetic-`k`, S/C/I and response-rule analyses are Suppo
 
 Lane B remains a distinct question about information loss, distributional compression and higher-order sufficiency. Shared historical response-geometry outputs remain shared provenance and must not be presented as newly generated evidence for Lane B.
 
+Active Lane B surfaces:
+
+- manuscript: `docs/CHAPTER2_EL_LETTER_DRAFT_V0_4_20260913.md`;
+- cover / companion-overlap disclosure: `docs/CHAPTER2_EL_COVER_LETTER_DRAFT_V0_4_20260913.md`;
+- figure renderer: `scripts/render_chapter2_el_v04_figures.py`;
+- route and submission checks: `tests/test_chapter2_el_v04_route_firewall.py`, `tests/test_chapter2_el_submission_v04.py` and `tests/test_chapter2_el_v04_figures.py`.
+
+Status:
+
+- scientific analysis: **CLOSED** at the v0.4 analytical claim ceiling;
+- submission surface: **CLOSED** under the current v0.4 CI contract;
+- journal upload: **DOWNSTREAM OF LANE A** unless the exact Lane A status and shared-model provenance are disclosed;
+- old NEE-labeled rank-transport packaging is **not an active submission route**. Prospective natural transport remains Lane C and must not be replaced by retrospective Lane B packaging.
+
 Lane B must not be used to reintroduce `k` crossover or S/C/I ranking as the biological headline of Lane A.
 
 ## Lane C — prospective natural A → B → C transport/falsification
