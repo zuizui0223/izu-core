@@ -1,13 +1,7 @@
 name: Model 3 Chapter 2 bridge production
-# Trigger revision: production preflight includes current sharding/summary tests.
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - codex/integrate-model3-into-ch2
-    paths:
-      - '.github/workflows/model3_ch2_bridge_production.yml'
 
 permissions:
   contents: read
