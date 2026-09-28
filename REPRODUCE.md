@@ -1,6 +1,6 @@
 # Reproducing the current Chapter 2 submission state
 
-The active Chapter 2 paper uses **one nested Model 3**. The older response-geometry / synthetic-`k` analyses remain readable provenance and Supporting Information, but they are no longer the reviewer entry point.
+The active Chapter 2 paper uses **one nested Model 3**. Older response-geometry / synthetic-`k` analyses are historical legacy provenance under `legacy/model2/`; they are excluded from the current manuscript, Supporting Information and reviewer archive.
 
 ## Independent unit and denominator
 
