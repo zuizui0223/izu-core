@@ -17,7 +17,7 @@ Source-audited island systems show the same ecological ingredients—functional 
 
 ## Keywords
 
-community reorganization; response geometry; demographic history; reproductive assurance; floral evolution; plant–pollinator interactions; finite populations; island syndrome
+plant–pollinator interactions; pollen transfer; functional matching; reproductive assurance; floral evolution; demographic history; finite populations; island syndrome
 
 # Introduction
 
