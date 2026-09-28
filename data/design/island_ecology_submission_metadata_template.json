@@ -1,21 +1,21 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "journal": "Oikos",
   "article_type": "Research Paper",
-  "manuscript_title": "Conditional island responses: from functional matching to finite-population evolutionary realization",
-  "running_title": "Conditional island responses",
+  "manuscript_title": "From pollination ecology to realized floral evolution in finite island populations",
+  "running_title": "Pollination ecology and floral evolution",
   "keywords": [
     "island syndrome",
     "plant–pollinator interactions",
+    "pollen transfer",
     "functional matching",
     "reproductive assurance",
-    "eco-evolutionary dynamics",
+    "floral evolution",
     "finite populations",
-    "demographic stochasticity",
     "historical contingency",
-    "floral evolution"
+    "eco-evolutionary dynamics"
   ],
-  "significance_statement": "Island syndromes can recur functionally without converging on one phenotype. In one nested plant–pollinator eco-evolutionary model, starting floral state × visitor functional composition changes reproductive-selection direction before demographic updating; the same non-uniformity persists under deterministic Mendelian inheritance; and finite-population dynamics, reproductive assurance and ecological history further change which trajectories persist. Fixed visitor count does not remove composition dependence, while exact duplication of identical functional types under fixed total activity leaves the operator unchanged to machine precision. Source-locked real-island systems independently show propagation, branching, buffering, counterdirectional responses and historical effects, while the inherited longitudinal B layer remains the main empirical gap. Model coordinates are not calibrated natural thresholds or prevalence estimates.",
+  "significance_statement": "Pollinator-community change reaches floral evolution through several biological stages rather than one direct trait response. In one ecologically explicit plant–pollinator model, visitor functional matching determines finite pollen transfer and reproductive selection; the same outcrossing, selfing and Mendelian inheritance rules determine expected inherited change; and recruitment, survival, extinction and immigration determine which responses are realized in finite populations. Controlled visitor compositions can favour opposite floral-investment responses across plant starting states, whereas isolation-driven visitor assembly produces a coarse common deterministic direction. Reproductive assurance can preserve populations without prescribing one floral endpoint, and common final environments can retain different inherited states after different pollinator histories. Source-audited island systems contain the same ecological ingredients but lack the full inherited longitudinal transition. The model is ecologically explicit but not calibrated to natural rates, named flower traits or a particular archipelago.",
   "significance_prior_work_context": null,
   "authors": [],
   "corresponding_author_index": null,
