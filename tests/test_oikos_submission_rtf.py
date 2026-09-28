@@ -16,7 +16,7 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_mechanism_main
     assert "fldinst PAGE" in text
     assert "\\page" in text
     lower = text.lower()
-    assert "conditional island responses: from functional matching to finite-population evolutionary realization" in lower
+    assert "from pollination ecology to realized floral evolution in finite island populations" in lower
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density counterpart" in lower
     assert "finite-population abm" in lower
