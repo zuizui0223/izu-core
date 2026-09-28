@@ -161,7 +161,7 @@ Richness matching does not eliminate realized heterogeneity: finite-ABM mixed hi
 
 The old Chapter 2 claim is therefore refined rather than simply reproduced. **Visitor amount strongly positions the coarse island-response regime, while visitor composition/history and finite plant demography are distinct axes that strongly modify realized directional heterogeneity; exact latent branch prevalence remains unresolved.** This provides a compatible mechanism for how Chapter 1 can show a recurrent broad functional pressure without one detailed phenotypic response.
 
-Legacy Model 2 is no longer needed as an active control gate; its exact-richness, synthetic-`k`, response-rule and S/C/I analyses remain Supporting Information/provenance.
+Legacy Model 2 is no longer needed as an active control gate; its exact-richness, synthetic-`k`, response-rule and S/C/I analyses remain historical provenance under `legacy/model2/` and are excluded from current Supporting Information.
 
 ## Problem-to-answer matrix
 
@@ -174,7 +174,7 @@ Legacy Model 2 is no longer needed as an active control gate; its exact-richness
 | isolation conflates biological processes | seed and pollinator connectivity have distinct effects | **answered mechanistically within model** |
 | oceanic vs continental labels may conflate history | label-only matched founding/separation control gives no difference | **answered as control** |
 | colour and access channels reorganize separately | abstract matching/investment permits conditional directions but does not identify colour-specific mechanisms | **partially answered** |
-| old Chapter 2 richness / finite visitor-community mechanism | prospective 24,576-case bridge separates richness matching, visitor pooling and plant capacity | **resolved inside Model 3; legacy Model 2 demoted to SI/provenance** |
+| old Chapter 2 richness / finite visitor-community mechanism | prospective 24,576-case bridge separates richness matching, visitor pooling and plant capacity | **resolved inside Model 3; legacy Model 2 moved to historical archive** |
 | historical cause of named regional patterns | no direct region-to-parameter calibration or longitudinal A → B → C chain | **not identified** |
 
 ## Dissertation-level result
