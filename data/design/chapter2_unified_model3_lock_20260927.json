@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "locked_on": "2026-09-27",
   "status": "active_chapter2_unified_model3_bridge_complete",
   "purpose": "Use one nested Model 3 for ecological selection, deterministic expectation and finite-population realization; the former Model 2 richness and finite-community controls are now prospectively evaluated inside Model 3.",
@@ -48,7 +48,10 @@
     }
   },
   "legacy_model2_disposition": {
-    "scientific_role": "supporting_information_and_historical_provenance_only",
+    "scientific_role": "historical_archive_provenance_only",
+    "archive_index": "legacy/model2/README.md",
+    "included_in_current_supporting_information": false,
+    "included_in_current_review_archive": false,
     "active_control_gate": false,
     "retained_assets": [
       "historical service endpoint",
@@ -58,7 +61,7 @@
       "historical S/C/I decomposition",
       "community-mean asymptotic limit"
     ],
-    "prohibited_role": "must not be narrated as a second required biological mechanism or unresolved Chapter 2 gate"
+    "prohibited_role": "must not be narrated as current Supporting Information, a second required biological mechanism, or an unresolved Chapter 2 gate"
   },
   "chapter1_bridge": "Chapter 1's recurrent-function/non-uniform-phenotype tension is addressed mechanistically by separating coarse isolation pressure from ecological and demographic realization: visitor amount/richness shifts the mean regime, while visitor histories and finite plant demography strongly modify realized outcome distributions; stable latent branch prevalence is not identified; assurance and history further filter persistence.",
   "chapter3_boundary": "Chapter 3 owns direct focal Campanula phenotype; Chapter 3 values do not tune, rescue or retrospectively validate the unified Model 3.",
