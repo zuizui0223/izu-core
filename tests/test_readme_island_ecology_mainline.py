@@ -38,7 +38,8 @@ def test_readme_centers_unified_model3_and_demotes_legacy_controls():
     assert "branch capacity" in lower
     assert "isolation-driven" in lower
     assert "active benchmarks until the model 3 bridge gates close" not in lower
-    assert "supporting information and provenance only" in lower
+    assert "historical provenance only under `legacy/model2/`" in lower
+    assert "excluded from current supporting information" in lower
 
 
 def test_readme_routes_real_island_confrontation_and_chapter1_bridge():
