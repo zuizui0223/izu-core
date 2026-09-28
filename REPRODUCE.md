@@ -22,10 +22,11 @@ pytest -q \
   tests/test_chapter2_unified_model3_figures.py \
   tests/test_repository_artifact_budget.py \
   tests/test_current_ci_surface.py \
+  tests/test_model2_legacy_firewall.py \
   tests/test_workflow_trigger_policy.py
 ```
 
-These checks verify the active Model 3 manuscript/manifest route, the frozen 24,576-case bridge receipt, the 128-history inference boundary, current figure regeneration, submission closure, workflow policy, and repository-size guard.
+These checks verify the active Model 3 manuscript/manifest route, the frozen 24,576-case bridge receipt, the 128-history inference boundary, current figure regeneration, submission closure, workflow policy, repository-size guard, and the firewall that keeps Model 2 out of the current Supporting Information and reviewer archive.
 
 For the complete test suite:
 
