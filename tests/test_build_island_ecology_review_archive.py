@@ -51,7 +51,7 @@ def test_review_archive_builds_with_unified_model3_claim_boundary(tmp_path: Path
         assert "deterministic genotype-density counterpart" in lower
         assert "finite-population abm" in lower
         assert "real islands occupy different stages of the same response architecture" in lower
-        assert "the main natural-data gap" in lower
+        assert "principal natural-data gap" in lower
         assert "result 1—mechanistic prediction" not in lower
 
         supporting = archive.read(ANONYMOUS_SI_NAME).decode("utf-8")

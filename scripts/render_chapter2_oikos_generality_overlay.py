@@ -3,7 +3,7 @@ from __future__ import annotations
 from scripts.generate_chapter2_manuscript_tables import build as build_base_tables
 from scripts.render_chapter2_realized_richness_reframe import render_submission_manuscript as render_base_manuscript
 
-NEW_TITLE = "Conditional island responses: from functional matching to finite-population evolutionary realization"
+NEW_TITLE = "From pollination ecology to realized floral evolution in finite island populations"
 
 TABLE_ROW_ANCHOR = (
     "| Joint 240-step + trait adjustment = 0 mixed count | 75/96 | branching persists when the two existing structural sensitivities are imposed simultaneously; no new parameter values |"
@@ -68,9 +68,9 @@ def render_submission_manuscript() -> str:
         "approximately 41.5%",
         "real islands occupy different stages of the same response architecture",
         "all eight shared oshima-to-post targets",
-        "the main natural-data gap",
+        "principal natural-data gap",
         "0/25 full source-state",
-        "recurrent functional island syndrome",
+        "ecologically explicit but system-uncalibrated",
     )
     for token in required:
         if token.lower() not in lower:

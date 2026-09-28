@@ -32,12 +32,12 @@ def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
     words = abstract.split()
     assert 180 <= len(words) <= 300
     lower = abstract.lower()
-    assert "fixed-state assay" in lower
-    assert "deterministic genotype-density inheritance" in lower
-    assert "finite-population abm" in lower
-    assert "source-locked island systems" in lower
+    assert "reproductive selection before demographic change" in lower
+    assert "expected inherited evolution without demographic sampling" in lower
+    assert "realized evolution in finite populations" in lower
+    assert "source-audited island systems" in lower
     assert "24,576-case bridge" in lower
-    assert "mixed-history labels changed strongly" in lower
+    assert "stable latent branch prevalence" in lower
     assert "stable latent branch prevalence" in lower
     assert "68/128" not in abstract
 

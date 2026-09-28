@@ -5,24 +5,28 @@ Status: active scientific narrative — prospective bridge complete
 
 ## One-sentence claim
 
-> **Island isolation can impose a recurrent functional problem and a directional deterministic backbone; realized visitor amount can reverse the coarse mean response, while finite visitor-environment sampling and finite plant demography strongly modify the distribution of realized inherited trajectories. Stable latent branch frequencies are not identified.**
+> **Pollinator-community change reaches floral evolution through distinct ecological stages: functional matching determines reproductive selection, inheritance determines expected change, and finite demography determines which trajectories persist and are realized. Island isolation can impose a coarse common pressure without forcing one floral phenotype.**
+
+Stable latent branch frequencies are not identified.
 
 ## Main inferential spine
 
 ```text
-isolation-driven visitor assembly
+isolation / visitor assembly
         ↓
-coarse pollination opportunity / visitor amount
+functional matching + finite pollen transfer
         ↓
-deterministic expected inherited response
+reproductive selection
         ↓
-finite visitor composition/history
+outcrossing + selfing + Mendelian inheritance
+        ↓
+expected inherited change
+        ↓
+finite recruitment / survival / extinction
         ×
-finite plant demography
+visitor history / seed connectivity / assurance
         ↓
-realized lineage-specific trajectory
-        ×
-assurance / chronology / connectivity / founding / recovery / life history
+realized floral trajectory
 ```
 
 Controlled fixed visitor compositions remain a reduced diagnostic showing that the reproductive operator itself has state-dependent branch capacity. The prospective isolation bridge determines how much of that capacity is expressed under dynamic island assembly.

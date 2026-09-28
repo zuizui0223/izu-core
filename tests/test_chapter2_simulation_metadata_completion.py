@@ -102,7 +102,7 @@ def test_active_manuscript_contains_layer_specific_real_island_confrontation() -
     assert "three shorter, four longer and one unchanged" in lower
     assert "same-direction propagation case" in lower
     assert "counterdirectional case" in lower
-    assert "the main natural-data gap" in lower
+    assert "principal natural-data gap" in lower
     assert "inherited longitudinal" in lower
 
 
