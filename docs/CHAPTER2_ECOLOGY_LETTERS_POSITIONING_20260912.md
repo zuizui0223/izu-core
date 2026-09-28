@@ -202,11 +202,21 @@ Closed:
 - exact same-`k_eff=2` order-changing counterexample;
 - analytic support mechanism for why variance equivalence can fail.
 
-Still open before an Ecology Letters submission:
+Submission-surface status after the v0.4 audit:
 
-1. Figures 1, 2 and 4 rendered in final publication form;
-2. <5000-word Letter and <150-word abstract;
-3. literature placement for variance-equivalent reductions, ecological synchrony and nonlinear context dependence;
-4. empirical synchrony magnitude example in Discussion, with no numerical mapping from field synchrony metrics to theoretical `rho`.
+- manuscript: `docs/CHAPTER2_EL_LETTER_DRAFT_V0_4_20260913.md`;
+- cover / overlap disclosure: `docs/CHAPTER2_EL_COVER_LETTER_DRAFT_V0_4_20260913.md`;
+- four publication figures render in both SVG and PDF through `scripts/render_chapter2_el_v04_figures.py`;
+- CI enforces a <=150-word abstract, <5000-word main text, four figures and the retained failed-prediction result;
+- literature placement now covers variance-equivalent reductions, synchrony and nonlinear context dependence;
+- the Discussion includes a natural plant-pollinator synchrony example without mapping a field metric numerically onto theoretical `rho`.
 
-Lane A must be submitted independently; Lane B work does not reopen or delay it.
+Therefore:
+
+```text
+scientific analysis = CLOSED
+submission surface = CLOSED
+journal upload = downstream of Lane A submission/status disclosure + final author metadata + permanent archive DOI
+```
+
+Lane A must remain an independent submission object. Lane B work does not reopen or delay it, and shared Lane A outputs must remain explicitly disclosed as shared provenance.
