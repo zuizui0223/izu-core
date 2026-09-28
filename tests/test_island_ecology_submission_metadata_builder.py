@@ -53,10 +53,10 @@ def test_template_is_synchronized_to_oikos_unified_model3_surface():
     assert "finite populations" in keywords
     assert "historical contingency" in keywords
     significance = metadata["significance_statement"].lower()
-    assert "before demographic updating" in significance
-    assert "deterministic mendelian inheritance" in significance
-    assert "finite-population dynamics" in significance
-    assert "real-island systems" in significance
+    assert "finite pollen transfer" in significance
+    assert "mendelian inheritance rules" in significance
+    assert "recruitment, survival, extinction and immigration" in significance
+    assert "source-audited island systems" in significance
     assert metadata["significance_prior_work_context"] is None
     assert metadata["planned_public_repository"] == "Dryad Digital Repository"
     assert "no new field sampling" in metadata["ethics_statement"].lower()
