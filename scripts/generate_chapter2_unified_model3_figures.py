@@ -312,7 +312,7 @@ def build_figures() -> dict:
         "full_model3_compact_review": MODEL3.relative_to(ROOT).as_posix(),
         "real_island_projection": REAL.relative_to(ROOT).as_posix(),
         "figure_roles": {
-            "figure1": "pollination-to-evolution pathway across reproductive selection, inherited expectation and finite-population realization",
+            "figure1": "pollination-to-evolution pathway, controlled branch capacity, inherited expectation and finite-population realization",
             "figure2": "prospective isolation bridge separating visitor amount, visitor finiteness and plant finiteness",
             "figure3": "history, assurance and connectivity as realization filters",
             "figure4": "real-island A/B/C confrontation and empirical gap",
