@@ -34,7 +34,7 @@ def test_active_submission_uses_unified_model3_and_preserves_history():
     assert "finite-population abm" in lower
     assert "real islands occupy different stages of the same response architecture" in lower
     assert "all eight shared oshima-to-post targets" in lower
-    assert "the main natural-data gap" in lower
+    assert "principal natural-data gap" in lower
 
     assert "one nested model 3 + completed isolation bridge + layer-specific real-island confrontation" in narrative.lower()
     assert "field e3/e4 remains post-chapter-2 future validation" in narrative.lower()
