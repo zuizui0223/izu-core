@@ -68,7 +68,7 @@ def render_submission_manuscript() -> str:
         "approximately 41.5%",
         "real islands occupy different stages of the same response architecture",
         "all eight shared oshima-to-post targets",
-        "the main natural-data gap",
+        "principal natural-data gap",
         "0/25 full source-state",
         "ecologically explicit but system-uncalibrated",
     )
