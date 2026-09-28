@@ -28,8 +28,8 @@ Status:
 - core biological mechanism: **DEFINED at the declared model-conditional claim ceiling**;
 - original-Chapter-2 control equivalence: **CLOSED by the 24,576-case prospective Model 3 bridge**;
 - new focal field data required: **NO**;
-- submission package: **OPEN for unified figures, SI and fail-closed QA**;
-- author metadata: follows package QA.
+- scientific submission package: **CLOSED** — unified Figures 1–4, Supporting Information, renderers and fail-closed CI pass;
+- actual journal submission: **BLOCKED only by author-supplied identity, prior-work context and declarations**.
 
 Legacy exact-richness, synthetic-`k`, S/C/I and response-rule analyses are Supporting Information/provenance only. Their previously unique control questions are now evaluated directly inside Model 3.
 
@@ -72,7 +72,7 @@ Do not:
 
 ## Current sequence
 
-1. finish Lane A figure/SI/render QA;
-2. complete author metadata and declarations;
+1. complete author metadata, prior-work context, ethics confirmation and submission declarations;
+2. run the fail-closed bundle builder with the completed metadata;
 3. preserve Lane B as a separate companion route;
 4. pursue Lane C only as an independent prospective falsification/transport study.
