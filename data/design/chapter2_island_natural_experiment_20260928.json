@@ -1,0 +1,38 @@
+{
+  "status": "retrospective_source_lock_no_new_model_fitting",
+  "user_direction": "island natural experiments -> repeated synthetic islands -> global observed contexts -> Izu functional links",
+  "izu_core_base_commit": "efdd6865e6ef21f3a5bc1b6f33244fe55061ab74",
+  "chapter1_commit": "9780d9a17ab060848c39a7418f02652cfd1f84a2",
+  "source_sha256": {
+    "data/results/chapter2_natural_regime_six_source_checkpoint_20260915.json": "993adb2655603764ac6a97cae2052e1797c318aec03d68a496612595b154d5b8",
+    "data/results/chapter2_hawaii_natural_regime_coordinate_20260914.json": "2bf851073801c0503a1bcac6a661ad3e5911960e3b5870be92188fa659735f93",
+    "data/results/chapter2_mallorca_natural_regime_coordinates_20260914.json": "a1d0b279f3ac29c7fe586b8b68e4bebf9e3cb573d656f2ab3dac2d3b706e7dfe",
+    "data/results/chapter2_tenerife_natural_regime_coordinates_20260914.json": "8b31309f1de4e230c2977282c6609339930ddbe730e6172dcbf39b30b32e3956",
+    "data/results/chapter2_cabrera_natural_regime_coordinates_20260914.json": "7311b5b7659f88f8fb4dc037b39bd7752e557216da952c73527c7100304bb6a1",
+    "data/results/chapter2_martinique_natural_regime_coordinates_20260914.json": "c60664c4fa640fd7626bd27bdf5cfaafcc3d49af74733fc93a05d90912aace1e",
+    "data/results/chapter2_roberts_england_natural_regime_coordinates_20260915.json": "b560aa5f1e9a143b46106c651e17089d333a5e5caf7fea5b6177e7a24f52c669",
+    "data/results/chapter2_unified_model3_real_island_projection_20260927.json": "6c38fbbf012caf3eea126e54cc7989f09e2e2019bc8e711c6bf58f91bb97e8ec",
+    "data/results/island_system_propagation_matrix_v1.json": "a7ef6e6f81d15046768e63188cc550ca07d58647c51f5a4b324a85c25911bb8d",
+    "data/results/chapter2_natural_regime_current_state_20260915.json": "78c277caebd53422c372d6bfbab7620b7f365bb10037757cab2431480cedc8a3",
+    "data/predictive_meta/hiraiwa_ushimaru_continuous_functional_exposure.json": "bd05e19804faccf32a8299558395584c3788d513678ace4afab0f969a0f4c029",
+    "data/predictive_meta/hiraiwa_ushimaru_matching_to_pollen.json": "4c0e3812021bfc5bdb64db4e3ce35002415ba599fb10b43d9db290fd442e65f2",
+    "data/predictive_meta/hiraiwa_ushimaru_cross_channel_concordance.json": "df1d1ffaf1a4b4baef9ab6440732439383a3ca3ee7567a664a2b358ec8a120f3",
+    "data/predictive_meta/hiraiwa_ushimaru_cross_channel_concordance.csv": "07d6e84c7e1222221943bb83b81d774850b9c9b3128135a5d757c69887c6ecc8"
+  },
+  "hash_convention": "SHA256 of UTF-8 source bytes with CRLF normalized to LF",
+  "denominators": {
+    "network_observations": 42,
+    "network_studies": 6,
+    "network_island_groups": 5,
+    "literature_entries": 42,
+    "literature_geographic_labels": 37,
+    "propagation_layers": 14
+  },
+  "not_estimated": [
+    "natural k",
+    "natural inherited investment trajectory",
+    "historical regional causes",
+    "latent branching prevalence"
+  ],
+  "reproduce": "python -m scripts.build_chapter2_island_atlas"
+}

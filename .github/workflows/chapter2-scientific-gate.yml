@@ -9,6 +9,7 @@ on:
       - 'scripts/model3_island/**'
       - 'scripts/summarize_model3_ch2_bridge_prospective.py'
       - 'scripts/generate_chapter2_unified_model3_figures.py'
+      - 'scripts/build_chapter2_island_atlas.py'
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
@@ -51,7 +52,16 @@ jobs:
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
             tests/test_chapter2_unified_model3_figures.py \
+            tests/test_chapter2_island_atlas.py \
             tests/test_island_ecology_submission_bundle_builder.py \
             tests/test_repository_artifact_budget.py \
             tests/test_current_ci_surface.py \
             tests/test_workflow_trigger_policy.py
+      - name: Reconstruct source-locked natural island atlas
+        run: python -m scripts.build_chapter2_island_atlas
+      - name: Upload natural island atlas
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-natural-island-atlas
+          path: outputs/chapter2_island_atlas_20260928/
+          if-no-files-found: error

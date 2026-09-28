@@ -10,7 +10,7 @@ This document states exactly which unresolved problems remain after Chapter 1 an
 
 Chapter 1 leaves a deliberately asymmetric result:
 
-1. **A recurrent functional core exists.** Reproductive assurance and floral accessibility/generalization recur in the classic-positive direction across all four predeclared geographic strata.
+1. **A recurrent functional core exists.** The corrected seven-response vector is supported across all four geographic strata, but individual traits are not uniformly positive and selfing-adjusted accessibility support varies by region and evidence scope.
 2. **Isolation is associated with stronger pollen limitation.** Independent GloPL evidence supplies a broad ecological pressure consistent with pollination constraint.
 3. **Detailed pollinator-facing phenotype does not recur in one direction.** Colour and colour × architecture combinations differ among northern mid-latitudes, northern high latitudes, tropics and southern extratropics.
 4. **Selfing does not absorb every display association.** Several regional display/architecture signals remain after the declared selfing adjustment.
@@ -59,7 +59,7 @@ At the same time, the full Model 3 shows that assurance can determine whether a 
 
 > **Assurance can be a recurrent insurance function without being the sole cause of pollinator-facing floral divergence.**
 
-This directly resolves why Chapter 1 can retain a selfing-adjusted display signal while assurance itself recurs globally.
+This supplies a model-conditional explanation to test for Chapter 1’s selfing-adjusted signal; it does not identify the historical causes of the regional associations.
 
 ## Open problem 3 — Why can traits associated with island function coexist with stronger pollen limitation?
 
@@ -168,7 +168,7 @@ Legacy Model 2 is no longer needed as an active control gate; its exact-richness
 | Chapter 1 unresolved problem | Unified Model 3 result | Status |
 |---|---|---|
 | recurrent functional core but divergent display | controlled starting state × visitor composition can reverse selection direction before demography | **mechanistic possibility established; isolation-driven realization remains regime dependent** |
-| selfing-adjusted floral residuals | controlled-composition branching persists with assurance fixed; assurance not required to create that selection branch | **mechanistic possibility established within model** |
+| selfing-adjusted floral residuals | controlled-composition branching persists with assurance fixed; evolution of assurance capacity not required to create that selection branch | **mechanistic possibility established within model** |
 | stronger pollen limitation but recurrent assurance | assurance changes downstream persistence/realization rather than necessarily removing upstream mismatch | **answered as staged mechanism** |
 | current environment does not explain all regional phenotype | common-final-environment chronology retains different inherited endpoints | **answered mechanistically within model** |
 | isolation conflates biological processes | seed and pollinator connectivity have distinct effects | **answered mechanistically within model** |
@@ -211,3 +211,6 @@ The strongest thesis statement is:
 Chapter 2 does not reconstruct the historical cause of the four Chapter 1 regional patterns. The decisive missing natural evidence is a same-unit A → B → C transition: pre-response plant/genetic state, measured visitor regime and functional match, reproductive selection, inherited trait/genotype change and demographic history.
 
 This remaining gap should be presented as the next empirical test, not filled by assigning Chapter 1 regions to synthetic Model 3 cells.
+
+
+Current Ch1 source audit and investigator motivation: [2026-09-28 audit](CHAPTER2_CH1_MOTIVATION_AUDIT_20260928.md). Ch1 is motivation, not a Model 3 fitting target.

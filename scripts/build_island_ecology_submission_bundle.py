@@ -16,6 +16,7 @@ from scripts.build_island_ecology_submission_metadata import (
     validate_metadata,
 )
 from scripts.generate_chapter2_unified_model3_figures import build_figures
+from scripts.build_chapter2_island_atlas import write_outputs as write_island_atlas
 from scripts.render_oikos_submission_rtf import (
     render_manuscript_rtf,
     render_plain_text_rtf,
@@ -143,6 +144,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp_name:
         tmp = Path(tmp_name)
+        atlas_dir = tmp / 'natural_island_atlas'
+        write_island_atlas(ROOT, atlas_dir)
         manuscript = tmp / SUBMISSION_MANUSCRIPT_NAME
         supporting_information = tmp / SUBMISSION_SI_NAME
         title_page = tmp / TITLE_PAGE_NAME
@@ -244,6 +247,7 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 SUBMISSION_SI_NAME,
                 *STATIC_SUBMISSION_FILES,
                 *figure_files,
+                *['natural_island_atlas/' + p.name for p in sorted(atlas_dir.iterdir())],
                 RELATIONAL_FIGURE_INPUTS_ARCNAME,
                 TITLE_PAGE_NAME,
                 COVER_LETTER_NAME,
@@ -266,6 +270,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
                 archive.write(ROOT / rel, arcname=rel)
             for rel in figure_files:
                 archive.write(ROOT / rel, arcname=rel)
+            for generated in sorted(atlas_dir.iterdir()):
+                archive.write(generated, arcname='natural_island_atlas/' + generated.name)
             archive.write(RELATIONAL_FIGURE_INPUTS, arcname=RELATIONAL_FIGURE_INPUTS_ARCNAME)
             archive.writestr(
                 "SUBMISSION_BUNDLE_MANIFEST.json",

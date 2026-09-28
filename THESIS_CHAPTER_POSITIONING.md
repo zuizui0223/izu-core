@@ -1,6 +1,6 @@
 # Thesis positioning — Chapter 2
 
-Updated: 2026-09-27
+Updated: 2026-09-28
 
 ## Role in the dissertation
 
@@ -16,9 +16,9 @@ The active cross-chapter bridge is fixed in [`docs/CHAPTER1_CHAPTER2_CANONICAL_B
 
 ## Chapter 1 handoff
 
-Chapter 1 v13 now establishes a **recurrent but non-uniform floral island syndrome**.
+Chapter 1’s corrected 2026-09-24 geographic baseline establishes a **recurrent but non-uniform multivariate floral/reproductive response**. The current source is island commit 9780d9a17; v13 is historical provenance.
 
-Two partially separable phenotype modules form the recurrent functional core across all four predeclared geographic replication strata:
+The study distinguishes two partially separable functional modules. Joint multivariate support in four strata does not imply uniformly positive component traits or FDR-supported selfing-adjusted accessibility in every region:
 
 1. reproductive assurance;
 2. floral accessibility/generalization.
@@ -311,3 +311,8 @@ WHAT multivariate phenotype is realized in the focal lineage?
 ```
 
 The Izu same-block E3/E4 programme remains explicitly parallel/future validation.
+
+
+## Island natural-experiment integration
+
+The active empirical sequence is repeated synthetic island histories, the locked global community-context plane, and Izu stage-specific functional links. The [2026-09-28 motivation audit](docs/CHAPTER2_CH1_MOTIVATION_AUDIT_20260928.md) records the investigator’s originating question without treating Ch1 associations as identified historical selection or tuning targets. The [natural-island atlas](docs/CHAPTER2_NATURAL_ISLAND_ATLAS_20260928.md) supplies observed-context projection and explicit missing-link boundaries.

@@ -55,7 +55,7 @@ conditional phenotypic realization
 | Chapter 1 leaves unresolved | Chapter 2 result | Interpretation |
 |---|---|---|
 | Why does a common pollination constraint not give one detailed phenotype? | controlled visitor compositions can reverse selection gradient with starting floral state | functional matching has deterministic branch capacity; whether isolation-driven assembly preserves it is regime dependent |
-| Are selfing-adjusted display differences still just a mating-system consequence? | controlled-composition branching persists with assurance held fixed | assurance is not required to create that floral-selection branch |
+| Are selfing-adjusted display differences still just a mating-system consequence? | controlled-composition branching persists with assurance held fixed | evolution of assurance capacity is not required to create that floral-selection branch; selfing remains present |
 | Why can assurance recur while morphology does not converge? | assurance can determine persistence but not impose one floral direction | recurrent insurance function does not imply recurrent phenotype |
 | Why can present pollinator state fail to explain present phenotype? | early/late visitor loss yields different endpoints under the same final environment | historical contingency persists after environmental convergence |
 | How can isolation increase pollen limitation while assurance/accessibility are associated with lower realized limitation? | assurance can buffer reproductive consequences or preserve persistence without removing the upstream pollination problem | stress and compensation can coexist at different stages of the same response chain |
@@ -98,7 +98,7 @@ By contrast, increasing seed distance from 0 to 3 shifts investment upward / mak
 
 Thus one geographic-isolation coordinate can combine at least two biologically distinct channels with different phenotypic consequences:
 
-> **pollinator isolation repeatedly strengthens reproductive assurance in the frozen model, while seed connectivity, starting state, community composition and history can prevent one detailed floral endpoint.**
+> **pollinator isolation increases realized selfing in the cited fixed-capacity comparison; this is distinct from evolution of reproductive-assurance capacity, while seed connectivity, starting state, community composition and history can prevent one detailed floral endpoint.**
 
 This is a post-hoc interpretation of the already frozen connectivity factorial, not a calibrated distance effect. Full details are in `docs/CHAPTER1_MODEL3_ISOLATION_CHANNEL_BRIDGE_20260927.md`.
 
@@ -138,3 +138,6 @@ Short version:
 ## Claim boundary
 
 This bridge is mechanistic, not a retrospective fit of Chapter 1. Do not assign Chapter 1 regions to Model 3 cells, infer natural branch frequencies from simulations, or claim that current regional display patterns identify their historical pollinator causes.
+
+
+Current Ch1 source audit and investigator motivation: [2026-09-28 audit](CHAPTER2_CH1_MOTIVATION_AUDIT_20260928.md). Ch1 is motivation, not a Model 3 fitting target.

@@ -1,4 +1,6 @@
 import json
+import zipfile
+import hashlib
 from pathlib import Path
 
 import pytest
@@ -61,3 +63,21 @@ def test_submission_bundle_rejects_non_oikos_route(tmp_path: Path):
     metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
     with pytest.raises(ValueError, match="Oikos Research Paper"):
         bundle.build_submission_bundle(metadata_path, tmp_path / "bundle.zip")
+
+
+def test_submission_bundle_includes_reproducible_natural_atlas(tmp_path: Path, monkeypatch):
+    # The unrelated full source archive is already covered separately.
+    def small_archive(path):
+        with zipfile.ZipFile(path, 'w') as archive:
+            archive.writestr('test-fixture.txt', 'test only')
+        return path
+    monkeypatch.setattr(bundle, 'build_review_archive', small_archive)
+    metadata = tmp_path / 'test-only-metadata.json'
+    metadata.write_text(json.dumps(completed_metadata()), encoding='utf-8')
+    target = bundle.build_submission_bundle(metadata, tmp_path / 'test-only-bundle.zip')
+    with zipfile.ZipFile(target) as archive:
+        provenance = json.loads(archive.read('natural_island_atlas/provenance.json'))
+        atlas = json.loads(archive.read('natural_island_atlas/atlas.json'))
+        assert atlas['units']['network_observations'] == 42
+        for name, expected in provenance['outputs'].items():
+            assert hashlib.sha256(archive.read('natural_island_atlas/' + name)).hexdigest() == expected
