@@ -66,7 +66,7 @@ jobs:
             tests/test_model3_ch2_bridge.py \
             tests/test_model3_island_bridge_ops.py \
             tests/test_model3_ch2_bridge_runner.py \
-            tests/test_model3_ch2_bridge_production_summary.py \
+            tests/test_model3_ch2_bridge_prospective_summary.py \
             tests/test_model3_ch2_bridge_sharding.py \
             -k 'not missing_attempt_ledger_cannot_reset_budget'
 
