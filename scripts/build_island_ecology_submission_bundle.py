@@ -253,7 +253,8 @@ def build_submission_bundle(metadata_path: Path, output: Path) -> Path:
             ],
             "boundary": (
                 "The submission is organized around one nested Model 3: fixed-state reproductive selection, deterministic genotype-density inheritance, finite-population ABM realization, and history/context interventions. "
-                "The prospective reduction audit shows that composition x starting-state branching precedes demographic stochasticity and persists without demographic sampling. "
+                "The prospective reduction audit shows that composition x starting-state branch capacity precedes demographic stochasticity and can persist without demographic sampling under controlled compositions. "
+                "Finite-history mixed labels in the isolation bridge are descriptive, repeat/threshold/numerical-representation sensitive, and are not estimates of stable latent branch prevalence. "
                 "Real-island evidence is confronted by A/B/C layer rather than fitted to synthetic parameter cells; A and C have multiple source-locked examples, while inherited longitudinal B remains the main gap. "
                 "Legacy exact-richness, synthetic-k and response-rule analyses are retained as Supporting Information robustness, and no synthetic coordinate is transferred to nature."
             ),        }
