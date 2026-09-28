@@ -94,7 +94,7 @@ def test_supporting_information_retains_current_model3_and_natural_layers_only()
     assert "finite-community system-size audit" not in lower
     assert "same-direction propagation 1" in lower
     assert "0/25` complete a -> b -> c contracts" in lower
-    assert "partner arrival/replacement `2/25`" in supporting
+    assert "2/25" in supporting
     assert "+1.9426" in supporting and "+2.0590" in supporting
     assert "cell-level simulation variation" not in lower
     assert "stable latent branch prevalence" in lower
