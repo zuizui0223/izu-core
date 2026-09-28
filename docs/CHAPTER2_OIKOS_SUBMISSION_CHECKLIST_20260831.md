@@ -8,7 +8,7 @@ Updated: 2026-09-27
 - Article type: **Research Paper**
 - Scientific state: **Unified Model 3 bridge complete**
 - Journal-facing story: **controlled branch capacity → isolation-driven coarse response → finite visitor and plant realization → history/context filters → real-island A/B/C confrontation**
-- Legacy Model 2: **Supporting Information / provenance only; no active control gate**
+- Legacy Model 2: **historical archive provenance only under `legacy/model2/`; excluded from current Supporting Information and reviewer archive**
 - Empirical role: **layer-specific confrontation and falsification boundary, not parameter calibration or full natural validation**
 - Izu E3/E4: **future A/C transport/falsification, not a submission gate**
 - Fallback: **Journal of Ecology Research Article**
@@ -142,15 +142,17 @@ Formal source boundary:
 - complete A → B → C contracts: **0/25**;
 - descriptive breadth: **42 research entries / 37 exact geographic labels**, not 42 independent Model 3 fits.
 
-### 8. Legacy Model 2 is Supporting Information only
+### 8. Legacy Model 2 is excluded from the current submission
 
-Retain for reproducibility/provenance:
+Retain only in the repository legacy archive for historical reproducibility:
 
 - exact realized-richness matching on the old service endpoint;
 - synthetic-`k` finite-community pooling;
 - response-rule factorial;
 - historical S/C/I decomposition;
 - community-mean asymptotic calculation.
+
+These materials are not packaged in the current Supporting Information or anonymous review archive. Their filenames may retain historical SI numbering, but that numbering no longer defines their submission role.
 
 Do not present these as a second biological mechanism or an unresolved control gate. In particular, no natural threshold near `k≈4` is claimed.
 
