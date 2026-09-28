@@ -1,4 +1,5 @@
 name: Model 3 Chapter 2 bridge production
+# Trigger revision: production preflight includes current sharding/summary tests.
 
 on:
   workflow_dispatch:
