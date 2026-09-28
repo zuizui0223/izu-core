@@ -37,9 +37,11 @@ def test_reframed_abstract_stays_within_oikos_300_word_ceiling():
     assert "finite-population abm" in lower
     assert "source-locked island systems" in lower
     assert "24,576-case bridge" in lower
+    assert "128 independent visitor-history seeds" in lower
     assert "mixed-history labels changed strongly" in lower
     assert "stable latent branch prevalence" in lower
     assert "68/128" not in abstract
+    assert "exact binomial 95% CI" in text
 
 
 def test_scientific_gate_requires_active_unified_model3_lock():

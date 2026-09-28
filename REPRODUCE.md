@@ -1,6 +1,24 @@
-# Reproducing the Chapter 2 headline result
+# Reproducing the current Chapter 2 result
 
-The shortest reviewer path is the frozen headline regression, not the historical acquisition workflow archive.
+## Current unified Model 3 reviewer path
+
+The current scientific surface is the unified Model 3 manuscript plus the frozen prospective isolation bridge. The bridge has **24,576 simulated cases but 128 independent visitor-history seeds**. The 128 histories are the inferential denominator for history-level mixed fractions and cluster-bootstrap intervals; 24,576 is a computational case count, not an independent sample size.
+
+A short reviewer-facing check is:
+
+```bash
+python -m pip install -e '.[dev]'
+pytest -q tests/test_model3_campaign.py tests/test_model3_ch2_bridge_prospective_summary.py tests/test_chapter2_realized_richness_reframe.py tests/test_chapter2_branch_identifiability_boundary.py
+pytest -q tests/test_workflow_trigger_policy.py tests/test_repository_size_budget.py
+```
+
+The workflow directory intentionally retains historical/manual reproduction workflows. `tests/test_workflow_trigger_policy.py` enforces that only `ci.yml` and `chapter2-scientific-gate.yml` run automatically on pushes/pull requests; every other workflow must remain `workflow_dispatch` only.
+
+Repository-size policy and the grandfathered large-file debt are documented in `docs/REPOSITORY_ARCHIVE_POLICY_20260928.md`. The CI budget prevents new oversized design/result/figure blobs from being added while leaving existing frozen provenance readable.
+
+## Historical frozen headline regression retained for provenance
+
+The shortest reviewer path for the historical headline regression is the stored regression test, not the historical acquisition workflow archive.
 
 ```bash
 python -m pip install -e '.[dev]'

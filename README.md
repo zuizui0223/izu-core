@@ -6,7 +6,7 @@
 
 **Chapter 2 unified-model reassessment (2026-09-27):** the prospective [Model 3 unified reduction audit](docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md) shows deterministic branch capacity under controlled visitor compositions. A stricter audit of the actual isolation-driven near-versus-far transport contrast gives mixed finite-ABM responses in 22/128 production and 30/128 held-out histories, but 0/128 mixed deterministic-density histories in both cohorts. Thus branch generation and branch realization must be separated. The completed [Model 3 island campaign](docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md) shows how assurance, chronology, connectivity, life history and finite demography alter persistence and inherited trajectories.
 
-**Chapter 2 is scientifically closed at the declared synthetic claim ceiling without new focal field data.** Its canonical state is **one nested Model 3 + completed 24,576-case isolation bridge + layer-specific real-island confrontation**.
+**Chapter 2 is scientifically closed at the declared synthetic claim ceiling without new focal field data.** Its canonical state is **one nested Model 3 + completed 24,576-case isolation bridge + layer-specific real-island confrontation**. The bridge contains 24,576 simulated cases organized around **128 independent visitor-history seeds**; history-level fractions and clustered intervals use 128 as the inferential denominator, not 24,576.
 
 ```text
 Unified Model 3
