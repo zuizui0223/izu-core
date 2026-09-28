@@ -44,7 +44,7 @@ def test_template_is_synchronized_to_oikos_unified_model3_surface():
     metadata = load_metadata(TEMPLATE)
     assert metadata["journal"] == "Oikos"
     assert metadata["article_type"] == "Research Paper"
-    assert metadata["schema_version"] == "2.0"
+    assert metadata["schema_version"] == "2.1"
     assert metadata["manuscript_title"] == NEW_TITLE
     keywords = {value.lower() for value in metadata["keywords"]}
     assert "island syndrome" in keywords
@@ -169,7 +169,7 @@ def test_checklist_places_author_metadata_after_closed_scientific_gate():
 
 def test_oikos_metadata_template_uses_current_unified_contract():
     metadata = load_metadata(TEMPLATE)
-    assert metadata["schema_version"] == "2.0"
+    assert metadata["schema_version"] == "2.1"
     assert metadata["manuscript_title"] == NEW_TITLE
     assert any("Natural island systems are confronted by Model 3 layer" in note for note in metadata["notes"])
     assert metadata["planned_public_repository"] == "Dryad Digital Repository"
