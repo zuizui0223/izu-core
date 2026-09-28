@@ -16,13 +16,14 @@ from scripts.build_island_ecology_review_archive import (
 )
 
 
-def test_review_archive_file_list_excludes_identity_files_and_includes_active_and_historical_locks():
+def test_review_archive_file_list_excludes_identity_and_legacy_model2_files():
     assert "docs/ISLAND_ECOLOGY_TITLE_PAGE_TEMPLATE_20260824.md" not in CORE_REVIEW_FILES
     assert SOURCE_MANUSCRIPT not in CORE_REVIEW_FILES
     assert all("TITLE_PAGE" not in path.upper() for path in CORE_REVIEW_FILES)
     assert "zuizui0223" in DEFAULT_DENY_TOKENS
     assert "docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md" in CORE_REVIEW_FILES
-    assert "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md" in CORE_REVIEW_FILES
+    assert "docs/CHAPTER2_THREE_RESULT_NARRATIVE_LOCK_20260908.md" not in CORE_REVIEW_FILES
+    assert "docs/CHAPTER2_SUPPORTING_INFORMATION_S19_REALIZED_RICHNESS_20260907.md" not in CORE_REVIEW_FILES
 
 
 def test_review_archive_source_files_pass_default_identity_scan():
@@ -58,7 +59,8 @@ def test_review_archive_builds_with_unified_model3_claim_boundary(tmp_path: Path
         assert "unified model 3 projection onto real-island evidence" in support_lower
         assert "prospective model 3 isolation bridge" in support_lower
         assert "68/128" in supporting and "41.5%" in supporting
-        assert "exact realized-richness matching hard control" in support_lower
+        assert "exact realized-richness matching hard control" not in support_lower
+        assert "finite-community system-size audit" not in support_lower
         assert "cell-level simulation variation" not in support_lower
 
         manifest = json.loads(archive.read("REVIEW_ARCHIVE_MANIFEST.json"))
@@ -66,6 +68,8 @@ def test_review_archive_builds_with_unified_model3_claim_boundary(tmp_path: Path
         assert manifest["mechanism_mainline_included_fail_closed"] is True
         assert manifest["three_result_reframe_active"] is False
         assert manifest["field_e3_e4_required_for_current_paper"] is False
+        assert manifest["legacy_realized_richness_reframe_included_fail_closed"] is False
+        assert manifest["legacy_equal_turnover_generality_control_included_fail_closed"] is False
         boundary = manifest["claim_boundary"].lower()
         assert "nested model 3" in boundary
         assert "inherited longitudinal b layer" in boundary
