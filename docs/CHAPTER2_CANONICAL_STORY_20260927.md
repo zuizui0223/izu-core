@@ -7,6 +7,8 @@ Status: active scientific narrative — prospective bridge complete
 
 > **Pollinator-community change reaches floral evolution through distinct ecological stages: functional matching determines reproductive selection, inheritance determines expected change, and finite demography determines which trajectories persist and are realized. Island isolation can impose a coarse common pressure without forcing one floral phenotype.**
 
+Stable latent branch frequencies are not identified.
+
 ## Main inferential spine
 
 ```text
