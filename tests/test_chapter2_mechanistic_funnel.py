@@ -49,7 +49,7 @@ def test_active_submission_uses_unified_model3_and_preserves_history():
     assert "result 3—biological consequence" not in lower
 
 
-def test_relational_audit_remains_frozen_supporting_information_not_mainline():
+def test_relational_audit_remains_frozen_legacy_not_current_si():
     audit = _load(RELATIONAL)
     assert audit["status"] == "frozen_complete_20260831"
     assert audit["seed_ensemble"]["community_realization_fraction_range"] == [
@@ -62,7 +62,8 @@ def test_relational_audit_remains_frozen_supporting_information_not_mainline():
     submission = render_submission_manuscript().lower()
     assert "legacy reduced response-geometry analyses" not in submission
     supporting = render_supporting_information().lower()
-    assert "prespecified relational-robustness audit" in supporting
+    assert "prespecified relational-robustness audit" not in supporting
+    assert (ROOT / "legacy/model2/README.md").is_file()
 
 
 def test_manifest_routes_bridge_complete_unified_model3_and_real_island_confrontation():
@@ -74,22 +75,25 @@ def test_manifest_routes_bridge_complete_unified_model3_and_real_island_confront
     assert manifest["prospective_bridge"]["status"] == "complete"
     assert manifest["prospective_bridge"]["cases_verified"] == 24576
     assert manifest["real_island_confrontation"]["principal_gap"] == "B_inherited_longitudinal_response_under_measured_visitor_regime"
-    assert manifest["legacy_model2"]["status"] == "supporting_information_and_provenance_only"
+    assert manifest["legacy_model2"]["status"] == "historical_archive_provenance_only"
+    assert manifest["legacy_model2"]["included_in_current_supporting_information"] is False
+    assert manifest["legacy_model2"]["included_in_current_review_archive"] is False
     assert manifest["legacy_model2"]["active_benchmarks"] == []
     assert manifest["current_submission_state"]["new_field_data_required"] is False
     assert manifest["current_submission_state"]["scientific_question_closed"] is True
     assert manifest["current_submission_state"]["original_chapter2_controls_closed"] is True
 
-def test_supporting_information_retains_real_island_and_legacy_layers():
+def test_supporting_information_retains_current_model3_and_natural_layers_only():
     supporting = render_supporting_information()
     lower = supporting.lower()
-    assert "# appendix s16. prespecified relational-robustness audit" in lower
-    assert "# appendix s17. geography-first saturation and final world synthesis" in lower
-    assert "# appendix s18. contemporary izu functional-chain sensitivity" in lower
-    assert "# appendix s18a. unified model 3 projection onto real-island evidence" in lower
+    assert "# appendix s1. geography-first saturation and final world synthesis" in lower
+    assert "# appendix s2. contemporary izu functional-chain sensitivity" in lower
+    assert "# appendix s3. unified model 3 projection onto real-island evidence" in lower
+    assert "# appendix s4. prospective model 3 isolation bridge" in lower
+    assert "prespecified relational-robustness audit" not in lower
+    assert "finite-community system-size audit" not in lower
     assert "same-direction propagation 1" in lower
     assert "0/25` complete a -> b -> c contracts" in lower
-    assert "69.34–80.17%" in supporting
     assert "partner arrival/replacement `2/25`" in supporting
     assert "+1.9426" in supporting and "+2.0590" in supporting
     assert "cell-level simulation variation" not in lower
