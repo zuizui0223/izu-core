@@ -86,7 +86,7 @@ visitor amount/richness
 
 finite visitor composition/history
 + finite plant demography
-      -> realize or suppress directional branching
+      -> modify observed directional heterogeneity; latent branch prevalence remains unresolved
 
 assurance / connectivity / chronology
       -> filter persistence and inherited outcome
