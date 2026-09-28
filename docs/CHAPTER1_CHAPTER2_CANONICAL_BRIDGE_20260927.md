@@ -61,7 +61,7 @@ conditional phenotypic realization
 | How can isolation increase pollen limitation while assurance/accessibility are associated with lower realized limitation? | assurance can buffer reproductive consequences or preserve persistence without removing the upstream pollination problem | stress and compensation can coexist at different stages of the same response chain |
 | What does geographic isolation actually combine? | seed and pollinator connectivity act through distinct routes | one distance coordinate can compress multiple mechanisms |
 | Does visitor amount alone explain the island response? | annual response-blind richness matching reverses the mean far-minus-near effect from negative to positive, but finite-ABM mixed histories rise to 68/128 at epsilon 0 | visitor amount strongly sets the coarse regime, but does not determine every realized direction; finite history labels are stochastic rather than fixed latent branches |
-| Is "finite community" one mechanism? | eight-history visitor pooling removes mixed branches, while 4× plant capacity independently reduces finite-ABM mixed histories from 12/128 to 1/128 | finite visitor-environment sampling and finite plant demography are separable axes; larger plant capacity also reduces repeat-label instability |
+| Is "finite community" one mechanism? | eight-history visitor pooling removes mixed labels, while 4× plant capacity independently reduces finite-ABM mixed labels from 12/128 to 1/128 | visitor-environment realization and finite plant demography are separable axes that alter observed heterogeneity; stable latent branch prevalence is not identified |
 | Does island type itself generate the response? | matched founding/separation labels do not differ without biological state/history differences | oceanic/continental labels are not mechanisms by themselves |
 | Why can colour and architecture decouple? | matching/investment selection is conditional, but literal colour is not represented | general mechanism partly answered; colour-specific mechanism remains open |
 
@@ -82,7 +82,7 @@ This is stronger than saying only that responses are context dependent, but narr
 The prospectively frozen 24,576-case bridge closes the two controls that had previously remained unique to Model 2.
 
 1. **Dynamic realized-richness matching.** Annual response-blind matching reverses the mean far-minus-near inherited-investment effect from negative to positive in both finite ABM (`-0.1446 → +0.0333`) and deterministic density (`-0.4510 → +0.0338`). Yet finite-ABM mixed histories increase to `68/128` at epsilon 0 (`59/128` at 0.01; `18/128` at 0.05). Visitor amount therefore strongly positions the coarse regime without uniquely fixing realized direction.
-2. **Finite visitor versus finite plant sampling.** Pooling eight independent visitor histories eliminates mixed history-level branches in both model forms, whereas increasing plant capacity from 48 to 192 independently reduces finite-ABM mixed histories from `12/128` to `1/128` at epsilon 0. The two finite axes are therefore separable and both matter.
+2. **Finite visitor versus finite plant sampling.** Pooling eight independent visitor histories eliminates mixed history-level labels in both model forms, whereas increasing plant capacity from 48 to 192 independently reduces finite-ABM mixed labels from `12/128` to `1/128` at epsilon 0. The two finite axes are separable and both alter realized outcomes, but these finite-repeat labels are not interpreted as stable latent branch states.
 
 A large S/C/I interaction share is not equivalent to directional branching: the visitor-pooled finite ABM has `I=0.542` but `0/128` mixed histories.
 
@@ -129,7 +129,7 @@ Thus natural islands already occupy multiple response modes predicted to be poss
 
 ## Thesis-level conclusion
 
-> **Chapter 1 shows that island syndromes are more repeatable at the level of ecological function than detailed phenotype. Chapter 2 shows why: isolation can create a recurrent coarse directional pressure, visitor amount shifts the mean regime, and finite visitor plus plant-population realization determines how much phenotypic divergence is expressed.**
+> **Chapter 1 shows that island syndromes are more repeatable at the level of ecological function than detailed phenotype. Chapter 2 shows a compatible mechanism: isolation can create a recurrent coarse directional pressure, visitor amount shifts the mean regime, and visitor-environment plus plant-demographic realization strongly modifies the distribution of phenotypic outcomes.**
 
 Short version:
 
