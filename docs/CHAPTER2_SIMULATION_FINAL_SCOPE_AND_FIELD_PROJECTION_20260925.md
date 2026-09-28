@@ -65,7 +65,7 @@ This is already aligned with `data/design/effective_pollinator_dependency_field_
 
 ## Stop rule and publication wording
 
-Close Chapter 2 once the unified Model 3 reductions and full finite-population campaign pass identity checks, replay, artifact reconstruction, relevant tests and independent review, and publish all operator-dependent, demographic and negative results. The former Model 2 remains provenance/SI robustness only; do not add further mechanisms or fitted parameters merely to restore a desired ranking or evolutionary direction.
+Close Chapter 2 once the unified Model 3 reductions and full finite-population campaign pass identity checks, replay, artifact reconstruction, relevant tests and independent review, and publish all operator-dependent, demographic and negative results. The former Model 2 remains historical archive provenance only under `legacy/model2/` and is excluded from current Supporting Information; do not add further mechanisms or fitted parameters merely to restore a desired ranking or evolutionary direction.
 
 Suggested statement: **Community change does not map uniquely onto plant response. In this model family, community aggregation and the plant response rule determine conditional functional branches, while reproductive assurance, history, connectivity and finite demography determine which branches persist and how inherited floral investment changes. Natural rates, prevalence and historical causes remain to be tested.**
 
