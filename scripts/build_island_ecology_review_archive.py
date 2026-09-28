@@ -126,7 +126,7 @@ def build_archive(output: Path, *, extra_deny_tokens: tuple[str, ...] = ()) -> P
             "real islands occupy different stages of the same response architecture",
             "all eight shared oshima-to-post targets",
             "counterdirectional case",
-            "the main natural-data gap",
+            "principal natural-data gap",
         )
         missing_story = [token for token in required_story if token not in manuscript_lower]
         if missing_story:
