@@ -5,6 +5,7 @@ ACTIVE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 EL = ROOT / "docs/CHAPTER2_ECOLOGY_LETTERS_POSITIONING_20260912.md"
 NEE = ROOT / "docs/CHAPTER2_NEE_STAGE1_READINESS_20260912.md"
 FIREWALL = ROOT / "docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md"
+EL_POSITIONING = ROOT / "docs/CHAPTER2_ECOLOGY_LETTERS_POSITIONING_20260912.md"
 
 
 def _read(path: Path) -> str:
@@ -55,5 +56,19 @@ def test_route_firewall_names_three_distinct_submission_objects_and_closed_bridg
         "original-Chapter-2 control equivalence: **CLOSED",
         "scientific submission package: **CLOSED**",
         "old Model 2 as a second required biological mechanism",
+        "docs/CHAPTER2_EL_LETTER_DRAFT_V0_4_20260913.md",
+        "scientific analysis: **CLOSED**",
+        "submission surface: **CLOSED**",
+        "old NEE-labeled rank-transport packaging is **not an active submission route**",
     ):
         assert token.lower() in lower
+
+
+def test_lane_b_positioning_matches_completed_v04_surface():
+    text = _read(EL_POSITIONING)
+    lower = text.lower()
+    assert "scientific analysis = closed" in lower
+    assert "submission surface = closed" in lower
+    assert "scripts/render_chapter2_el_v04_figures.py" in text
+    assert "docs/CHAPTER2_EL_LETTER_DRAFT_V0_4_20260913.md" in text
+    assert "still open before an ecology letters submission" not in lower
