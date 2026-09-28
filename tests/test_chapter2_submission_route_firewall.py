@@ -16,7 +16,7 @@ def test_current_manuscript_remains_unified_model3_not_el_or_field_completion_su
     text = _read(ACTIVE)
     lower = text.lower()
     first_line = text.splitlines()[0]
-    assert "Conditional island responses: from functional matching to finite-population evolutionary realization" in first_line
+    assert "From pollination ecology to realized floral evolution in finite island populations" in first_line
     assert "Effective independence is a second-order coordinate" not in text
     assert "fixed-state reproductive assay" in lower
     assert "deterministic genotype-density counterpart" in lower
