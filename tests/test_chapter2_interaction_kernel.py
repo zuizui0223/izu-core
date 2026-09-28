@@ -25,10 +25,9 @@ def test_interaction_kernel_audit_rejects_overclaiming_shortcuts():
     assert "natural-frequency" in payload["claim_boundary"]
 
 
-def test_scientific_gate_runs_the_kernel_identity_audit():
+def test_interaction_kernel_audit_is_provenance_not_current_automatic_gate():
     workflow = (ROOT / ".github/workflows/chapter2-scientific-gate.yml").read_text(
         encoding="utf-8"
     )
-    assert "scripts/audit_chapter2_interaction_kernel.py" in workflow
-    assert "python -m scripts.audit_chapter2_interaction_kernel" in workflow
-    assert "chapter2_interaction_kernel_audit_ci.json" in workflow
+    assert "python -m scripts.audit_chapter2_interaction_kernel" not in workflow
+    assert "chapter2_interaction_kernel_audit_ci.json" not in workflow

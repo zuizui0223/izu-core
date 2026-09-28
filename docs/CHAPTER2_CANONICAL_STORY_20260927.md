@@ -37,7 +37,7 @@ Thus the Model 3 reproductive operator can generate opposite selection direction
 
 ### 2. Natural isolation-driven deterministic response is directional
 
-In the prospective 24,576-case near-versus-far bridge:
+In the prospective 24,576-case near-versus-far bridge (**128 independent visitor histories**; demographic repeats nested within histories):
 
 - finite ABM mean effect: `-0.1446` (`95% CI -0.1588 to -0.1306`);
 - deterministic density mean effect: `-0.4510` (`-0.4716 to -0.4301`);
@@ -65,7 +65,7 @@ Pooling eight independent visitor histories removes mixed history-level labels c
 
 Visitor pooling changes environmental averaging and functional composition under a nonlinear reproductive operator. It is not island number or lifespan.
 
-### 5. Finite plant demography matters independently
+### 5. Finite plant demography changes mixed-label behaviour under a separate intervention
 
 Increasing plant capacity from `48` to `192` under the same natural visitor histories reduces finite-ABM mixed histories:
 

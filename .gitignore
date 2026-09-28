@@ -6,3 +6,10 @@ artifacts/
 paper/photo_sheets/
 build/
 dist/
+
+# Large generated campaign artifacts are external-archive / Actions-artifact outputs.
+# Frozen legacy copies already tracked by git remain tracked; the repository budget
+# test prevents them from growing and blocks new oversized equivalents.
+data/results/**/endpoints.csv.gz
+data/results/**/case_receipts.csv
+data/results/**/*.svg
