@@ -69,7 +69,9 @@ def test_active_oikos_manifest_uses_bridge_complete_unified_model3_and_no_field_
     assert manifest["scientific_state"] == "unified_model3_bridge_complete_with_real_island_layer_confrontation"
     assert manifest["prospective_bridge"]["status"] == "complete"
     assert manifest["prospective_bridge"]["cases_verified"] == 24576
-    assert manifest["legacy_model2"]["status"] == "supporting_information_and_provenance_only"
+    assert manifest["legacy_model2"]["status"] == "historical_archive_provenance_only"
+    assert manifest["legacy_model2"]["included_in_current_supporting_information"] is False
+    assert manifest["legacy_model2"]["included_in_current_review_archive"] is False
     assert manifest["legacy_model2"]["active_benchmarks"] == []
     assert manifest["real_island_confrontation"]["principal_gap"] == "B_inherited_longitudinal_response_under_measured_visitor_regime"
     assert manifest["current_submission_state"]["new_field_data_required"] is False
