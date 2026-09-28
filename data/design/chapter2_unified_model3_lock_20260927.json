@@ -60,7 +60,7 @@
     ],
     "prohibited_role": "must not be narrated as a second required biological mechanism or unresolved Chapter 2 gate"
   },
-  "chapter1_bridge": "Chapter 1's recurrent-function/non-uniform-phenotype tension is resolved mechanistically by separating coarse isolation pressure from finite ecological and demographic realization: visitor amount/richness shifts the mean regime, while finite visitor histories and finite plant demography control realized branching; assurance and history further filter persistence.",
+  "chapter1_bridge": "Chapter 1's recurrent-function/non-uniform-phenotype tension is addressed mechanistically by separating coarse isolation pressure from ecological and demographic realization: visitor amount/richness shifts the mean regime, while visitor histories and finite plant demography strongly modify realized outcome distributions; stable latent branch prevalence is not identified; assurance and history further filter persistence.",
   "chapter3_boundary": "Chapter 3 owns direct focal Campanula phenotype; Chapter 3 values do not tune, rescue or retrospectively validate the unified Model 3.",
   "claim_ceiling": {
     "deterministic_counterpart_is_diffusion_PDE": false,
@@ -73,7 +73,9 @@
     "dynamic_richness_matching": "prospectively_evaluated_in_Model3",
     "finite_visitor_sampling": "prospectively_evaluated_in_Model3",
     "finite_plant_sampling": "prospectively_evaluated_in_Model3",
-    "S_C_I_directional_branching_equivalence": false
+    "S_C_I_directional_branching_equivalence": false,
+    "natural_branch_prevalence_estimated": false,
+    "mixed_history_labels": "descriptive_repeat_threshold_and_numerical_representation_sensitive_not_latent_branch_probabilities"
   },
   "submission_state": {
     "scientific_question": "closed_at_unified_model_and_bridge_claim_ceiling",
@@ -142,9 +144,9 @@
     "histories_verified": 128,
     "status": "complete",
     "answers": {
-      "dynamic_realized_richness_matching": "evaluated_mean_reversal_and_finite_branching",
-      "finite_visitor_environment": "evaluated_pooling_removes_mixed_branches",
-      "finite_plant_population": "evaluated_larger_capacity_nearly_removes_mixed_branches"
+      "dynamic_realized_richness_matching": "evaluated_mean_reversal_and_descriptive_mixed_labels",
+      "finite_visitor_environment": "evaluated_pooling_removes_mixed_labels_without_pure_latent_branch_identification",
+      "finite_plant_population": "evaluated_larger_capacity_nearly_removes_mixed_labels_without_latent_prevalence_identification"
     }
   }
 }
