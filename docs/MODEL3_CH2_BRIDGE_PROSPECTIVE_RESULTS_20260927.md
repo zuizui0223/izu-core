@@ -118,7 +118,7 @@ Both are evaluable and scientifically informative. Therefore:
 
 > **Model 2 is no longer required as an active scientific model or control gate for Chapter 2.**
 
-It remains valuable as historical/SI provenance for:
+It remains valuable only as historical legacy provenance under `legacy/model2/` for:
 
 - the earlier service endpoint;
 - exact-richness and synthetic-`k` comparison;
@@ -126,7 +126,7 @@ It remains valuable as historical/SI provenance for:
 - historical S/C/I decomposition;
 - the community-mean asymptotic calculation.
 
-Those results should not be presented as a second biological mechanism.
+Those results should not be presented as a second biological mechanism and are excluded from the current Supporting Information and reviewer archive.
 
 ## Chapter 1 consequence
 
