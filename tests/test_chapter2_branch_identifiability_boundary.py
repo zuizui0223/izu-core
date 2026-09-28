@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,3 +41,10 @@ def test_canonical_surfaces_preserve_branch_identifiability_boundary():
     assert "stable latent branch frequencies are not identified" in story
     assert "exact latent branch prevalence is not identified" in results
     assert "stable latent branch prevalence" in firewall
+
+
+def test_oikos_manifest_keeps_branch_prevalence_unidentified():
+    manifest = json.loads((ROOT / "data/design/chapter2_oikos_submission_manifest_20260927.json").read_text(encoding="utf-8"))
+    ceiling = manifest["claim_ceiling"]
+    assert ceiling["natural_branch_prevalence_estimated"] is False
+    assert ceiling["isolation_finite_abm_branching"] == "descriptive_with_repeat_instability_not_latent_probability"
