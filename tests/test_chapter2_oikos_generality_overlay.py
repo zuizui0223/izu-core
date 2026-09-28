@@ -11,7 +11,7 @@ def test_oikos_title_matches_unified_model3_scope():
     text = render_submission_manuscript()
     first_line = text.splitlines()[0]
     assert NEW_TITLE in first_line
-    assert "conditional island responses" in first_line.lower()
+    assert "pollination ecology" in first_line.lower()
 
 
 def test_unified_model3_mainline_is_explicit():
