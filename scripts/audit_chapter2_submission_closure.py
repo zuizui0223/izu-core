@@ -62,7 +62,7 @@ def _rtf_preflight(text: str, *, main_text: bool) -> list[str]:
             "increasing plant capacity",
             "real islands occupy different stages of the same response architecture",
             "all eight shared oshima-to-post targets",
-            "the main natural-data gap",
+            "principal natural-data gap",
             "21/25",
             "2/25",
             "0/25",
