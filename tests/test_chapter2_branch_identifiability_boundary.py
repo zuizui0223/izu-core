@@ -48,3 +48,15 @@ def test_oikos_manifest_keeps_branch_prevalence_unidentified():
     ceiling = manifest["claim_ceiling"]
     assert ceiling["natural_branch_prevalence_estimated"] is False
     assert ceiling["isolation_finite_abm_branching"] == "descriptive_with_repeat_instability_not_latent_probability"
+
+
+def test_unified_model3_lock_records_final_branch_identifiability_boundary():
+    lock = json.loads((ROOT / "data/design/chapter2_unified_model3_lock_20260927.json").read_text(encoding="utf-8"))
+    ceiling = lock["claim_ceiling"]
+    assert ceiling["natural_branch_prevalence_estimated"] is False
+    assert "not_latent_branch_probabilities" in ceiling["mixed_history_labels"]
+    assert "stable latent branch prevalence is not identified" in lock["chapter1_bridge"].lower()
+    answers = lock["prospective_bridge"]["answers"]
+    assert "descriptive_mixed_labels" in answers["dynamic_realized_richness_matching"]
+    assert "latent" in answers["finite_visitor_environment"]
+    assert "latent" in answers["finite_plant_population"]
