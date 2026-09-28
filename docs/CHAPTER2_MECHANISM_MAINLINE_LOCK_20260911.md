@@ -5,7 +5,7 @@ Status: active journal-facing narrative contract
 
 ## One-sentence paper
 
-A single nested eco-evolutionary Model 3 shows that pollinator-community composition and starting floral state can generate opposite reproductive-selection branches before demography. Those branches can persist under deterministic inheritance in controlled visitor compositions, whereas the stored isolation-driven near-versus-far density contrast is one-directional and finite ABM histories can be mixed. Finite demography and ecological history therefore have regime-dependent roles in which island trajectories are realized.
+A single nested eco-evolutionary Model 3 shows that pollinator-community composition and starting floral state can generate opposite reproductive-selection branches before demography. Those branches can persist under deterministic inheritance in controlled visitor compositions, whereas the stored isolation-driven near-versus-far density contrast is one-directional and finite ABM histories can be mixed. Finite demography and ecological history therefore have regime-dependent roles in the distribution of realized island trajectories; exact latent branch frequencies are not identified.
 
 ## Main inferential spine
 
@@ -78,8 +78,8 @@ The frozen 24,576-case bridge directly evaluates the two controls that had remai
 
 - Annual response-blind richness matching reverses the mean far-minus-near inherited-investment effect from negative to positive in both finite ABM and deterministic density.
 - Finite-ABM mixed histories increase strongly after count matching; deterministic mixed branching is weak and deadband-sensitive.
-- Pooling eight visitor histories removes mixed branches in both model forms.
-- Increasing plant capacity from 48 to 192 nearly removes mixed finite-ABM branches under the same visitor histories.
+- Pooling eight visitor histories removes mixed labels in both model forms; this compound environmental-averaging intervention does not identify a pure latent branch mechanism.
+- Increasing plant capacity from 48 to 192 nearly removes mixed finite-ABM labels under the same visitor histories; this changes several finite-demographic processes rather than drift alone.
 - A large S/C/I interaction share can coexist with zero mixed-sign histories, so variance decomposition is not a proxy for directional branching.
 
 Canonical result: `docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md`.
@@ -121,7 +121,7 @@ The Discussion should mirror the mechanism:
 1. a recurrent island syndrome need not imply a universal phenotype;
 2. Model 3 branching already exists at the fixed-state ecological/reproductive layer;
 3. natural isolation-driven deterministic response is one-directional, while annual richness matching reverses the coarse mean regime;
-4. finite visitor-environment sampling and finite plant demography separately determine how much directional branching is realized;
+4. visitor-environment realization and finite plant demography separately modify descriptive directional heterogeneity, while repeat instability prevents treating mixed fractions as latent branch probabilities;
 5. assurance, chronology, connectivity, recovery and life history explain conditional persistence and realization;
 6. legacy Model 2 analyses are Supporting Information/provenance only;
 7. real islands populate A and C with propagation, branching, buffering and falsification cases, while the inherited longitudinal B layer remains the main natural-data gap.
