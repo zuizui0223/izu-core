@@ -1,6 +1,6 @@
 {
-  "schema_version": "2.2",
-  "updated_on": "2026-09-27",
+  "schema_version": "2.3",
+  "updated_on": "2026-09-28",
   "journal_target": "Oikos",
   "article_type": "Research Paper",
   "routing_status": "active_scientific_route_bridge_complete_package_rebuild",
@@ -12,7 +12,7 @@
   "model_unification_decision": "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
   "real_island_projection": "docs/CHAPTER2_UNIFIED_MODEL3_REAL_ISLAND_PROJECTION_20260927.md",
   "scientific_state": "unified_model3_bridge_complete_with_real_island_layer_confrontation",
-  "story": "coarse_isolation_regime_to_finite_visitor_and_plant_realization_to_real_island_ABC_confrontation",
+  "story": "pollination_to_reproductive_selection_to_expected_inheritance_to_finite_population_realization",
   "unified_model3": {
     "fixed_state_assay": "pre_demographic_selection_branching",
     "deterministic_density": "same_reproduction_and_mendelian_inheritance_without_demographic_sampling",
@@ -109,12 +109,12 @@
   },
   "submission_surfaces": {
     "journal_clean_renderer": "scripts/render_chapter2_oikos_generality_overlay.py",
-    "compatibility_renderer": "scripts/render_island_ecology_submission_manuscript.py",
     "oikos_rtf_renderer": "scripts/render_oikos_submission_rtf.py",
     "supporting_information_renderer": "scripts/render_chapter2_supporting_information.py",
     "submission_metadata": "data/design/island_ecology_submission_metadata_template.json",
     "submission_builder": "scripts/build_island_ecology_submission_bundle.py",
-    "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py"
+    "anonymous_review_archive_builder": "scripts/build_island_ecology_review_archive.py",
+    "legacy_archive": "legacy/"
   },
   "claim_ceiling": {
     "natural_rates_calibrated": false,
@@ -143,7 +143,8 @@
     "renderers_and_fail_closed_audits_passed": true,
     "ci_head_verified": "efde285b9eb28e9166dd89541b74185857e39a6b",
     "author_metadata_is_only_remaining_submission_blocker": true,
-    "scientific_package_closed": true
+    "scientific_package_closed": true,
+    "repository_surface_model3_only": true
   },
   "submission_ready": false,
   "remaining_before_actual_submission": [

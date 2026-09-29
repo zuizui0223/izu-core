@@ -1,92 +1,67 @@
-# Chapter 2 submission-route firewall — 2026-09-27
+# Chapter 2 submission-route firewall — Model 3 mainline
 
-## Purpose
+Updated: 2026-09-28
 
-Keep the current Oikos manuscript, the separate analytical/theoretical companion lane, and future natural transport work from silently merging after the Chapter 2 Model 3 unification.
+## Current paper
 
-## Lane A — current Oikos paper
+The only active Chapter 2 scientific object is:
 
-Scientific object:
+> **one ecologically explicit Model 3 + prospective isolation bridge + layer-specific real-island confrontation**
 
-> **one nested Model 3 + layer-specific real-island confrontation**
+Current manuscript: `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`.
 
-Main claims:
+Current mechanism:
 
-- controlled visitor compositions establish pre-demographic state-dependent branch capacity;
-- natural isolation-driven deterministic response is directional and visitor amount/richness strongly shifts the coarse mean regime;
-- visitor-environment realization and finite plant demography separately modify observed directional heterogeneity; repeat instability and numerical sensitivity prevent interpreting mixed fractions as stable latent branch prevalence;
-- assurance, connectivity and history further modify which trajectories persist;
-- source-locked island systems show same-direction propagation, branching, buffering, counterdirectional response and direct-history effects;
-- the inherited longitudinal **B layer** remains the main natural-data gap.
+`pollinator functional environment → reproductive selection → expected inherited change → finite-population realization`
 
-Chapter 1 bridge:
+The current paper retains these boundaries:
 
-> recurrent functional insurance/accessibility can coexist with non-convergent detailed phenotype because selection direction is state-dependent and later realization is history/demography-dependent.
+- 24,576 computational cases are not independent replicates; inference is organized around 128 independent visitor histories;
+- realized visitor amount strongly positions the coarse mean response;
+- finite visitor-environment sampling and finite plant demography are distinct manipulated axes;
+- reproductive assurance can preserve population persistence without prescribing one floral endpoint;
+- chronology can retain different inherited endpoints under a common final environment;
+- stable latent branch prevalence, calibrated natural rates, named historical causes and region-to-model-cell assignments are not identified;
+- the inherited longitudinal **B layer** remains the principal natural-data gap.
 
-Status:
+Scientific completion does not depend on Chapter 3 data. Chapter 3 or other future field data can test transport/falsification prospectively, but cannot retrospectively tune or validate the frozen Model 3.
 
-- core biological mechanism: **DEFINED at the declared model-conditional claim ceiling**;
-- original-Chapter-2 control equivalence: **CLOSED by the 24,576-case prospective Model 3 bridge**;
-- new focal field data required: **NO**;
-- scientific submission package: **CLOSED** — unified Figures 1–4, Supporting Information, renderers and fail-closed CI pass;
-- actual journal submission: **BLOCKED only by author-supplied identity, prior-work context and declarations**.
+## Prospective empirical test
 
-Legacy exact-richness, synthetic-`k`, S/C/I and response-rule analyses are historical provenance only under `legacy/model2/`. They are excluded from the current Supporting Information and reviewer archive because their previously unique control questions are now evaluated directly inside Model 3.
-
-## Lane B — analytical / Ecology Letters companion
-
-Lane B remains a distinct question about information loss, distributional compression and higher-order sufficiency. Shared historical response-geometry outputs remain shared provenance and must not be presented as newly generated evidence for Lane B.
-
-Active Lane B surfaces:
-
-- manuscript: `docs/CHAPTER2_EL_LETTER_DRAFT_V0_4_20260913.md`;
-- cover / companion-overlap disclosure: `docs/CHAPTER2_EL_COVER_LETTER_DRAFT_V0_4_20260913.md`;
-- figure renderer: `scripts/render_chapter2_el_v04_figures.py`;
-- route and submission checks: `tests/test_chapter2_el_v04_route_firewall.py`, `tests/test_chapter2_el_submission_v04.py` and `tests/test_chapter2_el_v04_figures.py`.
-
-Status:
-
-- scientific analysis: **CLOSED** at the v0.4 analytical claim ceiling;
-- submission surface: **CLOSED** under the current v0.4 CI contract;
-- journal upload: **DOWNSTREAM OF LANE A** unless the exact Lane A status and shared-model provenance are disclosed;
-- old NEE-labeled rank-transport packaging is **not an active submission route**. Prospective natural transport remains Lane C and must not be replaced by retrospective Lane B packaging.
-
-Lane B must not be used to reintroduce `k` crossover or S/C/I ranking as the biological headline of Lane A.
-
-## Lane C — prospective natural A → B → C transport/falsification
-
-Lane C asks whether the unified mechanism transports to a longitudinal natural transition.
-
-Highest-value contract:
+The highest-value future test is a same-unit transition:
 
 ```text
-A: pre-response floral/genetic state
-   + effort-standardized visitor functional environment
-   + direct effectiveness / reproductive selection
+plant state + functional visitor environment + effective pollen transfer
         ↓
-B: inherited trait/genotype change through time
+reproductive selection
         ↓
-C: finite-population history
-   persistence / extinction / immigration / recovery
+inherited trait/genotype change
+        ↓
+finite-population persistence / immigration / recovery
 ```
 
-Izu same-block E3/E4 measurements can strengthen A and parts of C, but a full B test requires longitudinal inherited change. Lane C is therefore prospective transport/falsification, not a missing completion gate for Lane A.
+This is an independent empirical programme, not a missing Chapter 2 completion gate.
+
+## Legacy routes
+
+Retired analytical/submission routes are preserved only for provenance:
+
+- Model 2: `legacy/model2/`
+- former NEE route: `legacy/routes/nee/`
+- former Ecology Letters route: `legacy/routes/ecology-letters/`
+- superseded submission drafts: `legacy/submission-history/`
+- superseded Model 3 development working files: `legacy/model3-development/`
+- pre-Model3 code/tests: `legacy/pre-model3/`
+
+None of these directories defines the current manuscript, Supporting Information, reviewer archive or automatic scientific gate.
 
 ## Hard firewalls
 
 Do not:
 
-- present synthetic `k≈4` as a natural threshold;
+- reintroduce synthetic `k`, S/C/I ranking or legacy response geometry as the biological headline;
+- present old Model 2 as a second required mechanism;
 - assign Chapter 1 regions or real islands to Model 3 parameter cells;
-- use Chapter 3 phenotype as retrospective validation of Lane A;
-- call cross-sectional floral differences a measured B-layer evolutionary trajectory;
-- use Lane C field outcomes to retune the already frozen Lane A model;
-- claim historical *Bombus* causation from present-day Izu associations;
-- present old Model 2 as a second required biological mechanism.
-
-## Current sequence
-
-1. complete author metadata, prior-work context, ethics confirmation and submission declarations;
-2. run the fail-closed bundle builder with the completed metadata;
-3. preserve Lane B as a separate companion route;
-4. pursue Lane C only as an independent prospective falsification/transport study.
+- use cross-sectional floral differences as a measured inherited longitudinal trajectory;
+- infer historical *Bombus* causation from present-day associations;
+- use future field outcomes to retune the frozen Chapter 2 simulation.

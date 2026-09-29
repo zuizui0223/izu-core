@@ -15,7 +15,7 @@ python -m pip install -e '.[dev]'
 
 pytest -q \
   tests/test_chapter2_mechanistic_funnel.py \
-  tests/test_chapter2_realized_richness_reframe.py \
+  tests/test_chapter2_model3_submission.py \
   tests/test_chapter2_branch_identifiability_boundary.py \
   tests/test_chapter2_independent_unit_reporting.py \
   tests/test_chapter2_submission_closure_audit.py \

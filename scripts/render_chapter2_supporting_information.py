@@ -4,94 +4,11 @@ import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_SUPPORTING_INFORMATION_20260827.md"
 DEFAULT_OUTPUT = ROOT / "dist/SUPPORTING_INFORMATION.md"
 
-OLD_HEADER = """# Supporting Information — Response geometry under community reorganization
+APPENDIX_S1 = """
 
-**Status:** active manuscript companion  
-**Updated:** 2026-08-28
-**Main manuscript:** `docs/ISLAND_ECOLOGY_RESEARCH_ARTICLE_ACTIVE_DRAFT_V2_20260827.md`
-
-This Supporting Information is part of the active manuscript surface. It exposes the complete model rules required to reproduce the response-geometry, local-context and assurance analyses. The numerical values below are synthetic design and sensitivity choices unless explicitly identified as literature-motivated directions; they are not empirical estimates of one island system.
-
-The appendices follow the active funnel: S1–S11 define and diagnose the synthetic response space, S12 records the claim boundary, S13 reports the world-comparison identifiability gate, S14 gives the exact interaction-kernel derivation, and S15 separates the roles of simulation, comparative research entries, Izu and the Chapter 3 handoff.
-"""
-
-NEW_HEADER = """# Supporting Information — Response geometry under community reorganization
-
-This Supporting Information exposes the complete model rules required to reproduce the response-geometry, local-context, assurance and relational-robustness analyses. Numerical values are synthetic design or sensitivity quantities unless explicitly identified as published empirical measurements; they are not estimates of natural prevalence or calibrated island thresholds.
-
-Appendices S1–S14 preserve the original frozen model, source-readiness and interaction-kernel analyses. Appendix S15 separates the roles of simulation, comparative evidence and Izu. Appendix S16 records the prespecified relational-robustness audit. Appendix S17 records the geography-first world-saturation audit without reopening the frozen formal denominator. Appendix S18 reports contemporary Izu functional-chain sensitivities. Appendix S18A reprojects the source-locked real-island evidence onto the unified Model 3 A/B/C layers without fitting model parameters. Appendix S18B reports the prospectively frozen 24,576-case isolation bridge separating visitor amount, finite visitor-environment sampling and finite plant demography.
-"""
-
-OLD_NONADD = """For the baseline `21 × 96` matrix, the shares were `2.18%`, `80.17%` and `17.64%`, respectively. The observed and additive-fitted response signs differed in `271/2016 = 13.44%` of cells. The same decomposition was applied separately to every `21 × 24` joint-design matrix. Median additive-sign mismatch was `13.59%` for all-positive, `18.06%` for mixed and `11.61%` for all-negative points.
-
-Because there is one simulated value per starting-position × realization cell, the non-additive remainder combines state-by-realization contingency with cell-level simulation variation. It is not a pure empirical interaction variance estimate.
-"""
-
-NEW_NONADD = """For the historical baseline `21 × 96` matrix, the shares were `2.18%`, `80.17%` and `17.64%`, respectively. The observed and additive-fitted response signs differed in `271/2016 = 13.44%` of cells. The same decomposition was applied separately to every `21 × 24` joint-design matrix.
-
-Each pollinator-community trajectory is generated once per realization and shared across all 21 starting positions. Conditional on that trajectory, `endpoint_on_trajectory` contains no additional random draw and every response-matrix cell is deterministic. The non-additive remainder is therefore the exact starting-position × community-realization non-additive component of the fixed matrix, not a mixture with within-cell simulation noise. The numerical shares remain finite-ensemble synthetic diagnostics rather than population variance parameters. A later prespecified six-seed audit places the baseline community share at the upper end of a `69.34–80.17%` sensitivity range while preserving the component ordering; see Appendix S16.
-"""
-
-OLD_S13_CH3 = "Chapter 3 phenotype was excluded from the predictor ledger and Chapter 2 validation decision."
-NEW_S13_CH3 = "Prospective focal phenotype data were excluded from the predictor ledger and the present validation decision."
-
-OLD_S15 = """# Appendix S15. Evidence roles and mechanistic-resolution funnel
-
-| Layer | Supported role | Explicit exclusion |
-|---|---|---|
-| Synthetic model | Defines possible response geometries and a model-conditional proximal explanation | Natural prevalence, empirical thresholds, ultimate history and external predictive accuracy |
-| Comparative universe | Establishes empirical response diversity and audits source-native joint measurement | Meta-analysis, independent-archipelago denominator, validation coverage and outcome-derived regime assignment |
-| Izu focal system | Separates raw source-state/community-composition structure from null-corrected beyond-composition sorting | Outcome-independent global selection, synthetic-threshold validation, precise island-centre causation and floral evolution |
-| Chapter 3 | Receives the remaining plant-linked effectiveness/dependency/phenotype measurement problem | Retrospective validation, Bombus-causation proof, pollinator-selection proof and external prediction success |
-
-The Izu raw-matching slope was `0.5669` (95% CI `0.2977–0.8361`), whereas the same frozen predictor had slope `0.0333` (95% CI `−0.2680–0.3346`) for null-corrected matching. Thirteen of 120 exact assignments of observed island centre shifts produced raw slopes at least as large as the observed assignment, and a source-position-only model described raw response at least as well as the full centre-shift projection. These attacks locate the current signal at source state plus background community composition and do not support additional non-random partner sorting.
-
-The remaining prospective contract is:
-
-`source state + community assembly + realized partner sorting + partner effectiveness + reproductive dependency/outcome`.
-
-Chapter 2 identifies that contract; it does not claim that Chapter 3 has already satisfied it.
-"""
-
-NEW_S15 = """# Appendix S15. Evidence roles and mechanistic-resolution funnel
-
-| Layer | Supported role | Explicit exclusion |
-|---|---|---|
-| Synthetic model | Defines possible response geometries and a model-conditional proximal explanation | Natural prevalence, empirical thresholds, ultimate history and external predictive accuracy |
-| Comparative universe | Establishes empirical response diversity and audits source-native joint measurement | Meta-analysis, independent-archipelago denominator, validation coverage and outcome-derived regime assignment |
-| Izu focal system | Separates historical source-state/community-composition inference from contemporary functional realization | Outcome-independent global selection, synthetic-threshold validation, precise island-centre causation and floral evolution |
-| Prospective measurement | Tests the remaining plant-linked effectiveness/dependency contract | Retrospective validation or outcome-derived predictor reconstruction |
-
-The historical Izu raw-matching slope was `0.5669` (95% CI `0.2977–0.8361`), whereas the same frozen predictor had slope `0.0333` (95% CI `−0.2680–0.3346`) for null-corrected matching. Thirteen of 120 exact assignments of observed island centre shifts produced raw slopes at least as large as the observed assignment, and a source-position-only model described raw response at least as well as the full centre-shift projection. A prespecified Oshima-source bridge was unsupported. These attacks locate the historical signed-position signal at source state plus background community composition and do not support additional non-random partner sorting.
-
-The remaining prospective contract is:
-
-`source state + partner loss/arrival + realized community + partner effectiveness + reproductive dependency/outcome`.
-"""
-
-APPENDIX_S16 = """
-
-# Appendix S16. Prespecified relational-robustness audit
-
-A structural audit was frozen on 2026-08-31 before execution and retained the historical baseline rather than selecting a new seed or horizon after inspection. It varied model horizon `steps in {30, 60, 120, 240}`, trait adjustment `{0, 0.01, 0.03, 0.06}`, the historical seed plus five prespecified sensitivity seeds, and one equal-initial-richness scenario with 9 mainland-like and 9 island-like pollinator types. All other baseline mainland-like/island-like differences were retained in the equal-richness sensitivity.
-
-Across horizons, mixed-sign realization counts were `65, 48, 41, 43` of 96 for 30, 60, 120 and 240 steps, respectively. Community realization remained the largest sum-of-squares component at every horizon (`71.00–81.57%`), while the starting-position additive component ranged `0.59–4.26%` and non-additivity `17.64–28.41%`.
-
-Across the six prespecified seeds, community realization ranged `69.34–80.17%`, starting position `2.17–3.14%` and state × community non-additivity `17.64–27.91%`. The historical seed produced the largest community share in this sensitivity ensemble but was not replaced. Community realization was the largest component for every seed.
-
-At trait adjustment zero, `64/96` realizations remained mixed-sign. The starting-position additive component was `0.18%`, community realization `67.32%` and state × community non-additivity `32.50%`. Thus trait adjustment is not required for state-dependent mixed geometry; it changes how state dependence is partitioned between additive and non-additive terms.
-
-With initial pollinator richness equalized at 9 versus 9, `53/96` realizations were mixed, 31 all-positive and 12 all-negative. Community realization remained the largest component (`74.04%`). This result establishes only that reduced initial pollinator richness is not necessary for mixed response geometry; loss, arrival, dispersion, generalist fraction and replacement differences remain.
-
-The same audit summarized direct-measurement availability across the frozen 25-entry source ledger: response outcome `21/25`, community functional shift `13/25`, local filtering `9/25`, richness/FD change `8/25`, source functional state `5/25`, partner loss `5/25`, reproductive assurance `5/25`, and partner arrival/replacement `2/25`. These are research-entry availability counts before geographic de-duplication, not independent-archipelago frequencies. Their role is to identify an outcome-rich/process-poor measurement bottleneck; the full joint contract remains `0/25` and formal external prediction remains `not_evaluable`.
-"""
-
-APPENDIX_S17 = """
-
-# Appendix S17. Geography-first saturation and final world synthesis
+# Appendix S1. Geography-first saturation and final world synthesis
 
 The frozen 25-entry identifiability audit was not expanded after outcomes were inspected. A separate geography-first audit was instead used to test whether the response/process vocabulary or the measurement bottleneck changed when the search frame no longer began from the literature-built target list.
 
@@ -106,17 +23,17 @@ A mandatory <20 km2 supplement then reviewed eight preselected small-island syst
 The final world synthesis therefore retained only distinct mechanistic roles rather than every searched island: Surtsey for dated founding chronology, Tiritiri Matangi for documented reintroduction plus functional testing, and Gulf of California *Pachycereus* for a historical/ploidy alternative and failure of a simple current-pollinator-abundance explanation. The separate descriptive breadth is `42 research entries across 37 exact geographic labels`; the formal identifiability denominator remains `25 research entries across 21 exact labels`, full contracts remain `0/25`, and formal external prediction remains `not_evaluable`.
 """
 
-APPENDIX_S18 = """
+APPENDIX_S2 = """
 
-# Appendix S18. Contemporary Izu functional-chain sensitivity
+# Appendix S2. Contemporary Izu functional-chain sensitivity
 
-## S18.1 FDQ to corrected trait matching
+## S2.1 FDQ to corrected trait matching
 
 A transparent source-native sensitivity model used `TM_z ~ FDQ + FEve + site fixed effects + season fixed effects`. The FDQ coefficient was `+1.8346` across all eight source sites, `+1.5414` across the three mainland sites, `+1.9426` across the five Izu islands, and `+2.0590` within Niijima, Kozu, Miyake and Hachijo alone. The five-island leave-one-island range was `+1.4320 to +2.2257`; the post-Oshima four-island range was `+1.4561 to +2.3325`. Every coefficient in both island omission sets remained positive.
 
 The archived pollinator table contained zero recorded *Bombus* species × site × season rows in the four-island post-Oshima subset. This is a sampled-network statement, not proof of biological absence. The result shows that continuous contemporary pollinator functional structure contains explanatory variation within the sampled post-Oshima networks and should not be reduced to a binary sampled-*Bombus* label.
 
-## S18.2 Corrected trait matching to pollen receipt
+## S2.2 Corrected trait matching to pollen receipt
 
 Pollen observations were first aggregated to plant × site × season means because `TM_z` is shared within site × season. The fixed-effect coefficient of `TM_z` was `+0.0295` across all eight sites, `+0.0468` on the mainland, `+0.0353` across Izu5 and `+0.0342` across post-Oshima4.
 
@@ -124,7 +41,7 @@ Site × season clustered CR1 uncertainty was broad: the Izu5 coefficient was `+0
 
 Omission diagnostics localize the fragility to network state rather than one plant taxon. In both Izu5 and post4, all nine estimable leave-one-plant models remained positive; one *Oxalis corniculata* var. *trichocaulon* omission was non-estimable because the fixed-effect design became singular. Leaving out Hachijo or season 3 reversed the island-only coefficient. For Izu5, all `24/24` estimable leave-one-site-season coefficients remained positive. For post4, `18/19` remained positive; the single reversal occurred when `Hachijo × season 3` was omitted.
 
-## S18.3 Cross-channel response branching
+## S2.3 Cross-channel response branching
 
 Eight source-defined Oshima-to-post plant targets had all three contrasts available. Corrected trait matching was lower post-Oshima in `8/8`. Floral-tube response split into `3 shorter / 4 longer / 1 unchanged`, and pollen receipt split into `4 lower / 4 higher`. Only `2/8` targets showed the complete `matching lower + tube shorter + pollen lower` combination.
 
@@ -135,9 +52,9 @@ The contemporary evidence therefore has a hierarchy. `FDQ -> corrected matching`
 
 
 
-APPENDIX_S18A = """
+APPENDIX_S3 = """
 
-# Appendix S18A. Unified Model 3 projection onto real-island evidence
+# Appendix S3. Unified Model 3 projection onto real-island evidence
 
 The current manuscript no longer assigns natural island systems to synthetic `k`, S/C/I regimes or response-geometry classes. Instead, source-locked systems are evaluated against three nested Model 3 layers:
 
@@ -159,59 +76,52 @@ This re-projection is descriptive and source-locked. It does not calibrate Model
 """
 
 
-APPENDIX_S18B = """
+APPENDIX_S4 = """
 
-# Appendix S18B. Prospective Model 3 isolation bridge
+# Appendix S4. Prospective Model 3 isolation bridge
 
 The bridge design and interpretation rules were frozen before production outcomes were inspected. Production completed successfully in GitHub Actions workflow run `36311030639` with `24,576` verified cases, `128` independent visitor histories and `16` deterministic execution shards. The frozen compact result is `data/results/model3_ch2_bridge_prospective_frozen_20260927.json`.
 
 The endpoint is the paired far-minus-near difference in terminal-minus-initial inherited floral investment. All three predeclared deadbands (`0`, `0.01`, `0.05`) are retained.
 
-## S18B.1 Natural isolation-driven assembly
+## S4.1 Natural isolation-driven assembly
 
 The finite ABM mean far-minus-near effect is `-0.1446` (95% history-cluster bootstrap interval `-0.1588 to -0.1306`), whereas deterministic genotype density is `-0.4510` (`-0.4716 to -0.4301`). Finite-ABM mixed-history counts are `12/128`, `8/128` and `1/128` across the three deadbands; deterministic density is `0/128` at all three.
 
-## S18B.2 Annual response-blind realized-richness matching
+## S4.2 Annual response-blind realized-richness matching
 
 Annual thinning makes near and far visitor counts identical before reproduction. The mean effect reverses from negative to positive: finite ABM `+0.0333` (`0.0245 to 0.0425`) and deterministic density `+0.0338` (`0.0236 to 0.0444`). Finite-ABM mixed histories become `68/128`, `59/128` and `18/128`; deterministic density gives `16/128`, `1/128` and `0/128`.
 
 This intervention also changes visitor identity persistence and therefore is not a pure natural species-richness manipulation.
 
-## S18B.3 Finite visitor-environment sampling
+## S4.3 Finite visitor-environment sampling
 
 Pooling eight independent visitor histories with count-scaled activity normalization eliminates mixed history-level branches in both finite ABM and deterministic density at all three deadbands. Finite-ABM mean effect is `-0.2259`; deterministic-density mean effect is `-0.5560`.
 
 Pooling changes environmental averaging and functional composition under a nonlinear reproductive operator. It is not an island-count or lifespan manipulation.
 
-## S18B.4 Finite plant demography
+## S4.4 Finite plant demography
 
 Increasing plant capacity from `48` to `192` while retaining the natural visitor history reduces finite-ABM mixed histories from `12` to `1` at deadband 0, from `8` to `1` at 0.01 and from `1` to `0` at 0.05. The mean effect moves from `-0.1446` to `-0.2716`, closing approximately `41.5%` of the difference toward the deterministic mean.
 
 Thus visitor-environment realization and finite plant demography are separable manipulated axes that modify observed directional heterogeneity; these finite-repeat labels do not identify stable latent branch prevalence.
 
-## S18B.5 S/C/I is not directional branching
+## S4.5 S/C/I is not directional branching
 
 The visitor-pooled finite ABM has a descriptive interaction share `I = 0.542` while showing `0/128` mixed-sign histories. S/C/I therefore summarizes magnitude structure and cannot be used as a proxy for directional evolutionary branching.
 
 These are synthetic model-conditional results. Mixed fractions are descriptive history labels, not natural prevalence; model time, distance and trait coordinates are not calibrated field quantities.
 """
 
-def render_supporting_information(source: Path | None = None) -> str:
-    """Render only the current Unified Model 3 / natural-confrontation SI.
 
-    Historical Model 2 response-geometry material is preserved in the repository
-    legacy archive and is intentionally excluded from the current journal SI.
-    """
-    header = """# Supporting Information — Unified Model 3 island-response mechanism
+def render_supporting_information() -> str:
+    """Render the current Model 3 / natural-confrontation Supporting Information."""
+    header = """# Supporting Information — Model 3 pollination-to-evolution pathway
 
-The current Supporting Information contains only material that supports the active Unified Model 3 paper and its source-audited natural confrontation. Historical Model 2 response-geometry, synthetic-k, S/C/I, Gaussian-limit and response-rule analyses are legacy provenance and are not part of the current Supporting Information.
+This Supporting Information contains only material supporting the active Model 3 paper and its source-audited natural confrontation. Retired Model 2, synthetic-k, S/C/I, Gaussian-limit and response-rule analyses are legacy provenance and are excluded.
 
 """
-    s1 = APPENDIX_S17.replace("# Appendix S17.", "# Appendix S1.", 1)
-    s2 = APPENDIX_S18.replace("# Appendix S18.", "# Appendix S2.", 1).replace("## S18.", "## S2.")
-    s3 = APPENDIX_S18A.replace("# Appendix S18A.", "# Appendix S3.", 1)
-    s4 = APPENDIX_S18B.replace("# Appendix S18B.", "# Appendix S4.", 1).replace("## S18B.", "## S4.")
-    text = header + s1 + s2 + s3 + s4 + "\n"
+    text = header + APPENDIX_S1 + APPENDIX_S2 + APPENDIX_S3 + APPENDIX_S4 + "\n"
     lower = text.lower()
     required = (
         "# appendix s1. geography-first saturation and final world synthesis",
@@ -239,11 +149,13 @@ The current Supporting Information contains only material that supports the acti
         "gaussian mean-field limit",
         "regime-dependent response hierarchy under active plant adjustment",
         "synthetic-k finite-community pooling",
+        "prespecified relational-robustness audit",
     )
     for token in forbidden:
         if token in lower:
-            raise ValueError(f"legacy Model 2 material leaked into current SI: {token}")
+            raise ValueError(f"legacy material leaked into current SI: {token}")
     return text
+
 
 def render_to_path(output: Path = DEFAULT_OUTPUT) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)

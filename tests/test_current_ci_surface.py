@@ -24,7 +24,7 @@ def test_chapter2_gate_targets_current_unified_model3_surface() -> None:
     text = GATE.read_text(encoding="utf-8")
     for current in (
         "test_chapter2_mechanistic_funnel.py",
-        "test_chapter2_realized_richness_reframe.py",
+        "test_chapter2_model3_submission.py",
         "test_chapter2_branch_identifiability_boundary.py",
         "test_chapter2_independent_unit_reporting.py",
         "test_chapter2_submission_closure_audit.py",
