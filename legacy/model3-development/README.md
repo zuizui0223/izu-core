@@ -10,4 +10,6 @@ Current scientific surfaces are in:
 - `docs/MODEL3_ISLAND_NUMERICAL_REVIEW_20260927.md`
 - `docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md`
 
+Additional archived material now includes superseded pilot/candidate design files and pilot result receipts. The two `docs/superpowers/` Model 3 source-contract specifications remain active because current freeze/receipt verification hashes them directly.
+
 Development files here must not override the frozen current claim ceiling.
