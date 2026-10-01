@@ -28,15 +28,17 @@ realized floral evolution
 
 Model 3 is a forward eco-evolutionary simulation, not a statistical fit to named islands.
 
-Each diploid plant carries three inherited trait axes:
+Each diploid plant state contains three trait axes:
 
 - **access / matching** — which visitor functional types the flower matches best;
 - **floral investment** — how strongly the plant invests in the pollinator-facing floral phenotype;
-- **reproductive assurance** — the capacity for autonomous reproduction when outcross pollen is limited.
+- **reproductive assurance** — the capacity for autonomous reproduction when outcross pollen is limited; this axis can be fixed by intervention or allowed to evolve.
+
+Access and floral investment are inherited in the active trajectories; assurance is inherited only in the treatments that explicitly allow it to evolve.
 
 Each visitor has a functional optimum, breadth and effectiveness. Plant–visitor matching determines finite pollen transfer. Floral investment can increase visitor-mediated return but carries a reproductive allocation cost, so the direction favoured by selection depends on both the plant's starting state and the realized visitor environment.
 
-One reproductive year follows the same biological order in every model layer:
+A full Model 3 trajectory year follows this biological order; the fixed-state assay deliberately stops after the reproductive step before inheritance or population updating:
 
 ```text
 visitor environment
