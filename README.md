@@ -24,6 +24,58 @@ finite recruitment / survival / extinction
 realized floral evolution
 ```
 
+## What the simulation actually contains
+
+Model 3 is a forward eco-evolutionary simulation, not a statistical fit to named islands.
+
+Each diploid plant carries three inherited trait axes:
+
+- **access / matching** — which visitor functional types the flower matches best;
+- **floral investment** — how strongly the plant invests in the pollinator-facing floral phenotype;
+- **reproductive assurance** — the capacity for autonomous reproduction when outcross pollen is limited.
+
+Each visitor has a functional optimum, breadth and effectiveness. Plant–visitor matching determines finite pollen transfer. Floral investment can increase visitor-mediated return but carries a reproductive allocation cost, so the direction favoured by selection depends on both the plant's starting state and the realized visitor environment.
+
+One reproductive year follows the same biological order in every model layer:
+
+```text
+visitor environment
+        ↓
+functional matching + pollen export / receipt
+        ↓
+outcrossing + autonomous selfing
+        ↓
+viable offspring
+        ↓
+Mendelian inheritance
+        ↓
+adult survival + seed arrival + finite recruitment
+        ↓
+next plant population
+```
+
+The same reproductive operator is then viewed at three nested levels:
+
+| layer | what is retained | question |
+|---|---|---|
+| **fixed-state assay** | reproduction only; no inheritance or population update | Which direction of floral investment is favoured now? |
+| **deterministic genotype density** | reproduction + exact Mendelian expectation; no demographic sampling | What inherited change is expected without finite-population sampling? |
+| **finite-population ABM** | reproduction + inheritance + explicit individuals, recruitment and extinction | Which expected trajectories are actually realized and persist? |
+
+The prospective isolation bridge changes visitor connectivity rather than assigning synthetic cells to real islands. In the frozen bridge, the primary comparison is a **near** versus **far** visitor-arrival environment, followed by prespecified interventions that diagnose different parts of the mechanism: annual visitor-count matching, pooling independent visitor histories, and increasing plant capacity.
+
+Its **24,576 computational cases** are:
+
+```text
+128 independent visitor histories
+× 3 starting floral-investment states
+× 8 nested demographic repeats
+× 8 near/far intervention arms
+= 24,576 cases
+```
+
+The independent ecological denominator is therefore **128 visitor histories**, not 24,576 cases. Synthetic time, distance and trait coordinates are mechanistic coordinates rather than calibrated natural units.
+
 ## Current scientific result
 
 Model 3 separates three biological objects that should not be collapsed:
