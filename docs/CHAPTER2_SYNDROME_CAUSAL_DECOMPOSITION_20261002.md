@@ -255,23 +255,29 @@ This does not show that real flower colour is easier than real corolla architect
 Full numeric receipt: `data/results/chapter2_trait_accessibility_pilot_20261002.json`.
 
 
-## Stage B — conditional next step
+## Next extension — mutation supply, linkage and pleiotropy
 
-Stage B is **not yet an accepted Model 3 result**.
+The standing-variation pilot has now established the minimum genetic-filter result: unequal available variation can make trait axes respond asynchronously under the same unchanged ecological operator.
 
-It is opened only if Stage A confirms at least one ecological route and the abstract access/investment representation remains insufficient to explain asynchronous trait response.
-
-The minimal extension should preserve the existing ecology and change only the genetic-availability layer:
+The next extension should therefore **not** add more ecological mechanisms. It should keep Stage A ecology fixed and deepen only the genetic-accessibility layer:
 
 ```text
 same ecological selection
         ↓
-equal genetic accessibility       asymmetric genetic accessibility
-        ↓                          ↓
-synchronous response              lagged / partial trait response
+standing variation
+        +
+trait-specific mutation supply / effect sizes
+        +
+cross-trait linkage or pleiotropic coupling
+        ↓
+which syndrome components can move, how fast, and in what combinations
 ```
 
-This is the direct model analogue of the Chapter 1 observation that broad functional responses can recur while detailed display modules do not converge.
+This is where literal molecular hypotheses can eventually enter. The appropriate question is not “is colour easy and shape hard?” but:
+
+> **Which distributions of mutational availability and pleiotropic constraint are sufficient to reproduce fast signal-like change, slower architecture-like change, or coordinated multi-trait switches?**
+
+That formulation matches the Chapter 1 observation that broad functional responses can recur while detailed display modules do not converge, without hard-coding a universal molecular hierarchy.
 
 ## Claim firewall
 
