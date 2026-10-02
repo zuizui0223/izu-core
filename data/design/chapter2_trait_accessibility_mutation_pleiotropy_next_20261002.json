@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "status": "prospective_next_extension_not_executed",
+  "status": "prospective_frozen_before_execution",
   "frozen_on": "2026-10-02",
   "parent_result": "data/results/chapter2_trait_accessibility_pilot_20261002.json",
   "analysis": "chapter2_trait_accessibility_mutation_pleiotropy_extension",
@@ -20,7 +20,7 @@
   "baseline": {
     "capacity": 48,
     "years": 400,
-    "survival": 0.0,
+    "survival": 0,
     "activity": 0.4,
     "fixed_assurance": 0.5,
     "investment_cost": 0.5,
@@ -29,9 +29,31 @@
     "standing_sd_access": 0.03,
     "standing_sd_investment": 0.03,
     "visitor_histories": {
-      "left4": [0.15, 0.25, 0.35, 0.45],
-      "right4": [0.55, 0.65, 0.75, 0.85]
-    }
+      "left4": [
+        0.15,
+        0.25,
+        0.35,
+        0.45
+      ],
+      "right4": [
+        0.55,
+        0.65,
+        0.75,
+        0.85
+      ]
+    },
+    "founder_seeds": [
+      77201,
+      77202,
+      77203,
+      77204
+    ],
+    "demographic_seeds": [
+      301,
+      302,
+      303,
+      304
+    ]
   },
   "mutation_supply_regimes": {
     "equal": {
@@ -54,7 +76,7 @@
     }
   },
   "pleiotropy_regimes": {
-    "independent": 0.0,
+    "independent": 0,
     "moderate_positive": 0.5,
     "strong_positive": 0.9
   },
@@ -67,9 +89,10 @@
     "fraction with coordinated two-trait crossing"
   ],
   "predeclared_predictions": [
-    "Under investment_accessible mutation supply, investment reaches its response threshold earlier than access more often than under equal mutation supply.",
-    "Under access_accessible mutation supply, access reaches its response threshold earlier than investment more often than under equal mutation supply.",
-    "Positive mutational pleiotropy increases coordinated two-trait responses relative to independent mutation.",
+    "Under investment_accessible mutation supply, investment reaches its sustained response threshold earlier relative to access than under equal mutation supply.",
+    "Under access_accessible mutation supply, access reaches its sustained response threshold earlier relative to investment than under equal mutation supply.",
+    "Under right4, where the standing-variation pilot showed access and investment moving in the same positive direction, stronger positive pleiotropic coupling reduces the crossing-time gap and/or increases coordinated two-trait crossing relative to independent mutation.",
+    "Under left4, where the standing-variation pilot showed access decreasing while investment increased, stronger positive pleiotropic coupling acts as an antagonistic genetic constraint and increases the crossing-time gap and/or reduces coordinated two-trait crossing relative to independent mutation.",
     "The sign of ecological selection remains determined by the unchanged Model 3 reproductive operator; mutation accessibility changes realization speed and completeness rather than redefining the ecological optimum."
   ],
   "scientific_role": "Test whether syndrome-like coordination or decoupling can emerge from the genetic accessibility layer after ecological routes have been separated.",
@@ -79,5 +102,26 @@
     "No universal claim that pigmentation is genetically simple or architecture genetically complex.",
     "Pleiotropy parameter is a generic mutational covariance, not a mapped molecular network.",
     "Any literal anthocyanin, corolla-tube or developmental-pathway interpretation requires external genetic evidence."
-  ]
+  ],
+  "threshold_definition": {
+    "magnitude": 0.05,
+    "sustained_years": 20,
+    "first_sustained_crossing": "first year beginning a run of 20 consecutive annual trait means whose absolute deviation from that trajectory's initial mean is at least 0.05",
+    "coordinated_crossing": "both traits achieve sustained crossing and their first sustained crossing years differ by at most 20 years",
+    "single_trait_crossing": "exactly one trait achieves sustained crossing by year 400"
+  },
+  "mutation_kernel": {
+    "unit": "each transmitted diploid allele copy after Mendelian segregation and before recruitment",
+    "marginal_rate_preservation": "access and investment retain their declared per-copy mutation probabilities exactly",
+    "coupling_semantics": "pleiotropy value p is the fraction of the maximum possible shared mutation-event rate: shared_rate = p * min(mu_access, mu_investment); access_only = mu_access - shared_rate; investment_only = mu_investment - shared_rate",
+    "shared_effect": "a shared event applies the same standard-normal deviate to access and investment, scaled by each trait's declared mutation SD, giving positive effect-direction coupling",
+    "independent_effect": "trait-only events use independent standard-normal deviates",
+    "boundaries": "mutated allele values are reflected into [0,1] using the same reflection rule as Model 3",
+    "assurance": "fixed and never mutated"
+  },
+  "decision_rule": {
+    "mutation_accessibility_supported_if": "the accessible-trait mutation regime shifts the median paired crossing-time difference in its preregistered direction relative to equal mutation supply in at least one visitor history, with the other history reported regardless of sign",
+    "context_dependent_pleiotropy_supported_if": "strong_positive versus independent mutation changes coordination in opposite preregistered directions between right4 (facilitating aligned change) and left4 (constraining antagonistic change)",
+    "reporting": "report every cell and paired founder×demographic trajectory; no outcome-dependent cell dropping except extinction, which remains an explicit outcome"
+  }
 }
