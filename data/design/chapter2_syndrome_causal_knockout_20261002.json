@@ -16,19 +16,55 @@
   "base": {
     "years": 60,
     "capacity": 48,
-    "survival": 0.0,
+    "survival": 0,
     "depression": 0.5,
-    "mutation_rate": 0.0,
+    "mutation_rate": 0,
     "activity_mode": "fixed",
-    "investment_genotypes": [[0.4, 0.4], [0.4, 0.6], [0.6, 0.6]],
-    "demographic_replicates": [101, 102, 103, 104, 105, 106, 107, 108]
+    "investment_genotypes": [
+      [
+        0.4,
+        0.4
+      ],
+      [
+        0.4,
+        0.6
+      ],
+      [
+        0.6,
+        0.6
+      ]
+    ],
+    "demographic_replicates": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108
+    ]
   },
   "route_A_assurance_cost": {
     "starting_access": 0.5,
-    "visitor_composition": [0.35, 0.45, 0.55, 0.65],
-    "activity": [0.05, 0.4],
-    "fixed_assurance": [0.0, 0.5],
-    "investment_cost": [0.0, 0.5],
+    "visitor_composition": [
+      0.35,
+      0.45,
+      0.55,
+      0.65
+    ],
+    "activity": [
+      0.05,
+      0.4
+    ],
+    "fixed_assurance": [
+      0,
+      0.5
+    ],
+    "investment_cost": [
+      0,
+      0.5
+    ],
     "primary_endpoint": "fixed-state mean total floral-investment gradient",
     "secondary_endpoints": [
       "deterministic inherited investment change",
@@ -44,14 +80,33 @@
     "interpretation_if_supported": "A reproductive-assurance substitution route exists: when autonomous reproduction buffers lost outcross service, the marginal benefit of pollinator-facing investment can fall below its allocation cost."
   },
   "route_B_rematching": {
-    "starting_access": [0.2, 0.5, 0.8],
+    "starting_access": [
+      0.2,
+      0.5,
+      0.8
+    ],
     "activity": 0.4,
     "fixed_assurance": 0.5,
     "investment_cost": 0.5,
     "communities": {
-      "left4": [0.15, 0.25, 0.35, 0.45],
-      "center4": [0.35, 0.45, 0.55, 0.65],
-      "right4": [0.55, 0.65, 0.75, 0.85]
+      "left4": [
+        0.15,
+        0.25,
+        0.35,
+        0.45
+      ],
+      "center4": [
+        0.35,
+        0.45,
+        0.55,
+        0.65
+      ],
+      "right4": [
+        0.55,
+        0.65,
+        0.75,
+        0.85
+      ]
     },
     "primary_endpoint": "fixed-state mean total floral-investment gradient",
     "secondary_endpoints": [
@@ -62,7 +117,8 @@
       "At identical visitor count, changing functional composition changes the sign or magnitude of selection for at least one starting access state.",
       "The same composition contrast should propagate to inherited change in at least one deterministic or finite trajectory."
     ],
-    "interpretation_if_supported": "Pollinator replacement/rematching is a distinct route from simple pollinator scarcity."
+    "interpretation_if_supported": "Pollinator replacement/rematching is a distinct route from simple pollinator scarcity.",
+    "material_gradient_difference_threshold": 0.25
   },
   "causal_contrasts": {
     "A_assurance_effect_low_activity_cost_present": "gradient(activity=0.05, assurance=0.5, cost=0.5) - gradient(activity=0.05, assurance=0.0, cost=0.5)",
@@ -76,7 +132,7 @@
       "assurance knockout and cost knockout each move that gradient upward"
     ],
     "route_B_supported_if": [
-      "same-count composition contrast changes gradient sign or materially changes magnitude in at least one starting state"
+      "same-count left4 versus right4 changes gradient sign in at least one starting state OR absolute gradient difference is at least 0.25 in at least one starting state"
     ],
     "stage_B_trait_accessibility_extension_allowed_if": "At least one ecological route is supported and the current abstract investment/access axes remain insufficient to explain why visible trait modules should respond at different rates."
   },
