@@ -103,15 +103,15 @@ More specifically, the prospective extension tests four distinctions that syndro
 
 If pollinator service declines, the benefit of a pollinator-facing trait can decline. But a weaker positive benefit alone does not force the trait downward.
 
-For an abstract pollinator-facing investment (z),
+For an abstract pollinator-facing investment \(z\),
 
-[
+$
 g_z
 =
-rac{\partial B_{poll}(z)}{\partial z}
+\\frac{\\partial B_{poll}(z)}{\\partial z}
 -
-rac{\partial C(z)}{\partial z}.
-]
+\\frac{\\partial C(z)}{\\partial z}.
+$
 
 A directional decline requires the remaining cost or another directional force to exceed the pollination benefit. Therefore the model must distinguish:
 
