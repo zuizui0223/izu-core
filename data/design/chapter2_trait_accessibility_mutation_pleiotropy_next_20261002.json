@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_next_extension_not_executed",
+  "frozen_on": "2026-10-02",
+  "parent_result": "data/results/chapter2_trait_accessibility_pilot_20261002.json",
+  "analysis": "chapter2_trait_accessibility_mutation_pleiotropy_extension",
+  "purpose": "Extend the supported standing-variation filter to trait-specific mutation supply, mutational effect size and pleiotropic coupling while keeping the ecological Model 3 operator unchanged.",
+  "implementation_boundary": {
+    "do_not_modify": "scripts/model3_island/",
+    "new_operator_location": "prospective sibling module only",
+    "ecological_reproduction_rules_changed": false,
+    "demographic_rules_changed": false,
+    "only_new_layer": "inheritance mutation kernel"
+  },
+  "biological_question": "When standing variation is similarly depleted, can differences in mutational accessibility and pleiotropic coupling alone determine which syndrome components appear first, lag, or evolve together?",
+  "trait_analogs": {
+    "access": "architecture-like functional matching axis",
+    "investment": "signal/display-like pollinator-facing investment axis"
+  },
+  "baseline": {
+    "capacity": 48,
+    "years": 400,
+    "survival": 0.0,
+    "activity": 0.4,
+    "fixed_assurance": 0.5,
+    "investment_cost": 0.5,
+    "founder_mean_access": 0.5,
+    "founder_mean_investment": 0.5,
+    "standing_sd_access": 0.03,
+    "standing_sd_investment": 0.03,
+    "visitor_histories": {
+      "left4": [0.15, 0.25, 0.35, 0.45],
+      "right4": [0.55, 0.65, 0.75, 0.85]
+    }
+  },
+  "mutation_supply_regimes": {
+    "equal": {
+      "mutation_rate_access": 0.0001,
+      "mutation_rate_investment": 0.0001,
+      "mutation_sd_access": 0.025,
+      "mutation_sd_investment": 0.025
+    },
+    "investment_accessible": {
+      "mutation_rate_access": 0.00001,
+      "mutation_rate_investment": 0.001,
+      "mutation_sd_access": 0.015,
+      "mutation_sd_investment": 0.04
+    },
+    "access_accessible": {
+      "mutation_rate_access": 0.001,
+      "mutation_rate_investment": 0.00001,
+      "mutation_sd_access": 0.04,
+      "mutation_sd_investment": 0.015
+    }
+  },
+  "pleiotropy_regimes": {
+    "independent": 0.0,
+    "moderate_positive": 0.5,
+    "strong_positive": 0.9
+  },
+  "primary_endpoints": [
+    "time to first sustained 0.05 change in access",
+    "time to first sustained 0.05 change in investment",
+    "terminal access change",
+    "terminal investment change",
+    "fraction of trajectories with only one trait crossing threshold",
+    "fraction with coordinated two-trait crossing"
+  ],
+  "predeclared_predictions": [
+    "Under investment_accessible mutation supply, investment reaches its response threshold earlier than access more often than under equal mutation supply.",
+    "Under access_accessible mutation supply, access reaches its response threshold earlier than investment more often than under equal mutation supply.",
+    "Positive mutational pleiotropy increases coordinated two-trait responses relative to independent mutation.",
+    "The sign of ecological selection remains determined by the unchanged Model 3 reproductive operator; mutation accessibility changes realization speed and completeness rather than redefining the ecological optimum."
+  ],
+  "scientific_role": "Test whether syndrome-like coordination or decoupling can emerge from the genetic accessibility layer after ecological routes have been separated.",
+  "claim_boundary": [
+    "Mutation rates and effect sizes are synthetic accessibility contrasts, not natural estimates.",
+    "No claim that colour corresponds exactly to investment or morphology exactly to access.",
+    "No universal claim that pigmentation is genetically simple or architecture genetically complex.",
+    "Pleiotropy parameter is a generic mutational covariance, not a mapped molecular network.",
+    "Any literal anthocyanin, corolla-tube or developmental-pathway interpretation requires external genetic evidence."
+  ]
+}
