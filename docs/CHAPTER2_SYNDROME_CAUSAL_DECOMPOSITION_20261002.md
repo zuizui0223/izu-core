@@ -320,6 +320,53 @@ A new prospective experiment is required to separate mutation supply from
 selection strength, finite population size and standing variation. The failed
 Stage C is retained rather than tuned into a positive result.
 
+## Stage D: prospective diagnosis of the investment bottleneck
+
+Because Stage C failed primarily through investment-axis censoring, a new
+prospective diagnostic was frozen **after** that failure rather than changing the
+failed threshold. It factorially separated:
+
+- low versus restored investment standing variation;
+- baseline versus investment-accessible de novo mutation;
+- plant capacity 48 versus 192;
+- left4 versus right4 visitor environments.
+
+The endpoint was terminal absolute investment response at the already declared
+400-year horizon. All cells were retained.
+
+The diagnostic completed successfully on Python 3.10, 3.11 and 3.12. All three
+decision-tree contrasts were positive, but their magnitudes were strongly
+hierarchical:
+
+- restoring standing variation: **+0.14777** absolute investment response;
+- increasing de novo investment mutation supply: **+0.01389**;
+- extra mutation rescue attributable to capacity 48 -> 192: **+0.00102**.
+
+Thus the mutation rescue was only about **9.4%** as large as the
+standing-variation contrast, and the capacity modulation was about **7.3%** of
+the mutation rescue.
+
+Within this synthetic 400-year experiment, the dominant identified genetic
+filter is therefore **variation already present when selection begins**. De novo
+mutation can partly rescue a depleted trait axis, but much more weakly, and
+weakening finite-population filtering adds only a small further increment.
+
+This result changes the most useful molecular question. The immediate next
+question is no longer simply whether one visible trait has a higher mutation
+rate than another. It is:
+
+> **Which syndrome components begin with accessible standing variation, and
+> which require new mutation or coordinated developmental change before
+> ecological selection can move them?**
+
+That is a stronger bridge to real floral genetics because standing variation,
+major regulatory alleles, developmental coupling and mutational input become
+distinct empirical quantities rather than being compressed into a generic
+"evolvability" label.
+
+Full receipt:
+`data/results/chapter2_investment_mutation_rescue_diagnostic_20261002.json`.
+
 ## Claim firewall
 
 The current frozen Chapter 2 paper remains unchanged by these prospective extensions unless a later explicit manuscript-integration decision is made.
