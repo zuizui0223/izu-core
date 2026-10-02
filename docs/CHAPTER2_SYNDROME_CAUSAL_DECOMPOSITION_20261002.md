@@ -63,6 +63,18 @@ Recent trait-matching eco-evolutionary models also formalize mutualistic trait m
 
 - Eriksson et al. 2026. *Eco-Evolutionary Dynamics of Generalist and Specialist Pollinators Facing Plant Diversity Changes*. Ecology and Evolution. https://doi.org/10.1002/ece3.73182
 
+### Island-biogeography theory and simulation
+
+Classical and general dynamic island-biogeography models explain biodiversity through immigration, extinction and speciation, often as functions of island area, isolation and ontogeny. More recent dynamic models estimate these processes across real island radiations.
+
+- Whittaker RJ, Triantis KA, Ladle RJ. 2008. *A general dynamic theory of oceanic island biogeography*. Journal of Biogeography 35:977–994. https://doi.org/10.1111/j.1365-2699.2008.01892.x
+- Valente L et al. 2020. *A simple dynamic model explains the diversity of island birds worldwide*. Nature 579:92–96. https://doi.org/10.1038/s41586-020-2022-5
+
+**What these frameworks already solve:** how isolation and island history alter colonization, speciation, extinction, richness and endemism.  
+**What Chapter 2 asks at a different scale:** how one isolation-sensitive mutualism propagates inside a plant population from visitor arrival and functional composition to pollen transfer, mating, inherited floral change, persistence and extinction.
+
+Thus Chapter 2 is not a replacement for island biogeography. It is a **within-population mechanistic layer beneath the usual island-biogeographic rates**, focused on phenotype realization rather than species richness.
+
 ### Syndrome literature
 
 The selfing syndrome is a well-established repeated association between mating-system transition and traits such as reduced floral display and herkogamy, but its genetic architecture is heterogeneous rather than a single universal route.
