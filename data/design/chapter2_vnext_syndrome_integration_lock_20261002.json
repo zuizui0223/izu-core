@@ -32,11 +32,6 @@
     "calibrated_high_standing_abs_response_y800": 0.2014992373085016,
     "calibrated_low_standing_r0_01_abs_response_y800": 0.13535270174260444
   },
-  "retained_negative_result": {
-    "mutation_accessibility_supported": false,
-    "context_dependent_pleiotropy_supported": false,
-    "reason": "investment sustained-crossing endpoint was largely censored at the preregistered 0.05 threshold over 400 years"
-  },
   "promotion_requirements": [
     "explicit decision to reopen the current submission package",
     "regenerate main figures around the syndrome-as-outcome causal architecture",
