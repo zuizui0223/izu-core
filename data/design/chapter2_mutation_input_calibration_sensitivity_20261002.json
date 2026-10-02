@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_execution",
+  "frozen_on": "2026-10-02",
+  "parent_main_sha": "941b6fcb594cb465af298f8f43756e5964ce26a8",
+  "analysis": "chapter2_mutation_input_calibration_sensitivity",
+  "purpose": "Test whether the previous standing-variation > de-novo-mutation hierarchy persists when mutation input is scaled relative to initial additive genetic variance and when genetic variance is followed through time.",
+  "literature_anchor": {
+    "Houle_Morikawa_Lynch_1996": {
+      "doi": "10.1093/genetics/143.3.1467",
+      "use": "morphological traits had mean VG/VM on the order of 100 generations; use VM/VG0 = 0.01 per generation as the central empirically anchored sensitivity, not as a species-specific calibration"
+    },
+    "Mackay_et_al_meta_analysis_2022": {
+      "doi": "10.1093/genetics/iyac060",
+      "use": "published mutational heritability estimates span roughly 2.5e-5 to 1.02e-2 and plant estimates tend lower; this motivates broad sensitivity rather than a single natural value"
+    }
+  },
+  "calibration_boundary": "Model 3 contains no environmental variance VE, so literal mutational heritability VM/VE cannot be calibrated. Mutation input is instead normalized to the model's initial allelic additive-variance proxy.",
+  "baseline": {
+    "years": 800,
+    "report_years": [0, 50, 100, 200, 300, 400, 500, 600, 700, 800],
+    "activity": 0.4,
+    "fixed_assurance": 0.5,
+    "investment_cost": 0.5,
+    "survival": 0.0,
+    "depression": 0.5,
+    "founder_mean_access": 0.5,
+    "founder_mean_investment": 0.5,
+    "standing_sd_access": 0.03,
+    "visitor_histories": {
+      "left4": [0.15, 0.25, 0.35, 0.45],
+      "right4": [0.55, 0.65, 0.75, 0.85]
+    },
+    "founder_seeds": [77401, 77402, 77403, 77404],
+    "demographic_seeds": [601, 602]
+  },
+  "standing_regimes": {
+    "low": 0.03,
+    "high_reference": 0.15
+  },
+  "mutation_input": {
+    "per_copy_mutation_rate": 0.001,
+    "low_standing_VM_over_VG0": [0.0, 0.001, 0.01, 0.03],
+    "high_reference_VM_over_VG0": [0.0],
+    "sigma_solution": "for diploid trait mean z=(a1+a2)/2 and rare independent mutation, VM ~= mu*sigma_m^2/2; solve sigma_m=sqrt(2*r*VG0/mu) separately for each founder population",
+    "access_mutation_rate": 0.0,
+    "pleiotropy": 0.0
+  },
+  "capacities": [48, 192],
+  "primary_endpoints": [
+    "absolute investment response at year 400",
+    "absolute investment response at year 800",
+    "investment allelic additive-variance proxy through time"
+  ],
+  "variance_definition": "VA_proxy = variance of all investment allele values / 2; exact for an additive diploid trait under independent allele sampling and used here as a transparent within-model proxy rather than an empirical quantitative-genetic estimate",
+  "predeclared_decisions": {
+    "central_anchor": "VM/VG0 = 0.01",
+    "standing_dominates_at_400_if": "mean absolute response(high standing, r=0) > mean absolute response(low standing, r=0.01), averaged over visitor histories and capacities",
+    "standing_dominates_at_800_if": "same comparison at year 800",
+    "ranking_reversal_if": "low-standing r=0.01 exceeds high-standing r=0 at the corresponding horizon",
+    "near_plateau_if": "for each low-standing mutation-input cell, absolute change in mean VA_proxy from year 600 to 800 divided by mean VA_proxy over years 600 and 800 is < 0.1",
+    "headline_rule": "retain 'standing variation dominates over the tested finite horizon' only if standing_dominates_at_400 is true; if central-anchor ranking reverses, remove that claim. Year-800 and plateau results define the time-horizon limitation."
+  },
+  "claim_boundary": [
+    "This is an empirically anchored sensitivity, not calibration to a named species or floral trait.",
+    "VG/VM literature values arise from natural quantitative-genetic systems and do not make the Model 3 trait scale empirical.",
+    "The VA proxy is a within-model additive-variance diagnostic and does not include environmental variance.",
+    "Reflection at [0,1], selection and finite demography make realized mutation input depart from the rare-mutation approximation; actual variance trajectories are therefore reported.",
+    "All mutation-input ratios, both capacities and both visitor environments must be reported regardless of result."
+  ]
+}
