@@ -1,12 +1,20 @@
-# Chapter 2 canonical story vNext — syndrome as an emergent outcome
+# Chapter 2 canonical story vNext — stage decomposition of syndrome realization
 
-**Date:** 2026-10-02  
-**Status:** vNext candidate; active Oikos submission remains unchanged  
-**Manuscript:** `docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md`
+**Date:** 2026-10-02
+**Status:** established vNext scientific story; active Oikos submission remains unchanged
+**Manuscript:** docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md
+**Establishment audit:** docs/CHAPTER2_VNEXT_ESTABLISHMENT_AUDIT_20261002.md
 
 ## One-sentence claim
 
-> **Island, selfing and pollination syndromes are emergent phenotypes produced by separable ecological, reproductive, genetic and demographic filters; a recurrent pollination problem can therefore generate recurrent functional insurance without one recurrent detailed floral phenotype.**
+> **A recurrent pollination problem can yield recurrent functional responses without
+> a recurrent detailed floral phenotype because ecological selection, reproductive
+> persistence, genetic accessibility and finite-population realization are
+> separable stages.**
+
+This claim survived the prospective robustness tests. It does not depend on the
+assurance-by-cost route being generally robust or on a universal ranking of
+standing variation over mutation.
 
 ## Dissertation handoff
 
@@ -14,201 +22,189 @@
 
 Chapter 1 resolves the empirical syndrome:
 
-```text
 isolation
-  -> stronger pollen limitation
-  -> recurrent reproductive assurance / accessibility
-  -> but detailed pollinator-facing phenotype is less repeatable
-```
+→ stronger pollen limitation
+→ recurrent reproductive assurance / accessibility
+→ but detailed pollinator-facing phenotype is less repeatable
 
-The unresolved question is not whether island plants change. It is why functional
-repeatability is stronger than phenotypic repeatability.
+The unresolved question is why repeatability is stronger at the functional level
+than at the detailed phenotype level.
 
-### Chapter 2 — why can that happen?
+### Chapter 2 — where can repeatability be lost?
 
-```text
 pollinator loss / replacement
-        ↓
-visitor amount + functional composition
-        ↓
-pollen transfer / outcross opportunity
-        ↓
-reproductive assurance + cost / functional rematching
-        ↓
-selection on pollinator-facing traits
-        ↓
-standing genetic variation
-        ↓
-new mutation / genetic coupling
-        ↓
-finite recruitment + extinction + history + connectivity
-        ↓
-realized syndrome components
-```
+→ visitor amount + functional composition
+→ pollen transfer / ecological selection
+→ reproductive persistence
+→ standing variation + new mutation
+→ finite recruitment / extinction / history / connectivity
+→ realized phenotype
 
-Each arrow can preserve, redirect, attenuate or terminate the response.
+A syndrome is the multistage outcome. The vNext novelty is the explicit
+stage-by-stage intervention, not the general proposition that syndrome categories
+are imperfect mechanistic explanations.
 
-## Five causal statements
+## Established causal statements
 
-### 1. Functional matching creates branch capacity before demography
+### 1. Functional matching creates conditional selection before demography
 
-The existing fixed-state assay shows that the same visitor composition can favour
-opposite investment directions depending on starting access state. Under left4,
-the investment gradient is +1.5048 at access 0.20 and -0.8720 at 0.80; right4
-reverses those signs.
+Under controlled visitor compositions, starting floral state changes the sign of
+the investment-selection gradient. This remains the clearest demonstration that
+non-uniformity can enter before inheritance or demographic stochasticity.
 
-**Meaning:** non-uniformity can enter at the ecological selection layer.
+### 2. Same-count functional replacement can redirect response
 
-### 2. Pollinator scarcity does not automatically imply adaptive floral reduction
+At fixed visitor count, changing functional composition alters selection and
+inherited response away from the symmetric starting state.
 
-Under visitor activity 0.05:
+The exact +2.377 / -2.377 contrasts and zero at access 0.5 arise from the
+mirror-symmetric left4/right4 design. They demonstrate operator dependence; they
+are not natural thresholds or asymmetric discoveries.
 
-- no assurance + cost 0.5 -> gradient +0.602; finite population does not persist;
-- assurance 0.5 + no investment cost -> gradient +0.611;
-- assurance 0.5 + cost 0.5 -> gradient -0.393;
-- assurance 0.5 + cost 0.5 with activity restored to 0.4 -> gradient +1.681.
+### 3. Assurance-by-cost reduction is possible but not a headline general route
 
-**Meaning:** relaxed positive selection and directional adaptive reduction are
-different. In this model, low pollinator service produces lower investment only
-when reproductive assurance preserves an alternative reproductive route and a
-continuing investment cost remains.
+The original focal cell produced a negative investment gradient under low service,
+assurance and positive investment cost. The broader prospective robustness test
+showed a non-isolated negative region, but the sign boundary shifted strongly with
+inbreeding depression:
 
-### 3. Pollinator replacement is a distinct route from pollinator scarcity
+- depression 0.25: zero crossing near activity 0.182;
+- depression 0.50: near 0.096;
+- depression 0.75: near 0.040.
 
-At the same visitor count, left4 versus right4 changes the fixed selection
-contrast by +2.377 at starting access 0.2 and -2.377 at 0.8, with deterministic
-inherited contrasts of +0.189 and -0.189.
+At activity 0.05 the inherited response also failed the declared all-life-history
+criterion, including positive responses under high depression and in the
+same-annual-budget perennial treatment.
 
-**Meaning:** changing who pollinates can redirect the floral optimum even when
-visitor number is unchanged.
+**Status:** retain as a model-conditional sensitivity / SI mechanism. Do not use it
+as a headline explanation of selfing-syndrome floral reduction.
 
 ### 4. Shared selection does not imply shared evolution
 
-When one trait's founder standing SD is reduced from 0.15 to 0.03 while the
-ecological operator remains unchanged:
+Reducing founder standing variation on one trait axis selectively suppresses
+response on that axis while the ecological operator remains unchanged.
 
-- access response is reduced by 0.1136 deterministically / 0.0961 in finite ABM;
-- investment response is reduced by 0.1054 / 0.0830.
+This establishes genetic accessibility as a separate downstream filter.
 
-**Meaning:** genetic accessibility is a separate filter downstream of ecological
-selection.
+### 5. Standing variation leads over the tested finite horizon, but mutation narrows the gap
 
-### 5. Over the tested finite horizon, standing variation dominates new mutation
+A new mutation-input sensitivity normalized mutation input to initial additive
+variance. The central anchor was VM/VG0 = 0.01 per generation.
 
-The first prospectively frozen mutation/pleiotropy timing experiment failed and
-remains a negative result. A later prospective decision-tree diagnostic then
-separated investment standing variation, de novo mutation supply and plant
-capacity:
+Mean absolute investment response:
 
-- restore standing variation: +0.14777 absolute investment response;
-- increase de novo mutation supply: +0.01389;
-- capacity 48 -> 192 adds +0.00102 to mutation rescue.
+| treatment | year 400 | year 800 |
+|---|---:|---:|
+| high standing, no mutation | 0.1968 | 0.2015 |
+| low standing, central mutation input | 0.0769 | 0.1354 |
 
-**Meaning:** in this synthetic 400-year setting, pre-existing variation is the
-dominant identified genetic bottleneck. New mutation contributes, but much less;
-finite establishment is a smaller modifier.
+The ranking did not reverse, but the response ratio narrowed from 2.56 to 1.49.
+Most mutation-input cells were not near variance plateau at years 600–800.
 
-## The original Model 3 bridge still matters
+**Status:** retain only the finite-horizon statement. No equilibrium or universal
+standing-variation > mutation hierarchy is claimed. The earlier 9.4% rescue ratio
+is retired as a general effect size because the old mutation input was only about
+one fifth of the new central anchor in the low-standing treatment.
 
-The vNext does not discard the 24,576-case isolation bridge.
+### 6. Finite ecological and demographic realization remain essential
 
-It now occupies the **realization layer**:
+The original 24,576-case bridge remains the realization layer:
 
 - natural near/far isolation gives a negative coarse mean response;
 - annual visitor-count matching reverses that mean;
 - visitor-history pooling removes descriptive mixed labels;
-- increasing plant capacity moves the finite result toward deterministic density;
-- chronology, connectivity and assurance further alter persistence and endpoints.
+- increasing plant capacity moves finite results toward deterministic density;
+- chronology, connectivity and assurance alter persistence and inherited endpoints.
 
-The old conclusion “visitor amount sets the coarse regime while finite histories
-and plant demography modify realization” therefore remains true, but it is no
-longer the whole Chapter 2 story.
+The older conclusion that visitor amount sets a coarse regime while finite history
+and plant demography modify realization remains valid inside the broader vNext.
 
 ## What is new relative to existing theory
 
-Do not claim that Chapter 2 invented selfing models, pollinator matching models,
-pollination syndromes or island biogeography.
+Do not claim that Chapter 2 invented syndrome criticism, selfing theory, pollinator
+matching, genetic constraints or island biogeography.
 
-Existing work separately covers:
+Relevant prior context includes:
 
-- pollen limitation / pollen discounting / selfing evolution;
-- pollinator abundance and floral specialization;
-- pollination-syndrome association and its limits;
-- genetic architecture of syndrome transitions;
-- immigration / extinction / speciation in island biogeography.
+- Fenster et al. 2004: functional pollinator groups and differential floral
+  selection, with unresolved questions about combined traits and history;
+- Ollerton et al. 2009: weak fit of many traditional syndrome categories and a call
+  for direct trait/visitation/pollen-transfer analysis;
+- Rosas-Guerrero et al. 2014: substantial syndrome predictability when effective
+  pollinators are used;
+- Dellinger 2020: system-specific constraints × pollinator-mediated selection ×
+  adaptive trade-offs.
 
-The vNext contribution is the **stage-by-stage causal integration and knockout**:
+The vNext contribution is the **single-model intervention sequence**:
 
-```text
-ecological return
-≠ reproductive substitution
+ecological selection
+≠ reproductive persistence
 ≠ functional rematching
 ≠ genetic accessibility
-≠ demographic realization
-```
+≠ finite realization
 
-A syndrome is the phenotype that emerges after these filters, not one of the filters.
+and the explicit demonstration that repeatability can be lost between those
+stages.
+
+## Natural-data boundary — closed scope
+
+Natural systems are retained for:
+
+1. layer-specific biological plausibility;
+2. adversarial/falsification context.
+
+They are **not** quantitatively fitted to Model 3 cells.
+
+The formal archive has 0/25 complete same-unit A → B → C contracts. Quantitative
+transfer therefore awaits future longitudinal data linking measured visitor
+transition, inherited response and demographic realization in the same
+populations. This is a limitation, not an open analysis task for the current
+vNext.
 
 ## Trait-language firewall
 
-The current abstract trait axes must remain abstract.
-
-- access is an architecture-like functional matching coordinate, not literal tube length;
-- investment is a pollinator-facing signal/display investment coordinate, not literal colour;
+- access is an abstract functional-matching coordinate, not literal tube length;
+- investment is an abstract pollinator-facing investment coordinate, not literal
+  flower colour;
 - assurance is a reproductive route, not synonymous with realized selfing rate.
 
 Do not claim “colour is easy and morphology is hard.”
 
-The defensible prediction is:
+The defensible biological prediction is that trait modules can differ in standing
+variation, mutational target size, effect-size distribution and developmental /
+pleiotropic coupling, so the same selection need not move them synchronously.
 
-> different trait modules can differ in standing variation, mutational target size,
-> effect-size distribution and developmental/pleiotropic coupling, so the same
-> ecological selection need not move them synchronously.
+## Negative-result firewall
 
-Literal colour/shape mechanisms require external trait-specific genetic evidence.
+Retain both prospective negative results:
 
-## Negative result firewall
+1. mutation/pleiotropy sustained-crossing experiment did not meet its success
+   criteria;
+2. Route A did not meet its robustness rule.
 
-The mutation/pleiotropy timing experiment is part of the science.
-
-It failed because the investment axis was almost entirely censored at the
-predeclared sustained 0.05 threshold over 400 years. Threshold and horizon were
-not changed after inspection.
-
-Do not rewrite this as a successful pleiotropy result.
-
-## Natural-data boundary
-
-The source-audited natural systems show several pieces of the architecture:
-
-- Izu: common upstream matching decline + divergent downstream pollen/tube response;
-- Ogasawara / Xisha: stronger access/effectiveness -> reproduction links;
-- Hawaii / Puerto Rico-Mona: buffering;
-- Dominica: counterdirectional falsifier;
-- Surtsey / Tiritiri Matangi / partner-loss systems: historical realization.
-
-The major missing natural layer remains longitudinal inherited response under a
-measured visitor transition on the same population units.
+Neither threshold nor biological envelope is retuned into a positive result.
 
 ## vNext paper spine
 
-1. Syndrome labels are outcomes, not mechanisms.
-2. Functional matching creates conditional selection.
-3. Assurance + cost creates an adaptive-reduction route under low service.
-4. Functional replacement creates a distinct rematching route.
-5. Standing variation filters which selected trait response is reachable.
-6. New mutation partly rescues depleted accessibility but is secondary in the
-   tested horizon; the first pleiotropy timing prediction failed.
+1. Prior syndrome debate motivates direct causal decomposition.
+2. Functional matching creates conditional ecological selection.
+3. Functional replacement can redirect response at fixed visitor amount.
+4. Reproductive assurance determines persistence; its assurance-by-cost adaptive
+   reduction route is conditional rather than general.
+5. Standing genetic variation filters which selected responses are reachable.
+6. Empirically anchored mutation input narrows that filter through time, without
+   reversing the ranking by year 800 or establishing equilibrium.
 7. Visitor history, plant finiteness, chronology and connectivity filter realized
    inherited outcomes.
-8. Natural islands contain these layers but do not yet close the full transition.
+8. Natural islands confront layers qualitatively but are not quantitatively
+   calibrated to synthetic cells.
 
 ## Submission state
 
 Current Oikos package: **unchanged and locked**.
 
-vNext: **scientifically drafted and source-backed, but not promoted to the active
-submission surface**.
+vNext: **scientifically established at the five-criterion level but not promoted
+to the active submission surface**.
 
-Promotion requires a deliberate package reopening: manuscript + figures + SI +
-canonical lock + submission manifest must all move together.
+Promotion remains a deliberate package reopening: manuscript + figures + SI +
+canonical lock + submission manifest must move together.
