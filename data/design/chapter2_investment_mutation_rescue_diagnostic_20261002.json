@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_diagnostic_frozen_before_execution",
+  "frozen_on": "2026-10-02",
+  "parent_failed_result": "data/results/chapter2_trait_accessibility_mutation_pleiotropy_20261002.json",
+  "analysis": "chapter2_investment_mutation_rescue_diagnostic",
+  "purpose": "Separate three possible bottlenecks behind the failed investment mutation-accessibility prediction: depleted standing variation, insufficient de novo mutation supply, and finite-population establishment.",
+  "scope": "new prospective diagnostic after a failed preregistered experiment; no threshold-crossing rescue",
+  "baseline": {
+    "years": 400,
+    "survival": 0,
+    "activity": 0.4,
+    "fixed_assurance": 0.5,
+    "investment_cost": 0.5,
+    "founder_mean_access": 0.5,
+    "founder_mean_investment": 0.5,
+    "standing_sd_access": 0.03,
+    "visitor_histories": {
+      "left4": [0.15, 0.25, 0.35, 0.45],
+      "right4": [0.55, 0.65, 0.75, 0.85]
+    },
+    "founder_seeds": [77301, 77302, 77303, 77304],
+    "demographic_seeds": [401, 402]
+  },
+  "factors": {
+    "standing_sd_investment": {
+      "low": 0.03,
+      "high": 0.15
+    },
+    "investment_mutation": {
+      "equal_baseline": {
+        "mutation_rate_access": 0.0001,
+        "mutation_rate_investment": 0.0001,
+        "mutation_sd_access": 0.025,
+        "mutation_sd_investment": 0.025
+      },
+      "investment_accessible": {
+        "mutation_rate_access": 0.00001,
+        "mutation_rate_investment": 0.001,
+        "mutation_sd_access": 0.015,
+        "mutation_sd_investment": 0.04
+      }
+    },
+    "capacity": [48, 192]
+  },
+  "pleiotropy": 0.0,
+  "primary_endpoint": "absolute terminal-minus-initial investment change at year 400",
+  "secondary_endpoints": [
+    "signed investment change",
+    "absolute access change",
+    "terminal occupancy"
+  ],
+  "predeclared_contrasts": {
+    "standing_variation_effect": "high-standing/equal-mutation minus low-standing/equal-mutation, averaged over histories and capacities",
+    "mutation_rescue_effect": "low-standing/investment-accessible minus low-standing/equal-mutation, averaged over histories and capacities",
+    "capacity_modulation_of_mutation_rescue": "mutation rescue at capacity 192 minus mutation rescue at capacity 48, averaged over histories"
+  },
+  "decision_tree": {
+    "standing_variation_bottleneck": "standing_variation_effect > 0",
+    "de_novo_mutation_rescue": "mutation_rescue_effect > 0",
+    "finite_establishment_bottleneck": "capacity_modulation_of_mutation_rescue > 0",
+    "interpretation": [
+      "standing only: response depends mainly on variation already present over this horizon",
+      "mutation rescue: de novo accessibility can restore response when standing variation is depleted",
+      "capacity modulation: mutation rescue is strengthened when finite-population filtering is weakened",
+      "none: the missing investment response is more likely due to selection geometry or another unmodelled genetic constraint under this parameterization"
+    ]
+  },
+  "claim_boundary": [
+    "This design was created after the failed Stage C and is a new prospective diagnostic, not a rescue of the failed threshold test.",
+    "No crossing threshold or horizon from the failed test is altered and re-labelled as confirmation.",
+    "Mutation rates/effect sizes and capacities are synthetic contrasts.",
+    "Investment remains an abstract pollinator-facing investment axis, not literal flower colour.",
+    "All cells and both visitor histories must be reported regardless of direction."
+  ]
+}

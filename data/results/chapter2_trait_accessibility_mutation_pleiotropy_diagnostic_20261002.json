@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "status": "retrospective_diagnostic_after_prospective_failure",
+  "date": "2026-10-02",
+  "source_result": "data/results/chapter2_trait_accessibility_mutation_pleiotropy_20261002.json",
+  "source_ci_run": 36998094448,
+  "purpose": "Diagnose why the prospectively frozen crossing-time test failed. These summaries are post-hoc diagnostics and are not confirmatory evidence for the failed preregistered predictions.",
+  "aggregate_by_mutation_regime": {
+    "equal": {
+      "mean_abs_terminal_access_change": 0.03766595217600921,
+      "mean_abs_terminal_investment_change": 0.0163542273057616,
+      "mean_single_trait_crossing_fraction": 0.4166666666666667,
+      "mean_coordinated_crossing_fraction": 0.0
+    },
+    "investment_accessible": {
+      "mean_abs_terminal_access_change": 0.03477954623626461,
+      "mean_abs_terminal_investment_change": 0.01611973183265858,
+      "mean_single_trait_crossing_fraction": 0.375,
+      "mean_coordinated_crossing_fraction": 0.0
+    },
+    "access_accessible": {
+      "mean_abs_terminal_access_change": 0.06195279362862114,
+      "mean_abs_terminal_investment_change": 0.012290038908168634,
+      "mean_single_trait_crossing_fraction": 0.6666666666666666,
+      "mean_coordinated_crossing_fraction": 0.0
+    }
+  },
+  "diagnostic_ratios": {
+    "access_accessible_over_equal_abs_access_response": 1.645355194681718,
+    "investment_accessible_over_equal_abs_investment_response": 0.9856626894522392
+  },
+  "by_visitor_history": {
+    "left4": {
+      "equal_abs_access": 0.03347370271209349,
+      "access_accessible_abs_access": 0.05728716272460297,
+      "equal_abs_investment": 0.013739115461199635,
+      "investment_accessible_abs_investment": 0.015300426773832088
+    },
+    "right4": {
+      "equal_abs_access": 0.04185820163992493,
+      "access_accessible_abs_access": 0.06661842453263929,
+      "equal_abs_investment": 0.018969339150323568,
+      "investment_accessible_abs_investment": 0.016939036891485074
+    }
+  },
+  "diagnosis": [
+    "The investment crossing-time endpoint was censored at 401 in essentially all cells, so the two-trait timing statistic had almost no leverage.",
+    "Access-accessible mutation increased terminal access response magnitude in both visitor histories and increased single-trait crossing frequency.",
+    "Investment-accessible mutation did not increase investment response consistently across visitor histories; the aggregate magnitude was essentially unchanged relative to equal mutation supply.",
+    "Positive pleiotropic coupling could not produce coordinated crossing because the investment trait almost never reached the preregistered 0.05 sustained threshold."
+  ],
+  "next_question": "Why does standing variation strongly filter investment response while the declared de novo mutation treatment does not rescue it over 400 years?",
+  "claim_boundary": [
+    "Post-hoc diagnostic only.",
+    "Do not treat the 1.65 access ratio as a preregistered effect size.",
+    "Do not infer natural mutation rates or that architecture is generally more mutation-accessible than floral signals.",
+    "A new prospective design is required to distinguish mutation supply, population size, selection strength and standing variation."
+  ]
+}

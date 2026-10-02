@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_trait_accessibility_pilot",
+  "date": "2026-10-02",
+  "design": "data/design/chapter2_trait_accessibility_pilot_20261002.json",
+  "ci_receipt": {
+    "head_sha": "f10c6d75a597b1a8d07ef61bff65f5ce4a9ac3b7",
+    "workflow_run_id": 36996773563,
+    "python_job": "tests (3.11)",
+    "job_id": 110805182874,
+    "cross_version_gate": "Python 3.10, 3.11 and 3.12 all succeeded"
+  },
+  "standing_variation_filter_supported": true,
+  "contrasts": {
+    "access_variation_effect_deterministic": 0.11361783155344488,
+    "access_variation_effect_finite_abm": 0.09609374999999995,
+    "investment_variation_effect_deterministic": 0.10537950178662298,
+    "investment_variation_effect_finite_abm": 0.08300781249999994
+  },
+  "rows": [
+    {
+      "regime": "equal_high",
+      "visitor_history": "left4",
+      "standing_sd_access": 0.15,
+      "standing_sd_investment": 0.15,
+      "initial_density_access_variance": 0.008339572482638889,
+      "initial_density_investment_variance": 0.007889539930555557,
+      "density_access_change": -0.1502969393546636,
+      "density_investment_change": 0.11939169116933612,
+      "abm_mean_access_change": -0.11614583333333327,
+      "abm_mean_investment_change": 0.04361979166666673,
+      "terminal_occupancy": 1.0
+    },
+    {
+      "regime": "equal_high",
+      "visitor_history": "right4",
+      "standing_sd_access": 0.15,
+      "standing_sd_investment": 0.15,
+      "initial_density_access_variance": 0.008339572482638889,
+      "initial_density_investment_variance": 0.007889539930555557,
+      "density_access_change": 0.15688999295291067,
+      "density_investment_change": 0.11198661678402433,
+      "abm_mean_access_change": 0.14270833333333346,
+      "abm_mean_investment_change": 0.13632812499999986,
+      "terminal_occupancy": 1.0
+    },
+    {
+      "regime": "access_constrained",
+      "visitor_history": "left4",
+      "standing_sd_access": 0.03,
+      "standing_sd_investment": 0.15,
+      "initial_density_access_variance": 0.0004937065972222225,
+      "initial_density_investment_variance": 0.007889539930555559,
+      "density_access_change": -0.04278218568115205,
+      "density_investment_change": 0.10625802380609733,
+      "abm_mean_access_change": -0.03776041666666678,
+      "abm_mean_investment_change": 0.07877604166666671,
+      "terminal_occupancy": 1.0
+    },
+    {
+      "regime": "access_constrained",
+      "visitor_history": "right4",
+      "standing_sd_access": 0.03,
+      "standing_sd_investment": 0.15,
+      "initial_density_access_variance": 0.0004937065972222225,
+      "initial_density_investment_variance": 0.007889539930555559,
+      "density_access_change": 0.037169083519532464,
+      "density_investment_change": 0.09799661798384524,
+      "abm_mean_access_change": 0.02890625000000005,
+      "abm_mean_investment_change": 0.027083333333333334,
+      "terminal_occupancy": 1.0
+    },
+    {
+      "regime": "investment_constrained",
+      "visitor_history": "left4",
+      "standing_sd_access": 0.15,
+      "standing_sd_investment": 0.03,
+      "initial_density_access_variance": 0.00833957248263889,
+      "initial_density_investment_variance": 0.0005815972222222228,
+      "density_access_change": -0.14847809479239854,
+      "density_investment_change": 0.010382706069095748,
+      "abm_mean_access_change": -0.16848958333333322,
+      "abm_mean_investment_change": -0.005859375000000208,
+      "terminal_occupancy": 1.0
+    },
+    {
+      "regime": "investment_constrained",
+      "visitor_history": "right4",
+      "standing_sd_access": 0.15,
+      "standing_sd_investment": 0.03,
+      "initial_density_access_variance": 0.00833957248263889,
+      "initial_density_investment_variance": 0.0005815972222222228,
+      "density_access_change": 0.15651982946199267,
+      "density_investment_change": 0.010236598311018752,
+      "abm_mean_access_change": 0.13619791666666678,
+      "abm_mean_investment_change": 0.008072916666666471,
+      "terminal_occupancy": 1.0
+    }
+  ],
+  "interpretation": "Holding the ecological Model 3 operator fixed, restricting standing variation in one trait axis specifically suppresses the magnitude of response on that axis in both deterministic inheritance and finite populations. Genetic availability can therefore make syndrome components respond asynchronously even under the same visitor environment.",
+  "claim_boundary": [
+    "This is a standing-variation pilot, not a molecular model.",
+    "Access is an architecture-like functional analogue, not literal corolla geometry.",
+    "Investment is a signal/display-like analogue, not literal flower colour.",
+    "The result demonstrates a possible genetic filter; it does not estimate natural trait-specific evolvability.",
+    "Mutation, linkage and pleiotropy are not represented in this pilot."
+  ]
+}

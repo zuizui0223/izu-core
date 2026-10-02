@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_pilot_frozen_before_execution",
+  "frozen_on": "2026-10-02",
+  "parent_stage_A_design": "data/design/chapter2_syndrome_causal_knockout_20261002.json",
+  "analysis": "chapter2_trait_accessibility_pilot",
+  "purpose": "Test whether unequal standing genetic variation alone can make different pollinator-facing trait modules respond asynchronously under the same visitor environment, without changing the ecological selection operator.",
+  "operator": {
+    "existing_model3_reproduction": true,
+    "existing_model3_inheritance": true,
+    "operator_changes_allowed": false,
+    "mutation_rate": 0.0
+  },
+  "trait_analogs": {
+    "access": "architecture-like functional matching axis; not literal corolla geometry",
+    "investment": "signal/display-like pollinator-facing investment axis; not literal colour"
+  },
+  "base": {
+    "capacity": 48,
+    "years": 40,
+    "survival": 0.0,
+    "activity": 0.4,
+    "activity_mode": "fixed",
+    "fixed_assurance": 0.5,
+    "investment_cost": 0.5,
+    "depression": 0.5,
+    "founder_mean_access": 0.5,
+    "founder_mean_investment": 0.5,
+    "founder_seed": 77101,
+    "demographic_replicates": [201, 202, 203, 204],
+    "grid_nodes": [0.25, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.75]
+  },
+  "visitor_histories": {
+    "left4": [0.15, 0.25, 0.35, 0.45],
+    "right4": [0.55, 0.65, 0.75, 0.85]
+  },
+  "accessibility_regimes": {
+    "equal_high": {
+      "standing_sd_access": 0.15,
+      "standing_sd_investment": 0.15
+    },
+    "access_constrained": {
+      "standing_sd_access": 0.03,
+      "standing_sd_investment": 0.15
+    },
+    "investment_constrained": {
+      "standing_sd_access": 0.15,
+      "standing_sd_investment": 0.03
+    }
+  },
+  "primary_endpoints": [
+    "absolute deterministic terminal-minus-initial access change",
+    "absolute deterministic terminal-minus-initial investment change"
+  ],
+  "secondary_endpoints": [
+    "finite-ABM mean access change",
+    "finite-ABM mean investment change",
+    "terminal occupancy"
+  ],
+  "predeclared_contrasts": {
+    "access_variation_effect": "|access change| equal_high - |access change| access_constrained, averaged over left4/right4",
+    "investment_variation_effect": "|investment change| equal_high - |investment change| investment_constrained, averaged over left4/right4"
+  },
+  "predeclared_predictions": [
+    "The access-variation contrast is positive.",
+    "The investment-variation contrast is positive."
+  ],
+  "decision_rule": {
+    "standing_variation_filter_supported_if": "both predeclared deterministic contrasts are positive",
+    "next_step_if_supported": "add trait-specific mutation supply/effect-size and cross-trait pleiotropic coupling in a separately frozen extension"
+  },
+  "claim_boundary": [
+    "This pilot tests genetic availability, not literal molecular mechanisms.",
+    "Access is not asserted to equal flower shape and investment is not asserted to equal flower colour.",
+    "No claim is made that colour is universally easier to evolve than morphology.",
+    "Differences are induced experimentally by standing variation and therefore show possibility, not natural parameter values.",
+    "Mutation, linkage and pleiotropy remain absent in this pilot.",
+    "No natural island, time scale or evolutionary rate is calibrated."
+  ]
+}
