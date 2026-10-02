@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-02",
+  "status": "vnext_candidate_not_active_submission",
+  "active_submission_unchanged": true,
+  "active_submission_manifest": "data/design/chapter2_oikos_submission_manifest_20260927.json",
+  "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+  "vnext_manuscript": "docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md",
+  "vnext_question": "At which ecological, reproductive, genetic or demographic stage does a recurrent pollination problem cease to imply a recurrent phenotypic solution?",
+  "vnext_claim": "Island, selfing and pollination syndromes are emergent outcomes of separable ecological, reproductive, genetic and demographic filters rather than mechanisms themselves.",
+  "evidence_promoted_into_vnext": {
+    "assurance_cost_causal_knockout": "data/results/chapter2_syndrome_causal_knockout_20261002.json",
+    "same_count_functional_rematching": "data/results/chapter2_syndrome_causal_knockout_20261002.json",
+    "standing_variation_filter": "data/results/chapter2_trait_accessibility_pilot_20261002.json",
+    "failed_mutation_pleiotropy_timing_test": "data/results/chapter2_trait_accessibility_mutation_pleiotropy_20261002.json",
+    "post_failure_diagnostic": "data/results/chapter2_trait_accessibility_mutation_pleiotropy_diagnostic_20261002.json",
+    "prospective_investment_bottleneck_diagnostic": "data/results/chapter2_investment_mutation_rescue_diagnostic_20261002.json",
+    "original_isolation_bridge": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json"
+  },
+  "key_numeric_spine": {
+    "low_service_assurance_cost_gradient": -0.39284274793633484,
+    "low_service_no_assurance_gradient": 0.6018635213536321,
+    "low_service_no_investment_cost_gradient": 0.6113743630444405,
+    "reference_activity_assurance_cost_gradient": 1.6810031121606646,
+    "same_count_left_right_fixed_gradient_difference_at_access_0_2": 2.376790538658976,
+    "same_count_left_right_fixed_gradient_difference_at_access_0_8": -2.3767905386589705,
+    "standing_variation_access_effect_deterministic": 0.11361783155344488,
+    "standing_variation_investment_effect_deterministic": 0.10537950178662298,
+    "investment_standing_variation_effect": 0.1477659264857273,
+    "investment_de_novo_mutation_rescue": 0.013886775175178686,
+    "capacity_modulation_of_mutation_rescue": 0.0010185399703561936
+  },
+  "retained_negative_result": {
+    "mutation_accessibility_supported": false,
+    "context_dependent_pleiotropy_supported": false,
+    "reason": "investment sustained-crossing endpoint was largely censored at the preregistered 0.05 threshold over 400 years"
+  },
+  "promotion_requirements": [
+    "explicit decision to reopen the current submission package",
+    "regenerate main figures around the syndrome-as-outcome causal architecture",
+    "update Supporting Information with Stage A-D designs and the retained negative Stage C result",
+    "update active manuscript and canonical story together",
+    "update submission manifest and scientific lock together",
+    "run the full fail-closed submission and reviewer-archive gates"
+  ],
+  "prohibited_until_promotion": [
+    "do not present the vNext manuscript as the active Oikos submission",
+    "do not claim literal flower-colour or corolla-geometry calibration",
+    "do not claim a universal colour-easy morphology-hard genetic hierarchy",
+    "do not erase or retune the failed prospective mutation-pleiotropy result"
+  ],
+  "vnext_canonical_story": "docs/CHAPTER2_CANONICAL_STORY_VNEXT_20261002.md"
+}
