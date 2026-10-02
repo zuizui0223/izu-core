@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_failure_not_identified",
+  "date": "2026-10-02",
+  "design": "data/design/chapter2_trait_accessibility_mutation_pleiotropy_next_20261002.json",
+  "ci_receipt": {
+    "head_sha": "f5ce10f546ce3edb84f0f320df29de9d7e9cfaeb",
+    "workflow_run_id": 36998094448,
+    "cross_version_gate": "Python 3.10, 3.11 and 3.12 all failed at the same prospectively frozen scientific assertions"
+  },
+  "n_trajectories": 288,
+  "mutation_accessibility_supported": false,
+  "context_dependent_pleiotropy_supported": false,
+  "right_aligned_pleiotropy_facilitated": false,
+  "left_antagonistic_pleiotropy_constrained": false,
+  "mutation_accessibility_tests": {
+    "left4": {
+      "investment_accessible_gap_shift_median": 0.0,
+      "access_accessible_gap_shift_median": 0.0,
+      "n_paired": 48
+    },
+    "right4": {
+      "investment_accessible_gap_shift_median": 0.0,
+      "access_accessible_gap_shift_median": -16.0,
+      "n_paired": 48
+    }
+  },
+  "pleiotropy_tests": {
+    "left4": {
+      "strong_minus_independent_coordinated_fraction": 0.0,
+      "strong_minus_independent_absolute_gap_median": 0.0,
+      "n_paired": 48
+    },
+    "right4": {
+      "strong_minus_independent_coordinated_fraction": 0.0,
+      "strong_minus_independent_absolute_gap_median": 0.0,
+      "n_paired": 48
+    }
+  },
+  "diagnosis": {
+    "primary_limitation": "The preregistered sustained-crossing endpoint was largely censored for investment: median investment crossing score was 401 (no sustained 0.05 crossing by year 400) in every reported cell.",
+    "consequence": "When one trait almost never crosses the threshold, paired crossing-time differences and coordinated-crossing statistics cannot identify investment mutation accessibility or context-dependent pleiotropy.",
+    "what_did_move": "Access-accessible mutation increased terminal access response magnitude in both visitor histories and produced earlier access crossings in several cells, especially right4, but this was not sufficient to satisfy the preregistered two-trait decision rule.",
+    "why_not_rescued": "The 0.05 threshold, 20-year persistence rule, 400-year horizon, mutation regimes and decision rules were frozen before execution and are not changed after inspection."
+  },
+  "selected_cell_evidence": [
+    {
+      "visitor_history": "left4",
+      "mutation_regime": "equal",
+      "pleiotropy_regime": "independent",
+      "mean_terminal_access_change": -0.035405197296316186,
+      "mean_terminal_investment_change": 0.01364343461325708,
+      "median_access_crossing_score": 401.0,
+      "median_investment_crossing_score": 401.0,
+      "mean_coordinated_crossing": 0.0
+    },
+    {
+      "visitor_history": "left4",
+      "mutation_regime": "access_accessible",
+      "pleiotropy_regime": "strong_positive",
+      "mean_terminal_access_change": -0.06295261174850834,
+      "mean_terminal_investment_change": 0.01584928360795593,
+      "median_access_crossing_score": 166.5,
+      "median_investment_crossing_score": 401.0,
+      "mean_coordinated_crossing": 0.0
+    },
+    {
+      "visitor_history": "right4",
+      "mutation_regime": "equal",
+      "pleiotropy_regime": "independent",
+      "mean_terminal_access_change": 0.04698146520810908,
+      "mean_terminal_investment_change": 0.014735867574260476,
+      "median_access_crossing_score": 186.5,
+      "median_investment_crossing_score": 401.0,
+      "mean_coordinated_crossing": 0.0
+    },
+    {
+      "visitor_history": "right4",
+      "mutation_regime": "access_accessible",
+      "pleiotropy_regime": "strong_positive",
+      "mean_terminal_access_change": 0.06667048411254692,
+      "mean_terminal_investment_change": 0.007853643126279078,
+      "median_access_crossing_score": 67.0,
+      "median_investment_crossing_score": 401.0,
+      "mean_coordinated_crossing": 0.0
+    }
+  ],
+  "scientific_interpretation": "Stage B standing variation is sufficient to filter trait response, but this first mutation-plus-pleiotropy extension does not establish that mutation supply or positive pleiotropic coupling controls syndrome timing. Under the frozen parameterization, the investment trait was too slow relative to the preregistered crossing endpoint for the two-trait timing hypothesis to be identified.",
+  "claim_boundary": [
+    "Do not reinterpret this failed gate as evidence that mutation accessibility or pleiotropy never matters.",
+    "Do not lower the frozen threshold or extend the frozen horizon and call the same test confirmed.",
+    "Any follow-up using continuous terminal response or a different horizon is a new diagnostic or a separately frozen prospective experiment."
+  ]
+}
