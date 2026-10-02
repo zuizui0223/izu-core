@@ -9,7 +9,7 @@
 | criterion | final state |
 |---|---|
 | 1. one stable central claim | **achieved** — claim survives removal of Route A and weakening of the standing-vs-mutation ranking |
-| 2. headline numbers pass robustness tests | **achieved by pruning** — Route A fails and is demoted; genetic-accessibility claim survives with finite-horizon qualification |
+| 2. headline numbers pass robustness tests | **achieved after propagation** — Route A is demoted; mutation ranking is finite-horizon; coarse deterministic isolation direction survives depression sensitivity but uniform history-level direction does not |
 | 3. novelty checked against prior literature | **achieved** — syndrome-as-outcome framing treated as prior context; novelty narrowed to stage decomposition/intervention |
 | 4. preregistered successes and failures retained | **achieved** — Stage C failure and Route A robustness failure retained |
 | 5. remaining items can be written as limitations rather than open work | **achieved** — quantitative natural transfer explicitly out of scope; mutation ranking explicitly finite-horizon |
@@ -17,9 +17,10 @@
 ## Stable central claim
 
 > **A recurrent pollination problem can yield recurrent functional responses
-> without a recurrent detailed floral phenotype because ecological selection,
-> reproductive persistence, genetic accessibility and finite-population
-> realization are separable stages.**
+> without a recurrent detailed floral phenotype because repeatability can persist
+> in the coarse mean response while being redirected or lost by state-dependent
+> selection, reproductive context, genetic accessibility and finite-population
+> realization.**
 
 This sentence does not require:
 
@@ -27,7 +28,7 @@ This sentence does not require:
 - standing variation to dominate mutation at equilibrium;
 - quantitative transfer from synthetic cells to named islands.
 
-That is why it remains stable after the prospective falsification tests below.
+The conceptual claim remains stable after the prospective falsification tests below, but its wording is sharpened to state the empirical content: the analysis locates where repeatability is retained or lost, rather than merely noting that model stages are separable.
 
 ## A. Route A robustness — failed headline test
 
@@ -200,14 +201,49 @@ The stronger pre-robustness story changed in two places:
 1. assurance-by-cost adaptive reduction was demoted from a headline route;
 2. the specific standing-variation >> mutation effect-size ratio was retired.
 
-The central claim did **not** need to change:
+The conceptual claim survived, but its wording was improved to avoid making
+model modularity itself the result:
 
 > **A recurrent pollination problem can yield recurrent functional responses
-> without a recurrent detailed floral phenotype because ecological selection,
-> reproductive persistence, genetic accessibility and finite-population
-> realization are separable stages.**
+> without a recurrent detailed floral phenotype because repeatability can persist
+> in the coarse mean response while being redirected or lost by state-dependent
+> selection, reproductive context, genetic accessibility and finite-population
+> realization.**
 
-Therefore the vNext passes the stability criterion.
+This formulation remains valid whether a particular downstream mechanism succeeds
+or fails; it is supported by observed changes in repeatability across the
+interventions, not by the architecture of the code alone.
+
+## F. Final propagation check — deterministic backbone
+
+Frozen design:
+data/design/chapter2_deterministic_backbone_depression_sensitivity_20261002.json
+
+Frozen result:
+data/results/chapter2_deterministic_backbone_depression_sensitivity_20261002.json
+
+The Route A depression sensitivity was propagated into the original natural
+near-versus-far deterministic bridge using the same 128 visitor histories, three
+starting investment states, founders, genotype grid and 200-year horizon.
+
+| depression | overall mean | start 0.3 | start 0.5 | start 0.7 | negative / mixed / positive histories |
+|---|---:|---:|---:|---:|---:|
+| 0.25 | **-0.3506** | -0.3789 | -0.3841 | -0.2887 | 128 / 0 / 0 |
+| 0.50 | **-0.4510** | -0.4523 | -0.4710 | -0.4297 | 128 / 0 / 0 |
+| 0.75 | **-0.4142** | -0.4248 | -0.4487 | -0.3692 | **116 / 11 / 1** |
+
+The depression 0.50 shard reproduces the original frozen deterministic bridge to
+floating-point precision.
+
+**Decision:** the mean deterministic backbone is robust over depression 0.25–0.75,
+but the stronger claim of uniform one-directional response across all 128 histories
+is not. At depression 0.75, 11 histories contain both signs across starting states
+and one history is positive-only.
+
+This is the final propagation of the Route A failure. It does not overturn the
+coarse directional mean; it shows exactly where repeatability is lost:
+history-by-start direction becomes conditional on reproductive context before
+finite demographic stochasticity is added.
 
 ## Final promotion boundary
 
@@ -221,6 +257,8 @@ The vNext can now be promoted scientifically only with these restrictions:
   as universally or asymptotically dominant;
 - “syndromes are outcomes” is cited as conceptual context;
 - natural islands remain layer-specific confrontation, not quantitative
-  calibration/validation.
+  calibration/validation;
+- the deterministic bridge is described as a robust negative **mean** across the
+  tested depression envelope, not as uniformly negative across every history.
 
-Within those boundaries, all five establishment criteria are closed.
+Within those boundaries, all five establishment criteria and the final backbone-propagation check are closed.

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_execution",
+  "frozen_on": "2026-10-02",
+  "parent_main_sha": "5f86c0fd383e799e4a4c7c08b90dd5e15d32ec2a",
+  "analysis": "chapter2_deterministic_backbone_depression_sensitivity",
+  "parent_bridge": "data/design/model3_ch2_bridge_20260927.json",
+  "purpose": "Propagate the Route A inbreeding-depression sensitivity into the natural near-versus-far deterministic backbone that supports the coarse directional island response.",
+  "model": "deterministic genotype-density only",
+  "intervention": {
+    "depression": [0.25, 0.5, 0.75],
+    "all_other_base_config_values": "identical to frozen Model 3 Chapter 2 bridge",
+    "arms": ["near", "far"],
+    "starts": [0.3, 0.5, 0.7],
+    "history_seeds": "same 128 seeds as parent bridge",
+    "years": 200,
+    "projection_mode": "continuous"
+  },
+  "endpoint": "far-minus-near terminal-minus-initial inherited investment change",
+  "predeclared_decision_rule": {
+    "uniform_negative_backbone_at_each_depression_if": [
+      "overall mean effect < 0",
+      "mean effect at each of the three starting investment states < 0",
+      "0/128 histories are mixed in sign across starting states at epsilon 0",
+      "0/128 histories are positive-only across all starting states at epsilon 0"
+    ],
+    "backbone_robust_if": "uniform_negative_backbone_at_each_depression is true for depression 0.25, 0.5 and 0.75",
+    "sign_reversal_if": "overall mean effect at depression 0.75 >= 0",
+    "conditional_uniformity_if": "overall mean remains negative at depression 0.75 but mixed or positive-only histories appear, or any starting-state mean becomes non-negative",
+    "reporting_action": {
+      "robust": "retain directional deterministic backbone without an inbreeding-depression qualifier within the tested envelope",
+      "sign_reversal": "state that the direction of the deterministic backbone is conditional on inbreeding depression",
+      "conditional_uniformity": "retain a negative mean backbone but remove the claim of uniform one-directional deterministic response across histories"
+    }
+  },
+  "claim_boundary": [
+    "This is a sensitivity of the synthetic deterministic backbone, not a natural estimate of inbreeding depression.",
+    "Only the natural near/far bridge is tested; richness matching, pooling and large-capacity interventions are not rerun.",
+    "The visitor histories are unchanged because depression acts in the plant reproductive operator, not visitor assembly.",
+    "No ABM is required because the question concerns the deterministic backbone."
+  ]
+}
