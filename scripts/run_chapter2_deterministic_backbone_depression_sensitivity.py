@@ -172,22 +172,32 @@ def run(design: dict, parent: dict) -> dict:
         })
 
     by_dep = {r["depression"]: r for r in reports}
-    dep075 = by_dep[0.75]
-    sign_reversal = bool(
-        dep075["overall_mean_effect"] is not None
-        and dep075["overall_mean_effect"] >= 0
-    )
-    conditional_uniformity = bool(
-        not sign_reversal and not dep075["uniform_negative_backbone"]
-    )
     robust = bool(all(r["uniform_negative_backbone"] for r in reports))
 
-    if robust:
-        action = "retain_uniform_negative_backbone_within_tested_depression_envelope"
-    elif sign_reversal:
-        action = "qualify_backbone_direction_as_inbreeding_depression_dependent"
+    # Full-design reporting action is defined by depression 0.75. CI may execute
+    # prospectively frozen depression levels as independent shards; those shards
+    # return their report without inventing a global decision.
+    if 0.75 in by_dep:
+        dep075 = by_dep[0.75]
+        sign_reversal = bool(
+            dep075["overall_mean_effect"] is not None
+            and dep075["overall_mean_effect"] >= 0
+        )
+        conditional_uniformity = bool(
+            not sign_reversal and not dep075["uniform_negative_backbone"]
+        )
+        if len(reports) == 3 and robust:
+            action = "retain_uniform_negative_backbone_within_tested_depression_envelope"
+        elif sign_reversal:
+            action = "qualify_backbone_direction_as_inbreeding_depression_dependent"
+        elif not dep075["uniform_negative_backbone"]:
+            action = "retain_negative_mean_but_drop_uniform_one_directional_backbone_claim"
+        else:
+            action = "shard_only_no_global_decision"
     else:
-        action = "retain_negative_mean_but_drop_uniform_one_directional_backbone_claim"
+        sign_reversal = None
+        conditional_uniformity = None
+        action = "shard_only_no_global_decision"
 
     return {
         "status": "complete_deterministic_backbone_depression_sensitivity",
