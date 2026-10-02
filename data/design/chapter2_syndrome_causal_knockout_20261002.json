@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_execution",
+  "frozen_on": "2026-10-02",
+  "parent_main_sha": "945fc5a46b3e2e23cd41cd89ed67d01a12707ead",
+  "analysis": "chapter2_syndrome_causal_knockout",
+  "purpose": "Decompose syndrome-like floral change into separable causal routes using the frozen Model 3 reproductive operator before adding any trait-specific genetic-accessibility mechanism.",
+  "central_question": "Can the same pollinator decline generate reduced floral investment through reproductive assurance plus investment cost, while visitor composition shifts generate a distinct rematching response at fixed visitor number?",
+  "principle": "Treat island, selfing and pollination syndromes as emergent outcomes rather than mechanisms.",
+  "operator": {
+    "source": "existing unified Model 3 only",
+    "operator_changes_allowed": false,
+    "new_trait_axes_allowed": false,
+    "natural_parameter_calibration": false
+  },
+  "base": {
+    "years": 60,
+    "capacity": 48,
+    "survival": 0.0,
+    "depression": 0.5,
+    "mutation_rate": 0.0,
+    "activity_mode": "fixed",
+    "investment_genotypes": [[0.4, 0.4], [0.4, 0.6], [0.6, 0.6]],
+    "demographic_replicates": [101, 102, 103, 104, 105, 106, 107, 108]
+  },
+  "route_A_assurance_cost": {
+    "starting_access": 0.5,
+    "visitor_composition": [0.35, 0.45, 0.55, 0.65],
+    "activity": [0.05, 0.4],
+    "fixed_assurance": [0.0, 0.5],
+    "investment_cost": [0.0, 0.5],
+    "primary_endpoint": "fixed-state mean total floral-investment gradient",
+    "secondary_endpoints": [
+      "deterministic inherited investment change",
+      "finite-ABM mean inherited investment change",
+      "finite-ABM terminal occupancy"
+    ],
+    "predeclared_predictions": [
+      "At low visitor activity, assurance plus positive investment cost can make the floral-investment gradient negative.",
+      "Removing assurance should attenuate or reverse that negative gradient.",
+      "Removing investment cost should attenuate or reverse that negative gradient.",
+      "Higher visitor activity should increase the marginal return to floral investment relative to low visitor activity."
+    ],
+    "interpretation_if_supported": "A reproductive-assurance substitution route exists: when autonomous reproduction buffers lost outcross service, the marginal benefit of pollinator-facing investment can fall below its allocation cost."
+  },
+  "route_B_rematching": {
+    "starting_access": [0.2, 0.5, 0.8],
+    "activity": 0.4,
+    "fixed_assurance": 0.5,
+    "investment_cost": 0.5,
+    "communities": {
+      "left4": [0.15, 0.25, 0.35, 0.45],
+      "center4": [0.35, 0.45, 0.55, 0.65],
+      "right4": [0.55, 0.65, 0.75, 0.85]
+    },
+    "primary_endpoint": "fixed-state mean total floral-investment gradient",
+    "secondary_endpoints": [
+      "deterministic inherited investment change",
+      "finite-ABM mean inherited investment change"
+    ],
+    "predeclared_predictions": [
+      "At identical visitor count, changing functional composition changes the sign or magnitude of selection for at least one starting access state.",
+      "The same composition contrast should propagate to inherited change in at least one deterministic or finite trajectory."
+    ],
+    "interpretation_if_supported": "Pollinator replacement/rematching is a distinct route from simple pollinator scarcity."
+  },
+  "causal_contrasts": {
+    "A_assurance_effect_low_activity_cost_present": "gradient(activity=0.05, assurance=0.5, cost=0.5) - gradient(activity=0.05, assurance=0.0, cost=0.5)",
+    "A_cost_effect_low_activity_assurance_present": "gradient(activity=0.05, assurance=0.5, cost=0.5) - gradient(activity=0.05, assurance=0.5, cost=0.0)",
+    "A_activity_effect_assurance_cost_present": "gradient(activity=0.4, assurance=0.5, cost=0.5) - gradient(activity=0.05, assurance=0.5, cost=0.5)",
+    "B_left_vs_right_same_count": "left4 - right4 within each starting access state"
+  },
+  "decision_rule": {
+    "route_A_supported_if": [
+      "low-activity assurance-plus-cost gradient is negative",
+      "assurance knockout and cost knockout each move that gradient upward"
+    ],
+    "route_B_supported_if": [
+      "same-count composition contrast changes gradient sign or materially changes magnitude in at least one starting state"
+    ],
+    "stage_B_trait_accessibility_extension_allowed_if": "At least one ecological route is supported and the current abstract investment/access axes remain insufficient to explain why visible trait modules should respond at different rates."
+  },
+  "deferred_stage_B": {
+    "status": "not_implemented_in_this_analysis",
+    "candidate_axes": [
+      "trait-specific standing genetic variation",
+      "trait-specific mutation supply and effect size",
+      "cross-trait mutational covariance or pleiotropic coupling"
+    ],
+    "biological_use": "Test whether the same ecological selection produces fast signal-like change but slower architecture-like change without assuming that colour is universally easy or morphology universally hard."
+  },
+  "claim_boundary": [
+    "This is a synthetic causal knockout of the existing Model 3 operator, not a fit to a named island or syndrome.",
+    "Floral investment is an abstract pollinator-facing investment axis, not literal flower colour, petal size or nectar guide.",
+    "Access is an abstract functional-matching axis, not literal corolla tube geometry.",
+    "A negative gradient requires an explicit countervailing cost or other directional force; relaxed positive selection alone is not interpreted as adaptive reduction.",
+    "Trait-specific molecular/developmental accessibility is not inferred from Stage A.",
+    "No natural evolutionary rates, branch prevalence, island distances or historical pollinator causes are estimated."
+  ]
+}
