@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_route_A_robustness_falsification",
+  "date": "2026-10-02",
+  "design": "data/design/chapter2_route_A_robustness_surface_20261002.json",
+  "first_execution": {
+    "workflow_run_id": 37002025873,
+    "python_job": "tests (3.11)",
+    "job_id": 110821901473,
+    "overall_ci_failure_reason": "separate mutation-calibration parser error; Route A test itself completed and emitted its frozen decision before that failure"
+  },
+  "route_A_robust": false,
+  "headline_decision": "drop_route_A_from_headline_retain_as_model_conditional_SI",
+  "surface": {
+    "surface_nonisolated": true,
+    "low_region_negative_fraction": 0.8333333333333334,
+    "negative_fraction_by_depression": {
+      "0.25": 1.0,
+      "0.5": 0.9375,
+      "0.75": 0.5625
+    },
+    "central_contiguous": false,
+    "central_contiguous_by_depression": {
+      "0.25": true,
+      "0.5": true,
+      "0.75": false
+    },
+    "central_crossing_activity_estimate": {
+      "0.25": 0.18204224747577466,
+      "0.5": 0.09633822061589556,
+      "0.75": 0.040010608461644316
+    },
+    "central_profiles": {
+      "0.25": [
+        [0.025, -1.0938679707505767],
+        [0.05, -0.8901958825813155],
+        [0.075, -0.6984053844329967],
+        [0.1, -0.5178019172626751],
+        [0.15, -0.18759751992690812],
+        [0.2, 0.10513712683708698],
+        [0.3, 0.5942739124768815],
+        [0.4, 0.9771506580968271]
+      ],
+      "0.5": [
+        [0.025, -0.6254555093857876],
+        [0.05, -0.39284274793633484],
+        [0.075, -0.174660371262545],
+        [0.1, 0.02997287160077343],
+        [0.15, 0.401829517739641],
+        [0.2, 0.7286837468218903],
+        [0.3, 1.2675644347524135],
+        [0.4, 1.6810031121606654]
+      ],
+      "0.75": [
+        [0.025, -0.15704304802099864],
+        [0.05, 0.10451038670864791],
+        [0.075, 0.3490846419079033],
+        [0.1, 0.577747660464219],
+        [0.15, 0.9912565554061915],
+        [0.2, 1.3522303668066906],
+        [0.3, 1.9408549570279423],
+        [0.4, 2.384855566224506]
+      ]
+    }
+  },
+  "life_history_activity_0_05": [
+    {
+      "life_history": "annual",
+      "depression": 0.25,
+      "density_change": -0.09707879623041005,
+      "abm_mean_change": -0.09635416666666662,
+      "occupancy": 1.0,
+      "passes": true
+    },
+    {
+      "life_history": "annual",
+      "depression": 0.5,
+      "density_change": -0.08435970518403585,
+      "abm_mean_change": -0.034895833333333126,
+      "occupancy": 1.0,
+      "passes": true
+    },
+    {
+      "life_history": "annual",
+      "depression": 0.75,
+      "density_change": 0.051397977406405115,
+      "abm_mean_change": 0.07083333333333384,
+      "occupancy": 1.0,
+      "passes": false
+    },
+    {
+      "life_history": "perennial_same_annual_budget",
+      "depression": 0.25,
+      "density_change": -0.04739313022053154,
+      "abm_mean_change": -0.04166666666666652,
+      "occupancy": 1.0,
+      "passes": true
+    },
+    {
+      "life_history": "perennial_same_annual_budget",
+      "depression": 0.5,
+      "density_change": -0.029096080416350922,
+      "abm_mean_change": 0.014062500000000297,
+      "occupancy": 1.0,
+      "passes": false
+    },
+    {
+      "life_history": "perennial_same_annual_budget",
+      "depression": 0.75,
+      "density_change": 0.01367576709927093,
+      "abm_mean_change": 0.03906250000000039,
+      "occupancy": 1.0,
+      "passes": false
+    },
+    {
+      "life_history": "perennial_lifetime_budget_matched",
+      "depression": 0.25,
+      "density_change": -0.06747778517252062,
+      "abm_mean_change": -0.05885416666666653,
+      "occupancy": 1.0,
+      "passes": true
+    },
+    {
+      "life_history": "perennial_lifetime_budget_matched",
+      "depression": 0.5,
+      "density_change": -0.06285720813548323,
+      "abm_mean_change": -0.055208333333333234,
+      "occupancy": 1.0,
+      "passes": true
+    },
+    {
+      "life_history": "perennial_lifetime_budget_matched",
+      "depression": 0.75,
+      "density_change": -0.05176754258640276,
+      "abm_mean_change": -0.0684210526315787,
+      "occupancy": 0.75,
+      "passes": true
+    }
+  ],
+  "life_history_propagation": false,
+  "interpretation": "The negative assurance-by-cost selection region is real and non-isolated, but its boundary is strongly shifted by inbreeding depression and its inherited sign is not robust to all declared life-history treatments. In particular, at depression 0.75 the central fixed-state sign switches near activity 0.040 and is positive at activity 0.05; annual and same-annual-budget perennial trajectories can also become positive. The mechanism is therefore retained as a conditional consequence of the declared reproductive-return/cost structure, not a headline general explanation of syndrome evolution.",
+  "claim_boundary": [
+    "The existence of a non-isolated negative region does not make its location natural.",
+    "The result falsifies the stronger vNext claim that assurance-by-cost provides a robust general adaptive-reduction route across the declared depression and life-history envelope.",
+    "The mechanism remains suitable as a model-conditional possibility and explanatory sensitivity in Supporting Information."
+  ]
+}
