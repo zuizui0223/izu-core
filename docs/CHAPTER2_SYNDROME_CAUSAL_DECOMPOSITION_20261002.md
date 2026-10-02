@@ -157,7 +157,7 @@ Stage A deliberately does not claim that flower colour is intrinsically “easy�
 
 There is biological motivation for trait-specific accessibility, but it is system-dependent. Floral pigmentation can sometimes change through a single major regulatory locus; for example, an R3 MYB regulator underlies a major anthocyanin QTL between *Mimulus lewisii* and *M. cardinalis*. Conversely, corolla-tube formation depends on coordinated developmental growth and the tasiRNA–ARF/auxin pathway in *Mimulus*, although major loss-of-function mutations can also strongly alter tube formation.
 
-- Yuan/Yuan-lab work on anthocyanin QTL: https://doi.org/10.1534/genetics.113.148239
+- Yuan/Yuan-lab work on anthocyanin QTL: https://doi.org/10.1534/genetics.112.146852
 - Ding et al. 2020, corolla-tube developmental genetics: https://doi.org/10.1105/tpc.18.00471
 
 Thus Stage B, if opened, will parameterize **trait-specific evolutionary accessibility** rather than hard-code a universal colour-versus-shape ordering.
@@ -267,33 +267,62 @@ This does not show that real flower colour is easier than real corolla architect
 Full numeric receipt: `data/results/chapter2_trait_accessibility_pilot_20261002.json`.
 
 
-## Next extension — mutation supply, linkage and pleiotropy
+## Stage C: the first mutation + pleiotropy test failed prospectively
 
-The standing-variation pilot has now established the minimum genetic-filter result: unequal available variation can make trait axes respond asynchronously under the same unchanged ecological operator.
+The next genetic-accessibility extension was frozen before execution in
+`data/design/chapter2_trait_accessibility_mutation_pleiotropy_next_20261002.json`.
+It held the ecological reproduction and demographic rules fixed, depleted standing
+variation in both traits, then manipulated trait-specific mutation supply/effect
+size and positive mutational coupling over 400 reproductive years.
 
-The next extension should therefore **not** add more ecological mechanisms. It should keep Stage A ecology fixed and deepen only the genetic-accessibility layer:
+The preregistered test **did not pass** on Python 3.10, 3.11 or 3.12.
 
-```text
-same ecological selection
-        ↓
-standing variation
-        +
-trait-specific mutation supply / effect sizes
-        +
-cross-trait linkage or pleiotropic coupling
-        ↓
-which syndrome components can move, how fast, and in what combinations
-```
+- mutation-accessibility decision: **not supported**;
+- context-dependent pleiotropy decision: **not supported**;
+- coordinated two-trait sustained crossings: **0 in every summarized cell**;
+- the investment trait had a median crossing score of **401** (no sustained
+  0.05 crossing by year 400) in every summarized cell.
 
-This is where literal molecular hypotheses can eventually enter. The appropriate question is not “is colour easy and shape hard?” but:
+Therefore the planned crossing-time statistic had almost no leverage on the
+investment axis. The threshold was not lowered and the horizon was not extended
+after inspection.
 
-> **Which distributions of mutational availability and pleiotropic constraint are sufficient to reproduce fast signal-like change, slower architecture-like change, or coordinated multi-trait switches?**
+Full frozen failure receipt:
+`data/results/chapter2_trait_accessibility_mutation_pleiotropy_20261002.json`.
 
-That formulation matches the Chapter 1 observation that broad functional responses can recur while detailed display modules do not converge, without hard-coding a universal molecular hierarchy.
+### What the failure does and does not mean
+
+It does **not** show that mutation supply or pleiotropy is biologically
+unimportant. It shows that this first parameterization did not identify the
+predeclared two-trait timing mechanism.
+
+A post-hoc diagnostic of terminal magnitudes reveals a useful asymmetry:
+
+- mean absolute access response under equal mutation: **0.0377**;
+- under access-accessible mutation: **0.0620** (~1.65×);
+- mean absolute investment response under equal mutation: **0.01635**;
+- under investment-accessible mutation: **0.01612** (~0.99×).
+
+The access effect appeared in both left4 and right4 environments, whereas the
+investment-accessible treatment was inconsistent between them. This diagnostic
+is explicitly post-hoc and is not used to rescue the failed preregistered test.
+
+Diagnostic receipt:
+`data/results/chapter2_trait_accessibility_mutation_pleiotropy_diagnostic_20261002.json`.
+
+The new mechanistic question is therefore narrower and better:
+
+> **Why can standing variation strongly filter both trait responses, while the
+> declared de novo mutation treatment rescues the access-like axis but not the
+> investment-like axis over the same finite evolutionary horizon?**
+
+A new prospective experiment is required to separate mutation supply from
+selection strength, finite population size and standing variation. The failed
+Stage C is retained rather than tuned into a positive result.
 
 ## Claim firewall
 
-Until new simulations are frozen and executed, the current Chapter 2 paper remains unchanged.
+The current frozen Chapter 2 paper remains unchanged by these prospective extensions unless a later explicit manuscript-integration decision is made.
 
 Do **not** claim from this prospective extension that:
 
