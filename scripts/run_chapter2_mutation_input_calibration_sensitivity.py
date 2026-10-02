@@ -247,7 +247,8 @@ def run(design: dict) -> dict:
             and np.isclose(r["target_VM_over_VG0"], ratio)
         ]
 
-    central = float(design["predeclared_decisions"]["central_anchor"])
+    central_raw = design["predeclared_decisions"]["central_anchor"]
+    central = float(str(central_raw).split("=")[-1].strip())
     high = select(standing="high_reference", ratio=0.0)
     low_central = select(standing="low", ratio=central)
 
