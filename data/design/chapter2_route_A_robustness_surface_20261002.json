@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_execution",
+  "frozen_on": "2026-10-02",
+  "parent_main_sha": "941b6fcb594cb465af298f8f43756e5964ce26a8",
+  "analysis": "chapter2_route_A_robustness_surface",
+  "purpose": "Test whether the assurance-by-investment-cost negative selection route occupies a non-isolated parameter region, survives variation in inbreeding depression, and propagates under annual and perennial life histories.",
+  "operator": "unchanged unified Model 3",
+  "fixed_surface": {
+    "starting_access": 0.5,
+    "visitor_composition": [0.35, 0.45, 0.55, 0.65],
+    "activities": [0.025, 0.05, 0.075, 0.1, 0.15, 0.2, 0.3, 0.4],
+    "fixed_assurance": [0.25, 0.5, 0.75],
+    "investment_cost": [0.25, 0.5, 0.75],
+    "inbreeding_depression": [0.25, 0.5, 0.75],
+    "endpoint": "mean fixed-state total investment gradient"
+  },
+  "trajectory_check": {
+    "starting_access": 0.5,
+    "visitor_composition": [0.35, 0.45, 0.55, 0.65],
+    "activities": [0.025, 0.05, 0.075, 0.1, 0.15, 0.2, 0.3, 0.4],
+    "fixed_assurance": 0.5,
+    "investment_cost": 0.5,
+    "inbreeding_depression": [0.25, 0.5, 0.75],
+    "years": 80,
+    "capacity": 48,
+    "demographic_replicates": [501, 502, 503, 504],
+    "life_histories": {
+      "annual": {
+        "survival": 0.0,
+        "ovule_budget": 8.0,
+        "pollen_budget": 20.0
+      },
+      "perennial_same_annual_budget": {
+        "survival": 0.75,
+        "ovule_budget": 8.0,
+        "pollen_budget": 20.0
+      },
+      "perennial_lifetime_budget_matched": {
+        "survival": 0.75,
+        "ovule_budget": 2.0,
+        "pollen_budget": 5.0
+      }
+    },
+    "endpoints": [
+      "deterministic terminal-minus-initial investment",
+      "finite-ABM mean terminal-minus-initial investment",
+      "finite-ABM terminal occupancy"
+    ]
+  },
+  "predeclared_decision_rule": {
+    "low_activity_region": "activities <= 0.1, assurance >= 0.5, cost >= 0.5",
+    "surface_nonisolated_if": [
+      "at least 50% of low-activity-region cells have negative total gradient",
+      "each inbreeding-depression level has at least 25% negative cells in that region"
+    ],
+    "central_contiguous_if": "for assurance=0.5 and cost=0.5, every depression level has at least two adjacent activity levels <=0.1 with negative gradient",
+    "life_history_propagation_if": "at activity=0.05, deterministic and finite-ABM mean investment changes are negative in all three depression levels for annual and both perennial treatments, with terminal occupancy >0 in the finite ABM",
+    "route_A_robust_if": "surface_nonisolated AND central_contiguous AND life_history_propagation",
+    "drop_rule": "if route_A_robust is false, remove Route A as a headline causal result and retain it only as a model-conditional possibility/SI result"
+  },
+  "claim_boundary": [
+    "Parameter ranges are robustness envelopes, not natural estimates.",
+    "The negative gradient remains a consequence of the declared reproductive-return and cost functions; robustness can establish a non-isolated mechanism region, not empirical truth.",
+    "Adult survival 0.75 represents an expected multi-year adult life within this model, not a calibrated perennial species.",
+    "The lifetime-budget-matched treatment rescales annual ovule and pollen budgets by 0.25; it is a sensitivity analysis, not an exact life-history equivalence."
+  ]
+}
