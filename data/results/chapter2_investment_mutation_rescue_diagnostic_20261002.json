@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_investment_mutation_rescue_diagnostic",
+  "date": "2026-10-02",
+  "design": "data/design/chapter2_investment_mutation_rescue_diagnostic_20261002.json",
+  "ci_receipt": {
+    "head_sha": "76e2a3c6f2efecc3bd01a7ede2c05e1eac96e3fd",
+    "workflow_run_id": 36999157530,
+    "python_3_11_job_id": 110812970691,
+    "cross_version_gate": "Python 3.10, 3.11 and 3.12 all succeeded"
+  },
+  "n_trajectories": 128,
+  "contrasts": {
+    "capacity_modulation_of_mutation_rescue": 0.0010185399703561936,
+    "mutation_rescue_by_capacity": {
+      "48": 0.01337750519000059,
+      "192": 0.014396045160356783
+    },
+    "mutation_rescue_effect": 0.013886775175178686,
+    "standing_variation_effect": 0.1477659264857273
+  },
+  "decisions": {
+    "de_novo_mutation_rescue": true,
+    "finite_establishment_bottleneck": true,
+    "standing_variation_bottleneck": true
+  },
+  "relative_effects": {
+    "mutation_rescue_over_standing_variation": 0.09397819582256677,
+    "capacity_modulation_over_mutation_rescue": 0.07334604020786184,
+    "capacity_modulation_over_standing_variation": 0.006892928529464296
+  },
+  "cell_summary": [
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.04791039686230856,
+      "mean_abs_investment_change": 0.02007589556083099,
+      "mean_signed_investment_change": 0.005341480945177904,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.04323708567068132,
+      "mean_abs_investment_change": 0.03851906474437341,
+      "mean_signed_investment_change": 0.03419911836562923,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    },
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.027620211687168217,
+      "mean_abs_investment_change": 0.03973302676709484,
+      "mean_signed_investment_change": 0.03368036364021683,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.051014902201607745,
+      "mean_abs_investment_change": 0.04561694391811074,
+      "mean_signed_investment_change": 0.04108786604741171,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    },
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.03425085211431083,
+      "mean_abs_investment_change": 0.10875935617637578,
+      "mean_signed_investment_change": 0.1068039086540965,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.030938292025185443,
+      "mean_abs_investment_change": 0.22071744567495694,
+      "mean_signed_investment_change": 0.2185672101551373,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    },
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.03235427233658163,
+      "mean_abs_investment_change": 0.18808146923191946,
+      "mean_signed_investment_change": 0.18808146923191946,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 48,
+      "mean_abs_access_change": 0.027138296386476378,
+      "mean_abs_investment_change": 0.19530131795251682,
+      "mean_signed_investment_change": 0.19530131795251682,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.05604070207137874,
+      "mean_abs_investment_change": 0.03573947859439608,
+      "mean_signed_investment_change": 0.03573947859439608,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.05736548828540772,
+      "mean_abs_investment_change": 0.030512518844171985,
+      "mean_signed_investment_change": 0.02130281826927255,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.05506668742751624,
+      "mean_abs_investment_change": 0.06029738048898799,
+      "mean_signed_investment_change": 0.06029738048898799,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.0566831326198773,
+      "mean_abs_investment_change": 0.03474670727029364,
+      "mean_signed_investment_change": 0.03285400927939169,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "low",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.0717838090442329,
+      "mean_abs_investment_change": 0.2399837048950843,
+      "mean_signed_investment_change": 0.2399837048950843,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.05548067608347437,
+      "mean_abs_investment_change": 0.1464501569402647,
+      "mean_signed_investment_change": 0.1464501569402647,
+      "mutation_regime": "equal_baseline",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.05503058897800054,
+      "mean_abs_investment_change": 0.23522668372534122,
+      "mean_signed_investment_change": 0.23522668372534122,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "left4"
+    },
+    {
+      "capacity": 192,
+      "mean_abs_access_change": 0.05661415864782804,
+      "mean_abs_investment_change": 0.24804116521032846,
+      "mean_signed_investment_change": 0.24804116521032846,
+      "mutation_regime": "investment_accessible",
+      "n": 8,
+      "standing_regime": "high",
+      "terminal_occupancy": 1,
+      "visitor_history": "right4"
+    }
+  ],
+  "interpretation": "All three predeclared decision-tree contrasts were positive, but their magnitudes were strongly hierarchical. Restoring standing investment variation had by far the largest effect on terminal investment response. Increasing de novo investment mutation supply produced a smaller rescue, about 9.4% of the standing-variation contrast. Increasing plant capacity from 48 to 192 only weakly strengthened mutation rescue. Under this synthetic 400-year experiment, available standing variation is therefore the dominant identified genetic bottleneck, with de novo mutation supply secondary and finite establishment a much smaller modifier.",
+  "claim_boundary": [
+    "This is a new prospective diagnostic created after the failed Stage C threshold experiment; it does not rescue or overwrite that failure.",
+    "The positive finite-establishment decision is numerically small and must not be described as a dominant effect.",
+    "Mutation rates, effect sizes, capacities and 400-year horizon are synthetic.",
+    "Investment remains an abstract pollinator-facing investment axis and is not literal flower colour.",
+    "The hierarchy is conditional on this model and parameterization, not a universal ranking of evolutionary mechanisms."
+  ]
+}
