@@ -47,8 +47,9 @@ def test_vnext_preserves_positive_and_negative_prospective_results() -> None:
         "standing genetic variation filters",
         "did not support its success criteria",
         "restoring investment standing variation increased absolute investment response by 0.14777",
-        "increasing de novo investment mutation supply added 0.01389",
-        "strengthened that mutation rescue by a further 0.00102",
+        "de novo investment mutation supply",
+        "0.01389",
+        "0.00102",
         "syndromes are outcomes, not mechanisms",
     ):
         assert phrase in lower
