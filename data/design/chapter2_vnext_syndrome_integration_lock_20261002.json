@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "date": "2026-10-02",
-  "status": "vnext_candidate_not_active_submission",
+  "status": "vnext_established_not_active_submission",
   "active_submission_unchanged": true,
   "active_submission_manifest": "data/design/chapter2_oikos_submission_manifest_20260927.json",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "vnext_manuscript": "docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md",
-  "vnext_question": "At which ecological, reproductive, genetic or demographic stage does a recurrent pollination problem cease to imply a recurrent phenotypic solution?",
-  "vnext_claim": "Island, selfing and pollination syndromes are emergent outcomes of separable ecological, reproductive, genetic and demographic filters rather than mechanisms themselves.",
+  "vnext_question": "At which stage does a recurrent pollination problem cease to imply a recurrent phenotypic solution?",
+  "vnext_claim": "A recurrent pollination problem can yield recurrent functional responses without a recurrent detailed floral phenotype because ecological selection, reproductive persistence, genetic accessibility and finite-population realization are separable stages.",
   "evidence_promoted_into_vnext": {
     "assurance_cost_causal_knockout": "data/results/chapter2_syndrome_causal_knockout_20261002.json",
     "same_count_functional_rematching": "data/results/chapter2_syndrome_causal_knockout_20261002.json",
@@ -15,20 +15,22 @@
     "failed_mutation_pleiotropy_timing_test": "data/results/chapter2_trait_accessibility_mutation_pleiotropy_20261002.json",
     "post_failure_diagnostic": "data/results/chapter2_trait_accessibility_mutation_pleiotropy_diagnostic_20261002.json",
     "prospective_investment_bottleneck_diagnostic": "data/results/chapter2_investment_mutation_rescue_diagnostic_20261002.json",
-    "original_isolation_bridge": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json"
+    "original_isolation_bridge": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "route_A_robustness_falsification": "data/results/chapter2_route_A_robustness_surface_20261002.json",
+    "mutation_input_calibration_sensitivity": "data/results/chapter2_mutation_input_calibration_sensitivity_20261002.json"
   },
   "key_numeric_spine": {
-    "low_service_assurance_cost_gradient": -0.39284274793633484,
-    "low_service_no_assurance_gradient": 0.6018635213536321,
-    "low_service_no_investment_cost_gradient": 0.6113743630444405,
-    "reference_activity_assurance_cost_gradient": 1.6810031121606646,
     "same_count_left_right_fixed_gradient_difference_at_access_0_2": 2.376790538658976,
     "same_count_left_right_fixed_gradient_difference_at_access_0_8": -2.3767905386589705,
     "standing_variation_access_effect_deterministic": 0.11361783155344488,
     "standing_variation_investment_effect_deterministic": 0.10537950178662298,
-    "investment_standing_variation_effect": 0.1477659264857273,
-    "investment_de_novo_mutation_rescue": 0.013886775175178686,
-    "capacity_modulation_of_mutation_rescue": 0.0010185399703561936
+    "route_A_crossing_activity_depression_0_25": 0.18204224747577466,
+    "route_A_crossing_activity_depression_0_50": 0.09633822061589556,
+    "route_A_crossing_activity_depression_0_75": 0.040010608461644316,
+    "calibrated_high_standing_abs_response_y400": 0.19681115744633806,
+    "calibrated_low_standing_r0_01_abs_response_y400": 0.0769368289957819,
+    "calibrated_high_standing_abs_response_y800": 0.2014992373085016,
+    "calibrated_low_standing_r0_01_abs_response_y800": 0.13535270174260444
   },
   "retained_negative_result": {
     "mutation_accessibility_supported": false,
@@ -47,7 +49,33 @@
     "do not present the vNext manuscript as the active Oikos submission",
     "do not claim literal flower-colour or corolla-geometry calibration",
     "do not claim a universal colour-easy morphology-hard genetic hierarchy",
-    "do not erase or retune the failed prospective mutation-pleiotropy result"
+    "do not erase or retune the failed prospective mutation-pleiotropy result",
+    "do not present assurance-by-cost adaptive reduction as a robust headline mechanism",
+    "do not retain the earlier 9.4% standing-variation versus mutation effect-size ratio as general",
+    "do not claim equilibrium standing-variation dominance over mutation",
+    "do not quantitatively fit source-audited island systems to synthetic Model 3 cells"
   ],
-  "vnext_canonical_story": "docs/CHAPTER2_CANONICAL_STORY_VNEXT_20261002.md"
+  "vnext_canonical_story": "docs/CHAPTER2_CANONICAL_STORY_VNEXT_20261002.md",
+  "establishment_audit": "docs/CHAPTER2_VNEXT_ESTABLISHMENT_AUDIT_20261002.md",
+  "establishment_decisions": {
+    "route_A_headline": "dropped_after_failed_robustness_rule",
+    "functional_rematching": "retained_as_operator_level_same_count_contrast_with_symmetry_qualification",
+    "standing_variation_filter": "retained",
+    "standing_vs_mutation": "retained_only_as_finite_horizon_ranking_at_VM_over_VG0_0_01",
+    "natural_quantitative_transfer": "out_of_scope_until_same_unit_longitudinal_inherited_response_data"
+  },
+  "retained_negative_results": {
+    "mutation_pleiotropy_timing": {
+      "supported": false,
+      "reason": "investment sustained-crossing endpoint was largely censored at the preregistered 0.05 threshold over 400 years"
+    },
+    "route_A_robustness": {
+      "supported": false,
+      "reason": "negative region was non-isolated but central sign boundary shifted with inbreeding depression and inherited response failed the all-life-history criterion"
+    }
+  },
+  "novelty_boundary": {
+    "not_novel": "syndrome labels are descriptive/outcome concepts rather than unique mechanisms",
+    "novel_target": "single-model stage-by-stage interventions separating ecological selection, reproductive persistence, functional rematching, genetic accessibility and finite realization"
+  }
 }
