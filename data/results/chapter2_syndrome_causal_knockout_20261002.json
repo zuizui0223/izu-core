@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_stage_A_causal_knockout",
+  "date": "2026-10-02",
+  "design": "data/design/chapter2_syndrome_causal_knockout_20261002.json",
+  "ci_receipt": {
+    "head_sha": "f10c6d75a597b1a8d07ef61bff65f5ce4a9ac3b7",
+    "workflow_run_id": 36996773563,
+    "python_job": "tests (3.11)",
+    "job_id": 110805182874,
+    "cross_version_gate": "Python 3.10, 3.11 and 3.12 all succeeded"
+  },
+  "route_A": {
+    "supported": true,
+    "key_rows": [
+      {
+        "activity": 0.05,
+        "fixed_assurance": 0.0,
+        "investment_cost": 0.5,
+        "fixed_outcross_gradient": 0.6018635213536321,
+        "fixed_total_gradient": 0.6018635213536321,
+        "density_investment_change": null,
+        "abm_mean_investment_change": null,
+        "abm_terminal_occupancy": 0.0
+      },
+      {
+        "activity": 0.05,
+        "fixed_assurance": 0.5,
+        "investment_cost": 0.0,
+        "fixed_outcross_gradient": 0.8123430852296923,
+        "fixed_total_gradient": 0.6113743630444405,
+        "density_investment_change": 0.08745743320234706,
+        "abm_mean_investment_change": 0.009895833333333645,
+        "abm_terminal_occupancy": 1.0
+      },
+      {
+        "activity": 0.05,
+        "fixed_assurance": 0.5,
+        "investment_cost": 0.5,
+        "fixed_outcross_gradient": 0.6018635213536321,
+        "fixed_total_gradient": -0.39284274793633484,
+        "density_investment_change": -0.07258869309706212,
+        "abm_mean_investment_change": -0.07213541666666654,
+        "abm_terminal_occupancy": 1.0
+      },
+      {
+        "activity": 0.4,
+        "fixed_assurance": 0.5,
+        "investment_cost": 0.5,
+        "fixed_outcross_gradient": 3.0887080202883475,
+        "fixed_total_gradient": 1.6810031121606646,
+        "density_investment_change": 0.09068495620774825,
+        "abm_mean_investment_change": 0.06953125000000053,
+        "abm_terminal_occupancy": 1.0
+      }
+    ],
+    "contrasts": {
+      "assurance_effect_low_activity_cost_present": -0.9947062692899669,
+      "cost_effect_low_activity_assurance_present": -1.0042171109807754,
+      "activity_effect_assurance_cost_present": 2.0738458600969993
+    },
+    "interpretation": "Under low visitor activity, assurance is a persistence gate and, conditional on persistence, assurance plus positive floral-investment cost can reverse the marginal total return to investment. Removing assurance or removing investment cost moves the selection gradient upward. Pollinator loss alone is therefore not sufficient to generate adaptive investment reduction in this operator."
+  },
+  "route_B": {
+    "supported": true,
+    "left_minus_right_same_count": [
+      {
+        "starting_access": 0.2,
+        "left_minus_right_fixed_gradient": 2.376790538658976,
+        "fixed_gradient_sign_change": true,
+        "left_minus_right_density_change": 0.18912389815058578,
+        "left_minus_right_abm_mean_change": 0.1536458333333337
+      },
+      {
+        "starting_access": 0.5,
+        "left_minus_right_fixed_gradient": -4.440892098500626e-16,
+        "fixed_gradient_sign_change": false,
+        "left_minus_right_density_change": 0.0,
+        "left_minus_right_abm_mean_change": 0.0
+      },
+      {
+        "starting_access": 0.8,
+        "left_minus_right_fixed_gradient": -2.3767905386589705,
+        "fixed_gradient_sign_change": true,
+        "left_minus_right_density_change": -0.1891238981505859,
+        "left_minus_right_abm_mean_change": -0.1536458333333337
+      }
+    ],
+    "interpretation": "At identical visitor count, functional composition reverses the selection contrast at opposite starting access states and the contrast propagates through deterministic inheritance and finite-population realization. This is a rematching route distinct from visitor scarcity."
+  },
+  "synthesis": "The unchanged Model 3 operator contains at least two distinct syndrome-generating ecological routes: an assurance-by-cost route under low pollinator service and a functional-rematching route under visitor replacement. The first can also determine whether an evolutionary endpoint exists at all.",
+  "claim_boundary": [
+    "Synthetic causal knockout, not a natural-island fit.",
+    "Floral investment is not literal flower colour and access is not literal corolla geometry.",
+    "The extinction of the zero-assurance low-activity trajectory is conditional on this declared annual-life-history configuration.",
+    "No natural transition rate, effect magnitude or historical cause is inferred."
+  ]
+}
