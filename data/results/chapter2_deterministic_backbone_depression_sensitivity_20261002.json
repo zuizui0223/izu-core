@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_deterministic_backbone_depression_sensitivity",
+  "date": "2026-10-02",
+  "design": "data/design/chapter2_deterministic_backbone_depression_sensitivity_20261002.json",
+  "parent_bridge": "data/design/model3_ch2_bridge_20260927.json",
+  "ci_receipt": {
+    "head_sha": "51d32491d1aaf2d15c5ce2a3565930cd3677d1ff",
+    "workflow_run_id": 37016745941,
+    "shards": {
+      "depression_0.25": {"python": "3.10", "job_id": 110869376566},
+      "depression_0.50": {"python": "3.11", "job_id": 110869376988},
+      "depression_0.75": {"python": "3.12", "job_id": 110869376798}
+    },
+    "all_shards": "success"
+  },
+  "endpoint": "far-minus-near terminal-minus-initial inherited investment change",
+  "model": "deterministic genotype-density only",
+  "reports": [
+    {
+      "depression": 0.25,
+      "overall_mean_effect": -0.35057192494503014,
+      "mean_effect_by_start": {
+        "0.3": -0.37887527718846037,
+        "0.5": -0.3841201884236115,
+        "0.7": -0.2887203092230187
+      },
+      "negative_only_histories_eps0": 128,
+      "mixed_histories_eps0": 0,
+      "positive_only_histories_eps0": 0,
+      "zero_or_undefined_histories_eps0": 0,
+      "uniform_negative_backbone": true
+    },
+    {
+      "depression": 0.5,
+      "overall_mean_effect": -0.4509830625839532,
+      "mean_effect_by_start": {
+        "0.3": -0.4523157091143324,
+        "0.5": -0.4709595099490027,
+        "0.7": -0.42967396868852437
+      },
+      "negative_only_histories_eps0": 128,
+      "mixed_histories_eps0": 0,
+      "positive_only_histories_eps0": 0,
+      "zero_or_undefined_histories_eps0": 0,
+      "uniform_negative_backbone": true,
+      "parent_bridge_reproduction": "matches the frozen depression=0.5 natural deterministic result to floating-point precision"
+    },
+    {
+      "depression": 0.75,
+      "overall_mean_effect": -0.41423024895210364,
+      "mean_effect_by_start": {
+        "0.3": -0.42476931736787976,
+        "0.5": -0.44873962672370715,
+        "0.7": -0.36918180276472407
+      },
+      "negative_only_histories_eps0": 116,
+      "mixed_histories_eps0": 11,
+      "positive_only_histories_eps0": 1,
+      "zero_or_undefined_histories_eps0": 0,
+      "uniform_negative_backbone": false,
+      "mixed_history_seeds": [
+        74018, 74029, 74040, 74050, 74055, 74060,
+        74066, 74070, 74086, 74093, 74099
+      ],
+      "positive_only_history_seeds": [74019]
+    }
+  ],
+  "backbone_mean_direction_robust": true,
+  "uniform_history_direction_robust": false,
+  "sign_reversal_at_depression_0.75": false,
+  "conditional_uniformity_at_depression_0.75": true,
+  "reporting_action": "retain_negative_mean_backbone_but_drop_uniform_one_directional_across_histories_claim",
+  "interpretation": "Propagating the Route A inbreeding-depression sensitivity into the original natural near/far deterministic bridge does not reverse the mean backbone: the overall effect and all three starting-state means remain negative at depression 0.25, 0.50 and 0.75. However, the stronger claim that deterministic response is uniformly one-directional across all 128 histories fails at depression 0.75, where 11 histories are mixed across starting states and one is positive-only. Inbreeding depression therefore conditions history-level repeatability of the deterministic response even though the coarse negative mean direction persists.",
+  "claim_update": {
+    "retire": "natural isolation-driven deterministic density is uniformly negative across all 128 visitor histories without qualification",
+    "retain": "natural isolation-driven deterministic density has a negative mean far-minus-near investment effect across depression 0.25-0.75 and across all three starting-state means",
+    "new_emphasis": "repeatability is retained at the coarse mean level but can be lost at the history-by-start realization level as inbreeding depression changes"
+  },
+  "claim_boundary": [
+    "Inbreeding depression values are synthetic sensitivity levels, not natural estimates.",
+    "Only the natural near/far deterministic bridge was rerun; ABM and other bridge interventions were not rerun.",
+    "The result qualifies history-level uniformity, not the sign of the mean deterministic isolation effect over the tested depression envelope.",
+    "No natural prevalence of mixed deterministic histories is inferred from 11/128."
+  ]
+}
