@@ -1,7 +1,7 @@
 # Chapter 2 prospective extension — causal decomposition of floral syndromes
 
 **Date:** 2026-10-02  
-**Status:** prospective research extension; **not part of the current frozen Chapter 2 claim surface**  
+**Status:** prospective extension executed through Stage A + standing-variation Stage B pilot; **not part of the current frozen Chapter 2 claim surface**  
 **Parent model:** unified Model 3 on main at `945fc5a46b3e2e23cd41cd89ed67d01a12707ead`
 
 ## Core idea
@@ -203,6 +203,57 @@ Factorial:
 - activity, assurance and investment cost fixed.
 
 The preregistered signature is a same-count left-versus-right composition contrast that either reverses the sign of the investment gradient or differs by at least the predeclared gradient threshold.
+
+
+## Executed results
+
+### Stage A: the existing Model 3 already separates two syndrome-generating routes
+
+The preregistered causal knockout passed on Python 3.10, 3.11 and 3.12.
+
+Under low visitor activity (`0.05`):
+
+- **no assurance + investment cost 0.5:** total investment gradient `+0.602`, but the 60-year finite population had `0/8` terminal survivors, so no inherited endpoint existed;
+- **assurance 0.5 + no investment cost:** gradient `+0.611`, deterministic investment change `+0.0875`;
+- **assurance 0.5 + investment cost 0.5:** gradient **`-0.393`**, deterministic change **`-0.0726`**, finite-ABM mean **`-0.0721`**, with full terminal occupancy;
+- restoring visitor activity to `0.4` with assurance and cost present moved the gradient to **`+1.681`**.
+
+Thus the negative pollinator-facing investment response is not produced by pollinator scarcity alone. In this operator it appears when low outcross service is combined with reproductive assurance that permits persistence and a positive cost of maintaining pollinator-facing investment.
+
+The two prospectively defined knockouts moved the low-service gradient upward by approximately one full gradient unit:
+
+- assurance effect with cost present: `-0.995` for target-minus-knockout;
+- cost effect with assurance present: `-1.004`.
+
+The same-count rematching test was equally clear. Left4 versus right4 visitors differed by **`+2.377`** in the fixed investment gradient at starting access `0.2` and **`-2.377`** at starting access `0.8`; the corresponding deterministic inherited-change contrasts were `+0.189` and `-0.189`. At the symmetric starting access `0.5`, the contrast was essentially zero.
+
+So the existing operator distinguishes:
+
+1. **service-loss / assurance / cost** — a route to reduced pollinator-facing investment;
+2. **functional replacement / rematching** — a route that changes which floral state is favoured even when visitor count is unchanged.
+
+Full numeric receipt: `data/results/chapter2_syndrome_causal_knockout_20261002.json`.
+
+### Stage B pilot: genetic availability can make syndrome components asynchronous
+
+A second preregistered pilot changed **only founder standing variation**. The ecological operator, visitor environments, inheritance rules and mutation rate (`0`) were unchanged.
+
+When access standing SD was reduced from `0.15` to `0.03`, its initial density variance fell from about `0.00834` to `0.000494`. The mean absolute deterministic response lost **`0.1136`** relative to the equal-high-variation regime; the corresponding finite-ABM difference was **`0.0961`**.
+
+When investment standing SD was reduced from `0.15` to `0.03`, its initial density variance fell from about `0.00789` to `0.000582`. The mean absolute deterministic response lost **`0.1054`**; the finite-ABM difference was **`0.0830`**.
+
+For example, under left4 visitors:
+
+- equal-high variation: access `-0.150`, investment `+0.119` in deterministic inheritance;
+- constrained access: access only `-0.0428`, while investment remained `+0.106`;
+- constrained investment: access remained `-0.148`, while investment was only `+0.0104`.
+
+Thus **the same ecological selection operator can generate incomplete or asynchronous syndrome components simply because different trait axes have different available genetic variation**.
+
+This does not show that real flower colour is easier than real corolla architecture. It shows the more general causal point needed by Chapter 2: **selection and evolutionary accessibility are separable stages**.
+
+Full numeric receipt: `data/results/chapter2_trait_accessibility_pilot_20261002.json`.
+
 
 ## Stage B — conditional next step
 
