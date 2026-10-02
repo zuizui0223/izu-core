@@ -1,4 +1,5 @@
 import json
+import warnings
 from pathlib import Path
 
 from scripts.run_chapter2_trait_accessibility_pilot import run
@@ -17,4 +18,9 @@ def test_prospectively_frozen_trait_accessibility_pilot() -> None:
 
     # Prospectively declared prediction. Failure is a scientific result; do not
     # weaken this assertion after inspecting the output.
+    compact_b = {
+        "contrasts": result["contrasts"],
+        "rows": result["rows"],
+    }
+    warnings.warn("STAGE_B_NUMERIC " + json.dumps(compact_b, sort_keys=True))
     assert result["standing_variation_filter_supported"] is True
