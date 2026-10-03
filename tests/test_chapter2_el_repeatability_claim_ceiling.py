@@ -7,6 +7,8 @@ MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_EL_REPEATABILITY_20261003.md"
 POSITIONING = ROOT / "docs/CHAPTER2_EL_REPEATABILITY_POSITIONING_20261003.md"
 LOCK = ROOT / "data/design/chapter2_el_repeatability_lock_20261003.json"
 POP_AUDIT = ROOT / "data/results/chapter2_bridge_population_scale_diagnostic_20261003.json"
+BOUNDARY_STAGE1 = ROOT / "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json"
+BOUNDARY_REFINEMENT = ROOT / "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json"
 
 
 def _word_count(text: str) -> int:
@@ -83,3 +85,22 @@ def test_positioning_preserves_constructive_not_calibrated_interpretation():
     assert "natural prediction" in positioning
     assert "conditional deterministic closure" in positioning
     assert "not the stochastic mean" in positioning
+
+
+def test_deterministic_nonparallelism_is_excluded_before_persistence_boundary():
+    stage1 = json.loads(BOUNDARY_STAGE1.read_text(encoding="utf-8"))
+    refine = json.loads(BOUNDARY_REFINEMENT.read_text(encoding="utf-8"))
+    assert "No deterministic mixed/positive history was observed through depression 0.70" in stage1["first_stage_decision"]
+    assert refine["decision"]["pre_quasi_extinction_nonparallelism_detected"] is False
+    assert "negative-only" in refine["decision"]["conclusion"]
+
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    positioning = POSITIONING.read_text(encoding="utf-8").lower()
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+
+    assert "deterministic closure remained one-directional throughout the tested pre-quasi-extinction envelope" in manuscript
+    assert "no deterministic history-level nonparallelism was observed among pre-quasi-extinction histories" in positioning
+    assert lock["persistence_boundary_scan"]["headline_action"] == (
+        "exclude deterministic history-level nonparallelism from the persisting-population repeatability claim"
+    )
+    assert "deterministic history-level nonparallelism among persisting isolation-assembly populations" in set(lock["prohibited_claims"])
