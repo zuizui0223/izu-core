@@ -37,7 +37,7 @@ def test_repeatability_candidate_keeps_three_inference_levels_separate():
 def test_focal_repeatability_evidence_is_occupied_finite_bridge_not_dep075_closure():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
     assert "all 3,072 near and 3,072 far cases were occupied" in manuscript
-    assert "mean far-minus-near inherited-investment effect was -0.1446" in manuscript
+    assert "finite abm mean far-minus-near investment effect was -0.1446" in manuscript
     assert "high-depression deterministic sensitivity entered quasi-extinction" in manuscript
     assert "excluded from persisting-population inference" in manuscript
 
