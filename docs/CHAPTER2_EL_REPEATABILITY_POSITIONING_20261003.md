@@ -1,8 +1,29 @@
 # Chapter 2 — repeatability framing
 
 **Date:** 2026-10-03  
-**Status:** candidate framing on a separate branch; journal target unresolved between *Ecology Letters* and *Evolution Letters*; does not replace the locked Oikos submission surface.  
+**Status:** candidate framing on a separate branch; **preferred journal candidate: Evolution Letters**. Ecology Letters remains a fallback only if the paper is recast around a general ecological contribution. This does not replace the locked Oikos submission surface.  
 **Parent scientific object:** unified Model 3 integrated syndrome candidate.
+
+## Journal-fit decision — 2026-10-03
+
+### Preferred candidate: Evolution Letters
+
+The current paper asks an evolutionary question: when an apparent increase in directional parallelism reflects stronger repeatability versus when it arises through opposite changes in reproducible historical structure. The plant–pollinator island model is the biological testbed, not the final ecological endpoint.
+
+Current official fit:
+- *Evolution Letters* publishes theoretical and empirical work across evolutionary biology that substantially advances the field or has broad interest;
+- a typical Letter is approximately 5,000 words excluding display items, with an abstract up to 300 words;
+- the current draft is 4,624 main-text words and 218 abstract words.
+
+### Fallback: Ecology Letters
+
+*Ecology Letters* requires a substantial nexus with general ecology and notes that purely evolutionary contributions are rarely published. Its Letter format allows 5,000 main-text words but only a 150-word abstract.
+
+The current manuscript should therefore **not** be submitted there unchanged. An Ecology Letters route would require recentering the contribution on ecological history averaging, partner-community composition and finite-population ecology, plus abstract compression.
+
+### Decision boundary
+
+This is a **journal-fit recommendation**, not a submission action. The branch remains draft and the active Oikos surface remains unchanged until an explicit promotion/submission decision.
 
 ## Editorial-level question
 
