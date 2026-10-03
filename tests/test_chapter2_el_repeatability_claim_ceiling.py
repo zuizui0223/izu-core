@@ -36,10 +36,10 @@ def test_repeatability_candidate_keeps_three_inference_levels_separate():
 
 def test_focal_repeatability_evidence_is_occupied_finite_bridge_not_dep075_closure():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
-    assert "all 3,072 natural near cases and all 3,072 natural far cases remained occupied" in manuscript
+    assert "all 3,072 near and 3,072 far cases were occupied" in manuscript
     assert "mean far-minus-near inherited-investment effect was -0.1446" in manuscript
-    assert "retain the depression-0.75 labels only as a mathematical closure sensitivity" in manuscript
-    assert "do not use them as evidence about repeatability among persisting populations" in manuscript
+    assert "high-depression deterministic sensitivity entered quasi-extinction" in manuscript
+    assert "excluded from persisting-population inference" in manuscript
 
 
 def test_population_scale_audit_separates_dep050_from_dep075():
@@ -99,7 +99,7 @@ def test_deterministic_nonparallelism_is_excluded_before_persistence_boundary():
     positioning = POSITIONING.read_text(encoding="utf-8").lower()
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
 
-    assert "deterministic closure remained one-directional throughout the tested pre-quasi-extinction envelope" in manuscript
+    assert "found no mixed or positive deterministic history among histories whose three starts and both near/far endpoints all retained mass >=1" in manuscript
     assert "no deterministic history-level nonparallelism was observed among pre-quasi-extinction histories" in positioning
     assert lock["persistence_boundary_scan"]["headline_action"] == (
         "exclude deterministic history-level nonparallelism from the persisting-population repeatability claim"
