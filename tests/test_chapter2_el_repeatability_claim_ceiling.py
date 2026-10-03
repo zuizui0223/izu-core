@@ -2,6 +2,7 @@ import hashlib
 import json
 import re
 import subprocess
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +20,7 @@ VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_validat
 VALIDATION_RUNNER = ROOT / "scripts/run_chapter2_finite_history_signal_validation.py"
 VALIDATION_SUMMARIZER = ROOT / "scripts/summarize_chapter2_finite_history_signal_validation.py"
 VALIDATION_SOURCE_SNAPSHOT = ROOT / "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip"
+BRIDGE_SOURCE_CONTRACT = ROOT / "data/design/model3_ch2_bridge_execution_20260927.json"
 
 
 def _word_count(text: str) -> int:
@@ -276,9 +278,14 @@ def test_validation_receipt_distinguishes_execution_provenance_from_committed_re
     assert git_blob_sha(VALIDATION_RUNNER) == surface["runner_git_blob_sha"]
     assert git_blob_sha(VALIDATION_SUMMARIZER) == surface["summarizer_git_blob_sha"]
 
-    actual_snapshot = sha256(VALIDATION_SOURCE_SNAPSHOT)
-    assert actual_snapshot == receipt["exact_source"]["snapshot_sha256"], (
-        actual_snapshot,
-        receipt["exact_source"]["snapshot_sha256"],
-    )
-    assert "not asserted to be byte-identical" in receipt["claim_boundary"]
+    exact = receipt["exact_source"]
+    assert sha256(VALIDATION_SOURCE_SNAPSHOT) == exact["committed_reproduction_zip_sha256"]
+    bridge = json.loads(BRIDGE_SOURCE_CONTRACT.read_text(encoding="utf-8"))
+    with zipfile.ZipFile(VALIDATION_SOURCE_SNAPSHOT) as zf:
+        names = set(zf.namelist())
+        for rel, expected in bridge["source_hashes"].items():
+            assert rel in names, rel
+            assert hashlib.sha256(zf.read(rel)).hexdigest() == expected, rel
+
+    assert "zip byte identity is not claimed" in exact["relationship"].lower()
+    assert "need not be byte-identical" in receipt["claim_boundary"]
