@@ -18,7 +18,8 @@
     "original_isolation_bridge": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
     "route_A_robustness_falsification": "data/results/chapter2_route_A_robustness_surface_20261002.json",
     "mutation_input_calibration_sensitivity": "data/results/chapter2_mutation_input_calibration_sensitivity_20261002.json",
-    "deterministic_backbone_depression_sensitivity": "data/results/chapter2_deterministic_backbone_depression_sensitivity_20261002.json"
+    "deterministic_backbone_depression_sensitivity": "data/results/chapter2_deterministic_backbone_depression_sensitivity_20261002.json",
+    "full_clean_model3_reproduction": "data/results/model3_full_clean_rerun_receipt_20261003.json"
   },
   "key_numeric_spine": {
     "same_count_left_right_fixed_gradient_difference_at_access_0_2": 2.376790538658976,
@@ -85,5 +86,23 @@
     "not_novel": "syndrome labels are descriptive/outcome concepts rather than unique mechanisms",
     "novel_target": "preregistered single-model interventions that locate where syndrome-component repeatability is retained, redirected, attenuated or lost as a common perturbation propagates through ecological selection, reproductive context, genetic accessibility and finite realization"
   },
-  "establishment_status": "five_criteria_plus_deterministic_backbone_propagation_closed"
+  "establishment_status": "five_criteria_plus_backbone_propagation_plus_full_clean_reproduction_closed",
+  "computational_reproducibility": {
+    "status": "closed",
+    "receipt": "data/results/model3_full_clean_rerun_receipt_20261003.json",
+    "base_cases": 19968,
+    "bridge_cases": 24576,
+    "total_fresh_cases": 44544,
+    "base_max_abs_numeric_difference": 1.1102230246251565e-16,
+    "base_numeric_differences_gt_1e_12": 0,
+    "base_raw_structural_mismatch_count": 160,
+    "base_schema_only_additions": {
+      "crossed_histories_fields": 4,
+      "paired_contrast_eligible_pairs_fields": 156,
+      "scientific_schema_mismatches_after_normalization": 0
+    },
+    "bridge_max_abs_numeric_difference": 7.105427357601002e-15,
+    "bridge_numeric_differences_gt_1e_12": 0,
+    "bridge_structural_mismatch_count": 0
+  }
 }
