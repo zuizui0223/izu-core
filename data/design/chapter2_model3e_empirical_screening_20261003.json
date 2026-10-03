@@ -176,7 +176,10 @@
       "H4 assurance coefficient < 0",
       "H4 accessibility coefficient < 0"
     ],
-    "no_retuning": "search ranges, fit score, acceptance threshold and Model 3E operator cannot be changed after H2/H4 are opened in this screening"
+    "no_retuning": "search ranges, fit score, acceptance threshold and Model 3E operator cannot be changed after H2/H4 are opened in this screening",
+    "parameter_set_success": "H2 accessibility_given_assurance positive in at least 3 of 4 strata including northern_high_latitude and tropical, AND pooled H4 assurance coefficient < 0, AND pooled H4 accessibility coefficient < 0",
+    "overall_success": "at least 3 of the 5 frozen accepted parameter sets pass the parameter-set rule AND the best H1/H3 fit p010 passes",
+    "display_role": "H2 display_dulling_given_assurance is reported as a secondary diagnostic only because the display domain already failed the H1 training fit"
   },
   "claim_boundary": [
     "This is a first empirical emulation, not a calibrated historical reconstruction of the four regions.",
