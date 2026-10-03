@@ -6,7 +6,7 @@
 
 ## Editorial-level question
 
-> **When can a recurrent island-like pollination problem produce a coherent aggregate response without producing uniform realized evolutionary trajectories?**
+> **When does greater directional parallelism actually mean greater evolutionary repeatability, and when can it mask a persistent historical imprint?**
 
 The island connection is not decorative. Island floral syndromes are treated as a natural class of repeated ecological problems: altered pollinator service, functional replacement, restricted connectivity and finite populations recur across islands, yet detailed floral outcomes are heterogeneous.
 
@@ -16,19 +16,37 @@ The manuscript keeps different biological objects separate rather than estimatin
 
 1. **Immediate reproductive selection** — functional matching/rematching can redirect selection across starting floral states.
 2. **Conditional deterministic closure** — the same reproduction and inheritance operator can be propagated without demographic sampling, but this layer is not the stochastic mean of the finite ABM.
-3. **Occupied finite-population realization at the focal horizon** — this is the core repeatability comparison. At depression 0.50 and season 200, the finite mean far-minus-near effect is negative while descriptive history-level realized signs are non-uniform and repeat-sensitive; all near and far cases remain occupied.
+3. **Occupied finite-population realization at the focal horizon** — this is the core comparison. The natural bridge has a negative aggregate mean and complete occupancy, but sign labels are repeat-sensitive. An exact-source exploratory decomposition shows a reproducible continuous visitor-history component beneath demographic noise.
 4. **Genetic accessibility** — reduced standing variation slows early response on the constrained axis; continuing mutation narrows and eventually reverses that early ranking.
 5. **Persistence boundary** — a prospectively frozen depression scan shows that the isolation-driven deterministic closure remains negative-only among every tested history whose three starts and both near/far arms retain terminal mass >=1. Mixed deterministic labels appear only after at least one endpoint crosses below one expected individual.
 
 The result is not “island syndrome is universal.” It is:
 
-> **Within the occupied 200-season finite ABM, a coherent aggregate response can coexist with non-uniform realized history-level trajectories.**
+> **Within the occupied 200-season finite ABM, directional sign uniformity and reproducibility of visitor-history effects are distinct properties.**
 
 The broader logical implication is:
 
-> **Aggregate evolutionary recurrence does not, by itself, imply uniform realized evolutionary trajectories.**
+> **Greater directional parallelism does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.**
 
 Natural-island prevalence, effect sizes, long-run attractors and route ordering remain empirical questions.
+
+## Finite-history signal diagnostic
+
+Because mean sign labels were unstable across demographic repeats, we reanalysed the exact verified finite-ABM bridge tensors as an explicitly **post-hoc exploratory diagnostic**.
+
+Under natural visitor histories:
+- history-structured variance: **0.00549**;
+- demographic residual variance: **0.02677**;
+- single-trajectory ICC: **0.170**;
+- reliability of the declared eight-repeat mean: **0.621** (95% bootstrap interval 0.549–0.681);
+- first-four versus last-four history correlation: **0.690** (0.592–0.770).
+
+Two interventions both made directional sign labels more uniform but changed historical structure in opposite directions.
+
+- **Plant capacity 48→192:** mixed histories 12→1; repeat-label disagreement 97→31; eight-repeat reliability **0.621→0.825**; split-half history correlation **0.690→0.852**.
+- **Pooling visitor histories:** mixed histories 12→0; repeat-label disagreement remains 77; eight-repeat reliability **0.621→0.103**; split-half history correlation **0.690→0.214**.
+
+Thus fewer mixed-sign histories can mean either that demographic noise has fallen while history-specific magnitudes become more reproducible, or that environmental averaging has erased the history signal. Sign uniformity alone is not a sufficient repeatability metric.
 
 ## Critical population-scale audit
 
@@ -98,7 +116,7 @@ Plant island syndromes are empirically heterogeneous rather than a single law.
 
 ## Safe novelty statement
 
-> Existing work shows that parallel evolution is continuous and that environmental, genetic and historical differences can erode it. We use one prospectively tested eco-evolutionary model to separate **aggregate response repeatability from realized trajectory repeatability** and to identify ecological, genetic and demographic filters that can make those levels disagree.
+> Existing work shows that parallel evolution is continuous and that environmental, genetic and historical differences can erode it. Model 3 adds a mechanistic distinction: **the same increase in directional parallelism can accompany either stronger reproducibility of history-specific effects or erosion of the history signal by environmental averaging.**
 
 Do **not** claim:
 - first connection between island syndrome and parallel evolution;
@@ -108,7 +126,9 @@ Do **not** claim:
 - universal ordering of genetic versus ecological constraints;
 - one scalar repeatability parameter across unlike biological stages;
 - depression-0.75 deterministic history labels as evidence about persisting populations;
-- a stationary long-run island-syndrome attractor.
+- a stationary long-run island-syndrome attractor;
+- sign-uniformity counts as a complete measure of repeatability;
+- the finite-history variance diagnostic as preregistered rather than exploratory.
 
 ## Internal compact-format target
 
@@ -122,9 +142,9 @@ These are internal drafting targets, not attributed journal requirements.
 
 ## Claim ceiling
 
-1. **Established by simulation:** at the occupied depression-0.50, 200-season finite-population horizon, a directional aggregate response coexists with descriptive realized history-level sign heterogeneity; controlled interventions identify sufficient mechanisms that alter selection and realization.
-2. **General implication:** aggregate syndrome-level recurrence is insufficient evidence for uniform realized evolutionary pathways.
-3. **Natural prediction:** if the modeled architecture contributes in nature, apparent repeatability should depend on the biological object measured. Temporal accessibility rankings may also change as new variation accumulates.
+1. **Established by simulation:** at the occupied depression-0.50 finite horizon, visitor-history effects are reproducible despite demographic noise; increasing capacity and pooling histories both reduce sign heterogeneity but move continuous history reliability in opposite directions.
+2. **General implication:** directional parallelism alone does not identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
+3. **Natural prediction:** repeated-population studies should estimate both response direction and reproducibility of effect magnitude; temporal accessibility rankings may additionally change as new variation accumulates.
 
 The natural archive does not identify natural branch frequencies, transition rates, equilibrium times, effect sizes or a universal stage ordering.
 
@@ -136,7 +156,7 @@ The natural archive does not identify natural branch frequencies, transition rat
 
 **Panel C:** conditional deterministic closure as a mechanistic comparator, explicitly not the stochastic mean.
 
-**Panel D:** occupied finite-population bridge: directional aggregate mean plus distribution of history-level realized signs.
+**Panel D:** occupied finite-population bridge: sign uniformity versus continuous visitor-history reliability.
 
 **Panel E:** genetic accessibility and finite demographic/history filters.
 
@@ -145,10 +165,10 @@ The visual should make the main distinction obvious: a population set can have o
 ## Main-text result spine
 
 1. **A recurrent ecological problem does not imply one selection direction.**
-2. **At the occupied focal finite-population window, aggregate direction and realized history-level signs are different objects.**
+2. **At the occupied focal finite-population window, directional sign uniformity and reproducible history-specific magnitude are different objects.**
 3. **The deterministic closure is a comparator, not a finite-population expectation; depression 0.75 crosses a persistence boundary and is excluded from the repeatability headline.**
 4. **Standing variation changes early response speed; continuing mutation can erase and reverse that ranking.**
-5. **Chronology, connectivity, assurance and finite demography alter realized endpoints; the assurance-by-cost universal route failed its preregistered robustness rule.**
+5. **The same apparent gain in directional parallelism can result from reduced demographic noise or from erasure of environmental-history structure; the universal assurance-by-cost route still fails its preregistered robustness rule.**
 
 ## Submission-order firewall
 
