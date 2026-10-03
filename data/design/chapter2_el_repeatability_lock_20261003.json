@@ -4,7 +4,7 @@
   "status": "repeatability_candidate_journal_unresolved_separate_from_active_oikos",
   "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
   "active_oikos_submission_replaced": false,
-  "editorial_question": "When can a recurrent island-like pollination problem produce a coherent aggregate response without producing uniform realized evolutionary trajectories?",
+  "editorial_question": "When does greater directional parallelism reflect greater evolutionary repeatability, and when can it mask a persistent historical imprint?",
   "framing": {
     "upper_level": "evolutionary repeatability / nonparallel evolution",
     "biological_testbed": "pollination-mediated plant island syndrome",
@@ -16,7 +16,7 @@
       "genetic_accessibility_and_persistence"
     ]
   },
-  "safe_claim": "Within the occupied depression-0.50, 200-season finite ABM, a directional aggregate response coexists with non-uniform, repeat-sensitive history-level realized signs.",
+  "safe_claim": "Within the occupied depression-0.50 finite ABM, plant-capacity increase and visitor-history pooling both reduce mixed-sign history labels but shift reproducibility of continuous history effects in opposite directions.",
   "prohibited_claims": [
     "first connection between island syndrome and parallel evolution",
     "first mechanism for nonparallel evolution",
@@ -35,7 +35,11 @@
     "deterministic genotype density as the stochastic mean of the finite ABM",
     "41.5 percent gap closure as a finite-population attenuation or convergence coefficient",
     "level-by-time repeatability as established from the depression 0.75 long-horizon density stress test",
-    "deterministic history-level nonparallelism among persisting isolation-assembly populations"
+    "deterministic history-level nonparallelism among persisting isolation-assembly populations",
+    "mixed-sign history counts as a complete measure of evolutionary repeatability",
+    "the finite-history signal diagnostic as preregistered or confirmatory",
+    "larger plant capacity as a pure statistical noise-reduction manipulation",
+    "visitor-history pooling as a pure statistical noise-reduction manipulation"
   ],
   "key_literature": [
     {
@@ -80,19 +84,19 @@
     "internal_abstract_words_max": 250,
     "internal_main_figures": 4
   },
-  "general_logical_implication": "Aggregate evolutionary recurrence does not, by itself, imply uniform realized evolutionary trajectories.",
-  "empirical_prediction": "If the modeled architecture contributes to natural island evolution, apparent repeatability should depend on the biological object measured; genetic-accessibility rankings may additionally change as new variation accumulates.",
+  "general_logical_implication": "Greater directional parallelism does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.",
+  "empirical_prediction": "Repeated-population studies should estimate both response direction and reproducibility of effect magnitude; genetic-accessibility rankings may additionally change as new variation accumulates.",
   "claim_levels": {
     "model_established": [
       "at depression 0.50 and season 200, all frozen natural near and far finite cases are occupied",
-      "at that occupied finite-population horizon, the aggregate far-minus-near mean is negative while descriptive history-level realized sign labels are non-uniform and repeat-sensitive",
+      "the natural finite bridge contains a reproducible continuous visitor-history component despite demographic-repeat noise",
+      "plant-capacity increase and visitor-history pooling both reduce mixed-sign history labels but change continuous history reliability in opposite directions",
       "functional visitor composition, reproductive context, genetic accessibility and finite demography alter model responses within the declared operator",
       "standing variation provides an early response advantage that continuing mutation can erase and reverse",
-      "within the tested pre-quasi-extinction depression range, the isolation-driven deterministic closure remained negative-only across histories",
-      "at the occupied 200-season finite-population horizon, aggregate mean direction coexists with repeat-sensitive realized sign heterogeneity"
+      "within the tested pre-quasi-extinction depression range, the isolation-driven deterministic closure remained negative-only across histories"
     ],
     "general_implication": [
-      "aggregate syndrome-level recurrence at a bounded horizon is insufficient evidence for uniform realized evolutionary pathways"
+      "directional parallelism is insufficient to identify whether reproducible historical structure has weakened, strengthened relative to demographic noise, or been averaged away"
     ],
     "natural_prediction_not_result": [
       "biological-level ordering of repeatability in real islands",
@@ -142,5 +146,29 @@
     ],
     "result": "No mixed or positive deterministic history label was observed among histories whose three starts and both near/far arms all retained terminal density mass >=1. Mixed labels appeared only after at least one endpoint entered sub-individual expected mass.",
     "headline_action": "exclude deterministic history-level nonparallelism from the persisting-population repeatability claim"
+  },
+  "finite_history_signal_diagnostic": {
+    "status": "posthoc exploratory exact-source diagnostic",
+    "design": "data/design/chapter2_finite_history_signal_diagnostic_20261003.json",
+    "result": "data/results/chapter2_finite_history_signal_diagnostic_20261003.json",
+    "natural": {
+      "mixed_eps0": 12,
+      "repeat_disagreement_eps0": 97,
+      "eight_repeat_reliability": 0.621123099130166,
+      "split_half_r": 0.689658686195989
+    },
+    "large_capacity": {
+      "mixed_eps0": 1,
+      "repeat_disagreement_eps0": 31,
+      "eight_repeat_reliability": 0.8246529353907934,
+      "split_half_r": 0.8517982916805625
+    },
+    "visitor_pooled": {
+      "mixed_eps0": 0,
+      "repeat_disagreement_eps0": 77,
+      "eight_repeat_reliability": 0.10291763944166836,
+      "split_half_r": 0.21407060656596144
+    },
+    "interpretation": "The same reduction in mixed-sign labels can occur while reproducible history structure strengthens relative to demographic noise or while that history structure is erased by environmental averaging."
   }
 }
