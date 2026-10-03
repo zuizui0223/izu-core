@@ -91,19 +91,17 @@ A preregistered mutation–pleiotropy timing experiment failed its success crite
 
 ## Prospective long-horizon diagnostic
 
-After the focal analyses were complete, we prospectively froze a horizon extension before inspecting its outcomes. Selected deterministic-isolation and mutation-accessibility contrasts were evaluated at 200, 400, 800, 1,600, 3,200 and 6,400 reproductive seasons, with 6,400 fixed as the maximum horizon and no outcome-dependent extension. Stationarity required stability across both 1,600→3,200 and 3,200→6,400 intervals under predeclared tolerances.
+After the focal analyses, we prospectively froze a horizon extension at 200, 400, 800, 1,600, 3,200 and 6,400 reproductive seasons, with no outcome-dependent extension. Stationarity required stability across both late intervals under predeclared tolerances.
 
-These runs are stationary-environment stress tests, not reconstructions of geological island history. A model season is a reproductive season, not necessarily a calendar year, and the extension adds no succession, speciation, coevolution, changing source pool or calibrated natural mutation rate. We additionally tracked deterministic density mass because a frequency trajectory can remain mathematically defined after its expected population mass becomes biologically smaller than one individual.
+These are stationary-environment stress tests, not geological reconstructions: seasons need not be calendar years, and succession, speciation, coevolution, source-pool change and calibrated natural mutation rates are absent. We tracked density mass to flag mathematically defined trajectories that had entered sub-individual closure regimes.
 
 ## Finite realization and natural confrontation
 
 Finite-population simulations retain the same reproductive and inheritance operator but add demographic sampling, survival, extinction, immigration and ancestry turnover. Chronology and connectivity interventions distinguish visitor-history effects from demographic/genetic input.
 
-Because sign labels proved repeat-sensitive, we performed an explicitly exploratory exact-source reanalysis of the original verified bridge exports. For each intervention, the finite tensor contained three starts × 128 visitor histories × eight demographic repeats. A balanced crossed decomposition treated start as fixed, history and start×history as random, and repeat as residual. We report history-structured variance, single-trajectory ICC, reliability of the eight-repeat mean, and split-half history correlation. This discovery analysis is post-hoc.
+Because sign labels were repeat-sensitive, we conducted a post-hoc exact-source decomposition of the original 3 starts × 128 histories × 8 repeats tensor, treating start as fixed, history and start×history as random and repeat as residual. We report history-structured variance, single-trajectory ICC, eight-repeat reliability and split-half history correlation.
 
-After that discovery, but before any new demographic execution, we froze an out-of-demographic-sample validation. The same 128 visitor histories and three starts were rerun under natural, visitor-pooled and capacity-192 conditions using exactly four new demographic seeds (201–204), giving 9,216 finite arm trajectories. The primary statistic was the correlation across histories between the fixed discovery history mean and the new four-repeat validation mean. The predeclared strong-success rule required capacity 192 > natural > visitor pooled and paired 1,999-resample history-bootstrap intervals for capacity minus natural to remain above zero and pooled minus natural below zero. No seed extension, replacement or threshold tuning was allowed.
-
-After this first validation, we froze a second out-of-history-sample test before generating any new visitor histories. The visitor-history seeds were replaced wholesale (74001–74128 to 75001–75128), demographic seeds were fixed at 301–304, and the same three starts and natural, visitor-pooled and capacity-192 interventions were retained. This added 9,216 finite arm trajectories. The primary statistic was four-repeat reliability of history-structured continuous effects under the same balanced variance decomposition. Strong success required the ordering capacity 192 > natural > visitor pooled, a positive paired-bootstrap interval for capacity minus natural, a negative interval for pooled minus natural, and terminal occupancy of at least 0.95 in every arm. All thresholds, seeds and stopping rules were frozen before execution.
+Before further simulation, we froze two validations. First, the same histories were rerun with new demographic seeds 201–204 (9,216 arm trajectories); strong success required the predicted capacity 192 > natural > visitor-pooled discovery-to-validation correlation ordering and paired bootstrap intervals excluding zero in the predicted directions. Second, visitor histories were replaced wholesale (74001–74128 → 75001–75128) with demographic seeds 301–304 (another 9,216 trajectories). Here strong success required the same ordering in four-repeat reliability, paired intervals excluding zero and >=0.95 occupancy in every arm. No seeds, thresholds or stopping rules were changed after execution began.
 
 Natural island systems are used only for source-audited biological confrontation. They are not assigned to synthetic parameter cells, and cross-sectional island contrasts are not treated as measured historical trajectories.
 
@@ -174,11 +172,9 @@ What the archive does not contain is equally important. No complete same-unit re
 
 ## Directional similarity does not identify historical repeatability
 
-The strongest result is not the count of mixed histories. It is the separation between **directional similarity** and **reproducibility of history-specific effect magnitude**. The exploratory discovery identified opposite effects of capacity scaling and visitor-history pooling, a prospectively frozen new-demographic-seed validation reproduced that ordering for the same visitor histories, and a second frozen validation reproduced it again across entirely new synthetic visitor histories.
+The strongest result is the separation between **directional similarity** and **reproducibility of history-specific effect magnitude**. The exploratory contrast was recovered prospectively both under new demographic stochasticity and across new synthetic visitor histories.
 
-The capacity and pooling interventions expose why this distinction matters. Both made mean history labels almost uniformly negative. Larger plant populations did so while demographic residual variance fell and history reliability increased; visitor-history pooling did so while the reproducible history component collapsed. The same apparent gain in directional similarity therefore arose once because historical effects became clearer relative to demographic noise and once because environmental-history structure was averaged away.
-
-This makes sign uniformity an incomplete diagnostic of evolutionary repeatability. A population set can become more similar in direction while retaining or losing reproducible differences in magnitude. The second validation extends the result to new synthetic visitor histories, but only under the same frozen history-generating process; it does not establish transfer to a different ecological process or to natural islands. For natural systems, repeated populations should therefore be compared with replicated estimates of effect magnitude, not classified only by whether they move in the same direction.
+Both interventions made direction more uniform, but by opposite routes. Larger populations reduced demographic residual variance while history reliability increased; visitor-history pooling largely erased the reproducible history component. Sign uniformity is therefore incomplete as a repeatability diagnostic. The out-of-history validation remains within the same frozen history generator, not a different ecological process or natural islands. Natural tests should pair directional responses with replicated effect-magnitude estimates.
 
 The temporal accessibility result is distinct: standing variation accelerated early response, but continuing mutation caught and overtook that reference. The high-depression long-horizon density stress test crossed quasi-extinction and cannot identify a persisting long-run syndrome trajectory.
 ## This differs from treating parallel evolution as a single continuum score
@@ -209,11 +205,9 @@ That negative result is informative because it identifies reproductive context a
 
 ## Scope and empirical tests
 
-The model is mechanistic but uncalibrated. Traits are abstract, seasons are not geological time and distances are synthetic. A 6,400-season stationary run does not reconstruct island history, and the model cannot predict a named flora, historical Bombus transition, colour or corolla dimension.
+The model is mechanistic but uncalibrated: traits and distances are abstract, seasons are not geological time, and no named flora, Bombus transition, colour or corolla dimension is predicted.
 
-Its structural prediction is measurable: natural studies should quantify pollinator amount and composition, reproductive response, inherited change, repeated population-level effect magnitudes, genetic accessibility and demographic history. Such longitudinal data could distinguish directional similarity from reproducible historical differences rather than conditioning only on survivors.
-
-The logic may extend beyond islands, but islands remain useful because recurrent ecological perturbations and an explicit syndrome literature make incomplete repeatability a concrete empirical problem.
+Natural tests should quantify pollinator amount and composition, reproductive response, inherited change, repeated effect magnitudes, genetic accessibility and demographic history. Islands remain useful because recurrent perturbations and an explicit syndrome literature make incomplete repeatability a concrete empirical problem.
 
 # Conclusion
 
