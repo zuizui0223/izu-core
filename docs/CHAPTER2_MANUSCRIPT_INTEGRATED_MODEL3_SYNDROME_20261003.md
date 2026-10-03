@@ -2,7 +2,7 @@
 
 **Status:** integrated Model 3 manuscript candidate — unifies the locked Model 3 paper and all later prospective extensions; does not yet replace the locked Oikos submission surface
 **Updated:** 2026-10-03
-**Inference architecture:** pollinator environment → reproductive selection → deterministic inherited expectation → genetic accessibility / reproductive context → finite-population realization → source-audited natural confrontation
+**Inference architecture:** pollinator environment → reproductive selection → conditional deterministic inherited trajectory → genetic accessibility / reproductive context → finite-population realization → source-audited natural confrontation
 **Source state:** one frozen unified Model 3 engine + its prospectively frozen bridge, causal interventions, robustness tests and genetic-accessibility extensions
 **Firewall:** the active Oikos submission remains `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`
 
@@ -34,7 +34,7 @@ We ask five questions. First, can island-like changes in visitor environment gen
 
 ## Ecological scope and claim boundary
 
-The primary analysis is a system-uncalibrated plant–pollinator eco-evolutionary model examined at reproductive selection, deterministic inherited expectation and finite-population realization. No natural island outcome was used to tune model parameters or choose contrast directions; model time, distance and trait coordinates are synthetic.
+The primary analysis is a system-uncalibrated plant–pollinator eco-evolutionary model examined at reproductive selection, conditional deterministic inherited trajectory and finite-population realization. No natural island outcome was used to tune model parameters or choose contrast directions; model time, distance and trait coordinates are synthetic.
 
 Natural evidence is used only for biological plausibility and adversarial confrontation. Source-locked island systems are not assigned to Model 3 cells, and cross-sectional natural observations are not treated as reconstructions of the historical process that generated a phenotype.
 
@@ -120,13 +120,13 @@ The genetic-variance trajectories also rejected an equilibrium interpretation. M
 
 ## Isolation assembly retains a negative mean backbone but not uniform history-level direction
 
-The 24,576-case prospective bridge closed the original visitor-amount and finite-realization controls. At the original inbreeding depression 0.50, the finite ABM mean inherited-investment effect was -0.1446 (95% history-bootstrap interval -0.1588 to -0.1306) and the deterministic-density mean was -0.4510 (-0.4716 to -0.4301). The deterministic response was negative-only across all 128 histories at epsilon 0, whereas the finite ABM contained mixed histories.
+The 24,576-case prospective bridge closed the original visitor-amount and finite-realization controls. At the original inbreeding depression 0.50, the finite ABM mean inherited-investment effect was -0.1446 (95% history-bootstrap interval -0.1588 to -0.1306) and the deterministic-density mean was -0.4510 (-0.4716 to -0.4301). Their difference is not interpreted as a finite-population attenuation coefficient because the density layer is a conditional deterministic closure rather than the stochastic mean of the finite ABM. The deterministic response was negative-only across all 128 histories at epsilon 0, whereas the finite ABM contained mixed histories.
 
 The prospective depression propagation preserved the **mean** deterministic direction but not the stronger history-level uniformity claim. Overall far-minus-near deterministic effects were -0.3506, -0.4510 and -0.4142 at depression 0.25, 0.50 and 0.75, respectively; the three starting-state means were negative at every depression level. At depression 0.25 and 0.50, all 128 histories were negative-only across starting states. At depression 0.75, however, only 116/128 remained negative-only, 11/128 were mixed across starting states and 1/128 was positive-only. Thus higher inbreeding depression did not reverse the coarse mean isolation effect, but it erased the previously uniform deterministic direction for a subset of visitor histories before finite demographic stochasticity was introduced.
 
 Annual response-blind visitor-count matching still changed the coarse regime at the original depression 0.50: the mean effect became positive in both finite ABM (+0.0333, 0.0245 to 0.0425) and deterministic density (+0.0338, 0.0236 to 0.0444). Finite-ABM mixed histories increased strongly, and deterministic density also became mixed near zero after matching. Visitor amount therefore shifts the mean regime, while reproductive context and visitor history determine whether that mean direction is repeated across histories.
 
-Pooling eight independent visitor histories eliminated mixed labels in the original bridge, whereas increasing plant capacity from 48 to 192 moved the finite-population mean toward the deterministic counterpart and nearly removed finite-ABM mixed labels. These interventions remain mechanistically distinct and are not interpreted as estimates of a natural branch prevalence.
+Pooling eight independent visitor histories eliminated mixed labels in the original bridge, whereas increasing plant capacity from 48 to 192 changed the finite-population mean and nearly removed finite-ABM mixed labels. The numerical movement toward the density closure is retained descriptively but is not treated as convergence to a finite-population expectation. These interventions remain mechanistically distinct and are not interpreted as estimates of a natural branch prevalence.
 
 The resulting hierarchy is more specific than the original “directional backbone” wording: **the coarse deterministic mean is repeatable across the tested inbreeding-depression envelope, but deterministic history-level direction itself is conditional on reproductive context.**
 
@@ -158,7 +158,7 @@ The principal natural-data gap is therefore no longer generic 'validation'. A is
 
 ## One Model 3 links syndrome generation to realized floral evolution
 
-The frozen backbone and the later prospective analyses resolve different parts of the same question and belong to one Model 3 rather than competing models. The frozen Model 3 supplies the biological engine and establishes the sequence from reproductive selection to deterministic inherited expectation and finite-population realization. The later prospective interventions ask which components of that generated response remain robust when reproductive context, visitor functional composition and genetic accessibility are changed.
+The frozen backbone and the later prospective analyses resolve different parts of the same question and belong to one Model 3 rather than competing models. The frozen Model 3 supplies the biological engine and establishes the sequence from reproductive selection to conditional deterministic inherited trajectory and finite-population realization. The later prospective interventions ask which components of that generated response remain robust when reproductive context, visitor functional composition and genetic accessibility are changed.
 
 Taken together, the model generates a recurrent coarse response to island-like pollination constraints without imposing one detailed floral endpoint. The deterministic isolation bridge provides the backbone: mean far-minus-near investment response remains negative across the tested inbreeding-depression envelope. The extensions then explain why that backbone does not collapse to one syndrome phenotype. Functional rematching changes selection at fixed visitor number, high inbreeding depression breaks history-level uniformity, standing variation changes how much selected response is reachable, and finite visitor histories and plant demography alter the final realized trajectory.
 
@@ -186,7 +186,7 @@ This does not imply that flower colour is generally easy to evolve or floral arc
 
 ## Pollination ecology and realized evolution remain distinct biological stages
 
-The expanded syndrome decomposition retains the original three-layer result. Functional matching can reverse the marginal reproductive return to floral investment before inheritance or demographic updating. Deterministic inheritance then shows which response is expected if demographic sampling is removed, and the finite ABM determines whether that response persists through recruitment, extinction, ancestry change and loss of variation. What is favoured, what is genetically reachable, what is expected to evolve and what is actually realized are therefore distinct biological objects.
+The expanded syndrome decomposition retains the original three-layer result. Functional matching can reverse the marginal reproductive return to floral investment before inheritance or demographic updating. Deterministic inheritance then shows which response is expected if demographic sampling is removed, and the finite ABM determines whether that response persists through recruitment, extinction, ancestry change and loss of variation. What is favoured, what is genetically reachable, what the conditional deterministic closure predicts and what is actually realized are therefore distinct biological objects.
 
 Controlled visitor compositions demonstrated branch capacity, but isolation-driven visitor assembly produced a one-directional deterministic inherited response across all 128 visitor histories. Finite populations reintroduced realized sign heterogeneity in some histories. The existence of multiple potential routes therefore does not mean that every isolation regime will express them equally.
 
