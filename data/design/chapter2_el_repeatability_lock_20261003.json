@@ -39,7 +39,9 @@
     "mixed-sign history counts as a complete measure of evolutionary repeatability",
     "the finite-history signal diagnostic as preregistered or confirmatory",
     "larger plant capacity as a pure statistical noise-reduction manipulation",
-    "visitor-history pooling as a pure statistical noise-reduction manipulation"
+    "visitor-history pooling as a pure statistical noise-reduction manipulation",
+    "first distinction between direction and magnitude as dimensions of evolutionary parallelism",
+    "first claim that different parallelism metrics measure different trajectory properties"
   ],
   "key_literature": [
     {
@@ -76,6 +78,21 @@
       "citation": "Matuszewski et al. 2015",
       "doi": null,
       "role": "theoretical precedent that standing variation dominates early adaptation while de novo mutation contribution increases through time; used to bound novelty of the long-horizon mutation result"
+    },
+    {
+      "citation": "Oke et al. 2017",
+      "doi": "10.1086/691989",
+      "role": "direction and magnitude are distinct measures of phenotypic parallelism"
+    },
+    {
+      "citation": "Venkataram & Kryazhimskiy 2023",
+      "doi": "10.1098/rstb.2022.0047",
+      "role": "repeatability is an ensemble property and directional similarity captures only one aspect"
+    },
+    {
+      "citation": "Arendt et al. 2025",
+      "doi": "10.1086/736845",
+      "role": "parallelism metrics measure different trajectory properties; be explicit about angle, direction and length"
     }
   ],
   "format_target": {
@@ -170,5 +187,6 @@
       "split_half_r": 0.21407060656596144
     },
     "interpretation": "The same reduction in mixed-sign labels can occur while reproducible history structure strengthens relative to demographic noise or while that history structure is erased by environmental averaging."
-  }
+  },
+  "novelty_boundary": "Direction-versus-magnitude multidimensionality is established. The candidate contribution is the model-internal mechanistic counterexample in which the same increase in directional sign uniformity accompanies opposite changes in reproducible visitor-history structure."
 }
