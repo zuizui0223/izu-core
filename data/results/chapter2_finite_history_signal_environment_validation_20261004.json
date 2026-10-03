@@ -1,0 +1,194 @@
+{
+  "claim_boundary": [
+    "This is independent synthetic visitor-history validation under the same frozen history-generating process, not natural-island validation.",
+    "The environmental-history generator itself is unchanged, so this tests out-of-history-sample transfer within Model 3 rather than transfer to a new ecological process.",
+    "Capacity scaling and visitor pooling remain biological interventions, not pure statistical manipulations.",
+    "No natural variance component, branch prevalence, evolutionary rate or field effect size is inferred."
+  ],
+  "date": "2026-10-04",
+  "design": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+  "paired_bootstrap_differences": {
+    "large_capacity_minus_natural_reliability": {
+      "bootstrap95": [
+        0.22244323917981762,
+        0.37549139757224376
+      ],
+      "estimate": 0.3048286411868521
+    },
+    "visitor_pooled_minus_natural_reliability": {
+      "bootstrap95": [
+        -0.3793769998530452,
+        -0.15449478388085502
+      ],
+      "estimate": -0.2629067289745012
+    }
+  },
+  "primary_decision": {
+    "failure": false,
+    "observed_ordering": "large_plant_capacity > natural > visitor_pooled",
+    "observed_ordering_holds": true,
+    "observed_reliability": {
+      "large_plant_capacity": 0.7217688849932009,
+      "natural": 0.4169402438063488,
+      "visitor_pooled": 0.15403351483184766
+    },
+    "occupancy_rule_holds": true,
+    "strong_success": true,
+    "weak_success": false
+  },
+  "provenance": {
+    "demographic_seeds": [
+      301,
+      302,
+      303,
+      304
+    ],
+    "finite_arm_trajectories": 9216,
+    "n_visitor_histories": 128,
+    "paired_effect_cells_per_intervention": 1536,
+    "starts": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "visitor_history_seeds": [
+      75001,
+      75128
+    ]
+  },
+  "reports": {
+    "large_plant_capacity": {
+      "balanced_2v2_split_history_correlations": [
+        0.7990880033617593,
+        0.800741196512959,
+        0.8178017456318697
+      ],
+      "labels_eps0": {
+        "mixed": 1,
+        "negative": 127,
+        "neutral": 0,
+        "positive": 0
+      },
+      "labels_eps0_01": {
+        "mixed": 1,
+        "negative": 127,
+        "neutral": 0,
+        "positive": 0
+      },
+      "mean_effect": -0.290641982691987,
+      "variance_components": {
+        "four_repeat_mean_reliability": 0.7217688849932009,
+        "four_repeat_mean_reliability_bootstrap95": [
+          0.6609345171204306,
+          0.7664712983035177
+        ],
+        "history_structured_variance": 0.008893118252114697,
+        "sigma_demographic_residual": 0.013712656550421932,
+        "sigma_history": 0.008548118748828404,
+        "sigma_history_raw": 0.008548118748828404,
+        "sigma_start_by_history": 0.00034499950328629276,
+        "sigma_start_by_history_raw": 0.00034499950328629276
+      }
+    },
+    "natural": {
+      "balanced_2v2_split_history_correlations": [
+        0.5150102538260123,
+        0.446922352995133,
+        0.5351840059375043
+      ],
+      "labels_eps0": {
+        "mixed": 19,
+        "negative": 109,
+        "neutral": 0,
+        "positive": 0
+      },
+      "labels_eps0_01": {
+        "mixed": 18,
+        "negative": 110,
+        "neutral": 0,
+        "positive": 0
+      },
+      "mean_effect": -0.16008363100540557,
+      "variance_components": {
+        "four_repeat_mean_reliability": 0.4169402438063488,
+        "four_repeat_mean_reliability_bootstrap95": [
+          0.3337147096312208,
+          0.49312683126172197
+        ],
+        "history_structured_variance": 0.004780969803419822,
+        "sigma_demographic_residual": 0.026743315181116348,
+        "sigma_history": 0.004780969803419822,
+        "sigma_history_raw": 0.004780969803419822,
+        "sigma_start_by_history": 0,
+        "sigma_start_by_history_raw": -0.0002302629297804299
+      }
+    },
+    "visitor_pooled": {
+      "balanced_2v2_split_history_correlations": [
+        0.11839583923157945,
+        0.06913043389808486,
+        0.20464405399306912
+      ],
+      "labels_eps0": {
+        "mixed": 2,
+        "negative": 126,
+        "neutral": 0,
+        "positive": 0
+      },
+      "labels_eps0_01": {
+        "mixed": 2,
+        "negative": 126,
+        "neutral": 0,
+        "positive": 0
+      },
+      "mean_effect": -0.22415133936237752,
+      "variance_components": {
+        "four_repeat_mean_reliability": 0.15403351483184766,
+        "four_repeat_mean_reliability_bootstrap95": [
+          0.07103966488168371,
+          0.22619009793855027
+        ],
+        "history_structured_variance": 0.0013010040740354166,
+        "sigma_demographic_residual": 0.028580944735375962,
+        "sigma_history": 0.0013010040740354166,
+        "sigma_history_raw": 0.0013010040740354166,
+        "sigma_start_by_history": 0,
+        "sigma_start_by_history_raw": -0.001395199424460038
+      }
+    }
+  },
+  "schema_version": "1.0",
+  "status": "complete_prospectively_frozen_new_visitor_history_validation",
+  "terminal_occupancy": {
+    "far": {
+      "mean_terminal_population": 48,
+      "min_terminal_population": 48,
+      "occupied_fraction": 1
+    },
+    "large_far": {
+      "mean_terminal_population": 192,
+      "min_terminal_population": 192,
+      "occupied_fraction": 1
+    },
+    "large_near": {
+      "mean_terminal_population": 192,
+      "min_terminal_population": 192,
+      "occupied_fraction": 1
+    },
+    "near": {
+      "mean_terminal_population": 48,
+      "min_terminal_population": 48,
+      "occupied_fraction": 1
+    },
+    "pool_far": {
+      "mean_terminal_population": 47.994791666666664,
+      "min_terminal_population": 40,
+      "occupied_fraction": 1
+    },
+    "pool_near": {
+      "mean_terminal_population": 48,
+      "min_terminal_population": 48,
+      "occupied_fraction": 1
+    }
+  }
+}
