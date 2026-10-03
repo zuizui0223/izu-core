@@ -69,6 +69,20 @@ Two interventions both made directional sign labels more uniform but changed his
 
 Thus fewer mixed-sign histories can mean either that demographic noise has fallen while history-specific magnitudes become more reproducible, or that environmental averaging has erased the history signal. Sign uniformity alone is not a sufficient repeatability metric.
 
+## Prospective new-demographic-seed validation
+
+The exploratory diagnostic generated a fixed prediction. Before any new demographic execution, we froze seeds **201–204**, retained all 128 original visitor histories and three starts, and declared the ordering **capacity 192 > natural > visitor pooled** for discovery-to-validation history correlation. Strong success additionally required the paired bootstrap intervals for capacity minus natural to remain above zero and pooled minus natural below zero.
+
+The validation ran **9,216 finite trajectories** with 100% terminal occupancy.
+
+- **Capacity 192:** discovery→validation history correlation **0.918** (0.893–0.941).
+- **Natural:** **0.732** (0.633–0.805).
+- **Visitor pooled:** **0.165** (0.008–0.326).
+- Capacity minus natural: **+0.186**, paired 95% interval **+0.120 to +0.283**.
+- Pooled minus natural: **−0.567**, **−0.732 to −0.401**.
+
+The frozen strong-success rule therefore passed. This upgrades the mechanism from a post-hoc pattern to a **prospectively validated prediction across new demographic realizations**. It does not validate transfer to new visitor histories or natural islands; the discovery remains post-hoc.
+
 ## Critical population-scale audit
 
 The prospective long-horizon work exposed an important distinction between two depression settings.
@@ -177,7 +191,7 @@ These are internal drafting targets, not attributed journal requirements.
 
 ## Claim ceiling
 
-1. **Established by simulation:** at the occupied depression-0.50 finite horizon, visitor-history effects are reproducible despite demographic noise; increasing capacity and pooling histories both reduce sign heterogeneity but move continuous history reliability in opposite directions.
+1. **Established by simulation:** at the occupied depression-0.50 finite horizon, capacity scaling and visitor-history pooling both increase directional sign uniformity but generate opposite persistence of history-specific magnitude; the ordering was prospectively validated with new demographic seeds 201–204.
 2. **General implication:** directional similarity alone does not identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
 3. **Natural prediction:** repeated-population studies should estimate both response direction and reproducibility of effect magnitude; temporal accessibility rankings may additionally change as new variation accumulates.
 
