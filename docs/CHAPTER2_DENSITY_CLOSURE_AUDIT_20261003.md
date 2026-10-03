@@ -35,24 +35,32 @@ Until population-scale comparability is established:
 4. retain the 41.5% gap closure only as a descriptive arithmetic fact;
 5. retain capacity effects on mixed-label/repeat instability as finite-demographic sensitivity, without using the density mean as an asymptotic target.
 
-## Exact 200-season population-scale audit
+## Exact 200-season population-scale audit — result
 
-A separate locked diagnostic on `chapter2/el-repeatability-20261003` reruns the frozen natural near/far bridge with the exact source snapshot, all 128 histories, three starting states and eight demographic seeds.
+The exact source snapshot from the original successful bridge production run was recovered and rerun.
 
-It records:
+### Original focal condition: depression 0.50
 
-- finite terminal population;
-- deterministic terminal density mass;
-- occupancy;
-- the finite and density inherited-investment changes.
+Across all 128 histories × three starting states:
 
-The audit must first reproduce the published bridge means (-0.1446 and -0.4510). It then compares finite replicate-mean population with deterministic mass for the same history × starting state.
+- deterministic far density mass at season 200 is **48.0 in every cell** to floating-point precision;
+- finite demographic replicate 101 has mean far population **47.992**, median **48**, minimum **45**, and 100% occupancy;
+- the frozen bridge already establishes 100% occupancy across all eight repeats (3,072/3,072 far and 3,072/3,072 near).
 
-### Decision
+**Decision:** the sub-individual population-scale concern does **not** apply to the original -0.4510 focal density result. The finite and density layers are on comparable population scales at depression 0.50 and season 200.
 
-If far-arm finite populations remain occupied while deterministic mass is orders of magnitude smaller, the cross-layer magnitude comparison is not interpretable as finite-size attenuation/convergence.
+The semantic boundary nevertheless remains: the density closure is not the stochastic mean of the ABM, so -0.1446 versus -0.4510 is not an identified finite-size attenuation coefficient and the 41.5% capacity-gap closure is descriptive only.
 
-If population scales are comparable, only the semantic boundary remains: the density layer is still a conditional closure rather than the stochastic mean, but the stronger population-scale concern is not supported.
+### Later sensitivity: depression 0.75
+
+Across the same 128 histories × three starts:
+
+- far density mass median: **0.000301**;
+- **98.18%** of density cells are below one individual at season 200;
+- in finite demographic replicate 101, **384/384** far populations are extinct by season 200;
+- median extinction season is **61**.
+
+**Decision:** the depression-0.75 deterministic 116/11/1 history classification is a mathematical closure sensitivity after the persistence boundary, not evidence about repeatability among persisting populations.
 
 ## Scope
 
