@@ -101,7 +101,7 @@ All **9,216 finite trajectories** completed and every arm had 100% terminal occu
 - Capacity minus natural: **+0.305**, paired 95% interval **+0.222 to +0.375**.
 - Pooled minus natural: **−0.263**, **−0.379 to −0.154**.
 
-The frozen strong-success rule passed again. This is **out-of-visitor-history-sample validation within the same frozen history generator**. It is stronger than the first validation, but it is still not transfer to a different ecological process or to natural islands.
+The frozen strong-success rule passed again. All three predeclared balanced 2-versus-2 split-half checks also retained the same ordering (capacity 0.799–0.818 > natural 0.447–0.535 > pooled 0.069–0.205). This is **out-of-visitor-history-sample validation within the same frozen history generator**. It is stronger than the first validation, but it is still not transfer to a different ecological process or to natural islands.
 
 ## Critical population-scale audit
 
