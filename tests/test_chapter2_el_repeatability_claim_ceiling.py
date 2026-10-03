@@ -366,3 +366,19 @@ def test_new_history_validation_has_one_canonical_preexecution_contract():
     env = lock["finite_history_signal_environment_validation"]
     assert env["canonical_design"] == "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
     assert env["freeze_provenance"]["outcomes_generated_under_earlier_design"] is False
+
+
+def test_new_history_validation_split_half_ordering_is_estimator_robust():
+    result = json.loads(ENV_VALIDATION_RESULT.read_text(encoding="utf-8"))
+    reports = result["reports"]
+    large = reports["large_plant_capacity"]["balanced_2v2_split_history_correlations"]
+    natural = reports["natural"]["balanced_2v2_split_history_correlations"]
+    pooled = reports["visitor_pooled"]["balanced_2v2_split_history_correlations"]
+
+    assert len(large) == len(natural) == len(pooled) == 3
+    assert min(large) > max(natural)
+    assert min(natural) > max(pooled)
+
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    assert "all three predeclared balanced 2-versus-2 split-half checks" in manuscript
+    assert "capacity correlations were 0.799–0.818" in manuscript
