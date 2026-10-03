@@ -36,11 +36,18 @@
     "depression_0_75_history_counts": {
       "negative_only": 116,
       "mixed": 11,
-      "positive_only": 1
+      "positive_only": 1,
+      "interpretation": "low-mass closure sensitivity only; not persisting-population repeatability evidence"
     },
     "standing_high_low_response_ratio_y400": 2.56,
     "standing_high_low_response_ratio_y800": 1.49,
-    "route_A_headline": false
+    "route_A_headline": false,
+    "persistence_boundary_scan": {
+      "stage1_result": "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json",
+      "refinement_result": "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json",
+      "result": "No mixed or positive deterministic history was observed among histories whose three starts and both near/far arms all retained terminal density mass >=1.",
+      "headline_action": "exclude deterministic history-level nonparallelism from persisting-population claims"
+    }
   },
   "computational_reproducibility": {
     "status": "closed",
@@ -54,7 +61,8 @@
     "universal_assurance_by_cost_route": false,
     "equilibrium_standing_variation_dominance": false,
     "natural_branch_prevalence_estimated": false,
-    "external_chapter1_coefficient_reproduction_required": false
+    "external_chapter1_coefficient_reproduction_required": false,
+    "deterministic_history_nonparallelism_among_persisting_isolation_populations": false
   },
   "promotion_requirements": [
     "explicit decision to replace the locked active submission surface",
