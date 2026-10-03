@@ -84,7 +84,7 @@
   },
   "novelty_boundary": {
     "not_novel": "syndrome labels are descriptive/outcome concepts rather than unique mechanisms",
-    "novel_target": "preregistered single-model interventions that locate where syndrome-component repeatability is retained, redirected, attenuated or lost as a common perturbation propagates through ecological selection, reproductive context, genetic accessibility and finite realization"
+    "novel_target": "preregistered single-model interventions that treat syndrome evolution as transmission of repeatability and locate where a common perturbation retains, redirects, attenuates or loses repeatability across ecological selection, reproductive context, genetic accessibility and finite realization"
   },
   "establishment_status": "five_criteria_plus_backbone_propagation_plus_full_clean_reproduction_closed",
   "computational_reproducibility": {
