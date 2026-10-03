@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "status": "external_empirical_target_frozen_before_model3r_fit",
+  "frozen_on": "2026-10-03",
+  "source_repository": "zuizui0223/island",
+  "source_repository_head": "625c1e4ea67daa4b9d447807d5d049e7254843f9",
+  "source_lock": "config/chapter1_v14_canonical_result_lock.json",
+  "purpose": "Define the Chapter 1 empirical statistics that a more realistic Chapter 2 numerical world should reproduce. These targets are external to izu-core and are not modified to accommodate Model 3R outcomes.",
+  "contexts": [
+    "northern_midlatitude",
+    "northern_high_latitude",
+    "tropical",
+    "southern_extratropical"
+  ],
+  "H1_domain_slopes_all_analysis": {
+    "northern_midlatitude": {
+      "reproductive_assurance": 0.019033537809988836,
+      "accessibility_generalization": 0.019988157340990433,
+      "colour_dulling": -0.0000739787975571932,
+      "equal_domain_orientation": 0.012982572117807359
+    },
+    "northern_high_latitude": {
+      "reproductive_assurance": 0.0729497900702823,
+      "accessibility_generalization": 0.17830258112765507,
+      "colour_dulling": 0.018846018517548115,
+      "equal_domain_orientation": 0.0900327965718285
+    },
+    "tropical": {
+      "reproductive_assurance": 0.18377270354465805,
+      "accessibility_generalization": 0.08103381238653284,
+      "colour_dulling": 0.036717786367302115,
+      "equal_domain_orientation": 0.10050810076616434
+    },
+    "southern_extratropical": {
+      "reproductive_assurance": 0.1489607209639322,
+      "accessibility_generalization": 0.017458857111442128,
+      "colour_dulling": 0.08078610536334052,
+      "equal_domain_orientation": 0.08240189447957162
+    }
+  },
+  "H2_all_analysis": {
+    "northern_midlatitude": {
+      "selfing_core_isolation_beta": 0.010458730613126778,
+      "generalized_accessible_given_selfing_beta": 0.021425531868105585,
+      "plain_colour_given_selfing_beta": -0.002618548950378946
+    },
+    "northern_high_latitude": {
+      "selfing_core_isolation_beta": 0.04834566801958409,
+      "generalized_accessible_given_selfing_beta": 0.12476399338829586,
+      "plain_colour_given_selfing_beta": -0.006133126515572265
+    },
+    "tropical": {
+      "selfing_core_isolation_beta": 0.06209827793170262,
+      "generalized_accessible_given_selfing_beta": 0.0732812098873794,
+      "plain_colour_given_selfing_beta": 0.06107107173863004
+    },
+    "southern_extratropical": {
+      "selfing_core_isolation_beta": 0.10231903682511187,
+      "generalized_accessible_given_selfing_beta": 0.05357198162097365,
+      "plain_colour_given_selfing_beta": 0.08034460076751718
+    }
+  },
+  "H3_global_pollen_limitation": {
+    "standardized_isolation_beta": 0.07936837202478536,
+    "se": 0.037734195473258715,
+    "n_effect_rows": 2969,
+    "n_sites": 1248,
+    "n_publications": 919
+  },
+  "H4_exact_H2_score_bridge": {
+    "selfing_core_to_pollen_limitation_beta": -0.29706162790382573,
+    "selfing_core_se": 0.10353370714733788,
+    "generalized_accessible_to_pollen_limitation_beta": -0.2960123452279311,
+    "generalized_accessible_se": 0.1294003150807781
+  },
+  "display_holdout": {
+    "role": "not used to fit Model3R v1 ecological parameters; used as a prediction/adequacy check after the recurrent functional core is fitted",
+    "northern_midlatitude": "red_pink declines in both evidence scopes; no FDR-supported colour-conditioned architecture",
+    "northern_high_latitude": {
+      "blue_purple_butterfly_form_given_colour_beta": -0.20186,
+      "blue_purple_large_bee_deep_tube_given_colour_beta": -0.25505
+    },
+    "tropical": {
+      "yellow_orange_butterfly_deep_tube_given_colour_beta": 0.11703
+    },
+    "southern_extratropical": {
+      "yellow_orange_bird_form_given_colour_beta": -0.12495,
+      "yellow_orange_intermediate_deep_tube_given_colour_beta": 0.19238
+    }
+  },
+  "primary_reproduction_requirements": [
+    "model-implied pollen limitation increases with standardized isolation",
+    "model-implied reproductive assurance isolation slopes are positive in all four contexts",
+    "model-implied floral generalization isolation slopes are positive in all four contexts",
+    "generalization remains positively associated with isolation after conditioning on assurance in all four contexts",
+    "model-implied assurance is negatively associated with current pollen limitation",
+    "model-implied generalization is negatively associated with current pollen limitation"
+  ],
+  "quantitative_adequacy": {
+    "H3_rule": "simulated H3 beta must fall within the empirical estimate +/- 2 SE",
+    "H4_assurance_rule": "simulated assurance-to-PL beta must fall within empirical estimate +/- 2 SE after observation-scale standardization",
+    "H4_generalization_rule": "simulated generalization-to-PL beta must fall within empirical estimate +/- 2 SE after observation-scale standardization",
+    "H1_H2_rule": "sign recurrence across all four contexts is required first; magnitude fit is scored second and cannot rescue a sign failure"
+  },
+  "claim_boundary": [
+    "The target statistics are contemporary macroecological associations, not longitudinal within-lineage evolutionary rates.",
+    "Matching these targets would establish empirical emulation of Chapter 1 summary structure, not proof that the simulated historical pathway generated the natural data.",
+    "The display holdout is not available for parameter tuning in Model3R v1.",
+    "Natural island-specific parameter values remain unidentified unless independently measured."
+  ]
+}
