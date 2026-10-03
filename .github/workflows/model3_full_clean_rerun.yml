@@ -1,13 +1,7 @@
 name: Model 3 full clean rerun
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/model3_full_clean_rerun.yml'
-      - 'scripts/run_model3_island_clean_shard.py'
-      - 'scripts/export_model3_island_clean_shard.py'
-      - 'scripts/summarize_model3_island_clean_rerun.py'
-      - 'scripts/compare_model3_bridge_clean_rerun.py'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,17 +13,9 @@ jobs:
       run: ${{ steps.decide.outputs.run }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 2
       - id: decide
         shell: bash
-        run: |
-          if git log -1 --pretty=%B | grep -Fq '[RUN MODEL3 CLEAN RERUN]'; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          fi
+        run: echo "run=true" >> "$GITHUB_OUTPUT"
 
   base_shard:
     needs: guard
