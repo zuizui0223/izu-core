@@ -241,13 +241,17 @@ The visual should make the main distinction obvious: a population set can have o
 
 ## Submission-order firewall
 
-The locked Oikos surface remains untouched by this branch. Promotion requires a separate decision after:
-- the population-scale audit is fully propagated;
-- Figure 1 is regenerated;
-- citations are source-checked;
-- retained failed tests remain visible;
-- journal target is chosen explicitly;
-- submission gates are rerun.
+The locked Oikos surface remains untouched by this branch. The **scientific promotion gates are now complete**:
+
+- [x] population-scale audit propagated through manuscript, lock and tests;
+- [x] Figure 1 regenerated from a dedicated conceptual generator and fail-closed test;
+- [x] Figure 3 regenerated from the prospectively frozen independent visitor-history validation;
+- [x] core citations and current Evolution Letters format guidance source-checked in `docs/CHAPTER2_REPEATABILITY_CITATION_AUDIT_20261004.md`;
+- [x] failed assurance-by-cost and mutation–pleiotropy routes remain visible;
+- [x] journal fit chosen: **Evolution Letters preferred**, Ecology Letters only after ecological recast;
+- [x] Chapter 2 scientific gate and full CI rerun on the branch.
+
+What remains is deliberately non-scientific: an explicit promotion/submission decision plus author/account metadata (final author list, affiliations, CRediT contributions, funding, conflicts, acknowledgements and any final archival DOI).
 
 
 ### Persistence-boundary refinement
