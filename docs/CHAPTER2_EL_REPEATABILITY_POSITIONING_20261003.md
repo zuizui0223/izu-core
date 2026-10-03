@@ -82,6 +82,20 @@ Consequences:
 - the capacity-48 → 192 movement numerically closes 41.5% of that trait-effect gap, but this is descriptive rather than convergence to a stochastic expectation;
 - capacity effects on mixed-label and repeat instability remain valid finite-demographic sensitivity results.
 
+## Measurement-literature boundary
+
+### Oke et al. 2017 / Arendt et al. 2025
+DOIs: 10.1086/691989; 10.1086/736845
+
+Established: direction, angle and magnitude/length are distinct properties of evolutionary trajectories, and different metrics need not measure the same aspect of parallelism.
+
+### Venkataram & Kryazhimskiy 2023
+DOI: 10.1098/rstb.2022.0047
+
+Established: repeatability is an ensemble property; directional similarity captures only one aspect and can ignore evolutionary rate/magnitude.
+
+**Consequence for novelty:** do not claim that direction and magnitude are newly separated. The remaining contribution is mechanistic: within one explicit eco-evolutionary operator, two interventions that both increase directional sign uniformity move reproducible visitor-history structure in opposite directions.
+
 ## Why this is not already Bolnick/Stuart/Thompson
 
 ### Bolnick et al. 2018 — (Non)Parallel Evolution
@@ -116,7 +130,7 @@ Plant island syndromes are empirically heterogeneous rather than a single law.
 
 ## Safe novelty statement
 
-> Existing work shows that parallel evolution is continuous and that environmental, genetic and historical differences can erode it. Model 3 adds a mechanistic distinction: **the same increase in directional parallelism can accompany either stronger reproducibility of history-specific effects or erosion of the history signal by environmental averaging.**
+> Measurement theory already separates direction from magnitude. Model 3 contributes a specific mechanistic counterexample: **the same increase in directional parallelism can accompany either stronger reproducibility of history-specific effects or erosion of the history signal by environmental averaging.**
 
 Do **not** claim:
 - first connection between island syndrome and parallel evolution;
