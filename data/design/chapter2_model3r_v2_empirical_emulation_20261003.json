@@ -354,11 +354,11 @@
     "southern shallow_open_tube negative exception"
   ],
   "primary_success_rule": {
-    "signs": "all eight H2 isolation coefficients (four selfing_core and four generalized_accessible|selfing) must be positive",
+    "H2": "all eight H2 coefficients must fall within the corrected empirical estimate +/- 2 SE",
     "H3": "within corrected beta +/- 2 SE",
     "H4_assurance": "within corrected beta +/- 2 SE",
     "H4_generalization": "within corrected beta +/- 2 SE",
-    "joint": "all sign and H3/H4 rules pass without using H1/colour holdouts"
+    "joint": "all H2/H3/H4 quantitative rules pass without using H1 atomic or colour holdouts"
   },
   "failure_rule": "If no v2 parameter region passes the joint functional core, do not claim realistic island-syndrome reproduction; identify the remaining structural mismatch before any new mechanism is added.",
   "claim_boundary": [
