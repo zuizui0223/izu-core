@@ -326,5 +326,63 @@
     "Do not treat capacity scaling as a pure sample-size change or visitor pooling as a pure noise intervention.",
     "Use this result to distinguish repeatability metrics and mechanisms, not to rank natural evolutionary causes."
   ],
-  "analysis_note": "history_structured_variance = max(sigma_history,0) + max(sigma_start_by_history,0); eight-repeat reliability uses this combined history-structured component."
+  "analysis_note": "history_structured_variance = max(sigma_history,0) + max(sigma_start_by_history,0); eight-repeat reliability uses this combined history-structured component.",
+  "balanced_split_half_robustness": {
+    "method": "all 35 unique 4-versus-4 demographic-repeat partitions; history mean averaged across three starts within each half; Pearson correlation across 128 histories",
+    "natural": {
+      "min": 0.6715885970626972,
+      "q05": 0.6815721296128622,
+      "median": 0.7029075259443338,
+      "mean": 0.7143957529598577,
+      "q95": 0.7605554405933737,
+      "max": 0.7882368150474531
+    },
+    "richness_matched": {
+      "min": 0.36626170861523827,
+      "q05": 0.3768661181518777,
+      "median": 0.44631415146268305,
+      "mean": 0.4506026697602119,
+      "q95": 0.5406399869928189,
+      "max": 0.5799053243003242
+    },
+    "visitor_pooled": {
+      "min": -0.042025407539524585,
+      "q05": 0.0018320930908081214,
+      "median": 0.11495012929234721,
+      "mean": 0.11555371112452187,
+      "q95": 0.20848120583840052,
+      "max": 0.2884717916796102
+    },
+    "large_plant_capacity": {
+      "min": 0.8340160268108929,
+      "q05": 0.8388618752860624,
+      "median": 0.8636469607898144,
+      "mean": 0.8622913028770447,
+      "q95": 0.8849544794867288,
+      "max": 0.8910132587972028
+    },
+    "paired_difference_vs_natural": {
+      "large_plant_capacity": {
+        "min": 0.07766379626629483,
+        "q05": 0.09596578281659088,
+        "median": 0.16088304737312886,
+        "mean": 0.14789554991718692,
+        "q95": 0.19057424866487846,
+        "max": 0.1982227182289542,
+        "positive_splits": 35,
+        "total_splits": 35
+      },
+      "visitor_pooled": {
+        "min": -0.8302622225869777,
+        "q05": -0.7433683000010891,
+        "median": -0.5798968696039448,
+        "mean": -0.5988420418353357,
+        "q95": -0.4777013927725567,
+        "max": -0.45418371887947956,
+        "positive_splits": 0,
+        "total_splits": 35
+      }
+    },
+    "interpretation": "The intervention ordering is invariant to the arbitrary choice of one 4-versus-4 split: large-capacity history correlation exceeds natural in all 35 balanced splits, while visitor-pooled correlation is lower than natural in all 35."
+  }
 }
