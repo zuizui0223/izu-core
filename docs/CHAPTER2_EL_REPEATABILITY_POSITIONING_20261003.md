@@ -56,6 +56,7 @@ Plant island syndromes are empirically heterogeneous rather than a single law.
 - Hetherington-Rauth & Johnson (2020; DOI 10.1086/709018) tested 556 species in 136 phylogenetically independent island–mainland contrasts and found no global reduction in flower size, although some archipelagos showed it.
 - Ciarle & Burns (2025; DOI 10.1080/0028825X.2024.2377418) reviewed plant island-syndrome components and found strongly uneven support across traits; they explicitly call for multidimensional treatment.
 - Abe (2006; DOI 10.1093/aob/mcl117) documented an island pollination syndrome in the Ogasawara flora, including subdued flowers and shifts in visitor composition.
+- Jezierski et al. (2026; DOI 10.1093/evolinnean/kzag008) showed that parallel island-syndrome phenotypes in British Isles wrens can coexist with largely population-specific genomic differentiation. This directly blocks any novelty claim based only on phenotype–genome decoupling.
 
 This heterogeneity is the motivation, not an inconvenience: if island conditions repeatedly generate similar ecological problems, why are syndrome components only partly repeatable?
 
@@ -66,6 +67,7 @@ This heterogeneity is the motivation, not an inconvenience: if island conditions
 Do **not** claim:
 - first connection between island syndrome and parallel evolution;
 - first mechanism for non-parallel evolution;
+- first evidence that an island-syndrome phenotype can coexist with non-parallel genomic change;
 - literal prediction of colour, corolla dimensions or named-island trajectories;
 - universal ordering of genetic versus ecological constraints;
 - one scalar “repeatability parameter” that makes unlike stages commensurable.
