@@ -201,11 +201,11 @@ That negative result is informative because it identifies reproductive context a
 
 ## Scope and empirical tests
 
-The model is mechanistic but deliberately uncalibrated. Access and investment are abstract functional traits, model reproductive seasons are not geological or necessarily calendar years, and synthetic distances are not kilometres. Extending the same stationary environment for 6,400 seasons does not reconstruct millions of years of island history. The model cannot estimate the evolutionary response of a named island flora, reconstruct a historical Bombus transition or predict a particular colour or corolla dimension.
+The model is mechanistic but uncalibrated. Traits are abstract, seasons are not geological time and distances are synthetic. A 6,400-season stationary run does not reconstruct island history, and the model cannot predict a named flora, historical Bombus transition, colour or corolla dimension.
 
-Its contribution is structural rather than calibrated. It yields a testable measurement strategy for real island systems: quantify the pollinator perturbation, measure immediate reproductive selection or effective pollen transfer, follow inherited change, measure standing genetic variation or genomic accessibility where possible, and retain demographic history rather than conditioning only on survivors. Longitudinal systems that observe several of these objects in the same populations would test whether aggregate syndrome recurrence really exceeds trajectory-level repeatability.
+Its structural prediction is measurable: natural studies should quantify pollinator amount and composition, reproductive response, inherited change, repeated population-level effect magnitudes, genetic accessibility and demographic history. Such longitudinal data could distinguish directional parallelism from reproducible historical differences rather than conditioning only on survivors.
 
-The same logic also extends beyond islands. Any repeated environmental transition can produce a recognizable syndrome while losing parallelism at different biological stages. Islands are valuable here because they supply recurrent ecological perturbations and a mature syndrome literature in which incomplete repeatability is already an empirical problem.
+The logic may extend beyond islands, but islands remain useful because recurrent ecological perturbations and an explicit syndrome literature make incomplete repeatability a concrete empirical problem.
 
 # Conclusion
 
