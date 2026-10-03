@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_model3r_emulation_design_frozen_before_fit",
+  "frozen_on": "2026-10-03",
+  "target": "data/design/chapter1_empirical_emulation_targets_20261003.json",
+  "purpose": "Build a realism-oriented numerical world that attempts to reproduce the Chapter 1 island-syndrome summary statistics rather than merely demonstrate compatible mechanisms.",
+  "model_name": "Model3R-v1",
+  "relationship_to_model3": "new extension; frozen Model 3 results and code remain unchanged",
+  "plant_traits": {
+    "matching_center_m": {
+      "range": [0.0, 1.0],
+      "role": "functional matching position retained from Model 3"
+    },
+    "generalization_g": {
+      "range": [0.0, 1.0],
+      "role": "new floral accessibility/generalization breadth axis corresponding to the Chapter 1 structural domain"
+    },
+    "display_d": {
+      "range": [0.0, 1.0],
+      "role": "pollinator-facing display investment; latent ecological trait, not literal colour"
+    },
+    "assurance_a": {
+      "range": [0.0, 1.0],
+      "role": "autonomous reproductive assurance"
+    }
+  },
+  "reproductive_operator": {
+    "compatibility_width": "sqrt(visitor_breadth^2 + (g_min + g_scale*g)^2)",
+    "affinity": "(0.1 + d) * exp(-((m - visitor_optimum)/compatibility_width)^2)",
+    "ovule_budget": "B * exp(-c_display*d^2 - c_generalization*g^2 - c_assurance*a^2)",
+    "outcross": "finite pollen receipt using the existing Model 3 saturation form",
+    "selfing": "delayed assurance on ovules remaining after outcrossing, with inbreeding depression",
+    "supplemented_counterfactual": "compatible pollen is saturated before delayed selfing; pollen limitation is log(supplemented viable maternal reproduction / natural viable maternal reproduction)"
+  },
+  "observation_layer": {
+    "chapter1_selfing_core": "terminal or equilibrium assurance_a",
+    "chapter1_generalized_accessible": "terminal or equilibrium generalization_g",
+    "chapter1_plain_colour": "held-out observation transform of display_d; not used for v1 ecological parameter fitting",
+    "chapter1_pollen_limitation": "model hand-pollination log response ratio"
+  },
+  "calibration_targets": {
+    "H1": [
+      "four context-specific reproductive-assurance isolation slopes",
+      "four context-specific accessibility/generalization isolation slopes"
+    ],
+    "H2": [
+      "four context-specific isolation slopes of generalization after conditioning on assurance"
+    ],
+    "H3": [
+      "global standardized-isolation slope of pollen limitation"
+    ],
+    "H4": [
+      "assurance-to-pollen-limitation coefficient controlling isolation",
+      "generalization-to-pollen-limitation coefficient controlling isolation"
+    ]
+  },
+  "holdout_targets": {
+    "H1": [
+      "four context-specific colour-dulling isolation slopes"
+    ],
+    "H2": [
+      "four context-specific plain-colour isolation slopes after assurance adjustment",
+      "reported context-specific raw colour-architecture restructuring"
+    ]
+  },
+  "environment": {
+    "isolation_axis": "standardized synthetic z-distance for calibration; subsequent confirmatory stage should replay the empirical Chapter 1 island distance/covariate distribution if raw covariates are materialized",
+    "contexts": [
+      "northern_midlatitude",
+      "northern_high_latitude",
+      "tropical",
+      "southern_extratropical"
+    ],
+    "context_parameters": "visitor-source composition parameters are nuisance parameters fit only to functional calibration targets; display holdouts are unavailable during fitting",
+    "seed_connectivity": "retained as a separate secondary sensitivity rather than forced to equal pollinator isolation"
+  },
+  "fit_strategy": {
+    "stage_1": "fast deterministic quantitative-genetic emulator to identify plausible parameter regions",
+    "stage_2": "posterior/predictive replay with multi-lineage finite populations using Model3R operator",
+    "stage_3": "held-out display adequacy check",
+    "stage_4": "empirical-covariate replay using Chapter 1 island distance/area/climate distribution if available without post-outcome selection"
+  },
+  "primary_success_rule": {
+    "functional_signs": "all four assurance slopes > 0; all four generalization slopes > 0; all four generalization|assurance slopes > 0",
+    "H3": "simulated pollen-limitation isolation slope within empirical beta +/- 2 SE",
+    "H4_assurance": "simulated standardized assurance coefficient within empirical beta +/- 2 SE",
+    "H4_generalization": "simulated standardized generalization coefficient within empirical beta +/- 2 SE",
+    "joint_requirement": "all functional_signs and all H3/H4 quantitative rules must pass in held-out posterior predictive simulations"
+  },
+  "failure_rule": {
+    "current_model_inadequate_if": [
+      "no parameter region passes the functional-sign gate without using display holdout data",
+      "H3 and either H4 functional coefficient cannot be jointly reproduced",
+      "finite-population replay systematically reverses the calibrated deterministic functional core"
+    ],
+    "consequence": "do not claim realistic island-syndrome reproduction; report which empirical target is not generated by the declared mechanism"
+  },
+  "claim_boundary": [
+    "Model3R v1 targets Chapter 1 summary structure, not exact historical trajectories of named islands.",
+    "The new generalization trait is an explicit structural breadth axis; the old Model 3 matching-center trait is not relabelled as generalized accessibility.",
+    "Display/colour is held out from ecological fitting in v1 to avoid trivially fitting the most context-dependent phenotype.",
+    "A successful fit is empirical emulation, not causal identification of the natural historical process.",
+    "The existing 44,544-case clean reproduction of frozen Model 3 remains a separate reproducibility result."
+  ]
+}
