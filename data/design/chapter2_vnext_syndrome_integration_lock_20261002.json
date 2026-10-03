@@ -6,8 +6,8 @@
   "active_submission_manifest": "data/design/chapter2_oikos_submission_manifest_20260927.json",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "vnext_manuscript": "docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md",
-  "vnext_question": "Where is repeatability retained, redirected or lost as a recurrent pollination problem propagates toward realized floral evolution?",
-  "vnext_claim": "A recurrent pollination problem can yield recurrent functional responses without a recurrent detailed floral phenotype because repeatability can persist in the coarse mean response while being redirected or lost by state-dependent selection, reproductive context, genetic accessibility and finite-population realization.",
+  "vnext_question": "Can island-like pollination constraints generate a recurrent functional floral response without forcing a single detailed floral phenotype?",
+  "vnext_claim": "Island-like pollination constraints can generate a recurrent functional floral response without forcing a single detailed floral phenotype because functional matching, reproductive context, genetic accessibility, history and finite-population realization condition how that shared pressure is expressed.",
   "evidence_promoted_into_vnext": {
     "assurance_cost_causal_knockout": "data/results/chapter2_syndrome_causal_knockout_20261002.json",
     "same_count_functional_rematching": "data/results/chapter2_syndrome_causal_knockout_20261002.json",
@@ -19,8 +19,7 @@
     "route_A_robustness_falsification": "data/results/chapter2_route_A_robustness_surface_20261002.json",
     "mutation_input_calibration_sensitivity": "data/results/chapter2_mutation_input_calibration_sensitivity_20261002.json",
     "deterministic_backbone_depression_sensitivity": "data/results/chapter2_deterministic_backbone_depression_sensitivity_20261002.json",
-    "full_clean_model3_reproduction": "data/results/model3_full_clean_rerun_receipt_20261003.json",
-    "empirical_emulation_negative_audit": "data/results/chapter2_empirical_emulation_negative_audit_20261003.json"
+    "full_clean_model3_reproduction": "data/results/model3_full_clean_rerun_receipt_20261003.json"
   },
   "key_numeric_spine": {
     "same_count_left_right_fixed_gradient_difference_at_access_0_2": 2.376790538658976,
@@ -58,9 +57,8 @@
     "do not claim equilibrium standing-variation dominance over mutation",
     "do not quantitatively fit source-audited island systems to synthetic Model 3 cells",
     "do not describe the natural deterministic bridge as uniformly negative across all 128 histories without an inbreeding-depression qualification",
-    "do not claim quantitative reproduction of the Chapter 1 H1-H4 coefficient vector",
-    "do not reopen Model3R/Model3E parameter or mechanism search as a Chapter 2 completion gate",
-    "do not treat a future flora-level emulator as confirmatory unless the full failed-model history and model family are prospectively disclosed"
+    "do not make reproduction of any external Chapter 1 coefficient vector a Chapter 2 success criterion",
+    "do not present Model 3 as quantitatively calibrated to named islands or natural evolutionary rates"
   ],
   "vnext_canonical_story": "docs/CHAPTER2_CANONICAL_STORY_VNEXT_20261002.md",
   "establishment_audit": "docs/CHAPTER2_VNEXT_ESTABLISHMENT_AUDIT_20261002.md",
@@ -70,7 +68,8 @@
     "standing_variation_filter": "retained",
     "standing_vs_mutation": "retained_only_as_finite_horizon_ranking_at_VM_over_VG0_0_01",
     "natural_quantitative_transfer": "out_of_scope_until_same_unit_longitudinal_inherited_response_data",
-    "deterministic_backbone": "negative_mean_robust_across_depression_0_25_to_0_75_but_uniform_history_direction_fails_at_0_75"
+    "deterministic_backbone": "negative_mean_robust_across_depression_0_25_to_0_75_but_uniform_history_direction_fails_at_0_75",
+    "generative_syndrome": "recurrent_coarse_functional_response_with_nonunique_detailed_realization_established_within_model"
   },
   "retained_negative_results": {
     "mutation_pleiotropy_timing": {
@@ -87,10 +86,10 @@
     }
   },
   "novelty_boundary": {
-    "not_novel": "syndrome labels are descriptive/outcome concepts rather than unique mechanisms",
-    "novel_target": "preregistered single-model interventions that treat syndrome evolution as transmission of repeatability and locate where a common perturbation retains, redirects, attenuates or loses repeatability across ecological selection, reproductive context, genetic accessibility and finite realization"
+    "not_novel": "syndrome labels are descriptive outcomes, and ecological, genetic and demographic mechanisms have each been discussed previously",
+    "novel_target": "one explicit eco-evolutionary model generates an island-syndrome-like functional response from island-like pollination constraints while retaining non-unique detailed floral outcomes"
   },
-  "establishment_status": "five_criteria_plus_backbone_propagation_plus_full_clean_reproduction_closed",
+  "establishment_status": "generative_island_syndrome_vnext_plus_backbone_propagation_plus_full_clean_reproduction_closed",
   "computational_reproducibility": {
     "status": "closed",
     "receipt": "data/results/model3_full_clean_rerun_receipt_20261003.json",
@@ -110,12 +109,10 @@
     "bridge_structural_mismatch_count": 0
   },
   "empirical_emulation_boundary": {
-    "status": "closed_negative_after_four_prospective_model_revisions",
-    "quantitative_chapter1_H1_H4_emulation_established": false,
-    "chapter2_completion_task": false,
+    "status": "nonrequired_external_emulation_provenance",
+    "chapter2_success_criterion": false,
+    "quantitative_external_coefficient_reproduction_required": false,
     "audit": "docs/CHAPTER2_EMPIRICAL_EMULATION_NEGATIVE_AUDIT_20261003.md",
-    "result": "data/results/chapter2_empirical_emulation_negative_audit_20261003.json",
-    "interpretation": "Model 3 remains a mechanistic reconstruction of a Chapter-1-compatible syndrome structure, not a quantitative fit to the Chapter 1 regional coefficient vector.",
-    "future_flora_level_model": "separate study requiring disclosure of the four failed model families and prospective model-family/validation lock"
+    "interpretation": "External Chapter 1 coefficient emulation is not part of the independent Chapter 2 generative-model claim and is retained only as repository provenance."
   }
 }
