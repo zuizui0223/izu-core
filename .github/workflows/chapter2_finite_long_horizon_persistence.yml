@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: chapter2-finite-long-horizon-${{ github.ref }}
+  group: chapter2-finite-long-horizon-el-repeatability
   cancel-in-progress: true
 
 jobs:
