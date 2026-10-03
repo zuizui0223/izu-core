@@ -382,3 +382,28 @@ def test_new_history_validation_split_half_ordering_is_estimator_robust():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
     assert "all three predeclared balanced 2-versus-2 split-half checks" in manuscript
     assert "capacity correlations were 0.799–0.818" in manuscript
+
+
+def test_scientific_promotion_gates_are_complete_but_submission_is_not_automatic():
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    positioning = POSITIONING.read_text(encoding="utf-8").lower()
+    ready = lock["promotion_readiness"]
+
+    assert ready["scientific_gates_complete"] is True
+    assert ready["population_scale_audit_propagated"] is True
+    assert ready["figure1_regenerated_and_tested"] is True
+    assert ready["figure3_uses_prospective_new_history_validation"] is True
+    assert ready["failed_routes_visible"] is True
+    assert ready["preferred_journal"] == "Evolution Letters"
+    assert ready["active_oikos_surface_replaced"] is False
+    assert ready["explicit_promotion_decision_required"] is True
+    assert len(ready["submission_metadata_not_inferred"]) >= 5
+
+    audit = ROOT / ready["citation_audit"]
+    assert audit.exists()
+    audit_text = audit.read_text(encoding="utf-8").lower()
+    assert "source-checked" in audit_text
+    assert "remaining submission-only metadata" in audit_text
+
+    assert "scientific promotion gates are now complete" in positioning
+    assert "what remains is deliberately non-scientific" in positioning
