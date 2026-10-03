@@ -146,6 +146,43 @@ The new target is:
 The contribution is the **pattern of transmission across stages**, not the mere
 existence of the stages.
 
+## Quantitative Chapter 1 emulation — prospectively attempted and not established
+
+A separate 2026-10-03 sequence tested whether Model 3-derived numerical worlds
+could reproduce the Chapter 1 H1-H4 coefficient structure, rather than only a
+mechanistically compatible pattern.
+
+Four prospectively frozen model revisions were attempted:
+
+- Model3R-v1: 0/64 passing parameter draws;
+- Model3R-v2: 0/64;
+- Model3R-v3 assembly-first: 0/96;
+- Model3E-v1: five H1/H3-selected parameter sets frozen before held-out H2/H4,
+  with **0/5** held-out successes; the display domain had already failed at
+  training.
+
+The failure modes shifted as the model family changed. H3 was repeatedly
+recoverable; assembly filtering improved the H4 functional signs; but no frozen
+model jointly reproduced the regional assurance/accessibility/display structure
+and held-out H2/H4 constraints.
+
+These are not pooled into one failure proportion because the model structure was
+revised after each failed attempt. That sequence itself defines the stopping rule:
+continuing to add mechanisms until a model passes would be open-ended model-family
+search.
+
+**Decision:** quantitative reproduction of the Chapter 1 coefficient vector is
+not a Chapter 2 claim or completion gate. The established Chapter 2 contribution
+remains a mechanistic numerical reconstruction compatible with the empirical
+syndrome structure.
+
+A future multi-species flora-level emulator is a separate study and must disclose
+the complete failed-model history before prospectively freezing its model family
+and held-out validation.
+
+Audit:
+`docs/CHAPTER2_EMPIRICAL_EMULATION_NEGATIVE_AUDIT_20261003.md`.
+
 ## Natural-data boundary
 
 Natural systems provide:
