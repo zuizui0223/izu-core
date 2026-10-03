@@ -8,12 +8,12 @@
 
 ### Preferred candidate: Evolution Letters
 
-The current paper asks an evolutionary question: when an apparent increase in directional parallelism reflects stronger repeatability versus when it arises through opposite changes in reproducible historical structure. The plant–pollinator island model is the biological testbed, not the final ecological endpoint.
+The current paper asks an evolutionary question: when an apparent increase in directional similarity reflects stronger repeatability versus when it arises through opposite changes in reproducible historical structure. The plant–pollinator island model is the biological testbed, not the final ecological endpoint.
 
 Current official fit:
 - *Evolution Letters* publishes theoretical and empirical work across evolutionary biology that substantially advances the field or has broad interest;
 - a typical Letter is approximately 5,000 words excluding display items, with an abstract up to 300 words;
-- the current draft is 4,624 main-text words and 218 abstract words.
+- the current draft is 4,628 main-text words and 218 abstract words.
 
 ### Fallback: Ecology Letters
 
@@ -27,7 +27,7 @@ This is a **journal-fit recommendation**, not a submission action. The branch re
 
 ## Editorial-level question
 
-> **When does greater directional parallelism actually mean greater evolutionary repeatability, and when can it mask a persistent historical imprint?**
+> **When does greater directional similarity actually mean greater evolutionary repeatability, and when can it mask a persistent historical imprint?**
 
 The island connection is not decorative. Island floral syndromes are treated as a natural class of repeated ecological problems: altered pollinator service, functional replacement, restricted connectivity and finite populations recur across islands, yet detailed floral outcomes are heterogeneous.
 
@@ -47,7 +47,7 @@ The result is not “island syndrome is universal.” It is:
 
 The broader logical implication is:
 
-> **Greater directional parallelism does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.**
+> **Greater directional similarity does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.**
 
 Natural-island prevalence, effect sizes, long-run attractors and route ordering remain empirical questions.
 
@@ -105,17 +105,17 @@ Consequences:
 
 ## Measurement-literature boundary
 
-### Oke et al. 2017 / Arendt et al. 2025
-DOIs: 10.1086/691989; 10.1086/736845
+### Oke et al. 2017 / Arendt et al. 2025 / Bisschop et al. 2026
+DOIs: 10.1086/691989; 10.1086/736845; 10.1093/evlett/qrag017
 
-Established: direction, angle and magnitude/length are distinct properties of evolutionary trajectories, and different metrics need not measure the same aspect of parallelism.
+Established: direction, angle and magnitude/length are distinct properties of evolutionary trajectories; Arendt et al. caution that general direction metrics are not automatically geometric parallelism measures; and Bisschop et al. show that environmental and demographic heterogeneity can reduce repeatability.
 
 ### Venkataram & Kryazhimskiy 2023
 DOI: 10.1098/rstb.2022.0047
 
 Established: repeatability is an ensemble property; directional similarity captures only one aspect and can ignore evolutionary rate/magnitude.
 
-**Consequence for novelty:** do not claim that direction and magnitude are newly separated. The remaining contribution is mechanistic: within one explicit eco-evolutionary operator, two interventions that both increase directional sign uniformity move reproducible visitor-history structure in opposite directions.
+**Consequence for novelty:** do not claim that direction and magnitude are newly separated, or that environmental/demographic variation affecting repeatability is new. The remaining contribution is mechanistic: within one explicit eco-evolutionary operator, two interventions that both increase directional sign uniformity move reproducible visitor-history structure in opposite directions.
 
 ## Why this is not already Bolnick/Stuart/Thompson
 
@@ -151,7 +151,7 @@ Plant island syndromes are empirically heterogeneous rather than a single law.
 
 ## Safe novelty statement
 
-> Measurement theory already separates direction from magnitude. Model 3 contributes a specific mechanistic counterexample: **the same increase in directional parallelism can accompany either stronger reproducibility of history-specific effects or erosion of the history signal by environmental averaging.**
+> Measurement theory already separates direction from magnitude. Model 3 contributes a specific mechanistic counterexample: **the same increase in directional similarity can accompany either stronger reproducibility of history-specific effects or erosion of the history signal by environmental averaging.**
 
 Do **not** claim:
 - first connection between island syndrome and parallel evolution;
@@ -167,7 +167,7 @@ Do **not** claim:
 
 ## Internal compact-format target
 
-Journal choice is unresolved. Until that decision:
+Evolution Letters is the preferred candidate but no submission action has been taken. Maintain these compact-format constraints:
 
 - main text: <= 4,700 words;
 - abstract: <= 250 words;
@@ -178,7 +178,7 @@ These are internal drafting targets, not attributed journal requirements.
 ## Claim ceiling
 
 1. **Established by simulation:** at the occupied depression-0.50 finite horizon, visitor-history effects are reproducible despite demographic noise; increasing capacity and pooling histories both reduce sign heterogeneity but move continuous history reliability in opposite directions.
-2. **General implication:** directional parallelism alone does not identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
+2. **General implication:** directional similarity alone does not identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
 3. **Natural prediction:** repeated-population studies should estimate both response direction and reproducibility of effect magnitude; temporal accessibility rankings may additionally change as new variation accumulates.
 
 The natural archive does not identify natural branch frequencies, transition rates, equilibrium times, effect sizes or a universal stage ordering.
@@ -203,7 +203,7 @@ The visual should make the main distinction obvious: a population set can have o
 2. **At the occupied focal finite-population window, directional sign uniformity and reproducible history-specific magnitude are different objects.**
 3. **The deterministic closure is a comparator, not a finite-population expectation; depression 0.75 crosses a persistence boundary and is excluded from the repeatability headline.**
 4. **Standing variation changes early response speed; continuing mutation can erase and reverse that ranking.**
-5. **The same apparent gain in directional parallelism can result from reduced demographic noise or from erasure of environmental-history structure; the universal assurance-by-cost route still fails its preregistered robustness rule.**
+5. **The same apparent gain in directional similarity can result from reduced demographic noise or from erasure of environmental-history structure; the universal assurance-by-cost route still fails its preregistered robustness rule.**
 
 ## Submission-order firewall
 
