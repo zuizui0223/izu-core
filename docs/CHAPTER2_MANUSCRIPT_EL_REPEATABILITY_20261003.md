@@ -223,7 +223,7 @@ The bounded principle is therefore sharper: **greater directional similarity doe
 
 **Figure 3. The same directional similarity can conceal opposite persistence of history signal.** The main panel uses the prospectively frozen independent visitor-history validation. Capacity 192 and visitor pooling both produce highly uniform directional labels, but four-repeat history reliability is high for capacity 192, intermediate under natural demography and weak after visitor pooling. Validation-only history-structured and demographic residual variances show the same mechanistic contrast. The exploratory discovery and same-history new-demography validation are retained as the hypothesis-generation and first-validation layers.
 
-**Figure 4. Finite realization and empirical claim boundary.** Chronology, pollinator connectivity, seed connectivity, demographic sampling and extinction further diversify inherited endpoints. Source-audited natural island systems confront individual causal layers but do not provide a complete same-unit longitudinal chain; no named island is fitted to a synthetic Model 3 cell.
+**Figure 4. Finite realization and empirical claim boundary.** Chronology changes realized inherited endpoints, while reproductive assurance determines whether some trajectories remain observable at all. Source-audited natural island systems show propagation, branching, buffering and counterdirectional responses across model layers, but they do not provide a complete same-unit longitudinal A→B→C chain; no named island is fitted to a synthetic Model 3 cell.
 
 # Core references for framing
 
