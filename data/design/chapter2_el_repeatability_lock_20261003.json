@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "date": "2026-10-03",
-  "status": "repeatability_candidate_journal_unresolved_separate_from_active_oikos",
+  "status": "repeatability_candidate_evolution_letters_preferred_separate_from_active_oikos",
   "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
   "active_oikos_submission_replaced": false,
   "editorial_question": "When does greater directional parallelism reflect greater evolutionary repeatability, and when can it mask a persistent historical imprint?",
@@ -96,10 +96,23 @@
     }
   ],
   "format_target": {
-    "journal": "unresolved: Ecology Letters vs Evolution Letters",
-    "internal_main_text_words_max": 4700,
-    "internal_abstract_words_max": 250,
-    "internal_main_figures": 4
+    "journal_preferred": "Evolution Letters",
+    "journal_fallback": "Ecology Letters only after ecological recast",
+    "submission_action_taken": false,
+    "evolution_letters": {
+      "main_text_guide_words": 5000,
+      "abstract_words_max": 300,
+      "current_main_text_words": 4624,
+      "current_abstract_words": 218,
+      "fit": "within current format"
+    },
+    "ecology_letters": {
+      "main_text_words_max": 5000,
+      "abstract_words_max": 150,
+      "current_main_text_words": 4624,
+      "current_abstract_words": 218,
+      "fit": "scope recast and abstract compression required"
+    }
   },
   "general_logical_implication": "Greater directional parallelism does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.",
   "empirical_prediction": "Repeated-population studies should estimate both response direction and reproducibility of effect magnitude; genetic-accessibility rankings may additionally change as new variation accumulates.",
@@ -188,5 +201,9 @@
     },
     "interpretation": "The same reduction in mixed-sign labels can occur while reproducible history structure strengthens relative to demographic noise or while that history structure is erased by environmental averaging."
   },
-  "novelty_boundary": "Direction-versus-magnitude multidimensionality is established. The candidate contribution is the model-internal mechanistic counterexample in which the same increase in directional sign uniformity accompanies opposite changes in reproducible visitor-history structure."
+  "novelty_boundary": "Direction-versus-magnitude multidimensionality is established. The candidate contribution is the model-internal mechanistic counterexample in which the same increase in directional sign uniformity accompanies opposite changes in reproducible visitor-history structure.",
+  "journal_fit_rationale": {
+    "evolution_letters": "Current central question concerns evolutionary repeatability, parallelism, historical contingency and mechanistic evolutionary trajectories; island pollination is the biological testbed.",
+    "ecology_letters": "Current manuscript is not centered on a new general ecological principle strongly enough for the journal's stated ecology nexus; a fallback would require recentering on ecological history averaging and community composition."
+  }
 }
