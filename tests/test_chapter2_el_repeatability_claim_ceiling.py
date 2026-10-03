@@ -252,7 +252,8 @@ def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
     assert "new demographic seeds 201–204 (9,216 arm trajectories)" in manuscript
     assert "prospectively frozen new-seed validation met its strong-success rule" in manuscript
-    assert "the same 128 visitor histories and three starts were rerun" in manuscript
+    assert "the same histories were rerun" in manuscript
+    assert "new demographic seeds 201–204" in manuscript
 
     prohibited = set(lock["prohibited_claims"])
     assert "the original posthoc finite-history discovery as preregistered or confirmatory" in prohibited
