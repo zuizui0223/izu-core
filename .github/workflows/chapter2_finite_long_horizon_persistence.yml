@@ -1,6 +1,12 @@
 name: Chapter 2 finite long-horizon persistence
 
 on:
+  pull_request:
+    paths:
+      - 'data/design/chapter2_finite_long_horizon_persistence_20261003.json'
+      - 'scripts/run_chapter2_finite_long_horizon_persistence.py'
+      - 'scripts/summarize_chapter2_finite_long_horizon_persistence.py'
+      - '.github/workflows/chapter2_finite_long_horizon_persistence.yml'
   workflow_dispatch:
 
 permissions:
