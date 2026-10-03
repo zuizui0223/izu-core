@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_after_density_stationarity_diagnostic_before_finite_execution",
+  "frozen_on": "2026-10-03",
+  "parent_design": "data/design/model3_ch2_bridge_20260927.json",
+  "motivating_diagnostic": "data/design/chapter2_long_horizon_stationarity_20261003.json",
+  "purpose": "Determine whether finite populations persist long enough for long-horizon trait stationarity to be biologically interpretable, after the deterministic-density extension entered sub-individual mass regimes.",
+  "horizons": [
+    200,
+    400,
+    800,
+    1600,
+    3200,
+    6400
+  ],
+  "max_horizon": 6400,
+  "depressions": [
+    0.5,
+    0.75
+  ],
+  "histories": "all_128_parent_history_seeds",
+  "starts": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "demographic_seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108
+  ],
+  "arms": [
+    "near",
+    "far"
+  ],
+  "capacity": 48,
+  "mutation_rate": 0,
+  "seed_arrival_supply": 0,
+  "primary_endpoints": [
+    "near occupancy at each checkpoint",
+    "far occupancy at each checkpoint",
+    "paired near-and-far occupancy at each checkpoint",
+    "extinction-time distribution by arm and depression",
+    "far-minus-near investment effect among paired survivors, explicitly survivor-conditioned"
+  ],
+  "interpretation_gate": {
+    "trait_stationarity_eligible_if": "paired occupancy >= 0.80 at both 3200 and 6400",
+    "otherwise": "long-horizon trait endpoints are survivor-conditioned and cannot be described as a population-wide stationary evolutionary regime",
+    "no_outcome_dependent_extension": true
+  },
+  "claim_boundary": [
+    "Finite-population persistence is the primary long-horizon endpoint; survivor-conditioned traits cannot substitute for extinction.",
+    "6400 reproductive seasons are not 6400 calendar years for perennials and are not geological time.",
+    "This diagnostic was designed after observing the deterministic-density sub-individual-mass problem; it is a new prospective diagnostic, not part of the original preregistration.",
+    "No horizon, depression level, history, start, or demographic seed is added or removed after finite outcomes are inspected.",
+    "The stationary visitor process is a stress scenario rather than a reconstruction of natural island history."
+  ]
+}
