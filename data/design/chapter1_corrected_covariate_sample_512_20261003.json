@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_outcome_blind_empirical_covariate_sample",
+  "source_repository": "zuizui0223/island",
+  "source_head": "625c1e4ea67daa4b9d447807d5d049e7254843f9",
+  "source_path": "results/geography_20260924/corrected_geography_covariates.csv",
+  "source_sha256_from_submission_lock": "08218617b5880153986012e79817de65a74dd4e44b5a65e8a537dab8cb2cd0a7",
+  "selection": "Within each of four analysis_regime strata, restrict to complete distance/area/climate PC1-PC4 rows, sort by corrected log distance then island_id, and take 128 equally spaced ranks. Trait/outcome columns are neither inspected nor used.",
+  "output_path": "data/input/chapter1_corrected_covariate_sample_512_20261003.csv",
+  "columns": [
+    "island_id",
+    "analysis_regime",
+    "log_distance_to_continent_km",
+    "log_island_area_km2",
+    "climate_pc1",
+    "climate_pc2",
+    "climate_pc3",
+    "climate_pc4",
+    "spatial_block",
+    "island_latitude",
+    "island_longitude"
+  ],
+  "per_context": {
+    "northern_midlatitude": {
+      "available_complete": 3114,
+      "selected": 128,
+      "distance_min": 0.001653700532923731,
+      "distance_median": 2.7990843944815094,
+      "distance_max": 8.060465648650162
+    },
+    "northern_high_latitude": {
+      "available_complete": 1336,
+      "selected": 128,
+      "distance_min": 0.005159270855244463,
+      "distance_median": 4.664691006802845,
+      "distance_max": 7.478162286367679
+    },
+    "tropical": {
+      "available_complete": 2993,
+      "selected": 128,
+      "distance_min": 0.011316471789808614,
+      "distance_median": 5.968701340659409,
+      "distance_max": 8.695526765722827
+    },
+    "southern_extratropical": {
+      "available_complete": 775,
+      "selected": 128,
+      "distance_min": 0.00570213683117851,
+      "distance_median": 3.783627999217139,
+      "distance_max": 8.636279373466605
+    }
+  },
+  "total_selected": 512
+}
