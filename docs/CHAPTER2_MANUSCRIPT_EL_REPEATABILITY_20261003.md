@@ -1,18 +1,18 @@
-# Repeatability changes across biological levels and time horizons in a generative island-floral model
+# Biological level changes apparent evolutionary repeatability in a generative island-floral model
 
-**Status:** Evolution Letters candidate; separate from the locked Oikos submission surface  
+**Status:** journal target unresolved (Ecology Letters vs Evolution Letters); separate from the locked Oikos submission surface  
 **Updated:** 2026-10-03  
 **Inference boundary:** system-uncalibrated Model 3; natural islands are biological confrontation, not fitted targets
 
 ## Abstract
 
-Repeated environments can generate parallel evolution, but apparent repeatability may depend on both biological level and observation horizon. Islands are useful because altered pollination and reduced connectivity recur, whereas plant island-syndrome components remain heterogeneous. We ask when a recurrent pollination problem produces a repeatable evolutionary response and whether that response persists through time.
+Repeated environments can generate recognizable evolutionary responses without producing identical realized trajectories. Islands are useful because altered pollination recurs across archipelagos while proposed plant island-syndrome components remain heterogeneous. We ask whether repeatability depends on the biological level at which the response is measured.
 
-We examined one eco-evolutionary Model 3 from reproductive selection through deterministic inheritance, genetic accessibility and finite-population realization. The frozen focal analyses comprised 19,968 island cases and a 24,576-case, 200-season isolation bridge. We then prospectively extended selected mechanisms to 6,400 reproductive seasons without outcome-dependent stopping.
+We examined one eco-evolutionary Model 3 from reproductive selection through a conditional deterministic genotype-density closure, genetic accessibility and finite-population realization. The focal analyses comprised 19,968 audited island cases and a 24,576-case, 200-season isolation bridge.
 
-At the focal horizon, functional replacement redirected selection at identical visitor number, while an aggregate isolation response could coexist with non-uniform history-level directions. Restricting standing variation selectively slowed response on the constrained trait axis. The long-horizon extension changed both interpretations: the deterministic isolation contrast decayed toward zero while the density closure entered sub-individual expected-mass regimes, and low-standing populations receiving mutation caught and overtook the high-standing no-mutation reference after 800–1,600 seasons.
+At the focal horizon, functional replacement redirected selection at identical visitor number. In the finite ABM at the original inbreeding depression 0.50, the mean far-minus-near investment effect was -0.1446 and all 3,072 near and 3,072 far cases remained occupied, yet descriptive history-level sign classifications were non-uniform and deadband-sensitive. The deterministic closure gave a stronger mean (-0.4510), but a population-scale audit showed that both layers remained near capacity at this focal condition; the magnitude gap is therefore retained as a cross-layer difference, not a finite-population attenuation coefficient. Restricting standing variation slowed early response, while continuing mutation caught and overtook the high-standing reference after 800–1,600 seasons.
 
-Thus Model 3 does not identify a stationary island-syndrome endpoint. Instead, repeatability is both level- and horizon-dependent within the model: a syndrome-like response observed during a bounded adaptive window need not identify either recurrent trajectories or the long-run endpoint. Natural timescales remain an empirical question.
+A separate depression-0.75 density sensitivity entered quasi-extinction by season 200 and is not used as evidence about repeatability among persisting populations. Thus a syndrome-like aggregate response at a bounded horizon need not imply uniform realized evolutionary trajectories, while longer-term genetic accessibility can change through time.
 
 ## Keywords
 
@@ -52,9 +52,9 @@ A result can therefore be repeatable at one stage and non-repeatable at the next
 
 The simulation is used to establish **sufficiency and separation**, not natural prevalence or necessity. We distinguish three claim levels.
 
-1. **Model-established result.** At the declared focal horizon, aggregate response and trajectory-level parallelism can differ; their relationship also changes when the same model is followed for longer horizons.
-2. **General logical implication.** A recurrent syndrome observed at one level and time horizon does not, by itself, entail recurrent evolutionary trajectories or a stationary long-run endpoint.
-3. **Empirical prediction.** If the same architecture contributes to natural island evolution, estimated repeatability should depend on both the biological quantity measured and the response window over which populations are observed. This requires independent longitudinal tests.
+1. **Model-established result.** At the declared 200-season finite-population horizon, an aggregate directional response can coexist with non-uniform, repeat-sensitive history-level realized signs. Controlled interventions identify ecological, reproductive and genetic sources of that heterogeneity.
+2. **General logical implication.** A recurrent aggregate syndrome observed at one biological level does not, by itself, entail uniform evolutionary trajectories among the populations that compose it.
+3. **Empirical prediction.** If the same architecture contributes to natural island evolution, apparent repeatability should depend on which biological level is measured. Genetic-accessibility effects may additionally change with elapsed evolutionary time, but a natural long-run stage ordering remains untested.
 
 The model does not estimate natural equilibrium time, how common any route is in nature, which route dominates a named archipelago, or the natural effect size or evolutionary rate of any transition.
 
@@ -113,11 +113,13 @@ Duplicating each left-shifted visitor type to create eight visitor entries chang
 
 ## Aggregate and history-level repeatability differ at the focal horizon
 
-Despite state-dependent selection in controlled rematching experiments, the isolation bridge retained a strong coarse deterministic backbone. Mean far-minus-near inherited investment change remained negative at all three tested inbreeding-depression values: -0.351 at 0.25, -0.451 at 0.50 and -0.414 at 0.75. Every starting-state mean also remained negative.
+The cleanest focal comparison is within the finite ABM itself. At the original inbreeding depression 0.50 and 200-season horizon, the mean far-minus-near inherited-investment effect was -0.1446 (95% history-bootstrap interval -0.1588 to -0.1306). All 3,072 natural near cases and all 3,072 natural far cases remained occupied. Yet descriptive history-level sign classifications across starting states were mixed in 12/128 histories at deadband 0, 8/128 at 0.01 and 1/128 at 0.05. Repeat-specific labels were also unstable, so these counts are evidence for realized heterogeneity rather than stable latent branch identities.
 
-The stronger form of repeatability—uniform direction across individual visitor histories—was less stable. At inbreeding depression 0.25 and 0.50, history-level direction remained uniformly negative across starting states. At 0.75, 116 of 128 histories remained negative-only, 11 became mixed across starting states and one became positive-only.
+The conditional deterministic genotype-density closure produced a stronger mean effect of -0.4510. An exact-source population-scale diagnostic showed that this original depression-0.50 comparison was not a quasi-extinction artefact: across all 128 histories × three starting states, far-arm deterministic density mass at season 200 was 48.0 in every cell to floating-point precision. In a complete finite demographic replicate, far populations had mean size 47.992, median 48 and 100% occupancy; the frozen bridge confirms 100% occupancy across all eight repeats. Population scale is therefore comparable at the focal condition, although the density closure remains a conditional comparator rather than the stochastic mean of the ABM.
 
-Thus aggregate response and replicate-level parallelism are distinct at the declared focal horizon even before demographic stochasticity is introduced. This is a finite-horizon result: the intervention-averaged direction can be coherent while some ecological histories do not share one direction. It does not establish that either pattern is stationary or indefinitely persistent.
+A later depression sensitivity must be interpreted differently. At depression 0.75, the deterministic mean remained negative and closure-level history labels were 116 negative-only, 11 mixed and one positive-only. However, the exact-source audit showed that 98.18% of far history-by-start density trajectories already had expected mass below one individual at season 200 (median 0.000301). In one complete demographic replicate, all 384 corresponding finite far populations were extinct by season 200, with median extinction at season 61. We therefore retain the depression-0.75 labels only as a mathematical closure sensitivity and do not use them as evidence about repeatability among persisting populations.
+
+Thus the focal repeatability result comes from the occupied finite-population bridge: a coherent aggregate mean can coexist with realized history-level sign heterogeneity over the declared 200-season window.
 
 ## Reproductive assurance preserves trajectories but does not provide a universal reduction mechanism
 
@@ -137,13 +139,13 @@ Mutation narrowed the early accessibility gap. Under the central mutation input,
 
 The first preregistered mutation–pleiotropy timing test failed: coordinated sustained two-trait crossings were zero in every summarized cell, and the investment-axis crossing statistic was effectively censored at the 400-year horizon. We retained the failure rather than lowering the threshold. It therefore cannot be used as evidence for a general pleiotropic ordering of syndrome components.
 
-## Long-horizon extension rejects a stationary interpretation of the focal backbone
+## Long-horizon stress testing identifies a persistence boundary, not a stationary syndrome
 
-The prospectively fixed extension did not satisfy the stationarity criteria. At inbreeding depression 0.75, the deterministic mean far-minus-near investment effect weakened from -0.414 at season 200 to -0.319 at 400, -0.179 at 800, -0.077 at 1,600, -0.018 at 3,200 and -0.00195 at 6,400. History classifications also changed through the late intervals rather than stabilizing.
+The prospectively fixed 6,400-season extension is informative primarily as a failure diagnostic. It followed the depression-0.75 deterministic closure, for which the far arm was already overwhelmingly below one expected individual at season 200. The subsequent decay of the far-minus-near density contrast toward zero therefore cannot be interpreted as adaptive convergence or as evidence about a stationary island-syndrome endpoint.
 
-The approach toward zero was not evidence for a clean adaptive equilibrium. The deterministic genotype-density closure entered a sub-individual expected-mass regime: already at season 200, 98.2% of far start-by-history trajectories had expected mass below one individual, and by season 1,600 all near trajectories also had expected mass below one. Long-run deterministic trait values therefore describe a conditional expectation after quasi-extinction, not a persisting finite population.
+This distinction matters because the original depression-0.50 focal bridge occupies a different population regime: deterministic mass remained at capacity and all finite populations survived to season 200. The long-horizon depression-0.75 trajectory consequently does not invalidate the focal finite-population result, but neither can it establish how that focal response behaves over thousands of seasons.
 
-This does not invalidate the original finite-population result at the focal horizon. In the frozen 200-season bridge at inbreeding depression 0.5, all 3,072 natural near cases and all 3,072 natural far cases remained occupied. The appropriate interpretation is consequently a bounded adaptive-window response rather than a demonstrated long-run island-syndrome attractor.
+The separate mutation-accessibility extension remains temporally informative because it directly follows finite populations under fixed visitor environments. There, the early high-standing advantage narrowed, disappeared and reversed as continuing mutation accumulated. Time therefore changes the accessibility ranking in this model, but a long-run syndrome-level repeatability trajectory remains unidentified.
 
 ## Finite realization adds contingency downstream of deterministic expectation
 
@@ -161,15 +163,15 @@ What the archive does not contain is equally important. No complete same-unit re
 
 # Discussion
 
-## Repeatability depends on both biological resolution and observation horizon
+## Repeatability depends on biological resolution
 
-The strongest general inference is now two-dimensional. **A syndrome-like response observed at one biological level and one time horizon does not identify either recurrent evolutionary trajectories or a stationary long-run endpoint.** At the focal 200-season window, aggregate and history-level responses differed. When the same operator was extended prospectively, the deterministic contrast changed substantially rather than approaching the predeclared stationarity criterion, while genetic-accessibility rankings also reversed through time.
+The strongest general inference is now deliberately narrower. **A syndrome-like aggregate response does not identify uniform realized evolutionary trajectories among the populations that compose it.** At the occupied 200-season finite-population window, the mean isolation effect was directional while history-level realized signs were heterogeneous and repeat-sensitive.
 
-The model therefore supports a bounded-window view of repeatability rather than a single hierarchy leading to an equilibrium syndrome. A recurrent island-like pollination problem can produce a recognizable response during one adaptive window, while the apparent degree and source of repeatability change as both biological resolution and observation horizon change.
+This is not simply an effect of demographic noise added to a known stochastic expectation. The genotype-density layer is a conditional deterministic closure rather than the stochastic mean of the finite ABM. Its role is mechanistic comparison: it shows how the same reproduction and inheritance operator behaves without demographic sampling, while the finite model shows realized population outcomes.
 
-This provides a mechanistic interpretation of an empirical tension in island biology. Island syndromes are defined by recurring trait differences, but support for individual plant components is uneven and some large comparative tests reject simple universal predictions such as island-wide floral reduction (Hetherington-Rauth & Johnson 2020; Ciarle & Burns 2025). In birds, parallel insular phenotypes can also coexist with largely population-specific genomic differentiation (Jezierski et al. 2026). Our result does not claim this phenotype–genome mismatch as new; instead it predicts how losses of repeatability can accumulate across explicit biological stages. Selection can recur more strongly than detailed trait change, and functional response can recur more strongly than one realized phenotype.
+The temporal result is separate. Standing variation gave an early response advantage, but continuing mutation caught and overtook that reference. Thus accessibility rankings can be horizon dependent. By contrast, the long-horizon depression-0.75 density stress test crossed a quasi-extinction boundary and cannot identify the time course of a persisting island-syndrome response.
 
-The resulting empirical prediction is not that every island lineage converges on the same phenotype, nor that repeatability must decrease monotonically with time. If this architecture contributes materially in nature, estimates of repeatability should change with both the biological quantity measured and the response window sampled. That joint stage-by-time prediction remains untested in natural island populations.
+This provides a mechanistic interpretation of an empirical tension in island biology. Island syndromes are defined by recurring trait differences, but individual components and population histories need not repeat at the same level. Our result predicts that natural estimates of repeatability should be explicitly tied to the biological object being compared—function, inherited trait change or realized population trajectory—rather than collapsed into one universal score.
 
 ## This differs from treating parallel evolution as a single continuum score
 
@@ -201,23 +203,23 @@ That negative result is informative because it identifies reproductive context a
 
 The model is mechanistic but deliberately uncalibrated. Access and investment are abstract functional traits, model reproductive seasons are not geological or necessarily calendar years, and synthetic distances are not kilometres. Extending the same stationary environment for 6,400 seasons does not reconstruct millions of years of island history. The model cannot estimate the evolutionary response of a named island flora, reconstruct a historical Bombus transition or predict a particular colour or corolla dimension.
 
-Its contribution is structural rather than calibrated. It yields a testable ordering of measurements for real island systems: quantify the pollinator perturbation, measure immediate reproductive selection or effective pollen transfer, estimate inherited change, measure standing genetic variation or genomic accessibility where possible, and retain demographic history rather than conditioning only on survivors. Longitudinal systems that observe several of these stages in the same populations would provide the strongest falsification.
+Its contribution is structural rather than calibrated. It yields a testable measurement strategy for real island systems: quantify the pollinator perturbation, measure immediate reproductive selection or effective pollen transfer, follow inherited change, measure standing genetic variation or genomic accessibility where possible, and retain demographic history rather than conditioning only on survivors. Longitudinal systems that observe several of these objects in the same populations would test whether aggregate syndrome recurrence really exceeds trajectory-level repeatability.
 
 The same logic also extends beyond islands. Any repeated environmental transition can produce a recognizable syndrome while losing parallelism at different biological stages. Islands are valuable here because they supply recurrent ecological perturbations and a mature syndrome literature in which incomplete repeatability is already an empirical problem.
 
 # Conclusion
 
-A repeated ecological problem need not have one timeless measure of evolutionary repeatability. In Model 3, aggregate response, history-level direction, genetic accessibility and finite realization differed at a declared 200-season window. Prospective extension then showed that neither the deterministic isolation contrast nor the standing-variation ranking was a stationary long-run property: the density contrast decayed as expected population mass entered quasi-extinction, while continuing mutation caught and overtook the early standing-variation advantage.
+At the declared 200-season finite-population window, Model 3 produced a directional aggregate isolation response while realized history-level signs remained non-uniform and repeat-sensitive. This result is not inferred from the depression-0.75 deterministic closure, which enters a quasi-extinction regime and is unsuitable as population-level repeatability evidence.
 
-The resulting principle is bounded but general: **repeatability depends on both what biological level is measured and when it is measured.** For island floral syndromes, a pattern observed during one adaptive window should not be interpreted automatically as evidence for identical evolutionary trajectories or a long-run attractor. Natural response windows, persistence and equilibrium times remain empirical quantities rather than outputs of this uncalibrated model.
+The resulting principle is bounded but general: **aggregate evolutionary recurrence does not by itself imply uniform realized evolutionary trajectories.** Genetic accessibility can also change with elapsed time, as continuing mutation erodes an early standing-variation advantage. Natural long-run attractors, equilibrium times and route prevalences remain empirical quantities rather than outputs of this uncalibrated model.
 
 # Figure captions
 
-**Figure 1. Repeatability has both a biological-level axis and a time axis.** The biological pathway follows visitor environment, immediate selection, inherited expectation, genetic accessibility and finite realization. A second axis distinguishes the focal 200-season response window from prospective longer horizons. The figure separates finite-window recurrence from a stationary endpoint and does not assign natural branch frequencies or geological times.
+**Figure 1. Repeatability depends on biological level.** The same island-like pollination problem is followed from visitor environment and immediate reproductive selection through conditional deterministic inheritance and finite-population realization. The figure distinguishes aggregate response from history-level realized trajectories and does not treat the deterministic closure as the stochastic mean of the finite ABM.
 
 **Figure 2. Repeatability can fail at the ecological-selection stage.** Same-count functional rematching redirects the investment gradient across starting access states, while duplicating visitor entries at fixed total activity leaves the operator unchanged. The panel separates visitor amount from functional composition and shows why identical losses in visitor number need not imply identical selection.
 
-**Figure 3. Focal-horizon repeatability and long-horizon change.** At the focal horizon, aggregate and history-level response are distinct. Across the prospective 200–6,400-season extension, the deterministic far-minus-near contrast decays while density mass enters a quasi-extinction regime. In the independent mutation-accessibility extension, the early high-standing response advantage narrows, disappears and reverses as continuing mutation accumulates.
+**Figure 3. Focal finite-population recurrence, closure boundary and temporal accessibility.** At depression 0.50 and season 200, all natural near and far finite cases remain occupied while the aggregate finite mean coexists with descriptive history-level sign heterogeneity; deterministic density also remains on the capacity-48 population scale but is a conditional closure rather than a stochastic expectation. The separate depression-0.75 closure enters quasi-extinction and is excluded from population-repeatability inference. In the mutation-accessibility analysis, the early high-standing response advantage narrows and reverses through time.
 
 **Figure 4. Finite realization and empirical claim boundary.** Chronology, pollinator connectivity, seed connectivity, demographic sampling and extinction further diversify inherited endpoints. Source-audited natural island systems confront individual causal layers but do not provide a complete same-unit longitudinal chain; no named island is fitted to a synthetic Model 3 cell.
 
