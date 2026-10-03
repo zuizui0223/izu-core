@@ -1,4 +1,4 @@
-# Biological level changes apparent evolutionary repeatability in a generative island-floral model
+# Directional parallelism can mask opposite changes in historical repeatability in a generative island-floral model
 
 **Status:** journal target unresolved (Ecology Letters vs Evolution Letters); separate from the locked Oikos submission surface  
 **Updated:** 2026-10-03  
@@ -6,13 +6,13 @@
 
 ## Abstract
 
-Repeated environments can generate recognizable evolutionary responses without producing identical realized trajectories. Islands are useful because altered pollination recurs across archipelagos while proposed plant island-syndrome components remain heterogeneous. We ask whether repeatability depends on the biological level at which the response is measured.
+Repeated environments can generate recognizable evolutionary responses without producing identical trajectories, but apparent parallelism can refer to shared direction, shared magnitude or reproducible historical effects. Islands are useful because altered pollination recurs across archipelagos while proposed plant island-syndrome components remain heterogeneous.
 
 We examined one eco-evolutionary Model 3 from reproductive selection through a conditional deterministic genotype-density closure, genetic accessibility and finite-population realization. The focal analyses comprised 19,968 audited island cases and a 24,576-case, 200-season isolation bridge.
 
-At the focal horizon, functional replacement redirected selection at identical visitor number. In the finite ABM at the original inbreeding depression 0.50, the mean far-minus-near investment effect was -0.1446 and all 3,072 near and 3,072 far cases remained occupied, yet descriptive history-level sign classifications were non-uniform and deadband-sensitive. The deterministic closure gave a stronger mean (-0.4510), but a population-scale audit showed that both layers remained near capacity at this focal condition; the magnitude gap is therefore retained as a cross-layer difference, not a finite-population attenuation coefficient. Restricting standing variation slowed early response, while continuing mutation caught and overtook the high-standing reference after 800–1,600 seasons.
+At inbreeding depression 0.50, the finite ABM had a negative mean far-minus-near investment effect (-0.1446) and complete occupancy. An exploratory exact-source reanalysis of the frozen 3 × 128 × 8 start-by-history-by-demographic tensor showed that continuous visitor-history effects were reproducible despite noisy sign labels: eight-repeat history reliability was 0.621 and split-half correlation was 0.690. Increasing plant capacity and pooling visitor histories both nearly eliminated mixed-sign history labels (12→1 and 12→0), yet changed historical repeatability in opposite directions. Capacity increased eight-repeat reliability to 0.825, whereas visitor pooling reduced it to 0.103. A separate high-depression deterministic sensitivity entered quasi-extinction and was excluded from persisting-population inference.
 
-A separate depression-0.75 density sensitivity entered quasi-extinction by season 200 and is not used as evidence about repeatability among persisting populations. Thus a syndrome-like aggregate response at a bounded horizon need not imply uniform realized evolutionary trajectories, while longer-term genetic accessibility can change through time.
+Thus directional sign uniformity does not uniquely identify evolutionary repeatability or its mechanism. The same apparent increase in parallelism can accompany either a more reproducible historical imprint or its erosion by environmental averaging.
 
 ## Keywords
 
@@ -28,7 +28,7 @@ Pollination-mediated island evolution is well suited to separating these levels.
 
 We use a single eco-evolutionary Model 3 rather than separate response rules for different syndrome components. Plants carry diploid access/matching and floral-investment traits. Visitor functional types determine finite compatible pollen transfer; outcrossing and delayed selfing generate viable offspring; Mendelian inheritance transmits trait variation; and recruitment, survival, immigration and finite population size determine persistence and realized evolution. The traits are abstract functional coordinates, not literal corolla dimensions or colours, and no rule directly moves a population toward an island syndrome.
 
-We ask four questions. First, does a recurrent island-like pollination problem produce repeatable selection, or can functional replacement redirect selection even when visitor number is held constant? Second, at a fixed 200-season response window, can aggregate inherited direction differ from history-level parallelism? Third, are genetic-accessibility effects persistent constraints or time-limited differences in evolutionary speed? Fourth, does extending the same stationary model toward 6,400 reproductive seasons approach a biologically interpretable stationary regime? We do not compress stages or horizons into one repeatability parameter because they describe different biological objects and different windows of the same process.
+We ask four questions. First, can functional replacement redirect selection at fixed visitor number? Second, when finite outcomes become more uniform in sign, does reproducible visitor-history structure necessarily decline? Third, are genetic-accessibility effects persistent constraints or time-limited differences in response speed? Fourth, does a long stationary extension approach a biologically interpretable regime? These questions separate direction, magnitude, historical imprint and time rather than compressing them into one repeatability score.
 
 # Materials and Methods
 
@@ -40,7 +40,7 @@ We organize inference into four stages.
 
 **Immediate reproductive selection** asks how plant state and visitor environment change marginal reproductive return before inheritance or demographic updating.
 
-**Deterministic inherited expectation** propagates the same reproduction and Mendelian inheritance operator as genotype densities without demographic sampling.
+**Conditional deterministic propagation** follows the same reproduction and Mendelian inheritance operator as genotype densities without demographic sampling; it is a mechanistic closure, not the stochastic mean of the finite ABM.
 
 **Genetic accessibility** changes standing variation or mutation input while holding the ecological operator fixed.
 
@@ -52,9 +52,9 @@ A result can therefore be repeatable at one stage and non-repeatable at the next
 
 The simulation is used to establish **sufficiency and separation**, not natural prevalence or necessity. We distinguish three claim levels.
 
-1. **Model-established result.** At the declared 200-season finite-population horizon, an aggregate directional response can coexist with non-uniform, repeat-sensitive history-level realized signs. Controlled interventions identify ecological, reproductive and genetic sources of that heterogeneity.
-2. **General logical implication.** A recurrent aggregate syndrome observed at one biological level does not, by itself, entail uniform evolutionary trajectories among the populations that compose it.
-3. **Empirical prediction.** If the same architecture contributes to natural island evolution, apparent repeatability should depend on which biological level is measured. Genetic-accessibility effects may additionally change with elapsed evolutionary time, but a natural long-run stage ordering remains untested.
+1. **Model-established result.** At the occupied 200-season finite-population horizon, directional sign uniformity and reproducible visitor-history effects are distinct. Two interventions can both reduce mixed-sign histories while moving continuous history reliability in opposite directions.
+2. **General logical implication.** An apparent increase in directional parallelism does not, by itself, identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
+3. **Empirical prediction.** Natural tests should measure both direction and reproducibility of population-specific effect magnitudes, while treating genetic-accessibility rankings as potentially time dependent.
 
 The model does not estimate natural equilibrium time, how common any route is in nature, which route dominates a named archipelago, or the natural effect size or evolutionary rate of any transition.
 
@@ -64,9 +64,9 @@ The model does not estimate natural equilibrium time, how common any route is in
 |---|---|---|---|
 | Immediate selection | starting floral state × controlled visitor environment | sign and magnitude of marginal reproductive gradient | shared visitor change does not preserve one gradient direction |
 | Reproductive context | assurance × inbreeding depression × life history | persistence plus robustness of gradient/inherited sign | a route changes sign or fails across declared reproductive contexts |
-| Deterministic inherited expectation | independent visitor history × starting state | far-minus-near inherited response before demographic sampling | mean direction persists but histories no longer share one direction |
+| Conditional deterministic closure | independent visitor history × starting state | far-minus-near inherited response without demographic sampling | a closure-level direction changes across viable histories |
 | Genetic accessibility | trait-specific standing variation and mutation input | attenuation of selected response on the constrained axis | shared ecology produces unequal reachable response among trait axes |
-| Finite realization | demographic repeats, chronology and connectivity | realized inherited endpoint, occupancy and sign | sampling, extinction or ancestry/history produce additional endpoint divergence |
+| Finite realization | demographic repeats, chronology and connectivity | direction, continuous history reliability and realized endpoint | sign uniformity and reproducible history structure change differently |
 
 
 ## Functional replacement versus visitor scarcity
@@ -99,7 +99,9 @@ These runs are stationary-environment stress tests, not reconstructions of geolo
 
 Finite-population simulations retain the same reproductive and inheritance operator but add demographic sampling, survival, extinction, immigration and ancestry turnover. Chronology and connectivity interventions distinguish visitor-history effects from demographic/genetic input.
 
-Natural island systems are used only for source-audited biological confrontation. They are not assigned to synthetic parameter cells, and cross-sectional island contrasts are not treated as measured historical trajectories. The empirical archive therefore constrains plausibility and falsification without calibrating Model 3 to named archipelagos.
+Because sign labels proved repeat-sensitive, we performed an explicitly exploratory exact-source reanalysis of the original verified bridge exports. For each intervention, the finite tensor contained three starts × 128 visitor histories × eight demographic repeats. A balanced crossed decomposition treated start as fixed, history and start×history as random, and repeat as residual. We report history-structured variance, single-trajectory ICC, reliability of the eight-repeat mean, and the correlation between history means from repeats 1–4 and 5–8. Uncertainty uses 1,999 visitor-history bootstrap resamples (seed 927032). This post-hoc diagnostic tests interpretation of the frozen outcomes; it is not a preregistered hypothesis test.
+
+Natural island systems are used only for source-audited biological confrontation. They are not assigned to synthetic parameter cells, and cross-sectional island contrasts are not treated as measured historical trajectories.
 
 # Results
 
@@ -111,16 +113,15 @@ Functional replacement mattered even when visitor number was unchanged. The maxi
 
 Duplicating each left-shifted visitor type to create eight visitor entries changed the fixed-state, deterministic and finite-population operators by at most 1.78 × 10^-15 when total activity was fixed. The model therefore distinguishes functional composition from simple visitor-entry count. A recurrent decline in pollinator service is not sufficient to specify a single selection direction unless the functional visitor environment and starting floral state are also specified.
 
-## Aggregate and history-level repeatability differ at the focal horizon
+## Directional parallelism and historical repeatability separate in finite populations
 
-The cleanest focal comparison is within the finite ABM itself. At the original inbreeding depression 0.50 and 200-season horizon, the mean far-minus-near inherited-investment effect was -0.1446 (95% history-bootstrap interval -0.1588 to -0.1306). All 3,072 natural near cases and all 3,072 natural far cases remained occupied. Yet descriptive history-level sign classifications across starting states were mixed in 12/128 histories at deadband 0, 8/128 at 0.01 and 1/128 at 0.05. Repeat-specific labels were also unstable, so these counts are evidence for realized heterogeneity rather than stable latent branch identities.
+At depression 0.50 and season 200, the finite ABM mean far-minus-near investment effect was -0.1446 (95% history-bootstrap interval -0.1588 to -0.1306), and all 3,072 near and 3,072 far cases were occupied. Mean-over-eight sign labels were mixed in 12/128 histories at deadband 0, but 97/128 histories showed disagreement among repeat-specific labels. Sign counts alone therefore did not identify a stable history effect.
 
-The conditional deterministic genotype-density closure produced a stronger mean effect of -0.4510. An exact-source population-scale diagnostic showed that this original depression-0.50 comparison was not a quasi-extinction artefact: across all 128 histories × three starting states, far-arm deterministic density mass at season 200 was 48.0 in every cell to floating-point precision. In a complete finite demographic replicate, far populations had mean size 47.992, median 48 and 100% occupancy; the frozen bridge confirms 100% occupancy across all eight repeats. Population scale is therefore comparable at the focal condition, although the density closure remains a conditional comparator rather than the stochastic mean of the ABM.
+The exploratory exact-source variance diagnostic showed that a reproducible continuous history signal nevertheless existed. Under the natural visitor histories, history-structured variance was 0.00549 (95% bootstrap interval 0.00405–0.00718) against demographic residual variance 0.02677. One finite trajectory was noisy (ICC 0.170), but the declared eight-repeat mean had reliability 0.621 (0.549–0.681), and independent first-four versus last-four history means correlated at 0.690 (0.592–0.770).
 
-A later depression sensitivity must be interpreted differently. At depression 0.75, the deterministic mean remained negative and closure-level history labels were 116 negative-only, 11 mixed and one positive-only. However, the exact-source audit showed that 98.18% of far history-by-start density trajectories already had expected mass below one individual at season 200 (median 0.000301). In one complete demographic replicate, all 384 corresponding finite far populations were extinct by season 200, with median extinction at season 61. We therefore retain the depression-0.75 labels only as a mathematical closure sensitivity and do not use them as evidence about repeatability among persisting populations. A prospectively frozen boundary scan strengthened this exclusion: at depression 0.50, 0.55, 0.60, 0.65 and 0.70, every history remained negative-only while all six near/far starting-state density endpoints remained at or above one expected individual. Refinement at 0.71–0.74 found mixed labels only in histories that had already crossed below one expected individual; among histories retaining all six endpoint masses >=1, every evaluable history remained negative-only.
+Crucially, the two interventions that nearly eliminated mixed-sign histories changed this continuous history signal in opposite directions. Increasing plant capacity from 48 to 192 reduced mixed histories from 12 to 1 and repeat-label disagreement from 97 to 31, while residual variance fell to 0.01489 and history-structured variance rose to 0.00875. Eight-repeat reliability increased to 0.825 and split-half correlation to 0.852. Pooling visitor histories also reduced mixed histories, from 12 to 0, but history-structured variance fell to 0.00042 while residual variance remained 0.02916; reliability fell to 0.103 and split-half correlation to 0.214. Thus the same increase in directional sign uniformity can accompany either a stronger reproducible historical imprint or its erosion by environmental averaging.
 
-Thus the focal repeatability result comes from the occupied finite-population bridge: a coherent aggregate mean can coexist with realized history-level sign heterogeneity over the declared 200-season window. In contrast, the isolation-driven deterministic closure remained one-directional throughout the tested pre-quasi-extinction envelope; deterministic mixed-history labels appeared only after the closure crossed the persistence boundary.
-
+The deterministic closure is retained as a mechanistic comparator rather than a finite-population expectation. At depression 0.50 its endpoint mass remained at capacity, but a high-depression sensitivity crossed a persistence boundary. A prospectively frozen scan from depression 0.50 through 0.74 found no mixed or positive deterministic history among histories whose three starts and both near/far endpoints all retained mass >=1; mixed labels appeared only after sub-individual mass was reached.
 ## Reproductive assurance preserves trajectories but does not provide a universal reduction mechanism
 
 The focal assurance-by-cost knockout initially produced a plausible route to reduced pollinator-facing investment under low service. At visitor activity 0.05, assurance 0.5 and investment cost 0.5, the total investment gradient was -0.393, deterministic investment change was -0.0726 and the finite-population mean was -0.0721 with full terminal occupancy. Removing assurance or removing investment cost shifted the gradient upward by approximately one gradient unit, while restoring visitor activity to 0.4 moved the gradient to +1.681.
@@ -163,21 +164,20 @@ What the archive does not contain is equally important. No complete same-unit re
 
 # Discussion
 
-## Repeatability depends on biological resolution
+## Directional parallelism does not identify historical repeatability
 
-The strongest general inference is now deliberately narrower. **A syndrome-like aggregate response does not identify uniform realized evolutionary trajectories among the populations that compose it.** At the occupied 200-season finite-population window, the mean isolation effect was directional while history-level realized signs were heterogeneous and repeat-sensitive.
+The strongest result is not the count of mixed histories. It is the separation between **directional parallelism** and **reproducibility of history-specific effect magnitude**. In the natural finite bridge, individual trajectories were noisy, yet averaging the eight declared demographic repeats recovered a reproducible visitor-history signal.
 
-This is not simply an effect of demographic noise added to a known stochastic expectation. The genotype-density layer is a conditional deterministic closure rather than the stochastic mean of the finite ABM. Its role is mechanistic comparison: it shows how the same reproduction and inheritance operator behaves without demographic sampling, while the finite model shows realized population outcomes.
+The capacity and pooling interventions expose why this distinction matters. Both made mean history labels almost uniformly negative. Larger plant populations did so while demographic residual variance fell and history reliability increased; visitor-history pooling did so while the reproducible history component collapsed. The same apparent gain in directional parallelism therefore arose once because historical effects became clearer relative to demographic noise and once because environmental-history structure was averaged away.
 
-The temporal result is separate. Standing variation gave an early response advantage, but continuing mutation caught and overtook that reference. Thus accessibility rankings can be horizon dependent. By contrast, the long-horizon depression-0.75 density stress test crossed a quasi-extinction boundary and cannot identify the time course of a persisting island-syndrome response.
+This makes sign uniformity an incomplete diagnostic of evolutionary repeatability. A population set can become more parallel in direction while retaining, strengthening or losing reproducible differences in magnitude. For natural systems, repeated populations should therefore be compared with replicated estimates of effect magnitude, not classified only by whether they move in the same direction.
 
-This provides a mechanistic interpretation of an empirical tension in island biology. Island syndromes are defined by recurring trait differences, but individual components and population histories need not repeat at the same level. Our result predicts that natural estimates of repeatability should be explicitly tied to the biological object being compared—function, inherited trait change or realized population trajectory—rather than collapsed into one universal score.
-
+The temporal accessibility result is distinct: standing variation accelerated early response, but continuing mutation caught and overtook that reference. The high-depression long-horizon density stress test crossed quasi-extinction and cannot identify a persisting long-run syndrome trajectory.
 ## This differs from treating parallel evolution as a single continuum score
 
-Bolnick et al. (2018) emphasized that parallelism is quantitative rather than binary, and Stuart et al. (2017) showed empirically that environmental and genetic differences jointly explain departures from parallel phenotypic evolution. Our result is complementary but asks a different question: given one explicit causal operator, at which biological transition does a stronger form of repeatability first fail?
+Bolnick et al. (2018) emphasized that parallelism is quantitative rather than binary, and Stuart et al. (2017) showed that environmental and genetic differences jointly explain departures from parallel phenotypic evolution. Our result adds a mechanistic warning: even within one model and one endpoint, greater directional uniformity can correspond to opposite changes in reproducible historical structure.
 
-The distinction matters because the stages are not commensurable measurements of one latent variable. Immediate selection is a marginal reproductive return; the deterministic genotype-density layer is a conditional closure; genetic accessibility measures response from available variation; finite realization is a stochastic demographic outcome. Collapsing them into one repeatability coefficient would hide the mechanism. In the isolation-assembly contrast, the deterministic closure did not lose directional uniformity while all tested histories remained above the sub-individual persistence boundary; realized finite-population heterogeneity therefore cannot be read simply as deterministic branch structure revealed by sampling.
+Repeatability is therefore multidimensional rather than one latent score. Direction, continuous magnitude, historical imprint and demographic realization need not rank interventions identically. The deterministic closure also remained directionally uniform throughout the tested viable isolation envelope, so finite history structure cannot be read simply as deterministic branches revealed by sampling.
 
 Many-to-one mapping provides another important precedent. Thompson et al. (2017) showed that common biomechanical function can be associated with less parallel morphology when multiple forms produce similar function. Model 3 does not establish literal many-to-one mapping for real flowers, but it reaches a related general point through a different route: common ecological function can coexist with non-unique phenotype because selection, accessibility and realization are separate filters.
 
@@ -209,9 +209,9 @@ The same logic also extends beyond islands. Any repeated environmental transitio
 
 # Conclusion
 
-At the declared 200-season finite-population window, Model 3 produced a directional aggregate isolation response while realized history-level signs remained non-uniform and repeat-sensitive. This result is not inferred from the depression-0.75 deterministic closure, which enters a quasi-extinction regime and is unsuitable as population-level repeatability evidence.
+At the occupied 200-season finite-population window, directional sign uniformity and reproducible history-specific magnitude were distinct properties. Increasing plant capacity and pooling visitor histories both made direction more uniform, yet the former increased history reliability while the latter nearly erased it.
 
-The resulting principle is bounded but general: **aggregate evolutionary recurrence does not by itself imply uniform realized evolutionary trajectories.** Genetic accessibility can also change with elapsed time, as continuing mutation erodes an early standing-variation advantage. Natural long-run attractors, equilibrium times and route prevalences remain empirical quantities rather than outputs of this uncalibrated model.
+The bounded principle is therefore sharper: **apparent directional parallelism does not uniquely identify evolutionary repeatability or its mechanism.** Historical imprint can become more reproducible, less reproducible or temporally reweighted while the aggregate direction looks increasingly parallel. Natural variance components, long-run attractors and route prevalences remain empirical quantities rather than outputs of this uncalibrated model.
 
 # Figure captions
 
@@ -219,7 +219,7 @@ The resulting principle is bounded but general: **aggregate evolutionary recurre
 
 **Figure 2. Repeatability can fail at the ecological-selection stage.** Same-count functional rematching redirects the investment gradient across starting access states, while duplicating visitor entries at fixed total activity leaves the operator unchanged. The panel separates visitor amount from functional composition and shows why identical losses in visitor number need not imply identical selection.
 
-**Figure 3. Focal finite-population recurrence, deterministic persistence boundary and temporal accessibility.** At depression 0.50 and season 200, all natural near and far finite cases remain occupied while the aggregate finite mean coexists with descriptive history-level sign heterogeneity; deterministic density also remains on the capacity-48 population scale but is a conditional closure rather than a stochastic expectation. Across a prospectively frozen depression scan, the isolation-driven deterministic closure remains negative-only for all histories that retain all near/far starting-state endpoint masses >=1; mixed labels appear only after at least one endpoint crosses below one expected individual. In the mutation-accessibility analysis, the early high-standing response advantage narrows and reverses through time.
+**Figure 3. The same directional parallelism can conceal opposite changes in history signal.** Natural, visitor-pooled and capacity-192 finite bridges are compared using mixed-sign history counts, demographic residual variance, history-structured variance, eight-repeat reliability and split-half history correlation. Pooling and larger capacity both nearly eliminate mixed-sign mean labels, but pooling suppresses reproducible history structure whereas larger capacity strengthens it relative to demographic noise. A small inset marks the deterministic persistence boundary that excludes the high-depression closure from population-level inference.
 
 **Figure 4. Finite realization and empirical claim boundary.** Chronology, pollinator connectivity, seed connectivity, demographic sampling and extinction further diversify inherited endpoints. Source-audited natural island systems confront individual causal layers but do not provide a complete same-unit longitudinal chain; no named island is fitted to a synthetic Model 3 cell.
 
