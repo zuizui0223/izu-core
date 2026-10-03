@@ -392,7 +392,10 @@ def test_scientific_promotion_gates_are_complete_but_submission_is_not_automatic
     assert ready["scientific_gates_complete"] is True
     assert ready["population_scale_audit_propagated"] is True
     assert ready["figure1_regenerated_and_tested"] is True
+    assert ready["figure2_regenerated_and_tested"] is True
     assert ready["figure3_uses_prospective_new_history_validation"] is True
+    assert ready["figure4_regenerated_and_tested"] is True
+    assert ready["all_four_main_figures_regenerated_and_tested"] is True
     assert ready["failed_routes_visible"] is True
     assert ready["preferred_journal"] == "Evolution Letters"
     assert ready["active_oikos_surface_replaced"] is False
