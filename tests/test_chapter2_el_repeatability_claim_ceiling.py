@@ -128,7 +128,7 @@ def test_sign_uniformity_and_history_signal_move_differently():
 
     lower = MANUSCRIPT.read_text(encoding="utf-8").lower()
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
-    assert "same increase in directional sign uniformity can accompany either a stronger reproducible historical imprint" in lower
+    assert "same increase in directional sign uniformity can accompany either strong preservation of history-specific magnitude" in lower
     assert lock["finite_history_signal_diagnostic"]["status"].startswith("posthoc exploratory")
     assert "mixed-sign history counts as a complete measure of evolutionary repeatability" in set(lock["prohibited_claims"])
 
@@ -193,7 +193,7 @@ def test_history_signal_is_robust_to_all_balanced_repeat_splits():
 
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
     assert "all 35 balanced 4-versus-4 splits" in manuscript
-    assert "35/35 splits" in manuscript
+    assert "ordering was invariant across all 35 balanced 4-versus-4 splits" in manuscript
 
 
 def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
