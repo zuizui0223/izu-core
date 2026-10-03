@@ -18,7 +18,7 @@ The manuscript keeps different biological objects separate rather than estimatin
 2. **Conditional deterministic closure** — the same reproduction and inheritance operator can be propagated without demographic sampling, but this layer is not the stochastic mean of the finite ABM.
 3. **Occupied finite-population realization at the focal horizon** — this is the core repeatability comparison. At depression 0.50 and season 200, the finite mean far-minus-near effect is negative while descriptive history-level realized signs are non-uniform and repeat-sensitive; all near and far cases remain occupied.
 4. **Genetic accessibility** — reduced standing variation slows early response on the constrained axis; continuing mutation narrows and eventually reverses that early ranking.
-5. **Persistence boundary** — the later depression-0.75 deterministic sensitivity enters a sub-individual far-arm regime by season 200 and cannot be used as evidence about repeatability among persisting populations.
+5. **Persistence boundary** — a prospectively frozen depression scan shows that the isolation-driven deterministic closure remains negative-only among every tested history whose three starts and both near/far arms retain terminal mass >=1. Mixed deterministic labels appear only after at least one endpoint crosses below one expected individual.
 
 The result is not “island syndrome is universal.” It is:
 
@@ -159,3 +159,16 @@ The locked Oikos surface remains untouched by this branch. Promotion requires a 
 - retained failed tests remain visible;
 - journal target is chosen explicitly;
 - submission gates are rerun.
+
+
+### Persistence-boundary refinement
+
+The original depression-0.75 mixed-history result was followed by a prospectively frozen exact-source scan at 0.55, 0.60, 0.65 and 0.70, then a separately frozen refinement at 0.71–0.74.
+
+- depression 0.50–0.70: every one of 128 histories is negative-only; through 0.70 all histories retain all six terminal near/far starting-state masses >=1;
+- depression 0.71: some start-arm cells cross below mass 1, but all 128 histories remain negative-only;
+- depression 0.72: one mixed history appears, but its minimum terminal mass is 0.550; all 102 histories retaining all six masses >=1 remain negative-only;
+- depression 0.73: one mixed history appears with minimum mass 0.0129; all 60 mass-valid histories remain negative-only;
+- depression 0.74: eight mixed histories at epsilon 0 (two at epsilon 0.01), all in low-mass histories; the five histories retaining all six masses >=1 are all negative-only.
+
+Therefore no deterministic history-level nonparallelism was observed among pre-quasi-extinction histories in the tested range. The depression-0.75 pattern is retained only as a persistence-boundary/closure diagnostic, not as evidence that deterministic evolutionary trajectories diverge among persisting populations.
