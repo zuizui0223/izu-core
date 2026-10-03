@@ -8,19 +8,31 @@
   "relationship_to_model3": "new extension; frozen Model 3 results and code remain unchanged",
   "plant_traits": {
     "matching_center_m": {
-      "range": [0.0, 1.0],
+      "range": [
+        0,
+        1
+      ],
       "role": "functional matching position retained from Model 3"
     },
     "generalization_g": {
-      "range": [0.0, 1.0],
+      "range": [
+        0,
+        1
+      ],
       "role": "new floral accessibility/generalization breadth axis corresponding to the Chapter 1 structural domain"
     },
     "display_d": {
-      "range": [0.0, 1.0],
+      "range": [
+        0,
+        1
+      ],
       "role": "pollinator-facing display investment; latent ecological trait, not literal colour"
     },
     "assurance_a": {
-      "range": [0.0, 1.0],
+      "range": [
+        0,
+        1
+      ],
       "role": "autonomous reproductive assurance"
     }
   },
@@ -35,7 +47,7 @@
   "observation_layer": {
     "chapter1_selfing_core": "terminal or equilibrium assurance_a",
     "chapter1_generalized_accessible": "terminal or equilibrium generalization_g",
-    "chapter1_plain_colour": "held-out observation transform of display_d; not used for v1 ecological parameter fitting",
+    "chapter1_plain_colour": "held-out fixed transform logistic((0.45-display_d)/0.10); transform parameters are not fit",
     "chapter1_pollen_limitation": "model hand-pollination log response ratio"
   },
   "calibration_targets": {
@@ -72,13 +84,180 @@
       "southern_extratropical"
     ],
     "context_parameters": "visitor-source composition parameters are nuisance parameters fit only to functional calibration targets; display holdouts are unavailable during fitting",
-    "seed_connectivity": "retained as a separate secondary sensitivity rather than forced to equal pollinator isolation"
+    "seed_connectivity": "retained as a separate secondary sensitivity rather than forced to equal pollinator isolation",
+    "isolation_grid_z": [
+      -1.5,
+      -1,
+      -0.5,
+      0,
+      0.5,
+      1,
+      1.5
+    ],
+    "visitor_pool_generation": {
+      "rule": "five functional visitor types per context sampled once from common priors before fitting",
+      "seed": 31003,
+      "optimum_prior": "Uniform(0.1,0.9), sorted",
+      "breadth_prior": "Uniform(0.12,0.25)",
+      "effectiveness_prior": "Uniform(0.75,1.0)",
+      "pools": {
+        "northern_midlatitude": {
+          "optima": [
+            0.355003,
+            0.358209,
+            0.523181,
+            0.583946,
+            0.876833
+          ],
+          "breadths": [
+            0.219066,
+            0.230613,
+            0.128251,
+            0.203989,
+            0.223245
+          ],
+          "effectiveness": [
+            0.943244,
+            0.812856,
+            0.938082,
+            0.85704,
+            0.917764
+          ]
+        },
+        "northern_high_latitude": {
+          "optima": [
+            0.110036,
+            0.223658,
+            0.539623,
+            0.621995,
+            0.711682
+          ],
+          "breadths": [
+            0.149842,
+            0.164219,
+            0.194555,
+            0.151405,
+            0.150934
+          ],
+          "effectiveness": [
+            0.972541,
+            0.985445,
+            0.826969,
+            0.836585,
+            0.814427
+          ]
+        },
+        "tropical": {
+          "optima": [
+            0.195249,
+            0.375229,
+            0.380795,
+            0.602198,
+            0.899288
+          ],
+          "breadths": [
+            0.121154,
+            0.173232,
+            0.182953,
+            0.176478,
+            0.158284
+          ],
+          "effectiveness": [
+            0.908532,
+            0.771407,
+            0.913201,
+            0.76952,
+            0.791254
+          ]
+        },
+        "southern_extratropical": {
+          "optima": [
+            0.297388,
+            0.552505,
+            0.637411,
+            0.676656,
+            0.816355
+          ],
+          "breadths": [
+            0.238708,
+            0.241733,
+            0.24697,
+            0.202107,
+            0.166861
+          ],
+          "effectiveness": [
+            0.895194,
+            0.787474,
+            0.750293,
+            0.947446,
+            0.813247
+          ]
+        }
+      }
+    }
   },
   "fit_strategy": {
     "stage_1": "fast deterministic quantitative-genetic emulator to identify plausible parameter regions",
     "stage_2": "posterior/predictive replay with multi-lineage finite populations using Model3R operator",
     "stage_3": "held-out display adequacy check",
-    "stage_4": "empirical-covariate replay using Chapter 1 island distance/area/climate distribution if available without post-outcome selection"
+    "stage_4": "empirical-covariate replay using Chapter 1 island distance/area/climate distribution if available without post-outcome selection",
+    "stage_1_parameter_search": {
+      "sampler": "Latin hypercube",
+      "seed": 31004,
+      "preflight_draws": 64,
+      "confirmatory_draws_after_code_validation": 512,
+      "shared_parameter_bounds": {
+        "isolation_service_decay": [
+          0.2,
+          3
+        ],
+        "base_activity": [
+          0.1,
+          1
+        ],
+        "generalization_min_width": [
+          0.02,
+          0.15
+        ],
+        "generalization_width_scale": [
+          0.1,
+          0.5
+        ],
+        "display_cost": [
+          0,
+          1
+        ],
+        "generalization_cost": [
+          0,
+          1
+        ],
+        "assurance_cost": [
+          0,
+          1
+        ],
+        "inbreeding_depression": [
+          0.1,
+          0.8
+        ],
+        "evolution_rate": [
+          0.005,
+          0.05
+        ],
+        "pollen_scale": [
+          0.5,
+          2
+        ]
+      },
+      "initial_traits": {
+        "matching_center_m": 0.5,
+        "generalization_g": 0.25,
+        "display_d": 0.5,
+        "assurance_a": 0.15
+      },
+      "generations": 120,
+      "selection_gradient_step": 0.01,
+      "resident_population_size": 21
+    }
   },
   "primary_success_rule": {
     "functional_signs": "all four assurance slopes > 0; all four generalization slopes > 0; all four generalization|assurance slopes > 0",
