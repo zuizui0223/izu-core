@@ -17,7 +17,7 @@ Verified Letter guidance:
 Current candidate at the latest branch audit:
 - title: **14 words**;
 - abstract: **252 words**;
-- main text: **4,839 words**.
+- main text: **4,852 words**.
 
 The manuscript is therefore within the current Letter length guide.
 
