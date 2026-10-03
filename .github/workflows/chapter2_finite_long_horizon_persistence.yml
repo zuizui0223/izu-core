@@ -1,6 +1,9 @@
 name: Chapter 2 finite long-horizon persistence
 
 on:
+  push:
+    branches:
+      - 'chapter2/el-repeatability-20261003'
   pull_request:
     paths:
       - 'data/design/chapter2_finite_long_horizon_persistence_20261003.json'
