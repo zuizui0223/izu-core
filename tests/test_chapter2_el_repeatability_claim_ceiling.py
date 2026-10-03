@@ -11,6 +11,9 @@ BOUNDARY_STAGE1 = ROOT / "data/results/chapter2_deterministic_persistence_bounda
 BOUNDARY_REFINEMENT = ROOT / "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json"
 HISTORY_SIGNAL = ROOT / "data/results/chapter2_finite_history_signal_diagnostic_20261003.json"
 HISTORY_SIGNAL_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_reproduction_receipt_20261003.json"
+VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_validation_20261003.json"
+VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_validation_20261003.json"
+VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_validation_receipt_20261003.json"
 
 
 def _word_count(text: str) -> int:
@@ -191,3 +194,49 @@ def test_history_signal_is_robust_to_all_balanced_repeat_splits():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
     assert "all 35 balanced 4-versus-4 splits" in manuscript
     assert "35/35 splits" in manuscript
+
+
+def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
+    design = json.loads(VALIDATION_DESIGN.read_text(encoding="utf-8"))
+    result = json.loads(VALIDATION_RESULT.read_text(encoding="utf-8"))
+    receipt = json.loads(VALIDATION_RECEIPT.read_text(encoding="utf-8"))
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+
+    assert design["status"] == "prospective_frozen_before_new_demographic_execution"
+    assert design["validation_source"]["new_demographic_seeds"] == [201, 202, 203, 204]
+    assert result["status"] == "complete_prospectively_frozen_new_demographic_seed_validation"
+    assert result["provenance"]["finite_arm_trajectories"] == 9216
+    assert result["primary_decision"]["strong_success"] is True
+
+    corr = {
+        k: result["reports"][k]["discovery_validation_history_correlation"]["estimate"]
+        for k in ("natural", "visitor_pooled", "large_plant_capacity")
+    }
+    assert corr["large_plant_capacity"] > corr["natural"] > corr["visitor_pooled"]
+
+    large = result["paired_bootstrap_differences"]["large_capacity_minus_natural_history_correlation"]["bootstrap95"]
+    pooled = result["paired_bootstrap_differences"]["visitor_pooled_minus_natural_history_correlation"]["bootstrap95"]
+    assert large[0] > 0
+    assert pooled[1] < 0
+    assert all(v["occupied_fraction"] == 1.0 for v in result["terminal_occupancy"].values())
+
+    assert receipt["status"] == "complete_local_exact_source_validation_execution_receipt"
+    assert receipt["execution"]["shard_count"] == 16
+    assert receipt["execution"]["total_arm_trajectories"] == 9216
+    assert len(receipt["execution"]["shard_sha256"]) == 16
+    assert receipt["exact_implementation_check"]["full_simulate_vs_compact_runner_terminal_population_all_equal"] is True
+    assert receipt["exact_implementation_check"]["maximum_absolute_investment_change_difference"] < 2e-15
+
+    validation = lock["finite_history_signal_validation"]
+    assert validation["strong_success"] is True
+    assert validation["validation_scope"] == "same 128 frozen visitor histories; new demographic seeds 201-204"
+
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    assert "9,216 trajectories using new demographic seeds 201–204" in manuscript
+    assert "prospectively frozen new-seed validation met its strong-success rule" in manuscript
+    assert "not transfer to new environmental histories or natural islands" in manuscript
+
+    prohibited = set(lock["prohibited_claims"])
+    assert "the original posthoc finite-history discovery as preregistered or confirmatory" in prohibited
+    assert "new demographic seed validation as independent environmental-history replication" in prohibited
+    assert "new demographic seed validation as natural-island validation" in prohibited
