@@ -160,7 +160,9 @@
       "global pollen-limitation slope > 0"
     ],
     "score": "sum of three domain normalized RMSE values plus squared H3 error in empirical SE units",
-    "prospective_acceptance": "eligible parameter sets with total score <= 4.0; rank by score and freeze the best five without inspecting H2/H4"
+    "prospective_acceptance": "eligible parameter sets with total score <= 4.0; rank by score and freeze the best five without inspecting H2/H4",
+    "eligibility": "all 4 strata x 5 distances x 2 history seeds must have defined terminal-window assurance, accessibility, display and pollen-limitation outputs",
+    "extinction_handling": "undefined/extinct pseudo-islands are not dropped; the entire parameter set is ineligible"
   },
   "held_out": {
     "open_only_after_fit_freeze": true,
