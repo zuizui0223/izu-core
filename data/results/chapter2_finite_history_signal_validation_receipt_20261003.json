@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "date": "2026-10-03",
-  "status": "complete_local_exact_source_validation_execution_receipt",
+  "status": "complete_local_exact_source_validation_execution_with_separate_committed_reproduction_surface",
   "validation_result": "data/results/chapter2_finite_history_signal_validation_20261003.json",
   "exact_source": {
     "snapshot": "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip",
@@ -67,12 +67,20 @@
       -0.4013656494929009
     ]
   },
-  "claim_boundary": "This receipt documents local execution and implementation equivalence. It does not make the original post-hoc discovery preregistered and does not represent independent environmental-history validation.",
+  "claim_boundary": "This receipt documents the completed local exact-source execution, freeze timing, shard hashes and one-case implementation equivalence to full simulate(). The committed reproduction scripts are separately versioned and are not asserted to be byte-identical to the local execution scripts. The original post-hoc discovery remains post-hoc, and validation does not represent independent environmental-history or natural-island replication.",
   "prospective_freeze_provenance": {
     "validation_design_commit": "4ca0193625fce2f9abac8a937a234b6c7825ee10",
     "validation_design_commit_utc": "2026-10-03T14:04:10Z",
     "first_new_seed_shard_written_utc": "2026-10-03T14:13:04.652814594Z",
     "last_new_seed_shard_written_utc": "2026-10-03T14:30:04.702824447Z",
     "decision": "validation design, new seeds, primary statistic and strong-success rule were Git-frozen before new demographic execution began"
+  },
+  "committed_reproduction_surface": {
+    "runner": "scripts/run_chapter2_finite_history_signal_validation.py",
+    "runner_git_blob_sha": "92762baf72566e50f2563fbb84c06caf93ae1ff1",
+    "summarizer": "scripts/summarize_chapter2_finite_history_signal_validation.py",
+    "summarizer_git_blob_sha": "dece866839c557db7c097e2944ed538e2b99fa1a",
+    "byte_identical_to_local_execution_scripts": false,
+    "relationship": "The local execution hashes record the scripts actually used for the completed 9,216-trajectory validation. The committed scripts are cleaned reproduction implementations of the same frozen design and are versioned separately by Git blob SHA; byte identity is not claimed."
   }
 }
