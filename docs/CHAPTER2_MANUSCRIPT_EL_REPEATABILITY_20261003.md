@@ -1,6 +1,6 @@
 # Directional parallelism can mask opposite changes in historical repeatability in a generative island-floral model
 
-**Status:** journal target unresolved (Ecology Letters vs Evolution Letters); separate from the locked Oikos submission surface  
+**Status:** preferred journal candidate Evolution Letters; Ecology Letters fallback only after ecological recast; separate from the locked Oikos submission surface  
 **Updated:** 2026-10-03  
 **Inference boundary:** system-uncalibrated Model 3; natural islands are biological confrontation, not fitted targets
 
