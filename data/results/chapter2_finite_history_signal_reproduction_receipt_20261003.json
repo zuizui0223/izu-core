@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "independent_local_recalculation_matches_committed_history_signal_result",
+  "source": {
+    "original_workflow_run": 36311030639,
+    "artifact_ids": [
+      10929606006,
+      10929138811,
+      10929600402,
+      10929288258,
+      10928902440,
+      10928817875,
+      10929427896,
+      10929422680,
+      10929163732,
+      10928694079,
+      10929650543,
+      10929098912,
+      10929263428,
+      10929187166,
+      10928428806,
+      10928743005
+    ],
+    "shard_count": 16,
+    "shard_sha256_root": "840655ed8352d1da1889b9b383a09406414514807eabdc0158019fe75858b447",
+    "shard_sha256": {
+      "shard-00.json": "3aab3affddbe2ec6cd6ffe254027f62941a54e9994524b5bfb348ef7c3fcbb69",
+      "shard-01.json": "293cd8a5d0039ac7b29512bf0badc78a773fc2abd61a18f2a19defb051d70d02",
+      "shard-02.json": "69a7223d4d2496eadc1acd3a92cbdb8086aee4c1988f2cd6108c955b580aa4dc",
+      "shard-03.json": "9274105314c01fabd5ed8e8ddc4a94910cbfb778841bc2c430e70835708511b5",
+      "shard-04.json": "917c3c0d149149a584c6e7f7d59a1e6ea683c49a4f3c81aba25958c5f4315979",
+      "shard-05.json": "b9273e4386b51d81dd45131966b1b9aa3db8ee5fc2df3d851428a47c39ec4f5b",
+      "shard-06.json": "0c6ab5c0de7ab8fe0c68e165fc05cfc4000b34398fdb8655595e12033e04cf51",
+      "shard-07.json": "be62de0ed8fc8fde4a15f6163c66de0c9132b24045561040e334f3468cd9e745",
+      "shard-08.json": "b393fe922544c0a0922f4cc0098e67f61328b8eb43b9cb8f0375386104589907",
+      "shard-09.json": "3084b30da940a9a2638d2ca6b1411d29a7bc8000a8e050e241773530e1340c45",
+      "shard-10.json": "88108d96a987fe9c83061ed3754c613a796de3fdd3b0abe45ae254914a80982e",
+      "shard-11.json": "51822d64649c401716e469791defb67a1c60a2d30a16b7c32ec30e044687cd87",
+      "shard-12.json": "9a1b81b68d23b9c600c21d8897c1f635701775ee5e65ac3fe22957fd9e0f1f01",
+      "shard-13.json": "e4963373bc9b365be5803053479ee92df59ca13d04889a55632a321bb5631731",
+      "shard-14.json": "3ff95a9ca3de1d78e8c837af30f733604033ead760a22da45fdb035463d6b8dc",
+      "shard-15.json": "1aece03f1e2b7895f9a795c67da45ea750db7d9b418c90d94ada07d494abe714"
+    }
+  },
+  "recalculation": {
+    "data_shape": [
+      3,
+      128,
+      8
+    ],
+    "interventions": [
+      "natural",
+      "richness_matched",
+      "visitor_pooled",
+      "large_plant_capacity"
+    ],
+    "bootstrap_resamples": 1999,
+    "bootstrap_unit": "visitor_history",
+    "bootstrap_seed": 927032,
+    "variance_components": "balanced crossed ANOVA: start fixed; history and start×history random; demographic repeat residual; negative random components truncated to zero"
+  },
+  "matched_point_estimates": {
+    "natural": {
+      "mean_effect": -0.1446356879340278,
+      "sigma_history": 0.005486218868538884,
+      "sigma_start_by_history": 0,
+      "sigma_demographic_residual": 0.026772169385637572,
+      "single_trajectory_icc": 0.17007107811186412,
+      "eight_repeat_reliability": 0.621123099130166,
+      "split_half_history_correlation": 0.689658686195989
+    },
+    "richness_matched": {
+      "mean_effect": 0.0333226521809896,
+      "sigma_history": 0.0015445461957021521,
+      "sigma_start_by_history": 0.000333159939848335,
+      "sigma_demographic_residual": 0.025730247384025955,
+      "single_trajectory_icc": 0.06801323155731301,
+      "eight_repeat_reliability": 0.3686122704998782,
+      "split_half_history_correlation": 0.42415580430257954
+    },
+    "visitor_pooled": {
+      "mean_effect": -0.22594960530598965,
+      "sigma_history": 0.0004181066672563475,
+      "sigma_start_by_history": 0,
+      "sigma_demographic_residual": 0.02915543870320397,
+      "single_trajectory_icc": 0.01413786078127702,
+      "eight_repeat_reliability": 0.10291763944166836,
+      "split_half_history_correlation": 0.21407060656596144
+    },
+    "large_plant_capacity": {
+      "mean_effect": -0.27164972093370177,
+      "sigma_history": 0.008005620834957303,
+      "sigma_start_by_history": 0.0007480036211876249,
+      "sigma_demographic_residual": 0.01489035968663829,
+      "single_trajectory_icc": 0.3702262868763076,
+      "eight_repeat_reliability": 0.8246529353907934,
+      "split_half_history_correlation": 0.8517982916805625
+    }
+  },
+  "matched_sign_diagnostics": {
+    "natural": {
+      "eps0": {
+        "negative": 116,
+        "mixed": 12,
+        "repeat_disagreement": 97
+      },
+      "eps001": {
+        "negative": 120,
+        "mixed": 8,
+        "repeat_disagreement": 97
+      }
+    },
+    "richness_matched": {
+      "eps0": {
+        "negative": 8,
+        "positive": 52,
+        "mixed": 68,
+        "repeat_disagreement": 128
+      },
+      "eps001": {
+        "negative": 9,
+        "positive": 59,
+        "mixed": 59,
+        "neutral": 1,
+        "repeat_disagreement": 128
+      }
+    },
+    "visitor_pooled": {
+      "eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "repeat_disagreement": 77
+      },
+      "eps001": {
+        "negative": 128,
+        "mixed": 0,
+        "repeat_disagreement": 75
+      }
+    },
+    "large_plant_capacity": {
+      "eps0": {
+        "negative": 127,
+        "mixed": 1,
+        "repeat_disagreement": 31
+      },
+      "eps001": {
+        "negative": 127,
+        "mixed": 1,
+        "repeat_disagreement": 28
+      }
+    }
+  },
+  "matched_bootstrap_intervals": {
+    "natural": {
+      "sigma_history": [
+        0.004041725874068823,
+        0.007109085372683085
+      ],
+      "sigma_demographic_residual": [
+        0.025288198416195232,
+        0.02840652376823326
+      ],
+      "eight_repeat_reliability": [
+        0.5489508579930557,
+        0.6811199559022912
+      ],
+      "split_half_history_correlation": [
+        0.5918944894744962,
+        0.7696721429716437
+      ]
+    },
+    "large_plant_capacity": {
+      "eight_repeat_reliability": [
+        0.7819970226533155,
+        0.855007450685779
+      ],
+      "split_half_history_correlation": [
+        0.7909071646040711,
+        0.8998774723600356
+      ]
+    },
+    "visitor_pooled": {
+      "eight_repeat_reliability": [
+        0.029794566454895456,
+        0.1956870954595759
+      ],
+      "split_half_history_correlation": [
+        0.04959617551086329,
+        0.3832925829094053
+      ]
+    }
+  },
+  "decision": "Committed finite-history signal result is independently reproducible from all 16 verified original bridge shard exports.",
+  "claim_boundary": "This receipt verifies computation only; it does not upgrade the post-hoc diagnostic to preregistered or confirmatory evidence."
+}
