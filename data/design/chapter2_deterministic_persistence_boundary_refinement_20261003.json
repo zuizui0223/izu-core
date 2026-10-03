@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_execution",
+  "frozen_on": "2026-10-03",
+  "parent_result": "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json",
+  "purpose": "Resolve the 0.70-0.75 interval after stage 1 showed uniform negative pre-quasi-extinction response through 0.70 and nonparallel labels only with mass collapse at 0.75.",
+  "depressions": [
+    0.71,
+    0.72,
+    0.73,
+    0.74
+  ],
+  "horizon": 200,
+  "histories": "all_128_parent_histories",
+  "starts": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "arms": [
+    "near",
+    "far"
+  ],
+  "model": "conditional deterministic genotype-density closure",
+  "primary_decision": "Count mixed or positive histories at epsilon 0 and 0.01 separately among histories whose six terminal masses are all >=1.",
+  "additional_reporting": [
+    "minimum terminal mass",
+    "fraction of start-arm cells below mass 1",
+    "history counts at mass thresholds 1, 10, 24"
+  ],
+  "stopping": "execute and report all four levels; no extra level is added in this stage after outcomes are inspected",
+  "claim_boundary": [
+    "A mass >=1 endpoint is only a minimum non-sub-individual condition.",
+    "No natural inbreeding-depression threshold is inferred.",
+    "If no pre-quasi-extinction nonparallel history appears through 0.74, depression-0.75 nonparallelism is removed from the headline and retained only as a low-mass closure diagnostic."
+  ]
+}
