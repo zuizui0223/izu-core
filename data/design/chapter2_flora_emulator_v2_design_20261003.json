@@ -154,7 +154,9 @@
       "H4 accessibility coefficient < 0"
     ],
     "score": "assurance NRMSE + accessibility NRMSE + display NRMSE + H3 z_error^2 + H4 assurance z_error^2 + H4 accessibility z_error^2",
-    "acceptance": "eligible if sign gates pass and score <= 8.0; freeze best eight before opening Direct-only targets"
+    "acceptance": "eligible if sign gates pass and score <= 8.0; freeze best eight before opening Direct-only targets",
+    "eligibility": "every pseudo-island must have expected flora richness (sum of species occupancy probabilities) >= 10",
+    "extinction_handling": "parameter sets with any pseudo-island below the richness floor are ineligible; islands are not dropped from regressions"
   },
   "held_out": {
     "targets": "Direct-only H1/H2",
