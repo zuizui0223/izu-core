@@ -73,7 +73,7 @@
         "slope": 0.7489213483390564,
         "intercept": -0.03172542884273005,
         "rmse_raw": 0.05983493239632134,
-        "rmse_about_fitted_line": 0.05257236666886975
+        "rmse_about_fitted_line": 0.05612543398975259
       }
     },
     "visitor_pooled": {
@@ -108,7 +108,7 @@
         "slope": 0.2329295352656932,
         "intercept": -0.1698350090372271,
         "rmse_raw": 0.06315322781886641,
-        "rmse_about_fitted_line": 0.06161714346720272
+        "rmse_about_fitted_line": 0.05519302173350411
       }
     },
     "large_plant_capacity": {
@@ -143,7 +143,7 @@
         "slope": 1.054025667828844,
         "intercept": 0.01994301010361027,
         "rmse_raw": 0.043255032272813215,
-        "rmse_about_fitted_line": 0.03829082851291552
+        "rmse_about_fitted_line": 0.04263278286357299
       }
     }
   },
@@ -216,5 +216,6 @@
     "The 128 visitor histories are synthetic environmental histories, not natural island replicates.",
     "Capacity scaling and visitor pooling are biological interventions, not pure statistical manipulations.",
     "No natural variance component, branch prevalence, evolutionary rate or field effect size is inferred."
-  ]
+  ],
+  "transcription_correction_note": "RMSE-about-fitted-line values were corrected to the exact local aggregation output; primary correlations, bootstrap intervals, sign counts, variance components and validation decision were unchanged."
 }
