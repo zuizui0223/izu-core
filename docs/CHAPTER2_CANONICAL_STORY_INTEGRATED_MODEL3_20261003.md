@@ -49,7 +49,7 @@ The deterministic far-minus-near inherited-investment mean is negative across th
 | 0.50 | **−0.4510** |
 | 0.75 | **−0.4142** |
 
-This is the recurrent coarse response of the conditional deterministic closure over the frozen horizon; it is not identified as the stochastic mean or large-population limit of the finite ABM.
+This is the recurrent coarse response of the conditional deterministic closure over the frozen horizon; it is **not the stochastic mean** or an identified large-population limit of the finite ABM.
 
 ### 2. Visitor function determines how the coarse pressure is expressed
 
