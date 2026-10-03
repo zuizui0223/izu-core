@@ -30,6 +30,89 @@ def _load() -> dict:
     return data
 
 
+def build_repeatability_figure1() -> dict:
+    """Conceptual causal map for biological levels and repeatability metrics."""
+    fig, ax = plt.subplots(figsize=(13.2, 6.6))
+    ax.set_axis_off()
+
+    stages = [
+        ("Repeated island-like\npollination problem", "visitor amount +\nfunctional composition"),
+        ("Reproductive\nselection", "state-dependent\nfitness return"),
+        ("Genetic\naccessibility", "standing variation +\nmutation"),
+        ("Finite-population\nrealization", "demography + ancestry +\nextinction"),
+    ]
+    xs = np.linspace(0.12, 0.88, len(stages))
+    y = 0.70
+
+    for i, ((title, subtitle), x) in enumerate(zip(stages, xs)):
+        ax.text(
+            x, y, title,
+            ha="center", va="center", fontsize=11,
+            bbox={"boxstyle":"round,pad=0.55","fill":False,"linewidth":1.2},
+            transform=ax.transAxes,
+        )
+        ax.text(x, y-0.13, subtitle, ha="center", va="top", fontsize=8.5, transform=ax.transAxes)
+        if i < len(stages)-1:
+            ax.annotate(
+                "",
+                xy=(xs[i+1]-0.09, y),
+                xytext=(x+0.09, y),
+                xycoords=ax.transAxes,
+                textcoords=ax.transAxes,
+                arrowprops={"arrowstyle":"->","lw":1.2},
+            )
+
+    ax.text(
+        0.50, 0.45,
+        "Different biological filters act before the final phenotype is observed",
+        ha="center", va="center", fontsize=10.5, transform=ax.transAxes,
+    )
+
+    metrics = [
+        ("Directional similarity", "same sign / same direction"),
+        ("Magnitude repeatability", "reproducible effect size"),
+        ("Historical imprint", "history-specific ranking"),
+        ("Persistence", "which trajectories remain observable"),
+    ]
+    mx = np.linspace(0.14, 0.86, len(metrics))
+    my = 0.25
+    for (title, subtitle), x in zip(metrics, mx):
+        ax.text(
+            x, my, title,
+            ha="center", va="center", fontsize=10,
+            bbox={"boxstyle":"round,pad=0.42","fill":False,"linewidth":1.0},
+            transform=ax.transAxes,
+        )
+        ax.text(x, my-0.09, subtitle, ha="center", va="top", fontsize=8.2, transform=ax.transAxes)
+
+    ax.text(
+        0.50, 0.065,
+        "Do not collapse these into one scalar: greater sign uniformity can coexist with stronger or weaker reproducible history structure.",
+        ha="center", va="center", fontsize=10, transform=ax.transAxes,
+    )
+    ax.set_title(
+        "Figure 1  Biological level and measurement define what ‘repeatability’ means",
+        loc="left", fontsize=13, pad=12,
+    )
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    svg = OUT_DIR / "fig1_repeatability_map.svg"
+    png = OUT_DIR / "fig1_repeatability_map.png"
+    fig.savefig(svg, bbox_inches="tight")
+    fig.savefig(png, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    return {
+        "schema_version":"1.0",
+        "status":"repeatability_figure1_causal_measurement_map",
+        "stages":[s[0].replace("\n"," ") for s in stages],
+        "metrics":[m[0] for m in metrics],
+        "central_warning":"greater sign uniformity can coexist with stronger or weaker reproducible history structure",
+        "figure_outputs":[svg.relative_to(ROOT).as_posix(),png.relative_to(ROOT).as_posix()],
+        "claim_boundary":"conceptual causal map only; arrows show model architecture, not calibrated natural effect sizes or a universal stage ordering",
+    }
+
+
 def build_repeatability_figure3() -> dict:
     data = _load()
     reports = data["reports"]
