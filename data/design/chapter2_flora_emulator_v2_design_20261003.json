@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_flora_v2_execution",
+  "frozen_on": "2026-10-03",
+  "target_lock": "data/design/chapter2_flora_emulator_v2_targets_20261003.json",
+  "model_name": "Model 3E-FLORA v2",
+  "observational_unit": "island flora assembled from a multi-species source pool",
+  "source_pool": {
+    "n_species": 256,
+    "seed": 82101,
+    "traits": {
+      "assurance_beta": [
+        1.5,
+        2.5
+      ],
+      "accessibility_beta": [
+        2,
+        2
+      ],
+      "display_beta": [
+        2,
+        2
+      ]
+    },
+    "seed_dispersal_lognormal_sd": 0.4
+  },
+  "visitor_pool": {
+    "n_guilds_per_stratum": 32,
+    "context_seeds": {
+      "northern_midlatitude": 82201,
+      "northern_high_latitude": 82202,
+      "tropical": 82203,
+      "southern_extratropical": 82204
+    },
+    "optimum_mean_hyperprior": [
+      0.2,
+      0.8
+    ],
+    "optimum_concentration_hyperprior": [
+      3,
+      12
+    ],
+    "display_sensitivity_beta": [
+      2,
+      2
+    ],
+    "source_abundance_lognormal_sd": 0.35
+  },
+  "island_design": {
+    "strata": [
+      "northern_midlatitude",
+      "northern_high_latitude",
+      "tropical",
+      "southern_extratropical"
+    ],
+    "distances": [
+      0,
+      0.75,
+      1.5,
+      2.25,
+      3
+    ],
+    "replicate_seeds": [
+      82301,
+      82302
+    ],
+    "predictor": "standardized log1p(distance)",
+    "plant_functional_center": 0.5,
+    "baseline_attraction": 0.1,
+    "pollen_scale": 1
+  },
+  "biological_kernel": {
+    "generalization": "effective visitor-access width = visitor_breadth + generalization_span * species_accessibility",
+    "display": "visitor-specific attraction multiplier = baseline_attraction + visitor_display_sensitivity * species_display",
+    "display_filtering": "visitor reach scale = base_visitor_reach_scale * exp(-display_dispersal_penalty * visitor_display_sensitivity)",
+    "viable_reproduction": "ovule_budget * exp(-costs) * [outcross + assurance*(1-outcross)*(1-inbreeding_depression)]",
+    "pollen_limitation": "-log(outcross + assurance*(1-outcross)*(1-inbreeding_depression))",
+    "occupancy": "logistic(colonization_intercept + log(seed_reach) + establishment_strength*(viable_reproduction - establishment_threshold) + fixed source-availability offset)"
+  },
+  "search": {
+    "method": "128-point Latin hypercube with fixed seed",
+    "seed": 82401,
+    "n_parameter_sets": 128,
+    "parameters": {
+      "visitor_reach_scale": [
+        0.4,
+        3
+      ],
+      "display_dispersal_penalty": [
+        0,
+        3
+      ],
+      "visitor_assembly_noise": [
+        0,
+        0.5
+      ],
+      "activity": [
+        0.1,
+        1
+      ],
+      "visitor_breadth": [
+        0.03,
+        0.22
+      ],
+      "generalization_span": [
+        0.05,
+        0.5
+      ],
+      "generalization_cost": [
+        0,
+        1
+      ],
+      "investment_cost": [
+        0.1,
+        1.5
+      ],
+      "assurance_cost": [
+        0,
+        0.6
+      ],
+      "inbreeding_depression": [
+        0.2,
+        0.8
+      ],
+      "seed_reach_scale": [
+        0.5,
+        5
+      ],
+      "establishment_strength": [
+        1,
+        8
+      ],
+      "establishment_threshold": [
+        0.1,
+        0.8
+      ],
+      "colonization_intercept": [
+        -1.5,
+        1.5
+      ]
+    }
+  },
+  "training": {
+    "targets": "all-analysis H1/H2 + H3 + H4",
+    "shared_scale_rule": "fit exactly one nonnegative scale each for assurance, accessibility and display, shared across the 4 H1 and 4 H2 coefficients of that domain",
+    "H3_rule": "direct comparison in pollen-limitation LRR units; use empirical SE for z-error",
+    "H4_rule": "direct species-level coefficient comparison; use empirical SE for z-errors",
+    "sign_gates": [
+      "H1 assurance > 0 in all four strata",
+      "H1 accessibility > 0 in all four strata",
+      "H2 accessibility_given_assurance > 0 in all four strata",
+      "H3 pollen-limitation slope > 0",
+      "H4 assurance coefficient < 0",
+      "H4 accessibility coefficient < 0"
+    ],
+    "score": "assurance NRMSE + accessibility NRMSE + display NRMSE + H3 z_error^2 + H4 assurance z_error^2 + H4 accessibility z_error^2",
+    "acceptance": "eligible if sign gates pass and score <= 8.0; freeze best eight before opening Direct-only targets"
+  },
+  "held_out": {
+    "targets": "Direct-only H1/H2",
+    "scales": "reuse all-analysis training scales without refitting",
+    "parameter_set_success": [
+      "Direct-only H1 assurance NRMSE <= 1.0",
+      "Direct-only H1 accessibility NRMSE <= 1.0",
+      "Direct-only H1 display NRMSE <= 1.0",
+      "Direct-only H2 assurance NRMSE <= 1.0",
+      "Direct-only H2 accessibility NRMSE <= 1.0",
+      "Direct-only H2 display NRMSE <= 1.0",
+      "scaled display prediction positive in northern_high_latitude, tropical and southern_extratropical",
+      "scaled H2 display prediction negative in northern_high_latitude and positive in tropical and southern_extratropical"
+    ],
+    "overall_success": "at least 5 of the 8 frozen accepted parameter sets pass; best all-analysis training set must pass",
+    "no_retuning": "Direct-only outcomes cannot alter source pool, visitor pool, search ranges, score threshold or training scales in v2"
+  },
+  "claim_boundary": [
+    "v2 emulates flora composition and species-level pollen limitation; it still does not reconstruct historical parameters for named regions.",
+    "display is a latent pollinator-facing investment axis, not literal flower colour.",
+    "visitor-specific display sensitivity is a mechanistic hypothesis tested through held-out evidence, not an observed pollinator-guild reconstruction.",
+    "within-lineage evolution is not yet included in v2; v2 tests whether species sorting plus reproductive filtering can reproduce the Chapter 1 macroecological syndrome."
+  ]
+}
