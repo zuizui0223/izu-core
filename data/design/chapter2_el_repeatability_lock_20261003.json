@@ -16,7 +16,7 @@
       "genetic_accessibility_and_persistence"
     ]
   },
-  "safe_claim": "Within the occupied depression-0.50 finite ABM, capacity scaling and visitor-history pooling both increase directional sign uniformity, but a prospectively frozen new-demographic-seed validation shows that history-specific magnitudes remain highly predictable after capacity scaling and weakly predictable after visitor-history pooling.",
+  "safe_claim": "Within the occupied depression-0.50 finite ABM, capacity scaling and visitor-history pooling both increase directional sign uniformity but move reproducibility of history-specific magnitude in opposite directions; this ordering passed prospectively frozen validation under both new demographic seeds and an entirely new synthetic visitor-history ensemble.",
   "prohibited_claims": [
     "first connection between island syndrome and parallel evolution",
     "first mechanism for nonparallel evolution",
@@ -46,7 +46,9 @@
     "first demonstration that environmental or demographic heterogeneity changes evolutionary repeatability",
     "the original posthoc finite-history discovery as preregistered or confirmatory",
     "new demographic seed validation as independent environmental-history replication",
-    "new demographic seed validation as natural-island validation"
+    "new demographic seed validation as natural-island validation",
+    "new visitor-history validation as natural-island validation",
+    "new visitor-history validation as transfer to a different ecological-history generator"
   ],
   "key_literature": [
     {
@@ -131,6 +133,7 @@
   "empirical_prediction": "Repeated-population studies should estimate both response direction and reproducibility of effect magnitude; genetic-accessibility rankings may additionally change as new variation accumulates.",
   "claim_levels": {
     "model_established": [
+      "a prospectively frozen validation on entirely new synthetic visitor histories 75001-75128 reproduced the reliability ordering large-capacity > natural > visitor-pooled, with both paired bootstrap contrasts excluding zero and complete terminal occupancy",
       "a prospectively frozen validation using new demographic seeds 201-204 reproduced the discovery ordering large-capacity > natural > visitor-pooled for history-specific response predictability, with both paired bootstrap contrasts excluding zero",
       "at depression 0.50 and season 200, all frozen natural near and far finite cases are occupied",
       "the natural finite bridge contains a reproducible continuous visitor-history component despite demographic-repeat noise",
@@ -214,7 +217,7 @@
     },
     "interpretation": "The same reduction in mixed-sign labels can occur while reproducible history structure strengthens relative to demographic noise or while that history structure is erased by environmental averaging."
   },
-  "novelty_boundary": "Direction-versus-magnitude multidimensionality and environmental/demographic effects on repeatability are established. The candidate contribution is a model-internal mechanistic counterexample—same directional sign uniformity with opposite preservation of history-specific magnitude—whose predicted ordering was subsequently validated prospectively across new demographic stochastic realizations.",
+  "novelty_boundary": "Direction-versus-magnitude multidimensionality, historical contingency and environmental/demographic effects on repeatability are established. The candidate contribution is a model-internal mechanistic counterexample—same directional sign uniformity with opposite preservation of history-specific magnitude—followed by prospectively frozen validation across both new demographic realizations and an out-of-history-sample synthetic visitor ensemble.",
   "journal_fit_rationale": {
     "evolution_letters": "Current central question concerns evolutionary repeatability, parallelism, historical contingency and mechanistic evolutionary trajectories; island pollination is the biological testbed.",
     "ecology_letters": "Current manuscript is not centered on a new general ecological principle strongly enough for the journal's stated ecology nexus; a fallback would require recentering on ecological history averaging and community composition."
@@ -244,5 +247,31 @@
     },
     "strong_success": true,
     "interpretation": "The exploratory mechanism generated a fixed prediction that was reproduced across new demographic stochastic realizations; validation does not extend to new environmental histories."
+  },
+  "finite_history_signal_environment_validation": {
+    "status": "prospective_new_visitor_history_validation_complete_strong_success",
+    "design": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+    "result": "data/results/chapter2_finite_history_signal_environment_validation_20261004.json",
+    "receipt": "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json",
+    "validation_scope": "new synthetic visitor histories 75001-75128 from the same frozen history-generating process; demographic seeds 301-304",
+    "trajectories": 9216,
+    "reliability": {
+      "large_plant_capacity": 0.7217688849932009,
+      "natural": 0.4169402438063488,
+      "visitor_pooled": 0.15403351483184766
+    },
+    "paired_bootstrap": {
+      "large_minus_natural": [
+        0.22244323917981762,
+        0.37549139757224376
+      ],
+      "pooled_minus_natural": [
+        -0.3793769998530452,
+        -0.15449478388085502
+      ]
+    },
+    "all_arm_terminal_occupancy": 1,
+    "strong_success": true,
+    "interpretation": "The opposite history-reliability ordering transfers to new stochastic visitor histories generated independently by the same frozen ecological-history process; this is not natural-island or new-process validation."
   }
 }
