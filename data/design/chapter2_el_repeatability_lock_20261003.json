@@ -301,6 +301,9 @@
       "conflict-of-interest declaration",
       "acknowledgements",
       "final archival DOI or repository location if minted"
-    ]
+    ],
+    "figure2_regenerated_and_tested": true,
+    "figure4_regenerated_and_tested": true,
+    "all_four_main_figures_regenerated_and_tested": true
   }
 }
