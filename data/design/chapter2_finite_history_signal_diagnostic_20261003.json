@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "posthoc_exact_source_diagnostic_after_sign_metric_concern",
+  "question": "Do finite-ABM history-specific continuous effects persist beyond demographic-repeat noise, and can identical reductions in sign heterogeneity arise from different mechanisms?",
+  "source": {
+    "original_workflow_run": 36311030639,
+    "artifact_ids": [
+      10929606006,
+      10929138811,
+      10929600402,
+      10929288258,
+      10928902440,
+      10928817875,
+      10929427896,
+      10929422680,
+      10929163732,
+      10928694079,
+      10929650543,
+      10929098912,
+      10929263428,
+      10929187166,
+      10928428806,
+      10928743005
+    ],
+    "shard_export_status": "complete_verified_shard_export",
+    "histories": 128,
+    "starts": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "demographic_repeats": 8,
+    "horizon": 200,
+    "depression": 0.5
+  },
+  "interventions": [
+    "natural",
+    "richness_matched",
+    "visitor_pooled",
+    "large_plant_capacity"
+  ],
+  "model": "finite ABM only",
+  "endpoint": "paired far-minus-near terminal-minus-initial investment change",
+  "analysis": {
+    "variance_model": "balanced crossed random-effects ANOVA with start treated as fixed, visitor history and start-by-history treated as random, demographic repeat as residual",
+    "variance_components": [
+      "sigma_history",
+      "sigma_start_by_history",
+      "sigma_demographic_residual"
+    ],
+    "nonnegative_components": true,
+    "single_trajectory_icc": "(sigma_history + sigma_start_by_history) / total",
+    "eight_repeat_reliability": "history_structured / (history_structured + residual/8)",
+    "split_half": "Pearson correlation across 128 history means, averaging all three starts, repeats 1-4 versus repeats 5-8",
+    "cluster_bootstrap": {
+      "resamples": 1999,
+      "unit": "visitor history",
+      "rng_seed": 927032,
+      "interval": [
+        0.025,
+        0.975
+      ]
+    },
+    "sign_diagnostics": {
+      "thresholds": [
+        0,
+        0.01
+      ],
+      "history_label": "label three start-specific effects after averaging eight demographic repeats",
+      "repeat_disagreement": "any disagreement among eight repeat-specific three-start labels"
+    }
+  },
+  "interpretation_rules": [
+    "This is exploratory and does not establish a preregistered hypothesis test.",
+    "History-structured continuous variance is distinct from sign-level mixed-history counts.",
+    "Capacity increase changes the demographic process itself and is not a pure variance-reduction operator.",
+    "Visitor-history pooling changes environmental composition/averaging under a nonlinear operator and is not a pure noise-control intervention.",
+    "Opposite changes in continuous history reliability can therefore coexist with the same decrease in sign heterogeneity."
+  ]
+}
