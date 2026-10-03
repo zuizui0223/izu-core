@@ -11,11 +11,25 @@ import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
+UNIFICATION = ROOT / "data/results/model3_unified_reduction_audit_frozen_20260927.json"
+MODEL3 = ROOT / "data/results/model3_island_v2_summary/review_compact.json"
+REAL = ROOT / "data/results/chapter2_unified_model3_real_island_projection_20260927.json"
 OUT_DIR = ROOT / "figures/chapter2_repeatability"
 INPUTS = ROOT / "data/results/chapter2_repeatability_figure_inputs_20261003.json"
 
 ORDER = ["natural", "visitor_pooled", "large_plant_capacity"]
 LABELS = ["Natural", "Visitor pooled", "Capacity 192"]
+
+
+def _load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _cell(compact: dict, cell_id: str) -> dict:
+    hits=[row for row in compact["cells"] if row.get("cell_id")==cell_id]
+    if len(hits)!=1:
+        raise ValueError(f"expected one cell {cell_id}, found {len(hits)}")
+    return hits[0]
 
 
 def _load() -> dict:
@@ -110,6 +124,66 @@ def build_repeatability_figure1() -> dict:
         "central_warning":"greater sign uniformity can coexist with stronger or weaker reproducible history structure",
         "figure_outputs":[svg.relative_to(ROOT).as_posix(),png.relative_to(ROOT).as_posix()],
         "claim_boundary":"conceptual causal map only; arrows show model architecture, not calibrated natural effect sizes or a universal stage ordering",
+    }
+
+
+def build_repeatability_figure2() -> dict:
+    """Operator-level functional rematching and bookkeeping control."""
+    data=_load_json(UNIFICATION)
+    if data.get("status")!="frozen_result":
+        raise RuntimeError("unification audit is not frozen")
+    rows=data["illustrative_rows"]
+    contexts=["left4","right4"]
+    labels=["Left-shifted visitors","Right-shifted visitors"]
+    starts=sorted({float(r["start_access"]) for r in rows})
+
+    fig,axes=plt.subplots(1,3,figsize=(15.0,4.9))
+    for context,label in zip(contexts,labels):
+        rr=sorted((r for r in rows if r["context"]==context),key=lambda x:x["start_access"])
+        axes[0].plot([r["start_access"] for r in rr],[r["fixed_total_gradient"] for r in rr],marker="o",label=label)
+        axes[1].plot([r["start_access"] for r in rr],[r["density_investment_change"] for r in rr],marker="o",label=label)
+    for ax in axes[:2]:
+        ax.axhline(0,linewidth=0.9)
+        ax.set_xlabel("Starting access / matching state")
+    axes[0].set_ylabel("Marginal return to floral investment")
+    axes[0].set_title("A  Composition redirects selection",loc="left")
+    axes[0].legend(frameon=False,fontsize=8)
+    axes[1].set_ylabel("Deterministic investment change")
+    axes[1].set_title("B  Direction persists into inheritance",loc="left")
+
+    axes[2].set_axis_off()
+    axes[2].text(
+        0.5,0.66,
+        f"Maximum composition effect\nfixed-state gradient\n{data['diagnostics']['fixed_richness_composition_effect_max']:.3f}",
+        ha="center",va="center",fontsize=11,
+        bbox={"boxstyle":"round,pad=0.55","fill":False,"linewidth":1.0},
+        transform=axes[2].transAxes,
+    )
+    axes[2].text(
+        0.5,0.34,
+        f"Duplicate-entry control\nmax |difference|\n{data['diagnostics']['duplicate_count_control_max_abs_error']:.2e}",
+        ha="center",va="center",fontsize=11,
+        bbox={"boxstyle":"round,pad=0.55","fill":False,"linewidth":1.0},
+        transform=axes[2].transAxes,
+    )
+    axes[2].set_title("C  Count bookkeeping is not the mechanism",loc="left")
+    fig.suptitle("Functional replacement can reverse selection at identical visitor count",x=0.01,ha="left",fontsize=13)
+    fig.tight_layout(rect=(0,0,1,0.92))
+
+    OUT_DIR.mkdir(parents=True,exist_ok=True)
+    svg=OUT_DIR/"fig2_functional_rematching.svg"
+    png=OUT_DIR/"fig2_functional_rematching.png"
+    fig.savefig(svg,bbox_inches="tight"); fig.savefig(png,dpi=180,bbox_inches="tight"); plt.close(fig)
+    return {
+        "schema_version":"1.0",
+        "status":"repeatability_figure2_uses_frozen_functional_rematching_audit",
+        "start_access":starts,
+        "fixed_composition_effect_max":data["diagnostics"]["fixed_richness_composition_effect_max"],
+        "deterministic_composition_effect_max":data["diagnostics"]["deterministic_composition_effect_max"],
+        "duplicate_control_max_abs_error":data["diagnostics"]["duplicate_count_control_max_abs_error"],
+        "duplicate_control_pass":bool(data["diagnostics"]["duplicate_count_control_pass"]),
+        "figure_outputs":[svg.relative_to(ROOT).as_posix(),png.relative_to(ROOT).as_posix()],
+        "claim_boundary":"synthetic operator audit; composition effect is not a calibrated natural richness or pollinator-loss effect",
     }
 
 
