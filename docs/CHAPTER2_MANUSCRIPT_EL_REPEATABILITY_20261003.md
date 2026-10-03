@@ -48,6 +48,17 @@ We organize inference into four stages.
 
 A result can therefore be repeatable at one stage and non-repeatable at the next.
 
+**Table 1. Stage-specific repeatability diagnostics.** The stages are deliberately not reduced to one scalar because they measure different biological objects.
+
+| Stage | Replicate/contrast unit | Repeatability diagnostic | What counts as loss of stronger repeatability |
+|---|---|---|---|
+| Immediate selection | starting floral state × controlled visitor environment | sign and magnitude of marginal reproductive gradient | shared visitor change does not preserve one gradient direction |
+| Reproductive context | assurance × inbreeding depression × life history | persistence plus robustness of gradient/inherited sign | a route changes sign or fails across declared reproductive contexts |
+| Deterministic inherited expectation | independent visitor history × starting state | far-minus-near inherited response before demographic sampling | mean direction persists but histories no longer share one direction |
+| Genetic accessibility | trait-specific standing variation and mutation input | attenuation of selected response on the constrained axis | shared ecology produces unequal reachable response among trait axes |
+| Finite realization | demographic repeats, chronology and connectivity | realized inherited endpoint, occupancy and sign | sampling, extinction or ancestry/history produce additional endpoint divergence |
+
+
 ## Functional replacement versus visitor scarcity
 
 The reduction audit crossed starting access states 0.20, 0.35, 0.50, 0.65 and 0.80 with three four-type visitor compositions and a broad eight-type reference. A same-count rematching intervention compared left- and right-shifted visitor compositions at identical visitor number. A duplication control doubled the number of visitor entries while holding total activity fixed, testing whether the operator responded to composition rather than the bookkeeping count of visitor types.
