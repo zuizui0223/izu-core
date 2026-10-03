@@ -40,7 +40,7 @@ Natural evidence is used only for biological plausibility and adversarial confro
 
 ## Model lineage and integration
 
-All analyses use **one Model 3**. The frozen backbone established the reproductive operator, three nested inferential levels, the 19,968-case island campaign and the 24,576-case isolation bridge. Later rematching, assurance-cost, inbreeding-depression, standing-variation and mutation experiments are prospective interventions on that same engine; they do not define a second model or replacement response rule.
+All analyses in this manuscript belong to **one Model 3**. The frozen backbone established the reproductive operator, three nested inferential levels, the 19,968-case island campaign and the 24,576-case isolation bridge. Later rematching, assurance-cost, inbreeding-depression, standing-variation and mutation experiments are prospective interventions on that same engine; they do not define a second model or replacement response rule.
 
 We therefore treat the frozen Model 3 as the generative backbone and the later experiments as stress tests and mechanistic decompositions. Failed robustness tests demote individual routes without invalidating the parent model.
 
@@ -70,7 +70,7 @@ Mutation input was normalized to the founder additive-variance proxy rather than
 
 ## Prospective isolation-bridge controls
 
-The frozen 24,576-case bridge crossed 128 visitor histories, eight demographic repeats, three starting investment states and four near–far interventions: natural isolation-driven histories, response-blind annual visitor-count matching, pooling of independent visitor histories, and increased plant capacity. Finite ABM and deterministic genotype-density counterparts were evaluated separately.
+The frozen 24,576-case bridge crossed 128 independent visitor histories, eight demographic repeats, three starting investment states and four near–far interventions: natural isolation-driven histories, response-blind annual visitor-count matching, pooling of independent visitor histories, and increased plant capacity. Finite ABM and deterministic genotype-density counterparts were evaluated separately.
 
 The primary endpoint was far-minus-near inherited investment change. History-level direction was classified across starting states at fixed deadbands, with history-cluster bootstrap uncertainty for mean effects. A later prospective propagation reran the deterministic near–far backbone at inbreeding depression 0.25, 0.50 and 0.75 while holding the original histories, founders, grid and horizon fixed.
 
