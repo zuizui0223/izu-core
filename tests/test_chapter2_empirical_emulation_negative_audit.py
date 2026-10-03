@@ -38,10 +38,10 @@ def test_model3r_model3e_exploration_is_not_on_active_surface() -> None:
         assert not (ROOT / rel).exists(), rel
 
 
-def test_vnext_lock_closes_quantitative_chapter1_emulation() -> None:
+def test_vnext_lock_treats_external_emulation_as_nonrequired_provenance() -> None:
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
     boundary = lock["empirical_emulation_boundary"]
-    assert boundary["status"] == "closed_negative_after_four_prospective_model_revisions"
-    assert boundary["quantitative_chapter1_H1_H4_emulation_established"] is False
-    assert boundary["chapter2_completion_task"] is False
-    assert boundary["result"] == "data/results/chapter2_empirical_emulation_negative_audit_20261003.json"
+    assert boundary["status"] == "nonrequired_external_emulation_provenance"
+    assert boundary["chapter2_success_criterion"] is False
+    assert boundary["quantitative_external_coefficient_reproduction_required"] is False
+    assert boundary["audit"] == "docs/CHAPTER2_EMPIRICAL_EMULATION_NEGATIVE_AUDIT_20261003.md"
