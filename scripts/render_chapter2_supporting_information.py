@@ -86,7 +86,7 @@ The endpoint is the paired far-minus-near difference in terminal-minus-initial i
 
 ## S4.1 Natural isolation-driven assembly
 
-The finite ABM mean far-minus-near effect is `-0.1446` (95% history-cluster bootstrap interval `-0.1588 to -0.1306`), whereas deterministic genotype density is `-0.4510` (`-0.4716 to -0.4301`). Finite-ABM mixed-history counts are `12/128`, `8/128` and `1/128` across the three deadbands; deterministic density is `0/128` at all three.
+The finite ABM mean far-minus-near effect is `-0.1446` (95% history-cluster bootstrap interval `-0.1588 to -0.1306`), whereas the conditional deterministic genotype-density closure is `-0.4510` (`-0.4716 to -0.4301`). The density closure is not the stochastic mean of the finite ABM, so their magnitude gap is not interpreted as a finite-population attenuation coefficient. Finite-ABM mixed-history counts are `12/128`, `8/128` and `1/128` across the three deadbands; deterministic density is `0/128` at all three.
 
 ## S4.2 Annual response-blind realized-richness matching
 
@@ -102,9 +102,9 @@ Pooling changes environmental averaging and functional composition under a nonli
 
 ## S4.4 Finite plant demography
 
-Increasing plant capacity from `48` to `192` while retaining the natural visitor history reduces finite-ABM mixed histories from `12` to `1` at deadband 0, from `8` to `1` at 0.01 and from `1` to `0` at 0.05. The mean effect moves from `-0.1446` to `-0.2716`, closing approximately `41.5%` of the difference toward the deterministic mean.
+Increasing plant capacity from `48` to `192` while retaining the natural visitor history reduces finite-ABM mixed histories from `12` to `1` at deadband 0, from `8` to `1` at 0.01 and from `1` to `0` at 0.05. The mean effect moves from `-0.1446` to `-0.2716`, numerically closing approximately `41.5%` of the trait-effect gap to the deterministic density closure. This 41.5% is descriptive only and is not interpreted as convergence to a stochastic expectation or as a finite-size attenuation coefficient.
 
-Thus visitor-environment realization and finite plant demography are separable manipulated axes that modify observed directional heterogeneity; these finite-repeat labels do not identify stable latent branch prevalence.
+Thus visitor-environment realization and finite plant demography are separable manipulated axes that modify observed directional heterogeneity; these finite-repeat labels do not identify stable latent branch prevalence. The density closure is used as a comparator, not as the finite model's expected trajectory.
 
 ## S4.5 S/C/I is not directional branching
 
@@ -139,6 +139,7 @@ This Supporting Information contains only material supporting the active Model 3
         "68/128",
         "pooling eight independent visitor histories",
         "41.5%",
+        "descriptive only",
     )
     for token in required:
         if token.lower() not in lower:
