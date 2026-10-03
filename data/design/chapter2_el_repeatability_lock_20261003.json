@@ -282,5 +282,25 @@
       "workflow_started_utc": "2026-10-03T21:35:35Z",
       "outcomes_generated_under_earlier_design": false
     }
+  },
+  "promotion_readiness": {
+    "scientific_gates_complete": true,
+    "population_scale_audit_propagated": true,
+    "figure1_regenerated_and_tested": true,
+    "figure3_uses_prospective_new_history_validation": true,
+    "citation_audit": "docs/CHAPTER2_REPEATABILITY_CITATION_AUDIT_20261004.md",
+    "failed_routes_visible": true,
+    "preferred_journal": "Evolution Letters",
+    "full_ci_required_after_latest_commit": true,
+    "active_oikos_surface_replaced": false,
+    "explicit_promotion_decision_required": true,
+    "submission_metadata_not_inferred": [
+      "final author list and affiliations",
+      "CRediT author contributions",
+      "funding and grant declarations",
+      "conflict-of-interest declaration",
+      "acknowledgements",
+      "final archival DOI or repository location if minted"
+    ]
   }
 }
