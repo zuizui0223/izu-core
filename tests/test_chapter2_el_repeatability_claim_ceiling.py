@@ -153,3 +153,23 @@ def test_history_signal_reproduction_receipt_is_complete_and_matches_result():
         assert rr["split_half_history_correlation"] == er["split_half_history_correlation"]["estimate"]
 
     assert "does not upgrade the post-hoc diagnostic" in receipt["claim_boundary"]
+
+
+def test_measurement_novelty_boundary_is_fail_closed():
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    positioning = POSITIONING.read_text(encoding="utf-8").lower()
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    prohibited = set(lock["prohibited_claims"])
+    citations = {x["citation"]: x for x in lock["key_literature"]}
+
+    assert manuscript.splitlines()[0].lower().startswith("# directional similarity can mask")
+    assert "general direction metric should not simply be equated with geometric parallelism" in manuscript
+    assert "bisschop et al. (2026)" in manuscript
+    assert "environmental and demographic heterogeneity can reduce evolutionary repeatability" in manuscript
+
+    assert "directional sign similarity as identical to geometric parallelism" in prohibited
+    assert "first demonstration that environmental or demographic heterogeneity changes evolutionary repeatability" in prohibited
+    assert citations["Bisschop et al. 2026"]["doi"] == "10.1093/evlett/qrag017"
+
+    assert "do not claim that direction and magnitude are newly separated" in positioning
+    assert "environmental/demographic variation affecting repeatability is new" in positioning
