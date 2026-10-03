@@ -109,16 +109,19 @@
     "evolution_letters": {
       "main_text_guide_words": 5000,
       "abstract_words_max": 300,
-      "current_main_text_words": 4628,
+      "current_main_text_words": 4665,
       "current_abstract_words": 218,
-      "fit": "within current format"
+      "fit": "within current official Letter guide",
+      "current_title_words": 14,
+      "official_guide_checked_on": "2026-10-03",
+      "official_requirements_source": "Evolution Letters OUP Author Guidelines: typical Letter approximately 5,000 words excluding display items; title <=30 words; abstract <=300 words"
     },
     "ecology_letters": {
       "main_text_words_max": 5000,
       "abstract_words_max": 150,
-      "current_main_text_words": 4628,
+      "current_main_text_words": 4665,
       "current_abstract_words": 218,
-      "fit": "scope recast and/or abstract compression required"
+      "fit": "abstract compression required for Ecology Letters"
     }
   },
   "general_logical_implication": "Greater directional similarity does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.",
