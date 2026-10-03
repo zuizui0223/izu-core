@@ -1,9 +1,36 @@
 import json
 from pathlib import Path
 
-from scripts.generate_chapter2_repeatability_figures import build_repeatability_figure3
+from scripts.generate_chapter2_repeatability_figures import (
+    build_repeatability_figure1,
+    build_repeatability_figure3,
+)
 
 ROOT=Path(__file__).resolve().parents[1]
+
+
+def test_repeatability_figure1_regenerates_conceptual_map():
+    payload=build_repeatability_figure1()
+    assert payload["status"]=="repeatability_figure1_causal_measurement_map"
+    assert payload["stages"]==[
+        "Repeated island-like pollination problem",
+        "Reproductive selection",
+        "Genetic accessibility",
+        "Finite-population realization",
+    ]
+    assert payload["metrics"]==[
+        "Directional similarity",
+        "Magnitude repeatability",
+        "Historical imprint",
+        "Persistence",
+    ]
+    assert "stronger or weaker reproducible history structure" in payload["central_warning"]
+    assert "conceptual causal map only" in payload["claim_boundary"]
+    assert "not calibrated natural effect sizes" in payload["claim_boundary"]
+
+    for relpath in payload["figure_outputs"]:
+        p=ROOT/relpath
+        assert p.exists() and p.stat().st_size > 1000
 
 
 def test_repeatability_figure3_uses_independent_visitor_history_validation():
