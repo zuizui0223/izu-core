@@ -1,0 +1,371 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_model3r_v2_design_frozen_before_fit",
+  "frozen_on": "2026-10-03",
+  "purpose": "Attempt realistic numerical reproduction of the corrected current Chapter 1 island-syndrome functional core using real island covariates, isolation-dependent visitor assembly, and multiple plant lineages per island.",
+  "supersedes_for_empirical_emulation": "data/design/chapter2_model3r_empirical_emulation_20261003.json",
+  "target": "data/design/chapter1_corrected_empirical_emulation_targets_20261003.json",
+  "empirical_covariates": {
+    "sample": "data/input/chapter1_corrected_covariate_sample_512_20261003.csv",
+    "sample_contract": "data/design/chapter1_corrected_covariate_sample_512_20261003.json",
+    "preflight_rule": "use sample_rank divisible by 4: 32 islands per context, 128 total",
+    "confirmatory_rule": "use all 128 sampled islands per context, 512 total",
+    "controls": [
+      "log_island_area_km2",
+      "climate_pc1",
+      "climate_pc2",
+      "climate_pc3",
+      "climate_pc4"
+    ],
+    "standardization": "within each geographic context and fitted response, ddof=0, matching the current Chapter 1 H1/H2 implementation"
+  },
+  "global_visitor_guild_pool": {
+    "role": "fixed outcome-blind source pool; no guild parameter is fit to Chapter 1 trait outcomes",
+    "climate_centers": "anchored to climate vectors of predeclared empirical sample ranks 16,64,112 in each context",
+    "guilds": [
+      {
+        "guild_id": "G01",
+        "optimum": 0.08,
+        "floral_breadth": 0.13,
+        "effectiveness": 0.86,
+        "source_abundance": 1.3,
+        "dispersal_scale_km": 120,
+        "baseline_loss_hazard": 0.18,
+        "climate_center": [
+          -1.825489640123208,
+          -0.6807750769004471,
+          -0.8477202282421307,
+          -0.4551399675882411
+        ],
+        "climate_width": 1.4,
+        "climate_anchor_provenance": "northern_midlatitude:sample_rank_16"
+      },
+      {
+        "guild_id": "G02",
+        "optimum": 0.16,
+        "floral_breadth": 0.19,
+        "effectiveness": 0.94,
+        "source_abundance": 0.8,
+        "dispersal_scale_km": 900,
+        "baseline_loss_hazard": 0.08,
+        "climate_center": [
+          -1.611663489073744,
+          0.1824925148066368,
+          -0.690245438513329,
+          -0.8312431616289236
+        ],
+        "climate_width": 2.2,
+        "climate_anchor_provenance": "northern_midlatitude:sample_rank_64"
+      },
+      {
+        "guild_id": "G03",
+        "optimum": 0.25,
+        "floral_breadth": 0.11,
+        "effectiveness": 0.78,
+        "source_abundance": 1.6,
+        "dispersal_scale_km": 45,
+        "baseline_loss_hazard": 0.25,
+        "climate_center": [
+          0.5630341020719009,
+          -1.9477299526382807,
+          -0.0023399189285162,
+          0.3688351473348935
+        ],
+        "climate_width": 1.8,
+        "climate_anchor_provenance": "northern_midlatitude:sample_rank_112"
+      },
+      {
+        "guild_id": "G04",
+        "optimum": 0.34,
+        "floral_breadth": 0.22,
+        "effectiveness": 0.97,
+        "source_abundance": 0.7,
+        "dispersal_scale_km": 1800,
+        "baseline_loss_hazard": 0.05,
+        "climate_center": [
+          -4.120804478917749,
+          -0.5669819660795722,
+          1.102964118678904,
+          0.979540036014108
+        ],
+        "climate_width": 2.5,
+        "climate_anchor_provenance": "northern_high_latitude:sample_rank_16"
+      },
+      {
+        "guild_id": "G05",
+        "optimum": 0.42,
+        "floral_breadth": 0.16,
+        "effectiveness": 0.84,
+        "source_abundance": 1.1,
+        "dispersal_scale_km": 300,
+        "baseline_loss_hazard": 0.12,
+        "climate_center": [
+          -3.55487175904387,
+          -0.1945908964699503,
+          -0.774655539063097,
+          0.1891891649894865
+        ],
+        "climate_width": 1.6,
+        "climate_anchor_provenance": "northern_high_latitude:sample_rank_64"
+      },
+      {
+        "guild_id": "G06",
+        "optimum": 0.5,
+        "floral_breadth": 0.14,
+        "effectiveness": 0.9,
+        "source_abundance": 1.5,
+        "dispersal_scale_km": 70,
+        "baseline_loss_hazard": 0.2,
+        "climate_center": [
+          -2.632484068515208,
+          -0.7350625676311348,
+          0.143212821491824,
+          -0.814447888645632
+        ],
+        "climate_width": 2,
+        "climate_anchor_provenance": "northern_high_latitude:sample_rank_112"
+      },
+      {
+        "guild_id": "G07",
+        "optimum": 0.58,
+        "floral_breadth": 0.2,
+        "effectiveness": 0.81,
+        "source_abundance": 0.9,
+        "dispersal_scale_km": 650,
+        "baseline_loss_hazard": 0.09,
+        "climate_center": [
+          1.646462226681199,
+          2.915951128354754,
+          0.7437902895027481,
+          1.1380573336536488
+        ],
+        "climate_width": 2.4,
+        "climate_anchor_provenance": "tropical:sample_rank_16"
+      },
+      {
+        "guild_id": "G08",
+        "optimum": 0.66,
+        "floral_breadth": 0.12,
+        "effectiveness": 0.95,
+        "source_abundance": 1.2,
+        "dispersal_scale_km": 220,
+        "baseline_loss_hazard": 0.16,
+        "climate_center": [
+          1.233321926154957,
+          1.6499416827879407,
+          -0.0046348636622824,
+          -0.4958092957841482
+        ],
+        "climate_width": 1.5,
+        "climate_anchor_provenance": "tropical:sample_rank_64"
+      },
+      {
+        "guild_id": "G09",
+        "optimum": 0.75,
+        "floral_breadth": 0.18,
+        "effectiveness": 0.88,
+        "source_abundance": 0.75,
+        "dispersal_scale_km": 1400,
+        "baseline_loss_hazard": 0.06,
+        "climate_center": [
+          2.5889917376243883,
+          -0.8814083084635199,
+          -0.1793036351182373,
+          -0.3463607304493233
+        ],
+        "climate_width": 2.1,
+        "climate_anchor_provenance": "tropical:sample_rank_112"
+      },
+      {
+        "guild_id": "G10",
+        "optimum": 0.84,
+        "floral_breadth": 0.15,
+        "effectiveness": 0.76,
+        "source_abundance": 1.4,
+        "dispersal_scale_km": 95,
+        "baseline_loss_hazard": 0.22,
+        "climate_center": [
+          0.8232041707035274,
+          0.4924975077161251,
+          -0.5127086716578213,
+          -0.5987118329378274
+        ],
+        "climate_width": 1.7,
+        "climate_anchor_provenance": "southern_extratropical:sample_rank_16"
+      },
+      {
+        "guild_id": "G11",
+        "optimum": 0.92,
+        "floral_breadth": 0.21,
+        "effectiveness": 0.92,
+        "source_abundance": 1,
+        "dispersal_scale_km": 450,
+        "baseline_loss_hazard": 0.1,
+        "climate_center": [
+          -0.8852754460254524,
+          -1.278486851432431,
+          1.1088147254384628,
+          -1.176827389101049
+        ],
+        "climate_width": 2.3,
+        "climate_anchor_provenance": "southern_extratropical:sample_rank_64"
+      },
+      {
+        "guild_id": "G12",
+        "optimum": 0.97,
+        "floral_breadth": 0.17,
+        "effectiveness": 0.99,
+        "source_abundance": 0.65,
+        "dispersal_scale_km": 2500,
+        "baseline_loss_hazard": 0.04,
+        "climate_center": [
+          -0.9917627489912878,
+          0.0347867403315599,
+          -0.5033089631325154,
+          -1.3738496428978266
+        ],
+        "climate_width": 1.9,
+        "climate_anchor_provenance": "southern_extratropical:sample_rank_112"
+      }
+    ]
+  },
+  "visitor_assembly": {
+    "climate_suitability": "exp(-0.5 * sum(((PC-center)/(climate_width*climate_scale))^2))",
+    "reach": "exp(-distance_km/(dispersal_scale_km*dispersal_multiplier))",
+    "arrival_rate": "presence_intensity * source_abundance * climate_suitability * reach",
+    "stationary_presence": "arrival_rate / (arrival_rate + baseline_loss_hazard*(1 + isolation_turnover*distance_quantile))",
+    "annual_realization": "fixed uniform random numbers thresholded by stationary_presence; random numbers fixed before fitting",
+    "local_service_if_present": "source_abundance * climate_suitability * effectiveness",
+    "rationale": "isolation changes both visitor amount and identity/turnover rather than only scaling total activity"
+  },
+  "plant_lineages": {
+    "preflight_lineages_per_island": 4,
+    "confirmatory_lineages_per_island": 8,
+    "initial_state_seed": 32004,
+    "initial_matching_center": "Uniform(0.15,0.85)",
+    "initial_generalization": "Uniform(0.10,0.40)",
+    "initial_display": "Uniform(0.35,0.65)",
+    "initial_assurance": "Uniform(0.03,0.30)",
+    "evolvability_multiplier": "Uniform(0.6,1.4)",
+    "interpretation": "within-island species/lineage heterogeneity retained so H4 is estimated within shared geographic conditions"
+  },
+  "annual_environment": {
+    "preflight_years_per_selection_step": 6,
+    "confirmatory_years_per_selection_step": 12,
+    "random_seed": 32005
+  },
+  "evolutionary_operator": {
+    "traits": [
+      "matching_center_m",
+      "generalization_g",
+      "display_d",
+      "assurance_a"
+    ],
+    "generalization_width": "g_min + g_scale*g",
+    "affinity": "(0.1+d)*exp(-((m-theta)/sqrt(visitor_breadth^2+generalization_width^2))^2)",
+    "ovules": "8*exp(-c_display*d^2-c_generalization*g^2-c_assurance*a^2)",
+    "outcross_fraction": "1-exp(-service/pollen_scale)",
+    "selfed_viable_fraction": "a*(1-outcross_fraction)*(1-inbreeding_depression)",
+    "fitness": "maternal_viable + paternal_weight*ovules*outcross_fraction",
+    "pollen_limitation": "log(ovules/natural_maternal_viable), evaluated across current annual visitor realizations",
+    "adaptation": "Euler updates along numerical log-fitness gradients, bounded to [0,1]"
+  },
+  "stage1_search": {
+    "sampler": "Latin hypercube",
+    "seed": 32006,
+    "preflight_draws": 64,
+    "confirmatory_draws": 256,
+    "preflight_evolution_steps": 30,
+    "confirmatory_evolution_steps": 60,
+    "gradient_step": 0.01,
+    "bounds": {
+      "dispersal_multiplier": [
+        0.5,
+        2
+      ],
+      "climate_scale": [
+        0.6,
+        1.8
+      ],
+      "presence_intensity": [
+        0.3,
+        2
+      ],
+      "isolation_turnover": [
+        0,
+        1.5
+      ],
+      "g_min": [
+        0.02,
+        0.12
+      ],
+      "g_scale": [
+        0.1,
+        0.45
+      ],
+      "display_cost": [
+        0,
+        0.8
+      ],
+      "generalization_cost": [
+        0,
+        0.8
+      ],
+      "assurance_cost": [
+        0,
+        0.8
+      ],
+      "inbreeding_depression": [
+        0.15,
+        0.75
+      ],
+      "evolution_rate": [
+        0.004,
+        0.035
+      ],
+      "pollen_scale": [
+        0.5,
+        2
+      ],
+      "paternal_weight": [
+        0.2,
+        0.8
+      ]
+    }
+  },
+  "fitted_estimands": {
+    "H2_selfing_core": "island mean terminal assurance ~ standardized isolation + standardized area + climate PCs within context",
+    "H2_generalized_accessible": "island mean terminal generalization ~ standardized isolation + island mean assurance + standardized area + climate PCs within context",
+    "H3": "island mean model pollen limitation ~ globally standardized isolation + context indicators",
+    "H4_assurance": "lineage pollen limitation ~ lineage assurance + globally standardized isolation + context indicators",
+    "H4_generalization": "lineage pollen limitation ~ lineage generalization + globally standardized isolation + context indicators"
+  },
+  "calibration_targets": [
+    "H2 selfing_core isolation beta in four contexts",
+    "H2 generalized_accessible|selfing isolation beta in four contexts",
+    "H3 corrected pollen-limitation isolation beta",
+    "H4 corrected selfing-core to pollen-limitation beta",
+    "H4 corrected generalized-accessible to pollen-limitation beta"
+  ],
+  "holdout_targets": [
+    "H1 reproductive-assurance domain and atomic slopes",
+    "H1 accessibility/generalization domain and atomic slopes",
+    "all H1/H2 colour results",
+    "southern shallow_open_tube negative exception"
+  ],
+  "primary_success_rule": {
+    "signs": "all eight H2 isolation coefficients (four selfing_core and four generalized_accessible|selfing) must be positive",
+    "H3": "within corrected beta +/- 2 SE",
+    "H4_assurance": "within corrected beta +/- 2 SE",
+    "H4_generalization": "within corrected beta +/- 2 SE",
+    "joint": "all sign and H3/H4 rules pass without using H1/colour holdouts"
+  },
+  "failure_rule": "If no v2 parameter region passes the joint functional core, do not claim realistic island-syndrome reproduction; identify the remaining structural mismatch before any new mechanism is added.",
+  "claim_boundary": [
+    "The v2 calibration world uses real corrected island distance/area/climate distributions but not observed floral outcomes.",
+    "Guild parameters are fixed outcome-blind; only shared biological hyperparameters are searched.",
+    "Multiple lineages make the H4 comparison structurally closer to the empirical species-level association but do not make it historical mediation.",
+    "Detailed H1 atomic and colour responses remain genuine holdouts.",
+    "Frozen Model 3 and Model3R-v1 are not overwritten."
+  ]
+}
