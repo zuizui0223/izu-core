@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_model3e_heldout_H2_H4_failure",
+  "date": "2026-10-03",
+  "screening_result": "data/results/chapter2_model3e_h1_h3_screening_20261003.json",
+  "held_out_H2_H4_opened": true,
+  "n_frozen_parameter_sets": 5,
+  "successful_parameter_ids": [],
+  "n_successful_parameter_sets": 0,
+  "best_training_parameter_id": "p010",
+  "best_training_parameter_passes": false,
+  "overall_heldout_success": false,
+  "parameter_results": [
+    {
+      "parameter_id": "p010",
+      "training_score": 2.4967412299776317,
+      "h2_access_positive_count": 3,
+      "h2_access": {
+        "northern_midlatitude": 0.08209391392766896,
+        "northern_high_latitude": 0.10724453903966438,
+        "tropical": 0.060699950842812045,
+        "southern_extratropical": -0.09373056191077356
+      },
+      "h2_display_sign_match_count": 3,
+      "h4": {
+        "distance_beta": 0.13859778920161991,
+        "assurance_beta": 0.2989242665623939,
+        "accessibility_beta": -0.6383109129893412
+      },
+      "pass": false
+    },
+    {
+      "parameter_id": "p046",
+      "training_score": 2.50503566466565,
+      "h2_access_positive_count": 3,
+      "h2_access": {
+        "northern_midlatitude": 0.024814916421897926,
+        "northern_high_latitude": 0.07209191209434201,
+        "tropical": 0.01939888740625717,
+        "southern_extratropical": -0.05504820106476971
+      },
+      "h2_display_sign_match_count": 3,
+      "h4": {
+        "distance_beta": 0.015993592515397337,
+        "assurance_beta": 0.5403687896912597,
+        "accessibility_beta": 0.22207485639703417
+      },
+      "pass": false
+    },
+    {
+      "parameter_id": "p036",
+      "training_score": 2.5962297210383114,
+      "h2_access_positive_count": 2,
+      "h2_access": {
+        "northern_midlatitude": -0.003246677234928219,
+        "northern_high_latitude": 0.00014194163834224238,
+        "tropical": -0.001872328744803503,
+        "southern_extratropical": 0.000018801263926004896
+      },
+      "h2_display_sign_match_count": 2,
+      "h4": {
+        "distance_beta": 0.1022819557586887,
+        "assurance_beta": -0.04663023702353375,
+        "accessibility_beta": -3.4819762613442693
+      },
+      "pass": false
+    },
+    {
+      "parameter_id": "p032",
+      "training_score": 2.7110029276676104,
+      "h2_access_positive_count": 3,
+      "h2_access": {
+        "northern_midlatitude": 0.19167234807541744,
+        "northern_high_latitude": 0.04189890421520856,
+        "tropical": 0.15179263221167633,
+        "southern_extratropical": -0.010595792625768152
+      },
+      "h2_display_sign_match_count": 3,
+      "h4": {
+        "distance_beta": 0.15153718598016525,
+        "assurance_beta": 0.13535840195973867,
+        "accessibility_beta": -0.9598283308404228
+      },
+      "pass": false
+    },
+    {
+      "parameter_id": "p029",
+      "training_score": 2.8189596258993026,
+      "h2_access_positive_count": 1,
+      "h2_access": {
+        "northern_midlatitude": -0.00293583523193347,
+        "northern_high_latitude": 0.00011534583473666942,
+        "tropical": -0.0075906634600422795,
+        "southern_extratropical": -0.00012742906917617702
+      },
+      "h2_display_sign_match_count": 2,
+      "h4": {
+        "distance_beta": 0.06156316414929042,
+        "assurance_beta": -0.1791283825519925,
+        "accessibility_beta": 1.3968390527670775
+      },
+      "pass": false
+    }
+  ],
+  "failure_diagnosis": {
+    "training_display": "display dulling already failed H1 training in all five accepted sets; optimal scale was 0 and NRMSE=1",
+    "heldout_H2": "the best two H1/H3 fits reproduce positive selfing-adjusted accessibility in northern midlatitude, northern high latitude and tropical strata but reverse it in southern extratropical",
+    "heldout_H4": "the best H1/H3 fit predicts accessibility associated with lower pollen limitation but assurance associated with higher pollen limitation; no frozen accepted set simultaneously satisfies the H2 accessibility rule and both negative H4 coefficients",
+    "interpretation": "first Model 3E reproduces part of the functional core and isolation-associated pollen limitation but not the full empirical island-syndrome structure"
+  },
+  "claim_boundary": [
+    "Do not describe this first Model 3E as reproducing the Chapter 1 island syndrome.",
+    "Do not retune the frozen first-screen parameter ranges or replace the five accepted sets after held-out inspection.",
+    "Any next model must be a separately frozen mechanistic revision motivated by the documented failure modes.",
+    "Display investment remains a latent proxy and is not literal colour."
+  ]
+}
