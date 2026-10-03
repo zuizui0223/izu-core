@@ -12,7 +12,7 @@ def test_active_submission_is_model3_only():
     text = render_submission_manuscript()
     lower = text.lower()
     assert "reproductive selection before demographic change" in lower
-    assert "expected inherited evolution without demographic sampling" in lower
+    assert "conditional deterministic genotype-density propagation without demographic sampling" in lower
     assert "realized evolution in finite populations" in lower
     assert "annual response-blind richness matching" in lower
     assert "pooling eight independent visitor histories" in lower
