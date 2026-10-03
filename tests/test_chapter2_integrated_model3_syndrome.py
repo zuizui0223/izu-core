@@ -81,10 +81,9 @@ def test_integrated_manuscript_retains_established_extensions_and_failures() -> 
         "functional rematching",
         "standing genetic variation filters",
         "mutation narrows the gap",
-        "negative mean backbone but not uniform history-level direction",
-        "116/128 remained negative-only",
-        "11/128 were mixed",
-        "1/128 was positive-only",
+        "clean repeatability comparison comes from the occupied depression-0.50 finite bridge",
+        "retained only as a mathematical closure sensitivity",
+        "98.18% of far history-by-start density trajectories are below one expected individual",
         "earlier 9.4% mutation-rescue/standing-variation ratio is not retained",
     ):
         assert token in lower
