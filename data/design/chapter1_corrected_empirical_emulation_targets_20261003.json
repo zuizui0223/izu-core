@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "status": "current_corrected_chapter1_empirical_target_frozen_for_model3r_v2",
+  "frozen_on": "2026-10-03",
+  "source_repository": "zuizui0223/island",
+  "source_repository_head": "625c1e4ea67daa4b9d447807d5d049e7254843f9",
+  "submission_selector": "config/chapter1_submission_current.json",
+  "submission_contract": "chapter1_corrected_submission_20260924_v1",
+  "population": {
+    "island_universe": 8264,
+    "broad_H1_union": 4379
+  },
+  "contexts": [
+    "northern_midlatitude",
+    "northern_high_latitude",
+    "tropical",
+    "southern_extratropical"
+  ],
+  "H1_all_observed": {
+    "northern_midlatitude": {
+      "reproductive_assurance_domain_mean": 0.025220138905034276,
+      "accessibility_generalization_domain_mean": 0.02108590491609055,
+      "plain_colour": 0.00189148005084095,
+      "atomic": {
+        "self_compatibility": 0.05605826366454699,
+        "selfing_mating_system": 0.046336166366826206,
+        "autonomous_selfing": -0.026734013316270355,
+        "generalized_form": 0.046128883131112956,
+        "actinomorphic_symmetry": 0.005485524711143884,
+        "shallow_open_tube": 0.01164330690601481
+      }
+    },
+    "northern_high_latitude": {
+      "reproductive_assurance_domain_mean": 0.0836037242762739,
+      "accessibility_generalization_domain_mean": 0.22169613644326128,
+      "plain_colour": 0.035761086546585476,
+      "atomic": {
+        "self_compatibility": 0.11691242400187422,
+        "selfing_mating_system": 0.06962701415612332,
+        "autonomous_selfing": 0.06427173467082414,
+        "generalized_form": 0.05546044072228157,
+        "actinomorphic_symmetry": 0.2408562946029012,
+        "shallow_open_tube": 0.3687716740046011
+      }
+    },
+    "tropical": {
+      "reproductive_assurance_domain_mean": 0.1790381991289567,
+      "accessibility_generalization_domain_mean": 0.07957772840114923,
+      "plain_colour": 0.034925007785360285,
+      "atomic": {
+        "self_compatibility": 0.11110511016835148,
+        "selfing_mating_system": 0.3282314820377016,
+        "autonomous_selfing": 0.09777800518081706,
+        "generalized_form": 0.1170585614183795,
+        "actinomorphic_symmetry": 0.10989735102321113,
+        "shallow_open_tube": 0.011777272761857036
+      }
+    },
+    "southern_extratropical": {
+      "reproductive_assurance_domain_mean": 0.13928476633835268,
+      "accessibility_generalization_domain_mean": -0.004210854111505273,
+      "plain_colour": 0.07418818375909102,
+      "atomic": {
+        "self_compatibility": 0.17606369068853234,
+        "selfing_mating_system": 0.12454277466709782,
+        "autonomous_selfing": 0.11724783365942788,
+        "generalized_form": 0.1079166673405572,
+        "actinomorphic_symmetry": 0.09605378927234066,
+        "shallow_open_tube": -0.21660301894741368
+      }
+    }
+  },
+  "H2_all_analysis": {
+    "northern_midlatitude": {
+      "selfing_core_isolation_beta": 0.011253868196278764,
+      "generalized_accessible_given_selfing_beta": 0.020675947053354404,
+      "plain_colour_given_selfing_beta": -0.0005275578756154171
+    },
+    "northern_high_latitude": {
+      "selfing_core_isolation_beta": 0.05127656169659919,
+      "generalized_accessible_given_selfing_beta": 0.1255693461398702,
+      "plain_colour_given_selfing_beta": 0.007137053008539654
+    },
+    "tropical": {
+      "selfing_core_isolation_beta": 0.06083046688224513,
+      "generalized_accessible_given_selfing_beta": 0.0684596125596742,
+      "plain_colour_given_selfing_beta": 0.05758758532713628
+    },
+    "southern_extratropical": {
+      "selfing_core_isolation_beta": 0.10596030554191137,
+      "generalized_accessible_given_selfing_beta": 0.0492884890870217,
+      "plain_colour_given_selfing_beta": 0.07542821628490581
+    }
+  },
+  "H3_corrected": {
+    "standardized_isolation_beta": 0.09191043596699681,
+    "se": 0.0380631415253924,
+    "n_cells": 1408,
+    "n_publications": 919,
+    "n_sites": 1248,
+    "offshore_only_beta": 0.22031,
+    "offshore_only_se": 0.09704
+  },
+  "H4_exact_corrected": {
+    "selfing_core_to_pollen_limitation_beta": -0.2983005681547416,
+    "selfing_core_se": 0.10352118588969686,
+    "generalized_accessible_to_pollen_limitation_beta": -0.295659590051078,
+    "generalized_accessible_se": 0.12896495999825042
+  },
+  "calibration_core": {
+    "H2": "selfing_core isolation beta and generalized_accessible|selfing isolation beta in all four contexts",
+    "H3": "corrected global pollen-limitation isolation slope",
+    "H4": "corrected exact-species selfing-core and generalized-accessible associations with pollen limitation"
+  },
+  "holdout_adequacy": {
+    "H1_domain_means": "not directly fitted; compare recurrent domain structure after calibration",
+    "H1_atomic": "not directly fitted; test whether detailed seven-response expression is reproduced",
+    "colour": "all plain-colour H1 and H2 coefficients are held out from ecological fitting",
+    "key_nonuniform_feature": "southern shallow_open_tube is negative despite positive generalized_form and actinomorphic_symmetry"
+  },
+  "primary_success_rule": [
+    "H2 selfing_core isolation beta > 0 in all four contexts",
+    "H2 generalized_accessible|selfing isolation beta > 0 in all four contexts",
+    "simulated H3 within corrected empirical beta +/- 2 SE",
+    "simulated H4 selfing-core coefficient within corrected empirical beta +/- 2 SE",
+    "simulated H4 generalized-accessible coefficient within corrected empirical beta +/- 2 SE"
+  ],
+  "claim_boundary": [
+    "The corrected Chapter 1 submission baseline supersedes the 2026-09-18 v14 target for Model3R-v2.",
+    "H1 detailed atomic slopes and colour are adequacy/holdout targets and cannot be used to tune v2 ecological parameters.",
+    "H4 remains an association, not historical mediation.",
+    "Successful Model3R emulation would reproduce current Chapter 1 summary structure, not identify the historical process of any named island."
+  ]
+}
