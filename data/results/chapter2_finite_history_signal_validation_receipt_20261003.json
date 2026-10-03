@@ -4,9 +4,12 @@
   "status": "complete_local_exact_source_validation_execution_with_separate_committed_reproduction_surface",
   "validation_result": "data/results/chapter2_finite_history_signal_validation_20261003.json",
   "exact_source": {
-    "snapshot": "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip",
-    "snapshot_sha256": "5e39f0fcc8521b7402420b1db0c0861a796fcba544c2a173cdba30f179c6a212",
-    "source_hash_contract": "data/design/model3_ch2_bridge_execution_20260927.json"
+    "local_execution_snapshot_label": "original bridge artifact sources-00.zip used for the completed local validation",
+    "local_execution_snapshot_sha256": "5e39f0fcc8521b7402420b1db0c0861a796fcba544c2a173cdba30f179c6a212",
+    "committed_reproduction_snapshot": "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip",
+    "committed_reproduction_zip_sha256": "fd93234a7d64fffaba4f586694abb8658c900e04c73b308fc14f0a64f232a5e3",
+    "source_hash_contract": "data/design/model3_ch2_bridge_execution_20260927.json",
+    "relationship": "ZIP byte identity is not claimed. Biological source identity is established by verifying every source file in the committed snapshot against the frozen source_hashes contract."
   },
   "execution": {
     "demographic_seeds": [
@@ -67,7 +70,7 @@
       -0.4013656494929009
     ]
   },
-  "claim_boundary": "This receipt documents the completed local exact-source execution, freeze timing, shard hashes and one-case implementation equivalence to full simulate(). The committed reproduction scripts are separately versioned and are not asserted to be byte-identical to the local execution scripts. The original post-hoc discovery remains post-hoc, and validation does not represent independent environmental-history or natural-island replication.",
+  "claim_boundary": "This receipt documents the completed local exact-source execution, freeze timing, shard hashes and one-case implementation equivalence to full simulate(). The local execution ZIP and committed reproduction ZIP need not be byte-identical; biological source identity is checked file-by-file against the frozen source-hash contract. The committed reproduction scripts are separately versioned and are not asserted to be byte-identical to the local execution scripts. The original post-hoc discovery remains post-hoc, and validation does not represent independent environmental-history or natural-island replication.",
   "prospective_freeze_provenance": {
     "validation_design_commit": "4ca0193625fce2f9abac8a937a234b6c7825ee10",
     "validation_design_commit_utc": "2026-10-03T14:04:10Z",
