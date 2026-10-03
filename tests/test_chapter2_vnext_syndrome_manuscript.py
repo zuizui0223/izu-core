@@ -81,7 +81,7 @@ def test_vnext_lock_records_final_establishment_decisions() -> None:
     assert lock["establishment_decisions"]["deterministic_backbone"] == "negative_mean_robust_across_depression_0_25_to_0_75_but_uniform_history_direction_fails_at_0_75"
     assert lock["retained_negative_results"]["route_A_robustness"]["supported"] is False
     assert lock["retained_negative_results"]["deterministic_backbone_uniformity"]["supported"] is False
-    assert lock["establishment_status"] == "five_criteria_plus_deterministic_backbone_propagation_closed"
+    assert lock["establishment_status"] == "five_criteria_plus_backbone_propagation_plus_full_clean_reproduction_closed"
     assert backbone["backbone_mean_direction_robust"] is True
     assert backbone["uniform_history_direction_robust"] is False
     assert backbone["reports"][2]["mixed_histories_eps0"] == 11
