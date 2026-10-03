@@ -24,7 +24,13 @@ The manuscript separates five biological levels rather than estimating one unive
 
 The result is not “island syndrome is universal.” It is:
 
-> **Repeated island-like ecological problems can preserve repeatability of coarse function after repeatability of detailed evolutionary solutions has begun to decay.**
+> **Within the declared model, aggregate syndrome-like recurrence can persist after trajectory-level evolutionary parallelism has begun to fail.**
+
+The broader logical implication is weaker but more general:
+
+> **A recurrent syndrome does not, by itself, imply recurrent evolutionary trajectories.**
+
+Natural-island prevalence, effect sizes and stage ordering remain empirical questions.
 
 ## Why this is not already Bolnick/Stuart/Thompson
 
@@ -81,6 +87,16 @@ Current OUP guidance describes Letters as typically ~5,000 words or less, exclud
 - figures: 4 main figures;
 - one figure must explain the complete argument without reading the Results.
 
+## Claim ceiling
+
+Three levels must remain separate throughout title, abstract, figures and cover letter.
+
+1. **Established by simulation:** aggregate recurrence and trajectory-level parallelism can dissociate in the declared Model 3; prospective interventions identify sufficient mechanisms for the dissociation.
+2. **General implication:** recurrent syndrome-level pattern is not sufficient evidence for recurrent evolutionary pathway.
+3. **Natural prediction:** if the mechanism contributes in nature, repeatability should decline from coarse ecological response toward detailed inherited and realized trajectories.
+
+Never convert level 3 into a result. The current natural archive does not identify natural branch frequencies, transition rates, effect sizes or a universal stage ordering.
+
 ## Figure 1 — repeatability ladder
 
 **Panel A: repeated problem.** Replicate island-like pollination environments.
@@ -93,7 +109,7 @@ Current OUP guidance describes Letters as typically ~5,000 words or less, exclud
 
 **Panel E: finite realization.** Demographic sampling, extinction, chronology and connectivity spread realized endpoints.
 
-Graphic principle: width/branching increases from left to right. This is a conceptual decomposition, not a claim that all panels share one numerical scale.
+Graphic principle: show a stable coarse signal in an upper aggregation layer while the lower trajectory layer branches from left to right. This makes the counterexample visually explicit: aggregate recurrence can survive trajectory divergence. The branching is conceptual, not a natural branch-frequency estimate or a common numerical repeatability scale.
 
 ## Main-text result spine
 
