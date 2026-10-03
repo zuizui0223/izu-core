@@ -73,7 +73,7 @@ With mutation input normalized to 1% of initial additive variance per generation
 
 The clean repeatability comparison comes from the occupied depression-0.50 finite bridge. Its aggregate far-minus-near mean is negative, while descriptive history-level realized signs are mixed in 12/128, 8/128 and 1/128 histories at deadbands 0, 0.01 and 0.05. All 3,072 near and 3,072 far finite cases remain occupied.
 
-The later depression-0.75 deterministic sensitivity is not used as population-level evidence. At season 200, 98.18% of far history-by-start density trajectories are below one expected individual (median mass 0.000301), and one complete finite demographic replicate has 384/384 far populations extinct by that horizon. Its 116 negative-only / 11 mixed / 1 positive-only labels are therefore retained only as a mathematical closure sensitivity.
+The later depression-0.75 deterministic sensitivity is not used as population-level evidence. At season 200, 98.18% of far history-by-start density trajectories are below one expected individual (median mass 0.000301), and one complete finite demographic replicate has 384/384 far populations extinct by that horizon. A prospectively frozen scan across depression 0.55–0.74 found no mixed or positive deterministic history among histories whose three starts and both near/far arms all retained terminal mass >=1. Its 116 negative-only / 11 mixed / 1 positive-only labels are therefore retained only as a mathematical closure sensitivity.
 
 ### 6. Finite ecological and demographic realization further modifies the endpoint
 
