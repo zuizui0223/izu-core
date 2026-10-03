@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "status": "closed_negative_empirical_emulation_sequence",
+  "date": "2026-10-03",
+  "purpose": "Record the stopped sequence of prospective attempts to quantitatively emulate Chapter 1 H1-H4 with Model 3-derived numerical models, without retaining the exploratory emulator implementations on the Chapter 2 mainline.",
+  "attempts": [
+    {
+      "name": "Model3R-v1",
+      "provenance": "PR #386 branch research/ch2-ch1-empirical-emulation-20261003",
+      "prospective_draws": 64,
+      "passes": 0,
+      "main_positive": "H3 isolation-to-pollen-limitation slope could be reproduced closely in the best candidate.",
+      "failure": "Generalization did not increase with isolation across all four contexts and the H4 assurance-to-pollen-limitation association had the wrong sign.",
+      "decision": "do_not_expand_same_v1_parameter_search"
+    },
+    {
+      "name": "Model3R-v2",
+      "provenance": "PR #386 branch research/ch2-ch1-empirical-emulation-20261003",
+      "prospective_draws": 64,
+      "passes": 0,
+      "main_positive": "Real island covariates and distance/climate-dependent visitor assembly reproduced H3 closely and improved isolation-driven assurance response.",
+      "failure": "Selfing-adjusted generalized accessibility remained negative in all four contexts in the best draw and the H4 assurance association retained the wrong sign.",
+      "decision": "do_not_expand_same_v2_parameter_search"
+    },
+    {
+      "name": "Model3R-v3-assembly",
+      "provenance": "PR #386 branch research/ch2-ch1-empirical-emulation-20261003",
+      "prospective_draws": 96,
+      "passes": 0,
+      "main_positive": "Assembly filtering recovered the empirical negative H4 assurance and generalization associations and reproduced H3 within the declared tolerance.",
+      "failure": "The regional H2 isolation slopes for selfing/generalized accessibility were not jointly reproduced; the best draw retained multiple failed regional targets.",
+      "decision": "stop_mechanism_addition_and_diagnose_only"
+    },
+    {
+      "name": "Model3E-v1",
+      "provenance": "merged historically as PR #387 and removed from the active Chapter 2 surface by the cleanup PR that created this audit",
+      "screen_parameter_sets": 48,
+      "screen_eligible": 13,
+      "frozen_accepted_sets": 5,
+      "heldout_successes": 0,
+      "main_positive": "The H1/H3 screen could reproduce positive assurance/accessibility isolation slopes and positive isolation-associated pollen limitation for selected parameter sets.",
+      "failure": "Display dulling failed already at training; all five frozen accepted sets then failed the held-out H2/H4 joint rule.",
+      "decision": "do_not_retune_after_heldout_failure"
+    }
+  ],
+  "integrated_interpretation": {
+    "quantitative_chapter1_emulation_established": false,
+    "model3_mechanistic_structure_invalidated": false,
+    "scope_implication": "The sequence supports the pre-existing Chapter 2 boundary: Model 3 can reproduce a mechanistically compatible island-syndrome structure, but quantitative transfer to the Chapter 1 macroecological coefficient vector is not established.",
+    "why_stop_now": "Each model was prospectively frozen, but the sequence changed model structure after observing prior failures. Continuing until one model passes would become open-ended model-family search and would weaken the inferential meaning of later preregistration.",
+    "future_work": "A multi-species flora-level emulator may be scientifically worthwhile, but it is a separate study. It must disclose this complete failed-model sequence and prospectively freeze the model family and validation targets before execution."
+  },
+  "claim_boundary": [
+    "Do not pool the parameter draws across the four structurally different attempts into one pass/fail denominator.",
+    "Do not describe Model 3 as quantitatively reproducing Chapter 1 H1-H4.",
+    "Do not reinterpret these failures as evidence that the established Model 3 mechanistic results are false.",
+    "Do not continue Chapter 2 by adding mechanisms until an empirical emulation passes.",
+    "Do not assign Chapter 1 geographic strata to Model 3 parameter cells.",
+    "Any flora-level quantitative emulator is a separate research project rather than a Chapter 2 completion task."
+  ]
+}
