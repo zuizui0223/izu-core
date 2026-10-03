@@ -71,13 +71,9 @@ With mutation input normalized to 1% of initial additive variance per generation
 
 ### 5. One coarse regime does not imply one detailed trajectory
 
-At depression 0.75, the deterministic mean remains negative but the 128 visitor histories classify as:
+The clean repeatability comparison comes from the occupied depression-0.50 finite bridge. Its aggregate far-minus-near mean is negative, while descriptive history-level realized signs are mixed in 12/128, 8/128 and 1/128 histories at deadbands 0, 0.01 and 0.05. All 3,072 near and 3,072 far finite cases remain occupied.
 
-- 116 negative-only;
-- 11 mixed across starting states;
-- 1 positive-only.
-
-Detailed evolutionary realization is therefore non-unique before finite demographic noise is even added.
+The later depression-0.75 deterministic sensitivity is not used as population-level evidence. At season 200, 98.18% of far history-by-start density trajectories are below one expected individual (median mass 0.000301), and one complete finite demographic replicate has 384/384 far populations extinct by that horizon. Its 116 negative-only / 11 mixed / 1 positive-only labels are therefore retained only as a mathematical closure sensitivity.
 
 ### 6. Finite ecological and demographic realization further modifies the endpoint
 
@@ -95,7 +91,7 @@ The novelty is not that pollination syndromes, reproductive assurance, genetic c
 
 It is:
 
-> **one explicit Model 3 generates a recurrent island-syndrome-like functional regime and, within the same biological engine, prospectively identifies the ecological, reproductive, genetic and demographic processes that prevent that regime from collapsing to one detailed floral endpoint.**
+> **one explicit Model 3 generates a recurrent island-syndrome-like aggregate response and, within the same biological engine, separates that aggregate response from heterogeneous realized finite-population trajectories while identifying ecological, genetic and demographic filters.**
 
 The old Model 3 paper supplied the backbone. The later prospective experiments complete and stress-test that backbone; they are not a second paper-level theory.
 
