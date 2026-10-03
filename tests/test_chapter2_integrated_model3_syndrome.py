@@ -82,7 +82,7 @@ def test_integrated_manuscript_retains_established_extensions_and_failures() -> 
         "standing genetic variation filters",
         "mutation narrows the gap",
         "the original depression-0.50, 200-season bridge remains the biologically interpretable focal backbone",
-        "retained only as a mathematical closure sensitivity",
+        "retain the depression-0.75 labels only as a mathematical closure sensitivity",
         "98.18% of far history-by-start density trajectories are below one expected individual",
         "earlier 9.4% mutation-rescue/standing-variation ratio is not retained",
     ):
