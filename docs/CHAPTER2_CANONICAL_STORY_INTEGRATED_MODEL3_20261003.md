@@ -18,7 +18,7 @@ The completed paper has one biological engine.
 ### Frozen Model 3 backbone
 
 1. **fixed-state reproductive selection** — plant state × visitor functional composition determines reproductive return before inheritance or demographic change;
-2. **deterministic genotype-density inheritance** — the same reproduction and Mendelian operator is propagated without demographic sampling;
+2. **conditional deterministic genotype-density propagation** — the same reproduction and Mendelian operator is propagated without demographic sampling;
 3. **finite-population ABM realization** — the same operator is exposed to recruitment, survival, extinction, ancestry change and loss of standing variation;
 4. **context interventions** — assurance, chronology, connectivity, founding, recovery, life history and population scaling alter realization.
 
@@ -49,7 +49,7 @@ The deterministic far-minus-near inherited-investment mean is negative across th
 | 0.50 | **−0.4510** |
 | 0.75 | **−0.4142** |
 
-This is the recurrent coarse generative backbone.
+This is the recurrent coarse response of the conditional deterministic closure over the frozen horizon; it is not identified as the stochastic mean or large-population limit of the finite ABM.
 
 ### 2. Visitor function determines how the coarse pressure is expressed
 
@@ -85,7 +85,7 @@ The 24,576-case bridge shows that:
 
 - response-blind annual visitor-count matching reverses the mean near–far effect;
 - pooling visitor histories changes directional heterogeneity;
-- increasing plant capacity moves finite outcomes toward deterministic density;
+- increasing plant capacity changes finite outcomes and numerically moves the mean toward the deterministic density closure, but that movement is descriptive rather than evidence of convergence to a stochastic expectation;
 - chronology and connectivity leave different inherited endpoints;
 - finite sign labels are descriptive and not natural branch-prevalence estimates.
 
