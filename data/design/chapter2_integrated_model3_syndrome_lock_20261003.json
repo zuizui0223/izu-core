@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "integrated_model3_syndrome_candidate_not_active_submission",
+  "active_submission_unchanged": true,
+  "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+  "previous_vnext_manuscript": "docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md",
+  "integrated_manuscript": "docs/CHAPTER2_MANUSCRIPT_INTEGRATED_MODEL3_SYNDROME_20261003.md",
+  "canonical_story": "docs/CHAPTER2_CANONICAL_STORY_INTEGRATED_MODEL3_20261003.md",
+  "central_question": "Can one explicit eco-evolutionary Model 3 generate an island-syndrome-like functional response under island-like pollination constraints without forcing a single detailed floral phenotype?",
+  "central_claim": "Island-like pollination constraints generate a recurrent coarse functional regime in Model 3, while functional matching, reproductive context, genetic accessibility, history and finite-population realization make the detailed inherited floral endpoint non-unique.",
+  "model_identity": {
+    "one_model": true,
+    "model_name": "Model 3",
+    "frozen_backbone": {
+      "base_campaign_cases": 19968,
+      "fixed_state_selection": true,
+      "deterministic_genotype_density": true,
+      "finite_population_abm": true,
+      "context_interventions": true
+    },
+    "prospective_extensions": [
+      "same_count_functional_rematching",
+      "assurance_cost_robustness",
+      "inbreeding_depression_backbone_propagation",
+      "standing_variation_filter",
+      "mutation_input_sensitivity",
+      "prospective_24576_case_isolation_bridge"
+    ],
+    "separate_vnext_model": false
+  },
+  "key_results": {
+    "deterministic_mean_depression_0_25": -0.35057192494503014,
+    "deterministic_mean_depression_0_50": -0.4509830625839532,
+    "deterministic_mean_depression_0_75": -0.41423024895210364,
+    "depression_0_75_history_counts": {
+      "negative_only": 116,
+      "mixed": 11,
+      "positive_only": 1
+    },
+    "standing_high_low_response_ratio_y400": 2.56,
+    "standing_high_low_response_ratio_y800": 1.49,
+    "route_A_headline": false
+  },
+  "computational_reproducibility": {
+    "status": "closed",
+    "total_fresh_cases": 44544,
+    "receipt": "data/results/model3_full_clean_rerun_receipt_20261003.json"
+  },
+  "claim_boundary": {
+    "calibrated_to_named_islands": false,
+    "natural_rates_calibrated": false,
+    "literal_colour_or_corolla_mapping": false,
+    "universal_assurance_by_cost_route": false,
+    "equilibrium_standing_variation_dominance": false,
+    "natural_branch_prevalence_estimated": false,
+    "external_chapter1_coefficient_reproduction_required": false
+  },
+  "promotion_requirements": [
+    "explicit decision to replace the locked active submission surface",
+    "render integrated manuscript rather than legacy active or separate vNext manuscript",
+    "regenerate figures around the integrated generative Model 3 spine",
+    "extend Supporting Information with later prospective Model 3 interventions and retained failures",
+    "update submission manifest and reviewer archive",
+    "run full fail-closed submission gates"
+  ]
+}
