@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_model3r_v3_assembly_design_frozen_before_fit",
+  "frozen_on": "2026-10-03",
+  "purpose": "Test whether the corrected Chapter 1 functional island syndrome can emerge from island-flora assembly/colonization filtering under realistic island covariates and visitor assembly, before invoking within-island adaptive evolution.",
+  "target": "data/design/chapter1_corrected_empirical_emulation_targets_20261003.json",
+  "empirical_covariates": {
+    "sample": "data/input/chapter1_corrected_covariate_sample_512_20261003.csv",
+    "sample_contract": "data/design/chapter1_corrected_covariate_sample_512_20261003.json",
+    "preflight_rule": "sample_rank divisible by 4, giving 32 islands per context",
+    "confirmatory_rule": "all 128 sampled islands per context"
+  },
+  "visitor_environment": {
+    "guild_source": "data/design/chapter2_model3r_v2_empirical_emulation_20261003.json",
+    "assembly_rule": "same fixed outcome-blind global guild pool and distance/climate visitor assembly as v2",
+    "preflight_annual_realizations": 8,
+    "confirmatory_annual_realizations": 16,
+    "seed": 33003
+  },
+  "mainland_source_pool": {
+    "preflight_species": 128,
+    "confirmatory_species": 256,
+    "seed": 33004,
+    "matching_center_m": "Uniform(0.05,0.95)",
+    "generalization_g": "Uniform(0.05,0.70)",
+    "display_d": "Uniform(0.25,0.75)",
+    "assurance_a": "Uniform(0.00,0.75)",
+    "seed_dispersal_scale_km": "LogUniform(30,3000)",
+    "source_abundance": "Uniform(0.5,1.5)",
+    "climate_center": "drawn outcome-blind from empirical island climate vectors",
+    "climate_width": "Uniform(1.2,3.0)",
+    "independence": "plant traits, seed dispersal, source abundance and climate niche are generated independently except for the declared climate-center sampling"
+  },
+  "colonization_filter": {
+    "seed_reach": "exp(-distance_km/(species_seed_scale*seed_dispersal_multiplier))",
+    "plant_climate_suitability": "exp(-0.5*sum(((PC-species_climate_center)/(species_climate_width*plant_climate_scale))^2))",
+    "arrival_intensity": "seed_arrival_intensity*source_abundance*seed_reach*plant_climate_suitability*exp(area_exponent*z_log_area)",
+    "reproductive_establishment": "1-exp(-establishment_strength*mean_viable_maternal_fraction)",
+    "occupancy_probability": "1-exp(-arrival_intensity*reproductive_establishment)",
+    "island_selfing_core": "occupancy-weighted mean species assurance_a",
+    "island_generalized_accessible": "occupancy-weighted mean species generalization_g",
+    "interpretation": "Baker-law/reproductive-assurance and pollinator-access filtering act during flora assembly; species traits are fixed in v3 preflight"
+  },
+  "reproductive_operator": {
+    "generalization_width": "g_min+g_scale*g",
+    "affinity": "(0.1+d)*exp(-((m-theta)/sqrt(visitor_breadth^2+generalization_width^2))^2)",
+    "ovules": "8*exp(-display_cost*d^2-generalization_cost*g^2-assurance_cost*a^2)",
+    "outcross_fraction": "1-exp(-visitor_service/pollen_scale)",
+    "viable_maternal": "ovules*(outcross+a*(1-outcross)*(1-inbreeding_depression))",
+    "pollen_limitation": "log(ovules/mean viable maternal)",
+    "in_situ_evolution": false
+  },
+  "empirical_estimands": {
+    "H2_selfing": "occupancy-weighted island selfing_core ~ z(distance)+z(area)+z(climate PC1-4), within context",
+    "H2_accessibility": "occupancy-weighted island generalized_accessible ~ z(distance)+z(selfing_core)+z(area)+z(climate PC1-4), within context",
+    "H3": "occupancy-weighted island mean pollen limitation ~ global z(distance)+context indicators",
+    "H4_selfing": "species-island pollen limitation ~ species assurance_a + global z(distance)+context indicators, weighted by occupancy_probability",
+    "H4_accessibility": "species-island pollen limitation ~ species generalization_g + global z(distance)+context indicators, weighted by occupancy_probability"
+  },
+  "stage1_search": {
+    "sampler": "Latin hypercube",
+    "seed": 33005,
+    "preflight_draws": 96,
+    "confirmatory_draws": 384,
+    "bounds": {
+      "visitor_dispersal_multiplier": [
+        0.5,
+        2
+      ],
+      "visitor_climate_scale": [
+        0.6,
+        1.8
+      ],
+      "visitor_presence_intensity": [
+        0.3,
+        2
+      ],
+      "visitor_isolation_turnover": [
+        0,
+        1.5
+      ],
+      "g_min": [
+        0.02,
+        0.12
+      ],
+      "g_scale": [
+        0.1,
+        0.45
+      ],
+      "display_cost": [
+        0,
+        0.8
+      ],
+      "generalization_cost": [
+        0,
+        0.8
+      ],
+      "assurance_cost": [
+        0,
+        0.8
+      ],
+      "inbreeding_depression": [
+        0.15,
+        0.75
+      ],
+      "pollen_scale": [
+        0.5,
+        2
+      ],
+      "seed_dispersal_multiplier": [
+        0.5,
+        2
+      ],
+      "plant_climate_scale": [
+        0.6,
+        1.8
+      ],
+      "seed_arrival_intensity": [
+        0.3,
+        3
+      ],
+      "establishment_strength": [
+        0.3,
+        6
+      ],
+      "area_exponent": [
+        0,
+        0.5
+      ]
+    }
+  },
+  "success_rule": {
+    "H2": "all eight corrected H2 coefficients within empirical estimate +/- 2 SE",
+    "H3": "corrected H3 within +/- 2 SE",
+    "H4_assurance": "corrected H4 assurance within +/- 2 SE",
+    "H4_generalization": "corrected H4 generalization within +/- 2 SE",
+    "joint": "all eleven calibration coefficients pass without H1 atomic or colour data"
+  },
+  "planned_controls_if_passes": [
+    "arrival-only null with reproductive establishment removed",
+    "reproductive filter with assurance disabled",
+    "reproductive filter with generalization disabled",
+    "stochastic realized-flora replay instead of expected occupancy weights",
+    "optional short in-situ evolution added only after assembly mechanism is established"
+  ],
+  "holdouts": [
+    "H1 domain slopes",
+    "all seven H1 atomic trait slopes",
+    "H1/H2 colour",
+    "southern shallow_open_tube negative exception"
+  ],
+  "failure_rule": "If no v3 region passes, retain the failure and diagnose the remaining mismatch before adding in-situ evolution or trait-specific developmental modules.",
+  "claim_boundary": [
+    "v3 tests contemporary flora assembly/colonization filtering, which is directly aligned with Chapter 1's observed-flora estimand.",
+    "Expected occupancy is used only for fast calibration; realized stochastic floras are required for confirmation.",
+    "No Chapter 1 trait outcome is used to define source species or visitor guild pools.",
+    "A pass would show empirical emulation by a declared assembly mechanism, not historical identification for named islands."
+  ]
+}
