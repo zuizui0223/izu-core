@@ -20,7 +20,7 @@ parallel evolution; nonparallel evolution; island syndrome; floral evolution; po
 
 # Introduction
 
-Parallel evolution is compelling because replicated environmental change appears to reveal how predictable adaptation can be. Yet repeated populations exposed to apparently similar conditions often differ in the magnitude, direction or genetic basis of their response. This has shifted the field from asking whether evolution is parallel to asking where populations lie on a continuum from parallel to non-parallel evolution and what moves them along it (Stuart et al. 2017; Bolnick et al. 2018). Environmental heterogeneity, gene flow, drift, genetic architecture and historical contingency can all weaken parallelism. Moreover, common function need not imply common form: many-to-one form–function mapping can preserve functional convergence while morphology diverges (Thompson et al. 2017).
+Parallel evolution is compelling because replicated environmental change appears to reveal how predictable adaptation can be. Yet replicates often differ in direction, magnitude or genetic basis. Parallelism is therefore treated as quantitative rather than binary (Oke et al. 2017; Stuart et al. 2017; Bolnick et al. 2018). Direction and magnitude are already recognized as distinct trajectory properties, and recent measurement work explicitly warns that different parallelism metrics answer different questions (Venkataram & Kryazhimskiy 2023; Arendt et al. 2025). Common function can also coexist with non-parallel morphology through many-to-one mapping (Thompson et al. 2017).
 
 Islands provide a natural arena for this problem. Isolation repeatedly alters dispersal, population size, biotic interactions and the availability or identity of pollinators. These recurring pressures motivate the idea of an island syndrome: predictable differences between island organisms and their mainland relatives. For plants, however, the syndrome is incomplete. A Pacific comparison of 556 species in 136 phylogenetically independent island–mainland contrasts found no general reduction in flower size, despite reductions in some archipelagos (Hetherington-Rauth & Johnson 2020). A recent review likewise found strongly uneven support among proposed plant island-syndrome components and called for explicitly multidimensional tests (Ciarle & Burns 2025). At the same time, individual archipelagos such as Ogasawara can show recognizable pollination-associated suites of traits and visitor shifts (Abe 2006). Recent work on island wrens further shows that parallel island-syndrome phenotypes can coexist with largely population-specific genomic differentiation (Jezierski et al. 2026). The unresolved issue is therefore not simply whether an island syndrome exists, or whether phenotype and genotype are equally parallel, but where along the causal path from ecology to realized evolution stronger forms of repeatability are first lost.
 
@@ -175,7 +175,7 @@ This makes sign uniformity an incomplete diagnostic of evolutionary repeatabilit
 The temporal accessibility result is distinct: standing variation accelerated early response, but continuing mutation caught and overtook that reference. The high-depression long-horizon density stress test crossed quasi-extinction and cannot identify a persisting long-run syndrome trajectory.
 ## This differs from treating parallel evolution as a single continuum score
 
-Bolnick et al. (2018) emphasized that parallelism is quantitative rather than binary, and Stuart et al. (2017) showed that environmental and genetic differences jointly explain departures from parallel phenotypic evolution. Our result adds a mechanistic warning: even within one model and one endpoint, greater directional uniformity can correspond to opposite changes in reproducible historical structure.
+Direction-versus-magnitude measurement is not our novelty. Oke et al. (2017), Venkataram & Kryazhimskiy (2023) and Arendt et al. (2025) already show that parallelism/repeatability depends on which trajectory property is measured. Our contribution is mechanistic: within one operator and endpoint, two interventions produce nearly the same gain in directional uniformity while driving reproducible historical structure in opposite directions.
 
 Repeatability is therefore multidimensional rather than one latent score. Direction, continuous magnitude, historical imprint and demographic realization need not rank interventions identically. The deterministic closure also remained directionally uniform throughout the tested viable isolation envelope, so finite history structure cannot be read simply as deterministic branches revealed by sampling.
 
@@ -224,6 +224,12 @@ The bounded principle is therefore sharper: **apparent directional parallelism d
 **Figure 4. Finite realization and empirical claim boundary.** Chronology, pollinator connectivity, seed connectivity, demographic sampling and extinction further diversify inherited endpoints. Source-audited natural island systems confront individual causal layers but do not provide a complete same-unit longitudinal chain; no named island is fitted to a synthetic Model 3 cell.
 
 # Core references for framing
+
+Oke KB, Rolshausen G, LeBlond C, Hendry AP. 2017. How Parallel Is Parallel Evolution? A Comparative Analysis in Fishes. *The American Naturalist* 190:1–16. doi:10.1086/691989.
+
+Venkataram S, Kryazhimskiy S. 2023. Evolutionary repeatability of emergent properties of ecological communities. *Philosophical Transactions of the Royal Society B* 378:20220047. doi:10.1098/rstb.2022.0047.
+
+Arendt JD, Travis J, Reznick DN. 2025. On Measurements of Phenotypic Parallel Evolution. *The American Naturalist* 206:198–205. doi:10.1086/736845.
 
 Abe T. 2006. Threatened pollination systems in native flora of the Ogasawara (Bonin) Islands. *Annals of Botany* 98:317–334. doi:10.1093/aob/mcl117.
 
