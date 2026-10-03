@@ -16,7 +16,7 @@
       "genetic_accessibility_and_persistence"
     ]
   },
-  "safe_claim": "Within the occupied depression-0.50 finite ABM, plant-capacity increase and visitor-history pooling both increase directional sign uniformity but shift reproducibility of continuous history effects in opposite directions.",
+  "safe_claim": "Within the occupied depression-0.50 finite ABM, capacity scaling and visitor-history pooling both increase directional sign uniformity, but a prospectively frozen new-demographic-seed validation shows that history-specific magnitudes remain highly predictable after capacity scaling and weakly predictable after visitor-history pooling.",
   "prohibited_claims": [
     "first connection between island syndrome and parallel evolution",
     "first mechanism for nonparallel evolution",
@@ -43,7 +43,10 @@
     "first distinction between direction and magnitude as dimensions of evolutionary parallelism",
     "first claim that different parallelism metrics measure different trajectory properties",
     "directional sign similarity as identical to geometric parallelism",
-    "first demonstration that environmental or demographic heterogeneity changes evolutionary repeatability"
+    "first demonstration that environmental or demographic heterogeneity changes evolutionary repeatability",
+    "the original posthoc finite-history discovery as preregistered or confirmatory",
+    "new demographic seed validation as independent environmental-history replication",
+    "new demographic seed validation as natural-island validation"
   ],
   "key_literature": [
     {
@@ -128,9 +131,9 @@
   "empirical_prediction": "Repeated-population studies should estimate both response direction and reproducibility of effect magnitude; genetic-accessibility rankings may additionally change as new variation accumulates.",
   "claim_levels": {
     "model_established": [
+      "a prospectively frozen validation using new demographic seeds 201-204 reproduced the discovery ordering large-capacity > natural > visitor-pooled for history-specific response predictability, with both paired bootstrap contrasts excluding zero",
       "at depression 0.50 and season 200, all frozen natural near and far finite cases are occupied",
       "the natural finite bridge contains a reproducible continuous visitor-history component despite demographic-repeat noise",
-      "plant-capacity increase and visitor-history pooling both reduce mixed-sign history labels but change continuous history reliability in opposite directions",
       "functional visitor composition, reproductive context, genetic accessibility and finite demography alter model responses within the declared operator",
       "standing variation provides an early response advantage that continuing mutation can erase and reverse",
       "within the tested pre-quasi-extinction depression range, the isolation-driven deterministic closure remained negative-only across histories"
@@ -211,9 +214,35 @@
     },
     "interpretation": "The same reduction in mixed-sign labels can occur while reproducible history structure strengthens relative to demographic noise or while that history structure is erased by environmental averaging."
   },
-  "novelty_boundary": "Direction-versus-magnitude multidimensionality and environmental/demographic effects on repeatability are established. The candidate contribution is the model-internal mechanistic counterexample in which the same increase in directional sign uniformity accompanies opposite changes in reproducible visitor-history structure.",
+  "novelty_boundary": "Direction-versus-magnitude multidimensionality and environmental/demographic effects on repeatability are established. The candidate contribution is a model-internal mechanistic counterexample—same directional sign uniformity with opposite preservation of history-specific magnitude—whose predicted ordering was subsequently validated prospectively across new demographic stochastic realizations.",
   "journal_fit_rationale": {
     "evolution_letters": "Current central question concerns evolutionary repeatability, parallelism, historical contingency and mechanistic evolutionary trajectories; island pollination is the biological testbed.",
     "ecology_letters": "Current manuscript is not centered on a new general ecological principle strongly enough for the journal's stated ecology nexus; a fallback would require recentering on ecological history averaging and community composition."
+  },
+  "finite_history_signal_validation": {
+    "status": "prospective_new_demographic_seed_validation_complete_strong_success",
+    "design": "data/design/chapter2_finite_history_signal_validation_20261003.json",
+    "result": "data/results/chapter2_finite_history_signal_validation_20261003.json",
+    "receipt": "data/results/chapter2_finite_history_signal_validation_receipt_20261003.json",
+    "discovery_status": "posthoc exploratory",
+    "validation_scope": "same 128 frozen visitor histories; new demographic seeds 201-204",
+    "trajectories": 9216,
+    "correlations": {
+      "large_plant_capacity": 0.91832741451686,
+      "natural": 0.7321619738226453,
+      "visitor_pooled": 0.1654626963685096
+    },
+    "paired_bootstrap": {
+      "large_minus_natural": [
+        0.11977869113100571,
+        0.2825517167353619
+      ],
+      "pooled_minus_natural": [
+        -0.7321159171320919,
+        -0.4013656494929009
+      ]
+    },
+    "strong_success": true,
+    "interpretation": "The exploratory mechanism generated a fixed prediction that was reproduced across new demographic stochastic realizations; validation does not extend to new environmental histories."
   }
 }
