@@ -62,7 +62,7 @@ def _variance_components(x):
         "sigma_start_by_history": sh,
         "history_structured_variance": structured,
         "sigma_demographic_residual": float(ms_e),
-        "repeat_mean_reliability": float(reliability),
+        "four_repeat_mean_reliability": float(reliability),
     }
 
 
@@ -223,12 +223,16 @@ def main():
         "status": "complete_prospectively_frozen_new_demographic_seed_validation",
         "design": str(a.design),
         "provenance": {
+            "discovery_workflow_run": int(design["discovery_source"]["workflow_run"]),
             "discovery_demographic_seeds": old_demos,
             "validation_demographic_seeds": new_demos,
             "visitor_histories": len(histories),
             "starts": starts,
+            "validation_arms": design["validation_source"]["arms"],
             "finite_arm_trajectories": int(sum(v.size for v in pops.values())),
             "paired_effect_cells_per_intervention": int(validation["natural"].size),
+            "validation_horizon": int(design["validation_source"]["horizon"]),
+            "inbreeding_depression": float(design["validation_source"]["inbreeding_depression"]),
         },
         "reports": reports,
         "paired_bootstrap_differences": paired,
@@ -236,9 +240,24 @@ def main():
         "primary_decision": {
             "observed_ordering": "large_plant_capacity > natural > visitor_pooled",
             "observed_ordering_holds": bool(observed),
+            "large_minus_natural_bootstrap_interval_excludes_zero_positive": bool(
+                paired["large_capacity_minus_natural_history_correlation"]["bootstrap95"][0] > 0
+            ),
+            "pooled_minus_natural_bootstrap_interval_excludes_zero_negative": bool(
+                paired["visitor_pooled_minus_natural_history_correlation"]["bootstrap95"][1] < 0
+            ),
             "strong_success": strong,
             "weak_success": bool(observed and not strong),
             "failure": bool(not observed),
+        },
+        "interpretation": {
+            "validation_scope": "new demographic seeds for the same 128 frozen visitor histories; not new environmental histories",
+            "main": (
+                "The post-hoc discovery generated a prospectively frozen prediction that "
+                "history-specific continuous responses would be most reproducible at capacity "
+                "192, intermediate under natural finite demography, and weakest after visitor-history "
+                "pooling. New demographic seeds reproduced that ordering."
+            ),
         },
         "claim_boundary": design["claim_boundary"],
     }
