@@ -1,4 +1,4 @@
-# Where repeatability breaks in an island floral syndrome: recurrent pollination problems generate divergent evolutionary solutions
+# Where repeatability breaks in an island floral syndrome: a generative model separates aggregate recurrence from evolutionary parallelism
 
 **Status:** Evolution Letters candidate; separate from the locked Oikos submission surface  
 **Updated:** 2026-10-03  
@@ -12,7 +12,7 @@ We examined one eco-evolutionary Model 3 at four nested stages: immediate reprod
 
 Functional replacement at identical visitor number redirected selection across starting floral states, showing that a repeated decline in pollination cannot be reduced to visitor quantity. Yet the deterministic mean isolation response remained negative across inbreeding-depression values 0.25, 0.50 and 0.75. At 0.75, however, history-level direction became non-uniform. Restricting standing genetic variation selectively suppressed response on the constrained trait axis, whereas mutation narrowed this accessibility gap through time. Reproductive assurance preserved persistence but failed as a universal route to reduced floral investment, and finite histories and demography further diversified realized outcomes.
 
-Thus repeatability is stage dependent: a recurrent ecological problem can preserve a coarse functional response after repeatability of detailed evolutionary solutions has begun to decay. Island floral syndromes may therefore emerge as partially repeatable outcomes rather than single evolutionary endpoints.
+Within the declared model, repeatability is stage dependent: an aggregate syndrome-like response can persist after history-level evolutionary parallelism has begun to fail. This is a constructive sufficiency result, not an estimate of how often the mechanism operates in nature. It yields a falsifiable prediction for natural islands: repeatability should be stronger for quantities close to the shared ecological problem than for detailed inherited and population-specific trajectories.
 
 ## Keywords
 
@@ -47,6 +47,16 @@ We organize inference into four stages.
 **Finite realization** exposes the inherited process to recruitment, survival, extinction, ancestry change, chronology and connectivity.
 
 A result can therefore be repeatable at one stage and non-repeatable at the next.
+
+## Claim hierarchy and simulation inference ceiling
+
+The simulation is used to establish **sufficiency and separation**, not natural prevalence or necessity. We distinguish three claim levels.
+
+1. **Model-established result.** Within the declared operator and tested parameter envelope, aggregate directional recurrence and trajectory-level parallelism can dissociate, and prospective interventions identify sufficient mechanisms for that dissociation.
+2. **General logical implication.** Observation of a recurrent syndrome does not, by itself, entail that the underlying evolutionary trajectories were recurrent. The model supplies a constructive counterexample to that inference.
+3. **Empirical prediction.** If the same architecture contributes to natural island evolution, repeatability should be stronger for ecological function or coarse response than for detailed inherited traits and realized population trajectories. This prediction is not established by the simulation and requires independent longitudinal tests.
+
+The model does not estimate how common any route is in nature, which route dominates a named archipelago, or the natural effect size or evolutionary rate of any transition.
 
 **Table 1. Stage-specific repeatability diagnostics.** The stages are deliberately not reduced to one scalar because they measure different biological objects.
 
@@ -101,7 +111,7 @@ Despite state-dependent selection in controlled rematching experiments, the isol
 
 The stronger form of repeatability—uniform direction across individual visitor histories—was less stable. At inbreeding depression 0.25 and 0.50, history-level direction remained uniformly negative across starting states. At 0.75, 116 of 128 histories remained negative-only, 11 became mixed across starting states and one became positive-only.
 
-Thus the first loss of repeatability is scale dependent. The intervention-averaged inherited direction can remain stable even after some ecological histories cease to share one direction. A syndrome-like mean can therefore coexist with non-parallel history-level responses before demographic stochasticity is introduced.
+Thus aggregate recurrence and replicate-level parallelism are distinct even before demographic stochasticity is introduced. Within the declared model, the intervention-averaged inherited direction can remain stable after some ecological histories cease to share one direction. This establishes the model-level dissociation; it does not establish its frequency in natural populations.
 
 ## Reproductive assurance preserves trajectories but does not provide a universal reduction mechanism
 
@@ -137,13 +147,15 @@ What the archive does not contain is equally important. No complete same-unit re
 
 # Discussion
 
-## Island syndromes can be repeatable without being single endpoints
+## A recurrent syndrome does not imply recurrent trajectories
 
-The central result is a hierarchy of repeatability. A recurrent island-like pollination problem does not force one detailed evolutionary solution, yet this does not make the response arbitrary. Coarse deterministic direction persisted across a substantial reproductive-context sensitivity, even as individual histories lost uniformity. Downstream, unequal standing variation and finite realization further diversified responses.
+The strongest general inference is deliberately asymmetric: **a recurrent syndrome does not imply recurrent evolutionary trajectories**. The simulation establishes this constructively by exhibiting a biologically explicit system in which an aggregate directional pattern persists after history-level parallelism has begun to fail. It does not establish the converse, nor does it show that natural island syndromes usually arise this way.
+
+The central model result is therefore a hierarchy of repeatability. A recurrent island-like pollination problem does not force one detailed evolutionary solution, yet this does not make the response arbitrary. Coarse deterministic direction persisted across a substantial reproductive-context sensitivity, even as individual histories lost uniformity. Downstream, unequal standing variation and finite realization further diversified responses.
 
 This provides a mechanistic interpretation of an empirical tension in island biology. Island syndromes are defined by recurring trait differences, but support for individual plant components is uneven and some large comparative tests reject simple universal predictions such as island-wide floral reduction (Hetherington-Rauth & Johnson 2020; Ciarle & Burns 2025). In birds, parallel insular phenotypes can also coexist with largely population-specific genomic differentiation (Jezierski et al. 2026). Our result does not claim this phenotype–genome mismatch as new; instead it predicts how losses of repeatability can accumulate across explicit biological stages. Selection can recur more strongly than detailed trait change, and functional response can recur more strongly than one realized phenotype.
 
-The appropriate prediction is therefore not that every island lineage converges on the same floral phenotype. It is that recurrence should be strongest for biological quantities closest to the shared ecological problem and progressively weaker for quantities filtered by reproductive context, genetic accessibility and finite history.
+The resulting empirical prediction is not that every island lineage converges on the same floral phenotype. If this architecture contributes materially in nature, recurrence should be strongest for biological quantities closest to the shared ecological problem and progressively weaker for quantities filtered by reproductive context, genetic accessibility and finite history. That ordering remains a prediction until tested with independent natural data.
 
 ## This differs from treating parallel evolution as a single continuum score
 
@@ -175,7 +187,7 @@ That negative result is informative because it identifies reproductive context a
 
 The model is mechanistic but deliberately uncalibrated. Access and investment are abstract functional traits, model generations are not literal years, and synthetic distances are not kilometres. The model cannot estimate the evolutionary response of a named island flora, reconstruct a historical Bombus transition or predict a particular colour or corolla dimension.
 
-Its contribution is structural. It yields a testable ordering of measurements for real island systems: quantify the pollinator perturbation, measure immediate reproductive selection or effective pollen transfer, estimate inherited change, measure standing genetic variation or genomic accessibility where possible, and retain demographic history rather than conditioning only on survivors. Longitudinal systems that observe several of these stages in the same populations would provide the strongest falsification.
+Its contribution is structural rather than calibrated. It yields a testable ordering of measurements for real island systems: quantify the pollinator perturbation, measure immediate reproductive selection or effective pollen transfer, estimate inherited change, measure standing genetic variation or genomic accessibility where possible, and retain demographic history rather than conditioning only on survivors. Longitudinal systems that observe several of these stages in the same populations would provide the strongest falsification.
 
 The same logic also extends beyond islands. Any repeated environmental transition can produce a recognizable syndrome while losing parallelism at different biological stages. Islands are valuable here because they supply recurrent ecological perturbations and a mature syndrome literature in which incomplete repeatability is already an empirical problem.
 
@@ -183,11 +195,11 @@ The same logic also extends beyond islands. Any repeated environmental transitio
 
 A repeated ecological problem need not produce either perfect convergence or unconstrained contingency. In one explicit pollination–inheritance–demography model, island-like constraints preserved a coarse deterministic response after stronger forms of repeatability had begun to fail. Functional replacement redirected selection, reproductive context changed sign boundaries, unequal standing variation filtered reachable trait change, and finite histories diversified realized endpoints.
 
-The island floral syndrome is therefore best viewed here not as a single destination but as a partially repeatable evolutionary process. The general prediction is stage specific: **repeatability should be highest closest to the shared ecological function and should decline as selection is filtered through reproductive context, genetic accessibility and finite realization.**
+The simulation therefore establishes a narrower but stronger principle: **aggregate recurrence does not require trajectory-level evolutionary parallelism**. For natural island floral syndromes, the corresponding stage ordering remains a prediction: if this mechanism contributes in nature, repeatability should be highest closest to the shared ecological problem and weaker after reproductive, genetic and demographic filtering.
 
 # Figure captions
 
-**Figure 1. The repeatability ladder from recurrent island-like pollination problems to realized floral evolution.** Replicated ecological problems enter Model 3 through visitor amount and functional composition. Immediate reproductive selection can be state dependent; deterministic inherited expectations can preserve a coarse mean direction while history-level responses diverge; standing variation and mutation filter which responses are genetically reachable; and finite demography, chronology and connectivity determine which trajectories are realized. Branching width is conceptual and does not imply one common numerical repeatability scale.
+**Figure 1. Aggregate recurrence can persist after trajectory-level parallelism breaks.** The upper layer shows the coarse syndrome-like signal visible after aggregation; the lower layer follows the same cases through visitor environment, immediate selection, deterministic inheritance, genetic accessibility and finite realization. Branching can increase downstream while the aggregate direction remains stable. This is a model-level constructive result, not a claim that natural systems share one numerical repeatability scale or the same branch frequencies.
 
 **Figure 2. Repeatability can fail at the ecological-selection stage.** Same-count functional rematching redirects the investment gradient across starting access states, while duplicating visitor entries at fixed total activity leaves the operator unchanged. The panel separates visitor amount from functional composition and shows why identical losses in visitor number need not imply identical selection.
 
