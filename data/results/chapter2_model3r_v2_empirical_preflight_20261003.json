@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_model3r_v2_preflight_failure",
+  "date": "2026-10-03",
+  "design": "data/design/chapter2_model3r_v2_empirical_emulation_20261003.json",
+  "target": "data/design/chapter1_corrected_empirical_emulation_targets_20261003.json",
+  "empirical_world": "data/input/chapter1_corrected_covariate_sample_512_20261003.csv",
+  "ci": {
+    "pull_request": 386,
+    "python_3_11_full_preflight": true,
+    "draws": 64,
+    "seed": 32006,
+    "preflight_islands": 128,
+    "lineages_per_island": 4
+  },
+  "passes": 0,
+  "best": {
+    "draw": 2,
+    "H3_pollen_limitation_isolation_beta": 0.09023803229613268,
+    "H4_assurance_to_pollen_limitation_beta": 0.15646926157177857,
+    "H4_generalization_to_pollen_limitation_beta": -0.06805080037935857,
+    "failed_targets": [
+      "H2_selfing:northern_midlatitude",
+      "H2_generalization:northern_midlatitude",
+      "H2_generalization:northern_high_latitude",
+      "H2_generalization:tropical",
+      "H4_assurance"
+    ],
+    "z": {
+      "H3": -0.04393761533709585,
+      "H4_assurance": 4.3930121725139735,
+      "H4_generalization": 1.7648886152859449,
+      "H2_selfing:northern_midlatitude": 2.1200271644699207,
+      "H2_selfing:northern_high_latitude": 0.7533724445117852,
+      "H2_selfing:tropical": 1.1110900839607378,
+      "H2_selfing:southern_extratropical": -0.3153754276473623,
+      "H2_generalization:northern_midlatitude": -2.2407331422796055,
+      "H2_generalization:northern_high_latitude": -4.0911170070557645,
+      "H2_generalization:tropical": -3.18595957859713,
+      "H2_generalization:southern_extratropical": -1.4251573385871215
+    }
+  },
+  "diagnosis": {
+    "H3": "Using real island covariates plus distance/climate-dependent visitor assembly reproduces the corrected isolation-to-pollen-limitation slope closely.",
+    "H2_selfing": "Isolation-driven assurance response is broadly recoverable; three of four context coefficients are within two empirical SE in the best draw and northern mid-latitude is just outside.",
+    "H2_generalization": "Contemporary adaptive response to visitor assembly does not reproduce the corrected positive generalized-accessible|selfing slopes. Best-draw coefficients are negative in all four contexts.",
+    "H4_assurance": "The sign remains opposite to the empirical exact-species association. Within-island lineages experiencing poor current pollination evolve higher assurance, creating compensatory positive trait-PL covariance that overwhelms assurance's direct reduction of pollen limitation.",
+    "structural_inference": "The remaining mismatch is consistent with a missing colonization/assembly filter. Chapter 1 measures composition of island floras, where high-assurance and accessible species can be preferentially admitted under isolation before or in addition to within-island adaptation."
+  },
+  "decision": "do_not_expand_v2_search; test_assembly_first_Model3R_v3_before_adding_further_evolutionary_mechanisms",
+  "claim_boundary": [
+    "Model3R-v2 is a prospective negative result; no larger search of the same structure is authorized as a rescue.",
+    "H3 reproduction alone does not constitute realistic reproduction of the Chapter 1 island syndrome.",
+    "H1 atomic and colour holdouts remained unused.",
+    "The v2 failure motivates an assembly/colonization filter because that process is directly relevant to the contemporary island-flora composition analysed in Chapter 1."
+  ]
+}
