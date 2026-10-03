@@ -83,7 +83,8 @@ def test_integrated_manuscript_retains_established_extensions_and_failures() -> 
         "mutation narrows the gap",
         "the original depression-0.50, 200-season bridge remains the biologically interpretable focal backbone",
         "retain the depression-0.75 labels only as a mathematical closure sensitivity",
-        "98.18% of far history-by-start density trajectories are below one expected individual",
+        "was below one individual in 98.18% of history-by-start cells",
+        "all 384 corresponding far populations were extinct by season 200",
         "earlier 9.4% mutation-rescue/standing-variation ratio is not retained",
     ):
         assert token in lower
