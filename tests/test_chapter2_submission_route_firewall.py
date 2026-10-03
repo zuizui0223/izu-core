@@ -9,7 +9,7 @@ def test_current_manuscript_is_model3_ecological_surface():
     lower = ACTIVE.read_text(encoding="utf-8").lower()
     assert "from pollination ecology to realized floral evolution" in lower
     assert "reproductive selection before demographic change" in lower
-    assert "expected inherited evolution without demographic sampling" in lower
+    assert "conditional deterministic genotype-density propagation without demographic sampling" in lower
     assert "realized evolution in finite populations" in lower
     assert "annual response-blind richness matching" in lower
     assert "pooling eight independent visitor histories" in lower
