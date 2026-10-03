@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "date": "2026-10-03",
-  "status": "prospective_frozen_before_new_environmental_history_execution",
+  "status": "superseded_before_execution",
   "analysis": "chapter2_new_visitor_history_generalization_validation",
   "discovery_basis": {
     "exploratory_result": "data/results/chapter2_finite_history_signal_diagnostic_20261003.json",
@@ -196,5 +196,16 @@
     "Capacity scaling and visitor pooling are biological interventions, not pure statistical manipulations.",
     "No natural variance component, prevalence, evolutionary rate or field effect size is inferred.",
     "Failure demotes the general-history mechanism claim even if the earlier same-history demographic validation succeeded."
-  ]
+  ],
+  "superseded_by": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+  "supersession": {
+    "reason": "The later pre-execution contract formalized the same 75001-75128 / 301-304 validation, changed only the bootstrap RNG seed, added an explicit occupancy >=0.95 success guard, expanded secondary reporting, and tightened claim boundaries.",
+    "earlier_design_commit": "6898a0954b36a03e6839985cfd7649a27b93f6d6",
+    "earlier_design_commit_utc": "2026-10-03T14:56:21Z",
+    "canonical_design_commit": "6bac0410e4459e391dd5fba02bd9b63bed8d4fb9",
+    "canonical_design_commit_utc": "2026-10-03T21:32:52Z",
+    "first_validation_workflow_started_utc": "2026-10-03T21:35:35Z",
+    "outcomes_generated_under_earlier_design": false,
+    "canonical_execution_design_frozen_before_execution": true
+  }
 }
