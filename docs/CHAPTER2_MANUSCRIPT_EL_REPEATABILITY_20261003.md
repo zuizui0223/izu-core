@@ -1,4 +1,4 @@
-# Directional parallelism can mask opposite changes in historical repeatability in a generative island-floral model
+# Directional similarity can mask opposite changes in historical repeatability in a generative island-floral model
 
 **Status:** preferred journal candidate Evolution Letters; Ecology Letters fallback only after ecological recast; separate from the locked Oikos submission surface  
 **Updated:** 2026-10-03  
@@ -53,7 +53,7 @@ A result can therefore be repeatable at one stage and non-repeatable at the next
 The simulation is used to establish **sufficiency and separation**, not natural prevalence or necessity. We distinguish three claim levels.
 
 1. **Model-established result.** At the occupied 200-season finite-population horizon, directional sign uniformity and reproducible visitor-history effects are distinct. Two interventions can both reduce mixed-sign histories while moving continuous history reliability in opposite directions.
-2. **General logical implication.** An apparent increase in directional parallelism does not, by itself, identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
+2. **General logical implication.** An apparent increase in directional similarity does not, by itself, identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
 3. **Empirical prediction.** Natural tests should measure both direction and reproducibility of population-specific effect magnitudes, while treating genetic-accessibility rankings as potentially time dependent.
 
 The model does not estimate natural equilibrium time, how common any route is in nature, which route dominates a named archipelago, or the natural effect size or evolutionary rate of any transition.
@@ -113,7 +113,7 @@ Functional replacement mattered even when visitor number was unchanged. The maxi
 
 Duplicating each left-shifted visitor type to create eight visitor entries changed the fixed-state, deterministic and finite-population operators by at most 1.78 × 10^-15 when total activity was fixed. The model therefore distinguishes functional composition from simple visitor-entry count. A recurrent decline in pollinator service is not sufficient to specify a single selection direction unless the functional visitor environment and starting floral state are also specified.
 
-## Directional parallelism and historical repeatability separate in finite populations
+## Directional similarity and historical repeatability separate in finite populations
 
 At depression 0.50 and season 200, the finite ABM mean far-minus-near investment effect was -0.1446 (95% history-bootstrap interval -0.1588 to -0.1306), and all 3,072 near and 3,072 far cases were occupied. Mean-over-eight sign labels were mixed in 12/128 histories at deadband 0, but 97/128 histories showed disagreement among repeat-specific labels. Sign counts alone therefore did not identify a stable history effect.
 
@@ -164,18 +164,18 @@ What the archive does not contain is equally important. No complete same-unit re
 
 # Discussion
 
-## Directional parallelism does not identify historical repeatability
+## Directional similarity does not identify historical repeatability
 
-The strongest result is not the count of mixed histories. It is the separation between **directional parallelism** and **reproducibility of history-specific effect magnitude**. In the natural finite bridge, individual trajectories were noisy, yet averaging the eight declared demographic repeats recovered a reproducible visitor-history signal.
+The strongest result is not the count of mixed histories. It is the separation between **directional similarity** and **reproducibility of history-specific effect magnitude**. In the natural finite bridge, individual trajectories were noisy, yet averaging the eight declared demographic repeats recovered a reproducible visitor-history signal.
 
-The capacity and pooling interventions expose why this distinction matters. Both made mean history labels almost uniformly negative. Larger plant populations did so while demographic residual variance fell and history reliability increased; visitor-history pooling did so while the reproducible history component collapsed. The same apparent gain in directional parallelism therefore arose once because historical effects became clearer relative to demographic noise and once because environmental-history structure was averaged away.
+The capacity and pooling interventions expose why this distinction matters. Both made mean history labels almost uniformly negative. Larger plant populations did so while demographic residual variance fell and history reliability increased; visitor-history pooling did so while the reproducible history component collapsed. The same apparent gain in directional similarity therefore arose once because historical effects became clearer relative to demographic noise and once because environmental-history structure was averaged away.
 
 This makes sign uniformity an incomplete diagnostic of evolutionary repeatability. A population set can become more parallel in direction while retaining, strengthening or losing reproducible differences in magnitude. For natural systems, repeated populations should therefore be compared with replicated estimates of effect magnitude, not classified only by whether they move in the same direction.
 
 The temporal accessibility result is distinct: standing variation accelerated early response, but continuing mutation caught and overtook that reference. The high-depression long-horizon density stress test crossed quasi-extinction and cannot identify a persisting long-run syndrome trajectory.
 ## This differs from treating parallel evolution as a single continuum score
 
-Direction-versus-magnitude measurement is not our novelty. Oke et al. (2017), Venkataram & Kryazhimskiy (2023) and Arendt et al. (2025) already show that parallelism/repeatability depends on which trajectory property is measured. Our contribution is mechanistic: within one operator and endpoint, two interventions produce nearly the same gain in directional uniformity while driving reproducible historical structure in opposite directions.
+Direction-versus-magnitude measurement is not our novelty. Oke et al. (2017), Venkataram & Kryazhimskiy (2023) and Arendt et al. (2025) already show that repeatability depends on which trajectory property is measured; Arendt et al. further caution that a general direction metric should not simply be equated with geometric parallelism. Bisschop et al. (2026) additionally showed experimentally that environmental and demographic heterogeneity can reduce evolutionary repeatability. Our contribution is narrower and mechanistic: within one operator and endpoint, two interventions produce nearly the same gain in directional sign uniformity while driving reproducible visitor-history structure in opposite directions.
 
 Repeatability is therefore multidimensional rather than one latent score. Direction, continuous magnitude, historical imprint and demographic realization need not rank interventions identically. The deterministic closure also remained directionally uniform throughout the tested viable isolation envelope, so finite history structure cannot be read simply as deterministic branches revealed by sampling.
 
@@ -203,7 +203,7 @@ That negative result is informative because it identifies reproductive context a
 
 The model is mechanistic but uncalibrated. Traits are abstract, seasons are not geological time and distances are synthetic. A 6,400-season stationary run does not reconstruct island history, and the model cannot predict a named flora, historical Bombus transition, colour or corolla dimension.
 
-Its structural prediction is measurable: natural studies should quantify pollinator amount and composition, reproductive response, inherited change, repeated population-level effect magnitudes, genetic accessibility and demographic history. Such longitudinal data could distinguish directional parallelism from reproducible historical differences rather than conditioning only on survivors.
+Its structural prediction is measurable: natural studies should quantify pollinator amount and composition, reproductive response, inherited change, repeated population-level effect magnitudes, genetic accessibility and demographic history. Such longitudinal data could distinguish directional similarity from reproducible historical differences rather than conditioning only on survivors.
 
 The logic may extend beyond islands, but islands remain useful because recurrent ecological perturbations and an explicit syndrome literature make incomplete repeatability a concrete empirical problem.
 
@@ -211,7 +211,7 @@ The logic may extend beyond islands, but islands remain useful because recurrent
 
 At the occupied 200-season finite-population window, directional sign uniformity and reproducible history-specific magnitude were distinct properties. Increasing plant capacity and pooling visitor histories both made direction more uniform, yet the former increased history reliability while the latter nearly erased it.
 
-The bounded principle is therefore sharper: **apparent directional parallelism does not uniquely identify evolutionary repeatability or its mechanism.** Historical imprint can become more reproducible, less reproducible or temporally reweighted while the aggregate direction looks increasingly parallel. Natural variance components, long-run attractors and route prevalences remain empirical quantities rather than outputs of this uncalibrated model.
+The bounded principle is therefore sharper: **greater directional similarity does not uniquely identify greater evolutionary repeatability or its mechanism.** Historical imprint can become more reproducible, less reproducible or temporally reweighted while the aggregate direction looks increasingly parallel. Natural variance components, long-run attractors and route prevalences remain empirical quantities rather than outputs of this uncalibrated model.
 
 # Figure captions
 
@@ -219,7 +219,7 @@ The bounded principle is therefore sharper: **apparent directional parallelism d
 
 **Figure 2. Repeatability can fail at the ecological-selection stage.** Same-count functional rematching redirects the investment gradient across starting access states, while duplicating visitor entries at fixed total activity leaves the operator unchanged. The panel separates visitor amount from functional composition and shows why identical losses in visitor number need not imply identical selection.
 
-**Figure 3. The same directional parallelism can conceal opposite changes in history signal.** Natural, visitor-pooled and capacity-192 finite bridges are compared using mixed-sign history counts, demographic residual variance, history-structured variance, eight-repeat reliability and split-half history correlation. Pooling and larger capacity both nearly eliminate mixed-sign mean labels, but pooling suppresses reproducible history structure whereas larger capacity strengthens it relative to demographic noise. A small inset marks the deterministic persistence boundary that excludes the high-depression closure from population-level inference.
+**Figure 3. The same directional similarity can conceal opposite changes in history signal.** Natural, visitor-pooled and capacity-192 finite bridges are compared using mixed-sign history counts, demographic residual variance, history-structured variance, eight-repeat reliability and split-half history correlation. Pooling and larger capacity both nearly eliminate mixed-sign mean labels, but pooling suppresses reproducible history structure whereas larger capacity strengthens it relative to demographic noise. A small inset marks the deterministic persistence boundary that excludes the high-depression closure from population-level inference.
 
 **Figure 4. Finite realization and empirical claim boundary.** Chronology, pollinator connectivity, seed connectivity, demographic sampling and extinction further diversify inherited endpoints. Source-audited natural island systems confront individual causal layers but do not provide a complete same-unit longitudinal chain; no named island is fitted to a synthetic Model 3 cell.
 
@@ -230,6 +230,8 @@ Oke KB, Rolshausen G, LeBlond C, Hendry AP. 2017. How Parallel Is Parallel Evolu
 Venkataram S, Kryazhimskiy S. 2023. Evolutionary repeatability of emergent properties of ecological communities. *Philosophical Transactions of the Royal Society B* 378:20220047. doi:10.1098/rstb.2022.0047.
 
 Arendt JD, Travis J, Reznick DN. 2025. On Measurements of Phenotypic Parallel Evolution. *The American Naturalist* 206:198–205. doi:10.1086/736845.
+
+Bisschop K, et al. 2026. Additive effects of environmental and demographic variation shape the repeatability of evolution across replicated experiments. *Evolution Letters* 10:382–395. doi:10.1093/evlett/qrag017.
 
 Abe T. 2006. Threatened pollination systems in native flora of the Ogasawara (Bonin) Islands. *Annals of Botany* 98:317–334. doi:10.1093/aob/mcl117.
 
