@@ -218,7 +218,7 @@ The original isolation bridge remains the macroecological middle layer of this a
 
 Repeatability is therefore scale dependent even before finite demography. A common pollination problem can preserve a directional mean while losing lineage/history-level uniformity. The later filters compound that loss: functional replacement can redirect selection, available standing variation changes how much response is reachable, and visitor-history sampling plus finite plant demography change which inherited trajectories are realized.
 
-This hierarchy provides the bridge to Chapter 1 without requiring a universal synthetic backbone. Reproductive assurance and accessibility can recur as broad functions while detailed display remains non-convergent because repeatability is progressively weakened by state, reproductive context, genetic accessibility, chronology and finite realization.
+This hierarchy shows how a recurrent functional response can coexist with non-convergent detailed phenotype: the shared ecological regime persists at a coarse level while state, reproductive context, genetic accessibility, chronology and finite realization diversify its expression.
 
 ## Geographic isolation compresses distinct ecological connections
 
