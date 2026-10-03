@@ -26,6 +26,7 @@ def test_main_manuscript_rtf_has_oikos_review_format_controls_and_mechanism_main
     assert "pooling eight independent visitor histories" in lower
     assert "increasing plant capacity from 48 to 192" in lower
     assert "41.5%" in text
+    assert "descriptive only" in lower
     assert "real islands occupy different stages of the same response architecture" in lower
     assert "all eight shared oshima-to-post targets" in lower
     assert "same-direction propagation case" in lower
