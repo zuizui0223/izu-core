@@ -4,7 +4,7 @@
   "status": "repeatability_candidate_evolution_letters_preferred_separate_from_active_oikos",
   "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
   "active_oikos_submission_replaced": false,
-  "editorial_question": "When does greater directional parallelism reflect greater evolutionary repeatability, and when can it mask a persistent historical imprint?",
+  "editorial_question": "When does greater directional similarity reflect greater evolutionary repeatability, and when can it mask a persistent historical imprint?",
   "framing": {
     "upper_level": "evolutionary repeatability / nonparallel evolution",
     "biological_testbed": "pollination-mediated plant island syndrome",
@@ -16,7 +16,7 @@
       "genetic_accessibility_and_persistence"
     ]
   },
-  "safe_claim": "Within the occupied depression-0.50 finite ABM, plant-capacity increase and visitor-history pooling both reduce mixed-sign history labels but shift reproducibility of continuous history effects in opposite directions.",
+  "safe_claim": "Within the occupied depression-0.50 finite ABM, plant-capacity increase and visitor-history pooling both increase directional sign uniformity but shift reproducibility of continuous history effects in opposite directions.",
   "prohibited_claims": [
     "first connection between island syndrome and parallel evolution",
     "first mechanism for nonparallel evolution",
@@ -41,7 +41,9 @@
     "larger plant capacity as a pure statistical noise-reduction manipulation",
     "visitor-history pooling as a pure statistical noise-reduction manipulation",
     "first distinction between direction and magnitude as dimensions of evolutionary parallelism",
-    "first claim that different parallelism metrics measure different trajectory properties"
+    "first claim that different parallelism metrics measure different trajectory properties",
+    "directional sign similarity as identical to geometric parallelism",
+    "first demonstration that environmental or demographic heterogeneity changes evolutionary repeatability"
   ],
   "key_literature": [
     {
@@ -93,6 +95,11 @@
       "citation": "Arendt et al. 2025",
       "doi": "10.1086/736845",
       "role": "parallelism metrics measure different trajectory properties; be explicit about angle, direction and length"
+    },
+    {
+      "citation": "Bisschop et al. 2026",
+      "doi": "10.1093/evlett/qrag017",
+      "role": "direct Evolution Letters precedent that environmental and demographic heterogeneity alter evolutionary repeatability; narrows novelty to opposite mechanisms hidden by similar directional uniformity"
     }
   ],
   "format_target": {
@@ -114,7 +121,7 @@
       "fit": "scope recast and/or abstract compression required"
     }
   },
-  "general_logical_implication": "Greater directional parallelism does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.",
+  "general_logical_implication": "Greater directional similarity does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.",
   "empirical_prediction": "Repeated-population studies should estimate both response direction and reproducibility of effect magnitude; genetic-accessibility rankings may additionally change as new variation accumulates.",
   "claim_levels": {
     "model_established": [
@@ -201,7 +208,7 @@
     },
     "interpretation": "The same reduction in mixed-sign labels can occur while reproducible history structure strengthens relative to demographic noise or while that history structure is erased by environmental averaging."
   },
-  "novelty_boundary": "Direction-versus-magnitude multidimensionality is established. The candidate contribution is the model-internal mechanistic counterexample in which the same increase in directional sign uniformity accompanies opposite changes in reproducible visitor-history structure.",
+  "novelty_boundary": "Direction-versus-magnitude multidimensionality and environmental/demographic effects on repeatability are established. The candidate contribution is the model-internal mechanistic counterexample in which the same increase in directional sign uniformity accompanies opposite changes in reproducible visitor-history structure.",
   "journal_fit_rationale": {
     "evolution_letters": "Current central question concerns evolutionary repeatability, parallelism, historical contingency and mechanistic evolutionary trajectories; island pollination is the biological testbed.",
     "ecology_letters": "Current manuscript is not centered on a new general ecological principle strongly enough for the journal's stated ecology nexus; a fallback would require recentering on ecological history averaging and community composition."
