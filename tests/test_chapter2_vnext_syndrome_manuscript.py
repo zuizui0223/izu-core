@@ -27,20 +27,20 @@ def test_vnext_is_explicitly_separate_from_locked_submission() -> None:
     assert lock["active_manuscript"] == manifest["active_manuscript"]
 
 
-def test_vnext_abstract_locates_where_repeatability_is_lost() -> None:
+def test_vnext_abstract_centers_generative_island_syndrome() -> None:
     text = _text()
     abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     lower = abstract.lower()
     words = abstract.split()
     assert 180 <= len(words) <= 300
-    assert "where repeatability is retained or lost" in lower
-    assert "failed a preregistered robustness test" in lower
+    assert "common island-like pollination constraint" in lower
+    assert "recurrent coarse functional response" in lower
+    assert "without requiring one recurrent detailed floral endpoint" in lower
+    assert "failed its preregistered robustness rule" in lower
     assert "standing genetic variation" in lower
-    assert "116/128" in lower
-    assert "11 were mixed" in lower
-    assert "one was positive-only" in lower
-    assert "locate where syndrome-component repeatability is retained, redirected or lost" in lower
-    assert "rather than merely to show that the pathway can be partitioned into modules" in lower
+    assert "island-syndrome-like hierarchy" in lower
+    assert "repeatability loss" in lower
+    assert "not the primary question" in lower
 
 
 def test_vnext_propagates_backbone_qualification() -> None:
@@ -51,8 +51,8 @@ def test_vnext_propagates_backbone_qualification() -> None:
         "116/128 remained negative-only",
         "11/128 were mixed",
         "1/128 was positive-only",
-        "where repeatability is retained and lost",
-        "the same perturbation is carried through them",
+        "a recurrent coarse regime can coexist with non-uniform detailed trajectories",
+        "repeatability is therefore scale dependent",
     ):
         assert phrase in lower
     assert "natural deterministic density is one-directional" not in lower
@@ -81,7 +81,7 @@ def test_vnext_lock_records_final_establishment_decisions() -> None:
     assert lock["establishment_decisions"]["deterministic_backbone"] == "negative_mean_robust_across_depression_0_25_to_0_75_but_uniform_history_direction_fails_at_0_75"
     assert lock["retained_negative_results"]["route_A_robustness"]["supported"] is False
     assert lock["retained_negative_results"]["deterministic_backbone_uniformity"]["supported"] is False
-    assert lock["establishment_status"] == "five_criteria_plus_backbone_propagation_plus_full_clean_reproduction_closed"
+    assert lock["establishment_status"] == "generative_island_syndrome_vnext_plus_backbone_propagation_plus_full_clean_reproduction_closed"
     assert backbone["backbone_mean_direction_robust"] is True
     assert backbone["uniform_history_direction_robust"] is False
     assert backbone["reports"][2]["mixed_histories_eps0"] == 11
@@ -90,21 +90,27 @@ def test_vnext_lock_records_final_establishment_decisions() -> None:
 
 
 
-def test_vnext_title_and_methods_center_repeatability_transmission() -> None:
+def test_vnext_title_and_methods_center_generative_syndrome() -> None:
     text = _text()
     first = text.splitlines()[0]
-    assert "Where island-syndrome repeatability is retained and lost" in first
-    assert "## Operational definition of repeatability across stages" in text
+    assert "Island-like pollination constraints generate recurrent functional responses" in first
+    assert "## Generative criterion and secondary repeatability diagnostics" in text
     for phrase in (
+        "generative syndrome structure",
         "Coarse directional repeatability",
         "History-level repeatability",
         "Genetic accessibility",
         "Finite realization",
-        "location and scale of repeatability loss",
+        "secondary diagnostics explaining why a generated syndrome",
     ):
         assert phrase in text
+    lower = text.lower()
+    assert "chapter 1 of this dissertation" not in lower
+    assert "chapter 1 identifies which broad syndrome components" not in lower
     lock = json.loads(VNEXT_LOCK.read_text(encoding="utf-8"))
-    assert "transmission of repeatability" in lock["novelty_boundary"]["novel_target"]
+    assert "generates an island-syndrome-like functional response" in lock["novelty_boundary"]["novel_target"]
+    assert lock["empirical_emulation_boundary"]["chapter2_success_criterion"] is False
+    assert lock["empirical_emulation_boundary"]["quantitative_external_coefficient_reproduction_required"] is False
 
 
 def test_vnext_has_one_coherent_figure_plan() -> None:
