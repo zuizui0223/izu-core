@@ -3,7 +3,9 @@ from pathlib import Path
 
 from scripts.generate_chapter2_repeatability_figures import (
     build_repeatability_figure1,
+    build_repeatability_figure2,
     build_repeatability_figure3,
+    build_repeatability_figure4,
 )
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -28,6 +30,19 @@ def test_repeatability_figure1_regenerates_conceptual_map():
     assert "conceptual causal map only" in payload["claim_boundary"]
     assert "not calibrated natural effect sizes" in payload["claim_boundary"]
 
+    for relpath in payload["figure_outputs"]:
+        p=ROOT/relpath
+        assert p.exists() and p.stat().st_size > 1000
+
+
+def test_repeatability_figure2_uses_frozen_functional_rematching_audit():
+    payload=build_repeatability_figure2()
+    assert payload["status"]=="repeatability_figure2_uses_frozen_functional_rematching_audit"
+    assert payload["duplicate_control_pass"] is True
+    assert payload["fixed_composition_effect_max"] > 2.3
+    assert payload["deterministic_composition_effect_max"] > 0.18
+    assert payload["duplicate_control_max_abs_error"] < 2e-15
+    assert "not a calibrated natural richness" in payload["claim_boundary"]
     for relpath in payload["figure_outputs"]:
         p=ROOT/relpath
         assert p.exists() and p.stat().st_size > 1000
@@ -65,3 +80,16 @@ def test_repeatability_figure3_uses_independent_visitor_history_validation():
 
     inputs=json.loads((ROOT/"data/results/chapter2_repeatability_figure_inputs_20261003.json").read_text())
     assert inputs==payload
+
+
+def test_repeatability_figure4_uses_frozen_finite_and_source_locked_natural_results():
+    payload=build_repeatability_figure4()
+    assert payload["status"]=="repeatability_figure4_uses_frozen_finite_and_source_locked_natural_results"
+    assert payload["chronology_cells"]==["order_early_gap","order_late_gap","order_uninterrupted"]
+    assert payload["assurance_occupancy"]==[0.0,1.0,1.0]
+    assert payload["formal_full_contracts"]=="0_of_25"
+    assert sum(payload["propagation_state_counts"].values())==14
+    assert "not fitted Model 3 cells" in payload["claim_boundary"]
+    for relpath in payload["figure_outputs"]:
+        p=ROOT/relpath
+        assert p.exists() and p.stat().st_size > 1000
