@@ -250,25 +250,27 @@ def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
     assert "new demographic seed validation as natural-island validation" in prohibited
 
 
-def test_validation_receipt_hashes_match_committed_execution_surface():
+def test_validation_receipt_distinguishes_execution_provenance_from_committed_reproduction():
     receipt = json.loads(VALIDATION_RECEIPT.read_text(encoding="utf-8"))
 
     def sha256(path: Path) -> str:
         return hashlib.sha256(path.read_bytes()).hexdigest()
 
-    actual_runner = sha256(VALIDATION_RUNNER)
-    actual_summarizer = sha256(VALIDATION_SUMMARIZER)
-    actual_snapshot = sha256(VALIDATION_SOURCE_SNAPSHOT)
+    def git_blob_sha(path: Path) -> str:
+        data = path.read_bytes()
+        return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\\0" + data).hexdigest()
 
-    assert actual_runner == receipt["execution"]["local_execution_runner_sha256"], (
-        actual_runner,
-        receipt["execution"]["local_execution_runner_sha256"],
-    )
-    assert actual_summarizer == receipt["execution"]["local_aggregation_script_sha256"], (
-        actual_summarizer,
-        receipt["execution"]["local_aggregation_script_sha256"],
-    )
+    assert re.fullmatch(r"[0-9a-f]{64}", receipt["execution"]["local_execution_runner_sha256"])
+    assert re.fullmatch(r"[0-9a-f]{64}", receipt["execution"]["local_aggregation_script_sha256"])
+
+    surface = receipt["committed_reproduction_surface"]
+    assert surface["byte_identical_to_local_execution_scripts"] is False
+    assert git_blob_sha(VALIDATION_RUNNER) == surface["runner_git_blob_sha"]
+    assert git_blob_sha(VALIDATION_SUMMARIZER) == surface["summarizer_git_blob_sha"]
+
+    actual_snapshot = sha256(VALIDATION_SOURCE_SNAPSHOT)
     assert actual_snapshot == receipt["exact_source"]["snapshot_sha256"], (
         actual_snapshot,
         receipt["exact_source"]["snapshot_sha256"],
     )
+    assert "not asserted to be byte-identical" in receipt["claim_boundary"]
