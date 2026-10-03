@@ -62,7 +62,7 @@ def test_integrated_manuscript_retains_original_model3_spine() -> None:
         "deterministic genotype-density",
         "finite-population",
         "24,576-case bridge",
-        "128 independent visitor-history",
+        "128 independent visitor histories",
         "response-blind annual",
         "pooling eight independent visitor histories",
         "increasing plant capacity from 48 to 192",
