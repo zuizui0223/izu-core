@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_deterministic_persistence_boundary_refinement",
+  "date": "2026-10-03",
+  "design": "data/design/chapter2_deterministic_persistence_boundary_refinement_20261003.json",
+  "reports": [
+    {
+      "depression": 0.71,
+      "mean_effect": -0.5156822148889808,
+      "near_cell_below_1_fraction": 0.0234375,
+      "far_cell_below_1_fraction": 0.010416666666666666,
+      "labels_eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "valid_histories_mass_ge_1": 118,
+      "valid_labels_eps0_01": {
+        "negative": 118,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      }
+    },
+    {
+      "depression": 0.72,
+      "mean_effect": -0.5066458774478143,
+      "near_cell_below_1_fraction": 0.08854166666666667,
+      "far_cell_below_1_fraction": 0.0390625,
+      "labels_eps0": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      },
+      "valid_histories_mass_ge_1": 102,
+      "valid_labels_eps0_01": {
+        "negative": 102,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "first_mixed_history": {
+        "history_seed": 74060,
+        "min_terminal_mass": 0.5503049784130378
+      }
+    },
+    {
+      "depression": 0.73,
+      "mean_effect": -0.4867451610961842,
+      "near_cell_below_1_fraction": 0.203125,
+      "far_cell_below_1_fraction": 0.1875,
+      "labels_eps0": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      },
+      "valid_histories_mass_ge_1": 60,
+      "valid_labels_eps0_01": {
+        "negative": 60,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "first_mixed_history": {
+        "history_seed": 74060,
+        "min_terminal_mass": 0.012875558339305706
+      }
+    },
+    {
+      "depression": 0.74,
+      "mean_effect": -0.4545405942375853,
+      "near_cell_below_1_fraction": 0.3541666666666667,
+      "far_cell_below_1_fraction": 0.6744791666666666,
+      "labels_eps0": {
+        "negative": 120,
+        "mixed": 8,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 126,
+        "mixed": 2,
+        "positive": 0,
+        "neutral": 0
+      },
+      "valid_histories_mass_ge_1": 5,
+      "valid_labels_eps0_01": {
+        "negative": 5,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      }
+    }
+  ],
+  "decision": {
+    "pre_quasi_extinction_nonparallelism_detected": false,
+    "tested_range": "0.50 through 0.74 with dense refinement near the transition",
+    "conclusion": "All histories whose three starts and both near/far arms retained terminal density mass >=1 were negative-only at epsilon 0.01. Mixed/positive deterministic history labels appeared only after at least one endpoint in that history entered sub-individual expected mass.",
+    "manuscript_action": "Remove depression-0.75 deterministic history-level nonparallelism from the headline/general-repeatability evidence. Retain it only as a low-mass closure diagnostic."
+  },
+  "claim_boundary": [
+    "This does not prove that no arbitrarily narrow parameter value could produce pre-quasi-extinction nonparallelism between tested depression levels.",
+    "The tested scan is sufficient to invalidate use of the observed 0.75 mixed-history result as evidence for persistent-population deterministic nonparallelism.",
+    "No natural depression threshold or prevalence is inferred."
+  ]
+}
