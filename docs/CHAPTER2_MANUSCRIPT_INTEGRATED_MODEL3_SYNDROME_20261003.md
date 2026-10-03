@@ -1,6 +1,6 @@
 # From pollination ecology to island syndrome: an eco-evolutionary model generates recurrent functional responses without a single floral endpoint
 
-**Status:** integrated Model 3 manuscript candidate — unifies the locked Model 3 paper and the established vNext extensions; does not yet replace the locked Oikos submission surface
+**Status:** integrated Model 3 manuscript candidate — unifies the locked Model 3 paper and all later prospective extensions; does not yet replace the locked Oikos submission surface
 **Updated:** 2026-10-03
 **Inference architecture:** pollinator environment → reproductive selection → deterministic inherited expectation → genetic accessibility / reproductive context → finite-population realization → source-audited natural confrontation
 **Source state:** one frozen unified Model 3 engine + its prospectively frozen bridge, causal interventions, robustness tests and genetic-accessibility extensions
@@ -12,7 +12,7 @@ Pollinator-community change can affect plants through several linked processes: 
 
 Model 3 uses one shared reproductive and inheritance operator examined at three nested levels: reproductive selection before demographic change, deterministic genotype-density inheritance without demographic sampling, and finite-population realization. A frozen 19,968-case island campaign and a prospective 24,576-case isolation bridge established the base response architecture. We then applied prospectively defined interventions to the same model rather than introducing a second model. Functional matching reversed selection across starting floral states, and functional replacement redirected selection at fixed visitor number. Isolation-driven deterministic mean investment responses remained negative across inbreeding-depression values 0.25, 0.50 and 0.75 (-0.351, -0.451 and -0.414), while detailed history-level direction became non-uniform at high depression. Reproductive assurance robustly affected persistence, but an assurance-by-cost floral-reduction route failed its preregistered robustness rule. Restricting standing genetic variation selectively suppressed response on the constrained trait axis, while mutation progressively narrowed that limitation. Visitor history, chronology, connectivity and finite plant demography further altered realized inherited trajectories.
 
-The unified result is generative: one Model 3 produces a recurrent coarse functional regime under island-like pollination constraints while allowing multiple detailed evolutionary outcomes. The vNext analyses therefore extend and stress-test the original Model 3 mechanism rather than constituting a separate theory.
+The unified result is generative: one Model 3 produces a recurrent coarse functional regime under island-like pollination constraints while allowing multiple detailed evolutionary outcomes. The later prospective analyses therefore extend and stress-test the original Model 3 mechanism rather than constituting a separate theory.
 
 ## Keywords
 
@@ -46,7 +46,7 @@ The natural evidence is therefore a confrontation layer rather than a calibratio
 
 All analyses in this manuscript belong to **one Model 3**. The original frozen Model 3 established the common reproductive operator, the three nested inferential levels, the 19,968-case island campaign and the 24,576-case isolation bridge. The later syndrome-decomposition, rematching, inbreeding-depression, standing-variation and mutation analyses are prospective interventions on that same biological engine. They do not define a second model, a replacement response rule or a separate paper-level mechanism.
 
-Accordingly, the manuscript treats the original Model 3 results as the **generative backbone** and the later vNext experiments as **stress tests and mechanistic decompositions of that backbone**. A claim promoted by a later intervention must remain compatible with the frozen parent operator; failed robustness tests demote that route without invalidating the parent model.
+Accordingly, the manuscript treats the original Model 3 results as the **generative backbone** and the later prospective experiments as **stress tests and mechanistic decompositions of that backbone**. A claim promoted by a later intervention must remain compatible with the frozen parent operator; failed robustness tests demote that route without invalidating the parent model.
 
 ## Generative criterion and secondary repeatability diagnostics
 
@@ -186,17 +186,17 @@ The principal natural-data gap is therefore no longer generic 'validation'. A is
 
 ## One Model 3 links syndrome generation to realized floral evolution
 
-The original Model 3 and the later vNext analyses resolve different parts of the same question and should not be treated as competing models. The frozen Model 3 supplies the biological engine and establishes the sequence from reproductive selection to deterministic inherited expectation and finite-population realization. The later prospective interventions ask which components of that generated response remain robust when reproductive context, visitor functional composition and genetic accessibility are changed.
+The frozen backbone and the later prospective analyses resolve different parts of the same question and belong to one Model 3 rather than competing models. The frozen Model 3 supplies the biological engine and establishes the sequence from reproductive selection to deterministic inherited expectation and finite-population realization. The later prospective interventions ask which components of that generated response remain robust when reproductive context, visitor functional composition and genetic accessibility are changed.
 
 Taken together, the model generates a recurrent coarse response to island-like pollination constraints without imposing one detailed floral endpoint. The deterministic isolation bridge provides the backbone: mean far-minus-near investment response remains negative across the tested inbreeding-depression envelope. The extensions then explain why that backbone does not collapse to one syndrome phenotype. Functional rematching changes selection at fixed visitor number, high inbreeding depression breaks history-level uniformity, standing variation changes how much selected response is reachable, and finite visitor histories and plant demography alter the final realized trajectory.
 
-This integration sharpens the contribution. Model 3 is not merely a framework for showing context dependence, and the vNext is not a separate repeatability theory. **The single model first generates an island-syndrome-like functional regime and then exposes the biological filters that make its detailed phenotypic realization non-unique.**
+This integration sharpens the contribution. Model 3 is not merely a framework for showing context dependence, and the later extensions are not a separate repeatability theory. **The single model first generates an island-syndrome-like functional regime and then exposes the biological filters that make its detailed phenotypic realization non-unique.**
 
 ## Reproductive assurance affects persistence, but its adaptive-reduction route is conditional
 
 The focal assurance-by-cost knockout is useful mechanistically because it distinguishes reduced pollinator-mediated benefit from a countervailing cost: within the declared equations, assurance can keep a reproductive route open while costly floral investment loses marginal value. The robustness analysis, however, shows why this mechanism should not be elevated to a general explanation of selfing-syndrome floral reduction. Its sign boundary moved strongly with inbreeding depression and did not propagate consistently across the declared perennial treatments.
 
-Accordingly, the vNext uses reproductive assurance primarily for the result that is already robust in Model 3: it can determine whether an evolutionary endpoint exists under severe pollinator loss without prescribing one floral phenotype. The assurance-by-cost negative-gradient result remains a conditional sensitivity showing one way adaptive reduction can arise, not an empirical discovery that selfing generally causes reduced pollinator-facing investment.
+Accordingly, the integrated model uses reproductive assurance primarily for the result that is already robust: it can determine whether an evolutionary endpoint exists under severe pollinator loss without prescribing one floral phenotype. The assurance-by-cost negative-gradient result remains a conditional sensitivity showing one way adaptive reduction can arise, not an empirical discovery that selfing generally causes reduced pollinator-facing investment.
 
 ## Functional rematching is different from pollinator loss
 
@@ -248,7 +248,7 @@ These limitations define the inference. The model can identify which ecological 
 
 # Conclusion
 
-The original Model 3 and the vNext analyses form one scientific result. The frozen Model 3 establishes an explicit path from pollination ecology through reproductive selection and Mendelian inheritance to finite-population realization. The prospective vNext interventions stress-test that same path by manipulating visitor functional composition, reproductive context and genetic accessibility.
+The frozen Model 3 backbone and all later prospective extensions form one scientific result. The frozen Model 3 establishes an explicit path from pollination ecology through reproductive selection and Mendelian inheritance to finite-population realization. The prospective extensions stress-test that same path by manipulating visitor functional composition, reproductive context and genetic accessibility.
 
 Together they show that island-like pollination constraints can generate a recurrent coarse functional response without forcing one detailed floral phenotype. The coarse deterministic isolation regime survives substantial reproductive-context sensitivity, while functional rematching, starting state, standing genetic variation, mutation, chronology, connectivity and finite demography diversify the inherited endpoint. Reproductive assurance is robust as persistence insurance but not as a universal route to reduced floral investment.
 
