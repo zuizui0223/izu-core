@@ -203,6 +203,38 @@ Do not retune any of these into positive results.
 9. Natural islands confront these layers qualitatively but are not quantitatively
    fitted to synthetic cells.
 
+## Full clean computational reproduction
+
+The frozen Model 3 analyses were subsequently regenerated from zero in GitHub
+Actions using only the frozen designs, declared seeds and restored source
+snapshots. Stored scientific results were not read until the final comparison
+stage.
+
+Fresh executions:
+
+- base Model 3 island campaign: **19,968 cases** across 32 shards;
+- Chapter 2 prospective bridge: **24,576 cases** across 16 shards;
+- total fresh cases: **44,544**.
+
+The bridge reproduces the frozen scientific result surface with structural
+mismatch count **0** and maximum numeric difference
+**7.11 × 10^-15**; no numeric difference exceeds 10^-12.
+
+For the base campaign, all common scientific fields reproduce with maximum
+numeric difference **1.11 × 10^-16** and no difference above 10^-12. The raw
+comparison reports 160 structural mismatches, all of which are additional audit
+metadata in the regenerated summary: four `histories` fields in the crossed
+reports and 156 `eligible_pairs` fields in paired contrasts. No stored
+scientific field is missing or altered after these schema-only additions are
+accounted for.
+
+Receipt:
+`data/results/model3_full_clean_rerun_receipt_20261003.json`.
+
+This closes computational reproducibility of the frozen synthetic analyses. It
+does not change the biological claim ceiling or provide independent empirical
+validation.
+
 ## Submission state
 
 Current Oikos package: **unchanged and locked**.

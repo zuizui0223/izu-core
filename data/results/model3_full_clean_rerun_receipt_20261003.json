@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_full_model3_clean_rerun_verified",
+  "date": "2026-10-03",
+  "workflow": {
+    "run_id": 37021577722,
+    "successful_attempt": 2,
+    "head_sha": "f00c73ab1aa09054c50cd5d0519d01d61109b85d",
+    "base_commit": "d42963d12d242f8811035dae2d8ebe2e27ad64f0"
+  },
+  "execution_contract": {
+    "stored_results_used_as_simulation_input": false,
+    "fresh_output_directories": true,
+    "frozen_designs": [
+      "data/design/model3_island_v2.json",
+      "data/design/model3_ch2_bridge_execution_20260927.json"
+    ],
+    "restored_source_snapshots": [
+      "data/design/model3_island_v2_sources.zip",
+      "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip"
+    ]
+  },
+  "fresh_cases": {
+    "base_model3": 19968,
+    "chapter2_bridge": 24576,
+    "total": 44544
+  },
+  "base_model3_reproduction": {
+    "shards": 32,
+    "cases_verified": 19968,
+    "comparison_reference": "data/results/model3_island_v2_summary/review_compact.json",
+    "max_abs_numeric_difference": 1.1102230246251565e-16,
+    "numeric_differences_gt_1e_12": 0,
+    "raw_structural_mismatch_count": 160,
+    "structural_mismatch_classification": {
+      "crossed_extra_histories_field": 4,
+      "paired_contrasts_extra_eligible_pairs_field": 156,
+      "scientific_schema_mismatch_after_ignoring_these_added_audit_fields": 0
+    },
+    "interpretation": "All common scientific fields reproduce to floating-point roundoff. The 160 raw structural mismatches are exactly added audit metadata fields in the fresh summary, not missing or changed scientific fields."
+  },
+  "bridge_reproduction": {
+    "shards": 16,
+    "cases_verified": 24576,
+    "comparison_reference": "data/results/model3_ch2_bridge_prospective_frozen_20260927.json",
+    "max_abs_numeric_difference": 7.105427357601002e-15,
+    "numeric_differences_gt_1e_12": 0,
+    "structural_mismatch_count": 0,
+    "interpretation": "Mean effects, confidence intervals, mixed-history counts, repeat disagreements, S/C/I decomposition, starting-state means and visitor summaries reproduce to floating-point roundoff."
+  },
+  "workflow_artifacts": {
+    "base_summary_artifact_id": 11258901052,
+    "bridge_summary_artifact_id": 11233404750,
+    "combined_receipt_artifact_id": 11258591411,
+    "replayed_heavy_shard": 12,
+    "heavy_shard_artifact_id": 11259315303
+  },
+  "conclusion": "Both frozen Model 3 production campaigns were regenerated from zero from frozen designs, seeds and restored source snapshots before comparison with stored summaries. The scientific result surfaces reproduce within floating-point roundoff.",
+  "claim_boundary": [
+    "This establishes computational reproducibility of the frozen synthetic Model 3 analyses, not independent empirical validation.",
+    "The rerun does not calibrate Model 3 to named islands or natural evolutionary rates.",
+    "The 160 raw base-summary schema differences are retained in the receipt rather than hidden; they are additional audit fields only.",
+    "The vNext robustness qualifications remain unchanged by this reproduction result."
+  ]
+}
