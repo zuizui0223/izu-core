@@ -9,6 +9,10 @@ on:
       - 'scripts/model3_island/**'
       - 'scripts/summarize_model3_ch2_bridge_prospective.py'
       - 'scripts/generate_chapter2_unified_model3_figures.py'
+      - 'scripts/generate_chapter2_repeatability_figures.py'
+      - 'scripts/audit_chapter2_*'
+      - 'scripts/run_chapter2_*'
+      - 'scripts/summarize_chapter2_*'
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
@@ -16,6 +20,7 @@ on:
       - 'data/design/chapter2_*'
       - 'data/design/repository_artifact_budget_20260928.json'
       - 'data/results/model3_ch2_bridge_prospective_frozen_20260927.json'
+      - 'data/results/chapter2_*'
       - 'tests/test_chapter2_*'
       - 'tests/test_model3_ch2_bridge_prospective_summary.py'
       - 'tests/test_island_ecology_submission_bundle_builder.py'
@@ -53,6 +58,8 @@ jobs:
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
             tests/test_chapter2_unified_model3_figures.py \
+            tests/test_chapter2_el_repeatability_claim_ceiling.py \
+            tests/test_chapter2_repeatability_figures.py \
             tests/test_island_ecology_submission_bundle_builder.py \
             tests/test_repository_artifact_budget.py \
             tests/test_current_ci_surface.py \
@@ -103,7 +110,14 @@ jobs:
         run: |
           SHARD=$(printf "%02d" "${{ matrix.shard }}")
           cd validation-src
-          PYTHONPATH=. python -m scripts.run_chapter2_finite_history_signal_validation             --validation-design ../data/design/chapter2_finite_history_signal_validation_20261003.json             --parent-design ../data/design/model3_ch2_bridge_execution_20260927.json             --shard-index "${{ matrix.shard }}"             --shard-count 16             --out "../validation-output/validation-shard-${SHARD}.json"
+          PYTHONPATH=. python -m scripts.run_chapter2_finite_history_signal_validation \
+            --source-root . \
+            --bridge-design ../data/design/model3_ch2_bridge_execution_20260927.json \
+            --validation-design ../data/design/chapter2_finite_history_signal_validation_20261003.json \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count 16 \
+            --workers 4 \
+            --out "../validation-output/validation-shard-${SHARD}.json"
       - uses: actions/upload-artifact@v4
         with:
           name: finite-history-validation-${{ matrix.shard }}
@@ -130,7 +144,13 @@ jobs:
           merge-multiple: true
       - name: Apply frozen validation decision rule
         run: |
-          python -m scripts.summarize_chapter2_finite_history_signal_validation             --validation-design data/design/chapter2_finite_history_signal_validation_20261003.json             --predictions data/design/chapter2_finite_history_signal_predictions_20261003.json             --input-dir validation-shards             --out chapter2_finite_history_signal_validation_20261003.json             | tee chapter2_finite_history_signal_validation_console.txt
+          python -m scripts.summarize_chapter2_finite_history_signal_validation \
+            --design data/design/chapter2_finite_history_signal_validation_20261003.json \
+            --bridge-design data/design/model3_ch2_bridge_execution_20260927.json \
+            --discovery-shards data/results/model3_ch2_bridge_summary_shards_20260927 \
+            --validation-shards validation-shards \
+            --out chapter2_finite_history_signal_validation_20261003.json \
+            | tee chapter2_finite_history_signal_validation_console.txt
       - uses: actions/upload-artifact@v4
         with:
           name: chapter2-finite-history-signal-validation-result
