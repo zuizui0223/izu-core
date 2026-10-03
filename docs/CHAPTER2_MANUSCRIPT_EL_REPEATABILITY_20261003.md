@@ -1,4 +1,4 @@
-# Where repeatability breaks in an island floral syndrome: a generative model separates aggregate recurrence from evolutionary parallelism
+# Repeatability changes across biological levels and time horizons in a generative island-floral model
 
 **Status:** Evolution Letters candidate; separate from the locked Oikos submission surface  
 **Updated:** 2026-10-03  
@@ -6,13 +6,13 @@
 
 ## Abstract
 
-Repeated environments can generate parallel evolution, but parallelism is rarely complete. Islands are useful because altered pollination, reduced connectivity and finite population size recur, whereas proposed plant island-syndrome components are heterogeneous. We ask where repeatability is lost from a recurrent pollination problem to realized floral evolution.
+Repeated environments can generate parallel evolution, but apparent repeatability may depend on both biological level and observation horizon. Islands are useful because altered pollination and reduced connectivity recur, whereas plant island-syndrome components remain heterogeneous. We ask when a recurrent pollination problem produces a repeatable evolutionary response and whether that response persists through time.
 
-We examined one eco-evolutionary Model 3 at four stages: immediate reproductive selection, deterministic inherited expectation, genetic accessibility and finite-population realization. The frozen backbone comprised 19,968 island cases plus a prospectively frozen 24,576-case isolation bridge, followed by interventions on visitor functional composition, reproductive assurance, inbreeding depression, standing variation and mutation.
+We examined one eco-evolutionary Model 3 from reproductive selection through deterministic inheritance, genetic accessibility and finite-population realization. The frozen focal analyses comprised 19,968 island cases and a 24,576-case, 200-season isolation bridge. We then prospectively extended selected mechanisms to 6,400 reproductive seasons without outcome-dependent stopping.
 
-Functional replacement at identical visitor number redirected selection across starting floral states. The deterministic mean isolation response nevertheless remained negative at inbreeding-depression values 0.25, 0.50 and 0.75; at 0.75, history-level direction became non-uniform. Restricting standing genetic variation selectively suppressed response on the constrained trait axis, while mutation narrowed this accessibility gap through time. Reproductive assurance preserved persistence but failed as a universal route to reduced floral investment, and finite histories and demography further diversified outcomes.
+At the focal horizon, functional replacement redirected selection at identical visitor number, while an aggregate isolation response could coexist with non-uniform history-level directions. Restricting standing variation selectively slowed response on the constrained trait axis. The long-horizon extension changed both interpretations: the deterministic isolation contrast decayed toward zero while the density closure entered sub-individual expected-mass regimes, and low-standing populations receiving mutation caught and overtook the high-standing no-mutation reference after 800–1,600 seasons.
 
-Within the declared model, aggregate syndrome-like recurrence persists after history-level evolutionary parallelism begins to fail. This is a constructive sufficiency result, not an estimate of natural prevalence. It predicts that, if the same architecture contributes in nature, repeatability should be stronger near the shared ecological problem than for detailed inherited and population-specific trajectories.
+Thus Model 3 does not identify a stationary island-syndrome endpoint. Instead, repeatability is both level- and horizon-dependent within the model: a syndrome-like response observed during a bounded adaptive window need not identify either recurrent trajectories or the long-run endpoint. Natural timescales remain an empirical question.
 
 ## Keywords
 
@@ -28,7 +28,7 @@ Pollination-mediated island evolution is well suited to separating these levels.
 
 We use a single eco-evolutionary Model 3 rather than separate response rules for different syndrome components. Plants carry diploid access/matching and floral-investment traits. Visitor functional types determine finite compatible pollen transfer; outcrossing and delayed selfing generate viable offspring; Mendelian inheritance transmits trait variation; and recruitment, survival, immigration and finite population size determine persistence and realized evolution. The traits are abstract functional coordinates, not literal corolla dimensions or colours, and no rule directly moves a population toward an island syndrome.
 
-We ask four questions. First, does a recurrent island-like pollination problem produce repeatable selection, or can functional replacement redirect selection even when visitor number is held constant? Second, if selection varies locally, can a coarse deterministic inherited response nevertheless remain repeatable across ecological histories and reproductive contexts? Third, how much repeatability is lost when selected responses encounter unequal standing variation and finite mutation input? Fourth, how much additional divergence appears when deterministic expectations are realized in finite populations? We do not compress these stages into one universal repeatability parameter because they describe different biological objects. Instead, we identify the first stage at which stronger forms of parallelism fail.
+We ask four questions. First, does a recurrent island-like pollination problem produce repeatable selection, or can functional replacement redirect selection even when visitor number is held constant? Second, at a fixed 200-season response window, can aggregate inherited direction differ from history-level parallelism? Third, are genetic-accessibility effects persistent constraints or time-limited differences in evolutionary speed? Fourth, does extending the same stationary model toward 6,400 reproductive seasons approach a biologically interpretable stationary regime? We do not compress stages or horizons into one repeatability parameter because they describe different biological objects and different windows of the same process.
 
 # Materials and Methods
 
@@ -52,11 +52,11 @@ A result can therefore be repeatable at one stage and non-repeatable at the next
 
 The simulation is used to establish **sufficiency and separation**, not natural prevalence or necessity. We distinguish three claim levels.
 
-1. **Model-established result.** Within the declared operator and tested parameter envelope, aggregate directional recurrence and trajectory-level parallelism can dissociate, and prospective interventions identify sufficient mechanisms for that dissociation.
-2. **General logical implication.** Observation of a recurrent syndrome does not, by itself, entail that the underlying evolutionary trajectories were recurrent. The model supplies a constructive counterexample to that inference.
-3. **Empirical prediction.** If the same architecture contributes to natural island evolution, repeatability should be stronger for ecological function or coarse response than for detailed inherited traits and realized population trajectories. This prediction is not established by the simulation and requires independent longitudinal tests.
+1. **Model-established result.** At the declared focal horizon, aggregate response and trajectory-level parallelism can differ; their relationship also changes when the same model is followed for longer horizons.
+2. **General logical implication.** A recurrent syndrome observed at one level and time horizon does not, by itself, entail recurrent evolutionary trajectories or a stationary long-run endpoint.
+3. **Empirical prediction.** If the same architecture contributes to natural island evolution, estimated repeatability should depend on both the biological quantity measured and the response window over which populations are observed. This requires independent longitudinal tests.
 
-The model does not estimate how common any route is in nature, which route dominates a named archipelago, or the natural effect size or evolutionary rate of any transition.
+The model does not estimate natural equilibrium time, how common any route is in nature, which route dominates a named archipelago, or the natural effect size or evolutionary rate of any transition.
 
 **Table 1. Stage-specific repeatability diagnostics.** The stages are deliberately not reduced to one scalar because they measure different biological objects.
 
@@ -89,6 +89,12 @@ A later mutation-input analysis normalized de novo mutation to the founder addit
 
 A preregistered mutation–pleiotropy timing experiment failed its success criteria. Thresholds were not lowered and the horizon was not extended after inspection; the failed route remains part of the evidence.
 
+## Prospective long-horizon diagnostic
+
+After the focal analyses were complete, we prospectively froze a horizon extension before inspecting its outcomes. Selected deterministic-isolation and mutation-accessibility contrasts were evaluated at 200, 400, 800, 1,600, 3,200 and 6,400 reproductive seasons, with 6,400 fixed as the maximum horizon and no outcome-dependent extension. Stationarity required stability across both 1,600→3,200 and 3,200→6,400 intervals under predeclared tolerances.
+
+These runs are stationary-environment stress tests, not reconstructions of geological island history. A model season is a reproductive season, not necessarily a calendar year, and the extension adds no succession, speciation, coevolution, changing source pool or calibrated natural mutation rate. We additionally tracked deterministic density mass because a frequency trajectory can remain mathematically defined after its expected population mass becomes biologically smaller than one individual.
+
 ## Finite realization and natural confrontation
 
 Finite-population simulations retain the same reproductive and inheritance operator but add demographic sampling, survival, extinction, immigration and ancestry turnover. Chronology and connectivity interventions distinguish visitor-history effects from demographic/genetic input.
@@ -105,13 +111,13 @@ Functional replacement mattered even when visitor number was unchanged. The maxi
 
 Duplicating each left-shifted visitor type to create eight visitor entries changed the fixed-state, deterministic and finite-population operators by at most 1.78 × 10^-15 when total activity was fixed. The model therefore distinguishes functional composition from simple visitor-entry count. A recurrent decline in pollinator service is not sufficient to specify a single selection direction unless the functional visitor environment and starting floral state are also specified.
 
-## A coarse inherited direction persists after history-level parallelism weakens
+## Aggregate and history-level repeatability differ at the focal horizon
 
 Despite state-dependent selection in controlled rematching experiments, the isolation bridge retained a strong coarse deterministic backbone. Mean far-minus-near inherited investment change remained negative at all three tested inbreeding-depression values: -0.351 at 0.25, -0.451 at 0.50 and -0.414 at 0.75. Every starting-state mean also remained negative.
 
 The stronger form of repeatability—uniform direction across individual visitor histories—was less stable. At inbreeding depression 0.25 and 0.50, history-level direction remained uniformly negative across starting states. At 0.75, 116 of 128 histories remained negative-only, 11 became mixed across starting states and one became positive-only.
 
-Thus aggregate recurrence and replicate-level parallelism are distinct even before demographic stochasticity is introduced. Within the declared model, the intervention-averaged inherited direction can remain stable after some ecological histories cease to share one direction. This establishes the model-level dissociation; it does not establish its frequency in natural populations.
+Thus aggregate response and replicate-level parallelism are distinct at the declared focal horizon even before demographic stochasticity is introduced. This is a finite-horizon result: the intervention-averaged direction can be coherent while some ecological histories do not share one direction. It does not establish that either pattern is stationary or indefinitely persistent.
 
 ## Reproductive assurance preserves trajectories but does not provide a universal reduction mechanism
 
@@ -127,9 +133,17 @@ When standing genetic variation was reduced on one trait axis, response was sele
 
 The within-environment comparison shows why this matters for syndrome components. Under the left-shifted visitors, equal-high standing variation produced deterministic changes of -0.150 in access and +0.119 in investment. Constraining access reduced access change to -0.0428 while investment remained +0.106. Constraining investment left access at -0.148 while investment fell to +0.0104. Shared selection can therefore produce asynchronous trait responses because ecological selection and genetic accessibility are separate stages.
 
-Mutation narrowed this finite-horizon accessibility gap but did not erase it. Under the central mutation input, the response ratio between high- and low-standing populations declined from 2.56 at year 400 to 1.49 at year 800. Most mutation cells had not reached a variance plateau by year 800. The result supports a transient accessibility filter rather than a universal claim that standing variation dominates mutation.
+Mutation narrowed the early accessibility gap. Under the central mutation input, the response ratio between high-standing/no-mutation and low-standing/mutation populations declined from 2.56 at season 400 to 1.49 at season 800. The prospective long-horizon extension showed that this was a difference in response timing rather than persistent dominance: the ratio fell below one by season 1,600 (0.91), then to 0.68 at 3,200 and 0.56 at 6,400. Thus standing variation supplied an early response advantage, whereas continuing mutation eventually caught and overtook the fixed high-standing reference in this model.
 
 The first preregistered mutation–pleiotropy timing test failed: coordinated sustained two-trait crossings were zero in every summarized cell, and the investment-axis crossing statistic was effectively censored at the 400-year horizon. We retained the failure rather than lowering the threshold. It therefore cannot be used as evidence for a general pleiotropic ordering of syndrome components.
+
+## Long-horizon extension rejects a stationary interpretation of the focal backbone
+
+The prospectively fixed extension did not satisfy the stationarity criteria. At inbreeding depression 0.75, the deterministic mean far-minus-near investment effect weakened from -0.414 at season 200 to -0.319 at 400, -0.179 at 800, -0.077 at 1,600, -0.018 at 3,200 and -0.00195 at 6,400. History classifications also changed through the late intervals rather than stabilizing.
+
+The approach toward zero was not evidence for a clean adaptive equilibrium. The deterministic genotype-density closure entered a sub-individual expected-mass regime: already at season 200, 98.2% of far start-by-history trajectories had expected mass below one individual, and by season 1,600 all near trajectories also had expected mass below one. Long-run deterministic trait values therefore describe a conditional expectation after quasi-extinction, not a persisting finite population.
+
+This does not invalidate the original finite-population result at the focal horizon. In the frozen 200-season bridge at inbreeding depression 0.5, all 3,072 natural near cases and all 3,072 natural far cases remained occupied. The appropriate interpretation is consequently a bounded adaptive-window response rather than a demonstrated long-run island-syndrome attractor.
 
 ## Finite realization adds contingency downstream of deterministic expectation
 
@@ -147,15 +161,15 @@ What the archive does not contain is equally important. No complete same-unit re
 
 # Discussion
 
-## A recurrent syndrome does not imply recurrent trajectories
+## Repeatability depends on both biological resolution and observation horizon
 
-The strongest general inference is deliberately asymmetric: **a recurrent syndrome does not imply recurrent evolutionary trajectories**. The simulation establishes this constructively by exhibiting a biologically explicit system in which an aggregate directional pattern persists after history-level parallelism has begun to fail. It does not establish the converse, nor does it show that natural island syndromes usually arise this way.
+The strongest general inference is now two-dimensional. **A syndrome-like response observed at one biological level and one time horizon does not identify either recurrent evolutionary trajectories or a stationary long-run endpoint.** At the focal 200-season window, aggregate and history-level responses differed. When the same operator was extended prospectively, the deterministic contrast changed substantially rather than approaching the predeclared stationarity criterion, while genetic-accessibility rankings also reversed through time.
 
-The central model result is therefore a hierarchy of repeatability. A recurrent island-like pollination problem does not force one detailed evolutionary solution, yet this does not make the response arbitrary. Coarse deterministic direction persisted across a substantial reproductive-context sensitivity, even as individual histories lost uniformity. Downstream, unequal standing variation and finite realization further diversified responses.
+The model therefore supports a bounded-window view of repeatability rather than a single hierarchy leading to an equilibrium syndrome. A recurrent island-like pollination problem can produce a recognizable response during one adaptive window, while the apparent degree and source of repeatability change as both biological resolution and observation horizon change.
 
 This provides a mechanistic interpretation of an empirical tension in island biology. Island syndromes are defined by recurring trait differences, but support for individual plant components is uneven and some large comparative tests reject simple universal predictions such as island-wide floral reduction (Hetherington-Rauth & Johnson 2020; Ciarle & Burns 2025). In birds, parallel insular phenotypes can also coexist with largely population-specific genomic differentiation (Jezierski et al. 2026). Our result does not claim this phenotype–genome mismatch as new; instead it predicts how losses of repeatability can accumulate across explicit biological stages. Selection can recur more strongly than detailed trait change, and functional response can recur more strongly than one realized phenotype.
 
-The resulting empirical prediction is not that every island lineage converges on the same floral phenotype. If this architecture contributes materially in nature, recurrence should be strongest for biological quantities closest to the shared ecological problem and progressively weaker for quantities filtered by reproductive context, genetic accessibility and finite history. That ordering remains a prediction until tested with independent natural data.
+The resulting empirical prediction is not that every island lineage converges on the same phenotype, nor that repeatability must decrease monotonically with time. If this architecture contributes materially in nature, estimates of repeatability should change with both the biological quantity measured and the response window sampled. That joint stage-by-time prediction remains untested in natural island populations.
 
 ## This differs from treating parallel evolution as a single continuum score
 
@@ -173,9 +187,9 @@ This distinction is especially important on islands, where depauperate communiti
 
 ## Genetic accessibility predicts asynchronous syndrome components
 
-The standing-variation experiment shows how one ecological transition can produce a partial syndrome. When only one trait axis had little available variation, the constrained axis responded weakly while another trait retained a large response. Mutation reduced that disparity through time, so the model does not imply a fixed hierarchy in which one class of floral traits is always easier to evolve than another.
+The standing-variation experiment shows how one ecological transition can produce asynchronous early responses. When only one trait axis had little available variation, the constrained axis initially responded weakly while another trait retained a large response. The long-horizon extension then showed why this should not be recast as a persistent accessibility hierarchy: continuing mutation erased and eventually reversed the early standing-variation advantage.
 
-The empirical prediction is instead comparative: lineages or trait modules that differ in standing variation, mutational target size or genetic covariance can show different degrees of repeatability under similar pollination shifts. This is a direct route by which recognizable island function can coexist with heterogeneous floral detail.
+The empirical prediction is therefore explicitly temporal. Lineages or trait modules that differ in standing variation, mutational target size or genetic covariance may differ most strongly early after a pollination shift, with those rankings changing as new variation accumulates. The standing-variation result is a mechanism for response timing, not a universal ranking of evolvability.
 
 ## Failure of the assurance route strengthens rather than weakens the stage argument
 
@@ -185,7 +199,7 @@ That negative result is informative because it identifies reproductive context a
 
 ## Scope and empirical tests
 
-The model is mechanistic but deliberately uncalibrated. Access and investment are abstract functional traits, model generations are not literal years, and synthetic distances are not kilometres. The model cannot estimate the evolutionary response of a named island flora, reconstruct a historical Bombus transition or predict a particular colour or corolla dimension.
+The model is mechanistic but deliberately uncalibrated. Access and investment are abstract functional traits, model reproductive seasons are not geological or necessarily calendar years, and synthetic distances are not kilometres. Extending the same stationary environment for 6,400 seasons does not reconstruct millions of years of island history. The model cannot estimate the evolutionary response of a named island flora, reconstruct a historical Bombus transition or predict a particular colour or corolla dimension.
 
 Its contribution is structural rather than calibrated. It yields a testable ordering of measurements for real island systems: quantify the pollinator perturbation, measure immediate reproductive selection or effective pollen transfer, estimate inherited change, measure standing genetic variation or genomic accessibility where possible, and retain demographic history rather than conditioning only on survivors. Longitudinal systems that observe several of these stages in the same populations would provide the strongest falsification.
 
@@ -193,17 +207,17 @@ The same logic also extends beyond islands. Any repeated environmental transitio
 
 # Conclusion
 
-A repeated ecological problem need not produce either perfect convergence or unconstrained contingency. In one explicit pollination–inheritance–demography model, island-like constraints preserved a coarse deterministic response after stronger forms of repeatability had begun to fail. Functional replacement redirected selection, reproductive context changed sign boundaries, unequal standing variation filtered reachable trait change, and finite histories diversified realized endpoints.
+A repeated ecological problem need not have one timeless measure of evolutionary repeatability. In Model 3, aggregate response, history-level direction, genetic accessibility and finite realization differed at a declared 200-season window. Prospective extension then showed that neither the deterministic isolation contrast nor the standing-variation ranking was a stationary long-run property: the density contrast decayed as expected population mass entered quasi-extinction, while continuing mutation caught and overtook the early standing-variation advantage.
 
-The simulation therefore establishes a narrower but stronger principle: **aggregate recurrence does not require trajectory-level evolutionary parallelism**. For natural island floral syndromes, the corresponding stage ordering remains a prediction: if this mechanism contributes in nature, repeatability should be highest closest to the shared ecological problem and weaker after reproductive, genetic and demographic filtering.
+The resulting principle is bounded but general: **repeatability depends on both what biological level is measured and when it is measured.** For island floral syndromes, a pattern observed during one adaptive window should not be interpreted automatically as evidence for identical evolutionary trajectories or a long-run attractor. Natural response windows, persistence and equilibrium times remain empirical quantities rather than outputs of this uncalibrated model.
 
 # Figure captions
 
-**Figure 1. Aggregate recurrence can persist after trajectory-level parallelism breaks.** The upper layer shows the coarse syndrome-like signal visible after aggregation; the lower layer follows the same cases through visitor environment, immediate selection, deterministic inheritance, genetic accessibility and finite realization. Branching can increase downstream while the aggregate direction remains stable. This is a model-level constructive result, not a claim that natural systems share one numerical repeatability scale or the same branch frequencies.
+**Figure 1. Repeatability has both a biological-level axis and a time axis.** The biological pathway follows visitor environment, immediate selection, inherited expectation, genetic accessibility and finite realization. A second axis distinguishes the focal 200-season response window from prospective longer horizons. The figure separates finite-window recurrence from a stationary endpoint and does not assign natural branch frequencies or geological times.
 
 **Figure 2. Repeatability can fail at the ecological-selection stage.** Same-count functional rematching redirects the investment gradient across starting access states, while duplicating visitor entries at fixed total activity leaves the operator unchanged. The panel separates visitor amount from functional composition and shows why identical losses in visitor number need not imply identical selection.
 
-**Figure 3. Repeatability can persist in the mean while failing among histories and trait axes.** Deterministic mean far-minus-near investment responses remain negative at inbreeding depression 0.25, 0.50 and 0.75, but 12/128 histories are no longer uniformly negative at 0.75. Trait-specific reductions in standing variation selectively suppress response on the constrained axis, and mutation narrows the high- versus low-standing gap from year 400 to year 800.
+**Figure 3. Focal-horizon repeatability and long-horizon change.** At the focal horizon, aggregate and history-level response are distinct. Across the prospective 200–6,400-season extension, the deterministic far-minus-near contrast decays while density mass enters a quasi-extinction regime. In the independent mutation-accessibility extension, the early high-standing response advantage narrows, disappears and reverses as continuing mutation accumulates.
 
 **Figure 4. Finite realization and empirical claim boundary.** Chronology, pollinator connectivity, seed connectivity, demographic sampling and extinction further diversify inherited endpoints. Source-audited natural island systems confront individual causal layers but do not provide a complete same-unit longitudinal chain; no named island is fitted to a synthetic Model 3 cell.
 
