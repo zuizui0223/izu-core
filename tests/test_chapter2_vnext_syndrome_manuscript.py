@@ -89,6 +89,24 @@ def test_vnext_lock_records_final_establishment_decisions() -> None:
     assert AUDIT.exists()
 
 
+
+def test_vnext_title_and_methods_center_repeatability_transmission() -> None:
+    text = _text()
+    first = text.splitlines()[0]
+    assert "Where island-syndrome repeatability is retained and lost" in first
+    assert "## Operational definition of repeatability across stages" in text
+    for phrase in (
+        "Coarse directional repeatability",
+        "History-level repeatability",
+        "Genetic accessibility",
+        "Finite realization",
+        "location and scale of repeatability loss",
+    ):
+        assert phrase in text
+    lock = json.loads(VNEXT_LOCK.read_text(encoding="utf-8"))
+    assert "transmission of repeatability" in lock["novelty_boundary"]["novel_target"]
+
+
 def test_vnext_has_one_coherent_figure_plan() -> None:
     text = _text()
     assert text.count("# Figure captions") == 1
