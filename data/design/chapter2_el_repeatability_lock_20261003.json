@@ -22,7 +22,8 @@
     "first mechanism for nonparallel evolution",
     "literal named-island phenotype prediction",
     "universal assurance-by-cost floral reduction",
-    "single scalar repeatability parameter across unlike biological stages"
+    "single scalar repeatability parameter across unlike biological stages",
+    "first evidence that island-syndrome phenotypic parallelism can coexist with nonparallel genomic change"
   ],
   "key_literature": [
     {
@@ -49,6 +50,11 @@
       "citation": "Ciarle & Burns 2025",
       "doi": "10.1080/0028825X.2024.2377418",
       "role": "multitrait plant island-syndrome review"
+    },
+    {
+      "citation": "Jezierski et al. 2026",
+      "doi": "10.1093/evolinnean/kzag008",
+      "role": "direct precedent for parallel island-syndrome phenotype with largely population-specific genomic differentiation"
     }
   ],
   "format_target": {
