@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "complete_prospectively_frozen_new_demographic_seed_validation",
+  "design": "data/design/chapter2_finite_history_signal_validation_20261003.json",
+  "provenance": {
+    "discovery_workflow_run": 36311030639,
+    "discovery_demographic_seeds": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108
+    ],
+    "validation_demographic_seeds": [
+      201,
+      202,
+      203,
+      204
+    ],
+    "visitor_histories": 128,
+    "starts": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "validation_arms": [
+      "near",
+      "far",
+      "pool_near",
+      "pool_far",
+      "large_near",
+      "large_far"
+    ],
+    "finite_arm_trajectories": 9216,
+    "paired_effect_cells_per_intervention": 1536,
+    "validation_horizon": 200,
+    "inbreeding_depression": 0.5
+  },
+  "reports": {
+    "natural": {
+      "discovery_validation_history_correlation": {
+        "estimate": 0.7321619738226453,
+        "bootstrap95": [
+          0.6325361804363616,
+          0.8045242033497555
+        ]
+      },
+      "validation_mean_effect": -0.14004618326822918,
+      "validation_labels_eps0": {
+        "negative": 103,
+        "mixed": 23,
+        "positive": 2,
+        "neutral": 0
+      },
+      "validation_labels_eps0_01": {
+        "negative": 104,
+        "mixed": 22,
+        "positive": 2,
+        "neutral": 0
+      },
+      "validation_variance_components": {
+        "sigma_history": 0.004404005039256251,
+        "sigma_start_by_history": 0.00044907682083595614,
+        "history_structured_variance": 0.004853081860092207,
+        "sigma_demographic_residual": 0.027475110807536562,
+        "four_repeat_mean_reliability": 0.41401979220385404
+      },
+      "validation_on_discovery": {
+        "slope": 0.7489213483390564,
+        "intercept": -0.03172542884273005,
+        "rmse_raw": 0.05983493239632134,
+        "rmse_about_fitted_line": 0.05257236666886975
+      }
+    },
+    "visitor_pooled": {
+      "discovery_validation_history_correlation": {
+        "estimate": 0.1654626963685096,
+        "bootstrap95": [
+          0.007784259661081172,
+          0.3262375397051605
+        ]
+      },
+      "validation_mean_effect": -0.22246534559461809,
+      "validation_labels_eps0": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      },
+      "validation_labels_eps0_01": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      },
+      "validation_variance_components": {
+        "sigma_history": 0.0007615652151099443,
+        "sigma_start_by_history": 0.00015437364763660772,
+        "history_structured_variance": 0.000915938862746552,
+        "sigma_demographic_residual": 0.02812387425222514,
+        "four_repeat_mean_reliability": 0.11525727099482591
+      },
+      "validation_on_discovery": {
+        "slope": 0.2329295352656932,
+        "intercept": -0.1698350090372271,
+        "rmse_raw": 0.06315322781886641,
+        "rmse_about_fitted_line": 0.06161714346720272
+      }
+    },
+    "large_plant_capacity": {
+      "discovery_validation_history_correlation": {
+        "estimate": 0.91832741451686,
+        "bootstrap95": [
+          0.8928080112123522,
+          0.940729136240155
+        ]
+      },
+      "validation_mean_effect": -0.2663827684190538,
+      "validation_labels_eps0": {
+        "negative": 124,
+        "mixed": 4,
+        "positive": 0,
+        "neutral": 0
+      },
+      "validation_labels_eps0_01": {
+        "negative": 126,
+        "mixed": 2,
+        "positive": 0,
+        "neutral": 0
+      },
+      "validation_variance_components": {
+        "sigma_history": 0.010044861387240882,
+        "sigma_start_by_history": 0.0012607389423625747,
+        "history_structured_variance": 0.011305600329603456,
+        "sigma_demographic_residual": 0.014724571362689688,
+        "four_repeat_mean_reliability": 0.7543733952835425
+      },
+      "validation_on_discovery": {
+        "slope": 1.054025667828844,
+        "intercept": 0.01994301010361027,
+        "rmse_raw": 0.043255032272813215,
+        "rmse_about_fitted_line": 0.03829082851291552
+      }
+    }
+  },
+  "paired_bootstrap_differences": {
+    "large_capacity_minus_natural_history_correlation": {
+      "estimate": 0.1861654406942147,
+      "bootstrap95": [
+        0.11977869113100571,
+        0.2825517167353619
+      ]
+    },
+    "visitor_pooled_minus_natural_history_correlation": {
+      "estimate": -0.5666992774541356,
+      "bootstrap95": [
+        -0.7321159171320919,
+        -0.4013656494929009
+      ]
+    }
+  },
+  "terminal_occupancy": {
+    "near": {
+      "occupied_fraction": 1,
+      "min_terminal_population": 48,
+      "mean_terminal_population": 48
+    },
+    "far": {
+      "occupied_fraction": 1,
+      "min_terminal_population": 48,
+      "mean_terminal_population": 48
+    },
+    "pool_near": {
+      "occupied_fraction": 1,
+      "min_terminal_population": 48,
+      "mean_terminal_population": 48
+    },
+    "pool_far": {
+      "occupied_fraction": 1,
+      "min_terminal_population": 48,
+      "mean_terminal_population": 48
+    },
+    "large_near": {
+      "occupied_fraction": 1,
+      "min_terminal_population": 192,
+      "mean_terminal_population": 192
+    },
+    "large_far": {
+      "occupied_fraction": 1,
+      "min_terminal_population": 192,
+      "mean_terminal_population": 192
+    }
+  },
+  "primary_decision": {
+    "observed_ordering": "large_plant_capacity > natural > visitor_pooled",
+    "observed_ordering_holds": true,
+    "large_minus_natural_bootstrap_interval_excludes_zero_positive": true,
+    "pooled_minus_natural_bootstrap_interval_excludes_zero_negative": true,
+    "strong_success": true,
+    "weak_success": false,
+    "failure": false
+  },
+  "interpretation": {
+    "validation_scope": "new demographic seeds for the same 128 frozen visitor histories; not new environmental histories",
+    "main": "The post-hoc discovery generated a prospectively frozen prediction that history-specific continuous responses would be most reproducible at capacity 192, intermediate under natural finite demography, and weakest after visitor-history pooling. New demographic seeds 201-204 reproduced that ordering with both paired-bootstrap contrasts excluding zero.",
+    "sign_context": "Directional sign labels remain substantially more uniform for visitor pooling and capacity 192 than for the natural arm under the new demographic seeds, while continuous history predictability remains opposite in strength."
+  },
+  "claim_boundary": [
+    "The discovery analysis remains exploratory and post-hoc.",
+    "The validation prediction and seeds were frozen before new demographic execution.",
+    "This is validation across new demographic realizations of the same synthetic visitor histories, not independent ecological-history or natural-island validation.",
+    "The 128 visitor histories are synthetic environmental histories, not natural island replicates.",
+    "Capacity scaling and visitor pooling are biological interventions, not pure statistical manipulations.",
+    "No natural variance component, branch prevalence, evolutionary rate or field effect size is inferred."
+  ]
+}
