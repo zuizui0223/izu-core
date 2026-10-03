@@ -7,6 +7,8 @@ LOCK = ROOT / "data/design/chapter2_integrated_model3_syndrome_lock_20261003.jso
 ACTIVE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 VNEXT = ROOT / "docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md"
 SI_EXT = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_INTEGRATED_EXTENSIONS_20261003.md"
+BOUNDARY_STAGE1 = ROOT / "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json"
+BOUNDARY_REFINEMENT = ROOT / "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json"
 
 
 def _text() -> str:
@@ -121,3 +123,21 @@ def test_integrated_candidate_is_compact_without_dropping_audit_detail() -> None
     assert compact["supporting_information_extension"].endswith(
         "CHAPTER2_SUPPORTING_INFORMATION_INTEGRATED_EXTENSIONS_20261003.md"
     )
+
+
+def test_integrated_candidate_excludes_deterministic_nonparallelism_before_persistence_boundary() -> None:
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    stage1 = json.loads(BOUNDARY_STAGE1.read_text(encoding="utf-8"))
+    refinement = json.loads(BOUNDARY_REFINEMENT.read_text(encoding="utf-8"))
+
+    assert lock["claim_boundary"]["deterministic_history_nonparallelism_among_persisting_isolation_populations"] is False
+    assert lock["key_results"]["persistence_boundary_scan"]["headline_action"] == (
+        "exclude deterministic history-level nonparallelism from persisting-population claims"
+    )
+    assert "No deterministic mixed/positive history was observed through depression 0.70" in stage1["first_stage_decision"]
+    assert refinement["decision"]["pre_quasi_extinction_nonparallelism_detected"] is False
+
+    lower = _text().lower()
+    si = SI_EXT.read_text(encoding="utf-8").lower()
+    assert "every history retaining all six masses >=1 remained negative-only" in lower
+    assert "mixed histories only after at least one near/far starting-state endpoint crossed below mass 1" in si
