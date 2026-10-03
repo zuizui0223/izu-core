@@ -76,6 +76,13 @@
           0.5918944894744962,
           0.7696721429716437
         ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.005486218868538884,
+        "ci95": [
+          0.004054355402335584,
+          0.007176560876199678
+        ]
       }
     },
     "richness_matched": {
@@ -86,43 +93,50 @@
       "sigma_history": {
         "estimate": 0.0015445461957021521,
         "ci95": [
-          0.0009073762303797976,
-          0.002171956996285489
+          0.0009432324939199652,
+          0.0022002492529305064
         ]
       },
       "sigma_start_by_history": {
         "estimate": 0.000333159939848335,
         "ci95": [
           0,
-          0.0009355953225144505
+          0.0009123413375018668
         ]
       },
       "sigma_demographic_residual": {
         "estimate": 0.025730247384025955,
         "ci95": [
-          0.023939330983338742,
-          0.027596618214874125
+          0.023919990127048815,
+          0.027651422761735486
         ]
       },
       "single_trajectory_icc": {
         "estimate": 0.06801323155731301,
         "ci95": [
-          0.04313053362416755,
-          0.09305972600470454
+          0.044337002738881255,
+          0.09371447602358451
         ]
       },
       "eight_repeat_reliability": {
         "estimate": 0.3686122704998782,
         "ci95": [
-          0.2649517905971181,
-          0.4510260384753046
+          0.2706859998035245,
+          0.4527265273609242
         ]
       },
       "split_half_history_correlation": {
         "estimate": 0.42415580430257954,
         "ci95": [
-          0.277875354071552,
-          0.5545162055512716
+          0.27939810520472785,
+          0.5610665977916857
+        ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.001877706135550487,
+        "ci95": [
+          0.001197614533450114,
+          0.0026375328247491944
         ]
       }
     },
@@ -172,6 +186,13 @@
           0.04959617551086329,
           0.3832925829094053
         ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.0004181066672563475,
+        "ci95": [
+          0.00011232175473739061,
+          0.0008738602926069278
+        ]
       }
     },
     "large_plant_capacity": {
@@ -219,6 +240,13 @@
         "ci95": [
           0.7909071646040711,
           0.8998774723600356
+        ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.008753624456144927,
+        "ci95": [
+          0.006791466479785633,
+          0.010776425128357527
         ]
       }
     }
@@ -297,5 +325,6 @@
     "Do not interpret variance components as natural prevalence or natural heritability.",
     "Do not treat capacity scaling as a pure sample-size change or visitor pooling as a pure noise intervention.",
     "Use this result to distinguish repeatability metrics and mechanisms, not to rank natural evolutionary causes."
-  ]
+  ],
+  "analysis_note": "history_structured_variance = max(sigma_history,0) + max(sigma_start_by_history,0); eight-repeat reliability uses this combined history-structured component."
 }
