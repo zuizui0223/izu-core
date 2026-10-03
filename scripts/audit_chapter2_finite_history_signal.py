@@ -60,6 +60,22 @@ def _label(v,eps):
     pos=np.any(v>eps); neg=np.any(v<-eps)
     return "mixed" if pos and neg else "positive" if pos else "negative" if neg else "neutral"
 
+def _all_balanced_split_half(x):
+    from itertools import combinations
+    idx=range(x.shape[2]); out=[]
+    # Keep only combinations containing repeat index 0 to avoid duplicate complements.
+    for comb in combinations(idx,x.shape[2]//2):
+        if 0 not in comb:
+            continue
+        a=np.asarray(comb,int)
+        b=np.asarray([i for i in idx if i not in comb],int)
+        va=x[:,:,a].mean(axis=(0,2))
+        vb=x[:,:,b].mean(axis=(0,2))
+        out.append(float(np.corrcoef(va,vb)[0,1]))
+    if len(out)!=35:
+        raise ValueError(f"expected 35 unique balanced splits, got {len(out)}")
+    return np.asarray(out,float)
+
 def _sign(x,eps):
     labels=[]; disagree=0
     for h in range(x.shape[1]):
@@ -99,10 +115,28 @@ def main():
         b=np.vstack(boots[name])
         for j,key in enumerate(("sigma_history","sigma_start_by_history","sigma_demographic_residual","single_trajectory_icc","eight_repeat_reliability","split_half_history_correlation")):
             point[name][key+"_ci95"]=np.quantile(b[:,j],[.025,.975]).tolist()
+    split={name:_all_balanced_split_half(x) for name,x in tensors.items()}
+    def ss(v):
+        return {
+            "min":float(v.min()),"q05":float(np.quantile(v,.05)),
+            "median":float(np.median(v)),"mean":float(v.mean()),
+            "q95":float(np.quantile(v,.95)),"max":float(v.max()),
+        }
+    robust={name:ss(v) for name,v in split.items()}
+    robust["paired_difference_vs_natural"]={}
+    for name in ("large_plant_capacity","visitor_pooled"):
+        d=split[name]-split["natural"]
+        robust["paired_difference_vs_natural"][name]={
+            **ss(d),"positive_splits":int(np.sum(d>0)),"total_splits":int(len(d))
+        }
     out={
         "status":"complete_posthoc_exact_source_finite_history_signal_diagnostic",
         "histories":len(histories),"starts":starts,"demographic_seeds":demos,
         "estimates":point,
+        "balanced_split_half_robustness":{
+            "method":"all 35 unique 4-versus-4 demographic-repeat partitions",
+            **robust,
+        },
         "claim_boundary":"exploratory post-hoc diagnostic; not a preregistered test or natural variance-component estimate",
     }
     a.out.parent.mkdir(parents=True,exist_ok=True)
