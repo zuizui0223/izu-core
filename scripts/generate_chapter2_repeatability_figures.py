@@ -10,8 +10,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-DISCOVERY = ROOT / "data/results/chapter2_finite_history_signal_diagnostic_20261003.json"
-VALIDATION = ROOT / "data/results/chapter2_finite_history_signal_validation_20261003.json"
+RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
 OUT_DIR = ROOT / "figures/chapter2_repeatability"
 INPUTS = ROOT / "data/results/chapter2_repeatability_figure_inputs_20261003.json"
 
@@ -19,121 +18,123 @@ ORDER = ["natural", "visitor_pooled", "large_plant_capacity"]
 LABELS = ["Natural", "Visitor pooled", "Capacity 192"]
 
 
-def _load() -> tuple[dict, dict]:
-    discovery = json.loads(DISCOVERY.read_text(encoding="utf-8"))
-    validation = json.loads(VALIDATION.read_text(encoding="utf-8"))
-    if discovery.get("status") != "complete_posthoc_exact_source_finite_history_signal_diagnostic":
-        raise RuntimeError("finite-history discovery diagnostic is not complete")
-    if validation.get("status") != "complete_prospectively_frozen_new_demographic_seed_validation":
-        raise RuntimeError("new-demographic-seed validation is not complete")
+def _load() -> dict:
+    data = json.loads(RESULT.read_text(encoding="utf-8"))
+    if data.get("status") != "complete_prospectively_frozen_new_visitor_history_validation":
+        raise RuntimeError("independent visitor-history validation is not complete")
+    if not data["primary_decision"]["strong_success"]:
+        raise RuntimeError("independent visitor-history validation did not meet strong-success rule")
     for key in ORDER:
-        if key not in discovery["estimates"] or key not in validation["reports"]:
+        if key not in data["reports"]:
             raise RuntimeError(f"missing intervention {key}")
-    if not validation["primary_decision"]["strong_success"]:
-        raise RuntimeError("prospective validation did not meet strong-success rule")
-    return discovery, validation
-
-
-def _validation_corr(validation: dict, key: str) -> tuple[float, float, float]:
-    row = validation["reports"][key]["discovery_validation_history_correlation"]
-    value = float(row["estimate"])
-    lo, hi = map(float, row["bootstrap95"])
-    return value, value - lo, hi - value
+    return data
 
 
 def build_repeatability_figure3() -> dict:
-    discovery, validation = _load()
-    d = discovery["estimates"]
-    v = validation["reports"]
+    data = _load()
+    reports = data["reports"]
 
-    discovery_mixed = np.array([d[k]["sign_mixed_histories_eps0"] for k in ORDER], dtype=float)
-    validation_mixed = np.array([v[k]["validation_labels_eps0"]["mixed"] for k in ORDER], dtype=float)
-
-    corr=[]; corr_low=[]; corr_high=[]
-    for key in ORDER:
-        value, lo, hi = _validation_corr(validation, key)
-        corr.append(value); corr_low.append(lo); corr_high.append(hi)
-    corr=np.asarray(corr,float)
-
-    history_var=np.array([
-        v[k]["validation_variance_components"]["history_structured_variance"] for k in ORDER
-    ],dtype=float)
-    residual_var=np.array([
-        v[k]["validation_variance_components"]["sigma_demographic_residual"] for k in ORDER
-    ],dtype=float)
-
-    x=np.arange(len(ORDER))
-    fig, axes=plt.subplots(1,3,figsize=(15.2,4.9))
-
-    ax=axes[0]
-    width=0.36
-    b1=ax.bar(x-width/2,discovery_mixed,width=width,label="Discovery: 8 repeats")
-    b2=ax.bar(x+width/2,validation_mixed,width=width,label="Validation: new 4 repeats")
-    ax.set_xticks(x,LABELS)
-    ax.set_ylabel("Mixed history labels (of 128)")
-    ax.set_title("A  Directional sign heterogeneity",loc="left")
-    ax.legend(frameon=False,fontsize=8)
-    for bars in (b1,b2):
-        for bar in bars:
-            val=int(round(bar.get_height()))
-            ax.text(bar.get_x()+bar.get_width()/2,bar.get_height()+1.2,str(val),ha="center",va="bottom",fontsize=8)
-    ax.set_ylim(0,max(discovery_mixed.max(),validation_mixed.max())*1.25+2)
-
-    ax=axes[1]
-    ax.errorbar(
-        x,corr,yerr=np.vstack([corr_low,corr_high]),
-        marker="o",linestyle="none",capsize=4
+    mixed = np.array([reports[k]["labels_eps0"]["mixed"] for k in ORDER], dtype=float)
+    reliability = np.array(
+        [reports[k]["variance_components"]["four_repeat_mean_reliability"] for k in ORDER],
+        dtype=float,
     )
-    ax.set_xticks(x,LABELS)
-    ax.set_ylim(0,1.02)
-    ax.set_ylabel("Discovery → validation history correlation")
-    ax.set_title("B  New demographic seeds preserve history rank differently",loc="left")
-    for xi,val in zip(x,corr):
-        ax.text(xi,val+0.055,f"{val:.3f}",ha="center",va="bottom",fontsize=8)
+    reliability_ci = np.array(
+        [reports[k]["variance_components"]["four_repeat_mean_reliability_bootstrap95"] for k in ORDER],
+        dtype=float,
+    )
+    history_var = np.array(
+        [reports[k]["variance_components"]["history_structured_variance"] for k in ORDER],
+        dtype=float,
+    )
+    residual_var = np.array(
+        [reports[k]["variance_components"]["sigma_demographic_residual"] for k in ORDER],
+        dtype=float,
+    )
 
-    ax=axes[2]
-    ax.bar(x-width/2,history_var,width=width,label="History-structured variance")
-    ax.bar(x+width/2,residual_var,width=width,label="Demographic residual")
-    ax.set_xticks(x,LABELS)
-    ax.set_ylabel("Validation variance of far − near effect")
-    ax.set_title("C  Validation mechanism differs",loc="left")
-    ax.legend(frameon=False,fontsize=8)
+    x = np.arange(len(ORDER))
+    fig, axes = plt.subplots(1, 3, figsize=(15.2, 4.9))
+
+    ax = axes[0]
+    bars = ax.bar(x, mixed)
+    ax.set_xticks(x, LABELS)
+    ax.set_ylabel("Mixed history labels (of 128)")
+    ax.set_title("A  Direction becomes more uniform", loc="left")
+    for bar, value in zip(bars, mixed):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 1.0,
+            f"{int(value)}",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+        )
+    ax.set_ylim(0, max(mixed) * 1.25 + 2)
+
+    ax = axes[1]
+    low = reliability - reliability_ci[:, 0]
+    high = reliability_ci[:, 1] - reliability
+    ax.errorbar(
+        x,
+        reliability,
+        yerr=np.vstack([low, high]),
+        marker="o",
+        linestyle="none",
+        capsize=4,
+    )
+    ax.set_xticks(x, LABELS)
+    ax.set_ylim(0, 1.02)
+    ax.set_ylabel("Four-repeat reliability of history effects")
+    ax.set_title("B  History repeatability moves oppositely", loc="left")
+    for xi, value in zip(x, reliability):
+        ax.text(xi, value + 0.055, f"{value:.3f}", ha="center", va="bottom", fontsize=8)
+
+    ax = axes[2]
+    width = 0.36
+    ax.bar(x - width / 2, history_var, width=width, label="History-structured variance")
+    ax.bar(x + width / 2, residual_var, width=width, label="Demographic residual")
+    ax.set_xticks(x, LABELS)
+    ax.set_ylabel("Variance of far − near effect")
+    ax.set_title("C  The mechanism differs", loc="left")
+    ax.legend(frameon=False, fontsize=8)
 
     fig.suptitle(
-        "Similar directional uniformity can preserve or erase a reproducible history signal",
-        x=0.01,ha="left",fontsize=13
+        "New visitor histories: similar directional uniformity, opposite historical repeatability",
+        x=0.01,
+        ha="left",
+        fontsize=13,
     )
-    fig.tight_layout(rect=(0,0,1,0.92))
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
 
-    OUT_DIR.mkdir(parents=True,exist_ok=True)
-    svg=OUT_DIR/"fig3_repeatability_history_signal.svg"
-    png=OUT_DIR/"fig3_repeatability_history_signal.png"
-    fig.savefig(svg,bbox_inches="tight")
-    fig.savefig(png,dpi=180,bbox_inches="tight")
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    svg = OUT_DIR / "fig3_repeatability_history_signal.svg"
+    png = OUT_DIR / "fig3_repeatability_history_signal.png"
+    fig.savefig(svg, bbox_inches="tight")
+    fig.savefig(png, dpi=180, bbox_inches="tight")
     plt.close(fig)
 
-    payload={
-        "schema_version":"2.0",
-        "status":"repeatability_figure3_uses_posthoc_discovery_and_prospective_new_seed_validation",
-        "discovery_source":DISCOVERY.relative_to(ROOT).as_posix(),
-        "validation_source":VALIDATION.relative_to(ROOT).as_posix(),
-        "interventions":ORDER,
-        "discovery_mixed_histories_eps0":discovery_mixed.astype(int).tolist(),
-        "validation_mixed_histories_eps0":validation_mixed.astype(int).tolist(),
-        "discovery_validation_history_correlation":corr.tolist(),
-        "validation_history_structured_variance":history_var.tolist(),
-        "validation_demographic_residual_variance":residual_var.tolist(),
-        "paired_validation_bootstrap":{
-            "large_capacity_minus_natural":validation["paired_bootstrap_differences"]["large_capacity_minus_natural_history_correlation"],
-            "visitor_pooled_minus_natural":validation["paired_bootstrap_differences"]["visitor_pooled_minus_natural_history_correlation"],
+    payload = {
+        "schema_version": "3.0",
+        "status": "repeatability_figure3_uses_prospectively_frozen_independent_visitor_history_validation",
+        "source_result": RESULT.relative_to(ROOT).as_posix(),
+        "interventions": ORDER,
+        "mixed_histories_eps0": mixed.astype(int).tolist(),
+        "four_repeat_history_reliability": reliability.tolist(),
+        "four_repeat_history_reliability_ci95": reliability_ci.tolist(),
+        "history_structured_variance": history_var.tolist(),
+        "demographic_residual_variance": residual_var.tolist(),
+        "paired_bootstrap": {
+            "large_capacity_minus_natural": data["paired_bootstrap_differences"]["large_capacity_minus_natural_reliability"],
+            "visitor_pooled_minus_natural": data["paired_bootstrap_differences"]["visitor_pooled_minus_natural_reliability"],
         },
-        "strong_success":bool(validation["primary_decision"]["strong_success"]),
-        "figure_outputs":[svg.relative_to(ROOT).as_posix(),png.relative_to(ROOT).as_posix()],
-        "claim_boundary":"Panel A includes the post-hoc discovery; panels B-C use prospectively frozen new demographic seeds. Validation reuses the same synthetic visitor histories and is not environmental-history or natural-island validation.",
+        "strong_success": bool(data["primary_decision"]["strong_success"]),
+        "visitor_history_seed_range": data["provenance"]["visitor_history_seeds"],
+        "figure_outputs": [svg.relative_to(ROOT).as_posix(), png.relative_to(ROOT).as_posix()],
+        "claim_boundary": "All plotted quantitative panels use prospectively frozen new synthetic visitor histories 75001-75128. This validates transfer within the same frozen history generator, not to a different ecological process or natural islands.",
     }
-    INPUTS.write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
+    INPUTS.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     return payload
 
 
-if __name__=="__main__":
-    print(json.dumps(build_repeatability_figure3(),indent=2))
+if __name__ == "__main__":
+    print(json.dumps(build_repeatability_figure3(), indent=2))
