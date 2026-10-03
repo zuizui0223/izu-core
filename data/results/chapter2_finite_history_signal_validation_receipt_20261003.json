@@ -67,5 +67,12 @@
       -0.4013656494929009
     ]
   },
-  "claim_boundary": "This receipt documents local execution and implementation equivalence. It does not make the original post-hoc discovery preregistered and does not represent independent environmental-history validation."
+  "claim_boundary": "This receipt documents local execution and implementation equivalence. It does not make the original post-hoc discovery preregistered and does not represent independent environmental-history validation.",
+  "prospective_freeze_provenance": {
+    "validation_design_commit": "4ca0193625fce2f9abac8a937a234b6c7825ee10",
+    "validation_design_commit_utc": "2026-10-03T14:04:10Z",
+    "first_new_seed_shard_written_utc": "2026-10-03T14:13:04.652814594Z",
+    "last_new_seed_shard_written_utc": "2026-10-03T14:30:04.702824447Z",
+    "decision": "validation design, new seeds, primary statistic and strong-success rule were Git-frozen before new demographic execution began"
+  }
 }
