@@ -78,9 +78,9 @@ Plant capacity was increased from `48` to `192` while the natural visitor histor
 - finite-ABM mixed histories fell from `12` to `1` at epsilon 0;
 - from `8` to `1` at epsilon 0.01;
 - and from `1` to `0` at epsilon 0.05;
-- the finite-ABM mean moved from `-0.1446` to `-0.2716`, closing about `41.5%` of the gap toward the deterministic mean `-0.4510`.
+- the finite-ABM mean moved from `-0.1446` to `-0.2716`; this numerically closes about `41.5%` of the trait-effect gap to the density closure, but the fraction is descriptive because the density closure is not the stochastic mean of the finite ABM.
 
-Therefore finite plant demography is not interchangeable with finite visitor-community sampling. Both interventions alter realized outcomes through different routes, but neither identifies a stable latent branching probability. Repeat-label disagreement also falls with larger plant capacity (from 97/128 to 31/128 histories at epsilon 0), consistent with reduced demographic sampling variability.
+Therefore finite plant demography is not interchangeable with finite visitor-community sampling. Both interventions alter realized outcomes through different routes, but neither identifies a stable latent branching probability. Repeat-label disagreement also falls with larger plant capacity (from 97/128 to 31/128 histories at epsilon 0), consistent with reduced demographic sampling variability. The accompanying movement of the mean toward the density closure is not used as evidence that the finite ABM converges to that closure.
 
 ## 5. S/C/I magnitude decomposition is not equivalent to directional branching
 
@@ -152,7 +152,7 @@ assurance/history/connectivity
 
 This yields a stronger dissertation interpretation than 'context dependence':
 
-> **Island isolation can impose a recurrent functional problem and even a common deterministic backbone, while finite ecological and demographic realization generates divergent phenotypic outcomes.**
+> **Island isolation can impose a recurrent functional problem and a common conditional deterministic trait response, while finite ecological and demographic realization generates divergent phenotypic outcomes. The deterministic closure is a comparator, not the stochastic expectation of the finite ABM.**
 
 That structure explains why Chapter 1 can show a recurrent functional syndrome without one recurrent detailed floral phenotype.
 
