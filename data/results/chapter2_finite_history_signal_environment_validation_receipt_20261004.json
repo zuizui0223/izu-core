@@ -10,7 +10,15 @@
     "workflow_run": 37155642391,
     "workflow_head_sha": "5d0c3fa75c962373c1ec151971bd2aadce16e122",
     "workflow_started_utc": "2026-10-03T21:35:35Z",
-    "decision": "new visitor-history seeds, demographic seeds, reliability statistic, ordering and strong-success rule were Git-frozen before validation execution"
+    "decision": "new visitor-history seeds, demographic seeds, reliability statistic, ordering and strong-success rule were Git-frozen before validation execution",
+    "superseded_preexecution_design": "data/design/chapter2_new_history_generalization_validation_20261003.json",
+    "superseded_preexecution_design_commit": "6898a0954b36a03e6839985cfd7649a27b93f6d6",
+    "superseded_before_execution": true,
+    "canonical_design_additions_before_execution": [
+      "bootstrap RNG seed fixed at 1042026",
+      "terminal occupancy >=0.95 added as an explicit strong-success guard",
+      "secondary balanced 2-versus-2 split reporting and claim boundaries formalized"
+    ]
   },
   "execution": {
     "visitor_history_seed_range": [
