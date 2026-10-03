@@ -1,3 +1,4 @@
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -14,6 +15,9 @@ HISTORY_SIGNAL_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_rep
 VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_validation_20261003.json"
 VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_validation_20261003.json"
 VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_validation_receipt_20261003.json"
+VALIDATION_RUNNER = ROOT / "scripts/run_chapter2_finite_history_signal_validation.py"
+VALIDATION_SUMMARIZER = ROOT / "scripts/summarize_chapter2_finite_history_signal_validation.py"
+VALIDATION_SOURCE_SNAPSHOT = ROOT / "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip"
 
 
 def _word_count(text: str) -> int:
@@ -244,3 +248,27 @@ def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
     assert "the original posthoc finite-history discovery as preregistered or confirmatory" in prohibited
     assert "new demographic seed validation as independent environmental-history replication" in prohibited
     assert "new demographic seed validation as natural-island validation" in prohibited
+
+
+def test_validation_receipt_hashes_match_committed_execution_surface():
+    receipt = json.loads(VALIDATION_RECEIPT.read_text(encoding="utf-8"))
+
+    def sha256(path: Path) -> str:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    actual_runner = sha256(VALIDATION_RUNNER)
+    actual_summarizer = sha256(VALIDATION_SUMMARIZER)
+    actual_snapshot = sha256(VALIDATION_SOURCE_SNAPSHOT)
+
+    assert actual_runner == receipt["execution"]["local_execution_runner_sha256"], (
+        actual_runner,
+        receipt["execution"]["local_execution_runner_sha256"],
+    )
+    assert actual_summarizer == receipt["execution"]["local_aggregation_script_sha256"], (
+        actual_summarizer,
+        receipt["execution"]["local_aggregation_script_sha256"],
+    )
+    assert actual_snapshot == receipt["exact_source"]["snapshot_sha256"], (
+        actual_snapshot,
+        receipt["exact_source"]["snapshot_sha256"],
+    )
