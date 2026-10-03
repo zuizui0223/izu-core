@@ -6,6 +6,7 @@ INTEGRATED = ROOT / "docs/CHAPTER2_MANUSCRIPT_INTEGRATED_MODEL3_SYNDROME_2026100
 LOCK = ROOT / "data/design/chapter2_integrated_model3_syndrome_lock_20261003.json"
 ACTIVE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 VNEXT = ROOT / "docs/CHAPTER2_MANUSCRIPT_VNEXT_SYNDROME_20261002.md"
+SI_EXT = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_INTEGRATED_EXTENSIONS_20261003.md"
 
 
 def _text() -> str:
@@ -97,3 +98,26 @@ def test_integrated_claim_boundary_stays_synthetic() -> None:
     assert boundary["literal_colour_or_corolla_mapping"] is False
     assert boundary["external_chapter1_coefficient_reproduction_required"] is False
     assert lock["computational_reproducibility"]["total_fresh_cases"] == 44544
+
+
+def test_integrated_candidate_is_compact_without_dropping_audit_detail() -> None:
+    text = _text()
+    words = len(text.split())
+    assert 5000 <= words <= 6000
+    assert SI_EXT.exists()
+    si = SI_EXT.read_text(encoding="utf-8").lower()
+    for token in (
+        "prospective extensions of the unified model 3",
+        "assurance-by-cost route",
+        "mutation input",
+        "24,576-case bridge",
+        "128 independent visitor histories",
+        "formal source audit",
+    ):
+        assert token in si
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    compact = lock["compact_submission_candidate"]
+    assert compact["active_oikos_submission_replaced"] is False
+    assert compact["supporting_information_extension"].endswith(
+        "CHAPTER2_SUPPORTING_INFORMATION_INTEGRATED_EXTENSIONS_20261003.md"
+    )
