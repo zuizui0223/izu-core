@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_execution",
+  "frozen_on": "2026-10-03",
+  "parent_el_head": "a51950b8ce9ddf883c2e31f2fc5f87a7359899c4",
+  "parent_bridge": "data/design/model3_ch2_bridge_execution_20260927.json",
+  "exact_source_snapshot": "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip",
+  "purpose": "Determine whether deterministic history-level nonparallelism appears before the genotype-density closure enters sub-individual mass regimes.",
+  "horizon": 200,
+  "depressions": [
+    0.55,
+    0.6,
+    0.65,
+    0.7
+  ],
+  "anchors_already_known": {
+    "0.50": {
+      "mean_effect": -0.4509830625839532,
+      "all_near_far_terminal_mass_approx_capacity": true,
+      "labels": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      }
+    },
+    "0.75": {
+      "mean_effect": -0.4142302489521037,
+      "far_mass_below_1_fraction": 0.9817708333333334,
+      "labels": {
+        "negative": 116,
+        "mixed": 11,
+        "positive": 1,
+        "neutral": 0
+      }
+    }
+  },
+  "histories": "all_128_parent_histories",
+  "starts": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "arms": [
+    "near",
+    "far"
+  ],
+  "model": "conditional deterministic genotype-density closure",
+  "primary_endpoints": [
+    "terminal density mass for every depression x history x start x arm",
+    "far-minus-near inherited-investment effect for every depression x history x start",
+    "history labels across the three starts at epsilon 0 and epsilon 0.01"
+  ],
+  "interpretability": {
+    "pre_quasi_extinction_history": "all six terminal masses (3 starts x near/far) are >= 1 expected individual",
+    "report_additional_mass_thresholds": [
+      10,
+      24
+    ],
+    "central_question": "Does any mixed or positive history occur among pre-quasi-extinction histories?",
+    "positive_result": "at least one mixed or positive history at epsilon 0.01 while all six masses for that history are >=1",
+    "negative_result": "mixed/positive labels occur only in histories where at least one terminal mass is <1, or no mixed/positive labels occur"
+  },
+  "stopping": "all four depression levels must be executed and reported; no outcome-dependent extension or threshold change",
+  "claim_boundary": [
+    "The scan is post-diagnostic but prospectively frozen before intermediate depression outcomes are inspected.",
+    "Mass >=1 is only a minimum non-sub-individual condition, not proof of realistic natural persistence.",
+    "The deterministic closure is not the stochastic mean of the finite ABM.",
+    "A positive scan result would establish model-internal deterministic nonparallelism before sub-individual mass, not natural prevalence or a natural depression threshold.",
+    "A negative result demotes the depression-0.75 nonparallelism result from the EL headline."
+  ]
+}
