@@ -13,9 +13,8 @@ from pathlib import Path
 import numpy as np
 
 from scripts.model3_island.density import density_step, make_grid, project_state
-from scripts.model3_island.run import founders_from_spec
+from scripts.model3_island.run import founders_from_spec, history_from_spec
 from scripts.model3_island.types import Config
-from scripts.model3_island_bridge_ops import prepare_arms
 from scripts.run_chapter2_mutation_input_calibration_sensitivity import (
     _founders as mutation_founders,
     _simulate as mutation_simulate,
@@ -96,9 +95,13 @@ def run_backbone_shard(design, parent, shard_index, shard_count):
     starts = [float(x) for x in design["backbone"]["starts"]]
     rows = []
     for hs in histories:
-        arms = prepare_arms(base, seed=hs, pool_size=int(parent["pool_size"]))
-        near_cfg, near_history = arms["near"]
-        far_cfg, far_history = arms["far"]
+        near_cfg = replace(base, visitor_arrival=replace(base.visitor_arrival, distance=0.0))
+        far_cfg = replace(base, visitor_arrival=replace(base.visitor_arrival, distance=3.0))
+        # These are exactly the first near/far assembly histories used by the
+        # frozen bridge; matched, pooled and large-population arms are not
+        # generated because they are outside this prospective long-horizon test.
+        near_history = history_from_spec(near_cfg, {"kind": "assembly"}, hs)
+        far_history = history_from_spec(far_cfg, {"kind": "assembly"}, hs)
         for start in starts:
             spec = {
                 "count": base.capacity,
