@@ -13,7 +13,7 @@ The current paper asks an evolutionary question: when an apparent increase in di
 Current official fit:
 - *Evolution Letters* publishes theoretical and empirical work across evolutionary biology that substantially advances the field or has broad interest;
 - a typical Letter is approximately 5,000 words excluding display items, with an abstract up to 300 words;
-- the current draft is 4,665 main-text words and 218 abstract words.
+- the current draft is 4,697 main-text words and 218 abstract words.
 
 ### Fallback: Ecology Letters
 
@@ -169,8 +169,8 @@ Do **not** claim:
 
 Evolution Letters is the preferred candidate but no submission action has been taken. Maintain these compact-format constraints:
 
-- main text: <= 4,700 words;
-- abstract: <= 250 words;
+- main text: <= 5,000 words (official Evolution Letters guide);
+- abstract: <= 300 words (official Evolution Letters maximum);
 - figures: 4 main figures.
 
 These are internal drafting targets, not attributed journal requirements.
