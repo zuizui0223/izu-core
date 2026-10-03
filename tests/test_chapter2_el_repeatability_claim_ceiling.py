@@ -9,10 +9,11 @@ LOCK = ROOT / "data/design/chapter2_el_repeatability_lock_20261003.json"
 POP_AUDIT = ROOT / "data/results/chapter2_bridge_population_scale_diagnostic_20261003.json"
 BOUNDARY_STAGE1 = ROOT / "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json"
 BOUNDARY_REFINEMENT = ROOT / "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json"
+HISTORY_SIGNAL = ROOT / "data/results/chapter2_finite_history_signal_diagnostic_20261003.json"
 
 
 def _word_count(text: str) -> int:
-    return len(re.findall(r"\\b[\\w–-]+\\b", text))
+    return len(re.findall(r"\b[\w–-]+\b", text))
 
 
 def _abstract(manuscript: str) -> str:
@@ -29,8 +30,8 @@ def test_repeatability_candidate_keeps_three_inference_levels_separate():
     assert "model-established result" in lower
     assert "general logical implication" in lower
     assert "empirical prediction" in lower
-    assert "aggregate evolutionary recurrence" in lower
-    assert "uniform realized evolutionary trajectories" in lower
+    assert "directional sign uniformity" in lower
+    assert "historical repeatability" in lower
 
 
 def test_focal_repeatability_evidence_is_occupied_finite_bridge_not_dep075_closure():
@@ -57,7 +58,7 @@ def test_lock_prohibits_density_as_stochastic_expectation_and_dep075_headline():
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
     assert lock["active_oikos_submission_replaced"] is False
     assert "occupied depression-0.50" in lock["safe_claim"]
-    assert "does not, by itself, imply uniform realized evolutionary trajectories" in lock["general_logical_implication"]
+    assert "does not, by itself, identify weaker historical contingency" in lock["general_logical_implication"]
     prohibited = set(lock["prohibited_claims"])
     assert "depression 0.75 deterministic history labels as evidence about repeatability among persisting populations" in prohibited
     assert "deterministic genotype density as the stochastic mean of the finite ABM" in prohibited
@@ -104,3 +105,22 @@ def test_deterministic_nonparallelism_is_excluded_before_persistence_boundary():
         "exclude deterministic history-level nonparallelism from the persisting-population repeatability claim"
     )
     assert "deterministic history-level nonparallelism among persisting isolation-assembly populations" in set(lock["prohibited_claims"])
+
+
+def test_sign_uniformity_and_history_signal_move_differently():
+    result = json.loads(HISTORY_SIGNAL.read_text(encoding="utf-8"))
+    est = result["estimates"]
+    assert result["status"] == "complete_posthoc_exact_source_finite_history_signal_diagnostic"
+    assert est["natural"]["sign_mixed_histories_eps0"] == 12
+    assert est["large_plant_capacity"]["sign_mixed_histories_eps0"] == 1
+    assert est["visitor_pooled"]["sign_mixed_histories_eps0"] == 0
+    assert est["large_plant_capacity"]["eight_repeat_reliability"]["estimate"] > est["natural"]["eight_repeat_reliability"]["estimate"]
+    assert est["visitor_pooled"]["eight_repeat_reliability"]["estimate"] < est["natural"]["eight_repeat_reliability"]["estimate"]
+    assert est["large_plant_capacity"]["split_half_history_correlation"]["estimate"] > 0.8
+    assert est["visitor_pooled"]["split_half_history_correlation"]["estimate"] < 0.3
+
+    lower = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    assert "same increase in directional sign uniformity can accompany either a stronger reproducible historical imprint" in lower
+    assert lock["finite_history_signal_diagnostic"]["status"].startswith("posthoc exploratory")
+    assert "mixed-sign history counts as a complete measure of evolutionary repeatability" in set(lock["prohibited_claims"])
