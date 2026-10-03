@@ -34,7 +34,8 @@
     "depression 0.75 deterministic history labels as evidence about repeatability among persisting populations",
     "deterministic genotype density as the stochastic mean of the finite ABM",
     "41.5 percent gap closure as a finite-population attenuation or convergence coefficient",
-    "level-by-time repeatability as established from the depression 0.75 long-horizon density stress test"
+    "level-by-time repeatability as established from the depression 0.75 long-horizon density stress test",
+    "deterministic history-level nonparallelism among persisting isolation-assembly populations"
   ],
   "key_literature": [
     {
@@ -86,7 +87,9 @@
       "at depression 0.50 and season 200, all frozen natural near and far finite cases are occupied",
       "at that occupied finite-population horizon, the aggregate far-minus-near mean is negative while descriptive history-level realized sign labels are non-uniform and repeat-sensitive",
       "functional visitor composition, reproductive context, genetic accessibility and finite demography alter model responses within the declared operator",
-      "standing variation provides an early response advantage that continuing mutation can erase and reverse"
+      "standing variation provides an early response advantage that continuing mutation can erase and reverse",
+      "within the tested pre-quasi-extinction depression range, the isolation-driven deterministic closure remained negative-only across histories",
+      "at the occupied 200-season finite-population horizon, aggregate mean direction coexists with repeat-sensitive realized sign heterogeneity"
     ],
     "general_implication": [
       "aggregate syndrome-level recurrence at a bounded horizon is insufficient evidence for uniform realized evolutionary pathways"
@@ -121,5 +124,23 @@
       "median_extinction_season_demo101": 61,
       "decision": "closure sensitivity only; not population-level repeatability evidence"
     }
+  },
+  "persistence_boundary_scan": {
+    "stage1_result": "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json",
+    "refinement_result": "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json",
+    "tested_depressions": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.71,
+      0.72,
+      0.73,
+      0.74,
+      0.75
+    ],
+    "result": "No mixed or positive deterministic history label was observed among histories whose three starts and both near/far arms all retained terminal density mass >=1. Mixed labels appeared only after at least one endpoint entered sub-individual expected mass.",
+    "headline_action": "exclude deterministic history-level nonparallelism from the persisting-population repeatability claim"
   }
 }
