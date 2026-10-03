@@ -10,6 +10,7 @@ POP_AUDIT = ROOT / "data/results/chapter2_bridge_population_scale_diagnostic_202
 BOUNDARY_STAGE1 = ROOT / "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json"
 BOUNDARY_REFINEMENT = ROOT / "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json"
 HISTORY_SIGNAL = ROOT / "data/results/chapter2_finite_history_signal_diagnostic_20261003.json"
+HISTORY_SIGNAL_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_reproduction_receipt_20261003.json"
 
 
 def _word_count(text: str) -> int:
@@ -127,3 +128,28 @@ def test_sign_uniformity_and_history_signal_move_differently():
     assert "same increase in directional sign uniformity can accompany either a stronger reproducible historical imprint" in lower
     assert lock["finite_history_signal_diagnostic"]["status"].startswith("posthoc exploratory")
     assert "mixed-sign history counts as a complete measure of evolutionary repeatability" in set(lock["prohibited_claims"])
+
+
+def test_history_signal_reproduction_receipt_is_complete_and_matches_result():
+    result = json.loads(HISTORY_SIGNAL.read_text(encoding="utf-8"))
+    receipt = json.loads(HISTORY_SIGNAL_RECEIPT.read_text(encoding="utf-8"))
+
+    assert receipt["status"].endswith("shard_hashes_verified")
+    hashes = receipt["source"]["shard_sha256"]
+    assert len(hashes) == 16
+    assert sorted(hashes) == [f"shard-{i:02d}.json" for i in range(16)]
+    assert len(set(hashes.values())) == 16
+    assert all(re.fullmatch(r"[0-9a-f]{64}", h) for h in hashes.values())
+    assert receipt["source"]["shard_sha256_root"] == "840655ed8352d1da1889b9b383a09406414514807eabdc0158019fe75858b447"
+
+    for arm in ("natural", "richness_matched", "visitor_pooled", "large_plant_capacity"):
+        rr = receipt["matched_point_estimates"][arm]
+        er = result["estimates"][arm]
+        assert rr["mean_effect"] == er["mean_effect"]
+        assert rr["sigma_history"] == er["sigma_history"]["estimate"]
+        assert rr["sigma_start_by_history"] == er["sigma_start_by_history"]["estimate"]
+        assert rr["sigma_demographic_residual"] == er["sigma_demographic_residual"]["estimate"]
+        assert rr["eight_repeat_reliability"] == er["eight_repeat_reliability"]["estimate"]
+        assert rr["split_half_history_correlation"] == er["split_half_history_correlation"]["estimate"]
+
+    assert "does not upgrade the post-hoc diagnostic" in receipt["claim_boundary"]
