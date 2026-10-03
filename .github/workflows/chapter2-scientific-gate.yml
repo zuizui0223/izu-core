@@ -58,3 +58,84 @@ jobs:
             tests/test_current_ci_surface.py \
             tests/test_model2_legacy_firewall.py \
             tests/test_workflow_trigger_policy.py
+
+
+  finite-history-validation-plan:
+    if: github.event_name == 'pull_request' && github.head_ref == 'chapter2/el-repeatability-20261003'
+    runs-on: ubuntu-latest
+    outputs:
+      needs_run: ${{ steps.plan.outputs.needs_run }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        name: Check whether frozen new-seed validation is already recorded
+        run: |
+          if test -f data/results/chapter2_finite_history_signal_validation_20261003.json; then
+            echo "needs_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs_run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  finite-history-validation-shard:
+    needs: finite-history-validation-plan
+    if: needs.finite-history-validation-plan.outputs.needs_run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Restore exact frozen bridge source snapshot
+        run: |
+          rm -rf validation-src validation-output
+          mkdir -p validation-src validation-output
+          unzip -q data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip -d validation-src
+          cp scripts/run_chapter2_finite_history_signal_validation.py validation-src/scripts/
+      - name: Run frozen new-demographic validation shard
+        run: |
+          SHARD=$(printf "%02d" "${{ matrix.shard }}")
+          cd validation-src
+          PYTHONPATH=. python -m scripts.run_chapter2_finite_history_signal_validation             --validation-design ../data/design/chapter2_finite_history_signal_validation_20261003.json             --parent-design ../data/design/model3_ch2_bridge_execution_20260927.json             --shard-index "${{ matrix.shard }}"             --shard-count 16             --out "../validation-output/validation-shard-${SHARD}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: finite-history-validation-${{ matrix.shard }}
+          retention-days: 30
+          if-no-files-found: error
+          path: validation-output/validation-shard-*.json
+
+  finite-history-validation-summary:
+    needs: [finite-history-validation-plan, finite-history-validation-shard]
+    if: always() && needs.finite-history-validation-plan.outputs.needs_run == 'true' && needs.finite-history-validation-shard.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: finite-history-validation-*
+          path: validation-shards
+          merge-multiple: true
+      - name: Apply frozen validation decision rule
+        run: |
+          python -m scripts.summarize_chapter2_finite_history_signal_validation             --validation-design data/design/chapter2_finite_history_signal_validation_20261003.json             --predictions data/design/chapter2_finite_history_signal_predictions_20261003.json             --input-dir validation-shards             --out chapter2_finite_history_signal_validation_20261003.json             | tee chapter2_finite_history_signal_validation_console.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-finite-history-signal-validation-result
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            chapter2_finite_history_signal_validation_20261003.json
+            chapter2_finite_history_signal_validation_console.txt
