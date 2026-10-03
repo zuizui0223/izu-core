@@ -4,7 +4,7 @@
   "status": "el_repeatability_candidate_separate_from_active_oikos",
   "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
   "active_oikos_submission_replaced": false,
-  "editorial_question": "Where does evolutionary repeatability break when recurrent island-like pollination problems act on plant populations?",
+  "editorial_question": "How do biological level and observation horizon jointly determine evolutionary repeatability under recurrent island-like pollination problems?",
   "framing": {
     "upper_level": "evolutionary repeatability / nonparallel evolution",
     "biological_testbed": "pollination-mediated plant island syndrome",
@@ -16,7 +16,7 @@
       "finite_population_realization"
     ]
   },
-  "safe_claim": "Within the declared Model 3, aggregate syndrome-like recurrence can persist after trajectory-level evolutionary parallelism has begun to fail.",
+  "safe_claim": "Within the declared Model 3, aggregate and trajectory-level repeatability can differ over a bounded adaptive window, and the relationship is horizon-dependent rather than a demonstrated stationary endpoint.",
   "prohibited_claims": [
     "first connection between island syndrome and parallel evolution",
     "first mechanism for nonparallel evolution",
@@ -26,7 +26,11 @@
     "first evidence that island-syndrome phenotypic parallelism can coexist with nonparallel genomic change",
     "natural island systems generally follow the modeled stage ordering",
     "the model estimates natural prevalence of each evolutionary route",
-    "the model identifies the dominant cause of any named island syndrome"
+    "the model identifies the dominant cause of any named island syndrome",
+    "the negative deterministic isolation backbone is a stationary long-run island syndrome",
+    "history-level nonparallelism observed at the focal horizon necessarily persists indefinitely",
+    "standing genetic variation is a persistent dominant accessibility filter",
+    "6400 reproductive seasons approximate geological or million-year island evolution"
   ],
   "key_literature": [
     {
@@ -58,6 +62,11 @@
       "citation": "Jezierski et al. 2026",
       "doi": "10.1093/evolinnean/kzag008",
       "role": "direct precedent for parallel island-syndrome phenotype with largely population-specific genomic differentiation"
+    },
+    {
+      "citation": "Matuszewski et al. 2015",
+      "doi": null,
+      "role": "theoretical precedent that standing variation dominates early adaptation while de novo mutation contribution increases through time; used to bound novelty of the long-horizon mutation result"
     }
   ],
   "format_target": {
@@ -66,21 +75,33 @@
     "abstract_words_max": 250,
     "main_figures": 4
   },
-  "general_logical_implication": "A recurrent syndrome does not, by itself, imply recurrent evolutionary trajectories.",
-  "empirical_prediction": "If the modeled architecture contributes to natural island evolution, repeatability should be stronger for quantities close to the shared ecological problem than for detailed inherited and realized population trajectories.",
+  "general_logical_implication": "A recurrent syndrome observed at one biological level and time horizon does not, by itself, imply recurrent evolutionary trajectories or a stationary long-run endpoint.",
+  "empirical_prediction": "If the modeled architecture contributes to natural island evolution, estimates of repeatability should depend on both biological level and the response window over which populations are observed.",
   "claim_levels": {
     "model_established": [
-      "aggregate recurrence and trajectory-level parallelism can dissociate within the declared operator and tested parameter envelope",
-      "prospective interventions identify sufficient mechanisms for this dissociation"
+      "at the frozen 200-season horizon, aggregate directional response and trajectory-level labels are distinct objects within the declared Model 3",
+      "visitor composition, reproductive context, genetic accessibility and finite demography can alter the response within the declared operator",
+      "the prospective 6400-season deterministic/mutation extension fails the frozen stationarity criteria",
+      "standing variation provides an early response advantage but not a persistent dominance over continuing mutation input"
     ],
     "general_implication": [
-      "syndrome-level recurrence is insufficient evidence for recurrent evolutionary pathways"
+      "syndrome-level recurrence at a bounded observation horizon is insufficient evidence for recurrent evolutionary pathways",
+      "finite-horizon recurrence is insufficient evidence for a stationary long-run evolutionary endpoint"
     ],
     "natural_prediction_not_result": [
       "stage ordering of repeatability in real islands",
+      "temporal ordering of repeatability in real islands",
       "natural branch prevalence",
       "natural effect sizes and evolutionary rates",
       "dominant mechanism in any named archipelago"
     ]
+  },
+  "long_horizon_result": {
+    "result": "data/results/chapter2_long_horizon_stationarity_20261003.json",
+    "deterministic_backbone_stationary_by_6400": false,
+    "deterministic_density_quasi_extinction": true,
+    "standing_variation_dominance_persistent": false,
+    "mutation_catches_and_overtakes_high_standing_reference_between_800_and_1600": true,
+    "interpretation": "focal 200-season results are finite-horizon responses, not demonstrated equilibrium or stationary syndrome endpoints"
   }
 }
