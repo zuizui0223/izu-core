@@ -250,7 +250,7 @@ def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
     assert validation["validation_scope"] == "same 128 frozen visitor histories; new demographic seeds 201-204"
 
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
-    assert "new demographic seeds (201–204), giving 9,216 finite arm trajectories" in manuscript
+    assert "new demographic seeds 201–204 (9,216 arm trajectories)" in manuscript
     assert "prospectively frozen new-seed validation met its strong-success rule" in manuscript
     assert "not transfer to new environmental histories or natural islands" in manuscript
 
