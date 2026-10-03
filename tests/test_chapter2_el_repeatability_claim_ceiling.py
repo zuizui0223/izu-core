@@ -65,18 +65,21 @@ def test_lock_prohibits_density_as_stochastic_expectation_and_dep075_headline():
     assert "41.5 percent gap closure as a finite-population attenuation or convergence coefficient" in prohibited
 
 
-def test_journal_target_is_explicitly_unresolved():
+def test_journal_fit_prefers_evolution_letters_without_submitting():
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
-    positioning = POSITIONING.read_text(encoding="utf-8")
-    assert lock["format_target"]["journal"] == "unresolved: Ecology Letters vs Evolution Letters"
-    assert "journal target unresolved" in positioning.lower()
+    positioning = POSITIONING.read_text(encoding="utf-8").lower()
+    assert lock["format_target"]["journal_preferred"] == "Evolution Letters"
+    assert lock["format_target"]["journal_fallback"].startswith("Ecology Letters")
+    assert lock["format_target"]["submission_action_taken"] is False
+    assert "preferred candidate: evolution letters" in positioning
+    assert "journal-fit recommendation" in positioning
 
 
 def test_candidate_stays_within_internal_compact_format():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
-    assert _word_count(_abstract(manuscript)) <= lock["format_target"]["internal_abstract_words_max"]
-    assert _word_count(_main_without_core_references(manuscript)) <= lock["format_target"]["internal_main_text_words_max"]
+    assert _word_count(_abstract(manuscript)) <= lock["format_target"]["evolution_letters"]["abstract_words_max"]
+    assert _word_count(_main_without_core_references(manuscript)) <= lock["format_target"]["evolution_letters"]["main_text_guide_words"]
 
 
 def test_positioning_preserves_constructive_not_calibrated_interpretation():
