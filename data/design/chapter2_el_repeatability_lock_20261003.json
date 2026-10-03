@@ -1,22 +1,22 @@
 {
   "schema_version": "1.0",
   "date": "2026-10-03",
-  "status": "el_repeatability_candidate_separate_from_active_oikos",
+  "status": "repeatability_candidate_journal_unresolved_separate_from_active_oikos",
   "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
   "active_oikos_submission_replaced": false,
-  "editorial_question": "How do biological level and observation horizon jointly determine evolutionary repeatability under recurrent island-like pollination problems?",
+  "editorial_question": "When can a recurrent island-like pollination problem produce a coherent aggregate response without producing uniform realized evolutionary trajectories?",
   "framing": {
     "upper_level": "evolutionary repeatability / nonparallel evolution",
     "biological_testbed": "pollination-mediated plant island syndrome",
     "stage_decomposition": [
       "recurrent_ecological_problem",
       "immediate_reproductive_selection",
-      "deterministic_inherited_expectation",
-      "genetic_accessibility",
-      "finite_population_realization"
+      "conditional_deterministic_closure",
+      "occupied_finite_population_realization",
+      "genetic_accessibility_and_persistence"
     ]
   },
-  "safe_claim": "Within the declared Model 3, aggregate and trajectory-level repeatability can differ over a bounded adaptive window, and the relationship is horizon-dependent rather than a demonstrated stationary endpoint.",
+  "safe_claim": "Within the occupied depression-0.50, 200-season finite ABM, a directional aggregate response coexists with non-uniform, repeat-sensitive history-level realized signs.",
   "prohibited_claims": [
     "first connection between island syndrome and parallel evolution",
     "first mechanism for nonparallel evolution",
@@ -30,7 +30,11 @@
     "the negative deterministic isolation backbone is a stationary long-run island syndrome",
     "history-level nonparallelism observed at the focal horizon necessarily persists indefinitely",
     "standing genetic variation is a persistent dominant accessibility filter",
-    "6400 reproductive seasons approximate geological or million-year island evolution"
+    "6400 reproductive seasons approximate geological or million-year island evolution",
+    "depression 0.75 deterministic history labels as evidence about repeatability among persisting populations",
+    "deterministic genotype density as the stochastic mean of the finite ABM",
+    "41.5 percent gap closure as a finite-population attenuation or convergence coefficient",
+    "level-by-time repeatability as established from the depression 0.75 long-horizon density stress test"
   ],
   "key_literature": [
     {
@@ -70,38 +74,52 @@
     }
   ],
   "format_target": {
-    "journal": "Evolution Letters",
-    "main_text_words_max": 4700,
-    "abstract_words_max": 250,
-    "main_figures": 4
+    "journal": "unresolved: Ecology Letters vs Evolution Letters",
+    "internal_main_text_words_max": 4700,
+    "internal_abstract_words_max": 250,
+    "internal_main_figures": 4
   },
-  "general_logical_implication": "A recurrent syndrome observed at one biological level and time horizon does not, by itself, imply recurrent evolutionary trajectories or a stationary long-run endpoint.",
-  "empirical_prediction": "If the modeled architecture contributes to natural island evolution, estimates of repeatability should depend on both biological level and the response window over which populations are observed.",
+  "general_logical_implication": "Aggregate evolutionary recurrence does not, by itself, imply uniform realized evolutionary trajectories.",
+  "empirical_prediction": "If the modeled architecture contributes to natural island evolution, apparent repeatability should depend on the biological object measured; genetic-accessibility rankings may additionally change as new variation accumulates.",
   "claim_levels": {
     "model_established": [
-      "at the frozen 200-season horizon, aggregate directional response and trajectory-level labels are distinct objects within the declared Model 3",
-      "visitor composition, reproductive context, genetic accessibility and finite demography can alter the response within the declared operator",
-      "the prospective 6400-season deterministic/mutation extension fails the frozen stationarity criteria",
-      "standing variation provides an early response advantage but not a persistent dominance over continuing mutation input"
+      "at depression 0.50 and season 200, all frozen natural near and far finite cases are occupied",
+      "at that occupied finite-population horizon, the aggregate far-minus-near mean is negative while descriptive history-level realized sign labels are non-uniform and repeat-sensitive",
+      "functional visitor composition, reproductive context, genetic accessibility and finite demography alter model responses within the declared operator",
+      "standing variation provides an early response advantage that continuing mutation can erase and reverse"
     ],
     "general_implication": [
-      "syndrome-level recurrence at a bounded observation horizon is insufficient evidence for recurrent evolutionary pathways",
-      "finite-horizon recurrence is insufficient evidence for a stationary long-run evolutionary endpoint"
+      "aggregate syndrome-level recurrence at a bounded horizon is insufficient evidence for uniform realized evolutionary pathways"
     ],
     "natural_prediction_not_result": [
-      "stage ordering of repeatability in real islands",
-      "temporal ordering of repeatability in real islands",
+      "biological-level ordering of repeatability in real islands",
       "natural branch prevalence",
+      "natural equilibrium or attractor time",
       "natural effect sizes and evolutionary rates",
       "dominant mechanism in any named archipelago"
     ]
   },
   "long_horizon_result": {
     "result": "data/results/chapter2_long_horizon_stationarity_20261003.json",
-    "deterministic_backbone_stationary_by_6400": false,
-    "deterministic_density_quasi_extinction": true,
+    "depression_0_75_density_stress_test": "crosses quasi-extinction boundary by the focal season and cannot identify syndrome-level temporal repeatability",
     "standing_variation_dominance_persistent": false,
     "mutation_catches_and_overtakes_high_standing_reference_between_800_and_1600": true,
-    "interpretation": "focal 200-season results are finite-horizon responses, not demonstrated equilibrium or stationary syndrome endpoints"
+    "interpretation": "temporal claim retained for genetic accessibility speed, not for long-run syndrome repeatability"
+  },
+  "population_scale_diagnostic": {
+    "result": "data/results/chapter2_bridge_population_scale_diagnostic_20261003.json",
+    "depression_0_50": {
+      "far_density_mass_median_200": 48,
+      "finite_far_population_demo101_mean": 47.9921875,
+      "frozen_far_occupancy_all_repeats": 1,
+      "decision": "population-scale concern does not apply to original focal headline"
+    },
+    "depression_0_75": {
+      "far_density_mass_median_200": 0.0003014367667916852,
+      "far_density_mass_below_1_fraction": 0.9817708333333334,
+      "finite_demo101_far_occupancy_200": 0,
+      "median_extinction_season_demo101": 61,
+      "decision": "closure sensitivity only; not population-level repeatability evidence"
+    }
   }
 }
