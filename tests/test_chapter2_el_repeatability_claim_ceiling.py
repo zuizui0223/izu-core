@@ -21,6 +21,9 @@ VALIDATION_RUNNER = ROOT / "scripts/run_chapter2_finite_history_signal_validatio
 VALIDATION_SUMMARIZER = ROOT / "scripts/summarize_chapter2_finite_history_signal_validation.py"
 VALIDATION_SOURCE_SNAPSHOT = ROOT / "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip"
 BRIDGE_SOURCE_CONTRACT = ROOT / "data/design/model3_ch2_bridge_execution_20260927.json"
+ENV_VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
+ENV_VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
+ENV_VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json"
 
 
 def _word_count(text: str) -> int:
@@ -289,3 +292,45 @@ def test_validation_receipt_distinguishes_execution_provenance_from_committed_re
 
     assert "zip byte identity is not claimed" in exact["relationship"].lower()
     assert "need not be byte-identical" in receipt["claim_boundary"]
+
+
+def test_independent_visitor_history_validation_meets_frozen_strong_success_rule():
+    design = json.loads(ENV_VALIDATION_DESIGN.read_text(encoding="utf-8"))
+    result = json.loads(ENV_VALIDATION_RESULT.read_text(encoding="utf-8"))
+    receipt = json.loads(ENV_VALIDATION_RECEIPT.read_text(encoding="utf-8"))
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+
+    assert design["status"] == "prospective_frozen_before_new_visitor_history_execution"
+    seeds = design["execution"]["visitor_history_seeds"]
+    assert len(seeds) == 128 and seeds[0] == 75001 and seeds[-1] == 75128
+    assert design["execution"]["demographic_seeds"] == [301, 302, 303, 304]
+    assert design["execution"]["expected_arm_trajectories"] == 9216
+
+    assert result["status"] == "complete_prospectively_frozen_new_visitor_history_validation"
+    assert result["provenance"]["finite_arm_trajectories"] == 9216
+    assert result["primary_decision"]["strong_success"] is True
+    rel = result["primary_decision"]["observed_reliability"]
+    assert rel["large_plant_capacity"] > rel["natural"] > rel["visitor_pooled"]
+    assert result["paired_bootstrap_differences"]["large_capacity_minus_natural_reliability"]["bootstrap95"][0] > 0
+    assert result["paired_bootstrap_differences"]["visitor_pooled_minus_natural_reliability"]["bootstrap95"][1] < 0
+    assert all(v["occupied_fraction"] == 1.0 for v in result["terminal_occupancy"].values())
+
+    assert receipt["status"] == "complete_github_actions_exact_source_new_visitor_history_validation_receipt"
+    freeze = receipt["freeze_provenance"]
+    assert freeze["validation_design_commit"] == "6bac0410e4459e391dd5fba02bd9b63bed8d4fb9"
+    assert freeze["validation_design_commit_utc"] < freeze["workflow_started_utc"]
+    assert len(receipt["execution"]["shard_artifacts"]) == 16
+    assert receipt["primary_validation_check"]["strong_success"] is True
+
+    validation = lock["finite_history_signal_environment_validation"]
+    assert validation["strong_success"] is True
+    assert validation["validation_scope"].startswith("new synthetic visitor histories 75001-75128")
+
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    assert "entirely new synthetic visitor histories (75001–75128)" in manuscript
+    assert "independent visitor-history validation also met its frozen strong-success rule" in manuscript
+    assert "same frozen history-generating process" in manuscript
+
+    prohibited = set(lock["prohibited_claims"])
+    assert "new visitor-history validation as natural-island validation" in prohibited
+    assert "new visitor-history validation as transfer to a different ecological-history generator" in prohibited
