@@ -81,7 +81,27 @@ The validation ran **9,216 finite trajectories** with 100% terminal occupancy.
 - Capacity minus natural: **+0.186**, paired 95% interval **+0.120 to +0.283**.
 - Pooled minus natural: **−0.567**, **−0.732 to −0.401**.
 
-The frozen strong-success rule therefore passed. This upgrades the mechanism from a post-hoc pattern to a **prospectively validated prediction across new demographic realizations**. It does not validate transfer to new visitor histories or natural islands; the discovery remains post-hoc.
+The frozen strong-success rule therefore passed. This upgrades the mechanism from a post-hoc pattern to a **prospectively validated prediction across new demographic realizations**. The discovery itself remains post-hoc.
+
+## Prospective independent visitor-history validation
+
+A second validation was then frozen **before any new visitor-history execution**. The original history seeds 74001–74128 were replaced wholesale by **75001–75128**, demographic seeds were fixed at 301–304, and the same natural, visitor-pooled and capacity-192 interventions were retained. The primary statistic changed appropriately: rather than correlating old and new histories, we tested four-repeat reliability of history-structured effects within the new history ensemble.
+
+The predeclared strong-success rule required:
+- reliability ordering **capacity 192 > natural > visitor pooled**;
+- paired-bootstrap interval for capacity minus natural entirely above zero;
+- paired-bootstrap interval for pooled minus natural entirely below zero;
+- terminal occupancy >=0.95 in every arm.
+
+All **9,216 finite trajectories** completed and every arm had 100% terminal occupancy.
+
+- **Capacity 192:** reliability **0.722** (0.661–0.766).
+- **Natural:** **0.417** (0.334–0.493).
+- **Visitor pooled:** **0.154** (0.071–0.226).
+- Capacity minus natural: **+0.305**, paired 95% interval **+0.222 to +0.375**.
+- Pooled minus natural: **−0.263**, **−0.379 to −0.154**.
+
+The frozen strong-success rule passed again. This is **out-of-visitor-history-sample validation within the same frozen history generator**. It is stronger than the first validation, but it is still not transfer to a different ecological process or to natural islands.
 
 ## Critical population-scale audit
 
@@ -165,7 +185,7 @@ Plant island syndromes are empirically heterogeneous rather than a single law.
 
 ## Safe novelty statement
 
-> Measurement theory already separates direction from magnitude. Model 3 contributes a specific mechanistic counterexample: **the same increase in directional similarity can accompany either stronger reproducibility of history-specific effects or erosion of the history signal by environmental averaging.**
+> Measurement theory already separates direction from magnitude. Model 3 contributes a specific mechanistic counterexample: **the same increase in directional similarity can accompany either stronger reproducibility of history-specific effects or erosion of the history signal by environmental averaging; this ordering was then recovered prospectively under both new demographic realizations and an entirely new synthetic visitor-history ensemble.**
 
 Do **not** claim:
 - first connection between island syndrome and parallel evolution;
@@ -191,7 +211,7 @@ These are internal drafting targets, not attributed journal requirements.
 
 ## Claim ceiling
 
-1. **Established by simulation:** at the occupied depression-0.50 finite horizon, capacity scaling and visitor-history pooling both increase directional sign uniformity but generate opposite persistence of history-specific magnitude; the ordering was prospectively validated with new demographic seeds 201–204.
+1. **Established by simulation:** at the occupied depression-0.50 finite horizon, capacity scaling and visitor-history pooling both increase directional sign uniformity but generate opposite persistence of history-specific magnitude; the ordering was prospectively validated first with new demographic seeds 201–204 and then with entirely new synthetic visitor-history seeds 75001–75128.
 2. **General implication:** directional similarity alone does not identify whether historical contingency has weakened, become more reproducible relative to demographic noise, or been averaged away.
 3. **Natural prediction:** repeated-population studies should estimate both response direction and reproducibility of effect magnitude; temporal accessibility rankings may additionally change as new variation accumulates.
 
