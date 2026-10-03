@@ -1,7 +1,7 @@
-# Island-like pollination constraints generate recurrent functional responses without a single floral endpoint
+# Island-like pollination constraints generate recurrent functional responses without a single floral endpoint: an eco-evolutionary model
 
 **Status:** vNext integration candidate — does not replace the locked Oikos submission surface
-**Updated:** 2026-10-02
+**Updated:** 2026-10-03
 **Inference architecture:** pollinator environment → reproductive return / assurance / rematching → genetic accessibility → inherited change → finite-population realization → source-audited natural confrontation
 **Source state:** frozen unified Model 3 + prospective syndrome-decomposition extensions merged through PR #380
 **Firewall:** the active Oikos submission remains `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`
