@@ -16,14 +16,17 @@
       "finite_population_realization"
     ]
   },
-  "safe_claim": "Repeated island-like ecological problems can preserve repeatability of coarse function after repeatability of detailed evolutionary solutions has begun to decay.",
+  "safe_claim": "Within the declared Model 3, aggregate syndrome-like recurrence can persist after trajectory-level evolutionary parallelism has begun to fail.",
   "prohibited_claims": [
     "first connection between island syndrome and parallel evolution",
     "first mechanism for nonparallel evolution",
     "literal named-island phenotype prediction",
     "universal assurance-by-cost floral reduction",
     "single scalar repeatability parameter across unlike biological stages",
-    "first evidence that island-syndrome phenotypic parallelism can coexist with nonparallel genomic change"
+    "first evidence that island-syndrome phenotypic parallelism can coexist with nonparallel genomic change",
+    "natural island systems generally follow the modeled stage ordering",
+    "the model estimates natural prevalence of each evolutionary route",
+    "the model identifies the dominant cause of any named island syndrome"
   ],
   "key_literature": [
     {
@@ -62,5 +65,22 @@
     "main_text_words_max": 4700,
     "abstract_words_max": 250,
     "main_figures": 4
+  },
+  "general_logical_implication": "A recurrent syndrome does not, by itself, imply recurrent evolutionary trajectories.",
+  "empirical_prediction": "If the modeled architecture contributes to natural island evolution, repeatability should be stronger for quantities close to the shared ecological problem than for detailed inherited and realized population trajectories.",
+  "claim_levels": {
+    "model_established": [
+      "aggregate recurrence and trajectory-level parallelism can dissociate within the declared operator and tested parameter envelope",
+      "prospective interventions identify sufficient mechanisms for this dissociation"
+    ],
+    "general_implication": [
+      "syndrome-level recurrence is insufficient evidence for recurrent evolutionary pathways"
+    ],
+    "natural_prediction_not_result": [
+      "stage ordering of repeatability in real islands",
+      "natural branch prevalence",
+      "natural effect sizes and evolutionary rates",
+      "dominant mechanism in any named archipelago"
+    ]
   }
 }
