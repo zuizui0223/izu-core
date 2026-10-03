@@ -21,6 +21,10 @@ VALIDATION_RUNNER = ROOT / "scripts/run_chapter2_finite_history_signal_validatio
 VALIDATION_SUMMARIZER = ROOT / "scripts/summarize_chapter2_finite_history_signal_validation.py"
 VALIDATION_SOURCE_SNAPSHOT = ROOT / "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip"
 BRIDGE_SOURCE_CONTRACT = ROOT / "data/design/model3_ch2_bridge_execution_20260927.json"
+NEW_HISTORY_SUPERSEDED_DESIGN = ROOT / "data/design/chapter2_new_history_generalization_validation_20261003.json"
+ENV_VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
+ENV_VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
+ENV_VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json"
 ENV_VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
 ENV_VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
 ENV_VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json"
@@ -334,3 +338,30 @@ def test_independent_visitor_history_validation_meets_frozen_strong_success_rule
     prohibited = set(lock["prohibited_claims"])
     assert "new visitor-history validation as natural-island validation" in prohibited
     assert "new visitor-history validation as transfer to a different ecological-history generator" in prohibited
+
+
+def test_new_history_validation_has_one_canonical_preexecution_contract():
+    old = json.loads(NEW_HISTORY_SUPERSEDED_DESIGN.read_text(encoding="utf-8"))
+    design = json.loads(ENV_VALIDATION_DESIGN.read_text(encoding="utf-8"))
+    result = json.loads(ENV_VALIDATION_RESULT.read_text(encoding="utf-8"))
+    receipt = json.loads(ENV_VALIDATION_RECEIPT.read_text(encoding="utf-8"))
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+
+    assert old["status"] == "superseded_before_execution"
+    assert old["superseded_by"] == "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
+    assert old["supersession"]["outcomes_generated_under_earlier_design"] is False
+
+    assert design["status"] == "prospective_frozen_before_new_visitor_history_execution"
+    assert design["primary_validation"]["inference"].endswith("RNG seed 1042026")
+    assert "terminal occupancy >= 0.95 in every validation arm" in design["primary_validation"]["strong_success_rule"]
+
+    freeze = receipt["freeze_provenance"]
+    assert freeze["validation_design_commit"] == "6bac0410e4459e391dd5fba02bd9b63bed8d4fb9"
+    assert freeze["superseded_preexecution_design_commit"] == "6898a0954b36a03e6839985cfd7649a27b93f6d6"
+    assert freeze["superseded_before_execution"] is True
+    assert freeze["validation_design_commit_utc"] < freeze["workflow_started_utc"]
+
+    assert result["primary_decision"]["strong_success"] is True
+    env = lock["finite_history_signal_environment_validation"]
+    assert env["canonical_design"] == "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
+    assert env["freeze_provenance"]["outcomes_generated_under_earlier_design"] is False
