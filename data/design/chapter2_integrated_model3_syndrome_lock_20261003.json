@@ -63,5 +63,12 @@
     "extend Supporting Information with later prospective Model 3 interventions and retained failures",
     "update submission manifest and reviewer archive",
     "run full fail-closed submission gates"
-  ]
+  ],
+  "compact_submission_candidate": {
+    "manuscript": "docs/CHAPTER2_MANUSCRIPT_INTEGRATED_MODEL3_SYNDROME_20261003.md",
+    "supporting_information_extension": "docs/CHAPTER2_SUPPORTING_INFORMATION_INTEGRATED_EXTENSIONS_20261003.md",
+    "approximate_total_manuscript_words": 5545,
+    "compression_principle": "retain the integrated Model 3 scientific spine in the main text and move design-grid, calibration and source-audit detail to Supporting Information without dropping negative results",
+    "active_oikos_submission_replaced": false
+  }
 }
