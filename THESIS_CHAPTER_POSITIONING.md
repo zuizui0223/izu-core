@@ -55,10 +55,11 @@ visitor composition × starting floral state
 selection / reproductive-return branch
 
 B. deterministic genotype-density propagation
+   - conditional deterministic closure using the same reproduction/inheritance operator; not the stochastic mean of the finite ABM
 same reproduction + Mendelian inheritance
 without demographic sampling
         ↓
-expected inherited trajectory
+conditional deterministic inherited trajectory
 
 C. finite-population ABM
 same operator + finite demography
@@ -89,10 +90,10 @@ The current mechanistic spine is the **fixed-state branch-capacity audit + 19,96
 
 The final prospective bridge resolves the two original Chapter 2 controls that had remained unique to Model 2:
 
-- **natural isolation-driven assembly:** finite ABM mean far-minus-near inherited-investment effect `-0.1446`, deterministic density `-0.4510`; mixed histories `12/128` versus `0/128` at epsilon 0;
+- **natural isolation-driven assembly:** finite ABM mean far-minus-near inherited-investment effect `-0.1446`, conditional deterministic density closure `-0.4510`; mixed histories `12/128` versus `0/128` at epsilon 0; the magnitude gap is not a finite-population attenuation estimate;
 - **annual response-blind richness matching:** means reverse to `+0.0333` and `+0.0338`; finite-ABM mixed histories rise to `68/128` at epsilon 0;
 - **eight-history visitor pooling:** mixed histories fall to `0/128` in both finite ABM and deterministic density;
-- **plant capacity 48 → 192:** finite-ABM mixed histories fall `12/128 → 1/128` at epsilon 0 and the mean moves 41.5% of the way toward deterministic density;
+- **plant capacity 48 → 192:** finite-ABM mixed histories fall `12/128 → 1/128` at epsilon 0 and the mean numerically closes 41.5% of the trait-effect gap to deterministic density; this is descriptive and not evidence of convergence to a stochastic expectation;
 - **S/C/I is not directional branching:** pooled finite ABM has `I=0.542` but `0/128` mixed histories.
 
 The biological hierarchy is therefore:
@@ -164,7 +165,7 @@ Together the nested levels of Model 3 explain how assurance can recur globally a
 |---|---|---|---|
 | **HOW — ecological selection** | Where does non-uniformity first arise? | Within Model 3's fixed-state reproductive operator, starting floral state × visitor composition changes the sign of the reproductive-selection gradient even before inheritance or demographic updating. | Directly represented in the unified reduction audit. |
 | **HOW — deterministic evolution** | Does branching require demographic noise? | Not universally. Controlled compositions branch without demographic sampling, but the stored isolation-driven deterministic contrast is one-directional while finite ABM histories can be mixed. | Deterministic discrete-genotype closure; regime-specific answer; not a diffusion PDE. |
-| **HOW — finite realization** | What changes in finite populations? | Finite demography, extinction, standing-variation loss, ancestry and stochastic recruitment can further shift magnitude and sometimes direction relative to the deterministic counterpart. | Directly represented in the full Model 3 island campaign; quantitative natural calibration is absent. |
+| **HOW — finite realization** | What changes in finite populations? | Finite demography, extinction, standing-variation loss, ancestry and stochastic recruitment can shift magnitude and sometimes direction relative to the conditional deterministic closure. | The closure is a comparator, not the stochastic mean of the ABM; quantitative natural calibration is absent. |
 | **Proximal WHY** | Why can the same broad perturbation yield different responses? | Because functional matching already makes selection state-dependent, while assurance, life history, connectivity and disturbance history condition which deterministic or finite-population trajectory is realized. | One nested synthetic mechanism, not two independent models. Numerical thresholds and rates are not transferred to nature. |
 | **Ultimate WHY** | Why did an island acquire its biota, starting states or interaction architecture? | Not identified. | Deep-time assembly, colonization history and the historical causes of any named natural-island transition remain outside the claim ceiling. |
 
