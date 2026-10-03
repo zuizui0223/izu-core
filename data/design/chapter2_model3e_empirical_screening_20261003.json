@@ -37,19 +37,19 @@
     "founder_context_jitter_sd": 0.08,
     "grid_axes": [
       [
-        0.2,
+        0,
         0.5,
-        0.8
+        1
       ],
       [
-        0.2,
+        0,
         0.5,
-        0.8
+        1
       ],
       [
-        0.2,
+        0,
         0.5,
-        0.8
+        1
       ]
     ],
     "initial_visitors": 4,
@@ -183,5 +183,16 @@
     "Display investment is a latent pollinator-facing axis; it is not literal pigment or colour category.",
     "Stratum ecological contexts are generated from fixed seeds and a shared hyperprior rather than tuned to Chapter 1 regional outcomes.",
     "A successful held-out H2/H4 test would show that one biologically explicit numerical world can reproduce key Chapter 1 domain-level relations, not that its parameter values are natural estimates."
+  ],
+  "design_correction_history": [
+    {
+      "date": "2026-10-03",
+      "before_first_scientific_outcome_inspection": true,
+      "change": "genetic grid axes changed from [0.2,0.5,0.8] to [0,0.5,1] on all three traits",
+      "reason": "existing reflected mutation kernel requires mutating axes to span [0,1]; smoke test failed before any H1/H3 screening result existed",
+      "scientific_hypothesis_changed": false,
+      "parameter_search_ranges_changed": false,
+      "fit_or_holdout_rules_changed": false
+    }
   ]
 }
