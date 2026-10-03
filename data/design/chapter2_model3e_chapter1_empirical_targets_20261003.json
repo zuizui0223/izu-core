@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_empirical_targets_before_model3e_execution",
+  "frozen_on": "2026-10-03",
+  "source_repository": "zuizui0223/island",
+  "source_head": "625c1e4ea67daa4b9d447807d5d049e7254843f9",
+  "source_lock": "config/chapter1_v14_canonical_result_lock.json",
+  "purpose": "Test whether a biologically extended Model 3 can reproduce the Chapter 1 island-syndrome pattern in a numerical world, rather than only explain why non-uniformity is possible.",
+  "fit_targets": {
+    "H1_all_analysis_domain_slopes": {
+      "northern_midlatitude": {
+        "assurance": 0.019033537809988836,
+        "accessibility": 0.019988157340990433,
+        "display_dulling": -0.0000739787975571932
+      },
+      "northern_high_latitude": {
+        "assurance": 0.0729497900702823,
+        "accessibility": 0.17830258112765507,
+        "display_dulling": 0.018846018517548115
+      },
+      "tropical": {
+        "assurance": 0.18377270354465805,
+        "accessibility": 0.08103381238653284,
+        "display_dulling": 0.036717786367302115
+      },
+      "southern_extratropical": {
+        "assurance": 0.1489607209639322,
+        "accessibility": 0.017458857111442128,
+        "display_dulling": 0.08078610536334052
+      }
+    },
+    "H3_global_pollen_limitation_slope": {
+      "estimate": 0.07936837202478536,
+      "se": 0.037734195473258715
+    }
+  },
+  "held_out_targets": {
+    "H2_all_analysis": {
+      "northern_midlatitude": {
+        "selfing_core": 0.010458730613126778,
+        "accessibility_given_selfing": 0.021425531868105585,
+        "plain_colour_given_selfing": -0.002618548950378946
+      },
+      "northern_high_latitude": {
+        "selfing_core": 0.04834566801958409,
+        "accessibility_given_selfing": 0.12476399338829586,
+        "plain_colour_given_selfing": -0.006133126515572265
+      },
+      "tropical": {
+        "selfing_core": 0.06209827793170262,
+        "accessibility_given_selfing": 0.0732812098873794,
+        "plain_colour_given_selfing": 0.06107107173863004
+      },
+      "southern_extratropical": {
+        "selfing_core": 0.10231903682511187,
+        "accessibility_given_selfing": 0.05357198162097365,
+        "plain_colour_given_selfing": 0.08034460076751718
+      }
+    },
+    "H4_exact_H2_score": {
+      "assurance_on_current_pollen_limitation": -0.29706162790382573,
+      "accessibility_on_current_pollen_limitation": -0.2960123452279311
+    }
+  },
+  "fit_rule": {
+    "domain_scaling": "one nonnegative global least-squares scale per H1 domain; no stratum-specific scale",
+    "pollen_limitation_scaling": "one positive global scale for H3 because model distance and empirical standardized log-distance units differ",
+    "optimization_target": "minimize scaled RMSE across the 12 H1 domain slopes plus H3 while requiring positive assurance and accessibility slopes in all four strata",
+    "display_mapping": "model display_dulling = 1 - mean display-investment trait; this is a proxy and not literal flower colour"
+  },
+  "held_out_rule": {
+    "H2": "after selecting parameter sets using only H1+H3, fit accessibility ~ isolation + assurance and display_dulling ~ isolation + assurance within each stratum; compare signs and rank pattern with frozen H2",
+    "H4": "after selecting parameter sets using only H1+H3, fit pollen_limitation ~ isolation + assurance + accessibility across pseudo-islands; assurance and accessibility coefficients must both be negative to reproduce the held-out functional bridge",
+    "no_retuning": "H2/H4 outcomes cannot be used to change parameter-search ranges or acceptance threshold in this first prospective emulation"
+  },
+  "claim_boundary": [
+    "Model 3E is an empirical-emulation extension, not the already frozen Model 3.",
+    "Display investment is not literal colour; exact regional raw-colour components remain outside direct model calibration.",
+    "The first experiment tests whether the domain-level Chapter 1 pattern and held-out functional relations can emerge under one shared biological operator.",
+    "A fit does not identify historical causal parameters for named regions."
+  ]
+}

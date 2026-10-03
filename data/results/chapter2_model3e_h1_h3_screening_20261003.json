@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_first_model3e_h1_h3_screening",
+  "date": "2026-10-03",
+  "workflow_run_id": 37101539834,
+  "python_3_11_job_id": 111141887448,
+  "design": "data/design/chapter2_model3e_empirical_screening_20261003.json",
+  "targets": "data/design/chapter2_model3e_chapter1_empirical_targets_20261003.json",
+  "held_out_H2_H4_opened": false,
+  "n_parameter_sets": 48,
+  "n_eligible": 13,
+  "fit_success_under_preregistered_rule": true,
+  "contexts": {
+    "northern_midlatitude": {
+      "visitor_source_mean": 0.6643326187630036,
+      "visitor_source_concentration": 10.029963326828952,
+      "founder_means": [
+        0.2720584533911351,
+        0.5382363320161182,
+        0.2828243692245258
+      ]
+    },
+    "northern_high_latitude": {
+      "visitor_source_mean": 0.7291353695420653,
+      "visitor_source_concentration": 7.923758451732656,
+      "founder_means": [
+        0.34808743868351044,
+        0.49079276852276377,
+        0.1662878926953394
+      ]
+    },
+    "tropical": {
+      "visitor_source_mean": 0.39137035256288455,
+      "visitor_source_concentration": 6.220986221885103,
+      "founder_means": [
+        0.3828257111012896,
+        0.4941768714765875,
+        0.1899988734209933
+      ]
+    },
+    "southern_extratropical": {
+      "visitor_source_mean": 0.7084700663404973,
+      "visitor_source_concentration": 4.187828660683119,
+      "founder_means": [
+        0.3335003318249632,
+        0.46555711990611914,
+        0.2797468247600693
+      ]
+    }
+  },
+  "accepted_parameter_ids": [
+    "p010",
+    "p046",
+    "p036",
+    "p032",
+    "p029"
+  ],
+  "accepted_parameter_sets": [
+    {
+      "parameter_id": "p010",
+      "score": 2.4967412299776317,
+      "h3_model_slope": 0.1050398154869895,
+      "h3_z_error": 0.6803230634769158,
+      "domain_nrmse": {
+        "assurance": 0.5588969278571806,
+        "accessibility": 0.4750048314218352,
+        "display_dulling": 1
+      },
+      "domain_scales": {
+        "assurance": 0.9597193799205433,
+        "accessibility": 0.8234992038987348,
+        "display_dulling": 0
+      },
+      "model_h1_slopes": {
+        "northern_midlatitude": {
+          "assurance": 0.10847878651084503,
+          "accessibility": 0.08959760650431853,
+          "display_dulling": -0.05656368871729684
+        },
+        "northern_high_latitude": {
+          "assurance": 0.11974392081815649,
+          "accessibility": 0.13875782678461795,
+          "display_dulling": -0.018053294742916334
+        },
+        "tropical": {
+          "assurance": 0.10681501145905595,
+          "accessibility": 0.11045861479048007,
+          "display_dulling": -0.0807399879049669
+        },
+        "southern_extratropical": {
+          "assurance": 0.09223299515065153,
+          "accessibility": 0.07157135238234084,
+          "display_dulling": 0.027180231316087856
+        }
+      },
+      "params": {
+        "activity": 0.5902466319626805,
+        "assurance_cost": 0.34877544243363906,
+        "generalization_cost": 0.6464483026288272,
+        "generalization_span": 0.22838910918348754,
+        "inbreeding_depression": 0.4209121430545046,
+        "investment_cost": 0.13677882826901816,
+        "seed_reach_scale": 3.181957704293376,
+        "seed_supply": 0.26650984012316176,
+        "visitor_breadth": 0.20921020016746705,
+        "visitor_loss_hazard": 0.09521971032411078,
+        "visitor_reach_scale": 1.3724042122841822,
+        "visitor_supply": 4.409006251092577
+      }
+    },
+    {
+      "parameter_id": "p046",
+      "score": 2.50503566466565,
+      "h3_model_slope": 0.05419558321188941,
+      "h3_z_error": -0.6671081361926818,
+      "domain_nrmse": {
+        "assurance": 0.6286621712731026,
+        "accessibility": 0.4313402280180739,
+        "display_dulling": 1
+      },
+      "domain_scales": {
+        "assurance": 1.6325173585239448,
+        "accessibility": 1.5235733755136456,
+        "display_dulling": 0
+      },
+      "model_h1_slopes": {
+        "northern_midlatitude": {
+          "assurance": 0.025245880154961535,
+          "accessibility": 0.041051951160829735,
+          "display_dulling": -0.08162826877387837
+        },
+        "northern_high_latitude": {
+          "assurance": 0.04077551627754836,
+          "accessibility": 0.0875046301989569,
+          "display_dulling": -0.04401693822546628
+        },
+        "tropical": {
+          "assurance": 0.019230430820028756,
+          "accessibility": 0.04433091830273553,
+          "display_dulling": -0.09302591616129209
+        },
+        "southern_extratropical": {
+          "assurance": 0.10639175158871658,
+          "accessibility": 0.04888346006903307,
+          "display_dulling": 1.1592656458335135e-16
+        }
+      },
+      "params": {
+        "activity": 0.49307414561640805,
+        "assurance_cost": 0.42296110268375725,
+        "generalization_cost": 0.7687765644623892,
+        "generalization_span": 0.16404753075517725,
+        "inbreeding_depression": 0.7375894870381638,
+        "investment_cost": 0.4553444831363853,
+        "seed_reach_scale": 3.340178869930999,
+        "seed_supply": 0.0033404632870711777,
+        "visitor_breadth": 0.21456772794685428,
+        "visitor_loss_hazard": 0.10990072075851223,
+        "visitor_reach_scale": 2.252985067533124,
+        "visitor_supply": 3.4642984710103257
+      }
+    },
+    {
+      "parameter_id": "p036",
+      "score": 2.5962297210383114,
+      "h3_model_slope": 0.0903742094996673,
+      "h3_z_error": 0.29166747394101744,
+      "domain_nrmse": {
+        "assurance": 0.5762292205117476,
+        "accessibility": 0.9349305851714294,
+        "display_dulling": 1
+      },
+      "domain_scales": {
+        "assurance": 2.740251670258052,
+        "accessibility": 9.030439491472404,
+        "display_dulling": 0
+      },
+      "model_h1_slopes": {
+        "northern_midlatitude": {
+          "assurance": 0.015177330163681528,
+          "accessibility": 0.006613535713894382,
+          "display_dulling": -0.014747680506625217
+        },
+        "northern_high_latitude": {
+          "assurance": 0.04316544346724796,
+          "accessibility": 0.00043491203130944904,
+          "display_dulling": -0.019546264876859554
+        },
+        "tropical": {
+          "assurance": 0.05787122949465393,
+          "accessibility": 0.003897522509852215,
+          "display_dulling": -0.015269276219902725
+        },
+        "southern_extratropical": {
+          "assurance": 0.006402467914159979,
+          "accessibility": 0.001091259979343948,
+          "display_dulling": -0.00006435308935058982
+        }
+      },
+      "params": {
+        "activity": 0.7323560217486179,
+        "assurance_cost": 0.015748368088250447,
+        "generalization_cost": 0.08776310852761253,
+        "generalization_span": 0.32919454924941366,
+        "inbreeding_depression": 0.4397439125403749,
+        "investment_cost": 0.7927060124431561,
+        "seed_reach_scale": 2.896360004255256,
+        "seed_supply": 0.18471372174773848,
+        "visitor_breadth": 0.11588548319935049,
+        "visitor_loss_hazard": 0.0304430197773672,
+        "visitor_reach_scale": 1.629989256094912,
+        "visitor_supply": 1.3197795110325168
+      }
+    },
+    {
+      "parameter_id": "p032",
+      "score": 2.7110029276676104,
+      "h3_model_slope": 0.1006452125467045,
+      "h3_z_error": 0.563860982195778,
+      "domain_nrmse": {
+        "assurance": 0.5123881121360132,
+        "accessibility": 0.8806756082888099,
+        "display_dulling": 1
+      },
+      "domain_scales": {
+        "assurance": 0.7533472077428945,
+        "accessibility": 0.5905316128825171,
+        "display_dulling": 0
+      },
+      "model_h1_slopes": {
+        "northern_midlatitude": {
+          "assurance": 0.1330566910216224,
+          "accessibility": 0.0911100660112099,
+          "display_dulling": -0.09712493398590873
+        },
+        "northern_high_latitude": {
+          "assurance": 0.15353755322041612,
+          "accessibility": 0.02004164823758782,
+          "display_dulling": -0.09194990384628288
+        },
+        "tropical": {
+          "assurance": 0.15336349748639572,
+          "accessibility": 0.09909105617072701,
+          "display_dulling": -0.10177405459189766
+        },
+        "southern_extratropical": {
+          "assurance": 0.12371308649840497,
+          "accessibility": 0.0813359080603027,
+          "display_dulling": -0.021159398552388527
+        }
+      },
+      "params": {
+        "activity": 0.29004198467155673,
+        "assurance_cost": 0.40739304962485257,
+        "generalization_cost": 0.4355776444831154,
+        "generalization_span": 0.29087208050122815,
+        "inbreeding_depression": 0.5648782951055212,
+        "investment_cost": 0.5733601770023248,
+        "seed_reach_scale": 3.0334057225913087,
+        "seed_supply": 0.4200572566425116,
+        "visitor_breadth": 0.16959200138871283,
+        "visitor_loss_hazard": 0.028610177469112916,
+        "visitor_reach_scale": 1.1422106853350182,
+        "visitor_supply": 2.996703644606647
+      }
+    },
+    {
+      "parameter_id": "p029",
+      "score": 2.8189596258993026,
+      "h3_model_slope": 0.05914476092926249,
+      "h3_z_error": -0.5359491793022284,
+      "domain_nrmse": {
+        "assurance": 0.5710395032281982,
+        "accessibility": 0.9606785998763722,
+        "display_dulling": 1
+      },
+      "domain_scales": {
+        "assurance": 2.518879303751245,
+        "accessibility": 7.94654711069391,
+        "display_dulling": 0
+      },
+      "model_h1_slopes": {
+        "northern_midlatitude": {
+          "assurance": 0.02042707287486988,
+          "accessibility": 0.006346980571078143,
+          "display_dulling": -0.03229427421611682
+        },
+        "northern_high_latitude": {
+          "assurance": 0.03532386765301824,
+          "accessibility": 0.00015108377417351833,
+          "display_dulling": -0.03892837015935845
+        },
+        "tropical": {
+          "assurance": 0.06971068658536397,
+          "accessibility": 0.002640556606215252,
+          "display_dulling": -0.029327396249640886
+        },
+        "southern_extratropical": {
+          "assurance": 0.00480934763753828,
+          "accessibility": 0.0006417586086584962,
+          "display_dulling": 0.000011395612495951268
+        }
+      },
+      "params": {
+        "activity": 0.6946924136653151,
+        "assurance_cost": 0.10071870230824705,
+        "generalization_cost": 0.7976746710754877,
+        "generalization_span": 0.3849635352984302,
+        "inbreeding_depression": 0.5189118039241316,
+        "investment_cost": 0.8333086467999586,
+        "seed_reach_scale": 2.7514563301193258,
+        "seed_supply": 0.09695400947503295,
+        "visitor_breadth": 0.0522098082726719,
+        "visitor_loss_hazard": 0.125340464675785,
+        "visitor_reach_scale": 2.8526495734382684,
+        "visitor_supply": 3.378405611002586
+      }
+    }
+  ],
+  "interpretation": {
+    "assurance": "formal screen reproduces positive isolation slopes in all four strata for accepted sets",
+    "accessibility": "formal screen reproduces positive isolation slopes in all four strata for accepted sets, with varying cross-stratum fit quality",
+    "pollen_limitation": "accepted sets reproduce a positive global isolation slope within roughly 0.3-0.7 empirical SE for several top sets",
+    "display": "not reproduced in the first Model 3E screen; all five accepted sets have optimal display scale 0 and display NRMSE 1 because most model display-dulling slopes are negative while Chapter 1 target is near-zero/positive",
+    "overall": "the preregistered acceptance rule is met, but full Chapter 1 island-syndrome reproduction is not established because the display domain fails at the training stage"
+  },
+  "next_step": "open held-out H2/H4 only for the five frozen accepted parameter sets; do not retune this first screen"
+}
