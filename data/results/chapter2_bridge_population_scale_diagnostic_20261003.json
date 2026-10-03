@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_exact_source_population_scale_diagnostic",
+  "date": "2026-10-03",
+  "provenance": {
+    "original_bridge_workflow_run": 36366550255,
+    "original_bridge_artifact_id": 10948380246,
+    "original_bridge_artifact_name": "model3-ch2-bridge-shard-0",
+    "exact_source_snapshot_inside_artifact": "sources-00.zip",
+    "parent_design": "data/design/model3_ch2_bridge_execution_20260927.json",
+    "local_diagnostic_scope": "all 128 history seeds x 3 starting states for deterministic far density mass; demographic seed 101 for finite far population; existing frozen bridge summary supplies all-repeat occupancy at depression 0.5"
+  },
+  "depression_0_50_at_200": {
+    "deterministic_far_density_mass": {
+      "n_history_start_cells": 384,
+      "mean": 48,
+      "median": 48,
+      "min": 47.99999999999998,
+      "max": 48.00000000000002,
+      "below_1_fraction": 0,
+      "at_capacity_fraction": 1
+    },
+    "finite_far_population_demo_101": {
+      "n_history_start_cells": 384,
+      "mean": 47.9921875,
+      "median": 48,
+      "min": 45,
+      "max": 48,
+      "occupied_fraction": 1,
+      "at_capacity_fraction": 0.9973958333333334
+    },
+    "frozen_all_repeat_context": {
+      "far_occupancy": 1,
+      "near_occupancy": 1,
+      "n_observations_per_arm": 3072
+    },
+    "decision": "no_population_scale_disagreement_at_original_headline_condition",
+    "interpretation": "The sub-individual density-mass concern from the later depression-0.75 long-horizon diagnostic does not apply to the original depression-0.50, 200-season headline -0.4510. At the focal horizon both density and finite layers remain on the capacity-48 population scale."
+  },
+  "depression_0_75_at_200": {
+    "deterministic_far_density_mass": {
+      "n_history_start_cells": 384,
+      "mean": 0.0588751583493494,
+      "median": 0.0003014367667916852,
+      "min": 4.855649855360166e-7,
+      "q90": 0.0341970449462471,
+      "max": 5.1352267814243255,
+      "below_1_fraction": 0.9817708333333334,
+      "below_0_01_fraction": 0.8333333333333334
+    },
+    "finite_far_population_demo_101": {
+      "n_history_start_cells": 384,
+      "mean": 0,
+      "median": 0,
+      "occupied_fraction": 0,
+      "extinct_fraction": 1,
+      "median_extinction_year_among_extinct": 61
+    },
+    "decision": "depression_0_75_deterministic_history_labels_not_population_persistence_evidence",
+    "interpretation": "The depression-0.75 200-season deterministic closure is overwhelmingly in a sub-individual far-arm regime. In one complete demographic replicate across all histories and starts, every finite far population is extinct by season 200. The previously reported 116 negative-only / 11 mixed / 1 positive-only deterministic history labels may be retained only as a mathematical closure sensitivity, not as evidence about repeatability among persisting populations."
+  },
+  "cross_layer_semantics": {
+    "density_code_boundary": "conditional deterministic closure, not the stochastic mean",
+    "implication": "Even at depression 0.50 where population scales match, the -0.1446 versus -0.4510 magnitude difference is not a formally identified finite-population attenuation coefficient, and the 41.5% movement with capacity is descriptive rather than convergence to a stochastic expectation."
+  },
+  "manuscript_actions": [
+    "retain original depression-0.50 finite and density bridge outputs",
+    "retain capacity effect on finite mixed-label/repeat instability",
+    "remove depression-0.75 deterministic history nonuniformity from central repeatability evidence",
+    "do not use long-horizon depression-0.75 density decay as evidence for a stationary or time-varying natural syndrome",
+    "reframe deterministic density as conditional closure throughout",
+    "use finite-ABM aggregate mean versus realized history-level heterogeneity at the 200-season focal window for any repeatability comparison"
+  ]
+}
