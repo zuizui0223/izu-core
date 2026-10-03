@@ -222,6 +222,10 @@ def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
 
     assert receipt["status"] == "complete_local_exact_source_validation_execution_receipt"
     assert receipt["execution"]["shard_count"] == 16
+    freeze = receipt["prospective_freeze_provenance"]
+    assert freeze["validation_design_commit"] == "4ca0193625fce2f9abac8a937a234b6c7825ee10"
+    assert freeze["validation_design_commit_utc"] == "2026-10-03T14:04:10Z"
+    assert freeze["decision"].startswith("validation design, new seeds")
     assert receipt["execution"]["total_arm_trajectories"] == 9216
     assert len(receipt["execution"]["shard_sha256"]) == 16
     assert receipt["exact_implementation_check"]["full_simulate_vs_compact_runner_terminal_population_all_equal"] is True
