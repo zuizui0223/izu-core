@@ -20,7 +20,7 @@ reproductive selection
         ↓
 outcrossing + selfing + Mendelian inheritance
         ↓
-expected inherited change
+conditional deterministic inherited trajectory
         ↓
 finite recruitment / survival / extinction
         ×
@@ -44,7 +44,7 @@ Thus the Model 3 reproductive operator can generate opposite selection direction
 In the prospective 24,576-case near-versus-far bridge (**128 independent visitor histories**; demographic repeats nested within histories):
 
 - finite ABM mean effect: `-0.1446` (`95% CI -0.1588 to -0.1306`);
-- deterministic density mean effect: `-0.4510` (`-0.4716 to -0.4301`);
+- deterministic density mean effect: `-0.4510` (`-0.4716 to -0.4301`); this density result is a conditional deterministic closure, not the stochastic mean of the finite ABM;
 - deterministic density mixed histories: `0/128` at epsilon `0`, `0.01` and `0.05`;
 - finite ABM mixed histories: `12/128`, `8/128`, `1/128`.
 
@@ -77,7 +77,7 @@ Increasing plant capacity from `48` to `192` under the same natural visitor hist
 - epsilon 0.01: `8` → `1`;
 - epsilon 0.05: `1` → `0`.
 
-The finite-ABM mean moves from `-0.1446` to `-0.2716`, closing about `41.5%` of the distance toward the deterministic mean `-0.4510`.
+The finite-ABM mean moves from `-0.1446` to `-0.2716`, numerically closing about `41.5%` of the trait-effect gap to the density closure. This fraction is descriptive only and is not a finite-size convergence or attenuation coefficient.
 
 Finite visitor-environment averaging and finite plant-population size are therefore separable manipulated axes. Both alter observed directional heterogeneity, but neither intervention by itself identifies a stable latent branching process. Increasing plant capacity also reduces repeat-label disagreement from 97/128 to 31/128 histories at epsilon 0, consistent with weaker demographic sampling variability.
 
@@ -102,7 +102,7 @@ Thus current environment is not sufficient to identify current phenotype, and re
 | Does richness/visitor amount matter for the mean? | Strongly yes; annual matching reverses the mean isolation effect. |
 | Does count matching remove realized heterogeneity? | No in finite ABM; mixed histories increase strongly. Deterministic mixed branching is weak and deadband-sensitive. |
 | Does finite visitor-community sampling matter? | Environmental pooling removes mixed labels, showing strong sensitivity to visitor-environment realization; pooling also changes composition and averaging, so no pure latent-branch effect is identified. |
-| Does finite plant-population sampling matter? | Fourfold larger capacity nearly removes mixed labels and moves the mean toward density; the manipulation changes several finite-demographic processes, not drift alone. |
+| Does finite plant-population sampling matter? | Fourfold larger capacity nearly removes mixed labels and changes the mean; its numerical movement toward the density closure is descriptive only because density is not the stochastic mean of the ABM. |
 | Are those two finite effects equivalent? | No; they are independent ecological and demographic axes. |
 | Does S/C/I rank equal directional branching? | No. High `I` can coexist with zero mixed-sign histories. |
 | Does present environment uniquely determine phenotype? | No; chronology retains different endpoints under the same final environment. |
@@ -156,6 +156,7 @@ Do not claim:
 - a pure field species-richness causal effect from annual thinning;
 - that visitor pooling is island number or lifespan;
 - that deterministic genotype density is a continuous diffusion PDE;
+- that deterministic genotype density is the stochastic mean or large-population expectation of the finite ABM;
 - historical *Bombus* causation;
 - assignment of Chapter 1 regions to Model 3 cells;
 - natural branch prevalence from synthetic mixed fractions;
