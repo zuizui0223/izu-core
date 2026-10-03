@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_flora_emulator_v2_targets_before_execution",
+  "source_repository": "zuizui0223/island",
+  "source_head": "625c1e4ea67daa4b9d447807d5d049e7254843f9",
+  "source_lock": "config/chapter1_v14_canonical_result_lock.json",
+  "training": {
+    "H1_all_analysis": {
+      "northern_midlatitude": {
+        "assurance": 0.019033537809988836,
+        "accessibility": 0.019988157340990433,
+        "display_dulling": -0.0000739787975571932
+      },
+      "northern_high_latitude": {
+        "assurance": 0.0729497900702823,
+        "accessibility": 0.17830258112765507,
+        "display_dulling": 0.018846018517548115
+      },
+      "tropical": {
+        "assurance": 0.18377270354465805,
+        "accessibility": 0.08103381238653284,
+        "display_dulling": 0.036717786367302115
+      },
+      "southern_extratropical": {
+        "assurance": 0.1489607209639322,
+        "accessibility": 0.017458857111442128,
+        "display_dulling": 0.08078610536334052
+      }
+    },
+    "H2_all_analysis": {
+      "northern_midlatitude": {
+        "selfing_core": 0.010458730613126778,
+        "accessibility_given_selfing": 0.021425531868105585,
+        "plain_colour_given_selfing": -0.002618548950378946
+      },
+      "northern_high_latitude": {
+        "selfing_core": 0.04834566801958409,
+        "accessibility_given_selfing": 0.12476399338829586,
+        "plain_colour_given_selfing": -0.006133126515572265
+      },
+      "tropical": {
+        "selfing_core": 0.06209827793170262,
+        "accessibility_given_selfing": 0.0732812098873794,
+        "plain_colour_given_selfing": 0.06107107173863004
+      },
+      "southern_extratropical": {
+        "selfing_core": 0.10231903682511187,
+        "accessibility_given_selfing": 0.05357198162097365,
+        "plain_colour_given_selfing": 0.08034460076751718
+      }
+    },
+    "H3": {
+      "estimate": 0.07936837202478536,
+      "se": 0.037734195473258715
+    },
+    "H4": {
+      "assurance": {
+        "estimate": -0.29706162790382573,
+        "se": 0.10353370714733788
+      },
+      "accessibility": {
+        "estimate": -0.2960123452279311,
+        "se": 0.1294003150807781
+      }
+    }
+  },
+  "held_out_direct_only": {
+    "H1": {
+      "northern_midlatitude": {
+        "assurance": 0.02982507169246584,
+        "accessibility": 0.015819753840040727,
+        "display_dulling": 0.0021585732905597186
+      },
+      "northern_high_latitude": {
+        "assurance": 0.10032056013396355,
+        "accessibility": 0.1595683592915761,
+        "display_dulling": 0.017589229477235346
+      },
+      "tropical": {
+        "assurance": 0.1308696067979825,
+        "accessibility": 0.09164308812899356,
+        "display_dulling": 0.033593733398996815
+      },
+      "southern_extratropical": {
+        "assurance": 0.09670267791105545,
+        "accessibility": 0.0590445809354723,
+        "display_dulling": 0.10076314454369058
+      }
+    },
+    "H2": {
+      "northern_midlatitude": {
+        "selfing_core": 0.02521231589731997,
+        "accessibility_given_selfing": 0.016773798630102886,
+        "plain_colour_given_selfing": -0.000008557394861181944
+      },
+      "northern_high_latitude": {
+        "selfing_core": 0.06166108138454135,
+        "accessibility_given_selfing": 0.1202351671917426,
+        "plain_colour_given_selfing": -0.0014657399250531677
+      },
+      "tropical": {
+        "selfing_core": 0.11520039298129477,
+        "accessibility_given_selfing": 0.061123998604132854,
+        "plain_colour_given_selfing": 0.014449253406799433
+      },
+      "southern_extratropical": {
+        "selfing_core": 0.1561148331917151,
+        "accessibility_given_selfing": 0.04063055310006456,
+        "plain_colour_given_selfing": 0.09371907809597188
+      }
+    }
+  },
+  "claim_boundary": [
+    "v2 is allowed to fit all-analysis H1/H2/H3/H4 because it is a new prospective model after the frozen v1 failure.",
+    "Direct-only H1/H2 remain unopened for selection and are used only after the all-analysis candidate set is frozen.",
+    "A successful emulator reproduces island-flora composition statistics, not historical parameter values for named regions."
+  ]
+}
