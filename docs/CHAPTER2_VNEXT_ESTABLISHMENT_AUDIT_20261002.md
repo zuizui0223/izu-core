@@ -16,11 +16,10 @@
 
 ## Stable central claim
 
-> **A recurrent pollination problem can yield recurrent functional responses
-> without a recurrent detailed floral phenotype because repeatability can persist
-> in the coarse mean response while being redirected or lost by state-dependent
-> selection, reproductive context, genetic accessibility and finite-population
-> realization.**
+> **Island-like pollination constraints can generate a recurrent functional floral
+> response without forcing a single detailed floral phenotype because functional
+> matching, reproductive context, genetic accessibility, history and finite-
+> population realization condition how that shared pressure is expressed.**
 
 This sentence does not require:
 
@@ -28,7 +27,7 @@ This sentence does not require:
 - standing variation to dominate mutation at equilibrium;
 - quantitative transfer from synthetic cells to named islands.
 
-The conceptual claim remains stable after the prospective falsification tests below, but its wording is sharpened to state the empirical content: the analysis locates where repeatability is retained or lost, rather than merely noting that model stages are separable.
+The conceptual claim remains stable after the prospective falsification tests below. The paper's primary object is generative syndrome structure: whether one explicit eco-evolutionary system can produce a recurrent coarse functional response without hard-coding one detailed floral endpoint. Repeatability is retained as a diagnostic of how that generated response is expressed.
 
 ## A. Route A robustness — failed headline test
 
@@ -162,10 +161,10 @@ Relevant literature:
 
 **Novelty retained:**
 
-> **The same explicit eco-evolutionary model is intervened on stage by stage to
-> separate ecological selection, reproductive persistence, functional rematching,
-> genetic accessibility and finite realization, and to identify where repeatability
-> of a syndrome component is lost.**
+> **One explicit eco-evolutionary model generates an island-syndrome-like
+> functional response from island-like pollination constraints while retaining
+> non-unique detailed floral outcomes. Stage-specific interventions identify why
+> that generated syndrome does not collapse to one phenotype.**
 
 The paper must not present syndrome criticism itself as new.
 
@@ -202,17 +201,17 @@ The stronger pre-robustness story changed in two places:
 2. the specific standing-variation >> mutation effect-size ratio was retired.
 
 The conceptual claim survived, but its wording was improved to avoid making
-model modularity itself the result:
+model modularity or repeatability loss itself the headline:
 
-> **A recurrent pollination problem can yield recurrent functional responses
-> without a recurrent detailed floral phenotype because repeatability can persist
-> in the coarse mean response while being redirected or lost by state-dependent
-> selection, reproductive context, genetic accessibility and finite-population
-> realization.**
+> **Island-like pollination constraints can generate a recurrent functional floral
+> response without forcing a single detailed floral phenotype because functional
+> matching, reproductive context, genetic accessibility, history and finite-
+> population realization condition how that shared pressure is expressed.**
 
 This formulation remains valid whether a particular downstream mechanism succeeds
-or fails; it is supported by observed changes in repeatability across the
-interventions, not by the architecture of the code alone.
+or fails. The coarse generated regime is the primary result; repeatability,
+history-level divergence and finite realization explain why the detailed endpoint
+is not unique.
 
 ## F. Final propagation check — deterministic backbone
 
@@ -240,10 +239,7 @@ but the stronger claim of uniform one-directional response across all 128 histor
 is not. At depression 0.75, 11 histories contain both signs across starting states
 and one history is positive-only.
 
-This is the final propagation of the Route A failure. It does not overturn the
-coarse directional mean; it shows exactly where repeatability is lost:
-history-by-start direction becomes conditional on reproductive context before
-finite demographic stochasticity is added.
+This is the final propagation of the Route A failure. It does not overturn the coarse generated mean regime; it shows that the syndrome-like response need not imply one history-by-start trajectory even before finite demographic stochasticity is added.
 
 ## Final promotion boundary
 
