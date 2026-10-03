@@ -81,7 +81,7 @@ def test_integrated_manuscript_retains_established_extensions_and_failures() -> 
         "functional rematching",
         "standing genetic variation filters",
         "mutation narrows the gap",
-        "clean repeatability comparison comes from the occupied depression-0.50 finite bridge",
+        "the original depression-0.50, 200-season bridge remains the biologically interpretable focal backbone",
         "retained only as a mathematical closure sensitivity",
         "98.18% of far history-by-start density trajectories are below one expected individual",
         "earlier 9.4% mutation-rescue/standing-variation ratio is not retained",
