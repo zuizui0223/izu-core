@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "complete_local_exact_source_validation_execution_receipt",
+  "validation_result": "data/results/chapter2_finite_history_signal_validation_20261003.json",
+  "exact_source": {
+    "snapshot": "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip",
+    "snapshot_sha256": "5e39f0fcc8521b7402420b1db0c0861a796fcba544c2a173cdba30f179c6a212",
+    "source_hash_contract": "data/design/model3_ch2_bridge_execution_20260927.json"
+  },
+  "execution": {
+    "demographic_seeds": [
+      201,
+      202,
+      203,
+      204
+    ],
+    "shard_count": 16,
+    "histories_per_shard": 8,
+    "arm_trajectories_per_shard": 576,
+    "total_arm_trajectories": 9216,
+    "local_execution_runner_sha256": "7cb5e212d114a625cc069665737b02aedd852a4ac112e0eb4b29a506855905d0",
+    "local_aggregation_script_sha256": "119bcb8adb65d96847465b6c313d4099468c6d2287d089bb2e3da40160637ecc",
+    "shard_sha256_root": "28498b36445a82ea6bdf1ae502dba110f5080dbd64cb73521b2f4283269f2e08",
+    "shard_sha256": {
+      "history_validation_new_shard_00.json": "805db5fe0e6d109f8fb863168b400d09b466e47487d6f26f7c5a0aaac152b7bd",
+      "history_validation_new_shard_01.json": "22e678f136e4f88b11edf0ba55dc0c7a846beac8163fd42706dd56f8f440e2ea",
+      "history_validation_new_shard_02.json": "5f0176675dc159bfb9e9b4344584c1b37dbadec59c671b6dae2bb23d1e93a691",
+      "history_validation_new_shard_03.json": "2793cb3566745c6ca0c2a7a9233a7a7aafab5315def174432bdcb97940a70c4e",
+      "history_validation_new_shard_04.json": "e7d9f3ddcd3e255a399d4647d75e8d1e09fcb4b71212aac27d3a0f4027c34d26",
+      "history_validation_new_shard_05.json": "a6d3fea008c2cd1f311da665855042ab35eca9152d9c975ba377d5f17fadd4dd",
+      "history_validation_new_shard_06.json": "858aceac091f26a8d400a169940a981072801af76eb5f430205fda137642231c",
+      "history_validation_new_shard_07.json": "23b9182c10c2b3a72a8be0cd10d5b37b167b009aa685ee50ffcd53e9ffa52f51",
+      "history_validation_new_shard_08.json": "c5dc3493a4dda48b4447d5fc7e3085c49b7160a0b6ab707a6dfa8de0adfb5e94",
+      "history_validation_new_shard_09.json": "b9351b77d19b1326667cade149f5931baf6c8a70418f1d986232d40db831070c",
+      "history_validation_new_shard_10.json": "16abe66d8ad221afc9c5f16b7910f3fb148f86b53d4ef1a7efc739379b701254",
+      "history_validation_new_shard_11.json": "fe5e9b47ba3cc51d796a3137f4890e7703cef38d6b2cdeeaab89924ce4456947",
+      "history_validation_new_shard_12.json": "cfca360e89511ccad1d4756ba23da2b509ebcbebdfa0ea5dfe5c50c95e614608",
+      "history_validation_new_shard_13.json": "145e1b7d98eab7a9ca5ac70e7183c32f75a3ee1a74b681053f480427b9e5084c",
+      "history_validation_new_shard_14.json": "1d05bb7bd21acc08431a4985e519958cd40dc24e7a772f33fdf4ed0093e67111",
+      "history_validation_new_shard_15.json": "2833915d9dc1bec3d2652ee3d5739355964a1ea1c1d1528412b23c60d7a76d48"
+    }
+  },
+  "exact_implementation_check": {
+    "history_seed": 74001,
+    "start_investment": 0.3,
+    "demographic_seed": 201,
+    "arms": [
+      "near",
+      "far",
+      "pool_near",
+      "pool_far",
+      "large_near",
+      "large_far"
+    ],
+    "full_simulate_vs_compact_runner_terminal_population_all_equal": true,
+    "maximum_absolute_investment_change_difference": 1.609823385706477e-15
+  },
+  "primary_validation_check": {
+    "strong_success": true,
+    "large_minus_natural_ci95": [
+      0.11977869113100571,
+      0.2825517167353619
+    ],
+    "pooled_minus_natural_ci95": [
+      -0.7321159171320919,
+      -0.4013656494929009
+    ]
+  },
+  "claim_boundary": "This receipt documents local execution and implementation equivalence. It does not make the original post-hoc discovery preregistered and does not represent independent environmental-history validation."
+}
