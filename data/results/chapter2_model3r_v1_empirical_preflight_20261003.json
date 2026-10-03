@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_model3r_v1_preflight_failure",
+  "date": "2026-10-03",
+  "design": "data/design/chapter2_model3r_empirical_emulation_20261003.json",
+  "target": "data/design/chapter1_empirical_emulation_targets_20261003.json",
+  "ci": {
+    "pull_request": 386,
+    "python_3_11_full_preflight": true,
+    "draws": 64,
+    "seed": 31004
+  },
+  "passes": 0,
+  "best_candidates": [
+    {
+      "draw": 3,
+      "H3_pollen_limitation_isolation_beta": 0.09000632368933081,
+      "H4_assurance_to_pollen_limitation_beta": 0.6151361644842429,
+      "H4_generalization_to_pollen_limitation_beta": -0.919091659016753,
+      "score": {
+        "functional_sign_pass": false,
+        "quantitative_pass": false,
+        "primary_pass": false,
+        "z_H3": 0.28191807274874336,
+        "z_H4_assurance": 8.810635854948458,
+        "z_H4_generalization": -4.815129803971999,
+        "sign_failures": [
+          "northern_high_latitude:generalization",
+          "tropical:generalization"
+        ]
+      },
+      "context_stats": {
+        "northern_midlatitude": {
+          "assurance_isolation_beta": 0.10007735495542369,
+          "generalization_isolation_beta": 0.002637945174681958,
+          "generalization_given_assurance_isolation_beta": 0.04142069095558387
+        },
+        "northern_high_latitude": {
+          "assurance_isolation_beta": 0.13079140612874046,
+          "generalization_isolation_beta": -0.008936992142829945,
+          "generalization_given_assurance_isolation_beta": 0.04698529631504389
+        },
+        "tropical": {
+          "assurance_isolation_beta": 0.1374624474539846,
+          "generalization_isolation_beta": -0.022161959461030646,
+          "generalization_given_assurance_isolation_beta": 0.11422333597929513
+        },
+        "southern_extratropical": {
+          "assurance_isolation_beta": 0.10425924105143627,
+          "generalization_isolation_beta": 0.002239889096785378,
+          "generalization_given_assurance_isolation_beta": 0.041107323462695355
+        }
+      }
+    },
+    {
+      "draw": 55,
+      "H3_pollen_limitation_isolation_beta": 0.025086778766974516,
+      "H4_assurance_to_pollen_limitation_beta": 0.47242848536455995,
+      "H4_generalization_to_pollen_limitation_beta": -1.3060149239436578,
+      "score": {
+        "functional_sign_pass": false,
+        "quantitative_pass": false,
+        "primary_pass": false,
+        "z_H3": -1.4385252574492773,
+        "z_H4_assurance": 7.432266596745457,
+        "z_H4_generalization": -7.8052559461329984,
+        "sign_failures": [
+          "northern_high_latitude:generalization",
+          "tropical:generalization"
+        ]
+      }
+    },
+    {
+      "draw": 14,
+      "H3_pollen_limitation_isolation_beta": 0.052959966669688954,
+      "H4_assurance_to_pollen_limitation_beta": 0.20096860344497153,
+      "H4_generalization_to_pollen_limitation_beta": -0.3782278100253731,
+      "score": {
+        "functional_sign_pass": false,
+        "quantitative_pass": false,
+        "primary_pass": false,
+        "z_H3": -0.6998534094575141,
+        "z_H4_assurance": 4.810319702356016,
+        "z_H4_generalization": -0.6353575317503597,
+        "sign_failures": [
+          "northern_midlatitude:generalization",
+          "northern_high_latitude:generalization",
+          "tropical:generalization",
+          "southern_extratropical:generalization"
+        ]
+      }
+    }
+  ],
+  "diagnosis": {
+    "H3": "The scalar isolation-to-service decline is capable of reproducing the empirical positive pollen-limitation isolation slope; the best candidate is within 0.28 empirical SE.",
+    "H1_H2_generalization": "Adding floral generalization breadth is not sufficient to make generalization increase with isolation across all four contexts. The best candidates commonly produce negative generalization slopes in northern high-latitude and tropical contexts.",
+    "H4_assurance": "The simulated assurance-to-pollen-limitation coefficient has the wrong sign in every top candidate. In v1, assurance is predominantly an environmentally induced response and the emulator lacks within-isolation lineage/species variation matching the empirical H4 estimand.",
+    "H4_generalization": "The sign can be negative as observed, but the magnitude is often much stronger than the empirical coefficient.",
+    "structural_inference": "The failure pattern points to missing biological structure rather than only sparse parameter search: isolation-dependent visitor assembly/replacement and within-island lineage heterogeneity are required before a larger search is justified."
+  },
+  "decision": "do_not_expand_v1_parameter_search; open_model3r_v2_with_empirical_island_covariates_visitor_assembly_and_multiple_lineages",
+  "claim_boundary": [
+    "Zero of 64 passing draws is a prospective negative result and is not rescued by widening the same v1 search.",
+    "Model3R-v1 is not evidence that the Chapter 1 island syndrome has been realistically reproduced.",
+    "The display holdout was not used for fitting or failure diagnosis.",
+    "H3 reproduction alone is insufficient because H1/H2 functional recurrence and H4 functional associations must be reproduced jointly."
+  ]
+}
