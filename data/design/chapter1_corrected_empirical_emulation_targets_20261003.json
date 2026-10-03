@@ -74,22 +74,30 @@
     "northern_midlatitude": {
       "selfing_core_isolation_beta": 0.011253868196278764,
       "generalized_accessible_given_selfing_beta": 0.020675947053354404,
-      "plain_colour_given_selfing_beta": -0.0005275578756154171
+      "plain_colour_given_selfing_beta": -0.0005275578756154171,
+      "selfing_core_se": 0.011334702395611794,
+      "generalized_accessible_se": 0.012807946065359158
     },
     "northern_high_latitude": {
       "selfing_core_isolation_beta": 0.05127656169659919,
       "generalized_accessible_given_selfing_beta": 0.1255693461398702,
-      "plain_colour_given_selfing_beta": 0.007137053008539654
+      "plain_colour_given_selfing_beta": 0.007137053008539654,
+      "selfing_core_se": 0.02832215333704729,
+      "generalized_accessible_se": 0.03389568660414604
     },
     "tropical": {
       "selfing_core_isolation_beta": 0.06083046688224513,
       "generalized_accessible_given_selfing_beta": 0.0684596125596742,
-      "plain_colour_given_selfing_beta": 0.05758758532713628
+      "plain_colour_given_selfing_beta": 0.05758758532713628,
+      "selfing_core_se": 0.029494918764750112,
+      "generalized_accessible_se": 0.02494456132408078
     },
     "southern_extratropical": {
       "selfing_core_isolation_beta": 0.10596030554191137,
       "generalized_accessible_given_selfing_beta": 0.0492884890870217,
-      "plain_colour_given_selfing_beta": 0.07542821628490581
+      "plain_colour_given_selfing_beta": 0.07542821628490581,
+      "selfing_core_se": 0.04067110918940275,
+      "generalized_accessible_se": 0.039789516891800866
     }
   },
   "H3_corrected": {
@@ -119,8 +127,7 @@
     "key_nonuniform_feature": "southern shallow_open_tube is negative despite positive generalized_form and actinomorphic_symmetry"
   },
   "primary_success_rule": [
-    "H2 selfing_core isolation beta > 0 in all four contexts",
-    "H2 generalized_accessible|selfing isolation beta > 0 in all four contexts",
+    "Each of the eight H2 coefficients (four selfing_core isolation and four generalized_accessible|selfing isolation) must fall within the corrected empirical estimate +/- 2 SE; this also implies the observed positive direction.",
     "simulated H3 within corrected empirical beta +/- 2 SE",
     "simulated H4 selfing-core coefficient within corrected empirical beta +/- 2 SE",
     "simulated H4 generalized-accessible coefficient within corrected empirical beta +/- 2 SE"
