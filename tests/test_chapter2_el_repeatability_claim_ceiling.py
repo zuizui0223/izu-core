@@ -1,6 +1,7 @@
 import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -224,7 +225,7 @@ def test_new_demographic_seed_validation_meets_frozen_strong_success_rule():
     assert pooled[1] < 0
     assert all(v["occupied_fraction"] == 1.0 for v in result["terminal_occupancy"].values())
 
-    assert receipt["status"] == "complete_local_exact_source_validation_execution_receipt"
+    assert receipt["status"] == "complete_local_exact_source_validation_execution_with_separate_committed_reproduction_surface"
     assert receipt["execution"]["shard_count"] == 16
     freeze = receipt["prospective_freeze_provenance"]
     assert freeze["validation_design_commit"] == "4ca0193625fce2f9abac8a937a234b6c7825ee10"
@@ -257,8 +258,15 @@ def test_validation_receipt_distinguishes_execution_provenance_from_committed_re
         return hashlib.sha256(path.read_bytes()).hexdigest()
 
     def git_blob_sha(path: Path) -> str:
-        data = path.read_bytes()
-        return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\\0" + data).hexdigest()
+        rel = path.relative_to(ROOT).as_posix()
+        proc = subprocess.run(
+            ["git", "rev-parse", f"HEAD:{rel}"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        return proc.stdout.strip()
 
     assert re.fullmatch(r"[0-9a-f]{64}", receipt["execution"]["local_execution_runner_sha256"])
     assert re.fullmatch(r"[0-9a-f]{64}", receipt["execution"]["local_aggregation_script_sha256"])
