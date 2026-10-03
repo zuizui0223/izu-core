@@ -69,6 +69,12 @@
       ],
       "history_label": "label three start-specific effects after averaging eight demographic repeats",
       "repeat_disagreement": "any disagreement among eight repeat-specific three-start labels"
+    },
+    "split_half_robustness": {
+      "method": "exhaust all 35 unique balanced 4-versus-4 partitions of eight demographic repeats",
+      "duplicate_complements_removed": true,
+      "primary_summary": "median and range of Pearson history-mean correlations",
+      "intervention_check": "paired difference from natural for the same partition"
     }
   },
   "interpretation_rules": [
