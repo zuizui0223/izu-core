@@ -173,3 +173,19 @@ def test_measurement_novelty_boundary_is_fail_closed():
 
     assert "do not claim that direction and magnitude are newly separated" in positioning
     assert "environmental/demographic variation affecting repeatability is new" in positioning
+
+
+def test_history_signal_is_robust_to_all_balanced_repeat_splits():
+    result = json.loads(HISTORY_SIGNAL.read_text(encoding="utf-8"))
+    robust = result["balanced_split_half_robustness"]
+    large = robust["paired_difference_vs_natural"]["large_plant_capacity"]
+    pooled = robust["paired_difference_vs_natural"]["visitor_pooled"]
+
+    assert large["positive_splits"] == large["total_splits"] == 35
+    assert pooled["positive_splits"] == 0 and pooled["total_splits"] == 35
+    assert robust["large_plant_capacity"]["min"] > robust["natural"]["max"]
+    assert robust["visitor_pooled"]["max"] < robust["natural"]["min"]
+
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    assert "all 35 balanced 4-versus-4 splits" in manuscript
+    assert "35/35 splits" in manuscript
