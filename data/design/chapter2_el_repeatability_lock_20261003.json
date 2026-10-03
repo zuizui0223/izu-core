@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "el_repeatability_candidate_separate_from_active_oikos",
+  "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
+  "active_oikos_submission_replaced": false,
+  "editorial_question": "Where does evolutionary repeatability break when recurrent island-like pollination problems act on plant populations?",
+  "framing": {
+    "upper_level": "evolutionary repeatability / nonparallel evolution",
+    "biological_testbed": "pollination-mediated plant island syndrome",
+    "stage_decomposition": [
+      "recurrent_ecological_problem",
+      "immediate_reproductive_selection",
+      "deterministic_inherited_expectation",
+      "genetic_accessibility",
+      "finite_population_realization"
+    ]
+  },
+  "safe_claim": "Repeated island-like ecological problems can preserve repeatability of coarse function after repeatability of detailed evolutionary solutions has begun to decay.",
+  "prohibited_claims": [
+    "first connection between island syndrome and parallel evolution",
+    "first mechanism for nonparallel evolution",
+    "literal named-island phenotype prediction",
+    "universal assurance-by-cost floral reduction",
+    "single scalar repeatability parameter across unlike biological stages"
+  ],
+  "key_literature": [
+    {
+      "citation": "Bolnick et al. 2018",
+      "doi": "10.1146/annurev-ecolsys-110617-062240",
+      "role": "nonparallel continuum and causes"
+    },
+    {
+      "citation": "Stuart et al. 2017",
+      "doi": "10.1038/s41559-017-0158",
+      "role": "environment and genetics jointly explain deviations"
+    },
+    {
+      "citation": "Thompson et al. 2017",
+      "doi": "10.1111/evo.13357",
+      "role": "many-to-one function can weaken morphological parallelism"
+    },
+    {
+      "citation": "Hetherington-Rauth & Johnson 2020",
+      "doi": "10.1086/709018",
+      "role": "heterogeneous floral island response across 136 contrasts"
+    },
+    {
+      "citation": "Ciarle & Burns 2025",
+      "doi": "10.1080/0028825X.2024.2377418",
+      "role": "multitrait plant island-syndrome review"
+    }
+  ],
+  "format_target": {
+    "journal": "Evolution Letters",
+    "main_text_words_max": 4700,
+    "abstract_words_max": 250,
+    "main_figures": 4
+  }
+}
