@@ -245,7 +245,9 @@ The locked Oikos surface remains untouched by this branch. The **scientific prom
 
 - [x] population-scale audit propagated through manuscript, lock and tests;
 - [x] Figure 1 regenerated from a dedicated conceptual generator and fail-closed test;
+- [x] Figure 2 regenerated from the frozen functional-rematching audit;
 - [x] Figure 3 regenerated from the prospectively frozen independent visitor-history validation;
+- [x] Figure 4 regenerated from frozen finite-realization and source-locked natural-confrontation results;
 - [x] core citations and current Evolution Letters format guidance source-checked in `docs/CHAPTER2_REPEATABILITY_CITATION_AUDIT_20261004.md`;
 - [x] failed assurance-by-cost and mutation–pleiotropy routes remain visible;
 - [x] journal fit chosen: **Evolution Letters preferred**, Ecology Letters only after ecological recast;
