@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_first_stage_deterministic_persistence_boundary_scan",
+  "date": "2026-10-03",
+  "design": "data/design/chapter2_deterministic_persistence_boundary_20261003.json",
+  "execution": {
+    "exact_source_snapshot": "workflow 36311030639 artifact model3-ch2-bridge-shard-0 / sources-00.zip",
+    "parent_config": "frozen 200-season bridge configuration",
+    "histories": "74001-74128",
+    "starts": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "arms": [
+      "near",
+      "far"
+    ]
+  },
+  "reports": [
+    {
+      "depression": 0.5,
+      "mean_effect": -0.4509830625839532,
+      "near_mass_below_1_fraction": 0,
+      "far_mass_below_1_fraction": 0,
+      "minimum_near_mass": 47.99999999999998,
+      "minimum_far_mass": 47.99999999999998,
+      "labels_eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "pre_quasi_extinction_histories": 128
+    },
+    {
+      "depression": 0.55,
+      "mean_effect": -0.47111369303755585,
+      "near_mass_below_1_fraction": 0,
+      "far_mass_below_1_fraction": 0,
+      "minimum_near_mass": 47.99999999999998,
+      "minimum_far_mass": 47.99999999999998,
+      "labels_eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "pre_quasi_extinction_histories": 128
+    },
+    {
+      "depression": 0.6,
+      "mean_effect": -0.4902769326050671,
+      "near_mass_below_1_fraction": 0,
+      "far_mass_below_1_fraction": 0,
+      "minimum_near_mass": 47.99999999999998,
+      "minimum_far_mass": 47.99999999999997,
+      "labels_eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "pre_quasi_extinction_histories": 128
+    },
+    {
+      "depression": 0.65,
+      "mean_effect": -0.5075974540983921,
+      "near_mass_below_1_fraction": 0,
+      "far_mass_below_1_fraction": 0,
+      "minimum_near_mass": 36.30581899951536,
+      "minimum_far_mass": 47.99999999999997,
+      "labels_eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "pre_quasi_extinction_histories": 128
+    },
+    {
+      "depression": 0.7,
+      "mean_effect": -0.517773654748101,
+      "near_mass_below_1_fraction": 0,
+      "far_mass_below_1_fraction": 0,
+      "minimum_near_mass": 2.3008637867253507,
+      "minimum_far_mass": 1.7251218993220874,
+      "labels_eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "pre_quasi_extinction_histories": 128
+    },
+    {
+      "depression": 0.75,
+      "mean_effect": -0.4142302489521037,
+      "near_mass_below_1_fraction": 0.4791666666666667,
+      "far_mass_below_1_fraction": 0.9817708333333334,
+      "minimum_near_mass": 5.63322279609421e-7,
+      "minimum_far_mass": 4.855649855360166e-7,
+      "labels_eps0": {
+        "negative": 116,
+        "mixed": 11,
+        "positive": 1,
+        "neutral": 0
+      },
+      "labels_eps0_01": {
+        "negative": 122,
+        "mixed": 2,
+        "positive": 1,
+        "neutral": 3
+      },
+      "pre_quasi_extinction_histories": 0
+    }
+  ],
+  "first_stage_decision": "No deterministic mixed/positive history was observed through depression 0.70 while all histories remained pre-quasi-extinction. At 0.75, nonparallel labels appear only after every history has at least one start/arm endpoint below one expected individual. Refine 0.70-0.75 before finalizing.",
+  "claim_boundary": [
+    "This first-stage scan does not exclude a narrow pre-quasi-extinction nonparallel region between 0.70 and 0.75.",
+    "Depression values are synthetic sensitivity settings, not estimates for natural species."
+  ]
+}
