@@ -154,6 +154,8 @@ def test_history_signal_reproduction_receipt_is_complete_and_matches_result():
 
     assert "does not upgrade the post-hoc diagnostic" in receipt["claim_boundary"]
 
+    assert receipt["matched_balanced_split_half_robustness"] == result["balanced_split_half_robustness"]
+
 
 def test_measurement_novelty_boundary_is_fail_closed():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
