@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_model3r_v3_preflight_failure",
+  "date": "2026-10-03",
+  "design": "data/design/chapter2_model3r_v3_assembly_emulation_20261003.json",
+  "target": "data/design/chapter1_corrected_empirical_emulation_targets_20261003.json",
+  "ci": {
+    "pull_request": 386,
+    "python_3_11_full_preflight": true,
+    "draws": 96,
+    "seed": 33005,
+    "preflight_islands": 128,
+    "source_species": 128
+  },
+  "passes": 0,
+  "best": {
+    "draw": 88,
+    "H3_pollen_limitation_isolation_beta": 0.11221888550195055,
+    "H4_assurance_to_pollen_limitation_beta": -0.4489967153249196,
+    "H4_generalization_to_pollen_limitation_beta": -0.23337508122502737,
+    "failed_targets": [
+      "H2_generalization:northern_midlatitude",
+      "H2_selfing:northern_high_latitude",
+      "H2_generalization:northern_high_latitude",
+      "H2_generalization:tropical",
+      "H2_selfing:southern_extratropical"
+    ],
+    "z": {
+      "H3": 0.5335463317289698,
+      "H4_assurance": -1.455703447318954,
+      "H4_generalization": 0.48295683437497755,
+      "H2_selfing:northern_midlatitude": -1.3601627129046994,
+      "H2_selfing:northern_high_latitude": -2.1619284984420575,
+      "H2_selfing:tropical": -1.844090059201356,
+      "H2_selfing:southern_extratropical": -2.59235360074208,
+      "H2_generalization:northern_midlatitude": -2.4665198364122256,
+      "H2_generalization:northern_high_latitude": -3.846780963519908,
+      "H2_generalization:tropical": -3.4936089141541906,
+      "H2_generalization:southern_extratropical": -1.6945875798247936
+    },
+    "context_stats": {
+      "northern_midlatitude": {
+        "selfing_core_isolation_beta": -0.004163171364103968,
+        "generalized_accessible_given_selfing_beta": -0.010915105980551877,
+        "expected_species_richness": 50.65439931094565
+      },
+      "northern_high_latitude": {
+        "selfing_core_isolation_beta": -0.009953908740009159,
+        "generalized_accessible_given_selfing_beta": -0.004819935834395555,
+        "expected_species_richness": 31.379339500075105
+      },
+      "tropical": {
+        "selfing_core_isolation_beta": 0.006439180391217905,
+        "generalized_accessible_given_selfing_beta": -0.018686929241800283,
+        "expected_species_richness": 29.17517224030361
+      },
+      "southern_extratropical": {
+        "selfing_core_isolation_beta": 0.0005264091885888496,
+        "generalized_accessible_given_selfing_beta": -0.018138332045052864,
+        "expected_species_richness": 38.80372864667095
+      }
+    },
+    "params": {
+      "area_exponent": 0.4128032759123827,
+      "assurance_cost": 0.773472074450043,
+      "display_cost": 0.6394745837836188,
+      "establishment_strength": 2.885666153890274,
+      "g_min": 0.03301618357332305,
+      "g_scale": 0.1672792925688671,
+      "generalization_cost": 0.41484249151542063,
+      "inbreeding_depression": 0.32904060706692717,
+      "plant_climate_scale": 1.6385480695120034,
+      "pollen_scale": 1.1136087066094946,
+      "seed_arrival_intensity": 1.267346169101781,
+      "seed_dispersal_multiplier": 1.8509905368120878,
+      "visitor_climate_scale": 1.6728280341049144,
+      "visitor_dispersal_multiplier": 1.9776310744253878,
+      "visitor_isolation_turnover": 0.11992628534546732,
+      "visitor_presence_intensity": 1.1902319557748904
+    }
+  },
+  "diagnosis": {
+    "advance_from_v2": "Assembly filtering fixes the H4 sign problem: both assurance and generalization are negatively associated with current pollen limitation within the empirical +/-2 SE target at the best draw.",
+    "H3": "The corrected isolation-to-pollen-limitation slope is also reproduced within +/-2 SE.",
+    "remaining_failure": "The model still does not enrich island flora composition in assurance and generalized accessibility strongly enough with increasing isolation. The remaining mismatch is concentrated in H2 regional isolation slopes.",
+    "interpretation": "The next step is diagnosis of trait sorting strength within the declared assembly operator, not addition of another mechanism or a larger blind parameter search."
+  },
+  "decision": "stop_mechanism_addition_and_diagnose_arrival_vs_reproductive_establishment_trait_sorting",
+  "claim_boundary": [
+    "Model3R-v3 is not a successful realistic reproduction of the current Chapter 1 island syndrome.",
+    "Assembly filtering is nevertheless required to recover the empirical H4 trait-to-pollen-limitation sign that v1/v2 missed.",
+    "No larger v3 parameter search is authorized before diagnosing why H2 trait sorting is weak or negative.",
+    "H1 atomic and colour holdouts remained unused."
+  ]
+}
