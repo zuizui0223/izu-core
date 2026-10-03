@@ -272,6 +272,15 @@
     },
     "all_arm_terminal_occupancy": 1,
     "strong_success": true,
-    "interpretation": "The opposite history-reliability ordering transfers to new stochastic visitor histories generated independently by the same frozen ecological-history process; this is not natural-island or new-process validation."
+    "interpretation": "The opposite history-reliability ordering transfers to new stochastic visitor histories generated independently by the same frozen ecological-history process; this is not natural-island or new-process validation.",
+    "canonical_design": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+    "superseded_preexecution_design": "data/design/chapter2_new_history_generalization_validation_20261003.json",
+    "freeze_provenance": {
+      "earlier_design_commit": "6898a0954b36a03e6839985cfd7649a27b93f6d6",
+      "canonical_design_commit": "6bac0410e4459e391dd5fba02bd9b63bed8d4fb9",
+      "canonical_design_commit_utc": "2026-10-03T21:32:52Z",
+      "workflow_started_utc": "2026-10-03T21:35:35Z",
+      "outcomes_generated_under_earlier_design": false
+    }
   }
 }
