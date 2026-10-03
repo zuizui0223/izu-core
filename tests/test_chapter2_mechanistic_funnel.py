@@ -17,7 +17,7 @@ def test_active_submission_uses_one_model3_ecological_pathway():
     lower = submission.lower()
     assert manuscript.startswith("# From pollination ecology to realized floral evolution")
     assert "reproductive selection before demographic change" in lower
-    assert "expected inherited evolution without demographic sampling" in lower
+    assert "conditional deterministic genotype-density propagation without demographic sampling" in lower
     assert "realized evolution in finite populations" in lower
     assert "annual response-blind richness matching" in lower
     assert "pooling eight independent visitor histories" in lower
@@ -28,7 +28,7 @@ def test_canonical_story_and_chapter1_bridge_match_model3_mainline():
     story = CANONICAL_STORY.read_text(encoding="utf-8").lower()
     bridge = CH1_BRIDGE.read_text(encoding="utf-8").lower()
     assert "functional matching + finite pollen transfer" in story
-    assert "expected inherited change" in story
+    assert "conditional deterministic inherited trajectory" in story
     assert "stable latent branch frequencies are not identified" in story
     assert "same island problem, recurrent functions, different realized evolutionary solutions" in bridge
 
@@ -52,3 +52,15 @@ def test_current_supporting_information_is_model3_only():
     assert "# appendix s4. prospective model 3 isolation bridge" in lower
     assert "finite-community system-size audit" not in lower
     assert "gaussian mean-field limit" not in lower
+
+
+def test_density_closure_is_not_stochastic_mean_or_finite_size_target():
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    submission = render_submission_manuscript().lower()
+    story = CANONICAL_STORY.read_text(encoding="utf-8").lower()
+    assert "conditional deterministic closure" in manuscript
+    assert "not the stochastic mean" in manuscript
+    assert "descriptive only" in manuscript
+    assert "conditional deterministic closure" in submission
+    assert "not the stochastic mean" in story
+    assert "finite-size convergence or attenuation coefficient" in story

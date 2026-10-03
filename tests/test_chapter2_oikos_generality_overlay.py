@@ -13,7 +13,7 @@ def test_oikos_title_matches_model3_scope():
 def test_model3_ecological_mainline_is_explicit():
     lower = render_submission_manuscript().lower()
     assert "reproductive selection before demographic change" in lower
-    assert "expected inherited evolution without demographic sampling" in lower
+    assert "conditional deterministic genotype-density propagation without demographic sampling" in lower
     assert "realized evolution in finite populations" in lower
     assert "24,576-case bridge" in lower
     assert "128 independent visitor histories" in lower

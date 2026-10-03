@@ -59,6 +59,7 @@ def test_review_archive_builds_with_unified_model3_claim_boundary(tmp_path: Path
         assert "unified model 3 projection onto real-island evidence" in support_lower
         assert "prospective model 3 isolation bridge" in support_lower
         assert "68/128" in supporting and "41.5%" in supporting
+        assert "descriptive" in support_lower
         assert "exact realized-richness matching hard control" not in support_lower
         assert "finite-community system-size audit" not in support_lower
         assert "cell-level simulation variation" not in support_lower

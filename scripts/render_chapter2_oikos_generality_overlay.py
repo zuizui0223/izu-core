@@ -30,7 +30,7 @@ def render_submission_manuscript() -> str:
     lower = text.lower()
     required = (
         "reproductive selection before demographic change",
-        "expected inherited evolution without demographic sampling",
+        "conditional deterministic genotype-density propagation without demographic sampling",
         "realized evolution in finite populations",
         "24,576-case bridge",
         "128 independent visitor histories",
@@ -38,6 +38,7 @@ def render_submission_manuscript() -> str:
         "annual response-blind richness matching",
         "pooling eight independent visitor histories",
         "increasing plant capacity from 48 to 192",
+        "conditional deterministic closure",
         "reproductive assurance",
         "principal natural-data gap",
         "ecologically explicit but system-uncalibrated",

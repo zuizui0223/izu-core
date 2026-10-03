@@ -18,7 +18,7 @@ The completed paper has one biological engine.
 ### Frozen Model 3 backbone
 
 1. **fixed-state reproductive selection** — plant state × visitor functional composition determines reproductive return before inheritance or demographic change;
-2. **deterministic genotype-density inheritance** — the same reproduction and Mendelian operator is propagated without demographic sampling;
+2. **conditional deterministic genotype-density propagation** — the same reproduction and Mendelian operator is propagated without demographic sampling;
 3. **finite-population ABM realization** — the same operator is exposed to recruitment, survival, extinction, ancestry change and loss of standing variation;
 4. **context interventions** — assurance, chronology, connectivity, founding, recovery, life history and population scaling alter realization.
 
@@ -49,7 +49,7 @@ The deterministic far-minus-near inherited-investment mean is negative across th
 | 0.50 | **−0.4510** |
 | 0.75 | **−0.4142** |
 
-This is the recurrent coarse generative backbone.
+This is the recurrent coarse response of the conditional deterministic closure over the frozen horizon; it is **not the stochastic mean** or an identified large-population limit of the finite ABM.
 
 ### 2. Visitor function determines how the coarse pressure is expressed
 
@@ -71,13 +71,9 @@ With mutation input normalized to 1% of initial additive variance per generation
 
 ### 5. One coarse regime does not imply one detailed trajectory
 
-At depression 0.75, the deterministic mean remains negative but the 128 visitor histories classify as:
+The clean repeatability comparison comes from the occupied depression-0.50 finite bridge. Its aggregate far-minus-near mean is negative, while descriptive history-level realized signs are mixed in 12/128, 8/128 and 1/128 histories at deadbands 0, 0.01 and 0.05. All 3,072 near and 3,072 far finite cases remain occupied.
 
-- 116 negative-only;
-- 11 mixed across starting states;
-- 1 positive-only.
-
-Detailed evolutionary realization is therefore non-unique before finite demographic noise is even added.
+The later depression-0.75 deterministic sensitivity is not used as population-level evidence. At season 200, 98.18% of far history-by-start density trajectories are below one expected individual (median mass 0.000301), and one complete finite demographic replicate has 384/384 far populations extinct by that horizon. A prospectively frozen scan across depression 0.55–0.74 found no mixed or positive deterministic history among histories whose three starts and both near/far arms all retained terminal mass >=1. Its 116 negative-only / 11 mixed / 1 positive-only labels are therefore retained only as a mathematical closure sensitivity.
 
 ### 6. Finite ecological and demographic realization further modifies the endpoint
 
@@ -85,7 +81,7 @@ The 24,576-case bridge shows that:
 
 - response-blind annual visitor-count matching reverses the mean near–far effect;
 - pooling visitor histories changes directional heterogeneity;
-- increasing plant capacity moves finite outcomes toward deterministic density;
+- increasing plant capacity changes finite outcomes and numerically moves the mean toward the deterministic density closure, but that movement is descriptive rather than evidence of convergence to a stochastic expectation;
 - chronology and connectivity leave different inherited endpoints;
 - finite sign labels are descriptive and not natural branch-prevalence estimates.
 
@@ -95,7 +91,7 @@ The novelty is not that pollination syndromes, reproductive assurance, genetic c
 
 It is:
 
-> **one explicit Model 3 generates a recurrent island-syndrome-like functional regime and, within the same biological engine, prospectively identifies the ecological, reproductive, genetic and demographic processes that prevent that regime from collapsing to one detailed floral endpoint.**
+> **one explicit Model 3 generates a recurrent island-syndrome-like aggregate response and, within the same biological engine, separates that aggregate response from heterogeneous realized finite-population trajectories while identifying ecological, genetic and demographic filters.**
 
 The old Model 3 paper supplied the backbone. The later prospective experiments complete and stress-test that backbone; they are not a second paper-level theory.
 
