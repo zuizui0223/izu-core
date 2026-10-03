@@ -1,139 +1,161 @@
-# Chapter 2 — Evolution Letters repeatability framing
+# Chapter 2 — repeatability framing
 
 **Date:** 2026-10-03  
-**Status:** candidate framing on a separate branch; does not replace the locked Oikos submission surface.  
+**Status:** candidate framing on a separate branch; journal target unresolved between *Ecology Letters* and *Evolution Letters*; does not replace the locked Oikos submission surface.  
 **Parent scientific object:** unified Model 3 integrated syndrome candidate.
 
 ## Editorial-level question
 
-> **Where does evolutionary repeatability break when recurrent island-like pollination problems act on plant populations?**
+> **When can a recurrent island-like pollination problem produce a coherent aggregate response without producing uniform realized evolutionary trajectories?**
 
-The island connection is not a decorative case study. Island floral syndromes are treated as a natural class of repeated ecological problems: reduced or altered pollinator service, functional replacement, restricted connectivity and finite populations recur across islands, yet detailed floral endpoints are not identical.
+The island connection is not decorative. Island floral syndromes are treated as a natural class of repeated ecological problems: altered pollinator service, functional replacement, restricted connectivity and finite populations recur across islands, yet detailed floral outcomes are heterogeneous.
 
-The paper therefore asks why a recognizable syndrome can be repeatable at one biological level while becoming non-parallel at another.
+## Evidence hierarchy
 
-## Claim ladder
+The manuscript keeps different biological objects separate rather than estimating one universal repeatability coefficient.
 
-The manuscript separates five biological levels rather than estimating one universal repeatability coefficient.
-
-1. **Ecological problem** — island-like pollination constraints recur.
-2. **Immediate reproductive selection** — functional matching/rematching can generate a recurrent coarse directional signal, but selection is state dependent.
-3. **Deterministic inherited expectation** — the mean near–far backbone remains directional across the tested inbreeding-depression envelope, while history-level direction can already become non-uniform.
-4. **Genetic accessibility** — standing variation changes how much of the selected response is reachable; mutation narrows but does not erase the finite-horizon accessibility gap.
-5. **Finite realization** — chronology, connectivity, extinction, ancestry change and demographic sampling further diversify realized endpoints.
+1. **Immediate reproductive selection** — functional matching/rematching can redirect selection across starting floral states.
+2. **Conditional deterministic closure** — the same reproduction and inheritance operator can be propagated without demographic sampling, but this layer is not the stochastic mean of the finite ABM.
+3. **Occupied finite-population realization at the focal horizon** — this is the core repeatability comparison. At depression 0.50 and season 200, the finite mean far-minus-near effect is negative while descriptive history-level realized signs are non-uniform and repeat-sensitive; all near and far cases remain occupied.
+4. **Genetic accessibility** — reduced standing variation slows early response on the constrained axis; continuing mutation narrows and eventually reverses that early ranking.
+5. **Persistence boundary** — the later depression-0.75 deterministic sensitivity enters a sub-individual far-arm regime by season 200 and cannot be used as evidence about repeatability among persisting populations.
 
 The result is not “island syndrome is universal.” It is:
 
-> **Within the declared model, aggregate syndrome-like recurrence can persist after trajectory-level evolutionary parallelism has begun to fail.**
+> **Within the occupied 200-season finite ABM, a coherent aggregate response can coexist with non-uniform realized history-level trajectories.**
 
-The broader logical implication is weaker but more general:
+The broader logical implication is:
 
-> **A recurrent syndrome does not, by itself, imply recurrent evolutionary trajectories.**
+> **Aggregate evolutionary recurrence does not, by itself, imply uniform realized evolutionary trajectories.**
 
-Natural-island prevalence, effect sizes and stage ordering remain empirical questions.
+Natural-island prevalence, effect sizes, long-run attractors and route ordering remain empirical questions.
+
+## Critical population-scale audit
+
+The prospective long-horizon work exposed an important distinction between two depression settings.
+
+### Original focal bridge: depression 0.50
+
+Exact-source rerun of all 128 histories × three starting states showed:
+
+- deterministic far density mass at season 200: **48.0 in every history × start cell** to floating-point precision;
+- finite far population in demographic replicate 101: mean **47.992**, median **48**, 100% occupied;
+- frozen bridge: all **3,072 far** and **3,072 near** finite cases occupied.
+
+Therefore the original -0.4510 deterministic headline is **not** a sub-individual-mass artefact.
+
+### Later sensitivity: depression 0.75
+
+At season 200:
+
+- far deterministic density mass median: **0.000301**;
+- **98.18%** of far history × start cells have density mass <1;
+- in demographic replicate 101, **384/384 finite far populations were extinct**, median extinction season 61.
+
+Therefore the previously reported 116 negative-only / 11 mixed / 1 positive-only deterministic history labels are retained only as a mathematical closure sensitivity. They are **not** population-level repeatability evidence.
+
+## Deterministic closure boundary
+
+The density implementation is explicitly a **conditional deterministic closure, not the stochastic mean** of the finite ABM.
+
+Consequences:
+
+- the -0.1446 finite versus -0.4510 density magnitude gap is not a finite-population attenuation coefficient;
+- the capacity-48 → 192 movement numerically closes 41.5% of that trait-effect gap, but this is descriptive rather than convergence to a stochastic expectation;
+- capacity effects on mixed-label and repeat instability remain valid finite-demographic sensitivity results.
 
 ## Why this is not already Bolnick/Stuart/Thompson
 
 ### Bolnick et al. 2018 — (Non)Parallel Evolution
 DOI: 10.1146/annurev-ecolsys-110617-062240
 
-Established: parallel evolution is a continuum and ecological/genetic processes can change the degree of parallelism.
+Established: parallel evolution is a continuum and ecological/genetic processes can alter parallelism.
 
-Chapter 2 contribution: localize loss of repeatability to declared causal stages inside one generative eco-evolutionary operator rather than only describing a continuum across replicate systems.
+Chapter 2 contribution: separate aggregate recurrence from realized trajectory-level heterogeneity inside one explicit eco-evolutionary operator and identify where ecological, reproductive, genetic and demographic filters enter.
 
 ### Stuart et al. 2017 — environment + genetics
 DOI: 10.1038/s41559-017-0158
 
-Established: cryptic environmental heterogeneity and gene flow jointly explain departures from parallel phenotypic evolution.
+Established: environmental heterogeneity and gene flow jointly explain departures from parallel phenotypic evolution.
 
-Chapter 2 contribution: hold the ecological operator fixed in prospective interventions and ask whether non-parallelity first appears at selection, inherited expectation, genetic accessibility or finite realization.
+Chapter 2 contribution: manipulate visitor environment, reproductive context and genetic accessibility prospectively while retaining one reproductive/inheritance operator.
 
 ### Thompson et al. 2017 — many-to-one form–function mapping
 DOI: 10.1111/evo.13357
 
 Established: common function can coexist with non-parallel morphology when multiple forms map to similar function.
 
-Chapter 2 contribution: a complementary mechanism. Here non-uniqueness can arise even without claiming literal morphological many-to-one mapping: state-dependent selection, reproductive context, accessible variation, chronology and finite demography successively weaken repeatability.
+Chapter 2 contribution: a complementary route in which aggregate recurrence can coexist with non-uniform realized histories because selection, genetic accessibility and finite realization are distinct filters.
 
 ## Why islands remain central
 
 Plant island syndromes are empirically heterogeneous rather than a single law.
 
 - Hetherington-Rauth & Johnson (2020; DOI 10.1086/709018) tested 556 species in 136 phylogenetically independent island–mainland contrasts and found no global reduction in flower size, although some archipelagos showed it.
-- Ciarle & Burns (2025; DOI 10.1080/0028825X.2024.2377418) reviewed plant island-syndrome components and found strongly uneven support across traits; they explicitly call for multidimensional treatment.
-- Abe (2006; DOI 10.1093/aob/mcl117) documented an island pollination syndrome in the Ogasawara flora, including subdued flowers and shifts in visitor composition.
-- Jezierski et al. (2026; DOI 10.1093/evolinnean/kzag008) showed that parallel island-syndrome phenotypes in British Isles wrens can coexist with largely population-specific genomic differentiation. This directly blocks any novelty claim based only on phenotype–genome decoupling.
-
-This heterogeneity is the motivation, not an inconvenience: if island conditions repeatedly generate similar ecological problems, why are syndrome components only partly repeatable?
+- Ciarle & Burns (2025; DOI 10.1080/0028825X.2024.2377418) reviewed plant island-syndrome components and found strongly uneven support across traits.
+- Abe (2006; DOI 10.1093/aob/mcl117) documented an island pollination syndrome in the Ogasawara flora.
+- Jezierski et al. (2026; DOI 10.1093/evolinnean/kzag008) showed that parallel island-syndrome phenotypes in British Isles wrens can coexist with largely population-specific genomic differentiation, blocking novelty claims based only on phenotype–genome decoupling.
 
 ## Safe novelty statement
 
-> Existing work shows that parallel evolution is continuous, that environmental and genetic differences can erode it, and that common functions can map to different forms. We use one prospectively tested eco-evolutionary model to identify **which biological transition first loses repeatability** under recurrent island-like pollination constraints, from reproductive selection through inheritance and genetic accessibility to finite-population realization.
+> Existing work shows that parallel evolution is continuous and that environmental, genetic and historical differences can erode it. We use one prospectively tested eco-evolutionary model to separate **aggregate response repeatability from realized trajectory repeatability** and to identify ecological, genetic and demographic filters that can make those levels disagree.
 
 Do **not** claim:
 - first connection between island syndrome and parallel evolution;
 - first mechanism for non-parallel evolution;
-- first evidence that an island-syndrome phenotype can coexist with non-parallel genomic change;
+- first phenotype–genome decoupling in an island syndrome;
 - literal prediction of colour, corolla dimensions or named-island trajectories;
 - universal ordering of genetic versus ecological constraints;
-- one scalar “repeatability parameter” that makes unlike stages commensurable.
+- one scalar repeatability parameter across unlike biological stages;
+- depression-0.75 deterministic history labels as evidence about persisting populations;
+- a stationary long-run island-syndrome attractor.
 
-## Evolution Letters format target
+## Internal compact-format target
 
-Current OUP guidance describes Letters as typically ~5,000 words or less, excluding display items. Target for this branch:
+Journal choice is unresolved. Until that decision:
 
-- main text: <= 4,700 words before final reference formatting;
+- main text: <= 4,700 words;
 - abstract: <= 250 words;
-- figures: 4 main figures;
-- one figure must explain the complete argument without reading the Results.
+- figures: 4 main figures.
+
+These are internal drafting targets, not attributed journal requirements.
 
 ## Claim ceiling
 
-Three levels must remain separate throughout title, abstract, figures and cover letter.
+1. **Established by simulation:** at the occupied depression-0.50, 200-season finite-population horizon, a directional aggregate response coexists with descriptive realized history-level sign heterogeneity; controlled interventions identify sufficient mechanisms that alter selection and realization.
+2. **General implication:** aggregate syndrome-level recurrence is insufficient evidence for uniform realized evolutionary pathways.
+3. **Natural prediction:** if the modeled architecture contributes in nature, apparent repeatability should depend on the biological object measured. Temporal accessibility rankings may also change as new variation accumulates.
 
-1. **Established by simulation:** aggregate recurrence and trajectory-level parallelism can dissociate in the declared Model 3; prospective interventions identify sufficient mechanisms for the dissociation.
-2. **General implication:** recurrent syndrome-level pattern is not sufficient evidence for recurrent evolutionary pathway.
-3. **Natural prediction:** if the mechanism contributes in nature, repeatability should decline from coarse ecological response toward detailed inherited and realized trajectories.
+The natural archive does not identify natural branch frequencies, transition rates, equilibrium times, effect sizes or a universal stage ordering.
 
-Never convert level 3 into a result. The current natural archive does not identify natural branch frequencies, transition rates, effect sizes or a universal stage ordering.
+## Figure 1 — biological-level repeatability map
 
-## Figure 1 — repeatability ladder
+**Panel A:** recurrent island-like pollination problem.
 
-**Panel A: repeated problem.** Replicate island-like pollination environments.
+**Panel B:** state-dependent reproductive selection under functional rematching.
 
-**Panel B: ecological selection.** Same broad problem, state-dependent immediate selection; same-count functional rematching shows that “pollinator loss” and “pollinator replacement” are not equivalent.
+**Panel C:** conditional deterministic closure as a mechanistic comparator, explicitly not the stochastic mean.
 
-**Panel C: deterministic inheritance.** Coarse mean direction survives across the tested inbreeding-depression range, but history-level direction can split.
+**Panel D:** occupied finite-population bridge: directional aggregate mean plus distribution of history-level realized signs.
 
-**Panel D: genetic accessibility.** Reduced standing variation selectively attenuates the constrained trait axis; mutation narrows the difference over finite time.
+**Panel E:** genetic accessibility and finite demographic/history filters.
 
-**Panel E: finite realization.** Demographic sampling, extinction, chronology and connectivity spread realized endpoints.
-
-Graphic principle: show a stable coarse signal in an upper aggregation layer while the lower trajectory layer branches from left to right. This makes the counterexample visually explicit: aggregate recurrence can survive trajectory divergence. The branching is conceptual, not a natural branch-frequency estimate or a common numerical repeatability scale.
+The visual should make the main distinction obvious: a population set can have one aggregate direction without every realized history sharing that direction.
 
 ## Main-text result spine
 
 1. **A recurrent ecological problem does not imply one selection direction.**
-   Functional matching and same-count rematching establish state dependence.
-
-2. **A coarse inherited direction can remain repeatable after history-level parallelism weakens.**
-   Deterministic near–far means remain negative at inbreeding depression 0.25, 0.50 and 0.75; at 0.75, 11/128 histories become mixed and one positive-only.
-
-3. **Genetic accessibility weakens trait-level parallelism downstream of shared ecology.**
-   Trait-specific standing-variation restriction selectively suppresses response; mutation narrows the finite-horizon gap.
-
-4. **Finite realization produces additional contingency.**
-   Chronology, connectivity, persistence and demographic sampling alter realized endpoints.
-
-5. **A tempting universal mechanism failed.**
-   The assurance-by-cost route fails the preregistered all-life-history robustness rule and remains a conditional mechanism.
+2. **At the occupied focal finite-population window, aggregate direction and realized history-level signs are different objects.**
+3. **The deterministic closure is a comparator, not a finite-population expectation; depression 0.75 crosses a persistence boundary and is excluded from the repeatability headline.**
+4. **Standing variation changes early response speed; continuing mutation can erase and reverse that ranking.**
+5. **Chronology, connectivity, assurance and finite demography alter realized endpoints; the assurance-by-cost universal route failed its preregistered robustness rule.**
 
 ## Submission-order firewall
 
-The locked Oikos surface remains untouched. Promotion of this EL candidate requires a separate explicit decision after:
-- the repeatability manuscript is compressed below target;
-- Figure 1 is regenerated around the ladder;
-- introduction/discussion citations are source-checked;
-- the retained failed tests remain visible;
-- the submission gate is rerun.
-
+The locked Oikos surface remains untouched by this branch. Promotion requires a separate decision after:
+- the population-scale audit is fully propagated;
+- Figure 1 is regenerated;
+- citations are source-checked;
+- retained failed tests remain visible;
+- journal target is chosen explicitly;
+- submission gates are rerun.
