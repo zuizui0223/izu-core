@@ -1,15 +1,6 @@
 name: Chapter 2 bridge population-scale audit
 
 on:
-  push:
-    branches:
-      - 'chapter2/el-repeatability-20261003'
-  pull_request:
-    paths:
-      - 'data/design/chapter2_bridge_population_scale_audit_20261003.json'
-      - 'scripts/audit_chapter2_bridge_population_scale.py'
-      - 'scripts/summarize_chapter2_bridge_population_scale.py'
-      - '.github/workflows/chapter2_bridge_population_scale_audit.yml'
   workflow_dispatch:
 
 permissions:
