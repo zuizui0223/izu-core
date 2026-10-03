@@ -66,6 +66,16 @@ The paired bootstrap interval for the reliability change is −0.607 to −0.395
 
 Thus environmental pooling makes direction look more uniform largely while **erasing reproducible history structure**.
 
+## Exhaustive split-half robustness
+
+The first-four versus last-four split was not selected for a favorable result. To remove that arbitrary partition entirely, all **35 unique balanced 4-versus-4 splits** of the eight demographic repeats were enumerated.
+
+- natural histories: median split-half correlation **0.703**, range **0.672–0.788**;
+- capacity 192: median **0.864**, range **0.834–0.891**;
+- visitor pooled: median **0.115**, range **−0.042–0.288**.
+
+For the same split, capacity-192 correlation exceeded the natural correlation in **35/35** partitions. Visitor-pooled correlation was below natural in **35/35**. Thus the opposite intervention effects are not an artifact of choosing repeats 1–4 versus 5–8.
+
 ## Scientific implication
 
 The same visual outcome—fewer mixed-sign histories—can arise from biologically different changes.
