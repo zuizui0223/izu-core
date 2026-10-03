@@ -102,16 +102,16 @@
     "evolution_letters": {
       "main_text_guide_words": 5000,
       "abstract_words_max": 300,
-      "current_main_text_words": 4624,
+      "current_main_text_words": 4628,
       "current_abstract_words": 218,
       "fit": "within current format"
     },
     "ecology_letters": {
       "main_text_words_max": 5000,
       "abstract_words_max": 150,
-      "current_main_text_words": 4624,
+      "current_main_text_words": 4628,
       "current_abstract_words": 218,
-      "fit": "scope recast and abstract compression required"
+      "fit": "scope recast and/or abstract compression required"
     }
   },
   "general_logical_implication": "Greater directional parallelism does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.",
