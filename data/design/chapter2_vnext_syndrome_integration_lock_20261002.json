@@ -19,7 +19,8 @@
     "route_A_robustness_falsification": "data/results/chapter2_route_A_robustness_surface_20261002.json",
     "mutation_input_calibration_sensitivity": "data/results/chapter2_mutation_input_calibration_sensitivity_20261002.json",
     "deterministic_backbone_depression_sensitivity": "data/results/chapter2_deterministic_backbone_depression_sensitivity_20261002.json",
-    "full_clean_model3_reproduction": "data/results/model3_full_clean_rerun_receipt_20261003.json"
+    "full_clean_model3_reproduction": "data/results/model3_full_clean_rerun_receipt_20261003.json",
+    "empirical_emulation_negative_audit": "data/results/chapter2_empirical_emulation_negative_audit_20261003.json"
   },
   "key_numeric_spine": {
     "same_count_left_right_fixed_gradient_difference_at_access_0_2": 2.376790538658976,
@@ -56,7 +57,10 @@
     "do not retain the earlier 9.4% standing-variation versus mutation effect-size ratio as general",
     "do not claim equilibrium standing-variation dominance over mutation",
     "do not quantitatively fit source-audited island systems to synthetic Model 3 cells",
-    "do not describe the natural deterministic bridge as uniformly negative across all 128 histories without an inbreeding-depression qualification"
+    "do not describe the natural deterministic bridge as uniformly negative across all 128 histories without an inbreeding-depression qualification",
+    "do not claim quantitative reproduction of the Chapter 1 H1-H4 coefficient vector",
+    "do not reopen Model3R/Model3E parameter or mechanism search as a Chapter 2 completion gate",
+    "do not treat a future flora-level emulator as confirmatory unless the full failed-model history and model family are prospectively disclosed"
   ],
   "vnext_canonical_story": "docs/CHAPTER2_CANONICAL_STORY_VNEXT_20261002.md",
   "establishment_audit": "docs/CHAPTER2_VNEXT_ESTABLISHMENT_AUDIT_20261002.md",
@@ -104,5 +108,14 @@
     "bridge_max_abs_numeric_difference": 7.105427357601002e-15,
     "bridge_numeric_differences_gt_1e_12": 0,
     "bridge_structural_mismatch_count": 0
+  },
+  "empirical_emulation_boundary": {
+    "status": "closed_negative_after_four_prospective_model_revisions",
+    "quantitative_chapter1_H1_H4_emulation_established": false,
+    "chapter2_completion_task": false,
+    "audit": "docs/CHAPTER2_EMPIRICAL_EMULATION_NEGATIVE_AUDIT_20261003.md",
+    "result": "data/results/chapter2_empirical_emulation_negative_audit_20261003.json",
+    "interpretation": "Model 3 remains a mechanistic reconstruction of a Chapter-1-compatible syndrome structure, not a quantitative fit to the Chapter 1 regional coefficient vector.",
+    "future_flora_level_model": "separate study requiring disclosure of the four failed model families and prospective model-family/validation lock"
   }
 }
