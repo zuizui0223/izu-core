@@ -132,3 +132,14 @@ at missing-module collection; seven new tests then pass against the original
 full-joint inheritance operator. Combined compression/inheritance suite26 passes.
 Still not a complete solver: outcrossing, ecology weighting and rank control
 remain. Long-run probe sources reverified unchanged during its execution.
+
+## Exact outcross component and remaining rank-growth gate
+
+Implemented one visitor channel's outcross inheritance directly on Tucker
+factors/cores, outside all frozen model sources. Six tests initially failed
+on missing module and now pass against the original full operator, including
+correlated inputs, unequal grids, signed bases and allocation-budget rejection.
+Combined relevant suite32 passes. No biological law changed. Exact outcross
+algebra multiplies parental ranks; high-rank output is explicitly refused.
+Nonlinear ecological weighting, channel summation and rank/error management
+remain required before any complete high-resolution solver can be claimed.

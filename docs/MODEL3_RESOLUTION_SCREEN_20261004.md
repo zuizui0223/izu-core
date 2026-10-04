@@ -178,3 +178,17 @@ This is only a verified linear component. A complete compressed solver still
 needs outcrossing, nonlinear ecological weighting, rank/error control and
 trajectory validation. It does not change the running production model or
 settle the required grid count.
+
+## Exact one-channel outcross component
+
+`scripts/model3_compressed_outcross.py` maps correlated donor and recipient
+Tucker distributions into offspring using the frozen Mendelian and mutation
+kernels. Six new tests reproduce `tensor_births` on unequal grids, signed
+bases, zero/positive mutation and jump/heat_fv. Combined suite32 passes.
+
+Output ranks are products of parental ranks. Parental ranks40 in each mode
+would create a1600^3 core, exceeding32GB before factors and temporaries.
+An output-value budget rejects such allocation first; it is not a peak-memory
+bound. Rank rounding/structured contraction remains necessary. This is only
+one visitor channel's already weighted donor/recipient operator, not ecological
+weighting, channel summation or a complete scalable population integrator.
