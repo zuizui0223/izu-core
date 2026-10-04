@@ -6,7 +6,6 @@
   "status": "canonical_theory_integrated_submission_prep",
   "active_pr": 395,
   "active_branch": "chapter2/evolution-letters-submission-prep-20261004",
-  "active_head": "03aec845851e932b7adab6a1edd230943ef36126",
   "manuscript": "docs/CHAPTER2_MANUSCRIPT_EL_REPEATABILITY_20261003.md",
   "theory_si": "docs/CHAPTER2_EL_THEORY_SI_20261004.md",
   "submission_notes": "docs/CHAPTER2_EVOLUTION_LETTERS_SUBMISSION_NOTES_20261004.md",
@@ -106,5 +105,7 @@
     "ScholarOne_account_fields_and_open_access_choices"
   ],
   "submission_ready": false,
-  "reason_not_ready": "scientific and formatting gates are closed; remaining blockers require author/account input"
+  "reason_not_ready": "scientific and formatting gates are closed; remaining blockers require author/account input",
+  "validated_scientific_and_claim_head": "03aec845851e932b7adab6a1edd230943ef36126",
+  "submission_prep_ref_policy": "use the latest descendant of validated_scientific_and_claim_head on active_branch; do not hard-code a self-referential manifest commit"
 }
