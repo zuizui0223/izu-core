@@ -1,0 +1,16 @@
+[
+  {
+    "command": "\"C:\\Program Files\\Python310\\python.exe\" -m scripts.audit_model3_rounded_integration",
+    "user_mode_time": 57302031250,
+    "status": "terminated_superseded_diagnostic",
+    "reason": "Later verified numerical/resource gates cover this diagnostic; retained partial outputs are not success evidence",
+    "pid": 12132
+  },
+  {
+    "command": "\"C:\\Program Files\\Python310\\python.exe\" -m scripts.audit_ten65",
+    "user_mode_time": 37763437500,
+    "status": "terminated_superseded_diagnostic",
+    "reason": "Later verified numerical/resource gates cover this diagnostic; retained partial outputs are not success evidence",
+    "pid": 28736
+  }
+]

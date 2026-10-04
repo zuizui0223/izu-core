@@ -845,3 +845,16 @@ This is failure of the n9-to-n13 refinement gate, not proof of a required minimu
 grid or a biological failure of diffusion. Quantitative coarse-grid ABM-density
 and jump-heat ecological interpretation remains withheld. The high-grid
 necessary-resolution/feasibility objective is still unresolved.
+
+## 2026-10-05: superseded diagnostics explicitly terminated
+
+After authoritative handle/PID checks, terminated only the old inefficient
+integrated_n5_40 process12132 and original ten65 process28736. These were
+superseded by verified corrected coarse-grid gates and the completed eight-case
+resource failure gate, respectively. Partial output directories remain intact;
+exit1 is recorded as intentional supersession, NEVER a passed case or biological
+failure. No restart was issued. Current gamete_third65 remains running. The old
+n9/40 handle14030 had already exited0 with8reported passes; it was not terminated.
+Process identity/reason receipt:model3_superseded_diagnostics_20261005.json.
+This frees resources and removes obsolete live-source edit constraints, but does
+not authorize changing any frozen archival evidence or the current live sources.
