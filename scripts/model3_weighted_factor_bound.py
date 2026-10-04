@@ -27,9 +27,16 @@ def bounded_weighted(state,xy,assurance,maps,*,absolute_l1,budget=2_000_000):
             raise ValueError('invalid weight map')
     a=np.broadcast_to(np.asarray(assurance,dtype=float),(fs[2].shape[0],))
     if not np.isfinite(a).all():raise ValueError('finite assurance weights required')
-    p=min(xy.shape)
-    for k in range(2):check_size(fs[k].shape[0]*core.shape[k]*p,budget)
+    third=fs[2]*a[:,None]
+    # Triangle inequality bounds L1 even for correlated signed-basis states.
+    state_l1_bound=float(np.einsum('abc,a,b,c',np.abs(core),np.abs(fs[0]).sum(axis=0),np.abs(fs[1]).sum(axis=0),np.abs(third).sum(axis=0),optimize=True))
+    if not np.isfinite(state_l1_bound):raise ArithmeticError('nonfinite state L1 bound')
     u,s,v=np.linalg.svd(xy,full_matrices=False)
+    allowed=absolute_l1/(2*state_l1_bound) if state_l1_bound>0 else float('inf')
+    p=max(1,int(np.flatnonzero(np.r_[s,0.]<=allowed)[0]))
+    weight_bound=state_l1_bound*(float(s[p]) if p<len(s) else 0.)
+    u,s,v=u[:,:p],s[:p],v[:p]
+    for k in range(2):check_size(fs[k].shape[0]*core.shape[k]*p,budget)
     raw=[(fs[k][:,:,None]*w[indices[k],None,:]).reshape(fs[k].shape[0],-1)
          for k,w in enumerate((u*s,v.T))]
     third=fs[2]*a[:,None]
@@ -39,13 +46,13 @@ def bounded_weighted(state,xy,assurance,maps,*,absolute_l1,budget=2_000_000):
     if not np.isfinite(prefactor):raise ArithmeticError('nonfinite bound')
     if prefactor==0:
         return (np.zeros((1,1,1)),tuple(np.zeros((f.shape[0],1)) for f in fs)),dict(absolute_l1_bound=0.,ranks=[1,1,1])
-    limit=absolute_l1/(2*prefactor);bases=[];transforms=[];tails=[]
+    limit=(absolute_l1-weight_bound)/(2*prefactor);bases=[];transforms=[];tails=[]
     for k,((u,s,v),scale) in enumerate(zip(svds,leading)):
         rank=max(1,int(np.flatnonzero(np.r_[s/scale,0.]<=limit)[0]))
         bases.append(u[:,:rank]);transforms.append((s[:rank,None]*v[:rank]).reshape(rank,core.shape[k],p))
         tails.append(float(s[rank]/scale) if rank<len(s) else 0.)
-    bound=prefactor*sum(tails)
+    bound=weight_bound+prefactor*sum(tails)
     if bound>absolute_l1:raise ArithmeticError('weighting bound exceeds tolerance')
     result=contract('abc,ias,jbs->ijc',core,*transforms,budget=budget)
-    return (result,tuple(bases+[third])),dict(absolute_l1_bound=bound,ranks=list(result.shape),prefactor=prefactor,
+    return (result,tuple(bases+[third])),dict(absolute_l1_bound=bound,ranks=list(result.shape),prefactor=prefactor,weight_rank=p,weight_l1_bound=weight_bound,
         bound_scope='exact-arithmetic factor truncation; excludes roundoff')

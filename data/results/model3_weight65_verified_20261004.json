@@ -1,0 +1,536 @@
+{
+  "scope": "65-node weighting on embedded n9 states only, not high-grid trajectories",
+  "rows": [
+    {
+      "key": "assurance_cost_near_jump",
+      "kind": "self",
+      "input_sha256": "70f27e8b9d8c67348da3683064cd831a1daf26330ece53416d5ec81e9913400d",
+      "status": "passed",
+      "actual_l1_upper": 2.645413777395288e-11,
+      "relative_l1_upper": 3.8421358313892154e-13,
+      "mass": 68.85268750216923,
+      "bound": {
+        "absolute_l1_bound": 1.1923587045115574e-08,
+        "ranks": [
+          44,
+          45,
+          22
+        ],
+        "prefactor": 26197181.506854557,
+        "weight_rank": 6,
+        "weight_l1_bound": 4.863068311946712e-09,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.06299999996554106
+    },
+    {
+      "key": "assurance_cost_near_jump",
+      "kind": "donor",
+      "input_sha256": "70f27e8b9d8c67348da3683064cd831a1daf26330ece53416d5ec81e9913400d",
+      "status": "passed",
+      "actual_l1_upper": 5.98120054213954e-13,
+      "relative_l1_upper": 9.027266487756096e-14,
+      "mass": 6.625705079441257,
+      "bound": {
+        "absolute_l1_bound": 8.149646460488049e-09,
+        "ranks": [
+          42,
+          45,
+          22
+        ],
+        "prefactor": 13569096.681696264,
+        "weight_rank": 5,
+        "weight_l1_bound": 5.420955923267307e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.0470000000204891
+    },
+    {
+      "key": "assurance_cost_near_jump",
+      "kind": "recipient",
+      "input_sha256": "70f27e8b9d8c67348da3683064cd831a1daf26330ece53416d5ec81e9913400d",
+      "status": "passed",
+      "actual_l1_upper": 4.505513758991126e-15,
+      "relative_l1_upper": 3.128317048854843e-14,
+      "mass": 0.14402356566257957,
+      "bound": {
+        "absolute_l1_bound": 2.537942444070124e-10,
+        "ranks": [
+          43,
+          45,
+          22
+        ],
+        "prefactor": 474440.03938418336,
+        "weight_rank": 6,
+        "weight_l1_bound": 2.2543243294065294e-12,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.062000000034458935
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "kind": "self",
+      "input_sha256": "67b5481f980507700949bb6ab9a0df67b30dd7c846400c27300c5e93032b3cb8",
+      "status": "passed",
+      "actual_l1_upper": 2.7438654275589538e-11,
+      "relative_l1_upper": 3.9926557964830833e-13,
+      "mass": 68.72281427254205,
+      "bound": {
+        "absolute_l1_bound": 1.3219786984329545e-07,
+        "ranks": [
+          42,
+          45,
+          22
+        ],
+        "prefactor": 31334506.03753218,
+        "weight_rank": 6,
+        "weight_l1_bound": 4.743968856428402e-09,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.046999999904073775
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "kind": "donor",
+      "input_sha256": "67b5481f980507700949bb6ab9a0df67b30dd7c846400c27300c5e93032b3cb8",
+      "status": "passed",
+      "actual_l1_upper": 5.923977715886904e-13,
+      "relative_l1_upper": 9.051985171379527e-14,
+      "mass": 6.544396177997811,
+      "bound": {
+        "absolute_l1_bound": 8.997274890266628e-09,
+        "ranks": [
+          41,
+          45,
+          22
+        ],
+        "prefactor": 16216271.109032266,
+        "weight_rank": 5,
+        "weight_l1_bound": 5.202048445269634e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.03200000000651926
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "kind": "recipient",
+      "input_sha256": "67b5481f980507700949bb6ab9a0df67b30dd7c846400c27300c5e93032b3cb8",
+      "status": "passed",
+      "actual_l1_upper": 1.513598443147777e-13,
+      "relative_l1_upper": 1.0620075353639907e-12,
+      "mass": 0.14252238263347244,
+      "bound": {
+        "absolute_l1_bound": 8.281085493053263e-10,
+        "ranks": [
+          42,
+          45,
+          22
+        ],
+        "prefactor": 444806.2574976095,
+        "weight_rank": 5,
+        "weight_l1_bound": 7.072142051798826e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.0470000000204891
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "kind": "self",
+      "input_sha256": "b9bee9ff914d335a2e6f8891e7fe074bbb246a07819d6d9988bf361eb0eaed12",
+      "status": "passed",
+      "actual_l1_upper": 7.829900889397732e-11,
+      "relative_l1_upper": 6.887796593250286e-13,
+      "mass": 113.67787627571151,
+      "bound": {
+        "absolute_l1_bound": 6.099957493173418e-07,
+        "ranks": [
+          26,
+          24,
+          4
+        ],
+        "prefactor": 30422051.113595005,
+        "weight_rank": 5,
+        "weight_l1_bound": 4.252095532526795e-09,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015999999945051968
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "kind": "donor",
+      "input_sha256": "b9bee9ff914d335a2e6f8891e7fe074bbb246a07819d6d9988bf361eb0eaed12",
+      "status": "passed",
+      "actual_l1_upper": 3.6721287154919035e-12,
+      "relative_l1_upper": 8.97634245459462e-13,
+      "mass": 4.090896413619215,
+      "bound": {
+        "absolute_l1_bound": 1.4247531803638052e-08,
+        "ranks": [
+          26,
+          25,
+          4
+        ],
+        "prefactor": 9338338.401721789,
+        "weight_rank": 5,
+        "weight_l1_bound": 4.813670074807547e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015000000013969839
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "kind": "recipient",
+      "input_sha256": "b9bee9ff914d335a2e6f8891e7fe074bbb246a07819d6d9988bf361eb0eaed12",
+      "status": "passed",
+      "actual_l1_upper": 4.983490994774911e-15,
+      "relative_l1_upper": 4.722259620581729e-14,
+      "mass": 0.10553191470148354,
+      "bound": {
+        "absolute_l1_bound": 3.10763445987371e-10,
+        "ranks": [
+          25,
+          25,
+          4
+        ],
+        "prefactor": 252995.55206736838,
+        "weight_rank": 5,
+        "weight_l1_bound": 7.289079165142931e-13,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015999999945051968
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "kind": "self",
+      "input_sha256": "09fa4b5828efaa9e2112536e330a349f8a1f6ad2d50482bdfcd801f4725b8ed5",
+      "status": "passed",
+      "actual_l1_upper": 7.071430629969573e-11,
+      "relative_l1_upper": 6.218669490503527e-13,
+      "mass": 113.7129194720557,
+      "bound": {
+        "absolute_l1_bound": 6.136217140721956e-07,
+        "ranks": [
+          26,
+          23,
+          4
+        ],
+        "prefactor": 33617665.891396,
+        "weight_rank": 5,
+        "weight_l1_bound": 3.734835852762824e-09,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015999999945051968
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "kind": "donor",
+      "input_sha256": "09fa4b5828efaa9e2112536e330a349f8a1f6ad2d50482bdfcd801f4725b8ed5",
+      "status": "passed",
+      "actual_l1_upper": 3.743988645887449e-12,
+      "relative_l1_upper": 9.43778771020223e-13,
+      "mass": 3.9670193490792385,
+      "bound": {
+        "absolute_l1_bound": 1.9087322816223174e-08,
+        "ranks": [
+          25,
+          24,
+          4
+        ],
+        "prefactor": 10318628.986996619,
+        "weight_rank": 5,
+        "weight_l1_bound": 4.790237862006706e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015000000013969839
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "kind": "recipient",
+      "input_sha256": "09fa4b5828efaa9e2112536e330a349f8a1f6ad2d50482bdfcd801f4725b8ed5",
+      "status": "passed",
+      "actual_l1_upper": 5.536921096690683e-15,
+      "relative_l1_upper": 5.3655079477874e-14,
+      "mass": 0.1031947236043881,
+      "bound": {
+        "absolute_l1_bound": 3.8584441019070606e-10,
+        "ranks": [
+          25,
+          24,
+          4
+        ],
+        "prefactor": 280187.3813275753,
+        "weight_rank": 5,
+        "weight_l1_bound": 6.402533746177676e-13,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.01600000006146729
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "kind": "self",
+      "input_sha256": "0c8ad8fa7836dca8bf356f6925d8f1eacb1169b6d782eac8a7da93af259e8a87",
+      "status": "passed",
+      "actual_l1_upper": 3.801121797806993e-13,
+      "relative_l1_upper": 1.9899587064794423e-15,
+      "mass": 191.0151092799202,
+      "bound": {
+        "absolute_l1_bound": 2.8533472932533694e-11,
+        "ranks": [
+          20,
+          11,
+          6
+        ],
+        "prefactor": 7528321.328243488,
+        "weight_rank": 1,
+        "weight_l1_bound": 2.8533472932533694e-11,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.0
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "kind": "donor",
+      "input_sha256": "0c8ad8fa7836dca8bf356f6925d8f1eacb1169b6d782eac8a7da93af259e8a87",
+      "status": "passed",
+      "actual_l1_upper": 4.269121158074897e-12,
+      "relative_l1_upper": 9.059394522628508e-13,
+      "mass": 4.712369184730291,
+      "bound": {
+        "absolute_l1_bound": 8.49879074501308e-09,
+        "ranks": [
+          45,
+          40,
+          6
+        ],
+        "prefactor": 14500974.095250968,
+        "weight_rank": 5,
+        "weight_l1_bound": 4.730800044197418e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.03100000007543713
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "kind": "recipient",
+      "input_sha256": "0c8ad8fa7836dca8bf356f6925d8f1eacb1169b6d782eac8a7da93af259e8a87",
+      "status": "passed",
+      "actual_l1_upper": 2.798239478352203e-17,
+      "relative_l1_upper": 6.261912605748458e-14,
+      "mass": 0.0004468665812715766,
+      "bound": {
+        "absolute_l1_bound": 2.012635723736309e-12,
+        "ranks": [
+          100,
+          54,
+          6
+        ],
+        "prefactor": 118926.88195656321,
+        "weight_rank": 5,
+        "weight_l1_bound": 2.953907624721812e-15,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.030999999959021807
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "kind": "self",
+      "input_sha256": "3fe5eaa2dd06702c5e31cc96ce53e47118d4996bf0bf4151c79cc0ba35be7252",
+      "status": "passed",
+      "actual_l1_upper": 2.208716890676557e-13,
+      "relative_l1_upper": 1.155230106868084e-15,
+      "mass": 191.19280890839622,
+      "bound": {
+        "absolute_l1_bound": 2.8450666992733806e-11,
+        "ranks": [
+          19,
+          11,
+          6
+        ],
+        "prefactor": 8318736.92075565,
+        "weight_rank": 1,
+        "weight_l1_bound": 2.8450666992733806e-11,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015999999945051968
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "kind": "donor",
+      "input_sha256": "3fe5eaa2dd06702c5e31cc96ce53e47118d4996bf0bf4151c79cc0ba35be7252",
+      "status": "passed",
+      "actual_l1_upper": 4.289407310489387e-12,
+      "relative_l1_upper": 9.416052861344837e-13,
+      "mass": 4.555419742914184,
+      "bound": {
+        "absolute_l1_bound": 1.786847796462748e-08,
+        "ranks": [
+          45,
+          38,
+          6
+        ],
+        "prefactor": 16012701.895598592,
+        "weight_rank": 5,
+        "weight_l1_bound": 4.714305603325178e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.03100000007543713
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "kind": "recipient",
+      "input_sha256": "3fe5eaa2dd06702c5e31cc96ce53e47118d4996bf0bf4151c79cc0ba35be7252",
+      "status": "passed",
+      "actual_l1_upper": 2.0052720818397667e-17,
+      "relative_l1_upper": 6.120692779209791e-14,
+      "mass": 0.0003276217503762142,
+      "bound": {
+        "absolute_l1_bound": 1.95541563553162e-15,
+        "ranks": [
+          95,
+          55,
+          6
+        ],
+        "prefactor": 131670.24600383718,
+        "weight_rank": 5,
+        "weight_l1_bound": 1.95541563553162e-15,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.030999999959021807
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "kind": "self",
+      "input_sha256": "7d45215688ef5bfe4d1197737d9bc43d8a6378adb9d4eb9ed8ffd34a4e0e7c2b",
+      "status": "passed",
+      "actual_l1_upper": 6.078843407062408e-14,
+      "relative_l1_upper": 3.1804803707207996e-16,
+      "mass": 191.12972565476787,
+      "bound": {
+        "absolute_l1_bound": 2.7618145210261682e-11,
+        "ranks": [
+          6,
+          4,
+          2
+        ],
+        "prefactor": 7659950.523585472,
+        "weight_rank": 1,
+        "weight_l1_bound": 2.7618145210261682e-11,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015000000013969839
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "kind": "donor",
+      "input_sha256": "7d45215688ef5bfe4d1197737d9bc43d8a6378adb9d4eb9ed8ffd34a4e0e7c2b",
+      "status": "passed",
+      "actual_l1_upper": 4.928170289917726e-12,
+      "relative_l1_upper": 9.474415080492698e-13,
+      "mass": 5.201556241782734,
+      "bound": {
+        "absolute_l1_bound": 2.6147063571075743e-08,
+        "ranks": [
+          21,
+          20,
+          2
+        ],
+        "prefactor": 13427276.344871446,
+        "weight_rank": 5,
+        "weight_l1_bound": 4.578796942430931e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015999999945051968
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "kind": "recipient",
+      "input_sha256": "7d45215688ef5bfe4d1197737d9bc43d8a6378adb9d4eb9ed8ffd34a4e0e7c2b",
+      "status": "passed",
+      "actual_l1_upper": 3.391885839852256e-17,
+      "relative_l1_upper": 7.019618161570108e-14,
+      "mass": 0.000483200903778729,
+      "bound": {
+        "absolute_l1_bound": 2.8694568645542653e-15,
+        "ranks": [
+          30,
+          20,
+          2
+        ],
+        "prefactor": 54606.391305040044,
+        "weight_rank": 5,
+        "weight_l1_bound": 2.8694568645542653e-15,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015000000013969839
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "kind": "self",
+      "input_sha256": "404992be5cb45b28bbdd95601c79929a3cdd83cab2e66abb909731479c59d6e9",
+      "status": "passed",
+      "actual_l1_upper": 3.09386760670685e-14,
+      "relative_l1_upper": 1.6171808481762674e-16,
+      "mass": 191.31240703201973,
+      "bound": {
+        "absolute_l1_bound": 2.7522176738385056e-11,
+        "ranks": [
+          6,
+          4,
+          2
+        ],
+        "prefactor": 8480375.387226397,
+        "weight_rank": 1,
+        "weight_l1_bound": 2.7522176738385056e-11,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.015000000013969839
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "kind": "donor",
+      "input_sha256": "404992be5cb45b28bbdd95601c79929a3cdd83cab2e66abb909731479c59d6e9",
+      "status": "passed",
+      "actual_l1_upper": 4.889781645484328e-12,
+      "relative_l1_upper": 9.677851645458112e-13,
+      "mass": 5.052548669496436,
+      "bound": {
+        "absolute_l1_bound": 1.493468007195237e-08,
+        "ranks": [
+          20,
+          20,
+          2
+        ],
+        "prefactor": 14874467.846030632,
+        "weight_rank": 5,
+        "weight_l1_bound": 4.5602882573732544e-10,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.0
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "kind": "recipient",
+      "input_sha256": "404992be5cb45b28bbdd95601c79929a3cdd83cab2e66abb909731479c59d6e9",
+      "status": "passed",
+      "actual_l1_upper": 2.3258651642613537e-17,
+      "relative_l1_upper": 6.527283870349862e-14,
+      "mass": 0.0003563297093338592,
+      "bound": {
+        "absolute_l1_bound": 1.7567889569756636e-12,
+        "ranks": [
+          29,
+          20,
+          2
+        ],
+        "prefactor": 60654.44258103977,
+        "weight_rank": 5,
+        "weight_l1_bound": 1.894858084172248e-15,
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.0
+    }
+  ],
+  "archive": "outputs/model3_precision_feasibility/weight65_verified.zip",
+  "archive_sha256": "b967ed3c9855b9c7b34fd25995fcdba9b96f8e37b4e3be2f70710dfe4a0ee5c6",
+  "max_relative_l1_upper": 1.0620075353639907e-12
+}

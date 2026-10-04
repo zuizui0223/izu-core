@@ -355,3 +355,22 @@ This is not yet integrated/admitted on ecological long trajectories.
 Full raw weighted-factor allocation/SVD remains a possible65-node bottleneck;
 next investigate weight-function reduction with an explicit error bound.
 Long n9 run session58342 remains live: firstcase400periods L1=1.24581e-9.
+
+
+## XY weight reduction and65-node ecological weighting admission
+
+Previous goal turn: progress (bounded weighting module,79tests).
+Added weight-function SVD truncation using sigma_next times a triangle-
+inequality L1 bound from the absolute core/factors, including assurance.
+Half absolute budget allocated to weight truncation; remaining budget to
+factor truncation. Observed resource-guard RED then GREEN;80tests pass.
+Old allocation test cap reduced100->50 because new weight compression
+correctly makes the former100-value case feasible; input guard still tested.
+All24 snapshot checks (8conditions x self/donor0/recipient0) at65nodes pass.
+Maximum relative L1 upper bound including off-support output1.06201e-12.
+Checks use coarse n9 period200 densities embedded exactly, NOT evolved
+high-grid densities. This admits ecological weighting algebra/accuracy on
+these inputs only. No high-grid trajectory or convergence claim.
+Archived input hashes, sources and outputs in weight65_verified.zip.
+Next: integrate bounded weighting and child factors in isolated solver,
+validate against same-grid dense reference before high-grid trajectories.

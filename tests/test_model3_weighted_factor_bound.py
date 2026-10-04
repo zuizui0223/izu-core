@@ -26,7 +26,7 @@ def test_large_physical_axes_preserve_sparse_correlated_support():
 
 def test_resource_guard_precedes_raw_factor_allocation():
     with pytest.raises(MemoryError):
-        bounded_weighted((np.ones((2,2,2)),[np.ones((10,2))]*3),np.ones((10,10)),np.ones(10),(np.arange(10),np.arange(10)),absolute_l1=1e-6,budget=100)
+        bounded_weighted((np.ones((2,2,2)),[np.ones((10,2))]*3),np.ones((10,10)),np.ones(10),(np.arange(10),np.arange(10)),absolute_l1=1e-6,budget=50)
 
 
 def test_nonzero_truncation_error_is_covered():
@@ -37,3 +37,16 @@ def test_nonzero_truncation_error_is_covered():
     assert error>1e-10
     assert error<=receipt['absolute_l1_bound']+1e-10
     assert receipt['absolute_l1_bound']<=1e-3
+
+
+def test_weight_compression_precedes_large_raw_factor():
+    rng=np.random.default_rng(71);n=129
+    f=np.zeros((n,3));f[[0,64,128]]=np.eye(3)
+    state=(rng.random((3,3,3)),[f]*3)
+    xy=np.ones((n,n))+1e-12*rng.random((n,n))
+    result,receipt=bounded_weighted(state,xy,np.ones(n),(np.arange(n),np.arange(n)),absolute_l1=1e-6,budget=20000)
+    assert receipt['weight_rank']==1
+    assert receipt['weight_l1_bound']>0
+    error=np.abs(dense(result)-dense(state)*xy[:,:,None]).sum()
+    assert error<=receipt['absolute_l1_bound']+1e-10
+    assert receipt['absolute_l1_bound']<=1e-6
