@@ -1,0 +1,28 @@
+{
+  "scope": "algebraic performance diagnosis only; no biology or tolerance change",
+  "identity": "For square orthogonal gamete factors Q and R, unordered diploid child factor F has F F^T = diag(1 for homozygotes, 2 for heterozygotes).",
+  "proof": "Rows are ordered tensor products Q_a x R_b, symmetrized for a != b. Orthogonality of Q and R makes different unordered pair rows orthogonal. Homozygous rows have norm 1, heterozygous rows have squared norm 2.",
+  "consequence": "All singular values are 1 or sqrt(2); strict factor-only truncation cannot reduce row rank. Computing a dense SVD is unnecessary for these full square modes. Exact identity basis with transform F preserves the child tensor, but downstream resource and precision gates remain required.",
+  "limits": [
+    "Only square orthogonal gamete factors; rectangular modes do not satisfy this diagonal Gram identity in general.",
+    "Roundoff is excluded from algebraic equality and must be checked numerically.",
+    "Avoiding SVD does not establish long-run feasibility or resolve full joint rank growth.",
+    "Current live gamete_third65 code unchanged."
+  ],
+  "checks": [
+    {
+      "nodes": 9,
+      "rows": 45,
+      "gram_max_error": 1.5543122344752192e-15,
+      "min_singular": 0.9999999999999996,
+      "max_singular": 1.4142135623730956
+    },
+    {
+      "nodes": 17,
+      "rows": 153,
+      "gram_max_error": 8.881784197001252e-16,
+      "min_singular": 0.9999999999999996,
+      "max_singular": 1.414213562373096
+    }
+  ]
+}

@@ -858,3 +858,15 @@ n9/40 handle14030 had already exited0 with8reported passes; it was not terminate
 Process identity/reason receipt:model3_superseded_diagnostics_20261005.json.
 This frees resources and removes obsolete live-source edit constraints, but does
 not authorize changing any frozen archival evidence or the current live sources.
+
+## 2026-10-05: exact full-gamete factor identity diagnoses wasted SVD
+
+Current gamete_third65 remains live (session27135/PID33292); previous goal
+turn classified as verified wait. For square orthogonal gamete factors the
+unordered-child factor Gram is exactly diagonal: 1 homozygous, 2 heterozygous.
+Thus its singular values cannot support strict rank reduction, and a large SVD
+can be avoided algebraically in a separately tested future variant. Signed
+random orthogonal checks at n9/n17 agree within1.56e-15. Rectangular modes are
+excluded. This does not solve downstream joint-core growth or certify high-grid
+accuracy. No live source was edited and no new biological run was launched.
+Receipt:model3_square_gamete_factor_diagnosis_20261005.json.
