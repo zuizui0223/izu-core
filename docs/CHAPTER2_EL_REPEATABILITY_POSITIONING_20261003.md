@@ -1,6 +1,6 @@
 # Chapter 2 — repeatability framing
 
-**Date:** 2026-10-03  
+**Date:** 2026-10-04  
 **Status:** candidate framing on a separate branch; **preferred journal candidate: Evolution Letters**. Ecology Letters remains a fallback only if the paper is recast around a general ecological contribution. This does not replace the locked Oikos submission surface.  
 **Parent scientific object:** unified Model 3 integrated syndrome candidate.
 
