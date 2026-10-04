@@ -56,3 +56,19 @@ def test_el_theory_integration_uses_corrected_joint_selection_with_claim_ceiling
     for token in forbidden:
         assert token not in manuscript
         assert token not in si
+
+
+def test_el_submission_end_matter_is_present_and_human_fields_fail_closed():
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8")
+    for heading in (
+        "# Data and code availability",
+        "# Author contributions",
+        "# Funding",
+        "# Conflict of interest",
+        "# Acknowledgements",
+    ):
+        assert heading in manuscript
+    assert "cfa0754823817591fab15ef1b36eecd7a3a3ef10" in manuscript
+    assert "**REQUIRES AUTHOR INPUT.** Insert final CRediT roles before submission." in manuscript
+    assert "**REQUIRES AUTHOR CONFIRMATION.**" in manuscript
+    assert "AI-use disclosure only after the author confirms its exact scope" in manuscript
