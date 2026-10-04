@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-10-04",
+  "journal_target": "Evolution Letters",
+  "article_type": "Letter",
+  "status": "canonical_theory_integrated_submission_prep",
+  "active_pr": 395,
+  "active_branch": "chapter2/evolution-letters-submission-prep-20261004",
+  "manuscript": "docs/CHAPTER2_MANUSCRIPT_EL_REPEATABILITY_20261003.md",
+  "theory_si": "docs/CHAPTER2_EL_THEORY_SI_20261004.md",
+  "submission_notes": "docs/CHAPTER2_EVOLUTION_LETTERS_SUBMISSION_NOTES_20261004.md",
+  "cover_letter_template": "docs/CHAPTER2_EVOLUTION_LETTERS_COVER_LETTER_20261004.md",
+  "title": "Directional similarity can mask opposite changes in historical repeatability in a generative island-floral model",
+  "format": {
+    "title_words": 14,
+    "abstract_words": 254,
+    "internal_compact_count_before_core_references": 4834,
+    "internal_limit": 5000,
+    "keywords": 10,
+    "end_matter_headings_present": true
+  },
+  "scientific_state": {
+    "classification": "mechanistic_core_plus_repeatability_result",
+    "theory_reduction": "posthoc_explanatory",
+    "rare_mutant_and_finite_followup": "frozen_before_respective_execution",
+    "exact_multivariate_price": "48_of_48_cells_max_error_7.2e-16",
+    "full_G_beta": "46_of_48_strict_gate_mean_cosine_0.99946_full_G_lower_error_48_of_48",
+    "finite_endpoint_maxima": {
+      "structural_delayed_control": 0.16379310344827586,
+      "prior_selfing": 0.1016949152542373,
+      "pollen_discount": 0.21296296296296297,
+      "assurance_cost": 0.4296875
+    },
+    "finite_endpoint_interpretation": "endpoint occurrence is not a generic tradeoff effect; assurance cost is the clearest tradeoff-specific amplification relative to the structural control",
+    "alternative_endpoint_branching_supported": false,
+    "exact_sexual_continuum_is_PDE": false,
+    "fixed_inbreeding_depression": true,
+    "purging_feedback_present": false
+  },
+  "verification": {
+    "scientific_gate": {
+      "run_id": 37190159014,
+      "status": "success"
+    },
+    "full_ci": {
+      "run_id": 37190159015,
+      "status": "success",
+      "python": [
+        "3.10",
+        "3.11",
+        "3.12"
+      ]
+    },
+    "oikos_path_changes_vs_main": 0
+  },
+  "current_author_guideline_checks": {
+    "source_checked_on": "2026-10-04",
+    "source": "Evolution Letters Oxford Academic author guidelines",
+    "article_word_guide": "approximately 5000 words excluding display items",
+    "title_max_words": 30,
+    "abstract_max_words": 300,
+    "keywords_max": 10,
+    "required_end_matter": [
+      "Data and code availability",
+      "Author contributions",
+      "Funding",
+      "Conflict of interest",
+      "Acknowledgements if any"
+    ],
+    "ai_disclosure": {
+      "required_if_used": true,
+      "locations": [
+        "cover letter",
+        "Acknowledgements",
+        "Methods if integral to methodology"
+      ],
+      "details_required": [
+        "tool name and version",
+        "method/use",
+        "author role in directing and reviewing output"
+      ],
+      "status": "REQUIRES_AUTHOR_CONFIRMATION_OF_EXACT_SCOPE"
+    },
+    "related_manuscript_disclosure": {
+      "required_for_similar_or_related_material": true,
+      "current_relevant_route": "locked Oikos manuscript uses overlapping Model 3 campaign/bridge material",
+      "status": "REQUIRES_AUTHOR_CONFIRMATION_OF_OIKOS_SUBMISSION_STATUS_AND_FINAL_DIFFERENCE_TEXT"
+    },
+    "data_code_availability": {
+      "statement_present": true,
+      "final_persistent_identifier_required_for_final_publication_package": true
+    }
+  },
+  "human_blockers": [
+    "final_author_order_names_affiliations",
+    "corresponding_author_address_email",
+    "CRediT_roles",
+    "funding_and_grant_numbers",
+    "conflict_of_interest_confirmation",
+    "acknowledgements",
+    "exact_AI_use_disclosure_scope_and_tool_version_details",
+    "Oikos_current_submission_status_and_related_manuscript_difference_statement",
+    "persistent_archive_DOI_or_identifier",
+    "optional_reviewer_suggestions_or_exclusions",
+    "ScholarOne_account_fields_and_open_access_choices"
+  ],
+  "submission_ready": false,
+  "reason_not_ready": "scientific and formatting gates are closed; remaining blockers require author/account input",
+  "validated_scientific_and_claim_head": "03aec845851e932b7adab6a1edd230943ef36126",
+  "submission_prep_ref_policy": "use the latest descendant of validated_scientific_and_claim_head on active_branch; do not hard-code a self-referential manifest commit"
+}
