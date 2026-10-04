@@ -48,4 +48,38 @@ def investment_invasion_terms(resident, visitors, config):
     benefit = (.5*female_benefit+.5*paternal_benefit+self_benefit)/fitness
     # Mutant ovule costs affect its female/selfed production, not resident mothers.
     cost = 2*config.investment_cost*i*(.5*female+selfed)/fitness
-    return dict(gradient=benefit-cost,benefit=benefit,cost=cost,fitness=fitness)
+    return dict(gradient=benefit-cost,benefit=benefit,cost=cost,fitness=fitness,
+                outcross_fraction=q, female=female, selfed=selfed, ovules=ov)
+
+
+def syndrome_thresholds(resident, visitors, config):
+    """Local interior rare-mutant conditions; not an equilibrium or G-beta result.
+
+    At fixed resident state, q does not depend on ovule cost coefficients.
+    Hence beta_i < 0 iff c_i > c_i_star, and beta_a > 0 iff c_a < c_a_star.
+    Thresholds may be negative; do not clip them to biologically valid costs.
+    Trait-boundary cases require one-sided feasible directions instead.
+    """
+    z = np.asarray(resident, dtype=float)
+    terms = investment_invasion_terms(z, visitors, config)
+    i, a = z[..., 1], z[..., 2]
+    if ((i <= 0) | (i >= 1) | (a <= 0) | (a >= 1)).any():
+        raise ValueError('joint thresholds require interior investment and assurance')
+    q = terms['outcross_fraction']
+    v = 1-config.depression
+    prior = config.assurance_timing == 'prior'
+    f = (1-a)*q if prior else q
+    l = np.ones_like(q) if prior else 1-q
+    s = a*v*l
+    maternal_weight = .5*f+s
+    if (maternal_weight <= 0).any():
+        raise ArithmeticError('zero marginal ovule contribution')
+    a_benefit = v*l - (.5*q if prior else 0) - .5*config.pollen_discount*f
+    a_cost_slope = 2*a*maternal_weight
+    a_gradient = (a_benefit-config.assurance_cost*a_cost_slope)/(f+s)
+    i_cost_slope = 2*i*maternal_weight/(f+s)
+    i_threshold = terms['benefit']/i_cost_slope
+    a_threshold = a_benefit/a_cost_slope
+    return dict(investment_gradient=terms['gradient'], assurance_gradient=a_gradient,
+                investment_cost_threshold=i_threshold, assurance_cost_threshold=a_threshold,
+                local_syndrome_direction=(terms['gradient']<0)&(a_gradient>0))

@@ -7,6 +7,8 @@ scripts.model3_island.density and checks its continuum interpretation.
 from __future__ import annotations
 
 import argparse
+import hashlib
+from pathlib import Path
 import json
 from math import exp, pi
 
@@ -51,6 +53,27 @@ def cosine_mode_semigroup_error(
     }
 
 
+def mutation_rescaled_time_audit() -> list[dict]:
+    """Analytic reflected-kernel iterates at fixed diffusion time, not fitted data.
+
+    Probability u alone tending to zero at fixed jump width gives a nonlocal
+    jump generator. A local heat limit additionally requires small jumps and
+    rescaled time. These eigenvalues test that distinction without grid error.
+    """
+    rows = []
+    u, tau = .2, .01
+    for mode in (1, 2, 4):
+        target = exp(-(mode*pi)**2*tau)
+        for sd in (.1, .05, .025):
+            steps = round(2*tau/(u*sd**2))
+            per_step = (1-u) + u*exp(-.5*(mode*pi*sd)**2)
+            observed = per_step**steps
+            rows.append(dict(mode=mode, mutation_sd=sd, steps=steps,
+                diffusion_time=tau, exact_kernel_multiplier=observed,
+                heat_multiplier=target, absolute_error=abs(observed-target)))
+    return rows
+
+
 def run_audit() -> dict:
     spatial = [
         cosine_mode_semigroup_error(
@@ -72,10 +95,12 @@ def run_audit() -> dict:
     ]
     return {
         "status": "mutation_component_has_reflected_diffusion_limit",
+        "source_sha256": {name: hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes()).hexdigest() for name in ("scripts/audit_model3_continuum_limit.py", "scripts/model3_island/density.py")},
         "full_model_status": "nonlinear_nonlocal_integro_difference_not_pure_pde",
         "boundary_condition": "Neumann_reflecting_at_0_and_1",
         "spatial_refinement": spatial,
         "weak_mutation": weak,
+        "rescaled_time_small_jump": mutation_rescaled_time_audit(),
         "claim_boundary": [
             "This validates only the mutation kernel continuum interpretation.",
             "Mendelian segregation, outcrossing, recombination, and capacity regulation remain nonlocal/global.",

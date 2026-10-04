@@ -1,0 +1,167 @@
+{
+  "status": "mutation_component_has_reflected_diffusion_limit",
+  "source_sha256": {
+    "scripts/audit_model3_continuum_limit.py": "104a775556b3585dac3dd187a4bf5e5dacf49b6c0fd5c781a3edd273dd5d0402",
+    "scripts/model3_island/density.py": "d43b01cdd628b560bdfa2fd2a9ee4be08577bca91289bf473effc5b666f78dcc"
+  },
+  "full_model_status": "nonlinear_nonlocal_integro_difference_not_pure_pde",
+  "boundary_condition": "Neumann_reflecting_at_0_and_1",
+  "spatial_refinement": [
+    {
+      "n_nodes": 51,
+      "mutation_rate": 0.05,
+      "mutation_sd": 0.05,
+      "mode": 2,
+      "diffusion_coefficient": 6.250000000000001e-05,
+      "exact_semigroup_multiplier": 0.9975924903684636,
+      "diffusion_multiplier": 0.9975325988997277,
+      "max_abs_discretization_error": 3.130842281928725e-05,
+      "abs_weak_mutation_multiplier_error": 5.9891468735973064e-05
+    },
+    {
+      "n_nodes": 101,
+      "mutation_rate": 0.05,
+      "mutation_sd": 0.05,
+      "mode": 2,
+      "diffusion_coefficient": 6.250000000000001e-05,
+      "exact_semigroup_multiplier": 0.9975924903684636,
+      "diffusion_multiplier": 0.9975325988997277,
+      "max_abs_discretization_error": 7.828264554032849e-06,
+      "abs_weak_mutation_multiplier_error": 5.9891468735973064e-05
+    },
+    {
+      "n_nodes": 201,
+      "mutation_rate": 0.05,
+      "mutation_sd": 0.05,
+      "mode": 2,
+      "diffusion_coefficient": 6.250000000000001e-05,
+      "exact_semigroup_multiplier": 0.9975924903684636,
+      "diffusion_multiplier": 0.9975325988997277,
+      "max_abs_discretization_error": 1.957138572983297e-06,
+      "abs_weak_mutation_multiplier_error": 5.9891468735973064e-05
+    }
+  ],
+  "weak_mutation": [
+    {
+      "n_nodes": 201,
+      "mutation_rate": 0.05,
+      "mutation_sd": 0.1,
+      "mode": 2,
+      "diffusion_coefficient": 0.00025000000000000006,
+      "exact_semigroup_multiplier": 0.9910434358707769,
+      "diffusion_multiplier": 0.9901303955989107,
+      "max_abs_discretization_error": 1.6878228246142157e-06,
+      "abs_weak_mutation_multiplier_error": 0.0009130402718662278
+    },
+    {
+      "n_nodes": 201,
+      "mutation_rate": 0.05,
+      "mutation_sd": 0.05,
+      "mode": 2,
+      "diffusion_coefficient": 6.250000000000001e-05,
+      "exact_semigroup_multiplier": 0.9975924903684636,
+      "diffusion_multiplier": 0.9975325988997277,
+      "max_abs_discretization_error": 1.957138572983297e-06,
+      "abs_weak_mutation_multiplier_error": 5.9891468735973064e-05
+    },
+    {
+      "n_nodes": 201,
+      "mutation_rate": 0.05,
+      "mutation_sd": 0.025,
+      "mode": 2,
+      "diffusion_coefficient": 1.5625000000000004e-05,
+      "exact_semigroup_multiplier": 0.9993869391680822,
+      "diffusion_multiplier": 0.9993831497249319,
+      "max_abs_discretization_error": 2.030931411711734e-06,
+      "abs_weak_mutation_multiplier_error": 3.7894431502705217e-06
+    }
+  ],
+  "rescaled_time_small_jump": [
+    {
+      "mode": 1,
+      "mutation_sd": 0.1,
+      "steps": 10,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.907767425933821,
+      "heat_multiplier": 0.9060180557889229,
+      "absolute_error": 0.0017493701448980659
+    },
+    {
+      "mode": 1,
+      "mutation_sd": 0.05,
+      "steps": 40,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.9064583461493625,
+      "heat_multiplier": 0.9060180557889229,
+      "absolute_error": 0.0004402903604395769
+    },
+    {
+      "mode": 1,
+      "mutation_sd": 0.025,
+      "steps": 160,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.9061283124450875,
+      "heat_multiplier": 0.9060180557889229,
+      "absolute_error": 0.0001102566561645979
+    },
+    {
+      "mode": 2,
+      "mutation_sd": 0.1,
+      "steps": 10,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.6943093365915195,
+      "heat_multiplier": 0.6738254512314336,
+      "absolute_error": 0.02048388536008594
+    },
+    {
+      "mode": 2,
+      "mutation_sd": 0.05,
+      "steps": 40,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.6790447226574327,
+      "heat_multiplier": 0.6738254512314336,
+      "absolute_error": 0.005219271425999095
+    },
+    {
+      "mode": 2,
+      "mutation_sd": 0.025,
+      "steps": 160,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.6751362206181994,
+      "heat_multiplier": 0.6738254512314336,
+      "absolute_error": 0.0013107693867658865
+    },
+    {
+      "mode": 4,
+      "mutation_sd": 0.1,
+      "steps": 10,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.31466019422326164,
+      "heat_multiplier": 0.20615299242398238,
+      "absolute_error": 0.10850720179927925
+    },
+    {
+      "mode": 4,
+      "mutation_sd": 0.05,
+      "steps": 40,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.23238710278688335,
+      "heat_multiplier": 0.20615299242398238,
+      "absolute_error": 0.026234110362900964
+    },
+    {
+      "mode": 4,
+      "mutation_sd": 0.025,
+      "steps": 160,
+      "diffusion_time": 0.01,
+      "exact_kernel_multiplier": 0.21261481036021992,
+      "heat_multiplier": 0.20615299242398238,
+      "absolute_error": 0.0064618179362375405
+    }
+  ],
+  "claim_boundary": [
+    "This validates only the mutation kernel continuum interpretation.",
+    "Mendelian segregation, outcrossing, recombination, and capacity regulation remain nonlocal/global.",
+    "The focal 2026-09-27 Chapter 2 bridge has mutation_rate=0, so mutation diffusion does not generate its headline response."
+  ]
+}

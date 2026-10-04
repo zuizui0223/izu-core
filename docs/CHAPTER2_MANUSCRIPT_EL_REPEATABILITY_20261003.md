@@ -120,7 +120,7 @@ Functional replacement mattered even when visitor number was unchanged. The maxi
 
 Duplicating each left-shifted visitor type to create eight visitor entries changed the fixed-state, deterministic and finite-population operators by at most 1.78 × 10^-15 when total activity was fixed. The model therefore distinguishes functional composition from simple visitor-entry count. A recurrent decline in pollinator service is not sufficient to specify a single selection direction unless the functional visitor environment and starting floral state are also specified.
 
-## The directional backbone survives continuous reduction
+## The directional backbone survives phenotype reduction
 
 The Price update matched exact next-generation mean investment in all 25 controlled cells. The reduced replicator equation retained all 25 directions over 60 seasons (mean absolute error 0.00434) and all 9 frozen bridge signs; condition means correlated 0.987 with exact density effects, with slope 0.586.
 
@@ -184,7 +184,7 @@ The temporal accessibility result is distinct: standing variation accelerated ea
 
 Direction-versus-magnitude measurement is not our novelty (Oke et al. 2017; Venkataram & Kryazhimskiy 2023; Arendt et al. 2025). Arendt et al. further caution that a general direction metric should not simply be equated with geometric parallelism; Bisschop et al. (2026) show that environmental and demographic heterogeneity can reduce evolutionary repeatability. Our narrower contribution is mechanistic: within one operator, interventions that similarly increase sign uniformity drive reproducible visitor-history structure in opposite directions.
 
-The continuous reduction sharpens this distinction. Additive means close exactly through the Price identity, whereas Mendelian corrections to trait variance change sign across contexts and cannot be represented by one constant diffusion term. History reliability is not a second-moment statistic, but a compact directional law need not close the higher-order inheritance structure shaping effect magnitude. This complements many-to-one precedents in which common function coexists with nonparallel form (Thompson et al. 2017).
+The phenotype reduction sharpens this distinction. The full-history comparison uses a discrete phenotype map; the continuous-time check is a controlled D=0 replicator ODE. The one-generation additive mean satisfies the Price identity, but this does not close multigeneration phenotype dynamics. Identical phenotype distributions with different genotypes produce different offspring variances (Supporting Information). History reliability is not a second-moment statistic, but a compact directional law need not close the higher-order inheritance structure shaping effect magnitude. This complements many-to-one precedents in which common function coexists with nonparallel form (Thompson et al. 2017).
 
 ## Pollinator loss and pollinator replacement should not be treated as the same island pressure
 

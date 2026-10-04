@@ -52,12 +52,12 @@ The defensible contribution is narrower than "first theory of floral island synd
    It changes a stochastic visitor-assembly process; floral selection follows from the resulting pollen-transfer operator.
 
 2. **The same biological operator spans four levels.**  
-   Finite ABM → deterministic genotype density → exact continuous-genotype sexual integral system → reduced phenotype PDE / analytic threshold.
+   Finite ABM and deterministic genotype density are parallel realizations of the reproductive rules. The exact continuous-genotype extension retains a sexual integral operator; the reduced phenotype map/ODE and analytic invasion thresholds have additional assumptions.
 
 3. **The first moment has an exact bridge.**  
    Under the frozen reduction conditions, the Price equation reproduces the exact genotype-density one-generation mean in 25/25 cells to numerical precision.
 
-4. **The reduced continuum survives the full frozen visitor-history ensemble.**  
+4. **The discrete phenotype reduction recovers the full frozen visitor-history intervention signs.**
    It recovers the controlled response directions and the near/far intervention structure rather than merely reproducing one hand-picked equilibrium.
 
 5. **Richness matching provides a causal-mechanism contrast.**  

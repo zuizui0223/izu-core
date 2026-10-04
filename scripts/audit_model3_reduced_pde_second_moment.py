@@ -5,9 +5,10 @@ one-generation reduction design.  This audit asks whether the inheritance
 correction to phenotype variance can be represented by a single nonnegative
 diffusion term.
 
-It cannot if, after the same selection step, exact Mendelian inheritance makes
-the next-generation variance both larger and smaller than the clonal
-replicator closure across different ecological contexts.
+This comparison diagnoses a missing inheritance correction. Its signs alone
+do not prove impossibility of a diffusion closure with reflecting boundaries.
+The same-phenotype/different-genotype counterexample in the closeout audit
+separately establishes nonclosure without additional state assumptions.
 """
 from __future__ import annotations
 
@@ -100,8 +101,8 @@ def run_audit() -> dict:
         "implication": (
             "After controlling for the same phenotype-selection step, Mendelian "
             "mating/segregation can either expand or contract investment variance. "
-            "A single context-independent nonnegative diffusion correction cannot "
-            "be the exact inheritance closure."
+            "Variance signs alone do not rule out boundary-dependent diffusion; "
+            "use the identical-phenotype counterexample to establish nonclosure."
         ),
         "claim_boundary": [
             "one-generation frozen reduction design only",

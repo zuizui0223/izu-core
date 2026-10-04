@@ -21,3 +21,12 @@ def test_claim_boundary_keeps_full_model_outside_pure_pde():
     result = run_audit()
     assert result["full_model_status"] == "nonlinear_nonlocal_integro_difference_not_pure_pde"
     assert "mutation_rate=0" in " ".join(result["claim_boundary"])
+
+
+def test_repeated_mutation_converges_at_fixed_diffusion_time():
+    rows = run_audit()['rescaled_time_small_jump']
+    for mode in (1, 2, 4):
+        errors = [r['absolute_error'] for r in rows if r['mode'] == mode]
+        assert errors[2] < errors[1] < errors[0]
+        assert errors[0] / errors[1] > 3
+        assert errors[1] / errors[2] > 3

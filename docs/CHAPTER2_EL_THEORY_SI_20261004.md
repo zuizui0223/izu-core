@@ -15,11 +15,11 @@ The third level is not a PDE. In other words, the full continuous system is not 
 
 ## S2. Mutation has a genuine diffusion limit, but the focal bridge has D = 0
 
-Model 3 mutates transmitted alleles with probability u by a reflected Gaussian step with standard deviation sigma on the interval [0,1]. The reflected-normal kernel is the Neumann heat semigroup. For weak mutation,
+Model 3 mutates transmitted alleles with probability u by a reflected Gaussian step with standard deviation sigma on the interval [0,1]. The reflected-normal kernel is the Neumann heat semigroup. In the small-jump limit with appropriately rescaled time,
 
     D = u sigma^2 / 2
 
-is the diffusion coefficient per mutable transmitted allele.
+is the diffusion coefficient per mutable transmitted allele per reproductive period. Making mutation rare at fixed jump size alone produces a nonlocal jump generator, not a local diffusion. This allelic coefficient cannot be inserted unchanged into a diploid phenotype equation: phenotype averaging and the two transmitted alleles require a separate projection. An analytic repeated-kernel audit at fixed diffusion time confirms small-jump convergence for three cosine modes.
 
 The numerical audit compared the implemented mutation matrix with Neumann heat-semigroup eigenmodes. Maximum discretization error declined from approximately 3.13e-5 at 51 nodes to 1.96e-6 at 201 nodes, and the weak-mutation approximation improved at the expected order as sigma decreased.
 
@@ -56,7 +56,9 @@ The same accounting was then extended to access, investment and evolving assuran
 
 Collapsing genotype structure to an investment phenotype density p(i,t) gives the reduced equation
 
-    dp/dt = (w(i; p, V) / mean(w) - 1) p + D d2p/di2.
+    dp/dt = (w(i; p, V) / mean(w) - 1) p.
+
+A mutation diffusion term is not implemented in this phenotype audit. Its coefficient and closure would require a separate derivation; the per-allele coefficient in S2 is not automatically that coefficient.
 
 For the focal bridge D = 0, so the operative reduction is a frequency-dependent replicator equation rather than a diffusion-driven PDE.
 
@@ -74,21 +76,21 @@ Thus the reduced selection field captures the coarse direction and much of the m
 
 ## S5. Frozen isolation bridge confrontation
 
-The reduced continuous phenotype selection model was then applied to the exact 128 frozen visitor-history seeds and the same projected founders.
+The reduced discrete-time phenotype selection map p_next proportional to p*w was then applied to the exact 128 frozen visitor-history seeds and the same projected founders.
 
-| Intervention | Exact genotype-density mean far-minus-near investment | Reduced continuous mean |
+| Intervention | Exact genotype-density mean far-minus-near investment | Reduced discrete phenotype-map mean |
 | --- | ---: | ---: |
 | Natural | -0.450983 | approximately -0.251735 |
 | Response-blind richness matched | +0.033757 | approximately +0.022762 |
 | Visitor-history pooled | -0.556042 | approximately -0.325516 |
 
-The reduction recovered:
+This discrete-map comparison recovered:
 
 - 9/9 start-by-intervention signs;
 - the same ordering: pooled < natural < richness-matched;
 - correlation approximately 0.987 between the nine reduced and exact condition means.
 
-The reduced-versus-exact slope was approximately 0.586, so the reduction systematically attenuated magnitude. This is the useful boundary: the local phenotype selection field contains the directional regime, whereas explicit sexual inheritance contributes substantially to the inherited magnitude.
+The reduced-versus-exact slope was approximately 0.586, so the discrete phenotype map systematically attenuated magnitude. This is not a direct full-history test of the continuous-time ODE or a nonzero-diffusion PDE. This is the useful boundary: the local phenotype selection field contains the directional regime, whereas explicit sexual inheritance contributes substantially to the inherited magnitude.
 
 ## S6. Fixed-resident investment invasion threshold (corrected)
 
@@ -140,7 +142,7 @@ This parallels the exact genotype-density intervention ordering and identifies t
 
 The same one-generation reduction was applied to investment variance. After the identical phenotype-selection step, exact Mendelian inheritance sometimes increased and sometimes decreased the next-generation variance relative to the phenotype-only closure.
 
-The sign of the inheritance correction therefore depends on ecological and genotype context. A single context-independent nonnegative diffusion coefficient cannot exactly represent sexual inheritance. Mating averages parental states while Mendelian segregation can re-expand variation, and their balance changes with the current population.
+The sign of the inheritance correction therefore depends on ecological and genotype context. These variance differences diagnose closure error, but their signs alone are not a general impossibility proof: reflecting boundaries can affect variance even under positive diffusion. A direct counterexample now establishes failure of an exact autonomous phenotype-only closure: two populations with identical investment phenotype 0.5 but genotypes 0.5/0.5 versus 0.4/0.6 produce offspring variances 0 versus 0.005 under the same ecology. Their offspring means both remain 0.5. The hidden genotype state is therefore necessary unless additional closure assumptions restrict the admissible populations. Mating averages parental states while Mendelian segregation can re-expand variation, and their balance changes with the current population.
 
 This does not imply that history reliability is literally a second-moment statistic. It does show that exact closure of the mean does not imply closure of the higher-order inheritance structure that controls how effect magnitude is distributed among histories and genotypes.
 
@@ -292,7 +294,7 @@ Across 48 controlled cells:
 
 The two strict-gate failures were not vector reversals. In both, the exact response was nearly axis-aligned and one component was close to zero; the local approximation crossed zero only for that small component while retaining cosine >0.999.
 
-Thus the investment–assurance covariance materially improves local response prediction and should not be silently removed.
+Thus the investment-assurance covariance materially improves local response prediction and should not be silently removed.
 
 ## S16. Frozen finite two-trait follow-up
 
@@ -358,6 +360,30 @@ The same near/far visitor histories that generate the island-like finite traject
 
 This is the theory result relevant to the main manuscript's repeatability argument.
 
-## S18. Corrected admission boundary
+## S19. Corrected admission boundary
 
 All frozen finite endpoint counts were recomputed from all 12,288 arm records and retained. The Price identity recheck passed 48/48 (runtime maximum error 7.8e-16). The full-G approximation remains 46/48, not universal response fidelity. No tolerated failure fraction was frozen for automatic promotion; the repaired admission script therefore withholds automatic mechanistic-core promotion when complete response support is absent. This conservative software decision does not erase the exact Price result, joint-gradient result or finite endpoint observations. Old adjudication files are historical, not overwritten. See MODEL3_SELECTION_REPAIR_20261004.md.
+
+
+## S20. PDE closeout and independence from Chapter 1
+
+The 2026-10-04 post-hoc closeout compares identical initial populations in all 25 original fixed-community cells at 60, 200 and 800 reproductive periods. It separates exact sexual density, discrete phenotype selection and its normalized continuous-time replicator ODE. This is D=0; extending the horizon does not introduce mutation or establish a full-model PDE limit. Numerical tolerances, biological fidelity and hidden-genotype information loss are assessed separately. See MODEL3_PDE_CLOSEOUT_20261004.md and model3_pde_closeout_20261004.json for complete diagnostics.
+
+Chapter 1 motivates the independent generative question; its four regional results do not calibrate parameters or decide success in these tests. Model 3 derives selection and realized evolution from visitor assembly, pollen transfer, reproductive costs and inheritance. Comparisons with observed selfing, colour and accessibility patterns are qualitative mechanistic interpretations, not a fitted reconstruction or proof of their historical causes. Investment is not literal floral colour, and the present fixed-access reduction does not establish evolution of accessibility.
+
+
+## S21. Joint local syndrome thresholds
+
+Let i and a be interior investment and assurance, v=1-delta, d the pollen-discount coefficient, and q the resident outcross fraction generated by the visitor-transfer operator. Scale seed outputs by ovule production O. For delayed selfing set f=q and l=1-q; for prior selfing set f=(1-a)q and l=1. Then s=a*v*l and M=f/2+s. Write J=1 for prior selfing, zero otherwise. Resident fitness is W=O(f+s).
+
+    c_a_star = [v*l - J*q/2 - d*f/2] / (2*a*M)
+    beta_a = 2*a*M/(f+s) * (c_a_star-c_a).
+
+For investment let B_i be the fixed-resident marginal benefit in S6:
+
+    c_i_star = B_i*(f+s)/(2*i*M)
+    beta_i = 2*i*M/(f+s) * (c_i_star-c_i).
+
+Thus the local joint syndrome direction is beta_i<0 AND beta_a>0, equivalently c_i>c_i_star AND c_a<c_a_star, provided 0<i,a<1, W>0 and M>0. Negative thresholds must not be clipped. There need not be an admissible nonnegative cost giving either sign. Zero-fitness states are not assigned a log-fitness gradient. These formulas include male function and distinguish prior from delayed assurance.
+
+The thresholds are conditional on resident state and visitors; they are not a fitted island optimum, a threshold geographic distance, a global equilibrium or a guarantee of realized joint evolution. A shift in beta with isolation does not establish that either beta crosses zero. G-beta responses may also differ from the component selection signs. In the delayed, undiscounted, zero-cost control, assurance is structurally favoured whenever viable unfilled ovules remain; that control is not independent evidence for assurance evolution. Independent finite-difference checks cover the original 45 states, four assurance settings and five controlled visitor communities.

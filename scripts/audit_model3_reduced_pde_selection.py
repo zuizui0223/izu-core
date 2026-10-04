@@ -5,11 +5,11 @@ It keeps the same visitor affinity, pollen export/receipt, ovule cost, delayed
 assurance, and expected parental-genome contribution, but treats investment as
 a continuous breeding-value density p(i,t):
 
-    dp/dt = (w(i; p, V) - mean_w) p + D d2p/di2.
+    dp/dt = (w(i; p, V) / mean_w - 1) p.
 
 The frozen unified-reduction audit has mutation_rate=0, hence D=0 for the
-operator-level sign test below.  The goal is only to test whether the local
-selection branching survives the continuous trait-density reduction.
+operator-level sign test below.  The goal is only to test local selection directions. Any phenotype diffusion
+coefficient requires a separate derivation from allelic mutation and inheritance.
 """
 from __future__ import annotations
 
