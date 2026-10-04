@@ -321,3 +321,20 @@ Admission guard test RED (undeclared horizon), then GREEN; candidate75tests
 passed. Long run session58342, output fastpath_candidate/gate_n9_1000.
 Original n13 run session77498 remains live,16/32 last verified.
 Previous goal turn: progress (n9/40 completion evidence changed next action).
+
+
+## 65-node single-channel resource measurement
+
+Previous goal turn: progress, n9 long gate launched after verified admission.
+Current n9 long session58342 live, firstcase100periods L1=5.47e-10.
+Eight n9 period200 snapshots embedded exactly into65-node allele support;
+apply65-node mutation and spectral child-factor reduction, without full
+genotype tensor or child-core contraction. All8 measured within2million
+values per raw factor. Largest raw factor1,450,020 values; reduced child
+core at most91,125 values. This is evidence that initial high-grid child
+factors are manageable, NOT full solver or long-time high-grid feasibility.
+Rank<=45 partly reflects inherited nine-node support; later generations
+can increase rank. No ecological or grid-convergence claim follows.
+Next unresolved work includes weighted ecological integration, selfed
+transitions and sustained rank/error control at high resolution.
+Sources and outputs archived; receipt data/results/model3_highgrid_resource_20261004.json.
