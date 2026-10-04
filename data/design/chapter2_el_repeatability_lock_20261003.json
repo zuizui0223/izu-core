@@ -48,7 +48,8 @@
     "new demographic seed validation as independent environmental-history replication",
     "new demographic seed validation as natural-island validation",
     "new visitor-history validation as natural-island validation",
-    "new visitor-history validation as transfer to a different ecological-history generator"
+    "new visitor-history validation as transfer to a different ecological-history generator",
+    "absolute history-variance paired comparison as a preregistered primary validation criterion"
   ],
   "key_literature": [
     {
@@ -305,5 +306,25 @@
     "figure2_regenerated_and_tested": true,
     "figure4_regenerated_and_tested": true,
     "all_four_main_figures_regenerated_and_tested": true
+  },
+  "finite_history_absolute_variance_secondary": {
+    "status": "posthoc secondary analysis of predeclared validation variance endpoint",
+    "result": "data/results/chapter2_environment_validation_absolute_history_variance_20261004.json",
+    "large_capacity_minus_natural_history_variance": {
+      "estimate": 0.004112148448694875,
+      "bootstrap95": [
+        0.0019445763187386086,
+        0.005950845492232042
+      ]
+    },
+    "visitor_pooled_minus_natural_history_variance": {
+      "estimate": -0.003479965729384406,
+      "bootstrap95": [
+        -0.005388528861266249,
+        -0.0018710627318389034
+      ]
+    },
+    "interpretation": "Opposite intervention effects persist in absolute history-structured variance, not only in reliability ratios.",
+    "headline_status": "supporting mechanism evidence only; not a frozen primary success criterion"
   }
 }
