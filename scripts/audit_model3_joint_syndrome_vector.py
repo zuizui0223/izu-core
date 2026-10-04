@@ -267,6 +267,20 @@ def _gradient_and_gamma_batch(
     return beta_i, beta_a, gamma
 
 
+def _gamma_batch(states, visitors, config: Config, step: float):
+    states = np.asarray(states, dtype=float)
+    pp = states.copy(); pp[:, 1] += step; pp[:, 2] += step
+    pm = states.copy(); pm[:, 1] += step; pm[:, 2] -= step
+    mp = states.copy(); mp[:, 1] -= step; mp[:, 2] += step
+    mm = states.copy(); mm[:, 1] -= step; mm[:, 2] -= step
+    return (
+        _log_fitness_batch(states, pp, visitors, config)
+        - _log_fitness_batch(states, pm, visitors, config)
+        - _log_fitness_batch(states, mp, visitors, config)
+        + _log_fitness_batch(states, mm, visitors, config)
+    ) / (4.0 * step**2)
+
+
 def _paired_bootstrap_ci(values, indices):
     values = np.asarray(values, dtype=float)
     means = values[indices].mean(axis=1)
@@ -324,11 +338,11 @@ def run_audit():
                     bi, ba, ga = _gradient_and_gamma_batch(
                         states, visitor_state, config, h, gamma_h
                     )
-                    _, _, ga_low = _gradient_and_gamma_batch(
-                        states, visitor_state, config, h, gamma_low
+                    ga_low = _gamma_batch(
+                        states, visitor_state, config, gamma_low
                     )
-                    _, _, ga_high = _gradient_and_gamma_batch(
-                        states, visitor_state, config, h, gamma_high
+                    ga_high = _gamma_batch(
+                        states, visitor_state, config, gamma_high
                     )
                     acc_i += bi
                     acc_a += ba
