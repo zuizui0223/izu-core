@@ -494,3 +494,17 @@ This does not yet prove second-step completion, joint positivity or long-path
 convergence. New local bounds are not summed into a global trajectory claim.
 Original n13 refinement20/32 last verified; n9 long3/8complete with far_heat
 700periods live and current L1 below gate.
+
+
+## Stable full-joint comparison prepared
+
+Previous goal turn: progress, streamed second-step integration launched.
+Added separate joint_distance using common QR bases and direct difference
+cores. Exact-arithmetic L1 upper bound; roundoff not bounded. No independent
+locus closure. Missing-module RED then GREEN. Candidate116tests passed;
+four focused distance tests subsequently pass, including equal marginals
+but different joint structure. No high-grid trajectory claim from tests.
+Second-step session13293 live, three child channels completed; fourth live.
+Next after completion: verify source/NPZ hashes and compare full state under
+a stricter declared numerical tolerance, preserving16million allocation cap
+and all biological parameters. Precision must include joint-state agreement.
