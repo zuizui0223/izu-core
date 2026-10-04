@@ -180,3 +180,13 @@ final summary. PNG, PDF, SVG and the history-mean arrays are written locally;
 the rendered figure was inspected for labels, legend, phase boundary and
 line meanings. No failed-grid continuum trajectories are presented as validated
 curves in this figure.
+
+## Novelty assessment
+
+The focused [primary-source audit](MODEL3_MUTATION_HISTORY_NOVELTY_20261004.md)
+finds prior work on variation loss, history-dependent trait responses and
+failure to reverse selfing after pollinator restoration. Residual history
+contrasts alone therefore do not establish novelty. A stronger contribution
+would distinguish recovery across the three traits and identify which
+processes generate it. Positive-mutation finite-versus-continuum attribution
+remains withheld until the ongoing refinement resolves numerical accuracy.
