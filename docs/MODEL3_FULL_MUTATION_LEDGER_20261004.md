@@ -517,3 +517,20 @@ Archived stream_second65_verified.zip. This overcomes the demonstrated
 second-step output-allocation failure, but five-and-a-half minutes per
 step is not yet a feasible long campaign. Full joint tolerance convergence
 and later rank/resource growth remain unresolved; no biological claim.
+
+
+## Rank-start optimization and stricter joint-state admission
+
+Previous goal turn: progress, complete second65 step verified.
+Separate rank-hint component skips known failed trial ranks while retaining
+fixed seed997, residual acceptance, allocation cap and adaptive escalation.
+Missing-module RED, rank-hint tests GREEN; new fast integration tests RED
+then GREEN, candidate130tests passed.
+Actual captured contraction:73.047s->20.000s; q/core NPZ SHA256 identical,
+not merely matching means. This single-case timing is not full-solver speed.
+Prepared strict second-step gate: same saved first65 state/environment,
+local1e-10 vs prior1e-8,16million cap. Full joint QR-distance normalized
+L1 upper<=1e-5 plus existing exact marginal checks. No retuning on failure.
+Launched session48191, sources/output fastpath_candidate/strict_second65.
+This checks one step only, not accumulated high-grid trajectory convergence.
+Original n9 long session58342 now5/8complete/pass; sixth near_heat_fv live.
