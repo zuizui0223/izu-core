@@ -74,3 +74,18 @@ Conditioning: arm means describe each arm's occupied replicates. Paired
 effects describe jointly occupied replicates averaged within history and
 then equally across histories. They are not generally the difference of
 the marginal arm means when survival differs. All are descriptive.
+# Additional precision preparation
+
+The user requested additional precision during the live 13-node continuation.
+The fixed 17-node plan and separate runner are prepared, preserving all 32
+conditions and all biological rules. The 13-node source snapshot was rechecked
+and remains unchanged. The 17-node campaign has NOT started: it requires the
+complete verified predecessor and a reviewed single-worker resource probe.
+Seventeen nodes are a refinement stage, not an assumed final resolution.
+
+TDD: initial five tests failed at missing-module collection, then passed.
+Independent review identified missing provenance checks in summary and unsafe
+recreation of a predecessor manifest. Three regression tests reproduced those
+failures; fixes now require existing provenance and verify own archive and
+predecessor identity. Eleven combined 13/17-stage tests pass. No full campaign
+or ecological conclusions are inferred from these infrastructure tests.
