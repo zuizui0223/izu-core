@@ -134,6 +134,8 @@ def run_audit() -> dict:
             "assurance_delta": [],
             "near_critical_cost": [],
             "far_critical_cost": [],
+            "near_critical_investment_cost": [],
+            "far_critical_investment_cost": [],
         }
         for access in access_states
         for investment in investment_states
@@ -209,12 +211,68 @@ def run_audit() -> dict:
                     store[key]["near_critical_cost"].append(near_cost)
                     store[key]["far_critical_cost"].append(far_cost)
 
+                    # Mean critical floral-investment cost coefficient c_I*:
+                    # g_i = B_i - 2 c_I i, so c_I* = B_i/(2 i).
+                    if investment > 0:
+                        near_benefit = float(np.mean([
+                            (1.0 - assurance * (1.0 - base.depression))
+                            * qi
+                            / (
+                                assurance * (1.0 - base.depression)
+                                + (
+                                    1.0
+                                    - assurance * (1.0 - base.depression)
+                                )
+                                * q
+                            )
+                            if (
+                                assurance * (1.0 - base.depression)
+                                + (
+                                    1.0
+                                    - assurance * (1.0 - base.depression)
+                                )
+                                * q
+                            ) > 0
+                            else 0.0
+                            for q, qi in near_q
+                        ]))
+                        far_benefit = float(np.mean([
+                            (1.0 - assurance * (1.0 - base.depression))
+                            * qi
+                            / (
+                                assurance * (1.0 - base.depression)
+                                + (
+                                    1.0
+                                    - assurance * (1.0 - base.depression)
+                                )
+                                * q
+                            )
+                            if (
+                                assurance * (1.0 - base.depression)
+                                + (
+                                    1.0
+                                    - assurance * (1.0 - base.depression)
+                                )
+                                * q
+                            ) > 0
+                            else 0.0
+                            for q, qi in far_q
+                        ]))
+                        store[key]["near_critical_investment_cost"].append(
+                            near_benefit / (2.0 * investment)
+                        )
+                        store[key]["far_critical_investment_cost"].append(
+                            far_benefit / (2.0 * investment)
+                        )
+
     rows = []
     for (access, investment, assurance), values in store.items():
         di = np.asarray(values["investment_delta"])
         da = np.asarray(values["assurance_delta"])
         cn = np.asarray(values["near_critical_cost"])
         cf = np.asarray(values["far_critical_cost"])
+        cin = np.asarray(values["near_critical_investment_cost"])
+        cif = np.asarray(values["far_critical_investment_cost"])
         rows.append({
             "access": access,
             "investment": investment,
@@ -226,7 +284,16 @@ def run_audit() -> dict:
             "assurance_higher_shift_fraction": float(np.mean(da > 0)),
             "mean_near_critical_assurance_cost": float(cn.mean()),
             "mean_far_critical_assurance_cost": float(cf.mean()),
-            "paired_nonempty_cost_window_fraction": float(np.mean(cf > cn)),
+            "paired_nonempty_assurance_cost_window_fraction": float(np.mean(cf > cn)),
+            "mean_near_critical_investment_cost": float(cin.mean()),
+            "mean_far_critical_investment_cost": float(cif.mean()),
+            "paired_nonempty_investment_cost_window_fraction": float(np.mean(cin > cif)),
+            "current_investment_cost_in_classic_divergence_window_fraction": float(
+                np.mean((cif < base.investment_cost) & (base.investment_cost < cin))
+            ),
+            "current_assurance_cost_below_near_threshold_fraction": float(
+                np.mean(base.assurance_cost < cn)
+            ),
         })
 
     central = next(
@@ -249,7 +316,12 @@ def run_audit() -> dict:
                 row["assurance_higher_shift_fraction"] == 1.0 for row in rows
             ),
             "every_paired_history_has_nonempty_assurance_cost_window": all(
-                row["paired_nonempty_cost_window_fraction"] == 1.0 for row in rows
+                row["paired_nonempty_assurance_cost_window_fraction"] == 1.0
+                for row in rows
+            ),
+            "every_paired_history_has_nonempty_investment_cost_window": all(
+                row["paired_nonempty_investment_cost_window_fraction"] == 1.0
+                for row in rows
             ),
         },
         "central_state": central,
@@ -258,14 +330,17 @@ def run_audit() -> dict:
             "the local selection vector toward lower floral investment and stronger "
             "reproductive assurance simultaneously.  Direct assurance cost shifts "
             "both near and far gradients equally; each paired history therefore has "
-            "an environment-specific cost interval in which assurance is selected "
-            "against near but favoured far."
+            "environment-specific cost intervals.  For investment, an intermediate "
+            "cost produces near-up/far-down selection; for assurance, an intermediate "
+            "cost produces near-down/far-up selection.  Their Cartesian product is a "
+            "two-trait cost region generating a classic floral island-syndrome vector."
         ),
         "claim_boundary": [
             "local monomorphic selection field, not an evolved two-trait endpoint",
             "delayed assurance with zero pollen discount for the analytic cost-window result",
             "visitor histories are the frozen synthetic bridge histories, not natural prevalence",
             "the existing assurance_cost=0.5 lies below the central-state near threshold in all 128 histories, so the frozen cost treatment does not itself create near-down/far-up assurance divergence",
+            "the critical-cost values are synthetic Model 3 units, not calibrated natural energetic costs",
         ],
     }
 
