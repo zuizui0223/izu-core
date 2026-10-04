@@ -233,35 +233,29 @@ No island label, distance coefficient, or island optimum appears in this equatio
 
 Isolation can create syndrome-like floral reduction only by changing the visitor environment enough to reduce the **marginal pollination return** `B(i)` below the marginal investment cost `C(i)`.
 
-Reproductive assurance lowers the relative value of additional pollinator-mediated reproduction and therefore moves the system toward the reduction side of this threshold.
+Reproductive assurance can still be used **as a fixed parameter** in this investment threshold: increasing fixed assurance reduces the fraction of fitness that can be gained through extra outcrossing, so the investment gradient can weaken. That comparative-static statement is retained.
 
-This monotonic effect is analytic. Writing `r = a(1-δ)`,
+### Assurance-selection correction
 
-```
-B(r) = (1-r) q' / [ r + (1-r)q ]
-```
+Do **not** differentiate the monomorphic population expression above with respect to assurance and call the result selection on assurance. That would move the assurance value of the resident population and the focal genotype simultaneously.
 
-gives
+For assurance, selection must be defined from a **rare mutant in a resident background** because:
 
-```
-dB/dr = -q' / [ r + (1-r)q ]² < 0
-```
+- a selfed seed receives both maternal and paternal gene copies from the focal parent;
+- pollen discounting acts through the mutant's paternal outcross success;
+- paternal success depends on the resident pollen/recipient environment.
 
-whenever additional investment still increases outcrossing (`q' > 0`).
-
-The exact assurance-survival threshold at which investment changes sign is
+The corrected focal fitness is therefore a parental-genome-equivalent invasion fitness,
 
 ```
-r* = [ q' - C q ] / [ q' + C(1-q) ]
+w_m = 0.5 F_m + 0.5 P_m + S_m
 ```
 
-with `C = 2 c_I i`.
+where `F_m` is mutant maternal outcross seed, `P_m` is mutant paternal outcross success, and `S_m` is viable selfed seed. The assurance gradient is the derivative of `log(w_m)` with mutant assurance changed while resident traits and the resident pollen environment remain fixed.
 
-Thus, conditional on the same visitor environment, increasing autonomous reproductive assurance can only move the system toward lower floral investment in this reduced Model 3 limit. This is a mathematical coupling between two classic island-syndrome components; it is not an empirical claim that assurance always evolves first in nature.
+Consequently, the earlier monomorphic `r*` calculation is **retired as an assurance-evolution threshold**. It remains only a sensitivity statement about how fixed assurance changes selection on floral investment.
 
-A further boundary is important. In the baseline **delayed-assurance** evolving model, `assurance_cost=0` and `pollen_discount=0`. Because delayed selfing uses ovules left after outcrossing, increasing assurance then has no direct opportunity cost whenever some ovules remain. Upward assurance selection is therefore partly structural in that baseline formulation. It should **not** be advertised as an independently discovered island-specific selfing syndrome.
-
-The stronger current mathematical result is the island-dependent floral-investment threshold. A genuinely discriminating theory of assurance evolution requires the explicit cost, pollen-discount or prior-assurance trade-off variants already present in Model 3, and should be tested separately.
+The joint investment–assurance extension is now governed by the frozen rare-mutant contract in `data/design/model3_joint_syndrome_rare_mutant_20261004.json`. Its selection-gradient shift, multivariate Price response, and finite realized trajectory are adjudicated separately.
 
 ## 9. The threshold was tested on all 128 frozen isolation histories
 
@@ -331,7 +325,7 @@ The mechanism is not that richness matching rescues the far island. The interven
 
 ## 10. What the mathematics now says about an island syndrome
 
-The strongest current result is not “a PDE reproduces the simulation.”
+The strongest validated result before the rare-mutant assurance extension is not “a PDE reproduces the simulation.”
 
 It is:
 
