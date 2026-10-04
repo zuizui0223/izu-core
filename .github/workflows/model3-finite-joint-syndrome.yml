@@ -1,15 +1,10 @@
 name: Model3 Finite Joint Syndrome Follow-up
 
 on:
-  pull_request:
-    paths:
-      - 'scripts/run_model3_joint_syndrome_finite_followup.py'
-      - 'data/design/model3_joint_syndrome_finite_followup_20261004.json'
-      - '.github/workflows/model3-finite-joint-syndrome.yml'
+  workflow_dispatch:
 
 jobs:
   finite:
-    if: github.head_ref == 'agent/model3-continuum-limit-20261004'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     strategy:
