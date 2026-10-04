@@ -95,3 +95,39 @@ Independent read-only review reproduced heat-FV mode errors with the analytical
 discrete eigenvalues within1.72e-10 and verified all archived source hashes.
 Passing applies only to the declared modes and sampled horizons, not every
 intermediate birth event. No full-grid simulation was launched by this screen.
+
+## Exploratory representation check on completed checkpoints
+
+All six cases completed at this check (first four near/far cases for history76001,
+then both near operators for history76002, all delayed/cost.5) were examined.
+This is a completion-order subset, not evidence across both reproductive settings.
+Case hashes were verified before reading. No original trajectory was modified.
+
+At period1000, retaining probability mass to relative omitted fraction1e-8
+required22,189–46,961 of753,571 genotype states. Sparsity is potentially useful,
+but omission at a snapshot does not bound errors propagated through selection.
+Earlier checkpoints required up to118,049 retained states at the same threshold.
+
+A second probe used a three-mode Tucker/HOSVD representation of the full joint
+91x91x91 unordered diploid distribution. This does NOT assume independent traits.
+For each mode, SVD truncation used squared discarded singular values at most
+`(epsilon * total_mass / 6)^2 / total_state_count`, epsilon=1e-8. The joint tensor
+was compressed, reconstructed, negative entries clipped, and mass normalized.
+Actual relative L1 error against the original was then checked, not inferred
+solely from ranks. The six roundtrips used18,881–37,394 stored floating values
+(about20–40 times fewer) and achieved L1 errors1.25e-10–2.32e-10. Tiny negative
+mass before clipping was recorded explicitly.
+
+Local exploratory records are in
+`outputs/model3_precision_feasibility/checkpoint_compressibility.json` and
+`outputs/model3_precision_feasibility/tucker_snapshot_roundtrip.json` with input
+hashes. These are snapshot diagnostics, NOT a validated compressed solver. They
+currently reconstruct the full tensor to verify error; that alone cannot run
+a65-node model. A usable solver must evolve inheritance, mutation, mating and
+nonlinear reproduction directly in compressed form, control positivity/mass
+and rounding error, and reproduce full trajectories on existing grids before
+any high-resolution campaign. Rank growth at higher resolution is unknown.
+
+The next feasible investigation is therefore a small-grid, full-trajectory
+equivalence probe of a joint compressed representation, not a blind17-node
+campaign or an assertion that high-resolution computation is already solved.
