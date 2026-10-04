@@ -23,3 +23,11 @@ of4 second-axis values (180 unfolded columns),16million per-array cap.
 Measured block timings0.015s for width4, no multi-operand fallback.
 Test direct Frobenius residual<=1e-14 before biological integration; do
 not relax if it fails. This is a component/resource diagnostic only.
+
+Gram-based actual probe FAILED: residual3.78305e-9 at rank467, target1e-14.
+Retain this failure. New isolated direct Gaussian sketch plus QR avoids
+squaring condition numbers; fixed numerical seed997, rank schedule and
+full block residual acceptance unchanged. No power iteration or tolerance
+relaxation. Ill-conditioned known-matrix test included. Test same captured
+operands, cap16million and residual1e-14; output separate direct_projection.
+Numerical randomization is not a biological stochastic process.

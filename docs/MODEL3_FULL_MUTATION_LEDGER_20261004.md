@@ -451,3 +451,18 @@ width4 (180columns),16million allocation cap. Not yet accepted into solver.
 Nine-node long session58342 now2/8complete/pass; far_jump500periods live.
 65-node ten-step session29425 still live after firstcase resource failure;
 no restart and unfinished cases not classified as numerical failures.
+
+
+## Direct sketch alternative after Gram precision failure
+
+Previous goal turn: progress, block implementation and actual probe started.
+Gram actual probe session99502 terminated failed: direct residual3.78305e-9
+at rank467 vs1e-14 target,109.406seconds. Failure preserved.
+Separate direct Gaussian sketch+QR component uses fixed numerical seed997
+and full block residual for admission, same allocation/tolerance.
+Ill-conditioned control: Gram fails8.18990e-10; direct succeeds8.23584e-16
+at rank8. This supports the numerical-conditioning diagnosis, not any
+biological conclusion. Missing module RED then candidate103tests passed.
+Actual captured-input direct probe started session84365; no solver adoption
+until verified. Old frozen modules unchanged.
+Nine-node long session58342 now3/8complete/pass; n13 session77498 remains live.
