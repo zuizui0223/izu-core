@@ -293,5 +293,109 @@ def build_repeatability_figure3() -> dict:
     return payload
 
 
+def build_repeatability_figure4() -> dict:
+    """Finite/history realization plus source-locked natural confrontation."""
+    compact = _load_json(MODEL3)
+    real = _load_json(REAL)
+
+    chronology_ids = ["order_early_gap", "order_late_gap", "order_uninterrupted"]
+    chronology_labels = ["Early gap", "Late gap", "Uninterrupted"]
+    chronology = [_cell(compact, key) for key in chronology_ids]
+
+    assurance_ids = ["assurance_fixed_disabled", "assurance_fixed_half", "assurance_fixed_high"]
+    assurance_labels = ["Assurance 0", "Assurance 0.5", "Assurance 0.9"]
+    assurance = [_cell(compact, key) for key in assurance_ids]
+
+    counts = real["propagation_state_counts"]
+    state_order = [
+        "propagates_same_direction",
+        "branches_downstream",
+        "buffered_or_resilient",
+        "counterdirectional",
+        "adjacent_links_only",
+        "undetermined_missing_link",
+    ]
+    state_labels = ["Same\ndirection", "Branches", "Buffered", "Counter-\ndirectional", "Adjacent\nlinks", "Unresolved"]
+    state_vals = [int(counts[key]) for key in state_order]
+    formal_full = real["breadth_context"]["formal_full_contracts"]
+
+    fig, axes = plt.subplots(1, 3, figsize=(16.0, 5.1))
+
+    x = np.arange(len(chronology))
+    axes[0].bar(x, [row["mean_investment_change"] for row in chronology])
+    axes[0].axhline(0, linewidth=0.9)
+    axes[0].set_xticks(x, chronology_labels)
+    axes[0].set_ylabel("Finite inherited-investment change")
+    axes[0].set_title("A  Chronology changes the realized endpoint", loc="left")
+
+    x = np.arange(len(assurance))
+    occ = [float(row["occupancy"]) for row in assurance]
+    bars = axes[1].bar(x, occ)
+    axes[1].set_xticks(x, assurance_labels)
+    axes[1].set_ylim(0, 1.08)
+    axes[1].set_ylabel("Terminal occupancy")
+    axes[1].set_title("B  Assurance can determine whether an endpoint exists", loc="left")
+    for bar, row in zip(bars, assurance):
+        axes[1].text(
+            bar.get_x() + bar.get_width() / 2,
+            float(row["occupancy"]) + 0.03,
+            f'{row["n_survivors"]}/{row["n_total"]}',
+            ha="center", va="bottom", fontsize=8.5,
+        )
+
+    x = np.arange(len(state_vals))
+    bars = axes[2].bar(x, state_vals)
+    axes[2].set_xticks(x, state_labels)
+    axes[2].set_ylabel("Source-locked system layers")
+    axes[2].set_title("C  Natural systems confront different model layers", loc="left")
+    for bar, value in zip(bars, state_vals):
+        axes[2].text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 0.06,
+            str(value),
+            ha="center", va="bottom", fontsize=8.5,
+        )
+    axes[2].text(
+        0.02, 0.96,
+        f"14 layers / 12 geographic clusters\nFormal full A→B→C contracts: {formal_full.replace('_of_', '/')}",
+        transform=axes[2].transAxes,
+        va="top", fontsize=8.5,
+    )
+
+    fig.suptitle(
+        "Finite realization and natural confrontation bound what the model can claim",
+        x=0.01, ha="left", fontsize=13,
+    )
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    svg = OUT_DIR / "fig4_finite_realization_natural_boundary.svg"
+    png = OUT_DIR / "fig4_finite_realization_natural_boundary.png"
+    fig.savefig(svg, bbox_inches="tight")
+    fig.savefig(png, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    return {
+        "schema_version": "1.0",
+        "status": "repeatability_figure4_uses_frozen_finite_and_source_locked_natural_results",
+        "model3_source": MODEL3.relative_to(ROOT).as_posix(),
+        "natural_source": REAL.relative_to(ROOT).as_posix(),
+        "chronology_cells": chronology_ids,
+        "chronology_finite_investment_change": [float(row["mean_investment_change"]) for row in chronology],
+        "assurance_cells": assurance_ids,
+        "assurance_occupancy": occ,
+        "propagation_state_counts": {key: int(counts[key]) for key in state_order},
+        "formal_full_contracts": formal_full,
+        "figure_outputs": [svg.relative_to(ROOT).as_posix(), png.relative_to(ROOT).as_posix()],
+        "claim_boundary": "Natural systems are source-locked layer-specific confrontations, not fitted Model 3 cells; propagation-state counts are descriptive and not natural prevalence estimates.",
+    }
+
+
 if __name__ == "__main__":
-    print(json.dumps(build_repeatability_figure3(), indent=2))
+    payload = {
+        "figure1": build_repeatability_figure1(),
+        "figure2": build_repeatability_figure2(),
+        "figure3": build_repeatability_figure3(),
+        "figure4": build_repeatability_figure4(),
+    }
+    print(json.dumps(payload, indent=2))
