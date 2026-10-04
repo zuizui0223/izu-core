@@ -310,3 +310,27 @@ inside nonlinear weighting and mating. That separate n5/40-period experiment
 remains running, as does the13-node full-model precision campaign. Required
 high-resolution grid size, integrated solver speed/precision and ecological
 ABM-density/PDE comparisons therefore remain unresolved.
+
+## Measured integrated-solver performance bottleneck
+
+The n5 admission process remains live. A separate identical first-period
+profile (four visitors) took13.97s versus0.00445s for the dense reference;
+full-state relative L1 difference3.5354e-15. More than99% of profiled time was
+inside the outcross einsum contraction, not ecological weights or rounding.
+
+Three candidate explanations were distinguished: contraction scheduling,
+intrinsic rank growth, and matrix-library overhead. A fixed-shape experiment
+(seed124, parental ranks12, output ranks15) directly tests scheduling with
+identical operands. Default greedy planning selected a single five-operand
+contraction. Giving the planner the already allowed2,000,000-value intermediate
+budget selected binary contractions, largest intermediate32,400 values.
+Measured82.701s versus0.001288s with maximum result difference1.7764e-14;
+theoretical FLOPs50.39billion versus11.55million. These single-call timings are
+not a claimed full-model speedup or proof of high-grid feasibility.
+
+The tested candidate changes scheduling only. Current live sources are still
+untouched. A corrected solver must be tested/run in an isolated source snapshot
+while the original frozen admission continues; its results must be distinguished
+from the old run. Evidence is in
+`data/results/model3_contraction_profile_20261004.json` and the local profile
+artifacts. No biological parameters or numerical error tolerances were changed.

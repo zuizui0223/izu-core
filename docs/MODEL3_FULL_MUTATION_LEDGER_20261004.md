@@ -212,3 +212,13 @@ the declared one-history/n9 dense-update-roundtrip gate, not integrated solver
 or high-resolution adequacy. Integrated session46733 confirmed live, first
 case not yet reported;13-node session77498 at12/32 and still live. Do not
 restart either valid run or alter their frozen sources.
+
+## Performance diagnosis (no live source mutation)
+
+Profile reproduced14s n5 first-step latency,99%+ in outcross contraction.
+Fixed-rank paired benchmark isolated default einsum planning as the dominant
+cause: default all-at-once82.701s, budget-aware binary path0.001288s, max output
+difference1.7764e-14. Original integrated session46733 still live; do not edit
+its solver sources. Next action: isolated corrected-source regression and
+admission run, preserving original output/source identity and failed speed
+evidence. Rank growth/high-grid feasibility remain separate unresolved gates.
