@@ -1,8 +1,8 @@
 {
   "status": "mutation_component_has_reflected_diffusion_limit",
   "source_sha256": {
-    "scripts/audit_model3_continuum_limit.py": "104a775556b3585dac3dd187a4bf5e5dacf49b6c0fd5c781a3edd273dd5d0402",
-    "scripts/model3_island/density.py": "d43b01cdd628b560bdfa2fd2a9ee4be08577bca91289bf473effc5b666f78dcc"
+    "scripts/audit_model3_continuum_limit.py": "2c4bab589f53f787c2db907797edacd19e1ec97710669c4c0a0cf42fb7173202",
+    "scripts/model3_island/density.py": "48adf38999132ab7f8aeb03fca754822fcacb8909aa92628c26b201fe4e78087"
   },
   "full_model_status": "nonlinear_nonlocal_integro_difference_not_pure_pde",
   "boundary_condition": "Neumann_reflecting_at_0_and_1",
@@ -163,5 +163,6 @@
     "This validates only the mutation kernel continuum interpretation.",
     "Mendelian segregation, outcrossing, recombination, and capacity regulation remain nonlocal/global.",
     "The focal 2026-09-27 Chapter 2 bridge has mutation_rate=0, so mutation diffusion does not generate its headline response."
-  ]
+  ],
+  "source_hash_convention": "UTF-8 source bytes with CRLF normalized to LF; provenance-only normalization after numerical run"
 }

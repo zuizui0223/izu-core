@@ -125,7 +125,7 @@ def main():
         'weak-time convergence belongs to the reduced map, not the full sexual model']
     paths=[Path(__file__),DESIGN,ROOT/'scripts/audit_model3_reduced_pde_selection.py',
            ROOT/'scripts/model3_island/density.py',ROOT/'docs/superpowers/plans/2026-10-04-model3-pde-closeout.md']
-    result['source_sha256']={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+    result['source_sha256']={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n', b'\n')).hexdigest() for p in paths}
     Path(args.out).write_text(json.dumps(result,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     print(json.dumps(result['summaries'],indent=2))
 

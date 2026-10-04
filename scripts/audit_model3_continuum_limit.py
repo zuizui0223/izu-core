@@ -95,7 +95,7 @@ def run_audit() -> dict:
     ]
     return {
         "status": "mutation_component_has_reflected_diffusion_limit",
-        "source_sha256": {name: hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes()).hexdigest() for name in ("scripts/audit_model3_continuum_limit.py", "scripts/model3_island/density.py")},
+        "source_sha256": {name: hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes().replace(b'\r\n', b'\n')).hexdigest() for name in ("scripts/audit_model3_continuum_limit.py", "scripts/model3_island/density.py")},
         "full_model_status": "nonlinear_nonlocal_integro_difference_not_pure_pde",
         "boundary_condition": "Neumann_reflecting_at_0_and_1",
         "spatial_refinement": spatial,

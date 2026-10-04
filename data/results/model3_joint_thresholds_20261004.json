@@ -14405,12 +14405,13 @@
     }
   ],
   "source_sha256": {
-    "data/design/model3_ch2_bridge_20260927.json": "ee11a074da98460839b6ffe3e0e34c106400b54309b865b794bdb2d4fe856ee0",
-    "data/design/model3_joint_syndrome_rare_mutant_20261004.json": "84c0c50165ac2e7df040cbda322c23107665305acb0ba1e7063ef60970e0a0f8",
-    "data/design/model3_unified_reduction_audit_20260927.json": "64fbf5e6ae6a21075fc3c7939257da48b31c91fa345acfb396f50a831769c8fc",
-    "scripts/model3_island/selection.py": "27d55ecedadf3259351eae4d52c955d61e9ab287a047472dfc057ce3383d0064",
-    "scripts/audit_model3_joint_syndrome_vector.py": "3078461bf60547692c4492d71153af53f5df7d1b5a5dfbf3636be33570c240d5",
-    "scripts/audit_model3_joint_thresholds.py": "1aea91bb2e69e7256350c2687e59c3b5148c6c1bc6501c2dbb07a9122879697e"
+    "data/design/model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+    "data/design/model3_joint_syndrome_rare_mutant_20261004.json": "23b6f88e34c110b2c9fd4f3c215e410fa88b14782488f77575ec74c78d18a23d",
+    "data/design/model3_unified_reduction_audit_20260927.json": "04a9bfb5977a3a03b8d4dca62e0082ecfc1c882b326d567ab7d3d9c395b5275a",
+    "scripts/model3_island/selection.py": "79cbc2181493b1bf3c8631beb29801d46c756cc2ac45ef8167342be690bdb355",
+    "scripts/audit_model3_joint_syndrome_vector.py": "72a701ce5a0802d0b05fd0522faaf6418d643d7e9b0f7eaf42dc3d3f1233d0b9",
+    "scripts/audit_model3_joint_thresholds.py": "76bda61bfcdf5423a8075298510df92bb51bee533a8944db251b437c20a86185"
   },
-  "claim_boundary": "controlled local gradient validation, not frozen-history threshold crossing or evolved endpoints"
+  "claim_boundary": "controlled local gradient validation, not frozen-history threshold crossing or evolved endpoints",
+  "source_hash_convention": "UTF-8 source bytes with CRLF normalized to LF; provenance-only normalization after numerical run"
 }

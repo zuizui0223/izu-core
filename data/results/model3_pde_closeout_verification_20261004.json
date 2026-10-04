@@ -13,14 +13,15 @@
   "full_repository_ci": false,
   "independent_review": "no numerical or algebraic blocker; all provenance findings addressed",
   "evidence_sha256": {
-    "model3_pde_closeout_20261004.json": "96b5675aa2bbc761e8d5682c49ce8f57c575898e1ac79989ef578895b30c0a35",
-    "model3_joint_thresholds_20261004.json": "b0290f6c9fddc57380072f266b522d87282b81a09b5add12758fc07f6f82c508",
-    "model3_mutation_limit_closeout_20261004.json": "030e92054acbb746ddf3c6b28573eafa3dc60011edb90e21b25bdd332b080ff1"
+    "model3_pde_closeout_20261004.json": "374431095e3c9eb8651502aa2afc9b6168fb5f71719dfce0898415b806aa4c09",
+    "model3_joint_thresholds_20261004.json": "15587415d00e9adbc37cf5ed28a3411d7696740240d2ae09ee9a1d3b43d7ca0d",
+    "model3_mutation_limit_closeout_20261004.json": "cc26b6536ad4b0f1f68b52a9abbb4c37cfc87661b62c06019210ed82f6fa3c1a"
   },
   "not_tested": [
     "full positive-mutation phenotype PDE",
     "empirical Chapter1 calibration",
     "common-environment persistent historical memory",
     "alternative stable attractors"
-  ]
+  ],
+  "source_hash_convention": "CRLF normalized to LF; no numerical operator changes"
 }

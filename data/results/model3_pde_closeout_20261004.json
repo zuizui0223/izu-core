@@ -2279,10 +2279,11 @@
     "weak-time convergence belongs to the reduced map, not the full sexual model"
   ],
   "source_sha256": {
-    "scripts/audit_model3_pde_closeout.py": "2ae9f9667e1884a9a26464ec8c352e2cc595950d32e4bee51cc60ff8227dcefa",
-    "data/design/model3_unified_reduction_audit_20260927.json": "64fbf5e6ae6a21075fc3c7939257da48b31c91fa345acfb396f50a831769c8fc",
-    "scripts/audit_model3_reduced_pde_selection.py": "36ff5b3b40ec3062e14b09eb9c10ca468e5b8eeae95af9b50872d8df9b6238ed",
-    "scripts/model3_island/density.py": "d43b01cdd628b560bdfa2fd2a9ee4be08577bca91289bf473effc5b666f78dcc",
-    "docs/superpowers/plans/2026-10-04-model3-pde-closeout.md": "afd20256111ced157ddf6e9ac6a03d0066d404f897042019d8870bc3853d5124"
-  }
+    "scripts/audit_model3_pde_closeout.py": "e1573f5ae5f151f1a33e31fefaec46ff3b07768b0d8f5f4db05f9d71d08735b2",
+    "data/design/model3_unified_reduction_audit_20260927.json": "04a9bfb5977a3a03b8d4dca62e0082ecfc1c882b326d567ab7d3d9c395b5275a",
+    "scripts/audit_model3_reduced_pde_selection.py": "5be1014a77354c32a47ff1ddbfff9bf9d84e6d6d1698fc354bff0cd2d1d9d74b",
+    "scripts/model3_island/density.py": "48adf38999132ab7f8aeb03fca754822fcacb8909aa92628c26b201fe4e78087",
+    "docs/superpowers/plans/2026-10-04-model3-pde-closeout.md": "728b748933fbbcbdb6fc5d7a17ab3d9d99b4721393d239a5baae4d148243d1de"
+  },
+  "source_hash_convention": "UTF-8 source bytes with CRLF normalized to LF; provenance-only normalization after numerical run"
 }

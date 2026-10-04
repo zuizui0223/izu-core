@@ -34,7 +34,7 @@ def run_audit():
             'scripts/audit_model3_joint_thresholds.py']
     return dict(status='passed' if error<2e-8 else 'failed',n_cells=len(rows),
                 maximum_gradient_error=error,rows=rows,
-                source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},
+                source_sha256={p:hashlib.sha256((ROOT/p).read_bytes().replace(b'\r\n', b'\n')).hexdigest() for p in paths},
                 claim_boundary='controlled local gradient validation, not frozen-history threshold crossing or evolved endpoints')
 
 if __name__=='__main__':
