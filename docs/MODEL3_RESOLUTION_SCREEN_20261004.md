@@ -380,3 +380,21 @@ Raw symbolic paths are in model3_contraction_shape_screen_20261004.json. This
 does not authorize raising memory caps blindly or launching17+ biology. A
 pre-contraction reduction of child-factor ranks, with a defensible error bound,
 is needed for those scenarios before claiming high-resolution feasibility.
+
+## Child-factor truncation bound implemented separately
+
+`scripts/model3_child_factor_bound.py` reduces the child factor matrices before
+forming an outcross core. For parental cores D,R and factor spectral norms Li,
+the telescoping bound is sqrt(N)||D||F||R||F product(Li) sum(ei/Li), where ei
+are the discarded spectral residuals. The function allocates the error budget
+across modes and returns orthogonal factors, reduced transforms and its bound;
+it never constructs the expanded core. This does not assume independent traits.
+
+Nine focused tests pass for actual error versus the bound, positive/signed
+inputs, actual rank reduction, tight budgets retaining full rank, zero output,
+bad dimensions/tolerances and resource rejection. Together with core-rounding
+regressions16 tests pass. The bound excludes floating-point error; actual small
+array comparisons include a separate roundoff allowance. The new function is
+not yet integrated into the live solver, and no high-grid rank reduction or
+runtime success has been demonstrated. All three live-run source manifests
+were verified unchanged after adding this separate module.

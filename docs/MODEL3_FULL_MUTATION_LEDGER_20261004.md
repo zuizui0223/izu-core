@@ -247,3 +247,14 @@ solver sources until its live run terminates.
 Symbolic shape screen (no biological runs) shows schedule fixes alone cannot
 handle assumed40-rank parents at33/65 nodes. Need bounded child-factor reduction
 before core contraction, not unbounded allocation or a claim that65 is enough.
+
+## Pre-contraction child-factor reduction bound
+
+Added separate model3_child_factor_bound module outside all live source sets.
+Plan fixed first, tests failed on missing module then passed. Nine focused
+tests plus7 core-rounding tests pass. The analytical spectral bound is checked
+against actual small-tensor errors and records retained ranks. This is not yet
+an integrated solver modification or evidence of high-resolution efficiency.
+Original13/slow-admission and candidate-long manifests all reverified. Latest
+observed13 completion14/32; corrected integrated1000-period run3/8 complete and
+passing, fourth running. No live run restarted or frozen source altered.
