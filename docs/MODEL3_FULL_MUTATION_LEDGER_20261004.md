@@ -632,3 +632,29 @@ and final-state hash matching. Output is separate tiled_ten65; existing ten65
 failure/running process preserved. This gate is local numerical/resource
 admission, not full-path accuracy or ecological inference. Driver snapshot:
 data/results/model3_tiled_ten65_runner_20261005.py.txt.
+
+## 2026-10-05: strict integrated step fails after first successful child
+
+The tiled strict second-step process exited normally with a FAILED receipt:
+first child projection/assembly completed207.0s, then core rounding raised
+'rank-reduction bound exceeds tolerance'; total209.953s. No final state or
+full-joint comparison was produced. The next ten-period gate remains closed.
+All captured source hashes/archive entries matched; failure archive and receipt
+are retained in model3_tiled_strict_failure_20261005.json.
+
+A diagnostic capture reuses the successful projected child only after exact
+array equality against its captured parent cores/transforms, matching tolerance
+and output hash. It replays rounding to save the failing state; it is not a new
+simulation success or a relaxation. Diagnose truncation versus mass-rescaling
+bound before any repair. The original strict sources remain unchanged.
+
+Diagnosis on the saved failing rounding input: mass5.318706430903526,
+postprojection5.3187064309034655, scale-1=1.1324274851176597e-14.
+Truncation bound4.958504001741601e-11, rescaling bound1.1044499766571795e-9,
+allowed5.318706430903526e-10. The rescaling uses sqrt(N)||core||F=97529.42.
+The equally valid separable triangle bound sum|core| prod(sum|factor|) is
+16.764520348068903 on this input. Taking the minimum of these two rigorous
+exact-arithmetic L1 upper bounds would preserve tolerance and rescaling while
+avoiding this overly loose bound. This is a proposed numerical repair, not yet
+implemented or admitted. Roundoff remains excluded; full-step/tolerance gates
+must still be rerun and pass. Diagnostic term receipts retained separately.

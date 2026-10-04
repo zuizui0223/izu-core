@@ -1,0 +1,27 @@
+from pathlib import Path
+import numpy as np,json,hashlib
+import scripts.model3_tiled_integration as model
+import scripts.model3_tiled_child as child
+from scripts.run_model3_full_mutation import config,exposure
+c=Path(__file__).resolve().parents[1];out=c/'rounding_capture';out.mkdir(exist_ok=True)
+if (out/'failed.npz').exists():raise ValueError('preserve failed state')
+def cached(dc,rc,ts,**kwargs):
+ with np.load(c/'multi_probe/strict_child.npz') as z:
+  for k,a in enumerate([dc,rc,*ts]):assert np.array_equal(a,z[f'a{k}'])
+ receipt=json.loads((c/'multi_tiled_probe/summary.json').read_text())
+ p=c/'multi_tiled_probe/projected.npz';assert hashlib.sha256(p.read_bytes()).hexdigest()==receipt['npz_sha256']
+ assert kwargs['absolute_frobenius']==receipt['tolerance']
+ with np.load(p) as z:result=(z['core'],tuple(z[f'basis{k}'] if f'basis{k}' in z else None for k in range(3)),receipt['receipt'])
+ return result
+child.project_child_core=cached
+original=model.rounded
+calls=[]
+def capture(state,**kwargs):
+ try:return original(state,**kwargs)
+ except ArithmeticError as e:
+  p=out/'failed.npz';np.savez_compressed(p,core=state[0],**{f'factor{k}':f for k,f in enumerate(state[1])})
+  (out/'receipt.json').write_text(json.dumps(dict(error=str(e),kwargs=kwargs,sha256=hashlib.sha256(p.read_bytes()).hexdigest()),indent=2));raise
+model.rounded=capture
+with np.load(c/'first65/assurance_cost_near_jump.npz') as z:state=(z['core'],tuple(z[f'factor{k}'] for k in range(3)))
+try:model.bounded_step(state,(np.linspace(0,1,65),)*3,exposure(76001,'near').visitors[1],config('assurance_cost',.01),budget=16_000_000,relative_l1=1e-10)
+except ArithmeticError as e:print('captured',str(e),flush=True)

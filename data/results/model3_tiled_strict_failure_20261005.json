@@ -1,0 +1,11 @@
+{
+  "result": {
+    "scope": "65-node second complete step resource/local marginal diagnostic",
+    "input_sha256": "e4546036e979c124ea7a1f047687c8a1e3e8f38de0de113e222d4c337f0bde7b",
+    "status": "failed",
+    "error": "rank-reduction bound exceeds tolerance",
+    "seconds": 209.9529999999795
+  },
+  "source_hashes_verified": 67,
+  "archive_sha256": "c6584b1e3d17a006fe9f71912e44d7846b4868ba93c50ae279e6a43ad0981c84"
+}

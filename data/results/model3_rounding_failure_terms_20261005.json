@@ -1,0 +1,15 @@
+{
+  "failed": true,
+  "original_mass": 5.318706430903526,
+  "approximate_mass": 5.3187064309034655,
+  "scale": 1.0000000000000113,
+  "truncation_bound": 4.958504001741601e-11,
+  "rescaling_bound": 1.1044499766571795e-09,
+  "total_bound": 1.1540350166745954e-09,
+  "allowed": 5.318706430903526e-10,
+  "ranks": [
+    35,
+    54,
+    10
+  ]
+}
