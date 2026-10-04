@@ -1,0 +1,34 @@
+{
+  "input_sha256": "bc58132d752ba9dd1e80306a750268efae189ee8bbf5e8929e56180afe9f1a13",
+  "receipt": {
+    "absolute_l1_bound": 4.977488605358569e-11,
+    "mass_before": 5.318706430903526,
+    "ranks": [
+      35,
+      54,
+      10
+    ],
+    "relative_l1_bound": 9.35845711738786e-12,
+    "norm_bounds": {
+      "cauchy": 97529.421633777,
+      "triangle": 16.764520348068903
+    },
+    "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+  },
+  "joint_distance": {
+    "frobenius": 1.1518419598385825e-14,
+    "l1_upper": 1.144284038217886e-09,
+    "physical_shape": [
+      2145,
+      2145,
+      2145
+    ],
+    "comparison_core_shape": [
+      84,
+      129,
+      20
+    ],
+    "scope": "full joint difference; exact-arithmetic bound, roundoff excluded"
+  },
+  "scope": "saved failed rounding input only; roundoff excluded from analytical bounds"
+}

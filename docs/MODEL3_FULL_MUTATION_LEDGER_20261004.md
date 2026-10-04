@@ -658,3 +658,20 @@ exact-arithmetic L1 upper bounds would preserve tolerance and rescaling while
 avoiding this overly loose bound. This is a proposed numerical repair, not yet
 implemented or admitted. Roundoff remains excluded; full-step/tolerance gates
 must still be rerun and pass. Diagnostic term receipts retained separately.
+
+## 2026-10-05: sharper exact-arithmetic norm bound implemented
+
+Separate sharp_rounding retains HOSVD ranks, mass correction and tolerance.
+For orthonormal factors it uses min(sqrt(N)||core||F,
+sum|core_abc| ||factor0_a||1 ||factor1_b||1 ||factor2_c||1).
+Both bound the represented tensor L1 norm in exact arithmetic, including signed
+factors; no positivity assumption or clipping is introduced. New tests cover
+signed joint states, localized distributions, ordinary rounding and mass.
+
+On the saved failed input the bound drops from1.154035e-9 to4.977489e-11,
+below5.318706e-10. Direct common-basis joint comparison gives Frobenius
+1.151842e-14, a conservative L1 upper1.144284e-9; this floating-point comparison
+is not certified by the analytical truncation bound. No claim that roundoff
+vanishes. The full-step gate still requires independently compared full-joint
+error<=1e-5, unchanged. A separate sharp integration/driver is prepared for
+that gate, preserving all prior failures and source snapshots.
