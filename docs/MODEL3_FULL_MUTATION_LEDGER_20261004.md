@@ -143,3 +143,13 @@ Combined relevant suite32 passes. No biological law changed. Exact outcross
 algebra multiplies parental ranks; high-rank output is explicitly refused.
 Nonlinear ecological weighting, channel summation and rank/error management
 remain required before any complete high-resolution solver can be claimed.
+
+## Outcross exact QR contraction
+
+Added an optional no-truncation QR contraction path. Observed tests fail on
+missing orthogonalize arguments, then pass after implementation;38 relevant
+tests pass. The contraction path and raw/final array sizes are checked before
+large core allocation. A4096-to27 core-size test validates exact re-expression,
+not biological independence or approximation. Full high-resolution feasibility
+is still open. Three long-probe result receipts and NPZ hashes checked; all
+three pass, five remain. Sessions57083 and77498 verified live this turn.

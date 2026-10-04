@@ -6,7 +6,8 @@ from scripts.model3_island.density import birth_mutation_matrix
 
 
 def outcross_tucker(donor_core, donor_factors, recipient_core, recipient_factors,
-                    axes, rate, sd, scheme='jump', *, max_output_values=2_000_000):
+                    axes, rate, sd, scheme='jump', *, max_output_values=2_000_000,
+                    orthogonalize=False, max_intermediate_values=2_000_000):
     dc = np.asarray(donor_core,dtype=float)
     rc = np.asarray(recipient_core,dtype=float)
     if (dc.ndim!=3 or rc.ndim!=3 or not dc.size or not rc.size
@@ -26,11 +27,16 @@ def outcross_tucker(donor_core, donor_factors, recipient_core, recipient_factors
                 or not np.isfinite(df[k]).all() or not np.isfinite(rf[k]).all()):
             raise ValueError('factor and joint core dimensions do not match')
     ranks = [int(a)*int(b) for a,b in zip(dc.shape,rc.shape)]
-    output_values = prod(ranks)+sum(n*r for n,r in zip(sizes,ranks))
+    final_ranks = [min(n,r) for n,r in zip(sizes,ranks)] if orthogonalize else ranks
+    output_values = prod(final_ranks)+sum(n*r for n,r in zip(sizes,final_ranks))
     if not isinstance(max_output_values,int) or max_output_values<1:
         raise ValueError('positive integer output budget required')
     if output_values>max_output_values:
         raise MemoryError(f'outcross output requires {output_values} values; budget {max_output_values}')
+    if not isinstance(max_intermediate_values,int) or max_intermediate_values<1:
+        raise ValueError('positive integer intermediate budget required')
+    if orthogonalize and max(n*r for n,r in zip(sizes,ranks))>max_intermediate_values:
+        raise MemoryError('raw factor intermediate exceeds budget')
     factors = []
     for k,a in enumerate(nodes):
         pairs = np.array(list(combinations_with_replacement(range(len(a)),2)))
@@ -42,5 +48,26 @@ def outcross_tucker(donor_core, donor_factors, recipient_core, recipient_factors
         second = donor[pairs[:,1],:,None]*recipient[pairs[:,0],None,:]
         first += (pairs[:,0]!=pairs[:,1])[:,None,None]*second
         factors.append(first.reshape(sizes[k],ranks[k]))
-    core = np.einsum('abc,def->adbecf',dc,rc).reshape(ranks)
+    if orthogonalize:
+        decompositions = [np.linalg.qr(f,mode='reduced') for f in factors]
+        factors = [q for q,r in decompositions]
+        transforms = [r.reshape(q.shape[1],dc.shape[k],rc.shape[k])
+                      for k,(q,r) in enumerate(decompositions)]
+        operands = [dc,rc,*transforms]
+        equation = 'abc,def,iad,jbe,kcf->ijk'
+        path,_ = np.einsum_path(equation,*operands,optimize='greedy')
+        labels = [set(s) for s in equation.split('->')[0].split(',')]
+        dimensions = {}
+        for text,array in zip(equation.split('->')[0].split(','),operands):
+            dimensions.update(zip(text,array.shape))
+        for indices in path[1:]:
+            contracted = set().union(*(labels[i] for i in indices))
+            remaining = [s for i,s in enumerate(labels) if i not in indices]
+            retained = contracted & set().union(set('ijk'),*remaining)
+            if prod(dimensions[s] for s in retained)>max_intermediate_values:
+                raise MemoryError('contraction intermediate exceeds budget')
+            labels = remaining+[retained]
+        core = np.einsum(equation,*operands,optimize=path)
+    else:
+        core = np.einsum('abc,def->adbecf',dc,rc).reshape(ranks)
     return core,tuple(factors)

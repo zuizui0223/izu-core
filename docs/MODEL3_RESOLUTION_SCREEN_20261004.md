@@ -192,3 +192,23 @@ An output-value budget rejects such allocation first; it is not a peak-memory
 bound. Rank rounding/structured contraction remains necessary. This is only
 one visitor channel's already weighted donor/recipient operator, not ecological
 weighting, channel summation or a complete scalable population integrator.
+
+## Exact QR contraction improvement
+
+An optional reduced-QR path now factors the three offspring matrices before
+contracting the parental cores. No singular directions are discarded; this is
+an exact basis change up to floating-point arithmetic. It avoids explicitly
+forming the rank-product core. A fixed einsum path is inspected and rejected
+if any explicit intermediate exceeds its value budget; raw factor and final
+output sizes are also checked. This is not a bound on full peak memory.
+
+Tests compare both paths with the frozen birth operator and include a case
+where the expanded4096-value core fails the output budget but the27-value
+QR core reproduces it. Combined relevant suite38 passes. High-resolution rank
+sizes and nonlinear ecological weighting remain unverified; no full solver
+or new ecological result is claimed from this algebraic improvement.
+
+The separate1000-period dense compression diagnostic currently has three
+hash-verified completed cases, all passing (delayed-cost near jump/heat_fv,
+far jump). Largest path L1 among these is2.00274e-7 and largest trait gap
+1.70633e-8. Five cases remain; this partial subset cannot establish the gate.
