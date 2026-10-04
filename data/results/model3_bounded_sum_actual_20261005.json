@@ -1,0 +1,27 @@
+{
+  "inputs": [
+    "168a1643e20f89a237145115a5ad51042f3a8c4b9c8a208c735c21dd3962fc7b",
+    "74c0e99ae623792db624737952f6df2ed688142bafa6429e162cb2d9de5003a9"
+  ],
+  "allowed": 6.619543380939491e-09,
+  "status": "passed_projection",
+  "receipt": {
+    "absolute_l1_bound": 7.874181685223706e-10,
+    "axis_bounds": [
+      0.0,
+      0.0,
+      7.874181685223706e-10
+    ],
+    "ranks": [
+      333,
+      301,
+      154
+    ],
+    "scope": "orthogonal factor projections with telescoping bound; roundoff excluded"
+  },
+  "npz_sha256": "141b3ca606ec5eace8a1f1ec1e8a003a02318c23c12fe405a81358ecdd6e9a52",
+  "mass_before": 66.19543380939491,
+  "mass_after": 66.19543380939523,
+  "seconds": 6.26500000001397,
+  "source_sha256": "3fbefdb79fa0fd3a8f04145a8b82b9c4bf719f7859da9279bdce3cc4261df316"
+}
