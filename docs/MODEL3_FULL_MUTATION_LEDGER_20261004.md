@@ -419,3 +419,18 @@ isolation responses. This is numerical first-step admission, not biology.
 Full joint positivity/error and sustained rank growth remain unverified.
 Next gate: bounded multistep65-node resource measurement and tolerance
 convergence, before production or ecological conclusions.
+
+
+## 2026-10-05:65-node rank growth blocks second step
+
+Previous goal turn: progress, first65-step verified. Ten-step resource probe
+launched session29425, frozen sources in fastpath_candidate/ten65. First
+assurance_cost_near_jump case fails at period2 by predeclared memory guard:
+28,902,780 child-core values >16million. First step remains valid.
+Independent diagnostic on saved first-step state reproduces failure in
+bounded_outcross contraction, child ranks844/761/45; parent cores29/38/10
+and34/42/10. This is output-core growth, not just poor contraction scheduling.
+Other cases still live; do not classify unfinished cases as failures.
+No memory/tolerance relaxation. Next numerical route is blockwise child-core
+projection with directly evaluated residual bounds; plan recorded separately.
+No65-node long-run or grid-convergence claim.
