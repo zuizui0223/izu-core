@@ -95,3 +95,15 @@ recreation of a predecessor manifest. Three regression tests reproduced those
 failures; fixes now require existing provenance and verify own archive and
 predecessor identity. Eleven combined 13/17-stage tests pass. No full campaign
 or ecological conclusions are inferred from these infrastructure tests.
+
+## Joint compression propagation diagnostic
+
+Ruling: first test dense-update/recompression, not a new biological approximation.
+It isolates accumulated truncation error but offers no scalable implementation;
+failure would reject the representation before a large solver investment.
+Forty-period/nine-node/eight-condition design was saved before execution.
+TDD: missing-module failure observed, implementation added, six tests passed.
+All eight admission cases completed and passed; worst path L1=3.3495e-7,
+mean-trait gap=2.8312e-8. Full metrics and hashes retained. Long-horizon and
+direct compressed-operator gates remain open. Original13 run verified live at
+8/32; no frozen source touched and no17+ full campaign started.

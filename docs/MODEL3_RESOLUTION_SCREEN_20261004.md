@@ -131,3 +131,29 @@ any high-resolution campaign. Rank growth at higher resolution is unknown.
 The next feasible investigation is therefore a small-grid, full-trajectory
 equivalence probe of a joint compressed representation, not a blind17-node
 campaign or an assertion that high-resolution computation is already solved.
+
+## Forty-period compression propagation admission probe
+
+Completed all eight predeclared nine-node conditions: two reproductive settings,
+near/far histories76001, and jump/heat_fv operators. Each step applies the
+unchanged dense reproductive operator, then joint Tucker roundtrip with measured
+relative L1 error <=1e-8, clipping and mass normalization. An uncompressed path
+receives the identical visitors, founders and biological parameters.
+
+All eight pass the preliminary40-period gates. Worst full-path relative L1
+discrepancy is3.3495e-7; maximum absolute mean-trait difference2.8312e-8;
+maximum mass difference4.974e-14; no occupancy mismatch. The largest discrepancy
+occurs in prior-selfing/far/jump. This difference between settings warns against
+extrapolating short-run error to1000 periods. Six utility tests pass, including
+a correlated joint distribution that an independence approximation cannot retain.
+
+Across times and conditions storage uses3,075–67,347 values versus91,125 original
+states. Thus early distributions can require much higher relative ranks than
+the previously inspected terminal snapshots. Snapshot compression ratios cannot
+be advertised as a trajectory-level speed or memory improvement.
+
+Reproduction: `python -m scripts.audit_model3_compression_probe`, single BLAS
+thread. Complete per-period metrics and input/source hashes are archived in
+`data/results/model3_compression_probe40_20261004.json`. This admits a subsequent
+1000-period diagnostic; it does not establish long-term equivalence or provide
+a high-resolution solver. No17-or-higher full-grid simulation was launched.
