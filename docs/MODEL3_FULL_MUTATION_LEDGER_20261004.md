@@ -466,3 +466,13 @@ biological conclusion. Missing module RED then candidate103tests passed.
 Actual captured-input direct probe started session84365; no solver adoption
 until verified. Old frozen modules unchanged.
 Nine-node long session58342 now3/8complete/pass; n13 session77498 remains live.
+
+
+Actual direct projection session84365 completed: rank128, residual
+4.90098661e-16 vs1e-14,73.047seconds. Output4,383,360 values instead of
+28,902,780. Independently recomputed saved-array block residual matches;
+NPZ hash verified and source/input/output archive retained. This is one
+child-core projection, not yet integrated whole-step or trajectory success.
+Next integration must split the declared local L1 budget between child
+factor truncation and streamed core projection, converting Frobenius by
+sqrt(physical genotype count) with orthonormal bases. Preserve old failures.
