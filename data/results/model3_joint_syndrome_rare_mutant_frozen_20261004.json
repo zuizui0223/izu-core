@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0",
+  "status": "completed_frozen_joint_selection_and_response_audit",
+  "date": "2026-10-04",
+  "provenance": {
+    "workflow_run_id": 37186196783,
+    "head_sha": "92b90059e1039eb6cf62bc0b08924a56173c726e",
+    "artifact_id": 11297410014,
+    "artifact_name": "model3-joint-syndrome-audit",
+    "artifact_digest_sha256": "d28a18930368a9387312f83c9679f76daa84d30f0d45e87432c363bb13e09829"
+  },
+  "rare_mutant_selection": {
+    "status": "rare_mutant_joint_selection_complete",
+    "histories": 128,
+    "resident_states": 45,
+    "settings": {
+      "delayed_control": {
+        "joint_shift_gate_pass_states": 45,
+        "minimum_joint_shift_fraction": 0.9921875,
+        "maximum_classic_sign_reversal_fraction": 0,
+        "minimum_negative_gamma_fraction": 1,
+        "minimum_gamma_sign_stability_fraction": 1
+      },
+      "prior_selfing": {
+        "joint_shift_gate_pass_states": 45,
+        "minimum_joint_shift_fraction": 0.9921875,
+        "maximum_classic_sign_reversal_fraction": 0,
+        "minimum_negative_gamma_fraction": 1,
+        "minimum_gamma_sign_stability_fraction": 1
+      },
+      "pollen_discount": {
+        "joint_shift_gate_pass_states": 45,
+        "minimum_joint_shift_fraction": 0.9921875,
+        "maximum_classic_sign_reversal_fraction": 0,
+        "minimum_negative_gamma_fraction": 1,
+        "minimum_gamma_sign_stability_fraction": 1
+      },
+      "assurance_cost": {
+        "joint_shift_gate_pass_states": 45,
+        "minimum_joint_shift_fraction": 0.9921875,
+        "maximum_classic_sign_reversal_fraction": 0.015625,
+        "minimum_negative_gamma_fraction": 1,
+        "minimum_gamma_sign_stability_fraction": 1
+      }
+    },
+    "central_state": {
+      "delayed_control": {
+        "far_minus_near_beta_i": -0.5372501145395702,
+        "far_minus_near_beta_a": 0.7877915924189856,
+        "near_beta_i": 0.17686382637280462,
+        "far_beta_i": -0.3603862881667655,
+        "near_beta_a": 1.0173873745343303,
+        "far_beta_a": 1.8051789669533158,
+        "near_gamma_ia": -0.8986061154326284,
+        "far_gamma_ia": -0.23106322838634463
+      },
+      "prior_selfing": {
+        "far_minus_near_beta_i": -0.3984849018580133,
+        "far_minus_near_beta_a": 0.7027223503707432,
+        "near_beta_i": -0.002443411137187391,
+        "far_beta_i": -0.40092831299520065,
+        "near_beta_a": 1.132891842484217,
+        "far_beta_a": 1.8356141928549599,
+        "near_gamma_ia": -0.8687350584869573,
+        "far_gamma_ia": -0.20588389629283033
+      },
+      "pollen_discount": {
+        "far_minus_near_beta_i": -0.42792314037912993,
+        "far_minus_near_beta_a": 0.7694316864863033,
+        "near_beta_i": 0.029153248109989677,
+        "far_beta_i": -0.3987698922691403,
+        "near_beta_a": 1.0556819935718875,
+        "far_beta_a": 1.8251136800581909,
+        "near_gamma_ia": -1.1074262227240812,
+        "far_gamma_ia": -0.24842527461207695
+      },
+      "assurance_cost": {
+        "far_minus_near_beta_i": -0.5372501145374831,
+        "far_minus_near_beta_a": 0.6893176433836485,
+        "near_beta_i": 0.1768638263752909,
+        "far_beta_i": -0.3603862881621922,
+        "near_beta_a": 0.6402139527295729,
+        "far_beta_a": 1.3295315961132212,
+        "near_gamma_ia": -0.7450487295652715,
+        "far_gamma_ia": -0.19480730132422425
+      }
+    }
+  },
+  "exact_multivariate_price": {
+    "cells": 48,
+    "max_abs_error": 7.216449660063518e-16,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  "full_G_beta_response": {
+    "cells": 48,
+    "frozen_gate_pass_cells": 46,
+    "pass_fraction": 0.9583333333333334,
+    "minimum_cosine_full_G": 0.9971065356226267,
+    "mean_cosine_full_G": 0.9994574729152345,
+    "mean_cosine_diagonal_G": 0.9859579136891016,
+    "full_G_better_error_fraction": 1,
+    "two_gate_failures": [
+      {
+        "setting": "prior_selfing",
+        "founder_state": {
+          "investment": 0.3,
+          "assurance": 0.7
+        },
+        "community": "reference8",
+        "exact_response": [
+          -0.0003762190500896656,
+          0.011630298559390906
+        ],
+        "full_G_response": [
+          0.000085183241154032,
+          0.011876134450911931
+        ],
+        "cosine_full_G": 0.9992196041374114,
+        "reason": "investment component is near zero and changes sign under local G-beta approximation"
+      },
+      {
+        "setting": "pollen_discount",
+        "founder_state": {
+          "investment": 0.7,
+          "assurance": 0.3
+        },
+        "community": "reference8",
+        "exact_response": [
+          0.003757336217546925,
+          0.00010777636035430582
+        ],
+        "full_G_response": [
+          0.0041033770918172275,
+          -0.000004922428998834407
+        ],
+        "cosine_full_G": 0.9995537458734349,
+        "reason": "assurance component is near zero and changes sign under local G-beta approximation"
+      }
+    ]
+  },
+  "decision": {
+    "beta_shift": "supported_in_all_45_states_for_all_four_settings; delayed_control remains control-only",
+    "absolute_sign_reversal": "not_supported_as_general_result; maximum history fraction is 0 for prior_selfing and pollen_discount and 0.015625 for assurance_cost",
+    "correlational_selection": "negative in every near/far history-state-setting cell and finite-difference sign stable",
+    "multivariate_price": "exact",
+    "G_beta": "strong local vector approximation but preregistered component-sign gate misses 2 of 48 near-zero-component cells",
+    "promotion_before_finite_followup": "mechanistic_core_candidate_not_repeatability_core"
+  },
+  "claim_boundary": [
+    "rare-mutant assurance fitness includes maternal outcross, paternal outcross and double transmission of selfed seed",
+    "directional shift is distinct from absolute sign reversal",
+    "negative gamma_ia does not by itself establish multiple attractors",
+    "delta is fixed and purging feedback is absent",
+    "finite two-trait endpoint/branching follow-up remains pending at this snapshot"
+  ]
+}
