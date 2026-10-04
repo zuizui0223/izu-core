@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "date": "2026-10-03",
+  "date": "2026-10-04",
   "status": "repeatability_candidate_evolution_letters_preferred_separate_from_active_oikos",
   "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
   "active_oikos_submission_replaced": false,
