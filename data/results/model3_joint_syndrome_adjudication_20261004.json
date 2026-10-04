@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "joint_syndrome_extension_adjudicated",
+  "date": "2026-10-04",
+  "source_selection": "data/results/model3_joint_syndrome_rare_mutant_frozen_20261004.json",
+  "source_finite": "data/results/model3_joint_syndrome_finite_frozen_20261004.json",
+  "overall_promotion": "mechanistic_core",
+  "evidence_chain": [
+    "rare-mutant near-to-far beta shift toward investment down / assurance up passes in all 45 states for all settings",
+    "negative investment-assurance correlational selection is universal and finite-difference sign-stable",
+    "exact three-trait multivariate Price identity passes 48/48 cells to machine precision",
+    "full 2x2 G beta gives mean cosine 0.99946 and beats diagonal-G error in 48/48 cells; strict component-sign gate passes 46/48 because two near-zero components change sign",
+    "finite 200-season tradeoff settings produce syndrome endpoints in >=10% of eligible histories for at least one initial state",
+    "no tradeoff setting produces both syndrome and outcross endpoint classes at >=10%; reproducible alternative-endpoint branching is not supported"
+  ],
+  "manuscript_decision": {
+    "evolution_letters": "eligible_for_deliberate_integration_as_mechanistic_core",
+    "main_text": "Price identity plus rare-mutant joint shift and finite syndrome endpoint in a compact theory/result paragraph",
+    "supporting_information": "invasion-fitness derivation, gamma_ia, full-G response, threshold/continuum derivations, fixed-delta and no-branching boundaries",
+    "title": "do_not_retitle_around_bistability_or_selfing_syndrome",
+    "repeatability_claim": "retain directional-similarity versus historical-repeatability main claim; use joint theory to explain how a common low-order direction can coexist with higher-order history-sensitive realization"
+  }
+}
