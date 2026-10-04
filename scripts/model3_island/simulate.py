@@ -8,7 +8,8 @@ from .randomness import stream, STREAM_IDS
 
 
 def simulate(config, history, founders, *, replicate: int, grid, check_budget=None,
-             projection_mode='grid',immigration_mode='source') -> dict:
+             projection_mode='grid',immigration_mode='source',
+             mutation_traits=(True,True,True), density_mutation_scheme='jump') -> dict:
     if projection_mode not in ('grid','continuous') or immigration_mode not in ('source','resident_matched'):
         raise ValueError('unknown numerical or immigration intervention')
     if len(history.visitors)!=config.years or history.event_order!=config.event_order:
@@ -81,11 +82,11 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
             immigrants,_=project_state(immigrants,grid)
         ledger=reproduce(state,history.visitors[year],config)
         counts,density_ledger=density_step(counts,grid,history.visitors[year],history.seed_candidates[year],config,
-                                           immigration_mode=immigration_mode)
+                                           immigration_mode=immigration_mode,mutation_traits=mutation_traits,mutation_scheme=density_mutation_scheme)
         density_undefined[year]=density_ledger.control_undefined
         reproductive[year]=totals(ledger)
         density_reproductive[year]=totals(density_ledger)
-        state,info=advance(state,ledger,immigrants,config,streams,year=year)
+        state,info=advance(state,ledger,immigrants,config,streams,year=year,mutation_traits=mutation_traits)
         if projection_mode=='grid':
             state,_=project_state(state,grid)
         demographic[year]=[info[key] for key in demographic_keys]
