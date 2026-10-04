@@ -1,0 +1,56 @@
+name: Model3 Finite Joint Syndrome Follow-up
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/run_model3_joint_syndrome_finite_followup.py'
+      - 'data/design/model3_joint_syndrome_finite_followup_20261004.json'
+      - '.github/workflows/model3-finite-joint-syndrome.yml'
+
+jobs:
+  finite:
+    if: github.head_ref == 'agent/model3-continuum-limit-20261004'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        setting:
+          - delayed_control
+          - prior_selfing
+          - pollen_discount
+          - assurance_cost
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run finite joint-syndrome setting
+        run: |
+          python scripts/run_model3_joint_syndrome_finite_followup.py \
+            --setting "${{ matrix.setting }}" \
+            --out "finite_${{ matrix.setting }}.json" > "finite_${{ matrix.setting }}.log"
+          python - <<'PY'
+          import json, os
+          setting=os.environ['SETTING']
+          x=json.load(open(f'finite_{setting}.json'))
+          print(json.dumps({
+              'setting':x['setting'],
+              'cases':x['cases'],
+              'terminal_occupancy_fraction_all_trajectories':x['terminal_occupancy_fraction_all_trajectories'],
+              'summary_by_initial_state':x['summary_by_initial_state'],
+              'any_history_branching':x['any_history_branching'],
+              'any_reproducible_history_branching':x['any_reproducible_history_branching'],
+          },indent=2,sort_keys=True))
+          PY
+        env:
+          SETTING: ${{ matrix.setting }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model3-finite-joint-syndrome-${{ matrix.setting }}
+          path: |
+            finite_${{ matrix.setting }}.json
+            finite_${{ matrix.setting }}.log
+          if-no-files-found: error
