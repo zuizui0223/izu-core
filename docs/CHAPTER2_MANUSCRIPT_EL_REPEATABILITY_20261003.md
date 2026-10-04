@@ -128,11 +128,11 @@ Across five access × three investment states, all 128 natural near–far histor
 
 ## The same visitor histories rotate joint floral–assurance selection
 
-Across 45 resident states × 128 histories, all four assurance settings passed the frozen joint-shift criterion: selection moved toward lower investment and greater assurance in >=127/128 histories. At the central state, shifts were (-0.398,+0.703) under prior selfing, (-0.428,+0.769) with pollen discounting and (-0.537,+0.689) with assurance cost. Mixed investment–assurance curvature was negative throughout.
+Across 45 resident states × 128 histories, all four assurance settings passed the frozen joint-shift criterion: selection moved toward lower investment and greater assurance in >=127/128 histories. At the central state, far-minus-near shifts were (-0.537,+0.788) in the structural delayed-selfing control, (-0.398,+0.703) under prior selfing, (-0.428,+0.769) with pollen discounting and (-0.537,+0.689) with assurance cost. Thus the joint shift itself was not trade-off specific. Mixed investment–assurance curvature was negative throughout.
 
 The multivariate Price identity matched all three next-generation means in 48/48 cells (maximum error 7.2 × 10^-16). Full-covariance `G beta` passed 46/48 strict gates, with mean cosine 0.9995 and lower error than diagonal `G` in 48/48.
 
-The result was directional, not bistable. Across the three prespecified starting states, the maximum syndrome-endpoint frequency was 10.2% of eligible histories under prior selfing, 21.3% with pollen discounting and 43.0% with assurance cost; the opposite endpoint stayed below 3%. The frozen follow-up branching criterion therefore failed.
+The result was directional, not bistable. Maximum syndrome-endpoint frequencies were 16.4% in the structural delayed-selfing control, 10.2% under prior selfing, 21.3% with pollen discounting and 43.0% with assurance cost; the opposite endpoint stayed below 3%. Endpoint occurrence alone therefore did not diagnose a trade-off effect: prior selfing was below the control and pollen discounting only modestly above it, whereas assurance cost produced the marked increase. The frozen follow-up branching criterion failed.
 
 ## Directional similarity and historical repeatability separate in finite populations
 
