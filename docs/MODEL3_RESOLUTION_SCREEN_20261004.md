@@ -286,3 +286,27 @@ receipts. Numerical/resource failures are recorded rather than retuned away.
 This differs from the n9/1000-period diagnostic, which rounds only after a
 full dense update. Neither diagnostic alone demonstrates high-resolution
 feasibility. No17+ full biological campaign has been started.
+
+## Completed 1000-period dense-roundtrip diagnostic
+
+All eight predeclared n9/history76001 cases completed and pass the original
+thresholds across all1000 periods. Maximum trajectory relative L1 discrepancy
+is1.0443221e-6 (threshold1e-5), maximum trait-mean gap8.1150344e-8 (threshold1e-6),
+and maximum mass gap5.6843419e-14 (threshold1e-5). No occupancy mismatches.
+The near/far environmental switch and both reproductive/mutation settings are
+included. This is one history, not a population-wide or high-grid error bound.
+
+Verified all case identities,1000 consecutive period records, source hashes,
+NPZ hashes and recomputed L1 gaps from saved distributions at200/400/1000.
+The complete raw/source bundle is34,058,669 bytes at
+`outputs/model3_precision_feasibility/propagation1000_verified.zip`.
+Its hash, case-level extrema and source hashes are archived in
+`data/results/model3_compression_long_20261004.json`.
+
+Interpretation: truncation after the dense reproductive step at this grid and
+tolerance did not materially perturb the measured trajectories. This does NOT
+validate the integrated stagewise rounded solver, which inserts approximation
+inside nonlinear weighting and mating. That separate n5/40-period experiment
+remains running, as does the13-node full-model precision campaign. Required
+high-resolution grid size, integrated solver speed/precision and ecological
+ABM-density/PDE comparisons therefore remain unresolved.

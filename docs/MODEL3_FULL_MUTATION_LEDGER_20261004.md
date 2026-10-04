@@ -200,3 +200,15 @@ during this run. Existing13 and1000-period source manifests also reverified.
 Long dense-roundtrip diagnostic has7/8 completed and passing, last case running.
 The new integrated solver probe has no completed-case claim yet. Its outputs
 are under outputs/model3_precision_feasibility/integrated_n5_40.
+
+## Long dense-roundtrip gate completed and audited
+
+Session57083 terminated successfully. All8 cases pass all1000-period thresholds.
+Recomputed checkpoint L1 errors at200/400/1000, verified every NPZ/source hash
+and expected condition identity, and retained all raw data in a34,058,669-byte
+archive. Max path L1=1.0443221e-6; max mean-trait gap=8.1150344e-8; mass gap
+5.6843419e-14. Compact audited result saved in data/results. This proves only
+the declared one-history/n9 dense-update-roundtrip gate, not integrated solver
+or high-resolution adequacy. Integrated session46733 confirmed live, first
+case not yet reported;13-node session77498 at12/32 and still live. Do not
+restart either valid run or alter their frozen sources.
