@@ -553,3 +553,16 @@ Initial diagnostic driver exited1 before computation: archive-loop variable
 shadowed NPZ path with plan path. Fixed explicit input_path, retained failed
 source archive, separate output multi_probe_run2; session84375 now live.
 No allow_pickle workaround and no numerical failure counted for that IO bug.
+
+
+## Seven long coarse-grid cases verified while multiaxis probe runs
+
+Previous goal turn: progress, strict failure preserved and multiaxis probe
+started. Verified34 frozen source hashes and all7 completed n9/1000 case
+NPZ hashes. Recomputed200/400/1000 checkpoint L1 and reconstructed final
+compressed arrays. All7 pass; max trait error9.35104e-8, max pathL1
+9.00491e-7. Last far_heat case remains live session58342.
+Progress receipt model3_n9_long_progress_20261005.json is explicitly7/8,
+not full completion. Multiaxis actual session84375 confirmed live; process
+23924 observed CPU86.58s and145MB working set. No restart or premature
+convergence claim; awaiting declared component result.
