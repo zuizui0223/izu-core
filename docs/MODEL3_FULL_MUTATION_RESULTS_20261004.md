@@ -170,3 +170,13 @@ quantitatively interchangeable positive-mutation continuum replacement.
 Validation: 115 focused engine, campaign, summary and verifier tests passed.
 Independent read-only review checked implementation and the final numerical
 tables, including the failed continuum gate. This is not full repository CI.
+
+The full ABM time-series figure can be regenerated with
+`python -m scripts.plot_model3_full_mutation --source outputs/model3_full_mutation_20261004
+--out outputs/model3_full_mutation_figures`. It uses all original time points,
+64 history means per condition (8 paired replicates each), and the original
+endpoint bootstrap intervals. Plotted endpoint means are checked against the
+final summary. PNG, PDF, SVG and the history-mean arrays are written locally;
+the rendered figure was inspected for labels, legend, phase boundary and
+line meanings. No failed-grid continuum trajectories are presented as validated
+curves in this figure.
