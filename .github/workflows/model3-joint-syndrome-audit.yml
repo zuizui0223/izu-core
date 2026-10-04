@@ -1,0 +1,56 @@
+name: Model3 Joint Syndrome Audit
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_model3_joint_syndrome_vector.py'
+      - 'scripts/audit_model3_multivariate_price.py'
+      - 'data/design/model3_joint_syndrome_rare_mutant_20261004.json'
+      - 'data/design/model3_joint_syndrome_rare_mutant_gate_addendum_20261004.json'
+      - '.github/workflows/model3-joint-syndrome-audit.yml'
+
+jobs:
+  audit:
+    if: github.head_ref == 'agent/model3-continuum-limit-20261004'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run rare-mutant joint selection audit
+        run: |
+          python scripts/audit_model3_joint_syndrome_vector.py > model3_joint_syndrome_result.json
+          python - <<'PY'
+          import json
+          x=json.load(open('model3_joint_syndrome_result.json'))
+          print(json.dumps({
+              'status':x['status'],
+              'history_count':x['history_count'],
+              'state_count':x['state_count'],
+              'summaries':x['summaries'],
+              'central_state':x['central_state'],
+          },indent=2,sort_keys=True))
+          PY
+      - name: Run exact multivariate Price audit
+        run: |
+          python scripts/audit_model3_multivariate_price.py > model3_multivariate_price_result.json
+          python - <<'PY'
+          import json
+          x=json.load(open('model3_multivariate_price_result.json'))
+          print(json.dumps({
+              'status':x['status'],
+              'cells':x['cells'],
+              'max_abs_error':x['max_abs_error'],
+          },indent=2,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model3-joint-syndrome-audit
+          path: |
+            model3_joint_syndrome_result.json
+            model3_multivariate_price_result.json
+          if-no-files-found: error
