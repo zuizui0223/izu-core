@@ -105,6 +105,14 @@ These headings must be present in the final submitted manuscript before the refe
 - **Conflict of interest:** REQUIRES AUTHOR CONFIRMATION; a declaration is required even when there is no conflict.
 - **Acknowledgements:** REQUIRES AUTHOR INPUT if applicable.
 
+## Final pre-submission policy checks
+
+- **AI-use disclosure:** Evolution Letters currently requires use of AI tools (for example for content/images, code, data processing or translation) to be disclosed both in the cover letter and in the Methods or Acknowledgements. The exact disclosure must be author-confirmed; do not infer scope from repository activity alone.
+- **Related/similar manuscript disclosure:** if the locked Oikos manuscript has been submitted or is under consideration when this Evolution Letters manuscript is submitted, disclose it in the cover letter, provide the related manuscript as requested by the journal, and explain the scientific distinction. Do not run the two routes as silent overlapping submissions.
+- **Initial code/data locator:** until a persistent archive DOI is minted, the submission should point to the exact public GitHub revision containing the scientific RC and submission notes: commit `699faac95b4ad48eef452e6a4bb045c071889a53` (or a later submission-only commit descended from it). Do not cite bare `main` while the Evolution Letters candidate remains unmerged.
+- **Persistent archive timing:** a DOI-backed archive remains required for the final publication package, but it need not block initial submission if the current public code/data location is stated accurately; replace the GitHub-only locator with the final persistent identifier before final accepted files.
+- **Manuscript end matter:** the required Data and code availability, Author contributions, Funding, Conflict of interest and Acknowledgements headings must be inserted into the manuscript itself before submission; keeping them only in this notes file is not sufficient.
+
 ## Submission-only checks still requiring human/account input
 
 - final author order, full names, affiliations and corresponding-author address/email;
