@@ -163,3 +163,15 @@ against the dense reference ledger. Combined suite46 passes. Components still
 need integration and full trajectory/resource validation. Long compression
 probe now4/8 complete and passing; original13 run10/32 complete, both live.
 No frozen production source edited or17+ full-grid campaign launched.
+
+## Integrated exact compressed-basis step
+
+Implemented the weighted joint density and QR channel sum, then wired ecology,
+selfing, outcrossing, mutation, survival and capacity retention. No singular
+values discarded. Initial integration tests failed at missing module;15 new
+tests now pass, including four12-step far-history comparisons with adult
+survival. Combined61 tests pass. The adapter explicitly restricts to the
+campaign's evolving assurance/no-immigration scope. Full-grid ranks remain a
+scalability obstacle; no high-resolution success claim. Both live source
+manifests remain intact. The separate1000-period truncation probe has5/8
+completed cases passing,3 remain; it is not this newly integrated solver.

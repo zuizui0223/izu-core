@@ -230,3 +230,26 @@ component/inheritance suite46 passes. Applying these weight functions to
 compressed densities, summing birth channels, rank/error control and full
 trajectory validation remain unimplemented; there is still no production
 compressed solver or demonstrated high-resolution runtime.
+
+## Integrated exact small-grid reproductive step
+
+The components are now joined in `scripts/model3_compressed_step.py`: exact
+phenotype weight multiplication (full SVD without truncation), viable selfed
+inheritance, every visitor's outcross channel, capacity retention and surviving
+adults. Channel sums use QR bases without an expanded block-diagonal core.
+All operations retain the joint distribution. The scope is evolving assurance,
+all three mutation-active loci and no plant immigration, matching the current
+full-mutation campaign; fixed assurance is explicitly rejected in this adapter.
+
+Eight complete-step comparisons match the frozen reference to1e-9 for both
+reproductive settings, both mutation operators and visitors present/absent.
+Four12-step comparisons additionally verify actual far visitor histories and
+adult survival. Fifteen new integration tests and all component regressions
+pass (61 total). No frozen running source was modified; both running source
+manifests were reverified.
+
+This establishes exact algebra on a small grid, not a scalable solver: no
+rank truncation/rounding is performed, ranks can saturate the full grid, and
+the explicit-array budget will reject large contractions. Long trajectory
+accuracy with controlled rank reduction and high-resolution cost still need
+validation before the required grid count can be established.
