@@ -601,3 +601,23 @@ joint L1 is 1.0660185138013266e-6 and maximum trait difference is
 This verifies the compressed solver against the SAME nine-node model, not
 continuum/grid convergence, positivity as a theorem, or ecological ABM-density
 interpretation. Resolution admission and full Model3 goal remain open.
+
+## 2026-10-05: actual tiled projection passes; full-step gate launched
+
+The captured strict child contraction passed without relaxing tolerance or
+allocation cap: shape128x128x100, two assembly tiles, largest assembly
+intermediate2,252,800values, residual upper7.775451753295329e-16 against
+3.3538949820031467e-15. Wall time197.953s. Six source hashes/archive entries
+and both input/output hashes checked; basis orthogonality and four independent
+projected-core entries checked. Floating-point roundoff remains excluded from
+the projection bound. Receipt: model3_multi_tiled_verified_20261005.json.
+This repairs the previously preserved final-contraction failure.
+
+A separate tiled reproduction integration was introduced after a missing-module
+RED test. Ten tests cover direct-density agreement across reproduction settings,
+mutation operators and adult survival, plus forced projection against exact
+outcrossing. They passed. The same previously declared n65 second-step tolerance
+gate is running in tiled_strict_second65, local relativeL1=1e-10; it compares
+marginals to an exact one-step reference and the full joint distribution against
+the existing1e-8 result. The earlier strict failure and baseline remain intact.
+No longer trajectory or high-grid ecological interpretation is yet admitted.
