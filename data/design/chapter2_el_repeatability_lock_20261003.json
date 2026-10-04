@@ -115,7 +115,7 @@
     "evolution_letters": {
       "main_text_guide_words": 5000,
       "abstract_words_max": 300,
-      "current_main_text_words": 4852,
+      "current_main_text_words": 4905,
       "current_abstract_words": 252,
       "fit": "within current official Letter guide",
       "current_title_words": 14,
@@ -125,7 +125,7 @@
     "ecology_letters": {
       "main_text_words_max": 5000,
       "abstract_words_max": 150,
-      "current_main_text_words": 4852,
+      "current_main_text_words": 4905,
       "current_abstract_words": 252,
       "fit": "abstract compression required for Ecology Letters"
     }
