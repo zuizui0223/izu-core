@@ -50,7 +50,7 @@ This is the standard Price covariance identity applied to the explicit Model 3 p
 
 For the frozen reduction audit, five starting access states were crossed with five visitor communities. In all 25 cells, the Price update matched the next-generation mean investment from the exact deterministic genotype-density operator to numerical precision (maximum absolute error below 1e-12).
 
-A later multivariate audit extends the same accounting to access, investment and evolving assurance; that extension is kept outside this locked SI until its separate rare-mutant validation is complete.
+The same accounting was then extended to access, investment and evolving assurance. Across 48 controlled genotype-density cells spanning three founder states, four visitor communities and four assurance trade-off settings, the multivariate Price prediction matched all three next-generation trait means with maximum absolute error 7.2e-16.
 
 ## S4. Reduced phenotype replicator equation
 
@@ -193,5 +193,177 @@ The theory-integration branch includes the companion audits and tests:
 - scripts/audit_model3_reduced_continuum_bridge.py
 - scripts/audit_model3_analytic_syndrome_threshold.py
 - scripts/audit_model3_analytic_bridge_threshold.py
+- scripts/audit_model3_joint_syndrome_vector.py
+- scripts/audit_model3_multivariate_price.py
+- scripts/audit_model3_joint_G_beta_response.py
+- scripts/run_model3_joint_syndrome_finite_followup.py
+- data/results/model3_joint_syndrome_rare_mutant_frozen_20261004.json
+- data/results/model3_joint_syndrome_finite_frozen_20261004.json
+- data/results/model3_joint_syndrome_adjudication_20261004.json
 
 These analyses are explanatory extensions of the frozen campaign and bridge. They do not alter the original simulation outcomes, visitor histories or validation seeds.
+
+
+## S12. Why assurance requires rare-mutant invasion fitness
+
+The monomorphic population derivative that was useful for investment cannot be reused as the assurance selection gradient. Assurance changes both maternal and paternal transmission. In particular, a selfed seed carries both gametic copies from the same parent, while pollen discounting changes siring success on other plants.
+
+We therefore define a rare mutant with traits `(x_m, i_m, a_m)` in a resident reproductive environment held fixed to first order in mutant frequency. Its expected parental-genome contribution is
+
+    w_mut = 0.5 F_mut + 0.5 P_mut + S_mut,
+
+where
+
+    F_mut = maternal outcrossed seed production,
+    P_mut = paternal outcross success on resident mothers,
+    S_mut = viable selfed seed.
+
+The selfed term enters with coefficient one because a selfed offspring receives both parental genome halves from the mutant.
+
+Selection gradients are central finite differences of `log(w_mut)` with respect to mutant investment and mutant assurance while resident traits and the resident pollen pool are held fixed.
+
+A low-frequency numerical check embedded one mutant genotype at frequency 1e-7 in the exact deterministic genotype-density operator. Per-capita parental-genome contribution agreed with the analytic rare-mutant expression to the declared numerical tolerance.
+
+## S13. Frozen joint selection-vector design
+
+Before full execution we froze separate criteria for a directional shift and an absolute sign reversal.
+
+The resident grid was
+
+    access    = 0.20, 0.35, 0.50, 0.65, 0.80
+    investment = 0.30, 0.50, 0.70
+    assurance  = 0.30, 0.50, 0.70,
+
+for 45 resident states, each evaluated on all 128 frozen natural near/far visitor histories.
+
+Four assurance settings were used:
+
+1. delayed selfing with zero direct assurance cost and zero pollen discount, retained only as a structural control;
+2. prior selfing, which imposes seed discounting by using ovules before outcrossing;
+3. delayed selfing with pollen discount = 1, which penalizes male outcross success;
+4. delayed selfing with direct assurance cost = 0.5.
+
+The frozen joint-shift criterion was
+
+    far - near beta_i <= -0.05
+    far - near beta_a >= +0.05,
+
+with at least 90% paired-history support and paired-bootstrap 95% intervals excluding zero in the corresponding directions.
+
+The stronger classic sign-reversal criterion required
+
+    near  : beta_i >= +0.05 and beta_a <= -0.05
+    far   : beta_i <= -0.05 and beta_a >= +0.05.
+
+These were adjudicated separately.
+
+## S14. Joint rare-mutant results and correlational selection
+
+All 45 resident states passed the joint-shift gate in each of the four settings. The minimum history support for the target quadrant was 127/128.
+
+At the central resident state `(access, investment, assurance)=(0.5,0.5,0.5)`, the mean far-minus-near selection shifts were
+
+| Setting | Delta beta_i | Delta beta_a |
+| --- | ---: | ---: |
+| Delayed control | -0.537 | +0.788 |
+| Prior selfing | -0.398 | +0.703 |
+| Pollen discount | -0.428 | +0.769 |
+| Assurance cost | -0.537 | +0.689 |
+
+Absolute sign reversal was not a general result. It was absent from the prior-selfing and pollen-discount surfaces and reached only 2/128 histories in the single most permissive assurance-cost state.
+
+The mixed rare-mutant curvature
+
+    gamma_ia = d2 log(w_mut) / (di_mut da_mut)
+
+was negative in every near/far history-state-setting cell. Its sign was unchanged when the mixed finite-difference step was varied from `5e-5` to `1e-4` to `2e-4`.
+
+This is evidence for antagonistic coupling between investment and assurance in the local fitness landscape. It is not evidence by itself for two attractors.
+
+## S15. Full covariance and one-generation response
+
+The exact multivariate Price identity establishes the one-generation mean response from the full parental-genome ledger. To ask whether local invasion gradients also recover the response direction, we compared
+
+    Delta z_exact
+
+with
+
+    Delta z_Lande = G beta,
+
+where `G` is the full 2 x 2 covariance matrix of expressed investment and assurance in the current population.
+
+Across 48 controlled cells:
+
+- the strict predeclared cosine-plus-component-sign gate passed 46/48 cells;
+- mean cosine similarity between exact and full-`G` response vectors was 0.99946;
+- minimum cosine was 0.99711;
+- using full `G` gave lower vector error than diagonalizing `G` in 48/48 cells;
+- mean cosine for the diagonal-`G` control was 0.98596.
+
+The two strict-gate failures were not vector reversals. In both, the exact response was nearly axis-aligned and one component was close to zero; the local approximation crossed zero only for that small component while retaining cosine >0.999.
+
+Thus the investment–assurance covariance materially improves local response prediction and should not be silently removed.
+
+## S16. Frozen finite two-trait follow-up
+
+A finite follow-up was frozen before reading the joint-selection outcome. All four assurance settings were run regardless of the rare-mutant result, using
+
+    128 frozen visitor histories
+    x 3 prespecified initial states
+    x 4 new demographic repeats
+    x near/far arms
+    x 4 settings
+    = 12,288 trajectories.
+
+The initial states were outcross-like `(i=0.7,a=0.3)`, central `(0.5,0.5)`, and selfing-like `(0.3,0.7)`.
+
+A paired history was classified as a syndrome endpoint only when all four demographic repeats were occupied in both near and far arms and
+
+    far - near terminal investment <= -0.05
+    far - near terminal assurance >= +0.05.
+
+The opposite outcross endpoint used the reversed inequalities. All other eligible histories were intermediate.
+
+Maximum syndrome-endpoint frequencies were:
+
+| Setting | Maximum syndrome frequency across initial states | Maximum outcross frequency |
+| --- | ---: | ---: |
+| Delayed control | 0.164 | 0.026 |
+| Prior selfing | 0.102 | 0.017 |
+| Pollen discount | 0.213 | 0.009 |
+| Assurance cost | 0.430 | 0.030 |
+
+The delayed control is not independent evidence for assurance evolution. Each of the three trade-off settings nevertheless crossed the frozen >=10% finite syndrome-endpoint promotion threshold in at least one initial state.
+
+No setting met the alternative-endpoint branching rule requiring both syndrome and outcross classes to reach >=10% of eligible histories within a fixed setting and initial state. The finite result therefore supports a **joint syndrome direction**, not common bistable selfing/outcrossing endpoints.
+
+Split-half endpoint-class agreement was generally high (approximately 0.74-0.97) but fell to 0.664 for the assurance-cost selfing-like start, below the frozen 0.70 reproducibility gate.
+
+## S17. Fixed-inbreeding-depression boundary
+
+Inbreeding depression is fixed throughout this extension. Model 3 therefore excludes the purging feedback central to the alternative stable mating systems of Lande & Schemske (1985).
+
+The negative correlational selection, directional joint shift and finite syndrome endpoints reported here must be interpreted under fixed `delta`. Their existence does not identify the purging-driven bimodality of classical mating-system theory.
+
+## S18. Updated novelty boundary
+
+Classical theory already contains:
+
+- the automatic transmission advantage of selfing;
+- prior, competing and delayed selfing;
+- pollen and seed discounting;
+- pollen-limitation thresholds for mating-system evolution;
+- purging-driven selfing/outcrossing alternative states;
+- coevolutionary links between mating system and floral display.
+
+The contribution here is not a new general selfing threshold. It is the representation bridge within one stochastic visitor-transfer model:
+
+    visitor assembly
+        -> rare-mutant joint selection field
+        -> exact multivariate Price response
+        -> covariance-mediated local response
+        -> finite historical realization.
+
+The same near/far visitor histories that generate the island-like finite trajectories rotate the local selection vector toward lower investment and greater assurance across the full frozen state grid, while the finite model shows that this strong low-order directional signal does not imply common alternative endpoint classes.
+
+This is the theory result relevant to the main manuscript's repeatability argument.
