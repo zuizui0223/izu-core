@@ -1,0 +1,401 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import matplotlib
+import numpy as np
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+ROOT = Path(__file__).resolve().parents[1]
+RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
+UNIFICATION = ROOT / "data/results/model3_unified_reduction_audit_frozen_20260927.json"
+MODEL3 = ROOT / "data/results/model3_island_v2_summary/review_compact.json"
+REAL = ROOT / "data/results/chapter2_unified_model3_real_island_projection_20260927.json"
+OUT_DIR = ROOT / "figures/chapter2_repeatability"
+INPUTS = ROOT / "data/results/chapter2_repeatability_figure_inputs_20261003.json"
+
+ORDER = ["natural", "visitor_pooled", "large_plant_capacity"]
+LABELS = ["Natural", "Visitor pooled", "Capacity 192"]
+
+
+def _load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _cell(compact: dict, cell_id: str) -> dict:
+    hits=[row for row in compact["cells"] if row.get("cell_id")==cell_id]
+    if len(hits)!=1:
+        raise ValueError(f"expected one cell {cell_id}, found {len(hits)}")
+    return hits[0]
+
+
+def _load() -> dict:
+    data = json.loads(RESULT.read_text(encoding="utf-8"))
+    if data.get("status") != "complete_prospectively_frozen_new_visitor_history_validation":
+        raise RuntimeError("independent visitor-history validation is not complete")
+    if not data["primary_decision"]["strong_success"]:
+        raise RuntimeError("independent visitor-history validation did not meet strong-success rule")
+    for key in ORDER:
+        if key not in data["reports"]:
+            raise RuntimeError(f"missing intervention {key}")
+    return data
+
+
+def build_repeatability_figure1() -> dict:
+    """Conceptual causal map for biological levels and repeatability metrics."""
+    fig, ax = plt.subplots(figsize=(13.2, 6.6))
+    ax.set_axis_off()
+
+    stages = [
+        ("Repeated island-like\npollination problem", "visitor amount +\nfunctional composition"),
+        ("Reproductive\nselection", "state-dependent\nfitness return"),
+        ("Genetic\naccessibility", "standing variation +\nmutation"),
+        ("Finite-population\nrealization", "demography + ancestry +\nextinction"),
+    ]
+    xs = np.linspace(0.12, 0.88, len(stages))
+    y = 0.70
+
+    for i, ((title, subtitle), x) in enumerate(zip(stages, xs)):
+        ax.text(
+            x, y, title,
+            ha="center", va="center", fontsize=11,
+            bbox={"boxstyle":"round,pad=0.55","fill":False,"linewidth":1.2},
+            transform=ax.transAxes,
+        )
+        ax.text(x, y-0.13, subtitle, ha="center", va="top", fontsize=8.5, transform=ax.transAxes)
+        if i < len(stages)-1:
+            ax.annotate(
+                "",
+                xy=(xs[i+1]-0.09, y),
+                xytext=(x+0.09, y),
+                xycoords=ax.transAxes,
+                textcoords=ax.transAxes,
+                arrowprops={"arrowstyle":"->","lw":1.2},
+            )
+
+    ax.text(
+        0.50, 0.45,
+        "Different biological filters act before the final phenotype is observed",
+        ha="center", va="center", fontsize=10.5, transform=ax.transAxes,
+    )
+
+    metrics = [
+        ("Directional similarity", "same sign / same direction"),
+        ("Magnitude repeatability", "reproducible effect size"),
+        ("Historical imprint", "history-specific ranking"),
+        ("Persistence", "which trajectories remain observable"),
+    ]
+    mx = np.linspace(0.14, 0.86, len(metrics))
+    my = 0.25
+    for (title, subtitle), x in zip(metrics, mx):
+        ax.text(
+            x, my, title,
+            ha="center", va="center", fontsize=10,
+            bbox={"boxstyle":"round,pad=0.42","fill":False,"linewidth":1.0},
+            transform=ax.transAxes,
+        )
+        ax.text(x, my-0.09, subtitle, ha="center", va="top", fontsize=8.2, transform=ax.transAxes)
+
+    ax.text(
+        0.50, 0.065,
+        "Do not collapse these into one scalar: greater sign uniformity can coexist with stronger or weaker reproducible history structure.",
+        ha="center", va="center", fontsize=10, transform=ax.transAxes,
+    )
+    ax.set_title(
+        "Figure 1  Biological level and measurement define what ‘repeatability’ means",
+        loc="left", fontsize=13, pad=12,
+    )
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    svg = OUT_DIR / "fig1_repeatability_map.svg"
+    png = OUT_DIR / "fig1_repeatability_map.png"
+    fig.savefig(svg, bbox_inches="tight")
+    fig.savefig(png, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    return {
+        "schema_version":"1.0",
+        "status":"repeatability_figure1_causal_measurement_map",
+        "stages":[s[0].replace("\n"," ") for s in stages],
+        "metrics":[m[0] for m in metrics],
+        "central_warning":"greater sign uniformity can coexist with stronger or weaker reproducible history structure",
+        "figure_outputs":[svg.relative_to(ROOT).as_posix(),png.relative_to(ROOT).as_posix()],
+        "claim_boundary":"conceptual causal map only; arrows show model architecture, not calibrated natural effect sizes or a universal stage ordering",
+    }
+
+
+def build_repeatability_figure2() -> dict:
+    """Operator-level functional rematching and bookkeeping control."""
+    data=_load_json(UNIFICATION)
+    if data.get("status")!="frozen_result":
+        raise RuntimeError("unification audit is not frozen")
+    rows=data["illustrative_rows"]
+    contexts=["left4","right4"]
+    labels=["Left-shifted visitors","Right-shifted visitors"]
+    starts=sorted({float(r["start_access"]) for r in rows})
+
+    fig,axes=plt.subplots(1,3,figsize=(15.0,4.9))
+    for context,label in zip(contexts,labels):
+        rr=sorted((r for r in rows if r["context"]==context),key=lambda x:x["start_access"])
+        axes[0].plot([r["start_access"] for r in rr],[r["fixed_total_gradient"] for r in rr],marker="o",label=label)
+        axes[1].plot([r["start_access"] for r in rr],[r["density_investment_change"] for r in rr],marker="o",label=label)
+    for ax in axes[:2]:
+        ax.axhline(0,linewidth=0.9)
+        ax.set_xlabel("Starting access / matching state")
+    axes[0].set_ylabel("Marginal return to floral investment")
+    axes[0].set_title("A  Composition redirects selection",loc="left")
+    axes[0].legend(frameon=False,fontsize=8)
+    axes[1].set_ylabel("Deterministic investment change")
+    axes[1].set_title("B  Direction persists into inheritance",loc="left")
+
+    axes[2].set_axis_off()
+    axes[2].text(
+        0.5,0.66,
+        f"Maximum composition effect\nfixed-state gradient\n{data['diagnostics']['fixed_richness_composition_effect_max']:.3f}",
+        ha="center",va="center",fontsize=11,
+        bbox={"boxstyle":"round,pad=0.55","fill":False,"linewidth":1.0},
+        transform=axes[2].transAxes,
+    )
+    axes[2].text(
+        0.5,0.34,
+        f"Duplicate-entry control\nmax |difference|\n{data['diagnostics']['duplicate_count_control_max_abs_error']:.2e}",
+        ha="center",va="center",fontsize=11,
+        bbox={"boxstyle":"round,pad=0.55","fill":False,"linewidth":1.0},
+        transform=axes[2].transAxes,
+    )
+    axes[2].set_title("C  Count bookkeeping is not the mechanism",loc="left")
+    fig.suptitle("Functional replacement can reverse selection at identical visitor count",x=0.01,ha="left",fontsize=13)
+    fig.tight_layout(rect=(0,0,1,0.92))
+
+    OUT_DIR.mkdir(parents=True,exist_ok=True)
+    svg=OUT_DIR/"fig2_functional_rematching.svg"
+    png=OUT_DIR/"fig2_functional_rematching.png"
+    fig.savefig(svg,bbox_inches="tight"); fig.savefig(png,dpi=180,bbox_inches="tight"); plt.close(fig)
+    return {
+        "schema_version":"1.0",
+        "status":"repeatability_figure2_uses_frozen_functional_rematching_audit",
+        "start_access":starts,
+        "fixed_composition_effect_max":data["diagnostics"]["fixed_richness_composition_effect_max"],
+        "deterministic_composition_effect_max":data["diagnostics"]["deterministic_composition_effect_max"],
+        "duplicate_control_max_abs_error":data["diagnostics"]["duplicate_count_control_max_abs_error"],
+        "duplicate_control_pass":bool(data["diagnostics"]["duplicate_count_control_pass"]),
+        "figure_outputs":[svg.relative_to(ROOT).as_posix(),png.relative_to(ROOT).as_posix()],
+        "claim_boundary":"synthetic operator audit; composition effect is not a calibrated natural richness or pollinator-loss effect",
+    }
+
+
+def build_repeatability_figure3() -> dict:
+    data = _load()
+    reports = data["reports"]
+
+    mixed = np.array([reports[k]["labels_eps0"]["mixed"] for k in ORDER], dtype=float)
+    reliability = np.array(
+        [reports[k]["variance_components"]["four_repeat_mean_reliability"] for k in ORDER],
+        dtype=float,
+    )
+    reliability_ci = np.array(
+        [reports[k]["variance_components"]["four_repeat_mean_reliability_bootstrap95"] for k in ORDER],
+        dtype=float,
+    )
+    history_var = np.array(
+        [reports[k]["variance_components"]["history_structured_variance"] for k in ORDER],
+        dtype=float,
+    )
+    residual_var = np.array(
+        [reports[k]["variance_components"]["sigma_demographic_residual"] for k in ORDER],
+        dtype=float,
+    )
+
+    x = np.arange(len(ORDER))
+    fig, axes = plt.subplots(1, 3, figsize=(15.2, 4.9))
+
+    ax = axes[0]
+    bars = ax.bar(x, mixed)
+    ax.set_xticks(x, LABELS)
+    ax.set_ylabel("Mixed history labels (of 128)")
+    ax.set_title("A  Direction becomes more uniform", loc="left")
+    for bar, value in zip(bars, mixed):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 1.0,
+            f"{int(value)}",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+        )
+    ax.set_ylim(0, max(mixed) * 1.25 + 2)
+
+    ax = axes[1]
+    low = reliability - reliability_ci[:, 0]
+    high = reliability_ci[:, 1] - reliability
+    ax.errorbar(
+        x,
+        reliability,
+        yerr=np.vstack([low, high]),
+        marker="o",
+        linestyle="none",
+        capsize=4,
+    )
+    ax.set_xticks(x, LABELS)
+    ax.set_ylim(0, 1.02)
+    ax.set_ylabel("Four-repeat reliability of history effects")
+    ax.set_title("B  History repeatability moves oppositely", loc="left")
+    for xi, value in zip(x, reliability):
+        ax.text(xi, value + 0.055, f"{value:.3f}", ha="center", va="bottom", fontsize=8)
+
+    ax = axes[2]
+    width = 0.36
+    ax.bar(x - width / 2, history_var, width=width, label="History-structured variance")
+    ax.bar(x + width / 2, residual_var, width=width, label="Demographic residual")
+    ax.set_xticks(x, LABELS)
+    ax.set_ylabel("Variance of far − near effect")
+    ax.set_title("C  The mechanism differs", loc="left")
+    ax.legend(frameon=False, fontsize=8)
+
+    fig.suptitle(
+        "New visitor histories: similar directional uniformity, opposite historical repeatability",
+        x=0.01,
+        ha="left",
+        fontsize=13,
+    )
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    svg = OUT_DIR / "fig3_repeatability_history_signal.svg"
+    png = OUT_DIR / "fig3_repeatability_history_signal.png"
+    fig.savefig(svg, bbox_inches="tight")
+    fig.savefig(png, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    payload = {
+        "schema_version": "3.0",
+        "status": "repeatability_figure3_uses_prospectively_frozen_independent_visitor_history_validation",
+        "source_result": RESULT.relative_to(ROOT).as_posix(),
+        "interventions": ORDER,
+        "mixed_histories_eps0": mixed.astype(int).tolist(),
+        "four_repeat_history_reliability": reliability.tolist(),
+        "four_repeat_history_reliability_ci95": reliability_ci.tolist(),
+        "history_structured_variance": history_var.tolist(),
+        "demographic_residual_variance": residual_var.tolist(),
+        "paired_bootstrap": {
+            "large_capacity_minus_natural": data["paired_bootstrap_differences"]["large_capacity_minus_natural_reliability"],
+            "visitor_pooled_minus_natural": data["paired_bootstrap_differences"]["visitor_pooled_minus_natural_reliability"],
+        },
+        "strong_success": bool(data["primary_decision"]["strong_success"]),
+        "visitor_history_seed_range": data["provenance"]["visitor_history_seeds"],
+        "figure_outputs": [svg.relative_to(ROOT).as_posix(), png.relative_to(ROOT).as_posix()],
+        "claim_boundary": "All plotted quantitative panels use prospectively frozen new synthetic visitor histories 75001-75128. This validates transfer within the same frozen history generator, not to a different ecological process or natural islands.",
+    }
+    INPUTS.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return payload
+
+
+def build_repeatability_figure4() -> dict:
+    """Finite/history realization plus source-locked natural confrontation."""
+    compact = _load_json(MODEL3)
+    real = _load_json(REAL)
+
+    chronology_ids = ["order_early_gap", "order_late_gap", "order_uninterrupted"]
+    chronology_labels = ["Early gap", "Late gap", "Uninterrupted"]
+    chronology = [_cell(compact, key) for key in chronology_ids]
+
+    assurance_ids = ["assurance_fixed_disabled", "assurance_fixed_half", "assurance_fixed_high"]
+    assurance_labels = ["Assurance 0", "Assurance 0.5", "Assurance 0.9"]
+    assurance = [_cell(compact, key) for key in assurance_ids]
+
+    counts = real["propagation_state_counts"]
+    state_order = [
+        "propagates_same_direction",
+        "branches_downstream",
+        "buffered_or_resilient",
+        "counterdirectional",
+        "adjacent_links_only",
+        "undetermined_missing_link",
+    ]
+    state_labels = ["Same\ndirection", "Branches", "Buffered", "Counter-\ndirectional", "Adjacent\nlinks", "Unresolved"]
+    state_vals = [int(counts[key]) for key in state_order]
+    formal_full = real["breadth_context"]["formal_full_contracts"]
+
+    fig, axes = plt.subplots(1, 3, figsize=(16.0, 5.1))
+
+    x = np.arange(len(chronology))
+    axes[0].bar(x, [row["mean_investment_change"] for row in chronology])
+    axes[0].axhline(0, linewidth=0.9)
+    axes[0].set_xticks(x, chronology_labels)
+    axes[0].set_ylabel("Finite inherited-investment change")
+    axes[0].set_title("A  Chronology changes the realized endpoint", loc="left")
+
+    x = np.arange(len(assurance))
+    occ = [float(row["occupancy"]) for row in assurance]
+    bars = axes[1].bar(x, occ)
+    axes[1].set_xticks(x, assurance_labels)
+    axes[1].set_ylim(0, 1.08)
+    axes[1].set_ylabel("Terminal occupancy")
+    axes[1].set_title("B  Assurance can determine whether an endpoint exists", loc="left")
+    for bar, row in zip(bars, assurance):
+        axes[1].text(
+            bar.get_x() + bar.get_width() / 2,
+            float(row["occupancy"]) + 0.03,
+            f'{row["n_survivors"]}/{row["n_total"]}',
+            ha="center", va="bottom", fontsize=8.5,
+        )
+
+    x = np.arange(len(state_vals))
+    bars = axes[2].bar(x, state_vals)
+    axes[2].set_xticks(x, state_labels)
+    axes[2].set_ylabel("Source-locked system layers")
+    axes[2].set_title("C  Natural systems confront different model layers", loc="left")
+    for bar, value in zip(bars, state_vals):
+        axes[2].text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 0.06,
+            str(value),
+            ha="center", va="bottom", fontsize=8.5,
+        )
+    axes[2].text(
+        0.02, 0.96,
+        f"14 layers / 12 geographic clusters\nFormal full A→B→C contracts: {formal_full.replace('_of_', '/')}",
+        transform=axes[2].transAxes,
+        va="top", fontsize=8.5,
+    )
+
+    fig.suptitle(
+        "Finite realization and natural confrontation bound what the model can claim",
+        x=0.01, ha="left", fontsize=13,
+    )
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    svg = OUT_DIR / "fig4_finite_realization_natural_boundary.svg"
+    png = OUT_DIR / "fig4_finite_realization_natural_boundary.png"
+    fig.savefig(svg, bbox_inches="tight")
+    fig.savefig(png, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    return {
+        "schema_version": "1.0",
+        "status": "repeatability_figure4_uses_frozen_finite_and_source_locked_natural_results",
+        "model3_source": MODEL3.relative_to(ROOT).as_posix(),
+        "natural_source": REAL.relative_to(ROOT).as_posix(),
+        "chronology_cells": chronology_ids,
+        "chronology_finite_investment_change": [float(row["mean_investment_change"]) for row in chronology],
+        "assurance_cells": assurance_ids,
+        "assurance_occupancy": occ,
+        "propagation_state_counts": {key: int(counts[key]) for key in state_order},
+        "formal_full_contracts": formal_full,
+        "figure_outputs": [svg.relative_to(ROOT).as_posix(), png.relative_to(ROOT).as_posix()],
+        "claim_boundary": "Natural systems are source-locked layer-specific confrontations, not fitted Model 3 cells; propagation-state counts are descriptive and not natural prevalence estimates.",
+    }
+
+
+if __name__ == "__main__":
+    payload = {
+        "figure1": build_repeatability_figure1(),
+        "figure2": build_repeatability_figure2(),
+        "figure3": build_repeatability_figure3(),
+        "figure4": build_repeatability_figure4(),
+    }
+    print(json.dumps(payload, indent=2))

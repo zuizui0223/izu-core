@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_frozen_before_execution",
+  "frozen_on": "2026-10-03",
+  "parent_branch_head": "fc32981c4fa909d4f6110c2d56f021f788666e13",
+  "analysis": "chapter2_long_horizon_stationarity",
+  "purpose": "Test whether the EL aggregate-recurrence versus trajectory-parallelism result and the finite-horizon standing-variation filter persist, disappear, or remain nonstationary over a fixed long horizon.",
+  "time_interpretation": {
+    "unit": "reproductive_season",
+    "not_calendar_year_for_perennials": true,
+    "not_geological_age": true,
+    "note": "Long runs are stationary-environment stress tests, not reconstructions of million-year island history."
+  },
+  "checkpoints": [
+    200,
+    400,
+    800,
+    1600,
+    3200,
+    6400
+  ],
+  "max_horizon": 6400,
+  "no_outcome_dependent_stopping": true,
+  "backbone": {
+    "parent_design": "data/design/model3_ch2_bridge_20260927.json",
+    "depression": 0.75,
+    "history_seeds": "all_128_parent_histories",
+    "starts": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "arms": [
+      "near",
+      "far"
+    ],
+    "model": "deterministic_genotype_density_only",
+    "mutation_rate": 0,
+    "deadband": 0.01,
+    "primary_endpoints": [
+      "mean far-minus-near inherited investment effect at every checkpoint",
+      "history label counts negative/mixed/positive/neutral at every checkpoint",
+      "history-label persistence between checkpoints"
+    ],
+    "finite_horizon_stationarity_rule": {
+      "coarse_mean": "For both 1600→3200 and 3200→6400, absolute mean-effect change <= 0.01 OR relative change <= 0.05, while mean sign is unchanged.",
+      "history_labels": "For both 1600→3200 and 3200→6400, >=0.95 of histories retain the same label at deadband 0.01 and absolute mixed-fraction change <=0.05.",
+      "stable_if": "both coarse_mean and history_labels criteria pass for both late intervals"
+    }
+  },
+  "mutation_accessibility": {
+    "parent_design": "data/design/chapter2_mutation_input_calibration_sensitivity_20261002.json",
+    "comparison": [
+      {
+        "standing_regime": "high_reference",
+        "standing_sd_investment": 0.15,
+        "VM_over_VG0": 0
+      },
+      {
+        "standing_regime": "low",
+        "standing_sd_investment": 0.03,
+        "VM_over_VG0": 0.01
+      }
+    ],
+    "capacities": [
+      48,
+      192
+    ],
+    "visitor_histories": [
+      "left4",
+      "right4"
+    ],
+    "founder_seeds": [
+      77401,
+      77402,
+      77403,
+      77404
+    ],
+    "demographic_seeds": [
+      601,
+      602
+    ],
+    "primary_endpoints": [
+      "mean absolute investment response at every checkpoint",
+      "high-standing / low-standing response ratio at every checkpoint",
+      "investment additive-variance proxy at every checkpoint"
+    ],
+    "finite_horizon_stationarity_rule": {
+      "response_ratio": "For both 1600→3200 and 3200→6400, relative change in the high/low response ratio <=0.10.",
+      "variance": "For each low-standing central-mutation cell, relative VA-proxy change <=0.10 for both 1600→3200 and 3200→6400.",
+      "stable_if": "response_ratio and all evaluable low-standing variance criteria pass"
+    }
+  },
+  "interpretation_rules": {
+    "if_backbone_and_labels_stable": "Long-horizon stationary-regime support for aggregate recurrence coexisting with trajectory-level nonparallelism, within the declared model.",
+    "if_mean_stable_labels_converge": "Trajectory nonparallelism is primarily transient even if the coarse syndrome-like response persists.",
+    "if_mean_or_labels_not_stable": "Do not call the EL repeatability pattern stationary; report finite-horizon nonstationarity.",
+    "if_standing_gap_disappears": "Standing-variation accessibility filter is transient over the tested long horizon.",
+    "if_standing_gap_persists_and_stable": "Standing-variation accessibility filter persists over the tested stationary-environment horizon.",
+    "no_natural_rate_inference": true
+  },
+  "claim_boundary": [
+    "6400 reproductive seasons are not 6400 years for perennial plants and are not a proxy for millions of years.",
+    "A constant visitor process over thousands of reproductive seasons is a stress scenario, not a realistic archipelago history.",
+    "Stationarity within Model 3 does not imply equilibrium or stability in nature.",
+    "No horizon is extended after outcomes are inspected.",
+    "No new mutation, speciation, succession, coevolution, or changing source pool is added to make long runs more realistic."
+  ]
+}

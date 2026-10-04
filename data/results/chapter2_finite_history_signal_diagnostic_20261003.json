@@ -1,0 +1,388 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "complete_posthoc_exact_source_finite_history_signal_diagnostic",
+  "design": "data/design/chapter2_finite_history_signal_diagnostic_20261003.json",
+  "provenance": {
+    "original_workflow_run": 36311030639,
+    "artifact_ids": [
+      10929606006,
+      10929138811,
+      10929600402,
+      10929288258,
+      10928902440,
+      10928817875,
+      10929427896,
+      10929422680,
+      10929163732,
+      10928694079,
+      10929650543,
+      10929098912,
+      10929263428,
+      10929187166,
+      10928428806,
+      10928743005
+    ],
+    "exact_verified_shards": 16,
+    "total_histories": 128,
+    "starts": 3,
+    "demographic_repeats": 8,
+    "finite_effect_cells_per_intervention": 3072
+  },
+  "estimates": {
+    "natural": {
+      "mean_effect": -0.1446356879340278,
+      "sign_mixed_histories_eps0": 12,
+      "sign_mixed_histories_eps0_01": 8,
+      "repeat_label_disagreement_eps0": 97,
+      "sigma_history": {
+        "estimate": 0.005486218868538884,
+        "ci95": [
+          0.004041725874068823,
+          0.007109085372683085
+        ]
+      },
+      "sigma_start_by_history": {
+        "estimate": 0,
+        "ci95": [
+          0,
+          0.00043438000573951135
+        ]
+      },
+      "sigma_demographic_residual": {
+        "estimate": 0.026772169385637572,
+        "ci95": [
+          0.025288198416195232,
+          0.02840652376823326
+        ]
+      },
+      "single_trajectory_icc": {
+        "estimate": 0.17007107811186412,
+        "ci95": [
+          0.13204364650728756,
+          0.21073213227057117
+        ]
+      },
+      "eight_repeat_reliability": {
+        "estimate": 0.621123099130166,
+        "ci95": [
+          0.5489508579930557,
+          0.6811199559022912
+        ]
+      },
+      "split_half_history_correlation": {
+        "estimate": 0.689658686195989,
+        "ci95": [
+          0.5918944894744962,
+          0.7696721429716437
+        ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.005486218868538884,
+        "ci95": [
+          0.004054355402335584,
+          0.007176560876199678
+        ]
+      }
+    },
+    "richness_matched": {
+      "mean_effect": 0.0333226521809896,
+      "sign_mixed_histories_eps0": 68,
+      "sign_mixed_histories_eps0_01": 59,
+      "repeat_label_disagreement_eps0": 128,
+      "sigma_history": {
+        "estimate": 0.0015445461957021521,
+        "ci95": [
+          0.0009432324939199652,
+          0.0022002492529305064
+        ]
+      },
+      "sigma_start_by_history": {
+        "estimate": 0.000333159939848335,
+        "ci95": [
+          0,
+          0.0009123413375018668
+        ]
+      },
+      "sigma_demographic_residual": {
+        "estimate": 0.025730247384025955,
+        "ci95": [
+          0.023919990127048815,
+          0.027651422761735486
+        ]
+      },
+      "single_trajectory_icc": {
+        "estimate": 0.06801323155731301,
+        "ci95": [
+          0.044337002738881255,
+          0.09371447602358451
+        ]
+      },
+      "eight_repeat_reliability": {
+        "estimate": 0.3686122704998782,
+        "ci95": [
+          0.2706859998035245,
+          0.4527265273609242
+        ]
+      },
+      "split_half_history_correlation": {
+        "estimate": 0.42415580430257954,
+        "ci95": [
+          0.27939810520472785,
+          0.5610665977916857
+        ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.001877706135550487,
+        "ci95": [
+          0.001197614533450114,
+          0.0026375328247491944
+        ]
+      }
+    },
+    "visitor_pooled": {
+      "mean_effect": -0.22594960530598965,
+      "sign_mixed_histories_eps0": 0,
+      "sign_mixed_histories_eps0_01": 0,
+      "repeat_label_disagreement_eps0": 77,
+      "sigma_history": {
+        "estimate": 0.0004181066672563475,
+        "ci95": [
+          0.000025002400932105924,
+          0.0008245954320777703
+        ]
+      },
+      "sigma_start_by_history": {
+        "estimate": 0,
+        "ci95": [
+          0,
+          0.0004950831436576513
+        ]
+      },
+      "sigma_demographic_residual": {
+        "estimate": 0.02915543870320397,
+        "ci95": [
+          0.027403986105843207,
+          0.030917370081578622
+        ]
+      },
+      "single_trajectory_icc": {
+        "estimate": 0.01413786078127702,
+        "ci95": [
+          0.0038240143241312008,
+          0.02951455326316072
+        ]
+      },
+      "eight_repeat_reliability": {
+        "estimate": 0.10291763944166836,
+        "ci95": [
+          0.029794566454895456,
+          0.1956870954595759
+        ]
+      },
+      "split_half_history_correlation": {
+        "estimate": 0.21407060656596144,
+        "ci95": [
+          0.04959617551086329,
+          0.3832925829094053
+        ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.0004181066672563475,
+        "ci95": [
+          0.00011232175473739061,
+          0.0008738602926069278
+        ]
+      }
+    },
+    "large_plant_capacity": {
+      "mean_effect": -0.27164972093370177,
+      "sign_mixed_histories_eps0": 1,
+      "sign_mixed_histories_eps0_01": 1,
+      "repeat_label_disagreement_eps0": 31,
+      "sigma_history": {
+        "estimate": 0.008005620834957303,
+        "ci95": [
+          0.006090846048124002,
+          0.01004025344033451
+        ]
+      },
+      "sigma_start_by_history": {
+        "estimate": 0.0007480036211876249,
+        "ci95": [
+          0.0002895672053742581,
+          0.0011293542528959613
+        ]
+      },
+      "sigma_demographic_residual": {
+        "estimate": 0.01489035968663829,
+        "ci95": [
+          0.013755136621968124,
+          0.01618539972090845
+        ]
+      },
+      "single_trajectory_icc": {
+        "estimate": 0.3702262868763076,
+        "ci95": [
+          0.30957663133832736,
+          0.42433229885950263
+        ]
+      },
+      "eight_repeat_reliability": {
+        "estimate": 0.8246529353907934,
+        "ci95": [
+          0.7819970226533155,
+          0.855007450685779
+        ]
+      },
+      "split_half_history_correlation": {
+        "estimate": 0.8517982916805625,
+        "ci95": [
+          0.7909071646040711,
+          0.8998774723600356
+        ]
+      },
+      "history_structured_variance": {
+        "estimate": 0.008753624456144927,
+        "ci95": [
+          0.006791466479785633,
+          0.010776425128357527
+        ]
+      }
+    }
+  },
+  "paired_bootstrap_differences_vs_natural": {
+    "large_plant_capacity": {
+      "sigma_history": {
+        "estimate": 0.0025194019664184185,
+        "ci95": [
+          0.0008900691081298962,
+          0.004137818796430051
+        ]
+      },
+      "sigma_demographic_residual": {
+        "estimate": -0.011881809698999282,
+        "ci95": [
+          -0.013638205063011954,
+          -0.01015568891293791
+        ]
+      },
+      "eight_repeat_reliability": {
+        "estimate": 0.20352983626062748,
+        "ci95": [
+          0.1468885247881503,
+          0.2629949266891766
+        ]
+      },
+      "split_half_history_correlation": {
+        "estimate": 0.1621396054845735,
+        "ci95": [
+          0.07132417319737036,
+          0.2621444382205041
+        ]
+      }
+    },
+    "visitor_pooled": {
+      "sigma_history": {
+        "estimate": -0.005068112201282537,
+        "ci95": [
+          -0.006727076541025113,
+          -0.003531264703574147
+        ]
+      },
+      "sigma_demographic_residual": {
+        "estimate": 0.002383269317566397,
+        "ci95": [
+          0.00020847431503275216,
+          0.004682482877105632
+        ]
+      },
+      "eight_repeat_reliability": {
+        "estimate": -0.5182054596884976,
+        "ci95": [
+          -0.6065895815715991,
+          -0.3950188025838758
+        ]
+      },
+      "split_half_history_correlation": {
+        "estimate": -0.4755880796300276,
+        "ci95": [
+          -0.663146404965871,
+          -0.28641510989925884
+        ]
+      }
+    }
+  },
+  "interpretation": {
+    "main": "Sign-level parallelism and continuous history repeatability are not equivalent diagnostics.",
+    "natural": "The natural finite bridge contains a reproducible visitor-history component in continuous effect magnitude despite substantial demographic-repeat noise.",
+    "large_capacity": "Increasing capacity reduces sign heterogeneity and demographic residual variance while increasing the reproducibility of history-specific continuous effects.",
+    "pooled_visitors": "Pooling visitor histories also removes mean sign heterogeneity, but it strongly reduces the reproducible history component instead of merely reducing demographic noise.",
+    "consequence": "The same apparent increase in directional parallelism can arise either while historical imprint becomes more reproducible or while historical imprint is averaged away."
+  },
+  "claim_boundary": [
+    "Exploratory post-hoc diagnostic; not a preregistered confirmatory test.",
+    "Do not interpret variance components as natural prevalence or natural heritability.",
+    "Do not treat capacity scaling as a pure sample-size change or visitor pooling as a pure noise intervention.",
+    "Use this result to distinguish repeatability metrics and mechanisms, not to rank natural evolutionary causes."
+  ],
+  "analysis_note": "history_structured_variance = max(sigma_history,0) + max(sigma_start_by_history,0); eight-repeat reliability uses this combined history-structured component.",
+  "balanced_split_half_robustness": {
+    "method": "all 35 unique 4-versus-4 demographic-repeat partitions; history mean averaged across three starts within each half; Pearson correlation across 128 histories",
+    "natural": {
+      "min": 0.6715885970626972,
+      "q05": 0.6815721296128622,
+      "median": 0.7029075259443338,
+      "mean": 0.7143957529598577,
+      "q95": 0.7605554405933737,
+      "max": 0.7882368150474531
+    },
+    "richness_matched": {
+      "min": 0.36626170861523827,
+      "q05": 0.3768661181518777,
+      "median": 0.44631415146268305,
+      "mean": 0.4506026697602119,
+      "q95": 0.5406399869928189,
+      "max": 0.5799053243003242
+    },
+    "visitor_pooled": {
+      "min": -0.042025407539524585,
+      "q05": 0.0018320930908081214,
+      "median": 0.11495012929234721,
+      "mean": 0.11555371112452187,
+      "q95": 0.20848120583840052,
+      "max": 0.2884717916796102
+    },
+    "large_plant_capacity": {
+      "min": 0.8340160268108929,
+      "q05": 0.8388618752860624,
+      "median": 0.8636469607898144,
+      "mean": 0.8622913028770447,
+      "q95": 0.8849544794867288,
+      "max": 0.8910132587972028
+    },
+    "paired_difference_vs_natural": {
+      "large_plant_capacity": {
+        "min": 0.07766379626629483,
+        "q05": 0.09596578281659088,
+        "median": 0.16088304737312886,
+        "mean": 0.14789554991718692,
+        "q95": 0.19057424866487846,
+        "max": 0.1982227182289542,
+        "positive_splits": 35,
+        "total_splits": 35
+      },
+      "visitor_pooled": {
+        "min": -0.8302622225869777,
+        "q05": -0.7433683000010891,
+        "median": -0.5798968696039448,
+        "mean": -0.5988420418353357,
+        "q95": -0.4777013927725567,
+        "max": -0.45418371887947956,
+        "positive_splits": 0,
+        "total_splits": 35
+      }
+    },
+    "interpretation": "The intervention ordering is invariant to the arbitrary choice of one 4-versus-4 split: large-capacity history correlation exceeds natural in all 35 balanced splits, while visitor-pooled correlation is lower than natural in all 35."
+  }
+}

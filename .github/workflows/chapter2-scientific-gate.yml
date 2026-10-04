@@ -9,6 +9,10 @@ on:
       - 'scripts/model3_island/**'
       - 'scripts/summarize_model3_ch2_bridge_prospective.py'
       - 'scripts/generate_chapter2_unified_model3_figures.py'
+      - 'scripts/generate_chapter2_repeatability_figures.py'
+      - 'scripts/audit_chapter2_*'
+      - 'scripts/run_chapter2_*'
+      - 'scripts/summarize_chapter2_*'
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
@@ -16,6 +20,7 @@ on:
       - 'data/design/chapter2_*'
       - 'data/design/repository_artifact_budget_20260928.json'
       - 'data/results/model3_ch2_bridge_prospective_frozen_20260927.json'
+      - 'data/results/chapter2_*'
       - 'tests/test_chapter2_*'
       - 'tests/test_model3_ch2_bridge_prospective_summary.py'
       - 'tests/test_island_ecology_submission_bundle_builder.py'
@@ -53,8 +58,103 @@ jobs:
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
             tests/test_chapter2_unified_model3_figures.py \
+            tests/test_chapter2_el_repeatability_claim_ceiling.py \
+            tests/test_chapter2_repeatability_figures.py \
             tests/test_island_ecology_submission_bundle_builder.py \
             tests/test_repository_artifact_budget.py \
             tests/test_current_ci_surface.py \
             tests/test_model2_legacy_firewall.py \
             tests/test_workflow_trigger_policy.py
+
+
+
+  environment-history-validation-plan:
+    if: github.event_name == 'pull_request' && github.head_ref == 'chapter2/el-repeatability-20261003'
+    runs-on: ubuntu-latest
+    outputs:
+      needs_run: ${{ steps.plan.outputs.needs_run }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        name: Check whether frozen new visitor-history validation is already recorded
+        run: |
+          if test -f data/results/chapter2_finite_history_signal_environment_validation_20261004.json; then
+            echo "needs_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs_run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  environment-history-validation-shard:
+    needs: environment-history-validation-plan
+    if: needs.environment-history-validation-plan.outputs.needs_run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Restore exact frozen bridge source snapshot
+        run: |
+          rm -rf env-validation-src env-validation-output
+          mkdir -p env-validation-src env-validation-output
+          unzip -q data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip -d env-validation-src
+          cp scripts/run_chapter2_finite_history_signal_environment_validation.py env-validation-src/scripts/
+      - name: Run frozen new visitor-history validation shard
+        run: |
+          SHARD=$(printf "%02d" "${{ matrix.shard }}")
+          cd env-validation-src
+          PYTHONPATH=. python -m scripts.run_chapter2_finite_history_signal_environment_validation \
+            --source-root . \
+            --bridge-design ../data/design/model3_ch2_bridge_execution_20260927.json \
+            --validation-design ../data/design/chapter2_finite_history_signal_environment_validation_20261004.json \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count 16 \
+            --workers 4 \
+            --out "../env-validation-output/environment-validation-shard-${SHARD}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: environment-history-validation-${{ matrix.shard }}
+          retention-days: 30
+          if-no-files-found: error
+          path: env-validation-output/environment-validation-shard-*.json
+
+  environment-history-validation-summary:
+    needs: [environment-history-validation-plan, environment-history-validation-shard]
+    if: always() && needs.environment-history-validation-plan.outputs.needs_run == 'true' && needs.environment-history-validation-shard.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: environment-history-validation-*
+          path: environment-validation-shards
+          merge-multiple: true
+      - name: Apply frozen new visitor-history validation rule
+        run: |
+          python -m scripts.summarize_chapter2_finite_history_signal_environment_validation \
+            --design data/design/chapter2_finite_history_signal_environment_validation_20261004.json \
+            --input-dir environment-validation-shards \
+            --out chapter2_finite_history_signal_environment_validation_20261004.json \
+            | tee chapter2_finite_history_signal_environment_validation_console.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-finite-history-environment-validation-result
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            chapter2_finite_history_signal_environment_validation_20261004.json
+            chapter2_finite_history_signal_environment_validation_console.txt
