@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_outcome",
+  "frozen_on": "2026-10-04",
+  "analysis": "model3_joint_island_syndrome_selection",
+  "source_bridge": {
+    "path": "data/design/model3_ch2_bridge_20260927.json",
+    "blob_sha": "11acfca595a4d0dd19c355f6d0ea578b547cd245",
+    "histories": "all_128_frozen_history_seeds",
+    "pairing": "near_far_within_history_seed",
+    "horizon_years": 200
+  },
+  "biological_question": "Does isolation-generated visitor assembly rotate the joint local selection field toward lower floral investment and stronger reproductive assurance, and when does that shift become an actual sign reversal and realized two-trait response?",
+  "estimands": {
+    "beta": "Rare-mutant invasion selection gradient: derivative of log tagged-mutant parental gene-copy-equivalent contribution with respect to mutant floral investment i and assurance a, evaluated at mutant=resident while resident environment is held fixed.",
+    "parental_gene_copy_fitness": "0.5*(maternal outcross seeds + paternal outcross seeds) + viable selfed seeds; selfed offspring count as two transmitted parental gametes and therefore one whole parental genome equivalent.",
+    "history_beta": "Arithmetic mean of annual beta vectors across the 200 exogenous visitor states at a fixed resident trait state.",
+    "beta_shift": "history_beta_far - history_beta_near.",
+    "price_response": "Exact one-generation first-moment response from individual parental genome-equivalent fitness: Delta zbar = Cov(z,w)/mean(w), evaluated separately for i and a.",
+    "lande_response": "G beta using the full 2x2 standing covariance matrix, including the off-diagonal term.",
+    "realized_trajectory": "Finite-ABM terminal trait change after 200 reproductive years, evaluated separately from beta and one-generation response."
+  },
+  "resident_state_grid": {
+    "access": [
+      0.2,
+      0.35,
+      0.5,
+      0.65,
+      0.8
+    ],
+    "investment": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "assurance": [
+      0.3,
+      0.5,
+      0.7
+    ]
+  },
+  "settings": {
+    "delayed_zero_cost_control": {
+      "assurance_mode": "evolving",
+      "assurance_timing": "delayed",
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "role": "negative_control_for_inference; upward assurance selection is structurally favoured when unused ovules remain and is not syndrome evidence"
+    },
+    "prior_selfing": {
+      "assurance_mode": "evolving",
+      "assurance_timing": "prior",
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "role": "identifying"
+    },
+    "pollen_discount": {
+      "assurance_mode": "evolving",
+      "assurance_timing": "delayed",
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "role": "identifying"
+    },
+    "assurance_cost": {
+      "assurance_mode": "evolving",
+      "assurance_timing": "delayed",
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "role": "identifying"
+    }
+  },
+  "numerical_contract": {
+    "rare_mutant_fraction": 1e-8,
+    "rare_mutant_fraction_sensitivity": [
+      1e-7,
+      1e-9
+    ],
+    "trait_derivative_step": 0.0001,
+    "trait_derivative_step_sensitivity": [
+      0.00005,
+      0.0002
+    ],
+    "gradient_stability_abs_tolerance": 0.00001,
+    "price_identity_abs_tolerance": 1e-12,
+    "no_outcome_stopping": true
+  },
+  "decision_rules": {
+    "selection_shift": {
+      "target_quadrant": "far-minus-near beta_i negative and beta_a positive",
+      "min_abs_component": 0.02,
+      "min_history_fraction_in_target_quadrant": 0.9,
+      "confidence": "paired_history bootstrap 95%, 1999 resamples, RNG seed 1004; both component intervals must exclude zero in target directions"
+    },
+    "actual_assurance_sign_reversal": {
+      "definition": "near beta_a <= -0.02 and far beta_a >= +0.02 within the same history",
+      "support_threshold_fraction": 0.5,
+      "evidence_settings": [
+        "prior_selfing",
+        "pollen_discount",
+        "assurance_cost"
+      ],
+      "control_excluded": true
+    },
+    "multivariate_response": {
+      "standardized_component_min_abs": 0.02,
+      "standardization": "divide each one-generation response component by its parental trait SD",
+      "syndrome_quadrant": "Delta i negative and Delta a positive",
+      "local_lande_fidelity": {
+        "cosine_similarity_min": 0.9,
+        "component_sign_match_required": true
+      },
+      "exact_price_identity_required": true
+    },
+    "realized_finite_abm": {
+      "terminal_change_min_abs": 0.05,
+      "syndrome_endpoint": "investment change <= -0.05 and assurance change >= +0.05",
+      "outcross_endpoint": "investment change >= +0.05 and assurance change <= -0.05",
+      "history_branching": "within one setting, both endpoint classes each occur in >=10% of eligible histories",
+      "eligibility": "occupied at baseline and endpoint; occupancy always reported unconditionally"
+    }
+  },
+  "predictions": [
+    "Far-minus-near beta shift points toward lower investment and higher assurance in all four settings, but the delayed zero-cost control is not inferential evidence.",
+    "Actual assurance sign reversal is expected only in at least one identifying setting with prior selfing, pollen discounting, or direct assurance cost.",
+    "The full G matrix can rotate G beta away from beta; therefore beta-shift and response-shift conclusions are adjudicated separately.",
+    "Negative correlational selection between investment and assurance is expected when increased investment raises outcrossing, but fixed inbreeding depression excludes purging feedback and limits claims about classical mating-system bistability.",
+    "Alternative endpoints or history-dependent branching, if present under the frozen endpoint rule, can be promoted as a mechanistic repeatability result; otherwise the extension remains a supporting syndrome-shift result."
+  ],
+  "claim_boundaries": [
+    "No purging or evolution of inbreeding depression; delta is fixed.",
+    "No claim that a monomorphic population derivative in assurance is a selection gradient.",
+    "No universal island selfing syndrome claim.",
+    "No natural-island calibration of synthetic distance or cost coefficients.",
+    "No promotion into locked submission surfaces until all three layers are evaluated under this contract."
+  ]
+}
