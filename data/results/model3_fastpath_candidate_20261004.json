@@ -1,0 +1,15 @@
+{
+  "candidate_root": "outputs/model3_precision_feasibility/fastpath_candidate",
+  "changes": {
+    "scripts/model3_compressed_outcross.py": {
+      "original": "3f44100b2f4f7e8452d082a889b2a8a9a2fcd5ecb511951bc869cff5dabf2eb3",
+      "candidate": "30a8931eafb11c850911ca7065356639293e776453afde644161325872ad2ae2"
+    },
+    "scripts/model3_compressed_step.py": {
+      "original": "487756b33f8c5df1e93c830bb3733177ececd3bc22af2f068622474e1197674b",
+      "candidate": "a6a3f9e89ae82a4b1d866e9e405e4b6633eeb3d8d8cc20cca6bf2e6a7a2694a1"
+    }
+  },
+  "tests": "70 passed; candidate-local pytest root and imports",
+  "scope": "planner budget only; same biological parameters and tolerances"
+}

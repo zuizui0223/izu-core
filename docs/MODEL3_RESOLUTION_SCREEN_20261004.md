@@ -334,3 +334,29 @@ while the original frozen admission continues; its results must be distinguished
 from the old run. Evidence is in
 `data/results/model3_contraction_profile_20261004.json` and the local profile
 artifacts. No biological parameters or numerical error tolerances were changed.
+
+## Isolated scheduling fix: integrated admission passed
+
+Copied the hash-verified original admission source archive to an isolated
+candidate directory, preserving the live source files. Exactly two solver
+lines changed: einsum planning now receives its existing intermediate budget.
+The regression first reproduced all-at-once scheduling, then passed. Candidate
+tests were run with candidate-local imports/root (an initial parent-repository
+import was identified and excluded);70 tests pass in2.08s.
+
+The same n5/40-period/eight-case integrated admission then completed: all8 pass,
+total case runtime23.518s. Max full-state L1 error1.3217425e-8, mean-trait gap
+1.7097166e-9, mass gap4.1211479e-13, and relative negative mass2.6360477e-11.
+All endpoint arrays/hashes were checked, final L1 recomputed, source hashes
+verified. Maximum core rank15 still reaches the full diploid-mode dimension;
+these results establish small-grid correctness and remove a scheduling
+bottleneck, not high-grid efficiency or required allele-node resolution.
+
+Candidate patch/provenance and audited case metrics are retained under
+`data/results/model3_fastpath_candidate_20261004.*` and
+`data/results/model3_fastpath_admission_20261004.json`. The verified source,
+tests and raw outputs are bundled at
+`outputs/model3_precision_feasibility/fastpath_candidate_verified.zip` with
+hash/size in the result record. Original slow admission and13-node run remain
+separate, unchanged computations. Next gates are long-horizon integrated
+accuracy and higher-grid numerical/resource checks before production use.

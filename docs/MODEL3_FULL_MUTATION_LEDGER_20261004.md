@@ -222,3 +222,15 @@ difference1.7764e-14. Original integrated session46733 still live; do not edit
 its solver sources. Next action: isolated corrected-source regression and
 admission run, preserving original output/source identity and failed speed
 evidence. Rank growth/high-grid feasibility remain separate unresolved gates.
+
+## Isolated fast-path admission completed
+
+Verified archive copy used to protect both live runs. Two planner-budget lines
+changed only in candidate. Regression observed failing path then green;70
+candidate-local tests pass. Eight identical40-period n5 cases pass in23.518s
+total. Max path L1=1.3217425e-8, trait gap=1.7097166e-9, relative negative
+mass=2.6360477e-11. Endpoint/source hashes and recomputed final errors agree.
+Candidate patch plus provenance/metrics committed; full source/tests/raw bundle
+retained with SHA256. Original frozen solver files have not been changed.
+No claim of integrated1000-period or high-grid adequacy yet. Fast run session
+19685 exited0; old admission46733 and13-node77498 remain live.
