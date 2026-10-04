@@ -710,10 +710,11 @@ from telescoping orthogonal projections and bounds joint L1 in exact arithmetic.
 Signed factors/correlations are retained; no independent-marginal closure.
 Three small direct-reference/invalid-input tests pass.
 
-On the exact saved failing inputs, the core becomes333x301x154 (15,436,422
+On the exact saved failing inputs, the core becomes333x301x154 (15,435,882
 values), below16million, in6.265s. Projection L1 bound7.874181685223706e-10
 against allowed6.619543380939491e-9. Mass before66.19543380939491 and
 after66.19543380939523. This is component admission only, not a full strict
 step or trajectory. Sources/input/output hashes in the actual-run receipt.
 Next: integrate fallback with a shared per-stage projection+rounding error
 budget, then revalidate full-step comparison. Previous failures remain intact.
+
