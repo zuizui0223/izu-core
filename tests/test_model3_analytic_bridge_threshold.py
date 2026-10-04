@@ -13,5 +13,5 @@ def test_analytic_threshold_recovers_isolation_regime_switch():
 
 def test_analytic_threshold_uses_all_frozen_histories():
     result = run_audit()
-    assert len(result["rows"]) == 9
+    assert len(result["rows"]) == 45
     assert all(row["history_count"] == 128 for row in result["rows"])
