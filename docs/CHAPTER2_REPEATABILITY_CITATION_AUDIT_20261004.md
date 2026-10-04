@@ -1,6 +1,6 @@
 # Chapter 2 repeatability citation and journal-format audit — 2026-10-04
 
-**Status:** source-checked for the current repeatability candidate.
+**Status:** source-checked and synchronized to the current repeatability candidate.
 
 ## Journal format
 
