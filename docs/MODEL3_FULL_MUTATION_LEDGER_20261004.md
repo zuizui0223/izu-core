@@ -338,3 +338,20 @@ can increase rank. No ecological or grid-convergence claim follows.
 Next unresolved work includes weighted ecological integration, selfed
 transitions and sustained rank/error control at high resolution.
 Sources and outputs archived; receipt data/results/model3_highgrid_resource_20261004.json.
+
+
+## Bounded ecological weighting before expanded-core allocation
+
+Previous goal turn: progress (65-node child-factor resource measurements).
+Added isolated model3_weighted_factor_bound component; no frozen running
+solver sources changed. It SVD-reduces raw weighted factors before forming
+the output joint core. Bound uses implicit expanded-core Frobenius norm
+sqrt(p)*norm(core), factor spectral norms, telescoping residuals and
+sqrt(number of physical states). Preserves joint dependence; signed bases
+allowed. No positivity or floating-roundoff guarantee.
+Observed missing-module RED, then4 component tests GREEN including actual
+nonzero truncation bounded against dense calculation; candidate79tests pass.
+This is not yet integrated/admitted on ecological long trajectories.
+Full raw weighted-factor allocation/SVD remains a possible65-node bottleneck;
+next investigate weight-function reduction with an explicit error bound.
+Long n9 run session58342 remains live: firstcase400periods L1=1.24581e-9.
