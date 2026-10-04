@@ -1,0 +1,54 @@
+{
+  "input_sha256": "ee034e57681cf9b9b651ef28ff11bcfd78580628e5027f5fd6c36ef5e8aef29d",
+  "error": "explicit array size 21222630 exceeds budget 16000000",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\audit_third65_failure.py\", line 9, in <module>\n    try:bounded_step(state,(np.linspace(0,1,65),)*3,exposure(76001,'near').visitors[2],config('assurance_cost',.01),budget=16_000_000)\n  File \"C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\model3_complete_integration.py\", line 57, in bounded_step\n    child,info=bounded_outcross(donor,recipient,axes,config.mutation_rate,config.mutation_sd,scheme,relative_l1=relative_l1,budget=budget)\n  File \"C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\model3_tiled_child.py\", line 21, in streamed_outcross\n    check_size(len(pairs)*dc.shape[k]*rc.shape[k],budget)\n  File \"C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\model3_compressed_step.py\", line 17, in check_size\n    raise MemoryError(f'explicit array size {size} exceeds budget {budget}')\nMemoryError: explicit array size 21222630 exceeds budget 16000000\n",
+  "frames": [
+    {
+      "function": "<module>",
+      "line": 9,
+      "arrays": {}
+    },
+    {
+      "function": "bounded_step",
+      "line": 57,
+      "arrays": {
+        "core": [
+          113,
+          94,
+          38
+        ],
+        "axis": [
+          65
+        ]
+      }
+    },
+    {
+      "function": "streamed_outcross",
+      "line": 21,
+      "arrays": {
+        "axis": [
+          65
+        ],
+        "pairs": [
+          2145,
+          2
+        ],
+        "dc": [
+          97,
+          84,
+          38
+        ],
+        "rc": [
+          102,
+          88,
+          38
+        ]
+      }
+    },
+    {
+      "function": "check_size",
+      "line": 17,
+      "arrays": {}
+    }
+  ]
+}

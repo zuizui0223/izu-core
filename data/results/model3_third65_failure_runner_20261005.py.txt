@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,hashlib,traceback,numpy as np
+from scripts.model3_complete_integration import bounded_step
+from scripts.run_model3_full_mutation import config,exposure
+c=Path.cwd();d=c/'complete_ten65';key='assurance_cost_near_jump';v=json.loads((d/(key+'.json')).read_text());p=d/(key+'.npz')
+assert v['status']=='failed' and v['failure_period']==3
+assert hashlib.sha256(p.read_bytes()).hexdigest()==v['npz_sha256']
+with np.load(p) as z:state=(z['core'],tuple(z[f'factor{k}'] for k in range(3)))
+try:bounded_step(state,(np.linspace(0,1,65),)*3,exposure(76001,'near').visitors[2],config('assurance_cost',.01),budget=16_000_000)
+except (MemoryError,ArithmeticError,ValueError) as e:
+ frames=[];tb=e.__traceback__
+ while tb:
+  f=tb.tb_frame;frames.append(dict(function=f.f_code.co_name,line=tb.tb_lineno,arrays={k:list(x.shape) for k,x in f.f_locals.items() if isinstance(x,np.ndarray)}));tb=tb.tb_next
+ result=dict(input_sha256=v['npz_sha256'],error=str(e),traceback=traceback.format_exc(),frames=frames)
+ (c/'third65_diagnosis.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

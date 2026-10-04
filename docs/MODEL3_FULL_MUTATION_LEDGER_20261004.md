@@ -786,3 +786,16 @@ strict checkpoint's source/state/precision evidence before launch. It retains
 all original biology. Current compiled source snapshot is archived by runner.
 This is the next limited resource/local-marginal gate, not an admission for the
 1000-period biological campaign. Prior strict/source failures stay preserved.
+
+## 2026-10-05: ten-period gate exposes next raw-child-factor ceiling
+
+complete_ten65 first near/jump case passed periods1-2, second period76.610s
+and marginalL1 4.4136547338243436e-13. Period3 failed before forming child
+factors:2145*97*102=21,222,630values exceeds16million cap. Saved second-step
+state hash ee034e57681cf9b9b651ef28ff11bcfd78580628e5027f5fd6c36ef5e8aef29d
+was verified and replayed once for a traceback. Donor ranks97x84x38,
+recipient102x88x38. This is raw child-factor construction, not the repaired sum.
+Current ten-period driver continues next frozen cases, without retuning.
+Next numerical repair must stream/project the raw child factors before their
+full construction. Preserve full joint parent state and explicit error budget.
+Traceback and shape receipt: model3_third65_failure_20261005.json.
