@@ -66,8 +66,10 @@ Scientific surfaces already fixed on the repeatability branch:
 - exhaustive 35-way split-half robustness;
 - prospectively frozen new-demographic validation;
 - prospectively frozen independent new-visitor-history validation;
-- Figure 1 conceptual generator;
-- Figure 3 independent-history validation generator;
+- Figure 1 biological-level / measurement map;
+- Figure 2 frozen functional-rematching operator audit;
+- Figure 3 prospectively frozen independent visitor-history validation;
+- Figure 4 frozen finite-realization and source-locked natural claim-boundary panel;
 - citation/journal-format audit;
 - fail-closed claim tests.
 
