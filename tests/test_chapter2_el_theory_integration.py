@@ -31,14 +31,22 @@ def test_el_theory_integration_claim_ceiling_and_format():
     assert "does not calibrate any named island system" in si
 
 
-def test_el_theory_integration_keeps_joint_assurance_out_of_locked_main_text():
+def test_el_theory_integration_uses_corrected_joint_selection_with_claim_ceiling():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
-    # The separate rare-mutant joint-assurance extension remains exploratory
-    # until its frozen gates complete.
+    si = SI.read_text(encoding="utf-8")
+
+    assert "w_mut=0.5F_mut+0.5P_mut+S_mut" in manuscript
+    assert "The preregistered alternative-endpoint branching criterion therefore failed." in manuscript
+    assert "maximum absolute error 7.2e-16" in si
+    assert "No setting met the alternative-endpoint branching rule" in si
+    assert "purging feedback" in si
+
     forbidden = [
-        "rare-mutant joint selection",
-        "classic_sign_reversal",
-        "joint syndrome selection vector",
+        "we demonstrate bistability",
+        "two stable attractors",
+        "universal selfing syndrome",
+        "Model 3 is a PDE",
     ]
     for token in forbidden:
         assert token not in manuscript
+        assert token not in si
