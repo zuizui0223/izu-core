@@ -476,3 +476,21 @@ child-core projection, not yet integrated whole-step or trajectory success.
 Next integration must split the declared local L1 budget between child
 factor truncation and streamed core projection, converting Frobenius by
 sqrt(physical genotype count) with orthonormal bases. Preserve old failures.
+
+
+## Streamed outcross integrated under shared local budget
+
+Previous goal turn: progress, direct projection of failed actual core verified.
+Added separate streamed_child/integration modules, old running sources remain
+unchanged. Half local channel L1 budget for child factors; remaining budget
+for streamed projection after sqrt(physical genotype count) conversion.
+Fallback when output exceeds cap or global contraction has >2-operand step.
+Missing-module RED then forced-stream and repeated-step tests GREEN; candidate
+113tests passed. No numerical/biological tolerance relaxation.
+Previously failed65-node second near/jump step launched as separate diagnostic
+session13293, frozen sources/output stream_second65. First child channel
+completed78.75s within16million cap; remaining channels/full-step checks live.
+This does not yet prove second-step completion, joint positivity or long-path
+convergence. New local bounds are not summed into a global trajectory claim.
+Original n13 refinement20/32 last verified; n9 long3/8complete with far_heat
+700periods live and current L1 below gate.

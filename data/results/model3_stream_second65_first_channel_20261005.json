@@ -1,0 +1,57 @@
+{
+  "scope": "partial first child channel only; complete step still running",
+  "receipt": {
+    "seconds": 78.75,
+    "receipt": {
+      "absolute_l1_bound": 1.7861794819995588e-08,
+      "streamed": true,
+      "factor_receipt": {
+        "absolute_l1_bound": 1.7813654924530452e-08,
+        "ranks": [
+          859,
+          777,
+          52
+        ],
+        "prefactor": 7788130.931232528,
+        "spectral_tail_ratios": [
+          7.826139212069128e-16,
+          8.031629823517564e-16,
+          7.015055114162563e-16
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "projection_receipt": {
+        "residual_frobenius": 4.845785634250725e-16,
+        "rank": 128,
+        "attempts": [
+          {
+            "rank": 8,
+            "residual_frobenius": 0.002659871621668957
+          },
+          {
+            "rank": 16,
+            "residual_frobenius": 3.728808154373657e-07
+          },
+          {
+            "rank": 32,
+            "residual_frobenius": 4.372529114277298e-09
+          },
+          {
+            "rank": 64,
+            "residual_frobenius": 4.557534823259782e-12
+          },
+          {
+            "rank": 128,
+            "residual_frobenius": 4.845785634250725e-16
+          }
+        ],
+        "block_reads": 2145,
+        "seed": 997,
+        "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+        "scope": "directly measured projection residual; excludes floating-point roundoff"
+      },
+      "bound_scope": "factor truncation plus directly measured projection residual; excludes roundoff"
+    }
+  },
+  "source_manifest_sha256": "1fd61c7e48ed4c7059de72fa28c1e90814d0922873a1a0cb2aa6deff76eddd3c"
+}
