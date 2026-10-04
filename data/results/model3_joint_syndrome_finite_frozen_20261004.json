@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "status": "completed_frozen_finite_joint_syndrome_followup",
+  "date": "2026-10-04",
+  "provenance": {
+    "workflow_run_id": 37186196843,
+    "head_sha": "92b90059e1039eb6cf62bc0b08924a56173c726e",
+    "artifacts": {
+      "pollen_discount": {
+        "id": 11297400823,
+        "digest_sha256": "a78735cc4aabeb154a4881b436ba66e1a070ef535f753873f8dee06e5df51ad2"
+      },
+      "delayed_control": {
+        "id": 11297775655,
+        "digest_sha256": "51262c264d46a0ddab1f36749e274e89fc8cee58acd2fb289fc6095137378d16"
+      },
+      "assurance_cost": {
+        "id": 11298050071,
+        "digest_sha256": "265ce87e96804df1876036a970fd368625b4f79bd9c95932dd4397a297c20fc6"
+      },
+      "prior_selfing": {
+        "id": 11296974883,
+        "digest_sha256": "32478bd9b25da39e65b0b44449232f37556e226a41632cfc75d78804829deb36"
+      }
+    }
+  },
+  "endpoint_deadbands": {
+    "investment": 0.05,
+    "assurance": 0.05
+  },
+  "settings": {
+    "delayed_control": {
+      "occupancy": 0.99609375,
+      "any_history_branching": false,
+      "any_reproducible_history_branching": false,
+      "initial_states": {
+        "central": {
+          "eligible": 128,
+          "syndrome": 0.109375,
+          "outcross": 0,
+          "intermediate": 0.890625,
+          "split_half_agreement": 0.8828125
+        },
+        "outcross_like": {
+          "eligible": 116,
+          "syndrome": 0.16379310344827586,
+          "outcross": 0.02586206896551724,
+          "intermediate": 0.8103448275862069,
+          "split_half_agreement": 0.8275862068965517
+        },
+        "selfing_like": {
+          "eligible": 128,
+          "syndrome": 0.1171875,
+          "outcross": 0.015625,
+          "intermediate": 0.8671875,
+          "split_half_agreement": 0.890625
+        }
+      }
+    },
+    "prior_selfing": {
+      "occupancy": 0.9964192708333334,
+      "any_history_branching": false,
+      "any_reproducible_history_branching": false,
+      "initial_states": {
+        "central": {
+          "eligible": 128,
+          "syndrome": 0.0546875,
+          "outcross": 0,
+          "intermediate": 0.9453125,
+          "split_half_agreement": 0.96875
+        },
+        "outcross_like": {
+          "eligible": 118,
+          "syndrome": 0.1016949152542373,
+          "outcross": 0.01694915254237288,
+          "intermediate": 0.8813559322033898,
+          "split_half_agreement": 0.8983050847457628
+        },
+        "selfing_like": {
+          "eligible": 128,
+          "syndrome": 0.0390625,
+          "outcross": 0,
+          "intermediate": 0.9609375,
+          "split_half_agreement": 0.9453125
+        }
+      }
+    },
+    "pollen_discount": {
+      "occupancy": 0.9892578125,
+      "any_history_branching": false,
+      "any_reproducible_history_branching": false,
+      "initial_states": {
+        "central": {
+          "eligible": 128,
+          "syndrome": 0.125,
+          "outcross": 0,
+          "intermediate": 0.875,
+          "split_half_agreement": 0.8515625
+        },
+        "outcross_like": {
+          "eligible": 108,
+          "syndrome": 0.21296296296296297,
+          "outcross": 0.009259259259259259,
+          "intermediate": 0.7777777777777778,
+          "split_half_agreement": 0.8425925925925926
+        },
+        "selfing_like": {
+          "eligible": 128,
+          "syndrome": 0.046875,
+          "outcross": 0.0078125,
+          "intermediate": 0.9453125,
+          "split_half_agreement": 0.9375
+        }
+      }
+    },
+    "assurance_cost": {
+      "occupancy": 0.9879557291666666,
+      "any_history_branching": false,
+      "any_reproducible_history_branching": false,
+      "initial_states": {
+        "central": {
+          "eligible": 128,
+          "syndrome": 0.3359375,
+          "outcross": 0.015625,
+          "intermediate": 0.6484375,
+          "split_half_agreement": 0.765625
+        },
+        "outcross_like": {
+          "eligible": 101,
+          "syndrome": 0.27722772277227725,
+          "outcross": 0.0297029702970297,
+          "intermediate": 0.693069306930693,
+          "split_half_agreement": 0.7425742574257426
+        },
+        "selfing_like": {
+          "eligible": 128,
+          "syndrome": 0.4296875,
+          "outcross": 0,
+          "intermediate": 0.5703125,
+          "split_half_agreement": 0.6640625
+        }
+      }
+    }
+  },
+  "decision": {
+    "delayed_control": "control_only",
+    "prior_selfing": "mechanistic_core",
+    "pollen_discount": "mechanistic_core",
+    "assurance_cost": "mechanistic_core",
+    "overall_promotion": "mechanistic_core",
+    "reason": "All three tradeoff settings passed the frozen rare-mutant joint-shift gate and at least one initial state in each produced >=10% finite syndrome endpoints. No setting produced both syndrome and outcross endpoint classes at >=10%, so the alternative-endpoint branching gate failed."
+  },
+  "claim_boundary": [
+    "finite endpoint evidence supports a joint syndrome direction but not two alternative endpoint classes",
+    "outcross endpoint frequency stayed below 0.10 in every setting and initial state",
+    "delayed_control is structural control only",
+    "delta fixed; no purging feedback",
+    "syndrome endpoint frequencies are synthetic-model frequencies, not estimates of natural prevalence"
+  ],
+  "frozen_adjudication": {
+    "overall_promotion": "mechanistic_core",
+    "repeatability_core_or_next_paper": false,
+    "per_setting": {
+      "delayed_control": "control_only",
+      "prior_selfing": "mechanistic_core",
+      "pollen_discount": "mechanistic_core",
+      "assurance_cost": "mechanistic_core"
+    },
+    "rationale": [
+      "All three tradeoff settings passed the preregistered rare-mutant joint-shift gate.",
+      "Each tradeoff setting produced >=10% finite syndrome endpoints in at least one prespecified initial state.",
+      "No setting met the frozen branching rule because syndrome and outcross endpoint classes did not each reach 10% in the same setting and initial state.",
+      "The result therefore promotes the extension to a mechanistic core for the existing paper, but not to a repeatability-core branching claim or separate branching paper."
+    ]
+  }
+}
