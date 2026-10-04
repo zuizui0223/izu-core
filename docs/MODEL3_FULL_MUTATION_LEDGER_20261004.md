@@ -434,3 +434,20 @@ Other cases still live; do not classify unfinished cases as failures.
 No memory/tolerance relaxation. Next numerical route is blockwise child-core
 projection with directly evaluated residual bounds; plan recorded separately.
 No65-node long-run or grid-convergence claim.
+
+
+## Streamed projection component and actual-input measurement
+
+Previous goal turn: progress,65-node second-step failure reproduced.
+Added separate project_columns component. Gram identifies candidate bases;
+acceptance uses direct blockwise residual, never spectral-tail subtraction.
+Per-array allocation cap enforced; input callbacks must be deterministic.
+Missing-module RED then four tests GREEN, candidate100tests pass.
+Captured real failed child operands844x761x45 with hashes. Blocks width1/4/16
+use binary contraction paths, measured0.016/0.015/0.063seconds respectively.
+Source/input archive stream_input_verified.zip.
+Actual-input projection started session99502, direct Frobenius1e-14 target,
+width4 (180columns),16million allocation cap. Not yet accepted into solver.
+Nine-node long session58342 now2/8complete/pass; far_jump500periods live.
+65-node ten-step session29425 still live after firstcase resource failure;
+no restart and unfinished cases not classified as numerical failures.

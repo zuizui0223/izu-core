@@ -1,0 +1,97 @@
+{
+  "scope": "captured failing child contraction; block timing only",
+  "rows": [
+    {
+      "width": 1,
+      "path": [
+        "einsum_path",
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  2.988e+13\n  Optimized FLOP count:  1.826e+08\n   Theoretical speedup:  163646.308\n  Largest intermediate:  9.860e+04 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               jbe,def->jfdb                    abc,iad,kcf,jfdb->ijk\n   6             jfdb,abc->jcfad                       iad,kcf,jcfad->ijk\n   6             jcfad,iad->jcfi                            kcf,jcfi->ijk\n   5               jcfi,kcf->ijk                                 ijk->ijk",
+      "seconds": 0.015999999945051968,
+      "shape": [
+        844,
+        1,
+        45
+      ],
+      "norm": 0.34845450854657156
+    },
+    {
+      "width": 4,
+      "path": [
+        "einsum_path",
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  1.195e+14\n  Optimized FLOP count:  7.304e+08\n   Theoretical speedup:  163646.309\n  Largest intermediate:  3.944e+05 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               jbe,def->jfdb                    abc,iad,kcf,jfdb->ijk\n   6             jfdb,abc->jcfad                       iad,kcf,jcfad->ijk\n   6             jcfad,iad->jcfi                            kcf,jcfi->ijk\n   5               jcfi,kcf->ijk                                 ijk->ijk",
+      "seconds": 0.015000000013969839,
+      "shape": [
+        844,
+        4,
+        45
+      ],
+      "norm": 0.3894348057024762
+    },
+    {
+      "width": 16,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  4.781e+14\n  Optimized FLOP count:  1.822e+09\n   Theoretical speedup:  262376.654\n  Largest intermediate:  7.099e+05 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               jbe,abc->cjae                    def,iad,kcf,cjae->ijk\n   5               kcf,def->cdek                       iad,cjae,cdek->ijk\n   6             cdek,cjae->jadk                            iad,jadk->ijk\n   5               jadk,iad->ijk                                 ijk->ijk",
+      "seconds": 0.06299999996554106,
+      "shape": [
+        844,
+        16,
+        45
+      ],
+      "norm": 0.4293026756780079
+    }
+  ],
+  "archive": "outputs/model3_precision_feasibility/stream_input_verified.zip",
+  "archive_sha256": "f2390ceafde7cabfeecce75c6fcb7b99605cffb58d5de181f354dad49fda97f0"
+}

@@ -17,3 +17,9 @@ First tests must match a fully materialized small tensor, cover nonzero
 truncation, resource rejection and correlated/signed inputs. Then capture
 actual failing transforms and test their block access without full allocation.
 This is a numerical development path, not ecological evidence or admission.
+
+Actual failed-input probe: use captured844x761x45 core operands, blocks
+of4 second-axis values (180 unfolded columns),16million per-array cap.
+Measured block timings0.015s for width4, no multi-operand fallback.
+Test direct Frobenius residual<=1e-14 before biological integration; do
+not relax if it fails. This is a component/resource diagnostic only.
