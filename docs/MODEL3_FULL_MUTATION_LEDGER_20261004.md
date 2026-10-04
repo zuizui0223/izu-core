@@ -534,3 +534,22 @@ L1 upper<=1e-5 plus existing exact marginal checks. No retuning on failure.
 Launched session48191, sources/output fastpath_candidate/strict_second65.
 This checks one step only, not accumulated high-grid trajectory convergence.
 Original n9 long session58342 now5/8complete/pass; sixth near_heat_fv live.
+
+
+## Strict tolerance resource failure and multiaxis route
+
+Previous goal turn: progress, rank-start acceleration and strict gate launched.
+Strict session48191 ended failed97.547s: rank74 storage ceiling, residual
+7.82824e-13 >3.35389e-15. No full state produced; joint tolerance convergence
+remains unverified. Failed sources/output and captured strict child archived.
+Captured child shape1399x2145x100: single projected unfolding limits rank.
+New basis-only projection avoids storing that unfolding; sequential different
+mode projections commute and summed direct residuals bound joint residual.
+Missing modules RED, candidate133tests GREEN. Test fixture corrected from
+1000 to500 cap because original test could fit after one mode; no science
+threshold changed. Separate actual-input multiaxis probe uses same strict
+Frobenius3.3538949820031467e-15 and16million cap.
+Initial diagnostic driver exited1 before computation: archive-loop variable
+shadowed NPZ path with plan path. Fixed explicit input_path, retained failed
+source archive, separate output multi_probe_run2; session84375 now live.
+No allow_pickle workaround and no numerical failure counted for that IO bug.

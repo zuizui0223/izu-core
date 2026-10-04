@@ -1,0 +1,17 @@
+import json,hashlib,time,zipfile,numpy as np
+from pathlib import Path
+from scripts.model3_multiaxis_projection import project_child_core
+c=Path(__file__).resolve().parents[1];inputs=c/'multi_probe';out=c/'multi_probe_run2';out.mkdir(exist_ok=True);input_path=inputs/'strict_child.npz';v=json.loads((inputs/'input.json').read_text());assert hashlib.sha256(input_path.read_bytes()).hexdigest()==v['input_sha256']
+if (out/'sources.json').exists():raise ValueError('preserve source snapshot')
+files=[c/'scripts/model3_multiaxis_projection.py',c/'scripts/model3_streamed_basis.py',c/'scripts/model3_compressed_step.py',Path(__file__),c/'docs/superpowers/plans/2026-10-05-model3-multiaxis-projection.md']
+(out/'sources.json').write_text(json.dumps({p.relative_to(c).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files},indent=2))
+with zipfile.ZipFile(out/'sources.zip','w',zipfile.ZIP_DEFLATED) as z:
+ for p in files:z.write(p,p.relative_to(c).as_posix())
+with np.load(input_path) as z:args=[z[f'a{k}'] for k in range(5)]
+start=time.monotonic();result=dict(input_sha256=v['input_sha256'],tolerance=v['kwargs']['absolute_frobenius'])
+try:
+ core,bases,receipt=project_child_core(*args[:2],args[2:],absolute_frobenius=result['tolerance'],budget=16_000_000,initial_rank=128)
+ path=out/'projected.npz';np.savez_compressed(path,core=core,**{f'basis{k}':b for k,b in enumerate(bases) if b is not None})
+ result.update(status='passed',shape=core.shape,receipt=receipt,npz_sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+except (ArithmeticError,MemoryError,ValueError) as e:result.update(status='failed',error=str(e))
+result['seconds']=time.monotonic()-start;(out/'summary.json').write_text(json.dumps(result,indent=2));print(result,flush=True)

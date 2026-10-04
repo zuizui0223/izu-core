@@ -1,0 +1,21 @@
+{
+  "scope": "65-node second complete step resource/local marginal diagnostic",
+  "input_sha256": "e4546036e979c124ea7a1f047687c8a1e3e8f38de0de113e222d4c337f0bde7b",
+  "status": "failed",
+  "error": "residual 7.828241401471777e-13 exceeds 3.3538949820031467e-15 at maximum admissible rank 74",
+  "seconds": 97.54700000002049,
+  "archive": "outputs/model3_precision_feasibility/strict_second65_failure.zip",
+  "archive_sha256": "8a2b6f292a9647b54eac7bc3b371a652c41c2345c1c8c8254e2401b5f1b3c0e5",
+  "captured_input": {
+    "shape": [
+      1399,
+      214500
+    ],
+    "kwargs": {
+      "absolute_frobenius": 3.3538949820031467e-15,
+      "budget": 16000000,
+      "block_columns": 400
+    },
+    "input_sha256": "c556b9512a95363b033b399c2b73c983f233b9e22c4aac7ae3c23152ac917392"
+  }
+}
