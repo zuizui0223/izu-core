@@ -1,0 +1,73 @@
+--- a/scripts/audit_model3_rounded_integration.py
++++ b/scripts/audit_model3_rounded_integration.py
+@@ -1,5 +1,5 @@
+ """Predeclared n5/40-period integrated compressed-solver admission probe."""
+-import hashlib,json,time,zipfile
++import hashlib,json,time,zipfile,argparse
+ from pathlib import Path
+ import numpy as np
+ from scripts.run_model3_full_mutation import ROOT,config,exposure,atomic_json
+@@ -10,15 +10,19 @@
+ from scripts.model3_core_rounding import rounded
+ 
+ 
+-def main():
+-    out=ROOT/'outputs/model3_precision_feasibility/integrated_n5_40'
++def main(periods=40):
++    if periods not in (40,1000):
++        raise ValueError('only declared horizons40/1000 allowed')
++    out=ROOT/f'outputs/model3_precision_feasibility/integrated_n5_{periods}'
+     out.mkdir(parents=True,exist_ok=True)
+     sources=sorted(set(list((ROOT/'scripts/model3_island').glob('*.py'))+
+         list((ROOT/'scripts').glob('model3_compressed*.py'))+[
+         ROOT/'scripts/model3_core_rounding.py',Path(__file__),
+         ROOT/'scripts/run_model3_full_mutation.py',
+         ROOT/'data/design/model3_ch2_bridge_20260927.json',
+-        ROOT/'docs/superpowers/plans/2026-10-04-model3-rounded-integration-probe.md']))
++        ROOT/'docs/superpowers/plans/2026-10-04-model3-rounded-integration-probe.md',
++        ROOT/'docs/superpowers/plans/2026-10-04-model3-fastpath-long.md',
++        ROOT/'scripts/__init__.py']))
+     hashes={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
+     if (out/'sources.json').exists():
+         raise ValueError('existing probe output must not be overwritten')
+@@ -34,8 +38,8 @@
+        for scheme in ['jump','heat_fv']:
+         key=f'{setting}_{arm}_{scheme}';c=config(setting,.01);h=exposure(76001,arm)
+         state,_=rounded((initial.reshape(15,15,15),[np.eye(15)]*3))
+-        baseline=initial.copy();records=[];start=time.monotonic();failure=None
+-        for t in range(40):
++        baseline=initial.copy();records=[];checkpoints={};start=time.monotonic();failure=None
++        for t in range(periods):
+             local=[]
+             def reduce(value,stage):
+                 value,receipt=rounded(value,relative_l1=1e-8)
+@@ -51,14 +55,19 @@
+                     mass_gap=abs(bm-cm),trait_gap=gap,
+                     negative_mass=float(-dense[dense<0].sum()/max(bm,1e-300)),
+                     occupancy_mismatch=bool((bm>0)!=(cm>0)),ranks=list(state[0].shape),local=local))
++                if t+1 in (200,400,periods):
++                    checkpoints[f'baseline_{t+1}']=baseline.copy()
++                    checkpoints[f'compressed_{t+1}']=dense.copy()
++                if (t+1)%100==0:
++                    print(key,t+1,'/',periods,'L1',records[-1]['path_l1'],flush=True)
+             except (ArithmeticError,ValueError,MemoryError) as error:
+                 failure=dict(period=t+1,type=type(error).__name__,message=str(error),local=local)
+                 break
+-        passed=failure is None and len(records)==40 and all(
++        passed=failure is None and len(records)==periods and all(
+             r['path_l1']<=1e-5 and r['mass_gap']<=1e-5 and r['negative_mass']<=1e-10
+             and not r['occupancy_mismatch'] and (r['trait_gap'] is None or r['trait_gap']<=1e-6) for r in records)
+         arrays=out/(key+'.npz')
+-        np.savez_compressed(arrays,baseline=baseline,core=state[0],**{f'factor{k}':f for k,f in enumerate(state[1])})
++        np.savez_compressed(arrays,baseline=baseline,core=state[0],**checkpoints,**{f'factor{k}':f for k,f in enumerate(state[1])})
+         result=dict(key=key,passed=passed,failure=failure,records=records,seconds=time.monotonic()-start,
+                     checkpoint_sha256=hashlib.sha256(arrays.read_bytes()).hexdigest())
+         atomic_json(out/(key+'.json'),result);results.append(result)
+@@ -66,4 +75,6 @@
+     atomic_json(out/'summary.json',dict(scope='coarse-grid integrated solver admission only',results=results))
+ 
+ 
+-if __name__=='__main__':main()
++if __name__=='__main__':
++    p=argparse.ArgumentParser();p.add_argument('--periods',type=int,choices=[40,1000],default=40)
++    main(p.parse_args().periods)

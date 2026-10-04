@@ -234,3 +234,16 @@ Candidate patch plus provenance/metrics committed; full source/tests/raw bundle
 retained with SHA256. Original frozen solver files have not been changed.
 No claim of integrated1000-period or high-grid adequacy yet. Fast run session
 19685 exited0; old admission46733 and13-node77498 remain live.
+
+## Corrected solver long gate launched; higher-grid shape screen
+
+Candidate runner extended under a separate fixed1000-period plan. Horizon
+guard test observed red then green;71 local tests pass. Eight-case long run
+session67923 started with unchanged biology/error thresholds. Its archived
+manifest checked. Original live-run manifests also unchanged. Runner patch,
+launch manifest and plan retained in tracked files; do not edit candidate
+solver sources until its live run terminates.
+
+Symbolic shape screen (no biological runs) shows schedule fixes alone cannot
+handle assumed40-rank parents at33/65 nodes. Need bounded child-factor reduction
+before core contraction, not unbounded allocation or a claim that65 is enough.

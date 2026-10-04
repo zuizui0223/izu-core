@@ -360,3 +360,23 @@ tests and raw outputs are bundled at
 hash/size in the result record. Original slow admission and13-node run remain
 separate, unchanged computations. Next gates are long-horizon integrated
 accuracy and higher-grid numerical/resource checks before production use.
+
+## Integrated long run and symbolic contraction preflight
+
+The corrected isolated solver now runs the same8 cases for1000 periods under
+the separately frozen fastpath-long plan. All thresholds and biological inputs
+remain fixed. Candidate-local71 tests pass; source hashes and source archive
+were created before launch. Session67923; no completed-case claim yet.
+
+A separate allocation-free contraction-shape screen considered allele nodes
+9/13/17/33/65, parental rank min(40,diploid-mode-size), and explicit intermediate
+budgets2/16/64 million values. These are assumed ranks, NOT measured guarantees.
+At that scenario, n9/n13 acquire binary paths at16million; n17 at64million.
+n33/n65 do not. The unrounded n65 child core would still contain4.096billion
+values. Thus the planner correction does not eliminate high-grid rank growth.
+The current2million-value output cap rightly refuses such an allocation.
+
+Raw symbolic paths are in model3_contraction_shape_screen_20261004.json. This
+does not authorize raising memory caps blindly or launching17+ biology. A
+pre-contraction reduction of child-factor ranks, with a defensible error bound,
+is needed for those scenarios before claiming high-resolution feasibility.

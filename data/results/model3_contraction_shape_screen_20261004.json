@@ -1,0 +1,347 @@
+{
+  "scope": "symbolic shape scenario; not measured ranks or solver feasibility",
+  "rows": [
+    {
+      "allele_nodes": 9,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 45,
+      "output_core_values": 91125,
+      "budget_values": 2000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  1.866e+15\n  Optimized FLOP count:  1.866e+15\n   Theoretical speedup:  1.000\n  Largest intermediate:  9.112e+04 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 9,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 45,
+      "output_core_values": 91125,
+      "budget_values": 16000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "binary": true,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  1.866e+15\n  Optimized FLOP count:  1.112e+10\n   Theoretical speedup:  167821.301\n  Largest intermediate:  3.240e+06 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   6             bdfj,bcdi->cfij                            kcf,cfij->ijk\n   5               cfij,kcf->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 9,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 45,
+      "output_core_values": 91125,
+      "budget_values": 64000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "binary": true,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  1.866e+15\n  Optimized FLOP count:  1.112e+10\n   Theoretical speedup:  167821.301\n  Largest intermediate:  3.240e+06 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   6             bdfj,bcdi->cfij                            kcf,cfij->ijk\n   5               cfij,kcf->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 13,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 91,
+      "output_core_values": 753571,
+      "budget_values": 2000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  1.543e+16\n  Optimized FLOP count:  1.543e+16\n   Theoretical speedup:  1.000\n  Largest intermediate:  7.536e+05 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 13,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 91,
+      "output_core_values": 753571,
+      "budget_values": 16000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "binary": true,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  1.543e+16\n  Optimized FLOP count:  4.574e+10\n   Theoretical speedup:  337395.357\n  Largest intermediate:  1.325e+07 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   6             bdfj,bcdi->cfij                            kcf,cfij->ijk\n   5               cfij,kcf->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 13,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 91,
+      "output_core_values": 753571,
+      "budget_values": 64000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "binary": true,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  1.543e+16\n  Optimized FLOP count:  4.574e+10\n   Theoretical speedup:  337395.357\n  Largest intermediate:  1.325e+07 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   6             bdfj,bcdi->cfij                            kcf,cfij->ijk\n   5               cfij,kcf->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 17,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 153,
+      "output_core_values": 3581577,
+      "budget_values": 2000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  7.335e+16\n  Optimized FLOP count:  7.335e+16\n   Theoretical speedup:  1.000\n  Largest intermediate:  3.582e+06 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 17,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 153,
+      "output_core_values": 3581577,
+      "budget_values": 16000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  7\n      Naive FLOP count:  7.335e+16\n  Optimized FLOP count:  2.751e+13\n   Theoretical speedup:  2666.515\n  Largest intermediate:  9.792e+06 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   7          bdfj,bcdi,kcf->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 17,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 153,
+      "output_core_values": 3581577,
+      "budget_values": 64000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "binary": true,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  7.335e+16\n  Optimized FLOP count:  1.329e+11\n   Theoretical speedup:  551999.381\n  Largest intermediate:  3.745e+07 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   6             bdfj,bcdi->cfij                            kcf,cfij->ijk\n   5               cfij,kcf->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 33,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 561,
+      "output_core_values": 176558481,
+      "budget_values": 2000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  3.616e+18\n  Optimized FLOP count:  3.616e+18\n   Theoretical speedup:  1.000\n  Largest intermediate:  1.766e+08 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 33,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 561,
+      "output_core_values": 176558481,
+      "budget_values": 16000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  3.616e+18\n  Optimized FLOP count:  3.616e+18\n   Theoretical speedup:  1.000\n  Largest intermediate:  1.766e+08 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 33,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 561,
+      "output_core_values": 176558481,
+      "budget_values": 64000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  7\n      Naive FLOP count:  3.616e+18\n  Optimized FLOP count:  1.356e+15\n   Theoretical speedup:  2666.655\n  Largest intermediate:  1.766e+08 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   7          bdfj,bcdi,kcf->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 65,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 1600,
+      "output_core_values": 4096000000,
+      "budget_values": 2000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  8.389e+19\n  Optimized FLOP count:  8.389e+19\n   Theoretical speedup:  1.000\n  Largest intermediate:  4.096e+09 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 65,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 1600,
+      "output_core_values": 4096000000,
+      "budget_values": 16000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  8.389e+19\n  Optimized FLOP count:  8.389e+19\n   Theoretical speedup:  1.000\n  Largest intermediate:  4.096e+09 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    },
+    {
+      "allele_nodes": 65,
+      "assumed_parent_rank": 40,
+      "unrounded_child_rank": 1600,
+      "output_core_values": 4096000000,
+      "budget_values": 64000000,
+      "path": [
+        "einsum_path",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "binary": false,
+      "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  8.389e+19\n  Optimized FLOP count:  8.389e+19\n   Theoretical speedup:  1.000\n  Largest intermediate:  4.096e+09 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+    }
+  ]
+}
