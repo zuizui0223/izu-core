@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-04",
+  "status": "complete_posthoc_secondary_absolute_history_variance_contrast",
+  "source_validation": "data/results/chapter2_finite_history_signal_environment_validation_20261004.json",
+  "source_receipt": "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json",
+  "provenance": {
+    "workflow_run": 37155642391,
+    "visitor_history_seeds": [
+      75001,
+      75128
+    ],
+    "demographic_seeds": [
+      301,
+      302,
+      303,
+      304
+    ],
+    "histories": 128,
+    "starts": 3,
+    "intervention_effect_cells": 1536,
+    "shard_artifact_ids": [
+      11285382078,
+      11285646379,
+      11286165993,
+      11285941487,
+      11286021386,
+      11286131002,
+      11285886625,
+      11285566644,
+      11285676481,
+      11286420328,
+      11285367083,
+      11286400584,
+      11286001429,
+      11286166115,
+      11285921679,
+      11286235873
+    ]
+  },
+  "method": {
+    "status": "posthoc secondary analysis of a predeclared secondary endpoint",
+    "endpoint": "history-structured variance = max(sigma_history,0)+max(sigma_start_by_history,0)",
+    "bootstrap": "1999 paired visitor-history resamples; RNG seed 1042026, matching the frozen environment-validation inference seed",
+    "comparison": "same resampled visitor-history indices used for each intervention"
+  },
+  "point_estimates": {
+    "natural": {
+      "history_structured_variance": 0.004780969803419822,
+      "demographic_residual": 0.026743315181116348
+    },
+    "large_plant_capacity": {
+      "history_structured_variance": 0.008893118252114697,
+      "demographic_residual": 0.013712656550421932
+    },
+    "visitor_pooled": {
+      "history_structured_variance": 0.0013010040740354166,
+      "demographic_residual": 0.028580944735375962
+    }
+  },
+  "paired_differences_vs_natural": {
+    "large_plant_capacity": {
+      "history_structured_variance": {
+        "estimate": 0.004112148448694875,
+        "bootstrap95": [
+          0.00194458,
+          0.00595085
+        ]
+      },
+      "demographic_residual": {
+        "estimate": -0.013030658630694416,
+        "bootstrap95": [
+          -0.01522298,
+          -0.01080091
+        ]
+      }
+    },
+    "visitor_pooled": {
+      "history_structured_variance": {
+        "estimate": -0.003479965729384406,
+        "bootstrap95": [
+          -0.00538853,
+          -0.00187106
+        ]
+      },
+      "demographic_residual": {
+        "estimate": 0.0018376295542596142,
+        "bootstrap95": [
+          -0.00117583,
+          0.00499091
+        ]
+      }
+    }
+  },
+  "interpretation": "The opposite intervention effects are present in the absolute history-structured variance itself, not only in the reliability ratio. Capacity scaling increases reproducible between-history structure while lowering demographic residual variance; visitor-history pooling decreases between-history structure while leaving demographic residual variance similar.",
+  "claim_boundary": [
+    "This paired variance comparison was computed after the prospective validation outcome was known and is therefore post-hoc secondary evidence.",
+    "History-structured variance was a predeclared secondary validation quantity, but its paired bootstrap difference was not a primary success criterion.",
+    "Do not interpret these model-conditional variance components as natural heritability, natural history prevalence, or field variance components."
+  ]
+}
