@@ -675,3 +675,15 @@ is not certified by the analytical truncation bound. No claim that roundoff
 vanishes. The full-step gate still requires independently compared full-joint
 error<=1e-5, unchanged. A separate sharp integration/driver is prepared for
 that gate, preserving all prior failures and source snapshots.
+
+## 2026-10-05: strict step hits a new allocation ceiling
+
+Sharp strict gate completed three child channels then failed:
+'explicit array size16438212 exceeds budget16000000', total612.422s.
+The norm-bound repair passed its prior failure point. This new failure is
+resource admission, not measured biological or precision failure. No terminal
+state/full-joint comparison; ten-step launch remains forbidden. Sources and
+archive verified; model3_sharp_strict_failure_20261005.json preserves outcome.
+A diagnostic replay saves every completed child plus failing rounding/sum
+input and traceback, so subsequent numerical repairs can reuse captured inputs
+without repeating expensive child projections. Same parameters/tolerances/cap.
