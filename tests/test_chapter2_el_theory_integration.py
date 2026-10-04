@@ -36,7 +36,9 @@ def test_el_theory_integration_uses_corrected_joint_selection_with_claim_ceiling
     si = SI.read_text(encoding="utf-8")
 
     assert "w_mut=0.5F_mut+0.5P_mut+S_mut" in manuscript
-    assert "The preregistered alternative-endpoint branching criterion therefore failed." in manuscript
+    assert "post-hoc continuous reduction" in manuscript
+    assert "frozen a rare-mutant decision contract" in manuscript
+    assert "The frozen follow-up branching criterion therefore failed." in manuscript
     assert "maximum absolute error 7.2e-16" in si
     assert "No setting met the alternative-endpoint branching rule" in si
     assert "purging feedback" in si
