@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-04",
+  "status": "complete_github_actions_exact_source_new_visitor_history_validation_receipt",
+  "validation_result": "data/results/chapter2_finite_history_signal_environment_validation_20261004.json",
+  "freeze_provenance": {
+    "validation_design": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+    "validation_design_commit": "6bac0410e4459e391dd5fba02bd9b63bed8d4fb9",
+    "validation_design_commit_utc": "2026-10-03T21:32:52Z",
+    "workflow_run": 37155642391,
+    "workflow_head_sha": "5d0c3fa75c962373c1ec151971bd2aadce16e122",
+    "workflow_started_utc": "2026-10-03T21:35:35Z",
+    "decision": "new visitor-history seeds, demographic seeds, reliability statistic, ordering and strong-success rule were Git-frozen before validation execution",
+    "superseded_preexecution_design": "data/design/chapter2_new_history_generalization_validation_20261003.json",
+    "superseded_preexecution_design_commit": "6898a0954b36a03e6839985cfd7649a27b93f6d6",
+    "superseded_before_execution": true,
+    "canonical_design_additions_before_execution": [
+      "bootstrap RNG seed fixed at 1042026",
+      "terminal occupancy >=0.95 added as an explicit strong-success guard",
+      "secondary balanced 2-versus-2 split reporting and claim boundaries formalized"
+    ]
+  },
+  "execution": {
+    "visitor_history_seed_range": [
+      75001,
+      75128
+    ],
+    "demographic_seeds": [
+      301,
+      302,
+      303,
+      304
+    ],
+    "shard_count": 16,
+    "total_arm_trajectories": 9216,
+    "source_snapshot": "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip",
+    "source_hash_contract": "data/design/model3_ch2_bridge_execution_20260927.json",
+    "shard_artifacts": {
+      "0": {
+        "id": 11285382078,
+        "digest": "sha256:488a3c2754016ed5fbcf4e910ddd71f163cdb6f439d9c36bdaab0b8f0d575a85"
+      },
+      "1": {
+        "id": 11285646379,
+        "digest": "sha256:03b629e6ed82888df72acf8b161c53beffb98b29bfebcc04f5a0659195ad7618"
+      },
+      "2": {
+        "id": 11286165993,
+        "digest": "sha256:e9a6126f1137a7328b7182289ac24342c9dae8b97f6b621c13cc02891fe95fc5"
+      },
+      "3": {
+        "id": 11285941487,
+        "digest": "sha256:8c94ae8a8bf1b82a07b80f26d0e89bac05ae995b162e5583cb53e161cea159e0"
+      },
+      "4": {
+        "id": 11286021386,
+        "digest": "sha256:deea4e79802f32c60ee4a73fb0365bbf3d0de74d74e92a4d724a51939e407a7d"
+      },
+      "5": {
+        "id": 11286131002,
+        "digest": "sha256:abf6cb42d10c956ea349bbee91e91ea71a9fffa42ecf01f71930ee25d77ea068"
+      },
+      "6": {
+        "id": 11285886625,
+        "digest": "sha256:081456feee07172bbfbe78f7ae654be7598d53039d350498a3a7f1d3d8a26f3d"
+      },
+      "7": {
+        "id": 11285566644,
+        "digest": "sha256:8db8807349556af4452bc807015eb034a99e77294f6729c2016f029822e7aed1"
+      },
+      "8": {
+        "id": 11285676481,
+        "digest": "sha256:674e14f9dfa5a7960f764c6bdb208aa08fef620381b1dfd4ebeb786ddef355a0"
+      },
+      "9": {
+        "id": 11286420328,
+        "digest": "sha256:ca06493037a6e21291994e8f77999e9aeb4fafc8a55031d136d7525b47c72520"
+      },
+      "10": {
+        "id": 11285367083,
+        "digest": "sha256:ceb95c88f2c7c004d227f3c1ee6b6eb6628423ccdf6f7edb735c3a609e9416f4"
+      },
+      "11": {
+        "id": 11286400584,
+        "digest": "sha256:55f0aa8fd338c182ce89b9717a3b7f6c81326c50d2a7a2e1a901dcf2336e31b1"
+      },
+      "12": {
+        "id": 11286001429,
+        "digest": "sha256:a75ed92039819e603e219c84a9742c62451cadd636f8f968bc869d09007306df"
+      },
+      "13": {
+        "id": 11286166115,
+        "digest": "sha256:d23b6931d8538a6943970e70930a7beb7d8cf9eef85ce55dd24c42cf2360d7f6"
+      },
+      "14": {
+        "id": 11285921679,
+        "digest": "sha256:4a8e57c531918fac26c54fbabd21d3e733ed12abe3bd3bbb5ea795110d8e6917"
+      },
+      "15": {
+        "id": 11286235873,
+        "digest": "sha256:47ca2e0e62f2b96a0db66c49b6ca3a46562d54284c4ebb5220a48420917b0a60"
+      }
+    },
+    "result_artifact": {
+      "id": 11285387253,
+      "digest": "sha256:6a06bd1449cf24d99d674b3870d16ae0b1a9611a96603e86683355184d003ca6"
+    }
+  },
+  "primary_validation_check": {
+    "strong_success": true,
+    "reliability": {
+      "large_plant_capacity": 0.7217688849932009,
+      "natural": 0.4169402438063488,
+      "visitor_pooled": 0.15403351483184766
+    },
+    "large_minus_natural_ci95": [
+      0.22244323917981762,
+      0.37549139757224376
+    ],
+    "pooled_minus_natural_ci95": [
+      -0.3793769998530452,
+      -0.15449478388085502
+    ],
+    "all_arm_occupancy_rule_holds": true
+  },
+  "claim_boundary": "This is prospective out-of-visitor-history-sample validation within the same frozen synthetic history generator. It is not transfer to a new ecological process or natural islands."
+}

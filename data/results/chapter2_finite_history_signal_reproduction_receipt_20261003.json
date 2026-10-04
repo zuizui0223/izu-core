@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-03",
+  "status": "independent_local_recalculation_matches_committed_history_signal_result_and_shard_hashes_verified",
+  "source": {
+    "original_workflow_run": 36311030639,
+    "artifact_ids": [
+      10929606006,
+      10929138811,
+      10929600402,
+      10929288258,
+      10928902440,
+      10928817875,
+      10929427896,
+      10929422680,
+      10929163732,
+      10928694079,
+      10929650543,
+      10929098912,
+      10929263428,
+      10929187166,
+      10928428806,
+      10928743005
+    ],
+    "shard_count": 16,
+    "shard_sha256_root": "840655ed8352d1da1889b9b383a09406414514807eabdc0158019fe75858b447",
+    "shard_sha256": {
+      "shard-00.json": "3aab3affddbe2ec6cd6ffe254027f62941a54e9994524b5bfb348ef7c3fcbb69",
+      "shard-01.json": "293cd8a5d0039ac7b29512bf0badc78a773fc2abd61a18f2a19defb051d70d02",
+      "shard-02.json": "69a7223d4d2496eadc1acd3a92cbdb8086aee4c1988f2cd6108c955b580aa4dc",
+      "shard-03.json": "60a8950c794571ef487790048601699f6522f2bca8d8401e402abe1537cc3cb6",
+      "shard-04.json": "89f7f88d28fd617942410126db10286f8d6f87bb40292f685e255ebe3dc411a1",
+      "shard-05.json": "fdc92adf486e3444437f8bf3f1a998288b2f42938a3f2269bc9c678ba815d1cc",
+      "shard-06.json": "a04466d1940e8eb5efb2100685ca7f0b0197564e02012964109ed8c586611125",
+      "shard-07.json": "32ff143be1de38ef01659d1a210625055130f1eb3c1821eafa79ead8218820b1",
+      "shard-08.json": "954ba28fb91ed003f47524c02750a6a29b532d8d3edebd447e268a45640dfe7f",
+      "shard-09.json": "6d8697261872f9b66c0e97ef25cae26e633f3a37015d7e362d56a2f09754dfb8",
+      "shard-10.json": "b269ded53de37e9d75ed01a5b14cf3e4140e397768583e94524ea928b5c1974d",
+      "shard-11.json": "4a264bef56a8998dfbce78965ecfcb5a2fdc3c34de393db1ad8efd4387771dc4",
+      "shard-12.json": "ed8558668dfef13c2a4c1cb1e6afd81f135143150ae87c1d628be6fe1e59f79c",
+      "shard-13.json": "a4d3c671138ab524d4b49584c83be9acb8142cad6c28066d7afb4d7ce3fab6f0",
+      "shard-14.json": "7de86c853ad1a0442ef51f404493e7a83ba4cec5c48db3b55bdd7b8e8fa6f928",
+      "shard-15.json": "1aece03f1e2b7895f9a795c67da45ea750db7d9b418c90d94ada07d494abe714"
+    }
+  },
+  "recalculation": {
+    "data_shape": [
+      3,
+      128,
+      8
+    ],
+    "interventions": [
+      "natural",
+      "richness_matched",
+      "visitor_pooled",
+      "large_plant_capacity"
+    ],
+    "bootstrap_resamples": 1999,
+    "bootstrap_unit": "visitor_history",
+    "bootstrap_seed": 927032,
+    "variance_components": "balanced crossed ANOVA: start fixed; history and start×history random; demographic repeat residual; negative random components truncated to zero"
+  },
+  "matched_point_estimates": {
+    "natural": {
+      "mean_effect": -0.1446356879340278,
+      "sigma_history": 0.005486218868538884,
+      "sigma_start_by_history": 0,
+      "sigma_demographic_residual": 0.026772169385637572,
+      "single_trajectory_icc": 0.17007107811186412,
+      "eight_repeat_reliability": 0.621123099130166,
+      "split_half_history_correlation": 0.689658686195989
+    },
+    "richness_matched": {
+      "mean_effect": 0.0333226521809896,
+      "sigma_history": 0.0015445461957021521,
+      "sigma_start_by_history": 0.000333159939848335,
+      "sigma_demographic_residual": 0.025730247384025955,
+      "single_trajectory_icc": 0.06801323155731301,
+      "eight_repeat_reliability": 0.3686122704998782,
+      "split_half_history_correlation": 0.42415580430257954
+    },
+    "visitor_pooled": {
+      "mean_effect": -0.22594960530598965,
+      "sigma_history": 0.0004181066672563475,
+      "sigma_start_by_history": 0,
+      "sigma_demographic_residual": 0.02915543870320397,
+      "single_trajectory_icc": 0.01413786078127702,
+      "eight_repeat_reliability": 0.10291763944166836,
+      "split_half_history_correlation": 0.21407060656596144
+    },
+    "large_plant_capacity": {
+      "mean_effect": -0.27164972093370177,
+      "sigma_history": 0.008005620834957303,
+      "sigma_start_by_history": 0.0007480036211876249,
+      "sigma_demographic_residual": 0.01489035968663829,
+      "single_trajectory_icc": 0.3702262868763076,
+      "eight_repeat_reliability": 0.8246529353907934,
+      "split_half_history_correlation": 0.8517982916805625
+    }
+  },
+  "matched_sign_diagnostics": {
+    "natural": {
+      "eps0": {
+        "negative": 116,
+        "mixed": 12,
+        "repeat_disagreement": 97
+      },
+      "eps001": {
+        "negative": 120,
+        "mixed": 8,
+        "repeat_disagreement": 97
+      }
+    },
+    "richness_matched": {
+      "eps0": {
+        "negative": 8,
+        "positive": 52,
+        "mixed": 68,
+        "repeat_disagreement": 128
+      },
+      "eps001": {
+        "negative": 9,
+        "positive": 59,
+        "mixed": 59,
+        "neutral": 1,
+        "repeat_disagreement": 128
+      }
+    },
+    "visitor_pooled": {
+      "eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "repeat_disagreement": 77
+      },
+      "eps001": {
+        "negative": 128,
+        "mixed": 0,
+        "repeat_disagreement": 75
+      }
+    },
+    "large_plant_capacity": {
+      "eps0": {
+        "negative": 127,
+        "mixed": 1,
+        "repeat_disagreement": 31
+      },
+      "eps001": {
+        "negative": 127,
+        "mixed": 1,
+        "repeat_disagreement": 28
+      }
+    }
+  },
+  "matched_bootstrap_intervals": {
+    "natural": {
+      "sigma_history": [
+        0.004041725874068823,
+        0.007109085372683085
+      ],
+      "sigma_demographic_residual": [
+        0.025288198416195232,
+        0.02840652376823326
+      ],
+      "eight_repeat_reliability": [
+        0.5489508579930557,
+        0.6811199559022912
+      ],
+      "split_half_history_correlation": [
+        0.5918944894744962,
+        0.7696721429716437
+      ]
+    },
+    "large_plant_capacity": {
+      "eight_repeat_reliability": [
+        0.7819970226533155,
+        0.855007450685779
+      ],
+      "split_half_history_correlation": [
+        0.7909071646040711,
+        0.8998774723600356
+      ]
+    },
+    "visitor_pooled": {
+      "eight_repeat_reliability": [
+        0.029794566454895456,
+        0.1956870954595759
+      ],
+      "split_half_history_correlation": [
+        0.04959617551086329,
+        0.3832925829094053
+      ]
+    }
+  },
+  "decision": "Committed finite-history signal result is independently reproducible from all 16 verified original bridge shard exports.",
+  "claim_boundary": "This receipt verifies computation only; it does not upgrade the post-hoc diagnostic to preregistered or confirmatory evidence.",
+  "hash_correction_note": "Initial receipt commit contained transcription errors in 12 individual shard SHA256 fields; this revision replaces all 16 with machine-computed hashes. The combined shard_sha256_root was unchanged and correct.",
+  "matched_balanced_split_half_robustness": {
+    "method": "all 35 unique 4-versus-4 demographic-repeat partitions; history mean averaged across three starts within each half; Pearson correlation across 128 histories",
+    "natural": {
+      "min": 0.6715885970626972,
+      "q05": 0.6815721296128622,
+      "median": 0.7029075259443338,
+      "mean": 0.7143957529598577,
+      "q95": 0.7605554405933737,
+      "max": 0.7882368150474531
+    },
+    "richness_matched": {
+      "min": 0.36626170861523827,
+      "q05": 0.3768661181518777,
+      "median": 0.44631415146268305,
+      "mean": 0.4506026697602119,
+      "q95": 0.5406399869928189,
+      "max": 0.5799053243003242
+    },
+    "visitor_pooled": {
+      "min": -0.042025407539524585,
+      "q05": 0.0018320930908081214,
+      "median": 0.11495012929234721,
+      "mean": 0.11555371112452187,
+      "q95": 0.20848120583840052,
+      "max": 0.2884717916796102
+    },
+    "large_plant_capacity": {
+      "min": 0.8340160268108929,
+      "q05": 0.8388618752860624,
+      "median": 0.8636469607898144,
+      "mean": 0.8622913028770447,
+      "q95": 0.8849544794867288,
+      "max": 0.8910132587972028
+    },
+    "paired_difference_vs_natural": {
+      "large_plant_capacity": {
+        "min": 0.07766379626629483,
+        "q05": 0.09596578281659088,
+        "median": 0.16088304737312886,
+        "mean": 0.14789554991718692,
+        "q95": 0.19057424866487846,
+        "max": 0.1982227182289542,
+        "positive_splits": 35,
+        "total_splits": 35
+      },
+      "visitor_pooled": {
+        "min": -0.8302622225869777,
+        "q05": -0.7433683000010891,
+        "median": -0.5798968696039448,
+        "mean": -0.5988420418353357,
+        "q95": -0.4777013927725567,
+        "max": -0.45418371887947956,
+        "positive_splits": 0,
+        "total_splits": 35
+      }
+    },
+    "interpretation": "The intervention ordering is invariant to the arbitrary choice of one 4-versus-4 split: large-capacity history correlation exceeds natural in all 35 balanced splits, while visitor-pooled correlation is lower than natural in all 35."
+  }
+}
