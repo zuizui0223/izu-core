@@ -6,7 +6,17 @@ Current paper title:
 
 > **From pollination ecology to realized floral evolution in finite island populations**
 
-Chapter 2 is scientifically closed at the declared synthetic claim ceiling. The active argument is:
+The earlier Chapter 2 closeout remains bounded by its declared synthetic claim ceiling.
+The full three-trait mutation extension has now completed 4,368 declared cases:
+ABM history effects meet the prespecified repetition-precision criterion, while
+positive-mutation genotype-grid fidelity remains unresolved. See the
+[full validation results](docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md) and
+[final model architecture](docs/MODEL3_FINAL_ARCHITECTURE_20261004.md).
+The ABM and deterministic genotype model are parallel implementations;
+the mutation PDE is an approximation within the deterministic branch, not
+a downstream simulation or a separate ecological Model 4.
+
+The ecological argument is:
 
 ```text
 pollinator functional environment

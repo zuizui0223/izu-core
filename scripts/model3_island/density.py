@@ -164,7 +164,7 @@ class DensityLedger:
 
 
 def density_step(counts, grid, visitors, immigrants, config, *, immigration_mode='source',
-                 mutation_traits=(True,True,True), mutation_scheme='jump'):
+                 mutation_traits=(True,True,True), mutation_scheme='jump', inheritance_backend='dense'):
     mutation_traits=mutation_trait_mask(mutation_traits)
     if immigration_mode not in ('source','resident_matched'):
         raise ValueError('unknown density immigration intervention')
@@ -195,11 +195,17 @@ def density_step(counts, grid, visitors, immigrants, config, *, immigration_mode
     outcross=FactorizedMatrix(donors,recipient*conversion[:,None])
     self_raw=counts*(ovules*a if config.assurance_timing=='prior' else a*(ovules-female))
     self_viable=self_raw*(1-config.depression)
-    axes=tuple(tuple(a) for a in grid.axes)
-    gametes=_mutated_gametes(axes,config.mutation_rate,config.mutation_sd,config.assurance_mode,mutation_traits,mutation_scheme)
-    child_gametes=(gametes.T@outcross.donors)@(outcross.recipients.T@gametes)
-    child_gametes+=gametes.T@(self_viable[:,None]*gametes)
-    births=np.bincount(grid.child_lookup.ravel(),weights=child_gametes.ravel(),minlength=len(counts))
+    if inheritance_backend=='tensor':
+        from .tensor_density import tensor_births
+        births=tensor_births(grid,outcross,self_viable,config,mutation_traits,mutation_scheme)
+    elif inheritance_backend=='dense':
+        axes=tuple(tuple(a) for a in grid.axes)
+        gametes=_mutated_gametes(axes,config.mutation_rate,config.mutation_sd,config.assurance_mode,mutation_traits,mutation_scheme)
+        child_gametes=(gametes.T@outcross.donors)@(outcross.recipients.T@gametes)
+        child_gametes+=gametes.T@(self_viable[:,None]*gametes)
+        births=np.bincount(grid.child_lookup.ravel(),weights=child_gametes.ravel(),minlength=len(counts))
+    else:
+        raise ValueError('unknown inheritance backend')
     undefined=False
     if immigration_mode=='resident_matched':
         # Expected immigrant genotype counts under this model's own residents.
