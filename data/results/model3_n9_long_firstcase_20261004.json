@@ -1,0 +1,7 @@
+{
+  "scope": "partial n9/1000 admission, one of eight cases only",
+  "key": "assurance_cost_near_jump",
+  "max_l1": 5.468997119532346e-09,
+  "max_trait": 2.9839342108317624e-10,
+  "checkpoint_sha256": "59e58ea471ea1edb6dab865088a44faec30ba00c09fb8172b35e7b5293faa89c"
+}

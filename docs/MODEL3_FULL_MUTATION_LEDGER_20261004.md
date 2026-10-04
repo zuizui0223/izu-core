@@ -374,3 +374,20 @@ these inputs only. No high-grid trajectory or convergence claim.
 Archived input hashes, sources and outputs in weight65_verified.zip.
 Next: integrate bounded weighting and child factors in isolated solver,
 validate against same-grid dense reference before high-grid trajectories.
+
+
+## Bounded reproduction integration and first n9 long completion
+
+Previous goal turn: progress,24 high-grid ecological weight checks.
+Integrated isolated bounded_step with bounded weight/child factors, exact
+selfing, rounded channel sums, capacity and survival. No live original
+solver files changed. Local receipts do not imply a global propagated
+error bound; same-grid full-state comparison is required.
+Observed module-missing RED then8 repeated-step settings GREEN. Candidate
+suite88tests passed; root focused13tests exit0. Supports evolving assurance,
+no plant immigration, all3 mutable loci; fixed assurance is excluded.
+Bounded n9/40 eight-case gate launched session77050; frozen sources at
+fastpath_candidate/bounded_n9_40. Firstcase40periods passed L1=5.86135e-10.
+Original corrected n9 long session58342 firstcase1000periods passed;
+verified saved NPZ hash and1000 records. Remaining7 pending.
+Original n13 refinement session77498 remains live18/32 last verified.
