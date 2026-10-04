@@ -157,3 +157,24 @@ thread. Complete per-period metrics and input/source hashes are archived in
 `data/results/model3_compression_probe40_20261004.json`. This admits a subsequent
 1000-period diagnostic; it does not establish long-term equivalence or provide
 a high-resolution solver. No17-or-higher full-grid simulation was launched.
+
+## Exact selfing component without full joint reconstruction
+
+`scripts/model3_compressed_selfing.py` now applies selfed inheritance and
+birth mutation to the three Tucker factors, retaining the same joint core.
+It accepts already viable selfed-birth weights; neither fecundity nor
+inbreeding depression is added/removed or applied twice. A one-locus transition
+maps each unordered parental allele pair to unordered offspring pairs using
+the original mutation kernel and independent Mendelian transmissions.
+
+Seven new tests compare its reconstructed small-grid output with the frozen
+full-joint `tensor_births` operator (unequal allele grids, correlated components,
+signed bases, mutation0/.01 and jump/heat_fv). They agree within1e-11 and
+preserve mass. Together with compression/inheritance regressions26 tests pass.
+The selfing transform does not grow the Tucker ranks. Its per-locus transition
+matrices can still be large; no high-resolution performance claim is made.
+
+This is only a verified linear component. A complete compressed solver still
+needs outcrossing, nonlinear ecological weighting, rank/error control and
+trajectory validation. It does not change the running production model or
+settle the required grid count.

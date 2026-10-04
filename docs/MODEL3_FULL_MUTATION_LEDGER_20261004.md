@@ -122,3 +122,13 @@ passed afterward;19 compression/inheritance tests pass. The running session is
 57083 (one worker/one BLAS thread). This is an error-propagation experiment,
 not the high-resolution production campaign and not a compressed time solver.
 No long-horizon pass is claimed until all eight result receipts are inspected.
+
+## Exact selfing transform for future compressed solver
+
+Implemented the predeclared local selfed-birth operator outside the frozen
+model3_island package. It retains the joint core and transforms its factors;
+no independent-trait assumption or altered mutation law. Initial tests failed
+at missing-module collection; seven new tests then pass against the original
+full-joint inheritance operator. Combined compression/inheritance suite26 passes.
+Still not a complete solver: outcrossing, ecology weighting and rank control
+remain. Long-run probe sources reverified unchanged during its execution.
