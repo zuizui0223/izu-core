@@ -25,6 +25,7 @@ NEW_HISTORY_SUPERSEDED_DESIGN = ROOT / "data/design/chapter2_new_history_general
 ENV_VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
 ENV_VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
 ENV_VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json"
+ABS_HISTORY_VARIANCE = ROOT / "data/results/chapter2_environment_validation_absolute_history_variance_20261004.json"
 
 
 def _word_count(text: str) -> int:
@@ -407,3 +408,20 @@ def test_scientific_promotion_gates_are_complete_but_submission_is_not_automatic
 
     assert "scientific promotion gates are now complete" in positioning
     assert "what remains is deliberately non-scientific" in positioning
+
+
+def test_absolute_history_variance_moves_oppositely_in_new_history_validation():
+    result = json.loads(ABS_HISTORY_VARIANCE.read_text(encoding="utf-8"))
+    assert result["status"] == "complete_posthoc_secondary_absolute_history_variance_contrast"
+
+    large = result["paired_differences_vs_natural"]["large_plant_capacity"]["history_structured_variance"]
+    pooled = result["paired_differences_vs_natural"]["visitor_pooled"]["history_structured_variance"]
+    assert large["estimate"] > 0 and large["bootstrap95"][0] > 0
+    assert pooled["estimate"] < 0 and pooled["bootstrap95"][1] < 0
+
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    assert "not only a consequence of reliability normalization" in manuscript
+    assert "post-hoc secondary paired bootstrap" in manuscript
+    assert lock["finite_history_absolute_variance_secondary"]["headline_status"].startswith("supporting mechanism")
+    assert "absolute history-variance paired comparison as a preregistered primary validation criterion" in set(lock["prohibited_claims"])
