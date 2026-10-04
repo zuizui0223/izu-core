@@ -76,6 +76,12 @@ then equally across histories. They are not generally the difference of
 the marginal arm means when survival differs. All are descriptive.
 # Additional precision preparation
 
+Subsequent steering: user requested estimating necessary grid resolution before
+additional full computation. The17 campaign is pending and will not start
+automatically. The cheap analytical operator screen was planned, tested and
+run separately; it motivates investigating feasible numerical representation
+before more full-grid campaigns. See MODEL3_RESOLUTION_SCREEN_20261004.md.
+
 The user requested additional precision during the live 13-node continuation.
 The fixed 17-node plan and separate runner are prepared, preserving all 32
 conditions and all biological rules. The 13-node source snapshot was rechecked

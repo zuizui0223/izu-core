@@ -1,5 +1,12 @@
 # Additional 17-node precision stage
 
+Subsequent user instruction: determine required resolution before additional
+full computation. This stage is prepared but pending, NOT an automatic next
+run. See `2026-10-04-model3-resolution-screen.md` and
+`docs/MODEL3_RESOLUTION_SCREEN_20261004.md`. The completed operator screen
+does not justify declaring17 sufficient; computational feasibility must be
+resolved before authorizing its full execution under the current plan.
+
 User requested additional numerical precision on 2026-10-04 while the fixed
 13-node stage was active. Four of its 32 cases were complete; three did not
 meet the existing 9-to-13 terminal tolerance. This is an outcome-informed
