@@ -16,6 +16,7 @@ encoded in continuous phenotype selection, before Mendelian redistribution.
 from __future__ import annotations
 
 import json
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
@@ -148,6 +149,7 @@ def _frozen_density_targets():
     return out
 
 
+@lru_cache(maxsize=1)
 def run_audit() -> dict:
     design = json.loads(DESIGN.read_text(encoding="utf-8"))
     base = Config.from_dict(design["base_config"])
