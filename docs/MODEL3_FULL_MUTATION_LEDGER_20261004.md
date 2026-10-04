@@ -748,3 +748,29 @@ arithmetic. No trait independence or parameter changes. A direct-reference
 small test passed after missing-module RED. Actual final-sum inputs are now
 running in streamed_sum_probe with half-stage tolerance5e-11 times total mass,
 leaving the other half for rounding. This is a component probe only.
+
+## 2026-10-05: streamed final sum passes; checkpoint completion pending
+
+Actual final-sum projection passed half-stage allowance5.2461128021780855e-9:
+L1 upper1.1850566034309311e-9, ranks256x128x230. Total3838.687s
+(about64min), so this is not yet a practical long-horizon solver. No biological
+settings or tolerance were relaxed. Output hash and input hashes retained.
+A checkpoint continuation applies the remaining half-stage rounding allowance,
+capacity retention (survival=0), and retained-state rounding to this saved final
+sum, then checks exact marginal reference and prior1e-8 full joint state.
+This avoids repeating the identical completed ancestry. It does not admit a
+fresh full production run or certify long-horizon precision.
+
+## Strict second-step checkpoint completion verified
+
+Saved final-sum continuation passed marginal and full-joint gates. Independent
+verifier checked84 current/source-archive hashes, final and baseline NPZ hashes,
+reconstructed marginals and recalculated joint distance. MarginalL1
+4.238928767475487e-14; trait gap6.661338147750939e-16; normalized fulljoint
+L1 upper4.2853808662395256e-9 (<1e-5). Strict final ranks229x108x207.
+This establishes one-step local-tolerance agreement via checkpoint continuation,
+NOT a fresh full run, high-grid convergence, positivity theorem, or long-horizon
+feasibility. Archive and receipt: model3_checkpoint_strict_verified_20261005.json.
+Next requirement is integrate the streamed-sum fallback in an executable whole
+step and validate sustained resource use before any high-grid campaign.
+13-node continuation remains active,30/32complete at last handle poll.

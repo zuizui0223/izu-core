@@ -1,0 +1,44 @@
+"""Finish the captured final sum; no ancestry or visitor history is regenerated."""
+from pathlib import Path
+from itertools import combinations_with_replacement
+import hashlib,json,time,zipfile,numpy as np
+from scripts.model3_sharp_rounding import rounded
+from scripts.model3_compressed_step import mass
+from scripts.model3_joint_distance import joint_distance
+from scripts.model3_birth_marginal_reference import exact_next_marginals
+from scripts.run_model3_full_mutation import config,exposure
+c=Path(__file__).resolve().parents[1];probe=c/'streamed_sum_probe';v=json.loads((probe/'summary.json').read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert v['status']=='passed_projection' and sha(probe/'state.npz')==v['npz_sha256']
+for i,h in enumerate(v['inputs']):assert sha(c/f'sum_strict_second65/failed_sum_{i}.npz')==h
+out=c/'sum_checkpoint_finish';out.mkdir(exist_ok=True)
+if (out/'sources.json').exists():raise ValueError('preserve existing output')
+files=list((c/'scripts').glob('*.py'))+list((c/'scripts/model3_island').glob('*.py'))+[c/'data/design/model3_ch2_bridge_20260927.json']
+(out/'sources.json').write_text(json.dumps({p.relative_to(c).as_posix():sha(p) for p in files},indent=2))
+with zipfile.ZipFile(out/'sources.zip','w',zipfile.ZIP_DEFLATED) as z:
+ for p in files:z.write(p,p.relative_to(c).as_posix())
+with np.load(probe/'state.npz') as z:state=(z['core'],tuple(z[f'factor{k}'] for k in range(3)))
+start=time.monotonic();result=dict(scope='strict n65 second step completed from verified final-sum checkpoint',sum_input_sha256=v['npz_sha256'])
+try:
+ allowed=v['allowed']*2;remaining=allowed-v['receipt']['absolute_l1_bound']
+ state,rounding=rounded(state,relative_l1=min(5e-11,remaining/mass(state)),budget=16_000_000)
+ assert rounding['absolute_l1_bound']+v['receipt']['absolute_l1_bound']<=allowed
+ cfg=config('assurance_cost',.01);assert cfg.survival==0
+ total=mass(state);state=(state[0]*(min(1.,cfg.capacity/total) if total>0 else 0.),state[1])
+ state,retained=rounded(state,relative_l1=1e-10,budget=16_000_000)
+ first=c/'first65/assurance_cost_near_jump.npz';frec=json.loads(first.with_suffix('.json').read_text());assert sha(first)==frec['npz_sha256']
+ with np.load(first) as z:initial=(z['core'],tuple(z[f'factor{k}'] for k in range(3)))
+ axis=np.linspace(0,1,65);means=np.array([(a+b)/2 for a,b in combinations_with_replacement(axis,2)])
+ expected=exact_next_marginals(initial,(axis,)*3,exposure(76001,'near').visitors[1],cfg)
+ core,fs=state;sums=[f.sum(axis=0) for f in fs];actual=[]
+ for k in range(3):
+  other=[j for j in range(3) if j!=k];vec=np.einsum('abc,'+','.join('abc'[j] for j in other)+'->'+'abc'[k],core,*[sums[j] for j in other],optimize=True);actual.append(fs[k]@vec)
+ l1=max(float(np.abs(a-b).sum()/b.sum()) for a,b in zip(actual,expected));trait=max(float(abs(a@means/a.sum()-b@means/b.sum())) for a,b in zip(actual,expected))
+ p=out/'state.npz';np.savez_compressed(p,core=core,**{f'factor{k}':f for k,f in enumerate(fs)},expected=expected,actual=actual)
+ result.update(status='passed_marginals' if l1<=1e-5 and trait<=1e-6 else 'failed_marginals',relative_marginal_l1=l1,trait_gap=trait,rounding=rounding,retained=retained,npz_sha256=sha(p),ranks=list(core.shape))
+ old=c/'stream_second65';ov=json.loads((old/'summary.json').read_text());assert sha(old/'state.npz')==ov['npz_sha256']
+ with np.load(old/'state.npz') as z:baseline=(z['core'],tuple(z[f'factor{k}'] for k in range(3)))
+ dist=joint_distance(baseline,state,budget=16_000_000);gap=dist['l1_upper']/mass(state)
+ result.update(joint_comparison=dist,normalized_joint_l1_upper=gap)
+ if not np.isfinite(gap) or gap>1e-5:result['status']='failed_joint_tolerance'
+except (MemoryError,ArithmeticError,ValueError) as e:result.update(status='failed',error=str(e))
+result['seconds']=time.monotonic()-start;(out/'summary.json').write_text(json.dumps(result,indent=2));print(result,flush=True)
