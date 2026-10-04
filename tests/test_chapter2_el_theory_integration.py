@@ -38,7 +38,11 @@ def test_el_theory_integration_uses_corrected_joint_selection_with_claim_ceiling
     assert "w_mut=0.5F_mut+0.5P_mut+S_mut" in manuscript
     assert "post-hoc continuous reduction" in manuscript
     assert "frozen a rare-mutant decision contract" in manuscript
-    assert "The frozen follow-up branching criterion therefore failed." in manuscript
+    assert "The frozen follow-up branching criterion failed." in manuscript
+    assert "16.4% in the structural delayed-selfing control" in manuscript
+    assert "assurance cost produced the marked increase" in manuscript
+    assert "0.164" in si and "0.430" in si
+    assert "not a causal contrast against this control" in si
     assert "maximum absolute error 7.2e-16" in si
     assert "No setting met the alternative-endpoint branching rule" in si
     assert "purging feedback" in si
