@@ -6,13 +6,13 @@
 
 ## Abstract
 
-Repeated environments can generate recognizable evolutionary responses without producing identical trajectories, but apparent parallelism can refer to shared direction, shared magnitude or reproducible historical effects. Islands are useful because altered pollination recurs across archipelagos while proposed plant island-syndrome components remain heterogeneous.
+Repeated environments can generate recognizable evolutionary responses without identical trajectories, but parallelism can refer to shared direction, magnitude or historical effects. Islands are useful because altered pollination recurs while proposed plant island-syndrome traits remain heterogeneous.
 
-We examined one eco-evolutionary Model 3 from reproductive selection through a conditional deterministic genotype-density closure, genetic accessibility and finite-population realization. The focal analyses comprised 19,968 audited island cases and a 24,576-case, 200-season isolation bridge.
+We examined one eco-evolutionary Model 3 through reproductive selection, deterministic genotype density, genetic accessibility and finite-population realization, using 19,968 audited cases and a 24,576-case isolation bridge. A post-hoc continuous reduction gave exact Price closure for additive trait means and an analytic investment threshold. We then froze a rare-mutant extension before execution; including maternal, paternal and selfed transmission, it showed that near-to-far isolation shifted joint selection toward lower floral investment and greater reproductive assurance. A separately frozen finite follow-up produced syndrome-direction endpoints but not alternative endpoint classes.
 
-At inbreeding depression 0.50, the finite ABM had a negative mean far-minus-near investment effect (-0.1446) and complete occupancy. An exploratory exact-source reanalysis found that increasing plant capacity and pooling visitor histories both increased sign uniformity but moved reproducible visitor-history structure in opposite directions. A first prospective validation with new demographic seeds reproduced the predicted history ranking. We then froze a second validation before generating entirely new synthetic visitor histories (75001–75128). Across 9,216 new-history trajectories, four-repeat history reliability was 0.722 for capacity 192, 0.417 under natural demography and 0.154 after visitor-history pooling; paired bootstrap differences for capacity minus natural (+0.222 to +0.375) and pooled minus natural (-0.379 to -0.154) excluded zero in the predeclared directions. All validation arms remained occupied. A separate high-depression deterministic sensitivity entered quasi-extinction and was excluded from persisting-population inference.
+At inbreeding depression 0.50, finite mean far-minus-near investment was -0.1446 with complete occupancy. Exploratory reanalysis found that greater plant capacity and visitor-history pooling both increased sign uniformity but moved reproducible history structure oppositely. Prospective validation with new demographic seeds reproduced the predicted ranking. A second frozen validation used entirely new synthetic visitor histories (75001–75128). Across 9,216 trajectories, four-repeat reliability was 0.722 at capacity 192, 0.417 under natural demography and 0.154 after pooling; paired bootstrap intervals for capacity minus natural (+0.222 to +0.375) and pooled minus natural (-0.379 to -0.154) excluded zero. All arms remained occupied. A high-depression deterministic sensitivity entered quasi-extinction and was excluded from persisting-population inference.
 
-Thus directional sign uniformity does not uniquely identify evolutionary repeatability or its mechanism. The same apparent increase in parallelism can accompany either a more reproducible historical imprint or its erosion by environmental averaging.
+Thus directional sign uniformity does not uniquely identify evolutionary repeatability or mechanism. The same increase in parallelism can accompany either a more reproducible historical imprint or its erosion by environmental averaging.
 
 ## Keywords
 
@@ -81,6 +81,13 @@ A prospective causal knockout separated visitor scarcity, reproductive assurance
 
 The isolation backbone was separately propagated at inbreeding-depression values 0.25, 0.50 and 0.75 while retaining the frozen visitor histories, founders, trait grid and horizon. We distinguish an intervention-averaged mean direction from history-level direction across starting states.
 
+## Continuous reduction, Price closure and joint selection
+
+This theoretical reduction was developed after inspection of the frozen simulation results; it is explanatory rather than part of the original prospective campaign. The exact continuous counterpart retains a nonlocal maternal × paternal inheritance integral and is not a PDE. With mutation, immigration and survival set to zero, additive means obey `mean(z)'=mean(z)+Cov(z,w)/mean(w)`, where `w` is total parental-genome contribution. Floral investment has the monomorphic threshold `d log(w)/di=B(i)-C(i)`, with `B(i)=(1-r)q'(i)/[r+(1-r)q(i)]`, `C(i)=2c_I i`, `r=a(1-delta)`, and `q(i)` the outcrossed-ovule fraction generated by the same visitor-transfer operator.
+
+Because assurance also changes paternal transmission, we had frozen a rare-mutant decision contract before executing that extension, using `w_mut=0.5F_mut+0.5P_mut+S_mut` in a fixed resident reproductive environment. Delayed selfing was a structural control; prior selfing, pollen discounting and direct assurance cost supplied trade-offs. Directional shift and absolute sign reversal were adjudicated separately. A second frozen contract governed the finite two-trait follow-up. Derivations, higher-moment checks and the full decision rules are in Supporting Information.
+
+
 ## Standing variation and mutation
 
 Prospective standing-variation experiments reduced founder variation on either the access or investment axis while holding the visitor environment, reproduction, inheritance and mutation rate fixed. This asks whether a selected response remains reachable when one trait axis begins with little selectable variation.
@@ -91,9 +98,7 @@ A preregistered mutation–pleiotropy timing experiment failed its success crite
 
 ## Prospective long-horizon diagnostic
 
-After the focal analyses, we prospectively froze a horizon extension at 200, 400, 800, 1,600, 3,200 and 6,400 reproductive seasons, with no outcome-dependent extension. Stationarity required stability across both late intervals under predeclared tolerances.
-
-These are stationary-environment stress tests, not geological reconstructions: seasons need not be calendar years, and succession, speciation, coevolution, source-pool change and calibrated natural mutation rates are absent. We tracked density mass to flag mathematically defined trajectories that had entered sub-individual closure regimes.
+A prospectively frozen 200–6,400-season extension tested temporal stability without outcome-dependent stopping. Because these stationary synthetic environments omit succession, coevolution and calibrated natural mutation rates, we treat the extension only as a persistence and accessibility stress test.
 
 ## Finite realization and natural confrontation
 
@@ -115,6 +120,20 @@ Functional replacement mattered even when visitor number was unchanged. The maxi
 
 Duplicating each left-shifted visitor type to create eight visitor entries changed the fixed-state, deterministic and finite-population operators by at most 1.78 × 10^-15 when total activity was fixed. The model therefore distinguishes functional composition from simple visitor-entry count. A recurrent decline in pollinator service is not sufficient to specify a single selection direction unless the functional visitor environment and starting floral state are also specified.
 
+## The directional backbone survives continuous reduction
+
+The Price update matched exact genotype-density next-generation mean investment in all 25 controlled cells. The reduced replicator equation retained all 25 response directions over 60 seasons (mean absolute error 0.00434), and on the frozen isolation bridge recovered all 9 start × intervention signs; condition means correlated 0.987 with exact density effects, with attenuated magnitude (slope 0.586).
+
+Across five access × three investment states, all 128 natural near–far histories shifted `B(i)-C(i)` toward lower investment. Visitor pooling strengthened this shift, whereas response-blind richness matching removed it. The island-like direction therefore arises from visitor-mediated marginal return rather than an imposed island optimum.
+
+## The same visitor histories rotate joint floral–assurance selection
+
+Across 45 resident states × 128 histories, all four assurance settings passed the frozen joint-shift criterion: near-to-far selection moved toward lower investment and greater assurance, with >=127/128 histories in the target quadrant. At the central state, shifts were (-0.398,+0.703) under prior selfing, (-0.428,+0.769) with pollen discounting and (-0.537,+0.689) with assurance cost. Mixed investment–assurance curvature was negative throughout.
+
+The multivariate Price identity matched all three next-generation trait means in 48/48 cells (maximum error 7.2 × 10^-16). Full-covariance `G beta` passed the strict gate in 46/48 cells, had mean vector cosine 0.9995 and lower error than diagonal `G` in 48/48.
+
+The result was directional, not bistable. Across the three prespecified starting states, the maximum syndrome-endpoint frequency was 10.2% of eligible histories under prior selfing, 21.3% with pollen discounting and 43.0% with assurance cost; the opposite endpoint stayed below 3%. The frozen follow-up branching criterion therefore failed.
+
 ## Directional similarity and historical repeatability separate in finite populations
 
 At depression 0.50 and season 200, the finite ABM mean far-minus-near investment effect was -0.1446 (95% history-bootstrap interval -0.1588 to -0.1306), and all 3,072 near and 3,072 far cases were occupied. Mean-over-eight sign labels were mixed in 12/128 histories at deadband 0, but 97/128 histories showed disagreement among repeat-specific labels. Sign counts alone therefore did not identify a stable history effect.
@@ -130,43 +149,27 @@ The independent visitor-history validation also met its frozen strong-success ru
 The deterministic closure is retained as a mechanistic comparator rather than a finite-population expectation. At depression 0.50 its endpoint mass remained at capacity, but a high-depression sensitivity crossed a persistence boundary. A prospectively frozen scan from depression 0.50 through 0.74 found no mixed or positive deterministic history among histories whose three starts and both near/far endpoints all retained mass >=1; mixed labels appeared only after sub-individual mass was reached.
 ## Reproductive assurance preserves trajectories but does not provide a universal reduction mechanism
 
-The focal assurance-by-cost knockout initially produced a plausible route to reduced pollinator-facing investment under low service. At visitor activity 0.05, assurance 0.5 and investment cost 0.5, the total investment gradient was -0.393, deterministic investment change was -0.0726 and the finite-population mean was -0.0721 with full terminal occupancy. Removing assurance or removing investment cost shifted the gradient upward by approximately one gradient unit, while restoring visitor activity to 0.4 moved the gradient to +1.681.
+The assurance-by-cost knockout produced reduced investment under one focal low-service condition, but the preregistered robustness surface rejected it as a universal route. With assurance 0.5 and investment cost 0.5, the activity crossing moved from ~0.182 at inbreeding depression 0.25 to ~0.096 at 0.50 and ~0.040 at 0.75. Annual and some perennial inherited responses changed sign, so the declared all-life-history rule failed.
 
-The preregistered robustness surface prevented this route from becoming a universal explanation. At assurance 0.5 and investment cost 0.5, the activity value at which the gradient crossed zero shifted from about 0.182 at inbreeding depression 0.25 to 0.096 at 0.50 and 0.040 at 0.75. Annual inherited responses became positive at high depression, and with adult survival 0.75 the finite-population mean was already positive at depression 0.50 and 0.75. A lifetime-budget-matched perennial sensitivity remained negative, but the declared all-life-history rule failed.
-
-Reproductive assurance is therefore robust here as persistence insurance, not as a universal mechanism forcing one floral endpoint. Retaining this failed headline route is important for the repeatability argument: reproductive context can move the stage at which a shared ecological problem stops producing a shared direction.
+Reproductive assurance therefore remains persistence insurance and a context-dependent modifier rather than a mechanism forcing one floral endpoint. This failed headline route is retained because reproductive context can determine where a shared ecological problem first loses a shared direction.
 
 ## Genetic accessibility selectively erodes trait-level repeatability
 
-When standing genetic variation was reduced on one trait axis, response was selectively attenuated on that axis even though the ecological operator was unchanged. Reducing access standing SD from 0.15 to 0.03 decreased its mean absolute deterministic response by 0.1136 and the finite-population response by 0.0961. Reducing investment standing SD from 0.15 to 0.03 decreased absolute deterministic investment response by 0.1054 and the finite-population response by 0.0830.
+Reducing standing variation on one trait axis selectively attenuated that axis while leaving the ecological operator unchanged. Lowering access SD from 0.15 to 0.03 reduced mean absolute deterministic and finite responses by 0.1136 and 0.0961; the corresponding investment reductions were 0.1054 and 0.0830. Under left-shifted visitors, constraining access left most investment response intact, whereas constraining investment nearly removed its response. Shared selection can therefore produce asynchronous syndrome components.
 
-The within-environment comparison shows why this matters for syndrome components. Under the left-shifted visitors, equal-high standing variation produced deterministic changes of -0.150 in access and +0.119 in investment. Constraining access reduced access change to -0.0428 while investment remained +0.106. Constraining investment left access at -0.148 while investment fell to +0.0104. Shared selection can therefore produce asynchronous trait responses because ecological selection and genetic accessibility are separate stages.
-
-Mutation narrowed the early accessibility gap. Under the central mutation input, the response ratio between high-standing/no-mutation and low-standing/mutation populations declined from 2.56 at season 400 to 1.49 at season 800. The prospective long-horizon extension showed that this was a difference in response timing rather than persistent dominance: the ratio fell below one by season 1,600 (0.91), then to 0.68 at 3,200 and 0.56 at 6,400. Thus standing variation supplied an early response advantage, whereas continuing mutation eventually caught and overtook the fixed high-standing reference in this model.
-
-The first preregistered mutation–pleiotropy timing test failed: coordinated sustained two-trait crossings were zero in every summarized cell, and the investment-axis crossing statistic was effectively censored at the 400-year horizon. We retained the failure rather than lowering the threshold. It therefore cannot be used as evidence for a general pleiotropic ordering of syndrome components.
+Mutation made this accessibility ranking temporary: the high-standing/no-mutation to low-standing/mutation response ratio fell from 2.56 at season 400 to 1.49 at 800 and below one by 1,600. The preregistered mutation–pleiotropy timing route failed its success criteria and was not rescued by changing thresholds.
 
 ## Long-horizon stress testing identifies a persistence boundary, not a stationary syndrome
 
-The prospectively fixed 6,400-season extension is informative primarily as a failure diagnostic. It followed the depression-0.75 deterministic closure, for which the far arm was already overwhelmingly below one expected individual at season 200. The subsequent decay of the far-minus-near density contrast toward zero therefore cannot be interpreted as adaptive convergence or as evidence about a stationary island-syndrome endpoint.
-
-This distinction matters because the original depression-0.50 focal bridge occupies a different population regime: deterministic mass remained at capacity and all finite populations survived to season 200. The long-horizon depression-0.75 trajectory consequently does not invalidate the focal finite-population result, but neither can it establish how that focal response behaves over thousands of seasons.
-
-The separate mutation-accessibility extension remains temporally informative because it directly follows finite populations under fixed visitor environments. There, the early high-standing advantage narrowed, disappeared and reversed as continuing mutation accumulated. Time therefore changes the accessibility ranking in this model, but a long-run syndrome-level repeatability trajectory remains unidentified.
+The 6,400-season high-depression extension began after the far deterministic closure had already entered a sub-individual regime, so its later decay cannot identify adaptive convergence or a stationary syndrome. By contrast, the focal depression-0.50 bridge remained at capacity in density and fully occupied in finite populations. The separate mutation-accessibility extension showed only that early standing-variation advantages can reverse with time; long-run syndrome repeatability remains unidentified.
 
 ## Finite realization adds contingency downstream of deterministic expectation
 
-The deterministic and finite-population levels share the same biological operator but not the same realized trajectories. Controlled visitor compositions showed that demographic stochasticity was unnecessary for response branching: both deterministic density and finite populations retained mixed signs across the reduction audit. In the broader island campaign, however, chronology, assurance, life history and recovery produced substantial finite-versus-density sign disagreement.
-
-Visitor chronology also retained different inherited endpoints under a common final environment, while visitor connectivity and seed connectivity altered trajectories through biologically distinct routes. Geographic isolation therefore compresses at least two processes: a change in the functional pollination environment and a change in demographic/genetic input. They cannot be assumed to produce the same evolutionary effect.
-
-The stage decomposition is consequently cumulative. State dependence can weaken parallel selection; reproductive context can alter persistence and sign boundaries; genetic accessibility can attenuate selected axes; and finite realization can further separate trajectories through ancestry turnover, extinction and demographic sampling.
+Demographic stochasticity was not required for response branching, because controlled deterministic and finite runs both retained mixed directions. It nevertheless altered realized trajectories: chronology, life history, recovery and connectivity produced finite-versus-density disagreements, and common final visitor environments could retain different inherited endpoints after different histories. Isolation therefore combines changes in functional pollination with changes in demographic and genetic input, so each stage can add a distinct source of non-repeatability.
 
 ## Natural island evidence supports the question but not quantitative transfer
 
-The source-audited island archive contains systems that occupy different pieces of this causal architecture. Izu provides upstream variation in functional matching with divergent downstream pollen and tube responses. Ogasawara provides a more coherent access-to-pollen-to-reproduction example, whereas Hawaii and Puerto Rico–Mona include buffering and Dominica retains a counterdirectional case. Direct-history systems document founding, partner loss or reintroduction.
-
-What the archive does not contain is equally important. No complete same-unit record links a measured visitor transition to inherited longitudinal change and finite-demographic realization across the full causal chain. Existing island comparisons also differ in response scale, exposure definition and independent unit. We therefore do not estimate natural branch prevalence, assign islands to Model 3 cells or interpret synthetic trait magnitudes as natural effect sizes.
+The source-audited archive contains island systems illustrating functional replacement, buffering, counterdirectional responses and direct histories, but no same-unit record spans the full visitor-to-inheritance-to-demography chain. We therefore use natural systems to motivate and confront mechanisms, not to estimate branch prevalence, map named islands onto Model 3 cells or transfer synthetic effect sizes.
 
 # Discussion
 
@@ -179,11 +182,9 @@ Both interventions made direction more uniform, but by opposite routes. Larger p
 The temporal accessibility result is distinct: standing variation accelerated early response, but continuing mutation caught and overtook that reference. The high-depression long-horizon density stress test crossed quasi-extinction and cannot identify a persisting long-run syndrome trajectory.
 ## This differs from treating parallel evolution as a single continuum score
 
-Direction-versus-magnitude measurement is not our novelty. Oke et al. (2017), Venkataram & Kryazhimskiy (2023) and Arendt et al. (2025) already show that repeatability depends on which trajectory property is measured; Arendt et al. further caution that a general direction metric should not simply be equated with geometric parallelism. Bisschop et al. (2026) additionally showed experimentally that environmental and demographic heterogeneity can reduce evolutionary repeatability. Our contribution is narrower and mechanistic: within one operator and endpoint, two interventions produce nearly the same gain in directional sign uniformity while driving reproducible visitor-history structure in opposite directions.
+Direction-versus-magnitude measurement is not our novelty (Oke et al. 2017; Venkataram & Kryazhimskiy 2023; Arendt et al. 2025). Arendt et al. further caution that a general direction metric should not simply be equated with geometric parallelism; Bisschop et al. (2026) show that environmental and demographic heterogeneity can reduce evolutionary repeatability. Our narrower contribution is mechanistic: within one operator, interventions that similarly increase sign uniformity drive reproducible visitor-history structure in opposite directions.
 
-Repeatability is therefore multidimensional rather than one latent score. Direction, continuous magnitude, historical imprint and demographic realization need not rank interventions identically. The deterministic closure also remained directionally uniform throughout the tested viable isolation envelope, so finite history structure cannot be read simply as deterministic branches revealed by sampling.
-
-Many-to-one mapping provides another important precedent. Thompson et al. (2017) showed that common biomechanical function can be associated with less parallel morphology when multiple forms produce similar function. Model 3 does not establish literal many-to-one mapping for real flowers, but it reaches a related general point through a different route: common ecological function can coexist with non-unique phenotype because selection, accessibility and realization are separate filters.
+The continuous reduction sharpens this distinction. Additive means close exactly through the Price identity under the reduction conditions, whereas the Mendelian correction to trait variance changes sign across contexts and cannot be represented by one constant diffusion term. This does not make history reliability a second-moment statistic; it shows why a compact directional law need not close the higher-order inheritance structure shaping effect magnitude. This complements many-to-one precedents in which common function coexists with nonparallel form (Thompson et al. 2017).
 
 ## Pollinator loss and pollinator replacement should not be treated as the same island pressure
 
@@ -193,27 +194,23 @@ This distinction is especially important on islands, where depauperate communiti
 
 ## Genetic accessibility predicts asynchronous syndrome components
 
-The standing-variation experiment shows how one ecological transition can produce asynchronous early responses. When only one trait axis had little available variation, the constrained axis initially responded weakly while another trait retained a large response. The long-horizon extension then showed why this should not be recast as a persistent accessibility hierarchy: continuing mutation erased and eventually reversed the early standing-variation advantage.
+Standing variation altered early response asymmetrically across trait axes, but continuing mutation erased and eventually reversed that early advantage. The prediction is therefore temporal: differences in standing variation, mutational target size or genetic covariance should matter most early after a pollination shift, not define a permanent hierarchy of evolvability.
 
-The empirical prediction is therefore explicitly temporal. Lineages or trait modules that differ in standing variation, mutational target size or genetic covariance may differ most strongly early after a pollination shift, with those rankings changing as new variation accumulates. The standing-variation result is a mechanism for response timing, not a universal ranking of evolvability.
+## Joint selection gives the directional result a mechanistic boundary
 
-## Failure of the assurance route strengthens rather than weakens the stage argument
+The investment threshold also explains why the preregistered assurance-by-cost route was conditional: as inbreeding depression increased, its activity crossing moved from ~0.182 to ~0.096 to ~0.040. Since `r=a(1-delta)` and `dB/dr<0`, increasing inbreeding depression lowers `r` and raises the marginal pollination benefit `B` at a fixed visitor environment; reaching `B=C` therefore requires lower visitor activity, exactly the observed direction of the crossing shift. The rare-mutant analysis adds male-function accounting and shows that trait covariance improves one-generation response prediction.
 
-A simple story in which pollinator loss favors reproductive assurance and assurance universally reduces pollinator-facing investment would have produced a cleaner syndrome narrative. The prospective robustness test rejected that stronger claim. Its sign boundary moved with inbreeding depression and failed across the declared life-history treatments.
-
-That negative result is informative because it identifies reproductive context as an earlier possible break in repeatability. A shared decline in pollination can generate different selection once the value of selfed versus outcrossed offspring and the life-history budget differ. The model therefore does not need genetic or demographic contingency to explain every departure from parallelism; divergence can begin before those stages.
+These ingredients are not new selfing theory; automatic transmission, selfing timing, pollen discounting, pollen-limitation thresholds and floral-display/mating-system coupling have substantial precedent (Lloyd 1979; Lande & Schemske 1985; Porcher & Lande 2005; Harder & Aizen 2010; Goodwillie et al. 2010). The contribution is their connection within one visitor-transfer operator. With fixed inbreeding depression and no purging feedback, Model 3 supports a syndrome-directed shift but not common alternative selfing/outcrossing endpoints.
 
 ## Scope and empirical tests
 
-The model is mechanistic but uncalibrated: traits and distances are abstract, seasons are not geological time, and no named flora, Bombus transition, colour or corolla dimension is predicted.
-
-Natural tests should quantify pollinator amount and composition, reproductive response, inherited change, repeated effect magnitudes, genetic accessibility and demographic history. Islands remain useful because recurrent perturbations and an explicit syndrome literature make incomplete repeatability a concrete empirical problem.
+The model is mechanistic but uncalibrated: traits, distances and seasons are abstract. Natural tests should measure visitor amount and composition, reproductive response, inherited change, repeated effect magnitudes, genetic accessibility and demographic history rather than map named islands directly onto synthetic cells.
 
 # Conclusion
 
 At the occupied 200-season finite-population window, directional sign uniformity and reproducible history-specific magnitude were distinct properties. A post-hoc discovery predicted that capacity scaling would preserve history structure more strongly than natural demography while visitor-history pooling would erase it. Prospectively frozen validation reproduced that ordering first across new demographic realizations and then across entirely new synthetic visitor histories, with both paired contrasts excluding zero in both validation stages.
 
-The bounded principle is therefore sharper: **greater directional similarity does not uniquely identify greater evolutionary repeatability or its mechanism.** Historical imprint can become more reproducible, less reproducible or temporally reweighted while the aggregate direction looks increasingly parallel. Natural variance components, long-run attractors and route prevalences remain empirical quantities rather than outputs of this uncalibrated model.
+The bounded principle is therefore sharper: **greater directional similarity does not uniquely identify greater evolutionary repeatability or its mechanism.** In Model 3, additive trait means have an exact Price closure, floral investment has a marginal pollination-benefit versus investment-cost threshold, and the same visitor histories rotate rare-mutant selection jointly toward lower investment and greater assurance. Yet exact sexual inheritance remains nonlocal, higher-order structure does not close in the same way, and the finite joint follow-up did not produce two common alternative endpoint classes. Historical imprint can therefore become more reproducible, less reproducible or temporally reweighted while the aggregate direction looks increasingly parallel. Natural variance components, long-run attractors and route prevalences remain empirical quantities rather than outputs of this uncalibrated model.
 
 # Figure captions
 
@@ -226,6 +223,22 @@ The bounded principle is therefore sharper: **greater directional similarity doe
 **Figure 4. Finite realization and empirical claim boundary.** Chronology changes realized inherited endpoints, while reproductive assurance determines whether some trajectories remain observable at all. Source-audited natural island systems show propagation, branching, buffering and counterdirectional responses across model layers, but they do not provide a complete same-unit longitudinal A→B→C chain; no named island is fitted to a synthetic Model 3 cell.
 
 # Core references for framing
+
+Price G. 1970. Selection and Covariance. *Nature* 227:520–521. doi:10.1038/227520a0.
+
+Lloyd DG. 1979. Some reproductive factors affecting the selection of self-fertilization in plants. *The American Naturalist* 113:67–79. doi:10.1086/283365.
+
+Porcher E, Lande R. 2005. The evolution of self-fertilization and inbreeding depression under pollen discounting and pollen limitation. *Journal of Evolutionary Biology* 18:497–508. doi:10.1111/j.1420-9101.2005.00905.x.
+
+Lande R, Schemske DW. 1985. The evolution of self-fertilization and inbreeding depression in plants. I. Genetic models. *Evolution* 39:24–40. doi:10.1111/j.1558-5646.1985.tb04077.x.
+
+Harder LD, Wilson WG. 1998. A clarification of pollen discounting and its joint effects with inbreeding depression on mating system evolution. *The American Naturalist* 152:684–695. doi:10.1086/286199.
+
+Goodwillie C, Sargent RD, Eckert CG, et al. 2010. Correlated evolution of mating system and floral display traits in flowering plants and its implications for the distribution of mating system variation. *New Phytologist* 185:311–321. doi:10.1111/j.1469-8137.2009.03043.x.
+
+Harder LD, Aizen MA. 2010. Floral adaptation and diversification under pollen limitation. *Philosophical Transactions of the Royal Society B* 365:529–543. doi:10.1098/rstb.2009.0226.
+
+Teixido AL, Aizen MA. 2019. Reproductive assurance weakens pollinator-mediated selection on flower size in an annual mixed-mating species. *Annals of Botany* 123:1067–1077. doi:10.1093/aob/mcz014.
 
 Oke KB, Rolshausen G, LeBlond C, Hendry AP. 2017. How Parallel Is Parallel Evolution? A Comparative Analysis in Fishes. *The American Naturalist* 190:1–16. doi:10.1086/691989.
 
