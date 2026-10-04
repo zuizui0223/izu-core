@@ -1,0 +1,844 @@
+{
+  "summary": {
+    "n_cases": 32,
+    "passing": 1,
+    "rows": [
+      {
+        "key": "density_assurance_cost_u0.01_h76001_near_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76001,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.030928277268901017,
+          -0.0203768319674007,
+          0.008084338406200486
+        ],
+        "terminal_max_gap": 0.030928277268901017,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.12156794862428344,
+        "refined_terminal_traits": [
+          0.32477943208878285,
+          0.3834118687909275,
+          0.8918504432459721
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          -0.157008694783287,
+          -0.13715830446223864,
+          0.06047387424287265
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76001_near_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76001,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.030462227681602727,
+          -0.020420977029252496,
+          0.009100638120342563
+        ],
+        "terminal_max_gap": 0.030462227681602727,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.11044329996808783,
+        "refined_terminal_traits": [
+          0.34370412253692306,
+          0.38714043762434003,
+          0.890002536555284
+        ],
+        "refined_terminal_mass": 48.000000000000014,
+        "refined_last100_changes": [
+          -0.14302201318916352,
+          -0.1376852058189817,
+          0.062293671223115354
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76001_far_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76001,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.00071649361513898,
+          0.0047158431263730205,
+          0.004214542380424402
+        ],
+        "terminal_max_gap": 0.0047158431263730205,
+        "terminal_pass": true,
+        "trajectory_max_gap": 0.021219004389279206,
+        "refined_terminal_traits": [
+          0.3620869942441741,
+          0.2966296413656667,
+          0.9276310530744568
+        ],
+        "refined_terminal_mass": 47.99999999999998,
+        "refined_last100_changes": [
+          -0.10977258884383251,
+          -0.09358475104117425,
+          0.024899934982751892
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76001_far_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76001,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          -0.025744505344688973,
+          0.017202519702319397,
+          -0.0016027172577239845
+        ],
+        "terminal_max_gap": 0.025744505344688973,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.0286983840056797,
+        "refined_terminal_traits": [
+          0.3747599704660593,
+          0.2937125366903176,
+          0.9298129038885601
+        ],
+        "refined_terminal_mass": 47.99999999999998,
+        "refined_last100_changes": [
+          -0.09641961712700958,
+          -0.08657977280030943,
+          0.02277394319311732
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76002_near_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76002,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.028124745601544127,
+          0.007019852007905725,
+          -0.00013552840978459102
+        ],
+        "terminal_max_gap": 0.028124745601544127,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.03147733675742931,
+        "refined_terminal_traits": [
+          0.18649717599739746,
+          0.3343565753013502,
+          0.9198688624131522
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          0.020268943849186594,
+          0.04304374544861056,
+          -0.009234273678346283
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76002_near_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76002,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.025610562914678947,
+          0.009230819128898393,
+          0.00019722922098253104
+        ],
+        "terminal_max_gap": 0.025610562914678947,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.027839258598896854,
+        "refined_terminal_traits": [
+          0.18554937448012432,
+          0.3319250502118914,
+          0.9213319614585873
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          0.017234033608976962,
+          0.039470403960567446,
+          -0.008667555180482123
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76002_far_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76002,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          -0.005151035353013533,
+          0.02007644307797432,
+          -0.02172531137470657
+        ],
+        "terminal_max_gap": 0.02172531137470657,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.02172531137470657,
+        "refined_terminal_traits": [
+          0.6685094817942842,
+          0.18408762811869536,
+          0.9512958650065272
+        ],
+        "refined_terminal_mass": 47.999999999999986,
+        "refined_last100_changes": [
+          -0.10895107768940548,
+          0.010043402191094508,
+          -0.00113411931259777
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76002_far_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76002,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.02076417643884143,
+          0.019436112118575766,
+          -0.023619059759779404
+        ],
+        "terminal_max_gap": 0.023619059759779404,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.09935028842840588,
+        "refined_terminal_traits": [
+          0.6570857927674182,
+          0.1784878713428066,
+          0.9541668588865014
+        ],
+        "refined_terminal_mass": 48.0,
+        "refined_last100_changes": [
+          -0.10205235383554534,
+          0.020621696339017365,
+          -0.002627536659449148
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76003_near_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76003,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.01818373215454505,
+          0.01058164381533827,
+          0.005559080555715967
+        ],
+        "terminal_max_gap": 0.01818373215454505,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.055043916873813714,
+        "refined_terminal_traits": [
+          0.6958652306557683,
+          0.36193308028207827,
+          0.9122224875090114
+        ],
+        "refined_terminal_mass": 47.99999999999999,
+        "refined_last100_changes": [
+          0.09106066932906665,
+          0.008844232907271765,
+          -0.002384329609456448
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76003_near_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76003,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.022260796321971976,
+          0.0067152481563649835,
+          0.009411931701153065
+        ],
+        "terminal_max_gap": 0.022260796321971976,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.04855874058843168,
+        "refined_terminal_traits": [
+          0.6875147012473944,
+          0.3571274049214749,
+          0.9144239903541219
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          0.09241502788403999,
+          0.005362768484282299,
+          -0.0012686904820028433
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76003_far_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76003,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.002122145274981113,
+          0.007639548301235866,
+          -0.019332958395565814
+        ],
+        "terminal_max_gap": 0.019332958395565814,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.021495829256953702,
+        "refined_terminal_traits": [
+          0.6443393350283008,
+          0.24089322346737338,
+          0.9412806523349775
+        ],
+        "refined_terminal_mass": 47.999999999999986,
+        "refined_last100_changes": [
+          0.0962009106718863,
+          0.011888379017784445,
+          -0.0020431692717256533
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76003_far_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76003,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.013432999950557023,
+          0.023937297506663235,
+          -0.02721220526251711
+        ],
+        "terminal_max_gap": 0.02721220526251711,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.02721220526251711,
+        "refined_terminal_traits": [
+          0.619174711300615,
+          0.22326349329835768,
+          0.9463021003383663
+        ],
+        "refined_terminal_mass": 48.000000000000014,
+        "refined_last100_changes": [
+          0.08129536201979815,
+          0.006589440686852771,
+          -0.000979072790306179
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76004_near_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76004,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          -0.05006564052682083,
+          0.004483749942785387,
+          0.00551695922822415
+        ],
+        "terminal_max_gap": 0.05006564052682083,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.0522886565936489,
+        "refined_terminal_traits": [
+          0.6442391391839245,
+          0.3368580936698296,
+          0.9190313670892066
+        ],
+        "refined_terminal_mass": 48.0,
+        "refined_last100_changes": [
+          -0.037132490383498196,
+          0.0003229764159569104,
+          -0.00016690515290851415
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76004_near_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76004,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          -0.06365362356559146,
+          -0.0012916620381100419,
+          0.010801486976282915
+        ],
+        "terminal_max_gap": 0.06365362356559146,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.06382404173515077,
+        "refined_terminal_traits": [
+          0.6521010803409574,
+          0.3405184705455259,
+          0.9189895576871124
+        ],
+        "refined_terminal_mass": 48.0,
+        "refined_last100_changes": [
+          -0.0326555151965644,
+          -0.0027932281367932243,
+          0.0008965855320557381
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76004_far_n13_jump",
+        "setting": "assurance_cost",
+        "history_seed": 76004,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          -0.04772959038728575,
+          0.017290858365395734,
+          -0.018370852333038146
+        ],
+        "terminal_max_gap": 0.04772959038728575,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.04772959038728575,
+        "refined_terminal_traits": [
+          0.669364993903268,
+          0.27451970646023643,
+          0.9338331838062544
+        ],
+        "refined_terminal_mass": 48.000000000000014,
+        "refined_last100_changes": [
+          -0.025120595432067683,
+          0.011557801042147209,
+          -0.0029064588411527037
+        ]
+      },
+      {
+        "key": "density_assurance_cost_u0.01_h76004_far_n13_heat_fv",
+        "setting": "assurance_cost",
+        "history_seed": 76004,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          -0.05045366671445417,
+          0.01726781407084005,
+          -0.022977136562762346
+        ],
+        "terminal_max_gap": 0.05045366671445417,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.05045366671445417,
+        "refined_terminal_traits": [
+          0.6787802337916804,
+          0.27146087726751367,
+          0.935824974234493
+        ],
+        "refined_terminal_mass": 47.99999999999998,
+        "refined_last100_changes": [
+          -0.020638807464313347,
+          0.009330514233506615,
+          -0.0023257927583406612
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76001_near_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76001,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.0022448754227859524,
+          0.018525336912239135,
+          -0.0019564801740629134
+        ],
+        "terminal_max_gap": 0.018525336912239135,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.04350251383667658,
+        "refined_terminal_traits": [
+          0.41312701075574126,
+          0.04657829002381911,
+          0.995693171868389
+        ],
+        "refined_terminal_mass": 47.99999999999998,
+        "refined_last100_changes": [
+          0.0005693170401042669,
+          -1.280749672747522e-05,
+          2.2456298498840788e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76001_near_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76001,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.007263525638052715,
+          0.02141089865067892,
+          -0.0020368905837993
+        ],
+        "terminal_max_gap": 0.02141089865067892,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.08101361763214032,
+        "refined_terminal_traits": [
+          0.4149271682132382,
+          0.043697509703697145,
+          0.9961830485720579
+        ],
+        "refined_terminal_mass": 48.0,
+        "refined_last100_changes": [
+          0.0003405338279595105,
+          4.688251991902259e-07,
+          2.10947590071342e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76001_far_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76001,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          -0.000589765459935998,
+          0.018518088596285415,
+          -0.001957698353132975
+        ],
+        "terminal_max_gap": 0.018518088596285415,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.03661555103278147,
+        "refined_terminal_traits": [
+          0.39600856918774646,
+          0.046566340433061446,
+          0.9956913392894192
+        ],
+        "refined_terminal_mass": 48.000000000000014,
+        "refined_last100_changes": [
+          0.0007124791792471052,
+          4.27888210045857e-06,
+          2.0630960387291175e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76001_far_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76001,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.0010146030618645163,
+          0.021396336179264102,
+          -0.0020384167934628383
+        ],
+        "terminal_max_gap": 0.021396336179264102,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.07368638557606577,
+        "refined_terminal_traits": [
+          0.3940153131234801,
+          0.04367750583147299,
+          0.9961810535352459
+        ],
+        "refined_terminal_mass": 47.99999999999999,
+        "refined_last100_changes": [
+          0.000461059913130224,
+          2.3645989309699356e-05,
+          1.9074239509531132e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76002_near_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76002,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.003387178779688138,
+          0.018532336667848637,
+          -0.0019750460461832597
+        ],
+        "terminal_max_gap": 0.018532336667848637,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.04192584968440782,
+        "refined_terminal_traits": [
+          0.4282645941043429,
+          0.04660434452997798,
+          0.9956622903221678
+        ],
+        "refined_terminal_mass": 48.000000000000014,
+        "refined_last100_changes": [
+          0.0006401316665059498,
+          6.287012976958356e-05,
+          3.109070990514606e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76002_near_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76002,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.012782927414993872,
+          0.02141987257853161,
+          -0.0020559711780978596
+        ],
+        "terminal_max_gap": 0.02141987257853161,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.07849211773894194,
+        "refined_terminal_traits": [
+          0.43275846331491874,
+          0.04371972547131902,
+          0.9961546327712166
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          0.00040075617940776853,
+          6.88997602815572e-05,
+          2.6314893784018523e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76002_far_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76002,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          -0.001174012821586301,
+          0.018526166794026955,
+          -0.001976355781757033
+        ],
+        "terminal_max_gap": 0.018526166794026955,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.03677213789320144,
+        "refined_terminal_traits": [
+          0.3877773662060096,
+          0.046592163913419256,
+          0.9956606272714427
+        ],
+        "refined_terminal_mass": 48.000000000000014,
+        "refined_last100_changes": [
+          0.001096036771241593,
+          7.967368887672882e-05,
+          3.409938055920492e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76002_far_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76002,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          -4.26207972217818e-05,
+          0.02140350085476747,
+          -0.002057384071875723
+        ],
+        "terminal_max_gap": 0.02140350085476747,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.07384763555490648,
+        "refined_terminal_traits": [
+          0.3847905847608767,
+          0.043695653547356515,
+          0.9961529036955064
+        ],
+        "refined_terminal_mass": 47.99999999999998,
+        "refined_last100_changes": [
+          0.0007953211034630869,
+          9.363916966463603e-05,
+          2.8969179400761824e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76003_near_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76003,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.00038966707465748485,
+          0.01853744154804486,
+          -0.0019713024417595815
+        ],
+        "terminal_max_gap": 0.01853744154804486,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.03806587486002122,
+        "refined_terminal_traits": [
+          0.4006246457218155,
+          0.04660703963618763,
+          0.9956687757380743
+        ],
+        "refined_terminal_mass": 48.00000000000002,
+        "refined_last100_changes": [
+          0.0005819053383264161,
+          6.659325561037682e-05,
+          4.316049035280045e-06
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76003_near_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76003,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.002750270540212485,
+          0.02141776581562576,
+          -0.002052235940116609
+        ],
+        "terminal_max_gap": 0.02141776581562576,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.0763587080655811,
+        "refined_terminal_traits": [
+          0.3993573995536054,
+          0.043713017432816095,
+          0.9961601979577527
+        ],
+        "refined_terminal_mass": 48.000000000000014,
+        "refined_last100_changes": [
+          0.0003454947416778875,
+          7.817717305972499e-05,
+          2.9959564092907343e-06
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76003_far_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76003,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          -0.0008156916268279302,
+          0.018534851531001484,
+          -0.0019717838345207905
+        ],
+        "terminal_max_gap": 0.018534851531001484,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.03643960204477259,
+        "refined_terminal_traits": [
+          0.39299283650248185,
+          0.04660300315079057,
+          0.9956680589565289
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          0.0006553082771030838,
+          7.35868953328292e-05,
+          1.9533967687834775e-06
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76003_far_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76003,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.00031621946093812747,
+          0.021413240518438664,
+          -0.0020528698557217284
+        ],
+        "terminal_max_gap": 0.021413240518438664,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.07382890611520165,
+        "refined_terminal_traits": [
+          0.39015169337319444,
+          0.04370683001198686,
+          0.9961593484247238
+        ],
+        "refined_terminal_mass": 48.00000000000002,
+        "refined_last100_changes": [
+          0.0004071472136296661,
+          8.696912287654152e-05,
+          3.535594665926567e-07
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76004_near_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76004,
+        "arm": "near",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          0.0012884389621538594,
+          0.01854818078849955,
+          -0.002011149787241817
+        ],
+        "terminal_max_gap": 0.01854818078849955,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.03783052149906241,
+        "refined_terminal_traits": [
+          0.39414478880239656,
+          0.046631012055967244,
+          0.9955967897814655
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          0.0007190382287722286,
+          0.0001268177079524549,
+          -7.054341889245475e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76004_near_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76004,
+        "arm": "near",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.005266239854332666,
+          0.0214283265563244,
+          -0.0020921152425656953
+        ],
+        "terminal_max_gap": 0.0214283265563244,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.07687515563040748,
+        "refined_terminal_traits": [
+          0.3947189273521993,
+          0.04373129874052303,
+          0.9960968382232188
+        ],
+        "refined_terminal_mass": 47.99999999999998,
+        "refined_last100_changes": [
+          0.0004733261178990755,
+          0.0001278719718486171,
+          -6.234325842591204e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76004_far_n13_jump",
+        "setting": "prior_selfing",
+        "history_seed": 76004,
+        "arm": "far",
+        "scheme": "jump",
+        "terminal_signed_difference": [
+          -0.0007798096568467638,
+          0.01854623898684042,
+          -0.002011534931865122
+        ],
+        "terminal_max_gap": 0.01854623898684042,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.037012137376901566,
+        "refined_terminal_traits": [
+          0.38880990157175643,
+          0.046628189244634966,
+          0.9955962478716035
+        ],
+        "refined_terminal_mass": 48.00000000000002,
+        "refined_last100_changes": [
+          0.0007714008936610672,
+          0.00013163831821544347,
+          -7.102606643738518e-05
+        ]
+      },
+      {
+        "key": "density_prior_selfing_u0.01_h76004_far_n13_heat_fv",
+        "setting": "prior_selfing",
+        "history_seed": 76004,
+        "arm": "far",
+        "scheme": "heat_fv",
+        "terminal_signed_difference": [
+          0.000559674922612885,
+          0.02142389073037094,
+          -0.002092628878445524
+        ],
+        "terminal_max_gap": 0.02142389073037094,
+        "terminal_pass": false,
+        "trajectory_max_gap": 0.07451444947550301,
+        "refined_terminal_traits": [
+          0.3863296057722473,
+          0.043725705202759105,
+          0.9960962117665161
+        ],
+        "refined_terminal_mass": 48.00000000000001,
+        "refined_last100_changes": [
+          0.0005311449325233752,
+          0.00013527802906953407,
+          -6.2946671779196e-05
+        ]
+      }
+    ],
+    "claim_boundary": "same-founder 9-to-13 refinement; terminal mean precision diagnostic, not proof of a continuum limit or stable attractors"
+  },
+  "source_hashes_verified": 25,
+  "summary_sha256": "ff2644e432101cf2fd885795e81ebbe965b573523ca2623204a538d1b0454d1a",
+  "archive_sha256": "7edf5ca1cf466d30c2e0eac77080816da5b08ae5ed6c5a72891ff27559ed9dfc"
+}

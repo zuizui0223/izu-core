@@ -828,3 +828,20 @@ early visitors here, so these are8setting/operator/arm cases, not8independent
 early ecological histories. Receipt:model3_complete_ten65_failures_20261005.json.
 New gamete-based candidate suite206passed; saved-state third-period probe
 still running. Do not overwrite this failed gate or claim long-horizon admission.
+
+## 2026-10-05: all32 n13 trajectories complete; refinement fails31/32
+
+The original n13 process exited0 after32/32 cases. Existing formal summarizer
+checked each declared task identity, output hash, trace shape and common initial
+state against the frozen n9 case. All25 source hashes match current files and
+archived source bytes. Complete outputs archived separately; receipt
+model3_grid13_verified_20261005.json.
+
+At the unchanged terminal mean tolerance<.01, jump passes1/16 and heat_fv0/16.
+Largest terminal discrepancies .05006564052682083 (jump) and
+.06365362356559146 (heat); trajectory maxima .12156794862428344 and
+.11044329996808783. Sole passing case assurance_cost/history76001/far/jump.
+This is failure of the n9-to-n13 refinement gate, not proof of a required minimum
+grid or a biological failure of diffusion. Quantitative coarse-grid ABM-density
+and jump-heat ecological interpretation remains withheld. The high-grid
+necessary-resolution/feasibility objective is still unresolved.
