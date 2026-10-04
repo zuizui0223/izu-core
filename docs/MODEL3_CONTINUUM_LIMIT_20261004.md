@@ -347,6 +347,25 @@ Here `w[z;p,V_t]` must be derived from the same pollen-transfer and reproductive
 
 This PDE is **not yet Model 3**. It becomes scientifically useful only if it reproduces the discrete-density operator on prespecified controlled regimes.
 
+### First local sign gate
+
+A no-fit one-dimensional reduction was implemented in `scripts/audit_model3_reduced_pde_selection.py`. It retains the frozen reduction-audit pollen-transfer, ovule-cost, delayed-assurance and parental-genome-contribution equations, holds access fixed, and evolves a continuous investment density by
+
+[
+partial_t p(i,t)={w(i;p,V)-ar w}p(i,t)+D,partial_{ii}p.
+]
+
+For the frozen operator audit `mutation_rate=0`, so (D=0); this is deliberately a selection-only local gate rather than a claim that diffusion generates the result.
+
+Without fitting a time scale or a context-specific coefficient, the initial mean velocity (mathrm dar i/mathrm dt=mathrm{Cov}(i,w)) recovered the four source-locked sign reversals:
+
+- access 0.20, left4: positive;
+- access 0.20, right4: negative;
+- access 0.80, left4: negative;
+- access 0.80, right4: positive.
+
+The reduced model therefore preserves the operator-level statement that fixed visitor number with changed functional composition can reverse floral-investment selection. This does **not** yet validate 60-year magnitudes or the sexual inheritance trajectory.
+
 ## 9. The immediate falsification test for a PDE reduction
 
 Do not compare a fitted PDE only to final means. A valid reduction should recover, without retuning per scenario:
