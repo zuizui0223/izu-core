@@ -799,3 +799,22 @@ Current ten-period driver continues next frozen cases, without retuning.
 Next numerical repair must stream/project the raw child factors before their
 full construction. Preserve full joint parent state and explicit error budget.
 Traceback and shape receipt: model3_third65_failure_20261005.json.
+
+## 2026-10-05: exact gamete re-expression before raw child construction
+
+The new gamete_basis first applies the SAME Mendelian/birth-mutation maps,
+then takes untruncated QR and absorbs R into the FULL joint parent core.
+This is exact algebra (roundoff excluded), not an independence closure or new
+truncation. Each parent mode rank is then<=allele nodes; n65 raw child factor
+is at most2145*65*65=9,062,625values, below16million. The previous failure
+used97*102 parent modes before recognizing this exact gamete rank bound.
+
+Two signed direct gamete tests and12 reproduction tests pass. An initial
+unscaled positive random fixture exceeded a fixed absolute roundoff allowance
+(~4e-9 discrepancy at large total mass); the fixture was normalized to donor
+mass48/recipient1 rather than loosening the tolerance. Direct gamete test
+retains signed random unnormalized inputs. Biological parameters unchanged.
+Separate gamete_third65 probe runs from the hashed saved second-step state,
+with exact next-marginal comparison and unchanged1e-8 local tolerance/cap.
+Original8-case ten-period runner remains live and frozen; no success claimed
+for period3 yet. Sources are archived before the new probe.
