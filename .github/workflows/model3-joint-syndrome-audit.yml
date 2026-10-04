@@ -1,23 +1,10 @@
 name: Model3 Joint Syndrome Audit
 
 on:
-  pull_request:
-    paths:
-      - 'scripts/audit_model3_joint_syndrome_vector.py'
-      - 'scripts/audit_model3_multivariate_price.py'
-      - 'scripts/audit_model3_joint_G_beta_response.py'
-      - 'data/design/model3_joint_syndrome_rare_mutant_20261004.json'
-      - 'data/design/model3_joint_syndrome_rare_mutant_gate_addendum_20261004.json'
-      - 'data/design/model3_joint_syndrome_response_20261004.json'
-      - '.github/workflows/model3-joint-syndrome-audit.yml'
-
-concurrency:
-  group: model3-joint-syndrome-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  workflow_dispatch:
 
 jobs:
   audit:
-    if: github.head_ref == 'agent/model3-continuum-limit-20261004'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
