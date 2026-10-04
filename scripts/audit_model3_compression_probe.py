@@ -2,6 +2,8 @@
 import hashlib
 import json
 import time
+import argparse
+import zipfile
 from pathlib import Path
 import numpy as np
 from scripts.run_model3_full_mutation import ROOT, config, exposure, atomic_json
@@ -47,18 +49,25 @@ def roundtrip(value, epsilon):
                   stored_values=int(core.size + sum(f.size for f in factors)))
 
 
-def main():
-    out = ROOT/'outputs/model3_precision_feasibility/propagation40'
+def main(periods=40):
+    if periods not in (40, 1000):
+        raise ValueError('only declared horizons40 and1000 are permitted')
+    out = ROOT/f'outputs/model3_precision_feasibility/propagation{periods}'
     out.mkdir(parents=True, exist_ok=True)
     files = list((ROOT/'scripts/model3_island').glob('*.py')) + [Path(__file__),
         ROOT/'scripts/run_model3_full_mutation.py',
         ROOT/'data/design/model3_ch2_bridge_20260927.json',
         ROOT/'docs/superpowers/plans/2026-10-04-model3-compression-probe.md']
+    if periods == 1000:
+        files.append(ROOT/'docs/superpowers/plans/2026-10-04-model3-compression-long.md')
     sources = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
     manifest = out/'sources.json'
     if manifest.exists() and json.loads(manifest.read_text()) != sources:
         raise ValueError('probe sources changed')
     atomic_json(manifest, sources)
+    with zipfile.ZipFile(out/'sources.zip','w',zipfile.ZIP_DEFLATED) as archive:
+        for path in files:
+            archive.write(path,path.relative_to(ROOT).as_posix())
     founders = founders_from_spec(dict(count=48,draw_count=48,means=[.5]*3,sd=.15,birth_year=0),74001)
     founders, _ = project_state(founders, make_tensor_grid(([0,.25,.5,.75,1],)*3))
     grid = make_tensor_grid((tuple(np.linspace(0,1,9)),)*3)
@@ -72,8 +81,8 @@ def main():
         c = config(setting,.01)
         h = exposure(76001,arm)
         baseline = initial.copy(); compressed = initial.copy()
-        records = []; start = time.monotonic()
-        for t in range(40):
+        records = []; checkpoints = {}; start = time.monotonic()
+        for t in range(periods):
             baseline, _ = density_step(baseline,grid,h.visitors[t],h.seed_candidates[t],c,
                 mutation_scheme=scheme,inheritance_backend='tensor')
             raw, _ = density_step(compressed,grid,h.visitors[t],h.seed_candidates[t],c,
@@ -87,14 +96,24 @@ def main():
                 mass_gap=abs(bmass-cmass),
                 trait_gap=float(np.max(np.abs(baseline@traits/bmass-compressed@traits/cmass))) if occupied else None,
                 occupancy_mismatch=bool((bmass>0)!=(cmass>0))))
+            if t+1 in (200,400,periods):
+                checkpoints[f'baseline_{t+1}'] = baseline.copy()
+                checkpoints[f'compressed_{t+1}'] = compressed.copy()
+            if (t+1) % 200 == 0:
+                print(key,t+1,'/',periods,'L1',records[-1]['path_l1'],flush=True)
         result = dict(key=key,seconds=time.monotonic()-start,records=records)
         result['passed'] = all(r['path_l1']<=1e-5 and r['mass_gap']<=1e-5
             and not r['occupancy_mismatch'] and (r['trait_gap'] is None or r['trait_gap']<=1e-6) for r in records)
+        checkpoint_path = out/(key+'.npz')
+        np.savez_compressed(checkpoint_path,**checkpoints)
+        result['checkpoint_sha256'] = hashlib.sha256(checkpoint_path.read_bytes()).hexdigest()
         atomic_json(out/(key+'.json'),result)
         results.append(result)
         print(key, result['passed'], 'max L1',max(r['path_l1'] for r in records),flush=True)
-    atomic_json(out/'summary.json',dict(scope='40-period dense propagation diagnostic only',results=results))
+    atomic_json(out/'summary.json',dict(scope=f'{periods}-period dense propagation diagnostic only',results=results))
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--periods',type=int,choices=[40,1000],default=40)
+    main(parser.parse_args().periods)

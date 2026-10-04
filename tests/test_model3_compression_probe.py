@@ -3,6 +3,12 @@ import pytest
 from scripts.audit_model3_compression_probe import roundtrip
 
 
+def test_rejects_undeclared_horizon_before_writing():
+    from scripts.audit_model3_compression_probe import main
+    with pytest.raises(ValueError, match='declared'):
+        main(periods=41)
+
+
 def test_preserves_correlated_distribution_and_mass():
     x = np.zeros((7, 7, 7))
     x[1, 1, 1] = 30

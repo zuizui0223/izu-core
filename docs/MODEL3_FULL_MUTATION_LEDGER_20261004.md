@@ -107,3 +107,18 @@ All eight admission cases completed and passed; worst path L1=3.3495e-7,
 mean-trait gap=2.8312e-8. Full metrics and hashes retained. Long-horizon and
 direct compressed-operator gates remain open. Original13 run verified live at
 8/32; no frozen source touched and no17+ full campaign started.
+
+## Thousand-period compression propagation gate (running)
+
+The same eight cases now run for1000 periods under the separately saved
+2026-10-04-model3-compression-long plan. The40-period source archive was saved
+and hash-checked before extending the diagnostic runner. Per-step tolerance
+and trajectory admission thresholds are unchanged. Checkpoints at200/400/1000
+retain both distributions; final case receipts hash their NPZ files. The long
+run has its own source archive and output directory propagation1000.
+
+TDD: an undeclared-horizon test failed before adding horizon admission and
+passed afterward;19 compression/inheritance tests pass. The running session is
+57083 (one worker/one BLAS thread). This is an error-propagation experiment,
+not the high-resolution production campaign and not a compressed time solver.
+No long-horizon pass is claimed until all eight result receipts are inspected.
