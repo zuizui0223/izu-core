@@ -1,0 +1,74 @@
+{
+  "scope": "n9 40-period solver accuracy, not grid convergence",
+  "source_hashes_verified": 33,
+  "cases": [
+    {
+      "key": "assurance_cost_near_jump",
+      "seconds": 51.06200000003446,
+      "max_l1": 6.712995508231764e-10,
+      "max_trait": 1.7086443371283622e-11,
+      "max_negative": 1.646696548453654e-12,
+      "npz_sha256": "f0f15ecf650850f36fc3fb323415672d677853450f8d1b78c35a680b275e679f"
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "seconds": 48.5,
+      "max_l1": 6.832276964460239e-10,
+      "max_trait": 2.4450663715924748e-11,
+      "max_negative": 1.356204310542616e-12,
+      "npz_sha256": "1ffdfb51eb9c7a99175f45ffac4504f9590c8c5639c9f19b19b0fa83f3c9be0f"
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "seconds": 27.5,
+      "max_l1": 3.3919525984073697e-09,
+      "max_trait": 3.1338731609764636e-10,
+      "max_negative": 4.5084785690573234e-12,
+      "npz_sha256": "21751c81aa9f0c6bcec2078aeec3431a46a0ddf61c006a5386fa5b873196636c"
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "seconds": 26.67200000002049,
+      "max_l1": 2.7870316351781445e-09,
+      "max_trait": 2.1932422544779229e-10,
+      "max_negative": 4.737907782969066e-12,
+      "npz_sha256": "474b26bb56e2cb463b1d06a30c80ab573917965369ed1dd602edb75f52953f90"
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "seconds": 53.84399999992456,
+      "max_l1": 4.5050441108613594e-08,
+      "max_trait": 5.186729490347375e-09,
+      "max_negative": 3.709679700811145e-12,
+      "npz_sha256": "3a7e4fd395c5d304aa9ec0219e5ba96626dc6a189a6c19d14715c08a9d0deecc"
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "seconds": 52.25,
+      "max_l1": 5.98974957410261e-08,
+      "max_trait": 7.119707046143731e-09,
+      "max_negative": 5.051263395438866e-12,
+      "npz_sha256": "cf69330237980066f0708b455175880dbed303b6d42424867c46c838a3aabab6"
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "seconds": 25.20299999997951,
+      "max_l1": 2.0655627929445093e-07,
+      "max_trait": 1.6194563023930186e-08,
+      "max_negative": 4.340489729188543e-12,
+      "npz_sha256": "9ded91a082fe1f729005292507f5468ce44b3b7e7f8bf99381e28dea6bf7c6e5"
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "seconds": 24.093999999924563,
+      "max_l1": 3.3471948398844187e-07,
+      "max_trait": 2.562823062102204e-08,
+      "max_negative": 4.519310515612904e-12,
+      "npz_sha256": "609ae04d9b1671f15734dbecb5f3c9bcb6ac65cc0a0cf425cdae8ddb93bb2666"
+    }
+  ],
+  "all_passed": true,
+  "archive": "outputs/model3_precision_feasibility/fastpath_n9_verified.zip",
+  "archive_sha256": "e7a7e26f602dd2067f8789cb6e7a806305b90030bf8d1d8dab41add74985385d",
+  "archive_bytes": 18688335
+}

@@ -305,3 +305,19 @@ Restart authorized by observed terminal failure, not a timeout. New session
 passed. Old original13/slow-admission/slow-reconstruction processes remain
 separate live handles; their source files were not altered. Failure/recovery
 provenance and short-path patch are retained in tracked data/results.
+
+
+## Verified n9 integrated admission and long gate
+
+All8 n9/40 cases pass;33 frozen source hashes, case JSON and NPZ hashes
+verified. Reconstructed endpoint arrays agree with saved arrays. Maximum
+path L1=3.34719484e-7, mean-trait gap=2.56282306e-8.
+Receipt: data/results/model3_fastpath_n9_verified_20261004.json.
+Archived complete outputs plus long-gate runner/tests.
+Ruling: admit n9/1000 on same8 cases/history76001, unchanged numerical
+tolerances and biology, single worker. This is solver error admission,
+NOT grid convergence. Separate runner preserves all earlier source snapshots.
+Admission guard test RED (undeclared horizon), then GREEN; candidate75tests
+passed. Long run session58342, output fastpath_candidate/gate_n9_1000.
+Original n13 run session77498 remains live,16/32 last verified.
+Previous goal turn: progress (n9/40 completion evidence changed next action).

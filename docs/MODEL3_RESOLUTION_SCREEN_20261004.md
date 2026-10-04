@@ -456,3 +456,19 @@ path was introduced, verified with a real NumPy write and a regression test;
 after exit1 was confirmed. New output: candidate/gate_n9_40; first two cases
 saved and report passing. All8 must finish and be audited before the gate is
 accepted. See model3_n9_path_recovery_20261004.json for both source identities.
+
+
+## Verified n9 integrated admission and long gate
+
+All8 n9/40 cases pass;33 frozen source hashes, case JSON and NPZ hashes
+verified. Reconstructed endpoint arrays agree with saved arrays. Maximum
+path L1=3.34719484e-7, mean-trait gap=2.56282306e-8.
+Receipt: data/results/model3_fastpath_n9_verified_20261004.json.
+Archived complete outputs plus long-gate runner/tests.
+Ruling: admit n9/1000 on same8 cases/history76001, unchanged numerical
+tolerances and biology, single worker. This is solver error admission,
+NOT grid convergence. Separate runner preserves all earlier source snapshots.
+Admission guard test RED (undeclared horizon), then GREEN; candidate75tests
+passed. Long run session58342, output fastpath_candidate/gate_n9_1000.
+Original n13 run session77498 remains live,16/32 last verified.
+Previous goal turn: progress (n9/40 completion evidence changed next action).
