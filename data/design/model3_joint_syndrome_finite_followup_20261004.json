@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_joint_selection_outcome_readout",
+  "frozen_on": "2026-10-04",
+  "parent_design": "data/design/model3_joint_syndrome_rare_mutant_20261004.json",
+  "gate_addendum": "data/design/model3_joint_syndrome_rare_mutant_gate_addendum_20261004.json",
+  "purpose": "Run the same finite two-trait evolution experiment for all four assurance settings, then promote only tradeoff settings that independently pass the frozen rare-mutant joint-shift gate.",
+  "source_bridge": "data/design/model3_ch2_bridge_20260927.json",
+  "settings_to_run": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "promotion_eligibility": {
+    "delayed_control": "control_only_never_independent_assurance_evidence",
+    "tradeoff_setting": "central state joint_shift_gate_pass == true AND at least 36 of 45 resident states joint_shift_gate_pass == true"
+  },
+  "initial_states": [
+    {
+      "id": "outcross_like",
+      "access": 0.5,
+      "investment": 0.7,
+      "assurance": 0.3
+    },
+    {
+      "id": "central",
+      "access": 0.5,
+      "investment": 0.5,
+      "assurance": 0.5
+    },
+    {
+      "id": "selfing_like",
+      "access": 0.5,
+      "investment": 0.3,
+      "assurance": 0.7
+    }
+  ],
+  "founders": {
+    "count": 48,
+    "draw_count": 48,
+    "sd": 0.15,
+    "birth_year": 0
+  },
+  "grid_axes": [
+    [
+      0.5
+    ],
+    [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ]
+  ],
+  "projection_mode": "continuous",
+  "mutation_rate": 0,
+  "seed_arrival_supply": 0,
+  "years": 200,
+  "history_seeds": "inherit_all_128_from_source_bridge",
+  "demographic_seeds": [
+    401,
+    402,
+    403,
+    404
+  ],
+  "arms": [
+    "near",
+    "far"
+  ],
+  "cases": 12288,
+  "history_endpoint": {
+    "unit": "history x initial_state; average the four demographic repeats within each near/far arm, requiring terminal occupation in both paired arms for trait classification",
+    "syndrome_class": "far-minus-near terminal investment <= -0.05 AND far-minus-near terminal assurance >= +0.05",
+    "outcross_class": "far-minus-near terminal investment >= +0.05 AND far-minus-near terminal assurance <= -0.05",
+    "intermediate": "all other eligible pairs",
+    "occupancy": "report unconditionally before excluding extinct trait endpoints",
+    "eligibility": "all four demographic repeats must be terminally occupied in both near and far arms; otherwise the history remains in occupancy summaries but receives no trait class"
+  },
+  "branching": {
+    "history_branching": "within a fixed setting and initial state, both syndrome_class and outcross_class each >=10% of eligible histories",
+    "initial_state_dependence": "endpoint-class frequencies differ across the three initial states; report descriptively and with multinomial/permutation comparison if sample size permits",
+    "repeatability_core": "at least one promotion-eligible tradeoff setting has history_branching in at least one initial state, and syndrome/outcross/intermediate class agreement across the frozen 2-vs-2 split halves is >=0.70 among histories classifiable in both halves",
+    "split_halves": [
+      [
+        401,
+        402
+      ],
+      [
+        403,
+        404
+      ]
+    ],
+    "split_half_classification": "each 2-repeat half is classified by its paired far-minus-near mean using the same endpoint deadbands; requires both repeats occupied in both arms",
+    "split_half_agreement_gate": 0.7
+  },
+  "no_outcome_stopping": true,
+  "fixed_delta_boundary": "delta remains fixed at the setting value inherited from the bridge; no purging feedback"
+}

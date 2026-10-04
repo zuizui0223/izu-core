@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_before_full_128_history_execution",
+  "frozen_on": "2026-10-04",
+  "parent_design": "data/design/model3_joint_syndrome_rare_mutant_20261004.json",
+  "purpose": "Complete the pre-outcome decision rules for selection-gradient shift, multivariate response, realized finite trajectory, correlational selection, and history-dependent branching.",
+  "adjudication_layers": {
+    "beta_shift": {
+      "unit": "derivative of log rare-mutant parental genome contribution per unit trait",
+      "target": "far-minus-near beta_i <= -0.05 and far-minus-near beta_a >= +0.05",
+      "robust_history_support": "at least 90% of paired histories in the target quadrant",
+      "history_level_inference": "paired bootstrap 95% CI of each mean component excludes zero in target direction; 1999 resamples; RNG seed 1004"
+    },
+    "absolute_sign_reversal": {
+      "target": "near beta_i >= +0.05, near beta_a <= -0.05, far beta_i <= -0.05, far beta_a >= +0.05",
+      "support": "at least 50% of paired histories",
+      "eligible_settings": [
+        "prior_selfing",
+        "pollen_discount",
+        "assurance_cost"
+      ],
+      "delayed_control_excluded_from_evidence": true
+    },
+    "multivariate_response": {
+      "exact_identity": "Delta zbar = Cov(z,w)/mean(w) must match genotype-density next-generation mean to <=1e-12 under mutation=0, immigration=0, survival=0",
+      "lande_approximation": "Delta z_Lande = G beta using the full 2x2 investment-assurance covariance including off-diagonal G_ia",
+      "local_fidelity_gate": "cosine similarity >=0.90 and component signs match exact Price response",
+      "syndrome_response": "standardized exact Price response has investment <= -0.02 SD and assurance >= +0.02 SD"
+    },
+    "correlational_selection": {
+      "estimand": "mixed second derivative of rare-mutant log invasion fitness, gamma_ia = d2 log w_mut /(di_mut da_mut) at mutant=resident",
+      "numerical_rule": "symmetric four-point mixed finite difference with h=1e-4; confirm sign stability at h=5e-5 and 2e-4",
+      "expected_direction": "negative where investment raises outcrossing",
+      "interpretation": "negative gamma_ia supports antagonistic coupling but does not prove multiple attractors"
+    },
+    "realized_finite_abm": {
+      "horizon_years": 200,
+      "syndrome_endpoint": "terminal Delta investment <= -0.05 AND terminal Delta assurance >= +0.05",
+      "outcross_endpoint": "terminal Delta investment >= +0.05 AND terminal Delta assurance <= -0.05",
+      "branching_support": "within one setting, both endpoint classes each represent >=10% of eligible histories",
+      "occupancy": "reported unconditionally; endpoint classification requires occupation at baseline and terminal"
+    }
+  },
+  "promotion_rules": {
+    "si_only": "beta shift supported but no realized branching",
+    "mechanistic_core": "beta shift plus response support, with either assurance sign reversal or realized syndrome endpoint",
+    "repeatability_core_or_next_paper": "alternative endpoint classes each >=10% and endpoint class depends on visitor history/initial state under fixed setting",
+    "no_promotion": "control-only assurance result or failure of rare-mutant/Price validation"
+  },
+  "fixed_delta_boundary": "Inbreeding depression is fixed. No purging feedback is present, so any alternative endpoints or bistability are conditional on fixed delta and are not identified with the Lande-Schemske purging mechanism.",
+  "no_outcome_stopping": true
+}
