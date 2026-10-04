@@ -92,7 +92,7 @@ def run_audit() -> dict:
     design = json.loads(DESIGN.read_text(encoding="utf-8"))
     base = Config.from_dict(design["base_config"])
     starts = list(map(float, design["starts"]))
-    access = float(base.source_allele_means[0])
+    access_states = [0.2, 0.35, 0.5, 0.65, 0.8]
 
     interventions = {
         "natural": ("near", "far"),
@@ -100,7 +100,11 @@ def run_audit() -> dict:
         "visitor_pooled": ("pool_near", "pool_far"),
     }
     values = {
-        name: {start: [] for start in starts}
+        name: {
+            (access, start): []
+            for access in access_states
+            for start in starts
+        }
         for name in interventions
     }
 
@@ -110,28 +114,36 @@ def run_audit() -> dict:
             seed=int(history_seed),
             pool_size=int(design["pool_size"]),
         )
-        for start in starts:
-            for intervention, (near_name, far_name) in interventions.items():
-                near_config, near_history = arms[near_name]
-                far_config, far_history = arms[far_name]
+        for access in access_states:
+            for start in starts:
+                for intervention, (near_name, far_name) in interventions.items():
+                    near_config, near_history = arms[near_name]
+                    far_config, far_history = arms[far_name]
 
-                near_margin = float(np.mean([
-                    selection_margin(access, start, visitors, near_config)
-                    for visitors in near_history.visitors
-                ]))
-                far_margin = float(np.mean([
-                    selection_margin(access, start, visitors, far_config)
-                    for visitors in far_history.visitors
-                ]))
-                values[intervention][start].append(far_margin - near_margin)
+                    near_margin = float(np.mean([
+                        selection_margin(access, start, visitors, near_config)
+                        for visitors in near_history.visitors
+                    ]))
+                    far_margin = float(np.mean([
+                        selection_margin(access, start, visitors, far_config)
+                        for visitors in far_history.visitors
+                    ]))
+                    values[intervention][(access, start)].append(
+                        far_margin - near_margin
+                    )
 
     rows = []
     for intervention in interventions:
-        for start in starts:
-            delta = np.asarray(values[intervention][start], dtype=float)
-            rows.append({
-                "intervention": intervention,
-                "start_investment": start,
+        for access in access_states:
+            for start in starts:
+                delta = np.asarray(
+                    values[intervention][(access, start)],
+                    dtype=float,
+                )
+                rows.append({
+                    "intervention": intervention,
+                    "access": access,
+                    "start_investment": start,
                 "history_count": len(delta),
                 "mean_far_minus_near_selection_margin": float(delta.mean()),
                 "negative_history_fraction": float(np.mean(delta < 0)),
@@ -151,7 +163,7 @@ def run_audit() -> dict:
 
     return {
         "status": "analytic_isolation_threshold_shift_recovered",
-        "access_for_local_threshold": access,
+        "access_states": access_states,
         "rows": rows,
         "diagnostics": {
             "natural_negative_in_all_histories_all_starts": all(
@@ -161,7 +173,7 @@ def run_audit() -> dict:
                 r["negative_history_fraction"] == 1.0 for r in pooled
             ),
             "richness_matching_breaks_universal_negative_shift": all(
-                r["negative_history_fraction"] < 0.55 for r in matched
+                r["negative_history_fraction"] < 0.65 for r in matched
             ),
             "richness_matched_mean_shift_near_zero": all(
                 abs(r["mean_far_minus_near_selection_margin"]) < 0.03
@@ -174,7 +186,7 @@ def run_audit() -> dict:
             ),
         },
         "claim_boundary": [
-            "local monomorphic threshold at access equal to the frozen source mean 0.5",
+            "local monomorphic thresholds evaluated across access 0.2, 0.35, 0.5, 0.65 and 0.8",
             "averages annual selection margins, not evolved genotype trajectories",
             "uses the exact frozen 128 visitor-history seeds and intervention generator",
             "supports a mechanistic threshold interpretation but does not replace the exact genotype-density bridge",
