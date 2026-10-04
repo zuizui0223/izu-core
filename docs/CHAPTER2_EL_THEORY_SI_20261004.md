@@ -11,7 +11,7 @@ The same biological operator can be represented at four levels.
 3. **Exact continuous-genotype system.** Genotype sums are replaced by measures and integrals. Sexual reproduction still integrates over maternal state, paternal state and their gametes, so the exact continuous system is a nonlinear nonlocal integro-difference equation.
 4. **Reduced continuous phenotype equation.** Genotype structure is collapsed to a phenotype density. Under additional closure assumptions this becomes a replicator or replicator-mutator equation.
 
-The third level is not a PDE. The fourth level is a reduced approximation and is evaluated against the first three.
+The third level is not a PDE. In other words, the full continuous system is not a PDE; only the reduced phenotype approximation has PDE form. The fourth level is a reduced approximation and is evaluated against the first three.
 
 ## S2. Mutation has a genuine diffusion limit, but the focal bridge has D = 0
 
