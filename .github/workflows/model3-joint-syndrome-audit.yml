@@ -9,6 +9,10 @@ on:
       - 'data/design/model3_joint_syndrome_rare_mutant_gate_addendum_20261004.json'
       - '.github/workflows/model3-joint-syndrome-audit.yml'
 
+concurrency:
+  group: model3-joint-syndrome-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   audit:
     if: github.head_ref == 'agent/model3-continuum-limit-20261004'
