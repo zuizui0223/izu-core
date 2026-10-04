@@ -870,3 +870,19 @@ random orthogonal checks at n9/n17 agree within1.56e-15. Rectangular modes are
 excluded. This does not solve downstream joint-core growth or certify high-grid
 accuracy. No live source was edited and no new biological run was launched.
 Receipt:model3_square_gamete_factor_diagnosis_20261005.json.
+
+## 2026-10-05: exact square-gamete factor variant tested
+
+New separate exact_gamete modules skip SVD only when both gamete bases are
+square orthogonal; an explicit orthonormality guard applies. The exact identity
+child basis retains all row directions. Rectangular modes retain the previous
+spectral truncation bound. No ecological equation or tolerance changed.
+TDD missing-module RED then15 focused tests GREEN; full candidate suite221
+passed. Forced streaming, both mutation operators, both assurance settings,
+survival, and dense12-period comparison covered. All91 live old-source hashes
+remain unchanged. A separate saved-state third65 probe will measure this
+variant; it is not a restarted old run or a full biological campaign.
+
+Exact square-gamete third65 probe launched session9131; outputs
+fastpath_candidate/exact_gamete_third65. Source archive saved before work.
+Old gamete_third65 session27135 remains live and unchanged.
