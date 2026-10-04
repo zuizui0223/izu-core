@@ -4,6 +4,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_EL_REPEATABILITY_20261003.md"
 SI = ROOT / "docs/CHAPTER2_EL_THEORY_SI_20261004.md"
+FINITE_JOINT = ROOT / "data/results/model3_joint_syndrome_finite_frozen_20261004.json"
 
 
 def _words(text):
@@ -72,3 +73,18 @@ def test_el_submission_end_matter_is_present_and_human_fields_fail_closed():
     assert "**REQUIRES AUTHOR INPUT.** Insert final CRediT roles before submission." in manuscript
     assert "**REQUIRES AUTHOR CONFIRMATION.**" in manuscript
     assert "AI-use disclosure only after the author confirms its exact scope" in manuscript
+
+
+def test_finite_joint_endpoint_control_contrast_is_not_misread_as_generic_tradeoff_effect():
+    import json
+    manuscript = MANUSCRIPT.read_text(encoding="utf-8")
+    si = SI.read_text(encoding="utf-8")
+    result = json.loads(FINITE_JOINT.read_text(encoding="utf-8"))
+    addendum = result["posthoc_control_contrast_interpretation"]
+
+    assert addendum["frozen_adjudication_unchanged"] is True
+    assert addendum["structural_control_max_syndrome_frequency"] > addendum["tradeoff_max_syndrome_frequency"]["prior_selfing"]
+    assert addendum["tradeoff_max_syndrome_frequency"]["assurance_cost"] > 2 * addendum["structural_control_max_syndrome_frequency"]
+    assert "16.4% in the structural delayed-selfing control" in manuscript
+    assert "assurance cost produced the marked increase" in manuscript
+    assert "not a causal contrast against this control" in si
