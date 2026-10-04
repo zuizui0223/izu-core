@@ -289,3 +289,19 @@ first case20/40 observed with L1=5.50e-10. Both source manifests verified; retai
 both identities and do not confuse reconstruction speed with solver accuracy.
 The new variant is scripts/audit_model3_rounded_integration_fast_reconstruct.py
 inside the isolated candidate. Its diff is retained in tracked data/results.
+
+## n9 diagnostic output-path failure and recovery
+
+Session32212 terminated exit1 after first case40 periods, at NPZ output:
+FileNotFoundError for a264-character Windows path. Directory existed, but no
+case receipt was saved; do NOT count this as a completed passed case. Preserved
+old source archive/manifest and terminal-error record. Added output-directory
+helper and short-path regression (red then green);74 local tests pass. New
+case path204 characters; actual NumPy write verified. Only the diagnostic
+output path changed; solver/biology/tolerances unchanged.
+
+Restart authorized by observed terminal failure, not a timeout. New session
+6935, output candidate/gate_n9_40. First two40-period cases now saved and report
+passed. Old original13/slow-admission/slow-reconstruction processes remain
+separate live handles; their source files were not altered. Failure/recovery
+provenance and short-path patch are retained in tracked data/results.

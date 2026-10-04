@@ -444,3 +444,15 @@ runner/output variant changes only this diagnostic reconstruction, leaving all
 solver equations and source identities intact. Both n9 runs remain pending;
 the optimized diagnostic has reached20 periods of its first case. These are
 accuracy/resource admission runs, not additional ecological replicate evidence.
+
+## n9 save-path recovery
+
+The optimized diagnostic reached the first40-period endpoint but terminated
+at output with a264-character Windows path. No saved receipt: this is a
+technical failure, not a biological or numerical failure and not a passed
+case. Its source identity and error were retained. A short204-character case
+path was introduced, verified with a real NumPy write and a regression test;
+74 candidate tests pass. The identical scientific run was restarted only
+after exit1 was confirmed. New output: candidate/gate_n9_40; first two cases
+saved and report passing. All8 must finish and be audited before the gate is
+accepted. See model3_n9_path_recovery_20261004.json for both source identities.
