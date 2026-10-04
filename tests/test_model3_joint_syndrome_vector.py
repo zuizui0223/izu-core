@@ -127,3 +127,15 @@ def test_selfed_seed_counts_as_two_half_transmissions():
     assert comp["maternal_outcross"] == 0
     assert comp["paternal_outcross"] == 0
     assert comp["parental_genome_contribution"] == comp["self_viable"]
+
+
+def test_gamma_step_contract_is_honored():
+    from scripts.audit_model3_joint_syndrome_vector import run_audit
+    result = run_audit()
+    assert result["gamma_steps"] == {
+        "primary": 1e-4,
+        "stability_low": 5e-5,
+        "stability_high": 2e-4,
+    }
+    for summary in result["summaries"].values():
+        assert 0.0 <= summary["minimum_gamma_sign_stability_fraction"] <= 1.0
