@@ -687,3 +687,15 @@ archive verified; model3_sharp_strict_failure_20261005.json preserves outcome.
 A diagnostic replay saves every completed child plus failing rounding/sum
 input and traceback, so subsequent numerical repairs can reuse captured inputs
 without repeating expensive child projections. Same parameters/tolerances/cap.
+
+## 2026-10-05: sum allocation failure identified and captured
+
+Diagnostic replay completed and traceback identifies compressed_step.summed:
+QR common-basis core allocation exceeds16million before summing. It is not
+child projection or final rounding. Two failed_sum input NPZs and all3 completed
+child states are retained, with verified source fingerprints. The next repair
+can be tested directly on these saved sums without repeating the600s ancestry
+calculation. Sum input shapes/hashes and traceback are in
+model3_sum_failure_diagnosis_20261005.json. Need project shared factor spaces
+before full common-core allocation, with a declared joint error bound; do not
+simply increase cap, discard correlation, or relax tolerance.
