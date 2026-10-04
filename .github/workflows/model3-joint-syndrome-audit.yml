@@ -5,8 +5,10 @@ on:
     paths:
       - 'scripts/audit_model3_joint_syndrome_vector.py'
       - 'scripts/audit_model3_multivariate_price.py'
+      - 'scripts/audit_model3_joint_G_beta_response.py'
       - 'data/design/model3_joint_syndrome_rare_mutant_20261004.json'
       - 'data/design/model3_joint_syndrome_rare_mutant_gate_addendum_20261004.json'
+      - 'data/design/model3_joint_syndrome_response_20261004.json'
       - '.github/workflows/model3-joint-syndrome-audit.yml'
 
 concurrency:
@@ -51,10 +53,28 @@ jobs:
               'max_abs_error':x['max_abs_error'],
           },indent=2,sort_keys=True))
           PY
+      - name: Run full-G joint response audit
+        run: |
+          python scripts/audit_model3_joint_G_beta_response.py > model3_joint_G_beta_response.json
+          python - <<'PY'
+          import json
+          x=json.load(open('model3_joint_G_beta_response.json'))
+          print(json.dumps({
+              'status':x['status'],
+              'cells':x['cells'],
+              'pass_cells':x['pass_cells'],
+              'pass_fraction':x['pass_fraction'],
+              'minimum_cosine_full_G':x['minimum_cosine_full_G'],
+              'mean_cosine_full_G':x['mean_cosine_full_G'],
+              'mean_cosine_diagonal_G':x['mean_cosine_diagonal_G'],
+              'full_G_better_error_fraction':x['full_G_better_error_fraction'],
+          },indent=2,sort_keys=True))
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: model3-joint-syndrome-audit
           path: |
             model3_joint_syndrome_result.json
             model3_multivariate_price_result.json
+            model3_joint_G_beta_response.json
           if-no-files-found: error
