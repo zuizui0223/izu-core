@@ -54,7 +54,7 @@ def parental_fitness(
     pollen_budget: float = 20.0,
     pollen_scale: float = 1.0,
     background_ratio: float = 1.0,
-    visitor_breadth: float = 0.2,
+    visitor_breadth: float = 0.18,
     visitor_effectiveness: float = 1.0,
 ) -> np.ndarray:
     """Expected parental-genome contribution for the reduced investment density."""
