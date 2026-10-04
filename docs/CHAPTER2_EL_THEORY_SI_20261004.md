@@ -333,7 +333,7 @@ Maximum syndrome-endpoint frequencies were:
 | Pollen discount | 0.213 | 0.009 |
 | Assurance cost | 0.430 | 0.030 |
 
-The delayed control is not independent evidence for assurance evolution. Each of the three trade-off settings nevertheless crossed the frozen >=10% finite syndrome-endpoint promotion threshold in at least one initial state.
+The delayed control is not independent evidence for assurance evolution, but it is essential for interpreting the endpoint frequencies: it itself reached a maximum syndrome frequency of 0.164. The frozen >=10% promotion threshold was an absolute procedural gate, not a causal contrast against this control. Relative to the control, prior selfing was lower (0.102), pollen discounting was only modestly higher (0.213), and assurance cost was markedly higher (0.430). Thus finite syndrome-endpoint occurrence is not, by itself, evidence that a trade-off caused the syndrome direction; the clearest trade-off-specific amplification in this comparison is the assurance-cost condition.
 
 No setting met the alternative-endpoint branching rule requiring both syndrome and outcross classes to reach >=10% of eligible histories within a fixed setting and initial state. The finite result therefore supports a **joint syndrome direction**, not common bistable selfing/outcrossing endpoints.
 
