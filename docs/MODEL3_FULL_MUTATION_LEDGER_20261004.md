@@ -621,3 +621,14 @@ gate is running in tiled_strict_second65, local relativeL1=1e-10; it compares
 marginals to an exact one-step reference and the full joint distribution against
 the existing1e-8 result. The earlier strict failure and baseline remain intact.
 No longer trajectory or high-grid ecological interpretation is yet admitted.
+
+## Next gate prepared, not launched
+
+The repaired ten-period resource driver retains all8 settings, history76001,
+founders, local1e-8 tolerance and per-array16million cap from the frozen
+highgrid-tenstep plan. It now refuses launch unless tiled_strict_second65
+completes with its full-joint<=1e-5 and marginal/trait thresholds, source hashes,
+and final-state hash matching. Output is separate tiled_ten65; existing ten65
+failure/running process preserved. This gate is local numerical/resource
+admission, not full-path accuracy or ecological inference. Driver snapshot:
+data/results/model3_tiled_ten65_runner_20261005.py.txt.
