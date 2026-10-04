@@ -211,7 +211,7 @@ The empirical prediction is therefore explicitly temporal. Lineages or trait mod
 
 The threshold clarifies why the preregistered assurance-by-cost route was conditional rather than universally robust. Because `r=a(1-delta)` and the marginal pollination term decreases with `r`, increasing inbreeding depression lowers `r` and raises the relative value of pollinator-mediated gain. The observed zero crossing therefore moved in the predicted direction: from activity ~0.182 at depression 0.25 to ~0.096 at 0.50 and ~0.040 at 0.75. This converts a failed robustness surface into a mapped boundary of the same reproductive-return equation, not evidence for a universal selfing syndrome.
 
-The logic itself is classical: reproductive assurance, pollen limitation and attraction–selfing trade-offs have long been treated theoretically (Lloyd 1979; Harder & Aizen 2010; Porcher & Lande 2005), and reproductive assurance can weaken pollinator-mediated selection on flower size empirically (Rodger et al. 2019). The contribution here is narrower: the same visitor-transfer operator that generated the finite island trajectories yields the threshold, and the threshold predicts which frozen visitor manipulations preserve or erase the directional shift.
+The logic itself is classical: reproductive assurance, pollen limitation and attraction–selfing trade-offs have long been treated theoretically (Lloyd 1979; Harder & Aizen 2010; Porcher & Lande 2005), and reproductive assurance can weaken pollinator-mediated selection on flower size empirically (Teixido & Aizen 2019). The contribution here is narrower: the same visitor-transfer operator that generated the finite island trajectories yields the threshold, and the threshold predicts which frozen visitor manipulations preserve or erase the directional shift.
 
 ## Scope and empirical tests
 
@@ -245,7 +245,7 @@ Porcher E, Lande R. 2005. The evolution of self-fertilization and inbreeding dep
 
 Harder LD, Aizen MA. 2010. Floral adaptation and diversification under pollen limitation. *Philosophical Transactions of the Royal Society B* 365:529–543. doi:10.1098/rstb.2009.0226.
 
-Rodger JG, van Kleunen M, Johnson SD. 2019. Reproductive assurance weakens pollinator-mediated selection on flower size in an annual mixed-mating species. *Annals of Botany* 123:1067–1077. doi:10.1093/aob/mcz014.
+Teixido AL, Aizen MA. 2019. Reproductive assurance weakens pollinator-mediated selection on flower size in an annual mixed-mating species. *Annals of Botany* 123:1067–1077. doi:10.1093/aob/mcz014.
 
 Oke KB, Rolshausen G, LeBlond C, Hendry AP. 2017. How Parallel Is Parallel Evolution? A Comparative Analysis in Fishes. *The American Naturalist* 190:1–16. doi:10.1086/691989.
 
