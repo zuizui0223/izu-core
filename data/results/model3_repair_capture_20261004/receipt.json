@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "history": 74001,
+  "demographic_seed": 401,
+  "setting": "assurance_cost",
+  "cases": 2,
+  "rows": [
+    {
+      "arm": "near",
+      "endpoint": [
+        0.75,
+        0.5
+      ],
+      "stored": {
+        "path": "assurance_cost_74001_near_401.npz",
+        "sha256": "5e445288ed93a67dd01d1f0c86a20e1627268ce1745fa5ba8e9920cbdf69459e"
+      }
+    },
+    {
+      "arm": "far",
+      "endpoint": [
+        0.25,
+        0.75
+      ],
+      "stored": {
+        "path": "assurance_cost_74001_far_401.npz",
+        "sha256": "a1da206616fc174249fb40ca3d6c41deda794d3d3e486f844e010234cfb4c4ea"
+      }
+    }
+  ],
+  "scope": "capture and exact frozen endpoint replay, not a time-scale adequacy test"
+}

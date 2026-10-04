@@ -14,6 +14,8 @@ from __future__ import annotations
 from dataclasses import replace
 import argparse
 import json
+import hashlib
+import os
 from pathlib import Path
 
 import numpy as np
@@ -30,7 +32,7 @@ JOINT = ROOT / "data/design/model3_joint_syndrome_rare_mutant_20261004.json"
 DESIGN = ROOT / "data/design/model3_joint_syndrome_finite_followup_20261004.json"
 
 
-def _settings(base, decision):
+def _settings(decision):
     return {
         name: {
             "assurance_timing": patch["assurance_timing"],
@@ -97,7 +99,22 @@ def _summarize_start(records, split_halves):
     }
 
 
-def run_setting(setting_name: str) -> dict:
+def save_trajectory(result, path):
+    """Persist compact state diagnostics without changing the simulation or RNG."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    keys = ("population", "trait_mean", "trait_variance", "allele_count",
+            "heterozygosity", "density_mass", "density_traits",
+            "density_trait_variance", "visitor_count", "initial_genotypes",
+            "final_genotypes", "reproductive", "demographic")
+    temporary = path.with_suffix(".npz.tmp")
+    with temporary.open("wb") as handle:
+        np.savez_compressed(handle, **{k: result[k] for k in keys})
+    os.replace(temporary, path)
+    return {"path": path.name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def run_setting(setting_name: str, trajectory_dir=None) -> dict:
     bridge = json.loads(BRIDGE.read_text(encoding="utf-8"))
     joint = json.loads(JOINT.read_text(encoding="utf-8"))
     design = json.loads(DESIGN.read_text(encoding="utf-8"))
@@ -105,12 +122,13 @@ def run_setting(setting_name: str) -> dict:
         raise ValueError("setting not frozen for execution")
 
     base = Config.from_dict(bridge["base_config"])
-    patch = _settings(base, joint)[setting_name]
+    patch = _settings(joint)[setting_name]
     grid = make_grid(tuple(design["grid_axes"]))
     split_halves = design["branching"]["split_halves"]
 
     starts_out = []
     all_occupancy = []
+    trajectory_receipts = []
     for start in design["initial_states"]:
         founders = founders_from_spec(
             {
@@ -163,6 +181,9 @@ def run_setting(setting_name: str) -> dict:
                         projection_mode=design["projection_mode"],
                         immigration_mode="source",
                     )
+                    if trajectory_dir is not None:
+                        trajectory_receipts.append(save_trajectory(result, Path(trajectory_dir) /
+                            f"{setting_name}_{start['id']}_{history_seed}_{arm_name}_{ds}.npz"))
                     occupied = bool(result["population"][-1] > 0)
                     all_occupancy.append(occupied)
                     per_rep[int(ds)] = {
@@ -228,6 +249,10 @@ def run_setting(setting_name: str) -> dict:
     )
     return {
         "status": "finite_joint_syndrome_followup_complete",
+        "source_sha256": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+                          for p in (BRIDGE, JOINT, DESIGN, Path(__file__))},
+        "trajectory_receipts": trajectory_receipts,
+        "trajectory_directory": str(trajectory_dir) if trajectory_dir is not None else None,
         "setting": setting_name,
         "cases": (
             len(bridge["history_seeds"])
@@ -253,8 +278,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--setting", required=True)
     parser.add_argument("--out")
+    parser.add_argument("--trajectory-dir")
     args = parser.parse_args()
-    result = run_setting(args.setting)
+    result = run_setting(args.setting, trajectory_dir=args.trajectory_dir)
     rendered = json.dumps(result, indent=2, sort_keys=True)
     print(rendered)
     if args.out:

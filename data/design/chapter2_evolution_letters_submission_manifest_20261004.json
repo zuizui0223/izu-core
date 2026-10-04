@@ -3,7 +3,7 @@
   "updated_on": "2026-10-04",
   "journal_target": "Evolution Letters",
   "article_type": "Letter",
-  "status": "canonical_theory_integrated_submission_prep",
+  "status": "local_selection_correction_pending_integration",
   "active_pr": 395,
   "active_branch": "chapter2/evolution-letters-submission-prep-20261004",
   "active_head": "03aec845851e932b7adab6a1edd230943ef36126",
@@ -21,7 +21,7 @@
     "end_matter_headings_present": true
   },
   "scientific_state": {
-    "classification": "mechanistic_core_plus_repeatability_result",
+    "classification": "supported_joint_gradient_and_finite_observations_with_incomplete_local_response_gate",
     "theory_reduction": "posthoc_explanatory",
     "rare_mutant_and_finite_followup": "frozen_before_respective_execution",
     "exact_multivariate_price": "48_of_48_cells_max_error_7.2e-16",
@@ -52,7 +52,8 @@
         "3.12"
       ]
     },
-    "oikos_path_changes_vs_main": 0
+    "oikos_path_changes_vs_main": 0,
+    "scope": "Historical upstream CI only; does not certify this local correction"
   },
   "current_author_guideline_checks": {
     "source_checked_on": "2026-10-04",
@@ -106,5 +107,13 @@
     "ScholarOne_account_fields_and_open_access_choices"
   ],
   "submission_ready": false,
-  "reason_not_ready": "scientific and formatting gates are closed; remaining blockers require author/account input"
+  "reason_not_ready": "Local selection correction awaits integration; complete response support is not established (46/48). Author and account fields also remain unresolved.",
+  "selection_correction": {
+    "base": "d83ceb569e198d90d2f0fbe4b430b49608e12e78",
+    "branch": "codex/model3-selection-repair-20261004",
+    "report": "docs/MODEL3_SELECTION_REPAIR_20261004.md",
+    "gradient": "fixed-resident invasion derivative replaces population derivative",
+    "automatic_promotion": "withheld_pending_complete_response_support",
+    "original_frozen_results_preserved": true
+  }
 }

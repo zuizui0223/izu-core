@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "base_commit": "d83ceb569e198d90d2f0fbe4b430b49608e12e78",
+  "focused_tests_passed": 48,
+  "full_repository_ci_run": false,
+  "bridge_histories": 128,
+  "joint_states_per_setting": 45,
+  "joint_settings": 4,
+  "finite_arm_records_readmitted": 12288,
+  "trajectory_replay_cases": 2,
+  "trajectory_replay_periods": 200,
+  "price_cells": 48,
+  "G_beta_pass_cells": 46,
+  "G_beta_total_cells": 48,
+  "automatic_promotion": "withheld_incomplete_response_gate",
+  "independent_review": "no_blocking_defect_after_provenance_and_document_repairs",
+  "scratch_cleanup": "automatic_approval_denied; left_untracked"
+}

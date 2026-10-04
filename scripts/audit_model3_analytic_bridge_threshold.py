@@ -1,6 +1,6 @@
 """Analytic selection-threshold audit on the frozen near/far island bridge.
 
-This applies the monomorphic Model 3 investment criterion
+This applies the fixed-resident rare-mutant Model 3 investment criterion
 
     d log w / di = B(i) - C(i)
 
@@ -15,76 +15,32 @@ that shift, as the exact genotype-density bridge does.
 from __future__ import annotations
 
 import json
+import hashlib
 from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
 
 from scripts.model3_island.types import Config
+from scripts.model3_island.selection import investment_invasion_terms
 from scripts.model3_island_bridge_ops import prepare_arms
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "data/design/model3_ch2_bridge_20260927.json"
 
 
+def source_identity():
+    paths = [DESIGN, Path(__file__), ROOT / "scripts/model3_island_bridge_ops.py"]
+    paths += sorted((ROOT / "scripts/model3_island").glob("*.py"))
+    return {str(p.relative_to(ROOT)).replace(chr(92), "/"):
+            hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+
+
 def selection_margin(access: float, investment: float, visitors, config: Config) -> float:
-    """Analytic monomorphic d log(w) / d investment for one visitor state."""
-    cost = 2.0 * config.investment_cost * investment
-    assurance = config.fixed_assurance
-    r = assurance * (1.0 - config.depression)
-
-    if not len(visitors.ids) or config.activity == 0:
-        return -cost
-
-    g = np.exp(
-        -((access - visitors.optima) / visitors.breadths) ** 2
-    )
-    gsum = float(g.sum())
-    if gsum <= 0:
-        return -cost
-
-    u = 0.1 + investment
-    channels = g / gsum
-
-    activity = config.activity
-    if config.activity_mode == "count_scaled":
-        activity *= len(visitors.ids) / config.reference_visitor_count
-
-    mean_g = float(g.mean())
-    export_scale = (
-        config.pollen_budget
-        * np.exp(-config.pollen_discount * assurance)
-    )
-    removed = export_scale * (1.0 - np.exp(-activity * u * mean_g))
-    removed_prime = (
-        export_scale
-        * activity
-        * mean_g
-        * np.exp(-activity * u * mean_g)
-    )
-
-    # Monomorphic occupied population at carrying capacity:
-    # recipient factor K cancels donor mass K.
-    beta = config.background_ratio
-    match = u * g / (u * g + beta)
-    match_prime = g * beta / (u * g + beta) ** 2
-
-    H = float(np.sum(channels * visitors.effectiveness * match))
-    H_prime = float(
-        np.sum(channels * visitors.effectiveness * match_prime)
-    )
-    receipt = removed * H
-    receipt_prime = removed_prime * H + removed * H_prime
-
-    q = 1.0 - np.exp(-receipt / (2.0 * config.pollen_scale))
-    q_prime = (
-        np.exp(-receipt / (2.0 * config.pollen_scale))
-        * receipt_prime
-        / (2.0 * config.pollen_scale)
-    )
-
-    benefit = (1.0 - r) * q_prime / (r + (1.0 - r) * q)
-    return float(benefit - cost)
+    """Fixed-resident rare-mutant log fitness derivative."""
+    return float(investment_invasion_terms(
+        [access, investment, config.fixed_assurance], visitors, config
+    )["gradient"])
 
 
 @lru_cache(maxsize=1)
@@ -114,23 +70,18 @@ def run_audit() -> dict:
             seed=int(history_seed),
             pool_size=int(design["pool_size"]),
         )
-        for access in access_states:
-            for start in starts:
-                for intervention, (near_name, far_name) in interventions.items():
-                    near_config, near_history = arms[near_name]
-                    far_config, far_history = arms[far_name]
-
-                    near_margin = float(np.mean([
-                        selection_margin(access, start, visitors, near_config)
-                        for visitors in near_history.visitors
-                    ]))
-                    far_margin = float(np.mean([
-                        selection_margin(access, start, visitors, far_config)
-                        for visitors in far_history.visitors
-                    ]))
-                    values[intervention][(access, start)].append(
-                        far_margin - near_margin
-                    )
+        states = np.array([[a, i, base.fixed_assurance]
+                           for a in access_states for i in starts])
+        for intervention, (near_name, far_name) in interventions.items():
+            means = []
+            for arm_name in (near_name, far_name):
+                config, history = arms[arm_name]
+                means.append(np.mean([
+                    investment_invasion_terms(states, visitors, config)["gradient"]
+                    for visitors in history.visitors
+                ], axis=0))
+            for state, delta in zip(states, means[1] - means[0]):
+                values[intervention][(state[0], state[1])].append(float(delta))
 
     rows = []
     for intervention in interventions:
@@ -144,12 +95,13 @@ def run_audit() -> dict:
                     "intervention": intervention,
                     "access": access,
                     "start_investment": start,
-                "history_count": len(delta),
-                "mean_far_minus_near_selection_margin": float(delta.mean()),
-                "negative_history_fraction": float(np.mean(delta < 0)),
-                "q05": float(np.quantile(delta, 0.05)),
-                "q95": float(np.quantile(delta, 0.95)),
-            })
+                    "history_count": len(delta),
+                    "mean_far_minus_near_selection_margin": float(delta.mean()),
+                    "negative_history_fraction": float(np.mean(delta < 0)),
+                    "history_differences": delta.tolist(),
+                    "q05": float(np.quantile(delta, 0.05)),
+                    "q95": float(np.quantile(delta, 0.95)),
+                })
 
     natural = [
         r for r in rows if r["intervention"] == "natural"
@@ -162,7 +114,10 @@ def run_audit() -> dict:
     ]
 
     return {
-        "status": "analytic_isolation_threshold_shift_recovered",
+        "status": "fixed_resident_isolation_gradient_audit_complete",
+        "source_sha256": source_identity(),
+        "estimand": "rare-mutant log parental-genome fitness gradient at fixed resident environment",
+        "history_seeds": design["history_seeds"],
         "access_states": access_states,
         "rows": rows,
         "diagnostics": {
@@ -189,7 +144,7 @@ def run_audit() -> dict:
             "local monomorphic thresholds evaluated across access 0.2, 0.35, 0.5, 0.65 and 0.8",
             "averages annual selection margins, not evolved genotype trajectories",
             "uses the exact frozen 128 visitor-history seeds and intervention generator",
-            "supports a mechanistic threshold interpretation but does not replace the exact genotype-density bridge",
+            "completed audit; diagnostic failures must be retained, not retuned",
         ],
     }
 

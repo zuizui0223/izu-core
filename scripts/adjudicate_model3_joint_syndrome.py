@@ -11,11 +11,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import hashlib
+from scripts.model3_joint_result_validation import validate_selection, validate_finite
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SELECTION = ROOT / "data/results/model3_joint_syndrome_rare_mutant_frozen_20261004.json"
 FINITE_DESIGN = ROOT / "data/design/model3_joint_syndrome_finite_followup_20261004.json"
+PROVENANCE = ROOT / "data/results/model3_repair_input_provenance_20261004.json"
 GATE = ROOT / "data/design/model3_joint_syndrome_rare_mutant_gate_addendum_20261004.json"
 
 
@@ -24,6 +27,9 @@ def adjudicate(finite_paths):
     finite_design = json.loads(FINITE_DESIGN.read_text(encoding="utf-8"))
     gate = json.loads(GATE.read_text(encoding="utf-8"))
 
+    response_supported = validate_selection(selection)
+    input_hashes = {}
+    trusted = {x["setting"]: x["sha256"] for x in json.loads(PROVENANCE.read_text(encoding="utf-8"))["inputs"]}
     finite = {}
     for path in finite_paths:
         x = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -32,6 +38,10 @@ def adjudicate(finite_paths):
         setting = x["setting"]
         if setting in finite:
             raise ValueError(f"duplicate finite setting: {setting}")
+        validate_finite(x, finite_design)
+        input_hashes[setting] = hashlib.sha256(Path(path).read_bytes()).hexdigest()
+        if input_hashes[setting] != trusted.get(setting):
+            raise ValueError("finite source identity differs from reviewed provenance")
         finite[setting] = x
 
     expected = set(finite_design["settings_to_run"])
@@ -46,7 +56,7 @@ def adjudicate(finite_paths):
     for setting in sorted(expected):
         sel = selection_settings[setting]
         beta_eligible = (
-            sel["joint_shift_gate_pass_states"] >= 36
+            sel["joint_shift_gate_pass_states"] == 45  # includes required central state
         )
         f = finite[setting]
         start_summaries = f["summary_by_initial_state"]
@@ -61,6 +71,8 @@ def adjudicate(finite_paths):
             promotion = "control_only"
         elif not beta_eligible:
             promotion = "no_promotion"
+        elif not response_supported:
+            promotion = "si_only_response_gate_incomplete"
         elif reproducible_branching:
             promotion = "repeatability_core_or_next_paper"
         elif syndrome_endpoint or sign_reversal:
@@ -91,6 +103,9 @@ def adjudicate(finite_paths):
         "overall_promotion": overall,
         "settings": rows,
         "selection_provenance": selection["provenance"],
+        "finite_input_sha256": input_hashes,
+        "response_gate_all_cells_pass": response_supported,
+        "response_boundary": "46/48 is not silently promoted to complete response support",
         "promotion_rule_text": gate["promotion_rules"],
         "claim_boundary": [
             "delayed control never counts as independent assurance-evolution evidence",

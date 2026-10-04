@@ -1,3 +1,5 @@
+> Correction 2026-10-04: the population derivative is not an invasion-selection threshold. Use the corrected fixed-resident analysis in MODEL3_SELECTION_REPAIR_20261004.md. Historical CI and promotion labels below do not certify this repair; the full-G response gate remains 46/48.
+
 # Evolution Letters cover letter — working submission template — 2026-10-04
 
 **Status:** scientifically populated; author/account-specific fields remain fail-closed.

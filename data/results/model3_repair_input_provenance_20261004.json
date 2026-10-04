@@ -1,0 +1,28 @@
+{
+  "source_run": 37186196843,
+  "source_commit": "92b90059e1039eb6cf62bc0b08924a56173c726e",
+  "inputs": [
+    {
+      "setting": "assurance_cost",
+      "sha256": "d12c3b72ffc20a2cceaf0ce00e8f75c298a6ed4c57d8051357a023d0f105b2f8",
+      "filename": "finite_assurance_cost.json"
+    },
+    {
+      "setting": "delayed_control",
+      "sha256": "33683cfc7db4c64fee3a43d628ca9cb15d3da7c4483c21f294b19ab93fc596ea",
+      "filename": "finite_delayed_control.json"
+    },
+    {
+      "setting": "pollen_discount",
+      "sha256": "b9f7f9c73a103281c6a488bcf918840435099115296da341a460c6ffb1b9075b",
+      "filename": "finite_pollen_discount.json"
+    },
+    {
+      "setting": "prior_selfing",
+      "sha256": "21ade7c4dbf9ac9eb32da5c77073ac2b162d29cc00b4dce17884a046688e31cd",
+      "filename": "finite_prior_selfing.json"
+    }
+  ],
+  "acquisition": "gh run download 37186196843 --repo zuizui0223/izu-core",
+  "meaning": "legacy raw records downloaded from frozen source; design completeness recomputed separately"
+}
