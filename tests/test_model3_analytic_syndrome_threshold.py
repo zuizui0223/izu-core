@@ -44,3 +44,26 @@ def test_left_right_threshold_is_mirror_symmetric():
     assert np.isclose(low_right["threshold_ratio"], high_left["threshold_ratio"], atol=1e-12)
     assert low_left["threshold_ratio"] > 1
     assert low_right["threshold_ratio"] < 1
+
+
+def test_reproductive_assurance_always_reduces_marginal_pollination_benefit():
+    result = run_audit()
+    effects = [
+        row["assurance_effect_on_benefit"]
+        for row in result["rows"]
+        if row["outcross_fraction_prime"] > 0
+    ]
+    assert effects
+    assert all(value < 0 for value in effects)
+
+
+def test_critical_assurance_threshold_matches_gradient_sign():
+    result = run_audit()
+    for row in result["rows"]:
+        critical = row["critical_assurance_survival_fraction"]
+        if critical is None:
+            continue
+        r = row["assurance_survival_fraction"]
+        gradient = row["log_fitness_gradient"]
+        if 0 < critical < 1:
+            assert (r < critical and gradient > 0) or (r > critical and gradient < 0) or abs(r-critical) < 1e-12
