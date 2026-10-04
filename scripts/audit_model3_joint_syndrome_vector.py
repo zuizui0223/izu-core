@@ -232,32 +232,38 @@ def invasion_gradient(resident, visitors, config: Config, *, trait_index: int, s
     ) / (2.0 * step)
 
 
-def _gradient_and_gamma_batch(states, visitors, config: Config, step: float):
+def _gradient_and_gamma_batch(
+    states,
+    visitors,
+    config: Config,
+    beta_step: float,
+    gamma_step: float,
+):
     states = np.asarray(states, dtype=float)
-    ip = states.copy(); ip[:, 1] += step
-    im = states.copy(); im[:, 1] -= step
-    ap = states.copy(); ap[:, 2] += step
-    am = states.copy(); am[:, 2] -= step
+    ip = states.copy(); ip[:, 1] += beta_step
+    im = states.copy(); im[:, 1] -= beta_step
+    ap = states.copy(); ap[:, 2] += beta_step
+    am = states.copy(); am[:, 2] -= beta_step
 
     beta_i = (
         _log_fitness_batch(states, ip, visitors, config)
         - _log_fitness_batch(states, im, visitors, config)
-    ) / (2.0 * step)
+    ) / (2.0 * beta_step)
     beta_a = (
         _log_fitness_batch(states, ap, visitors, config)
         - _log_fitness_batch(states, am, visitors, config)
-    ) / (2.0 * step)
+    ) / (2.0 * beta_step)
 
-    pp = states.copy(); pp[:, 1] += step; pp[:, 2] += step
-    pm = states.copy(); pm[:, 1] += step; pm[:, 2] -= step
-    mp = states.copy(); mp[:, 1] -= step; mp[:, 2] += step
-    mm = states.copy(); mm[:, 1] -= step; mm[:, 2] -= step
+    pp = states.copy(); pp[:, 1] += gamma_step; pp[:, 2] += gamma_step
+    pm = states.copy(); pm[:, 1] += gamma_step; pm[:, 2] -= gamma_step
+    mp = states.copy(); mp[:, 1] -= gamma_step; mp[:, 2] += gamma_step
+    mm = states.copy(); mm[:, 1] -= gamma_step; mm[:, 2] -= gamma_step
     gamma = (
         _log_fitness_batch(states, pp, visitors, config)
         - _log_fitness_batch(states, pm, visitors, config)
         - _log_fitness_batch(states, mp, visitors, config)
         + _log_fitness_batch(states, mm, visitors, config)
-    ) / (4.0 * step**2)
+    ) / (4.0 * gamma_step**2)
     return beta_i, beta_a, gamma
 
 
@@ -275,6 +281,9 @@ def run_audit():
     base = Config.from_dict(source["base_config"])
     settings = _settings(base, decision)
     h = float(decision["invasion_fitness"]["finite_difference_step"])
+    gamma_h = 1e-4
+    gamma_low = 5e-5
+    gamma_high = 2e-4
     deadband = float(decision["vector_definitions"]["gradient_shift_deadband"])
 
     states = np.asarray([
@@ -289,7 +298,12 @@ def run_audit():
     store = {
         name: {
             key: np.zeros((nhistory, nstate), dtype=float)
-            for key in ("near_i", "far_i", "near_a", "far_a", "near_gamma", "far_gamma")
+            for key in (
+                "near_i", "far_i", "near_a", "far_a",
+                "near_gamma", "far_gamma",
+                "near_gamma_low", "far_gamma_low",
+                "near_gamma_high", "far_gamma_high",
+            )
         }
         for name in settings
     }
@@ -304,17 +318,29 @@ def run_audit():
                 acc_i = np.zeros(nstate)
                 acc_a = np.zeros(nstate)
                 acc_g = np.zeros(nstate)
+                acc_g_low = np.zeros(nstate)
+                acc_g_high = np.zeros(nstate)
                 for visitor_state in history.visitors:
                     bi, ba, ga = _gradient_and_gamma_batch(
-                        states, visitor_state, config, h
+                        states, visitor_state, config, h, gamma_h
+                    )
+                    _, _, ga_low = _gradient_and_gamma_batch(
+                        states, visitor_state, config, h, gamma_low
+                    )
+                    _, _, ga_high = _gradient_and_gamma_batch(
+                        states, visitor_state, config, h, gamma_high
                     )
                     acc_i += bi
                     acc_a += ba
                     acc_g += ga
+                    acc_g_low += ga_low
+                    acc_g_high += ga_high
                 scale = 1.0 / len(history.visitors)
                 store[setting_name][f"{arm_name}_i"][hix] = acc_i * scale
                 store[setting_name][f"{arm_name}_a"][hix] = acc_a * scale
                 store[setting_name][f"{arm_name}_gamma"][hix] = acc_g * scale
+                store[setting_name][f"{arm_name}_gamma_low"][hix] = acc_g_low * scale
+                store[setting_name][f"{arm_name}_gamma_high"][hix] = acc_g_high * scale
 
     rng = np.random.default_rng(1004)
     bootstrap_indices = rng.integers(
@@ -330,6 +356,10 @@ def run_audit():
             far_a = data["far_a"][:, six]
             near_g = data["near_gamma"][:, six]
             far_g = data["far_gamma"][:, six]
+            near_g_low = data["near_gamma_low"][:, six]
+            far_g_low = data["far_gamma_low"][:, six]
+            near_g_high = data["near_gamma_high"][:, six]
+            far_g_high = data["far_gamma_high"][:, six]
             di = far_i - near_i
             da = far_a - near_a
             joint = (di <= -deadband) & (da >= deadband)
@@ -371,6 +401,14 @@ def run_audit():
                 "mean_far_gamma_ia": float(far_g.mean()),
                 "negative_gamma_near_fraction": float(np.mean(near_g < 0)),
                 "negative_gamma_far_fraction": float(np.mean(far_g < 0)),
+                "gamma_sign_stable_near_fraction": float(np.mean(
+                    (np.sign(near_g_low) == np.sign(near_g))
+                    & (np.sign(near_g) == np.sign(near_g_high))
+                )),
+                "gamma_sign_stable_far_fraction": float(np.mean(
+                    (np.sign(far_g_low) == np.sign(far_g))
+                    & (np.sign(far_g) == np.sign(far_g_high))
+                )),
             })
 
     summaries = {}
@@ -386,6 +424,10 @@ def run_audit():
             "mean_classic_sign_reversal_fraction": float(np.mean([r["classic_sign_reversal_fraction"] for r in sub])),
             "minimum_negative_gamma_fraction": float(min(
                 min(r["negative_gamma_near_fraction"], r["negative_gamma_far_fraction"])
+                for r in sub
+            )),
+            "minimum_gamma_sign_stability_fraction": float(min(
+                min(r["gamma_sign_stable_near_fraction"], r["gamma_sign_stable_far_fraction"])
                 for r in sub
             )),
         }
@@ -409,6 +451,11 @@ def run_audit():
         "state_count": nstate,
         "settings": list(settings),
         "deadband": deadband,
+        "gamma_steps": {
+            "primary": gamma_h,
+            "stability_low": gamma_low,
+            "stability_high": gamma_high,
+        },
         "summaries": summaries,
         "central_state": central,
         "rows": rows,
