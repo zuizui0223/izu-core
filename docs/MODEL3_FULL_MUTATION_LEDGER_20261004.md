@@ -774,3 +774,15 @@ feasibility. Archive and receipt: model3_checkpoint_strict_verified_20261005.jso
 Next requirement is integrate the streamed-sum fallback in an executable whole
 step and validate sustained resource use before any high-grid campaign.
 13-node continuation remains active,30/32complete at last handle poll.
+
+## 2026-10-05: complete reproduction path admitted to ten-period resource gate
+
+Complete integration combines exact sum, bounded shared-factor fallback, and
+streamed joint-sum fallback under the SAME stage error allowance. Twelve direct
+integration tests pass, including both forced fallback paths; candidate suite
+192passed. The complete_ten65 driver verifies prior coarse-grid gates and the
+strict checkpoint's source/state/precision evidence before launch. It retains
+8cases,10periods,history76001,local1e-8,16million-value cap,one worker and
+all original biology. Current compiled source snapshot is archived by runner.
+This is the next limited resource/local-marginal gate, not an admission for the
+1000-period biological campaign. Prior strict/source failures stay preserved.
