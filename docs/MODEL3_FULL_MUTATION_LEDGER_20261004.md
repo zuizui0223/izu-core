@@ -405,3 +405,17 @@ Missing-module RED then GREEN, candidate96tests pass.
 Prepared response-blind first65-node complete-step gate, contingent on all8
 bounded n9/40 cases passing with source hashes. Scope is resource/marginal
 accuracy only; full joint error and long-time/grid convergence unresolved.
+
+
+## First complete65-node reproductive step
+
+Bounded n9/40 all8 passed, source/NPZ hashes and endpoint reconstruction
+verified; maximum pathL1=3.34720e-7. Archived complete gate.
+First65-node full reproductive step completed all8 parameter combinations
+in approximately0.86-1.08seconds each, ranks10/15/10. Exact same-input locus
+marginal comparison maximum relativeL1=1.98297e-13; sources/NPZs verified.
+Near/far initial visitor histories are identical, so these are not8 unique
+isolation responses. This is numerical first-step admission, not biology.
+Full joint positivity/error and sustained rank growth remain unverified.
+Next gate: bounded multistep65-node resource measurement and tolerance
+convergence, before production or ecological conclusions.

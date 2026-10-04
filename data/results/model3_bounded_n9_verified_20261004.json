@@ -1,0 +1,56 @@
+{
+  "scope": "same-grid n9/40 integrated accuracy only",
+  "all8_passed": true,
+  "rows": [
+    {
+      "key": "assurance_cost_near_jump",
+      "max_l1": 6.402694830149108e-10,
+      "max_trait": 1.582411979228482e-11,
+      "sha256": "d7df1bc0ce8958e2c157537d592144a957828c386c81bd2dcb38b9f1bb270a7a"
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "max_l1": 6.550518845831146e-10,
+      "max_trait": 2.373801155641786e-11,
+      "sha256": "011b1c18a6a9ad060d7ab1735686593ec7973c8735617e45fc7b7d779b84cba9"
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "max_l1": 3.399603404683223e-09,
+      "max_trait": 3.1326852223401147e-10,
+      "sha256": "652bba02fc43b7cf8f87f3786925f10721111c04d1b1bdc71933592be07cc972"
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "max_l1": 2.796492223876086e-09,
+      "max_trait": 1.9454909905292084e-10,
+      "sha256": "fc02177efc02f7d2e82ef75373a4bd0c28ede3c2f97595f32789c4cfaea1f7b3"
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "max_l1": 4.5052691231360946e-08,
+      "max_trait": 5.1863321415268615e-09,
+      "sha256": "b2a76e3d840e8debc37b41fae219a6be712b466deab1e91b720060b344f9ef59"
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "max_l1": 5.989858435145833e-08,
+      "max_trait": 7.119318967685473e-09,
+      "sha256": "67d3779241623919396cb0c7f210ba7f56143162e5d777a91a7cd0be0b13608b"
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "max_l1": 2.0655665376000052e-07,
+      "max_trait": 1.6194640767297486e-08,
+      "sha256": "458c837c8e2a8c0e2bce56df69ec721a83a011e4b8adca1d494212c015a4a913"
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "max_l1": 3.34719798689252e-07,
+      "max_trait": 2.5628302507962886e-08,
+      "sha256": "182a8e416fae2bb998f926f5efb681f0c053baa9f94aad6c97c8cf72695fd0f0"
+    }
+  ],
+  "archive": "outputs/model3_precision_feasibility/bounded_n9_verified.zip",
+  "archive_sha256": "afee2089e673264275d8367dde369ec58f5a34c162d761be1e3864007f701278"
+}

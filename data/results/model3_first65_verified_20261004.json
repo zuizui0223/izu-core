@@ -1,0 +1,3401 @@
+{
+  "scope": "one-step65-node resource and marginal admission only",
+  "rows": [
+    {
+      "key": "assurance_cost_near_jump",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.9777947056966115e-13,
+      "trait_gap": 1.3433698597964394e-14,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 1.0543478732996823e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 7790464.958646964,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.427039418994001e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.5685566525804236e-10,
+          "mass_before": 59.84811451824626,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.291792102819433e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 2.483988441658765e-10,
+          "mass_before": 59.84811451824629,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.150487382357643e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 3.910757123429253e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 86343.93066013038,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.449763581848578e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 5.033863493285638e-12,
+          "mass_before": 0.2802290850870342,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.7963386961500477e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 2.3043410321323543e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 246253.14385936264,
+          "spectral_tail_ratios": [
+            8.379469959325911e-15,
+            6.663619872788584e-16,
+            3.117786650525743e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 2.133831194581357e-10,
+          "mass_before": 2.847016886920464,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.494972033304167e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 8.237170131650897e-09,
+          "mass_before": 62.69513140516653,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.313845261511342e-10,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 4.4462869703759755e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 114398.88918224775,
+          "weight_rank": 6,
+          "weight_l1_bound": 3.4257588942462366e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 4.058904038073721e-12,
+          "mass_before": 0.11615178743320981,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.494482631537369e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 2.634127329799287e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 60864.833729972845,
+          "spectral_tail_ratios": [
+            2.958413540398728e-15,
+            8.881784197001254e-16,
+            4.812393480184193e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 4.798324028425377e-12,
+          "mass_before": 0.46860038505201346,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.0239692884359826e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 5.1283529054555494e-09,
+          "mass_before": 63.163731790218385,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 8.11914172913028e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 4.717233124139962e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 6854.249815164457,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.048745850031862e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 1.5125432321480182e-13,
+          "mass_before": 0.015581323661535687,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 9.707411674413179e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 1.32809497738855e-11,
+          "ranks": [
+            14,
+            15,
+            10
+          ],
+          "prefactor": 1091.7213316427785,
+          "spectral_tail_ratios": [
+            1.0689794963865275e-14,
+            8.881784197001251e-16,
+            5.871729673819233e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 4.449401972103499e-13,
+          "mass_before": 0.007928972706313491,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.611574332398239e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 9.38891687932233e-10,
+          "mass_before": 63.17166076292459,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.486254558758202e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 1.2466668776505655e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 99680.19267229759,
+          "weight_rank": 5,
+          "weight_l1_bound": 1.1989070279142688e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 2.5234924570648998e-11,
+          "mass_before": 0.9392983839159502,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.6865717010439416e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 4.9391307365462265e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 2905141.8212060565,
+          "spectral_tail_ratios": [
+            4.379676374475301e-16,
+            8.881784197001252e-16,
+            3.7398806384192477e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 1.925107479928468e-09,
+          "mass_before": 44.001228244565496,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 4.375122142564814e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 2.455126849742795e-09,
+          "mass_before": 107.17288900749007,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.2908096184392415e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 2.4526283199113285e-10,
+          "mass_before": 47.99999999999982,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.10964233314862e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "e4546036e979c124ea7a1f047687c8a1e3e8f38de0de113e222d4c337f0bde7b",
+      "seconds": 0.9690000000409782
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.9829628497229523e-13,
+      "trait_gap": 1.3322676295501878e-14,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 1.0543478732996823e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 7790464.958646964,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.427039418994001e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.5685566525804236e-10,
+          "mass_before": 59.84811451824626,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.291792102819433e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 5.930198878035911e-10,
+          "mass_before": 59.8481145182462,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 9.908748046236179e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 3.910757123429253e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 86343.93066013038,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.449763581848578e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 5.033863493285638e-12,
+          "mass_before": 0.2802290850870342,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.7963386961500477e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 1.3194959614424889e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 145304.66924051015,
+          "spectral_tail_ratios": [
+            8.626434399297371e-15,
+            3.085493502941092e-16,
+            1.4590792676918946e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 4.218247267372082e-11,
+          "mass_before": 2.847016886920453,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.481637599956372e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 1.5168257169604516e-09,
+          "mass_before": 62.69513140516678,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.419367633441866e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 4.4462869703759755e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 114398.88918224775,
+          "weight_rank": 6,
+          "weight_l1_bound": 3.4257588942462366e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 4.058904038073721e-12,
+          "mass_before": 0.11615178743320981,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.494482631537369e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 1.3589366952917355e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 35914.03705514993,
+          "spectral_tail_ratios": [
+            3.0722638042691465e-15,
+            4.674014106836399e-16,
+            2.441942637377876e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 1.0255066630342244e-11,
+          "mass_before": 0.4686003850520122,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.1884460528567396e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 1.9998789962851542e-09,
+          "mass_before": 63.16373179021874,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.166182458831298e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 4.717233124139962e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 6854.249815164457,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.048745850031862e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 1.5125432321480182e-13,
+          "mass_before": 0.015581323661535687,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 9.707411674413179e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 2.3155111751007905e-11,
+          "ranks": [
+            13,
+            15,
+            10
+          ],
+          "prefactor": 644.1834792889342,
+          "spectral_tail_ratios": [
+            3.490829808371521e-14,
+            8.881784197001252e-16,
+            1.484250587406773e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 3.662695562581661e-13,
+          "mass_before": 0.007928972706313481,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 4.619382230519248e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 7.119006109068592e-10,
+          "mass_before": 63.17166076292517,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.1269303391888451e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 1.2466668776505655e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 99680.19267229759,
+          "weight_rank": 5,
+          "weight_l1_bound": 1.1989070279142688e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 2.5234924570648998e-11,
+          "mass_before": 0.9392983839159502,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.6865717010439416e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 1.481018993779882e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 1714214.3438712829,
+          "spectral_tail_ratios": [
+            1.987714778663818e-16,
+            4.693180247605112e-16,
+            1.958742129229571e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 2.696309535624136e-09,
+          "mass_before": 44.001228244565276,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 6.127805161796058e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 2.113775618712275e-09,
+          "mass_before": 107.17288900749081,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.972304412326268e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 2.436802017793227e-10,
+          "mass_before": 48.000000000000085,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.076670870402548e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "b0cb7a9affda3d6674d731c3dc278b66438024a07892c6e04cb6d096d0560895",
+      "seconds": 0.9220000000204891
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.9777947056966115e-13,
+      "trait_gap": 1.3433698597964394e-14,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 1.0543478732996823e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 7790464.958646964,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.427039418994001e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.5685566525804236e-10,
+          "mass_before": 59.84811451824626,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.291792102819433e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 2.483988441658765e-10,
+          "mass_before": 59.84811451824629,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.150487382357643e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 3.910757123429253e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 86343.93066013038,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.449763581848578e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 5.033863493285638e-12,
+          "mass_before": 0.2802290850870342,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.7963386961500477e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 2.3043410321323543e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 246253.14385936264,
+          "spectral_tail_ratios": [
+            8.379469959325911e-15,
+            6.663619872788584e-16,
+            3.117786650525743e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 2.133831194581357e-10,
+          "mass_before": 2.847016886920464,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.494972033304167e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 8.237170131650897e-09,
+          "mass_before": 62.69513140516653,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.313845261511342e-10,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 4.4462869703759755e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 114398.88918224775,
+          "weight_rank": 6,
+          "weight_l1_bound": 3.4257588942462366e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 4.058904038073721e-12,
+          "mass_before": 0.11615178743320981,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.494482631537369e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 2.634127329799287e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 60864.833729972845,
+          "spectral_tail_ratios": [
+            2.958413540398728e-15,
+            8.881784197001254e-16,
+            4.812393480184193e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 4.798324028425377e-12,
+          "mass_before": 0.46860038505201346,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.0239692884359826e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 5.1283529054555494e-09,
+          "mass_before": 63.163731790218385,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 8.11914172913028e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 4.717233124139962e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 6854.249815164457,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.048745850031862e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 1.5125432321480182e-13,
+          "mass_before": 0.015581323661535687,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 9.707411674413179e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 1.32809497738855e-11,
+          "ranks": [
+            14,
+            15,
+            10
+          ],
+          "prefactor": 1091.7213316427785,
+          "spectral_tail_ratios": [
+            1.0689794963865275e-14,
+            8.881784197001251e-16,
+            5.871729673819233e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 4.449401972103499e-13,
+          "mass_before": 0.007928972706313491,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.611574332398239e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 9.38891687932233e-10,
+          "mass_before": 63.17166076292459,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.486254558758202e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 1.2466668776505655e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 99680.19267229759,
+          "weight_rank": 5,
+          "weight_l1_bound": 1.1989070279142688e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 2.5234924570648998e-11,
+          "mass_before": 0.9392983839159502,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.6865717010439416e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 4.9391307365462265e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 2905141.8212060565,
+          "spectral_tail_ratios": [
+            4.379676374475301e-16,
+            8.881784197001252e-16,
+            3.7398806384192477e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 1.925107479928468e-09,
+          "mass_before": 44.001228244565496,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 4.375122142564814e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 2.455126849742795e-09,
+          "mass_before": 107.17288900749007,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.2908096184392415e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 2.4526283199113285e-10,
+          "mass_before": 47.99999999999982,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.10964233314862e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "e4546036e979c124ea7a1f047687c8a1e3e8f38de0de113e222d4c337f0bde7b",
+      "seconds": 1.077999999979511
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.9829628497229523e-13,
+      "trait_gap": 1.3322676295501878e-14,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 1.0543478732996823e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 7790464.958646964,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.427039418994001e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.5685566525804236e-10,
+          "mass_before": 59.84811451824626,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.291792102819433e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 5.930198878035911e-10,
+          "mass_before": 59.8481145182462,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 9.908748046236179e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 3.910757123429253e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 86343.93066013038,
+          "weight_rank": 6,
+          "weight_l1_bound": 7.449763581848578e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 5.033863493285638e-12,
+          "mass_before": 0.2802290850870342,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.7963386961500477e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 1.3194959614424889e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 145304.66924051015,
+          "spectral_tail_ratios": [
+            8.626434399297371e-15,
+            3.085493502941092e-16,
+            1.4590792676918946e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 4.218247267372082e-11,
+          "mass_before": 2.847016886920453,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.481637599956372e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 1.5168257169604516e-09,
+          "mass_before": 62.69513140516678,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.419367633441866e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 4.4462869703759755e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 114398.88918224775,
+          "weight_rank": 6,
+          "weight_l1_bound": 3.4257588942462366e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 4.058904038073721e-12,
+          "mass_before": 0.11615178743320981,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.494482631537369e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 1.3589366952917355e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 35914.03705514993,
+          "spectral_tail_ratios": [
+            3.0722638042691465e-15,
+            4.674014106836399e-16,
+            2.441942637377876e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 1.0255066630342244e-11,
+          "mass_before": 0.4686003850520122,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.1884460528567396e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 1.9998789962851542e-09,
+          "mass_before": 63.16373179021874,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.166182458831298e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 4.717233124139962e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 6854.249815164457,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.048745850031862e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 1.5125432321480182e-13,
+          "mass_before": 0.015581323661535687,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 9.707411674413179e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 2.3155111751007905e-11,
+          "ranks": [
+            13,
+            15,
+            10
+          ],
+          "prefactor": 644.1834792889342,
+          "spectral_tail_ratios": [
+            3.490829808371521e-14,
+            8.881784197001252e-16,
+            1.484250587406773e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 3.662695562581661e-13,
+          "mass_before": 0.007928972706313481,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 4.619382230519248e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 7.119006109068592e-10,
+          "mass_before": 63.17166076292517,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.1269303391888451e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 1.2466668776505655e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 99680.19267229759,
+          "weight_rank": 5,
+          "weight_l1_bound": 1.1989070279142688e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 2.5234924570648998e-11,
+          "mass_before": 0.9392983839159502,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.6865717010439416e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 1.481018993779882e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 1714214.3438712829,
+          "spectral_tail_ratios": [
+            1.987714778663818e-16,
+            4.693180247605112e-16,
+            1.958742129229571e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 2.696309535624136e-09,
+          "mass_before": 44.001228244565276,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 6.127805161796058e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 2.113775618712275e-09,
+          "mass_before": 107.17288900749081,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.972304412326268e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 2.436802017793227e-10,
+          "mass_before": 48.000000000000085,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.076670870402548e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "b0cb7a9affda3d6674d731c3dc278b66438024a07892c6e04cb6d096d0560895",
+      "seconds": 0.8589999999385327
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.1558771600198553e-13,
+      "trait_gap": 6.661338147750939e-15,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 9.729780931381953e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2179797.635162662,
+          "weight_rank": 1,
+          "weight_l1_bound": 9.729780931381953e-11,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.4494185114535604e-09,
+          "mass_before": 81.2383865276728,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.015099900610653e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 1.3625165083207792e-09,
+          "mass_before": 81.23838652767286,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.6771831230998843e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 2.917808604714231e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 66813.58592711187,
+          "weight_rank": 6,
+          "weight_l1_bound": 4.681035291179543e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 4.086581827881764e-12,
+          "mass_before": 0.15983469142922152,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.5567552271287715e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 1.3493121433726172e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 139938.94289499518,
+          "spectral_tail_ratios": [
+            8.372632036016623e-15,
+            8.881784197001252e-16,
+            3.8133858056037435e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 3.981531638757896e-11,
+          "mass_before": 1.6238573718120124,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.4518973820434904e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 3.0951988685276396e-09,
+          "mass_before": 82.86224389948505,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.735354876802793e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 3.390739112867102e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 88522.72480425339,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.152564723276716e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 8.666785133833006e-13,
+          "mass_before": 0.06806072579352097,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.2733900546588116e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 1.606336130493949e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 35739.49237993925,
+          "spectral_tail_ratios": [
+            2.966581198415328e-15,
+            8.881784197001252e-16,
+            6.398093405516647e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 2.649499432198785e-11,
+          "mass_before": 0.2745827939333525,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 9.649182289411328e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 8.144965426294192e-09,
+          "mass_before": 83.13682669341864,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 9.797060761448298e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 3.3522185642108377e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 5303.870295110903,
+          "weight_rank": 6,
+          "weight_l1_bound": 1.2873229494186256e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 5.6129046125229205e-14,
+          "mass_before": 0.00864247729151289,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.4945552336422354e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 7.273343314747187e-12,
+          "ranks": [
+            14,
+            15,
+            10
+          ],
+          "prefactor": 607.6911622484863,
+          "spectral_tail_ratios": [
+            1.068714713150446e-14,
+            8.881784197001252e-16,
+            3.934898053253179e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 1.4158416013295169e-13,
+          "mass_before": 0.004397955401472371,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.2193177785648164e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 6.083336898460335e-09,
+          "mass_before": 83.14122464882043,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.316871893763527e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 7.90286356643136e-10,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 77133.28623591254,
+          "weight_rank": 5,
+          "weight_l1_bound": 7.533294240617071e-10,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 0.0,
+          "mass_before": 0.5571650484109473,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 0.0,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 3.443518953960746e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 1752855.4231102099,
+          "spectral_tail_ratios": [
+            8.141045882262508e-16,
+            8.881784197001254e-16,
+            2.622366601308318e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 8.400972529790006e-10,
+          "mass_before": 26.100275359590242,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.218729463213562e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 7.939819495805467e-09,
+          "mass_before": 109.2415000084112,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.268134816158813e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 3.539577050587849e-10,
+          "mass_before": 47.999999999999915,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.374118855391365e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "855d1bd8f6681396b9437a66430f21f77d36d48757f8d0428a03d8c16a09edbb",
+      "seconds": 0.8910000000614673
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.1640318103503324e-13,
+      "trait_gap": 6.8833827526759706e-15,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 9.729780931381953e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2179797.635162662,
+          "weight_rank": 1,
+          "weight_l1_bound": 9.729780931381953e-11,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.4494185114535604e-09,
+          "mass_before": 81.2383865276728,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.015099900610653e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 6.099106925400082e-10,
+          "mass_before": 81.2383865276727,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 7.507666247559591e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 2.917808604714231e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 66813.58592711187,
+          "weight_rank": 6,
+          "weight_l1_bound": 4.681035291179543e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 4.086581827881764e-12,
+          "mass_before": 0.15983469142922152,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.5567552271287715e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 7.646580071536729e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 82572.67904297974,
+          "spectral_tail_ratios": [
+            8.613803726706361e-15,
+            4.92884223637109e-16,
+            1.5373590917139863e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 3.410062093215219e-11,
+          "mass_before": 1.623857371812005,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.0999763602452666e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 1.1297320586419693e-09,
+          "mass_before": 82.86224389948464,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.363385790049786e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 3.390739112867102e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 88522.72480425339,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.152564723276716e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 8.666785133833006e-13,
+          "mass_before": 0.06806072579352097,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.2733900546588116e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 7.386860386431292e-11,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 21088.52312584742,
+          "spectral_tail_ratios": [
+            3.055179527944378e-15,
+            2.4819692789283703e-16,
+            1.9941050669668132e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 4.2592341466563685e-12,
+          "mass_before": 0.27458279393335,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.5511657105835336e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 9.646342689212514e-10,
+          "mass_before": 83.13682669341783,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.1602971959448437e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 3.3522185642108377e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 5303.870295110903,
+          "weight_rank": 6,
+          "weight_l1_bound": 1.2873229494186256e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 5.6129046125229205e-14,
+          "mass_before": 0.00864247729151289,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.4945552336422354e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 1.2767087093537778e-11,
+          "ranks": [
+            13,
+            15,
+            10
+          ],
+          "prefactor": 358.5755777450151,
+          "spectral_tail_ratios": [
+            3.494289758920613e-14,
+            4.919381393575072e-16,
+            1.701744448188827e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 8.382369934504612e-14,
+          "mass_before": 0.004397955401472365,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.9059697448724305e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 4.143463159272212e-09,
+          "mass_before": 83.14122464881923,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 4.9836446080434994e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 7.90286356643136e-10,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 77133.28623591254,
+          "weight_rank": 5,
+          "weight_l1_bound": 7.533294240617071e-10,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 0.0,
+          "mass_before": 0.5571650484109473,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 0.0,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 1.1416807844683278e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 1034293.7088629538,
+          "spectral_tail_ratios": [
+            2.7525704117619546e-16,
+            5.711568116364017e-16,
+            2.574126276978853e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 5.465358982099351e-10,
+          "mass_before": 26.100275359590107,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.0939851809230805e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 6.298164886476582e-09,
+          "mass_before": 109.24150000840918,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.7653592142105e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 3.1672291144417676e-10,
+          "mass_before": 48.00000000000001,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 6.598393988420348e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "19175da25a6d080678c122a0c70da1987ec2ea3b34ae762d588f94e5613eac00",
+      "seconds": 0.8589999999385327
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.1558771600198553e-13,
+      "trait_gap": 6.661338147750939e-15,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 9.729780931381953e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2179797.635162662,
+          "weight_rank": 1,
+          "weight_l1_bound": 9.729780931381953e-11,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.4494185114535604e-09,
+          "mass_before": 81.2383865276728,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.015099900610653e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 1.3625165083207792e-09,
+          "mass_before": 81.23838652767286,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.6771831230998843e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 2.917808604714231e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 66813.58592711187,
+          "weight_rank": 6,
+          "weight_l1_bound": 4.681035291179543e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 4.086581827881764e-12,
+          "mass_before": 0.15983469142922152,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.5567552271287715e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 1.3493121433726172e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 139938.94289499518,
+          "spectral_tail_ratios": [
+            8.372632036016623e-15,
+            8.881784197001252e-16,
+            3.8133858056037435e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 3.981531638757896e-11,
+          "mass_before": 1.6238573718120124,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.4518973820434904e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 3.0951988685276396e-09,
+          "mass_before": 82.86224389948505,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.735354876802793e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 3.390739112867102e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 88522.72480425339,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.152564723276716e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 8.666785133833006e-13,
+          "mass_before": 0.06806072579352097,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.2733900546588116e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 1.606336130493949e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 35739.49237993925,
+          "spectral_tail_ratios": [
+            2.966581198415328e-15,
+            8.881784197001252e-16,
+            6.398093405516647e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 2.649499432198785e-11,
+          "mass_before": 0.2745827939333525,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 9.649182289411328e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 8.144965426294192e-09,
+          "mass_before": 83.13682669341864,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 9.797060761448298e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 3.3522185642108377e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 5303.870295110903,
+          "weight_rank": 6,
+          "weight_l1_bound": 1.2873229494186256e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 5.6129046125229205e-14,
+          "mass_before": 0.00864247729151289,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.4945552336422354e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 7.273343314747187e-12,
+          "ranks": [
+            14,
+            15,
+            10
+          ],
+          "prefactor": 607.6911622484863,
+          "spectral_tail_ratios": [
+            1.068714713150446e-14,
+            8.881784197001252e-16,
+            3.934898053253179e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 1.4158416013295169e-13,
+          "mass_before": 0.004397955401472371,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.2193177785648164e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 6.083336898460335e-09,
+          "mass_before": 83.14122464882043,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.316871893763527e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 7.90286356643136e-10,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 77133.28623591254,
+          "weight_rank": 5,
+          "weight_l1_bound": 7.533294240617071e-10,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 0.0,
+          "mass_before": 0.5571650484109473,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 0.0,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 3.443518953960746e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 1752855.4231102099,
+          "spectral_tail_ratios": [
+            8.141045882262508e-16,
+            8.881784197001254e-16,
+            2.622366601308318e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 8.400972529790006e-10,
+          "mass_before": 26.100275359590242,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 3.218729463213562e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 7.939819495805467e-09,
+          "mass_before": 109.2415000084112,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.268134816158813e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 3.539577050587849e-10,
+          "mass_before": 47.999999999999915,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 7.374118855391365e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "855d1bd8f6681396b9437a66430f21f77d36d48757f8d0428a03d8c16a09edbb",
+      "seconds": 0.9380000000819564
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "status": "passed_marginals",
+      "relative_marginal_l1": 1.1640318103503324e-13,
+      "trait_gap": 6.8833827526759706e-15,
+      "ranks": [
+        10,
+        15,
+        10
+      ],
+      "receipts": [
+        {
+          "stage": "weight_factor:self:None",
+          "absolute_l1_bound": 9.729780931381953e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2179797.635162662,
+          "weight_rank": 1,
+          "weight_l1_bound": 9.729780931381953e-11,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:self:None",
+          "absolute_l1_bound": 2.4494185114535604e-09,
+          "mass_before": 81.2383865276728,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 3.015099900610653e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "selfed_birth",
+          "absolute_l1_bound": 6.099106925400082e-10,
+          "mass_before": 81.2383865276727,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 7.507666247559591e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:0",
+          "absolute_l1_bound": 3.865701582098177e-08,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2385154.0116362893,
+          "weight_rank": 4,
+          "weight_l1_bound": 3.8118853459019855e-08,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:0",
+          "absolute_l1_bound": 2.0810625648252845e-10,
+          "mass_before": 10.159605260232814,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.0483695099563304e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:0",
+          "absolute_l1_bound": 2.917808604714231e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 66813.58592711187,
+          "weight_rank": 6,
+          "weight_l1_bound": 4.681035291179543e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:0",
+          "absolute_l1_bound": 4.086581827881764e-12,
+          "mass_before": 0.15983469142922152,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.5567552271287715e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:0",
+          "absolute_l1_bound": 7.646580071536729e-10,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 82572.67904297974,
+          "spectral_tail_ratios": [
+            8.613803726706361e-15,
+            4.92884223637109e-16,
+            1.5373590917139863e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:0",
+          "absolute_l1_bound": 3.410062093215219e-11,
+          "mass_before": 1.623857371812005,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.0999763602452666e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:0",
+          "absolute_l1_bound": 1.1297320586419693e-09,
+          "mass_before": 82.86224389948464,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.363385790049786e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:1",
+          "absolute_l1_bound": 6.999741425388344e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 2821999.1731716706,
+          "weight_rank": 4,
+          "weight_l1_bound": 6.340991038089401e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:1",
+          "absolute_l1_bound": 2.506092504781358e-11,
+          "mass_before": 4.034379456463115,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.211841329814858e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:1",
+          "absolute_l1_bound": 3.390739112867102e-11,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 88522.72480425339,
+          "weight_rank": 6,
+          "weight_l1_bound": 2.152564723276716e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:1",
+          "absolute_l1_bound": 8.666785133833006e-13,
+          "mass_before": 0.06806072579352097,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 1.2733900546588116e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:1",
+          "absolute_l1_bound": 7.386860386431292e-11,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 21088.52312584742,
+          "spectral_tail_ratios": [
+            3.055179527944378e-15,
+            2.4819692789283703e-16,
+            1.9941050669668132e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:1",
+          "absolute_l1_bound": 4.2592341466563685e-12,
+          "mass_before": 0.27458279393335,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.5511657105835336e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:1",
+          "absolute_l1_bound": 9.646342689212514e-10,
+          "mass_before": 83.13682669341783,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.1602971959448437e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:2",
+          "absolute_l1_bound": 2.5048505707977213e-09,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 171470.08173226987,
+          "weight_rank": 4,
+          "weight_l1_bound": 2.46566872880458e-09,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:2",
+          "absolute_l1_bound": 2.3028733318824116e-11,
+          "mass_before": 0.5088767089722395,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 4.525405252941217e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:2",
+          "absolute_l1_bound": 3.3522185642108377e-12,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 5303.870295110903,
+          "weight_rank": 6,
+          "weight_l1_bound": 1.2873229494186256e-12,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:2",
+          "absolute_l1_bound": 5.6129046125229205e-14,
+          "mass_before": 0.00864247729151289,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 6.4945552336422354e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:2",
+          "absolute_l1_bound": 1.2767087093537778e-11,
+          "ranks": [
+            13,
+            15,
+            10
+          ],
+          "prefactor": 358.5755777450151,
+          "spectral_tail_ratios": [
+            3.494289758920613e-14,
+            4.919381393575072e-16,
+            1.701744448188827e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:2",
+          "absolute_l1_bound": 8.382369934504612e-14,
+          "mass_before": 0.004397955401472365,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 1.9059697448724305e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:2",
+          "absolute_l1_bound": 4.143463159272212e-09,
+          "mass_before": 83.14122464881923,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 4.9836446080434994e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:donor:3",
+          "absolute_l1_bound": 1.1591587130366449e-07,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 4457180.120578782,
+          "weight_rank": 4,
+          "weight_l1_bound": 1.1483306456667523e-07,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:donor:3",
+          "absolute_l1_bound": 1.1543992054141095e-09,
+          "mass_before": 46.8447822310985,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 2.464306909826442e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "weight_factor:recipient:3",
+          "absolute_l1_bound": 7.90286356643136e-10,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "prefactor": 77133.28623591254,
+          "weight_rank": 5,
+          "weight_l1_bound": 7.533294240617071e-10,
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "weight:recipient:3",
+          "absolute_l1_bound": 0.0,
+          "mass_before": 0.5571650484109473,
+          "ranks": [
+            6,
+            9,
+            5
+          ],
+          "relative_l1_bound": 0.0,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "child_factor:3",
+          "absolute_l1_bound": 1.1416807844683278e-09,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "prefactor": 1034293.7088629538,
+          "spectral_tail_ratios": [
+            2.7525704117619546e-16,
+            5.711568116364017e-16,
+            2.574126276978853e-16
+          ],
+          "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+        },
+        {
+          "stage": "outcross_birth:3",
+          "absolute_l1_bound": 5.465358982099351e-10,
+          "mass_before": 26.100275359590107,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 2.0939851809230805e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "sum:3",
+          "absolute_l1_bound": 6.298164886476582e-09,
+          "mass_before": 109.24150000840918,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 5.7653592142105e-11,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        },
+        {
+          "stage": "retained",
+          "absolute_l1_bound": 3.1672291144417676e-10,
+          "mass_before": 48.00000000000001,
+          "ranks": [
+            10,
+            15,
+            10
+          ],
+          "relative_l1_bound": 6.598393988420348e-12,
+          "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+        }
+      ],
+      "npz_sha256": "19175da25a6d080678c122a0c70da1987ec2ea3b34ae762d588f94e5613eac00",
+      "seconds": 0.9529999999795109
+    }
+  ],
+  "source_hashes_verified": true,
+  "caveat": "near and far share initial visitors; first step does not measure isolation response; no full joint error or long-path claim",
+  "archive": "outputs/model3_precision_feasibility/first65_verified.zip",
+  "archive_sha256": "9ee32947602752692357b3161ae1e27112c1074b2db03102010f6ff1c3d95bee"
+}
