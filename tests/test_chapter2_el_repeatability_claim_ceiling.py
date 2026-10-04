@@ -25,9 +25,6 @@ NEW_HISTORY_SUPERSEDED_DESIGN = ROOT / "data/design/chapter2_new_history_general
 ENV_VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
 ENV_VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
 ENV_VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json"
-ENV_VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_environment_validation_20261004.json"
-ENV_VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
-ENV_VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json"
 
 
 def _word_count(text: str) -> int:
