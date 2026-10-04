@@ -578,3 +578,26 @@ do not claim strict joint tolerance convergence. Next route: tile final
 output contraction with independently checked bounded paths, without
 raising memory cap or changing biological/numerical tolerances.
 N9 last case session58342 confirmed live at700periods, currentL1=3.30411e-7.
+
+## 2026-10-05: tiled final assembly and n9 long admission closure
+
+Previous goal turn reread existing resolution evidence without advancing a gate.
+This turn repaired the next available numerical obstacle without changing biology.
+The original multiaxis projection failure is retained. A separate variant uses
+recursive output tiles, rejecting nonbinary contraction paths and any retained
+intermediate above the same 16,000,000-value ceiling. This ceiling is per array,
+not a guarantee on total process memory. Tiling introduces no new truncation.
+Two direct-contraction tests and the multiaxis direct-reference test passed.
+The captured strict input is now running with unchanged Frobenius tolerance
+3.3538949820031467e-15 in candidate multi_tiled_probe; no result claimed yet.
+
+The integrated n9/1000 gate finished all eight declared cases. Source archive and
+34 current source hashes matched; all eight NPZ hashes and stored checkpoint
+L1 values (200,400,1000) were independently checked. Final Tucker reconstruction
+matches each stored final joint array. Every period satisfies the declared
+L1, mass, trait, negativity, and occupancy criteria. Worst recorded normalized
+joint L1 is 1.0660185138013266e-6 and maximum trait difference is
+9.747215330702108e-8. Receipt: model3_n9_long_verified_20261005.json.
+This verifies the compressed solver against the SAME nine-node model, not
+continuum/grid convergence, positivity as a theorem, or ecological ABM-density
+interpretation. Resolution admission and full Model3 goal remain open.
