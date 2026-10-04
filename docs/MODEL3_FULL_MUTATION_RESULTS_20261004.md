@@ -190,3 +190,20 @@ contrasts alone therefore do not establish novelty. A stronger contribution
 would distinguish recovery across the three traits and identify which
 processes generate it. Positive-mutation finite-versus-continuum attribution
 remains withheld until the ongoing refinement resolves numerical accuracy.
+
+## One-birth grid diagnostic during the refinement
+
+`scripts/audit_model3_mutation_grid_moments.py` checks the central allele 0.5
+at mutation probability 0.01 and step SD 0.05. Its one-birth variance reference
+is 0.000025 (boundary-tail corrections are negligible here). The original
+node-projected jump kernel gives variance/reference ratios 0.31048, 1.32394,
+1.22797, 1.13019, 1.03255 and 1.00814 on 5, 9, 13, 17, 33 and 65 nodes.
+Thus coarse projection distorts even this simple moment and convergence is
+not monotone at the coarsest grids. This is one documented numerical concern,
+not a complete explanation of the long-horizon grid discrepancy.
+
+The finite-volume heat kernel matches this central second moment closely on
+these grids. That does not establish its full distributional accuracy or its
+equivalence to the original jump process. The 13-node full continuation is
+still required and is not replaced by this inexpensive one-dimensional check.
+The numerical record is `data/results/model3_mutation_grid_moments_20261004.json`.

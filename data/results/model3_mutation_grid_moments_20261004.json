@@ -1,0 +1,101 @@
+{
+  "rows": [
+    {
+      "nodes": 5,
+      "scheme": "jump",
+      "central_variance": 7.762081657339756e-06,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 0.3104832662935902,
+      "max_row_mass_error": 1.1102230246251565e-16
+    },
+    {
+      "nodes": 5,
+      "scheme": "heat_fv",
+      "central_variance": 2.4999998667045143e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 0.9999999466818056,
+      "max_row_mass_error": 1.1102230246251565e-16
+    },
+    {
+      "nodes": 9,
+      "scheme": "jump",
+      "central_variance": 3.309844579643426e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.3239378318573702,
+      "max_row_mass_error": 0.0
+    },
+    {
+      "nodes": 9,
+      "scheme": "heat_fv",
+      "central_variance": 2.4999999999984612e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 0.9999999999993843,
+      "max_row_mass_error": 2.220446049250313e-16
+    },
+    {
+      "nodes": 13,
+      "scheme": "jump",
+      "central_variance": 3.06992593668717e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.2279703746748678,
+      "max_row_mass_error": 2.220446049250313e-16
+    },
+    {
+      "nodes": 13,
+      "scheme": "heat_fv",
+      "central_variance": 2.500000000013664e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.0000000000054654,
+      "max_row_mass_error": 2.220446049250313e-16
+    },
+    {
+      "nodes": 17,
+      "scheme": "jump",
+      "central_variance": 2.8254869196882212e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.1301947678752882,
+      "max_row_mass_error": 1.1102230246251565e-16
+    },
+    {
+      "nodes": 17,
+      "scheme": "heat_fv",
+      "central_variance": 2.500000000092108e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.000000000036843,
+      "max_row_mass_error": 2.220446049250313e-16
+    },
+    {
+      "nodes": 33,
+      "scheme": "jump",
+      "central_variance": 2.581380208333332e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.0325520833333326,
+      "max_row_mass_error": 2.220446049250313e-16
+    },
+    {
+      "nodes": 33,
+      "scheme": "heat_fv",
+      "central_variance": 2.5000000006647624e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.0000000002659049,
+      "max_row_mass_error": 2.220446049250313e-16
+    },
+    {
+      "nodes": 65,
+      "scheme": "jump",
+      "central_variance": 2.520345052083332e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.0081380208333326,
+      "max_row_mass_error": 2.220446049250313e-16
+    },
+    {
+      "nodes": 65,
+      "scheme": "heat_fv",
+      "central_variance": 2.5000000005004086e-05,
+      "local_unbounded_reference": 2.5000000000000005e-05,
+      "ratio": 1.0000000002001632,
+      "max_row_mass_error": 2.220446049250313e-16
+    }
+  ],
+  "scope": "One birth at central allele .5. Boundary tails are negligible for this reference. Matching variance does not establish distribution or trajectory accuracy."
+}
