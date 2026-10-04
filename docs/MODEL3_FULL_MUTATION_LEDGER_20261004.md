@@ -732,3 +732,19 @@ combined bound1.1839225962829357e-9<=6.619543380939491e-9,18.625s,
 final ranks327x296x150. Full strict second step launched separately in
 sum_strict_second65 with all earlier settings/tolerance/cap unchanged and
 intermediate diagnostic captures retained. No full-step pass yet.
+
+## 2026-10-05: final sum still exceeds cap; streamed joint-sum probe
+
+Full sum integration completed all4 child channels, then failed at final sum:
+exact common core40,884,800 values; factor-projected core39,010,400values,
+both exceed16million. Total898.812s. Final sum inputs327x296x150 and
+113x108x80 were saved. Sources verified; prior success of the third sum is
+not a full-step pass. The strict and ten-period gates remain closed.
+
+New streamed_sum projects the sum's common joint core itself from deterministic
+blocks, avoiding full allocation. Orthogonal projection residuals are measured
+blockwise; their sum times sqrt(physical state count) bounds joint L1 in exact
+arithmetic. No trait independence or parameter changes. A direct-reference
+small test passed after missing-module RED. Actual final-sum inputs are now
+running in streamed_sum_probe with half-stage tolerance5e-11 times total mass,
+leaving the other half for rounding. This is a component probe only.
