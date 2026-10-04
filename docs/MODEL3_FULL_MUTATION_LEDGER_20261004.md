@@ -258,3 +258,17 @@ an integrated solver modification or evidence of high-resolution efficiency.
 Original13/slow-admission and candidate-long manifests all reverified. Latest
 observed13 completion14/32; corrected integrated1000-period run3/8 complete and
 passing, fourth running. No live run restarted or frozen source altered.
+
+## Integrated long gate closed; snapshot compression limitation retained
+
+Session67923 exited0. All8 n5/1000 integrated cases pass unchanged thresholds;
+independently checked conditions, records, source/NPZ hashes and checkpoint
+errors. Raw/source archive16,538,946 bytes retained. Max L1=2.3821655e-6,
+mean-trait gap=2.7741491e-7; summed case runtime421.344s. This is solver accuracy,
+not grid convergence or completion of ecological comparison.
+
+Real n9 baseline200 child-factor probes also all8 pass their algebraic error
+check, but two near cases retain full45x45x45 child directions. Retain this
+failure to reduce ranks: no universal high-grid speed claim. Probe plan,
+results, input hashes and exact source bundle retained. Live original13 and
+slow admission sources remain unchanged.

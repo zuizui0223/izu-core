@@ -398,3 +398,33 @@ array comparisons include a separate roundoff allowance. The new function is
 not yet integrated into the live solver, and no high-grid rank reduction or
 runtime success has been demonstrated. All three live-run source manifests
 were verified unchanged after adding this separate module.
+
+## Real-distribution child-factor check
+
+All8 predeclared n9 baseline-period200/visitor0 probes pass the child-factor
+error check against frozen tensor_births evaluated on the SAME reconstructed
+parent inputs. This isolates child truncation from upstream density rounding.
+However, both delayed-cost near cases retain all45 child directions in every
+mode: the bound permits no reduction there. Other cases have child ranks from
+[36,24,4] to[45,37,24]. This is evidence of conditional usefulness, not a
+universal compression solution. All input hashes, source identities and results
+are retained in data/results/model3_child_snapshot_probe_20261004.json and its
+hashed local archive. The16million-value diagnostic cap was not a production
+memory-cap change. No high-grid simulation was launched.
+
+## Completed integrated n5/1000 accuracy gate
+
+The corrected stagewise-rounded solver completed all8 cases in421.344 summed
+case seconds. All original full-path thresholds pass: max relative L1
+2.3821655e-6, max trait gap2.7741491e-7, max relative negative mass2.6360477e-11,
+max mass gap4.1211479e-13; no occupancy mismatches. Case identities,1000 periods,
+threshold decisions, source/NPZ hashes and checkpoint discrepancies at200/400/
+1000 were independently checked. Raw/source archive16,538,946 bytes; its hash
+and case summaries are in model3_fastpath_long_verified_20261004.json.
+
+This validates integrated rounding on n5 for the declared history and cases.
+It does NOT establish allele-grid convergence: n5 is known to underresolve
+positive mutation. The full high-resolution objective remains open. Next
+gates are measured higher-grid solver accuracy/ranks/resources and eventual
+grid convergence; successful n5 integration cannot justify ecological
+ABM-density or jump-PDE differences by itself.

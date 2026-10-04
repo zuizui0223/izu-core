@@ -1,0 +1,318 @@
+{
+  "scope": "n9 single-channel snapshot truncation only",
+  "rows": [
+    {
+      "key": "assurance_cost_near_jump",
+      "input_sha256": "70f27e8b9d8c67348da3683064cd831a1daf26330ece53416d5ec81e9913400d",
+      "status": "passed",
+      "channel_mass": 0.9542576705697949,
+      "absolute_error": 2.1933648039085086e-14,
+      "relative_error": 2.2985037181821476e-14,
+      "donor_ranks": [
+        18,
+        26,
+        22
+      ],
+      "recipient_ranks": [
+        18,
+        26,
+        22
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 0.0,
+        "ranks": [
+          45,
+          45,
+          45
+        ],
+        "prefactor": 1381.000035231697,
+        "spectral_tail_ratios": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.2970000000204891
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "input_sha256": "67b5481f980507700949bb6ab9a0df67b30dd7c846400c27300c5e93032b3cb8",
+      "status": "passed",
+      "channel_mass": 0.9327229361856463,
+      "absolute_error": 2.766762341696155e-14,
+      "relative_error": 2.966328192818738e-14,
+      "donor_ranks": [
+        18,
+        26,
+        22
+      ],
+      "recipient_ranks": [
+        18,
+        26,
+        22
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 0.0,
+        "ranks": [
+          45,
+          45,
+          45
+        ],
+        "prefactor": 1928.2304539089216,
+        "spectral_tail_ratios": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.17199999990407377
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "input_sha256": "b9bee9ff914d335a2e6f8891e7fe074bbb246a07819d6d9988bf361eb0eaed12",
+      "status": "passed",
+      "channel_mass": 0.4317201313746708,
+      "absolute_error": 3.437097606770788e-14,
+      "relative_error": 7.961402207088376e-14,
+      "donor_ranks": [
+        10,
+        7,
+        4
+      ],
+      "recipient_ranks": [
+        9,
+        7,
+        4
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 5.799186109652142e-10,
+        "ranks": [
+          44,
+          26,
+          15
+        ],
+        "prefactor": 83.14000884163869,
+        "spectral_tail_ratios": [
+          9.137868471165513e-13,
+          6.0587588624493635e-12,
+          2.6593577058105344e-15
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.3440000000409782
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "input_sha256": "09fa4b5828efaa9e2112536e330a349f8a1f6ad2d50482bdfcd801f4725b8ed5",
+      "status": "passed",
+      "channel_mass": 0.4093754652614925,
+      "absolute_error": 4.914093049589443e-13,
+      "relative_error": 1.2003877776237808e-12,
+      "donor_ranks": [
+        9,
+        7,
+        4
+      ],
+      "recipient_ranks": [
+        9,
+        7,
+        4
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 1.2223874707471975e-09,
+        "ranks": [
+          44,
+          26,
+          13
+        ],
+        "prefactor": 97.79414214163232,
+        "spectral_tail_ratios": [
+          1.5062173684680243e-13,
+          7.98325369968462e-12,
+          4.365722637316912e-12
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.10900000005494803
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "input_sha256": "0c8ad8fa7836dca8bf356f6925d8f1eacb1169b6d782eac8a7da93af259e8a87",
+      "status": "passed",
+      "channel_mass": 0.00210580030726995,
+      "absolute_error": 1.3092932240388255e-15,
+      "relative_error": 6.217556429822395e-13,
+      "donor_ranks": [
+        19,
+        11,
+        6
+      ],
+      "recipient_ranks": [
+        21,
+        13,
+        6
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 6.627720752297754e-12,
+        "ranks": [
+          45,
+          32,
+          21
+        ],
+        "prefactor": 4.063576134792769,
+        "spectral_tail_ratios": [
+          0.0,
+          6.171450961820533e-13,
+          1.0138618131140486e-12
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.1559999999590218
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "input_sha256": "3fe5eaa2dd06702c5e31cc96ce53e47118d4996bf0bf4151c79cc0ba35be7252",
+      "status": "passed",
+      "channel_mass": 0.0014924545898719111,
+      "absolute_error": 5.956089165848533e-17,
+      "relative_error": 3.990800930405333e-14,
+      "donor_ranks": [
+        18,
+        11,
+        6
+      ],
+      "recipient_ranks": [
+        20,
+        13,
+        6
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 2.7468073670433745e-12,
+        "ranks": [
+          45,
+          37,
+          24
+        ],
+        "prefactor": 3.448257562634867,
+        "spectral_tail_ratios": [
+          0.0,
+          6.783124012963083e-13,
+          1.1826596245691908e-13
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.10999999998603016
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "input_sha256": "7d45215688ef5bfe4d1197737d9bc43d8a6378adb9d4eb9ed8ffd34a4e0e7c2b",
+      "status": "passed",
+      "channel_mass": 0.002513396677085315,
+      "absolute_error": 9.769384634426051e-16,
+      "relative_error": 3.8869251015940756e-13,
+      "donor_ranks": [
+        6,
+        6,
+        2
+      ],
+      "recipient_ranks": [
+        7,
+        6,
+        2
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 6.849190825802144e-13,
+        "ranks": [
+          36,
+          24,
+          4
+        ],
+        "prefactor": 0.6866364754691189,
+        "spectral_tail_ratios": [
+          4.4002228482592614e-16,
+          9.970588101392293e-13,
+          0.0
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.10900000005494803
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "input_sha256": "404992be5cb45b28bbdd95601c79929a3cdd83cab2e66abb909731479c59d6e9",
+      "status": "passed",
+      "channel_mass": 0.0018003731987968536,
+      "absolute_error": 1.2084122831312283e-14,
+      "relative_error": 6.712009954040536e-12,
+      "donor_ranks": [
+        6,
+        6,
+        2
+      ],
+      "recipient_ranks": [
+        7,
+        6,
+        2
+      ],
+      "child_bound": {
+        "absolute_l1_bound": 4.379460267299865e-12,
+        "ranks": [
+          36,
+          24,
+          4
+        ],
+        "prefactor": 0.5959010936192712,
+        "spectral_tail_ratios": [
+          4.419123326782176e-16,
+          7.34886540425694e-12,
+          0.0
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "seconds": 0.10899999993853271
+    }
+  ],
+  "additional_source_hashes": {
+    "outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\audit_child_snapshot_probe.py": "ca349cf562a107a49fe18eb0d3074b3f36dce4ecf9164cf24e22751f88859dfd",
+    "scripts\\model3_child_factor_bound.py": "c616e3ee5e3fd435b5917f29b4011a169d3eefdbfb0ff4c6346def704d2e888e",
+    "docs\\superpowers\\plans\\2026-10-04-model3-child-snapshot-probe.md": "9c347f0a383f161adf0beaa148dff0079e5a0504e32a32e868db6789c187cb80"
+  },
+  "candidate_solver_sources": {
+    "data/design/model3_ch2_bridge_20260927.json": "ee11a074da98460839b6ffe3e0e34c106400b54309b865b794bdb2d4fe856ee0",
+    "docs/superpowers/plans/2026-10-04-model3-fastpath-long.md": "e65e0c4aed6b3844a7eeb88fe40d9ea3e2a977cc06d7eb26275006465cd10cab",
+    "docs/superpowers/plans/2026-10-04-model3-rounded-integration-probe.md": "ba5cdd0ca658c5be14f2e1e120e13be34181b3cb054493328bfdea4260aca3ef",
+    "scripts/__init__.py": "95e0f1d5f51813cbae711f813d9d58884e422d586a0c8addd96c4fa76dc064b8",
+    "scripts/audit_model3_rounded_integration.py": "6bf433039690edf3dba27af0c2cc071bb52e9454e96d11465a495d0dcd4d3743",
+    "scripts/model3_compressed_ecology.py": "da2032a704bfa6eeee2b959f21b49e9fca485830038114c5ca56744f33323a2a",
+    "scripts/model3_compressed_outcross.py": "30a8931eafb11c850911ca7065356639293e776453afde644161325872ad2ae2",
+    "scripts/model3_compressed_selfing.py": "0a4138aa1f2008b76d76c44e46f1717622b40bce17c071ec9580df31b213a3a8",
+    "scripts/model3_compressed_step.py": "a6a3f9e89ae82a4b1d866e9e405e4b6633eeb3d8d8cc20cca6bf2e6a7a2694a1",
+    "scripts/model3_core_rounding.py": "e47eac8ea518993e4bc719203a7db195149d2f4d7007b06850afca97c882a67a",
+    "scripts/model3_island/__init__.py": "570943c83d3ce9417b496e5e899d35f9baca398ed4689d7da8df65d1c0ae2261",
+    "scripts/model3_island/assays.py": "c6398d50195a40226df1220762aaf5ae081b652558ef2bfde69d8a86980877f4",
+    "scripts/model3_island/audit.py": "26cd0dfa8dc2dcd8a01ba38c51ab910bc8e43b0fa0f3a5b9f293a50b9f401c35",
+    "scripts/model3_island/birth_diffusion.py": "534e0b75d441f058327b3904e290ceb189c91f83fb003fb3703da4fa9fe180c2",
+    "scripts/model3_island/campaign.py": "e35ec98134939c2c979fff275cbc93f922798aa395aa9232fa99704722b597ba",
+    "scripts/model3_island/density.py": "1507ab10ee6a297f35da61095deab51aaaac68ef67b3a1bb34a5f0cc998ce04e",
+    "scripts/model3_island/design.py": "426442a8f60f8b661c4ace7099e76c399c4e738c2353165ccb7b4f42fae9235a",
+    "scripts/model3_island/expectation.py": "142e030c31a0e479aea37d5591dfc87f46d72c7a74b857cde37b1937e9717552",
+    "scripts/model3_island/finite_audit.py": "7e02d00af2950e048d448aa3b3f2524c2577ff4f408cbfab94e7a0047460d198",
+    "scripts/model3_island/history.py": "87407dd301ee7c9c793ff5fd25963b470ebf4674a61a0385ab7adcca8d354d04",
+    "scripts/model3_island/plot.py": "d0b2a053f02bdeecb7f4a85643c1d8b8d3b97902554b5ce9b75e5abed34a63cd",
+    "scripts/model3_island/population.py": "c03fc6fccdf4efb660ece8fa5ee016d4de14f84f3b234dfb6322666b89ec34c1",
+    "scripts/model3_island/randomness.py": "35305f37429c2d46239bed125736d8168c26bbd66aeefc68319615f3f620cefe",
+    "scripts/model3_island/reproduction.py": "a1d2ad76a2b0d22cda19606fd7d115c3a0506c6dad05e49f3177cbd13ee51c82",
+    "scripts/model3_island/run.py": "1f86ab82cb82d47998e9f083b2393993a9c1edf8f69513c51ed8918a0329f1b3",
+    "scripts/model3_island/selection.py": "27d55ecedadf3259351eae4d52c955d61e9ab287a047472dfc057ce3383d0064",
+    "scripts/model3_island/simulate.py": "49780718fba3a152869eec0db83259ee546833ee552bfc939905aa246a962099",
+    "scripts/model3_island/storage.py": "da06ae2645f79ff8ad5092b33bab8a43e91b51518453f2ddfa84ed5283457e70",
+    "scripts/model3_island/summarize.py": "39f490c57f287c18925b06f01b93bd1109a4ede3d415efb6ea6b20173cf5f73c",
+    "scripts/model3_island/tensor_density.py": "dfe759136daaa8dad0cc4cff917af62823108167fc567817c6cadf137266a4a4",
+    "scripts/model3_island/types.py": "b56b579c8821f0094e395d5bef42e49e557d59781f2dcf8ed14cff895bea292e",
+    "scripts/run_model3_full_mutation.py": "55238a6a5f78cde306950ac17f5e2dd370e366d062481722b0b3c68b457051d8"
+  },
+  "archive_path": "outputs/model3_precision_feasibility/child_snapshot_probe_verified.zip",
+  "archive_sha256": "3ced3a80bf8c053282088acc54bd3aa8007f56fc981c2ed001853d2f7078c204"
+}
