@@ -95,9 +95,7 @@ A preregistered mutation–pleiotropy timing experiment failed its success crite
 
 ## Prospective long-horizon diagnostic
 
-After the focal analyses, we prospectively froze a horizon extension at 200, 400, 800, 1,600, 3,200 and 6,400 reproductive seasons, with no outcome-dependent extension. Stationarity required stability across both late intervals under predeclared tolerances.
-
-These are stationary-environment stress tests, not geological reconstructions: seasons need not be calendar years, and succession, speciation, coevolution, source-pool change and calibrated natural mutation rates are absent. We tracked density mass to flag mathematically defined trajectories that had entered sub-individual closure regimes.
+A prospectively frozen 200–6,400-season extension tested temporal stability without outcome-dependent stopping. Because these stationary synthetic environments omit succession, coevolution and calibrated natural mutation rates, we treat the extension only as a persistence and accessibility stress test.
 
 ## Finite realization and natural confrontation
 
@@ -148,35 +146,21 @@ Reproductive assurance is therefore robust here as persistence insurance, not as
 
 ## Genetic accessibility selectively erodes trait-level repeatability
 
-When standing genetic variation was reduced on one trait axis, response was selectively attenuated on that axis even though the ecological operator was unchanged. Reducing access standing SD from 0.15 to 0.03 decreased its mean absolute deterministic response by 0.1136 and the finite-population response by 0.0961. Reducing investment standing SD from 0.15 to 0.03 decreased absolute deterministic investment response by 0.1054 and the finite-population response by 0.0830.
+Reducing standing variation on one trait axis selectively attenuated that axis while leaving the ecological operator unchanged. Lowering access SD from 0.15 to 0.03 reduced mean absolute deterministic and finite responses by 0.1136 and 0.0961; the corresponding investment reductions were 0.1054 and 0.0830. Under left-shifted visitors, constraining access left most investment response intact, whereas constraining investment nearly removed its response. Shared selection can therefore produce asynchronous syndrome components.
 
-The within-environment comparison shows why this matters for syndrome components. Under the left-shifted visitors, equal-high standing variation produced deterministic changes of -0.150 in access and +0.119 in investment. Constraining access reduced access change to -0.0428 while investment remained +0.106. Constraining investment left access at -0.148 while investment fell to +0.0104. Shared selection can therefore produce asynchronous trait responses because ecological selection and genetic accessibility are separate stages.
-
-Mutation narrowed the early accessibility gap. Under the central mutation input, the response ratio between high-standing/no-mutation and low-standing/mutation populations declined from 2.56 at season 400 to 1.49 at season 800. The prospective long-horizon extension showed that this was a difference in response timing rather than persistent dominance: the ratio fell below one by season 1,600 (0.91), then to 0.68 at 3,200 and 0.56 at 6,400. Thus standing variation supplied an early response advantage, whereas continuing mutation eventually caught and overtook the fixed high-standing reference in this model.
-
-The first preregistered mutation–pleiotropy timing test failed: coordinated sustained two-trait crossings were zero in every summarized cell, and the investment-axis crossing statistic was effectively censored at the 400-year horizon. We retained the failure rather than lowering the threshold. It therefore cannot be used as evidence for a general pleiotropic ordering of syndrome components.
+Mutation made this accessibility ranking temporary: the high-standing/no-mutation to low-standing/mutation response ratio fell from 2.56 at season 400 to 1.49 at 800 and below one by 1,600. The preregistered mutation–pleiotropy timing route failed its success criteria and was not rescued by changing thresholds.
 
 ## Long-horizon stress testing identifies a persistence boundary, not a stationary syndrome
 
-The prospectively fixed 6,400-season extension is informative primarily as a failure diagnostic. It followed the depression-0.75 deterministic closure, for which the far arm was already overwhelmingly below one expected individual at season 200. The subsequent decay of the far-minus-near density contrast toward zero therefore cannot be interpreted as adaptive convergence or as evidence about a stationary island-syndrome endpoint.
-
-This distinction matters because the original depression-0.50 focal bridge occupies a different population regime: deterministic mass remained at capacity and all finite populations survived to season 200. The long-horizon depression-0.75 trajectory consequently does not invalidate the focal finite-population result, but neither can it establish how that focal response behaves over thousands of seasons.
-
-The separate mutation-accessibility extension remains temporally informative because it directly follows finite populations under fixed visitor environments. There, the early high-standing advantage narrowed, disappeared and reversed as continuing mutation accumulated. Time therefore changes the accessibility ranking in this model, but a long-run syndrome-level repeatability trajectory remains unidentified.
+The 6,400-season high-depression extension began after the far deterministic closure had already entered a sub-individual regime, so its later decay cannot identify adaptive convergence or a stationary syndrome. By contrast, the focal depression-0.50 bridge remained at capacity in density and fully occupied in finite populations. The separate mutation-accessibility extension showed only that early standing-variation advantages can reverse with time; long-run syndrome repeatability remains unidentified.
 
 ## Finite realization adds contingency downstream of deterministic expectation
 
-The deterministic and finite-population levels share the same biological operator but not the same realized trajectories. Controlled visitor compositions showed that demographic stochasticity was unnecessary for response branching: both deterministic density and finite populations retained mixed signs across the reduction audit. In the broader island campaign, however, chronology, assurance, life history and recovery produced substantial finite-versus-density sign disagreement.
-
-Visitor chronology also retained different inherited endpoints under a common final environment, while visitor connectivity and seed connectivity altered trajectories through biologically distinct routes. Geographic isolation therefore compresses at least two processes: a change in the functional pollination environment and a change in demographic/genetic input. They cannot be assumed to produce the same evolutionary effect.
-
-The stage decomposition is consequently cumulative. State dependence can weaken parallel selection; reproductive context can alter persistence and sign boundaries; genetic accessibility can attenuate selected axes; and finite realization can further separate trajectories through ancestry turnover, extinction and demographic sampling.
+Demographic stochasticity was not required for response branching, because controlled deterministic and finite runs both retained mixed directions. It nevertheless altered realized trajectories: chronology, life history, recovery and connectivity produced finite-versus-density disagreements, and common final visitor environments could retain different inherited endpoints after different histories. Isolation therefore combines changes in functional pollination with changes in demographic and genetic input, so each stage can add a distinct source of non-repeatability.
 
 ## Natural island evidence supports the question but not quantitative transfer
 
-The source-audited island archive contains systems that occupy different pieces of this causal architecture. Izu provides upstream variation in functional matching with divergent downstream pollen and tube responses. Ogasawara provides a more coherent access-to-pollen-to-reproduction example, whereas Hawaii and Puerto Rico–Mona include buffering and Dominica retains a counterdirectional case. Direct-history systems document founding, partner loss or reintroduction.
-
-What the archive does not contain is equally important. No complete same-unit record links a measured visitor transition to inherited longitudinal change and finite-demographic realization across the full causal chain. Existing island comparisons also differ in response scale, exposure definition and independent unit. We therefore do not estimate natural branch prevalence, assign islands to Model 3 cells or interpret synthetic trait magnitudes as natural effect sizes.
+The source-audited archive contains island systems illustrating functional replacement, buffering, counterdirectional responses and direct histories, but no same-unit record spans the full visitor-to-inheritance-to-demography chain. We therefore use natural systems to motivate and confront mechanisms, not to estimate branch prevalence, map named islands onto Model 3 cells or transfer synthetic effect sizes.
 
 # Discussion
 
@@ -215,9 +199,7 @@ The logic itself is classical: reproductive assurance, pollen limitation and att
 
 ## Scope and empirical tests
 
-The model is mechanistic but uncalibrated: traits and distances are abstract, seasons are not geological time, and no named flora, Bombus transition, colour or corolla dimension is predicted.
-
-Natural tests should quantify pollinator amount and composition, reproductive response, inherited change, repeated effect magnitudes, genetic accessibility and demographic history. Islands remain useful because recurrent perturbations and an explicit syndrome literature make incomplete repeatability a concrete empirical problem.
+The model is mechanistic but uncalibrated: traits, distances and seasons are abstract. Natural tests should measure visitor amount and composition, reproductive response, inherited change, repeated effect magnitudes, genetic accessibility and demographic history rather than map named islands directly onto synthetic cells.
 
 # Conclusion
 
