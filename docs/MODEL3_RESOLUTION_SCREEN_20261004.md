@@ -212,3 +212,21 @@ The separate1000-period dense compression diagnostic currently has three
 hash-verified completed cases, all passing (delayed-cost near jump/heat_fv,
 far jump). Largest path L1 among these is2.00274e-7 and largest trait gap
 1.70633e-8. Five cases remain; this partial subset cannot establish the gate.
+
+## Exact ecological weight calculation from joint marginals
+
+The new compressed-ecology component computes phenotype-level pollen affinity,
+receipt and saturating seed set from joint assurance-weighted marginals.
+Identical allele-pair means are grouped exactly, not binned approximately.
+Donor, recipient and viable-selfing weights factor into an access/investment
+matrix and an assurance vector. The population distribution itself is still
+fully joint, preserving cross-trait associations. Ovule/pollen costs, selfing
+timing and inbreeding depression follow the frozen density_step algebra.
+
+Eight tests reconstruct the weighted full genotype counts and compare them
+with the original ledger for both settings, visitors present/absent and
+fixed/evolving assurance with count-scaled activity, within1e-10. Combined
+component/inheritance suite46 passes. Applying these weight functions to
+compressed densities, summing birth channels, rank/error control and full
+trajectory validation remain unimplemented; there is still no production
+compressed solver or demonstrated high-resolution runtime.

@@ -153,3 +153,13 @@ large core allocation. A4096-to27 core-size test validates exact re-expression,
 not biological independence or approximation. Full high-resolution feasibility
 is still open. Three long-probe result receipts and NPZ hashes checked; all
 three pass, five remain. Sessions57083 and77498 verified live this turn.
+
+## Ecological weights preserving joint associations
+
+Implemented the separately planned exact phenotype grouping and joint marginal
+calculation, retaining frozen pollen delivery, costs, reproductive timing and
+inbreeding depression. Eight tests first failed at missing module, then pass
+against the dense reference ledger. Combined suite46 passes. Components still
+need integration and full trajectory/resource validation. Long compression
+probe now4/8 complete and passing; original13 run10/32 complete, both live.
+No frozen production source edited or17+ full-grid campaign launched.
