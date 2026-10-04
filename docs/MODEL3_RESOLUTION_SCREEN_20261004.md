@@ -253,3 +253,21 @@ rank truncation/rounding is performed, ranks can saturate the full grid, and
 the explicit-array budget will reject large contractions. Long trajectory
 accuracy with controlled rank reduction and high-resolution cost still need
 validation before the required grid count can be established.
+
+## Rank rounding with recorded truncation bound
+
+`scripts/model3_core_rounding.py` orthogonalizes the joint factors and performs
+HOSVD on the small core, without reconstructing the full genotype array. It
+selects retained singular directions using a fixed per-mode error allowance,
+then restores mass by core rescaling. The receipt includes an L1 upper bound
+from discarded singular-value energy plus rescaling. This analytical bound
+excludes floating-point QR/SVD error, which is checked against explicit arrays
+in tests with a separate roundoff allowance.
+
+Seven tests pass, including actual rank reduction, measured discrepancy versus
+the recorded bound, mass conservation, correlated signed bases, zero state and
+invalid tolerances. No negative-entry clipping is performed; this truncation
+is not positivity-preserving. For nonnegative input, its L1 bound bounds the
+negative output mass in exact arithmetic. A future small-grid trajectory
+diagnostic must measure negativity, all accumulated errors and rank growth;
+this utility alone does not authorize high-resolution production runs.

@@ -175,3 +175,13 @@ campaign's evolving assurance/no-immigration scope. Full-grid ranks remain a
 scalability obstacle; no high-resolution success claim. Both live source
 manifests remain intact. The separate1000-period truncation probe has5/8
 completed cases passing,3 remain; it is not this newly integrated solver.
+
+## Joint-core rounding utility
+
+Implemented the preregistered core-only HOSVD reduction with an analytical
+truncation/rescaling L1 bound, separate from floating-point error. Seven tests
+failed at missing module before implementation and now pass. No implicit
+negative clipping and no trait-independence closure. Positive mass is restored
+by scaling, but nonnegativity is not guaranteed; full trajectory validation
+must quantify that error before adoption. Existing dense-roundtrip long run
+has6/8 cases complete and passing,2 remain; its sources remain untouched.
