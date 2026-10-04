@@ -1,0 +1,63 @@
+{
+  "scope": "complete_integration ten-period resource gate; all eight failed period3 allocation; not biological failure",
+  "source_hashes_verified": 87,
+  "rows": [
+    {
+      "key": "assurance_cost_near_jump",
+      "error": "explicit array size 21222630 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "ee034e57681cf9b9b651ef28ff11bcfd78580628e5027f5fd6c36ef5e8aef29d",
+      "max_marginal_l1": 4.4136547338243436e-13
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "error": "explicit array size 23410530 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "0330b8607952cf59faf5a83a0f858acdd6226f56d2cd4042a08018fe7fcb1bb3",
+      "max_marginal_l1": 3.6520120874206566e-13
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "error": "explicit array size 21222630 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "ee034e57681cf9b9b651ef28ff11bcfd78580628e5027f5fd6c36ef5e8aef29d",
+      "max_marginal_l1": 4.4136547338243436e-13
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "error": "explicit array size 23410530 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "0330b8607952cf59faf5a83a0f858acdd6226f56d2cd4042a08018fe7fcb1bb3",
+      "max_marginal_l1": 3.6520120874206566e-13
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "error": "explicit array size 17743440 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "0e89fa771416f39334d425f2a03c088aa6e621290828c666be9f8c2d8d0ce522",
+      "max_marginal_l1": 3.656821776229538e-13
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "error": "explicit array size 18933915 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "305e0c64e4191580b2473126d354f71325e5d6693e6118a665cb0d7ad530c3df",
+      "max_marginal_l1": 2.5314948115296717e-13
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "error": "explicit array size 17743440 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "0e89fa771416f39334d425f2a03c088aa6e621290828c666be9f8c2d8d0ce522",
+      "max_marginal_l1": 3.656821776229538e-13
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "error": "explicit array size 18933915 exceeds budget 16000000",
+      "last_completed_period": 2,
+      "npz_sha256": "305e0c64e4191580b2473126d354f71325e5d6693e6118a665cb0d7ad530c3df",
+      "max_marginal_l1": 2.5314948115296717e-13
+    }
+  ],
+  "archive_sha256": "107bdcb1fb25cf15f50cbb787eed37eb405c6e1ea87f776cce98a1e60f58bc6f"
+}

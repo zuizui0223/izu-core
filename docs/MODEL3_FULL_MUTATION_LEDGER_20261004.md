@@ -818,3 +818,13 @@ Separate gamete_third65 probe runs from the hashed saved second-step state,
 with exact next-marginal comparison and unchanged1e-8 local tolerance/cap.
 Original8-case ten-period runner remains live and frozen; no success claimed
 for period3 yet. Sources are archived before the new probe.
+
+## 2026-10-05: complete_ten65 gate closed as resource failure
+
+All8 declared cases finished with failure at period3, after local marginal
+checks passed periods1-2. No10-period case passed. The source archive/current
+hashes and all8 last-state hashes were verified and archived. Near/far share
+early visitors here, so these are8setting/operator/arm cases, not8independent
+early ecological histories. Receipt:model3_complete_ten65_failures_20261005.json.
+New gamete-based candidate suite206passed; saved-state third-period probe
+still running. Do not overwrite this failed gate or claim long-horizon admission.
