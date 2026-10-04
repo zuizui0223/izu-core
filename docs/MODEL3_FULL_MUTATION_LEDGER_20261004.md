@@ -718,3 +718,17 @@ step or trajectory. Sources/input/output hashes in the actual-run receipt.
 Next: integrate fallback with a shared per-stage projection+rounding error
 budget, then revalidate full-step comparison. Previous failures remain intact.
 
+
+## 2026-10-05: integrated bounded sum with unchanged stage error allowance
+
+New sum_integration first attempts the original exact sum. Only on allocation
+failure does it project shared factors, allocating at most half the original
+stage absolute error to projection and bounding subsequent rounding within the
+remaining allowance (and half nominal relative allowance). Both components
+are recorded. This prevents silently doubling the local sum tolerance.
+Eleven integration tests pass, including deliberately forced fallback checked
+against exact density; candidate suite179passed. On saved failing sum inputs,
+combined bound1.1839225962829357e-9<=6.619543380939491e-9,18.625s,
+final ranks327x296x150. Full strict second step launched separately in
+sum_strict_second65 with all earlier settings/tolerance/cap unchanged and
+intermediate diagnostic captures retained. No full-step pass yet.
