@@ -78,3 +78,36 @@ The defensible contribution is narrower than "first theory of floral island synd
 - proof of a natural island-syndrome equilibrium;
 - quantitative calibration to named archipelagos;
 - treating the reduced PDE as the exact sexual-genetic Model 3.
+
+
+## Rare-mutant and two-trait precedent boundary
+
+The assurance gradient must be interpreted as an **individual invasion-fitness** problem, not as the derivative of monomorphic population output when every individual changes assurance simultaneously.
+
+- Lloyd (1979, *The American Naturalist* 113:67–79, doi:10.1086/283365) wrote exact fitness comparisons for phenotypes differing in self-fertilization, including the automatic transmission advantage and the distinction among competing, prior and delayed selfing. Delayed selfing can be individually advantageous whenever unused outcross opportunities remain under the stated independence assumptions.
+- Harder et al. (2010, *Philosophical Transactions B* 365:529–543, PMID 20047878) likewise formulate pollen-limitation adaptation through the fate of a variant individual in a resident population and keep female outcross, selfing and siring success conceptually separate.
+- Harder & Wilson (1998, *The American Naturalist* 152:684–695, doi:10.1086/286199) clarify that pollen discounting is a male-function cost of selfing and that its evolutionary consequences depend on pollination conditions.
+- Porcher & Lande (2005, *Journal of Evolutionary Biology* 18:497–508, doi:10.1111/j.1420-9101.2005.00905.x) explicitly model pollen limitation × pollen discounting with evolving inbreeding depression/purging. Their selfing thresholds and high-selfing mixed equilibria are precedent, not Model 3 novelty.
+- Lande & Schemske (1985, *Evolution* 39:24–40, doi:10.1111/j.1558-5646.1985.tb04077.x) derive alternative predominantly selfing and predominantly outcrossing states when selfing and inbreeding depression coevolve. Model 3 fixes inbreeding depression, so any branching in the present extension cannot be identified with their purging feedback.
+
+The corrected Model 3 joint audit therefore uses
+
+```
+w_mut = 0.5 F_mut + 0.5 P_mut + S_mut
+```
+
+for a rare mutant in a fixed resident reproductive environment, where `F_mut` is maternal outcross success, `P_mut` is paternal outcross success, and `S_mut` is viable selfed seed. The selfed term carries both parental genome halves.
+
+### Joint floral display × mating-system theory is also not empty territory
+
+Goodwillie et al. (2010, *New Phytologist* 185:311–321, doi:10.1111/j.1469-8137.2009.03043.x) show broad correlated evolution between outcrossing and floral display and review the prediction of reduced attraction allocation in selfing species.
+
+Devaux et al. and related pollinator-foraging models explicitly couple floral display/phenology, pollinator behaviour and selfing or geitonogamy; their synthesis emphasizes that floral display and mating-system equilibria can arise jointly from pollinator attraction and inbreeding-depression trade-offs.
+
+Empirically, work on *Clarkia xantiana* under strong pollen limitation has detected disruptive selection through male and female fitness, with larger petals benefiting outcross siring and smaller petals associated with selfed siring. Therefore even an observed two-corner fitness landscape would not by itself be a priority claim.
+
+## Updated safe novelty statement after rare-mutant correction
+
+> Existing mating-system theory already contains the automatic advantage of selfing, seed and pollen discounting, pollen-limitation thresholds, joint floral/mating-system trade-offs and purging-driven alternative states. The potentially distinctive Model 3 result is narrower: the **same stochastic visitor-transfer operator** generates a near-to-far rotation of the rare-mutant selection vector for floral investment and reproductive assurance, that rotation is tested across the complete frozen visitor-history ensemble, its first-moment response is connected to the exact sexual-genetic operator by a multivariate Price identity, and the role of trait covariance and finite historical realization is then tested without changing the ecological operator.
+
+This is the novelty boundary to use in any Evolution Letters integration.
