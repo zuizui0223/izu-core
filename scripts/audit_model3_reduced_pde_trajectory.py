@@ -17,6 +17,7 @@ the exact sexual inheritance operator.
 from __future__ import annotations
 
 import json
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
@@ -104,6 +105,7 @@ def _replicator_pde_change(values, masses, *, access, optima, years) -> float:
     return float(values @ p - initial_mean)
 
 
+@lru_cache(maxsize=1)
 def run_audit() -> dict:
     design = json.loads(DESIGN.read_text(encoding="utf-8"))
     cfg = _config(design)
