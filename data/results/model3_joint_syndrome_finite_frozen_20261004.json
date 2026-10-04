@@ -172,5 +172,22 @@
       "No setting met the frozen branching rule because syndrome and outcross endpoint classes did not each reach 10% in the same setting and initial state.",
       "The result therefore promotes the extension to a mechanistic core for the existing paper, but not to a repeatability-core branching claim or separate branching paper."
     ]
+  },
+  "posthoc_control_contrast_interpretation": {
+    "status": "interpretive_addendum_after_frozen_adjudication",
+    "frozen_adjudication_unchanged": true,
+    "structural_control_max_syndrome_frequency": 0.16379310344827586,
+    "tradeoff_max_syndrome_frequency": {
+      "prior_selfing": 0.1016949152542373,
+      "pollen_discount": 0.21296296296296297,
+      "assurance_cost": 0.4296875
+    },
+    "interpretation": [
+      "The frozen >=0.10 endpoint promotion threshold is an absolute procedural gate, not a causal contrast against the delayed-selfing structural control.",
+      "Prior selfing produced fewer syndrome endpoints than the structural control.",
+      "Pollen discounting produced only a modestly higher maximum endpoint frequency than the structural control.",
+      "Assurance cost produced the clear endpoint-frequency amplification relative to the structural control.",
+      "Therefore finite syndrome-endpoint occurrence is not evidence for a generic trade-off effect; the clearest trade-off-specific finite amplification is the assurance-cost condition."
+    ]
   }
 }
