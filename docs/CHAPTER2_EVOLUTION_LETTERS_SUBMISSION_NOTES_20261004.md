@@ -100,15 +100,15 @@ Three-condition comparison of natural finite demography, pooled visitor historie
 
 Schematic and empirical-boundary figure showing how chronology, reproductive assurance, connectivity, demographic sampling and extinction alter realized evolutionary outcomes. Source-audited island examples occupy different causal layers, but no natural system supplies a complete same-unit longitudinal chain and no named island is fitted to a synthetic Model 3 cell.
 
-## Required end matter — insertion checklist
+## Required end matter — inserted, human fields still open
 
-These headings must be present in the final submitted manuscript before the references:
+The manuscript now contains all five end-matter headings before the references.
 
-- **Data and code availability:** use the working statement above, then replace the archival placeholder with the final persistent identifier when available.
-- **Author contributions:** REQUIRES AUTHOR INPUT; use CRediT roles.
-- **Funding:** REQUIRES AUTHOR INPUT, including grant numbers where applicable.
-- **Conflict of interest:** REQUIRES AUTHOR CONFIRMATION; a declaration is required even when there is no conflict.
-- **Acknowledgements:** REQUIRES AUTHOR INPUT if applicable.
+- **Data and code availability:** inserted with the validated scientific revision `cfa0754823817591fab15ef1b36eecd7a3a3ef10`; replace the GitHub-only locator with the final persistent archive identifier in the publication package.
+- **Author contributions:** heading inserted; REQUIRES AUTHOR INPUT using CRediT roles.
+- **Funding:** heading inserted; REQUIRES AUTHOR INPUT, including grant numbers where applicable.
+- **Conflict of interest:** heading inserted; REQUIRES AUTHOR CONFIRMATION.
+- **Acknowledgements:** heading inserted; REQUIRES AUTHOR INPUT if applicable, including the exact AI-use disclosure scope after author confirmation.
 
 ## Final pre-submission policy checks
 
@@ -116,7 +116,7 @@ These headings must be present in the final submitted manuscript before the refe
 - **Related/similar manuscript disclosure:** if the locked Oikos manuscript has been submitted or is under consideration when this Evolution Letters manuscript is submitted, disclose it in the cover letter, provide the related manuscript as requested by the journal, and explain the scientific distinction. Do not run the two routes as silent overlapping submissions.
 - **Initial code/data locator:** until a persistent archive DOI is minted, use the exact validated scientific theory commit `cfa0754823817591fab15ef1b36eecd7a3a3ef10` as the scientific code/result locator. Submission-preparation commits may descend from it, but do not cite bare `main` while the Evolution Letters candidate remains unmerged.
 - **Persistent archive timing:** a DOI-backed archive remains required for the final publication package, but it need not block initial submission if the current public code/data location is stated accurately; replace the GitHub-only locator with the final persistent identifier before final accepted files.
-- **Manuscript end matter:** the required Data and code availability, Author contributions, Funding, Conflict of interest and Acknowledgements headings must be inserted into the manuscript itself before submission; keeping them only in this notes file is not sufficient.
+- **Manuscript end matter:** all required headings are now in the manuscript. Author-specific content remains intentionally unresolved until supplied/confirmed.
 
 ## Submission-only checks still requiring human/account input
 
