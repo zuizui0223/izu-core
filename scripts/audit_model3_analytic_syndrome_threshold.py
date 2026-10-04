@@ -105,9 +105,38 @@ def monomorphic_terms(
         "benefit_gradient": benefit_gradient,
         "cost_gradient": cost_gradient,
         "threshold_ratio": threshold_ratio,
+        "critical_assurance_survival_fraction": critical_assurance_survival_fraction(
+            q, q_prime, cost_gradient
+        ),
+        "assurance_effect_on_benefit": assurance_effect_on_benefit(
+            q, q_prime, r
+        ),
         "log_fitness_gradient": log_fitness_gradient,
         "direction": 1 if log_fitness_gradient > 0 else (-1 if log_fitness_gradient < 0 else 0),
     }
+
+
+def critical_assurance_survival_fraction(q: float, q_prime: float, cost_gradient: float):
+    """Critical r=a(1-delta) above which investment selection is nonpositive.
+
+    Solves
+        (1-r) q' / [r + (1-r)q] = C
+    for r.  Values <=0 mean investment is already disfavoured without
+    assurance; values >=1 mean assurance alone cannot cross the threshold
+    within the biologically admissible interval.
+    """
+    denominator = q_prime + cost_gradient * (1.0 - q)
+    if denominator <= 0:
+        return None
+    return float((q_prime - cost_gradient * q) / denominator)
+
+
+def assurance_effect_on_benefit(q: float, q_prime: float, r: float) -> float:
+    """Analytic derivative dB/dr = -q' / [r+(1-r)q]^2."""
+    denominator = r + (1.0 - r) * q
+    if denominator <= 0:
+        return float("-inf")
+    return float(-q_prime / denominator**2)
 
 
 def monomorphic_log_fitness(**kwargs) -> float:
