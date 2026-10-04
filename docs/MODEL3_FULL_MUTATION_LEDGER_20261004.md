@@ -391,3 +391,17 @@ fastpath_candidate/bounded_n9_40. Firstcase40periods passed L1=5.86135e-10.
 Original corrected n9 long session58342 firstcase1000periods passed;
 verified saved NPZ hash and1000 records. Remaining7 pending.
 Original n13 refinement session77498 remains live18/32 last verified.
+
+
+## Exact marginal reference for high-grid admission
+
+Previous goal turn: progress, bounded integration/tests and trajectory gate.
+Implemented exact next-locus marginals from full joint input after nonlinear
+ecological weighting. Reproductive factorization permits exact single-locus
+birth marginals without allocating the full child genotype tensor; this is
+NOT propagation of independent marginal populations. Validated against full
+joint density for8 settings including absent visitors and adult survival.
+Missing-module RED then GREEN, candidate96tests pass.
+Prepared response-blind first65-node complete-step gate, contingent on all8
+bounded n9/40 cases passing with source hashes. Scope is resource/marginal
+accuracy only; full joint error and long-time/grid convergence unresolved.
