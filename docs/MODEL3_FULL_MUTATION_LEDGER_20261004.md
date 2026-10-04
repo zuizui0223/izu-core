@@ -508,3 +508,12 @@ Second-step session13293 live, three child channels completed; fourth live.
 Next after completion: verify source/NPZ hashes and compare full state under
 a stricter declared numerical tolerance, preserving16million allocation cap
 and all biological parameters. Precision must include joint-state agreement.
+
+
+Second65-step session13293 completed/pass:334.078seconds, final core98/79/39.
+Marginal relativeL1=4.41603e-13, mean-trait gap2.17604e-14. Independently
+reconstructed saved marginals and verified all frozen sources/NPZ hash.
+Archived stream_second65_verified.zip. This overcomes the demonstrated
+second-step output-allocation failure, but five-and-a-half minutes per
+step is not yet a feasible long campaign. Full joint tolerance convergence
+and later rank/resource growth remain unresolved; no biological claim.
