@@ -26,6 +26,7 @@ ENV_VALIDATION_DESIGN = ROOT / "data/design/chapter2_finite_history_signal_envir
 ENV_VALIDATION_RESULT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_20261004.json"
 ENV_VALIDATION_RECEIPT = ROOT / "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json"
 ABS_HISTORY_VARIANCE = ROOT / "data/results/chapter2_environment_validation_absolute_history_variance_20261004.json"
+FINITE_LONG_RETIRED = ROOT / "data/design/chapter2_finite_long_horizon_persistence_20261003.json"
 
 
 def _word_count(text: str) -> int:
@@ -425,3 +426,13 @@ def test_absolute_history_variance_moves_oppositely_in_new_history_validation():
     assert "post-hoc secondary paired bootstrap" in manuscript
     assert lock["finite_history_absolute_variance_secondary"]["headline_status"].startswith("supporting mechanism")
     assert "absolute history-variance paired comparison as a preregistered primary validation criterion" in set(lock["prohibited_claims"])
+
+
+def test_unexecuted_finite_long_horizon_plan_is_retired_from_submission_scope():
+    design = json.loads(FINITE_LONG_RETIRED.read_text(encoding="utf-8"))
+    assert design["status"] == "retired_without_execution_after_persistence_boundary_audit"
+    assert design["execution_attempted"] is False
+    assert "scope decision" in design["retirement_boundary"][0].lower()
+    assert not (ROOT / ".github/workflows/chapter2_finite_long_horizon_persistence.yml").exists()
+    assert not (ROOT / "scripts/run_chapter2_finite_long_horizon_persistence.py").exists()
+    assert not (ROOT / "scripts/summarize_chapter2_finite_long_horizon_persistence.py").exists()
