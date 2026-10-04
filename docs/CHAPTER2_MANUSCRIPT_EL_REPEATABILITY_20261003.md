@@ -222,6 +222,26 @@ The bounded principle is therefore sharper: **greater directional similarity doe
 
 **Figure 4. Finite realization and empirical claim boundary.** Chronology changes realized inherited endpoints, while reproductive assurance determines whether some trajectories remain observable at all. Source-audited natural island systems show propagation, branching, buffering and counterdirectional responses across model layers, but they do not provide a complete same-unit longitudinal A→B→C chain; no named island is fitted to a synthetic Model 3 cell.
 
+# Data and code availability
+
+Code, frozen design contracts, committed result summaries, validation receipts and figure generators are available in the public repository `zuizui0223/izu-core`. The validated scientific theory revision is `cfa0754823817591fab15ef1b36eecd7a3a3ef10`. A persistent archive identifier will replace the GitHub-only locator in the final publication package.
+
+# Author contributions
+
+**REQUIRES AUTHOR INPUT.** Insert final CRediT roles before submission.
+
+# Funding
+
+**REQUIRES AUTHOR INPUT.**
+
+# Conflict of interest
+
+**REQUIRES AUTHOR CONFIRMATION.**
+
+# Acknowledgements
+
+**REQUIRES AUTHOR INPUT if applicable.** Include any journal-required AI-use disclosure only after the author confirms its exact scope.
+
 # Core references for framing
 
 Price G. 1970. Selection and Covariance. *Nature* 227:520–521. doi:10.1038/227520a0.
