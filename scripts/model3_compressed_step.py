@@ -72,29 +72,33 @@ def mass(state):
     return float(np.einsum('abc,a,b,c',core,*(f.sum(axis=0) for f in factors)))
 
 
-def compressed_step(state,axes,visitors,config,*,scheme='jump',budget=2_000_000):
+def compressed_step(state,axes,visitors,config,*,scheme='jump',budget=2_000_000,rounding=None):
     if config.assurance_mode!='evolving':
         raise ValueError('this integration gate requires evolving assurance')
     weights=ecological_weights(*state,axes,visitors,config)
+    def reduce(value,stage):
+        return rounding(value,stage) if rounding is not None else value
     def apply(name,channel=None):
         xy=weights[name+'_xy']
         if channel is not None:xy=xy[:,:,channel]
-        return weighted(state,xy,weights[name+'_a'],weights['maps'],budget=budget)
+        return reduce(weighted(state,xy,weights[name+'_a'],weights['maps'],budget=budget),f'weight:{name}:{channel}')
     core,factors=apply('self')
     kernels=[local_selfing(a,config.mutation_rate,config.mutation_sd,scheme) for a in axes]
-    births=[(core,selfed_factors(factors,kernels))]
+    births=[reduce((core,selfed_factors(factors,kernels)),'selfed_birth')]
     for channel in range(weights['donor_xy'].shape[2]):
         dc,df=apply('donor',channel);rc,rf=apply('recipient',channel)
-        births.append(outcross_tucker(dc,df,rc,rf,axes,config.mutation_rate,
+        births.append(reduce(outcross_tucker(dc,df,rc,rf,axes,config.mutation_rate,
             config.mutation_sd,scheme,orthogonalize=True,max_output_values=budget,
-            max_intermediate_values=budget))
+            max_intermediate_values=budget),f'outcross_birth:{channel}'))
+        if rounding is not None:
+            births=[reduce(summed(births,budget=budget),f'sum:{channel}')]
     offspring=summed(births,budget=budget)
     total=mass(offspring)
     if total < -1e-10 or not np.isfinite(total):
         raise ArithmeticError('invalid offspring mass')
     space=max(0.,config.capacity-config.survival*mass(state))
     retention=min(1.,space/total) if total>0 else 0.
-    retained=(offspring[0]*retention,offspring[1])
+    retained=reduce((offspring[0]*retention,offspring[1]),'retained')
     if config.survival:
-        return summed([retained,(state[0]*config.survival,state[1])],budget=budget)
+        return reduce(summed([retained,(state[0]*config.survival,state[1])],budget=budget),'survival')
     return retained

@@ -271,3 +271,18 @@ is not positivity-preserving. For nonnegative input, its L1 bound bounds the
 negative output mass in exact arithmetic. A future small-grid trajectory
 diagnostic must measure negativity, all accumulated errors and rank growth;
 this utility alone does not authorize high-resolution production runs.
+
+## Integrated stagewise-rounding admission in progress
+
+The solver now optionally rounds weighted-parent tensors, inherited births,
+sequential channel sums and the retained population. Local rounding receipts
+are retained by the caller. A full-step regression matches the frozen model
+and checks negative mass; the combined relevant suite has69 passing tests.
+
+A separate predeclared eight-case n5/40-period run now compares this integrated
+method with the unchanged reference at every period. It records full-state
+L1 error, trait means, mass, negative mass, rank, runtime and all local error
+receipts. Numerical/resource failures are recorded rather than retuned away.
+This differs from the n9/1000-period diagnostic, which rounds only after a
+full dense update. Neither diagnostic alone demonstrates high-resolution
+feasibility. No17+ full biological campaign has been started.

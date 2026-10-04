@@ -185,3 +185,18 @@ negative clipping and no trait-independence closure. Positive mass is restored
 by scaling, but nonnegativity is not guaranteed; full trajectory validation
 must quantify that error before adoption. Existing dense-roundtrip long run
 has6/8 cases complete and passing,2 remain; its sources remain untouched.
+
+## Integrated stagewise rounding probe started
+
+Added an optional rounding hook at parent weighting, inherited births,
+sequential channel summation and retention/survival. Test first failed on the
+missing hook, then passed against the original full step with error and
+negative-mass checks. Combined relevant suite69 passes.
+
+Predeclared n5/40-period/eight-case admission is now running in session46733,
+with per-stage receipts and every-period full-reference comparisons. Its
+source archive/manifests are frozen; do not edit compressed solver modules
+during this run. Existing13 and1000-period source manifests also reverified.
+Long dense-roundtrip diagnostic has7/8 completed and passing, last case running.
+The new integrated solver probe has no completed-case claim yet. Its outputs
+are under outputs/model3_precision_feasibility/integrated_n5_40.

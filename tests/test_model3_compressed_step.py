@@ -65,3 +65,21 @@ def test_fixed_assurance_is_explicitly_outside_this_integration_scope():
     with pytest.raises(ValueError,match='evolving'):
         compressed_step(initial(),([0,.5,1],)*3,_visitors([]),
             replace(config('assurance_cost',.01),assurance_mode='fixed'))
+
+
+def test_rounding_inside_full_step_matches_reference_and_records_error():
+    from scripts.model3_core_rounding import rounded
+    records=[]
+    def reduce(state,stage):
+        result,info=rounded(state)
+        records.append((stage,info))
+        return result
+    state=initial();axes=([0,.5,1],)*3;c=config('prior_selfing',.01)
+    visitors=_visitors([.2,.8]);grid=make_tensor_grid(axes)
+    expected,_=density_step(full(state).ravel(),grid,visitors,_empty_state(1),c,
+        inheritance_backend='tensor')
+    result=compressed_step(state,axes,visitors,c,rounding=reduce)
+    actual=full(result).ravel()
+    assert records
+    assert np.abs(actual-expected).sum()/48<1e-7
+    assert -actual[actual<0].sum()/48<1e-10
