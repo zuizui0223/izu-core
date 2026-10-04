@@ -566,3 +566,15 @@ Progress receipt model3_n9_long_progress_20261005.json is explicitly7/8,
 not full completion. Multiaxis actual session84375 confirmed live; process
 23924 observed CPU86.58s and145MB working set. No restart or premature
 convergence claim; awaiting declared component result.
+
+
+## Multiaxis actual probe stops at final contraction scheduling
+
+Previous goal turn: progress,7 long n9 cases verified. Session84375 now
+terminal failed344.687s: no bounded binary final contraction path. Frozen
+sources verified and failure archive preserved. Failure arises after mode
+projection at final core assembly; no completed projected core saved, so
+do not claim strict joint tolerance convergence. Next route: tile final
+output contraction with independently checked bounded paths, without
+raising memory cap or changing biological/numerical tolerances.
+N9 last case session58342 confirmed live at700periods, currentL1=3.30411e-7.
