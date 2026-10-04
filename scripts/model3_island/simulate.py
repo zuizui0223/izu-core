@@ -103,6 +103,7 @@ def simulate(config, history, founders, *, replicate: int, grid, check_budget=No
         density_counts=density_counts,density_trait_variance=density_trait_variance,
         density_reproductive=density_reproductive,demographic=demographic,
         projection_mode=projection_mode,immigration_mode=immigration_mode,
+        mutation_traits=tuple(mutation_traits),density_mutation_scheme=density_mutation_scheme,
         resident_control_undefined=undefined,
         density_control_undefined=density_undefined,
         parentage=np.concatenate(parentage),parentage_offsets=np.r_[0,np.cumsum([len(p) for p in parentage])],

@@ -92,14 +92,17 @@ def birth_mutation_matrix(nodes, rate, sd, scheme='jump'):
     heat: H(u sigma^2/2), a small-jump diffusion approximation, not identical.
     The H kernel solves the reflecting heat PDE during mutation, not adult life.
     """
-    if scheme not in ('jump','heat'):
+    if scheme not in ('jump','heat','heat_fv'):
         raise ValueError('unknown mutation scheme')
     if scheme=='jump':
         return mutation_matrix(nodes,rate,sd)
     # Validate even when the effective diffusion time vanishes.
     _rate = float(rate)
-    if not np.isfinite(_rate) or not 0<=_rate<=1:
+    if not np.isfinite(_rate) or not 0<=_rate<=1 or not np.isfinite(sd) or sd<0:
         raise ValueError('invalid mutation rate')
+    if scheme=='heat_fv':
+        from .birth_diffusion import reflecting_heat_matrix
+        return reflecting_heat_matrix(nodes,_rate*sd*sd/2)
     return mutation_matrix(nodes,1.,np.sqrt(_rate)*sd)
 
 
