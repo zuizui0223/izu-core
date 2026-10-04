@@ -102,6 +102,33 @@ def parental_fitness(
     return 0.5 * (female + paternal) + self_viable
 
 
+def price_mean_step(
+    investment: np.ndarray,
+    masses: np.ndarray,
+    *,
+    access: float,
+    visitor_optima: np.ndarray,
+) -> float:
+    """Exact additive-trait offspring mean under the reduced parental operator.
+
+    With no mutation, survival, or immigration, Mendelian segregation preserves
+    the expected parental allele value.  Therefore the offspring mean is the
+    parental mean plus Cov(i,w)/mean(w), where w is expected parental-genome
+    contribution per adult.
+    """
+    investment = np.asarray(investment, dtype=float)
+    masses = np.asarray(masses, dtype=float)
+    fitness = parental_fitness(
+        investment, masses, access=access, visitor_optima=visitor_optima
+    )
+    mean = float(investment @ masses)
+    mean_fitness = float(fitness @ masses)
+    if mean_fitness <= 0:
+        raise ValueError("mean parental contribution must be positive")
+    covariance = float(np.sum((investment - mean) * fitness * masses))
+    return mean + covariance / mean_fitness
+
+
 def mean_investment_velocity(
     access: float,
     community: str,
@@ -116,8 +143,10 @@ def mean_investment_velocity(
         grid, p, access=access, visitor_optima=COMMUNITIES[community]
     )
     mean = float(grid @ p)
-    # Under dp/dt=(w-wbar)p, d mean(i)/dt = Cov(i,w).
-    return float(np.sum((grid - mean) * fitness * p))
+    mean_fitness = float(fitness @ p)
+    # Normalized replicator equation:
+    # dp/dt=(w/wbar-1)p, so d mean(i)/dt = Cov(i,w)/wbar.
+    return float(np.sum((grid - mean) * fitness * p) / mean_fitness)
 
 
 def sign(value: float) -> int:
