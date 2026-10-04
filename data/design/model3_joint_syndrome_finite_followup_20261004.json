@@ -82,12 +82,13 @@
     "syndrome_class": "far-minus-near terminal investment <= -0.05 AND far-minus-near terminal assurance >= +0.05",
     "outcross_class": "far-minus-near terminal investment >= +0.05 AND far-minus-near terminal assurance <= -0.05",
     "intermediate": "all other eligible pairs",
-    "occupancy": "report unconditionally before excluding extinct trait endpoints"
+    "occupancy": "report unconditionally before excluding extinct trait endpoints",
+    "eligibility": "all four demographic repeats must be terminally occupied in both near and far arms; otherwise the history remains in occupancy summaries but receives no trait class"
   },
   "branching": {
     "history_branching": "within a fixed setting and initial state, both syndrome_class and outcross_class each >=10% of eligible histories",
     "initial_state_dependence": "endpoint-class frequencies differ across the three initial states; report descriptively and with multinomial/permutation comparison if sample size permits",
-    "repeatability_core": "at least one tradeoff setting has history_branching, with class membership reproducible across 2-vs-2 demographic split halves",
+    "repeatability_core": "at least one promotion-eligible tradeoff setting has history_branching in at least one initial state, and syndrome/outcross/intermediate class agreement across the frozen 2-vs-2 split halves is >=0.70 among histories classifiable in both halves",
     "split_halves": [
       [
         401,
@@ -97,7 +98,9 @@
         403,
         404
       ]
-    ]
+    ],
+    "split_half_classification": "each 2-repeat half is classified by its paired far-minus-near mean using the same endpoint deadbands; requires both repeats occupied in both arms",
+    "split_half_agreement_gate": 0.7
   },
   "no_outcome_stopping": true,
   "fixed_delta_boundary": "delta remains fixed at the setting value inherited from the bridge; no purging feedback"
