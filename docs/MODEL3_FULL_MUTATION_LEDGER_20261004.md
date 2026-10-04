@@ -272,3 +272,20 @@ check, but two near cases retain full45x45x45 child directions. Retain this
 failure to reduce ranks: no universal high-grid speed claim. Probe plan,
 results, input hashes and exact source bundle retained. Live original13 and
 slow admission sources remain unchanged.
+
+## Nine-node admission running
+
+Fixed n9/40 plan before outputs. New guard/founder tests observed red then
+green;73 candidate-local tests pass. Founders remain identical five-node
+genotypes/counts embedded at n9. Numerical tolerances unchanged; explicit
+array budget16million values for one diagnostic worker, not a peak-RAM claim.
+Session14030 runs the first n9 diagnostic; no case success claimed yet.
+
+Measured another diagnostic-only bottleneck: full-array reconstruction omitted
+einsum scheduling. Fixed-shape timing0.587s versus0.000824s, relative L1 difference
+8.96e-16. A separate runner/output variant changes only that reconstruction
+expression to optimize=True; solver sources unchanged. Session32212 runs it,
+first case20/40 observed with L1=5.50e-10. Both source manifests verified; retain
+both identities and do not confuse reconstruction speed with solver accuracy.
+The new variant is scripts/audit_model3_rounded_integration_fast_reconstruct.py
+inside the isolated candidate. Its diff is retained in tracked data/results.

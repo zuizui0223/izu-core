@@ -428,3 +428,19 @@ positive mutation. The full high-resolution objective remains open. Next
 gates are measured higher-grid solver accuracy/ranks/resources and eventual
 grid convergence; successful n5 integration cannot justify ecological
 ABM-density or jump-PDE differences by itself.
+
+## Nine-node solver admission in progress
+
+The n9/40-period/eight-case gate is declared separately. Tests verify the same
+five-node founder genotypes and counts, rather than reprojecting raw founders
+directly onto a finer grid. All accuracy thresholds stay unchanged. The
+diagnostic allocation cap is16million values, not an empirical peak-memory
+bound. Candidate73 tests pass. No9/1000 or17+ run admitted automatically.
+
+The initial n9 diagnostic also revealed slow reference-array reconstruction,
+separate from the solver. A fixed-shape comparison yields relative difference
+8.96e-16 and0.587s versus0.000824s with optimized einsum. A separately archived
+runner/output variant changes only this diagnostic reconstruction, leaving all
+solver equations and source identities intact. Both n9 runs remain pending;
+the optimized diagnostic has reached20 periods of its first case. These are
+accuracy/resource admission runs, not additional ecological replicate evidence.
