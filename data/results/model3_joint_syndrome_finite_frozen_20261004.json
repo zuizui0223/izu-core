@@ -156,5 +156,21 @@
     "delayed_control is structural control only",
     "delta fixed; no purging feedback",
     "syndrome endpoint frequencies are synthetic-model frequencies, not estimates of natural prevalence"
-  ]
+  ],
+  "frozen_adjudication": {
+    "overall_promotion": "mechanistic_core",
+    "repeatability_core_or_next_paper": false,
+    "per_setting": {
+      "delayed_control": "control_only",
+      "prior_selfing": "mechanistic_core",
+      "pollen_discount": "mechanistic_core",
+      "assurance_cost": "mechanistic_core"
+    },
+    "rationale": [
+      "All three tradeoff settings passed the preregistered rare-mutant joint-shift gate.",
+      "Each tradeoff setting produced >=10% finite syndrome endpoints in at least one prespecified initial state.",
+      "No setting met the frozen branching rule because syndrome and outcross endpoint classes did not each reach 10% in the same setting and initial state.",
+      "The result therefore promotes the extension to a mechanistic core for the existing paper, but not to a repeatability-core branching claim or separate branching paper."
+    ]
+  }
 }
