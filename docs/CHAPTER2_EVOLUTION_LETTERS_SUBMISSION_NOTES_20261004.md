@@ -118,6 +118,15 @@ The manuscript now contains all five end-matter headings before the references.
 - **Persistent archive timing:** a DOI-backed archive remains required for the final publication package, but it need not block initial submission if the current public code/data location is stated accurately; replace the GitHub-only locator with the final persistent identifier before final accepted files.
 - **Manuscript end matter:** all required headings are now in the manuscript. Author-specific content remains intentionally unresolved until supplied/confirmed.
 
+## Submission package files
+
+- Canonical manifest: `data/design/chapter2_evolution_letters_submission_manifest_20261004.json`
+- Cover letter template: `docs/CHAPTER2_EVOLUTION_LETTERS_COVER_LETTER_20261004.md`
+- Main manuscript: `docs/CHAPTER2_MANUSCRIPT_EL_REPEATABILITY_20261003.md`
+- Theory supplement: `docs/CHAPTER2_EL_THEORY_SI_20261004.md`
+
+The cover letter and manifest are intentionally fail-closed on author metadata, AI-use scope, related-manuscript status, conflict of interest, funding and archival DOI.
+
 ## Submission-only checks still requiring human/account input
 
 - final author order, full names, affiliations and corresponding-author address/email;
