@@ -1,6 +1,6 @@
 # Chapter 2 — Evolution Letters submission notes — 2026-10-04
 
-**Status:** submission-preparation surface only. This file does not promote or submit the draft.
+**Status:** canonical submission-preparation notes for the theory-integrated Evolution Letters candidate. No submission action has been taken.
 
 ## Article type
 
@@ -61,7 +61,12 @@ GitHub Actions artifacts are execution provenance, **not the permanent archive**
 
 ## Submission readiness
 
-Scientific surfaces already fixed on the repeatability branch:
+Scientific surfaces now fixed on the canonical theory-integrated candidate:
+- post-hoc continuous reduction with exact additive-trait Price closure;
+- analytic floral-investment benefit–cost threshold;
+- frozen rare-mutant joint investment–assurance selection audit;
+- full-covariance G beta response audit;
+- frozen finite two-trait follow-up with branching criterion not supported;
 - occupied focal Model 3 bridge;
 - deterministic persistence-boundary correction;
 - exploratory exact-source discovery;
@@ -109,7 +114,7 @@ These headings must be present in the final submitted manuscript before the refe
 
 - **AI-use disclosure:** Evolution Letters currently requires use of AI tools (for example for content/images, code, data processing or translation) to be disclosed both in the cover letter and in the Methods or Acknowledgements. The exact disclosure must be author-confirmed; do not infer scope from repository activity alone.
 - **Related/similar manuscript disclosure:** if the locked Oikos manuscript has been submitted or is under consideration when this Evolution Letters manuscript is submitted, disclose it in the cover letter, provide the related manuscript as requested by the journal, and explain the scientific distinction. Do not run the two routes as silent overlapping submissions.
-- **Initial code/data locator:** until a persistent archive DOI is minted, the submission should point to the exact public GitHub revision containing the scientific RC and submission notes: commit `699faac95b4ad48eef452e6a4bb045c071889a53` (or a later submission-only commit descended from it). Do not cite bare `main` while the Evolution Letters candidate remains unmerged.
+- **Initial code/data locator:** until a persistent archive DOI is minted, use the exact validated scientific theory commit `cfa0754823817591fab15ef1b36eecd7a3a3ef10` as the scientific code/result locator. Submission-preparation commits may descend from it, but do not cite bare `main` while the Evolution Letters candidate remains unmerged.
 - **Persistent archive timing:** a DOI-backed archive remains required for the final publication package, but it need not block initial submission if the current public code/data location is stated accurately; replace the GitHub-only locator with the final persistent identifier before final accepted files.
 - **Manuscript end matter:** the required Data and code availability, Author contributions, Funding, Conflict of interest and Acknowledgements headings must be inserted into the manuscript itself before submission; keeping them only in this notes file is not sufficient.
 
