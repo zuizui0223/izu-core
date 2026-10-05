@@ -34,6 +34,12 @@ Endpoints establish model-conditional isolation effects, not a quantified mediat
 
 ## Evidence and remaining scope
 
+### Visitor exposure audit
+
+Regeneration of all 64 paired histories was checked against the frozen source archive before readout. Both arms start with four visitor types and share the same per-type loss hazard. Across the 1,000 used snapshots, mean visitor-type count is 4.849 near versus 0.305 far; absence fractions are 0.00730 versus 0.75873. The mean longest absence spell per history is 4.48 versus 218.66 periods. Between the 999 observed snapshot transitions, mean established additions are 237.63 versus 11.78. ID-based counts satisfy initial count + additions - losses = final used count for every history.
+
+Thus this strong isolation contrast creates prolonged visitor absence, not merely a modest reduction in richness. Lower replenishment produces that outcome without increasing the per-type loss hazard. These are severe arrival-limitation conditions, not calibrated estimates for typical islands. Shared exogenous histories are counted once, not repeatedly across reproductive settings or demographic replicates. No plant-to-visitor feedback is represented. See `data/results/model3_visitor_exposure_20261005.json` and `scripts/audit_model3_visitor_exposure.py`.
+
 - Design: `data/design/model3_persistent_isolation_20261005.json`.
 - Temporal declaration: `data/design/model3_temporal_order_diagnostic_20261005.json`.
 - Results: `data/results/model3_persistent_isolation_summary_20261005.json`.
