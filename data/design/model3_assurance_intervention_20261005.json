@@ -1,0 +1,20 @@
+{
+  "status": "declared_before_outcomes",
+  "question": "Can isolation reduce investment when autonomous selfing capacity cannot evolve?",
+  "periods": 1000,
+  "exposure": "Sustained near distance0 and far distance3, identical frozen visitor histories to previous extension",
+  "settings": ["assurance_cost", "prior_selfing"],
+  "mutation_rates": [0.0, 0.01],
+  "modes": ["fixed", "evolving"],
+  "histories": {"first":76001,"count":64},
+  "replicates": {"first":7101,"count":8},
+  "cases": 8192,
+  "founders": "Same original48 founders for matching and investment, with both assurance alleles set to0.5 in BOTH modes. Retain matched initial states; this is a new intervention cohort, not the original varying-assurance founders.",
+  "fixed": "Config assurance_mode=fixed and fixed_assurance=0.5. Disable mutation only at assurance locus; matching/investment inheritance and mutation unchanged.",
+  "evolving": "Config assurance_mode=evolving; all loci may mutate. Assurance evolution therefore requires mutation because founder assurance variance is zero.",
+  "negative_control": "At mutation0 both modes must have exactly identical trajectories under matched history/replicate because assurance remains0.5 in either mode.",
+  "endpoints": [200,400,1000],
+  "analysis": "Paired history-level isolation effects within each mode, then difference in isolation effects between modes.5000 history bootstrap draws;95% descriptive intervals. Report persistence and pair eligibility separately. Complete full declared campaign before biological readout; no outcome-based stopping.",
+  "predictions": ["Investment can decline under fixed capacity if reduced visitor returns favour reduced investment cost", "Allowing capacity evolution may modify isolation effects, with no imposed direction"],
+  "limits": "One intermediate fixed capacity only; not a universal mediation fraction. Capacity fixed does not mean realized selfing fixed. Both cohorts have altered founder assurance variance relative to main experiment. Timing and capacity cost remain a joint setting contrast. Mutation0 is a structural negative control, not evidence that assurance evolution is biologically absent."
+}
