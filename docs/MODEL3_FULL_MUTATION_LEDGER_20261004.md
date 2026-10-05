@@ -953,3 +953,10 @@ Fresh combined regression:34 checked-SVD/gamete/integration/streamed-weight test
 The streamed delayed/near/jump65 fourth step completed in819.937s, relative marginalL1 1.13e-12, mean-trait gap2.13e-14, ranks142x114x83. Source archive/current files and NPZ verified; marginals and means independently reconstructed from saved joint factors. Receipt:model3_streamed_weight_fourth65_verified_20261005.json.
 
 Launched audit_checked_streamed_ten65, session86825, one worker, original8 cases x10 resource-probe periods, history76001,65 nodes, identical founders and thresholds. Source archive checked against current files. First update passes. This does not shorten the1000-period ecological target or establish full-joint/accumulated error or grid convergence. Launch receipt:model3_checked_streamed_ten65_launch_20261005.json.
+
+
+## 2026-10-05 batched exact weighting read candidate
+
+Live checked_streamed_ten65 remains unchanged (session86825), first3 delayed/near/jump updates passed. Performance inspection found weighted projection reading8 complete rows as8 separate contractions. Added a separate batched reader, preserving exact arithmetic and resource limits.12 tests failed before module implementation and pass after;26 reader/weight/integrated tests now pass, including dense multi-period references and incompressible output rejection.
+
+Synthetic signed-input benchmark at observed131x103x66 core and611x131x6 transform dimensions:3 alternating runs, median2.37x read speedup, bit-identical output. This is not full-model speedup evidence. Saved model3_weighted_block_read_benchmark_20261005.json. New candidate modules do not modify any live imported source. Batched fourth-step probe launched session13490 from the same hashed delayed/near/jump state, independent next-marginal reference, same thresholds and caps. It is pending, not admitted.
