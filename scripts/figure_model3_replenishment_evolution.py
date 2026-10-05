@@ -66,7 +66,7 @@ def main():
                     for cat,label,color in zip(cats,labels,palette):
                         values=np.array([r['counts'].get(cat,0) for r in rows]);ax.barh(np.arange(13),values,left=left,color=color,label=label,edgecolor='white',linewidth=.3);left+=values
                     assert np.all(left==64)
-                    ax.set(yticks=np.arange(13),yticklabels=[f"{r['replenishment']:.3f}" for r in rows],xlim=(0,64),xlabel='Number of visitor histories (total 64)',ylabel='Established types / update',title=titles[si]+'\n'+contrast.replace('_',' '))
+                    ax.set(yticks=np.arange(13),yticklabels=[f"{r['replenishment']:.3f}" for r in rows],xlim=(0,64),xticks=[0,16,32,48,64],xlabel='Number of visitor histories (total 64)',ylabel='Established types / update',title=titles[si]+'\n'+('Change from founders' if contrast=='from_founders' else 'Additional change relative to high supply'))
                     ax.spines[['top','right']].set_visible(False)
             fig.suptitle(f'Which declared change is reached first? Threshold {threshold}',fontsize=16)
             handles,legend=axs[0,0].get_legend_handles_labels();fig.legend(handles,legend,loc='lower center',ncol=3,bbox_to_anchor=(.5,.04),frameon=False)

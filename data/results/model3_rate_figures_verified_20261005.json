@@ -1,0 +1,21 @@
+{
+  "status": "all_exported_estimates_match_sources",
+  "selection_means": 2340,
+  "evolution_estimates": 468,
+  "selection_axis": "0.24 exp(-d), successful visitor establishment per update",
+  "files": [
+    {
+      "path": "outputs/figures/model3_selection_process_20261005/selection_process.pdf",
+      "sha256": "cccbfa7d481ee212e63de982f27183046a629596684199ce9d5b149f9bb95d55"
+    },
+    {
+      "path": "outputs/figures/model3_replenishment_evolution_20261005/all_endpoints.pdf",
+      "sha256": "f89665aeca3755e3003c11118e208a93ed9be75f18a9a3bc5144b55d06a1177e"
+    },
+    {
+      "path": "outputs/figures/model3_replenishment_evolution_20261005/all_order_thresholds.pdf",
+      "sha256": "0c76bf1a6246ce1b4aefcf87dfb2f98bec29c020da1131719223510008ac61a2"
+    }
+  ],
+  "scope": "CSV-to-evidence agreement; primary rendered pages reviewed separately; no claim of universal biological validity."
+}

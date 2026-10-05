@@ -1,0 +1,8 @@
+{
+  "status": "verified_all_curve_readouts",
+  "temporal_records": 9984,
+  "endpoint_rows": 156,
+  "max_numeric_difference": 0.0,
+  "summary_sha256": "2570bbdd4c4d202e0982eb3afddade40bd6d8ab11551e3b20b49532feea85cea",
+  "scope": "Independently derives events and intervals from stored curves. Raw-case checks belong to the complete-campaign summarizer; no independent biological-model implementation claimed."
+}

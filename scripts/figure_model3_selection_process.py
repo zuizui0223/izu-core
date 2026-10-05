@@ -21,7 +21,8 @@ OUT = ROOT / 'outputs/figures/model3_selection_process_20261005'
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     with np.load(SOURCE) as d:
-        x, states = d['distances'], d['states']
+        distances, states = d['distances'], d['states']
+        x = .24 * np.exp(-distances)
         ti = int(np.flatnonzero(d['snapshots'] == 400)[0])
         pi = int(np.flatnonzero(np.all(states == [.5, .5, .5], axis=1))[0])
         raw = d['gradients'][:, :, :, ti]
@@ -38,7 +39,7 @@ def main():
     ax.set(xlim=(0, 1), ylim=(0, 1))
     ax.text(0, 1, 'A  One ecological process; selection and evolution answer different questions',
             fontsize=13, weight='bold', va='top')
-    boxes = [(.01, .54, .22, .29, 'Isolation limits arrivals\nVisitor loss continues'),
+    boxes = [(.01, .54, .22, .29, 'Vary visitor replenishment\nHold plant capacity fixed'),
              (.29, .54, .25, .29, 'Pollen transfer + plant state\nCosts + inbreeding depression'),
              (.61, .54, .36, .29, 'Viable maternal + paternal contributions\nLocal gradients: what is favoured?')]
     for bx, by, bw, bh, label in boxes:
@@ -65,23 +66,23 @@ def main():
             ax.fill_between(x, ci[:, 0], ci[:, 1], color=colors[k], alpha=.18)
             ax.plot(x, means[si, :, pi, k], '-o', color=colors[k], lw=2, ms=3)
             ax.axhline(0, color='#34454B', ls='--', lw=.9)
-            ax.set(xlim=(0, 3), ylim=(-.8, 3.5), xticks=[0, 1, 2, 3],
-                   xlabel='Isolation distance (dimensionless model units)',
+            ax.set(xlim=(0, .25), ylim=(-.8, 3.5), xticks=[0, .06, .12, .18, .24],
+                   xlabel='Established visitor types / reproductive update',
                    ylabel='Local log-fitness gradient')
             ax.set_title(f'{"BCDE"[si*2+k]}  {titles[k]}\n{setting}', fontsize=11, loc='left')
             ax.spines[['top', 'right']].set_visible(False)
-            for di, distance in enumerate(x):
+            for di, distance in enumerate(distances):
                 for p, state in enumerate(states):
                     rows.append([si, k, float(distance), *state.tolist(),
                                  float(means[si, di, p, k]), float(intervals[si, di, p, k, 0]),
-                                 float(intervals[si, di, p, k, 1]), p == pi])
+                                 float(intervals[si, di, p, k, 1]), p == pi, float(x[di])])
     fig.text(.10, .105,
              'B–E: exploratory fixed-plant assay at visitor snapshot 400; plants do not evolve in these panels.\n'
              'Thin lines: all 45 resident states, means over 64 visitor histories. Bold: all three traits = 0.5.\n'
              'Band: central-state pointwise 95% history-bootstrap interval. Positive = increase favoured; negative = decrease favoured.',
              fontsize=9, va='top')
     fig.text(.10, .035,
-             'Lines join 13 sampled distances, not fitted threshold curves. Shared axes allow magnitude comparisons.\n'
+             'Lines join 13 sampled rates, not fitted threshold curves. Replenishment is not calibrated geographic distance.\n'
              'The two settings differ in both selfing timing and cost; local gradients are not evolutionary velocities.',
              fontsize=9, va='top')
     for ext in ['pdf', 'svg', 'png']:
@@ -90,7 +91,7 @@ def main():
     with (OUT / 'plotted_values.csv').open('w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(['setting_index', 'trait_index', 'distance', 'matching', 'investment',
-                         'capacity', 'mean', 'ci_low', 'ci_high', 'central_state'])
+                         'capacity', 'mean', 'ci_low', 'ci_high', 'central_state', 'established_types_per_update'])
         writer.writerows(rows)
     receipt = {'source': str(SOURCE.relative_to(ROOT)),
                'source_sha256': hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
