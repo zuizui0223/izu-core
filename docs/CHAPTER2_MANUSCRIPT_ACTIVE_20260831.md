@@ -46,10 +46,12 @@ explicit plant–pollinator eco-evolutionary model.
 
 Plant populations experienced 200 reproductive updates under paired near versus
 far visitor-immigration histories, after which both histories received exactly
-the same visitor environment for 800 additional updates. Access/matching,
-pollinator-facing floral investment and reproductive assurance evolved jointly.
-Mutation was crossed at zero versus 0.01 per transmitted allele, and two
-declared reproductive settings were retained without fitting to natural islands.
+the same visitor environment for 800 additional updates. The primary finite
+experiment used 64 independent visitor histories with eight nested demographic
+repeats per history (4,096 core trajectories). Access/matching, pollinator-facing
+floral investment and reproductive assurance evolved jointly. Mutation was
+crossed at zero versus 0.01 per transmitted allele, and two declared reproductive
+settings were retained without fitting to natural islands.
 
 After 800 updates of identical current visitor exposure, the focal delayed-selfing
 setting retained a far-minus-near investment difference of -0.140 without
