@@ -1,9 +1,9 @@
-# Evolutionary memory after pollinator isolation does not imply evolutionary arrest
+# Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation
 
-**Status:** active Chapter 2 scientific manuscript — full-mutation common-environment history is primary; maintained-isolation process experiments are mechanistic support
-**Updated:** 2026-10-06 — scientific mainline rerouted to the completed full-mutation common-environment experiment. Existing numerical results are unchanged; the stopped high-resolution positive-mutation comparison remains closed unresolved.
-**Inference architecture:** different visitor-isolation histories → inherited divergence → exact environmental equalization → persistence or recovery of trait differences. Genetic state and late trajectory change distinguish memory from arrest. Maintained-isolation selection/assurance/pollen assays explain how the historical divergence can arise. Deterministic genotype density and mutation diffusion remain bounded numerical support, not requirements for the finite-ABM ecological claim.
-**Controlling state:** `docs/CHAPTER2_MUTATION_HISTORY_MAINLINE_20261006.md`. `CHAPTER2_PROCESS_MAINLINE_20261005.md` is retained as mechanism-support provenance; September bridge-focused routing documents remain historical.
+**Status:** active Chapter 2 scientific manuscript — 2026-10-05 maintained-isolation ecological results are primary; mutation/history analyses are complementary
+**Updated:** 2026-10-06 — restored the 2026-10-05 ecological result spine after a superseded mutation-history routing attempt. Numerical results are unchanged.
+**Inference architecture:** sustained visitor replenishment limitation → altered pollen transfer and reproductive returns → local selection on attraction and assurance → inherited responses and finite realization. Temporal order is tested separately from causal necessity.
+**Controlling state:** `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`, with result priority governed by `docs/MODEL3_RESULT_PRIORITY_AND_PRESENTATION_20261005.md`. The full-mutation common-environment experiment remains complementary evidence.
 
 ## Numerical scope amendment, 2026-10-05
 
@@ -11,65 +11,53 @@ The user stopped the high-resolution 1,000-update extension after verified perio
 
 ## Current primary question and interpretation
 
-The primary question is what a persistent evolved floral difference means after
-the current visitor environment has been made identical. The focal experiment
-creates 200 reproductive updates of different near/far visitor-immigration
-histories and then gives both arms exactly the same next 800 visitor snapshots.
-Access, investment and reproductive assurance can all evolve, and mutation is
-crossed at zero versus 0.01 per transmitted allele.
+The primary question is whether reduced floral attraction under sustained
+pollinator limitation is caused by the evolution of reproductive assurance, or
+whether both traits respond in parallel to isolation-altered reproductive
+returns.
 
-The paper distinguishes **evolutionary memory** from **evolutionary arrest**.
-At the shared-environment endpoint, investment and assurance can still differ
-between histories. Yet the genetic and dynamical states underlying that same
-kind of residual contrast are different: without mutation, occupied populations
-can collapse to one investment allele and show no late investment change;
-with mutation, multiple alleles are replenished and investment continues to
-change over the final 100 updates. A surviving endpoint contrast therefore does
-not diagnose a trapped or irreversible state.
+Three completed comparisons separate these possibilities. First, fixed-plant
+assays ask whether the visitor environment changes the marginal reproductive
+return to floral investment before plant traits evolve. Second, maintained-
+isolation trajectories ask which trait reaches a declared change threshold first.
+Third, a matched intervention fixes assurance capacity at 0.5 or permits it to
+evolve, testing whether assurance evolution is necessary for investment decline.
 
-Maintained-isolation selection thresholds, replenishment gradients, assurance
-interventions and pollen/offspring assays are retained to explain how the
-history-dependent states were generated and why attraction and assurance need
-not move as one syndrome. They are mechanism support, not five co-equal primary
-questions. The model remains uncalibrated to Q1 colour, accessibility, named
-islands, kilometres or natural evolutionary time. The positive-mutation
-high-resolution deterministic/PDE comparison remains numerically unresolved and
-is not used to establish the finite-ABM history result.
+The central result is **sequence does not identify necessity**. Reproductive
+assurance often changes first, yet investment still declines when assurance
+evolution is blocked. Moreover, permitting assurance evolution can narrow the
+near-far investment contrast because investment changes in both environments.
+The model is not calibrated to Q1 colour, accessibility, named islands,
+kilometres or natural evolutionary time.
 
 ## Abstract
 
-Environmental restoration can remove the ecological difference that generated
-evolutionary divergence, but it does not follow that evolved populations
-immediately converge. More importantly, a persistent trait difference does not
-by itself reveal whether evolution has stopped. We test this distinction in an
-explicit plant–pollinator eco-evolutionary model.
+Island pollinator limitation is often associated with greater reproductive
+assurance and reduced floral attraction, but the order of these changes does not
+show whether one causes the other. We separate ecological return, evolutionary
+sequence and causal necessity in one explicit plant–pollinator model with
+continued visitor establishment and loss, pollen transfer, allocation costs,
+maternal and paternal reproduction, inbreeding depression and inheritance.
 
-Plant populations experienced 200 reproductive updates under paired near versus
-far visitor-immigration histories, after which both histories received exactly
-the same visitor environment for 800 additional updates. The primary finite
-experiment used 64 independent visitor histories with eight nested demographic
-repeats per history (4,096 core trajectories). Access/matching, pollinator-facing
-floral investment and reproductive assurance evolved jointly. Mutation was
-crossed at zero versus 0.01 per transmitted allele, and two declared reproductive
-settings were retained without fitting to natural islands.
+The maintained-isolation analyses used 64 independent visitor histories with
+eight nested demographic repeats per setting, supplemented by fixed-plant
+reproductive assays and 8,192 matched fixed-versus-evolving-assurance
+trajectories. At the same plant state, the delayed-setting marginal contribution
+of floral investment shifted from +0.5793 under near exposure to -0.7004 under
+far exposure; the outcross component fell from +1.6523 to +0.0854. Under
+sustained isolation, reproductive assurance reached the declared 0.05 change
+threshold first in 51 of 64 far-history means, with 13 near-simultaneous.
+Nevertheless, holding assurance capacity fixed at 0.5 did not prevent investment
+decline: far populations changed by -0.3099 in the delayed setting and -0.3316
+under prior selfing. Allowing assurance to evolve could also reduce the observed
+near-far investment contrast because investment changed in both environments.
 
-After 800 updates of identical current visitor exposure, the focal delayed-selfing
-setting retained a far-minus-near investment difference of -0.140 without
-mutation and -0.130 with mutation, together with positive assurance differences.
-Access-position contrasts were compatible with zero. However, the same residual
-history signal had different dynamical meanings. Without mutation, occupied
-populations retained one investment allele and showed no mean investment change
-over the final 100 updates. With mutation, multiple investment alleles were
-present and trait change continued. Mutation therefore permitted continued
-evolution without erasing the finite-horizon imprint of ecological history.
-
-These results show that **evolutionary memory is not equivalent to evolutionary
-arrest**. A cross-sectional difference after environmental equalization can be
-consistent with genetic stasis or with ongoing recovery, depending on the
-available variation. Maintained-isolation selection and assurance experiments
-identify mechanisms that generate the initial divergence, but irreversibility,
-alternative attractors, universal recovery times and a converged
-finite-versus-continuum mechanism are not established.
+Thus **temporal precedence is not causal necessity**. Pollinator isolation can
+alter the reproductive economics of attraction directly, while assurance and
+attraction evolve as interacting but partly parallel responses. A separate
+trait-pollen assay further shows that a smaller fractional pollen deficit need
+not imply greater viable offspring production. These are conditional synthetic
+mechanisms, not calibrated reconstructions of natural island histories.
 
 ## Keywords
 
@@ -87,81 +75,37 @@ We address this problem with one shared biological model rather than separate re
 
 The shared reproductive process is examined with complementary assays and evolutionary calculations. Fixed-state assays measure the reproductive consequences of changing investment before plant evolution. Deterministic genotype-density propagation and the finite-individual model then follow reproduction and inheritance in parallel; the latter samples parental contributions, Mendelian segregation and recruitment. The deterministic calculation is a conditional deterministic closure, not the stochastic mean of the finite ABM. Mutation diffusion approximates mutation within the deterministic branch while sexual inheritance remains explicit. Assurance, connectivity and history experiments intervene on this common biology rather than prescribing separate directions of floral response.
 
-We ask five connected ecological questions. Under what conditions does reduced visitor replenishment strengthen pre-existing selection or reverse selection on capacity and attraction? How does changing either trait alter selection on the other? When does local selection become inherited change, and which trait reaches a declared change first? How do finite loss and mutational replenishment of genetic variation constrain continuing response? Finally, how do pollen compensation, inbreeding depression and allocation costs combine to determine viable reproduction? Q1 motivates these questions but supplies no calibration targets. Natural evidence tests whether the ecological ingredients occur, not which synthetic cell should be assigned to an observed island.
+The critical inferential distinction is between **what changes first** and
+**what change is required for another response**. A sequential selfing syndrome
+would predict that reproductive assurance precedes and helps generate reduced
+attraction. But visitor limitation could instead alter the return on attraction
+directly, so that assurance and investment respond to the same ecological change
+without forming a single serial pathway.
 
-## What the mutation-history experiment establishes
+We therefore organize the paper around three linked contrasts. Fixed-plant
+assays identify whether isolation changes the reproductive return to investment
+before plant evolution. Maintained-isolation trajectories quantify the realized
+order of assurance and investment change. A matched fixed-versus-evolving
+assurance intervention then tests causal necessity. Reproductive-output assays
+separate pollen-deficit metrics from viable offspring, and genetic/deterministic
+comparisons bound how expected responses are realized in finite populations.
 
-A residual phenotypic difference after ecological equalization is often read as
-evidence that evolution has become difficult to reverse. That interpretation
-conflates an observed endpoint with the process generating it. A population may
-remain different because relevant variants were lost and evolution has stalled,
-or because it is still moving through trait space but has not yet converged.
+## What the 2026-10-05 result establishes
 
-The full-mutation experiment makes this distinction directly. Paired populations
-experience different visitor-immigration histories for 200 reproductive updates
-and then exactly the same sequence of visitor states for 800 updates. The
-comparison therefore asks whether past ecological history remains visible after
-the current environment no longer differs. Crossing zero versus positive
-mutation then asks whether a remaining history signal coincides with loss of
-genetic accessibility or with continued evolutionary movement.
+At an identical plant state, stronger visitor limitation can reverse the
+marginal reproductive return to attraction. Reproductive assurance often reaches
+a declared evolutionary threshold first, but preventing assurance evolution does
+not remove investment decline. The observed sequence is therefore real but does
+not identify a selfing-mediated causal chain.
 
-The result is not a claim of irreversibility. Instead it shows that the same
-kind of endpoint memory can arise in different dynamical states. Without mutation,
-occupied populations can end with one investment allele and no late investment
-change. With mutation, multiple investment alleles are present and investment
-continues to change while a history contrast remains. **Evolutionary memory is
-therefore not equivalent to evolutionary arrest.**
-
-## How maintained-isolation experiments support the interpretation
-
-The maintained-isolation experiments explain how the historical divergence can
-be generated. Visitor replenishment changes outcross returns and local selection;
-reproductive assurance and floral investment can respond on different schedules;
-investment can decline even when assurance evolution is blocked; and pollen
-compensation need not increase viable offspring. These experiments remain
-important mechanistic support, but they no longer define five co-equal paper
-questions.
-
-This ordering separates the ecological cause of divergence from the later
-diagnosis of persistence. Selection and sequence explain why the histories
-diverge; the common-environment mutation experiment determines what a remaining
-difference means after the ecological contrast has been removed.
+A second, less intuitive result follows from the intervention: allowing assurance
+to evolve can reduce the near-far investment contrast because investment changes
+in both environments. Weak geographic divergence can therefore coexist with
+substantial evolution within each environment. This is why the manuscript
+reports within-population change and between-environment divergence as separate
+estimands.
 
 # Materials and Methods
-
-## Primary full-mutation common-environment experiment
-
-The primary finite-population experiment uses 64 independent visitor-history
-seeds and eight nested demographic repeats. For the first 200 reproductive
-updates, paired arms differ only in visitor immigration distance: the near arm
-uses distance 0 and the far arm distance 3. Both begin with the same four visitor
-types and the same plant founder specification. For updates 201–1000, both arms
-receive exactly the near arm's visitor snapshots for each corresponding update.
-The common phase is therefore an exact environment match, not merely equal mean
-visitor richness.
-
-All three plant traits—access/matching position, floral investment and
-reproductive assurance—can evolve. Two declared reproductive settings are
-analysed separately: delayed assurance with cost 0.5 and prior selfing with no
-assurance cost. Mutation probability is 0 or 0.01 per transmitted allele with
-reflected-normal step SD 0.05. Capacity is 48 and there is no plant immigration.
-The core ABM therefore contains 64 histories × 8 demographic repeats × 2
-reproductive settings × 2 mutation probabilities × 2 history arms = 4,096
-trajectories.
-
-The primary estimand is the far-history minus near-history trait contrast after
-800 updates under identical current visitor exposure. Descriptive 95% intervals
-use history-cluster bootstrap resampling conditional on paired occupancy. We
-also report the number of occupied investment alleles and the mean investment
-change over the final 100 updates. Those diagnostics distinguish a persistent
-endpoint difference accompanied by late stasis from one accompanied by
-continuing evolution.
-
-The complete campaign also contains deterministic genotype-density and mutation
-operator comparisons. These are numerical support, not prerequisites for the
-finite-ABM ecological result. Positive-mutation grid refinement failed its
-declared tolerance and the later high-resolution long comparison was stopped
-after verified update 7; no converged ABM-minus-continuum mechanism is claimed.
 
 ## Ecological scope and claim boundary
 
