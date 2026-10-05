@@ -886,3 +886,23 @@ variant; it is not a restarted old run or a full biological campaign.
 Exact square-gamete third65 probe launched session9131; outputs
 fastpath_candidate/exact_gamete_third65. Source archive saved before work.
 Old gamete_third65 session27135 remains live and unchanged.
+
+## 2026-10-05: live profiling identifies unbounded reader fallback
+
+Nonblocking py-spy0.4.2 snapshots from both65 probes show project_basis first
+block still inside a four-operand einsum fallback (after one binary step).
+The new variant had shape2145x2979405, block0:5556. Existing tiled assembly
+protected only final output; block readers still called the general contract.
+Profile receipt:model3_projection_fallback_profile_20261005.json. Both exact
+Python process identities were checked then stopped for this confirmed defect;
+outputs/source archives remain. Session9131 exit1;27135 wrapper exit0 after
+child termination, NOT successful scientific completion.
+
+Separate binary_reader variants route every block through already tested
+bounded binary tiled contraction. No model/tolerance changes. RED missing
+modules then13 focused tests GREEN. Regression disallows general reader
+contract and verifies multiple tiled reads and dense reconstruction. Full
+related suite running; next saved-state probe includes block progress output.
+
+Full candidate suite234passed in43.47s; runner compiles. New binary-reader
+saved-state third65 probe launched with frozen source archive.
