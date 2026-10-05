@@ -1,20 +1,20 @@
-# Izu Core — Model 3 island pollination-to-evolution
+# Izu Core — Model 3 evolutionary memory after pollinator isolation
 
 This repository is the Chapter 2 mechanism paper built around **one ecologically explicit Model 3**.
 
 Current paper title:
 
-> **How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization**
+> **Evolutionary memory after pollinator isolation does not imply evolutionary arrest**
 
-The [current process narrative](docs/CHAPTER2_PROCESS_MAINLINE_20261005.md) governs
-the active manuscript. The older Oikos bridge submission is a historical snapshot;
-its renderer and figures do not define the current paper.
+The [mutation-history mainline](docs/CHAPTER2_MUTATION_HISTORY_MAINLINE_20261006.md)
+governs the scientific narrative on this branch. The completed full-mutation
+common-environment experiment is primary; the 2026-10-05 maintained-isolation
+process decomposition is retained as mechanism support rather than as five
+co-equal paper questions.
 
-The current process manuscript, supporting methods/results and figure package
-are assembled. See the [requirement-by-requirement scientific audit](docs/CHAPTER2_PROCESS_FINAL_AUDIT_20261005.md)
-and [current supporting information](docs/CHAPTER2_PROCESS_SUPPORTING_INFORMATION_20261005.md).
-This is a bounded scientific delivery, not a journal submission or successful
-validation of the stopped high-resolution mutation comparison.
+The older Oikos bridge submission and the earlier process-centred manuscript are
+historical/supplementary surfaces. Their frozen numerical results remain valid,
+but they do not define the current paper.
 
 The earlier Chapter 2 closeout remains bounded by its declared synthetic claim ceiling.
 The full three-trait mutation extension has now completed 4,368 declared cases:
@@ -26,14 +26,23 @@ The ABM and deterministic genotype model are parallel implementations;
 the mutation PDE is an approximation within the deterministic branch, not
 a downstream simulation or a separate ecological Model 4.
 
-### Current ecological focus (2026-10-05)
+### Current ecological focus (2026-10-06)
 
-**Does isolation make investment in attracting visitors less rewarding, and
-which changes first: selfing capacity or attraction investment?** A separate
-intervention asks whether investment decline requires capacity evolution. The primary
-experiment maintains isolation throughout 1,000 reproductive updates. A separate
-common-environment experiment is a supplementary history diagnostic, not the
-central ecological claim. Time and distance are not calibrated years or kilometres.
+**After different pollinator-isolation histories, what does a persistent floral
+difference mean once the current visitor environment is identical?**
+
+The primary experiment uses 200 updates of different near/far visitor histories
+followed by 800 updates of exactly shared visitor exposure, with all three plant
+traits evolving and mutation crossed at 0 versus 0.01. The headline distinction
+is **evolutionary memory versus evolutionary arrest**: zero-mutation populations
+can retain history after allelic collapse and late evolutionary stasis, whereas
+positive-mutation populations can retain a comparable history signal while
+variation is replenished and trait change continues.
+
+Maintained-isolation selection, sequence, assurance and pollen-return experiments
+now explain how the historical divergence is generated; they no longer define
+the paper's primary question. Time and distance are uncalibrated synthetic
+coordinates.
 
 The additional completed cohorts are distinct from the earlier bridge
 design described below; shared near references must not be counted as new runs:
