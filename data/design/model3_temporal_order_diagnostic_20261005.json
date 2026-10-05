@@ -1,0 +1,31 @@
+{
+  "status": "declared_before_temporal_order_readout",
+  "analysis_type": "exploratory_secondary_analysis",
+  "question": "Does autonomous selfing capacity increase before floral investment decreases, and does sustained isolation change that order?",
+  "input": "Completed sustained-isolation ABM and matched verified near references; require all2048 new far cases before reporting.",
+  "unit": "each visitor history, mean of8 demographic repeats among occupied populations; retain history-level variation",
+  "primary_descriptive_threshold": 0.05,
+  "threshold_sensitivity": [
+    0.025,
+    0.05,
+    0.1
+  ],
+  "sustained_periods": 20,
+  "contrasts": [
+    "within_arm_change_from_founders",
+    "paired_far_minus_near"
+  ],
+  "directions": {
+    "investment": "decrease",
+    "assurance": "increase"
+  },
+  "tie_tolerance_periods": 5,
+  "censoring": "Unreached thresholds by1000 are censored, never assigned time1000 or ranked as actual late events; report neither/one/both reached and paired occupancy.",
+  "output": [
+    "history-level first sustained crossing times",
+    "selfing-capacity first/investment first/near-simultaneous proportions among jointly crossed histories",
+    "counts and proportions censored",
+    "arm-specific and isolation-contrast curves"
+  ],
+  "claim_ceiling": "Capacity is not realized selfing or reproductive assurance benefit. Time ordering does not identify causation. No loss-of-function or irreversible degeneration inferred. These thresholds are diagnostic conventions, not biological phase transitions."
+}
