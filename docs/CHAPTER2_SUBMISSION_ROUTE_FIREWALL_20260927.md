@@ -25,6 +25,7 @@ Current boundaries:
 - all four setting-by-mutation sequence cells must be reported;
 - the 13-rate extension is exploratory and cannot rescue a failed confirmation;
 - the full-mutation common-environment experiment is complementary genetic/history evidence, not the paper spine;
+- stable latent branch prevalence remains unidentified and is not a target of the active process claim;
 - the unresolved high-resolution positive-mutation deterministic/PDE comparison is excluded from the biological headline;
 - pollen-deficit magnitude is not treated as equivalent to viable reproductive output;
 - Model 3 remains uncalibrated to natural kilometres, named island histories or Chapter 1 regional cells.
