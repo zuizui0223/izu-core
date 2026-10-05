@@ -946,3 +946,10 @@ The checked prior/near/heat65 third-step probe completed in68.812s. Source archi
 Prepared audit_checked_streamed_ten65 using the same eight cases, founder support, history, ten-period resource horizon and unchanged error/array caps. It refuses to start until both saved-state repair probes pass and their archived/current sources and output hashes match. Script compiled; campaign not yet launched. No long-run or positive-mutation ecological comparison is admitted.
 
 Fresh combined regression:34 checked-SVD/gamete/integration/streamed-weight tests pass. Independently reconstructed marginals from the saved heat-step joint core and factors agree with stored marginals; recalculated mean-trait gap1.85e-14 and relativeL1 5.27e-13. Live fourth-step process19672 continues; no completed summary yet.
+
+
+### Both saved-state probes passed; eight-case gate started
+
+The streamed delayed/near/jump65 fourth step completed in819.937s, relative marginalL1 1.13e-12, mean-trait gap2.13e-14, ranks142x114x83. Source archive/current files and NPZ verified; marginals and means independently reconstructed from saved joint factors. Receipt:model3_streamed_weight_fourth65_verified_20261005.json.
+
+Launched audit_checked_streamed_ten65, session86825, one worker, original8 cases x10 resource-probe periods, history76001,65 nodes, identical founders and thresholds. Source archive checked against current files. First update passes. This does not shorten the1000-period ecological target or establish full-joint/accumulated error or grid convergence. Launch receipt:model3_checked_streamed_ten65_launch_20261005.json.

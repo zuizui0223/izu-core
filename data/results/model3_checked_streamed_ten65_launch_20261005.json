@@ -1,0 +1,16 @@
+{
+  "status": "launched_not_completed",
+  "session_id": 86825,
+  "source_files": 119,
+  "archive_sha256": "0b789f36b00f7cdfe3673228a23d7c3aac2f90689c8b773e32912dffd25383d2",
+  "conditions": 8,
+  "periods_per_condition": 10,
+  "biological_target_periods": 1000,
+  "history_seed": 76001,
+  "allele_nodes": 65,
+  "max_array_values": 16000000,
+  "relative_l1_per_operation": 1e-08,
+  "local_marginal_relative_l1_max": 1e-05,
+  "local_mean_trait_gap_max": 1e-06,
+  "claim_ceiling": "Resource and local marginal gate only. Accumulated joint error, positivity, long-run and grid convergence remain unverified."
+}
