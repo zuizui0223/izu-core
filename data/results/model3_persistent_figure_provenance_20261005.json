@@ -1,0 +1,13 @@
+{
+  "source_sha256": "6a45f4cb688951f8a3a73b8d2fe3835ff59c3630959c558ef378642fc42b764a",
+  "summary_sha256": "159b28051658e08265958805f6a898e72f2c9cb9c78b329cb6c0f98ff364fa32",
+  "series": 24,
+  "points_per_series": 1001,
+  "bands": "between-history 10th\u201390th percentiles, not confidence intervals",
+  "files": {
+    "persistent_trajectories.pdf": "238eeb8f286ddbdfba7a0b3a6a1734c58706c6ab9a92e70b47ab1ca1ee8a58b3",
+    "persistent_trajectories.png": "3f5a5a2352b29eeef3da52bbde9a0b3551cff530df9d0908156142c5223e2b57",
+    "persistent_trajectories.svg": "66d88e0e4478ecb4a1b6d34834e0066065b7d7c8280c875ff32517dfa9358f2d",
+    "plotted_series.npz": "bbe4440d6f647af4afe2f612a210bdc8811aa12e2c713a09298655fd41373f95"
+  }
+}
