@@ -505,15 +505,61 @@ available to respond.
 
 # Primary figure assembly and captions
 
-The four main figures below use completed calculations, with distinct cohorts explicitly labelled. Companion figures retain all replenishment rates, endpoints and crossing thresholds. The stopped high-resolution comparison contributes no result panel.
+The main figures now follow the mutation-history inference rather than the
+maintained-isolation process chronology. Completed process figures remain
+source-checked mechanism panels and move to Figure 4 or Supporting Information.
+The stopped high-resolution positive-mutation comparison contributes no result
+panel.
 
-**Main Figure 1. Isolation changes selection through reproductive returns.** Asset: `outputs/figures/model3_selection_process_20261005/selection_process.pdf`. Panel A is a schematic of the shared ecological pathway, with parallel finite ABM and deterministic genotype-density propagation. Panels B–E are calculated local selection gradients at visitor snapshot 400 in both primary settings. Thin lines show means over 64 histories for each of all 45 fixed resident states; the bold line fixes matching, investment and capacity at 0.5. Bands are pointwise 95% history-bootstrap intervals for that state. All panels share gradient limits. Lines join the 13 sampled replenishment rates and do not imply a fitted threshold, calibrated geographic distance or evolutionary velocity. The full atlas retains snapshots 0 and 200. The separate reciprocal-selection atlas and parameter-sensitivity results delimit the conditions under which directional reinforcement holds.
+**Main Figure 1. Different pollinator histories followed by an identical current
+environment.** The upper panel diagrams the primary design: 200 reproductive
+updates with paired near versus far visitor-immigration histories, followed by
+800 updates in which both arms receive the exact same time-varying visitor
+snapshots. The lower panels show far-history minus near-history investment and
+assurance through the history phase and common-environment phase for the two
+reproductive settings and mutation probabilities 0 and 0.01. History means,
+rather than demographic repeats, are the independent plotted units. The existing
+source-checked trajectory generator is `scripts/plot_model3_full_mutation.py`;
+its endpoint values are verified against
+`data/results/model3_full_mutation_20261004.json`. Access is retained in the
+companion endpoint panel because its terminal intervals include zero.
 
-**Main Figure 2. Capacity can change first without being necessary for investment decline.** Assembled asset: `outputs/figures/model3_sequence_necessity_20261005/sequence_necessity.pdf`. Panel A plots paired crossing times, with one point per visitor history; points above the diagonal reach the capacity threshold earlier, and grey points are within five updates. Panel B plots unsmoothed investment trajectories in the separate fixed/evolving-capacity intervention. Thin lines are 64 history means over surviving repeats; thick lines average histories. Orange dashed curves show higher replenishment (0.24 successful types/update), blue solid curves lower replenishment (approximately 0.01195/update). Both reproductive settings are displayed. The companion temporal-order figure retains the other declared thresholds, and the full intervention figure includes capacity trajectories. The completed replenishment extension is shown in outputs/figures/model3_replenishment_evolution_20261005/all_endpoints.pdf and all_order_thresholds.pdf: all 13 rates, both settings, all three declared endpoints and thresholds, including founder-relative and paired high-supply contrasts. Maintained-isolation trajectories measure change relative to founders. The primary crossing criterion is a 0.05 change sustained for 20 updates; crossings within five updates are near-simultaneous. Counts use 64 visitor-history means, each averaging eight demographic repeats. A separate intervention holds capacity at 0.5 or permits its evolution from the same initially invariant capacity state. It tests necessity of capacity evolution, not absence of realized selfing. This cohort and the standing-variation temporal cohort must not be pooled. The two mating settings differ jointly in timing and capacity cost.
+**Main Figure 2. Ecological memory is trait- and reproductive-setting-specific.**
+Plot the period-1000 far-minus-near effects and descriptive 95% history-cluster
+bootstrap intervals for access, investment and assurance in all four
+setting-by-mutation groups. The visual comparison is between traits and declared
+reproductive settings, not a test that mutation changes memory magnitude.
+Investment and assurance retain the strongest history signal in delayed selfing
+with assurance cost 0.5, whereas access remains compatible with zero. Time,
+trait coordinates and the two reproductive settings are synthetic and are not
+mapped to natural years, flower colours or measured selfing rates.
 
-**Main Figure 3. Visitor limitation reduces the outcross return on attraction.** Existing asset: `outputs/figures/model3_return_components_20261005/return_components.pdf`. At the same fixed plant state, the investment derivative of viable parental contribution is separated into outcross (half maternal plus half paternal), selfed and total components. Thin paired lines connect 64 visitor-history means over 48 plants; thick lines show grand means. Components include allocation effects and are not pure benefits or costs. All three assayed times remain in the supporting results. The companion whole-population intervention figure is outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf; the all-snapshots PDF retains indices 0,200,400. It compares investment or capacity 0.75 minus 0.25, with the other trait fixed at 0.5. Small dots show 64 paired history differences and black points show means with descriptive 95% history-bootstrap intervals. Lower fractional deficit and greater viable offspring output are separate outcomes; plants do not evolve in this assay. All 48 displayed contrasts and their intervals were reconstructed from raw records.
+**Main Figure 3. The same endpoint memory can accompany arrest or continuing
+evolution.** For investment, pair terminal far-minus-near history contrasts with
+two state diagnostics from the same full-mutation campaign: occupied investment
+allele count and mean investment change over the final 100 updates. Without
+mutation, occupied populations retain one investment allele and late mean change
+is zero. With mutation, multiple investment alleles are present and late change
+continues. This panel establishes the paper's central distinction—memory does
+not diagnose arrest—without asserting irreversibility, equilibrium or a
+significant mutation-by-history interaction. The unresolved high-resolution
+deterministic/PDE comparison is shown only as a claim-boundary note, not as a
+biological result.
 
-**Main Figure 4. Finite-population realization and its numerical comparison.** Assembled asset: `outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf`. Panel A retains all four interventions of the completed 128-history, zero-mutation bridge. Panels B-C report allele counts and final 100-update change from the separate one-locus mutation diagnostic, both population capacities and both histories; small dots show all eight demographic repeats, large points their means, and bars descriptive 95% repeat-bootstrap intervals from 5,000 resamples. All 64 raw trajectories were checked against the archived manifest; the 16 recomputed means exactly matched the existing summary. These intervals condition on the prescribed histories rather than sampling natural islands. Some individual final 100-update changes are negative; capacity 48 mean-change intervals include zero. The panels must not be relabelled as one shared three-trait campaign. Positive-mutation high-resolution long-run validation remains incomplete. Trajectories, standing variation, survivor denominators and uncertainty must accompany trait means. Density is not assumed to be the exact stochastic expectation of ABM. Supporting mathematical panels retain the narrower zero-mutation diagnostics and same-phenotype/different-genotype counterexample.
+**Main Figure 4. Mechanisms that generate the historical divergence.** Assemble
+only the strongest maintained-isolation controls: (A) fixed-plant near/far
+investment-return decomposition, (B) matched fixed versus evolving assurance
+showing that assurance evolution is not required for investment decline, and
+(C) the paired trait-pollen contrast showing that a lower fractional pollen
+deficit can coexist with fewer viable offspring. Existing source-checked assets
+are `model3_return_components_20261005`,
+`model3_assurance_intervention_20261005` and
+`model3_trait_pollen_20261005`. The 13-rate replenishment surface, local
+selection inequalities, reciprocal-selection atlas, temporal crossing atlas,
+finite-versus-deterministic bridge, one-locus mutation diagnostic and natural
+island confrontation remain Supporting Information. They explain mechanism,
+scope and limits but do not compete with the common-environment experiment as
+paper-level headlines.
 
 # References
 
