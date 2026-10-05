@@ -1,4 +1,4 @@
-# From pollination ecology to realized floral evolution in finite island populations
+# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization
 
 **Status:** active Chapter 2 scientific manuscript — unified Model 3 + source-audited natural confrontation
 **Updated:** 2026-10-05 — sustained-isolation mechanism results added; full manuscript integration and positive-mutation numerical validation remain incomplete.
@@ -7,7 +7,7 @@
 
 ## Numerical scope amendment, 2026-10-05
 
-The user stopped the high-resolution1,000-update extension after verified period7. It is computationally unresolved, not a failed biological hypothesis or a completed PDE corroboration. No automatic continuation is planned. References below to ongoing or pending high-resolution validation describe the earlier status and are superseded by this amendment; final figure assembly must use only admitted evidence. See MODEL3_LONG_COMPARISON_DECISION_20261005.md.
+The user stopped the high-resolution1,000-update extension after verified period7. It is computationally unresolved, not a failed biological hypothesis or a completed PDE corroboration. No automatic continuation is planned. The completed primary ABM experiments and scoped supplementary diagnostics are retained; no uncompleted high-resolution trajectory is used as biological evidence. See MODEL3_LONG_COMPARISON_DECISION_20261005.md.
 
 ## Current primary question and interpretation
 
@@ -94,17 +94,9 @@ The primary endpoint was far-minus-near terminal-minus-initial inherited investm
 
 Annual richness matching also changes visitor identity persistence, pooled histories alter environmental composition under a nonlinear reproductive operator, and increased plant capacity changes plant demographic stochasticity rather than visitor-community sampling. These are therefore orthogonal mechanism diagnostics, not literal field manipulations of species richness, island number or lifespan.
 
-## Layer-specific confrontation with real island systems
-
-Natural evidence was not used to fit Model 3 parameters. Instead, already source-locked systems were classified by which nested model layer they could confront: **A**, functional composition / plant state / access / effectiveness and immediate reproductive response; **B**, an inherited longitudinal trajectory under a measured visitor regime; or **C**, finite-population and historical realization through assurance, chronology, connectivity, founding, recovery or persistence.
-
-The formal source audit remains fixed at 25 research entries across 21 exact geographic labels, with 21/25 direct comparable plant responses, 2/25 direct partner arrival/replacement measurements and 0/25 full source-state → transition → realized-community → inherited-response contracts. The broader geography-first programme remains 42 research entries across 37 exact geographic labels. Those counts describe evidence breadth and identifiability, not independent island replicates or a denominator for natural branch frequencies.
-
-For model-facing projection we used the previously source-locked propagation matrix of 14 biological system layers across 12 geographic clusters, supplemented by direct-history anchors recovered in the geography-first programme. We retained each source's original measurement scale and classified only the observed propagation structure: same-direction propagation, downstream branching, buffering/resilience, counterdirectional response, adjacent links only or unresolved missing links. No system was assigned a synthetic `k`, S/C/I regime, trait coordinate or Model 3 parameter cell.
-
-Izu supplies the most resolved A-layer branching contrast: corrected matching is lower in all eight shared Oshima-to-post targets, while pollen response is four lower and four higher and floral-tube response is three shorter, four longer and one unchanged. Ogasawara *Psychotria* and Xisha *Cordia* provide stronger access/effectiveness-to-reproduction chains; Hawaii and Puerto Rico–Mona provide buffering examples; and the frozen Dominica *Heliconia* signed-position projection is retained as a counterdirectional falsifier. Surtsey, Tiritiri Matangi, New Zealand *Rhabdothamnus* and Mariana bird-loss systems are used as C-layer chronology, reintroduction/compensation or loss-response anchors. The current archive contains no clean natural B-layer analogue that jointly measures starting genetic/trait state, visitor regime and inherited longitudinal change while separating finite demography.
-
 # Results
+
+Primary maintained-isolation results are distinguished from the earlier zero-mutation bridge and restricted mutation diagnostics. Complementary environmental-history experiments and natural-island evidence are retained in `CHAPTER2_COMPLEMENTARY_EVIDENCE_20261005.md`; they do not calibrate the primary model.
 
 ## Local conditions for syndrome-direction selection
 
@@ -183,30 +175,10 @@ Pooling eight independent visitor histories eliminated mixed histories in both f
 
 Visitor-environment realization and plant-population finiteness therefore alter the observed response through separable interventions. Neither is equivalent to the other, but the mixed-label changes are not interpreted as identifying a stable latent branching probability.
 
-## Reproductive assurance preserves trajectories while history changes inherited endpoints
-
-Model 3 did not collapse conditional response into one inherited island phenotype. Under the declared chronology experiment, all compared populations experienced the same final 120-year environment, yet terminal investment differed by history: uninterrupted trajectories changed by +0.2115, early visitor absence by -0.1603, and late visitor absence by +0.0322. All 256 populations survived in each of these three arms. The result therefore demonstrates model-conditional historical contingency rather than a simple mapping from current environment to current trait.
-
-Reproductive assurance changed whether an endpoint existed. Under the declared long visitor-absence schedule, fixed zero assurance yielded 0/256 terminal survivors, whereas fixed 0.5, fixed 0.9 and the corresponding evolving-assurance treatments retained 256/256. This survival contrast is conditional on the model's complete visitor absence, adult replacement schedule and lack of external seed rescue; it is not an empirical extinction probability.
-
-Connectivity also separated into different routes. Increasing pollinator-distance while seed-distance was fixed could reverse the direction of investment change, whereas increasing seed-distance under a fixed pollinator regime altered the response differently. Seed immigration modifies demographic and genetic input; pollinator connectivity modifies the reproductive environment. A single geographic-isolation axis therefore need not represent both processes inside the model.
-
-Transport tests further separated structural ordering from quantitative prediction. The descriptive S/C/I ordering C > I > S was retained in held-out transport cells, but same-regime marginal predictions had mean absolute error 0.0150 and 0.0106, whereas transport across disturbance regimes increased errors to 0.1581 and 0.1417. Similar determinant ordering therefore does not guarantee transport of the trait response itself.
 ## Numerical sensitivity and branch-identifiability limits
 
 The numerical audit separated operator consistency from continuous-trait convergence. Re-embedding the same finite founder allele support on a finer grid reproduced individual trajectories exactly and density trajectories to machine precision. In contrast, all 16 comparisons that changed the representation of the initial allele distribution failed to establish ±0.01 equivalence. The signs of the main mean contrasts were retained across the frozen grid-sensitivity designs, but exact effect magnitudes and mixed-history counts were not treated as grid invariant. Mixed classifications were also unstable across demographic repeats, especially after richness matching. We therefore interpret mean directional contrasts and intervention responses more strongly than exact mixed fractions, and we do not infer latent branch prevalence or a continuous-trait PDE limit.
 
-## Real islands occupy different stages of the same response architecture
-
-The 14 source-locked biological system layers do not converge on one propagation pattern. Their descriptive states comprise one same-direction propagation case, two downstream-branching cases, three buffered/resilient cases, one counterdirectional case, four adjacent-link cases and three unresolved missing-link cases. These counts are not natural prevalence estimates; the rows are heterogeneous and not independent sampling units. Their value is structural: natural island evidence already contains propagation, branching, buffering and reversal rather than one universal downstream direction.
-
-Izu provides the strongest current branching example. Corrected matching is lower in all eight shared Oshima-to-post targets, yet pollen receipt is lower in four and higher in four, while tube response is three shorter, four longer and one unchanged. Only two of eight targets show the complete matching-lower + tube-shorter + pollen-lower combination. Thus an upstream common functional shift need not propagate into one morphological or reproductive direction.
-
-Other systems occupy different portions of the architecture. In Ogasawara *Psychotria*, morph-specific physical access is associated with directional pollen transfer and strong open-fruit-set asymmetry, providing a same-direction A-layer example. Xisha *Cordia* combines morph-state loss, very low visitation and lower natural fruit set on Dong with direct effectiveness/dependency measurements at Yongxing, although the measurements are asymmetric between islands. Hawaii lobelioids and Puerto Rico–Mona *Guaiacum* provide buffering examples in which altered interaction structure or visitor environment does not translate one-for-one into reproductive loss or mating-system change. The frozen Dominica *Heliconia* projection ran opposite to its declared signed-position prediction and is retained as evidence against a universal mapping.
-
-Direct-history systems are most informative for the finite/history realization layer. Surtsey provides a dated empty-start chronology; Tiritiri Matangi provides documented pollinator reintroduction followed by compensatory function from other birds; and New Zealand *Rhabdothamnus* and Mariana bird-loss systems link partner loss to reproductive or recruitment consequences. None closes the full A → B → C chain on the same units.
-
-The principal natural-data gap is therefore no longer generic 'validation'. A is partly confronted by several systems and C is partly confronted by direct-history systems, whereas B—the inherited deterministic trajectory under a measured visitor regime—is essentially unobserved in the current archive. The existing natural evidence supports the ecological vocabulary and supplies falsifiers without calibrating Model 3 or establishing the historical cause of any named island phenotype.
 # Discussion
 
 ## Sequence does not identify a single selfing-mediated pathway
@@ -259,6 +231,17 @@ The model is ecologically explicit but not system calibrated. Its strengths come
 
 These limitations define the inference. The model can identify which ecological processes are sufficient to change selection, expected inherited response and finite-population realization. It cannot estimate natural evolutionary rates, reconstruct a named historical island transition or predict the exact floral phenotype expected in a given region. The useful generalization is therefore structural: ecological function can be more repeatable than phenotypic form because the pathway from pollination to realized evolution contains multiple biologically distinct filters.
 
+## Independent connection to Q1
+
+| Observational question motivating Q2 | Mechanistic counterpart | Interpretation boundary |
+|---|---|---|
+| H1: do floral traits vary with isolation? | Continuing visitor arrival/loss generates pollen environments; reproductive contributions and inheritance generate trait changes | An independently specified mechanism, not proof of visitor decline in observed islands |
+| H2: does selfing explain floral changes? | Timing of capacity increase, capacity-fixed intervention, reciprocal local selection | Fixed capacity is not zero selfing; investment is not literal flower colour or structure |
+| H3: does pollen limitation increase with isolation? | Visitor exposure and supplementation assays under maintained isolation | Synthetic distances and visitor rates are not fitted geographic thresholds |
+| H4: do particular traits accompany lower limitation? | Capacity/investment interventions compare pollen deficits with viable offspring output | Whole-population interventions differ from observational association and rare-mutant selection; matching is not calibrated accessibility |
+
+Q1 motivates these questions but supplies no fitted parameter or acceptance target. Four regional responses are not reconstructed by assigning them synthetic visitor pools.
+
 # Conclusion
 
 Persistent limitation of visitor replenishment can favour greater autonomous-selfing capacity while reducing the reproductive return to attraction. Capacity can change first without its evolution being necessary for attraction investment to decline. The temporal sequence therefore does not establish a single serial pathway from selfing to floral simplification.
@@ -278,13 +261,3 @@ The sequence below distinguishes existing assets from planned panels. Final asse
 **Main Figure 3. Visitor limitation reduces the outcross return on attraction.** Existing asset: `outputs/figures/model3_return_components_20261005/return_components.pdf`. At the same fixed plant state, the investment derivative of viable parental contribution is separated into outcross (half maternal plus half paternal), selfed and total components. Thin paired lines connect64 visitor-history means over48 plants; thick lines show grand means. Components include allocation effects and are not pure benefits or costs. All three assayed times remain in the supporting results. The companion whole-population intervention figure is outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf; the all-snapshots PDF retains indices0,200,400. It compares investment or capacity0.75 minus0.25, with the other trait fixed at0.5. Small dots show64 paired history differences and black points show means with descriptive95% history-bootstrap intervals. Lower fractional deficit and greater viable offspring output are separate outcomes; plants do not evolve in this assay. All48 displayed contrasts and their intervals were reconstructed from raw records.
 
 **Main Figure 4. Finite-population realization and its numerical comparison.** Supporting figure: `outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf`. Panel A retains all four interventions of the completed128-history, zero-mutation bridge. Panels B-C report allele counts and final100-update change from the separate one-locus mutation diagnostic, both population capacities and both histories; these means lack replicate-level uncertainty estimates in the retained summary. The panels must not be relabelled as one shared three-trait campaign. Positive-mutation high-resolution long-run validation remains incomplete. Trajectories, standing variation, survivor denominators and uncertainty must accompany trait means. Density is not assumed to be the exact stochastic expectation of ABM. Supporting mathematical panels retain the narrower zero-mutation diagnostics and same-phenotype/different-genotype counterexample.
-
-# Legacy complementary-cohort captions (supplementary allocation pending)
-
-**Legacy Figure 1. Shared reproductive biology and parallel propagation.** Functional matching and pollen transfer determine reproductive contributions. The same declared reproduction and inheritance rules are propagated by deterministic genotype density and finite ABM in parallel. Finite sampling, persistence and variation loss affect realization; this diagram must not imply that ABM evolves from a preceding density trajectory.
-
-**Figure 2. Visitor amount shifts the mean response while ecological and demographic finiteness alter realization.** Controlled four-type compositions establish deterministic branch capacity. In the 24,576-case isolation bridge (128 independent visitor histories; demographic repeats nested within histories), natural deterministic density is one-directional; annual richness matching reverses the mean isolation effect and produces strong finite-ABM heterogeneity; pooling eight visitor histories removes mixed-history labels; and fourfold larger plant capacity nearly removes those labels. These interventions separate visitor amount, finite visitor-environment sampling and finite plant demographic sampling.
-
-**Figure 3. Reproductive insurance, ecological history and connectivity filter realized evolution.** The 19,968-case campaign contrasts deterministic genotype density with the finite ABM and tests assurance-dependent persistence, early versus late visitor loss, seed versus pollinator connectivity, life history, founding and recovery. Pollinator and seed isolation act through different routes and can shift inherited floral investment in different directions; finite-population departures are interpreted as conditional realization rather than a single universal island effect.
-
-**Figure 4. Real-island layer confrontation and empirical claim ceiling.** Existing source-locked systems are placed against the unified Model 3 layers rather than fitted to synthetic parameter cells. A-layer examples include Izu branching, Ogasawara same-direction access-to-reproduction propagation, Xisha near-complete functional/reproductive links, Hawaii and Puerto Rico–Mona buffering, and the counterdirectional Dominica falsifier. C-layer anchors include Surtsey founding chronology, Tiritiri Matangi reintroduction/compensation, and direct partner-loss systems. The B layer—longitudinal inherited response under measured visitor exposure—remains the major gap. The formal audit remains `21/25` direct responses, `2/25` direct partner arrival/replacement and `0/25` full A → B → C contracts; the 42/37 breadth layer is not treated as 42 independent Model 3 fits.
