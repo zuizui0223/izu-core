@@ -1,8 +1,10 @@
 # Directional similarity can mask opposite changes in historical repeatability in a generative island-floral model
 
-**Status:** preferred journal candidate Evolution Letters; Ecology Letters fallback only after ecological recast; separate from the locked Oikos submission surface  
+**Status:** retired as a standalone submission route on 2026-10-06; retained as provenance/complementary repeatability analysis for the active 2026-10-05 process manuscript  
 **Updated:** 2026-10-04  
 **Inference boundary:** system-uncalibrated Model 3; natural islands are biological confrontation, not fitted targets
+
+**Routing decision:** Do not submit this manuscript separately while the active process paper is in development. Results on directional similarity versus historical repeatability may be cited or moved to Supporting Information only with explicit overlap disclosure; they are not a second active paper-level claim surface.
 
 ## Abstract
 
