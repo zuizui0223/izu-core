@@ -11,12 +11,10 @@ UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 def test_active_submission_is_model3_only():
     text = render_submission_manuscript()
     lower = " ".join(text.lower().split())
-    assert "evolutionary memory after pollinator isolation does not imply evolutionary arrest" in lower
-    assert "exactly the same visitor environment" in lower
-    assert "all three plant traits" in lower
-    assert "persistent history does not diagnose evolutionary arrest" in lower
-    assert "maintained-isolation" in lower
-    assert "positive-mutation" in lower
+    assert "reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation" in lower
+    assert "visitor limitation lowers the return on attraction before plant traits evolve" in lower
+    assert "assurance evolution is not required for investment decline" in lower
+    assert "lower pollen deficit does not necessarily mean greater viable reproduction" in lower
     assert "legacy reduced response-geometry analyses" not in lower
 
 
@@ -27,11 +25,11 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     assert 180 <= len(words) <= 300
     lower = " ".join(abstract.lower().split())
     assert "64 independent visitor histories" in lower
-    assert "eight nested demographic repeats per history" in lower
-    assert "4,096 core trajectories" in lower
-    assert "evolutionary memory is not equivalent to evolutionary arrest" in lower
-    assert "irreversibility" in lower
-    assert "not established" in lower
+    assert "eight nested demographic repeats per setting" in lower
+    assert "8,192 matched fixed-versus-evolving-assurance trajectories" in lower
+    assert "temporal precedence is not causal necessity" in lower
+    assert "conditional synthetic mechanisms" in lower
+    assert "not calibrated reconstructions of natural island histories" in lower
 
 
 def test_scientific_gate_is_unified_model3():
