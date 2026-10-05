@@ -1,34 +1,39 @@
-# Ecological closeout requirements and current evidence
+# Ch2 completion audit: five ecological questions
 
-The user-updated goal is to explain how isolation produces investment and autonomous-selfing evolution through visitor assembly and reproduction, with independent model verification rather than fitting Q1 patterns. Method comparisons serve these ecological questions. No short numerical gate or partial campaign constitutes closure.
+Updated 2026-10-05 after parameter-selection sensitivity and manuscript integration. This replaces the earlier dated runtime checkpoint in this file. The goal remains active; scientific and delivery completion are not inferred from a passing subset of checks.
 
-| Requirement | Authoritative evidence now | Remaining work |
+## Ecological evidence and remaining requirements
+
+| Goal requirement | Evidence and current disposition | Remaining scope |
 |---|---|---|
-| Sustained isolation versus later common environment | Full 1,000-period ABM campaigns, direct matched contrasts, verified full-trajectory and endpoint figures complete | Incorporate sustained isolation as primary and common environment as supplementary in final narrative |
-| Visitor scarcity preceding floral response | Frozen-history exposure audit and768 same-plant visitor assays complete, including local investment contribution derivatives and pollen deficits | Distinguish fixed-state selection from realized evolution; do not equate type count with field species richness |
-| Pollen limitation and reproductive assurance | 12,288 snapshot assays, 24 cells, independently verified; one extinction explicitly undefined | Clearly separate raw/viable outcomes and assay timing; do not claim full temporal mediation |
-| Investment change without capacity evolution | All8,192 cases complete;2,048 negative-control pairs identical;84 estimates independently reconstructed | Interpret as supporting mechanism evidence, not the primary temporal-order question |
-| Temporal order | All2,304 crossing records reverified; paired-time and sensitivity figure complete | Primary within-island ordering, with thresholds and joint setting differences explicit; process-bridge poster rendered and checked; final numerical comparison still pending |
-| Finite versus deterministic evolution | Existing zero-mutation benchmarks and coarse-grid experiments | Positive-mutation comparisons at admitted resolution, direction/magnitude/timing/persistence, separate self-exclusion and sampling interpretations |
-| Diffusion approximation to mutation | Local high-resolution updates and error diagnostics; eight-case ten-period gate running | Long-run accumulated error, grid convergence, positivity and ecological comparison; not yet admitted |
-| Deliverables | Verified numerical/ecological records and partial explanatory documents | Final Ch2 narrative, publication figures, reproducibility package, and poster updates reflecting final claim bounds |
+| 1. Selection conditions and isolation | Analytical joint thresholds, independently checked at 900 cells; 13-distance/64-history fixed-state diagnostic, all 45 residents and three snapshots | Local selection, not evolutionary timing across all distances; no calibrated natural distance threshold |
+| 2. Reciprocal effects | Original 144,060-state diagnostic plus 500-parameter/112,500-case independent tradeoff grid; all four sign regimes and 25 cross-effect exceptions preserved and checked | Dynamic feedback and mediation are not established by cross derivatives; full sequence sensitivity remains open |
+| 3. Realized order and extent | Sustained-isolation ABM, 64 histories x eight repeats; 2,304 crossing records checked; fixed/evolving-capacity intervention and separate zero-mutation density bridge | Distinct cohorts are labelled. No admitted full high-resolution positive-mutation ABM/density timing comparison. Do not claim universal onset order or pure-drift attribution |
+| 4. Genetic variation and diffusion | Restricted one-locus mutation diagnostic, zero-mutation fixed-support comparison, analytical mutation-kernel limits | One heat-versus-jump tolerance failure retained. Full three-locus positive-mutation comparison closed unresolved under explicit stop decision |
+| 5. Reproductive consequences | 12,288 supplementation assays and 6,912 trait manipulations; raw/viable deficits and viable offspring reported separately | Fixed depression does not model purging/genetic load; same-state interventions do not prove field mediation |
+| Q1 independence | Manuscript H1-H4 mapping, no regional/colour calibration | Keep this boundary and all Q1 content when updating the final poster |
+| Reproducibility and uncertainty | Frozen designs, archived arrays, source hashes, repeat/survival-aware summaries, independent checks | Final packaged source/figure manifest and delivery verification still required |
+| Manuscript | Abstract, five questions, methods, parameter dependence and conclusion integrated; Figure 1 now generated from stored results | Complete editorial/source audit and final figure assembly; no submission-ready claim yet |
+| Poster | Processes v5 PPTX/PDF/PNG delivered; Q1 upper 144 shapes and 18 images identical to v2 | 113,482 chart coordinates verified, 10 other charts unchanged; render reviewed. Intermediate-rate evolutionary trajectories remain uncomputed. |
 
-## Intervention interpretation
+## Canonical evidence routes
 
-Both modes start with all assurance alleles at0.5, while the original matching and investment founders are preserved. Fixed mode blocks assurance mutation and uses fixed capacity0.5; evolving mode permits assurance mutation and its reproductive consequences. This sacrifices the original founder assurance variance to provide a matched initial state. Results must be reported as a distinct intervention cohort, not substituted for the main experiment.
+- Selection: MODEL3_PDE_CLOSEOUT_20261004.md; MODEL3_ISOLATION_SELECTION_GRADIENT_20261005.md.
+- Reciprocal and parameter sensitivity: MODEL3_RECIPROCAL_SELECTION_20261005.md; MODEL3_PARAMETER_SELECTION_RESULTS_20261005.md; MODEL3_ASSUMPTION_SENSITIVITY_SCOPE_20261005.md.
+- Evolution: MODEL3_PERSISTENT_PROCESS_RESULTS_20261005.md; MODEL3_ASSURANCE_INTERVENTION_RESULTS_20261005.md.
+- Reproduction: MODEL3_POLLEN_FITNESS_PATHWAYS_20261005.md; MODEL3_TRAIT_POLLEN_RESULTS_20261005.md.
+- Numerical closure: MODEL3_LONG_COMPARISON_DECISION_20261005.md; MODEL3_MUTATION_MEMORY_20261004.md.
+- Latest delivered poster receipt: data/results/model3_poster_replenishment_delivery_20261005.json.
 
-The zero-mutation comparison is a structural negative control: both modes have exactly the same biology because capacity cannot vary. All2,048 full-horizon negative-control pairs are now exactly identical. This is not evidence of an ecological null. The positive-mutation cases carry the capacity-evolution intervention question. Same-environment trait manipulation also completed6,912 cases with84 independently verified contrasts; fractional pollen deficit and absolute viable offspring can change in opposite directions.
+## Stopped numerical extension
 
-Fixed capacity does not imply fixed selfing fraction; visitor history still changes the opportunity for outcrossing. A contrast between modes is not automatically a universal causal mediation percentage. Generality beyond fixed capacity0.5 is untested.
+The 1,000-update high-grid job was stopped by the user after verified update 7, with update 8 unfinished. `data/results/model3_long_run_user_stop_20261005.json` records the terminal decision. A current Windows process query found no Python command matching highgrid, checked_streamed or fastpath_candidate at this audit; no computation was restarted. Historical live-PID statements in earlier revisions are not current status.
 
-## Active execution at this checkpoint
+The alternative evaluation found no validated cheap replacement for the full positive-mutation long comparison. Coarse-grid terminal gates failed in 31/32 cases; a restricted one-locus heat approximation failed its declared tolerance in one condition. These are retained numerical limits, not biological falsification and not a reason to loosen tolerances. The user explicitly permits closing this branch as unresolved; this does not complete the manuscript/poster deliverables.
 
-- Capacity intervention: session68031 completed; full summary and independent verifier both completed. Output `outputs/model3_assurance_intervention_20261005`.
-- High-resolution eight-case gate: session86825, PID22816, output `outputs/model3_precision_feasibility/fastpath_candidate/checked_streamed_ten65`.
-- Handles were polled live in this turn. Status here is a dated checkpoint, not a persistent assertion that jobs remain live.
+## Immediate completion work
 
-Overall goal remains active and incomplete. Pending numerical work must not be reported as scientific rejection, and results from completed subexperiments must not be used to silently shrink the comparison scope.
-
-## Numerical checkpoint: sequential candidate
-
-The slab/batched candidate completed update6 at65 nodes in1,109.6 seconds. Archived/current source hashes and saved-state marginals were independently checked: relative marginal L1 1.3641e-12 and trait gap1.2101e-14. This does not certify full joint positivity or accumulated trajectory error. Its unchanged numerical/biological rules now continue from that saved state to update7 in session71151. Original eight-case gate PID22816 remains live at this dated check; neither calculation was restarted.
+1. Finish source-linked figure assembly and editorial review; retain all conditions and exploratory labels.
+2. Update Q2 in the poster without changing Q1, distinguishing selection, sequence and necessity; show the uncertainty and parameter dependence at appropriate scale.
+3. Verify the delivered artifact against results and inspect its rendered layout.
+4. Audit every requirement again before marking the goal complete. Parameter sensitivity of actual sequence remains unestablished and must be explicitly bounded, not silently generalized from fixed-state assays.

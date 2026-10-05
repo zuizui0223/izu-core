@@ -1,0 +1,42 @@
+{
+  "status": "delivered_and_render_reviewed",
+  "files": [
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v5_20261005.pptx",
+      "sha256": "57a10ea309040a9b3fc9bfa762736779b44104c281f9a8629a6c9abedfe45342",
+      "bytes": 59255752
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v5_20261005.pdf",
+      "sha256": "7b26de340d68cc2963b440d327a6b25b5136948c335b45caba512cd0c333e475",
+      "bytes": 2848290
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v5_20261005.png",
+      "sha256": "f0f2113ee13ad1cb00ef370194d085bbe4179d100118e17240c571098e1bbd90",
+      "bytes": 2435411
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_processes_v5_build_sources.zip",
+      "sha256": "5c16907f582b7916789923777d4b3a91d77e4485819e9ccff0ff4bd6cbc58872",
+      "bytes": 1763768
+    }
+  ],
+  "numeric": {
+    "status": "verified_chart_coordinates_and_Q1_preservation",
+    "file": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v5_20261005.pptx",
+    "sha256": "57a10ea309040a9b3fc9bfa762736779b44104c281f9a8629a6c9abedfe45342",
+    "numeric_coordinates_checked": 113482,
+    "new_gradient_charts": 2,
+    "unchanged_other_charts": 10,
+    "Q1_upper_shapes_identical": 144,
+    "Q1_media_identical": 18,
+    "display_rounding_absolute_tolerance": 5.1e-11,
+    "source_array_sha256": "66074c4077ab4d0529707a410ed8f0218dd6e13926d0f7f08c87596396d6b1cd",
+    "claim_boundary": "Numerical package verification; visual render separately required."
+  },
+  "render": "PowerPoint COM export to PNG and PDF; final PNG visually inspected",
+  "scope": "Q1 unchanged from v2; new Q2 gradient uses replenishment rate. Current gradient assays are fixed-plant, not intermediate-rate evolutionary trajectories.",
+  "model_changed": false,
+  "long_high_grid_restarted": false
+}
