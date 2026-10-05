@@ -12,7 +12,14 @@ def full(state):return np.einsum('abc,ia,jb,kc->ijk',state[0],*state[1],optimize
 @pytest.mark.parametrize('setting',['assurance_cost','prior_selfing'])
 @pytest.mark.parametrize('scheme',['jump','heat_fv'])
 @pytest.mark.parametrize('survival',[0.,.4])
-def test_integrated_bounded_reproduction_against_dense(setting,scheme,survival):
+@pytest.mark.parametrize('contraction',['original','slab'])
+def test_integrated_bounded_reproduction_against_dense(setting,scheme,survival,contraction,monkeypatch):
+    if contraction=='slab':
+        from scripts.model3_weighted_slab_core import exact_core
+        import scripts.model3_weighted_block_read as reader
+        import scripts.model3_batched_weight_core as weighted
+        monkeypatch.setattr(reader,'exact_core',exact_core)
+        monkeypatch.setattr(weighted,'exact_core',exact_core)
     rng=np.random.default_rng(13);state=(rng.random((2,2,2)),[rng.random((6,2)) for _ in range(3)])
     state[0][:]*=48/full(state).sum();axes=([0,.5,1],)*3;grid=make_tensor_grid(axes)
     cfg=replace(config(setting,.01),survival=survival);baseline=full(state)
