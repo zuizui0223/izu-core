@@ -1,47 +1,53 @@
-# Izu Core — Model 3 evolutionary memory after pollinator isolation
+# Izu Core — Model 3 island reproductive economics
 
 This repository is the Chapter 2 mechanism paper built around **one ecologically explicit Model 3**.
 
 Current paper title:
 
-> **Evolutionary memory after pollinator isolation does not imply evolutionary arrest**
+> **Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation**
 
-The [mutation-history mainline](docs/CHAPTER2_MUTATION_HISTORY_MAINLINE_20261006.md)
-governs the scientific narrative on this branch. The completed full-mutation
-common-environment experiment is primary; the 2026-10-05 maintained-isolation
-process decomposition is retained as mechanism support rather than as five
-co-equal paper questions.
+The [2026-10-05 ecological process mainline](docs/CHAPTER2_PROCESS_MAINLINE_20261005.md)
+governs the scientific narrative on this branch. The full-mutation
+common-environment experiment is complementary genetic/history evidence; it is
+not the paper spine.
 
-The older Oikos bridge submission and the earlier process-centred manuscript are
-historical/supplementary surfaces. Their frozen numerical results remain valid,
-but they do not define the current paper.
+The paper's biological claim is that the order of trait change and the causal
+requirement for that change are different questions. Under sustained visitor
+replenishment limitation, reproductive assurance often reaches the declared
+change threshold before floral investment, yet blocking assurance evolution
+does not prevent investment decline. The upstream fixed-plant assay shows why:
+visitor limitation lowers the reproductive return to attraction before plant
+traits evolve.
 
-The earlier Chapter 2 closeout remains bounded by its declared synthetic claim ceiling.
-The full three-trait mutation extension has now completed 4,368 declared cases:
-ABM history effects meet the prespecified repetition-precision criterion, while
-positive-mutation genotype-grid fidelity remains unresolved. See the
-[full validation results](docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md) and
-[final model architecture](docs/MODEL3_FINAL_ARCHITECTURE_20261004.md).
-The ABM and deterministic genotype model are parallel implementations;
-the mutation PDE is an approximation within the deterministic branch, not
-a downstream simulation or a separate ecological Model 4.
+### Current ecological focus (2026-10-05)
 
-### Current ecological focus (2026-10-06)
+**Does reproductive assurance evolution cause reduced floral attraction, or are
+both responses generated in parallel by isolation-altered reproductive returns?**
 
-**After different pollinator-isolation histories, what does a persistent floral
-difference mean once the current visitor environment is identical?**
+The strongest completed results are:
 
-The primary experiment uses 200 updates of different near/far visitor histories
-followed by 800 updates of exactly shared visitor exposure, with all three plant
-traits evolving and mutation crossed at 0 versus 0.01. The headline distinction
-is **evolutionary memory versus evolutionary arrest**: zero-mutation populations
-can retain history after allelic collapse and late evolutionary stasis, whereas
-positive-mutation populations can retain a comparable history signal while
-variation is replenished and trait change continues.
+- at the same plant state, the delayed-setting investment contribution derivative
+  shifts from **+0.5793** under near exposure to **-0.7004** under far exposure;
+  the outcross component falls from **+1.6523** to **+0.0854**, while the selfed
+  component partly offsets rather than drives that decline;
+- under maintained isolation, assurance reaches the primary 0.05 change threshold
+  first in **51/64** delayed-setting far histories, with 13 near-simultaneous;
+- when assurance is fixed at 0.5, far populations still reduce investment by
+  **0.3099** in the delayed setting and **0.3316** in the prior setting, so
+  assurance evolution is **not required** for investment decline;
+- allowing assurance to evolve can **narrow the near-far investment contrast**
+  because investment changes in both environments, so weak geographic divergence
+  need not imply weak evolution;
+- in the far fixed-trait assay, higher investment can slightly reduce the
+  fractional viable pollen deficit while also reducing viable offspring
+  (**-15.72 per 48 plants** in the delayed setting), showing that pollen shortage
+  and reproductive return are not interchangeable readouts.
 
-Maintained-isolation selection, sequence, assurance and pollen-return experiments
-now explain how the historical divergence is generated; they no longer define
-the paper's primary question. Time and distance are uncalibrated synthetic
+The ecological synthesis is therefore **sequence ≠ necessity**: a trait that
+changes first is not automatically the cause of a later trait change. Isolation
+changes the reproductive economics facing both traits, and their realized
+coupling depends on mating assumptions, genetic state and finite population
+realization. Time, distance and trait axes remain uncalibrated synthetic
 coordinates.
 
 The additional completed cohorts are distinct from the earlier bridge
