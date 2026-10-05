@@ -149,9 +149,11 @@ def main() -> None:
     if not (0 <= args.shard_index < args.shard_count):
         raise ValueError("invalid shard index")
 
-    design = load_design(args.design)
+    design_path = args.design if args.design.is_absolute() else ROOT / args.design
+    design_path = design_path.resolve()
+    design = load_design(design_path)
     args.out.mkdir(parents=True, exist_ok=True)
-    snapshot_sources(args.out, args.design)
+    snapshot_sources(args.out, design_path)
     all_tasks = declared_tasks(design)
     shard_tasks = [task for index, task in enumerate(all_tasks) if index % args.shard_count == args.shard_index]
     expected = [case_key(task) for task in shard_tasks]
@@ -173,7 +175,7 @@ def main() -> None:
             "shard_count": args.shard_count,
             "n_cases": len(completed),
             "keys": completed,
-            "design_sha256": hashlib.sha256(args.design.read_bytes()).hexdigest(),
+            "design_sha256": hashlib.sha256(design_path.read_bytes()).hexdigest(),
         },
     )
     print(json.dumps({"status": "completed", "shard": args.shard_index, "cases": len(completed)}))
