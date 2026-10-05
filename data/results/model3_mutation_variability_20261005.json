@@ -1,0 +1,594 @@
+{
+  "status": "raw_archive_verified",
+  "rows": [
+    {
+      "capacity": 48,
+      "mutation_rate": 0.0,
+      "past": "present",
+      "measure": "allele_count",
+      "mean": 1.0,
+      "descriptive_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "repeats": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.0,
+      "past": "present",
+      "measure": "last100_change",
+      "mean": 0.0,
+      "descriptive_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "repeats": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "measure": "allele_count",
+      "mean": 1.0,
+      "descriptive_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "repeats": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "measure": "last100_change",
+      "mean": 0.0,
+      "descriptive_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "repeats": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.01,
+      "past": "present",
+      "measure": "allele_count",
+      "mean": 7.75,
+      "descriptive_bootstrap_95": [
+        6.0,
+        9.375
+      ],
+      "repeats": [
+        11.0,
+        4.0,
+        7.0,
+        9.0,
+        11.0,
+        4.0,
+        8.0,
+        8.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.01,
+      "past": "present",
+      "measure": "last100_change",
+      "mean": 0.0027424303723578014,
+      "descriptive_bootstrap_95": [
+        -0.02116996869581591,
+        0.027172094635946862
+      ],
+      "repeats": [
+        0.05908508068241458,
+        0.01338781312137971,
+        -0.05200863761248353,
+        0.023280414994522047,
+        -0.018235859402674248,
+        -0.030577999626238306,
+        0.04033221533030806,
+        -0.013323584508365904
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "measure": "allele_count",
+      "mean": 6.5,
+      "descriptive_bootstrap_95": [
+        5.125,
+        7.875
+      ],
+      "repeats": [
+        7.0,
+        9.0,
+        6.0,
+        5.0,
+        10.0,
+        4.0,
+        7.0,
+        4.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "measure": "last100_change",
+      "mean": 0.004916555207156045,
+      "descriptive_bootstrap_95": [
+        -0.022644284311791822,
+        0.03893558228230238
+      ],
+      "repeats": [
+        -0.03040599628917584,
+        0.07888857441955577,
+        -0.023071377495392897,
+        0.0770595451139805,
+        -0.028055043608056773,
+        -0.016213938892349233,
+        -0.022679559878909017,
+        0.0038102382875958574
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.0,
+      "past": "present",
+      "measure": "allele_count",
+      "mean": 1.0,
+      "descriptive_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "repeats": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.0,
+      "past": "present",
+      "measure": "last100_change",
+      "mean": 0.0,
+      "descriptive_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "repeats": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "measure": "allele_count",
+      "mean": 1.0,
+      "descriptive_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "repeats": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "measure": "last100_change",
+      "mean": 0.0,
+      "descriptive_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "repeats": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.01,
+      "past": "present",
+      "measure": "allele_count",
+      "mean": 32.125,
+      "descriptive_bootstrap_95": [
+        27.746875000000003,
+        35.625
+      ],
+      "repeats": [
+        32.0,
+        35.0,
+        38.0,
+        33.0,
+        34.0,
+        38.0,
+        28.0,
+        19.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.01,
+      "past": "present",
+      "measure": "last100_change",
+      "mean": 0.022390175671044274,
+      "descriptive_bootstrap_95": [
+        0.002169936793332537,
+        0.04255147811447975
+      ],
+      "repeats": [
+        0.031237958311629566,
+        0.07886971192910941,
+        0.016344296721687357,
+        0.0376455622495806,
+        0.031335936205822534,
+        -0.02262209369782453,
+        0.022003520038517244,
+        -0.015693486390167988
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "measure": "allele_count",
+      "mean": 30.625,
+      "descriptive_bootstrap_95": [
+        26.371875000000003,
+        34.625
+      ],
+      "repeats": [
+        28.0,
+        35.0,
+        37.0,
+        38.0,
+        29.0,
+        33.0,
+        19.0,
+        26.0
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "measure": "last100_change",
+      "mean": 0.025964528026271777,
+      "descriptive_bootstrap_95": [
+        0.001181389668540056,
+        0.05099205983489767
+      ],
+      "repeats": [
+        -0.0030739747248504923,
+        -0.01138385942922504,
+        0.055222403099585704,
+        0.0802659172804423,
+        0.05891620000770348,
+        0.03613666390893411,
+        0.024553522342738443,
+        -0.032920648275154285
+      ],
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108
+      ],
+      "occupied_repeats": 8
+    }
+  ],
+  "raw_cases": 64,
+  "raw_hashes": {
+    "abm_n48_u0.0_s6101_present": "78674b102ba89436a26d366529621c98553946dcd26f9340a8c00734c81b6f10",
+    "abm_n48_u0.0_s6102_present": "536ea16187351128cccd04643a0500949b9588da4aaca7eb79359e2701306f36",
+    "abm_n48_u0.0_s6103_present": "f71e2a01a7ee4ea05bb39d56697a52247765ec97300345f4ab01182b8bb23991",
+    "abm_n48_u0.0_s6104_present": "1bb8f1cfe8a3c561a94d1a117ac96812c258bccbb122d4e2141b7e480c457084",
+    "abm_n48_u0.0_s6105_present": "6ad38eec907c1e8a5aa8b2fda69a8bfdb23d27414b0dab3b800b1e6011918291",
+    "abm_n48_u0.0_s6106_present": "a910ed8264cf755b813097cbf7060f97e25080405872963f12f253a08bc0e6cf",
+    "abm_n48_u0.0_s6107_present": "bd0a1be4cba24ef82563effb33ddbe50a9ec18cf09ee4659f4cfef9fa07decd4",
+    "abm_n48_u0.0_s6108_present": "6f04ccbf3b7514072131dec0753144b90ac66b22285cc6c6d7d9412b1dc85b5d",
+    "abm_n48_u0.0_s6101_absent": "a54d1507a6aa4091d80f343a6f5e6e5dba55179452bab013a16de5d205cb1de7",
+    "abm_n48_u0.0_s6102_absent": "002bd2c8cd45d9f7c346553bb501b698f9a14e801b22e8007bce8f4675c9022e",
+    "abm_n48_u0.0_s6103_absent": "7297b7c41d835f0d5656b70bce1ab53c58c1dae5ec6f9d15c5f9dd454f8fedb3",
+    "abm_n48_u0.0_s6104_absent": "e2cb731d66c0c1b8d83a6ba73a239cdf9f5a40b08eaac5cef27cbab7777066d2",
+    "abm_n48_u0.0_s6105_absent": "d5905c104603f987a08bfd4b5b99f02edd55a7bae9888126f4ff32839e142409",
+    "abm_n48_u0.0_s6106_absent": "a0763041fdec45c71f61148cdaa646034640180c121f669738b6bd15e72e1be9",
+    "abm_n48_u0.0_s6107_absent": "d62a84cf15cde4bd5c1becf858eaa1e07a8dec2ff911398935121ca86c00ce10",
+    "abm_n48_u0.0_s6108_absent": "faba11e242858c3a3e0bb91506a0ef81b1f67639d642c3ccb042c5ef31da3846",
+    "abm_n48_u0.01_s6101_present": "9b1119753b11d831fa49564224e11b406eb4935e6b15f6ddb0141b9ba8666c4d",
+    "abm_n48_u0.01_s6102_present": "e518e9c201ebce4c0051b43bd36ca048fd2b3ff2ea17f3c0029c7743c628aa14",
+    "abm_n48_u0.01_s6103_present": "8c3e10bdfb5daf3b1a5155d0ad69880a29f917d1c41408a41e21d0c8094298e0",
+    "abm_n48_u0.01_s6104_present": "7602ea1ab96927df6aea9470313fa118d37783d19e2f2294dcf86113c94363d5",
+    "abm_n48_u0.01_s6105_present": "f50e457218453ab9960d884dfe26b54eecf4c2764c6fecec6685e90d6941c8ed",
+    "abm_n48_u0.01_s6106_present": "91ed7b8729a5af450278aaa5cff7efc319bcdaea072d444f07532f612233ec25",
+    "abm_n48_u0.01_s6107_present": "e89002b8390cdccfd6a836be730b809bf30656658765fa07ec3f6dc9333f9423",
+    "abm_n48_u0.01_s6108_present": "3eaa40489bcc1ad57d1f8e9247878dec7d8ed3f3417c9a3c08b490e0d7ab9cd1",
+    "abm_n48_u0.01_s6101_absent": "666bf55f214bd0b031a0cb2be496b7daf1b42e53f3588136b3b58e027d618806",
+    "abm_n48_u0.01_s6102_absent": "ba21ae68d6bc8621c82c09c00e5d548b0fab1cac8695e24950ef320894373876",
+    "abm_n48_u0.01_s6103_absent": "6754c8ac670aeb4b75474b961372a0b4675b4eba7593e45fdfc2df32f587d0c1",
+    "abm_n48_u0.01_s6104_absent": "908f1704386477fb37f608140d93ed38ee3044f412b94966a0aeb60b61f57f7e",
+    "abm_n48_u0.01_s6105_absent": "9f79ad337e24e1d84d187cd83aeb41f90ac3b4af1919ba1bc36520ca861b2ae7",
+    "abm_n48_u0.01_s6106_absent": "c785e23fa42db21d5fd2909b593862ea5db335040a9286b548d849120addb7dd",
+    "abm_n48_u0.01_s6107_absent": "7364ab58d332c8a6dd44d28c935b969c5ac8558a52829728e9d78084b9863c90",
+    "abm_n48_u0.01_s6108_absent": "95fd8c187d7b64453154b5fdd55a42023cde48f9a39253da5e621ef008ce4d79",
+    "abm_n192_u0.0_s6101_present": "20b0e73b584f605592ba44b2bb1a7c9a735cdf20b3504a9f4ece0557cdb25e33",
+    "abm_n192_u0.0_s6102_present": "dba37ea5bd8ca507f71e4aa185c3e537d236a70673c608d2a19598fbdc9415bf",
+    "abm_n192_u0.0_s6103_present": "48c039c321b29bc13b30e73cc95456f3fcf896e84420ab8c1915924d08030361",
+    "abm_n192_u0.0_s6104_present": "2c67af023b89925f6d58e84a87313e574dd367dfc624fa457a2cc60267b9f9ef",
+    "abm_n192_u0.0_s6105_present": "5b5f5e081a623e62023de2c52c8dfb051971fe3f3f515d8d34d27e72d3bd2b60",
+    "abm_n192_u0.0_s6106_present": "eef4fcd6b26bae9b3f054a5be548c71308442c90f510530bcce64ea9358f9b19",
+    "abm_n192_u0.0_s6107_present": "4cc69e453f9503848ffe10ad6ed9a52af47674a7c224ae1bb816276a8554195d",
+    "abm_n192_u0.0_s6108_present": "7a97810f0865a915b1705209a9bc6a7931a9ae643b61e94f369a6af087ac8635",
+    "abm_n192_u0.0_s6101_absent": "59101e4080b002296f5827b7d056085ada9ed42eb6f25a3f984b61be097faf09",
+    "abm_n192_u0.0_s6102_absent": "58f701e08dbbcaabe2542cecffe4f6a7f7dfbbfdb451af022be13ee3648c5453",
+    "abm_n192_u0.0_s6103_absent": "1b23c01dde11be7be5fe87e4c6ade10a24371d7f911f988540ac202161d0e3ba",
+    "abm_n192_u0.0_s6104_absent": "f9780f61082c82dd96c8f0657fcf85ff6109d3834ddb844d63bc3c7018d262ba",
+    "abm_n192_u0.0_s6105_absent": "2321ec834dff966f69aedc41b0764495c1cb9fe2dd6d314ca30f64330d28acf1",
+    "abm_n192_u0.0_s6106_absent": "96f4c1045e805bb326e24212831e0d0e3c2871e764c05d984ff9dcd36b0c7815",
+    "abm_n192_u0.0_s6107_absent": "a34fc4b471461f76c4968e8537cbed9d91e3972493c84ecaa686f8aa7222fdd2",
+    "abm_n192_u0.0_s6108_absent": "f7f381a67425e879c4d6f2294b2eb17a9ae0774f03cd5d7328174c962c11eded",
+    "abm_n192_u0.01_s6101_present": "f1174fbd2e7750afe8bb00da73a63c68019c622222c7194c0b53d5b3c5280259",
+    "abm_n192_u0.01_s6102_present": "1016242d5f68449e57cdf045ec72cc79913d3977db0cac208c24d84530ad08bd",
+    "abm_n192_u0.01_s6103_present": "c488c7220942d09b987c6e11f2ac2b94bdcbafe2ee1179cf7c33133650576694",
+    "abm_n192_u0.01_s6104_present": "e2a6417009dd9cffe01a2f3d0dbe04465d9c40ce100b49262dd5efa1b2504605",
+    "abm_n192_u0.01_s6105_present": "f8ecc76e53b7f7e657b9eac0e4bf29befe086397451d61a730cd1a9bcd648712",
+    "abm_n192_u0.01_s6106_present": "d80335827a92e86903fb1165889f24a380d377c187b7793fe78a00025f090d58",
+    "abm_n192_u0.01_s6107_present": "ec3e2c39079e4610621568fe5faa0701ff276df0baaecb0a7fd8a35fe2508572",
+    "abm_n192_u0.01_s6108_present": "4b397a6c3e2afe9dcc92e84e00931e4f8766d3abc64df80ac1540012999f6777",
+    "abm_n192_u0.01_s6101_absent": "b775a826a8161f8495aa4e5b99c74069d8bebbba465a4dfd73cf8f75efbe470c",
+    "abm_n192_u0.01_s6102_absent": "207fa1fbf68e06d1c254fcf5b284500419b94b7e2c8121f42e89c59018062409",
+    "abm_n192_u0.01_s6103_absent": "b66a0cc1e271b907f91137ab63329daa54e28c1460638bc16e3c08d16f979e0c",
+    "abm_n192_u0.01_s6104_absent": "9b3ff082a11d5bec1e2112ad2d04152816ecd54da2511effc9aeebc382b6e99a",
+    "abm_n192_u0.01_s6105_absent": "d0151e44fdbc0b790e2d515ee6f64616afa68e3d98f48d8d98999fb2e3b6fdc3",
+    "abm_n192_u0.01_s6106_absent": "eb56f62995702cf8df2ec6d6d9192b9bb9110b89ab7cf36f098652ce37bb2cc4",
+    "abm_n192_u0.01_s6107_absent": "a7335299530cc6aabe08962887f295c3290c60923400179471642a9a1c725c6c",
+    "abm_n192_u0.01_s6108_absent": "432790a06b370f020930b268ad812c964e8c70e053cd0b34c9b4cf815eec22d4"
+  },
+  "archive_sha256": "1bb184ed451f4dec1eadd20562cdc9adb3e3b6f615b94646d024154633b7ad79",
+  "source_summary_sha256": "c0c54dae356e3d139b0cacc5a1c4c640f3cfd4f0200f717314c06354c791af99",
+  "max_difference_from_existing_means": 0.0,
+  "bootstrap": {
+    "seed": 5102026,
+    "resamples": 5000,
+    "unit": "demographic repeat",
+    "scope": "Descriptive intervals for eight paired repeats conditional on fixed histories; no population-wide or calibrated-island uncertainty."
+  },
+  "scope": "One varying locus; 200 different-history plus 800 common-environment updates. Not the primary maintained-replenishment three-trait campaign."
+}
