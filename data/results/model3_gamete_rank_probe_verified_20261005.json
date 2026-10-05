@@ -1,0 +1,76 @@
+{
+  "scope": "joint gamete compressibility only; not integrated offspring admission",
+  "input_sha256": "ee034e57681cf9b9b651ef28ff11bcfd78580628e5027f5fd6c36ef5e8aef29d",
+  "rows": [
+    {
+      "parent": "donor",
+      "full_shape": [
+        65,
+        65,
+        65
+      ],
+      "ranks": [
+        25,
+        19,
+        13
+      ],
+      "mass": 12.347496582612724,
+      "absolute_l1": 1.0905321645647308e-11,
+      "rounding": {
+        "absolute_l1_bound": 7.35554790953924e-11,
+        "mass_before": 12.34749658261272,
+        "ranks": [
+          25,
+          19,
+          13
+        ],
+        "relative_l1_bound": 5.957116780981374e-12,
+        "norm_bounds": {
+          "cauchy": 1779.5456495037163,
+          "triangle": 18.93246290048028
+        },
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      "npz_sha256": "c5eff334a9ec927b889bef0bd4dc353e8cc2aa4bc8eea8fad28afd602e7c9237",
+      "full_l1_norm": 12.347496582612724,
+      "approx_l1_norm": 12.347496582612694
+    },
+    {
+      "parent": "recipient",
+      "full_shape": [
+        65,
+        65,
+        65
+      ],
+      "ranks": [
+        26,
+        19,
+        16
+      ],
+      "mass": 0.3297126003017076,
+      "absolute_l1": 2.9178256300339934e-13,
+      "rounding": {
+        "absolute_l1_bound": 2.2864571899189236e-12,
+        "mass_before": 0.329712600301707,
+        "ranks": [
+          26,
+          19,
+          16
+        ],
+        "relative_l1_bound": 6.9346976361433464e-12,
+        "norm_bounds": {
+          "cauchy": 47.634990141785785,
+          "triangle": 0.5106092271187396
+        },
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      "npz_sha256": "179b498e86ef3eb5f594e8afeceb23bd422f37563b6943cc6520df3f6e9d7b87",
+      "full_l1_norm": 0.3297126003017076,
+      "approx_l1_norm": 0.3297126003017077
+    }
+  ],
+  "seconds": 17.35999999998603,
+  "offspring_transport_bound": 5.248419061779386e-11,
+  "offspring_transport_note": "Product-measure telescoping bound before the nonnegative column-stochastic unordered-pair map; no integrated offspring calculation verified.",
+  "source_files_verified": 100
+}

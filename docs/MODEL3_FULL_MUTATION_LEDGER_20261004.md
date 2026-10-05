@@ -906,3 +906,17 @@ related suite running; next saved-state probe includes block progress output.
 
 Full candidate suite234passed in43.47s; runner compiles. New binary-reader
 saved-state third65 probe launched with frozen source archive.
+
+## 2026-10-05: measured joint gamete compression opportunity
+
+Separate first-channel diagnostic from the identical hashed second-step state
+completed in17.36s. Joint65x65x65 gamete distributions compress at relative
+tolerance1e-10 to donor25x19x13 and recipient26x19x16. Full joint L1 errors
+1.09e-11 and2.92e-13 are below certified rounding bounds7.36e-11 and2.29e-12.
+Source/current/archive and both NPZ hashes independently verified; complete
+gamete distributions reconstructed for direct error checks. This preserves
+cross-trait dependence and grid65; not an independence closure.
+Next candidate can budget the product-measure error before child construction.
+No integrated reproduction admission follows from this diagnostic alone.
+Receipt:model3_gamete_rank_probe_verified_20261005.json. Binary-reader third65
+remains live session10631/PID13972; source unchanged.
