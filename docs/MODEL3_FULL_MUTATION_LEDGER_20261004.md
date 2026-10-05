@@ -960,3 +960,10 @@ Launched audit_checked_streamed_ten65, session86825, one worker, original8 cases
 Live checked_streamed_ten65 remains unchanged (session86825), first3 delayed/near/jump updates passed. Performance inspection found weighted projection reading8 complete rows as8 separate contractions. Added a separate batched reader, preserving exact arithmetic and resource limits.12 tests failed before module implementation and pass after;26 reader/weight/integrated tests now pass, including dense multi-period references and incompressible output rejection.
 
 Synthetic signed-input benchmark at observed131x103x66 core and611x131x6 transform dimensions:3 alternating runs, median2.37x read speedup, bit-identical output. This is not full-model speedup evidence. Saved model3_weighted_block_read_benchmark_20261005.json. New candidate modules do not modify any live imported source. Batched fourth-step probe launched session13490 from the same hashed delayed/near/jump state, independent next-marginal reference, same thresholds and caps. It is pending, not admitted.
+
+
+### Batched fourth-step verification and fifth-step continuation
+
+Batched saved-state fourth65 probe completed in471.766s. Full saved NPZ SHA is byte-identical to verified unbatched fourth step (3650a2c...), including joint core/factors and independent marginal arrays.123 archived/current source files verified. Local relativeL1 1.13e-12, mean-trait gap2.13e-14. Receipt:model3_batched_weight_fourth65_verified_20261005.json. Timing reflects different concurrent workloads and is not a guaranteed speedup.
+
+Launched audit_batched_weight_fifth65, session59513, from that verified fourth-step checkpoint, same history76001 near/delayed-cost jump visitors at index4, local tolerance and array cap unchanged. Eight-case checked_streamed_ten65 continues separately at session86825; no valid run stopped or restarted. Full ecological and numerical closure still outstanding.

@@ -1,0 +1,19 @@
+{
+  "input_sha256": "6bfcb1c095526add49010378f256e371f3498e682d03018f74000a53a512e013",
+  "scope": "single saved-state update; timing comparison under different concurrent load, not a guaranteed speedup",
+  "status": "passed_marginals",
+  "relative_marginal_l1": 1.1268367503521302e-12,
+  "trait_gap": 2.1316282072803006e-14,
+  "ranks": [
+    142,
+    114,
+    83
+  ],
+  "npz_sha256": "3650a2c049fb3feb976cc452cd212fe53ba459e4e6c6234dc8828b684ccfbfdf",
+  "seconds": 471.76600000006147,
+  "source_files_verified": 123,
+  "archive_sha256": "52907f2fc51e621108875ac3a27fdf7d3e934896b1fbbd6455e20bdec2948947",
+  "source_current_and_archive_match": true,
+  "identical_to_verified_unbatched_npz": true,
+  "observed_seconds_unbatched": 819.9370000000345
+}
