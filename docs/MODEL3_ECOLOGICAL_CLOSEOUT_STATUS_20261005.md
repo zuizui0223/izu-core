@@ -28,3 +28,7 @@ Fixed capacity does not imply fixed selfing fraction; visitor history still chan
 - Handles were polled live in this turn. Status here is a dated checkpoint, not a persistent assertion that jobs remain live.
 
 Overall goal remains active and incomplete. Pending numerical work must not be reported as scientific rejection, and results from completed subexperiments must not be used to silently shrink the comparison scope.
+
+## Numerical checkpoint: sequential candidate
+
+The slab/batched candidate completed update6 at65 nodes in1,109.6 seconds. Archived/current source hashes and saved-state marginals were independently checked: relative marginal L1 1.3641e-12 and trait gap1.2101e-14. This does not certify full joint positivity or accumulated trajectory error. Its unchanged numerical/biological rules now continue from that saved state to update7 in session71151. Original eight-case gate PID22816 remains live at this dated check; neither calculation was restarted.
