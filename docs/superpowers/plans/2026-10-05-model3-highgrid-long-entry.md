@@ -1,5 +1,9 @@
 # Entry to the high-resolution long-horizon validation run
 
+## User-directed execution amendment
+
+After this plan was written, the user explicitly requested starting long validation immediately rather than waiting for all eight ten-step cases. That instruction supersedes the all-eight entry wait below for computational exploration, not scientific admission. The first continuation is now scheduled from the active verified-input step7 producer to update1000 for assurance_cost/near/jump/history76001. It waits for the existing producer instead of duplicating update7. Each subsequent accepted update saves a state and receipt. The other seven conditions and full biological comparison remain required and unstarted in this continuation; a single case does not close the goal. The existing all-eight criteria remain useful completeness checks rather than a barrier to initiating this exploratory long run.
+
 This prospective execution addendum separates permission to COMPUTE a long trajectory from admission of its ecological interpretation. It preserves the frozen biology, eight cases, history76001, founders and existing numerical tolerances. It does not assert that65 nodes suffice for grid convergence.
 
 ## Entry decision

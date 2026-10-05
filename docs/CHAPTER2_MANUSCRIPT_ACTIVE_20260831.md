@@ -1,9 +1,15 @@
 # From pollination ecology to realized floral evolution in finite island populations
 
 **Status:** active Chapter 2 scientific manuscript — unified Model 3 + source-audited natural confrontation
-**Updated:** 2026-09-28
+**Updated:** 2026-10-05 — sustained-isolation mechanism results added; full manuscript integration and positive-mutation numerical validation remain incomplete.
 **Inference architecture:** pollinator functional environment → reproductive selection → conditional deterministic inherited change → finite-population realization → history/connectivity modifiers → source-audited natural confrontation
 **Controlling state:** `docs/CHAPTER2_CANONICAL_STORY_20260927.md`, `docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`, `THESIS_CHAPTER_POSITIONING.md`
+
+## Current primary question and interpretation
+
+The primary question is how sustained visitor replenishment limitation changes the returns to attraction, the timing of selfing-capacity and investment responses, and viable reproduction. The common-environment history experiments below remain supplementary. ABM and deterministic propagation are parallel calculations of the shared biological process; mutation diffusion is a numerical approximation within the deterministic branch. High-resolution long-run results are not yet admitted, and the older abstract and figure sequence below require final integration before submission.
+
+The current evidence distinguishes three statements: capacity can change before attraction investment; investment reduction does not require capacity evolution in the fixed-capacity intervention; and visitor exposure can alter investment returns at an identical plant state. These statements do not demonstrate that all investment effects are independent of realized selfing. The model is not calibrated to Q1 colour, accessibility or regional responses.
 
 ## Abstract
 
@@ -73,6 +79,20 @@ Izu supplies the most resolved A-layer branching contrast: corrected matching is
 
 # Results
 
+## Sustained isolation: sequence, mechanism and reproductive consequences
+
+The maintained-isolation cohort follows64 visitor histories with eight demographic repeats per history and setting for1,000 reproductive updates. In the delayed-selfing, capacity-cost0.5 setting with mutation0.01, selfing capacity crossed a0.05 change maintained for20 updates before investment declined in51/64 more-isolated history means;13 were within five updates. The prior-selfing, no-capacity-cost setting gave38 capacity-first and26 near-simultaneous histories. Smaller changes were often near-simultaneous, especially in the prior setting. These are threshold-crossing times, not the onset of infinitesimal change; the two settings differ jointly in timing and capacity cost.
+
+The order of additional isolation divergence was different. In the delayed setting, far-minus-near investment divergence crossed first in32 histories, capacity divergence in10, with20 ties and two investment-only crossings. Both environments can increase capacity early even when their extra isolation difference appears later. Within-population sequence therefore cannot be substituted for the timing of the isolation effect.
+
+The separate fixed/evolving-capacity experiment completed8,192 cases, with2,048 identical zero-mutation control pairs and84 independently reconstructed estimates. All capacity alleles started at0.5 in both modes, unlike the standing variation of the primary cohort. At update1,000 with mutation0.01, fixed-capacity far populations reduced investment by0.3099[descriptive95% interval0.2972,0.3220] under delayed selfing and0.3316[0.3217,0.3411] under prior selfing. Thus capacity evolution was not necessary for investment decline under this intervention. Realized selfing remained responsive to pollen supply. Displayed arms retained512/512 populations except delayed/evolving/near, which retained511/512; trait contrasts condition on the reported survivors.
+
+At identical plant states and capacity0.5, visitor snapshot400 shifted the delayed-setting mean investment contribution derivative from+0.5793 under near exposure to-0.7004 under far exposure. Outcross contribution fell from+1.6523 to+0.0854, whereas the viable-selfed component changed from-1.0730 to-0.7858 and partly offset the total decline. These slopes include allocation costs and both maternal and paternal outcross contributions. Isolation did not increase the intrinsic investment-cost coefficient. Composition and visitor amount changed together, so this comparison does not identify a richness-only effect.
+
+Pollen compensation did not make seed deficits interchangeable with viable reproduction. Fixed-plant exposures showed greater pollen-saturation deficits under stronger isolation, while evolved-state compensation could reduce raw deficits without eliminating the viable-offspring deficit under inbreeding depression. In the same-environment delayed/far manipulation at visitor snapshot400, increasing investment from0.25 to0.75 at capacity0.5 reduced the viable fractional deficit by0.0104 but reduced viable offspring by15.72 per48 plants. These model assays are distinct from Q1's empirical pollen-limitation effect sizes.
+
+Evidence and scope: [temporal results](MODEL3_PERSISTENT_PROCESS_RESULTS_20261005.md), [capacity intervention](MODEL3_ASSURANCE_INTERVENTION_RESULTS_20261005.md), [pollen and fitness pathways](MODEL3_POLLEN_FITNESS_PATHWAYS_20261005.md), [trait manipulation](MODEL3_TRAIT_POLLEN_RESULTS_20261005.md). The original bridge experiments below are retained as distinct cohorts, not pooled with these additional observations.
+
 ## Functional matching generates state-dependent reproductive selection
 
 The prospective reduction audit crossed starting access states `0.20, 0.35, 0.50, 0.65, 0.80` with three four-type visitor compositions and a broad eight-type reference. Under each four-type composition, the fixed-state reproductive assay contained both positive and negative total investment gradients. For example, under `left4`, the gradient was `+1.5048` at starting access `0.20` but `-0.8720` at `0.80`; the signs reversed under `right4`.
@@ -120,6 +140,14 @@ Direct-history systems are most informative for the finite/history realization l
 
 The principal natural-data gap is therefore no longer generic 'validation'. A is partly confronted by several systems and C is partly confronted by direct-history systems, whereas B—the inherited deterministic trajectory under a measured visitor regime—is essentially unobserved in the current archive. The existing natural evidence supports the ecological vocabulary and supplies falsifiers without calibrating Model 3 or establishing the historical cause of any named island phenotype.
 # Discussion
+
+## Sequence does not identify a single selfing-mediated pathway
+
+Selfing-first is not a new general hypothesis. Experimental evolution in Mimulus already motivated sequential evolution of selfing-syndrome traits (Bodbyl Roels & Kelly,2011), and Capsella work predicted reproductive assurance before floral reduction without establishing historical order (Sicard et al.,2011). Joint attraction-allocation and inbreeding-depression theory also predates this model (Sakai,1995). The present contribution is to distinguish temporal precedence, a requirement for capacity evolution, and additional isolation divergence under an explicit process of continuing visitor arrival and disappearance.
+
+Visitor shortage can simultaneously create unfertilized ovules that autonomous selfing can rescue and reduce the marginal returns to floral attraction. Inbreeding depression preserves a potential advantage to outcross reproduction, but that advantage need not make greater attraction profitable when visitors are scarce. Capacity evolution can alter these returns without being a prerequisite for investment decline. The local analytical thresholds separate maternal outcross gain, paternal export, selfing displacement and allocation cost. They are state-dependent inequalities, not universal distance thresholds or proofs of the finite-population time order. The fixed-capacity intervention does not hold realized selfing constant and therefore does not identify a complete mediation partition.
+
+Primary references and access limits are recorded in [the targeted novelty audit](MODEL3_SEQUENCE_NOVELTY_AUDIT_20261005.md): https://doi.org/10.1111/j.1558-5646.2011.01326.x; https://doi.org/10.1105/tpc.111.088237; https://doi.org/10.1111/j.1558-5646.1995.tb02287.x.
 
 ## Pollination ecology and realized evolution are distinct biological stages
 
