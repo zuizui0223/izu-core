@@ -5,6 +5,10 @@
 **Inference architecture:** isolation → ongoing visitor assembly → pollen transfer and reproductive returns → shared reproduction and inheritance, propagated in parallel by deterministic genotype density and finite ABM. Local selection assays diagnose direction; mutation diffusion approximates mutation within the deterministic branch. Natural evidence supplies independent confrontation rather than fitted targets.
 **Controlling state:** `docs/CHAPTER2_CANONICAL_STORY_20260927.md`, `docs/CHAPTER2_MECHANISM_MAINLINE_LOCK_20260911.md`, `THESIS_CHAPTER_POSITIONING.md`
 
+## Numerical scope amendment, 2026-10-05
+
+The user stopped the high-resolution1,000-update extension after verified period7. It is computationally unresolved, not a failed biological hypothesis or a completed PDE corroboration. No automatic continuation is planned. References below to ongoing or pending high-resolution validation describe the earlier status and are superseded by this amendment; final figure assembly must use only admitted evidence. See MODEL3_LONG_COMPARISON_DECISION_20261005.md.
+
 ## Current primary question and interpretation
 
 The primary question is how sustained visitor replenishment limitation changes the returns to attraction, the timing of selfing-capacity and investment responses, and viable reproduction. The common-environment history experiments below remain supplementary. ABM and deterministic propagation are parallel calculations of the shared biological process; mutation diffusion is a numerical approximation within the deterministic branch. High-resolution long-run results are not yet admitted. The figure sequence and older complementary-cohort sections still require final integration before submission.

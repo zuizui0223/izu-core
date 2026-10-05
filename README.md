@@ -18,7 +18,7 @@ a downstream simulation or a separate ecological Model 4.
 
 ### Current ecological focus (2026-10-05)
 
-**Does isolation make investment in attracting visitors less rewarding, and does
+**Does isolation make investment in attracting visitors less rewarding, and
 which changes first: selfing capacity or attraction investment?** A separate
 intervention asks whether investment decline requires capacity evolution. The primary
 experiment maintains isolation throughout 1,000 reproductive updates. A separate
@@ -47,8 +47,11 @@ design described below; shared near references must not be counted as new runs:
   [Intervention results](docs/MODEL3_ASSURANCE_INTERVENTION_RESULTS_20261005.md).
 - **Trait-by-pollen intervention:** 6,912 completed assays separate fractional
   deficits from absolute viable offspring. [Results](docs/MODEL3_TRAIT_POLLEN_RESULTS_20261005.md).
-- **Numerical comparison:** high-resolution deterministic/diffusion validation
-  remains incomplete. Local precision checks do not admit a long-run comparison.
+- **Numerical comparison:** the high-resolution 1,000-update run was stopped at the user
+  request after verified period7. The positive-mutation long comparison remains
+  computationally unresolved; no automatic restart is planned. Completed local,
+  fixed-support and restricted mutation diagnostics retain their stated scope.
+  [Stop and alternatives](docs/MODEL3_LONG_COMPARISON_DECISION_20261005.md).
 
 Q1 motivates these independent mechanistic questions. Abstract investment is not
 an explicit flower-colour or accessibility phenotype, and no regional Q1 pattern
@@ -61,20 +64,20 @@ For the explicit trade-offs, fitness accounting and remaining pathway limits, se
 The ecological argument is:
 
 ```text
-pollinator functional environment
-        ↓
-functional matching + finite pollen transfer
-        ↓
-reproductive selection
-        ↓
-outcrossing / selfing + Mendelian inheritance
-        ↓
-expected inherited change
-        ↓
-finite recruitment / survival / extinction
-        ↓
-realized floral evolution
+isolation -> continuing visitor arrival/loss -> pollen transfer
+                              |
+              reproductive contributions and local selection
+                              |
+                 shared reproduction and inheritance
+                        /                    \
+         finite individual ABM       deterministic genotype density
+         sampled offspring           conditional number propagation
+                                             |
+                                exact mutation / diffusion approximation
 ```
+
+[Current result priorities and evidence boundaries](docs/MODEL3_RESULT_PRIORITY_AND_PRESENTATION_20261005.md)
+separate the ecological headline, unexpected contrasts and mathematical support.
 
 ## What the simulation actually contains
 

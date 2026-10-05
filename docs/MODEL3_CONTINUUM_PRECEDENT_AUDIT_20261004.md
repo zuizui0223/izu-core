@@ -28,7 +28,7 @@ Therefore Baker-style reproductive assurance and selfing thresholds are not new.
 
 Goodwillie et al. (2010, *New Phytologist*, doi:10.1111/j.1469-8137.2009.03043.x) documented correlated evolution between mating system and floral display across angiosperms.
 
-Rodger et al. (2019, *Annals of Botany*, PMCID PMC6589515) found that reproductive assurance weakens pollinator-mediated selection on flower size under strong pollen limitation.
+Teixido & Aizen (2019, *Annals of Botany*, doi:10.1093/aob/mcz014, PMCID PMC6589515) found that reproductive assurance weakens pollinator-mediated selection on flower size under strong pollen limitation.
 
 Devaux and collaborators modelled joint evolution of pollen limitation, floral display/phenology and mating-system constraints; later synthesis emphasizes equilibria determined by pollinator attraction, selfing and inbreeding-depression trade-offs.
 
