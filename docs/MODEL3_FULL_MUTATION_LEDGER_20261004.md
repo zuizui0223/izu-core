@@ -920,3 +920,10 @@ Next candidate can budget the product-measure error before child construction.
 No integrated reproduction admission follows from this diagnostic alone.
 Receipt:model3_gamete_rank_probe_verified_20261005.json. Binary-reader third65
 remains live session10631/PID13972; source unchanged.
+
+
+## 2026-10-05 joint gamete compression
+
+Implemented joint gamete rounding before mating, with product-measure L1 transport bound reserved inside the existing local offspring tolerance. No independence closure, biological parameter change, or tolerance relaxation. All 18 new tests pass, including 12-step dense-reference comparisons for both reproductive settings, mutation operators, survival settings, and forced streamed fallbacks. Related numerical regression suite also passes.
+
+The captured third-step 65-node near/jump/delayed-cost probe now completes in 113.532 seconds. Independently computed next-generation marginals differ by relative L1 9.58e-13 and maximum mean trait 2.38e-14. Source hashes and output NPZ hash verified in data/results/model3_rounded_gamete_third65_verified_20261005.json. This is a single-step validation from a saved state, not a 1,000-period completion or proof of grid convergence. Long-run admission remains pending.
