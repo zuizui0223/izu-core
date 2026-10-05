@@ -1,0 +1,8 @@
+{
+  "status": "figure_verified",
+  "endpoint_trait_checks": 72,
+  "visual_check": "Axis labels and footer inspected after spacing repair",
+  "pdf_sha256": "79bbbadc547dba606359d64d2fb3f87fd101e3e7e8d95c1e6ac5dd35f97f0738",
+  "series_sha256": "55ba05f474d5186161397629bb32d9c6ed1fabad93170cc0b9b06bcb177868ae",
+  "script_sha256": "7bd17c6a61b748677cef575105a2710c890979196b8ee239d9d4c5203ba1e612"
+}
