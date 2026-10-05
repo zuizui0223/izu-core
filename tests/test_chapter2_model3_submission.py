@@ -10,7 +10,7 @@ UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 
 def test_active_submission_is_model3_only():
     text = render_submission_manuscript()
-    lower = text.lower()
+    lower = " ".join(text.lower().split())
     assert "evolutionary memory after pollinator isolation does not imply evolutionary arrest" in lower
     assert "exactly the same visitor environment" in lower
     assert "all three plant traits" in lower
@@ -25,7 +25,7 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     words = abstract.split()
     assert 180 <= len(words) <= 300
-    lower = abstract.lower()
+    lower = " ".join(abstract.lower().split())
     assert "64 independent visitor histories" in lower
     assert "eight nested demographic repeats per history" in lower
     assert "4,096 core trajectories" in lower
