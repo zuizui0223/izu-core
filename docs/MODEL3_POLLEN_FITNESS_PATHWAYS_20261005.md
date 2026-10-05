@@ -56,3 +56,22 @@ where d is the configured pollen-discount coefficient. Its terms are reproductiv
 The joint local syndrome direction requires beta_z<0 AND beta_a>0. This is a state-dependent pair of inequalities, not a universal threshold of island distance, a global equilibrium, a time-order prediction or proof of the ABM trajectory. It specifies what to measure: pollen fertilization level q, responsiveness q_z, export response e_z, selfing capacity and costs. The same low pollen level can give different investment gradients if the responsiveness of transfer differs.
 
 To discriminate pathways further, preserve the original frozen simulations and declare diagnostic interventions separately. Existing evidence does not hold realized selfing constant, nor separate visitor richness from composition. Do not infer either missing separation from the fixed-capacity result.
+
+## Saved-gradient component audit
+
+An exploratory secondary decomposition now covers all768 already verified assays, without rerunning or altering biology. `scripts/summarize_model3_return_components.py` verifies source checksums, every48-plant array, recorded gradient means and the additive identity for every history. Source: `data/results/model3_return_components_20261005.json`.
+
+At visitor snapshot400, the derivative with respect to increased attraction investment is:
+
+| Setting | Component | Near | Far | Far minus near |
+|---|---|---:|---:|---:|
+| Delayed + cost | Outcross genetic contribution | 1.6523 | 0.0854 | -1.5669 |
+| Delayed + cost | Viable selfed contribution | -1.0730 | -0.7858 | +0.2872 |
+| Delayed + cost | Total | 0.5793 | -0.7004 | -1.2797 |
+| Prior + no capacity cost | Outcross genetic contribution | 0.9361 | 0.0484 | -0.8878 |
+| Prior + no capacity cost | Viable selfed contribution | -0.8712 | -0.8712 | approximately0 |
+| Prior + no capacity cost | Total | 0.0650 | -0.8228 | -0.8878 |
+
+These are slopes of contributions, not offspring counts or trait changes. The delayed outcross-component difference has descriptive paired-history95% interval[-1.7524,-1.3793]; the viable-selfed component difference is+0.2872[0.2558,0.3180]. Thus the selfed component offsets part of the environmental decline in the total investment slope rather than worsening it. In prior selfing, selfed output at fixed plant state is independent of visitor receipt by construction, so its derivative's near/far equality is a structural check, not a new biological discovery.
+
+The outcross component includes both male and female contributions and allocation costs. The selfed component includes both lost ovule allocation and, under delayed selfing, displacement by outcross fertilization. No isolated physiological cost or causal mediation fraction is identified by this arithmetic decomposition. All three exposure snapshots and both settings are retained in the machine-readable result.

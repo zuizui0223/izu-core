@@ -1,0 +1,225 @@
+{
+  "status": "complete",
+  "classification": "exploratory secondary decomposition",
+  "source_arrays_sha256": "5669f96bbf4fc99276afa41edcd6183f6a1fbafb0e998a60b1413afc40d3d66e",
+  "script_sha256": "d3eeeab812ba549a3b9fc19b08b775633eecfa3062b7d348330122fcf5565ddd",
+  "rows": [
+    {
+      "setting": "assurance_cost",
+      "period": 0,
+      "component": "outcross_contribution",
+      "near": 1.237402717400015,
+      "far": 1.237402717400015,
+      "difference": 0.0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 0,
+      "component": "viable_selfed_contribution",
+      "near": -1.0054627565851275,
+      "far": -1.0054627565851275,
+      "difference": 0.0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 0,
+      "component": "total_contribution",
+      "near": 0.23193996081488766,
+      "far": 0.23193996081488766,
+      "difference": 0.0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 200,
+      "component": "outcross_contribution",
+      "near": 1.5604147074602093,
+      "far": 0.057806586995278325,
+      "difference": -1.5026081204649309,
+      "interval": [
+        -1.714881987508753,
+        -1.2779170779014477
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 200,
+      "component": "viable_selfed_contribution",
+      "near": -1.0553113591555279,
+      "far": -0.7801599345776373,
+      "difference": 0.2751514245778902,
+      "interval": [
+        0.23689565547876568,
+        0.31133975814571035
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 200,
+      "component": "total_contribution",
+      "near": 0.5051033483046816,
+      "far": -0.722353347582359,
+      "difference": -1.2274566958870408,
+      "interval": [
+        -1.4038136174062887,
+        -1.0407593176107135
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 400,
+      "component": "outcross_contribution",
+      "near": 1.6522808942944505,
+      "far": 0.08536173864193325,
+      "difference": -1.5669191556525175,
+      "interval": [
+        -1.752353082478731,
+        -1.379320764006853
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 400,
+      "component": "viable_selfed_contribution",
+      "near": -1.073014051541166,
+      "far": -0.7857838050336361,
+      "difference": 0.2872302465075298,
+      "interval": [
+        0.25575772848258876,
+        0.31796803689089964
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 400,
+      "component": "total_contribution",
+      "near": 0.5792668427532845,
+      "far": -0.7004220663917028,
+      "difference": -1.2796889091449875,
+      "interval": [
+        -1.4353050266569212,
+        -1.1230673039372572
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 0,
+      "component": "outcross_contribution",
+      "near": 0.7010804875212586,
+      "far": 0.7010804875212586,
+      "difference": 0.0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 0,
+      "component": "viable_selfed_contribution",
+      "near": -0.8711564312010928,
+      "far": -0.8711564312010928,
+      "difference": 0.0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 0,
+      "component": "total_contribution",
+      "near": -0.17007594367983417,
+      "far": -0.17007594367983417,
+      "difference": 0.0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 200,
+      "component": "outcross_contribution",
+      "near": 0.8840907559506355,
+      "far": 0.03275172231538667,
+      "difference": -0.8513390336352489,
+      "interval": [
+        -0.9716079356688597,
+        -0.7240348799858551
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 200,
+      "component": "viable_selfed_contribution",
+      "near": -0.871156431201092,
+      "far": -0.8711564312010895,
+      "difference": 2.282896094385478e-15,
+      "interval": [
+        -4.126907149348824e-15,
+        8.805759940666564e-15
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 200,
+      "component": "total_contribution",
+      "near": 0.012934324749543653,
+      "far": -0.8384047088857028,
+      "difference": -0.8513390336352467,
+      "interval": [
+        -0.9716079356688538,
+        -0.7240348799858565
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 400,
+      "component": "outcross_contribution",
+      "near": 0.9361397697008202,
+      "far": 0.0483637610466013,
+      "difference": -0.887776008654219,
+      "interval": [
+        -0.9928380923188319,
+        -0.7814875950086664
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 400,
+      "component": "viable_selfed_contribution",
+      "near": -0.8711564312010927,
+      "far": -0.8711564312010922,
+      "difference": 4.683753385137379e-16,
+      "interval": [
+        -8.050678179660763e-15,
+        8.354818573086392e-15
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 400,
+      "component": "total_contribution",
+      "near": 0.06498333849972757,
+      "far": -0.822792670154491,
+      "difference": -0.8877760086542186,
+      "interval": [
+        -0.9928380923188268,
+        -0.7814875950086662
+      ]
+    }
+  ],
+  "scope": "Gradients of offspring contributions with respect to investment at fixed capacity0.5. Each component includes allocation costs; not pure benefit/cost or causal mediation. Paired-history descriptive intervals."
+}
