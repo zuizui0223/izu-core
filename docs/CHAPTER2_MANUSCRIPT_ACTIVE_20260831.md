@@ -346,11 +346,27 @@ divergence is not evidence of weak evolution. Within-population change and
 between-environment divergence must be reported separately.
 
 Selfing-first itself is not a new general hypothesis. Experimental evolution in
-*Mimulus* already motivated sequential selfing-syndrome evolution, and joint
-attraction-allocation theory predates this model. The contribution here is the
-combination of an explicit island-replenishment process, a measured temporal
-sequence, and a separate intervention showing that the sequence is not a
-necessary causal chain.
+*Mimulus* explicitly favored a sequential selfing-syndrome model in which traits
+that improve reproductive assurance can change before traits such as flower size
+(Bodbyl Roels & Kelly, 2011). Experimental evolution with bumblebees versus
+hoverflies has also shown joint divergence of floral signals and autonomous
+self-pollination (Gervasi & Schiestl, 2017), while attraction-allocation theory
+predates both experiments (Sakai, 1995). The contribution here is therefore not
+the existence of a sequence, but the combination of an explicit
+island-replenishment process, measured temporal order, and a separate
+intervention showing that the observed sequence is not a necessary causal chain.
+
+The pollen-deficit result has a similarly bounded novelty. Reviews of pollen
+limitation already emphasize that supplementation responses depend on ecological
+context and do not by themselves identify demographic consequence (Ashman et
+al., 2004; Knight et al., 2005). Quantitative synthesis further shows that
+response variable and resource reallocation can change the estimated magnitude
+of pollen limitation (Knight et al., 2006). In an empirical New Zealand tree,
+high pollen limitation, selfing and inbreeding depression jointly caused seed
+production to overstate effective viable offspring (Van Etten et al., 2015).
+Our result is therefore used as a model-level reproductive consequence of the
+same allocation process, not as the first demonstration that pollen limitation
+and fitness can differ.
 
 ## Pollination ecology and realized evolution are distinct biological stages
 
@@ -484,6 +500,17 @@ Hiraiwa, M.K. & Ushimaru, A. (2024). Loss of functional diversity rather than sp
 Traveset, A., Tur, C., Trøjelsgaard, K., Heleno, R., Castro-Urgal, R. & Olesen, J.M. (2016). Global patterns of mainland and insular pollination networks. *Global Ecology and Biogeography*, 25, 880–890. https://doi.org/10.1111/geb.12362
 
 Bodbyl Roels, S. A., & Kelly, J. K. (2011). Rapid evolution caused by pollinator loss in *Mimulus guttatus*. *Evolution*, **65**(9), 2541–2552. [DOI: 10.1111/j.1558-5646.2011.01326.x](https://doi.org/10.1111/j.1558-5646.2011.01326.x).
+
+
+Gervasi, D.D.L. & Schiestl, F.P. (2017). Real-time divergent evolution in plants driven by pollinators. *Nature Communications*, 8, 14691. https://doi.org/10.1038/ncomms14691
+
+Ashman, T.-L., Knight, T.M., Steets, J.A., Amarasekare, P., Burd, M., Campbell, D.R., Dudash, M.R., Johnston, M.O., Mazer, S.J., Mitchell, R.J., Morgan, M.T. & Wilson, W.G. (2004). Pollen limitation of plant reproduction: ecological and evolutionary causes and consequences. *Ecology*, 85, 2408–2421. https://doi.org/10.1890/03-8024
+
+Knight, T.M., Steets, J.A., Vamosi, J.C., Mazer, S.J., Burd, M., Campbell, D.R., Dudash, M.R., Johnston, M.O., Mitchell, R.J. & Ashman, T.-L. (2005). Pollen limitation of plant reproduction: pattern and process. *Annual Review of Ecology, Evolution, and Systematics*, 36, 467–497. https://doi.org/10.1146/annurev.ecolsys.36.102403.115320
+
+Knight, T.M., Steets, J.A. & Ashman, T.-L. (2006). A quantitative synthesis of pollen supplementation experiments highlights the contribution of resource reallocation to estimates of pollen limitation. *American Journal of Botany*, 93, 271–277. https://doi.org/10.3732/ajb.93.2.271
+
+Van Etten, M.L., Tate, J.A., Anderson, S.H., Kelly, D., Ladley, J.J. & Merrett, M.F. (2015). The compounding effects of high pollen limitation, selfing rates and inbreeding depression leave a New Zealand tree with few viable offspring. *Annals of Botany*, 116, 409–418. https://doi.org/10.1093/aob/mcv118
 
 Busch, J. W., Bodbyl-Roels, S., Tusuubira, S., & Kelly, J. K. (2022). Pollinator loss causes rapid adaptive evolution of selfing and dramatically reduces genome-wide genetic variability. *Evolution*, **76**(9), 2130–2144. [DOI: 10.1111/evo.14572](https://doi.org/10.1111/evo.14572).
 
