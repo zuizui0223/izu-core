@@ -15,14 +15,14 @@ def test_active_submission_uses_one_model3_ecological_pathway():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
     submission = render_submission_manuscript()
     lower = " ".join(submission.lower().split())
-    assert manuscript.startswith("# Evolutionary memory after pollinator isolation does not imply evolutionary arrest")
-    assert "200 reproductive updates" in lower
-    assert "800 additional updates" in lower
+    assert manuscript.startswith("# Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation")
     assert "64 independent visitor histories" in lower
-    assert "evolutionary memory" in lower
-    assert "evolutionary arrest" in lower
-    assert "maintained-isolation" in lower
-    assert "persistent endpoint difference" in lower
+    assert "8,192 matched fixed-versus-evolving-assurance trajectories" in lower
+    assert "temporal precedence is not causal necessity" in lower
+    assert "+0.5793" in lower
+    assert "-0.7004" in lower
+    assert "51 of 64" in lower
+    assert "holding assurance capacity fixed at 0.5 did not prevent investment decline" in lower
 
 
 def test_canonical_story_and_chapter1_bridge_match_model3_mainline():
