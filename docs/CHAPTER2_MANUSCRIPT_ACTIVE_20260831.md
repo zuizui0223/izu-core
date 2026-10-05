@@ -1,9 +1,9 @@
-# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization
+# Evolutionary memory after pollinator isolation does not imply evolutionary arrest
 
-**Status:** active Chapter 2 scientific manuscript — maintained-isolation process decomposition; natural confrontation is complementary
-**Updated:** 2026-10-05 — process manuscript, four main figures and supporting information assembled and source-checked. The stopped high-resolution positive-mutation comparison is closed unresolved, not awaiting an automatic restart.
-**Inference architecture:** isolation → ongoing visitor assembly → pollen transfer and reproductive returns → shared reproduction and inheritance, propagated in parallel by deterministic genotype density and finite ABM. Local selection assays diagnose direction; mutation diffusion approximates mutation within the deterministic branch. Natural evidence supplies independent confrontation rather than fitted targets.
-**Controlling state:** `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`. September bridge-focused routing documents are historical, not the current manuscript specification.
+**Status:** active Chapter 2 scientific manuscript — full-mutation common-environment history is primary; maintained-isolation process experiments are mechanistic support
+**Updated:** 2026-10-06 — scientific mainline rerouted to the completed full-mutation common-environment experiment. Existing numerical results are unchanged; the stopped high-resolution positive-mutation comparison remains closed unresolved.
+**Inference architecture:** different visitor-isolation histories → inherited divergence → exact environmental equalization → persistence or recovery of trait differences. Genetic state and late trajectory change distinguish memory from arrest. Maintained-isolation selection/assurance/pollen assays explain how the historical divergence can arise. Deterministic genotype density and mutation diffusion remain bounded numerical support, not requirements for the finite-ABM ecological claim.
+**Controlling state:** `docs/CHAPTER2_MUTATION_HISTORY_MAINLINE_20261006.md`. `CHAPTER2_PROCESS_MAINLINE_20261005.md` is retained as mechanism-support provenance; September bridge-focused routing documents remain historical.
 
 ## Numerical scope amendment, 2026-10-05
 
@@ -11,19 +11,63 @@ The user stopped the high-resolution 1,000-update extension after verified perio
 
 ## Current primary question and interpretation
 
-The primary question is how sustained visitor replenishment limitation changes the returns to attraction, the timing of selfing-capacity and investment responses, and viable reproduction. The common-environment history experiments below remain supplementary. ABM and deterministic propagation are parallel calculations of the shared biological process; mutation diffusion is a numerical approximation within the deterministic branch. High-resolution positive-mutation long-run results are not admitted. The complete methods/results guide is `CHAPTER2_PROCESS_SUPPORTING_INFORMATION_20261005.md`; the current review package is distinct from the historical journal submission.
+The primary question is what a persistent evolved floral difference means after
+the current visitor environment has been made identical. The focal experiment
+creates 200 reproductive updates of different near/far visitor-immigration
+histories and then gives both arms exactly the same next 800 visitor snapshots.
+Access, investment and reproductive assurance can all evolve, and mutation is
+crossed at zero versus 0.01 per transmitted allele.
 
-The current evidence distinguishes three statements: capacity can change before attraction investment; investment reduction does not require capacity evolution in the fixed-capacity intervention; and visitor exposure can alter investment returns at an identical plant state. These statements do not demonstrate that all investment effects are independent of realized selfing. The model is not calibrated to Q1 colour, accessibility or regional responses.
+The paper distinguishes **evolutionary memory** from **evolutionary arrest**.
+At the shared-environment endpoint, investment and assurance can still differ
+between histories. Yet the genetic and dynamical states underlying that same
+kind of residual contrast are different: without mutation, occupied populations
+can collapse to one investment allele and show no late investment change;
+with mutation, multiple alleles are replenished and investment continues to
+change over the final 100 updates. A surviving endpoint contrast therefore does
+not diagnose a trapped or irreversible state.
+
+Maintained-isolation selection thresholds, replenishment gradients, assurance
+interventions and pollen/offspring assays are retained to explain how the
+history-dependent states were generated and why attraction and assurance need
+not move as one syndrome. They are mechanism support, not five co-equal primary
+questions. The model remains uncalibrated to Q1 colour, accessibility, named
+islands, kilometres or natural evolutionary time. The positive-mutation
+high-resolution deterministic/PDE comparison remains numerically unresolved and
+is not used to establish the finite-ABM history result.
 
 ## Abstract
 
-Island isolation can limit pollinator replenishment, but the co-occurrence of autonomous reproduction and reduced floral attraction does not establish their evolutionary sequence or causal dependence. We decompose this process into local selection conditions, reciprocal trait effects, inherited responses, genetic-variation constraints and reproductive consequences.
+Environmental restoration can remove the ecological difference that generated
+evolutionary divergence, but it does not follow that evolved populations
+immediately converge. More importantly, a persistent trait difference does not
+by itself reveal whether evolution has stopped. We test this distinction in an
+explicit plant–pollinator eco-evolutionary model.
 
-A system-uncalibrated plant–pollinator model links continuing visitor arrival and disappearance to pollen transfer, allocation costs, maternal and paternal contributions, inbreeding depression and inheritance. Trajectories across 13 replenishment rates use 64 independent visitor histories and eight demographic repeats per setting, alongside fixed-state assays, capacity-evolution interventions and pollen supplementation. Finite individuals and deterministic genotype density propagate shared biological rules in parallel; mutation diffusion approximates mutation within the deterministic branch.
+Plant populations experienced 200 reproductive updates under paired near versus
+far visitor-immigration histories, after which both histories received exactly
+the same visitor environment for 800 additional updates. Access/matching,
+pollinator-facing floral investment and reproductive assurance evolved jointly.
+Mutation was crossed at zero versus 0.01 per transmitted allele, and two
+declared reproductive settings were retained without fitting to natural islands.
 
-Local diagnostics distinguish strengthened selection from a newly favoured direction: capacity selection can already be positive under low isolation, while investment selection changes sign as replenishment declines. Reciprocal effects depend on reproductive assumptions rather than forming a universal feedback. In the delayed-selfing, costly-capacity setting, capacity reached the declared change threshold first in 51 of 64 more-isolated histories; 13 were near-simultaneous. Nevertheless, investment declined when capacity evolution was prevented. At fixed plants, declining outcross returns drove the isolation-associated reduction in the marginal contribution of investment, while the selfed component partly offset it. Lower fractional pollen deficits did not necessarily mean more viable offspring.
+After 800 updates of identical current visitor exposure, the focal delayed-selfing
+setting retained a far-minus-near investment difference of -0.140 without
+mutation and -0.130 with mutation, together with positive assurance differences.
+Access-position contrasts were compatible with zero. However, the same residual
+history signal had different dynamical meanings. Without mutation, occupied
+populations retained one investment allele and showed no mean investment change
+over the final 100 updates. With mutation, multiple investment alleles were
+present and trait change continued. Mutation therefore permitted continued
+evolution without erasing the finite-horizon imprint of ecological history.
 
-Thus temporal precedence does not establish a single selfing-mediated route to reduced attraction. Isolation can alter two connected reproductive tradeoffs, whose expression depends on genetic variation and finite realization. These results are conditional mechanisms, not reconstructions of observed flower colours or regional histories. Completed zero-mutation and restricted mutation diagnostics bound numerical interpretation; the stopped high-resolution positive-mutation comparison remains unresolved.
+These results show that **evolutionary memory is not equivalent to evolutionary
+arrest**. A cross-sectional difference after environmental equalization can be
+consistent with genetic stasis or with ongoing recovery, depending on the
+available variation. Maintained-isolation selection and assurance experiments
+identify mechanisms that generate the initial divergence, but irreversibility,
+alternative attractors, universal recovery times and a converged
+finite-versus-continuum mechanism are not established.
 
 ## Keywords
 
