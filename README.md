@@ -16,6 +16,40 @@ The ABM and deterministic genotype model are parallel implementations;
 the mutation PDE is an approximation within the deterministic branch, not
 a downstream simulation or a separate ecological Model 4.
 
+### Current ecological focus (2026-10-05)
+
+**Does isolation make investment in attracting visitors less rewarding, and does
+investment decline require the evolution of selfing capacity?** The primary
+experiment maintains isolation throughout 1,000 reproductive updates. A separate
+common-environment experiment is a supplementary history diagnostic, not the
+central ecological claim. Time and distance are not calibrated years or kilometres.
+
+The additional completed and ongoing cohorts are distinct from the earlier bridge
+design described below; shared near references must not be counted as new runs:
+
+- **Sustained isolation:** 2,048 new far trajectories plus 2,048 existing matched
+  near references; 64 visitor histories and eight demographic repeats per setting.
+  [Results and temporal-order limits](docs/MODEL3_PERSISTENT_PROCESS_RESULTS_20261005.md).
+- **Fixed plants, changed visitor environment:** 768 verified local assays. At the
+  same plant state and capacity0.5, the more-isolated visitor histories produce
+  lower investment returns and greater pollen-saturation deficits in the reported
+  snapshot comparison. This is a local selection diagnostic, not realized evolution.
+  [Results and assumptions](docs/MODEL3_FIXEDPLANT_RETURNS_RESULTS_20261005.md).
+- **Evolved-plant pollen assays:** 12,288 verified snapshots. Raw seed compensation
+  and deficits after inbreeding depression can differ; pollen limitation is not
+  interchangeable with visitor scarcity.
+  [Assay results](docs/MODEL3_POLLEN_ASSAY_RESULTS_20261005.md).
+- **Fixed versus evolving capacity:** 8,192 declared trajectories are running.
+  Both modes start with capacity0.5 and zero assurance-locus variance. Complete
+  readout is gated on all cases; no partial biological conclusion is admitted.
+- **Numerical comparison:** high-resolution deterministic/diffusion validation
+  remains incomplete. Local precision checks do not admit a long-run comparison.
+
+Q1 motivates these independent mechanistic questions. Abstract investment is not
+an explicit flower-colour or accessibility phenotype, and no regional Q1 pattern
+is used to select parameters. See the [H1–H4 correspondence and claim boundaries](docs/MODEL3_Q1_MECHANISM_MAP_20261005.md)
+and the [full closeout requirements](docs/MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md).
+
 The ecological argument is:
 
 ```text
@@ -48,7 +82,7 @@ Access and floral investment are inherited in the active trajectories; assurance
 
 Each visitor has a functional optimum, breadth and effectiveness. Plant–visitor matching determines finite pollen transfer. Floral investment can increase visitor-mediated return but carries a reproductive allocation cost, so the direction favoured by selection depends on both the plant's starting state and the realized visitor environment.
 
-A full Model 3 trajectory year follows this biological order; the fixed-state assay deliberately stops after the reproductive step before inheritance or population updating:
+A full Model 3 reproductive update follows this biological order; the fixed-state assay deliberately stops after the reproductive step before inheritance or population updating:
 
 ```text
 visitor environment
@@ -76,7 +110,7 @@ The same reproductive operator is then viewed at three nested levels:
 
 The prospective isolation bridge changes visitor connectivity rather than assigning synthetic cells to real islands. In the frozen bridge, the primary comparison is a **near** versus **far** visitor-arrival environment, followed by prespecified interventions that diagnose different parts of the mechanism: annual visitor-count matching, pooling independent visitor histories, and increasing plant capacity.
 
-Its **24,576 computational cases** are:
+That earlier bridge cohort's **24,576 computational cases** are (not the current mutation/intervention campaign size):
 
 ```text
 128 independent visitor histories

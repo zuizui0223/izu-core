@@ -4,8 +4,8 @@ The user-updated goal is to explain how isolation produces investment and autono
 
 | Requirement | Authoritative evidence now | Remaining work |
 |---|---|---|
-| Sustained isolation versus later common environment | Full 1,000-period main ABM campaigns; persistent summary, original full-mutation outputs | Harmonized figures and direct matched experiment contrasts, with uncertainty and persistence |
-| Visitor scarcity preceding floral response | Frozen-history exposure audit: 64 paired histories, source verified | Connect pollen-delivery and reproductive-contribution trajectories without equating type count with field species richness |
+| Sustained isolation versus later common environment | Full 1,000-period ABM campaigns, direct matched contrasts, verified full-trajectory and endpoint figures complete | Incorporate sustained isolation as primary and common environment as supplementary in final narrative |
+| Visitor scarcity preceding floral response | Frozen-history exposure audit and768 same-plant visitor assays complete, including local investment contribution derivatives and pollen deficits | Distinguish fixed-state selection from realized evolution; do not equate type count with field species richness |
 | Pollen limitation and reproductive assurance | 12,288 snapshot assays, 24 cells, independently verified; one extinction explicitly undefined | Clearly separate raw/viable outcomes and assay timing; do not claim full temporal mediation |
 | Investment change without capacity evolution | Separate matched-founder intervention frozen and launched: 8,192 cases, 1,000 periods, two workers | Complete all cases, validate zero-mutation equality, paired isolation and mode contrasts, occupancy and uncertainty |
 | Temporal order | Full persistent-run crossing diagnostics with threshold sensitivities and censored categories | Present within-island change separately from additional isolation divergence; order is not causation |
