@@ -1,0 +1,12 @@
+{
+  "scope": "coverage audit of existing receipts and source reports; no scientific rerun",
+  "sources": {
+    "data/results/model3_joint_thresholds_20261004.json": "15587415d00e9adbc37cf5ed28a3411d7696740240d2ae09ee9a1d3b43d7ca0d",
+    "data/results/model3_mutation_memory_20261004.json": "c0c54dae356e3d139b0cacc5a1c4c640f3cfd4f0200f717314c06354c791af99",
+    "docs/MODEL3_PDE_CLOSEOUT_20261004.md": "fe7f4ac9859083dc416f168f84b57b370db507cf82b1df6fc111ae458c5d1d2a",
+    "docs/MODEL3_CH2_BRIDGE_ECOLOGICAL_RESULTS_20260928.md": "40a7602ff91a69460e0f4a6c105efd6b5c6e5469f48576b3fcbb9da53b43d938",
+    "data/results/model3_persistent_isolation_summary_20261005.json": "159b28051658e08265958805f6a898e72f2c9cb9c78b329cb6c0f98ff364fa32"
+  },
+  "poster_complete": false,
+  "high_grid_restart": false
+}

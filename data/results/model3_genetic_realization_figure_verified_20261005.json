@@ -1,0 +1,9 @@
+{
+  "checked_values": 24,
+  "status": "passed",
+  "all_four_bridge_interventions": true,
+  "all_capacity_mutation_history_groups": true,
+  "csv_sha256": "52218e46d31253a51b217c475329e083a7f33185fab5d4852d868a6274186bec",
+  "figure_sha256": "7c59290b54879c2f62298619b4e64e84f2054d8095333afed24fc491356f66c0",
+  "scope": "source-summary value verification, not raw rerun or re-estimation"
+}
