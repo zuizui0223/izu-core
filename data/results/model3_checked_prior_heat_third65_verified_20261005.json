@@ -1,0 +1,19 @@
+{
+  "input_sha256": "ce301d50d0f91d065ae4456ecb3df24860ad00bc172657659613b18ca3b5c59d",
+  "scope": "third heat step from captured previous state; local marginal/resource probe only",
+  "status": "passed_marginals",
+  "relative_marginal_l1": 5.267699117398322e-13,
+  "trait_gap": 1.8485213360008856e-14,
+  "ranks": [
+    121,
+    101,
+    70
+  ],
+  "npz_sha256": "5d11fbf3b874978adafb4d6fc71b6ea2609cc9c18abd9be31a205a1c19bbad79",
+  "seconds": 68.81200000003446,
+  "source_files_verified": 117,
+  "archive_sha256": "694c0a83bf5f4b89651e72893eb31b02d0d0ebdee817bc059bf84979d739f861",
+  "source_archive_and_current_match": true,
+  "stored_marginals_recomputed": true,
+  "claim_ceiling": "One reproductive update at 65 nodes only; not long-run or grid convergence."
+}

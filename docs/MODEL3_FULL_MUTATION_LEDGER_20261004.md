@@ -937,3 +937,10 @@ The superseded binary-reader third-step probe was terminated only after the new 
 The eight-case rounded-gamete ten-period probe finished with failures preserved (receipt model3_rounded_gamete_ten65_outcomes_20261005.json). Delayed-setting cases stop at period4 on a24-million-element weighted core; prior jump cases at period5; prior heat cases at period3 on NumPy SVD nonconvergence. Tracebacks isolate the weighted core allocation and rectangular child-factor SVD respectively.
 
 Added blockwise weighting with directly measured projection residuals and operator-norm transport to physical joint L1. It rejects incompressible outputs rather than relaxing tolerance. Added an alternate SVD driver only on nonconvergence, with reconstruction/orthogonality checks.34 focused tests passed across the two suites, including integrated dense-reference checks and forced fallback failures. High-grid probes remain in progress: streamed_weight_fourth65 (session9845) and checked_prior_heat_third65 (session53302). These do not admit a full1000-period campaign yet. No existing frozen biological settings were changed.
+
+
+### Verified heat-step repair and next gate
+
+The checked prior/near/heat65 third-step probe completed in68.812s. Source archive and current117 source hashes plus saved NPZ were independently verified; stored exact-reference marginals recomputed at relativeL1 5.27e-13 and trait gap1.85e-14. Receipt:model3_checked_prior_heat_third65_verified_20261005.json. This is one local update only. The delayed near/jump fourth-step probe remains live (9845/PID19672), now executing offspring projection beyond the previous weighted-core failure.
+
+Prepared audit_checked_streamed_ten65 using the same eight cases, founder support, history, ten-period resource horizon and unchanged error/array caps. It refuses to start until both saved-state repair probes pass and their archived/current sources and output hashes match. Script compiled; campaign not yet launched. No long-run or positive-mutation ecological comparison is admitted.
