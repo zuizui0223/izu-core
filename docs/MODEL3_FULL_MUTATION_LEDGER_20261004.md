@@ -931,3 +931,9 @@ The captured third-step 65-node near/jump/delayed-cost probe now completes in 11
 ### Ten-period continuation launched
 
 The superseded binary-reader third-step probe was terminated only after the new joint-gamete implementation passed the same saved-state independent check; its files and termination receipt remain preserved. Launched audit_rounded_gamete_ten65 in the candidate checkout with the original eight frozen cases, founder support, history76001, ten periods, local1e-8 tolerance, and16-million-value cap. Session17738. This is the previously declared resource gate, not a replacement biological horizon. Each period checks exact next marginals from its current full joint state. Full1000-period and grid/accumulated-error admission remains outstanding.
+
+## 2026-10-05 streamed ecological weighting and checked SVD
+
+The eight-case rounded-gamete ten-period probe finished with failures preserved (receipt model3_rounded_gamete_ten65_outcomes_20261005.json). Delayed-setting cases stop at period4 on a24-million-element weighted core; prior jump cases at period5; prior heat cases at period3 on NumPy SVD nonconvergence. Tracebacks isolate the weighted core allocation and rectangular child-factor SVD respectively.
+
+Added blockwise weighting with directly measured projection residuals and operator-norm transport to physical joint L1. It rejects incompressible outputs rather than relaxing tolerance. Added an alternate SVD driver only on nonconvergence, with reconstruction/orthogonality checks.34 focused tests passed across the two suites, including integrated dense-reference checks and forced fallback failures. High-grid probes remain in progress: streamed_weight_fourth65 (session9845) and checked_prior_heat_third65 (session53302). These do not admit a full1000-period campaign yet. No existing frozen biological settings were changed.
