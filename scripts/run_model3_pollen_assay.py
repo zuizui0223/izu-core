@@ -5,7 +5,6 @@ import json
 import zipfile
 import numpy as np
 from scripts.run_model3_persistent_isolation import config, exposure, tasks
-from scripts.summarize_model3_full_mutation import read_case
 from scripts.model3_island.types import PlantState
 from scripts.model3_island.reproduction import reproduce
 from scripts.model3_pollen_assay import assay_totals
@@ -37,9 +36,10 @@ def main():
             receipt = json.loads((directory/(name+'.json')).read_text(encoding='utf-8'))
             expected = list(task[2:]); expected[5] = arm
             assert receipt['task'] == expected and receipt['sha256'] == sha(path)
-            trace = read_case(directory, name)
             history = exposure(seed, arm)
             with np.load(path) as data:
+                trace = data['trace']
+                assert trace.shape == (1001, 10)
                 for period in plan['snapshots']:
                     alleles = data['state_'+str(period)]
                     n = len(alleles)
