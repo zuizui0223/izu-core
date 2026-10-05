@@ -22,3 +22,7 @@ Visitor replenishment and pollen supply change reproductive returns. Joint inequ
 ## Poster status
 
 The ecological-results revision retains Q1 and adds actual history trajectories and capacity controls. It does not yet give finite-population and mutation evidence adequate graphic space. Therefore this audit does not certify that every mathematical result is reflected in the final poster. Use a small supporting row for genetic realization with separate cohort labels; keep full derivations and approximation failures in SI. Do not hide an uncompleted comparison behind a generic ABM/PDE label.
+
+## Delivered poster revision
+
+`Island_Biology_2026_A0_processes_v2_20261005.pptx` and PDF now include explicit threshold inequalities,64-history early trajectories with full1000-update mean insets, fixed/evolving capacity endpoints, all four finite/density bridge interventions, and mutation diagnostic means for both population capacities and both histories. The supplementary cohorts are labelled separately. Eleven native Q2 charts were validated;56,711 displayed Y values match the verified plotting inputs. Native PowerPoint rendering was inspected. Q1's18 media assets remain byte-identical. See `data/results/model3_poster_processes_delivery_20261005.json`. This updates the earlier poster-status paragraph; it does not certify completion of all manuscript or numerical work.

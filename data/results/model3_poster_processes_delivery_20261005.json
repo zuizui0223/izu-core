@@ -1,0 +1,25 @@
+{
+  "status": "verified_rendered_revision",
+  "files": {
+    "pptx": {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v2_20261005.pptx",
+      "sha256": "2a7c37185c0e85392c4def6562106a4f8e54dcaeb389650cfeab86d2284d2f8c",
+      "bytes": 59250070
+    },
+    "pdf": {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v2_20261005.pdf",
+      "sha256": "9ff276d842eef2f9c693e3d5f34805437acecfa3da49428b2ffa123ee3ceda8c",
+      "bytes": 2841494
+    },
+    "png": {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v2_20261005.png",
+      "sha256": "20cb885b4f5aaba4ba193d44b4764eb1006535d60d81b8bee8708d23f500c037",
+      "bytes": 2429224
+    }
+  },
+  "q2_charts": 11,
+  "final_y_values_equal_verified_candidate": 56711,
+  "q1_media_byte_identical": 18,
+  "claim_scope": "Q1 media preserved; Q2 numbers checked against plotting inputs; native PowerPoint PNG/PDF render visually inspected. Not a new Q1 analysis or full scientific closeout.",
+  "remaining": "Main manuscript integration and full completion audit remain. Full-model high-grid positive-mutation comparison stopped unresolved."
+}
