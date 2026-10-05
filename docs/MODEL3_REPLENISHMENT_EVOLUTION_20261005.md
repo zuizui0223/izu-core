@@ -17,6 +17,11 @@ $env:PYTHONUTF8='1'
 python -m scripts.run_model3_replenishment_evolution --preflight-only
 python -m scripts.run_model3_replenishment_evolution --workers 4
 python -m scripts.summarize_model3_replenishment_evolution
+python -m scripts.verify_model3_replenishment_raw_curves
+python -m scripts.verify_model3_replenishment_readout
+python -m scripts.figure_model3_replenishment_evolution
 ```
 
 The summarizer refuses an incomplete campaign. A successful mean trend does not establish universal order, independence from reproductive assumptions, or an admitted positive-mutation deterministic/PDE comparison. The prior cost/depression sensitivity remains local-selection evidence and is not replaced by this fixed-parameter evolution gradient.
+
+The separate raw-curve verifier reconstructs each history at every update by selecting its surviving repeats explicitly. It checks all 13,312 case identities and hashes, both 1,001-update trait contrasts, and occupied/paired denominators. This is independent of the production aggregation helper, not an independent biological simulator. The subsequent readout verifier checks threshold classification and interval calculations from the verified curves. Calling the raw verifier during production was deliberately rejected before loading outcomes, confirming its incomplete-campaign guard. Numerical verification is still pending the completed campaign; preparing these checks does not certify unfinished results.
