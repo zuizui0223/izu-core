@@ -1,0 +1,18 @@
+{
+  "status": "declared_before_execution",
+  "purpose": "Separate within-environment selfing-capacity and investment effects on pollen-saturation deficits, connecting to Q1 H4 without claiming literal accessibility or colour replication.",
+  "type": "exploratory instantaneous whole-population factorial intervention",
+  "base_population": "The same 48 founders as run_model3_assurance_intervention; retain matching alleles and metadata. Set both investment alleles of every plant to the assigned investment and both capacity alleles to the assigned capacity. No evolution or resampling.",
+  "investment_values": [0.25, 0.5, 0.75],
+  "capacity_values": [0.25, 0.5, 0.75],
+  "settings": ["assurance_cost", "prior_selfing"],
+  "configuration": "Use existing setting configuration with assurance_mode evolving so assigned capacity is read; preserve all reproduction rules, costs, pollen discount and depression. Mutation is irrelevant to this instantaneous assay.",
+  "histories": {"first": 76001, "last": 76064},
+  "arms": ["near", "far"],
+  "visitor_snapshots": [0, 200, 400],
+  "expected_records": 6912,
+  "metrics": ["raw_deficit", "viable_deficit", "natural_raw", "natural_viable", "saturated_raw", "saturated_viable", "viable_selfed", "ovules", "received_pollen"],
+  "contrasts": "Within each setting, exposure arm and snapshot, high-minus-low capacity at each fixed investment, and high-minus-low investment at each fixed capacity. Report intermediate values and capacity-by-investment interaction. Pair by visitor history; 5000 bootstrap history resamples with seed 8102026, descriptive 95 percent intervals, no multiplicity-adjusted confirmatory claim.",
+  "validation": "Archive sources before execution; require exact 6912 unique records, identical near/far outcomes at snapshot0, ledger equality for viable output, finite/nonnegative reproductive totals and deficits bounded by0 and1 when denominator positive. Zero denominator remains undefined.",
+  "limits": "Whole-population intervention includes pollen-donor and recipient feedback; not a focal invasion or individual regression coefficient. Reduced fractional deficit need not increase absolute viable offspring because denominators and allocation costs change. Prior selfing saturation cannot reclaim prior-selfed ovules. No adaptive-value conclusion from deficit alone. Two settings differ jointly in timing and capacity cost; do not attribute their contrast to one factor. Abstract matching is not floral accessibility. This design follows earlier exposure and compensation results and is exploratory, not an independent confirmatory test. Report every declared condition regardless of direction."
+}
