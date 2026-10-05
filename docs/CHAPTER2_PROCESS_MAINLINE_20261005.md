@@ -1,11 +1,18 @@
 # Current Ch2: ecological process decomposition
 
-> **Routing update, 2026-10-06:** this document is no longer the paper-level
-> controlling narrative on `codex/model3-full-mutation-closeout-20261004`.
-> The controlling scientific narrative is
-> `CHAPTER2_MUTATION_HISTORY_MAINLINE_20261006.md`. The process decomposition
-> below is retained as mechanistic support explaining how isolation-generated
-> divergence arises; its numerical results and claim boundaries are unchanged.
+> **Routing decision, 2026-10-06:** the 2026-10-05 ecological results below are
+> the paper-level controlling narrative on
+> `codex/model3-full-mutation-closeout-20261004`. The full-mutation
+> common-environment history experiment is retained as complementary genetic/
+> history evidence, not the paper spine.
+
+The central result is not merely that reproductive assurance often changes
+before floral investment. The key causal distinction is that **assurance can
+change first without being required for investment decline**. At an identical
+plant state, stronger visitor limitation lowers the marginal reproductive return
+to investment; blocking assurance evolution therefore does not remove the
+investment response. Allowing assurance evolution can also reduce the observed
+near-far investment contrast because investment changes in both environments.
 
 This document supersedes the September bridge-centred narrative for the active manuscript. Older designs, results and submission snapshots remain provenance; their numerical claims have not been overwritten. The active manuscript is `CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`; the historical Oikos renderer now reads a fixed snapshot under `legacy/submission-history/model3_bridge_20261004/`.
 
