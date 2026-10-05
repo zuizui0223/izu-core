@@ -49,11 +49,12 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Validate active unified Model 3 submission surface
+      - name: Validate active Model 3 mutation-history submission surface
         run: |
           pytest -q \
             tests/test_chapter2_mechanistic_funnel.py \
             tests/test_chapter2_model3_submission.py \
+            tests/test_chapter2_mutation_history_mainline.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
