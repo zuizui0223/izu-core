@@ -1,0 +1,8 @@
+{
+  "status": "all_plotted_coordinates_match_sources",
+  "investment_coordinates": 512512,
+  "temporal_events": 128,
+  "pdf_sha256": "2095236aba8b985ab3cebbdd6e5b4107c73fdb9c5f2edd7b949db9b6bd1db47a",
+  "visual_review": "pending_pdf_render",
+  "scope": "Exact identity against previously verified stored means and events; not independent reimplementation of biology."
+}
