@@ -15,5 +15,8 @@
   "archive_sha256": "694c0a83bf5f4b89651e72893eb31b02d0d0ebdee817bc059bf84979d739f861",
   "source_archive_and_current_match": true,
   "stored_marginals_recomputed": true,
-  "claim_ceiling": "One reproductive update at 65 nodes only; not long-run or grid convergence."
+  "claim_ceiling": "One reproductive update at 65 nodes only; not long-run or grid convergence.",
+  "core_factors_marginals_recomputed": true,
+  "recomputed_trait_gap": 1.8485213360008856e-14,
+  "recomputed_relative_marginal_l1": 5.267699117398322e-13
 }
