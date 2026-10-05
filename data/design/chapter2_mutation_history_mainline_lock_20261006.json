@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "active_scientific_mainline",
+  "controlling_document": "docs/CHAPTER2_MUTATION_HISTORY_MAINLINE_20261006.md",
+  "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+  "primary_result": "docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md",
+  "primary_question": "After pollinator environments become identical, what does a persistent evolved floral difference mean?",
+  "central_claim": "Evolutionary memory is not equivalent to evolutionary arrest.",
+  "primary_design": {
+    "history_phase_updates": 200,
+    "common_environment_updates": 800,
+    "evolving_traits": [
+      "access",
+      "investment",
+      "reproductive_assurance"
+    ],
+    "mutation_probabilities": [
+      0,
+      0.01
+    ],
+    "independent_visitor_histories": 64,
+    "demographic_repeats_per_history": 8
+  },
+  "primary_interpretation": [
+    "Residual investment and assurance history contrasts persist after 800 common-environment updates in the declared full-mutation ABM experiment.",
+    "Zero-mutation populations can retain history after allelic collapse and late investment stasis.",
+    "Positive-mutation populations can retain history while multiple investment alleles are present and late investment change continues.",
+    "A persistent endpoint difference therefore does not diagnose evolutionary arrest."
+  ],
+  "mechanism_support": [
+    "docs/CHAPTER2_PROCESS_MAINLINE_20261005.md",
+    "docs/MODEL3_PERSISTENT_PROCESS_RESULTS_20261005.md",
+    "docs/MODEL3_ASSURANCE_INTERVENTION_RESULTS_20261005.md",
+    "docs/MODEL3_POLLEN_FITNESS_PATHWAYS_20261005.md"
+  ],
+  "excluded_claims": [
+    "irreversible evolution",
+    "alternative stable attractors",
+    "universal recovery time",
+    "mutation-independent memory",
+    "validated positive-mutation ABM-minus-converged-continuum mechanism",
+    "field-calibrated restoration trajectory"
+  ],
+  "numerical_boundary": "The positive-mutation long high-resolution deterministic/PDE comparison is closed unresolved and is not required for the finite-ABM ecological claim."
+}
