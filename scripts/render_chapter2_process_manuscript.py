@@ -8,7 +8,7 @@ import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md'
-TITLE = 'Evolutionary memory after pollinator isolation does not imply evolutionary arrest'
+TITLE = 'Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation'
 
 
 def render_manuscript(source: Path | None = None) -> str:
