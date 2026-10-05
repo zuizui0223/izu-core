@@ -94,6 +94,25 @@ Izu supplies the most resolved A-layer branching contrast: corrected matching is
 
 # Results
 
+## Local conditions for syndrome-direction selection
+
+The rare-mutant calculation holds resident pollen supply and recipient competition fixed and counts both parental functions: W=F/2+P/2+S, where F is maternal outcross contribution, P paternal outcross contribution and S viable selfed contribution. Let investment be i, autonomous-selfing capacity a, viable selfed fraction v=1-delta, pollen-discount coefficient d and resident outcross fraction q. For delayed selfing define f=q and l=1-q; for prior selfing f=(1-a)q and l=1. Put s=avl, M=f/2+s and J=1 for prior selfing, otherwise0. The existing analytical implementation gives:
+
+    c_a* = [v*l - J*q/2 - d*f/2] / (2*a*M)
+    c_i* = B_i*(f+s) / (2*i*M)
+
+Here B_i is the fixed-resident marginal investment benefit including maternal and paternal functions. At interior trait values with positive fitness and M>0, investment is selected downward when c_i>c_i*, and capacity upward when c_a<c_a*. Their overlap defines the model's local syndrome-direction region. Negative thresholds are retained, not clipped. The inequalities depend on the resident and visitor environment; they do not impose an island optimum or identify a universal distance threshold.
+
+Independent finite differences across900 state-by-setting-by-community cells matched both analytical gradients, with maximum discrepancy1.25e-9. This verifies the local selection calculation, not a claim that every population follows its instantaneous gradient: genetic covariance, loss of variation and finite sampling still intervene. Evidence: `data/results/model3_joint_thresholds_20261004.json` and `MODEL3_PDE_CLOSEOUT_20261004.md`.
+
+These conditions separate two consequences of visitor limitation: the return from replacing unfilled outcross opportunities through selfing, and the marginal return from attracting visitors. Inbreeding depression discounts the former; investment costs must be paid even when the latter is small. The two inequalities need not change sign together. They therefore supply a mechanistic basis for testing the sequence of capacity increase and investment decline, without predicting that sequence from a local gradient alone. The maintained-isolation trajectories below measure realized threshold-crossing order, while the fixed-capacity intervention tests necessity. These are distinct estimands.
+
+## Current flowers do not uniquely determine inherited response
+
+A same-phenotype counterexample identifies a limitation of a phenotype-only closure. A population of0.5/0.5 homozygotes and one of0.4/0.6 heterozygotes share investment phenotype0.5 under the same ecology. Their next-generation means both equal0.5, but variances are0 and0.005. A deterministic equation using only the current phenotype distribution cannot return both outcomes without additional genetic state or closure assumptions. This is a model-specific identifiability result, not evidence that genetic differences caused Q1's regional patterns.
+
+In a separate fixed-environment, bounded-founder-support audit, the reduced zero-mutation phenotype ODE matched the direction of the sexual-genotype model in25/25 cells at60,200 and800 updates. At800 updates the mean absolute difference was1.62e-7, but endpoint-mean agreement does not establish matching transient distributions or general genetic closure. At zero mutation this is an ODE, not a diffusion PDE. The genuine PDE component concerns reflected allelic mutation at birth, retaining sexual inheritance as an integral/difference operation. These completed mathematical diagnostics are distinct from the ongoing positive-mutation long-run comparison.
+
 ## Sustained isolation: sequence, mechanism and reproductive consequences
 
 The maintained-isolation cohort follows64 visitor histories with eight demographic repeats per history and setting for1,000 reproductive updates. In the delayed-selfing, capacity-cost0.5 setting with mutation0.01, selfing capacity crossed a0.05 change maintained for20 updates before investment declined in51/64 more-isolated history means;13 were within five updates. The prior-selfing, no-capacity-cost setting gave38 capacity-first and26 near-simultaneous histories. Smaller changes were often near-simultaneous, especially in the prior setting. These are threshold-crossing times, not the onset of infinitesimal change; the two settings differ jointly in timing and capacity cost.
