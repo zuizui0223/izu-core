@@ -10,7 +10,7 @@ The primary Model 3 is process-based but system-uncalibrated. Its numerical sett
 | Mutation | Rates 0 and 0.01 | Two-point comparison, not a mutation-rate response surface |
 | Reproductive setting | Delayed selfing with capacity cost 0.5; prior selfing without capacity cost | Joint change of timing and cost; cannot attribute difference to either alone |
 | Timing criterion | Changes 0.025, 0.05 and 0.10, held for 20 updates; ties within five | Readout sensitivity, not sensitivity of the underlying biological trajectory |
-| Isolation | 13 distances, 64 histories, 45 resident states, three snapshots in new local-selection diagnostic | Fixed-state selection across an arrival gradient, not 13-distance evolutionary trajectories |
+| Visitor replenishment | 13 rates, 64 histories, 45 resident states, three snapshots in the local-selection diagnostic; completed positive-mutation evolution at all 13 rates, two settings and eight demographic repeats | Both local selection and realized evolutionary order along the declared rate gradient; fixed plant capacity 48 and no geographic calibration |
 | Reciprocal selection | Four existing settings, five controlled communities, three matching positions, 49 x 49 investment/capacity grid | Local state and setting coverage; no global parameter/functional-form proof |
 | Population size | Completed zero-mutation bridge includes capacities 48 and 192 | Distinct cohort; cannot substitute for mutation-positive, three-trait long-run convergence |
 
@@ -22,7 +22,7 @@ At update 1,000, the delayed/costly setting has far-minus-near investment change
 
 For the prior/no-cost setting with mutation, capacity-first histories number 17, 38 and 54 out of 64 when the readout threshold is 0.025, 0.05 and 0.10; the other histories are near-simultaneous. All these histories reach both events. Therefore 'capacity always starts first' is not supported. The delayed/costly counts are 51, 51 and 57, respectively. This is threshold-crossing order, not infinitesimal onset.
 
-The far treatment has visitors absent in approximately 75.9% of the used snapshots (near approximately 0.73%). In the complete-absence limit with positive investment cost, no visitor-mediated attraction benefit remains. This is an important structural boundary and makes intermediate, intermittently visited conditions essential to assessing generality. The new isolation diagnostic addresses local selection there, but does not establish realized evolutionary order there.
+The far treatment has visitors absent in approximately 75.9% of the used snapshots (near approximately 0.73%). In the complete-absence limit with positive investment cost, no visitor-mediated attraction benefit remains. This is an important structural boundary and makes intermediate, intermittently visited conditions essential to assessing generality. The completed 13-rate evolution extension now measures realized order there as well as local selection. All 13,312 cases, 9,984 timing records and 156 endpoint rows were independently reconstructed. This exploratory extension varies replenishment within the two declared reproductive settings; it does not establish robustness across other biological parameters. See MODEL3_REPLENISHMENT_EVOLUTION_RESULTS_20261005.md.
 
 ## What remains unestablished
 

@@ -1,4 +1,5 @@
 # Scientific receipts refer to exact artifact bytes, including line endings.
+legacy/submission-history/model3_bridge_20261004/MANUSCRIPT.md -text
 data/results/model3_*_20260925/* -text whitespace=cr-at-eol
 data/results/model3_island_v2_summary/* -text whitespace=cr-at-eol
 data/results/model3_island_v2_summary/*.svg -whitespace

@@ -1,0 +1,37 @@
+{
+  "status": "numeric_evidence_preserved_and_PowerPoint_render_reviewed",
+  "native_charts": 12,
+  "unchanged_numeric_values": 105946,
+  "unchanged_media_parts": 53,
+  "visible_text": {
+    "source_sha256": "ba777de98ea7db1b71af8f7b505420b1232626f145d7c282edd41ebf6a7d8da0",
+    "before_words": 1693,
+    "after_words": 894,
+    "changed_text_objects": 107,
+    "scope": "Text and placement edits; all embedded evidence images and chart/workbook parts preserved."
+  },
+  "Q1_scope": "Results and images unchanged; wording and layout shortened at user request, not identical shapes.",
+  "files": [
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v9_20261005.pptx",
+      "bytes": 59147780,
+      "sha256": "f55fe7fd0cefcf4feb9d857ed5ae9295327f54e1ac350f2f9185c2ba659ce1f2"
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v9_20261005.pdf",
+      "bytes": 2930457,
+      "sha256": "0a898b5e6652d7b6e5fb2a89db6962198d9c94522aec29ee2983a8d791f44a4b"
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v9_20261005.png",
+      "bytes": 2035719,
+      "sha256": "64fa38e1b0a3eef5577371f6e131b587bd9fdf1d5c7e10565e93edf3c9670011"
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_processes_v9_sources.zip",
+      "bytes": 59152693,
+      "sha256": "4589e08908c8e56de4932a6e302d398399d140c4d5c1b08bab1c97f140e2ddce"
+    }
+  ],
+  "source_archive_members": 7
+}

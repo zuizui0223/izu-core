@@ -1,0 +1,42 @@
+{
+  "package": {
+    "status": "review_package_readback_verified",
+    "archive": "outputs/chapter2_process_delivery/chapter2_process_review_20261005.zip",
+    "sha256": "c2465e960a741a7e6045283faca601de9ac613f4fe0535a7854eae072140bb06",
+    "members": 405,
+    "bytes": 25450478,
+    "scientific_completion_inferred": false,
+    "complete_raw_data_deposit": false
+  },
+  "isolated_redraw": {
+    "status": "four_main_figures_redrawn_from_isolated_package",
+    "archive_sha256": "c2465e960a741a7e6045283faca601de9ac613f4fe0535a7854eae072140bb06",
+    "extraction": "outputs/chapter2_process_delivery/redraw-3dps_ktf",
+    "commands": [
+      {
+        "module": "scripts.figure_model3_selection_process",
+        "exit_code": 0
+      },
+      {
+        "module": "scripts.figure_model3_sequence_necessity",
+        "exit_code": 0
+      },
+      {
+        "module": "scripts.figure_model3_return_components",
+        "exit_code": 0
+      },
+      {
+        "module": "scripts.figure_model3_genetic_realization",
+        "exit_code": 0
+      }
+    ],
+    "identical_export_files": [
+      "model3_selection_process_20261005/plotted_values.csv",
+      "model3_sequence_necessity_20261005/plotted_events.json",
+      "model3_genetic_realization_20261005/plotted_values.csv"
+    ],
+    "identical_trajectory_coordinates": 512512,
+    "scope": "Figure reproducibility from supplied arrays, not new biological validation."
+  },
+  "status": "current_review_delivery_verified"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "historical_submission_snapshot_not_current_manuscript",
+  "source_commit": "4b7d7bc7c0d6cd9b87e38150c55dfa99fd9b0556",
+  "source_path": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+  "sha256": "2870ed0e0d019ad63101820626e3a19a22f49b39a914237f59fe2bb80b869200",
+  "reason": "Keep the old bridge-focused submission renderer reproducible while the current process-decomposition manuscript evolves."
+}

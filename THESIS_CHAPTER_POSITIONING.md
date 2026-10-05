@@ -1,5 +1,7 @@
 # Thesis positioning — Chapter 2
 
+> Current-route note (2026-10-05): the narrative below records the earlier bridge-focused scope. The current process decomposition and parallel ABM/density architecture are governed by docs/CHAPTER2_PROCESS_MAINLINE_20261005.md. Earlier Q1 summaries are historical and do not override its current independent analysis.
+
 Updated: 2026-09-27
 
 ## Role in the dissertation

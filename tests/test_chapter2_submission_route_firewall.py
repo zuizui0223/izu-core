@@ -7,11 +7,11 @@ FIREWALL = ROOT / "docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md"
 
 def test_current_manuscript_is_model3_ecological_surface():
     lower = ACTIVE.read_text(encoding="utf-8").lower()
-    assert "from pollination ecology to realized floral evolution" in lower
-    assert "reproductive selection before demographic change" in lower
-    assert "conditional deterministic genotype-density propagation without demographic sampling" in lower
-    assert "realized evolution in finite populations" in lower
-    assert "annual response-blind richness matching" in lower
+    assert "how island isolation generates floral change" in lower
+    assert "local selection conditions" in lower
+    assert "propagate shared biological rules in parallel" in lower
+    assert "temporal precedence does not establish" in lower
+    assert "response-blind realized-richness matching at each update" in lower
     assert "pooling eight independent visitor histories" in lower
 
 

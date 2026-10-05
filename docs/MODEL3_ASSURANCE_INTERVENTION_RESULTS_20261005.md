@@ -25,6 +25,6 @@ All512 populations survive in each displayed arm except delayed/evolving/near (5
 
 Together with the fixed-plant return diagnostic, these results provide a model-conditional route from isolation-induced visitor limitation to reduced investment without evolving selfing capacity. The pollen intervention separately shows that improved fractional pollen limitation need not offset investment costs in absolute viable offspring. These address H2-H4 processes; the abstract traits are not a reproduction of Q1's seven traits or four regions. Time-order findings remain separate from this intervention evidence.
 
-FiniteABM versus deterministic/diffusion precision closure, final figure and poster updates remain outstanding. Do not declare Ch2 complete from this experiment alone.
+Current-state amendment: the high-resolution deterministic/diffusion extension was stopped and closed unresolved under MODEL3_LONG_COMPARISON_DECISION_20261005.md. The intervention figure and processes-v6 poster are now generated and verified. Whole-Ch2 delivery status is maintained in MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md; this experiment alone does not establish full numerical equivalence.
 
 Reproduce: `python -m scripts.summarize_model3_assurance_intervention` after full campaign completion, then `python -m scripts.verify_model3_assurance_intervention_summary`. The summary preserves existing output and will refuse overwrite. Evidence: `data/results/model3_assurance_intervention_summary_20261005.json` and `data/results/model3_assurance_intervention_verified_20261005.json`.

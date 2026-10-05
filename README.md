@@ -4,7 +4,17 @@ This repository is the Chapter 2 mechanism paper built around **one ecologically
 
 Current paper title:
 
-> **From pollination ecology to realized floral evolution in finite island populations**
+> **How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization**
+
+The [current process narrative](docs/CHAPTER2_PROCESS_MAINLINE_20261005.md) governs
+the active manuscript. The older Oikos bridge submission is a historical snapshot;
+its renderer and figures do not define the current paper.
+
+The current process manuscript, supporting methods/results and figure package
+are assembled. See the [requirement-by-requirement scientific audit](docs/CHAPTER2_PROCESS_FINAL_AUDIT_20261005.md)
+and [current supporting information](docs/CHAPTER2_PROCESS_SUPPORTING_INFORMATION_20261005.md).
+This is a bounded scientific delivery, not a journal submission or successful
+validation of the stopped high-resolution mutation comparison.
 
 The earlier Chapter 2 closeout remains bounded by its declared synthetic claim ceiling.
 The full three-trait mutation extension has now completed 4,368 declared cases:
@@ -25,12 +35,17 @@ experiment maintains isolation throughout 1,000 reproductive updates. A separate
 common-environment experiment is a supplementary history diagnostic, not the
 central ecological claim. Time and distance are not calibrated years or kilometres.
 
-The additional completed and ongoing cohorts are distinct from the earlier bridge
+The additional completed cohorts are distinct from the earlier bridge
 design described below; shared near references must not be counted as new runs:
 
 - **Sustained isolation:** 2,048 new far trajectories plus 2,048 existing matched
   near references; 64 visitor histories and eight demographic repeats per setting.
   [Results and temporal-order limits](docs/MODEL3_PERSISTENT_PROCESS_RESULTS_20261005.md).
+- **Continuous replenishment:** 13 rates at fixed plant capacity 48; 11,264 new
+  trajectories plus 2,048 reused positive-mutation endpoints. All 13,312 cases,
+  9,984 event records and 156 endpoint rows are independently verified.
+  [Complete results and uncertainty](docs/MODEL3_REPLENISHMENT_EVOLUTION_RESULTS_20261005.md).
+  Rates represent established visitor types per update, not visits, kilometres or island area.
 - **Fixed plants, changed visitor environment:** 768 verified local assays. At the
   same plant state and capacity0.5, the more-isolated visitor histories produce
   lower investment returns and greater pollen-saturation deficits in the reported
@@ -161,10 +176,12 @@ Stable latent branch prevalence, calibrated natural evolutionary rates, named hi
 Scientific narrative:
 
 - `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` — active manuscript.
-- `docs/CHAPTER2_CANONICAL_STORY_20260927.md` — current claim spine.
+- `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md` — current claim spine and parallel-model structure.
+- `docs/CHAPTER2_CANONICAL_STORY_20260927.md` — historical bridge narrative.
 - `docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md` — why Model 3 is the only active mechanistic model.
 - `docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md` — current/legacy boundary.
-- `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md` — Chapter 1 → Chapter 2 handoff.
+- `docs/MODEL3_Q1_MECHANISM_MAP_20261005.md` — current independent H1–H4 correspondence.
+- `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md` — historical Chapter 1 → Chapter 2 handoff.
 
 Model 3 evidence:
 
@@ -175,7 +192,7 @@ Model 3 evidence:
 - `data/results/model3_ch2_bridge_prospective_frozen_20260927.json`
 - `data/results/model3_island_v2_summary/`
 
-Machine-readable control:
+Historical bridge-submission control (not the newer process manuscript):
 
 - `data/design/chapter2_unified_model3_lock_20260927.json`
 - `data/design/chapter2_oikos_submission_manifest_20260927.json`
@@ -185,11 +202,14 @@ Implementation:
 
 - `scripts/model3_island/` — finite-population and deterministic Model 3 implementation.
 - `scripts/model3_island_bridge_ops.py` — prospective bridge interventions.
-- `scripts/generate_chapter2_unified_model3_figures.py` — current Figures 1–4.
-- `scripts/render_chapter2_oikos_generality_overlay.py` — journal-clean manuscript renderer.
-- `scripts/render_chapter2_supporting_information.py` — current Model 3 Supporting Information.
-- `scripts/build_island_ecology_submission_bundle.py` — fail-closed Oikos bundle.
-- `scripts/build_island_ecology_review_archive.py` — anonymous reviewer archive.
+- `scripts/render_chapter2_process_manuscript.py` — current process manuscript renderer.
+- `scripts/figure_model3_selection_process.py`, `scripts/figure_model3_sequence_necessity.py`, `scripts/figure_model3_return_components.py`, `scripts/figure_model3_genetic_realization.py` — current primary figures.
+- `scripts/figure_model3_replenishment_evolution.py` — complete replenishment-gradient panels.
+- `scripts/generate_chapter2_unified_model3_figures.py` — historical bridge Figures 1–4.
+- `scripts/render_chapter2_oikos_generality_overlay.py` — historical snapshot renderer.
+- `scripts/render_chapter2_supporting_information.py` — historical bridge Supporting Information.
+- `scripts/build_island_ecology_submission_bundle.py` — historical Oikos bundle.
+- `scripts/build_island_ecology_review_archive.py` — historical anonymous reviewer archive.
 
 ## Natural evidence boundary
 

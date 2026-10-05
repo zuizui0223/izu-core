@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from scripts.build_island_ecology_submission_bundle import validate_scientific_gate
-from scripts.render_chapter2_oikos_generality_overlay import render_submission_manuscript
+from scripts.render_chapter2_process_manuscript import render_manuscript as render_submission_manuscript
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
@@ -11,10 +11,10 @@ UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 def test_active_submission_is_model3_only():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "reproductive selection before demographic change" in lower
-    assert "conditional deterministic genotype-density propagation without demographic sampling" in lower
-    assert "realized evolution in finite populations" in lower
-    assert "annual response-blind richness matching" in lower
+    assert "local selection conditions" in lower
+    assert "propagate shared biological rules in parallel" in lower
+    assert "temporal precedence does not establish" in lower
+    assert "response-blind realized-richness matching at each update" in lower
     assert "pooling eight independent visitor histories" in lower
     assert "increasing plant capacity from 48 to 192" in lower
     assert "legacy reduced response-geometry analyses" not in lower
@@ -26,11 +26,11 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     words = abstract.split()
     assert 180 <= len(words) <= 300
     lower = abstract.lower()
-    assert "24,576-case bridge" in lower
-    assert "128 independent visitor histories" in lower
-    assert "eight demographic repeats nested" in lower
-    assert "stable latent branch prevalence" in lower
-    assert "source-audited island systems" in lower
+    assert "13 replenishment rates" in lower
+    assert "64 independent visitor histories" in lower
+    assert "eight demographic repeats per setting" in lower
+    assert "conditional mechanisms" in lower
+    assert "stopped high-resolution positive-mutation comparison remains unresolved" in lower
 
 
 def test_scientific_gate_is_unified_model3():

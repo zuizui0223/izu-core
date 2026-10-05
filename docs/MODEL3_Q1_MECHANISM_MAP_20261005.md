@@ -1,5 +1,7 @@
 # Q1-to-Q2 mechanism map and reporting priority
 
+Current-state amendment (2026-10-05): the capacity, supplementation, trait-intervention and 13-rate finite-ABM campaigns are complete and independently checked. The high-resolution deterministic/PDE extension was stopped and closed computationally unresolved; it is not awaiting a restart. The operational steps below record earlier execution history. Use CHAPTER2_PROCESS_MAINLINE_20261005.md and MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md for current routing and remaining delivery work. Q1 remains an independent source of questions, not a calibration target.
+
 User clarification: the main question is whether investment reduction precedes/follows capacity evolution and whether it can occur without capacity evolution. Historical persistence is supplementary, not the primary biological aim. Existing common-environment results remain fully reported; no additional history experiments are proposed.
 
 ## Primary causal chain

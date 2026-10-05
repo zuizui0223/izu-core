@@ -30,7 +30,7 @@ def main():
                 assert np.allclose(means,[row['near'],row['far']],rtol=0,atol=1e-12)
                 ax.plot([0,1],means,'o-',color='#172f3e',lw=3,ms=6)
                 ax.axhline(0,color='#888888',ls='--',lw=.8)
-                ax.set_xticks([0,1],['Less isolated','More isolated']);ax.set_xlim(-.15,1.15)
+                ax.set_xticks([0,1],['High supply\n0.24 / update','Low supply\n0.01195 / update']);ax.set_xlim(-.25,1.25)
                 ax.set_title(label)
                 ax.text(.04,.96,f"Mean: {means[0]:+.3f} → {means[1]:+.3f}",transform=ax.transAxes,va='top',fontsize=10)
                 ax.spines[['top','right']].set_visible(False)

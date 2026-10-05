@@ -1,5 +1,13 @@
 # Ch2 completion audit: five ecological questions
 
+**Final disposition:** `CHAPTER2_PROCESS_FINAL_AUDIT_20261005.md` supersedes the
+intermediate checkpoints below. The full suite completed with 933 passing tests;
+the current manuscript, SI, four main figures and preserved-Q1 poster have been
+assembled and checked. Earlier statements below about pending package work and
+running tests document the audit sequence, not additional unfinished tasks. The
+high-resolution branch remains explicitly closed unresolved. Git delivery is
+recorded separately after commit and remote verification.
+
 Updated 2026-10-05 after completion and independent verification of the 13-rate replenishment extension and processes-v6 poster. This replaces the earlier dated runtime checkpoint in this file. The goal remains active pending the final whole-manuscript/source audit; scientific completion is not inferred from a passing subset of checks.
 
 ## Ecological evidence and remaining requirements
@@ -37,6 +45,42 @@ The alternative evaluation found no validated cheap replacement for the full pos
 2. Update Q2 in the poster without changing Q1, distinguishing selection, sequence and necessity; show the uncertainty and parameter dependence at appropriate scale.
 3. Verify the delivered artifact against results and inspect its rendered layout.
 4. Audit every requirement again before marking the goal complete. Parameter sensitivity of actual sequence remains unestablished and must be explicitly bounded, not silently generalized from fixed-state assays.
+
+## Current versus historical delivery audit
+
+The older Oikos renderer, RTF and submission bundle had remained attached to the
+changing active manuscript, despite their historical title, figures and claim
+guards. They now reproduce an exact manuscript snapshot from commit
+4b7d7bc7c0d6cd9b87e38150c55dfa99fd9b0556. Every render verifies the snapshot SHA-256;
+a changed-byte test confirms rejection. This preserves the historical results
+without presenting their closed submission gate as closure of the current paper.
+
+The current route is `scripts/render_chapter2_process_manuscript.py` and
+`scripts/build_chapter2_process_review.py`. Its review ZIP contains the current
+manuscript, four main PDFs, companion condition/threshold PDFs, plotted tables,
+supporting explanations and working Python sources. All members are read back
+and hash-checked. It is not a complete raw-data deposit or journal submission;
+the 13-rate raw archive remains separately identified. The software's full test
+run is still in progress at this checkpoint. The 21 focused current/historical
+delivery tests pass. Figure verification independently rechecked 2,340 local
+selection means and 468 gradient endpoint estimates against source arrays and
+summaries. Figure 3 now labels the actual replenishment rates rather than
+geographic categories; its twelve component means were rechecked against raw
+assays and its rendered labels inspected.
+
+The review package additionally includes the numerical inputs required by all
+four main figure scripts, at their original repository-relative paths. In a
+fresh extraction, all four scripts exited successfully without accessing the
+working repository. Regenerated selection tables, temporal events and genetic
+realization tables were byte-identical; all 512,512 sequence coordinates also
+matched. `outputs/chapter2_process_delivery/isolated_redraw.json` identifies the
+exact tested ZIP and extraction. This verifies figure reproduction; primary
+raw campaigns and the stopped numerical branch retain their separate status.
+
+The parameter-sensitivity scope document has been updated to include the
+completed intermediate-rate evolutionary trajectories. Remaining untested
+joint biological-parameter sensitivity is not confused with this now-completed
+replenishment-rate comparison.
 
 ## Continuous replenishment extension
 

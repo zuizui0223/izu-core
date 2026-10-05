@@ -13,7 +13,7 @@ from scripts.render_oikos_submission_rtf import render_supporting_information_ma
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "dist/chapter2_oikos_anonymous_review_archive.zip"
-SOURCE_MANUSCRIPT = "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+SOURCE_MANUSCRIPT = "legacy/submission-history/model3_bridge_20261004/MANUSCRIPT.md"
 ANONYMOUS_MANUSCRIPT_NAME = "MANUSCRIPT.md"
 ANONYMOUS_SI_NAME = "SUPPORTING_INFORMATION.md"
 

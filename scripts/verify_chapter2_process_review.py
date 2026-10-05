@@ -1,0 +1,68 @@
+"""Redraw all four main figures from a freshly extracted review package."""
+from pathlib import Path
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import zipfile
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    folder = ROOT/'outputs/chapter2_process_delivery'
+    archive = folder/'chapter2_process_review_20261005.zip'
+    target = Path(tempfile.mkdtemp(prefix='redraw-', dir=folder))
+    with zipfile.ZipFile(archive) as z:
+        manifest = json.loads(z.read('MANIFEST.json'))
+        for name, record in manifest.items():
+            data = z.read(name)
+            if hashlib.sha256(data).hexdigest() != record['sha256']:
+                raise ValueError('Input mismatch: '+name)
+            destination = (target/name).resolve()
+            if not destination.is_relative_to(target.resolve()):
+                raise ValueError('Unsafe package path')
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(data)
+    # Remove the generated numerical exports to rule out merely reading copies.
+    exports = [
+        'model3_selection_process_20261005/plotted_values.csv',
+        'model3_sequence_necessity_20261005/plotted_events.json',
+        'model3_genetic_realization_20261005/plotted_values.csv',
+    ]
+    originals = {rel: (target/'outputs/figures'/rel).read_bytes() for rel in exports}
+    for rel in exports:
+        (target/'outputs/figures'/rel).unlink()
+    environment = dict(os.environ, PYTHONPATH=str(target/'src'), PYTHONUTF8='1')
+    commands = []
+    for stem in ['selection_process', 'sequence_necessity', 'return_components', 'genetic_realization']:
+        command = [sys.executable, '-m', 'scripts.figure_model3_'+stem]
+        result = subprocess.run(command, cwd=target, env=environment, capture_output=True,
+                                text=True, encoding='utf-8', check=True)
+        commands.append({'module': command[-1], 'exit_code': result.returncode})
+    for rel, original in originals.items():
+        if (target/'outputs/figures'/rel).read_bytes() != original:
+            raise ValueError('Redrawn numerical export mismatch: '+rel)
+    rel = Path('outputs/figures/model3_sequence_necessity_20261005/plotted_investment.npz')
+    with np.load(ROOT/rel) as expected, np.load(target/rel) as actual:
+        if set(expected.files) != set(actual.files):
+            raise ValueError('Sequence series keys mismatch')
+        coordinates = 0
+        for key in expected.files:
+            np.testing.assert_array_equal(expected[key], actual[key])
+            coordinates += actual[key].size
+    receipt = {'status': 'four_main_figures_redrawn_from_isolated_package',
+               'archive_sha256': hashlib.sha256(archive.read_bytes()).hexdigest(),
+               'extraction': target.relative_to(ROOT).as_posix(), 'commands': commands,
+               'identical_export_files': exports, 'identical_trajectory_coordinates': coordinates,
+               'scope': 'Figure reproducibility from supplied arrays, not new biological validation.'}
+    (folder/'isolated_redraw.json').write_text(json.dumps(receipt, indent=2)+'\n', encoding='utf-8')
+    print(json.dumps(receipt, indent=2))
+
+
+if __name__ == '__main__':
+    main()
