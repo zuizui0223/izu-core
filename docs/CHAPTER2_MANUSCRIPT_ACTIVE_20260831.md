@@ -174,65 +174,55 @@ Per-update richness matching also changes visitor identity persistence, pooled h
 
 # Results
 
-## Ecological history remains visible after the current environment is equalized
+## Visitor limitation lowers the return on attraction before plant traits evolve
 
-After 800 updates of exactly shared visitor exposure, investment and reproductive
-assurance still retained history-dependent differences. In the delayed-selfing,
-assurance-cost 0.5 setting, the far-history minus near-history investment
-difference was -0.140408 without mutation and -0.130106 with mutation 0.01.
-The corresponding assurance differences were +0.034050 and +0.055755.
+At the same fixed plant state and assurance capacity 0.5, the visitor environment
+changed the marginal reproductive contribution of floral investment. In the
+delayed-selfing setting at snapshot 400, the mean investment contribution
+derivative was +0.5793 under near exposure and -0.7004 under far exposure. The
+outcross component declined from +1.6523 to +0.0854, while the viable-selfed
+component partly offset rather than generated that decline. The intrinsic
+investment-cost coefficient was unchanged.
 
-The same pattern was weaker under prior selfing with zero assurance cost:
-investment differences were -0.030532 without mutation and -0.016545 with
-mutation, while assurance differences were +0.003515 and +0.001444. Terminal
-access-position intervals included zero in all four setting-by-mutation groups.
-The historical signal was therefore trait- and reproductive-setting-specific,
-not a uniform displacement of the three-trait phenotype.
+## Reproductive assurance often changes first under sustained isolation
 
-In the focal delayed, positive-mutation setting, the investment difference at
-the end of the 200-update history phase was -0.194508 and the assurance
-difference +0.072630. The corresponding contrasts remained after 800 common
-updates but were smaller in point estimate. This does not constitute a formal
-test of attenuation through time, and no equilibrium or irreversible endpoint
-is inferred.
+The maintained-isolation cohort followed 64 visitor histories with eight nested
+demographic repeats for 1,000 updates. In the delayed-selfing, assurance-cost 0.5
+setting with mutation 0.01, assurance crossed the declared 0.05 sustained-change
+threshold before investment in 51/64 far-history means; the other 13 were within
+five updates. Under prior selfing with zero assurance cost, assurance was first
+in 38/64 histories and 26 were near-simultaneous.
 
-## Persistent history does not diagnose evolutionary arrest
+Founder-relative order did not equal the order of additional isolation
+divergence. In the delayed setting, far-minus-near investment divergence crossed
+first in 32 histories, assurance divergence in 10, 20 were near-simultaneous and
+two reached only the investment threshold.
 
-The residual history contrast had different genetic and dynamical meanings when
-mutation was absent versus present. Without mutation, occupied populations
-retained one investment allele and their mean investment change over the final
-100 updates was zero. A persistent endpoint difference can therefore coincide
-with loss of accessible allelic variation and late evolutionary stasis.
+## Assurance evolution is not required for investment decline
 
-With mutation, the same endpoint logic changes. Mean investment-allele counts
-were about 6.63/6.44 in the delayed near/far arms and 5.43/5.38 in the prior
-near/far arms. Investment was still changing over the final 100 updates:
--0.009166/+0.001721 in the delayed near/far arms and
--0.011508/-0.011966 in the prior near/far arms. Mutation therefore replenished
-variation and permitted continued movement without eliminating the finite-horizon
-history contrast.
+The matched fixed-versus-evolving-assurance experiment completed 8,192
+trajectories. With assurance held fixed at 0.5, far populations still reduced
+investment by 0.3099 (descriptive 95% interval 0.2972–0.3220) under delayed
+selfing and by 0.3316 (0.3217–0.3411) under prior selfing. Thus an
+assurance-first sequence does not establish that assurance evolution is required
+for attraction investment to decline.
 
-The result is a distinction between three objects that a cross-sectional
-endpoint cannot separate: historical memory, genetic arrest and continued
-recovery. A nonzero history contrast after environmental equalization is
-consistent with either of the latter two dynamical states in this model.
+Allowing assurance to evolve could also narrow the near-far investment contrast.
+The four-cell interaction was +0.08468 (0.06782–0.10265) in the delayed setting
+and +0.24505 (0.22523–0.26543) under prior selfing. Both environments can evolve
+substantially while their difference becomes smaller.
 
-## Numerical limits do not erase the finite-ABM ecological result
+## Lower pollen deficit does not necessarily mean greater viable reproduction
 
-The positive-mutation deterministic reference did not pass the declared grid
-refinement gate. At 13 nodes, only 1/16 original-jump cases and 0/16
-finite-volume-heat cases passed the unchanged <0.01 terminal refinement
-criterion relative to nine nodes. The later high-resolution long comparison was
-stopped after verified update 7. Consequently, we do not estimate a converged
-finite-ABM-minus-continuum effect or assign the history contrast to drift,
-self-exclusion or deterministic feedback.
+In the delayed/far whole-population intervention at snapshot 400, increasing
+investment from 0.25 to 0.75 at assurance capacity 0.5 reduced the fractional
+viable pollen deficit by 0.0104 but reduced viable maternal offspring by 15.72
+per 48 plants. Pollen shortage, compensation and absolute viable offspring are
+therefore not interchangeable readouts.
 
-This unresolved numerical comparison limits mechanistic attribution between
-parallel model representations; it does not invalidate the directly simulated
-finite-ABM result that history can remain visible while mutation-supported trait
-change continues.
-
-Primary maintained-isolation results are distinguished from the earlier zero-mutation bridge and restricted mutation diagnostics. Complementary environmental-history experiments and natural-island evidence are retained in `CHAPTER2_COMPLEMENTARY_EVIDENCE_20261005.md`; they do not calibrate the primary model.
+The earlier bridge and common-environment mutation diagnostics remain
+complementary evidence on genetic realization and history dependence; they do
+not define the primary paper question.
 
 ## Local conditions for syndrome-direction selection
 
