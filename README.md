@@ -19,7 +19,8 @@ a downstream simulation or a separate ecological Model 4.
 ### Current ecological focus (2026-10-05)
 
 **Does isolation make investment in attracting visitors less rewarding, and does
-investment decline require the evolution of selfing capacity?** The primary
+which changes first: selfing capacity or attraction investment?** A separate
+intervention asks whether investment decline requires capacity evolution. The primary
 experiment maintains isolation throughout 1,000 reproductive updates. A separate
 common-environment experiment is a supplementary history diagnostic, not the
 central ecological claim. Time and distance are not calibrated years or kilometres.
@@ -39,9 +40,13 @@ design described below; shared near references must not be counted as new runs:
   and deficits after inbreeding depression can differ; pollen limitation is not
   interchangeable with visitor scarcity.
   [Assay results](docs/MODEL3_POLLEN_ASSAY_RESULTS_20261005.md).
-- **Fixed versus evolving capacity:** 8,192 declared trajectories are running.
-  Both modes start with capacity0.5 and zero assurance-locus variance. Complete
-  readout is gated on all cases; no partial biological conclusion is admitted.
+- **Fixed versus evolving capacity:** all 8,192 trajectories are complete; 84
+  estimates were independently reconstructed and 2,048 zero-mutation pairs are
+  identical. Investment declines with capacity fixed at0.5. This does not hold
+  realized selfing constant. Both modes lack initial assurance-locus variance.
+  [Intervention results](docs/MODEL3_ASSURANCE_INTERVENTION_RESULTS_20261005.md).
+- **Trait-by-pollen intervention:** 6,912 completed assays separate fractional
+  deficits from absolute viable offspring. [Results](docs/MODEL3_TRAIT_POLLEN_RESULTS_20261005.md).
 - **Numerical comparison:** high-resolution deterministic/diffusion validation
   remains incomplete. Local precision checks do not admit a long-run comparison.
 
@@ -49,6 +54,9 @@ Q1 motivates these independent mechanistic questions. Abstract investment is not
 an explicit flower-colour or accessibility phenotype, and no regional Q1 pattern
 is used to select parameters. See the [H1–H4 correspondence and claim boundaries](docs/MODEL3_Q1_MECHANISM_MAP_20261005.md)
 and the [full closeout requirements](docs/MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md).
+
+For the explicit trade-offs, fitness accounting and remaining pathway limits, see
+[the pollen-to-evolution explanation](docs/MODEL3_POLLEN_FITNESS_PATHWAYS_20261005.md).
 
 The ecological argument is:
 
