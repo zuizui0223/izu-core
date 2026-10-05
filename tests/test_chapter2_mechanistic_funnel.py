@@ -14,7 +14,7 @@ MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260927.json"
 def test_active_submission_uses_one_model3_ecological_pathway():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
     submission = render_submission_manuscript()
-    lower = submission.lower()
+    lower = " ".join(submission.lower().split())
     assert manuscript.startswith("# Evolutionary memory after pollinator isolation does not imply evolutionary arrest")
     assert "200 reproductive updates" in lower
     assert "800 additional updates" in lower
@@ -22,7 +22,7 @@ def test_active_submission_uses_one_model3_ecological_pathway():
     assert "evolutionary memory" in lower
     assert "evolutionary arrest" in lower
     assert "maintained-isolation" in lower
-    assert "temporal precedence does not establish" in lower
+    assert "persistent endpoint difference" in lower
 
 
 def test_canonical_story_and_chapter1_bridge_match_model3_mainline():
