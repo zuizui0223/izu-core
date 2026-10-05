@@ -17,6 +17,8 @@ Matching-position intervals include zero in all four combinations. Paired persis
 
 ## Two temporal questions
 
+Reporting priority after user clarification: the primary interest is the order of within-population changes, not whether capacity evolution is necessary. The fixed-capacity experiment is supporting mechanism evidence and must not replace this temporal question. Use the main cohort with standing variation in both traits; the homogeneous-capacity intervention has a different starting condition.
+
 The exploratory diagnostic was declared before temporal readout: change of 0.05 maintained for 20 periods; events within five periods are near-simultaneous. Unreached events remain censored. Threshold sensitivities 0.025 and 0.1 are retained in the results.
 
 For delayed selfing with positive mutation:
@@ -24,7 +26,24 @@ For delayed selfing with positive mutation:
 - Within more-isolated populations relative to founders, capacity rises first in 51/64 histories; 13 are near-simultaneous. Both events occur in all 64. Median crossings: capacity 6, investment 36.5.
 - For the additional far-minus-near divergence, investment changes first in 32 histories, capacity first in 10, and 20 are near-simultaneous. Two reach only the investment threshold. Among the 62 jointly crossing histories, median crossings are investment 24.5 and capacity 34.
 
-These are compatible: both treatments can increase capacity early before their additional difference in capacity becomes large. Temporal precedence does not establish mediation. Investment decline independent of evolving capacity requires a fixed-capacity intervention; fixed capacity would still not hold realized selfing constant.
+These are compatible: both treatments can increase capacity early before their additional difference in capacity becomes large. Temporal precedence does not establish mediation. The completed fixed-capacity intervention now supplies a separate test of whether investment can decline without capacity evolution; fixed capacity does not hold realized selfing constant.
+
+### Within-population ordering across declared thresholds
+
+More-isolated treatment, positive mutation,64 visitor-history means (8 demographic repeats each):
+
+| Joint setting | Change threshold | Capacity first | Within5 updates | Investment first |
+|---|---:|---:|---:|---:|
+| Delayed, capacity cost0.5 | 0.025 | 51 | 13 | 0 |
+| Delayed, capacity cost0.5 | 0.05 | 51 | 13 | 0 |
+| Delayed, capacity cost0.5 | 0.10 | 57 | 7 | 0 |
+| Prior, capacity cost0 | 0.025 | 17 | 47 | 0 |
+| Prior, capacity cost0 | 0.05 | 38 | 26 | 0 |
+| Prior, capacity cost0 | 0.10 | 54 | 10 | 0 |
+
+Both events are reached in all64 histories for these cells. At the primary0.05 threshold, median crossing times (capacity,investment) are(6,36.5) for delayed and(3,10) for prior. Median paired lags are24 and6 updates respectively; these are not differences between separate medians. A threshold crossing is not the first infinitesimal onset, and the two traits'0-to1 scales need not represent equivalent biological change. In particular, early small changes in the prior setting are usually near-simultaneous. No universal claim that capacity initiates first follows from the threshold analysis.
+
+Figure: `outputs/figures/model3_temporal_order_20261005/temporal_order.pdf`. Scatter points pair the two crossing times for the same history. Bars retain all three declared thresholds. The accompanying CSV includes all768 far-treatment events across both mutation rates; censored zero-mutation cases remain empty, not assigned a fictitious endpoint. Current source verification independently rechecked all2,304 crossings in the complete diagnostic.
 
 ## Ecological scope and Q1 connection
 
