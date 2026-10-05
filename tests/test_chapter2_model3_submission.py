@@ -11,12 +11,12 @@ UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 def test_active_submission_is_model3_only():
     text = render_submission_manuscript()
     lower = text.lower()
-    assert "local selection conditions" in lower
-    assert "propagate shared biological rules in parallel" in lower
-    assert "temporal precedence does not establish" in lower
-    assert "response-blind realized-richness matching at each update" in lower
-    assert "pooling eight independent visitor histories" in lower
-    assert "increasing plant capacity from 48 to 192" in lower
+    assert "evolutionary memory after pollinator isolation does not imply evolutionary arrest" in lower
+    assert "exactly the same visitor environment" in lower
+    assert "all three plant traits" in lower
+    assert "persistent history does not diagnose evolutionary arrest" in lower
+    assert "maintained-isolation" in lower
+    assert "positive-mutation" in lower
     assert "legacy reduced response-geometry analyses" not in lower
 
 
@@ -26,11 +26,12 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     words = abstract.split()
     assert 180 <= len(words) <= 300
     lower = abstract.lower()
-    assert "13 replenishment rates" in lower
     assert "64 independent visitor histories" in lower
-    assert "eight demographic repeats per setting" in lower
-    assert "conditional mechanisms" in lower
-    assert "stopped high-resolution positive-mutation comparison remains unresolved" in lower
+    assert "eight nested demographic repeats per history" in lower
+    assert "4,096 core trajectories" in lower
+    assert "evolutionary memory is not equivalent to evolutionary arrest" in lower
+    assert "irreversibility" in lower
+    assert "not established" in lower
 
 
 def test_scientific_gate_is_unified_model3():
