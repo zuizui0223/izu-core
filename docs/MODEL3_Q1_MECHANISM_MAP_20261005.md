@@ -23,7 +23,7 @@ Isolation changes visitor arrival, ongoing arrival/loss changes pollen-delivery 
 | Q1 question | Model counterpart | Evidence and limits |
 |---|---|---|
 | H1 floral patterns along isolation | Sustained-isolation trajectories and trait-specific endpoints | Completed; abstract investment/capacity/matching, not seven measured traits or four regional reconstructions |
-| H2 whether selfing explains floral change | Temporal diagnostics plus matched-founder fixed/evolving capacity intervention | Temporal results complete; intervention running. Temporal order is not mediation. Fixed capacity is not fixed selfing fraction |
+| H2 whether selfing explains floral change | Temporal diagnostics plus matched-founder fixed/evolving capacity intervention | All8,192 cases and84 estimates independently verified. Investment declines at fixed capacity0.5; evolving capacity is not necessary under this intervention. Temporal order is not mediation. Fixed capacity is not fixed selfing fraction |
 | H3 isolation and pollen limitation | Visitor-history audit, fixed-plant exposure assay, pollen-saturation comparison | Same-plant exposure comparison now complete (768 assays): stronger isolation increases saturation deficits at fixed plant state. Evolved-state compensation is a different contrast |
 | H4 traits associated with less pollen limitation | Within-environment trait manipulations and saturation assay | Completed exploratory 6,912-case capacity-by-investment intervention, 84 verified contrasts. Higher capacity can compensate deficits; lower deficit alone does not imply more viable offspring. Accessibility/open-flower traits are not directly implemented |
 
