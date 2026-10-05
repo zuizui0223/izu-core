@@ -8,7 +8,7 @@ import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md'
-TITLE = 'How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization'
+TITLE = 'Evolutionary memory after pollinator isolation does not imply evolutionary arrest'
 
 
 def render_manuscript(source: Path | None = None) -> str:
@@ -18,7 +18,7 @@ def render_manuscript(source: Path | None = None) -> str:
         if text.splitlines().count(section) != 1:
             raise ValueError(f'missing required section or duplicate: {section}')
     if text.splitlines()[0] != '# ' + TITLE:
-        raise ValueError('Current process manuscript title does not match its route')
+        raise ValueError('Current active manuscript title does not match its route')
     body = text[text.index('## Abstract'):].strip()
     return '# ' + TITLE + '\n\n' + body + '\n'
 
