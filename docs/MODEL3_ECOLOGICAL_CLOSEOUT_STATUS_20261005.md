@@ -14,7 +14,7 @@ Updated 2026-10-05 after parameter-selection sensitivity and manuscript integrat
 | Q1 independence | Manuscript H1-H4 mapping, no regional/colour calibration | Keep this boundary and all Q1 content when updating the final poster |
 | Reproducibility and uncertainty | Frozen designs, archived arrays, source hashes, repeat/survival-aware summaries, independent checks | Final packaged source/figure manifest and delivery verification still required |
 | Manuscript | Abstract, five questions, methods, parameter dependence and conclusion integrated; Figure 1 now generated from stored results | Complete editorial/source audit and final figure assembly; no submission-ready claim yet |
-| Poster | Processes v5 PPTX/PDF/PNG delivered; Q1 upper 144 shapes and 18 images identical to v2 | 113,482 chart coordinates verified, 10 other charts unchanged; render reviewed. Intermediate-rate evolutionary trajectories remain uncomputed. |
+| Poster | Processes v5 PPTX/PDF/PNG delivered; Q1 upper 144 shapes and 18 images identical to v2 | 113,482 chart coordinates verified, 10 other charts unchanged; render reviewed. Intermediate-rate finite-ABM trajectories are being computed under a declared exploratory extension; no partial scientific readout is admitted. |
 
 ## Canonical evidence routes
 
@@ -37,3 +37,9 @@ The alternative evaluation found no validated cheap replacement for the full pos
 2. Update Q2 in the poster without changing Q1, distinguishing selection, sequence and necessity; show the uncertainty and parameter dependence at appropriate scale.
 3. Verify the delivered artifact against results and inspect its rendered layout.
 4. Audit every requirement again before marking the goal complete. Parameter sensitivity of actual sequence remains unestablished and must be explicitly bounded, not silently generalized from fixed-state assays.
+
+## Continuous replenishment extension
+
+The 11 intermediate-rate finite-ABM conditions are a separate, declared extension of the existing two endpoints. The design retains capacity 48, the biological rules and the blocked histories/repeats. It adds 11,264 cases and reuses 2,048 endpoint cases. `MODEL3_REPLENISHMENT_EVOLUTION_20261005.md` identifies the design, exact endpoint replay and readout. Current liveness must be checked against the producer process, not inferred from this document. Completion, independent readout verification, figure rendering and integration are still required. The stopped high-resolution deterministic/PDE branch remains stopped.
+
+The manuscript now distinguishes finite-plant parental-contribution slopes from resident-fixed rare-mutant log-fitness gradients, uses uncalibrated reproductive updates for chronology, and removes an unsupported inference of evolution toward broader floral accessibility. The composition assay source is `scripts/audit_model3_unified_reduction.py` calling `scripts/model3_island/assays.py::investment_assay`; these editorial changes do not alter frozen calculations.
