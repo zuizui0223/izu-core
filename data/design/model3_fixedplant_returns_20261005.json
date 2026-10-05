@@ -1,0 +1,19 @@
+{
+  "status": "declared_before_readout",
+  "question": "Does isolation-generated visitor scarcity change the marginal return to investment at identical plant phenotype and selfing capacity?",
+  "plants": "Matched intervention founders:48 plants; identical matching/investment variation, all capacity0.5; no population updates.",
+  "settings": ["assurance_cost", "prior_selfing"],
+  "histories": {"first":76001,"count":64},
+  "arms": ["near","far"],
+  "visitor_snapshots": [0,200,400],
+  "assays": 768,
+  "capacity": "fixed0.5 in both configurations; no demographic replicates because assay is deterministic",
+  "gradient": "Existing investment_assay: perturb one focal plant, measure .5 maternal outcross +.5 paternal outcross + viable selfed offspring; all other plants fixed.",
+  "step": 0.001,
+  "step_check": 0.0005,
+  "precision_gate": "Every focal gradient differs by at most1e-4+1e-3*abs(fine gradient); retain failures, no ecological readout if any fail.",
+  "pollen": "Natural receipt and existing raw/viable saturation deficits on same plants.",
+  "outputs": ["history-level mean gradient and fraction negative", "outcross gradient", "pollen delivery", "raw and viable deficits", "all individual gradients and step differences"],
+  "analysis": "Paired far-minus-near history differences;5000 descriptive history bootstrap draws; no multiplicity correction. Negative gradient denotes local reduction favoured in this contribution assay, not proven realized evolutionary response.",
+  "limits": "Changes arise from visitor identities/counts together, not a richness-only manipulation. Single fixed capacity; timing and cost jointly differ. No infinite-population rare-mutant inference and no causal mediation percentage. Do not equate total contribution derivative with a separately measured physiological cost term."
+}
