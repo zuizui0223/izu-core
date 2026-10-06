@@ -45,11 +45,27 @@ def investment_invasion_terms(resident, visitors, config):
     female_benefit = available*dq
     self_benefit = np.zeros_like(i) if prior else -a*(1-config.depression)*female_benefit
     paternal_benefit = female*export_elasticity
-    benefit = (.5*female_benefit+.5*paternal_benefit+self_benefit)/fitness
+    maternal_outcross_component = .5*female_benefit/fitness
+    paternal_export_component = .5*paternal_benefit/fitness
+    selfing_displacement_component = self_benefit/fitness
+    benefit = maternal_outcross_component+paternal_export_component+selfing_displacement_component
     # Mutant ovule costs affect its female/selfed production, not resident mothers.
     cost = 2*config.investment_cost*i*(.5*female+selfed)/fitness
-    return dict(gradient=benefit-cost,benefit=benefit,cost=cost,fitness=fitness,
-                outcross_fraction=q, female=female, selfed=selfed, ovules=ov)
+    ovule_allocation_cost_component = -cost
+    return dict(
+        gradient=benefit-cost,
+        benefit=benefit,
+        cost=cost,
+        maternal_outcross_component=maternal_outcross_component,
+        paternal_export_component=paternal_export_component,
+        selfing_displacement_component=selfing_displacement_component,
+        ovule_allocation_cost_component=ovule_allocation_cost_component,
+        fitness=fitness,
+        outcross_fraction=q,
+        female=female,
+        selfed=selfed,
+        ovules=ov,
+    )
 
 
 def syndrome_thresholds(resident, visitors, config):

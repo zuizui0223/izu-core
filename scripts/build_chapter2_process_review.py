@@ -14,7 +14,7 @@ from scripts.render_chapter2_process_manuscript import ROOT, render_manuscript
 OUT = ROOT / 'outputs/chapter2_process_delivery'
 MAIN = {
     'Figure1.pdf': 'model3_return_components_20261005/return_components.pdf',
-    'Figure2.pdf': 'model3_sequence_necessity_20261005/sequence_necessity.pdf',
+    'Figure2.pdf': 'model3_assurance_compression_20261006/assurance_compression.pdf',
     'Figure3.pdf': 'model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf',
     'Figure4.pdf': 'model3_genetic_realization_20261005/genetic_realization.pdf',
 }
@@ -46,9 +46,12 @@ FIGURE_INPUTS = [
     'data/results/model3_mutation_memory_20261004.json',
     'data/results/model3_mutation_variability_20261005.json',
     'data/results/chapter2_1005_confirmatory_replication_20261006.json',
+    'data/results/chapter2_assurance_generality_20261006.json',
+    'data/results/chapter2_assurance_attenuation_decomposition_20261006.json',
+    'data/results/chapter2_assurance_gradient_components_20261006.json',
     'data/design/chapter2_1005_confirmatory_replication_20261006.json',
     'data/design/chapter2_1005_ecological_mainline_lock_20261006.json',
-    'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md',
+    'docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md',
 ]
 
 
@@ -70,7 +73,7 @@ def build() -> dict:
     for name in FIGURE_INPUTS:
         members[name] = (ROOT/name).read_bytes()
     # Companion figures, plotted numbers and provenance remain together.
-    for folder in sorted((ROOT/'outputs/figures').glob('model3_*_20261005')):
+    for folder in sorted((ROOT/'outputs/figures').glob('model3_*_2026100*')):
         for path in sorted(folder.iterdir()):
             if path.suffix in {'.pdf', '.csv', '.json'}:
                 members[path.relative_to(ROOT).as_posix()] = path.read_bytes()
@@ -86,7 +89,7 @@ def build() -> dict:
         members[name] = (ROOT/name).read_bytes()
     members['READ_ME.txt'] = (
         'CURRENT PROCESS MANUSCRIPT — CONFIRMED REVIEW PACKAGE\n'
-        'Primary 2026-10-05 sequence/necessity result is established, bounded, and independently confirmed.\n'
+        'Primary four-setting non-necessity/attenuation result is prospectively confirmed; temporal order is a bounded secondary result.\n'
         'Figures 1–4 are separate experiments, not a single shared campaign.\n'
         'Companion PDFs retain all sampled conditions. Each file has a SHA-256 below.\n'
         'This is not a journal submission or complete raw-data deposit.\n'
@@ -95,11 +98,11 @@ def build() -> dict:
         'Inputs for regenerating the four main figures are included at their original paths.\n'
         'From the extracted root, with the declared Python dependencies installed, run:\n'
         'python -m scripts.figure_model3_return_components\n'
-        'python -m scripts.figure_model3_sequence_necessity\n'
+        'python -m scripts.figure_model3_assurance_compression\n'
         'python -m scripts.figure_model3_trait_pollen\n'
         'python -m scripts.figure_model3_genetic_realization\n'
         'This redraws completed results; it does not rerun ecological simulations.\n'
-        'Figure 2 reads the frozen 2026-10-06 confirmatory result; no confirmatory simulation is rerun during redraw.\n'
+        'Figure 2 reads the frozen four-setting generality result plus committed arm and gradient diagnostics; no ecological simulation is rerun during redraw.\n'
         'The stopped high-resolution positive-mutation comparison remains unresolved.\n'
     ).encode('utf-8')
     manifest = {name: {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}

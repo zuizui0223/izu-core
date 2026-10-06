@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_confirmed_review_package_routes_current_four_figures():
     assert builder.MAIN == {
         "Figure1.pdf": "model3_return_components_20261005/return_components.pdf",
-        "Figure2.pdf": "model3_sequence_necessity_20261005/sequence_necessity.pdf",
+        "Figure2.pdf": "model3_assurance_compression_20261006/assurance_compression.pdf",
         "Figure3.pdf": "model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
         "Figure4.pdf": "model3_genetic_realization_20261005/genetic_realization.pdf",
     }
@@ -17,6 +17,9 @@ def test_confirmed_review_package_routes_current_four_figures():
 def test_confirmatory_result_and_establishment_docs_are_in_review_contract():
     assert "data/design/chapter2_1005_confirmatory_replication_20261006.json" in builder.FIGURE_INPUTS
     assert "data/results/chapter2_1005_confirmatory_replication_20261006.json" in builder.FIGURE_INPUTS
+    assert "data/results/chapter2_assurance_generality_20261006.json" in builder.FIGURE_INPUTS
+    assert "data/results/chapter2_assurance_attenuation_decomposition_20261006.json" in builder.FIGURE_INPUTS
+    assert "data/results/chapter2_assurance_gradient_components_20261006.json" in builder.FIGURE_INPUTS
     assert "data/design/chapter2_1005_ecological_mainline_lock_20261006.json" in builder.FIGURE_INPUTS
     for name in (
         "CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md",
@@ -27,11 +30,13 @@ def test_confirmatory_result_and_establishment_docs_are_in_review_contract():
         assert name in builder.SUPPORT
 
 
-def test_figure2_reads_frozen_confirmatory_result():
-    text = (ROOT / "scripts/figure_model3_sequence_necessity.py").read_text(encoding="utf-8")
-    assert "chapter2_1005_confirmatory_replication_20261006.json" in text
-    assert "Independent replication" in text
-    assert "Independent fixed-capacity replication" in text
+def test_figure2_reads_confirmed_generality_and_mechanism_results():
+    text = (ROOT / "scripts/figure_model3_assurance_compression.py").read_text(encoding="utf-8")
+    assert "chapter2_assurance_generality_20261006.json" in text
+    assert "chapter2_assurance_attenuation_decomposition_20261006.json" in text
+    assert "chapter2_assurance_gradient_components_20261006.json" in text
+    assert "does not require assurance evolution" in text
+    assert "compresses divergence" in text
 
 
 def test_review_archive_is_versioned_after_confirmation():

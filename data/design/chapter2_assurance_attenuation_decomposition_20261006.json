@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-06",
+  "status": "frozen_post_confirmation_before_arm_decomposition",
+  "purpose": "Decompose the confirmed positive evolving-minus-fixed isolation interaction into arm-specific evolutionary effects without rerunning or retuning the biological campaign.",
+  "source_design": "data/design/chapter2_assurance_generality_20261006.json",
+  "source_result": "data/results/chapter2_assurance_generality_20261006.json",
+  "source_workflow_run_id": 37458098483,
+  "source_campaign_cases": 8448,
+  "independent_unit": "visitor_history",
+  "settings": ["delayed_control", "prior_selfing", "pollen_discount", "assurance_cost"],
+  "endpoint": 1000,
+  "matching_rule": "For every arm-specific contrast, use only demographic repeats for which fixed-near, fixed-far, evolving-near and evolving-far are all occupied. Average repeats within visitor history before any across-history summary.",
+  "estimands": {
+    "arm_investment_change": "For each mode x arm, terminal investment minus its matched founder value.",
+    "arm_assurance_change": "For each mode x arm, terminal assurance minus its matched founder value.",
+    "evolution_effect_within_arm": "evolving investment change minus fixed investment change within the same arm.",
+    "attenuation_identity": "(evolving far - evolving near) - (fixed far - fixed near) = evolution_effect_far - evolution_effect_near"
+  },
+  "bootstrap": {
+    "draws": 9999,
+    "seed": 2610062041,
+    "unit": "visitor_history",
+    "interval": 0.95
+  },
+  "interpretation_rules": {
+    "near_driven": "evolution_effect_near is more negative than evolution_effect_far; attenuation is produced primarily by additional investment decline in the high-supply arm.",
+    "far_relief": "evolution_effect_far is positive relative to fixed while near is unchanged or less affected; attenuation is produced primarily by weaker decline in the low-supply arm.",
+    "mixed": "both arm-specific changes materially contribute; report both rather than forcing a single mediation label.",
+    "no_mediation_fraction": "This algebra localizes the interaction but is not a natural direct/indirect effect decomposition."
+  },
+  "mechanistic_anchor": {
+    "source": "data/results/model3_reciprocal_selection_20261005.json",
+    "scope": "Corrected fixed-resident rare-mutant gradients under the four baseline reproductive settings.",
+    "preexisting_result": "Across the 60 baseline setting-community-matching fields (144060 resident states), the capacity effect on investment selection is negative throughout; this is a local selection diagnostic, not proof of trajectory mediation.",
+    "sensitivity_boundary": "The broader 500-combination parameter diagnostic contains 25 positive cross-effect exceptions, so the negative coupling is not universal outside the declared baseline settings."
+  },
+  "reporting": {
+    "all_four": "Report every setting regardless of direction.",
+    "no_new_journal_gate": "This decomposition explains the already confirmed interaction and does not alter the frozen journal-routing adjudication.",
+    "no_new_simulation": "Reuse only hash-verified raw artifacts from source workflow run 37458098483."
+  }
+}

@@ -10,31 +10,31 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_current_and_historical_manuscripts_cannot_be_confused():
     current = render_manuscript()
     historical = render_submission_manuscript()
-    assert current.startswith('# How island isolation generates floral change:')
+    assert current.startswith('# Reproductive assurance compresses floral-investment divergence')
     assert historical.startswith('# From pollination ecology to realized floral evolution')
-    assert '13,312' in current and '9,984' in current
+    assert '8,192 trajectories' in current
     assert '**Controlling state:**' not in current
     assert '## Numerical scope amendment' not in current
-    assert 'temporal precedence is not causal necessity' in current
-    assert '51/64' in current
-    assert '−0.4354' in current
-    assert 'not calibrated reconstructions of natural island histories' in current
+    assert 'not required for pollinator-limitation-driven investment decline' in current
+    assert '78–90%' in current
+    assert '−0.4413' in current
+    assert 'not calibrated to a named island' in current
 
 
 def test_current_render_keeps_primary_denominator_and_pde_limit():
     text = render_manuscript()
     abstract = text.split('## Abstract',1)[1].split('## Keywords',1)[0]
     normalized = ' '.join(abstract.split())
-    assert '64 independent visitor histories' in normalized
-    assert 'eight new nested demographic repeats' in normalized
+    assert '64 independent new visitor histories' in normalized
+    assert 'eight nested demographic repeats' in normalized
     assert 180 <= len(abstract.split()) <= 300
-    assert 'temporal precedence is not causal necessity' in normalized
-    assert 'confirmed assurance-first sequence is setting-specific' in normalized
+    assert 'not required for pollinator-limitation-driven investment decline' in normalized
+    assert '78–90%' in normalized
 
 
 def test_incomplete_manuscript_is_not_rendered_as_final(tmp_path):
     source = tmp_path/'partial.md'
-    source.write_text('# How island isolation generates floral change: draft\n\n## Abstract\nPartial only.',encoding='utf-8')
+    source.write_text('# Reproductive assurance compresses floral-investment divergence under pollinator limitation\n\n## Abstract\nPartial only.',encoding='utf-8')
     with pytest.raises(ValueError,match='missing required section'):
         render_manuscript(source)
 
@@ -48,3 +48,14 @@ def test_historical_snapshot_rejects_changed_bytes(tmp_path, monkeypatch):
     monkeypatch.setattr(historical, 'SOURCE', changed)
     with pytest.raises(ValueError, match='snapshot hash mismatch'):
         historical.render_submission_manuscript()
+
+
+def test_ecology_letters_word_limits_are_locked():
+    text = render_manuscript()
+    abstract = text.split('## Abstract',1)[1].split('## Keywords',1)[0]
+    main = text.split('# Introduction',1)[1].split('# Primary figure assembly and captions',1)[0]
+    conclusion = text.split('# Conclusion',1)[1].split('# Primary figure assembly and captions',1)[0]
+    assert len(main.split()) <= 5000
+    assert len(conclusion.split()) < 200
+    assert 180 <= len(abstract.split()) <= 300
+    assert text.count('**Figure ') == 4

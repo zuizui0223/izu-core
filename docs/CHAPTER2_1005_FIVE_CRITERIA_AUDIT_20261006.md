@@ -126,8 +126,17 @@ assurance-cost 0.5, positive-mutation cell.
 All four setting-by-mutation cells are retained. Secondary cells cannot rescue
 or overturn the frozen primary adjudication.
 
-The fixed-assurance result is broader in sign than the sequence result, but it
-does not justify broadening the sequence claim.
+The fixed-assurance result is broader than the sequence result, and a separate
+prospectively frozen generality campaign now establishes that breadth directly.
+Across delayed control, prior selfing, pollen discount and assurance cost,
+fixed-assurance far-minus-near investment was negative with 95% history-bootstrap
+intervals wholly below zero. In the same campaign, the common-four-cell
+evolving-minus-fixed interaction was positive with intervals wholly above zero
+in all four settings (+0.1605, +0.2200, +0.1915 and +0.1007, respectively).
+All arms/modes retained occupancy 1.0 and 64/64 eligible histories.
+
+This broadens **non-necessity and attenuation**, not temporal ordering. The
+sequence claim remains restricted to the delayed/costly primary cell.
 
 ## Criterion 5 — Claim boundary / reproducibility: PASS
 
@@ -165,12 +174,13 @@ Reproducibility/provenance:
 What is established:
 - the delayed/costly positive-mutation assurance-first sequence under the
   declared threshold definition;
-- the non-necessity of assurance evolution for investment decline in the
-  matched fixed-assurance intervention;
+- across all four declared reproductive settings, the non-necessity of assurance
+  evolution for negative near–far investment divergence;
+- across all four declared settings, attenuation of that divergence when
+  assurance can evolve;
 - the logical/ecological separation of sequence from necessity.
 
 What remains exploratory/supporting:
-- attenuation of geographic divergence by assurance evolution;
 - the 13-rate response surface;
 - pollen-deficit versus viable-offspring contrast as a paper-level novelty;
 - full mutation/history interpretation;

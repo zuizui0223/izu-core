@@ -13,6 +13,7 @@ on:
       - 'scripts/audit_chapter2_*'
       - 'scripts/run_chapter2_*'
       - 'scripts/summarize_chapter2_*'
+      - 'scripts/figure_model3_*'
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
@@ -58,6 +59,8 @@ jobs:
             tests/test_chapter2_1005_confirmatory_design.py \
             tests/test_chapter2_1005_confirmatory_history_level.py \
             tests/test_chapter2_1005_confirmed_result.py \
+            tests/test_chapter2_assurance_generality.py \
+            tests/test_chapter2_assurance_generality_result.py \
             tests/test_chapter2_process_review_confirmed.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
@@ -89,7 +92,7 @@ jobs:
       - name: Regenerate the four current main figures from stored evidence
         run: |
           python -m scripts.figure_model3_return_components
-          python -m scripts.figure_model3_sequence_necessity
+          python -m scripts.figure_model3_assurance_compression
           python -m scripts.figure_model3_trait_pollen
           python -m scripts.figure_model3_genetic_realization
       - name: Build confirmed process review package
@@ -294,3 +297,192 @@ jobs:
           path: |
             chapter2_finite_history_signal_environment_validation_20261004.json
             chapter2_finite_history_signal_environment_validation_console.txt
+
+
+  assurance-generality-plan:
+    if: github.event_name == 'pull_request' && github.head_ref == 'chapter2/assurance-generality-20261006'
+    runs-on: ubuntu-latest
+    outputs:
+      needs_run: ${{ steps.plan.outputs.needs_run }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        name: Check whether the frozen four-setting generality result is already recorded
+        run: |
+          if test -f data/results/chapter2_assurance_generality_20261006.json; then
+            echo "needs_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs_run=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Validate frozen generality contract before execution
+        if: steps.plan.outputs.needs_run == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("data/design/chapter2_assurance_generality_20261006.json")
+          d=json.loads(p.read_text())
+          assert d["status"]=="frozen_before_generality_execution"
+          assert set(d["settings"])=={"delayed_control","prior_selfing","pollen_discount","assurance_cost"}
+          assert d["main_campaign"]["declared_cases"]==8192
+          assert d["structural_control"]["declared_cases"]==256
+          assert d["main_campaign"]["visitor_history_seeds"]["first"]==26110601
+          assert d["main_campaign"]["demographic_repeat_seeds"]["first"]==26111601
+          print("frozen assurance generality contract valid")
+          PY
+
+  assurance-generality-shard:
+    needs: assurance-generality-plan
+    if: needs.assurance-generality-plan.outputs.needs_run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run frozen four-setting assurance generality shard
+        run: |
+          SHARD=$(printf "%02d" "${{ matrix.shard }}")
+          python -m scripts.run_chapter2_assurance_generality \
+            --design data/design/chapter2_assurance_generality_20261006.json \
+            --out "assurance-generality-output/shard-${SHARD}" \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count 32 \
+            --workers 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-assurance-generality-shard-${{ matrix.shard }}
+          retention-days: 30
+          if-no-files-found: error
+          path: assurance-generality-output/shard-*
+
+  assurance-generality-summary:
+    needs: [assurance-generality-plan, assurance-generality-shard]
+    if: always() && needs.assurance-generality-plan.outputs.needs_run == 'true' && needs.assurance-generality-shard.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chapter2-assurance-generality-shard-*
+          path: assurance-generality-shards
+      - name: Apply frozen four-setting generality rule to complete campaign
+        run: |
+          python -m scripts.summarize_chapter2_assurance_generality \
+            --design data/design/chapter2_assurance_generality_20261006.json \
+            --input-root assurance-generality-shards \
+            --out chapter2_assurance_generality_20261006.json \
+            | tee chapter2_assurance_generality_console.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-assurance-generality-result
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            chapter2_assurance_generality_20261006.json
+            chapter2_assurance_generality_console.txt
+
+
+  assurance-attenuation-decomposition:
+    if: github.event_name == 'pull_request' && github.head_ref == 'chapter2/assurance-generality-20261006'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        name: Check whether the arm decomposition is already recorded
+        run: |
+          if test -f data/results/chapter2_assurance_attenuation_decomposition_20261006.json; then
+            echo "needs_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs_run=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+        if: steps.plan.outputs.needs_run == 'true'
+      - run: python -m pip install -e '.[dev]'
+        if: steps.plan.outputs.needs_run == 'true'
+      - uses: actions/download-artifact@v4
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          pattern: chapter2-assurance-generality-shard-*
+          path: assurance-generality-shards
+          repository: ${{ github.repository }}
+          run-id: 37458098483
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Decompose the confirmed interaction by arm
+        if: steps.plan.outputs.needs_run == 'true'
+        run: |
+          python -m scripts.summarize_chapter2_assurance_attenuation_decomposition \
+            --source-design data/design/chapter2_assurance_generality_20261006.json \
+            --decomposition-design data/design/chapter2_assurance_attenuation_decomposition_20261006.json \
+            --input-root assurance-generality-shards \
+            --out chapter2_assurance_attenuation_decomposition_20261006.json \
+            | tee chapter2_assurance_attenuation_decomposition_console.txt
+      - uses: actions/upload-artifact@v4
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          name: chapter2-assurance-attenuation-decomposition
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            chapter2_assurance_attenuation_decomposition_20261006.json
+            chapter2_assurance_attenuation_decomposition_console.txt
+
+
+  assurance-gradient-components:
+    if: github.event_name == 'pull_request' && github.head_ref == 'chapter2/assurance-generality-20261006'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        name: Check whether the gradient-component diagnostic is already recorded
+        run: |
+          if test -f data/results/chapter2_assurance_gradient_components_20261006.json; then
+            echo "needs_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs_run=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+        if: steps.plan.outputs.needs_run == 'true'
+      - run: python -m pip install -e '.[dev]'
+        if: steps.plan.outputs.needs_run == 'true'
+      - name: Evaluate corrected invasion-gradient components
+        if: steps.plan.outputs.needs_run == 'true'
+        run: |
+          python -m scripts.summarize_chapter2_assurance_gradient_components \
+            --source-design data/design/chapter2_assurance_generality_20261006.json \
+            --diagnostic-design data/design/chapter2_assurance_gradient_component_diagnostic_20261006.json \
+            --out chapter2_assurance_gradient_components_20261006.json \
+            | tee chapter2_assurance_gradient_components_console.txt
+      - uses: actions/upload-artifact@v4
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          name: chapter2-assurance-gradient-components
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            chapter2_assurance_gradient_components_20261006.json
+            chapter2_assurance_gradient_components_console.txt

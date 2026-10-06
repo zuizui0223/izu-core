@@ -5,7 +5,7 @@ from scripts.render_chapter2_process_manuscript import render_manuscript as rend
 from scripts.render_chapter2_supporting_information import render_supporting_information
 
 ROOT = Path(__file__).resolve().parents[1]
-MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md"
 CANONICAL_STORY = ROOT / "docs/CHAPTER2_CANONICAL_STORY_20260927.md"
 CH1_BRIDGE = ROOT / "docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260927.json"
@@ -15,14 +15,13 @@ def test_active_submission_uses_one_model3_ecological_pathway():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
     submission = render_submission_manuscript()
     lower = " ".join(submission.lower().split())
-    assert manuscript.startswith("# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization")
-    assert "64 independent visitor histories" in lower
-    assert "64 independent visitor histories" in lower
-    assert "51/64" in lower
-    assert "95% history-bootstrap 0.688–0.891" in lower
-    assert "far change −0.3060" in lower
-    assert "far-minus-near −0.4354" in lower
-    assert "temporal precedence is not causal necessity" in lower
+    assert manuscript.startswith("# Reproductive assurance compresses floral-investment divergence under pollinator limitation")
+    assert "64 independent new visitor histories" in lower
+    assert "8,192 trajectories" in lower
+    assert "all four settings" in lower
+    assert "78–90%" in lower
+    assert "maternal outcross and paternal pollen-export" in lower
+    assert "temporal order is setting-specific" in lower
 
 
 def test_canonical_story_and_chapter1_bridge_match_model3_mainline():
@@ -59,9 +58,9 @@ def test_density_closure_is_not_stochastic_mean_or_finite_size_target():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8").lower()
     submission = render_submission_manuscript().lower()
     story = CANONICAL_STORY.read_text(encoding="utf-8").lower()
-    assert "conditional deterministic closure" in manuscript
-    assert "not the stochastic mean" in manuscript
-    assert "descriptive only" in manuscript
-    assert "conditional deterministic closure" in submission
+    assert "conditional closure" in manuscript
+    assert "not the exact stochastic expectation" in manuscript
+    assert "not a dynamic mediation" in manuscript
+    assert "conditional closure" in submission
     assert "not the stochastic mean" in story
     assert "finite-size convergence or attenuation coefficient" in story

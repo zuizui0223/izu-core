@@ -11,7 +11,7 @@ def test_readme_is_model3_first():
     assert "2026-10-05 ecological process mainline" in lower
     assert "independently confirmed" in lower
     assert "13 rates at fixed plant capacity 48" in lower
-    assert "sequence ≠ necessity" in lower
+    assert "temporal precedence is not causal necessity" in lower
     assert "64 new visitor histories" in lower
     assert "prior-selfing positive-mutation cell did not show an assurance-first majority" in lower
 
@@ -19,6 +19,7 @@ def test_readme_is_model3_first():
 def test_readme_routes_to_current_submission_surface():
     text = README.read_text(encoding="utf-8")
     for token in (
+        "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md",
         "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
         "docs/CHAPTER2_PROCESS_MAINLINE_20261005.md",
         "docs/CHAPTER2_CANONICAL_STORY_20260927.md",

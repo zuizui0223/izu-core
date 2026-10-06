@@ -53,3 +53,108 @@ selfing and is not a complete mediation analysis.
 
 Design: `data/design/chapter2_1005_confirmatory_replication_20261006.json`.
 Result: `data/results/chapter2_1005_confirmatory_replication_20261006.json`.
+
+
+## Four-setting preregistered generality confirmation — 2026-10-06
+
+A separate prospective campaign tested whether the two-setting attenuation pattern
+generalized to all four pre-existing reproductive settings without reusing the
+discovery visitor histories or demographic repeats. The design was frozen before
+execution in `data/design/chapter2_assurance_generality_20261006.json`.
+
+The biological campaign used 64 new visitor histories (26110601–26110664) and
+eight new demographic repeats (26111601–26111608), crossed with near/far,
+fixed/evolving assurance and the four existing settings. This yielded 8,192
+positive-mutation trajectories. A separate 256-trajectory zero-mutation
+structural audit required fixed and evolving traces to be exactly identical;
+all 128 matched trace pairs passed.
+
+At period 1000, all four settings passed the frozen rule:
+
+| Setting | Fixed far-minus-near investment | Evolving far-minus-near | Evolving-minus-fixed interaction |
+|---|---:|---:|---:|
+| Delayed control | −0.4413 [−0.4564, −0.4262] | −0.2807 [−0.3010, −0.2601] | +0.1605 [+0.1418, +0.1789] |
+| Prior selfing | −0.3018 [−0.3172, −0.2866] | −0.0818 [−0.0971, −0.0656] | +0.2200 [+0.2025, +0.2383] |
+| Pollen discount | −0.3305 [−0.3461, −0.3151] | −0.1390 [−0.1544, −0.1247] | +0.1915 [+0.1762, +0.2069] |
+| Assurance cost | −0.4337 [−0.4501, −0.4171] | −0.3330 [−0.3480, −0.3174] | +0.1007 [+0.0842, +0.1177] |
+
+Every fixed/evolving × near/far arm had terminal occupancy 1.0, and 64/64
+visitor histories were eligible for both the fixed contrast and common-four-cell
+interaction in every setting. Thus the result is not created by unmatched
+survivor sets.
+
+The prospective conclusion is now broader than the original two-setting
+exploration: **investment reduction under sustained visitor-replenishment
+limitation does not require assurance-capacity evolution in any of the four
+declared reproductive settings, and allowing assurance to evolve consistently
+narrows the near–far investment contrast.** The temporal-order result is not
+broadened by this campaign and remains setting-specific.
+
+This interaction is not a mediation fraction. Fixed assurance retains realized
+selfing opportunities, and a smaller near–far contrast can coexist with large
+within-environment evolutionary change. The result is model-conditional and does
+not by itself establish an empirical flower-size effect in natural island
+populations.
+
+Result:
+`data/results/chapter2_assurance_generality_20261006.json`.
+Workflow run: 37458098483; result artifact: 11411525163.
+
+
+## Why assurance evolution narrows the near–far contrast
+
+Two post-confirmation diagnostics localize the already confirmed interaction without
+rerunning or retuning the biological campaign.
+
+First, the same 8,448 hash-verified trajectories were decomposed on common
+four-cell replicates. In every setting, allowing assurance to evolve pushes
+investment lower on the near side but leaves investment slightly higher on the
+far side than under fixed assurance:
+
+| Setting | Evolving−fixed investment, near | Evolving−fixed investment, far | Near-side share of attenuation |
+|---|---:|---:|---:|
+| Delayed control | −0.1253 [−0.1395, −0.1112] | +0.0352 [+0.0233, +0.0471] | 78.1% |
+| Prior selfing | −0.1985 [−0.2137, −0.1838] | +0.0215 [+0.0116, +0.0315] | 90.2% |
+| Pollen discount | −0.1699 [−0.1831, −0.1563] | +0.0216 [+0.0110, +0.0327] | 88.7% |
+| Assurance cost | −0.0789 [−0.0931, −0.0646] | +0.0218 [+0.0120, +0.0312] | 78.3% |
+
+Thus the positive interaction is not mainly a rescue of far-side investment.
+It is primarily a **near-side convergence effect**: when assurance can evolve,
+high-replenishment populations lose more investment than they do when assurance
+is fixed, while low-replenishment populations show a much smaller offset in the
+opposite direction. The algebraic identity was exact to <2.3e-16, all 64
+histories retained all eight common four-cell repeats, and no survivor-set
+mismatch is involved.
+
+Second, a fixed-resident diagnostic used the corrected rare-mutant invasion
+gradient at matching=0.5 and investment=0.5. Increasing assurance from 0.25 to
+0.75 at visitor snapshot400 made investment selection more negative in both arms,
+but much more strongly under near than far histories:
+
+| Setting | Assurance effect on investment gradient, near | Far | Near−far |
+|---|---:|---:|---:|
+| Delayed control | −0.4343 | −0.0549 | −0.3794 |
+| Prior selfing | −0.5886 | −0.0655 | −0.5231 |
+| Pollen discount | −0.5251 | −0.0590 | −0.4661 |
+| Assurance cost | −0.4343 | −0.0549 | −0.3794 |
+
+At snapshot400, the female outcross and paternal export components together
+account for most of this near-minus-far local effect; the selfing-displacement
+and ovule-allocation-cost terms contribute in the same direction except that the
+prior-selfing displacement term is structurally zero. The biological reading is
+that low visitor replenishment has already removed most of the attraction return
+available to lose. Under high replenishment, outcross return is still substantial,
+so increasing assurance more strongly erodes the marginal value of attraction.
+
+This explains why assurance evolution can compress geographic divergence without
+being required for far-side investment decline. It does **not** identify a natural
+direct/indirect mediation fraction. The fixed-resident calculation is a local
+selection diagnostic, whereas the finite trajectories also contain evolving
+population state, genetic covariance, demographic sampling and feedback. The
+broader 500-combination parameter diagnostic contains rare sign exceptions, so
+the direct coupling is not claimed as universal outside the four baseline
+reproductive settings.
+
+Evidence:
+`data/results/chapter2_assurance_attenuation_decomposition_20261006.json`;
+`data/results/chapter2_assurance_gradient_components_20261006.json`.

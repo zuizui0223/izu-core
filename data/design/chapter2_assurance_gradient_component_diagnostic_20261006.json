@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-06",
+  "status": "frozen_before_gradient_component_calculation",
+  "classification": "post-confirmation explanatory diagnostic; no change to the confirmed generality gate",
+  "question": "At the same resident matching and investment state, which corrected rare-mutant investment-gradient components change when assurance capacity is increased, and is that direct effect different under near versus far visitor histories?",
+  "source_generality_design": "data/design/chapter2_assurance_generality_20261006.json",
+  "source_histories": {
+    "first": 26110601,
+    "last": 26110664,
+    "count": 64
+  },
+  "settings": ["delayed_control", "prior_selfing", "pollen_discount", "assurance_cost"],
+  "resident": {
+    "matching": 0.5,
+    "investment": 0.5,
+    "assurance_levels": [0.25, 0.5, 0.75]
+  },
+  "arms": ["near", "far"],
+  "visitor_snapshots": [0, 200, 400],
+  "primary_snapshot_for_presentation": 400,
+  "gradient": "Corrected fixed-resident rare-mutant log-invasion gradient from scripts/model3_island/selection.py; resident pollen pool and recipient competition are held fixed.",
+  "components": [
+    "maternal_outcross_component",
+    "paternal_export_component",
+    "selfing_displacement_component",
+    "ovule_allocation_cost_component"
+  ],
+  "additive_identity": "investment_gradient = maternal_outcross_component + paternal_export_component + selfing_displacement_component + ovule_allocation_cost_component",
+  "estimands": {
+    "assurance_effect_within_arm": "investment gradient at assurance 0.75 minus investment gradient at assurance 0.25, computed within each visitor history and arm",
+    "near_minus_far_assurance_effect": "assurance effect in near minus assurance effect in far for the matched visitor-history seed",
+    "component_contributions": "The same high-minus-low assurance contrast for each gradient component."
+  },
+  "bootstrap": {
+    "draws": 9999,
+    "seed": 2610062051,
+    "unit": "visitor_history",
+    "interval": 0.95
+  },
+  "reporting_rules": {
+    "report_all": "Retain all three snapshots and all four settings regardless of sign.",
+    "no_dynamic_mediation": "This fixed-resident diagnostic explains local selection only and cannot by itself identify the finite-trajectory attenuation as a mediation effect.",
+    "direct_vs_feedback": "If the near-minus-far assurance effect is negative, direct local coupling is stronger on the near side; any mismatch with trajectory-level arm effects is evidence that dynamic ecological/genetic feedback also matters.",
+    "sensitivity_boundary": "The previously completed 500-combination parameter grid contains rare positive capacity-to-investment cross-effect exceptions; no universal sign is claimed outside the baseline settings."
+  }
+}

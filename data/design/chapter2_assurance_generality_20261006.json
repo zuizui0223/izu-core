@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-06",
+  "status": "frozen_before_generality_execution",
+  "purpose": "Prospectively test whether reduced floral investment under sustained visitor-replenishment limitation does not require evolving reproductive-assurance capacity, and whether allowing assurance evolution attenuates the between-environment investment contrast, across all four pre-existing reproductive settings.",
+  "relation_to_prior_evidence": {
+    "exploratory_source": "data/results/model3_assurance_intervention_summary_20261005.json",
+    "independent_fixed_assurance_confirmation": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+    "boundary": "The 2026-10-05 intervention exposed this attenuation pattern in assurance_cost and prior_selfing only. This campaign uses new visitor histories and demographic repeats and expands to delayed_control and pollen_discount without reusing discovery outcomes."
+  },
+  "settings": {
+    "delayed_control": {
+      "assurance_timing": "delayed",
+      "pollen_discount": 0.0,
+      "assurance_cost": 0.0,
+      "role": "structural reproductive control"
+    },
+    "prior_selfing": {
+      "assurance_timing": "prior",
+      "pollen_discount": 0.0,
+      "assurance_cost": 0.0,
+      "role": "seed-discounting tradeoff"
+    },
+    "pollen_discount": {
+      "assurance_timing": "delayed",
+      "pollen_discount": 1.0,
+      "assurance_cost": 0.0,
+      "role": "male-function tradeoff"
+    },
+    "assurance_cost": {
+      "assurance_timing": "delayed",
+      "pollen_discount": 0.0,
+      "assurance_cost": 0.5,
+      "role": "direct assurance-allocation cost"
+    }
+  },
+  "main_campaign": {
+    "mutation_probability": 0.01,
+    "modes": ["fixed", "evolving"],
+    "arms": ["near", "far"],
+    "fixed_assurance": 0.5,
+    "periods": 1000,
+    "endpoint": 1000,
+    "visitor_history_seeds": {"first": 26110601, "last": 26110664, "count": 64},
+    "demographic_repeat_seeds": {"first": 26111601, "last": 26111608, "count": 8},
+    "founder_seed": 74001,
+    "declared_cases": 8192,
+    "inference_unit": "visitor history; eight demographic repeats are nested",
+    "founders": "Same original 48 matching/investment founders, with both assurance alleles forced to 0.5 in fixed and evolving modes.",
+    "estimands": {
+      "necessity": "fixed-mode far-minus-near terminal investment contrast",
+      "attenuation": "(evolving far-minus-near terminal investment contrast) - (fixed far-minus-near terminal investment contrast), computed on the same surviving four-cell replicate set",
+      "secondary": ["fixed-mode far investment change from founders", "evolving-mode far-minus-near terminal investment contrast"]
+    }
+  },
+  "structural_control": {
+    "mutation_probability": 0.0,
+    "history_count": 8,
+    "repeat_count": 2,
+    "arms": ["near", "far"],
+    "modes": ["fixed", "evolving"],
+    "declared_cases": 256,
+    "rule": "Within every matched setting-history-repeat-arm cell, fixed and evolving full traces must be exactly identical. This is an implementation control, not biological replication."
+  },
+  "admissibility": {
+    "minimum_arm_occupancy": 0.90,
+    "minimum_eligible_histories": 60,
+    "trait_endpoints_after_extinction": "undefined; never code as zero",
+    "interaction_survival": "The attenuation estimand uses only demographic repeats occupied at period 1000 in fixed-near, fixed-far, evolving-near and evolving-far."
+  },
+  "bootstrap": {
+    "draws": 9999,
+    "seed": 2611062026,
+    "unit": "visitor_history",
+    "interval": "percentile 95%"
+  },
+  "frozen_success_rule": {
+    "per_setting": "Admissible AND fixed far-minus-near investment mean < 0 with its 95% visitor-history bootstrap upper bound < 0 AND attenuation mean > 0 with its 95% visitor-history bootstrap lower bound > 0.",
+    "all_four": "All four settings pass the per-setting rule.",
+    "partial": "One to three settings pass; retain JE as the primary target and report attenuation as setting-dependent secondary evidence.",
+    "none": "No setting passes; retain the existing JE claim without the general attenuation statement.",
+    "journal_decision": "all_four -> Ecology Letters first / Journal of Ecology backup; partial or none -> Journal of Ecology first."
+  },
+  "reporting_rules": {
+    "no_partial_readout": "No biological summary until all 8448 declared trajectories and receipts are present and verified.",
+    "no_retuning": "No seed extension, threshold change, outcome substitution, model-parameter adjustment or setting exclusion after execution begins.",
+    "all_settings": "Report all four settings regardless of direction, including failed or inadmissible cells.",
+    "claim_boundary": "A positive attenuation interaction means assurance evolution narrows the near-far investment difference in this model. It is not a mediation fraction, does not imply selfing itself is absent, and does not establish an empirical flower-size causal effect.",
+    "selection_gradient_boundary": "Mechanistic interpretation must use the corrected fixed-resident rare-mutant invasion gradient, not the retired whole-population derivative."
+  }
+}

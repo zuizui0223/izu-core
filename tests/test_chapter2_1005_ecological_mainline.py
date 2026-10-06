@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SUBMISSION = ROOT / "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md"
+LONGFORM = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
 
 
 def test_1005_ecological_mainline_is_active():
@@ -10,9 +12,7 @@ def test_1005_ecological_mainline_is_active():
             encoding="utf-8"
         )
     )
-    manuscript = (ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md").read_text(
-        encoding="utf-8"
-    )
+    manuscript = SUBMISSION.read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     process = (ROOT / "docs/CHAPTER2_PROCESS_MAINLINE_20261005.md").read_text(
         encoding="utf-8"
@@ -28,34 +28,32 @@ def test_1005_ecological_mainline_is_active():
     assert lock["confirmatory_status"]["primary_sequence"]["assurance_first_histories"] == 51
     assert lock["confirmatory_status"]["primary_sequence"]["bootstrap95"] == [0.6875, 0.890625]
     assert lock["confirmatory_status"]["primary_fixed_assurance"]["far_investment_change"]["mean"] < 0
-    assert "sequence ≠ necessity" in readme.lower()
+    assert "temporal precedence is not causal necessity" in readme.lower()
     assert "2026-10-05 ecological results" in process
     assert manuscript.startswith(
-        "# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization"
+        "# Reproductive assurance compresses floral-investment divergence under pollinator limitation"
     )
     assert "Assurance evolution is not required for investment decline" in manuscript
-    assert "Lower pollen deficit does not necessarily mean greater viable reproduction" in manuscript
+    assert "Assurance evolution consistently compresses environmental divergence" in manuscript
+    assert "Pollen-deficit and viable-output responses are not equivalent" in manuscript
 
 
 def test_primary_process_claim_does_not_depend_on_unresolved_continuum_route():
-    manuscript = (ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md").read_text(
-        encoding="utf-8"
-    )
+    manuscript = SUBMISSION.read_text(encoding="utf-8")
     abstract = manuscript.split("## Abstract", 1)[1].split("## Keywords", 1)[0].lower()
-    figures = manuscript.split("# Primary figure assembly and captions", 1)[1].split("# References", 1)[0].lower()
+    figures = manuscript.split("# Primary figure assembly and captions", 1)[1].split("# Data accessibility", 1)[0].lower()
     for forbidden in ("pde", "high-resolution", "continuum replacement", "converged deterministic"):
         assert forbidden not in abstract
-    assert "same plant state" in abstract
-    assert "maintained-isolation" in abstract
-    assert "fixed-assurance replication" in abstract
-    assert "full-mutation common-environment" in figures
-    assert "supporting information" in figures
+    assert "64 independent new visitor histories" in abstract
+    assert "assurance capacity was fixed across four reproductive settings" in abstract
+    assert "78–90%" in abstract
+    assert "not required for pollinator-limitation-driven investment decline" in abstract
+    assert "finite genetic realization" in figures
+    assert "dynamic mediation" in figures
 
 
-def test_confirmatory_methods_are_explicit_in_active_manuscript():
-    manuscript = (ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md").read_text(
-        encoding="utf-8"
-    )
+def test_confirmatory_methods_are_explicit_in_longform_provenance():
+    manuscript = LONGFORM.read_text(encoding="utf-8")
     methods = manuscript.split("# Materials and Methods", 1)[1].split("# Results", 1)[0]
     normalized = " ".join(methods.split())
     assert "Prospectively frozen independent confirmation" in methods

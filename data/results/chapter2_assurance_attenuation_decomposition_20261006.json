@@ -1,0 +1,424 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "complete_arm_decomposition",
+  "source_design_sha256": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+  "decomposition_design_sha256": "2d862d539f90bcb3229c2ce4dcde81e253c685265a4df7cf9fa3c06fc3d4b2a2",
+  "source_cases_verified": 8448,
+  "independent_visitor_histories": 64,
+  "settings": [
+    {
+      "setting": "delayed_control",
+      "common_four_cell_histories": 64,
+      "common_replicates_per_history_min": 8,
+      "common_replicates_per_history_max": 8,
+      "max_attenuation_identity_error": 2.220446049250313e-16,
+      "estimates": {
+        "fixed_near_investment_change": {
+          "mean": 0.12193431636843689,
+          "bootstrap95": [
+            0.10799379196872122,
+            0.1357664104532957
+          ],
+          "n_histories": 64
+        },
+        "fixed_far_investment_change": {
+          "mean": -0.31934810946086467,
+          "bootstrap95": [
+            -0.3307215530393968,
+            -0.30754566126059074
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_investment_change": {
+          "mean": -0.0033887853562672076,
+          "bootstrap95": [
+            -0.017904499248384883,
+            0.0107634069081448
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_investment_change": {
+          "mean": -0.2841318320629335,
+          "bootstrap95": [
+            -0.29774565541392917,
+            -0.27028550978968097
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_assurance_change": {
+          "mean": 0.4513769482411556,
+          "bootstrap95": [
+            0.4469736838272641,
+            0.4554911274381975
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_assurance_change": {
+          "mean": 0.4798120443134728,
+          "bootstrap95": [
+            0.47867157487920337,
+            0.48090730796858255
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_near": {
+          "mean": -0.1253231017247041,
+          "bootstrap95": [
+            -0.1394587346373826,
+            -0.11124232964632019
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_far": {
+          "mean": 0.03521627739793118,
+          "bootstrap95": [
+            0.023277427267336448,
+            0.047121002743120914
+          ],
+          "n_histories": 64
+        },
+        "near_side_contribution_to_attenuation": {
+          "mean": 0.1253231017247041,
+          "bootstrap95": [
+            0.11119002941835252,
+            0.13970227241622066
+          ],
+          "n_histories": 64
+        },
+        "far_side_contribution_to_attenuation": {
+          "mean": 0.03521627739793118,
+          "bootstrap95": [
+            0.022778984218462462,
+            0.04754226324402572
+          ],
+          "n_histories": 64
+        },
+        "attenuation": {
+          "mean": 0.16053937912263527,
+          "bootstrap95": [
+            0.14212078759335559,
+            0.1795990671200609
+          ],
+          "n_histories": 64
+        }
+      },
+      "localization": "near_decline_plus_far_relief",
+      "identity": "attenuation = far-side evolving-minus-fixed effect - near-side evolving-minus-fixed effect"
+    },
+    {
+      "setting": "prior_selfing",
+      "common_four_cell_histories": 64,
+      "common_replicates_per_history_min": 8,
+      "common_replicates_per_history_max": 8,
+      "max_attenuation_identity_error": 2.220446049250313e-16,
+      "estimates": {
+        "fixed_near_investment_change": {
+          "mean": -0.0298627903440343,
+          "bootstrap95": [
+            -0.04427868458609331,
+            -0.01591979006702539
+          ],
+          "n_histories": 64
+        },
+        "fixed_far_investment_change": {
+          "mean": -0.331631067600059,
+          "bootstrap95": [
+            -0.34067510300364745,
+            -0.3224618561955529
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_investment_change": {
+          "mean": -0.22841192926919657,
+          "bootstrap95": [
+            -0.24297254406776325,
+            -0.21421449222799388
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_investment_change": {
+          "mean": -0.31016470601821516,
+          "bootstrap95": [
+            -0.32057888550659847,
+            -0.29957749216221347
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_assurance_change": {
+          "mean": 0.4741115151960723,
+          "bootstrap95": [
+            0.47188383089333835,
+            0.47624914806589236
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_assurance_change": {
+          "mean": 0.48003044785455484,
+          "bootstrap95": [
+            0.4788111121285453,
+            0.48118412389148635
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_near": {
+          "mean": -0.19854913892516227,
+          "bootstrap95": [
+            -0.21367491854116483,
+            -0.18376944278615354
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_far": {
+          "mean": 0.021466361581843778,
+          "bootstrap95": [
+            0.011563119200587916,
+            0.03147124281223545
+          ],
+          "n_histories": 64
+        },
+        "near_side_contribution_to_attenuation": {
+          "mean": 0.19854913892516227,
+          "bootstrap95": [
+            0.18360320405143798,
+            0.2135523035865612
+          ],
+          "n_histories": 64
+        },
+        "far_side_contribution_to_attenuation": {
+          "mean": 0.021466361581843778,
+          "bootstrap95": [
+            0.011513384530150703,
+            0.03098587204634012
+          ],
+          "n_histories": 64
+        },
+        "attenuation": {
+          "mean": 0.22001550050700608,
+          "bootstrap95": [
+            0.20219539879599951,
+            0.23792230059976258
+          ],
+          "n_histories": 64
+        }
+      },
+      "localization": "near_decline_plus_far_relief",
+      "identity": "attenuation = far-side evolving-minus-fixed effect - near-side evolving-minus-fixed effect"
+    },
+    {
+      "setting": "pollen_discount",
+      "common_four_cell_histories": 64,
+      "common_replicates_per_history_min": 8,
+      "common_replicates_per_history_max": 8,
+      "max_attenuation_identity_error": 1.1102230246251565e-16,
+      "estimates": {
+        "fixed_near_investment_change": {
+          "mean": -0.00419887215345225,
+          "bootstrap95": [
+            -0.019049331794884578,
+            0.011499670130827045
+          ],
+          "n_histories": 64
+        },
+        "fixed_far_investment_change": {
+          "mean": -0.3347342602636082,
+          "bootstrap95": [
+            -0.3446716884215985,
+            -0.3246759502897386
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_investment_change": {
+          "mean": -0.17411796617330721,
+          "bootstrap95": [
+            -0.18834810261908808,
+            -0.15924570067514335
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_investment_change": {
+          "mean": -0.3131525475308855,
+          "bootstrap95": [
+            -0.3248053450646447,
+            -0.3014111505987047
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_assurance_change": {
+          "mean": 0.46569812454146886,
+          "bootstrap95": [
+            0.4612000532015702,
+            0.4698167267184867
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_assurance_change": {
+          "mean": 0.4793473992403867,
+          "bootstrap95": [
+            0.4781787370494351,
+            0.48049495592456803
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_near": {
+          "mean": -0.16991909401985494,
+          "bootstrap95": [
+            -0.18314924359381662,
+            -0.1562919616309533
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_far": {
+          "mean": 0.021581712732722663,
+          "bootstrap95": [
+            0.010990510073214294,
+            0.03274106032555489
+          ],
+          "n_histories": 64
+        },
+        "near_side_contribution_to_attenuation": {
+          "mean": 0.16991909401985494,
+          "bootstrap95": [
+            0.1565434300464225,
+            0.1834060808113777
+          ],
+          "n_histories": 64
+        },
+        "far_side_contribution_to_attenuation": {
+          "mean": 0.021581712732722663,
+          "bootstrap95": [
+            0.010736112759411028,
+            0.032607061606503104
+          ],
+          "n_histories": 64
+        },
+        "attenuation": {
+          "mean": 0.1915008067525776,
+          "bootstrap95": [
+            0.17636233440973922,
+            0.20723285023145652
+          ],
+          "n_histories": 64
+        }
+      },
+      "localization": "near_decline_plus_far_relief",
+      "identity": "attenuation = far-side evolving-minus-fixed effect - near-side evolving-minus-fixed effect"
+    },
+    {
+      "setting": "assurance_cost",
+      "common_four_cell_histories": 64,
+      "common_replicates_per_history_min": 8,
+      "common_replicates_per_history_max": 8,
+      "max_attenuation_identity_error": 1.1102230246251565e-16,
+      "estimates": {
+        "fixed_near_investment_change": {
+          "mean": 0.11913349748063604,
+          "bootstrap95": [
+            0.10450731753518222,
+            0.13386982207491938
+          ],
+          "n_histories": 64
+        },
+        "fixed_far_investment_change": {
+          "mean": -0.3145668892391059,
+          "bootstrap95": [
+            -0.32569977380078846,
+            -0.30317190749277806
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_investment_change": {
+          "mean": 0.04021834723632248,
+          "bootstrap95": [
+            0.02333366518532235,
+            0.05732606988298649
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_investment_change": {
+          "mean": -0.2927331646826019,
+          "bootstrap95": [
+            -0.3027069649071952,
+            -0.2825238298303309
+          ],
+          "n_histories": 64
+        },
+        "evolving_near_assurance_change": {
+          "mean": 0.27069190231799173,
+          "bootstrap95": [
+            0.2599474141284354,
+            0.2817597176487989
+          ],
+          "n_histories": 64
+        },
+        "evolving_far_assurance_change": {
+          "mean": 0.4045970949604374,
+          "bootstrap95": [
+            0.3998517480908234,
+            0.4095804831895237
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_near": {
+          "mean": -0.07891515024431356,
+          "bootstrap95": [
+            -0.09312225833430508,
+            -0.06459775963124083
+          ],
+          "n_histories": 64
+        },
+        "evolution_effect_far": {
+          "mean": 0.021833724556503953,
+          "bootstrap95": [
+            0.012003099412173574,
+            0.031249191104619708
+          ],
+          "n_histories": 64
+        },
+        "near_side_contribution_to_attenuation": {
+          "mean": 0.07891515024431356,
+          "bootstrap95": [
+            0.0645242324951392,
+            0.09319601667573094
+          ],
+          "n_histories": 64
+        },
+        "far_side_contribution_to_attenuation": {
+          "mean": 0.021833724556503953,
+          "bootstrap95": [
+            0.011855391693624522,
+            0.031640143862880915
+          ],
+          "n_histories": 64
+        },
+        "attenuation": {
+          "mean": 0.10074887480081751,
+          "bootstrap95": [
+            0.08363495073017933,
+            0.11740079551787377
+          ],
+          "n_histories": 64
+        }
+      },
+      "localization": "near_decline_plus_far_relief",
+      "identity": "attenuation = far-side evolving-minus-fixed effect - near-side evolving-minus-fixed effect"
+    }
+  ],
+  "mechanistic_anchor": {
+    "source": "data/results/model3_reciprocal_selection_20261005.json",
+    "scope": "Corrected fixed-resident rare-mutant gradients under the four baseline reproductive settings.",
+    "preexisting_result": "Across the 60 baseline setting-community-matching fields (144060 resident states), the capacity effect on investment selection is negative throughout; this is a local selection diagnostic, not proof of trajectory mediation.",
+    "sensitivity_boundary": "The broader 500-combination parameter diagnostic contains 25 positive cross-effect exceptions, so the negative coupling is not universal outside the declared baseline settings."
+  },
+  "claim_boundary": {
+    "all_four": "Report every setting regardless of direction.",
+    "no_new_journal_gate": "This decomposition explains the already confirmed interaction and does not alter the frozen journal-routing adjudication.",
+    "no_new_simulation": "Reuse only hash-verified raw artifacts from source workflow run 37458098483."
+  },
+  "workflow_provenance": {
+    "run_id": 37460223485,
+    "job_id": 112257683838,
+    "artifact_id": 11412296873,
+    "artifact_sha256": "4d9f3f017149218d17ba643734c28345daa1aef40119a5cfee0743e8a3669323"
+  }
+}
