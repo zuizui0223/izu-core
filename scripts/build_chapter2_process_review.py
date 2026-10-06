@@ -73,7 +73,7 @@ def build() -> dict:
     for name in FIGURE_INPUTS:
         members[name] = (ROOT/name).read_bytes()
     # Companion figures, plotted numbers and provenance remain together.
-    for folder in sorted((ROOT/'outputs/figures').glob('model3_*_20261005')):
+    for folder in sorted((ROOT/'outputs/figures').glob('model3_*_2026100*')):
         for path in sorted(folder.iterdir()):
             if path.suffix in {'.pdf', '.csv', '.json'}:
                 members[path.relative_to(ROOT).as_posix()] = path.read_bytes()
