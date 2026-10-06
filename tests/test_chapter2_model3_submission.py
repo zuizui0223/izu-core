@@ -26,7 +26,7 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     lower = " ".join(abstract.lower().split())
     assert "64 independent visitor histories" in lower
     assert "eight new nested demographic repeats" in lower
-    assert "51/64 histories" in lower
+    assert "51/64 assurance-first histories" in lower
     assert "0.688–0.891" in lower
     assert "temporal precedence is not causal necessity" in lower
     assert "setting-specific" in lower
