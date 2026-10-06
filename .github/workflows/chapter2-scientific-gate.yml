@@ -54,6 +54,7 @@ jobs:
           pytest -q \
             tests/test_chapter2_mechanistic_funnel.py \
             tests/test_chapter2_model3_submission.py \
+            tests/test_chapter2_submission_compactness.py \
             tests/test_chapter2_1005_ecological_mainline.py \
             tests/test_chapter2_1005_confirmatory_design.py \
             tests/test_chapter2_1005_confirmatory_history_level.py \
