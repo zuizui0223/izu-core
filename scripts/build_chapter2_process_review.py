@@ -32,6 +32,10 @@ SUPPORT = [
     'MODEL3_ASSURANCE_INTERVENTION_RESULTS_20261005.md',
     'MODEL3_Q1_MECHANISM_MAP_20261005.md',
     'MODEL3_LONG_COMPARISON_DECISION_20261005.md',
+    'CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md',
+    'CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md',
+    'CHAPTER2_1005_NOVELTY_AND_LITERATURE_POSITION_20261006.md',
+    'CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md',
 ]
 FIGURE_INPUTS = [
     'outputs/model3_isolation_selection_gradient_20261005/gradients.npz',
@@ -40,6 +44,9 @@ FIGURE_INPUTS = [
     'data/results/model3_ch2_bridge_summary_20260927/summary.json',
     'data/results/model3_mutation_memory_20261004.json',
     'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md',
+    'data/design/chapter2_1005_confirmatory_replication_20261006.json',
+    'data/results/chapter2_1005_confirmatory_replication_20261006.json',
+    'data/design/chapter2_1005_ecological_mainline_lock_20261006.json',
 ]
 
 
@@ -76,7 +83,8 @@ def build() -> dict:
     for name in ['pyproject.toml', 'README.md']:
         members[name] = (ROOT/name).read_bytes()
     members['READ_ME.txt'] = (
-        'CURRENT PROCESS MANUSCRIPT — REVIEW PACKAGE\n'
+        'CURRENT PROCESS MANUSCRIPT — CONFIRMED REVIEW PACKAGE\n'
+        'Primary 2026-10-05 sequence/necessity result is established, bounded, and independently confirmed.\n'
         'Figures 1–4 are separate experiments, not a single shared campaign.\n'
         'Companion PDFs retain all sampled conditions. Each file has a SHA-256 below.\n'
         'This is not a journal submission or complete raw-data deposit.\n'
@@ -89,12 +97,13 @@ def build() -> dict:
         'python -m scripts.figure_model3_return_components\n'
         'python -m scripts.figure_model3_genetic_realization\n'
         'This redraws completed results; it does not rerun ecological simulations.\n'
+        'Figure 2 reads the frozen 2026-10-06 confirmatory result; no confirmatory simulation is rerun during redraw.\n'
         'The stopped high-resolution positive-mutation comparison remains unresolved.\n'
     ).encode('utf-8')
     manifest = {name: {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
                 for name, data in sorted(members.items())}
     members['MANIFEST.json'] = (json.dumps(manifest, indent=2)+'\n').encode('utf-8')
-    archive = OUT/'chapter2_process_review_20261005.zip'
+    archive = OUT/'chapter2_process_review_20261006.zip'
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as z:
         for name, data in sorted(members.items()):
             z.writestr(name, data)
@@ -107,7 +116,9 @@ def build() -> dict:
     receipt = {'status': 'review_package_readback_verified', 'archive': archive.relative_to(ROOT).as_posix(),
                'sha256': hashlib.sha256(archive.read_bytes()).hexdigest(), 'members': len(members),
                'bytes': archive.stat().st_size, 'scientific_completion_inferred': False,
-               'complete_raw_data_deposit': False}
+               'complete_raw_data_deposit': False,
+               'establishment_status': 'established_bounded',
+               'confirmatory_result': 'data/results/chapter2_1005_confirmatory_replication_20261006.json'}
     (OUT/'receipt.json').write_text(json.dumps(receipt, indent=2)+'\n', encoding='utf-8')
     return receipt
 
