@@ -30,7 +30,7 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     assert "0.688–0.891" in lower
     assert "temporal precedence is not causal necessity" in lower
     assert "setting-specific" in lower
-    assert "not calibrated reconstructions of natural island histories" in lower
+    assert "not a universal selfing-syndrome sequence or a calibrated reconstruction of natural island histories" in lower
 
 
 def test_scientific_gate_is_unified_model3():
