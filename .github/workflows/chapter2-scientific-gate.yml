@@ -56,6 +56,7 @@ jobs:
             tests/test_chapter2_model3_submission.py \
             tests/test_chapter2_1005_ecological_mainline.py \
             tests/test_chapter2_1005_confirmatory_design.py \
+            tests/test_chapter2_1005_confirmed_result.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
