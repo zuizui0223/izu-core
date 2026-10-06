@@ -13,6 +13,7 @@ on:
       - 'scripts/audit_chapter2_*'
       - 'scripts/run_chapter2_*'
       - 'scripts/summarize_chapter2_*'
+      - 'scripts/figure_model3_*'
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
@@ -91,7 +92,7 @@ jobs:
       - name: Regenerate the four current main figures from stored evidence
         run: |
           python -m scripts.figure_model3_return_components
-          python -m scripts.figure_model3_sequence_necessity
+          python -m scripts.figure_model3_assurance_compression
           python -m scripts.figure_model3_trait_pollen
           python -m scripts.figure_model3_genetic_realization
       - name: Build confirmed process review package
