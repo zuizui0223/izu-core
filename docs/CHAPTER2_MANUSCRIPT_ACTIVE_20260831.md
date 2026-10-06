@@ -67,7 +67,7 @@ lower the reproductive return to attraction directly while assurance and
 attraction evolve as interacting but partly parallel responses. The confirmed
 assurance-first sequence is setting-specific: prior selfing with positive
 mutation did not show an assurance-first majority at the primary threshold.
-These are model-level mechanisms, not calibrated reconstructions of natural island histories. The confirmed assurance-first sequence is setting-specific.
+These are model-level mechanisms, not calibrated reconstructions of natural island histories.
 
 ## Keywords
 
