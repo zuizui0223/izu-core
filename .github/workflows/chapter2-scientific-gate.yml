@@ -59,6 +59,7 @@ jobs:
             tests/test_chapter2_1005_confirmatory_history_level.py \
             tests/test_chapter2_1005_confirmed_result.py \
             tests/test_chapter2_process_review_confirmed.py \
+            tests/test_chapter2_je_submission.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
