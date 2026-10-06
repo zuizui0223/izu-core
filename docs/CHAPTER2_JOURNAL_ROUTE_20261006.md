@@ -2,180 +2,177 @@
 
 ## Decision
 
-**Primary target: Journal of Ecology.**
+**Primary target: Ecology Letters.**
 
-**Second target: Evolution Letters.**
+**Backup target: Journal of Ecology.**
 
-**Stretch target: Ecology Letters.**
+**The American Naturalist / Evolution remain theory-oriented alternatives.**
 
-**Evolution / The American Naturalist remain strong fallbacks; Oikos is the conservative route.**
+This routing replaces the earlier same-day Journal of Ecology-first decision
+because a new outcome-independent promotion gate has now been completed. The
+four-setting generality campaign was frozen before execution and explicitly
+specified: all four reproductive settings had to show both a negative
+fixed-assurance near–far investment contrast and a positive
+evolving-minus-fixed attenuation interaction, with visitor-history bootstrap
+intervals excluding zero. All four passed.
 
-This decision uses the independently confirmed 2026-10-05 process result and
-the current active manuscript, not the retired repeatability manuscript.
+## What changed the route
 
-## Why Journal of Ecology is first
+The earlier manuscript had a strong but narrow result:
 
-The paper's biological subject is plant ecology: pollinator replenishment,
-reproductive assurance, attraction investment, viable reproduction, and the
-evolutionary consequences of plant-animal interactions. The paper is theoretical,
-but its central contribution is an ecological mechanism rather than a new
-general mathematical framework.
+> in one delayed-selfing/costly setting, assurance often changes before floral
+> investment, yet assurance evolution is not required for investment decline.
 
-The established claim is:
+That temporal-order result remains useful but setting-specific. Prior selfing
+does not reproduce the same assurance-first majority at the primary threshold.
 
-> Under sustained visitor-replenishment limitation, realized reproductive
-> assurance change can precede floral-investment decline, but assurance
-> evolution is not required for that decline. Isolation can lower the
-> reproductive return to attraction directly.
+The new four-setting campaign establishes a broader result:
 
-The primary temporal claim is explicitly restricted to delayed selfing,
-assurance cost 0.5, and mutation probability 0.01. That bounded scope is a
-strength for a mechanism paper, but makes an all-evolutionary-biology
-"field-changing" pitch less natural.
+> **Under sustained visitor-replenishment limitation, floral-investment
+> divergence persists when assurance evolution is blocked, whereas allowing
+> assurance to evolve consistently attenuates that divergence.**
 
-Journal of Ecology explicitly publishes influential work where plant ecology is
-central, including plant-animal interactions and theoretical ecological research.
-Research Articles are typically about 8,000 words. The current active manuscript
-is approximately 10.4k words before references, so the required reduction is
-substantial but realistic (~20-25%) while retaining the independent confirmation,
-mechanistic intervention and scope boundary.
+This held in all four pre-existing reproductive settings:
 
-At the 2026-10-06 routing check, the publisher page reports Impact Factor 6.3,
-CiteScore 10.1, 14% acceptance rate and a 10-day median first decision.
+| Setting | Fixed far−near investment | Evolving−fixed attenuation |
+|---|---:|---:|
+| Delayed control | −0.4413 [−0.4564, −0.4262] | +0.1605 [+0.1418, +0.1789] |
+| Prior selfing | −0.3018 [−0.3172, −0.2866] | +0.2200 [+0.2025, +0.2383] |
+| Pollen discount | −0.3305 [−0.3461, −0.3151] | +0.1915 [+0.1762, +0.2069] |
+| Assurance cost | −0.4337 [−0.4501, −0.4171] | +0.1007 [+0.0842, +0.1177] |
 
-## Why Evolution Letters moves to second
+All fixed/evolving × near/far arms had terminal occupancy 1.0, all 64 visitor
+histories were eligible in every setting, and the independent zero-mutation
+structural identity audit passed all 128 matched trace pairs.
 
-Evolution Letters is scientifically compatible: it welcomes evolutionary theory,
-evolutionary interactions and theoretical studies. But Letters are expected to
-be about 5,000 words and must substantially advance the field or be of broad
-interest.
+Design: `data/design/chapter2_assurance_generality_20261006.json`.
+Result: `data/results/chapter2_assurance_generality_20261006.json`.
 
-The current manuscript would need to lose more than half its main-text length.
-That compression would force the paper to choose between the ecological
-mechanism, independent confirmation, setting-specific failure, and the
-reproductive consequence. The result can be written as an Evolution Letters
-paper, but it is not currently the highest-fit or highest-impact route.
+## Why Ecology Letters is now first
 
-Current publisher-reported Impact Factor: 4.3.
+The paper can now be centered on a general ecological/evolutionary inference
+rather than on the order observed in a single reproductive cell:
 
-If routed there after Journal of Ecology, the title and framing should shift
-from island-floral mechanism to the general evolutionary inference:
+1. ecological isolation changes the marginal return to floral attraction;
+2. investment reduction still occurs when assurance capacity cannot evolve;
+3. allowing assurance to evolve does not intensify that divergence — it
+   consistently buffers it across four distinct reproductive implementations;
+4. therefore a reduced-attraction phenotype need not be a downstream
+   consequence of evolving reproductive assurance, even though assurance can
+   precede it in some trajectories.
 
-> **Temporal precedence does not establish causal necessity in multivariate
-> evolutionary response.**
+The conceptual reversal is the point: a mechanism commonly treated as a route
+toward reduced attraction is, in this explicit system, not required for the
+reduction and can oppose the magnitude of geographic divergence.
 
-## Why Ecology Letters is a stretch, not the default
+This is broader than the setting-specific temporal-order result and was tested
+prospectively rather than selected after inspecting all four outcomes.
 
-Ecology Letters seeks very novel, concise ecology of broad general interest and
-prioritizes clearly stated hypotheses. Letters are limited to 5,000 words and
-six display items. Current publisher metrics list Impact Factor 7.7 and 14%
-acceptance.
+## What Ecology Letters must *not* be sold
 
-The paper has a sharp hypothesis and independent confirmation, so submission is
-defensible. The risk is editorial: the confirmed temporal order is intentionally
-setting-specific, and the natural-island layer is confrontation rather than
-causal validation. A broad universal island-syndrome claim would exceed the
-evidence.
+The new result does not justify claiming that:
 
-Therefore Ecology Letters is appropriate only as a deliberate high-desk-risk
-attempt; it should not change the frozen claim ceiling.
+- selfing itself is absent or unnecessary;
+- the attenuation interaction is a mediation fraction;
+- every selfing mechanism in nature behaves this way;
+- flower size, colour or a named island system is quantitatively calibrated by
+  the abstract investment trait;
+- the delayed/costly assurance-first temporal sequence is universal;
+- natural island populations have already validated the model causally.
 
-## Other routes
+The claim is **cross-setting within one explicit pollination–reproduction model
+class**, not empirical universality across plant lineages.
 
-### Evolution
+## Ecology Letters manuscript spine
 
-Evolution welcomes important theoretical investigations and Original Articles
-up to 7,500 words. It is a strong fallback if editors regard the paper primarily
-as evolutionary process rather than plant ecology.
+The main text should be compressed around one question:
 
-### The American Naturalist
+> **Does reproductive assurance cause the loss of floral investment under
+> pollinator limitation, or can it instead buffer a response generated upstream
+> by reduced pollinator returns?**
 
-The American Naturalist is appropriate for conceptual/theoretical work that
-changes how broad ecology/evolution questions are viewed. It becomes attractive
-if the manuscript is rewritten around the general distinction between temporal
-order and causal dependence rather than the island-pollination mechanism.
+### Result 1 — upstream ecological cause
 
-### Oikos
+At matched plant state, low visitor replenishment collapses the outcross return
+to investment. Use the corrected fixed-resident rare-mutant accounting and the
+fixed-plant return decomposition. Do not use the retired whole-population
+derivative as an evolutionary gradient.
 
-Oikos remains the conservative mechanism/process route and preserves the lowest
-editorial-risk path if the higher targets reject without review.
+### Result 2 — causal non-necessity
 
-## Journal of Ecology submission architecture
+The original matched fixed/evolving intervention and the independent
+new-history confirmation show that investment still declines when assurance
+capacity is fixed.
 
-### Main text
+### Result 3 — preregistered generality
 
-1. **Ecological cause before evolution.** Same-plant-state near/far reproductive
-   return decomposition: visitor limitation collapses the outcross return to
-   investment and reverses its total marginal contribution in the focal setting.
-2. **Evolutionary sequence.** Discovery result followed immediately by the
-   prospectively frozen new-history confirmation: 51/64 assurance-first,
-   13/64 near-simultaneous, bootstrap 0.6875-0.8906.
-3. **Causal necessity.** Fixed assurance=0.5 still gives negative far investment
-   change (-0.3060) and far-minus-near investment (-0.4354).
-4. **Scope boundary.** Prior-selfing positive mutation gives only 30/64
-   assurance-first at the primary threshold. The confirmed sequence is not
-   universal.
-5. **Reproductive consequence.** Pollen-deficit magnitude and viable reproductive
-   output can move differently.
+Make the four-setting table/forest plot the center of the paper. The visual
+should show fixed near–far effects beside evolving−fixed attenuation, with one
+row per reproductive setting and visitor-history intervals.
 
-### Supporting Information
+### Result 4 — temporal order as a mechanistic example, not the headline
 
-Move out of the main narrative:
+The delayed/costly assurance-first 51/64 replication demonstrates why temporal
+precedence is not causal necessity. The failed generalization to prior selfing
+is useful because it prevents the paper from turning the sequence into a law.
 
-- 13-rate replenishment surface;
-- reciprocal-selection atlas and broad parameter grid;
-- finite-versus-deterministic bridge;
-- full-mutation common-environment history experiment;
-- mutation/PDE diagnostics and unresolved high-resolution branch;
-- repeatability-route analyses;
-- detailed natural-island confrontation ledger;
-- exploratory attenuation of near-far investment divergence when assurance
-  evolves.
+### Result 5 — reproductive consequence
 
-### Required editorial conversion
+Retain the pollen-deficit versus viable-offspring mismatch as a concise
+consequence of why fractional pollen limitation cannot substitute for total
+reproductive return.
 
-- Reduce the ~10.4k-word main text to ~8k.
-- Convert the abstract to Journal of Ecology's numbered format with a final
-  **Synthesis** point.
-- Keep no more than the three core biological figures in the main paper unless
-  the fourth is needed to show the prior-selfing scope boundary.
-- Data Availability must cite the durable history-level CSVs and, once public,
-  the DOI-backed confirmatory raw-data deposit.
+Move the 13-rate surface, broad reciprocal-selection atlas, deterministic/PDE
+diagnostics, full-mutation history work and most natural-system source auditing
+to Supporting Information.
+
+## Journal of Ecology backup
+
+Journal of Ecology remains the strongest backup if Ecology Letters regards the
+cross-setting evidence as insufficiently external to one model class. The same
+results fit a plant-ecology mechanism paper without changing any numerical or
+causal claim. The backup framing should emphasize plant–pollinator
+replenishment, reproductive assurance and attraction allocation rather than the
+causal-inference reversal.
+
+## Why not Nature Ecology & Evolution from this result alone
+
+The four-setting test adds genuine internal generality but no independent
+empirical transport across natural systems. A Nature Ecology & Evolution pitch
+would require a stronger external biological arm, not more reframing of the
+same model.
 
 ## Claim language
 
-Use:
+Preferred headline:
 
-> **Temporal precedence is not causal necessity.**
+> **Reproductive assurance is not required for pollinator-loss-driven
+> investment reduction and can buffer its geographic divergence.**
 
-and:
+More precise manuscript sentence:
 
-> **Assurance evolution is not required for investment decline under the
-> declared delayed-selfing/costly conditions.**
+> **Across four prospectively tested reproductive settings, sustained
+> visitor-replenishment limitation reduced floral investment even when
+> assurance capacity was fixed, while allowing assurance to evolve consistently
+> reduced the near–far investment contrast.**
 
-Do not shorten this to "assurance is unnecessary." Fixed assurance=0.5 retains
-the capacity for realized selfing; the intervention blocks assurance evolution,
-not assurance itself.
+Keep the temporal result separate:
+
+> **In the delayed-selfing, assurance-cost setting, assurance often changed
+> first, but this ordering did not generalize across reproductive settings.**
 
 ## Pre-submission gates
 
-1. Publicly deposit the prepared confirmatory bundle and obtain a DOI.
-2. Add the DOI to Data Availability and the preservation manifest.
-3. Compress the active manuscript to the Journal of Ecology architecture above.
-4. Keep the former Evolution Letters repeatability manuscript retired as a
-   standalone submission route.
-5. Merge PR #402 after explicit repository-write approval.
+1. Preserve the four-setting design, raw shard receipts, result artifact and
+   committed summary without retuning.
+2. Add a single main figure for fixed-effect necessity + attenuation across the
+   four settings.
+3. Rewrite the abstract and Introduction around causal non-necessity/buffering,
+   not universal assurance-first order.
+4. Check the novelty language against selfing-syndrome, reproductive-assurance
+   and floral-display literature before submission.
+5. Publicly deposit the confirmatory/generalization bundles and add durable
+   identifiers to Data Availability.
 
-Official pages checked 2026-10-06:
-- Journal of Ecology aims/scope and author guidance:
-  https://besjournals.onlinelibrary.wiley.com/hub/journal/13652745/aims-and-scope/read-full-aims-and-scope
-  https://besjournals.onlinelibrary.wiley.com/hub/journal/13652745/author-guidelines
-- Ecology Letters:
-  https://onlinelibrary.wiley.com/page/journal/14610248/homepage/productinformation.html
-- Evolution Letters:
-  https://academic.oup.com/evlett/pages/about
-  https://academic.oup.com/evlett/pages/author-guidelines
-- Evolution:
-  https://academic.oup.com/evolut/pages/about
-- The American Naturalist:
-  https://www.journals.uchicago.edu/journals/an/instruct
+This journal decision follows the preregistered promotion rule; it does not
+raise the scientific claim ceiling beyond the evidence above.
