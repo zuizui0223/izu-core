@@ -4,7 +4,7 @@ This repository is the Chapter 2 mechanism paper built around **one ecologically
 
 Current paper title:
 
-> **Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation**
+> **How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization**
 
 The [2026-10-05 ecological process mainline](docs/CHAPTER2_PROCESS_MAINLINE_20261005.md)
 governs the scientific narrative on this branch. The full-mutation
@@ -18,6 +18,16 @@ change threshold before floral investment, yet blocking assurance evolution
 does not prevent investment decline. The upstream fixed-plant assay shows why:
 visitor limitation lowers the reproductive return to attraction before plant
 traits evolve.
+
+This primary process result is now **independently confirmed** under a frozen
+new-history design. With 64 new visitor histories and eight new demographic
+repeats, the delayed-selfing/costly positive-mutation cell again gave 51/64
+assurance-first histories at threshold 0.05 (95% history-bootstrap
+0.6875–0.8906). In the separate fixed-assurance replication, far investment
+change was −0.3060 [−0.3181, −0.2941] and far-minus-near investment was
+−0.4354 [−0.4533, −0.4172]. The confirmed temporal sequence is setting-specific:
+the prior-selfing positive-mutation cell did not show an assurance-first
+majority at the same threshold.
 
 ### Current ecological focus (2026-10-05)
 
