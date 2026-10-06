@@ -67,7 +67,7 @@ lower the reproductive return to attraction directly while assurance and
 attraction evolve as interacting but partly parallel responses. The confirmed
 assurance-first sequence is setting-specific: prior selfing with positive
 mutation did not show an assurance-first majority at the primary threshold.
-These are model-level mechanisms, not calibrated reconstructions of natural island histories. The confirmed assurance-first sequence is setting-specific.
+These are model-level mechanisms, not calibrated reconstructions of natural island histories.
 
 ## Keywords
 
@@ -149,6 +149,47 @@ Natural evidence enters only after the synthetic objects and claim boundaries ar
 The Izu secondary-data stress test is likewise deliberately asymmetric. We retain support when functional exposure predicts corrected trait matching, but also retain instability or failure when matching-to-pollen effects are not leave-one-island sign stable, historical signed-position projections fail null correction, or a bridge-state geographic contrast is not independently identified. The natural layer therefore constrains interpretation rather than selecting synthetic parameters.
 
 The natural evidence is therefore a confrontation layer rather than a calibration layer. A future same-unit transition-linked study could directly test the full ecological chain, but current cross-sectional evidence cannot retrospectively identify the historical mechanism that generated a named island phenotype.
+
+## Prospectively frozen independent confirmation
+
+After the 2026-10-05 sequence and fixed-assurance results were known, but before
+any confirmatory outcomes were generated, we froze an independent replication
+design. Discovery visitor histories 76001–76064 and demographic repeats
+7101–7108 were not reused. The confirmation used 64 new visitor histories
+26100601–26100664 and eight new demographic repeats 26101601–26101608 while
+retaining the original founder specification and biological model.
+
+The confirmation contained 4,096 finite-population trajectories. The temporal
+component used 2,048 far-arm trajectories crossing two reproductive settings
+(delayed selfing with assurance cost 0.5; prior selfing with assurance cost 0),
+two mutation probabilities (0 and 0.01), 64 visitor histories and eight nested
+demographic repeats. The causal-necessity component used 2,048 trajectories with
+assurance capacity fixed at 0.5, crossing the two reproductive settings, positive
+mutation, near/far visitor exposure, 64 histories and eight repeats.
+
+The preregistered primary cell was delayed selfing, assurance cost 0.5 and
+mutation probability 0.01. For temporal order, the primary definition was a
+0.05 founder-relative change sustained for 20 updates; crossings within five
+updates were classed as near-simultaneous. Assurance-first success required the
+proportion across all 64 independent histories to exceed 0.50 and the lower
+bound of a 95% visitor-history bootstrap interval to exceed 0.50.
+Near-simultaneous, investment-first and censored histories therefore counted as
+not assurance-first in the primary binary proportion. Thresholds 0.025 and 0.10
+were frozen sensitivity analyses.
+
+For the fixed-assurance intervention, confirmation required both the far
+investment change from founders and the far-minus-near investment contrast at
+update 1,000 to be negative, with both 95% visitor-history bootstrap upper
+bounds below zero. Each near/far arm also had to retain at least 90% occupancy,
+and at least 60 of 64 histories had to remain estimable. Failure of this
+admissibility rule was defined as inconclusive rather than successful.
+
+All four setting-by-mutation temporal cells were reported regardless of
+direction, but secondary cells could not rescue or overturn the primary
+adjudication. No seed extension, threshold retuning, tie-window change, outcome
+substitution or biological parameter adjustment was allowed after execution
+began. Eight demographic repeats were nested within visitor histories and did
+not increase the independent ecological denominator beyond 64.
 
 ## Ecologically explicit reproductive and inheritance pathway
 
