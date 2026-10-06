@@ -16,6 +16,8 @@ The frozen paper-level statement is:
 
 This is not a universal sequence claim.
 
+The five-criteria readiness audit (novelty, independent confirmation, robustness/sensitivity, scope/generality, claim boundary/reproducibility) also passes 5/5; see `docs/CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md`.
+
 ## Establishment criteria
 
 ### 1. Central claim frozen before confirmation — PASS
