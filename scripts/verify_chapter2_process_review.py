@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     folder = ROOT/'outputs/chapter2_process_delivery'
-    archive = folder/'chapter2_process_review_20261005.zip'
+    archive = folder/'chapter2_process_review_20261006.zip'
     target = Path(tempfile.mkdtemp(prefix='redraw-', dir=folder))
     with zipfile.ZipFile(archive) as z:
         manifest = json.loads(z.read('MANIFEST.json'))
@@ -55,11 +55,16 @@ def main():
         for key in expected.files:
             np.testing.assert_array_equal(expected[key], actual[key])
             coordinates += actual[key].size
+    confirm = json.loads((target/'data/results/chapter2_1005_confirmatory_replication_20261006.json').read_text())
+    if confirm['status'] != 'confirmed':
+        raise ValueError('Confirmatory result not frozen as confirmed in review package')
     receipt = {'status': 'four_main_figures_redrawn_from_isolated_package',
                'archive_sha256': hashlib.sha256(archive.read_bytes()).hexdigest(),
                'extraction': target.relative_to(ROOT).as_posix(), 'commands': commands,
                'identical_export_files': exports, 'identical_trajectory_coordinates': coordinates,
-               'scope': 'Figure reproducibility from supplied arrays, not new biological validation.'}
+               'confirmatory_status': confirm['status'],
+               'confirmatory_design_sha256': confirm['design_sha256'],
+               'scope': 'Figure reproducibility from supplied arrays and frozen confirmatory summary, not new biological validation.'}
     (folder/'isolated_redraw.json').write_text(json.dumps(receipt, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(receipt, indent=2))
 
