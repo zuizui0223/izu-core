@@ -4,13 +4,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_active_manuscript_reports_cases_and_independent_histories_together() -> None:
-    text = (ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md").read_text(encoding="utf-8")
+    text = (ROOT / "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md").read_text(encoding="utf-8")
     abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     normalized = " ".join(abstract.split())
-    assert "64 independent visitor histories" in normalized
-    assert "eight new nested demographic repeats" in normalized
-    assert "64 independent visitor histories" in normalized
-    assert "not used in the discovery" in normalized
+    methods = text.split("# Materials and Methods", 1)[1].split("# Results", 1)[0]
+    methods_normalized = " ".join(methods.split())
+    assert "64 independent new visitor histories" in normalized
+    assert "eight nested demographic repeats" in normalized
+    assert "not used in either the original discovery cohort" in methods_normalized
+    assert "never counted as independent ecological replication" in methods_normalized
 
 
 def test_canonical_story_keeps_independent_history_denominator_visible() -> None:
