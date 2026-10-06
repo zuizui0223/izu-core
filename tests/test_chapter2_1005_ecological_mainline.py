@@ -45,8 +45,8 @@ def test_primary_process_claim_does_not_depend_on_unresolved_continuum_route():
     figures = manuscript.split("# Primary figure assembly and captions", 1)[1].split("# References", 1)[0].lower()
     for forbidden in ("pde", "high-resolution", "continuum replacement", "converged deterministic"):
         assert forbidden not in abstract
-    assert "fixed-plant" in abstract
+    assert "same plant state" in abstract
     assert "maintained-isolation" in abstract
-    assert "fixed-versus-evolving-assurance" in abstract
+    assert "fixed-assurance replication" in abstract
     assert "mutation/history" in figures
     assert "supporting information" in figures
