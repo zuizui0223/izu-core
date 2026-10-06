@@ -14,6 +14,17 @@ to investment; blocking assurance evolution therefore does not remove the
 investment response. Allowing assurance evolution can also reduce the observed
 near-far investment contrast because investment changes in both environments.
 
+**Confirmatory status, 2026-10-06:** a prospectively frozen 4,096-trajectory
+replication using 64 new visitor histories and eight new demographic repeats
+passed both primary success rules. In the delayed-selfing/costly,
+positive-mutation cell, assurance was first in 51/64 histories at the 0.05
+threshold (95% history-bootstrap 0.6875–0.8906). With assurance fixed at 0.5,
+far investment change was −0.3060 [−0.3181, −0.2941] and far-minus-near
+investment was −0.4354 [−0.4533, −0.4172]. The sequence result is not universal:
+the corresponding prior-selfing positive-mutation cell gave 30/64
+assurance-first histories at threshold 0.05. The confirmed claim is therefore
+restricted to the delayed-selfing, assurance-cost setting.
+
 This document supersedes the September bridge-centred narrative for the active manuscript. Older designs, results and submission snapshots remain provenance; their numerical claims have not been overwritten. The active manuscript is `CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`; the historical Oikos renderer now reads a fixed snapshot under `legacy/submission-history/model3_bridge_20261004/`.
 
 ## Question and manipulation
