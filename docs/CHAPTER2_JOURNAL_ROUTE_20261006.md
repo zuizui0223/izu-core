@@ -159,12 +159,14 @@ not assurance itself.
 
 ## Pre-submission gates
 
+Scientific establishment is complete and PR #402 is merged. Remaining gates are
+editorial/data-delivery tasks rather than tests of the biological claim.
+
 1. Publicly deposit the prepared confirmatory bundle and obtain a DOI.
 2. Add the DOI to Data Availability and the preservation manifest.
 3. Compress the active manuscript to the Journal of Ecology architecture above.
 4. Keep the former Evolution Letters repeatability manuscript retired as a
    standalone submission route.
-5. Merge PR #402 after explicit repository-write approval.
 
 Official pages checked 2026-10-06:
 - Journal of Ecology aims/scope and author guidance:
