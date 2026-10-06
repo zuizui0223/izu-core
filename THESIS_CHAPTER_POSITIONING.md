@@ -1,6 +1,14 @@
 # Thesis positioning — Chapter 2
 
-> Current-route note (2026-10-05): the narrative below records the earlier bridge-focused scope. The current process decomposition and parallel ABM/density architecture are governed by docs/CHAPTER2_PROCESS_MAINLINE_20261005.md. Earlier Q1 summaries are historical and do not override its current independent analysis.
+> Current-route note (2026-10-06): Chapter 2 is governed by
+> `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`. Its primary process result is now
+> independently confirmed: in the delayed-selfing/costly positive-mutation
+> regime, assurance-first realized change repeated in 51/64 new visitor histories
+> (95% bootstrap 0.6875–0.8906), while a preregistered fixed-assurance
+> intervention retained negative investment change. The confirmed sequence is
+> setting-specific and is not generalized to prior selfing. The older
+> bridge-focused material below is retained as thesis provenance and supporting
+> mechanism, not as the current paper-level headline.
 
 Updated: 2026-09-27
 
