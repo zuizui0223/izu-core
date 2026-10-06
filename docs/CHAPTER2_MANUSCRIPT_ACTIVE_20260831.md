@@ -108,10 +108,12 @@ a declared evolutionary threshold first, but preventing assurance evolution does
 not remove investment decline. The observed sequence is therefore real but does
 not identify a selfing-mediated causal chain.
 
-A second, less intuitive result follows from the intervention: allowing assurance
-to evolve can reduce the near-far investment contrast because investment changes
-in both environments. Weak geographic divergence can therefore coexist with
-substantial evolution within each environment. This is why the manuscript
+A second, less intuitive **exploratory** result follows from the original
+intervention: allowing assurance to evolve can reduce the near-far investment
+contrast because investment changes in both environments. This interaction was
+not included in the independent confirmatory campaign. It therefore motivates,
+rather than establishes, the idea that weak geographic divergence can coexist
+with substantial evolution within each environment. This is why the manuscript
 reports within-population change and between-environment divergence as separate
 estimands.
 
@@ -285,7 +287,7 @@ secondary prior-selfing cell also remained negative
 (−0.3316 [−0.3418, −0.3210] from founders; far-minus-near
 −0.3094 [−0.3246, −0.2942]).
 
-Allowing assurance to evolve could also narrow the near-far investment contrast.
+In the original cohort, an exploratory secondary interaction indicated that allowing assurance to evolve could also narrow the near-far investment contrast.
 The four-cell interaction was +0.08468 (0.06782–0.10265) in the delayed setting
 and +0.24505 (0.22523–0.26543) under prior selfing. Both environments can evolve
 substantially while their difference becomes smaller.
