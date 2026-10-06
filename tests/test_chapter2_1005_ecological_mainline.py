@@ -35,3 +35,18 @@ def test_1005_ecological_mainline_is_active():
     )
     assert "Assurance evolution is not required for investment decline" in manuscript
     assert "Lower pollen deficit does not necessarily mean greater viable reproduction" in manuscript
+
+
+def test_primary_process_claim_does_not_depend_on_unresolved_continuum_route():
+    manuscript = (ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md").read_text(
+        encoding="utf-8"
+    )
+    abstract = manuscript.split("## Abstract", 1)[1].split("## Keywords", 1)[0].lower()
+    figures = manuscript.split("# Primary figure assembly and captions", 1)[1].split("# References", 1)[0].lower()
+    for forbidden in ("pde", "high-resolution", "continuum replacement", "converged deterministic"):
+        assert forbidden not in abstract
+    assert "fixed-plant" in abstract
+    assert "maintained-isolation" in abstract
+    assert "fixed-versus-evolving-assurance" in abstract
+    assert "mutation/history" in figures
+    assert "supporting information" in figures
