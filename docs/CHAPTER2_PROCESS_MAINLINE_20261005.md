@@ -81,11 +81,11 @@ The stopped high-resolution 1,000-update comparison stays stopped. Verified loca
 
 ## Current authoring and delivery
 
-- `scripts/render_chapter2_process_manuscript.py`: current manuscript, without repository routing metadata.
-- Main figures: `figure_model3_selection_process.py`, `figure_model3_sequence_necessity.py`, `figure_model3_return_components.py`, `figure_model3_genetic_realization.py`.
+- `scripts/render_chapter2_submission_manuscript.py`: journal-facing focused manuscript. `render_chapter2_process_manuscript.py` retains the full scientific record without repository routing metadata.
+- Main figures: `figure_model3_return_components.py`, `figure_model3_sequence_necessity.py`, `figure_model3_trait_pollen.py`. `figure_model3_genetic_realization.py` is Supporting Figure S1.
 - Full gradient: `figure_model3_replenishment_evolution.py`; all conditions and censoring retained.
 - Numerical figure verification: `verify_model3_rate_figures.py`, plus the per-figure receipts and poster-native-chart verifier.
-- Review delivery: `build_chapter2_process_review.py` includes the four main figures, their numerical inputs and working sources at their original relative paths. `verify_chapter2_process_review.py` extracts the package separately and redraws all four figures; numerical exports and 512,512 sequence coordinates must agree. This is figure-level reproduction, not a complete raw-data deposit.
+- Review delivery: `build_chapter2_process_review.py` includes the three main figures, Supporting Figure S1, their numerical inputs and working sources at their original relative paths. `verify_chapter2_process_review.py` extracts the package separately and redraws the three main figures plus S1; numerical exports and sequence coordinates must agree. This is figure-level reproduction, not a complete raw-data deposit.
 - Completion ledger: `MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md`.
 
 The historical Oikos bundle and its frozen claim tests reproduce the earlier bridge submission. They are not the delivery route for this updated process manuscript. No journal submission, public data deposition, universal sequence, stable attractor or natural-island causal validation is claimed.

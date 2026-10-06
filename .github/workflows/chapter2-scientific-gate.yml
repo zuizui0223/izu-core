@@ -59,6 +59,7 @@ jobs:
             tests/test_chapter2_1005_confirmatory_history_level.py \
             tests/test_chapter2_1005_confirmed_result.py \
             tests/test_chapter2_process_review_confirmed.py \
+            tests/test_chapter2_submission_focus.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
@@ -86,7 +87,7 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Regenerate the four current main figures from stored evidence
+      - name: Regenerate the three main figures plus supporting genetic figure
         run: |
           python -m scripts.figure_model3_return_components
           python -m scripts.figure_model3_sequence_necessity

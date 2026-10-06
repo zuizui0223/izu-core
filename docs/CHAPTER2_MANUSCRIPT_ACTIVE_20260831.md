@@ -544,9 +544,10 @@ historical reconstruction of any named island system.
 
 # Primary figure assembly and captions
 
-The four main figures now use only repository-committed result summaries as
+The three main figures now use only repository-committed result summaries as
 numerical sources. The independent confirmation enters Figure 2 directly.
-Unresolved high-resolution numerical work remains outside the main figures.
+Finite-genetic and unresolved high-resolution numerical work remain Supporting
+Information rather than paper-level figures.
 
 **Main Figure 1. Visitor limitation reduces the reproductive return to
 attraction.** Asset:
@@ -585,14 +586,14 @@ reduces the fractional viable deficit by 0.0104 while reducing viable maternal
 offspring by 15.72 per 48 plants. These are fixed-trait reproductive assays, not
 evolutionary trajectories.
 
-**Main Figure 4. Finite genetic realization bounds the process
+**Supporting Figure S1. Finite genetic realization bounds the process
 interpretation.** Asset:
 `outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf`.
-This supporting main figure separates ecological intervention effects from
-finite genetic realization and the scoped one-locus mutation diagnostic.
-Density is not treated as the exact stochastic expectation of the finite ABM,
-and the stopped high-resolution positive-mutation comparison contributes no
-validated long-run continuum result.
+This figure separates ecological intervention effects from finite genetic
+realization and the scoped one-locus mutation diagnostic. Density is not treated
+as the exact stochastic expectation of the finite ABM, and the stopped
+high-resolution positive-mutation comparison contributes no validated long-run
+continuum result.
 
 The 13-rate replenishment surface, full local-selection atlas, reciprocal-
 selection parameter grid, assurance-evolution attenuation interaction,

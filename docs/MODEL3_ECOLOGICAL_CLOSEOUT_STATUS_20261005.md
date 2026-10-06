@@ -2,7 +2,7 @@
 
 **Final disposition:** `CHAPTER2_PROCESS_FINAL_AUDIT_20261005.md` supersedes the
 intermediate checkpoints below. The full suite completed with 933 passing tests;
-the current manuscript, SI, four main figures and preserved-Q1 poster have been
+the current manuscript, SI, three main figures, Supporting Figure S1 and preserved-Q1 poster have been
 assembled and checked. Earlier statements below about pending package work and
 running tests document the audit sequence, not additional unfinished tasks. The
 high-resolution branch remains explicitly closed unresolved. Git delivery is
@@ -69,9 +69,9 @@ guards. They now reproduce an exact manuscript snapshot from commit
 a changed-byte test confirms rejection. This preserves the historical results
 without presenting their closed submission gate as closure of the current paper.
 
-The current route is `scripts/render_chapter2_process_manuscript.py` and
-`scripts/build_chapter2_process_review.py`. Its review ZIP contains the current
-manuscript, four main PDFs, companion condition/threshold PDFs, plotted tables,
+The current journal-facing route is `scripts/render_chapter2_submission_manuscript.py` and
+`scripts/build_chapter2_process_review.py`; `render_chapter2_process_manuscript.py` retains the full scientific record. Its review ZIP contains the current
+manuscript, three main PDFs, Supporting Figure S1, companion condition/threshold PDFs, plotted tables,
 supporting explanations and working Python sources. All members are read back
 and hash-checked. It is not a complete raw-data deposit or journal submission;
 the 13-rate raw archive remains separately identified. The software's full test
@@ -82,10 +82,10 @@ summaries. Figure 3 now labels the actual replenishment rates rather than
 geographic categories; its twelve component means were rechecked against raw
 assays and its rendered labels inspected.
 
-The review package additionally includes the numerical inputs required by all
-four main figure scripts, at their original repository-relative paths. In a
-fresh extraction, all four scripts exited successfully without accessing the
-working repository. Regenerated selection tables, temporal events and genetic
+The review package additionally includes the numerical inputs required by the
+three main figure scripts plus Supporting Figure S1, at their original
+repository-relative paths. In a fresh extraction, all four plotting scripts
+exited successfully without accessing the working repository. Regenerated selection tables, temporal events and genetic
 realization tables were byte-identical; all 512,512 sequence coordinates also
 matched. `outputs/chapter2_process_delivery/isolated_redraw.json` identifies the
 exact tested ZIP and extraction. This verifies figure reproduction; primary

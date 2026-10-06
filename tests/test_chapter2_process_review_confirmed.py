@@ -5,12 +5,11 @@ import scripts.build_chapter2_process_review as builder
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_confirmed_review_package_routes_current_four_figures():
+def test_confirmed_review_package_routes_current_three_main_figures():
     assert builder.MAIN == {
         "Figure1.pdf": "model3_return_components_20261005/return_components.pdf",
         "Figure2.pdf": "model3_sequence_necessity_20261005/sequence_necessity.pdf",
         "Figure3.pdf": "model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
-        "Figure4.pdf": "model3_genetic_realization_20261005/genetic_realization.pdf",
     }
 
 
@@ -23,6 +22,7 @@ def test_confirmatory_result_and_establishment_docs_are_in_review_contract():
         "CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md",
         "CHAPTER2_1005_NOVELTY_AND_LITERATURE_POSITION_20261006.md",
         "CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md",
+        "CHAPTER2_SUBMISSION_MAIN_SI_MAP_20261006.md",
     ):
         assert name in builder.SUPPORT
 

@@ -107,10 +107,11 @@ not relabelled rare-mutant log-fitness gradients.
 
 ## S6. Figure and source reproduction
 
-The review ZIP includes all four main plotting scripts, their required numerical
-inputs, companion PDFs and tables. `verify_chapter2_process_review.py` verifies
-member hashes, extracts to a fresh directory, redraws all four main figures and
-checks numerical equality. This is figure reproduction from completed results,
+The review ZIP includes the three main plotting scripts plus the Supporting
+Figure S1 genetic-realization script, their required numerical inputs, companion
+PDFs and tables. `verify_chapter2_process_review.py` verifies member hashes,
+extracts to a fresh directory, redraws the three main figures plus S1 and checks
+numerical equality. This is figure reproduction from completed results,
 not an independent implementation of biology. The separate 13-rate raw archive
 is identified by `data/results/model3_replenishment_archive_20261005.json`.
 No public data deposition is claimed.
