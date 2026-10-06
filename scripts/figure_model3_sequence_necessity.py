@@ -143,7 +143,7 @@ def main():
         ax.text(
             .03,.04,
             f"Interaction (evolving−fixed isolation effect) = {interaction['mean']:+.3f}\n"
-            f"Independent fixed-assurance replication: far ΔI={rep['far_investment_change']['mean']:+.3f}; "
+            f"Independent fixed-capacity replication: far ΔI={rep['far_investment_change']['mean']:+.3f}; "
             f"far−near={rep['far_minus_near_investment']['mean']:+.3f}",
             transform=ax.transAxes, fontsize=8.2
         )
