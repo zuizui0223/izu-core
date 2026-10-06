@@ -56,7 +56,8 @@ rather than on the order observed in a single reproductive cell:
 1. ecological isolation changes the marginal return to floral attraction;
 2. investment reduction still occurs when assurance capacity cannot evolve;
 3. allowing assurance to evolve does not intensify that divergence — it
-   consistently buffers it across four distinct reproductive implementations;
+   consistently compresses it across four reproductive implementations, mainly
+   by driving additional investment decline in the high-replenishment arm;
 4. therefore a reduced-attraction phenotype need not be a downstream
    consequence of evolving reproductive assurance, even though assurance can
    precede it in some trajectories.
@@ -87,9 +88,9 @@ class**, not empirical universality across plant lineages.
 
 The main text should be compressed around one question:
 
-> **Does reproductive assurance cause the loss of floral investment under
-> pollinator limitation, or can it instead buffer a response generated upstream
-> by reduced pollinator returns?**
+> **Is reproductive assurance required for floral-investment loss under
+> pollinator limitation, and why does its evolution compress rather than amplify
+> the difference between pollination environments?**
 
 ### Result 1 — upstream ecological cause
 
@@ -106,9 +107,11 @@ capacity is fixed.
 
 ### Result 3 — preregistered generality
 
-Make the four-setting table/forest plot the center of the paper. The visual
-should show fixed near–far effects beside evolving−fixed attenuation, with one
-row per reproductive setting and visitor-history intervals.
+Make the four-setting intervention the center of the paper. Main Figure 2 now
+shows fixed-assurance non-necessity, evolving-minus-fixed attenuation, matched
+near/far arm localization, and the corrected rare-mutant component mechanism.
+The trajectory decomposition localizes 78–90% of attenuation to additional
+near-side investment decline.
 
 ### Result 4 — temporal order as a mechanistic example, not the headline
 
@@ -146,8 +149,8 @@ same model.
 
 Preferred headline:
 
-> **Reproductive assurance is not required for pollinator-loss-driven
-> investment reduction and can buffer its geographic divergence.**
+> **Reproductive assurance is not required for pollinator-limitation-driven
+> investment reduction and can compress its geographic divergence.**
 
 More precise manuscript sentence:
 
@@ -163,16 +166,20 @@ Keep the temporal result separate:
 
 ## Pre-submission gates
 
-1. Preserve the four-setting design, raw shard receipts, result artifact and
-   committed summary without retuning.
-2. Add a single main figure for fixed-effect necessity + attenuation across the
-   four settings.
-3. Rewrite the abstract and Introduction around causal non-necessity/buffering,
-   not universal assurance-first order.
-4. Check the novelty language against selfing-syndrome, reproductive-assurance
-   and floral-display literature before submission.
-5. Publicly deposit the confirmatory/generalization bundles and add durable
-   identifiers to Data Availability.
+1. **DONE — evidence lock.** Four-setting design, 8,448-case result, source
+   receipts, artifact digests and result-level regression tests are preserved.
+2. **DONE — main visual.** Main Figure 2 now integrates non-necessity,
+   attenuation, near-side localization and the corrected local-selection
+   mechanism.
+3. **DONE — EL manuscript surface.** The submission-focused manuscript is
+   `CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md`; main text is ~3.2k
+   words, with four figures.
+4. **DONE — novelty/claim boundary.** The manuscript does not sell
+   selfing-first as novel or universal, and separates the confirmed four-setting
+   result from the setting-specific temporal sequence.
+5. **PENDING EXTERNAL DEPENDENCY — public archive.** Deposit the
+   confirmatory/generalization raw bundles in a permanent public repository and
+   add DOI(s) to Data Accessibility before submission.
 
 This journal decision follows the preregistered promotion rule; it does not
 raise the scientific claim ceiling beyond the evidence above.
