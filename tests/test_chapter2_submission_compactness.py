@@ -19,7 +19,7 @@ def test_active_manuscript_is_compact_but_keeps_confirmed_core():
     assert "−0.3060" in normalized
     assert "−0.4354" in normalized
     assert "30/64" in normalized
-    assert "sequence does not identify necessity" in normalized.lower()
+    assert "temporal precedence is not causal necessity" in normalized.lower()
     assert "assurance evolution is not required" in normalized.lower()
 
 
