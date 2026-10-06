@@ -301,15 +301,11 @@ Reproductive assurance had its clearest effect on persistence. Under the severe 
 
 This distinction sharpens how breeding-system change should be interpreted in island plants. Autonomous reproduction can buffer demographic failure while pollinator-mediated selection on access or floral investment continues through a partially separate route. A repeated association between isolation and assurance therefore need not imply a serial pathway in which selfing alone determines subsequent floral simplification. In the model, persistence and pollinator-facing evolution can be coupled without being identical.
 
-History adds a second source of decoupling. Early visitor loss, late visitor loss and uninterrupted histories retained different inherited investment states despite sharing the same final 120-update environment in this supplementary history experiment. Present ecological conditions are therefore not sufficient to reconstruct present phenotype within the model. Similarly, source-population immigration can alter an endpoint partly by replacing ancestry, so apparent recovery cannot automatically be interpreted as adaptation of the resident lineage.
-
 ## Empirical transport
 
-The source-audited island evidence supports the biological plausibility of the modeled stages without validating one universal pathway. Izu shows a common upstream decline in corrected matching with divergent downstream pollen and tube responses. Ogasawara provides a more coherent access-to-pollen-to-reproduction example, while Hawaii and Puerto Rico–Mona show buffering and Dominica provides an adverse, counterdirectional case. Direct-history systems document founding, partner loss and reintroduction effects. These examples show that propagation, buffering and divergence all occur in nature.
+The model identifies a transition that current island comparisons rarely observe on the same populations: visitor exposure changing through time, its effect on pollen transfer and mating, and the subsequent inherited floral response. Cross-sectional morphology alone therefore cannot identify whether reproductive assurance preceded, mediated or merely accompanied attraction change.
 
-What remains poorly observed is the inherited longitudinal stage. Existing studies rarely combine a measured starting plant state, measured visitor regime, repeated inherited trait or genotype change and enough demographic information to distinguish expected evolution from finite-population realization on the same units. That absence is important because cross-sectional morphology cannot be treated as the natural equivalent of a deterministic evolutionary trajectory simply because such a trajectory exists in the model.
-
-The strongest empirical test is therefore not another broad compilation but a transition-linked study measuring plant state, functional visitor exposure, effective pollen transfer, mating route, reproductive output, inherited change and population history through the same ecological transition. Such data would test whether the stage-specific logic transports to nature without using the model to infer a historical cause after the fact.
+A decisive empirical test would follow the same populations through a pollinator transition while measuring functional visitor exposure, effective pollen transfer, mating route, reproductive output and inherited floral change. That design would test whether the sequence-versus-necessity distinction transports to nature without assigning existing islands to synthetic model cells.
 
 ## Ecological validity and limits
 
@@ -386,8 +382,5 @@ Knight, T.M., Steets, J.A. & Ashman, T.-L. (2006). A quantitative synthesis of p
 
 Van Etten, M.L., Tate, J.A., Anderson, S.H., Kelly, D., Ladley, J.J. & Merrett, M.F. (2015). The compounding effects of high pollen limitation, selfing rates and inbreeding depression leave a New Zealand tree with few viable offspring. *Annals of Botany*, 116, 409–418. https://doi.org/10.1093/aob/mcv118
 
-Busch, J. W., Bodbyl-Roels, S., Tusuubira, S., & Kelly, J. K. (2022). Pollinator loss causes rapid adaptive evolution of selfing and dramatically reduces genome-wide genetic variability. *Evolution*, **76**(9), 2130–2144. [DOI: 10.1111/evo.14572](https://doi.org/10.1111/evo.14572).
-
 Sakai, S. (1995). Evolutionarily stable selfing rates of hermaphroditic plants in competing and delayed selfing modes with allocation to attractive structures. *Evolution*, **49**(3), 557–564. [Publisher abstract and DOI: 10.1111/j.1558-5646.1995.tb02287.x](https://doi.org/10.1111/J.1558-5646.1995.TB02287.X).
 
-Sicard, A., Stacey, N., Hermann, K., Dessoly, J., Neuffer, B., Bäurle, I., & Lenhard, M. (2011). Genetics, evolution, and adaptive significance of the selfing syndrome in the genus *Capsella*. *The Plant Cell*, **23**(9), 3156–3171. [DOI: 10.1105/tpc.111.088237](https://doi.org/10.1105/tpc.111.088237).
