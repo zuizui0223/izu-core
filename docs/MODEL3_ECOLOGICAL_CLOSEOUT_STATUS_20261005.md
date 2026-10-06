@@ -2,7 +2,7 @@
 
 **Final disposition:** `CHAPTER2_PROCESS_FINAL_AUDIT_20261005.md` supersedes the
 intermediate checkpoints below. The full suite completed with 933 passing tests;
-the current manuscript, SI, four main figures and preserved-Q1 poster have been
+the current manuscript, SI, three main figures, Supporting Figure S1 and preserved-Q1 poster have been
 assembled and checked. Earlier statements below about pending package work and
 running tests document the audit sequence, not additional unfinished tasks. The
 high-resolution branch remains explicitly closed unresolved. Git delivery is
@@ -71,7 +71,7 @@ without presenting their closed submission gate as closure of the current paper.
 
 The current route is `scripts/render_chapter2_process_manuscript.py` and
 `scripts/build_chapter2_process_review.py`. Its review ZIP contains the current
-manuscript, four main PDFs, companion condition/threshold PDFs, plotted tables,
+manuscript, three main PDFs, Supporting Figure S1, companion condition/threshold PDFs, plotted tables,
 supporting explanations and working Python sources. All members are read back
 and hash-checked. It is not a complete raw-data deposit or journal submission;
 the 13-rate raw archive remains separately identified. The software's full test
