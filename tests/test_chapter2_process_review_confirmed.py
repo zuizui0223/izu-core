@@ -31,7 +31,7 @@ def test_figure2_reads_frozen_confirmatory_result():
     text = (ROOT / "scripts/figure_model3_sequence_necessity.py").read_text(encoding="utf-8")
     assert "chapter2_1005_confirmatory_replication_20261006.json" in text
     assert "Independent replication" in text
-    assert "Independent fixed-capacity replication" in text
+    assert "Independent fixed-assurance replication" in text
 
 
 def test_review_archive_is_versioned_after_confirmation():
