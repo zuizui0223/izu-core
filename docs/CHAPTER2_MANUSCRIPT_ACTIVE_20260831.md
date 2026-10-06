@@ -72,8 +72,9 @@ threshold.
 delayed-selfing/costly regime, reproductive assurance can change before floral
 investment while assurance evolution is not required for investment decline.
 Pollinator limitation can instead lower the reproductive return to attraction
-directly. The result is a bounded mechanism, not a universal selfing-syndrome
-sequence or a calibrated reconstruction of natural island history.
+directly. The result is setting-specific: a bounded mechanism, not a universal
+selfing-syndrome sequence or a calibrated reconstruction of natural island
+histories.
 
 ## Keywords
 
@@ -325,9 +326,13 @@ Mutation and continuum diagnostics remain supporting numerical work. A
 restricted mutation experiment showed replenishment of allelic variation and
 continued trait change, but the full positive-mutation high-resolution
 deterministic/PDE comparison did not satisfy its grid-refinement gate and was
-stopped unresolved. None of these numerical results is used to establish the
-primary biological claim. Full designs, parameter grids, extinction handling
-and numerical failures are retained in Supporting Information S2–S4.
+stopped unresolved. The genotype-density calculation is a **conditional
+deterministic closure**, not the stochastic mean of the finite ABM; any movement
+between those representations is descriptive only, not a finite-size convergence
+claim. Stable latent branch prevalence is not identified by mixed finite-history
+labels. None of these numerical results is used to establish the primary
+biological claim. Full designs, parameter grids, extinction handling and
+numerical failures are retained in Supporting Information S2–S4.
 
 # Discussion
 
