@@ -41,3 +41,15 @@ def test_joe_submission_keeps_methodological_overgrowth_out_of_main_text():
     assert "finite-versus-deterministic bridge" not in text
     assert "repeatability analyses" in text  # SI routing note only
     assert "fixed-plant reproductive-return assay" in text
+
+
+def test_joe_submission_is_concise_and_keywords_are_alphabetized():
+    text = MANUSCRIPT.read_text(encoding="utf-8")
+    before_references = text.split("# References", 1)[0]
+    words = before_references.split()
+    assert 4000 <= len(words) <= 8000
+
+    keywords = text.split("## Keywords", 1)[1].split("# Introduction", 1)[0].strip()
+    items = [item.strip() for item in keywords.split(";")]
+    assert 1 <= len(items) <= 8
+    assert [item.casefold() for item in items] == sorted(item.casefold() for item in items)
