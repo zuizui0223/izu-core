@@ -37,7 +37,7 @@ causal pathway, and weak geographic divergence need not indicate weak evolution.
 | Capacity often changes first | Discovery delayed51/64; preregistered new-history replication delayed51/64 at .05 held20 updates, 95% bootstrap .6875–.8906. Sensitivity: 48/64 at .025 and 59/64 at .10. Prior-selfing positive-mutation replication is 30/64 at .05. | **Confirmed, setting-specific sequence result.** Selfing-first already has precedent; novelty is the separate necessity intervention. Show history-paired crossings and the reproductive-setting boundary. |
 | Geographic separation has a different order |Delayed far-minus-near:32 investment-first,10 capacity-first,20 ties,2 investment-only at the same threshold | Underused insight. Within-population change and between-environment divergence answer different questions. Show as a clearly separated secondary panel, not a contradictory headline or universal reversal. |
 | Capacity evolution is not necessary |Fixed-capacity far investment changes−.3099 delayed and−.3316 prior. `model3_assurance_intervention_summary_20261005.json` | Central mechanism control. Capacity=.5, not no selfing; realized mating changes. Cohort starts without capacity variance, unlike main sequence cohort. |
-| Capacity evolution can narrow geographic divergence |Common four-cell interaction+.08468 [.06782,.10265] delayed;+.24505 [.22523,.26543] prior. Same intervention summary | Strong unexpected result worth promoting. Show near AND far changes under fixed/evolving capacity: both environments can reduce investment. Do not interpret small geographic contrast as little evolution or compare unmatched survivor sets. |
+| Capacity evolution can narrow geographic divergence |Common four-cell interaction+.08468 [.06782,.10265] delayed;+.24505 [.22523,.26543] prior. Same intervention summary | **Exploratory secondary result, not part of the confirmed headline.** It remains a strong unexpected contrast worth showing after the confirmed sequence/necessity result. Show near AND far changes under fixed/evolving capacity; do not interpret small geographic contrast as little evolution or compare unmatched survivor sets. |
 | Outcross returns drive the environmental gradient difference |Fixed-state400: delayed outcross1.652→.085, total+.579→−.700; selfed difference+.287 offsets rather than amplifies the decline. `model3_return_components_20261005.json` | Concrete mechanism, stronger than merely saying costs increase. Intrinsic cost coefficient is unchanged. Components include allocation and are not pure benefit/cost terms. This decomposition is exploratory. |
 | Less pollen deficit can coexist with fewer viable offspring |At capacity.5, investment.75−.25: far deficit−.0104 but offspring−15.72 delayed;−.0093 and−18.73 prior. `model3_trait_pollen_intervention_summary_20261005.json` | Strong visual counterpoint. Plot paired deficit/output changes, retain near and far and both settings. Whole-population manipulation, not rare-mutant fitness or a trajectory. Different treatment denominators matter. |
 | Selfing compensates unevenly before/after inbreeding depression |12,288 evolved-state assays; fixed factorial additionally separates capacity effects. `MODEL3_POLLEN_ASSAY_RESULTS_20261005.md` | Ecological interpretation linking H3/H4. Partial reproductive assurance under depression has direct precedent; do not advertise as first discovery. |
@@ -61,10 +61,10 @@ causal pathway, and weak geographic divergence need not indicate weak evolution.
    restricted mutation/closure diagnostics explain what the broader comparison
    cannot yet establish. Do not imply the stopped calculation will be completed.
 
-Primary claim wording: "Under sustained visitor replenishment limitation,
-selfing capacity can change before attraction investment, yet its evolution is
-not required for investment decline. Capacity evolution can also reduce the
-contrast between isolation environments because investment changes in both."
+Primary confirmed claim wording: "Under sustained visitor replenishment limitation in the delayed-selfing, assurance-cost 0.5, positive-mutation setting, reproductive assurance can change before attraction investment, yet assurance evolution is not required for investment decline."
+
+The attenuation of the near-far investment contrast when assurance evolves is a
+strong exploratory secondary result and is not included in the confirmed claim.
 
 ## Poster organization within the user's three stages
 
