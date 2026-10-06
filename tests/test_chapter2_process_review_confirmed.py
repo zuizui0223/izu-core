@@ -7,9 +7,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_confirmed_review_package_routes_current_four_figures():
     assert builder.MAIN == {
-        "Figure1.pdf": "model3_selection_process_20261005/selection_process.pdf",
+        "Figure1.pdf": "model3_return_components_20261005/return_components.pdf",
         "Figure2.pdf": "model3_sequence_necessity_20261005/sequence_necessity.pdf",
-        "Figure3.pdf": "model3_return_components_20261005/return_components.pdf",
+        "Figure3.pdf": "model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
         "Figure4.pdf": "model3_genetic_realization_20261005/genetic_realization.pdf",
     }
 
