@@ -53,7 +53,7 @@ above zero. The interactions were +0.1605 delayed control, +0.2200 prior
 selfing, +0.1915 pollen discount and +0.1007 assurance cost. Terminal occupancy
 was 1.0 in every arm/mode and all 64 histories were eligible in every setting.
 
-This document supersedes the September bridge-centred narrative for the active manuscript. Older designs, results and submission snapshots remain provenance; their numerical claims have not been overwritten. The active manuscript is `CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`; the historical Oikos renderer now reads a fixed snapshot under `legacy/submission-history/model3_bridge_20261004/`.
+This document supersedes the September bridge-centred narrative for the active manuscript. Older designs, results and submission snapshots remain provenance; their numerical claims have not been overwritten. The active submission manuscript is `CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md`; `CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` is retained as the long-form process/provenance manuscript. The historical Oikos renderer reads a fixed snapshot under `legacy/submission-history/model3_bridge_20261004/`.
 
 ## Question and manipulation
 
