@@ -7,7 +7,7 @@
   "result_priority_document": "docs/MODEL3_RESULT_PRIORITY_AND_PRESENTATION_20261005.md",
   "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
   "title": "How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization",
-  "central_claim": "Temporal precedence is not causal necessity: in the confirmed delayed-selfing/costly regime, assurance can change first while investment still declines when assurance evolution is blocked.",
+  "central_claim": "In the delayed-selfing, assurance-cost 0.5, positive-mutation setting, reproductive assurance can change before floral investment declines, yet assurance evolution is not required for that investment decline.",
   "primary_evidence": {
     "independent_visitor_histories": 64,
     "nested_demographic_repeats": 8,
@@ -71,5 +71,10 @@
       }
     },
     "generality_boundary": "Prior selfing with positive mutation gives 30/64 assurance-first histories at threshold 0.05; confirmed sequence is setting-specific."
+  },
+  "claim_scope": {
+    "primary_reproductive_setting": "delayed selfing with assurance cost 0.5",
+    "primary_mutation_probability": 0.01,
+    "generality": "The primary claim is restricted to this cell. Other setting-by-mutation cells are reported as scope/sensitivity and cannot rescue a failed primary confirmation."
   }
 }
