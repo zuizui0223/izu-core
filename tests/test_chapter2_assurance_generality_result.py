@@ -85,3 +85,59 @@ def test_attenuation_decomposition_retains_source_provenance():
     assert provenance["artifact_sha256"] == (
         "4d9f3f017149218d17ba643734c28345daa1aef40119a5cfee0743e8a3669323"
     )
+
+
+GRADIENT_RESULT = ROOT / "data/results/chapter2_assurance_gradient_components_20261006.json"
+
+
+def test_gradient_component_diagnostic_resolves_stronger_near_side_direct_effect():
+    result = json.loads(GRADIENT_RESULT.read_text(encoding="utf-8"))
+    assert result["status"] == "complete_gradient_component_diagnostic"
+    assert result["independent_visitor_histories"] == 64
+    assert result["max_additive_identity_error"] < 1e-12
+
+    rows = {
+        row["setting"]: row
+        for row in result["rows"]
+        if row["snapshot"] == 400
+    }
+    assert set(rows) == {
+        "delayed_control", "prior_selfing", "pollen_discount", "assurance_cost"
+    }
+
+    for row in rows.values():
+        near = row["assurance_effect_high_minus_low"]["near"]["gradient"]
+        far = row["assurance_effect_high_minus_low"]["far"]["gradient"]
+        difference = row["near_minus_far_assurance_effect"]["gradient"]
+        assert near["mean"] < 0
+        assert near["bootstrap95"][1] < 0
+        assert far["mean"] < 0
+        assert far["bootstrap95"][1] < 0
+        assert difference["mean"] < 0
+        assert difference["bootstrap95"][1] < 0
+
+        components = row["near_minus_far_assurance_effect"]
+        component_sum = sum(
+            components[name]["mean"]
+            for name in (
+                "maternal_outcross_component",
+                "paternal_export_component",
+                "selfing_displacement_component",
+                "ovule_allocation_cost_component",
+            )
+        )
+        assert abs(component_sum - difference["mean"]) < 1e-12
+
+
+def test_gradient_component_diagnostic_retains_scope_and_provenance():
+    result = json.loads(GRADIENT_RESULT.read_text(encoding="utf-8"))
+    boundary = result["claim_boundary"]
+    assert "cannot by itself identify" in boundary["no_dynamic_mediation"]
+    assert "no universal sign is claimed" in boundary["sensitivity_boundary"]
+    provenance = result["workflow_provenance"]
+    assert provenance["run_id"] == 37461379046
+    assert provenance["job_id"] == 112261529560
+    assert provenance["artifact_id"] == 11413132625
+    assert provenance["artifact_sha256"] == (
+        "ed7f88a5a17a12472ae40a5ed087925d56cee8fb5de9cfc5583f6889aec5b099"
+    )
