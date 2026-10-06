@@ -1,5 +1,12 @@
 # Chapter 2 2026-10-05 establishment closeout — 2026-10-06
 
+> **Current superseding paper route:** this document freezes the earlier 2026-10-05
+> sequence-versus-necessity establishment step. The active Ecology Letters manuscript
+> now centers the separately prospectively confirmed four-setting result that assurance
+> evolution is not required for investment decline but consistently compresses the
+> near–far investment contrast. The temporal-order result below remains valid but
+> setting-specific and secondary.
+
 ## Decision
 
 The 2026-10-05 process result is **established as a bounded model-level result**
@@ -129,7 +136,10 @@ Design:
 Controlling narrative:
 `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`
 
-Active manuscript:
+Active submission manuscript:
+`docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md`
+
+Long-form process/provenance manuscript:
 `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`
 
 Novelty positioning:
@@ -140,7 +150,7 @@ Submission firewall:
 
 ## Remaining limitations, not establishment blockers
 
-- sequence generality across reproductive settings;
+- temporal-order generality across reproductive settings (the separate non-necessity/attenuation result is confirmed across all four baseline reproductive settings);
 - calibration to natural kilometres, evolutionary time or named islands;
 - full dynamic mediation of realized selfing;
 - evolving genetic load and purging;
