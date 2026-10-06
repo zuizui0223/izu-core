@@ -11,6 +11,8 @@ governs the scientific narrative on this branch. The full-mutation
 common-environment experiment is complementary genetic/history evidence; it is
 not the paper spine.
 
+The 2026-10-05 result is the active paper hypothesis, but the **51/64 temporal-order component remains exploratory until the frozen new-history confirmatory replication passes**. The fixed-assurance intervention retains its original prospective status.
+
 The paper's biological claim is that the order of trait change and the causal
 requirement for that change are different questions. Under sustained visitor
 replenishment limitation, reproductive assurance often reaches the declared
