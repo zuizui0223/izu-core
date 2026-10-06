@@ -24,6 +24,15 @@ control, prior selfing, pollen discount and assurance-cost settings. This
 attenuation is a common-four-cell interaction, not a mediation fraction; both
 environments can still undergo substantial evolution.
 
+Post-confirmation decomposition localizes 78–90% of the attenuation to additional
+investment decline in the near/high-replenishment arm, with a smaller far-side
+relief. A corrected fixed-resident rare-mutant diagnostic shows the same asymmetry
+in local selection: increasing assurance weakens investment selection far more
+under near than far visitor histories because maternal outcross and paternal
+pollen-export returns remain larger where pollination is still effective. This
+explains the interaction locally without treating it as a dynamic mediation
+fraction.
+
 **Confirmatory status, 2026-10-06:** a prospectively frozen 4,096-trajectory
 replication using 64 new visitor histories and eight new demographic repeats
 passed both primary success rules. In the delayed-selfing/costly,
@@ -97,10 +106,10 @@ The stopped high-resolution 1,000-update comparison stays stopped. Verified loca
 ## Current authoring and delivery
 
 - `scripts/render_chapter2_process_manuscript.py`: current manuscript, without repository routing metadata.
-- Main figures: `figure_model3_selection_process.py`, `figure_model3_sequence_necessity.py`, `figure_model3_return_components.py`, `figure_model3_genetic_realization.py`.
+- Main figures: `figure_model3_return_components.py`, `figure_model3_assurance_compression.py`, `figure_model3_trait_pollen.py`, `figure_model3_genetic_realization.py`.
 - Full gradient: `figure_model3_replenishment_evolution.py`; all conditions and censoring retained.
 - Numerical figure verification: `verify_model3_rate_figures.py`, plus the per-figure receipts and poster-native-chart verifier.
-- Review delivery: `build_chapter2_process_review.py` includes the four main figures, their numerical inputs and working sources at their original relative paths. `verify_chapter2_process_review.py` extracts the package separately and redraws all four figures; numerical exports and 512,512 sequence coordinates must agree. This is figure-level reproduction, not a complete raw-data deposit.
+- Review delivery: `build_chapter2_process_review.py` includes the four main figures, their numerical inputs and working sources at their original relative paths. `verify_chapter2_process_review.py` extracts the package separately and redraws all four figures; numerical exports must agree exactly. This is figure-level reproduction, not a complete raw-data deposit.
 - Completion ledger: `MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md`.
 
 The historical Oikos bundle and its frozen claim tests reproduce the earlier bridge submission. They are not the delivery route for this updated process manuscript. No journal submission, public data deposition, universal sequence, stable attractor or natural-island causal validation is claimed.
