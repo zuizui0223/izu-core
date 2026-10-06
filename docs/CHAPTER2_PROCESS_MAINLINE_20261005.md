@@ -6,17 +6,23 @@
 > common-environment history experiment is retained as complementary genetic/
 > history evidence, not the paper spine.
 
-The primary sequence/necessity claim is restricted to the **delayed-selfing, assurance-cost 0.5, positive-mutation setting** unless a separately preregistered generality test broadens it. Other setting-by-mutation cells are reported as scope and sensitivity and cannot rescue the primary result.
+The **temporal-order claim** remains restricted to the delayed-selfing,
+assurance-cost 0.5, positive-mutation setting. A separately preregistered
+four-setting generality test has now broadened a different claim: investment
+decline does not require assurance-capacity evolution, and assurance evolution
+attenuates the near–far investment contrast across all four declared
+reproductive settings. Temporal order and causal necessity remain separate.
 
 The central result is not merely that reproductive assurance often changes
 before floral investment. The key causal distinction is that **assurance can
 change first without being required for investment decline**. At an identical
 plant state, stronger visitor limitation lowers the marginal reproductive return
 to investment; blocking assurance evolution therefore does not remove the
-investment response. A separate **exploratory secondary** interaction suggests
-that allowing assurance evolution can reduce the observed near-far investment
-contrast because investment changes in both environments; that attenuation was
-not part of the new-history confirmatory campaign.
+investment response. A second prospective intervention now confirms that allowing assurance
+evolution reduces the observed near–far investment contrast across delayed
+control, prior selfing, pollen discount and assurance-cost settings. This
+attenuation is a common-four-cell interaction, not a mediation fraction; both
+environments can still undergo substantial evolution.
 
 **Confirmatory status, 2026-10-06:** a prospectively frozen 4,096-trajectory
 replication using 64 new visitor histories and eight new demographic repeats
@@ -26,8 +32,17 @@ threshold (95% history-bootstrap 0.6875–0.8906). With assurance fixed at 0.5,
 far investment change was −0.3060 [−0.3181, −0.2941] and far-minus-near
 investment was −0.4354 [−0.4533, −0.4172]. The sequence result is not universal:
 the corresponding prior-selfing positive-mutation cell gave 30/64
-assurance-first histories at threshold 0.05. The confirmed claim is therefore
-restricted to the delayed-selfing, assurance-cost setting.
+assurance-first histories at threshold 0.05. The confirmed **temporal-order**
+claim is therefore restricted to the delayed-selfing, assurance-cost setting.
+
+**Generality status, 2026-10-06:** a separately frozen 8,448-trajectory campaign
+used 64 additional visitor histories and eight additional demographic repeats.
+All four reproductive settings passed the preregistered rule: fixed-assurance
+far-minus-near investment was negative with intervals below zero, while the
+common-four-cell evolving-minus-fixed interaction was positive with intervals
+above zero. The interactions were +0.1605 delayed control, +0.2200 prior
+selfing, +0.1915 pollen discount and +0.1007 assurance cost. Terminal occupancy
+was 1.0 in every arm/mode and all 64 histories were eligible in every setting.
 
 This document supersedes the September bridge-centred narrative for the active manuscript. Older designs, results and submission snapshots remain provenance; their numerical claims have not been overwritten. The active manuscript is `CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`; the historical Oikos renderer now reads a fixed snapshot under `legacy/submission-history/model3_bridge_20261004/`.
 
