@@ -1,6 +1,7 @@
-"""Main selection figure: model structure plus stored, exploratory gradients.
+"""Main selection/process figure from committed fixed-plant summary only.
 
-No simulation is run here. Full states and snapshots remain in the source atlas.
+No simulation and no untracked output array is required. The figure shows the
+same-plant-state reproductive-return contrast that anchors the process claim.
 """
 from pathlib import Path
 import csv
@@ -8,100 +9,144 @@ import hashlib
 import json
 
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
-import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / 'outputs/model3_isolation_selection_gradient_20261005/gradients.npz'
-OUT = ROOT / 'outputs/figures/model3_selection_process_20261005'
+SOURCE = ROOT / "data/results/model3_fixedplant_returns_summary_20261005.json"
+OUT = ROOT / "outputs/figures/model3_selection_process_20261005"
 
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    with np.load(SOURCE) as d:
-        distances, states = d['distances'], d['states']
-        x = .24 * np.exp(-distances)
-        ti = int(np.flatnonzero(d['snapshots'] == 400)[0])
-        pi = int(np.flatnonzero(np.all(states == [.5, .5, .5], axis=1))[0])
-        raw = d['gradients'][:, :, :, ti]
-        means = d['means'][:, :, ti]
-        intervals = d['intervals'][:, :, ti]
-        np.testing.assert_allclose(means, raw.mean(axis=2), rtol=0, atol=1e-14)
-    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 10,
-                         'pdf.fonttype': 42, 'svg.fonttype': 'none'})
+    summary = json.loads(SOURCE.read_text(encoding="utf-8"))
+    assert summary["status"] == "verified_complete"
+    rows_by_key = {(r["setting"], r["period"]): r for r in summary["summaries"]}
+    periods = [0, 200, 400]
+
+    plt.rcParams.update({
+        "font.family": "DejaVu Sans",
+        "font.size": 10,
+        "pdf.fonttype": 42,
+        "svg.fonttype": "none",
+    })
     fig = plt.figure(figsize=(12, 10.5))
-    grid = fig.add_gridspec(3, 2, height_ratios=[1.05, 1, 1],
-                           left=.10, right=.96, bottom=.17, top=.95,
-                           hspace=.56, wspace=.25)
-    ax = fig.add_subplot(grid[0, :]); ax.set_axis_off()
+    grid = fig.add_gridspec(
+        3, 2, height_ratios=[1.05, 1, 1],
+        left=.10, right=.96, bottom=.15, top=.95, hspace=.55, wspace=.27
+    )
+
+    ax = fig.add_subplot(grid[0, :])
+    ax.set_axis_off()
     ax.set(xlim=(0, 1), ylim=(0, 1))
-    ax.text(0, 1, 'A  One ecological process; selection and evolution answer different questions',
-            fontsize=13, weight='bold', va='top')
-    boxes = [(.01, .54, .22, .29, 'Vary visitor replenishment\nHold plant capacity fixed'),
-             (.29, .54, .25, .29, 'Pollen transfer + plant state\nCosts + inbreeding depression'),
-             (.61, .54, .36, .29, 'Viable maternal + paternal contributions\nLocal gradients: what is favoured?')]
+    ax.text(
+        0, 1,
+        "A  Visitor limitation changes reproductive return before plant evolution",
+        fontsize=13, weight="bold", va="top"
+    )
+    boxes = [
+        (.02, .54, .22, .29, "Visitor replenishment\nand disappearance"),
+        (.31, .54, .25, .29, "Pollen transfer + plant state\nallocation + depression"),
+        (.64, .54, .32, .29, "Maternal + paternal + selfed\nreproductive contribution"),
+    ]
     for bx, by, bw, bh, label in boxes:
-        ax.add_patch(FancyBboxPatch((bx, by), bw, bh, boxstyle='round,pad=.012',
-                                    facecolor='#EDF5F4', edgecolor='#44646C', lw=1))
-        ax.text(bx+bw/2, by+bh/2, label, ha='center', va='center', fontsize=10)
-    for start, end in [((.235, .685), (.275, .685)), ((.552, .685), (.595, .685)),
-                       ((.78, .52), (.40, .32)), ((.78, .52), (.82, .32))]:
-        ax.annotate('', xy=end, xytext=start,
-                    arrowprops={'arrowstyle': '->', 'color': '#44646C', 'lw': 1.4})
-    ax.text(.04, .14, 'Schematic only\nNo prescribed floral direction', fontsize=9, color='#52646B')
-    ax.text(.40, .17, 'Finite ABM\nSample individuals and inheritance',
-            ha='center', va='center', bbox={'boxstyle':'round,pad=.5','fc':'#FFF0E4','ec':'#BD774C'})
-    ax.text(.82, .17, 'Deterministic genotype density\nPropagate reproductive contributions',
-            ha='center', va='center', bbox={'boxstyle':'round,pad=.5','fc':'#E9EEF9','ec':'#647CB0'})
-    colors = ['#B65C35', '#087E89']
-    titles = ['Investment: sign can reverse', 'Selfing capacity: positive selection can strengthen']
-    rows = []
-    for si, setting in enumerate(['Delayed selfing + capacity cost', 'Prior selfing + no capacity cost']):
-        for k in range(2):
-            ax = fig.add_subplot(grid[si+1, k])
-            ax.plot(x, means[si, :, :, k], color='#CBD4D8', lw=.6, alpha=.75)
-            ci = intervals[si, :, pi, k]
-            ax.fill_between(x, ci[:, 0], ci[:, 1], color=colors[k], alpha=.18)
-            ax.plot(x, means[si, :, pi, k], '-o', color=colors[k], lw=2, ms=3)
-            ax.axhline(0, color='#34454B', ls='--', lw=.9)
-            ax.set(xlim=(0, .25), ylim=(-.8, 3.5), xticks=[0, .06, .12, .18, .24],
-                   xlabel='Established visitor types / reproductive update',
-                   ylabel='Local log-fitness gradient')
-            ax.set_title(f'{"BCDE"[si*2+k]}  {titles[k]}\n{setting}', fontsize=11, loc='left')
-            ax.spines[['top', 'right']].set_visible(False)
-            for di, distance in enumerate(distances):
-                for p, state in enumerate(states):
-                    rows.append([si, k, float(distance), *state.tolist(),
-                                 float(means[si, di, p, k]), float(intervals[si, di, p, k, 0]),
-                                 float(intervals[si, di, p, k, 1]), p == pi, float(x[di])])
-    fig.text(.10, .105,
-             'B–E: exploratory fixed-plant assay at visitor snapshot 400; plants do not evolve in these panels.\n'
-             'Thin lines: all 45 resident states, means over 64 visitor histories. Bold: all three traits = 0.5.\n'
-             'Band: central-state pointwise 95% history-bootstrap interval. Positive = increase favoured; negative = decrease favoured.',
-             fontsize=9, va='top')
-    fig.text(.10, .035,
-             'Lines join 13 sampled rates, not fitted threshold curves. Replenishment is not calibrated geographic distance.\n'
-             'The two settings differ in both selfing timing and cost; local gradients are not evolutionary velocities.',
-             fontsize=9, va='top')
-    for ext in ['pdf', 'svg', 'png']:
-        fig.savefig(OUT / f'selection_process.{ext}', dpi=180)
+        ax.add_patch(FancyBboxPatch(
+            (bx, by), bw, bh, boxstyle="round,pad=.012",
+            facecolor="#EDF5F4", edgecolor="#44646C", lw=1
+        ))
+        ax.text(bx+bw/2, by+bh/2, label, ha="center", va="center", fontsize=10)
+    for start, end in [((.245,.685),(.295,.685)),((.565,.685),(.625,.685))]:
+        ax.annotate("", xy=end, xytext=start,
+                    arrowprops={"arrowstyle":"->","color":"#44646C","lw":1.4})
+    ax.text(.08,.16,"Same plant state\ncapacity fixed at 0.5",ha="center",fontsize=9)
+    ax.annotate("", xy=(.68,.25), xytext=(.22,.25),
+                arrowprops={"arrowstyle":"->","color":"#44646C","lw":1.2})
+    ax.text(.45,.29,"change visitor exposure only",ha="center",fontsize=9,color="#52646B")
+
+    colors = {"near":"#D55E00", "far":"#0072B2"}
+    labels = {"near":"Higher replenishment", "far":"Lower replenishment"}
+    settings = [
+        ("assurance_cost", "Delayed selfing; assurance cost 0.5"),
+        ("prior_selfing", "Prior selfing; assurance cost 0"),
+    ]
+    metrics = [
+        ("mean_gradient", "Total investment contribution"),
+        ("mean_outcross_gradient", "Outcross contribution"),
+    ]
+    exported = []
+
+    for row_i, (setting, setting_label) in enumerate(settings):
+        for col_i, (metric, metric_label) in enumerate(metrics):
+            ax = fig.add_subplot(grid[row_i+1, col_i])
+            for arm in ["near", "far"]:
+                values = [
+                    rows_by_key[(setting, p)]["metrics"][metric][f"{arm}_mean"]
+                    for p in periods
+                ]
+                ax.plot(periods, values, "-o", lw=2.2, ms=5,
+                        color=colors[arm], label=labels[arm])
+                for p, value in zip(periods, values):
+                    rec = rows_by_key[(setting, p)]["metrics"][metric]
+                    exported.append({
+                        "setting": setting,
+                        "metric": metric,
+                        "period": p,
+                        "arm": arm,
+                        "mean": value,
+                        "far_minus_near": rec["far_minus_near"],
+                        "difference_ci_low": rec["interval"][0],
+                        "difference_ci_high": rec["interval"][1],
+                    })
+            ax.axhline(0, color="#555555", ls="--", lw=.8)
+            ax.set(
+                xticks=periods,
+                xlabel="Visitor snapshot index",
+                ylabel="Contribution slope per investment unit",
+            )
+            ax.set_title(f'{"BCDE"[row_i*2+col_i]}  {metric_label}\n{setting_label}',
+                         fontsize=11, loc="left")
+            final = rows_by_key[(setting, 400)]["metrics"][metric]
+            ax.text(
+                .03, .04,
+                f"Δ low−high at 400 = {final['far_minus_near']:+.3f}\n"
+                f"95% history-bootstrap [{final['interval'][0]:+.3f}, {final['interval'][1]:+.3f}]",
+                transform=ax.transAxes, fontsize=8.5
+            )
+            ax.spines[["top","right"]].set_visible(False)
+            ax.grid(axis="y", alpha=.12)
+
+    handles, leglabels = fig.axes[1].get_legend_handles_labels()
+    fig.legend(handles, leglabels, loc="lower center", bbox_to_anchor=(.53,.075),
+               ncol=2, frameon=False)
+    fig.text(
+        .10, .025,
+        "Fixed-plant assay: plants do not evolve. Means and paired-history difference intervals are read from the committed verified summary.\n"
+        "Visitor amount and identity change together; these slopes are reproductive-return diagnostics, not evolutionary velocities or calibrated distance effects.",
+        fontsize=9
+    )
+
+    for ext in ["pdf","svg","png"]:
+        fig.savefig(OUT/f"selection_process.{ext}", dpi=180)
     plt.close(fig)
-    with (OUT / 'plotted_values.csv').open('w', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f)
-        writer.writerow(['setting_index', 'trait_index', 'distance', 'matching', 'investment',
-                         'capacity', 'mean', 'ci_low', 'ci_high', 'central_state', 'established_types_per_update'])
-        writer.writerows(rows)
-    receipt = {'source': str(SOURCE.relative_to(ROOT)),
-               'source_sha256': hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
-               'plotted_means': len(rows), 'central_intervals_displayed': 52,
-               'mean_check': 'all displayed means reconstructed from history-level arrays',
-               'scope': 'snapshot 400, both settings, all 45 states; other snapshots in full atlas',
-               'schematic': 'panel A only; no numeric simulation result encoded in schematic'}
-    (OUT / 'provenance.json').write_text(json.dumps(receipt, indent=2)+'\n', encoding='utf-8')
+
+    csv_path = OUT/"plotted_values.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(exported[0]))
+        writer.writeheader()
+        writer.writerows(exported)
+
+    receipt = {
+        "source": str(SOURCE.relative_to(ROOT)),
+        "source_sha256": hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
+        "plotted_rows": len(exported),
+        "source_status": summary["status"],
+        "scope": "fixed-plant periods 0/200/400; both reproductive settings; committed summary only",
+        "schematic": "panel A only; no numerical result encoded in schematic",
+    }
+    (OUT/"provenance.json").write_text(json.dumps(receipt, indent=2)+"\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
