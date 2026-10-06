@@ -39,3 +39,9 @@ def test_je_review_redraws_only_submission_specific_figures():
 def test_je_review_keeps_public_doi_pending():
     source = (ROOT / "scripts/build_chapter2_je_review.py").read_text(encoding="utf-8")
     assert '"public_doi_deposited":False' in source
+
+
+def test_je_review_includes_submission_supporting_information():
+    source = (ROOT / "scripts/build_chapter2_je_review.py").read_text(encoding="utf-8")
+    assert 'SI=ROOT/"docs/CHAPTER2_SUPPORTING_INFORMATION_JE_20261006.md"' in source
+    assert '"SUPPORTING_INFORMATION.md":SI.read_bytes()' in source
