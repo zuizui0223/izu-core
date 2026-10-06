@@ -1,7 +1,7 @@
-# Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation
+# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization
 
-**Status:** active Chapter 2 scientific manuscript — 2026-10-05 maintained-isolation ecological results are primary; mutation/history analyses are complementary
-**Updated:** 2026-10-06 — restored the 2026-10-05 ecological result spine after a superseded mutation-history routing attempt. Numerical results are unchanged.
+**Status:** active Chapter 2 scientific manuscript — 2026-10-05 process result independently confirmed on new visitor histories and demographic repeats; mutation/history analyses are complementary
+**Updated:** 2026-10-06 — the preregistered 4,096-case independent replication confirmed the primary delayed-selfing/costly sequence and fixed-assurance results. The claim remains restricted to its declared reproductive setting.
 **Inference architecture:** sustained visitor replenishment limitation → altered pollen transfer and reproductive returns → local selection on attraction and assurance → inherited responses and finite realization. Temporal order is tested separately from causal necessity.
 **Controlling state:** `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`, with result priority governed by `docs/MODEL3_RESULT_PRIORITY_AND_PRESENTATION_20261005.md`. The full-mutation common-environment experiment remains complementary evidence.
 
@@ -13,51 +13,62 @@ The user stopped the high-resolution 1,000-update extension after verified perio
 
 The primary question is whether reduced floral attraction under sustained
 pollinator limitation is caused by the evolution of reproductive assurance, or
-whether both traits respond in parallel to isolation-altered reproductive
+whether both traits can respond in parallel to isolation-altered reproductive
 returns.
 
-Three completed comparisons separate these possibilities. First, fixed-plant
-assays ask whether the visitor environment changes the marginal reproductive
-return to floral investment before plant traits evolve. Second, maintained-
-isolation trajectories ask which trait reaches a declared change threshold first.
-Third, a matched intervention fixes assurance capacity at 0.5 or permits it to
-evolve, testing whether assurance evolution is necessary for investment decline.
+Three comparisons separate these possibilities. Fixed-plant assays measure how
+visitor exposure changes the marginal reproductive return to investment before
+plant evolution. Maintained-isolation trajectories measure which trait reaches a
+declared change first. A matched fixed-assurance intervention tests whether
+assurance evolution is necessary for investment decline.
 
-The central result is **sequence does not identify necessity**. Reproductive
-assurance often changes first, yet investment still declines when assurance
-evolution is blocked. Moreover, permitting assurance evolution can narrow the
-near-far investment contrast because investment changes in both environments.
-The model is not calibrated to Q1 colour, accessibility, named islands,
-kilometres or natural evolutionary time.
+The primary delayed-selfing, assurance-cost 0.5 sequence result is now
+**independently confirmed**. A prospectively frozen replication using 64 entirely
+new visitor histories and eight new demographic repeats reproduced 51/64
+assurance-first histories at the primary 0.05 threshold
+(95% visitor-history bootstrap 0.6875–0.8906). The preregistered fixed-assurance
+replication also passed: far investment changed by −0.3060
+[−0.3181, −0.2941], and far-minus-near investment by −0.4354
+[−0.4533, −0.4172].
+
+The central result is therefore **sequence does not identify necessity**.
+Reproductive assurance can change first, yet investment still declines when
+assurance evolution is blocked. This confirmed sequence is not universal:
+prior selfing with positive mutation gave only 30/64 assurance-first histories
+at the same threshold. The claim is consequently restricted to the declared
+delayed-selfing/costly setting rather than promoted to a general law.
 
 ## Abstract
 
 Island pollinator limitation is often associated with greater reproductive
-assurance and reduced floral attraction, but the order of these changes does not
-show whether one causes the other. We separate ecological return, evolutionary
-sequence and causal necessity in one explicit plant–pollinator model with
-continued visitor establishment and loss, pollen transfer, allocation costs,
-maternal and paternal reproduction, inbreeding depression and inheritance.
+assurance and reduced floral attraction, but temporal order does not show
+whether one change causes the other. We separate reproductive return,
+evolutionary sequence and causal necessity in one explicit plant–pollinator
+model with continuing visitor establishment and loss, pollen transfer,
+allocation costs, maternal and paternal reproduction, inbreeding depression and
+inheritance.
 
-The maintained-isolation analyses used 64 independent visitor histories with
-eight nested demographic repeats per setting, supplemented by fixed-plant
-reproductive assays and 8,192 matched fixed-versus-evolving-assurance
-trajectories. At the same plant state, the delayed-setting marginal contribution
-of floral investment shifted from +0.5793 under near exposure to -0.7004 under
-far exposure; the outcross component fell from +1.6523 to +0.0854. Under
-sustained isolation, reproductive assurance reached the declared 0.05 change
-threshold first in 51 of 64 far-history means, with 13 near-simultaneous.
-Nevertheless, holding assurance capacity fixed at 0.5 did not prevent investment
-decline: far populations changed by -0.3099 in the delayed setting and -0.3316
-under prior selfing. Allowing assurance to evolve could also reduce the observed
-near-far investment contrast because investment changed in both environments.
+In the delayed-selfing, assurance-cost 0.5 setting, stronger visitor limitation
+reversed the marginal reproductive contribution of floral investment at the
+same plant state from +0.5793 to −0.7004 as the outcross component fell from
++1.6523 to +0.0854. In the initial maintained-isolation experiment,
+reproductive assurance reached a declared 0.05 sustained-change threshold first
+in 51/64 visitor histories. We then froze a confirmatory design before new
+outcomes were generated. Using 64 new visitor histories and eight new nested
+demographic repeats, the same sequence was reproduced in 51/64 histories
+(proportion 0.797; 95% history-bootstrap 0.688–0.891). A separate preregistered
+fixed-assurance replication showed that investment still declined when
+assurance capacity could not evolve: far change −0.3060
+[−0.3181, −0.2941] and far-minus-near −0.4354
+[−0.4533, −0.4172].
 
-Thus **temporal precedence is not causal necessity**. Pollinator isolation can
-alter the reproductive economics of attraction directly, while assurance and
-attraction evolve as interacting but partly parallel responses. A separate
-trait-pollen assay further shows that a smaller fractional pollen deficit need
-not imply greater viable offspring production. These are conditional synthetic
-mechanisms, not calibrated reconstructions of natural island histories.
+Thus **temporal precedence is not causal necessity**. Pollinator limitation can
+lower the reproductive return to attraction directly while assurance and
+attraction evolve as interacting but partly parallel responses. The confirmed
+assurance-first sequence is setting-specific: prior selfing with positive
+mutation did not show an assurance-first majority at the primary threshold.
+These are model-level mechanisms, not calibrated reconstructions of natural
+island histories.
 
 ## Keywords
 
