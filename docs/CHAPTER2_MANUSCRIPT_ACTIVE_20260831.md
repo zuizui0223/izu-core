@@ -1,4 +1,4 @@
-# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization
+# Reproductive assurance compresses floral-investment divergence under pollinator limitation
 
 **Status:** active Chapter 2 scientific manuscript — 2026-10-05 process result independently confirmed on new visitor histories and demographic repeats; mutation/history analyses are complementary
 **Updated:** 2026-10-06 — the preregistered 4,096-case replication confirmed the delayed-selfing/costly temporal-order result, and a separate preregistered 8,448-trajectory campaign confirmed four-setting non-necessity and attenuation. Temporal order remains setting-specific.
@@ -11,63 +11,82 @@ The user stopped the high-resolution 1,000-update extension after verified perio
 
 ## Current primary question and interpretation
 
-The primary question is whether reduced floral attraction under sustained
-pollinator limitation is caused by the evolution of reproductive assurance, or
-whether both traits can respond in parallel to isolation-altered reproductive
-returns.
+The primary question is whether reproductive-assurance evolution is required for
+reduced floral investment under sustained pollinator limitation, and—if it is
+not required—how allowing assurance to evolve changes the magnitude of
+between-environment floral divergence.
 
-Three comparisons separate these possibilities. Fixed-plant assays measure how
+Four comparisons separate these questions. Fixed-plant assays measure how
 visitor exposure changes the marginal reproductive return to investment before
-plant evolution. Maintained-isolation trajectories measure which trait reaches a
-declared change first. A matched fixed-assurance intervention tests whether
-assurance evolution is necessary for investment decline.
+plant evolution. A matched fixed-versus-evolving assurance intervention tests
+whether assurance evolution is necessary for investment decline. A prospectively
+frozen four-setting campaign tests whether any effect of assurance evolution on
+the near–far contrast generalizes across the existing reproductive rules. The
+maintained-isolation trajectories then ask a separate question: which trait
+reaches a declared change first.
 
-The primary delayed-selfing, assurance-cost 0.5 sequence result is now
-**independently confirmed**. A prospectively frozen replication using 64 entirely
-new visitor histories and eight new demographic repeats reproduced 51/64
-assurance-first histories at the primary 0.05 threshold
-(95% visitor-history bootstrap 0.6875–0.8906). The preregistered fixed-assurance
-replication also passed: far investment changed by −0.3060
-[−0.3181, −0.2941], and far-minus-near investment by −0.4354
-[−0.4533, −0.4172].
+The general result is now **independently established across all four declared
+reproductive settings**. With assurance fixed at 0.5, the far-minus-near
+investment contrast remained negative in delayed control, prior selfing, pollen
+discount and assurance-cost settings. Allowing assurance to evolve reduced the
+magnitude of that contrast in every setting. The common-four-cell
+evolving-minus-fixed interactions ranged from +0.1007 to +0.2200, with all 95%
+visitor-history bootstrap intervals above zero and all arms at terminal
+occupancy 1.0.
 
-The central result is therefore **sequence does not identify necessity**.
-Reproductive assurance can change first, yet investment still declines when
-assurance evolution is blocked. This confirmed sequence is not universal:
-prior selfing with positive mutation gave only 30/64 assurance-first histories
-at the same threshold. The claim is consequently restricted to the declared delayed-selfing/costly setting rather than promoted to a general law. Prior selfing with positive mutation did not show an assurance-first majority.
+The mechanism is not primarily protection of low-replenishment populations from
+investment decline. Reanalysis of the same hash-verified trajectories showed
+that 78–90% of the attenuation came from **additional investment decline in the
+near/high-replenishment arm**, with a smaller far-side relief. At a fixed
+resident state, raising assurance from 0.25 to 0.75 made the corrected
+rare-mutant investment gradient 0.379–0.523 more negative near than far at
+snapshot 400; most of that difference came from maternal outcross and paternal
+pollen-export terms. Under low replenishment, attraction-dependent outcross
+returns are already largely exhausted, leaving less additional attraction value
+for assurance to displace.
+
+The independently confirmed temporal-order result is narrower. In the
+delayed-selfing, assurance-cost 0.5 setting, 51/64 new visitor histories were
+assurance-first at the primary threshold, but prior selfing gave 30/64. Temporal
+order is therefore treated as a setting-specific consequence, not the paper's
+general causal claim.
 
 ## Abstract
 
-Island pollinator limitation is often associated with greater reproductive
-assurance and reduced floral attraction, but temporal order does not show
-whether one change causes the other. We separate reproductive return,
-evolutionary sequence and causal necessity in one explicit plant–pollinator
-model with continuing visitor establishment and loss, pollen transfer,
-allocation costs, maternal and paternal reproduction, inbreeding depression and
-inheritance.
+Pollinator limitation on islands is often discussed together with increased
+selfing and reduced floral attraction, encouraging a serial interpretation in
+which breeding-system evolution causes floral simplification. We tested whether
+that causal order is required, and whether reproductive assurance instead
+modifies how pollinator limitation is expressed as floral divergence.
 
-In the delayed-selfing, assurance-cost 0.5 setting, stronger visitor limitation
-reversed the marginal reproductive contribution of floral investment at the
-same plant state from +0.5793 to −0.7004 as the outcross component fell from
-+1.6523 to +0.0854. In the initial maintained-isolation experiment,
-reproductive assurance reached a declared 0.05 sustained-change threshold first
-in 51/64 visitor histories. We then froze a confirmatory design before new
-outcomes were generated. Using 64 independent visitor histories not used in the
-discovery and eight new nested demographic repeats, the same sequence was
-reproduced in 51/64 histories
-(proportion 0.797; 95% history-bootstrap 0.688–0.891). A separate preregistered
-fixed-assurance replication showed that investment still declined when
-assurance capacity could not evolve: far change −0.3060
-[−0.3181, −0.2941] and far-minus-near −0.4354
-[−0.4533, −0.4172].
+We used one explicit plant–pollinator model with continuing visitor
+establishment and loss, pollen transfer, maternal and paternal reproduction,
+selfing, inbreeding depression, inheritance and finite demography. In a
+prospectively frozen four-setting experiment using 64 independent new visitor
+histories and eight nested demographic repeats, floral investment still declined
+under low visitor replenishment when assurance capacity was fixed. Fixed
+far-minus-near investment contrasts were −0.302 to −0.441 across delayed
+selfing, prior selfing, pollen discount and direct assurance-cost settings.
+Allowing assurance to evolve consistently reduced these contrasts
+(evolving-minus-fixed interactions +0.101 to +0.220; all 95% history-bootstrap
+intervals >0).
 
-Thus **temporal precedence is not causal necessity**. Pollinator limitation can
-lower the reproductive return to attraction directly while assurance and
-attraction evolve as interacting but partly parallel responses. The confirmed
-assurance-first sequence is setting-specific: prior selfing with positive
-mutation did not show an assurance-first majority at the primary threshold.
-These are model-level mechanisms, not calibrated reconstructions of natural island histories.
+This attenuation arose mainly because assurance evolution pulled
+high-replenishment populations toward lower investment: 78–90% of the
+interaction was localized to additional near-side decline, with smaller
+far-side relief. At a fixed resident state, increasing assurance from 0.25 to
+0.75 weakened investment selection much more strongly near than far
+(near-minus-far gradient effect −0.379 to −0.523), largely through reduced
+maternal outcross and paternal pollen-export returns. A separately confirmed
+assurance-first temporal sequence occurred in one delayed-selfing/costly setting
+but not under prior selfing.
+
+Thus reproductive assurance is **not required** for pollinator-limitation-driven
+investment decline, yet its evolution can compress the phenotypic difference
+between environments by changing selection most strongly where pollination
+remains effective. Geographic floral divergence can therefore underestimate the
+amount of evolutionary change occurring within populations. These are
+model-level mechanisms, not calibrated reconstructions of a named island system.
 
 ## Keywords
 
@@ -100,22 +119,27 @@ assurance intervention then tests causal necessity. Reproductive-output assays
 separate pollen-deficit metrics from viable offspring, and genetic/deterministic
 comparisons bound how expected responses are realized in finite populations.
 
-## What the 2026-10-05 result establishes
+## What the current result establishes
 
-At an identical plant state, stronger visitor limitation can reverse the
-marginal reproductive return to attraction. Reproductive assurance often reaches
-a declared evolutionary threshold first, but preventing assurance evolution does
-not remove investment decline. The observed sequence is therefore real but does
-not identify a selfing-mediated causal chain.
+Sustained visitor-replenishment limitation lowers the reproductive return to
+floral investment at a fixed plant state and produces lower investment even
+when assurance capacity cannot evolve. This non-necessity result passed a
+prospectively frozen generality test in all four declared reproductive settings.
 
-A second, less intuitive **exploratory** result follows from the original
-intervention: allowing assurance to evolve can reduce the near-far investment
-contrast because investment changes in both environments. This interaction was
-not included in the independent confirmatory campaign. It therefore motivates,
-rather than establishes, the idea that weak geographic divergence can coexist
-with substantial evolution within each environment. This is why the manuscript
-reports within-population change and between-environment divergence as separate
-estimands.
+Assurance evolution then changes the **expression** of that response. It
+consistently narrows the near–far investment contrast, mostly by driving
+additional investment decline in the high-replenishment environment, while
+producing a smaller relief on the low-replenishment side. A corrected
+fixed-resident invasion-gradient decomposition shows why this asymmetry is
+plausible: under high replenishment, substantial maternal and paternal outcross
+return remains available for increasing assurance to displace; under low
+replenishment, most of that attraction-dependent return is already gone.
+
+The separate temporal-order result answers a different question. Assurance can
+reach a declared change threshold before investment in the delayed/costly
+setting, but that ordering is not universal and is not required for the
+investment response. The paper therefore separates **necessity, modification of
+divergence, and temporal order** rather than treating them as one causal chain.
 
 # Materials and Methods
 
@@ -270,38 +294,59 @@ two reached only the investment threshold.
 
 ## Assurance evolution is not required for investment decline
 
-The matched fixed-versus-evolving-assurance experiment completed 8,192
-trajectories. With assurance held fixed at 0.5, far populations still reduced
-investment by 0.3099 (descriptive 95% interval 0.2972–0.3220) under delayed
-selfing and by 0.3316 (0.3217–0.3411) under prior selfing. Thus an
-assurance-first sequence does not establish that assurance evolution is required
-for attraction investment to decline.
+The matched fixed-versus-evolving-assurance experiment first showed that with
+assurance held fixed at 0.5, far populations still reduced investment. The
+independent preregistered new-history replication confirmed this in the
+delayed/costly primary cell: far investment change was
+**−0.3060 [−0.3181, −0.2941]** and far-minus-near investment was
+**−0.4354 [−0.4533, −0.4172]**, with all 64 histories eligible and both arms at
+100% terminal occupancy. The secondary prior-selfing cell was also negative.
 
-The preregistered new-history replication independently confirmed this
-intervention result. With assurance fixed at 0.5 in the delayed/costly cell,
-far investment change was **−0.3060 [−0.3181, −0.2941]** and far-minus-near
-investment was **−0.4354 [−0.4533, −0.4172]**; all 64 histories were eligible
-and both arms had 100% terminal occupancy. The frozen criterion required both
-means and both upper interval bounds to remain below zero, and it passed. The
-secondary prior-selfing cell also remained negative
-(−0.3316 [−0.3418, −0.3210] from founders; far-minus-near
-−0.3094 [−0.3246, −0.2942]).
+We then preregistered a separate four-setting generality test before generating
+new outcomes. Across another 64 visitor histories and eight nested demographic
+repeats, fixed assurance retained a negative far-minus-near investment contrast
+in every reproductive setting: −0.4413 [−0.4564, −0.4262] for delayed control,
+−0.3018 [−0.3172, −0.2866] for prior selfing, −0.3305
+[−0.3461, −0.3151] with pollen discount and −0.4337
+[−0.4501, −0.4171] with assurance cost. All terminal occupancies were 1.0 and
+all 64 histories were eligible in every setting. Thus assurance evolution is
+not necessary for the isolation response under any of the four declared
+reproductive rules.
 
-We next preregistered a separate four-setting generality test before generating
-new outcomes. Across 64 additional visitor histories and eight additional
-demographic repeats, fixed assurance retained a negative far-minus-near
-investment contrast in every reproductive setting: −0.4413
-[−0.4564, −0.4262] for delayed control, −0.3018 [−0.3172, −0.2866] for prior
-selfing, −0.3305 [−0.3461, −0.3151] with pollen discount and −0.4337
-[−0.4501, −0.4171] with assurance cost. Allowing assurance to evolve attenuated
-that contrast in all four settings; the common-four-cell evolving-minus-fixed
-interactions were +0.1605 [+0.1418, +0.1789], +0.2200
-[+0.2025, +0.2383], +0.1915 [+0.1762, +0.2069] and +0.1007
-[+0.0842, +0.1177], respectively. All terminal occupancies were 1.0 and all
-64 histories were eligible in every setting. Thus assurance evolution is not
-required for the isolation response and, when available, systematically buffers
-between-environment investment divergence in this model. This does not imply a
-complete mediation fraction or absence of large within-environment evolution.
+## Assurance evolution compresses divergence mainly from the high-replenishment side
+
+Allowing assurance to evolve attenuated the near–far investment contrast in all
+four settings. The common-four-cell evolving-minus-fixed interactions were
++0.1605 [+0.1418, +0.1789] for delayed control, +0.2200
+[+0.2025, +0.2383] for prior selfing, +0.1915 [+0.1762, +0.2069] with pollen
+discount and +0.1007 [+0.0842, +0.1177] with assurance cost.
+
+Decomposition of the same 8,448 hash-verified trajectories showed that this was
+not mainly a rescue of far-side investment. Relative to fixed assurance,
+evolving assurance changed near-side investment by −0.1253, −0.1985, −0.1699
+and −0.0789 across the four settings, while far-side effects were +0.0352,
++0.0215, +0.0216 and +0.0218. Consequently, 78.1%, 90.2%, 88.7% and 78.3% of
+the interaction, respectively, arose from additional decline in the
+high-replenishment arm.
+
+A post-confirmation fixed-resident diagnostic localized the direct selection
+effect. At matching=0.5, investment=0.5 and visitor snapshot 400, increasing
+assurance from 0.25 to 0.75 made the corrected rare-mutant investment gradient
+more negative in both arms, but much more strongly near than far. The
+near-minus-far assurance effects on the investment gradient were −0.3794,
+−0.5231, −0.4661 and −0.3794 across delayed control, prior selfing, pollen
+discount and assurance cost, with every 95% history-bootstrap interval below
+zero. Maternal outcross and paternal pollen-export components accounted for most
+of this contrast.
+
+The resulting mechanism is asymmetric. Under low replenishment, the
+attraction-dependent outcross return is already small, so increasing assurance
+has little additional attraction value left to displace. Under high
+replenishment, outcross return remains substantial, so assurance more strongly
+reduces selection for investment. This fixed-resident calculation explains a
+local selection route but is not a dynamic mediation analysis; the finite
+trajectories also include evolving population state, genetic covariance,
+demographic sampling and feedback.
 
 ## Lower pollen deficit does not necessarily mean greater viable reproduction
 
@@ -414,38 +459,57 @@ The numerical audit separated operator consistency from continuous-trait converg
 
 # Discussion
 
-## Sequence does not identify a selfing-mediated causal pathway
+## Reproductive assurance modifies divergence without causing the initial decline
 
-Reproductive assurance often changed first, but the fixed-capacity intervention
-shows that its evolution was not required for floral investment to decline.
-Crucially, both components were independently reproduced under a prospectively
-frozen design with new visitor histories and new demographic repeats. The
-delayed/costly positive-mutation cell repeated the original 51/64
-assurance-first count (95% history-bootstrap 0.6875–0.8906), while the fixed-
-assurance far investment response remained negative with its entire interval
-below zero. This separates two questions that are easily conflated in
-island-syndrome arguments: **which trait changes first** and **which trait change
-causes another**. Temporal precedence alone cannot answer the second.
+The strongest result is not the temporal sequence. Across four prospectively
+tested reproductive settings, low visitor replenishment still produced lower
+floral investment when assurance capacity could not evolve. Reproductive
+assurance is therefore not a required upstream cause of the investment response.
 
-The confirmation is setting-specific rather than universal. Prior selfing with
-positive mutation produced 30/64 assurance-first histories at the same primary
-threshold, with an interval spanning 0.5. We therefore interpret the confirmed
-sequence as a property of the delayed-selfing, costly-assurance regime rather
-than a general law of selfing-syndrome evolution.
+When assurance was allowed to evolve, however, it consistently compressed the
+near–far investment difference. The same common-four-cell trajectories show
+that this attenuation arose mainly because high-replenishment populations moved
+toward lower investment than their fixed-assurance controls, while
+low-replenishment populations showed a smaller shift in the opposite direction.
+Weak geographic divergence can therefore coexist with substantial evolutionary
+change in both environments.
 
-The fixed-plant return assay provides the upstream explanation. At an identical
-plant state, stronger visitor limitation sharply reduced the outcross return on
-additional attraction and reversed the total investment contribution derivative
-in the delayed setting. The selfed component partly buffered this decline rather
-than creating it. Isolation can therefore act directly on the reproductive
-economics of attraction before assurance evolves.
+The corrected rare-mutant gradient clarifies why the asymmetry is biologically
+plausible. Increasing assurance reduces the marginal value of floral investment
+through maternal and paternal outcross channels. That direct effect is much
+stronger under high visitor replenishment, where attraction still generates
+substantial outcross return, than under low replenishment, where most of that
+return has already been lost. In other words, severe pollinator limitation
+creates a **floor in the attraction return available to lose**. Assurance
+evolution then pulls the better-pollinated environment toward the same
+low-investment region, compressing the environmental contrast.
 
-Allowing assurance to evolve then modifies, rather than simply initiates, that
-response. The positive interaction in the fixed-versus-evolving experiment means
-assurance evolution can narrow the observed near-far investment contrast because
-investment changes in both environments. Consequently, weak geographic
-divergence is not evidence of weak evolution. Within-population change and
-between-environment divergence must be reported separately.
+This does not mean that assurance evolution is protective of flowers under
+isolation. In the finite trajectories, the positive interaction is mostly a
+near-side convergence effect, not far-side rescue. Nor is the local gradient
+decomposition a natural direct/indirect mediation estimate: population state,
+genetic covariance, demographic sampling and feedback also change through
+time. The broader parameter grid contains rare cross-effect sign reversals, so
+the direct coupling is conditional on the declared baseline reproductive
+settings rather than a universal theorem.
+
+## Temporal order is a separate, setting-dependent result
+
+Reproductive assurance often changed first in the delayed-selfing,
+assurance-cost setting, and that result was independently reproduced under a
+prospectively frozen design with new visitor histories and demographic repeats:
+51/64 histories were assurance-first at the primary threshold
+(95% history-bootstrap 0.6875–0.8906). But prior selfing produced only 30/64 at
+the same threshold. Which trait crosses a declared change threshold first is
+therefore not the general result and cannot be used to infer the necessary
+causal pathway.
+
+The fixed-plant return assay provides the upstream ecological anchor. At an
+identical plant state, stronger visitor limitation sharply reduced the outcross
+return on additional attraction and reversed the total investment contribution
+derivative in the delayed setting. The selfed component partly offset this
+decline rather than creating it. Isolation can therefore act directly on the
+reproductive economics of attraction before assurance evolves.
 
 Selfing-first itself is not a new general hypothesis. Experimental evolution in
 *Mimulus* explicitly favored a sequential selfing-syndrome model in which traits
@@ -453,10 +517,10 @@ that improve reproductive assurance can change before traits such as flower size
 (Bodbyl Roels & Kelly, 2011). Experimental evolution with bumblebees versus
 hoverflies has also shown joint divergence of floral signals and autonomous
 self-pollination (Gervasi & Schiestl, 2017), while attraction-allocation theory
-predates both experiments (Sakai, 1995). The contribution here is therefore not
-the existence of a sequence, but the combination of an explicit
-island-replenishment process, measured temporal order, and a separate
-intervention showing that the observed sequence is not a necessary causal chain.
+predates both experiments (Sakai, 1995). The contribution here is instead the
+intervention-based separation of three quantities that are usually conflated:
+**whether assurance is necessary, how assurance modifies environmental
+divergence, and when assurance happens to change relative to investment**.
 
 The pollen-deficit result has a similarly bounded novelty. Reviews of pollen
 limitation already emphasize that supplementation responses depend on ecological
@@ -529,29 +593,35 @@ Q1 motivates these questions but supplies no fitted parameter or acceptance targ
 
 # Conclusion
 
-Under sustained visitor replenishment limitation, reproductive assurance can
-reach a declared evolutionary threshold before floral investment, yet assurance
-evolution is not required for investment decline. Both components of this claim
-passed a prospectively frozen replication using entirely new visitor histories
-and demographic repeats. The confirmed temporal result is restricted to the
-delayed-selfing, costly-assurance setting; it is not universal across the
-alternative reproductive setting.
+Under sustained visitor-replenishment limitation, floral investment declines
+even when reproductive-assurance capacity cannot evolve. This non-necessity
+result was prospectively confirmed across four reproductive settings with new
+visitor histories and demographic repeats.
 
-The upstream reason is ecological: at the same plant state, stronger isolation
-reduces the reproductive return to attraction before the traits themselves
-evolve. This makes the central result **sequence ≠ necessity**. Assurance and
-attraction are interacting responses to a shared change in reproductive
-economics, not a single obligatory serial pathway. Allowing assurance to evolve
-can even reduce the near-far investment contrast because both environments
-evolve, so geographic effect size and evolutionary amount are not
-interchangeable.
+Assurance evolution nevertheless changes how that response appears in space. It
+consistently narrows the near–far investment contrast, primarily by driving
+additional investment decline in the high-replenishment environment rather than
+by preventing decline in the low-replenishment environment. A corrected
+fixed-resident invasion analysis identifies the corresponding local mechanism:
+assurance removes substantially more maternal and paternal attraction return
+where pollination remains effective, whereas under severe visitor limitation
+most of that return is already gone.
+
+The general conclusion is therefore not a universal sequence of
+selfing followed by floral reduction. It is that **breeding-system evolution can
+compress the phenotypic signature of pollinator-driven divergent selection**.
+Geographic effect size can underestimate evolutionary change because adaptation
+in the less-limited environment moves populations toward the same low-investment
+state. The separately confirmed assurance-first sequence is real in one
+reproductive regime but is setting-specific and not necessary for the investment
+response.
 
 The reproductive consequence is similarly non-equivalent across readouts:
-slightly lower fractional pollen deficit can coexist with fewer viable offspring.
-The mutation/history and finite-versus-deterministic analyses remain supporting
-evidence on genetic accessibility and realization, not the paper spine. The
-model establishes conditional mechanisms, not calibrated natural rates or a
-historical reconstruction of any named island system.
+slightly lower fractional pollen deficit can coexist with fewer viable
+offspring. Mutation/history and finite-versus-deterministic analyses remain
+supporting evidence on genetic accessibility and realization, not the paper
+spine. The model establishes conditional mechanisms, not calibrated natural
+rates or a historical reconstruction of any named island system.
 
 # Primary figure assembly and captions
 
