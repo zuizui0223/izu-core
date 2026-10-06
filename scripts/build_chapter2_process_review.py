@@ -51,7 +51,7 @@ FIGURE_INPUTS = [
     'data/results/chapter2_assurance_gradient_components_20261006.json',
     'data/design/chapter2_1005_confirmatory_replication_20261006.json',
     'data/design/chapter2_1005_ecological_mainline_lock_20261006.json',
-    'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md',
+    'docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md',
 ]
 
 
