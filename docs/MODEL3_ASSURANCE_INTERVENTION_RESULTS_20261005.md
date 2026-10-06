@@ -28,3 +28,28 @@ Together with the fixed-plant return diagnostic, these results provide a model-c
 Current-state amendment: the high-resolution deterministic/diffusion extension was stopped and closed unresolved under MODEL3_LONG_COMPARISON_DECISION_20261005.md. The intervention figure and processes-v6 poster are now generated and verified. Whole-Ch2 delivery status is maintained in MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md; this experiment alone does not establish full numerical equivalence.
 
 Reproduce: `python -m scripts.summarize_model3_assurance_intervention` after full campaign completion, then `python -m scripts.verify_model3_assurance_intervention_summary`. The summary preserves existing output and will refuse overwrite. Evidence: `data/results/model3_assurance_intervention_summary_20261005.json` and `data/results/model3_assurance_intervention_verified_20261005.json`.
+
+## Independent fixed-assurance confirmation — 2026-10-06
+
+The fixed-assurance necessity result was independently repeated under
+the same prospectively frozen new-history design. Assurance capacity remained
+fixed at 0.5; 64 new visitor histories and eight new demographic repeats were
+used. Both near and far arms retained 100% terminal occupancy and all 64
+histories were eligible.
+
+In the primary delayed-selfing/costly cell, far investment change was
+**−0.306021** with 95% visitor-history bootstrap
+**[−0.318054, −0.294111]**. The paired far-minus-near investment effect was
+**−0.435389 [−0.453330, −0.417191]**. Both means and both upper interval bounds
+were below zero, so the frozen necessity criterion passed.
+
+The prior-selfing secondary cell also retained negative responses:
+far change **−0.331600 [−0.341782, −0.320989]** and far-minus-near
+**−0.309376 [−0.324630, −0.294177]**.
+
+This confirms that assurance-capacity evolution is not required for investment
+decline under the declared intervention. It does not imply absence of realized
+selfing and is not a complete mediation analysis.
+
+Design: `data/design/chapter2_1005_confirmatory_replication_20261006.json`.
+Result: `data/results/chapter2_1005_confirmatory_replication_20261006.json`.
