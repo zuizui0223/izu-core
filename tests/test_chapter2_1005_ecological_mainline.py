@@ -24,10 +24,14 @@ def test_1005_ecological_mainline_is_active():
     assert lock["primary_evidence"]["delayed_assurance_first_histories"] == 51
     assert lock["primary_evidence"]["fixed_assurance_far_investment_change_delayed"] == -0.3099
     assert lock["primary_evidence"]["assurance_evolution_interaction_delayed"] == 0.08468
+    assert lock["confirmatory_status"]["status"] == "confirmed"
+    assert lock["confirmatory_status"]["primary_sequence"]["assurance_first_histories"] == 51
+    assert lock["confirmatory_status"]["primary_sequence"]["bootstrap95"] == [0.6875, 0.890625]
+    assert lock["confirmatory_status"]["primary_fixed_assurance"]["far_investment_change"]["mean"] < 0
     assert "sequence ≠ necessity" in readme.lower()
     assert "2026-10-05 ecological results" in process
     assert manuscript.startswith(
-        "# Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation"
+        "# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization"
     )
     assert "Assurance evolution is not required for investment decline" in manuscript
     assert "Lower pollen deficit does not necessarily mean greater viable reproduction" in manuscript
