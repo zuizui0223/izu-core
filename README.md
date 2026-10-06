@@ -50,9 +50,9 @@ The strongest completed results are:
 - when assurance is fixed at 0.5, far populations still reduce investment by
   **0.3099** in the delayed setting and **0.3316** in the prior setting, so
   assurance evolution is **not required** for investment decline;
-- allowing assurance to evolve can **narrow the near-far investment contrast**
-  because investment changes in both environments, so weak geographic divergence
-  need not imply weak evolution;
+- **exploratory secondary:** allowing assurance to evolve can narrow the near-far
+  investment contrast because investment changes in both environments. This
+  interaction was not part of the independent confirmatory campaign;
 - in the far fixed-trait assay, higher investment can slightly reduce the
   fractional viable pollen deficit while also reducing viable offspring
   (**-15.72 per 48 plants** in the delayed setting), showing that pollen shortage
