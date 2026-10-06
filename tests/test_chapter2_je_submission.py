@@ -57,13 +57,14 @@ def test_je_manuscript_has_no_repository_internal_labels():
 
 def test_je_supporting_information_preserves_scope_and_numerical_limits():
     text = SI.read_text(encoding="utf-8")
+    normalized = " ".join(text.split())
     assert "## S1. Model structure" in text
     assert "## S2. Confirmatory sequence and necessity design" in text
     assert "## S3. Selection conditions" in text
     assert "## S4. Finite realization" in text
     assert "## S5. Pollen limitation" in text
     assert "## S6. Natural-island confrontation and reproducibility" in text
-    assert "30/64 assurance-first" in text
-    assert "31 of 32" in text
-    assert "numerically\nunresolved" in text
-    assert "Public DOI deposition is\nstill external and pending" in text
+    assert "30/64 assurance-first" in normalized
+    assert "31 of 32 endpoint cases" in normalized
+    assert "numerically unresolved" in normalized
+    assert "Public DOI deposition is still external and pending" in normalized
