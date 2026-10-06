@@ -76,5 +76,19 @@
     "primary_reproductive_setting": "delayed selfing with assurance cost 0.5",
     "primary_mutation_probability": 0.01,
     "generality": "The primary claim is restricted to this cell. Other setting-by-mutation cells are reported as scope/sensitivity and cannot rescue a failed primary confirmation."
+  },
+  "establishment": {
+    "status": "established_bounded",
+    "five_criteria_audit": "docs/CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md",
+    "establishment_closeout": "docs/CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md",
+    "criteria": [
+      "novelty",
+      "independent_confirmation",
+      "robustness_sensitivity",
+      "scope_generality",
+      "claim_boundary_reproducibility"
+    ],
+    "passes": 5,
+    "total": 5
   }
 }
