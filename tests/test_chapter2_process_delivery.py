@@ -24,11 +24,12 @@ def test_current_and_historical_manuscripts_cannot_be_confused():
 def test_current_render_keeps_primary_denominator_and_pde_limit():
     text = render_manuscript()
     abstract = text.split('## Abstract',1)[1].split('## Keywords',1)[0]
-    assert '64 independent visitor histories' in abstract
-    assert 'eight new nested demographic repeats' in abstract
+    normalized = ' '.join(abstract.split())
+    assert '64 independent visitor histories' in normalized
+    assert 'eight new nested demographic repeats' in normalized
     assert 180 <= len(abstract.split()) <= 300
-    assert 'temporal precedence is not causal necessity' in abstract
-    assert 'confirmed assurance-first sequence is setting-specific' in abstract
+    assert 'temporal precedence is not causal necessity' in normalized
+    assert 'confirmed assurance-first sequence is setting-specific' in normalized
 
 
 def test_incomplete_manuscript_is_not_rendered_as_final(tmp_path):
