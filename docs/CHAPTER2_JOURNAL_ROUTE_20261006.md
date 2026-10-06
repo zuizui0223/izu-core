@@ -35,10 +35,11 @@ strength for a mechanism paper, but makes an all-evolutionary-biology
 
 Journal of Ecology explicitly publishes influential work where plant ecology is
 central, including plant-animal interactions and theoretical ecological research.
-Research Articles are typically about 8,000 words. The current active manuscript
-is approximately 10.4k words before references, so the required reduction is
-substantial but realistic (~20-25%) while retaining the independent confirmation,
-mechanistic intervention and scope boundary.
+Research Articles are typically about 8,000 words. The active manuscript has now
+been compressed to approximately 4.9k words from Abstract through the main-text
+end before references, while retaining the independent confirmation, mechanistic
+intervention and setting-specific failure. Length is no longer a routing
+constraint.
 
 At the 2026-10-06 routing check, the publisher page reports Impact Factor 6.3,
 CiteScore 10.1, 14% acceptance rate and a 10-day median first decision.
@@ -50,11 +51,12 @@ evolutionary interactions and theoretical studies. But Letters are expected to
 be about 5,000 words and must substantially advance the field or be of broad
 interest.
 
-The current manuscript would need to lose more than half its main-text length.
-That compression would force the paper to choose between the ecological
-mechanism, independent confirmation, setting-specific failure, and the
-reproductive consequence. The result can be written as an Evolution Letters
-paper, but it is not currently the highest-fit or highest-impact route.
+The compressed manuscript now fits the approximate 5,000-word Letter scale
+without dropping the ecological mechanism, independent confirmation,
+setting-specific failure or reproductive consequence. Evolution Letters is
+therefore technically ready as a second route. Journal of Ecology remains first
+because the paper's strongest contribution is a plant–pollinator ecological
+mechanism rather than a general evolutionary theorem.
 
 Current publisher-reported Impact Factor: 4.3.
 
@@ -134,13 +136,20 @@ Move out of the main narrative:
 
 ### Required editorial conversion
 
-- Reduce the ~10.4k-word main text to ~8k.
-- Convert the abstract to Journal of Ecology's numbered format with a final
-  **Synthesis** point.
-- Keep no more than the three core biological figures in the main paper unless
-  the fourth is needed to show the prior-selfing scope boundary.
-- Data Availability must cite the durable history-level CSVs and, once public,
-  the DOI-backed confirmatory raw-data deposit.
+Completed on the current closeout branch:
+
+- main text compressed to ~4.9k words before references;
+- abstract converted to numbered Journal of Ecology format with a final
+  **Synthesis** point;
+- the main narrative reduced to ecological return → confirmed sequence →
+  necessity intervention → setting boundary → reproductive consequence.
+
+Still required before submission:
+
+- make the final display-item choice (three core figures, with a fourth only if
+  needed for the prior-selfing scope boundary);
+- Data Availability must cite the permanent DOI-backed confirmatory raw-data
+  deposit.
 
 ## Claim language
 
@@ -159,12 +168,20 @@ not assurance itself.
 
 ## Pre-submission gates
 
-1. Publicly deposit the prepared confirmatory bundle and obtain a DOI.
-2. Add the DOI to Data Availability and the preservation manifest.
-3. Compress the active manuscript to the Journal of Ecology architecture above.
-4. Keep the former Evolution Letters repeatability manuscript retired as a
-   standalone submission route.
-5. Merge PR #402 after explicit repository-write approval.
+1. **OPEN — external action required:** publicly deposit the prepared
+   confirmatory raw-data bundle and obtain a DOI.
+2. **OPEN, dependent on gate 1:** add that DOI to Data Availability and the
+   preservation manifest.
+3. **DONE:** compress the active manuscript to the process-paper architecture;
+   current main text is ~4.9k words before references and the abstract is
+   numbered with Synthesis.
+4. **DONE:** keep the former Evolution Letters repeatability manuscript retired
+   as a standalone submission route.
+5. **DONE:** PR #402 was merged to `main` on 2026-10-06.
+
+The scientific result is established and the manuscript architecture is
+submission-ready. The only remaining hard publication dependency is durable
+public preservation of the 4,096-case confirmatory raw data and its DOI.
 
 Official pages checked 2026-10-06:
 - Journal of Ecology aims/scope and author guidance:
