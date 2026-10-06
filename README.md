@@ -32,6 +32,7 @@ the prior-selfing positive-mutation cell did not show an assurance-first
 majority at the same threshold. The criterion-by-criterion establishment
 decision is frozen in
 [the 2026-10-05 establishment closeout](docs/CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md).
+The independent readiness audit now classifies the result as **ESTABLISHED, BOUNDED (5/5 criteria passed)**: [five-criteria audit](docs/CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md).
 
 ### Current ecological focus (2026-10-05)
 
