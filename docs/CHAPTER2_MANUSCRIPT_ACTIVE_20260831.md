@@ -365,9 +365,20 @@ The numerical audit separated operator consistency from continuous-trait converg
 
 Reproductive assurance often changed first, but the fixed-capacity intervention
 shows that its evolution was not required for floral investment to decline.
-This separates two questions that are easily conflated in island-syndrome
-arguments: **which trait changes first** and **which trait change causes another**.
-Temporal precedence alone cannot answer the second.
+Crucially, both components were independently reproduced under a prospectively
+frozen design with new visitor histories and new demographic repeats. The
+delayed/costly positive-mutation cell repeated the original 51/64
+assurance-first count (95% history-bootstrap 0.6875–0.8906), while the fixed-
+assurance far investment response remained negative with its entire interval
+below zero. This separates two questions that are easily conflated in
+island-syndrome arguments: **which trait changes first** and **which trait change
+causes another**. Temporal precedence alone cannot answer the second.
+
+The confirmation is setting-specific rather than universal. Prior selfing with
+positive mutation produced 30/64 assurance-first histories at the same primary
+threshold, with an interval spanning 0.5. We therefore interpret the confirmed
+sequence as a property of the delayed-selfing, costly-assurance regime rather
+than a general law of selfing-syndrome evolution.
 
 The fixed-plant return assay provides the upstream explanation. At an identical
 plant state, stronger visitor limitation sharply reduced the outcross return on
@@ -467,15 +478,20 @@ Q1 motivates these questions but supplies no fitted parameter or acceptance targ
 
 Under sustained visitor replenishment limitation, reproductive assurance can
 reach a declared evolutionary threshold before floral investment, yet assurance
-evolution is not required for investment decline. The upstream reason is
-ecological: at the same plant state, stronger isolation reduces the reproductive
-return to attraction before the traits themselves evolve.
+evolution is not required for investment decline. Both components of this claim
+passed a prospectively frozen replication using entirely new visitor histories
+and demographic repeats. The confirmed temporal result is restricted to the
+delayed-selfing, costly-assurance setting; it is not universal across the
+alternative reproductive setting.
 
-This makes the central result **sequence ≠ necessity**. Assurance and attraction
-are interacting responses to a shared change in reproductive economics, not a
-single obligatory serial pathway. Allowing assurance to evolve can even reduce
-the near-far investment contrast because both environments evolve, so geographic
-effect size and evolutionary amount are not interchangeable.
+The upstream reason is ecological: at the same plant state, stronger isolation
+reduces the reproductive return to attraction before the traits themselves
+evolve. This makes the central result **sequence ≠ necessity**. Assurance and
+attraction are interacting responses to a shared change in reproductive
+economics, not a single obligatory serial pathway. Allowing assurance to evolve
+can even reduce the near-far investment contrast because both environments
+evolve, so geographic effect size and evolutionary amount are not
+interchangeable.
 
 The reproductive consequence is similarly non-equivalent across readouts:
 slightly lower fractional pollen deficit can coexist with fewer viable offspring.
