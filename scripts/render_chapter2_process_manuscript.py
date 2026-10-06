@@ -8,7 +8,7 @@ import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md'
-TITLE = 'Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation'
+TITLE = 'How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization'
 
 
 def render_manuscript(source: Path | None = None) -> str:
