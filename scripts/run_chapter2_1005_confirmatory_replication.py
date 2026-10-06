@@ -114,14 +114,16 @@ def run_one(out: str, task: tuple) -> str:
 
 
 def snapshot_sources(out: Path, design_path: Path) -> None:
+    design_path = design_path if design_path.is_absolute() else (ROOT / design_path).resolve()
     source_paths = [
-        Path(__file__),
+        Path(__file__).resolve(),
         ROOT / "scripts/run_model3_persistent_isolation.py",
         ROOT / "scripts/run_model3_assurance_intervention.py",
         ROOT / "scripts/model3_temporal_order.py",
         ROOT / "data/design/model3_ch2_bridge_20260927.json",
         design_path,
     ]
+    source_paths = [p.resolve() for p in source_paths]
     source_paths.extend(sorted((ROOT / "scripts/model3_island").glob("*.py")))
     hashes = {
         p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
