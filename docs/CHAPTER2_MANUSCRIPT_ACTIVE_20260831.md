@@ -54,15 +54,15 @@ history, with demographic repeats nested within histories.
 
 3. At the same plant state, stronger visitor limitation shifted the marginal
 reproductive contribution of floral investment from +0.5793 to −0.7004 as its
-outcross component fell from +1.6523 to +0.0854. In the discovery cohort,
-reproductive assurance reached a sustained 0.05 change threshold first in
-51/64 visitor histories. A prospectively frozen replication using 64 entirely
-new visitor histories and eight new nested demographic repeats reproduced
-51/64 assurance-first histories (proportion 0.797; 95% history-bootstrap
-0.688–0.891).
+outcross component fell from +1.6523 to +0.0854. In the maintained-isolation
+discovery cohort, reproductive assurance reached a sustained 0.05 change
+threshold first in 51/64 visitor histories. A prospectively frozen replication
+using 64 independent visitor histories not used in the discovery and eight new
+nested demographic repeats reproduced 51/64 assurance-first histories
+(proportion 0.797; 95% history-bootstrap 0.688–0.891).
 
-4. A separate preregistered intervention held assurance capacity fixed at 0.5.
-Investment still declined under stronger limitation: far change −0.3060
+4. A separate preregistered fixed-assurance replication held assurance capacity
+at 0.5. Investment still declined under stronger limitation: far change −0.3060
 [−0.3181, −0.2941] and far-minus-near −0.4354
 [−0.4533, −0.4172]. The temporal result was not universal: prior selfing with
 positive mutation produced 30/64 assurance-first histories at the same primary
