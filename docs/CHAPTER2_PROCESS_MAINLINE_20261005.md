@@ -13,8 +13,10 @@ before floral investment. The key causal distinction is that **assurance can
 change first without being required for investment decline**. At an identical
 plant state, stronger visitor limitation lowers the marginal reproductive return
 to investment; blocking assurance evolution therefore does not remove the
-investment response. Allowing assurance evolution can also reduce the observed
-near-far investment contrast because investment changes in both environments.
+investment response. A separate **exploratory secondary** interaction suggests
+that allowing assurance evolution can reduce the observed near-far investment
+contrast because investment changes in both environments; that attenuation was
+not part of the new-history confirmatory campaign.
 
 **Confirmatory status, 2026-10-06:** a prospectively frozen 4,096-trajectory
 replication using 64 new visitor histories and eight new demographic repeats
