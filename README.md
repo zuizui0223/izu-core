@@ -4,40 +4,36 @@ This repository is the Chapter 2 mechanism paper built around **one ecologically
 
 Current paper title:
 
-> **How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization**
+> **Reproductive assurance compresses floral-investment divergence under pollinator limitation**
 
 The [2026-10-05 ecological process mainline](docs/CHAPTER2_PROCESS_MAINLINE_20261005.md)
 governs the scientific narrative on this branch. The full-mutation
 common-environment experiment is complementary genetic/history evidence; it is
 not the paper spine.
 
-The 2026-10-05 result is the active paper hypothesis. Its primary delayed-selfing/costly positive-mutation sequence and fixed-assurance predictions are now **independently confirmed under the frozen new-history design**; broader sequence generality is not claimed.
+The active submission surface is now the Ecology Letters-focused manuscript:
+[CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md](docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md).
+The earlier long-form process manuscript is retained as provenance and supporting
+material rather than the submission text.
 
-The paper's biological claim is that the order of trait change and the causal
-requirement for that change are different questions. Under sustained visitor
-replenishment limitation, reproductive assurance often reaches the declared
-change threshold before floral investment, yet blocking assurance evolution
-does not prevent investment decline. The upstream fixed-plant assay shows why:
-visitor limitation lowers the reproductive return to attraction before plant
-traits evolve.
+The primary result is prospectively confirmed across **four reproductive settings**.
+With assurance fixed at 0.5, low visitor replenishment still produces lower floral
+investment. Allowing assurance to evolve then consistently **compresses the near–far
+investment contrast**. Post-confirmation decomposition localizes 78–90% of this
+attenuation to additional investment decline in the near/high-replenishment arm,
+with smaller far-side relief. A corrected rare-mutant analysis shows the local
+mechanism: increasing assurance removes substantially more maternal outcross and
+paternal pollen-export value where pollination remains effective than where those
+returns are already depleted.
 
-This primary process result is now **independently confirmed** under a frozen
-new-history design. With 64 new visitor histories and eight new demographic
-repeats, the delayed-selfing/costly positive-mutation cell again gave 51/64
-assurance-first histories at threshold 0.05 (95% history-bootstrap
-0.6875–0.8906). In the separate fixed-assurance replication, far investment
-change was −0.3060 [−0.3181, −0.2941] and far-minus-near investment was
-−0.4354 [−0.4533, −0.4172]. The confirmed temporal sequence is setting-specific:
-the prior-selfing positive-mutation cell did not show an assurance-first
-majority at the same threshold. The criterion-by-criterion establishment
-decision is frozen in
-[the 2026-10-05 establishment closeout](docs/CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md).
-The independent readiness audit now classifies the result as **ESTABLISHED, BOUNDED (5/5 criteria passed)**: [five-criteria audit](docs/CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md).
+The separately confirmed assurance-first temporal sequence remains
+setting-specific and is treated as a secondary result, not as evidence that
+assurance evolution is required for floral-investment decline.
 
 ### Current ecological focus (2026-10-05)
 
-**Does reproductive assurance evolution cause reduced floral attraction, or are
-both responses generated in parallel by isolation-altered reproductive returns?**
+**Why does floral investment decline without assurance evolution, and why does
+allowing assurance to evolve compress the phenotypic difference between pollination environments?**
 
 The strongest completed results are:
 
@@ -50,9 +46,9 @@ The strongest completed results are:
 - when assurance is fixed at 0.5, far populations still reduce investment by
   **0.3099** in the delayed setting and **0.3316** in the prior setting, so
   assurance evolution is **not required** for investment decline;
-- **exploratory secondary:** allowing assurance to evolve can narrow the near-far
-  investment contrast because investment changes in both environments. This
-  interaction was not part of the independent confirmatory campaign;
+- a separate preregistered four-setting campaign confirms that allowing assurance
+  to evolve narrows the near–far investment contrast in **4/4 settings**, with
+  evolving-minus-fixed interactions from **+0.1007 to +0.2200**;
 - in the far fixed-trait assay, higher investment can slightly reduce the
   fractional viable pollen deficit while also reducing viable offspring
   (**-15.72 per 48 plants** in the delayed setting), showing that pollen shortage
@@ -60,11 +56,11 @@ The strongest completed results are:
 
 The prior-selfing positive-mutation cell did not show an assurance-first majority.
 
-The ecological synthesis is therefore **sequence ≠ necessity**: a trait that
-changes first is not automatically the cause of a later trait change. Isolation
-changes the reproductive economics facing both traits, and their realized
-coupling depends on mating assumptions, genetic state and finite population
-realization. Time, distance and trait axes remain uncalibrated synthetic
+The ecological synthesis is therefore that **assurance is not necessary for the
+initial investment decline, but its evolution compresses the environmental
+phenotypic contrast**. Temporal order remains a separate, setting-dependent
+quantity. Isolation changes the reproductive economics facing both traits, and
+co-evolution can reduce the geographic signature of that selection. Time, distance and trait axes remain uncalibrated synthetic
 coordinates.
 
 The additional completed cohorts are distinct from the earlier bridge
