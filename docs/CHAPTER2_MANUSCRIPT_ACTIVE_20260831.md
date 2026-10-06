@@ -54,8 +54,9 @@ same plant state from +0.5793 to −0.7004 as the outcross component fell from
 +1.6523 to +0.0854. In the initial maintained-isolation experiment,
 reproductive assurance reached a declared 0.05 sustained-change threshold first
 in 51/64 visitor histories. We then froze a confirmatory design before new
-outcomes were generated. Using 64 new visitor histories and eight new nested
-demographic repeats, the same sequence was reproduced in 51/64 histories
+outcomes were generated. Using 64 independent visitor histories not used in the
+discovery and eight new nested demographic repeats, the same sequence was
+reproduced in 51/64 histories
 (proportion 0.797; 95% history-bootstrap 0.688–0.891). A separate preregistered
 fixed-assurance replication showed that investment still declined when
 assurance capacity could not evolve: far change −0.3060
