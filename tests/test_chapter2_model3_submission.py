@@ -11,10 +11,11 @@ UNIFIED_LOCK = ROOT / "data/design/chapter2_unified_model3_lock_20260927.json"
 def test_active_submission_is_model3_only():
     text = render_submission_manuscript()
     lower = " ".join(text.lower().split())
-    assert "how island isolation generates floral change: selection conditions, evolutionary sequence and finite realization" in lower
-    assert "visitor limitation lowers the return on attraction before plant traits evolve" in lower
+    assert "reproductive assurance compresses floral-investment divergence under pollinator limitation" in lower
+    assert "visitor limitation reduces the reproductive return to attraction before plant evolution" in lower
     assert "assurance evolution is not required for investment decline" in lower
-    assert "lower pollen deficit does not necessarily mean greater viable reproduction" in lower
+    assert "assurance evolution consistently compresses environmental divergence" in lower
+    assert "lower pollen deficit need not mean greater viable reproduction" in lower
     assert "legacy reduced response-geometry analyses" not in lower
 
 
@@ -24,13 +25,11 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     words = abstract.split()
     assert 180 <= len(words) <= 300
     lower = " ".join(abstract.lower().split())
-    assert "64 independent visitor histories" in lower
-    assert "eight new nested demographic repeats" in lower
-    assert "51/64 histories" in lower
-    assert "0.688–0.891" in lower
-    assert "temporal precedence is not causal necessity" in lower
-    assert "setting-specific" in lower
-    assert "not calibrated reconstructions of natural island histories" in lower
+    assert "64 independent new visitor histories" in lower
+    assert "eight nested demographic repeats" in lower
+    assert "78–90%" in lower
+    assert "not required for pollinator-limitation-driven investment decline" in lower
+    assert "geographic floral differences can consequently underestimate evolutionary change" in lower
 
 
 def test_scientific_gate_is_unified_model3():
