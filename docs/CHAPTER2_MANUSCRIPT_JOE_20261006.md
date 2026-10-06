@@ -1,4 +1,4 @@
-# Reproductive assurance can precede reduced floral attraction without causing it under pollinator isolation
+# Evolution of reproductive assurance can precede floral attraction loss without being required for it under pollinator isolation
 
 
 
