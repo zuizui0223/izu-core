@@ -35,8 +35,7 @@ The central result is therefore **sequence does not identify necessity**.
 Reproductive assurance can change first, yet investment still declines when
 assurance evolution is blocked. This confirmed sequence is not universal:
 prior selfing with positive mutation gave only 30/64 assurance-first histories
-at the same threshold. The claim is consequently restricted to the declared
-delayed-selfing/costly setting rather than promoted to a general law.
+at the same threshold. The claim is consequently restricted to the declared delayed-selfing/costly setting rather than promoted to a general law. Prior selfing with positive mutation did not show an assurance-first majority.
 
 ## Abstract
 
@@ -68,8 +67,7 @@ lower the reproductive return to attraction directly while assurance and
 attraction evolve as interacting but partly parallel responses. The confirmed
 assurance-first sequence is setting-specific: prior selfing with positive
 mutation did not show an assurance-first majority at the primary threshold.
-These are model-level mechanisms, not calibrated reconstructions of natural
-island histories.
+These are model-level mechanisms, not calibrated reconstructions of natural island histories. The confirmed assurance-first sequence is setting-specific.
 
 ## Keywords
 
