@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "status": "ready_except_external_metadata_and_public_deposition",
+  "prepared_bundle": {
+    "file_name": "chapter2-1005-confirmatory-deposit-20261006.zip",
+    "bytes": 140213355,
+    "sha256": "0735bac647bd288f9badfa28b61e44d0724d661550a018a1efa5eae6dfe42f96"
+  },
+  "recommended_record": {
+    "resource_type": "dataset",
+    "title": "Independent confirmation data for sequence versus causal necessity in the izu-core Model 3 plant–pollinator experiment",
+    "description": "Prospectively frozen independent confirmation data for the Chapter 2 Model 3 process result. The archive contains 4,096 finite-population trajectories built from 64 new visitor histories and eight nested demographic repeats, together with the frozen design, compact confirmatory result, execution and summarization code, source identity and checksums. The primary result separates realized temporal order from causal necessity: in the declared delayed-selfing, assurance-cost 0.5, positive-mutation setting, reproductive assurance can change before floral investment declines, while a separate fixed-assurance intervention shows that investment decline does not require evolution of assurance capacity. Fixed assurance does not remove realized selfing.",
+    "keywords": [
+      "plant–pollinator interactions",
+      "reproductive assurance",
+      "floral evolution",
+      "island ecology",
+      "simulation",
+      "confirmatory replication"
+    ]
+  },
+  "required_user_or_repository_metadata_before_deposit": [
+    "complete ordered creator list",
+    "creator affiliations and ORCID identifiers where applicable",
+    "dataset license",
+    "public repository choice and account authorization"
+  ],
+  "post_deposit_actions": [
+    "record DOI and landing-page URL",
+    "verify deposited bundle SHA-256 against the frozen value",
+    "update data/results/chapter2_1005_confirmatory_artifact_manifest_20261006.json public_doi_status",
+    "insert DOI into Journal of Ecology Data Availability text",
+    "rerun scientific and JoE submission gates"
+  ]
+}

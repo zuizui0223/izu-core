@@ -1,5 +1,23 @@
 # Chapter 2 journal route — 2026-10-06
 
+## Submission conversion status — 2026-10-06
+
+The Journal of Ecology manuscript now exists as
+`docs/CHAPTER2_MANUSCRIPT_JOE_20261006.md`. It is approximately 5.7k words
+including references and figure captions, uses the confirmed 10/05 result as
+the sole paper spine, keeps the prior-selfing failure as a scope boundary, and
+uses three main biological figures. The longer active scientific manuscript is
+retained as provenance rather than overwritten.
+
+The current Journal of Ecology author guidance was rechecked on 2026-10-06:
+Research Articles are typically about 8,000 words; the abstract must not exceed
+350 words and uses numbered statements with a final **Synthesis** point. The
+JoE manuscript follows that structure.
+
+Remaining publication-delivery blocker: public deposition of the prepared
+confirmatory raw-data bundle and insertion of its DOI into Data Availability
+and the preservation manifest.
+
 ## Decision
 
 **Primary target: Journal of Ecology.**
@@ -134,11 +152,9 @@ Move out of the main narrative:
 
 ### Required editorial conversion
 
-- Reduce the ~10.4k-word main text to ~8k.
-- Convert the abstract to Journal of Ecology's numbered format with a final
-  **Synthesis** point.
-- Keep no more than the three core biological figures in the main paper unless
-  the fourth is needed to show the prior-selfing scope boundary.
+- **Completed:** create the journal-specific ~5.7k-word manuscript from the longer scientific source.
+- **Completed:** convert the abstract to numbered statements with a final **Synthesis** point.
+- **Completed:** retain three core biological figures; the prior-selfing scope boundary is incorporated in Figure 2 rather than requiring a fourth main figure.
 - Data Availability must cite the durable history-level CSVs and, once public,
   the DOI-backed confirmatory raw-data deposit.
 
