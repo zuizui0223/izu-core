@@ -1,0 +1,4787 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "complete_gradient_component_diagnostic",
+  "source_design_sha256": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+  "diagnostic_design_sha256": "7d58f703079162ce76024764b5c83056c0d2d9cab2cd6297278cdf5a599d2a0b",
+  "independent_visitor_histories": 64,
+  "rows": [
+    {
+      "setting": "delayed_control",
+      "snapshot": 0,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.4321589477891371,
+              "bootstrap95": [
+                0.34564325603959295,
+                0.5126817256673506
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.4276282339093496,
+              "bootstrap95": [
+                0.38949156302513277,
+                0.4625696474746088
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.4651975723696289,
+              "bootstrap95": [
+                0.42075213931736766,
+                0.5061946984407516
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.1069070584773374,
+              "bootstrap95": [
+                -0.11563583577082723,
+                -0.09712821866549362
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.35375980001250407,
+              "bootstrap95": [
+                -0.36755075299105344,
+                -0.34069577987230404
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.12425398403267866,
+              "bootstrap95": [
+                0.05878562888451326,
+                0.1859791991847381
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.3225835238363963,
+              "bootstrap95": [
+                0.2891482780257371,
+                0.35314346074418657
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.3521248207437371,
+              "bootstrap95": [
+                0.3147684518629225,
+                0.3872925674774904
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.16129176191819816,
+              "bootstrap95": [
+                -0.17659330499633139,
+                -0.1450083926755038
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3891625986292565,
+              "bootstrap95": [
+                -0.40148615660021786,
+                -0.3778711253612144
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.059663585766277935,
+              "bootstrap95": [
+                -0.11043316912560369,
+                -0.011408578188710383
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.26082716750055507,
+              "bootstrap95": [
+                0.23246859884655152,
+                0.287625787410117
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2852692628208671,
+              "bootstrap95": [
+                0.2523962293879301,
+                0.3164836079496696
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.19562037562541632,
+              "bootstrap95": [
+                -0.21570068096677814,
+                -0.17418891447926413
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4101396404622838,
+              "bootstrap95": [
+                -0.4206414001562396,
+                -0.40007687527709074
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.4321589477891371,
+              "bootstrap95": [
+                0.34648897475855495,
+                0.5104998106137021
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.4276282339093496,
+              "bootstrap95": [
+                0.3883642840123888,
+                0.4625491479084382
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.4651975723696289,
+              "bootstrap95": [
+                0.421301855431016,
+                0.5050109721507288
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.1069070584773374,
+              "bootstrap95": [
+                -0.11582811048187472,
+                -0.0971202588584038
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.35375980001250407,
+              "bootstrap95": [
+                -0.3678361160379634,
+                -0.34102312516287125
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.12425398403267866,
+              "bootstrap95": [
+                0.057414738234624556,
+                0.18645275978434978
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.3225835238363963,
+              "bootstrap95": [
+                0.28960432124068985,
+                0.35365832577393375
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.3521248207437371,
+              "bootstrap95": [
+                0.3140239484272474,
+                0.3873245947672038
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.16129176191819816,
+              "bootstrap95": [
+                -0.17684906566577827,
+                -0.14489042148023815
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3891625986292565,
+              "bootstrap95": [
+                -0.4012137521337409,
+                -0.3776630814230934
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.059663585766277935,
+              "bootstrap95": [
+                -0.10920616567538065,
+                -0.012043630941452839
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.26082716750055507,
+              "bootstrap95": [
+                0.2328300599053882,
+                0.287546466648086
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2852692628208671,
+              "bootstrap95": [
+                0.25280565912165187,
+                0.31638167733221434
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.19562037562541632,
+              "bootstrap95": [
+                -0.21556972445207795,
+                -0.174560353113943
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4101396404622838,
+              "bootstrap95": [
+                -0.4205779726385654,
+                -0.40017910440228166
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.49182253355541505,
+            "bootstrap95": [
+              -0.5278277986201159,
+              -0.4513385347566519
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.16680106640879452,
+            "bootstrap95": [
+              -0.17859986577087614,
+              -0.15346515418698994
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.17992830954876177,
+            "bootstrap95": [
+              -0.19252025453899757,
+              -0.16584489999679905
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.08871331714807891,
+            "bootstrap95": [
+              -0.1002432644180218,
+              -0.07625044751564394
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.05637984044977981,
+            "bootstrap95": [
+              -0.060413863416998434,
+              -0.051950060785635084
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.49182253355541505,
+            "bootstrap95": [
+              -0.5277400964801344,
+              -0.45084807925244313
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.16680106640879452,
+            "bootstrap95": [
+              -0.17864575424974424,
+              -0.15378940321658086
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.17992830954876177,
+            "bootstrap95": [
+              -0.19251814270583817,
+              -0.165505201406224
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.08871331714807891,
+            "bootstrap95": [
+              -0.10031149805154924,
+              -0.07661266424781758
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.05637984044977981,
+            "bootstrap95": [
+              -0.0602484306811502,
+              -0.051825181189937196
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 0
+    },
+    {
+      "setting": "delayed_control",
+      "snapshot": 200,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.4892277011207592,
+              "bootstrap95": [
+                0.40039511214235857,
+                0.5683950114531167
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.44347840211726747,
+              "bootstrap95": [
+                0.4065019277981009,
+                0.47653977212153353
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.4973600890207885,
+              "bootstrap95": [
+                0.45306188370992334,
+                0.5383907257799093
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.11086960052931687,
+              "bootstrap95": [
+                -0.11902069880629577,
+                -0.10141179771309769
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.34074118948797993,
+              "bootstrap95": [
+                -0.35567469659358925,
+                -0.32686303648426646
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.19431789306665348,
+              "bootstrap95": [
+                0.12114535953850014,
+                0.26364809582831505
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.3487579991368316,
+              "bootstrap95": [
+                0.3141959231600394,
+                0.3812838889263314
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.393553773433475,
+              "bootstrap95": [
+                0.3518305628376648,
+                0.43340193602291094
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.1743789995684158,
+              "bootstrap95": [
+                -0.19048931628761062,
+                -0.1570167548258256
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3736148799352373,
+              "bootstrap95": [
+                -0.3875188064479756,
+                -0.3602119995696987
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": 0.007741373881046761,
+              "bootstrap95": [
+                -0.050814072091272026,
+                0.06294590307011191
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.2906339619342873,
+              "bootstrap95": [
+                0.2597182347940223,
+                0.31963254627495896
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.32918322385156273,
+              "bootstrap95": [
+                0.29135533192233865,
+                0.36578067452999796
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.21797547145071552,
+              "bootstrap95": [
+                -0.23981885921260396,
+                -0.19417925055956325
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3941003404540878,
+              "bootstrap95": [
+                -0.4064424534710433,
+                -0.38185819591817366
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.4418675589997185,
+              "bootstrap95": [
+                -0.48458098916101827,
+                -0.3894664103110985
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.027642732251783635,
+              "bootstrap95": [
+                0.007265047696689368,
+                0.05244199237742115
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.028621442622980182,
+              "bootstrap95": [
+                0.007842001583494072,
+                0.054334976567862445
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.006910683062945909,
+              "bootstrap95": [
+                -0.013215786776485512,
+                -0.0020096353546768518
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49122105081153644,
+              "bootstrap95": [
+                -0.49767812696106345,
+                -0.48338243976089124
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.4667922167067461,
+              "bootstrap95": [
+                -0.4921107570918474,
+                -0.4345760956918097
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.01788129866249733,
+              "bootstrap95": [
+                0.004423049935551055,
+                0.035288665422623114
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.018565164632554303,
+              "bootstrap95": [
+                0.004535367438160404,
+                0.03673330113246927
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.008940649331248666,
+              "bootstrap95": [
+                -0.017670645325292073,
+                -0.0022051316452836927
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4942980306705491,
+              "bootstrap95": [
+                -0.4986466484575045,
+                -0.4885084020077516
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.4785492759549406,
+              "bootstrap95": [
+                -0.4953948810740627,
+                -0.45688025296305934
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.013329915416700058,
+              "bootstrap95": [
+                0.0029876453735669427,
+                0.026787008452376474
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.013858881569096329,
+              "bootstrap95": [
+                0.003280584988176397,
+                0.02771480926718317
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.009997436562525046,
+              "bootstrap95": [
+                -0.019689875388900258,
+                -0.0022971990552490876
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.495740636378212,
+              "bootstrap95": [
+                -0.49901959571304116,
+                -0.4913917391244233
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.4814863272397124,
+            "bootstrap95": [
+              -0.5133340514957216,
+              -0.4448047657153984
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.15284444018298013,
+            "bootstrap95": [
+              -0.16452912070892262,
+              -0.14066232518221386
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.16817686516922573,
+            "bootstrap95": [
+              -0.17960998436585307,
+              -0.15541686233731267
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.10710587092139863,
+            "bootstrap95": [
+              -0.12145144139682826,
+              -0.09215642547047696
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.053359150966107924,
+            "bootstrap95": [
+              -0.057053624140111045,
+              -0.0493445637520173
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.03668171695522213,
+            "bootstrap95": [
+              -0.06902628142915372,
+              -0.010511351966355673
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.014312816835083576,
+            "bootstrap95": [
+              -0.02633754040088081,
+              -0.004109560605326375
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.014762561053883853,
+            "bootstrap95": [
+              -0.027224523737022256,
+              -0.004030509297825998
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.0030867534995791365,
+            "bootstrap95": [
+              -0.007061616617499283,
+              -0.00048598175015507995
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.004519585566675558,
+            "bootstrap95": [
+              -0.008457701600980189,
+              -0.0012586167685079577
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.44480461028449025,
+          "bootstrap95": [
+            -0.48361789695025614,
+            -0.40288088397663946
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.13853162334789657,
+          "bootstrap95": [
+            -0.15285840073911774,
+            -0.12302757688692052
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.15341430411534188,
+          "bootstrap95": [
+            -0.16818194359427774,
+            -0.1373781576778753
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": -0.10401911742181949,
+          "bootstrap95": [
+            -0.11901006464054052,
+            -0.08928653974089885
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.048839565399432364,
+          "bootstrap95": [
+            -0.053323325769605384,
+            -0.0440730844401792
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 3.3306690738754696e-16
+    },
+    {
+      "setting": "delayed_control",
+      "snapshot": 400,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.33871879920519626,
+              "bootstrap95": [
+                0.2351022673557373,
+                0.4401278057270029
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.382344026915749,
+              "bootstrap95": [
+                0.3331427654938233,
+                0.42719849756514566
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.41913214979003877,
+              "bootstrap95": [
+                0.3653077025902871,
+                0.47060869473272465
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.09558600672893725,
+              "bootstrap95": [
+                -0.10683372532160774,
+                -0.08359799443250074
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3671713707716543,
+              "bootstrap95": [
+                -0.3850017416932023,
+                -0.3502856681959509
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.06710884881554244,
+              "bootstrap95": [
+                -0.012476059749415055,
+                0.1443027758330751
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.2904107290768019,
+              "bootstrap95": [
+                0.25042797103674214,
+                0.32846932692536457
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.3201758373277155,
+              "bootstrap95": [
+                0.2743417331046967,
+                0.3643970922377483
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.14520536453840094,
+              "bootstrap95": [
+                -0.16394806233054776,
+                -0.12507257254170845
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.39827235305057396,
+              "bootstrap95": [
+                -0.4132930053750715,
+                -0.38385202229928983
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.09557505792017407,
+              "bootstrap95": [
+                -0.15722552341050391,
+                -0.03474649745139578
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.23674269647379403,
+              "bootstrap95": [
+                0.2021427214336787,
+                0.27024923251519
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.26189927931825546,
+              "bootstrap95": [
+                0.22167596478770712,
+                0.30159139762660564
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.17755702235534554,
+              "bootstrap95": [
+                -0.2019765887679953,
+                -0.15149064104232102
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.416660011356878,
+              "bootstrap95": [
+                -0.4294484286002839,
+                -0.40397347686087137
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.41098556703378325,
+              "bootstrap95": [
+                -0.4656559979793444,
+                -0.3468284557863346
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.042127520918379346,
+              "bootstrap95": [
+                0.015752723548780368,
+                0.07343107668699683
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.043930884333930664,
+              "bootstrap95": [
+                0.01692182402277001,
+                0.0759059838441835
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.010531880229594837,
+              "bootstrap95": [
+                -0.018254991207498125,
+                -0.00391575743068004
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4865120920564985,
+              "bootstrap95": [
+                -0.4948347516323245,
+                -0.47658850751304865
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.4478295920670402,
+              "bootstrap95": [
+                -0.48115994043352833,
+                -0.4071650456596314
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.02794004425392464,
+              "bootstrap95": [
+                0.010096468738241653,
+                0.048952546342126285
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.029219773205047483,
+              "bootstrap95": [
+                0.010189343846452995,
+                0.05240077349499433
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.01397002212696232,
+              "bootstrap95": [
+                -0.024492881676585875,
+                -0.004985970161129935
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49101938739905,
+              "bootstrap95": [
+                -0.49683238495757687,
+                -0.48405998518964877
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.46585561836724587,
+              "bootstrap95": [
+                -0.48798284733235503,
+                -0.43848954152181396
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.021087372152981447,
+              "bootstrap95": [
+                0.00729434104503928,
+                0.037568108409138
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.022082329188319563,
+              "bootstrap95": [
+                0.0072871710773732565,
+                0.03953568902547056
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.015815529114736087,
+              "bootstrap95": [
+                -0.02819589999737357,
+                -0.005504226607076556
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49320979059381076,
+              "bootstrap95": [
+                -0.49763381662861345,
+                -0.4876676063534008
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.4342938571253704,
+            "bootstrap95": [
+              -0.48016943912512583,
+              -0.3837996968346639
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.14560133044195495,
+            "bootstrap95": [
+              -0.1615536282077097,
+              -0.12870656643819373
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.15723287047178333,
+            "bootstrap95": [
+              -0.17400212964957354,
+              -0.13913522525396377
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.08197101562640828,
+            "bootstrap95": [
+              -0.09665131976981013,
+              -0.06755210114236229
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.04948864058522378,
+            "bootstrap95": [
+              -0.05476769582199641,
+              -0.043860891870464616
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.05487005133346261,
+            "bootstrap95": [
+              -0.09394319603045864,
+              -0.021885446466357806
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.0210401487653979,
+            "bootstrap95": [
+              -0.03583503972951024,
+              -0.00877755226230938
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.021848555145611105,
+            "bootstrap95": [
+              -0.037236927894726914,
+              -0.009119143664806333
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.00528364888514125,
+            "bootstrap95": [
+              -0.010306059831543543,
+              -0.0014002089168042562
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.006697698537312363,
+            "bootstrap95": [
+              -0.011499259531114388,
+              -0.002695837672814062
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.3794238057919077,
+          "bootstrap95": [
+            -0.43756094032367987,
+            -0.31700442603633644
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.12456118167655705,
+          "bootstrap95": [
+            -0.1439901287963925,
+            -0.10441322066242038
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.13538431532617223,
+          "bootstrap95": [
+            -0.15640622004507485,
+            -0.11374682491797401
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": -0.07668736674126703,
+          "bootstrap95": [
+            -0.09276704745258772,
+            -0.060794722500358986
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.042790942047911416,
+          "bootstrap95": [
+            -0.04924517902173184,
+            -0.03581754227311281
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 2.220446049250313e-16
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.3503252502047319,
+              "bootstrap95": [
+                0.2685750438534281,
+                0.4250175127956584
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.34980530556389966,
+              "bootstrap95": [
+                0.31726301476740476,
+                0.3792583375076178
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.38078605321436476,
+              "bootstrap95": [
+                0.34376168659294276,
+                0.41502185381545276
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3802661085735325,
+              "bootstrap95": [
+                -0.391951533967616,
+                -0.3693520477793069
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.047515351861822895,
+              "bootstrap95": [
+                -0.09721768402891488,
+                -0.0007241335303317851
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.18564566888154183,
+              "bootstrap95": [
+                0.166124984691623,
+                0.20412231138015366
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2029294474309063,
+              "bootstrap95": [
+                0.1801667381478805,
+                0.2247654133549391
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.43609046817427105,
+              "bootstrap95": [
+                -0.44340203871374084,
+                -0.42898275524928964
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.30955504446132465,
+              "bootstrap95": [
+                -0.33270578603903833,
+                -0.2873699100152602
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.07800257411450903,
+              "bootstrap95": [
+                0.06891524778759425,
+                0.0867022513019663
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.08549086901658778,
+              "bootstrap95": [
+                0.07490041262673323,
+                0.0955420605152607
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.47304848759242146,
+              "bootstrap95": [
+                -0.4764507626637229,
+                -0.46984066045598105
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.3503252502047319,
+              "bootstrap95": [
+                0.27105769418651715,
+                0.4237529644570345
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.34980530556389966,
+              "bootstrap95": [
+                0.3177942937408746,
+                0.37964838948509366
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.38078605321436476,
+              "bootstrap95": [
+                0.34355824312856836,
+                0.4154636795771792
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3802661085735325,
+              "bootstrap95": [
+                -0.3922433927912919,
+                -0.3692615250476681
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.047515351861822895,
+              "bootstrap95": [
+                -0.09635240300897653,
+                0.000026350226357813363
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.18564566888154183,
+              "bootstrap95": [
+                0.16622462010914726,
+                0.20391871882496884
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2029294474309063,
+              "bootstrap95": [
+                0.18035735673543762,
+                0.22441475812842399
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.43609046817427105,
+              "bootstrap95": [
+                -0.443443108797363,
+                -0.42907920163215413
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.30955504446132465,
+              "bootstrap95": [
+                -0.3314366064267399,
+                -0.2873010712918041
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.07800257411450903,
+              "bootstrap95": [
+                0.06905831017394454,
+                0.08649071167887774
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.08549086901658778,
+              "bootstrap95": [
+                0.07512632817825243,
+                0.09552382622933117
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.47304848759242146,
+              "bootstrap95": [
+                -0.4763950510404841,
+                -0.4697629840854807
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.6598802946660565,
+            "bootstrap95": [
+              -0.7128162882423443,
+              -0.5997316107050967
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.2718027314493906,
+            "bootstrap95": [
+              -0.292921635423117,
+              -0.24732757322448662
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.29529518419777695,
+            "bootstrap95": [
+              -0.3195195284553747,
+              -0.26856313417686906
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0,
+            "bootstrap95": [
+              0,
+              0
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.09278237901888899,
+            "bootstrap95": [
+              -0.10061344728246996,
+              -0.08422336598509783
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.6598802946660565,
+            "bootstrap95": [
+              -0.7137562587687124,
+              -0.5984631531098532
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.2718027314493906,
+            "bootstrap95": [
+              -0.29320548791273426,
+              -0.24760521327148227
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.29529518419777695,
+            "bootstrap95": [
+              -0.3194881255795533,
+              -0.2683272789836679
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0,
+            "bootstrap95": [
+              0,
+              0
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.09278237901888899,
+            "bootstrap95": [
+              -0.100678850812844,
+              -0.08425644311809138
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 0
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.4067977777564416,
+              "bootstrap95": [
+                0.32522799984161016,
+                0.4834903988216694
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.3652750210062031,
+              "bootstrap95": [
+                0.33277011553388136,
+                0.39382996687329164
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.4101263977794163,
+              "bootstrap95": [
+                0.37093171170815037,
+                0.4453456063020439
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3686036410291778,
+              "bootstrap95": [
+                -0.38117406956268424,
+                -0.3567390469956277
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.011488353939801032,
+              "bootstrap95": [
+                -0.04535820556459187,
+                0.06424411595179878
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.2049871190877617,
+              "bootstrap95": [
+                0.183645705115767,
+                0.22455102965488294
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.23192731476631256,
+              "bootstrap95": [
+                0.20519292651498117,
+                0.2568153446403791
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4254260799142732,
+              "bootstrap95": [
+                -0.43407061888253673,
+                -0.41700120984708533
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.274005897416149,
+              "bootstrap95": [
+                -0.3020515584373392,
+                -0.246959825958958
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.09025509151676642,
+              "bootstrap95": [
+                0.07959701104252362,
+                0.10051649222151897
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.10265047531769297,
+              "bootstrap95": [
+                0.08980588079489887,
+                0.11550570989016774
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4669114642506084,
+              "bootstrap95": [
+                -0.4712184835649903,
+                -0.46263003946075376
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.44836548128023035,
+              "bootstrap95": [
+                -0.4867597255644708,
+                -0.40128152040142806
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.021936456750626564,
+              "bootstrap95": [
+                0.005763885284475598,
+                0.041900066973795135
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.02272564943423097,
+              "bootstrap95": [
+                0.005656808469312792,
+                0.04423314738434952
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4930275874650879,
+              "bootstrap95": [
+                -0.4982515567583872,
+                -0.48655805141800795
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.47710953805388534,
+              "bootstrap95": [
+                -0.4945153636197864,
+                -0.4544756515723979
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.009704934947456556,
+              "bootstrap95": [
+                0.0022310884937130964,
+                0.019538181806759546
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.010086216787527455,
+              "bootstrap95": [
+                0.0022816842615265313,
+                0.01996600443652998
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49690068978886937,
+              "bootstrap95": [
+                -0.4993099281419755,
+                -0.49374801410652835
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.49132075674496534,
+              "bootstrap95": [
+                -0.49817455030718527,
+                -0.48232016321818466
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.003675752862786423,
+              "bootstrap95": [
+                0.000820817622591818,
+                0.007393957357026128
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.0038266614515109552,
+              "bootstrap95": [
+                0.0008704522162432543,
+                0.007796134929940197
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49882317105926266,
+              "bootstrap95": [
+                -0.49975656643365357,
+                -0.4975692439559733
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.6808036751725905,
+            "bootstrap95": [
+              -0.7323229860089725,
+              -0.6238109555190916
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.27501992948943665,
+            "bootstrap95": [
+              -0.29464634997761807,
+              -0.2524376036781274
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.3074759224617233,
+            "bootstrap95": [
+              -0.3315592832735556,
+              -0.2807137778222999
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0,
+            "bootstrap95": [
+              0,
+              0
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.09830782322143061,
+            "bootstrap95": [
+              -0.10611224691717576,
+              -0.08977900884797961
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.04295527546473492,
+            "bootstrap95": [
+              -0.08183432086989378,
+              -0.011865888926022559
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.01826070388784014,
+            "bootstrap95": [
+              -0.03417699663649376,
+              -0.0046982233974244255
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.018898987982720012,
+            "bootstrap95": [
+              -0.03615574976902063,
+              -0.004973301458784066
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0,
+            "bootstrap95": [
+              0,
+              0
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.005795583594174768,
+            "bootstrap95": [
+              -0.01095682648854223,
+              -0.0015049665985338511
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.6378483997078557,
+          "bootstrap95": [
+            -0.6964593323803431,
+            -0.5757301530659394
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.2567592256015966,
+          "bootstrap95": [
+            -0.2798039231386398,
+            -0.23220389301192815
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.28857693447900323,
+          "bootstrap95": [
+            -0.3148550513466694,
+            -0.2600017748867414
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.09251223962725585,
+          "bootstrap95": [
+            -0.10112391182286981,
+            -0.08338566053954112
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 2.220446049250313e-16
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.26529374295074626,
+              "bootstrap95": [
+                0.16504952141218363,
+                0.3578798627218598
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.3129617417641629,
+              "bootstrap95": [
+                0.27280172946134623,
+                0.350587018799315
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.34343967386143576,
+              "bootstrap95": [
+                0.2986372279790795,
+                0.38635933756833674
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3911076726748524,
+              "bootstrap95": [
+                -0.40586572706420065,
+                -0.3771187316705401
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.08714233903799995,
+              "bootstrap95": [
+                -0.14772915883346951,
+                -0.02921954222902902
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.16805397321986434,
+              "bootstrap95": [
+                0.1444792052895607,
+                0.19160839543362468
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.18572858282290686,
+              "bootstrap95": [
+                0.1577292220366512,
+                0.2126283932130459
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4409248950807711,
+              "bootstrap95": [
+                -0.4500064022908916,
+                -0.43214627928915766
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.32332250115615524,
+              "bootstrap95": [
+                -0.35083472554507084,
+                -0.2952917354927242
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.07169114653631109,
+              "bootstrap95": [
+                0.06054929586289341,
+                0.08257639478564316
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.07960988119623078,
+              "bootstrap95": [
+                0.06669620266626837,
+                0.09259599796992452
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.47462352888869713,
+              "bootstrap95": [
+                -0.4788408752488286,
+                -0.47033087307157995
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.42058097053720034,
+              "bootstrap95": [
+                -0.47033441632281037,
+                -0.36103230086841515
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.033597019723906565,
+              "bootstrap95": [
+                0.012791873111611372,
+                0.058265562599083685
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.03505641424789295,
+              "bootstrap95": [
+                0.013045645419183387,
+                0.06074378050939792
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4892344045089999,
+              "bootstrap95": [
+                -0.4960364188529844,
+                -0.4811482835051503
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.4637555758485843,
+              "bootstrap95": [
+                -0.4871187324392381,
+                -0.4348696048504348
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.015301655778355547,
+              "bootstrap95": [
+                0.005246606197266209,
+                0.027429913170416813
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.016017960085623225,
+              "bootstrap95": [
+                0.005484753740876672,
+                0.02865692545779288
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4950751917125631,
+              "bootstrap95": [
+                -0.49830212395082973,
+                -0.49120561886858066
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.4860594743312184,
+              "bootstrap95": [
+                -0.4952745354501065,
+                -0.4745217555098575
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.005879740757989813,
+              "bootstrap95": [
+                0.0019749770198251226,
+                0.010912973751172441
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.00616443224968268,
+              "bootstrap95": [
+                0.002084851930809114,
+                0.01134107169374659
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": 0,
+              "bootstrap95": [
+                0,
+                0
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4981036473388909,
+              "bootstrap95": [
+                -0.4993695183156241,
+                -0.4965384396142924
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.5886162441069016,
+            "bootstrap95": [
+              -0.6570846403837997,
+              -0.5148789509948547
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.24127059522785188,
+            "bootstrap95": [
+              -0.26831984626931876,
+              -0.21286977494064618
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.263829792665205,
+            "bootstrap95": [
+              -0.2945317821597377,
+              -0.23118015859462168
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0,
+            "bootstrap95": [
+              0,
+              0
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.0835158562138447,
+            "bootstrap95": [
+              -0.0935583806926678,
+              -0.07263673864064343
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.065478503794018,
+            "bootstrap95": [
+              -0.11529304364366605,
+              -0.025342590532249302
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.027717278965916747,
+            "bootstrap95": [
+              -0.04763120027928732,
+              -0.01068267289371249
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.02889198199821027,
+            "bootstrap95": [
+              -0.05005222018410457,
+              -0.011037140225100994
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0,
+            "bootstrap95": [
+              0,
+              0
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.008869242829890978,
+            "bootstrap95": [
+              -0.015496708270887482,
+              -0.0034671304250058245
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.5231377403128836,
+          "bootstrap95": [
+            -0.6041348221686353,
+            -0.4361275470812079
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.2135533162619351,
+          "bootstrap95": [
+            -0.24695761229420402,
+            -0.17944105150894418
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.23493781066699473,
+          "bootstrap95": [
+            -0.27181665537851096,
+            -0.1954942517875719
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.07464661338395372,
+          "bootstrap95": [
+            -0.08653552514854705,
+            -0.062260116010250575
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 2.220446049250313e-16
+    },
+    {
+      "setting": "pollen_discount",
+      "snapshot": 0,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.3526297152272716,
+              "bootstrap95": [
+                0.2670153820822722,
+                0.4296375598843797
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.39844606565765855,
+              "bootstrap95": [
+                0.36008427086893224,
+                0.4337014914747649
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.4212975389886418,
+              "bootstrap95": [
+                0.3787998418880954,
+                0.4598191260216821
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.09961151641441464,
+              "bootstrap95": [
+                -0.10843774293348533,
+                -0.08988919805225959
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3675023730046141,
+              "bootstrap95": [
+                -0.3809909596611132,
+                -0.35519183887726125
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.028772662294706645,
+              "bootstrap95": [
+                -0.0809684536587007,
+                0.022390265567021696
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.25314154953136947,
+              "bootstrap95": [
+                0.22420421213983524,
+                0.27963335850184023
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2620923645236902,
+              "bootstrap95": [
+                0.23137687284112984,
+                0.29087914056118663
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.12657077476568473,
+              "bootstrap95": [
+                -0.1402959095905266,
+                -0.11256845537237829
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.41743580158408156,
+              "bootstrap95": [
+                -0.42719613171101645,
+                -0.4081506115795824
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.2391945834376329,
+              "bootstrap95": [
+                -0.27158168104563585,
+                -0.20771708566602073
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.16428285262673847,
+              "bootstrap95": [
+                0.1443175825105353,
+                0.18378440586327494
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.16705851486417855,
+              "bootstrap95": [
+                0.14610945910936982,
+                0.18725391844858258
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.12321213947005387,
+              "bootstrap95": [
+                -0.13814171855765095,
+                -0.10820608508503801
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.44732381145849603,
+              "bootstrap95": [
+                -0.45383459817265254,
+                -0.4406747988180159
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.3526297152272716,
+              "bootstrap95": [
+                0.26895310385442317,
+                0.42949162360254106
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.39844606565765855,
+              "bootstrap95": [
+                0.35918736346328706,
+                0.43341391808238994
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.4212975389886418,
+              "bootstrap95": [
+                0.379286945341227,
+                0.4597728172480204
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.09961151641441464,
+              "bootstrap95": [
+                -0.10840320067100236,
+                -0.09008464525602629
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3675023730046141,
+              "bootstrap95": [
+                -0.38130473063242565,
+                -0.3552392073498113
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.028772662294706645,
+              "bootstrap95": [
+                -0.08273045486039285,
+                0.023333482215436265
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.25314154953136947,
+              "bootstrap95": [
+                0.22430558808155623,
+                0.2801169521011329
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2620923645236902,
+              "bootstrap95": [
+                0.2317151422016379,
+                0.29112848017534954
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.12657077476568473,
+              "bootstrap95": [
+                -0.1400688745337252,
+                -0.11240021863176342
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.41743580158408156,
+              "bootstrap95": [
+                -0.42714017524989395,
+                -0.4080185954655683
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.2391945834376329,
+              "bootstrap95": [
+                -0.2725862028701115,
+                -0.20682782923649184
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.16428285262673847,
+              "bootstrap95": [
+                0.14433958021257456,
+                0.1837297608994567
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.16705851486417855,
+              "bootstrap95": [
+                0.1461879335176943,
+                0.18765413201147996
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.12321213947005387,
+              "bootstrap95": [
+                -0.13770295152477283,
+                -0.10827251853418478
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.44732381145849603,
+              "bootstrap95": [
+                -0.4540779804258769,
+                -0.4406615299317367
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.5918242986649044,
+            "bootstrap95": [
+              -0.6398020795209391,
+              -0.5379737773526178
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.23416321303092008,
+            "bootstrap95": [
+              -0.2520246550651686,
+              -0.2138824730695974
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.2542390241244632,
+            "bootstrap95": [
+              -0.2745938140762383,
+              -0.23225161665857907
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.02360062305563923,
+            "bootstrap95": [
+              -0.03067010187090453,
+              -0.016898555601525922
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.07982143845388197,
+            "bootstrap95": [
+              -0.08622882763176433,
+              -0.07264409467971257
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.5918242986649044,
+            "bootstrap95": [
+              -0.6408709060175735,
+              -0.5391729081908427
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.23416321303092008,
+            "bootstrap95": [
+              -0.25240746887638593,
+              -0.21430461040590804
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.2542390241244632,
+            "bootstrap95": [
+              -0.2737873668475686,
+              -0.2313015892391852
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.02360062305563923,
+            "bootstrap95": [
+              -0.030771522667867663,
+              -0.016789042634084036
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.07982143845388197,
+            "bootstrap95": [
+              -0.08612951763962999,
+              -0.0726633854532423
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "snapshot": 200,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.42041796537471365,
+              "bootstrap95": [
+                0.33465747245328825,
+                0.5017722594908468
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.4232396038671864,
+              "bootstrap95": [
+                0.3846925071582441,
+                0.4583612916342442
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.45663000738586706,
+              "bootstrap95": [
+                0.4118273483139443,
+                0.49755390863632115
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.1058099009667966,
+              "bootstrap95": [
+                -0.11490538191820833,
+                -0.09588973016161877
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3536417449115432,
+              "bootstrap95": [
+                -0.36827298604226105,
+                -0.3396717123416518
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.0456785145850815,
+              "bootstrap95": [
+                -0.018477882514894798,
+                0.10665028372424581
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.2893166287793276,
+              "bootstrap95": [
+                0.2565316432201348,
+                0.3210480206483028
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.30339978836176607,
+              "bootstrap95": [
+                0.2681216200287343,
+                0.33736943454063917
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.1446583143896638,
+              "bootstrap95": [
+                -0.1601923109383384,
+                -0.12787848430710774
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4023795881663484,
+              "bootstrap95": [
+                -0.41432082469931775,
+                -0.39081773839421247
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.1821670816147235,
+              "bootstrap95": [
+                -0.2228740974562169,
+                -0.14077732635015
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.19835627190070834,
+              "bootstrap95": [
+                0.17309611857543644,
+                0.2230088834899155
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.20282958601668752,
+              "bootstrap95": [
+                0.17723558187991084,
+                0.22847827931039713
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.14876720392553128,
+              "bootstrap95": [
+                -0.16763351693910006,
+                -0.12984215240970798
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.43458573560658814,
+              "bootstrap95": [
+                -0.4433969174786118,
+                -0.42565939260146013
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.4498773096883304,
+              "bootstrap95": [
+                -0.48728935976615606,
+                -0.4028904116540269
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.024016118570204803,
+              "bootstrap95": [
+                0.006317618891942413,
+                0.047007932827871884
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.024570637685567505,
+              "bootstrap95": [
+                0.006315349625087562,
+                0.0480186867361989
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.006004029642551201,
+              "bootstrap95": [
+                -0.011460778008477711,
+                -0.001509589068944693
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49246003630155144,
+              "bootstrap95": [
+                -0.4979115370109323,
+                -0.4854295197017729
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.47718947580581084,
+              "bootstrap95": [
+                -0.49484066940069743,
+                -0.45444244935799066
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.012492742553402676,
+              "bootstrap95": [
+                0.0028319876043492015,
+                0.025511113302680813
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.012670034089288195,
+              "bootstrap95": [
+                0.0028338881266276247,
+                0.02533820631360747
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.006246371276701338,
+              "bootstrap95": [
+                -0.01239146652134724,
+                -0.0013941747669110353
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49610588117180043,
+              "bootstrap95": [
+                -0.4991451922422793,
+                -0.49216359984162933
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.48855869042371536,
+              "bootstrap95": [
+                -0.49756237505601264,
+                -0.4765943201664657
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.007309135160954086,
+              "bootstrap95": [
+                0.0015671552134539244,
+                0.014892114834926891
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.007352587611818783,
+              "bootstrap95": [
+                0.0015947161288082485,
+                0.015038605641422134
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.0054818513707155635,
+              "bootstrap95": [
+                -0.011273601398732682,
+                -0.001152899145467192
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49773856182577264,
+              "bootstrap95": [
+                -0.49952395594601595,
+                -0.4953811777958288
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.6025850469894373,
+            "bootstrap95": [
+              -0.6479120762628476,
+              -0.5519951482173926
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.22488333196647808,
+            "bootstrap95": [
+              -0.24090694408782076,
+              -0.20736485712452393
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.2538004213691796,
+            "bootstrap95": [
+              -0.27234350156724335,
+              -0.23351772821245287
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.04295730295873466,
+            "bootstrap95": [
+              -0.05429315998640496,
+              -0.03215969142932672
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.08094399069504493,
+            "bootstrap95": [
+              -0.08681809054781564,
+              -0.07450427971317955
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.038681380735385004,
+            "bootstrap95": [
+              -0.07431219393408055,
+              -0.010382389089583981
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.01670698340925072,
+            "bootstrap95": [
+              -0.031326309894881194,
+              -0.0046019485232340505
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.01721805007374872,
+            "bootstrap95": [
+              -0.03299814095203373,
+              -0.0048350853913775756
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0.0005221782718356366,
+            "bootstrap95": [
+              -0.0004509124744790023,
+              0.0014477998886789371
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.005278525524221197,
+            "bootstrap95": [
+              -0.010142414407135368,
+              -0.0014269402187250778
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.5639036662540522,
+          "bootstrap95": [
+            -0.614635836960566,
+            -0.5095154167756666
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.2081763485572274,
+          "bootstrap95": [
+            -0.22716083408868998,
+            -0.18765843800703713
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.2365823712954308,
+          "bootstrap95": [
+            -0.257747131816541,
+            -0.21385695107928343
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": -0.04347948123057029,
+          "bootstrap95": [
+            -0.05466584854904812,
+            -0.03250729230998306
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.07566546517082375,
+          "bootstrap95": [
+            -0.08236892903909486,
+            -0.0681931211359355
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 2.220446049250313e-16
+    },
+    {
+      "setting": "pollen_discount",
+      "snapshot": 400,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.26963429195587285,
+              "bootstrap95": [
+                0.168689076900987,
+                0.36589354062130064
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.35807344167172867,
+              "bootstrap95": [
+                0.31277600724337495,
+                0.40144453334833735
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.38041717608096454,
+              "bootstrap95": [
+                0.3297216534620047,
+                0.4295443944997954
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.08951836041793217,
+              "bootstrap95": [
+                -0.10061745322098455,
+                -0.07782021292038499
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3793379653788882,
+              "bootstrap95": [
+                -0.3954096500209409,
+                -0.36366499208078035
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.06643547266007993,
+              "bootstrap95": [
+                -0.13140428520965622,
+                -0.0014364078191356777
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.2319702065127346,
+              "bootstrap95": [
+                0.19729194779431436,
+                0.2665771447317172
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.24090908981946857,
+              "bootstrap95": [
+                0.2042151562936592,
+                0.27712209864743725
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.1159851032563673,
+              "bootstrap95": [
+                -0.13299499255828684,
+                -0.09883509635525761
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4233296657359158,
+              "bootstrap95": [
+                -0.435447212160217,
+                -0.41135247247616674
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.25550781195307637,
+              "bootstrap95": [
+                -0.29652636287352163,
+                -0.2144247618459385
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.15359147134380796,
+              "bootstrap95": [
+                0.1286802785381237,
+                0.17868732938063842
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.15626268222625242,
+              "bootstrap95": [
+                0.13021258357986729,
+                0.1823885585232001
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.11519360350785597,
+              "bootstrap95": [
+                -0.13367392591252444,
+                -0.09594681889691725
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.45016836201528077,
+              "bootstrap95": [
+                -0.4585025919090221,
+                -0.4417139323636155
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.4225297581160318,
+              "bootstrap95": [
+                -0.471022614357932,
+                -0.3631942054811903
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.03698682452123356,
+              "bootstrap95": [
+                0.013516107480302597,
+                0.06438249544174994
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.03804490614901461,
+              "bootstrap95": [
+                0.014675792974904317,
+                0.06661835322228567
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.00924670613030839,
+              "bootstrap95": [
+                -0.016089972580199632,
+                -0.003421851017565676
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4883147826559716,
+              "bootstrap95": [
+                -0.4956575647072982,
+                -0.4795727842477512
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.46367130395289524,
+              "bootstrap95": [
+                -0.4872636982476162,
+                -0.4338416099798178
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.01983550158072947,
+              "bootstrap95": [
+                0.0066837680221329835,
+                0.03534380727931895
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.0201995403499428,
+              "bootstrap95": [
+                0.006957318272949109,
+                0.03651431313136126
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.009917750790364735,
+              "bootstrap95": [
+                -0.017722697070842855,
+                -0.0034249054263899774
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49378859509320283,
+              "bootstrap95": [
+                -0.4978650083962494,
+                -0.48877596665392153
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.4815431135483319,
+              "bootstrap95": [
+                -0.4938715686569013,
+                -0.4662321394451873
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.011759626310376654,
+              "bootstrap95": [
+                0.00394599350942413,
+                0.02133467139123529
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.011866294976973751,
+              "bootstrap95": [
+                0.0039063989232715046,
+                0.021757158402472627
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.008819719732782491,
+              "bootstrap95": [
+                -0.01617892422602861,
+                -0.0029244728054475364
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4963493151028998,
+              "bootstrap95": [
+                -0.4988009967946775,
+                -0.4933490672924939
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.5251421039089492,
+            "bootstrap95": [
+              -0.5850867214923373,
+              -0.46208634180174746
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.20448197032792073,
+            "bootstrap95": [
+              -0.2264679456020025,
+              -0.17990982248883602
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.2241544938547121,
+            "bootstrap95": [
+              -0.24890497704623424,
+              -0.1973110916491349
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.025675243089923805,
+            "bootstrap95": [
+              -0.035145357713197406,
+              -0.01696668626603061
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.07083039663639261,
+            "bootstrap95": [
+              -0.07897815988958345,
+              -0.06218584746663344
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.059013355432300074,
+            "bootstrap95": [
+              -0.10223783027750555,
+              -0.022813051485149012
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.0252271982108569,
+            "bootstrap95": [
+              -0.043936307514358314,
+              -0.010204721638928438
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.026178611172040858,
+            "bootstrap95": [
+              -0.044863673835451125,
+              -0.009942119543693484
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": 0.0004269863975258973,
+            "bootstrap95": [
+              -0.0006226740552139486,
+              0.001397645521961249
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.008034532446928214,
+            "bootstrap95": [
+              -0.014097460473362366,
+              -0.003022587279418762
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.46612874847664915,
+          "bootstrap95": [
+            -0.5388890488712879,
+            -0.38758176514337817
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.1792547721170638,
+          "bootstrap95": [
+            -0.20733018587612925,
+            -0.1494267357977131
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.19797588268267124,
+          "bootstrap95": [
+            -0.22871849522792448,
+            -0.166251852586232
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": -0.026102229487449703,
+          "bootstrap95": [
+            -0.03583265280554261,
+            -0.01728442782494732
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.0627958641894644,
+          "bootstrap95": [
+            -0.07238006415194732,
+            -0.052388129865578587
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 3.3306690738754696e-16
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.4321589477891371,
+              "bootstrap95": [
+                0.3448907046704894,
+                0.510207061076705
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.42762823390934956,
+              "bootstrap95": [
+                0.3894722880907278,
+                0.46247984657482794
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.46519757236962883,
+              "bootstrap95": [
+                0.42208834351808966,
+                0.5045204165625639
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.10690705847733739,
+              "bootstrap95": [
+                -0.1157617992236033,
+                -0.09707543894612389
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.353759800012504,
+              "bootstrap95": [
+                -0.3681320615588677,
+                -0.34076043894358454
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.12425398403267868,
+              "bootstrap95": [
+                0.05825922959124444,
+                0.18652465629888296
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.32258352383639627,
+              "bootstrap95": [
+                0.28954826244206694,
+                0.3533026000899865
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.3521248207437371,
+              "bootstrap95": [
+                0.31526010373845004,
+                0.3876127519172404
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.16129176191819813,
+              "bootstrap95": [
+                -0.17634862837686124,
+                -0.14538365162770178
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3891625986292565,
+              "bootstrap95": [
+                -0.4013727546130512,
+                -0.37761718132878075
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.059663585766277956,
+              "bootstrap95": [
+                -0.10916641199628681,
+                -0.011605919243365504
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.26082716750055507,
+              "bootstrap95": [
+                0.23165297933552595,
+                0.287254848771665
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2852692628208671,
+              "bootstrap95": [
+                0.25298005358011166,
+                0.3163159983327591
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.19562037562541632,
+              "bootstrap95": [
+                -0.215950342034071,
+                -0.17436340785109994
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4101396404622838,
+              "bootstrap95": [
+                -0.4205914538730444,
+                -0.3997574483429465
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.4321589477891371,
+              "bootstrap95": [
+                0.3433109983735939,
+                0.5123249855124824
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.42762823390934956,
+              "bootstrap95": [
+                0.3885978447816142,
+                0.4637925460126429
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.46519757236962883,
+              "bootstrap95": [
+                0.42140150713047453,
+                0.5055917511055318
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.10690705847733739,
+              "bootstrap95": [
+                -0.11550025937770246,
+                -0.09707784521189612
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.353759800012504,
+              "bootstrap95": [
+                -0.3675552473092994,
+                -0.3403812390088565
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.12425398403267868,
+              "bootstrap95": [
+                0.057936322343730265,
+                0.186808037783744
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.32258352383639627,
+              "bootstrap95": [
+                0.28964012654860877,
+                0.35264500296211043
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.3521248207437371,
+              "bootstrap95": [
+                0.31395365577291934,
+                0.38791645677101333
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.16129176191819813,
+              "bootstrap95": [
+                -0.17646154000346373,
+                -0.14468064748079126
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3891625986292565,
+              "bootstrap95": [
+                -0.4013981088719206,
+                -0.37791420799507763
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.059663585766277956,
+              "bootstrap95": [
+                -0.10943715507033916,
+                -0.0121993951832061
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.26082716750055507,
+              "bootstrap95": [
+                0.23223558022048332,
+                0.2874284436259699
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.2852692628208671,
+              "bootstrap95": [
+                0.25361087855282277,
+                0.3159748221698417
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.19562037562541632,
+              "bootstrap95": [
+                -0.21547030885258792,
+                -0.17423977208490155
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4101396404622838,
+              "bootstrap95": [
+                -0.4207460743598323,
+                -0.3999624281313515
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.49182253355541494,
+            "bootstrap95": [
+              -0.527956001044705,
+              -0.4515268730664078
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.1668010664087945,
+            "bootstrap95": [
+              -0.17849077829692214,
+              -0.15385021772789023
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.17992830954876177,
+            "bootstrap95": [
+              -0.19205795183249358,
+              -0.16568802145742564
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.08871331714807892,
+            "bootstrap95": [
+              -0.10019050024111475,
+              -0.07630521616475655
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.05637984044977981,
+            "bootstrap95": [
+              -0.060346809994349104,
+              -0.05190086771200304
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.49182253355541494,
+            "bootstrap95": [
+              -0.5278059847693808,
+              -0.4507240346318025
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.1668010664087945,
+            "bootstrap95": [
+              -0.17849202876987502,
+              -0.1539253616816832
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.17992830954876177,
+            "bootstrap95": [
+              -0.19243740237015955,
+              -0.16564242634059473
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.08871331714807892,
+            "bootstrap95": [
+              -0.10068081244396003,
+              -0.0764782601172404
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.05637984044977981,
+            "bootstrap95": [
+              -0.06038269358394821,
+              -0.051929138870525283
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": 0,
+          "bootstrap95": [
+            0,
+            0
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 0
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.4892277011207592,
+              "bootstrap95": [
+                0.4034349928353558,
+                0.5699567668207541
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.4434784021172675,
+              "bootstrap95": [
+                0.405903439419063,
+                0.4776189112562157
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.4973600890207885,
+              "bootstrap95": [
+                0.45212798588599085,
+                0.5383001664048326
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.11086960052931688,
+              "bootstrap95": [
+                -0.11932256802134664,
+                -0.10173326087671157
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.34074118948797993,
+              "bootstrap95": [
+                -0.3559918226869958,
+                -0.3272847900858496
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.19431789306665348,
+              "bootstrap95": [
+                0.12190972985715226,
+                0.2643855019520537
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.3487579991368316,
+              "bootstrap95": [
+                0.3143859193423508,
+                0.3801542939381649
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.393553773433475,
+              "bootstrap95": [
+                0.3519994529096948,
+                0.43375095296454497
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.1743789995684158,
+              "bootstrap95": [
+                -0.19053818947786966,
+                -0.15678774925242392
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3736148799352373,
+              "bootstrap95": [
+                -0.3877730507313194,
+                -0.36054819945122313
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": 0.007741373881046763,
+              "bootstrap95": [
+                -0.05049982114204805,
+                0.06435867261780186
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.2906339619342873,
+              "bootstrap95": [
+                0.2599650280827184,
+                0.31983426143422905
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.32918322385156273,
+              "bootstrap95": [
+                0.2903200727186582,
+                0.3655623016312324
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.2179754714507155,
+              "bootstrap95": [
+                -0.23995933024193486,
+                -0.19443107213767383
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3941003404540878,
+              "bootstrap95": [
+                -0.4069902055607884,
+                -0.38179108840258713
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.4418675589997185,
+              "bootstrap95": [
+                -0.48397297083888563,
+                -0.38895329393013167
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.027642732251783632,
+              "bootstrap95": [
+                0.007729287274318804,
+                0.05270050830102224
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.028621442622980182,
+              "bootstrap95": [
+                0.007711944260037477,
+                0.0547955302857729
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.006910683062945908,
+              "bootstrap95": [
+                -0.01302088747184001,
+                -0.0018629328545094956
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49122105081153644,
+              "bootstrap95": [
+                -0.4976653605306808,
+                -0.4831631421635345
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.4667922167067461,
+              "bootstrap95": [
+                -0.49207244742472983,
+                -0.43546700010788364
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.01788129866249733,
+              "bootstrap95": [
+                0.004350693671708108,
+                0.03429466165846854
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.018565164632554303,
+              "bootstrap95": [
+                0.004542892246136279,
+                0.035961135489009075
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.008940649331248666,
+              "bootstrap95": [
+                -0.017714534742490108,
+                -0.0021844198951777704
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4942980306705491,
+              "bootstrap95": [
+                -0.49862330263044613,
+                -0.4887533181235223
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.4785492759549406,
+              "bootstrap95": [
+                -0.4951960492709062,
+                -0.4575566450574422
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.013329915416700056,
+              "bootstrap95": [
+                0.0031496631504093083,
+                0.02614287223354096
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.013858881569096329,
+              "bootstrap95": [
+                0.0030175430891420155,
+                0.027738883849896503
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.009997436562525044,
+              "bootstrap95": [
+                -0.020120883317888756,
+                -0.0022283439783623888
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.495740636378212,
+              "bootstrap95": [
+                -0.49904998541601814,
+                -0.4914405527852208
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.4814863272397124,
+            "bootstrap95": [
+              -0.5124271882667519,
+              -0.4450351836589266
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.15284444018298013,
+            "bootstrap95": [
+              -0.1641457708978786,
+              -0.14049852183280062
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.16817686516922573,
+            "bootstrap95": [
+              -0.17999872834846078,
+              -0.15519048806620211
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.10710587092139864,
+            "bootstrap95": [
+              -0.12159926513218232,
+              -0.09229768566944352
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.05335915096610791,
+            "bootstrap95": [
+              -0.05696008504399046,
+              -0.04938959035756098
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.036681716955222106,
+            "bootstrap95": [
+              -0.06925735581421144,
+              -0.010234046012246137
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.014312816835083573,
+            "bootstrap95": [
+              -0.02685584639481707,
+              -0.003987718661628995
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.014762561053883851,
+            "bootstrap95": [
+              -0.0275485000027125,
+              -0.004295644608317261
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.0030867534995791352,
+            "bootstrap95": [
+              -0.006983336607824569,
+              -0.0004871656083326493
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.00451958556667555,
+            "bootstrap95": [
+              -0.008321298093067463,
+              -0.001247243013539785
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.44480461028449036,
+          "bootstrap95": [
+            -0.48291586144877935,
+            -0.40289491280123785
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.13853162334789657,
+          "bootstrap95": [
+            -0.153153641407302,
+            -0.1231200651866492
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.15341430411534188,
+          "bootstrap95": [
+            -0.16841676627191032,
+            -0.13733229906184832
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": -0.1040191174218195,
+          "bootstrap95": [
+            -0.11866293470114615,
+            -0.08905610747434732
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.048839565399432364,
+          "bootstrap95": [
+            -0.05335941164401312,
+            -0.043934192421699936
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 3.3306690738754696e-16
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "resident": {
+        "matching": 0.5,
+        "investment": 0.5,
+        "assurance_low": 0.25,
+        "assurance_high": 0.75
+      },
+      "levels": {
+        "near": {
+          "0.25": {
+            "gradient": {
+              "mean": 0.33871879920519626,
+              "bootstrap95": [
+                0.22995608604828194,
+                0.4400894686263801
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.382344026915749,
+              "bootstrap95": [
+                0.3356560211388939,
+                0.42586199133840635
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.41913214979003877,
+              "bootstrap95": [
+                0.36608094132805646,
+                0.4711274969189432
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.09558600672893725,
+              "bootstrap95": [
+                -0.10661304518260412,
+                -0.08372726286357067
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.3671713707716543,
+              "bootstrap95": [
+                -0.38468137214792963,
+                -0.3502755799429524
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": 0.06710884881554245,
+              "bootstrap95": [
+                -0.01257785928204024,
+                0.14742636394585373
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.2904107290768019,
+              "bootstrap95": [
+                0.2514451118557816,
+                0.32840076484546415
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.3201758373277155,
+              "bootstrap95": [
+                0.27471812203495827,
+                0.3648171549817235
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.14520536453840094,
+              "bootstrap95": [
+                -0.16438621245275198,
+                -0.1253124064952895
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.39827235305057396,
+              "bootstrap95": [
+                -0.41297126098002523,
+                -0.3834175333995875
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.09557505792017407,
+              "bootstrap95": [
+                -0.1563386688788337,
+                -0.03539330705096386
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.23674269647379403,
+              "bootstrap95": [
+                0.20248052219917956,
+                0.2695601766025016
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.26189927931825546,
+              "bootstrap95": [
+                0.22199674399987085,
+                0.30083776498820375
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.17755702235534554,
+              "bootstrap95": [
+                -0.20224467542821492,
+                -0.1516622703414739
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.416660011356878,
+              "bootstrap95": [
+                -0.42985753934080867,
+                -0.404040396791216
+              ],
+              "n_histories": 64
+            }
+          }
+        },
+        "far": {
+          "0.25": {
+            "gradient": {
+              "mean": -0.41098556703378325,
+              "bootstrap95": [
+                -0.465161453681422,
+                -0.3457808581021421
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.042127520918379346,
+              "bootstrap95": [
+                0.01632641046347789,
+                0.07301585768313838
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.04393088433393068,
+              "bootstrap95": [
+                0.01669579694533972,
+                0.0761210109634168
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.010531880229594837,
+              "bootstrap95": [
+                -0.018245475308704785,
+                -0.004129250957714519
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.4865120920564985,
+              "bootstrap95": [
+                -0.49471626384475526,
+                -0.4763756268326907
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.5": {
+            "gradient": {
+              "mean": -0.4478295920670402,
+              "bootstrap95": [
+                -0.4809763942017545,
+                -0.4076397686090458
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.027940044253924642,
+              "bootstrap95": [
+                0.009750288208615053,
+                0.050242483463559494
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.029219773205047483,
+              "bootstrap95": [
+                0.010462099780034869,
+                0.052229302146692996
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.013970022126962321,
+              "bootstrap95": [
+                -0.024792825906118414,
+                -0.005058629116661675
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49101938739905,
+              "bootstrap95": [
+                -0.49674594496259883,
+                -0.4840849369798771
+              ],
+              "n_histories": 64
+            }
+          },
+          "0.75": {
+            "gradient": {
+              "mean": -0.46585561836724587,
+              "bootstrap95": [
+                -0.48854868752937697,
+                -0.4387112775971689
+              ],
+              "n_histories": 64
+            },
+            "maternal_outcross_component": {
+              "mean": 0.021087372152981447,
+              "bootstrap95": [
+                0.0074654368908491885,
+                0.037861241984075325
+              ],
+              "n_histories": 64
+            },
+            "paternal_export_component": {
+              "mean": 0.022082329188319566,
+              "bootstrap95": [
+                0.007656475112199084,
+                0.04011566962061401
+              ],
+              "n_histories": 64
+            },
+            "selfing_displacement_component": {
+              "mean": -0.015815529114736087,
+              "bootstrap95": [
+                -0.028467974099652623,
+                -0.0054726068487291534
+              ],
+              "n_histories": 64
+            },
+            "ovule_allocation_cost_component": {
+              "mean": -0.49320979059381076,
+              "bootstrap95": [
+                -0.4976466015521593,
+                -0.48779029511987193
+              ],
+              "n_histories": 64
+            }
+          }
+        }
+      },
+      "assurance_effect_high_minus_low": {
+        "near": {
+          "gradient": {
+            "mean": -0.43429385712537033,
+            "bootstrap95": [
+              -0.4808692506268286,
+              -0.38445901513989555
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.14560133044195495,
+            "bootstrap95": [
+              -0.1614308451285641,
+              -0.12858738927819652
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.15723287047178333,
+            "bootstrap95": [
+              -0.1743205518520365,
+              -0.1394865966796491
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.08197101562640828,
+            "bootstrap95": [
+              -0.0966982521599904,
+              -0.06711851053635431
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.04948864058522377,
+            "bootstrap95": [
+              -0.05479052284923284,
+              -0.04395967660395446
+            ],
+            "n_histories": 64
+          }
+        },
+        "far": {
+          "gradient": {
+            "mean": -0.05487005133346261,
+            "bootstrap95": [
+              -0.09414459091850817,
+              -0.021647233989058903
+            ],
+            "n_histories": 64
+          },
+          "maternal_outcross_component": {
+            "mean": -0.021040148765397896,
+            "bootstrap95": [
+              -0.03571055540564393,
+              -0.008589565376159427
+            ],
+            "n_histories": 64
+          },
+          "paternal_export_component": {
+            "mean": -0.021848555145611105,
+            "bootstrap95": [
+              -0.03704900036413902,
+              -0.009033895757956375
+            ],
+            "n_histories": 64
+          },
+          "selfing_displacement_component": {
+            "mean": -0.00528364888514125,
+            "bootstrap95": [
+              -0.010223430233045816,
+              -0.0013632944019579807
+            ],
+            "n_histories": 64
+          },
+          "ovule_allocation_cost_component": {
+            "mean": -0.006697698537312362,
+            "bootstrap95": [
+              -0.011347249990910059,
+              -0.002731409476448363
+            ],
+            "n_histories": 64
+          }
+        }
+      },
+      "near_minus_far_assurance_effect": {
+        "gradient": {
+          "mean": -0.3794238057919077,
+          "bootstrap95": [
+            -0.4369343728255569,
+            -0.3177463334291512
+          ],
+          "n_histories": 64
+        },
+        "maternal_outcross_component": {
+          "mean": -0.12456118167655708,
+          "bootstrap95": [
+            -0.14416981699450446,
+            -0.1039196798937865
+          ],
+          "n_histories": 64
+        },
+        "paternal_export_component": {
+          "mean": -0.1353843153261722,
+          "bootstrap95": [
+            -0.15609004627139197,
+            -0.11302333374401188
+          ],
+          "n_histories": 64
+        },
+        "selfing_displacement_component": {
+          "mean": -0.07668736674126703,
+          "bootstrap95": [
+            -0.09253552233329919,
+            -0.060515363066576525
+          ],
+          "n_histories": 64
+        },
+        "ovule_allocation_cost_component": {
+          "mean": -0.04279094204791141,
+          "bootstrap95": [
+            -0.04946339680045741,
+            -0.035734227519907055
+          ],
+          "n_histories": 64
+        }
+      },
+      "max_component_identity_error": 3.3306690738754696e-16
+    }
+  ],
+  "max_additive_identity_error": 3.3306690738754696e-16,
+  "claim_boundary": {
+    "report_all": "Retain all three snapshots and all four settings regardless of sign.",
+    "no_dynamic_mediation": "This fixed-resident diagnostic explains local selection only and cannot by itself identify the finite-trajectory attenuation as a mediation effect.",
+    "direct_vs_feedback": "If the near-minus-far assurance effect is negative, direct local coupling is stronger on the near side; any mismatch with trajectory-level arm effects is evidence that dynamic ecological/genetic feedback also matters.",
+    "sensitivity_boundary": "The previously completed 500-combination parameter grid contains rare positive capacity-to-investment cross-effect exceptions; no universal sign is claimed outside the baseline settings."
+  },
+  "workflow_provenance": {
+    "run_id": 37461379046,
+    "job_id": 112261529560,
+    "artifact_id": 11413132625,
+    "artifact_sha256": "ed7f88a5a17a12472ae40a5ed087925d56cee8fb5de9cfc5583f6889aec5b099"
+  }
+}
