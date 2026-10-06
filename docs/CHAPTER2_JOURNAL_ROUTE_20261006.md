@@ -100,6 +100,23 @@ order and causal dependence rather than the island-pollination mechanism.
 Oikos remains the conservative mechanism/process route and preserves the lowest
 editorial-risk path if the higher targets reject without review.
 
+## Submission-preparation status — 2026-10-06
+
+The compressed Journal of Ecology manuscript is now available at
+`docs/CHAPTER2_MANUSCRIPT_JE_20261006.md`.
+
+Completed:
+- confirmed 10/05 result retained as the sole paper spine;
+- main text reduced to <8,000 words;
+- Summary converted to five numbered points ending in **Synthesis**;
+- main display plan reduced to three biological figures;
+- setting-specific failure (prior selfing, 30/64 assurance-first) retained in the main paper;
+- 13-rate, reciprocal-selection, mutation/history, repeatability and PDE/numerical material moved to Supporting Information scope;
+- Data Availability points to the durable history-level CSVs without claiming a public DOI prematurely.
+
+Remaining external delivery gate:
+- publicly deposit the prepared raw confirmatory bundle and replace the DOI placeholder before submission.
+
 ## Journal of Ecology submission architecture
 
 ### Main text
